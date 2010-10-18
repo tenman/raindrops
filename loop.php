@@ -1,0 +1,315 @@
+<!--my loop-->
+<?php
+/*
+シングルページであるかどうかを判定して、
+カテゴリ名によって、特別なレイアウトを表示する
+特別な名前でなければ、defaultのレイアウトを表示するy
+*/
+
+
+/**
+ * Display navigation to next/previous pages when applicable
+ *
+ *
+ *
+ *
+ */
+ if ( $wp_query->max_num_pages > 1 ) : ?>
+
+<div id="nav-above" class="clearfix">
+  <span class="nav-previous">
+    <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+  </span>
+  <span class="nav-next">
+    <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  </span>
+</div>
+<!-- #nav-above -->
+<?php endif; ?>
+<?php 
+
+/**
+ * 404not found
+ *
+ *
+ *
+ *
+ */
+ if ( ! have_posts() ) : ?>
+<div id="post-0" class="post error404 not-found">
+  <h1 class="entry-title h1">
+    <?php _e( 'Not Found', 'raindrops' ); ?>
+  </h1>
+  <div class="entry-content">
+    <p>
+      <?php _e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'raindrops' ); ?>
+    </p>
+    <?php get_search_form(); ?>
+  </div>
+  <!-- .entry-content -->
+</div>
+<!-- #post-0 -->
+<?php endif; ?>
+<?php if(is_single()){ 
+
+/**
+ *　シングルページであるとき
+ *
+ *
+ *
+ *
+ */
+?>
+<?php while (have_posts()) : the_post(); ?>
+<?php //if(in_category('blog')) {echo "blog";}else{echo "other";}?>
+<?php $cat = get_the_category();$cat = $cat[0];?>
+<!--single [<?php echo "loop-default  ".$cat->name; ?>]-->
+<?php 
+
+			switch($cat->name){
+			
+			case ('blog'):
+
+/**
+ *  カテゴリが、blog
+ *
+ *
+ *
+ *
+ */
+			?>
+<div class="entry blog hentry clearfix">
+  <ul class="entry-utility left">
+    <li>
+      <?php  the_time('Y年n月j日 '); ?>
+    </li>
+    <li>カテゴリ:
+      <?php the_category(', ') ?>
+    </li>
+    <li>タグ:
+      <?php the_tags(); ?>
+    </li>
+    <li>投稿者:
+      <?php the_author(); ?>
+    </li>
+    <li>
+      <?php comments_popup_link('コメントなし', 'コメントが1件あります。', 'コメントが%件あります。','comments-pop'); ?>
+    </li>
+    <li>
+      <?php edit_post_link('Edit', '', '  '); ?>
+      .</li>
+  </ul>
+  <div class="content left ">
+    <h2 class="entry-title  clearfix h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"> <?php the_title(); ?></a></h2>
+	    <div class="entry-content clearfix">
+    <?php the_content('続きを読む &raquo;'); ?>
+	    <!--ページ分割ナビゲーション-->
+    <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
+		</div>
+
+    
+  </div>
+ 
+  
+
+</div>
+<?php
+			
+			break;
+			
+			
+			case("gallery"):
+?>
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+  
+          <div class="entry-meta"><?php raindrops_posted_on(); ?></div>
+  <!-- .entry-meta -->
+  <div class="entry-content">
+  
+      <?php
+					$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+					
+					$total_images = count( $images );
+					$image = array_shift( $images );
+					$attachment_page = $image->post_title;
+					?>  
+  
+  
+    <div class="gallery-thumb" style="float:left;"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/">
+		<?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?>
+      </a> </div>
+	<div style="float:left;overflow:hidden;margin-left:1em;">
+	    <?php the_content( '' ); ?> 
+		
+	</div> 
+	<br style="clear:both;" />  
+    <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" title="' . sprintf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',$total_images); ?></em></p>
+
+  </div>
+  <!-- .entry-content -->
+  <div class="entry-utility">
+    <?php
+					$category_id = get_cat_ID( 'Gallery' );
+					$category_link = get_category_link( $category_id );
+				?>
+    <a href="<?php echo $category_link; ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'raindrops' ); ?>">
+    <?php _e( 'More Galleries', 'raindrops' ); ?>
+    </a> <span class="meta-sep"> | </span> <span class="comments-link">
+    <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
+    </span>
+    <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+  </div>
+  <!-- #entry-utility -->
+</div>
+<?php			
+			
+			break;
+			
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+			
+			case("asides"):
+			?>
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <?php if ( is_archive() || is_search() ) : // Only display Excerpts for archives & search ?>
+  <div class="entry-summary">
+    <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  </div>
+  <!-- .entry-summary -->
+  <?php else : ?>
+  <div class="entry-content">
+    <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  </div>
+  <!-- .entry-content -->
+  <?php endif; ?>
+  <div class="entry-utility">
+    <?php
+					printf( __( '<span class="meta-prep meta-prep-author">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a> <span class="meta-sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s">%6$s</a></span>', 'raindrops' ),
+						get_permalink(),
+						esc_attr( get_the_time() ),
+						get_the_date(),
+						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ),
+						get_the_author()
+					);
+				?>
+    <span class="meta-sep"> | </span> <span class="comments-link">
+    <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
+    </span>
+    <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+  </div>
+  <!-- #entry-utility -->
+</div>
+<!-- #post-<?php the_ID(); ?> -->
+<?php			
+			break;
+			
+			
+			
+			
+			default:
+			
+/**
+ * それ以外の場合
+ *
+ *
+ *
+ *
+ */
+
+			?>
+
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+    <?php the_title(); ?>
+    </a></h2>
+          <div class="entry-meta"><?php raindrops_posted_on(); ?></div>
+  <!-- .entry-meta -->
+  <?php if ( is_archive() || is_search() ) : // Only display Excerpts for archives & search ?>
+  <div class="entry-summary">
+    <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  </div>
+  <!-- .entry-summary -->
+  <?php else : ?>
+  <div class="entry-content clearfix">
+    <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+    <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'raindrops' ), 'after' => '</div>' ) ); ?>
+  </div>
+  <!-- .entry-content -->
+  <?php endif;?>
+  <div class="entry-utility"> <span class="cat-links"><span class="entry-utility-prep entry-utility-prep-cat-links">
+    <?php _e( 'Posted in ', 'raindrops' ); ?>
+    </span>
+    <?php the_category( ', ' ); ?>
+    </span> <span class="meta-sep"> | </span>
+    <?php the_tags( '<span class="tag-links"><span class="entry-utility-prep entry-utility-prep-tag-links">' . __( 'Tagged ', 'raindrops' ) . '</span>', ', ', '<span class="meta-sep"> | </span>' ); ?>
+    <span class="comments-link">
+    <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
+    </span>
+    <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+  </div>
+  <!-- #entry-utility -->
+  
+</div>
+<!-- #post-<?php the_ID(); ?> -->
+<?php }?>
+<?php endwhile; ?>
+<?php if ( $wp_query->max_num_pages > 1 ) : ?>
+
+<div id="nav-below" class="clearfix">
+  <span class="nav-previous">
+    <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+  </span>
+  <span class="nav-next">
+    <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  </span>
+</div>
+<!-- #nav-above -->
+<?php endif; ?>
+
+
+<?php }else{
+
+/**
+ *　シングルページでないとき
+ *
+ *
+ *
+ *
+ */
+?>
+<!-- not single-->
+<div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
+<ul class="index">
+          <?php while (have_posts()) : the_post(); ?>
+          <li><span class="date" style=""><?php the_time('Y年n月j日 '); ?>
+            </span><a style="" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
+            <?php the_title(); ?>
+            </a>
+            <?php edit_post_link(__('Edit'), '<span>', '</span> '); ?>
+            
+		  </li>
+          <?php endwhile; ?>
+        </ul>
+</div>
+
+<?php if ( $wp_query->max_num_pages > 1 ) : ?>
+
+<div id="nav-below" class="clearfix">
+  <span class="nav-previous">
+    <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+  </span>
+  <span class="nav-next">
+    <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  </span>
+</div>
+<!-- #nav-above -->
+<?php endif; ?>
+<?php }?>

@@ -1,4 +1,14 @@
 <?php
+/**
+ * pages for our theme.
+ *
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
+ */
+?>
+<?php
 	 get_header('xhtml1');?>
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 <div id="yui-main">
@@ -18,19 +28,25 @@
         <?php while (have_posts()) : the_post(); ?>
         <div class="entry page">
           <div id="post-<?php the_ID(); ?>">
-            <h2 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-              <?php the_title(); ?>
-              </a></h2>
+            <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
             
-            <p style="margin-left:25px;"><small><?php the_time('Y年 n月 j日') ?>&nbsp;<?php the_author() ?></small></p>
+            <p style="margin-left:25px;" class="entry-date"><small><?php the_time(TMN_THE_TIME_FORMAT) ?>&nbsp;<?php the_author() ?></small></p>
             
-
+<div style="entry-content clearfix">
             <?php the_content('Read the rest of this entry &raquo;'); ?>
-			
-			<div class="linkpage">
+</div>			
+			<div class="linkpage clearfix">
 			    <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 			</div>
+<br style="clear:both;" />			
+
             <p class="postmetadata"><?php the_category(', ') ?>&nbsp;<?php edit_post_link('Edit', '', '  '); ?></p>
+			
+			
+			
+			<?php comments_template( '', true ); ?>			
+			
+			
           </div>
         </div>
       

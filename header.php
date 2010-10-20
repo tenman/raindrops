@@ -1,12 +1,11 @@
 <?php
 /**
- * The xhtml1.0 transitional header for our theme.
+ * Thtml5 header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="bd">
  *
  * @package WordPress
- * @subpackage Raindrop
- * @since Raindrop 0.1
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
  */
 global $current_blog;
 $this_blog = array("b". $current_blog->blog_id);
@@ -134,7 +133,7 @@ else : ?>
  <!-- role="navigation" -->
   <div id="access">
 	  
-	<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>"><?php _e( 'Skip to content', 'twentyten' ); ?></a></div>
+	<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
     <?php 
 	
 	wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>

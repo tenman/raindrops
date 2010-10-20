@@ -1,3 +1,13 @@
+<?php
+/**
+ * sidebar-1 for our theme.
+ *
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
+ */
+?>
 				<div class="lsidebar">
 				  <ul>
 					<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(1) ) : else : ?>

@@ -1,11 +1,15 @@
 @charset "utf-8";
+	
 /*   
 Theme Name: raindrops
-Theme URI: http://www.tenman.info/
+Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: basic template
 Author: tenman akio
 Author URI: http://www.tenman.info/
-Version: 0.1
+Version: 0.2
+
+Tags:black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
+,yui,autodesign,flex-column,flex-width,fixed Layout,fluid ,
 
 enjoy this theme
 
@@ -19,10 +23,10 @@ Yahoo UI Library Font-size Adjustment
 Copyright (c) 2006, Yahoo! Inc. All rights reserved.
 http://developer.yahoo.com/yui/license.txt
 http://developer.yahoo.com/yui/fonts/
-10px = 77%     11px = 85%     12px = 93%     13px = 100%
-14px = 108%    15px = 116%    16px = 123.1%  17px = 131%
-18px = 138.5%  19px = 146.5%  20px = 153.9%  21px = 161.6%
-22px = 167%    23px = 174%    24px = 182%    25px = 189%
+10px = 77%     11px = 85%     12px = 93%     13px = 100%
+14px = 108%    15px = 116%    16px = 123.1%  17px = 131%
+18px = 138.5%  19px = 146.5%  20px = 153.9%  21px = 161.6%
+22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
 
@@ -163,6 +167,7 @@ h6 a,
 	text-decoration:none;
 	display:inline;
 	background:none;
+
 }
 
 .entry-content h1,
@@ -178,7 +183,7 @@ h6 a,
 .entry-content .h5,
 .entry-content .h6 {
 
-margin-left:-2.5em;
+/*margin-left:-2.5em;*/
  }
 .entry-content 
 .entry-content h1 a,
@@ -193,9 +198,13 @@ margin-left:-2.5em;
 .entry-content .h4 a,
 .entry-content .h5 a,
 .entry-content .h6 a {
-margin-left:-2.5em;
+/*margin-left:-2.5em;*/
 
  }
+
+div.author .h2,.error404 h1,#page-title{
+	margin-left:2em;
+}
 #site-title {
 	display:inline!important;
 	
@@ -235,8 +244,21 @@ dl {
 	margin-left:1.5em;
 	overflow:hidden;
 }
+dt {
+	font-weight:700;
+	margin:0 .5em 0 1em;
+	padding:.5em;
+}
 
-	dl.author dd,
+dd {
+	margin:0 .5em 0 3em;
+	padding:.5em;
+}
+.gallery dl{
+	clear:none;
+	margin:0;
+}
+dl.author dd,
 dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt {
@@ -255,21 +277,13 @@ dl.my_tags dd {
 	margin:6px 0 0;
 }
 
-	dl.author dt,
+dl.author dt,
 dl.my_tags dt {
 	clear:both;
 	width:25%;
 }
 
-dt {
-	font-weight:700;
-	margin:.5em .5em .5em 1em;
-}
 
-dd {
-	margin:0 .5em 0 3em;
-	padding:.5em;
-}
 
 fieldset {
 	border:1px solid;
@@ -303,7 +317,14 @@ address {
 div.entry {
 	padding:0 10px;
 }
+body.search-results .entry{
 
+	margin-left:30px;
+}
+body.search-results .entry img{
+
+	max-width:100%;
+}
 	div.entry h2,
 div.entry h3 {
 	border:0 solid #ccc;
@@ -583,10 +604,9 @@ display:block;
 
 .lsidebar li a,
 .rsidebar li a{
-	/*display:block;*/
-	width:100%;
-	padding:.2em .5em;
-	/*margin-left:-1em;*/
+	width:90%;
+	line-height:1.4;
+	margin-top:0.3em;
 }
 
 
@@ -595,16 +615,15 @@ display:block;
 .lsidebar li.category_report a,
 .lsidebar .widget ul li a {
 	display:block;
-	width:100%;
-	padding:.2em .5em;
+	margin-top:0.3em;
+
 }
 
 .lsidebar li.page_item a:hover,
 .lsidebar li.category_report a:hover,
 .lsidebar .widget ul li a:hover {
--moz-opacity:0.75;
+	-moz-opacity:0.75;
 	filter:alpha(opacity=75);
-	margin-right:1em;
 	opacity:0.75;
 }
 
@@ -615,8 +634,6 @@ display:block;
 }
 
 .lsidebar ul {
-	/*overflow:hidden;
-	margin:3px;*/
 	list-style-position: inside;
 }
 
@@ -677,7 +694,9 @@ font-size:77%;
 margin:20px  0 0 4em;
 
 }
-
+.entry-content img{
+max-width:100%;
+}
 .entry-meta,
 .blogrolls dd,
 #site-description {
@@ -690,7 +709,7 @@ margin:20px  0 0 4em;
 	margin:1em;
 }
 
-.alignleft {
+.alignleft{
 	float:left;
 	margin:10px 20px 20px 0;
 	padding:10px;
@@ -760,7 +779,7 @@ ul.index li {
 
 	ul.archive li .date,
 ul.index li .date {
-	width:9em;
+	width:13em;
 	float:left;
 }
 
@@ -903,6 +922,7 @@ clear:both;
 
 
 
+
 .clearfix:after {
 	content:".";
 	display:block;
@@ -948,7 +968,7 @@ table#month_list {
 	border:1px solid navy;
 }
 
-dl.gallery-item {
+.gallery * {
 	float:left!important;
 }
 
@@ -1061,7 +1081,7 @@ br.clearfix {
 #nav-above .nav-previous,
 #nav-below .nav-previous,
 .left {
-	float:left;
+	float:left!important;
 }
 
 #nav-above .nav-next,
@@ -1095,6 +1115,11 @@ margin-left:-0.5em;
 margin:0 auto;
 
 }
+#calendar_wrap a{
+margin:0;
+padding:0;
+}
+
 .widget form{
 
 text-align:center;
@@ -1133,12 +1158,23 @@ top:1px;
 div.menu ul {
 	list-style: none;
 	margin: 0;
+	
 }
 #access .menu-header li,
 div.menu li {
 	float: left;
 	position: relative;
+	padding:0;
+	
 }
+#access .menu-header li a,
+div.menu li a{
+	margin:0;
+	width:100%;
+	display:block;
+	
+}
+
 #access ul ul {
 	box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
@@ -1183,6 +1219,10 @@ div.menu li {
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
 	/*color: #fff;*/
+	margin:0;
+	width:100%;
+	height:100%;
+	
 }
 * html #access ul li.current_page_item a,
 * html #access ul li.current-menu-ancestor a,
@@ -1234,3 +1274,113 @@ div.menu li {
 table#wp-caledar td a{
 text-align:right;
 }
+
+/* wordPress native */
+
+.aligncenter,
+div.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.alignleft {
+   float: left;
+}
+
+.alignright {
+   float: right;
+}
+
+.wp-caption {
+   border: 1px solid #ddd;
+   text-align: center;
+   background-color: #f3f3f3;
+   padding-top: 4px;
+   margin: 10px;
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+
+.wp-caption img {
+   margin: 0;
+   padding: 0;
+   border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+   font-size: 100%;
+   line-height: 1.5;
+   padding: 0 4px 5px;
+   margin: 0;
+}
+.stickey{
+
+}
+.bypostauthor{
+
+
+}
+.shadow{
+margin:2em;
+padding:1em;
+border:1px solid #ccc;
+box-shadow: 7px 7px 8px #cccccc;
+-webkit-box-shadow: 7px 7px 8px #cccccc;
+-moz-box-shadow: 7px 7px 8px #cccccc;
+
+/*filter: progid:DXImageTransform.Microsoft.dropShadow(color=#cccccc, offX=7, offY=7, positive=true);zoom:1;*/
+}
+/**
+ * category controlled layout
+ *
+ *
+ *
+ *
+ */
+
+/*.entry-meta{clear:both;}*/
+.entry-meta{
+	margin:1em;
+	text-align:left;
+	}
+div.category-blog div.blog-main{
+	margin-left:2%;
+	overflow:hidden;
+	width:78%;
+	}
+.category-blog .entry-title{
+	border:none;
+	margin:0 0.5em;
+	padding:0;
+	margin-bottom:2em;
+	}
+.category-blog .entry-content{
+	border:none;
+	margin:0;
+	padding:0;
+	text-indent:0;
+	}
+.category-blog .entry-meta{
+	list-style:none;
+	width:20%;
+	margin:0;
+	padding:0;
+	text-align:left;
+	float:left;
+	}
+.category-blog .entry-meta li{
+	padding:.5em;
+	margin:0;
+	}
+.category-blog .entry-meta span,
+.category-blog .entry-meta  a{
+	display:block;
+	text-decoration:none;
+	}
+
+
+

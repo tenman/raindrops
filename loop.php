@@ -1,12 +1,15 @@
-<!--my loop-->
 <?php
-/*
-シングルページであるかどうかを判定して、
-カテゴリ名によって、特別なレイアウトを表示する
-特別な名前でなければ、defaultのレイアウトを表示するy
-*/
-
-
+/**
+ * The xhtml1.0 transitional header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="bd">
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
+ */
+ ?>
+<?php
 /**
  * Display navigation to next/previous pages when applicable
  *
@@ -53,7 +56,7 @@
 <?php if(is_single()){ 
 
 /**
- *　シングルページであるとき
+ *　when Single page
  *
  *
  *
@@ -62,49 +65,60 @@
 ?>
 <?php while (have_posts()) : the_post(); ?>
 <?php //if(in_category('blog')) {echo "blog";}else{echo "other";}?>
-<?php $cat = get_the_category();$cat = $cat[0];?>
-<!--single [<?php echo "loop-default  ".$cat->name; ?>]-->
+<?php //$cat = get_the_category();//$cat = $cat[0];?>
+<?php 
+$cat = "default";
+if ( in_category( "blog" )){
+	$cat = "blog";
+
+}elseif ( in_category( "gallery" )){
+	$cat = "gallery";
+}else{
+	$cat = "default";
+
+}
+
+
+?>
 <?php 
 
-			switch($cat->name){
+			switch($cat){
 			
 			case ('blog'):
 
 /**
- *  カテゴリが、blog
+ *  category blog
  *
  *
  *
  *
  */
 			?>
-<div class="entry blog hentry clearfix">
-  <ul class="entry-utility left">
+<div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
+  <ul class="entry-meta left">
     <li>
-      <?php  the_time('Y年n月j日 '); ?>
+      <?php the_time(TMN_THE_TIME_FORMAT) ?>
     </li>
-    <li>カテゴリ:
-      <?php the_category(', ') ?>
+    <li><?php _e('Category:');?>
+      <?php the_category(' ') ?>
     </li>
-    <li>タグ:
+    <li><?php _e('Tags:');?>
       <?php the_tags(); ?>
     </li>
-    <li>投稿者:
+    <li><?php _e('Auther:');?>
       <?php the_author(); ?>
     </li>
-    <li>
-      <?php comments_popup_link('コメントなし', 'コメントが1件あります。', 'コメントが%件あります。','comments-pop'); ?>
+    <li><?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
     </li>
     <li>
       <?php edit_post_link('Edit', '', '  '); ?>
       .</li>
   </ul>
-  <div class="content left ">
+  <div class="blog-main left">
     <h2 class="entry-title  clearfix h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"> <?php the_title(); ?></a></h2>
 	    <div class="entry-content clearfix">
-    <?php the_content('続きを読む &raquo;'); ?>
-	    <!--ページ分割ナビゲーション-->
-    <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
+	<?php the_content(__('Read the rest of this entry &raquo;', 'raindrops')) ?>
+    <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 		</div>
 
     
@@ -117,6 +131,14 @@
 			
 			break;
 			
+
+/**
+ * category gallery
+ *
+ *
+ *
+ *
+ */
 			
 			case("gallery"):
 ?>
@@ -136,16 +158,14 @@
 					?>  
   
   
-    <div class="gallery-thumb" style="float:left;"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/">
+    <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/">
 		<?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?>
       </a> </div>
 	<div style="float:left;overflow:hidden;margin-left:1em;">
 	    <?php the_content( '' ); ?> 
-		
 	</div> 
 	<br style="clear:both;" />  
     <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" title="' . sprintf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',$total_images); ?></em></p>
-
   </div>
   <!-- .entry-content -->
   <div class="entry-utility">
@@ -167,57 +187,12 @@
 			break;
 			
 
-/**
- *
- *
- *
- *
- *
- */
 			
-			case("asides"):
-			?>
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php if ( is_archive() || is_search() ) : // Only display Excerpts for archives & search ?>
-  <div class="entry-summary">
-    <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
-  </div>
-  <!-- .entry-summary -->
-  <?php else : ?>
-  <div class="entry-content">
-    <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
-  </div>
-  <!-- .entry-content -->
-  <?php endif; ?>
-  <div class="entry-utility">
-    <?php
-					printf( __( '<span class="meta-prep meta-prep-author">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a> <span class="meta-sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s">%6$s</a></span>', 'raindrops' ),
-						get_permalink(),
-						esc_attr( get_the_time() ),
-						get_the_date(),
-						get_author_posts_url( get_the_author_meta( 'ID' ) ),
-						sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ),
-						get_the_author()
-					);
-				?>
-    <span class="meta-sep"> | </span> <span class="comments-link">
-    <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
-    </span>
-    <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
-  </div>
-  <!-- #entry-utility -->
-</div>
-<!-- #post-<?php the_ID(); ?> -->
-<?php			
-			break;
-			
-			
-			
-			
+
 			default:
 			
 /**
- * それ以外の場合
+ * other single page
  *
  *
  *
@@ -256,11 +231,12 @@
     <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
   <!-- #entry-utility -->
-  
+  <?php comments_template( '', true ); ?>  
 </div>
 <!-- #post-<?php the_ID(); ?> -->
 <?php }?>
 <?php endwhile; ?>
+
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 
 <div id="nav-below" class="clearfix">
@@ -278,7 +254,7 @@
 <?php }else{
 
 /**
- *　シングルページでないとき
+ *　list post
  *
  *
  *
@@ -289,8 +265,8 @@
 <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
 <ul class="index">
           <?php while (have_posts()) : the_post(); ?>
-          <li><span class="date" style=""><?php the_time('Y年n月j日 '); ?>
-            </span><a style="" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
+          <li><span class="date" style=""><?php the_time(TMN_THE_TIME_FORMAT) ?>
+            </span><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
             <?php the_title(); ?>
             </a>
             <?php edit_post_link(__('Edit'), '<span>', '</span> '); ?>

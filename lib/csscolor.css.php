@@ -1,30 +1,20 @@
 <?php
 /**
- * csscolor用　ユーティリティ 
- * ベース色を指定して、自動的に配色をします
+ * create individual stylesheet
  *
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
  */
  
 if(!defined('ABSPATH')){exit;}
 
 include(ABSPATH."/wp-load.php"); 
 	
-// Get the color generating code
 	include_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
-	//global $wpdb;
 
-
-/**
- * 
- *
- *
- */
 $images_path			= get_bloginfo('stylesheet_directory').'/images/';
-
-/*global $current_blog;
-$this_blog = "b". $current_blog->blog_id;*/
-
-
 
 $count 					= warehouse('raindrops_base_color');
 $style_type 			= warehouse('raindrops_style_type');
@@ -37,26 +27,19 @@ $tmn_footer_color 		= warehouse('raindrops_footer_color');
 
 define("BASE_COLOR1",$count);
 
-//2は現在使っていません
-define("BASE_COLOR2","#ff0000");
+//define("BASE_COLOR2","#ff0000");
 
 /**
- * cssファイルを保存
+ * save stylesheet
  *
- * wordpressでは、cssをphp都市で動作させる事ができないため、
- * 静的なファイルを作っています
- * ナビゲーション タイトルリストの背景画像を変更する事ができます。
  */
- //.file_get_contents(STYLESHEETPATH."/lib/my.css")
 
-/*スプライト画像切り替え用 1-8迄*/
-file_put_contents(STYLESHEETPATH.'/lib/'.INDIVIDUAL_STYLE, design_output($style_type,$position_y).color_base());
+@file_put_contents(STYLESHEETPATH.'/lib/'.INDIVIDUAL_STYLE, design_output($style_type,$position_y).color_base());
 
   $parm = fileperms(STYLESHEETPATH.'/lib/');
   $parm = decoct($parm);
   
 
-  //  $cgi_files_result .='<tr style="background:#aaf"><td width="50%">'.$file.'</td><td>'.$parm.'</td></tr>';
 
 if(!is_writable(STYLESHEETPATH.'/lib/')){ 
 
@@ -64,27 +47,10 @@ echo '<div style="padding:2em;color:red">'.STYLESHEETPATH.'/lib/' .__(' Permissi
 }
 
 
-/**
- * 色の濃淡を指定して、背景色、前景色を計算します。 
- *
- * color([-5から5までの濃淡],[※出力の方法],[色を指定]
- * ※出力方法　 'set' or 'background' 'color'が指定可能
- *　color background は　#000000 形式で色名を出力
- *　set は　background:#000000;color:#000000; 形式で色名を出力
- * 色を指定しないときには、BASE_COLOR1　定数を元色とします。
- *
- */
 
 function colors($num = 0, $select = 'set',$color1 = null){
-global $images_path;	
-	//$select value is 'set' or 'background' 'color'
+	global $images_path;	
 	
-/**
- * ベースカラー
- *　基本にない色指定がないときには、本ファイルの　BASE_COLOR1　定数を使う
- *
- *
- */
 	if($color == null){
 		$color1 = str_replace('#',"",BASE_COLOR1);
 	}else{
@@ -93,12 +59,6 @@ global $images_path;
 	}
 		$base = new CSS_Color( $color1 );
 		
-/**
- * ベースカラー
- *　ベースカラーを元に10階調の色を作成しますが、-5　5の間で指定していきます。
- *
- *
- */
 	switch($num){
 	
 	case(0):
@@ -182,25 +142,6 @@ global $images_path;
 	
 }
 
-/**
- * スタイル指定を作ります。
- *
- * 以下の色サンプルに使います。
- * <div id="color_sample">
- * <p class="color5">color5</p>
- * <p class="color4">color4</p>
- * <p class="color3">color3</p>
- * <p class="color2">color2</p>
- * <p class="color1">color1</p>
- * <p class="color-1">color-1</p>
- * <p class="color-2">color-2</p>
- * <p class="color-3">color-3</p>
- * <p class="color-4">color-4</p>
- * <p class="color-5">color-5</p>
- * <br style="clear:both;" />
- * </div>
- *　色サンプルは、配色を検討する画面上において色見本とします。
- */
 function color_base($color1=null,$colo2=null){
 global $images_path;
 if($color == null){
@@ -217,28 +158,10 @@ if($color == null){
 }
 	
 
-	// Set the error handing for csscolor.
-	// If an error occurs, print the error
-	// within a CSS comment so we can see
-	// it in the CSS file.
-	
-//	PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, 'errorHandler');
-//	function errorHandler($err) {
-//		echo("/* ERROR " . $err->getMessage() . " */");
-//	}
-
-	// Define a couple color palettes
 	
 	$base = new CSS_Color($color1);
 	$highlight = new CSS_Color($color2);
 	
-	// Trigger an error just to see what happens
-	// $trigger <?php new CSS_Color('');
-	
-
-	
-		
-	//$hgt0 = $highlight->bg['0'];
 	$bg_1 = $base->bg['-1'];
 	$fg_1 = $base->fg['-1'];
 	$bg_2 = $base->bg['-2'];
@@ -340,10 +263,6 @@ if($color == null){
 .face5 {
   color:#{$fg5};
 }
-
-
-/*category*/
-$category_style
 
 CSS;
 

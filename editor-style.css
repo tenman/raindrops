@@ -1,2 +1,21 @@
-/* CSS Document */
+html .mceContentBody {
+    max-width:640px;
+}
+* {
+    font-family:serif;
+    color: #444;
+    line-height: 1.5;
+}
+
+
+a:link {
+    color:#0066CC;
+}
+a:visited {
+    color:#743399;
+}
+a:active,
+a:hover {
+    color: #FF4B33;
+}
 

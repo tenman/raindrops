@@ -1,5 +1,5 @@
 Whitespace WordPress Theme
-http://www.briangardner.com/themes/whitespace-wordpress-theme.htm
+http://www.tenman.info/wp3/raindrops/
 
 This Theme is under GPL License. (http://www.opensource.org/licenses/gpl-license.php)
 

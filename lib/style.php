@@ -8,15 +8,19 @@
 
 header("Content-type: text/css");
 
+$dir = dirname(dirname(dirname(__FILE__)));
 
 ob_start ("ob_gzhandler");
 echo '@charset "utf-8";';
-whitespace_del(file_get_contents('../reset-fonts-grids.css'));
-whitespace_del(file_get_contents('../grids.css'));
-whitespace_del(file_get_contents('../fonts.css'));
-whitespace_del(file_get_contents('../style.css'));
+whitespace_del(file_get_contents($dir.'/raindrops/reset-fonts-grids.css'));
+whitespace_del(file_get_contents($dir.'/raindrops/grids.css'));
+whitespace_del(file_get_contents($dir.'/raindrops/fonts.css'));
+whitespace_del(file_get_contents($dir.'/raindrops/style.css'));
 
-/*whitespace_del(file_get_contents('my.css'));*/
+if(basename(dirname(dirname(__FILE__))) !== "raindrops"){
+$current_style = preg_replace("|@import[^;]+;|","",file_get_contents('../style.css'));
+whitespace_del($current_style);
+}
 
 ob_end_flush();
 
@@ -27,5 +31,4 @@ echo $result;
 
 }
 
-//<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ? >" type="text/css" media="all" />
 ?>

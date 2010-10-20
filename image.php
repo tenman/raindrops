@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The xhtml1.0 transitional image for our theme.
+ *
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
+ */
+?>
+<?php get_header('xhtml1'); ?>
 
 <div id="yui-main">
   <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
@@ -33,10 +43,10 @@ echo '</div>';
             <?php echo get_the_title($post->post_parent); ?></a></p>	
 	
 		
-<?php $image = get_post_meta($post->ID, 'image', true); ?>
-<?php $image = wp_get_attachment_image_src($my_image, 'full'); ?>
+		<?php $image = get_post_meta($post->ID, 'image', true); ?>
+		<?php $image = wp_get_attachment_image_src($my_image, 'full'); ?>
 
-<p class="image">
+		<p class="image">
 <?php //height="<?php echo round((190/$image[1])*$image[2]);?>
 <img src="<?php echo $image[0];?>" width="100%"  alt="<?php the_title(); ?>" /></p>
 
@@ -63,8 +73,6 @@ echo '</div>';
                 <div style="text-align:left;float:left;"><?php previous_image_link(0) ?></div><div style="float:right;text-align:right;"><?php next_image_link(0) ?></div>
             </div>
 
-              <?php //<li>投稿日 <?php the_time('Y年n月j日l')?>
-              <?php //<li>You can follow any responses to this entry through the <?php post_comments_feed_link('RSS 2.0'); ?>
 
 
               <?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) {

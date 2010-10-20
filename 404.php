@@ -2,15 +2,13 @@
 /**
  *  The template for displaying 404 pages (Not Found).
  *
- * Displays all of the <head> section and everything up till <div id="bd">
  *
  * @package WordPress
  * @subpackage Raindrops
  * @since Raindrop 0.1
  */
-
-get_header("xhtml1"); ?>
-<!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
+?>
+<?php get_header("xhtml1"); ?>
 
 <div id="yui-main">
   <div class="yui-b">

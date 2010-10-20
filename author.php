@@ -10,25 +10,23 @@ Template Name: Auther
  * @subpackage Raindrops
  * @since Raindrop 0.1
  */
+
 ?>
-<?php get_header(); ?>
-<!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
+<?php get_header('xhtml1'); ?>
+
 <div id="yui-main">
   <div class="yui-b">
-
-	  
-    <div class="<?php echo $yui_inner_layout;?>" id="container">
-      <!-- content -->
+    <?php
+	if(function_exists('bcn_display') and is_home() == false){
+		echo '<div class="breadcrumb">';
+		bcn_display();
+		echo '</div>';
+	}
+	?>
+     <div class="<?php echo $yui_inner_layout;?>" id="container">
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
 	  		
-        <?php
-		if(function_exists('bcn_display')){
-			// Display the breadcrumb
-			echo '<div class="breadcrumb">';
-			bcn_display();
-			echo '</div>';
-		}
-		?>
+
 		
         <?php
 		if(isset($_GET['author_name'])){
@@ -38,12 +36,9 @@ Template Name: Auther
 		}
 		?>
 		
-<?php		
-			if ( have_posts() )
-		the_post();
-?>
+<?php if(have_posts())	the_post();?>
 
-<h2 class="page-title author"><?php printf( __( 'Author Archives: %s', 'raindrops' ), "<span class='vcard'><a class='url fn n' href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "' title='" . esc_attr( get_the_author() ) . "' rel='me'>" . get_the_author() . "</a></span>" ); ?></h2>
+<h2 class="page-title author h2"><?php printf( __( 'Author Archives: %s', 'raindrops' ), "<span class='vcard'><a class='url fn n' href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "' title='" . esc_attr( get_the_author() ) . "' rel='me'>" . get_the_author() . "</a></span>" ); ?></h2>
 
 <?php
 // If a user has filled out their description, show a bio on their entries.
@@ -93,7 +88,7 @@ if ( get_the_author_meta( 'description' ) ) : ?>
        	<dl class="<?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>">
           <!-- The Loop -->
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-          <dt> <?php the_time('Y年n月j日'); ?></dt>
+          <dt> <?php the_time(TMN_THE_TIME_FORMAT); ?></dt>
 		  <dd><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
             <?php the_title(); ?></a><?php //the_category('&');?></dd>
 
@@ -107,30 +102,6 @@ if ( get_the_author_meta( 'description' ) ) : ?>
        
 		</dl>
 </div>
-      <?php
-	  
-	  
-	  
-	  
-	  
-	  
-		/*switch (get_the_author_ID()) {
-			case 1:
-			   echo ' (author 1 向けのテンプレート)';
-				break;
-			case 2:
-			   echo ' (author 2 向けのテンプレート)';
-				break;
-			default:
-			   echo ' (author 3 向けのテンプレート)';
-				break;
-		}*/ 
-		?>
-		<?php //the_author_posts_link(); ?>
-		<?php //wp_list_authors('exclude_admin=0'); ?>
-		<?php //echo $curauth->nickname; ?>
-		<?php //echo $curauth->display_name; ?>
-		<?php //echo $curauth->description; ?>
 
     <!-- navigation-->
     <div class="yui-u"> <span style="display:none;">----------------ナビゲーションリンク-----------------</span>

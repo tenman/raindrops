@@ -1,3 +1,13 @@
+<?php
+/**
+ * search for our theme.
+ *
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
+ */
+?>
 <?php get_header(); ?>
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->		
 <div id="yui-main">
@@ -13,7 +23,7 @@ echo '<div class="breadcrumb">';
 bcn_display();
 echo '</div>';
 }
-?>­	
+?>
    <?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
     <!--topsidebar start-->
     <div class="topsidebar">
@@ -47,7 +57,7 @@ echo '</div>';
     <?php the_title(); ?>
     </a></h3>
   <small>
-  <?php the_time('l, F jS, Y') ?>
+  <?php the_time(TMN_THE_TIME_FORMAT) ?>
   </small> <br />
   <br />
   <?php the_content('Read the rest of this entry &raquo;'); ?>

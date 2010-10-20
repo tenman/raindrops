@@ -5,12 +5,12 @@
  * Displays all of the <head> section and everything up till <div id="bd">
  *
  * @package WordPress
- * @subpackage Raindrop
- * @since Raindrop 0.1
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
  */
 global $current_blog;
 $this_blog = array("b". $current_blog->blog_id);
-ob_end_clean();
+//ob_end_clean();
 ?><?php echo'<?xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"?>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
@@ -43,6 +43,7 @@ ob_end_clean();
 </title>
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<link rev="made" href="mailto:<?php echo str_replace("@","&#64;",get_bloginfo( 'admin_email' )); ?>" />
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
@@ -112,14 +113,26 @@ if ( is_singular() &&
 		has_post_thumbnail( $post->ID ) &&
 		( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
 		$image[1] >= HEADER_IMAGE_WIDTH ) :
-	echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
-else : ?>
-	<div style="background:#000 url(<?php header_image(); ?>);width:100%;height:198px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:0;" ><span style="display:none;">headerimage</span></div>
+		
+		$aspect = round($image[2] / $image[1],3) * 100;
+		?>
+
+	<?php	
+	echo get_the_post_thumbnail( $post->ID, 'post-thumbnail','style=width:100%;height:'.$aspect.'%;' );
+	
+	?>
+
+	<?php else : ?>
+
+<?php if(SHOW_HEADER_IMAGE == true){?>
+
+	<div id="header-image" class="color3" style="clear:both;background:#000 url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:0;"><span style="display:none">headerimage</span></div>
+<?php }?>
 <?php endif; ?>
  <!-- role="navigation" -->
   <div id="access">
 	  
-	<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>"><?php _e( 'Skip to content', 'twentyten' ); ?></a></div>
+	<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
     <?php 
 	
 	wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>

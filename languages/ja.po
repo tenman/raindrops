@@ -6,431 +6,535 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RAINDROPS-0.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/twentyten\n"
-"POT-Creation-Date: 2010-07-14 16:21+0000\n"
-"PO-Revision-Date: 2010-10-18 17:29+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-19 11:28+0900\n"
+"PO-Revision-Date: 2010-10-19 11:53+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-Country: JAPAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: c:\\apache\\htdocs\n"
+"X-Poedit-SearchPath-0: raindrops\n"
 
-#: 404.php:16
-#: loop.php:33
-msgid "Not Found"
-msgstr "みつかりません"
-
-#: 404.php:18
-msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
-msgstr "期待に沿えず、ご要望のページがみつかりません、 よろしければ、検索してみてください。"
-
-#: archive.php:33
-#, php-format
-msgid "Daily Archives"
-msgstr "日別アーカイブ"
-
-#: archive.php:35
-#, php-format
-msgid "Monthly Archives"
-msgstr "月別アーカイブ"
-
-#: archive.php:37
-#, php-format
-msgid "Yearly Archives: <span>%s</span>"
-msgstr "年次アーカイブ：<span>%s</span>"
-
-#: archive.php:39
-msgid "Blog Archives"
-msgstr "ブログ　アーカイブ"
-
-#: attachment.php:18
-#, php-format
-msgid "Return to %s"
-msgstr "Return to %s"
-
-#. translators: %s - title of parent post
-#: attachment.php:20
-#, php-format
-msgid "<span class=\"meta-nav\">&larr;</span> %s"
-msgstr "<span class=\"meta-nav\">&larr;</span> %s"
-
-#: attachment.php:29
-#, php-format
-msgid "<span class=\"%1$s\">By</span> %2$s"
-msgstr "<span class=\"%1$s\">By</span> %2$s"
-
-#: attachment.php:33
-#: functions.php:451
-#, php-format
-msgid "View all posts by %s"
-msgstr "View all posts by %s"
-
-#: attachment.php:40
-#, php-format
-msgid "<span class=\"%1$s\">Published</span> %2$s"
-msgstr "<span class=\"%1$s\">Published</span> %2$s"
-
-#: attachment.php:50
-#, php-format
-msgid "Full size is %s pixels"
-msgstr "フルサイズ %s pixels"
-
-#: attachment.php:53
-msgid "Link to full-size image"
-msgstr "フルサイズ画像にリンク"
-
-#: attachment.php:60
-#: attachment.php:107
-#: loop.php:95
-#: loop.php:118
-#: loop.php:160
-#: onecolumn-page.php:27
-#: page.php:32
-#: single.php:53
-msgid "Edit"
-msgstr "編集"
-
-#: attachment.php:100
-#: functions.php:241
-#: loop.php:110
-#: loop.php:138
-msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
-
-#: attachment.php:101
-#: loop.php:139
-#: onecolumn-page.php:26
-#: page.php:31
-#: single.php:31
-msgid "Pages:"
-msgstr "ページ"
-
-#: author.php:27
+#: raindrops/author.php:46
 #, php-format
 msgid "Author Archives: %s"
 msgstr "著者アーカイブ: %s"
 
-#: author.php:37
-#: single.php:40
+#: raindrops/author.php:53
 #, php-format
 msgid "About %s"
-msgstr "About %s"
+msgstr "アバウト %s"
 
-#: category.php:16
-#, php-format
-msgid "Category Archives: %s"
-msgstr "カテゴリアーカイブ: %s"
-
-#: comments.php:18
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "この投稿はパスワードつきです.パスワードを入力するとコメントを見ることができます。"
-
-#: comments.php:41
-#: comments.php:60
+#: raindrops/comments.php:27
+#: raindrops/comments.php:44
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> 古いコメント"
 
-#: comments.php:42
-#: comments.php:61
+#: raindrops/comments.php:28
+#: raindrops/comments.php:45
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しいコメント <span class=\"meta-nav\">&rarr;</span>"
 
-#: comments.php:72
-msgid "Comments are closed."
-msgstr "コメントはできません"
+#: raindrops/comments.php:66
+#, fuzzy
+msgid "Name"
+msgstr "名前"
 
-#. #-#-#-#-#  twentyten.pot (Twenty Ten 1.1)  #-#-#-#-#
-#. Theme URI of the plugin/theme
-#: footer.php:33
-msgid "http://wordpress.org/"
-msgstr "http://wordpress.org/"
+#: raindrops/comments.php:66
+#: raindrops/comments.php:68
+#, fuzzy
+msgid "Required"
+msgstr " (必須) "
 
-#: footer.php:34
-msgid "Semantic Personal Publishing Platform"
-msgstr "Semantic Personal Publishing Platform"
+#: raindrops/comments.php:68
+#, fuzzy
+msgid "Email"
+msgstr "メールアドレス"
 
-#: footer.php:35
-#, php-format
-msgid "Proudly powered by %s."
-msgstr "Proudly powered by %s."
+#: raindrops/comments.php:70
+#, fuzzy
+msgid "Website"
+msgstr "ウェブサイト"
 
-#: functions.php:97
+#: raindrops/comments.php:70
+msgid "Option"
+msgstr "オプション"
+
+#: raindrops/comments.php:77
+#, fuzzy, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "コメントを投稿するには<a href=\"%s\">ログイン</a>してください。"
+
+#: raindrops/comments.php:78
+#, fuzzy, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr "<a href=\"%1$s\">%2$s</a> としてログインしています。<a href=\"%3$s\" title=\"このアカウントからログアウトする\">ログアウトしますか ?</a></p>"
+
+#: raindrops/comments.php:79
+#, fuzzy
+msgid "Your email address will not be published."
+msgstr "メールアドレスが公開されることはありません。"
+
+#: raindrops/comments.php:80
+#, fuzzy, php-format
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr "次の<abbr title=\"HyperText Markup Language\">HTML</abbr> タグと属性が使えます: %s"
+
+#: raindrops/comments.php:83
+#, fuzzy
+msgid "Leave a Reply"
+msgstr "コメントをどうぞ"
+
+#: raindrops/comments.php:84
+#, fuzzy, php-format
+msgid "Leave a Reply to %s"
+msgstr "%s への返信"
+
+#: raindrops/comments.php:85
+#, fuzzy
+msgid "Cancel reply"
+msgstr "コメントをキャンセル"
+
+#: raindrops/comments.php:86
+#, fuzzy
+msgid "Post Comment"
+msgstr "コメントを送信"
+
+#: raindrops/date.php:18
+#, fuzzy
+msgid "Sunday"
+msgstr "日曜日"
+
+#: raindrops/date.php:19
+#, fuzzy
+msgid "Monday"
+msgstr "月曜日"
+
+#: raindrops/date.php:20
+#, fuzzy
+msgid "Tuesday"
+msgstr "火曜日"
+
+#: raindrops/date.php:21
+#, fuzzy
+msgid "Wednesday"
+msgstr "水曜日"
+
+#: raindrops/date.php:22
+#, fuzzy
+msgid "Thursday"
+msgstr "木曜日"
+
+#: raindrops/date.php:23
+#, fuzzy
+msgid "Friday"
+msgstr "金曜日"
+
+#: raindrops/date.php:24
+#, fuzzy
+msgid "Saturday"
+msgstr "土曜日"
+
+#: raindrops/functions.php:48
 msgid "Primary Navigation"
-msgstr "Primary Navigation"
+msgstr "主ナビゲーション"
 
-#. translators: header image description
-#: functions.php:133
-msgid "Berries"
-msgstr "Berries"
+#: raindrops/functions.php:84
+msgid "dog"
+msgstr "犬"
 
-#. translators: header image description
-#: functions.php:139
-msgid "Cherry Blossoms"
-msgstr "Cherry Blossoms"
+#: raindrops/functions.php:90
+msgid "kiku"
+msgstr "菊"
 
-#. translators: header image description
-#: functions.php:145
-msgid "Concave"
-msgstr "Concave"
+#: raindrops/functions.php:96
+msgid "highway"
+msgstr "高速道路"
 
-#. translators: header image description
-#: functions.php:151
-msgid "Fern"
-msgstr "Fern"
+#: raindrops/functions.php:102
+msgid "japan shoses"
+msgstr "日本の履物"
 
-#. translators: header image description
-#: functions.php:157
-msgid "Forest Floor"
-msgstr "Forest Floor"
+#: raindrops/functions.php:108
+msgid "japan Shoji door"
+msgstr "障子"
 
-#. translators: header image description
-#: functions.php:163
-msgid "Inkwell"
-msgstr "Inkwell"
+#: raindrops/functions.php:114
+msgid "japan tatami floor"
+msgstr "畳"
 
-#. translators: header image description
-#: functions.php:169
-msgid "Path"
-msgstr "パス"
+#: raindrops/functions.php:120
+msgid "sky"
+msgstr "空"
 
-#. translators: header image description
-#: functions.php:175
-msgid "Sunset"
-msgstr "日没"
+#: raindrops/functions.php:127
+msgid "raindrops"
+msgstr "raindrops"
 
-#: functions.php:308
+#: raindrops/functions.php:173
+#, fuzzy
+msgid "Default Sidebar"
+msgstr "左サイドバー"
+
+#: raindrops/functions.php:186
+#, fuzzy
+msgid "Extra Sidebar"
+msgstr "左サイドバー"
+
+#: raindrops/functions.php:199
+#, fuzzy
+msgid "Sticky Widget"
+msgstr "ウィジェットを保存"
+
+#: raindrops/functions.php:210
+#, fuzzy
+msgid "Footer Widget"
+msgstr "ウィジェットを保存"
+
+#: raindrops/functions.php:322
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"says\">の発言:</span>"
 
-#: functions.php:311
-msgid "Your comment is awaiting moderation."
-msgstr "Your comment is awaiting moderation."
-
-#. translators: 1: date, 2: time
-#: functions.php:318
+#: raindrops/functions.php:339
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
-#: functions.php:318
-#: functions.php:335
+#: raindrops/functions.php:339
+#: raindrops/functions.php:354
 msgid "(Edit)"
-msgstr "(Edit)"
+msgstr "（編集）"
 
-#: functions.php:335
-msgid "Pingback:"
-msgstr "ピンバック："
+#: raindrops/functions.php:367
+#, php-format
+msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr "カテゴリ： %1$s タグ：%2$s. ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: functions.php:354
-msgid "Primary Widget Area"
-msgstr "プライマリ　ウィジェット　エリア"
+#: raindrops/functions.php:369
+#, php-format
+msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr "カテゴリ： %1$s.ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: functions.php:356
-msgid "The primary widget area"
-msgstr "プライマリ　ウィジェット　エリア"
+#: raindrops/functions.php:371
+#, php-format
+msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr "ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: functions.php:365
-msgid "Secondary Widget Area"
-msgstr "セカンダリ　ウィジェット　エリア"
-
-#: functions.php:367
-msgid "The secondary widget area"
-msgstr "セカンダリ　ウィジェット　エリア"
-
-#: functions.php:376
-msgid "First Footer Widget Area"
-msgstr "フッタ　ウィジェット　エリア"
-
-#: functions.php:378
-msgid "The first footer widget area"
-msgstr "フッタ　ウィジェット　エリア"
-
-#: functions.php:387
-msgid "Second Footer Widget Area"
-msgstr "第2フッタ　ウィジェット　エリア"
-
-#: functions.php:389
-msgid "The second footer widget area"
-msgstr "第2フッタ　ウィジェット　エリア"
-
-#: functions.php:398
-msgid "Third Footer Widget Area"
-msgstr "第3　フッター　ウィジェット　エリア"
-
-#: functions.php:400
-msgid "The third footer widget area"
-msgstr "第3　フッター　ウィジェット　エリア"
-
-#: functions.php:409
-msgid "Fourth Footer Widget Area"
-msgstr "第4　フッター　ウィジェット　エリア"
-
-#: functions.php:411
-msgid "The fourth footer widget area"
-msgstr "第4　フッター　ウィジェット　エリア"
-
-#: functions.php:442
+#: raindrops/functions.php:389
 #, php-format
 msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 msgstr "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 
-#: functions.php:468
-#, php-format
-msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+#: raindrops/functions.php:525
+msgid "Welcome Raindrops."
+msgstr "ようこそRaindropsへ"
 
-#: functions.php:470
-#, php-format
-msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+#: raindrops/functions.php:528
+msgid "Your own blog offers some methods to improve it better to this theme file."
+msgstr "このテーマは、あなたのブログをよりよくするための仕掛けを提供します"
 
-#: functions.php:472
-#, php-format
-msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+#: raindrops/functions.php:529
+msgid "For instance, it is a color."
+msgstr "例えば、それは色に関するものです"
 
-#: header.php:33
+#: raindrops/functions.php:530
+msgid "The color is influencing even the person who doesn't stick to decorated thing."
+msgstr "色は飾り付けに執着しない人にも影響を及ぼします"
+
+#: raindrops/functions.php:531
+msgid "Therefore, the color was made easy to change. "
+msgstr "ですから、色を簡単に変える仕掛けを作りました"
+
+#: raindrops/functions.php:532
+msgid "For instance, it is a layout. "
+msgstr "例えば、レイアウトに関して"
+
+#: raindrops/functions.php:533
+msgid "There is a legible document even if the same thing was written, and is a document not read easily. "
+msgstr "同じことが書かれていても、読みやすいドキュメントもあれば、読みにくい場合もあります。"
+
+#: raindrops/functions.php:534
+msgid "A legible document is one index in an excellent document. "
+msgstr "読みやすさは、よいドキュメントの要素です"
+
+#: raindrops/functions.php:535
+msgid "Therefore, the layout was able to be tested."
+msgstr "ですから、いろいろなレイアウトを試すことができるようにしました"
+
+#: raindrops/functions.php:536
+#, fuzzy, php-format
+msgid "WEBSite：<a href=\"%1$s\">%2$s</a>"
+msgstr "<a href=\"%1$s\">%2$s %3$s</a>"
+
+#: raindrops/functions.php:608
+#, fuzzy, php-format
+msgid "%1$s updated successfully."
+msgstr "%1$s の更新に成功しました。"
+
+#: raindrops/functions.php:610
+#, fuzzy
+msgid "Try again"
+msgstr "もう一度お試しください"
+
+#: raindrops/functions.php:639
+#, fuzzy
+msgid "Color"
+msgstr "色"
+
+#: raindrops/functions.php:639
+#, fuzzy
+msgid "Value"
+msgstr "値"
+
+#: raindrops/functions.php:639
+#: raindrops/loop.php:182
+#: raindrops/loop.php:232
+#: raindrops/loop.php:273
+msgid "Edit"
+msgstr "編集"
+
+#: raindrops/functions.php:802
+#, fuzzy
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: raindrops/header-xhtml1.php:40
+#: raindrops/header.php:56
 #, php-format
 msgid "Page %s"
 msgstr "ページ %s"
 
-#: header.php:83
-msgid "Skip to content"
-msgstr "Skip to content"
-
-#: loop.php:25
-#: loop.php:173
+#: raindrops/loop.php:24
+#: raindrops/loop.php:245
+#: raindrops/loop.php:284
+#: raindrops/page.php:44
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span>古い投稿"
 
-#: loop.php:26
-#: loop.php:174
+#: raindrops/loop.php:27
+#: raindrops/loop.php:248
+#: raindrops/loop.php:287
+#: raindrops/page.php:47
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
-#: loop.php:35
-msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
-msgstr "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
-
-#: loop.php:60
-#: loop.php:92
-msgctxt "gallery category slug"
-msgid "gallery"
-msgstr "ギャラリ"
-
-#: loop.php:62
-#: loop.php:83
-#: loop.php:126
-#, php-format
-msgid "Permalink to %s"
-msgstr "Permalink to %s"
-
-#: loop.php:82
-#, php-format
-msgid "This gallery contains <a %1$s>%2$s photos</a>."
-msgstr "This gallery contains <a %1$s>%2$s photos</a>."
-
-#: loop.php:92
-msgid "View posts in the Gallery category"
-msgstr "View posts in the Gallery category"
-
-#: loop.php:92
-msgid "More Galleries"
-msgstr "More Galleries"
-
-#: loop.php:94
-#: loop.php:117
-#: loop.php:159
+#: raindrops/loop.php:112
+#: raindrops/loop.php:180
+#: raindrops/loop.php:230
 msgid "Leave a comment"
-msgstr "Leave a comment"
+msgstr "コメントを　どうぞ"
 
-#: loop.php:94
-#: loop.php:117
-#: loop.php:159
+#: raindrops/loop.php:112
+#: raindrops/loop.php:180
+#: raindrops/loop.php:230
 msgid "1 Comment"
 msgstr "1 コメント"
 
-#: loop.php:94
-#: loop.php:117
-#: loop.php:159
+#: raindrops/loop.php:112
+#: raindrops/loop.php:180
+#: raindrops/loop.php:230
 msgid "% Comments"
 msgstr "% コメント"
 
-#: loop.php:101
-msgctxt "asides category slug"
-msgid "asides"
-msgstr "asides"
+#: raindrops/loop.php:121
+msgid "Read the rest of this entry &raquo;"
+msgstr "続きを読む　&raquo;"
 
-#: loop.php:146
+#: raindrops/loop.php:169
 #, php-format
-msgid "<span class=\"%1$s\">Posted in</span> %2$s"
-msgstr "<span class=\"%1$s\">Posted in</span> %2$s"
+msgid "This gallery contains <a %1$s>%2$s photos</a>."
+msgstr "このギャラリには <a %1$s>%2$s の画像があります</a>."
 
-#: loop.php:155
-#, php-format
-msgid "<span class=\"%1$s\">Tagged</span> %2$s"
-msgstr "<span class=\"%1$s\">Tagged</span> %2$s"
+#: raindrops/loop.php:213
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
 
-#: search.php:16
-#, php-format
-msgid "Search Results for: %s"
-msgstr "検索結果: %s"
+#: raindrops/loop.php:218
+#, fuzzy
+msgid "Continue&nbsp;reading&nbsp;<span class=\"meta-nav\">&rarr;</span>"
+msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
 
-#: search.php:26
-msgid "Nothing Found"
-msgstr "みつかりません"
+#: raindrops/loop.php:219
+msgid "Pages:"
+msgstr "ページ"
 
-#: search.php:28
-msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
-msgstr "キーワードで見つかりませんでした。ほかのキーワードで試してみてください"
+#: raindrops/loop.php:228
+msgid "Tagged "
+msgstr "タグ"
 
-#: sidebar.php:27
-msgid "Archives"
-msgstr "アーカイブ"
+#: raindrops/lib/csscolor.css.php:46
+msgid " Permission denied change writable"
+msgstr "書き込みが禁止されているので、書き込みできるパーミッションに変更してください"
 
-#: sidebar.php:34
-msgid "Meta"
-msgstr "メタ"
-
-#: single.php:18
-#: single.php:58
-msgctxt "Previous post link"
-msgid "&larr;"
-msgstr "&larr;"
-
-#: single.php:19
-#: single.php:59
-msgctxt "Next post link"
-msgid "&rarr;"
-msgstr "&rarr;"
-
-#: single.php:44
-#, php-format
-msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr " %s のすべての投稿を表示<span class=\"meta-nav\">&rarr;</span>"
-
-#: tag.php:16
-#, php-format
-msgid "Tag Archives: %s"
-msgstr "タグアーカイブ: %s"
-
-#. Theme Name of the plugin/theme
-msgid "Twenty Ten"
-msgstr "Twenty Ten"
-
-#. Description of the plugin/theme
-msgid "The 2010 theme for WordPress is stylish, customizable, simple, and readable -- make it yours with a custom menu, header image, and background. Twenty Ten supports six widgetized areas (two in the sidebar, four in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the \"Asides\" and \"Gallery\" categories, and has an optional one-column page template that removes the sidebar."
-msgstr "The 2010 theme for WordPress is stylish, customizable, simple, and readable -- make it yours with a custom menu, header image, and background. Twenty Ten supports six widgetized areas (two in the sidebar, four in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the \"Asides\" and \"Gallery\" categories, and has an optional one-column page template that removes the sidebar."
-
-#. Author of the plugin/theme
-msgid "the WordPress team"
-msgstr "ワードプレスチーム"
-
-#. Tags of the plugin/theme
-msgid "black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style"
-msgstr "black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style"
+#~ msgid "Not Found"
+#~ msgstr "みつかりません"
+#~ msgid ""
+#~ "Apologies, but the page you requested could not be found. Perhaps "
+#~ "searching will help."
+#~ msgstr ""
+#~ "期待に沿えず、ご要望のページがみつかりません、 よろしければ、検索してみて"
+#~ "ください。"
+#~ msgid "Daily Archives"
+#~ msgstr "日別アーカイブ"
+#~ msgid "Monthly Archives"
+#~ msgstr "月別アーカイブ"
+#~ msgid "Yearly Archives: <span>%s</span>"
+#~ msgstr "年次アーカイブ：<span>%s</span>"
+#~ msgid "Blog Archives"
+#~ msgstr "ブログ　アーカイブ"
+#~ msgid "Return to %s"
+#~ msgstr "Return to %s"
+#~ msgid "<span class=\"meta-nav\">&larr;</span> %s"
+#~ msgstr "<span class=\"meta-nav\">&larr;</span> %s"
+#~ msgid "<span class=\"%1$s\">By</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">By</span> %2$s"
+#~ msgid "View all posts by %s"
+#~ msgstr "View all posts by %s"
+#~ msgid "<span class=\"%1$s\">Published</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">Published</span> %2$s"
+#~ msgid "Full size is %s pixels"
+#~ msgstr "フルサイズ %s pixels"
+#~ msgid "Link to full-size image"
+#~ msgstr "フルサイズ画像にリンク"
+#~ msgid "Category Archives: %s"
+#~ msgstr "カテゴリアーカイブ: %s"
+#~ msgid ""
+#~ "This post is password protected. Enter the password to view any comments."
+#~ msgstr ""
+#~ "この投稿はパスワードつきです.パスワードを入力するとコメントを見ることがで"
+#~ "きます。"
+#~ msgid "Comments are closed."
+#~ msgstr "コメントはできません"
+#~ msgid "http://wordpress.org/"
+#~ msgstr "http://wordpress.org/"
+#~ msgid "Semantic Personal Publishing Platform"
+#~ msgstr "Semantic Personal Publishing Platform"
+#~ msgid "Proudly powered by %s."
+#~ msgstr "Proudly powered by %s."
+#~ msgid "Berries"
+#~ msgstr "Berries"
+#~ msgid "Cherry Blossoms"
+#~ msgstr "Cherry Blossoms"
+#~ msgid "Concave"
+#~ msgstr "Concave"
+#~ msgid "Fern"
+#~ msgstr "Fern"
+#~ msgid "Forest Floor"
+#~ msgstr "Forest Floor"
+#~ msgid "Inkwell"
+#~ msgstr "Inkwell"
+#~ msgid "Path"
+#~ msgstr "パス"
+#~ msgid "Sunset"
+#~ msgstr "日没"
+#~ msgid "Your comment is awaiting moderation."
+#~ msgstr "Your comment is awaiting moderation."
+#~ msgid "Pingback:"
+#~ msgstr "ピンバック："
+#~ msgid "Primary Widget Area"
+#~ msgstr "プライマリ　ウィジェット　エリア"
+#~ msgid "The primary widget area"
+#~ msgstr "プライマリ　ウィジェット　エリア"
+#~ msgid "Secondary Widget Area"
+#~ msgstr "セカンダリ　ウィジェット　エリア"
+#~ msgid "The secondary widget area"
+#~ msgstr "セカンダリ　ウィジェット　エリア"
+#~ msgid "The first footer widget area"
+#~ msgstr "フッタ　ウィジェット　エリア"
+#~ msgid "Second Footer Widget Area"
+#~ msgstr "第2フッタ　ウィジェット　エリア"
+#~ msgid "The second footer widget area"
+#~ msgstr "第2フッタ　ウィジェット　エリア"
+#~ msgid "Third Footer Widget Area"
+#~ msgstr "第3　フッター　ウィジェット　エリア"
+#~ msgid "The third footer widget area"
+#~ msgstr "第3　フッター　ウィジェット　エリア"
+#~ msgid "Fourth Footer Widget Area"
+#~ msgstr "第4　フッター　ウィジェット　エリア"
+#~ msgid "The fourth footer widget area"
+#~ msgstr "第4　フッター　ウィジェット　エリア"
+#~ msgid "Skip to content"
+#~ msgstr "Skip to content"
+#~ msgid ""
+#~ "Apologies, but no results were found for the requested archive. Perhaps "
+#~ "searching will help find a related post."
+#~ msgstr ""
+#~ "Apologies, but no results were found for the requested archive. Perhaps "
+#~ "searching will help find a related post."
+#~ msgctxt "gallery category slug"
+#~ msgid "gallery"
+#~ msgstr "ギャラリ"
+#~ msgid "Permalink to %s"
+#~ msgstr "Permalink to %s"
+#~ msgid "View posts in the Gallery category"
+#~ msgstr "View posts in the Gallery category"
+#~ msgid "More Galleries"
+#~ msgstr "More Galleries"
+#~ msgctxt "asides category slug"
+#~ msgid "asides"
+#~ msgstr "asides"
+#~ msgid "<span class=\"%1$s\">Posted in</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">Posted in</span> %2$s"
+#~ msgid "<span class=\"%1$s\">Tagged</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">Tagged</span> %2$s"
+#~ msgid "Search Results for: %s"
+#~ msgstr "検索結果: %s"
+#~ msgid "Nothing Found"
+#~ msgstr "みつかりません"
+#~ msgid ""
+#~ "Sorry, but nothing matched your search criteria. Please try again with "
+#~ "some different keywords."
+#~ msgstr ""
+#~ "キーワードで見つかりませんでした。ほかのキーワードで試してみてください"
+#~ msgid "Archives"
+#~ msgstr "アーカイブ"
+#~ msgid "Meta"
+#~ msgstr "メタ"
+#~ msgctxt "Previous post link"
+#~ msgid "&larr;"
+#~ msgstr "&larr;"
+#~ msgctxt "Next post link"
+#~ msgid "&rarr;"
+#~ msgstr "&rarr;"
+#~ msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+#~ msgstr " %s のすべての投稿を表示<span class=\"meta-nav\">&rarr;</span>"
+#~ msgid "Tag Archives: %s"
+#~ msgstr "タグアーカイブ: %s"
+#~ msgid "Twenty Ten"
+#~ msgstr "Twenty Ten"
+#~ msgid ""
+#~ "The 2010 theme for WordPress is stylish, customizable, simple, and "
+#~ "readable -- make it yours with a custom menu, header image, and "
+#~ "background. Twenty Ten supports six widgetized areas (two in the sidebar, "
+#~ "four in the footer) and featured images (thumbnails for gallery posts and "
+#~ "custom header images for posts and pages). It includes stylesheets for "
+#~ "print and the admin Visual Editor, special styles for posts in the "
+#~ "\"Asides\" and \"Gallery\" categories, and has an optional one-column "
+#~ "page template that removes the sidebar."
+#~ msgstr ""
+#~ "The 2010 theme for WordPress is stylish, customizable, simple, and "
+#~ "readable -- make it yours with a custom menu, header image, and "
+#~ "background. Twenty Ten supports six widgetized areas (two in the sidebar, "
+#~ "four in the footer) and featured images (thumbnails for gallery posts and "
+#~ "custom header images for posts and pages). It includes stylesheets for "
+#~ "print and the admin Visual Editor, special styles for posts in the "
+#~ "\"Asides\" and \"Gallery\" categories, and has an optional one-column "
+#~ "page template that removes the sidebar."
+#~ msgid "the WordPress team"
+#~ msgstr "ワードプレスチーム"
+#~ msgid ""
+#~ "black, blue, white, two-columns, fixed-width, custom-header, custom-"
+#~ "background, threaded-comments, sticky-post, translation-ready, "
+#~ "microformats, rtl-language-support, editor-style"
+#~ msgstr ""
+#~ "black, blue, white, two-columns, fixed-width, custom-header, custom-"
+#~ "background, threaded-comments, sticky-post, translation-ready, "
+#~ "microformats, rtl-language-support, editor-style"
 

@@ -6,13 +6,7 @@ Released under the terms of the GNU GPL version 2
    http://www.gnu.org/licenses/gpl.html
 */
 
-/**
- * date.php
- * http://blogurl/2009/ 当月カレンダ
- *　http://blogurl/2009/ 当月カレンダ
- *　http://blogurl/2009/05/01 24時間刻みテープル、投稿時間ごとにまとめる
- */
-
+echo $_SERVER['REQUEST_URI'];
 if(isset($_GET['ec3_listing']) and !empty($_GET['ec3_listing'])){
 
 	get_template_part('archive');
@@ -41,7 +35,7 @@ exit;
 
 get_header('xhtml1'); ?>
 		
-<div id="yui-main"><!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
+<div id="yui-main">
   <div class="yui-b">
 <?php
 if(function_exists('bcn_display')){

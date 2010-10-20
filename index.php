@@ -1,4 +1,12 @@
 <?php
+/**
+ * The xhtml1.0 transitional header for our theme.
+ *
+ *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.1
+ */
 get_header("xhtml1"); ?>
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 
@@ -16,7 +24,7 @@ get_header("xhtml1"); ?>
 	?>
     <?php if ( is_home() ) { ?>
     <!--widget only toppage start-->
-    <div class="topsidebar">
+    <div class="topsidebar" id="content">
       <ul>
         <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(3) ) : else : ?>
         <li>
@@ -33,10 +41,11 @@ get_header("xhtml1"); ?>
     <div class="<?php echo $yui_inner_layout;?>" id="container">
       <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
-	  <?php the_post_thumbnail(); ?>
+	  <?php //the_post_thumbnail(); ?>
 	  
         <?php get_template_part( 'loop', 'default' );?>
-        <?php comments_template( '', true ); ?>
+		<br style="clear:both" />
+      
       </div>
       <!--rsidebar start-->
       <div class="yui-u"> <span style="display:none;">--</span>

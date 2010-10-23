@@ -34,19 +34,25 @@ define("BASE_COLOR1",$count);
  *
  */
 
-@file_put_contents(STYLESHEETPATH.'/lib/'.INDIVIDUAL_STYLE, design_output($style_type,$position_y).color_base());
+$raindrops_indv_css = design_output($style_type,$position_y).color_base();
+
+if(get_option("_raindrops_indv_css","none") == "none"){
+	add_option("_raindrops_indv_css",$raindrops_indv_css);
+}else{
+	update_option("_raindrops_indv_css",$raindrops_indv_css);
+}
 
   $parm = fileperms(STYLESHEETPATH.'/lib/');
   $parm = decoct($parm);
   
 
-
+/*
 if(!is_writable(STYLESHEETPATH.'/lib/')){ 
 
 echo '<div style="padding:2em;color:red">'.STYLESHEETPATH.'/lib/' .__(' Permission denied change writable').'</div>';
 }
 
-
+*/
 
 function colors($num = 0, $select = 'set',$color1 = null){
 	global $images_path;	

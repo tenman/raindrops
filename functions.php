@@ -11,8 +11,7 @@
 <?php
     global $wpdb;
 	
-    preg_match("|([0-9]+)_|",$wpdb->prefix,$regs);
-    $stylesheet_name = 'b'.$regs[1].'-csscolor.css';
+    $stylesheet_name = 'individual-css.php';
 	
 	
 	if(!defined('COLOR_SCHEME')){ 
@@ -31,6 +30,7 @@
     
     if(!defined('INDIVIDUAL_STYLE')){
 		define('INDIVIDUAL_STYLE',$stylesheet_name);
+		
 	}
     if(!defined('NO_HEADER_TEXT')){
 		define('NO_HEADER_TEXT', false );
@@ -51,7 +51,7 @@
 		define('SHOW_HEADER_IMAGE',true);
 	}
 	if(!defined('TMN_THE_TIME_FORMAT')){ 
-    	define("TMN_THE_TIME_FORMAT",'l, F jS, Y');//
+    	define("TMN_THE_TIME_FORMAT",'Y年n月j日');//
 
 	}
 
@@ -91,25 +91,25 @@ function admin_header_style(){
 
     register_default_headers( array(
         'aomoriken' => array(
-            'url' => '%s/images/headers/aomoriken.png',
+            'url' => '%s/images/headers/aomoriken.jpg',
             'thumbnail_url' => '%s/images/headers/aomoriken-thumbnail.jpg',
             /* translators: header image description */
             'description' => __( 'dog', 'raindrops' )
         ),
         'dish' => array(
-            'url' => '%s/images/headers/flower.png',
+            'url' => '%s/images/headers/flower.jpg',
             'thumbnail_url' => '%s/images/headers/flower-thumbnail.jpg',
             /* translators: header image description */
             'description' => __( 'kiku', 'raindrops' )
         ),
         'road' => array(
-            'url' => '%s/images/headers/road.png',
+            'url' => '%s/images/headers/road.jpg',
             'thumbnail_url' => '%s/images/headers/road-thumbnail.jpg',
             /* translators: header image description */
             'description' => __( 'highway', 'raindrops' )
         ),
         'shoses' => array(
-            'url' => '%s/images/headers/shoses.png',
+            'url' => '%s/images/headers/shoses.jpg',
             'thumbnail_url' => '%s/images/headers/shoses-thumbnail.jpg',
             /* translators: header image description */
             'description' => __( 'japan shoses', 'raindrops' )
@@ -121,7 +121,7 @@ function admin_header_style(){
             'description' => __( 'japan Shoji door', 'raindrops' )
         ),
         'tatami' => array(
-            'url' => '%s/images/headers/tatami.png',
+            'url' => '%s/images/headers/tatami.jpg',
             'thumbnail_url' => '%s/images/headers/tatami-thumbnail.jpg',
             /* translators: header image description */
             'description' => __( 'japan tatami floor', 'raindrops' )
@@ -175,7 +175,6 @@ function admin_header_style(){
     }
 
 
- //   wp_register_sidebar_widget('banner','banner', 'banner_sample');
     wp_register_sidebar_widget('colorsample','Color Sample', 'raindrop_colors');
 
 	add_action( 'widgets_init', 'raindrops_widgets_init' );
@@ -635,6 +634,7 @@ class tmn_menu_create {
 
         $sql = 'SELECT * FROM `'.TMN_PLUGIN_TABLE.'` WHERE `option_name` LIKE \'raindrops%\'';
         $results = $wpdb->get_results($sql);
+
 
         $lines = "<table class=\"widefat post fixed\" cellspacing=\"0\">";
         $lines .=  '<thead><tr><th style=\"display:none;\">'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';

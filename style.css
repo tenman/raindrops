@@ -231,6 +231,14 @@ blockquote {
 	margin:1em 2.5em;
 	padding:2em 1em;
 }
+
+object,embed{
+	width:100%;
+	height:auto;
+    border-radius:5px;
+    -moz-border-radius:5px;
+	padding:5px;
+}
 ol{
 margin-left:2.5em;
 }
@@ -721,6 +729,8 @@ max-width:100%;
 	width:77%;
 }
 
+
+
 .blog .entry-title {
 	border:none;
 	text-indent:1em;
@@ -968,9 +978,6 @@ table#month_list {
 	border:1px solid navy;
 }
 
-.gallery * {
-	float:left!important;
-}
 
 .px11,
 small {

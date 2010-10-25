@@ -234,7 +234,7 @@ $raindrops_base_setting = array(
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_footer_color",'option_value' => "#333333",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_show_right_sidebar",'option_value' => "show",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_right_sidebar_width_percent",'option_value' => "25",'autoload'=>'yes'),
-    array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_googlemaps_api_key",'option_value' => "ABQIAAAAWV2wQmVJ9H55ogrkZg-tbBQryS336-n1XOAdWHRoL9rYWSn06hSwgltJVyEFTKocjWxL-jelHpQpZg",'autoload'=>'yes'),
+    
         );
 		
 }
@@ -493,22 +493,18 @@ if(is_admin){
  *
  *
  */
-
 function warehouse($name){
     global $raindrops_base_setting;
     $vertical = array();
 
     foreach($raindrops_base_setting as $key=>$val){
-        if(is_null($raindrops_base_setting)){
+        if(!is_null($raindrops_base_setting)){
             $vertical[] = $val['option_name'];
-        }else{
-
-        //echo $key;
         }
 
     }
 
-        $row = array_search("raindrops_page_width",$vertical);
+        $row = array_search($name,$vertical);
 
         return get_option($name, $raindrops_base_setting[$row]['option_value']);
 }

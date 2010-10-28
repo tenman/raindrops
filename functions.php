@@ -10,50 +10,50 @@
 ?>
 <?php
     global $wpdb;
-	
-    $stylesheet_name = 'individual-css.php';
-	
-	
-	if(!defined('COLOR_SCHEME')){ 
-    	define("COLOR_SCHEME","color_en_140");
-	}
-	if(!defined('TMN_TABLE_TITLE')){ 
-    	define("TMN_TABLE_TITLE",'options');
-	}
-	
-    if(!defined('TMN_PLUGIN_TABLE')){
-		define('TMN_PLUGIN_TABLE',$wpdb->prefix . TMN_TABLE_TITLE);
-	}
-    if(!defined('TMN_TABLE_VERSION')){
-		define('TMN_TABLE_VERSION','0.1');
-	}
-    
-    if(!defined('INDIVIDUAL_STYLE')){
-		define('INDIVIDUAL_STYLE',$stylesheet_name);
-		
-	}
-    if(!defined('NO_HEADER_TEXT')){
-		define('NO_HEADER_TEXT', false );
-	}
-    if(!defined('HEADER_TEXTCOLOR')){
-		define('HEADER_TEXTCOLOR', 'ffffff');
-	}
-    if(!defined('HEADER_IMAGE')){
-		define('HEADER_IMAGE', '%s/images/headers/wp3.jpg');
-	}
-    if(!defined('HEADER_IMAGE_WIDTH')){
-		define('HEADER_IMAGE_WIDTH', 950);
-	}
-    if(!defined('HEADER_IMAGE_HEIGHT')){
-		define('HEADER_IMAGE_HEIGHT', 198);
-	}
-    if(!defined('SHOW_HEADER_IMAGE')){
-		define('SHOW_HEADER_IMAGE',true);
-	}
-	if(!defined('TMN_THE_TIME_FORMAT')){ 
-    	define("TMN_THE_TIME_FORMAT",'Y年n月j日');//
 
-	}
+    $stylesheet_name = 'individual-css.php';
+
+
+    if(!defined('COLOR_SCHEME')){
+        define("COLOR_SCHEME","color_en_140");
+    }
+    if(!defined('TMN_TABLE_TITLE')){
+        define("TMN_TABLE_TITLE",'options');
+    }
+
+    if(!defined('TMN_PLUGIN_TABLE')){
+        define('TMN_PLUGIN_TABLE',$wpdb->prefix . TMN_TABLE_TITLE);
+    }
+    if(!defined('TMN_TABLE_VERSION')){
+        define('TMN_TABLE_VERSION','0.1');
+    }
+
+    if(!defined('INDIVIDUAL_STYLE')){
+        define('INDIVIDUAL_STYLE',$stylesheet_name);
+
+    }
+    if(!defined('NO_HEADER_TEXT')){
+        define('NO_HEADER_TEXT', false );
+    }
+    if(!defined('HEADER_TEXTCOLOR')){
+        define('HEADER_TEXTCOLOR', 'ffffff');
+    }
+    if(!defined('HEADER_IMAGE')){
+        define('HEADER_IMAGE', '%s/images/headers/wp3.jpg');
+    }
+    if(!defined('HEADER_IMAGE_WIDTH')){
+        define('HEADER_IMAGE_WIDTH', 950);
+    }
+    if(!defined('HEADER_IMAGE_HEIGHT')){
+        define('HEADER_IMAGE_HEIGHT', 198);
+    }
+    if(!defined('SHOW_HEADER_IMAGE')){
+        define('SHOW_HEADER_IMAGE',true);
+    }
+    if(!defined('TMN_THE_TIME_FORMAT')){
+        define("TMN_THE_TIME_FORMAT",'F j, Y');//
+
+    }
 
     add_editor_style();
     // This theme uses wp_nav_menu() in one location.
@@ -147,7 +147,7 @@ function admin_header_style(){
     load_textdomain( 'raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
 
 
-	add_filter( 'comment_form_default_fields','tmn_comment_form');
+    add_filter( 'comment_form_default_fields','tmn_comment_form');
     add_filter( 'the_meta_key', 'filter_explode_meta_keys', 10, 2 );
     add_filter('body_class','add_body_class');
     add_filter('contextual_help','raindrops_help');
@@ -177,9 +177,9 @@ function admin_header_style(){
 
     wp_register_sidebar_widget('colorsample','Color Sample', 'raindrop_colors');
 
-	add_action( 'widgets_init', 'raindrops_widgets_init' );
+    add_action( 'widgets_init', 'raindrops_widgets_init' );
 
-	function raindrops_widgets_init() {
+    function raindrops_widgets_init() {
 
         register_sidebar(array (
           'name' => __('Default Sidebar'),
@@ -234,12 +234,12 @@ $raindrops_base_setting = array(
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_footer_color",'option_value' => "#333333",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_show_right_sidebar",'option_value' => "show",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_right_sidebar_width_percent",'option_value' => "25",'autoload'=>'yes'),
-    
+
         );
-		
+
 }
 
-	include_once(STYLESHEETPATH."/lib/csscolor.css.php");
+    include_once(STYLESHEETPATH."/lib/csscolor.css.php");
 
 
 if (!function_exists('add_body_class')) {
@@ -802,14 +802,14 @@ class tmn_menu_create {
             $send_key_name = "";
         }
             $lines .= "</tbody>";
-        	$lines .=  '<tfoot><tr><th style=\"display:none;\">'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></tfoot>';
+            $lines .=  '<tfoot><tr><th style=\"display:none;\">'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></tfoot>';
 
             $lines .= "</table></div>";
 
-			if(!preg_match('|<tbody>|',$lines)){
-			$lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr>';
-			
-			}
+            if(!preg_match('|<tbody>|',$lines)){
+            $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr>';
+
+            }
 
             return $lines;
 

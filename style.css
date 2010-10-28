@@ -9,6 +9,9 @@ Version: 0.2
 Tags:black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
 ,yui,autodesign,flex-column,flex-width,fixed Layout,fluid ,
 
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
 enjoy this theme
 
 */
@@ -49,7 +52,7 @@ strong{
 	padding:5px;
 }
 
-
+/*
 .ja span.day-name:after{content:"日"}
 .ja span.month-name:after{content:"月"}
 .ja span.year-name:after{content:"年"}
@@ -75,7 +78,7 @@ strong{
     text-align: right;
 }
 
-
+*/
 
 
 

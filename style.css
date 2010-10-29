@@ -89,7 +89,10 @@ strong{
  *
  *
  */
-
+a:active,a:focus { 
+    border:none;
+    outline:none;
+}
 
 
 .px10 {

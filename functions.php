@@ -1740,7 +1740,7 @@ global $wpdb;
 
 
 function tmn_comment_form($form){
-
+global $commenter;
 $form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label><span class="option">'.__('Option','Raindrops').'</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
 
 return $form;

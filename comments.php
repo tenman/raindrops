@@ -63,6 +63,6 @@ if ( ! comments_open() ) :
 
 <br class="clearfix" />
 <div class="social">
-<?php comment_form($settings); ?>
+<?php comment_form(); ?>
 </div>
 </div><!-- #comments -->

@@ -90,48 +90,6 @@ function admin_header_style(){
 
 
     register_default_headers( array(
-        'aomoriken' => array(
-            'url' => '%s/images/headers/aomoriken.jpg',
-            'thumbnail_url' => '%s/images/headers/aomoriken-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'dog', 'raindrops' )
-        ),
-        'dish' => array(
-            'url' => '%s/images/headers/flower.jpg',
-            'thumbnail_url' => '%s/images/headers/flower-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'kiku', 'raindrops' )
-        ),
-        'road' => array(
-            'url' => '%s/images/headers/road.jpg',
-            'thumbnail_url' => '%s/images/headers/road-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'highway', 'raindrops' )
-        ),
-        'shoses' => array(
-            'url' => '%s/images/headers/shoses.jpg',
-            'thumbnail_url' => '%s/images/headers/shoses-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'japan shoses', 'raindrops' )
-        ),
-        'shouji' => array(
-            'url' => '%s/images/headers/shouji.jpg',
-            'thumbnail_url' => '%s/images/headers/shouji-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'japan Shoji door', 'raindrops' )
-        ),
-        'tatami' => array(
-            'url' => '%s/images/headers/tatami.jpg',
-            'thumbnail_url' => '%s/images/headers/tatami-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'japan tatami floor', 'raindrops' )
-        ),
-        'sora' => array(
-            'url' => '%s/images/headers/sky.jpg',
-            'thumbnail_url' => '%s/images/headers/sky-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'sky', 'raindrops' )
-        ),
 
         'default' => array(
             'url' => '%s/images/headers/wp3.jpg',

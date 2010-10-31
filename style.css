@@ -4,9 +4,10 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: basic template
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.2
+Version: 0.21
 
-Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
+Tags:black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style, custom-menu (optional)
+,yui,autodesign,flex-column,flex-width,fixed Layout,fluid ,
 
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -267,6 +268,17 @@ dd {
 	clear:none;
 	margin:0;
 }
+.gallery .gallery-caption {
+    font-size: 93%;
+	line-height:1.3;
+	margin: 0 0 1em;
+	text-align:left;
+	padding-left:2em;
+	
+}
+.wp-smiley{
+    margin: 0;
+}
 dl.author dd,
 dl.author dt,
 dl.my_tags dd,
@@ -295,7 +307,6 @@ dl.my_tags dt {
 
 
 fieldset {
-	border:1px solid;
 	margin:1em 4.4em;
 	padding:1em;
 }
@@ -315,7 +326,6 @@ th {
 }
 
 td {
-	border:1px solid #ccc;
 	padding:.2em;
 }
 
@@ -336,7 +346,6 @@ body.search-results .entry img{
 }
 	div.entry h2,
 div.entry h3 {
-	border:0 solid #ccc;
 	clear:both;
 	margin:1em 0 2em;
 	padding:3px;
@@ -375,53 +384,23 @@ p.pagenate a:hover {
 	width:100%;
 }
 
-	table#month_list li,
-table#year_list li,
-table#date_list li {
+table#month-list li,
+table#year-list li,
+table#date-list li {
 	list-style-type:none;
 }
 
-	table#month_list,
-table#year_list,
-table#date_list {
+table#month-list,
+table#year-list,
+table#date-list {
 	width:90%;
 	margin:15px;
 }
 
-table#public_recipe {
-	width:100%;
-}
 
-table#public_recipe .date {
-	border:0 solid #ccc;
-	width:140px;
-}
 
-table.company {
-	width:100%;
-	margin:15px;
-}
 
-	table.company td,
-table.company th {
-	font-size:105%;
-	padding:3px 20px;
-}
 
-	table.company td.col1,
-table.company th.col1 {
-	background:#eef;
-	font-weight:700;
-	text-indent:2em;
-}
-
-table.company th.col1 {
-	width:30%;
-}
-
-	table.company th.col1,
-table.company th.col2,
-table.company td.col2,
 #searchform input {
 	background:#fff;
 }
@@ -503,7 +482,6 @@ ul.archive ul li {
 }
 
 #ft {
-	border:0 solid red;
 	min-height:38px;
 
 	
@@ -578,12 +556,10 @@ display:block;
 	margin:3em;
 }
 
-#public_recipe,
 
 #showAll {
 	background-position:-5px -105px;
 	background-repeat:no-repeat;
-	border:0 solid #ccc;
 	height:24px;
 	width:110px;
 }
@@ -593,13 +569,7 @@ display:block;
 	margin-left:15px;
 }
 
-#top ul li {
-	/*display:inline;*/
-	float:left;
-	list-style:none;
-	text-align:center;
-	/*margin:10px;*/
-}
+
 
 .lsidebar,
 .rsidebar {
@@ -618,8 +588,10 @@ display:block;
 	line-height:1.4;
 	margin-top:0.3em;
 }
-
-
+.debug .lsidebar li a,
+.debug .rsidebar li a{
+	border:1px solid #ccc;
+}
 
 .lsidebar li.page_item a,
 .lsidebar li.category_report a,
@@ -669,7 +641,6 @@ font-size:77%;
 }
 
 .attachment .caption {
-	border:0 solid #ccc;
 	float:left;
 	overflow:hidden;
 	width:55%;
@@ -684,7 +655,6 @@ font-size:77%;
 }
 
 .attachment .image {
-	border:0 solid #ccc;
 	float:left;
 	margin-right:2%;
 	overflow:hidden;
@@ -704,8 +674,9 @@ font-size:77%;
 margin:20px  0 0 4em;
 
 }
-.entry-content img{
+.entry-content img,.hentry img,.hentry object,.hentry embed{
 max-width:100%;
+height:auto;
 }
 .entry-meta,
 .blogrolls dd,
@@ -734,14 +705,12 @@ max-width:100%;
 
 
 .blog .entry-title {
-	border:none;
 	text-indent:1em;
 	margin:0 .5em;
 	padding:0;
 }
 
 .blog .entry-content {
-	border:none;
 	text-indent:0;
 	margin:0;
 	padding:0;
@@ -759,8 +728,8 @@ max-width:100%;
 	padding:.5em;
 }
 
-.caution,
-#top-main {
+.fail-search,
+#not-found {
 	background:#fee;
 	border:1px solid #ccc;
 	color:#333;
@@ -776,12 +745,12 @@ max-width:100%;
 	margin:1em;
 }
 
-	ul.archive,
+ul.archive,
 ul.index {
 	margin:2em 0;
 }
 
-	ul.archive li,
+ul.archive li,
 ul.index li {
 	line-height:2.5;
 	list-style:none;
@@ -789,7 +758,7 @@ ul.index li {
 	display:block;
 }
 
-	ul.archive li .date,
+ul.archive li .date,
 ul.index li .date {
 	width:13em;
 	float:left;
@@ -956,12 +925,16 @@ clear:both;
 	color:red;
 }
 
-table#month_list td {
+table#month-list td {
 	
 }
 
-table#month_list {
+table#month-list {
 	
+}
+.debug .rsidebar,
+.debug .lsidebar{
+	border:1px solid #000;
 }
 
 .debug .entry-title {
@@ -1033,10 +1006,10 @@ em,
 	dl a,
 .category a,
 #top a,
-table#month_list a,
+table#month-list a,
 div.entry h2 a,
 .link_category_list a,
-table#month_list a {
+table#month-list a {
 	text-decoration:none;
 }
 
@@ -1051,7 +1024,7 @@ table#month_list a {
 /*ul.nav li a,
 ul.nav li a:link,
 ul.nav li a:visited,*/
-table#public_recipe td.link,
+
 .debug .hentry {
 	border:1px solid #ccc;
 }
@@ -1138,31 +1111,55 @@ a:active {
 position:relative;
 top:1px;
 }
-/*--------------*/
+/*-------
+
+#top ul li {
+	float:left;
+	list-style:none;
+	text-align:center;
+	list-style-position:inside;
+
+}
+.debug #top ul li {
+	border:1px solid red;
+
+}
+.debug #top ul li a{
+	border:1px solid #555;
+	list-style-position:inside;
+}
+
+
+-------*/
+
 
 #access {
-/*	background: #000;*/
 	display: block;
 	float: left;
 	margin: 0 auto;
-	/*width: 940px;*/
 	width:100%;
 
 }
+.debug #access{
+	border:1px solid red;
+
+}
+
 #access ul{
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline;
 
 }
+#access li{
+	margin:0;
+	list-style-type:none;
+}
 #access a {
-	/*color: #aaa;*/
 	display: block;
-	/*line-height: 38px;*/
 	line-height: 3em;
-	padding: 0 10px;
+	padding: 0 0.4em;
 	text-decoration: none;
-
 }
 div.menu ul {
 	list-style: none;
@@ -1227,7 +1224,6 @@ div.menu li a{
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-	/*color: #fff;*/
 	margin:0;
 	width:100%;
 	height:100%;
@@ -1238,14 +1234,13 @@ div.menu li a{
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
-	/*color: #fff;*/
+
 }
 
 
 #access .menu-header,
 div.menu{
 	margin: 0 auto;
-	/*width: 940px;*/
 }
 #access .menu-header,
 div.menu {
@@ -1391,5 +1386,22 @@ div.category-blog div.blog-main{
 	text-decoration:none;
 	}
 
+/* add*/
+.single-post-thumbnail{
+	width:100%;
+	height:200px; /*see: functions.php add_image_size( 'single-post-thumbnail'*/
+	overflow:hidden;
+	text-align:center;
+	background:#000;
+}
+/*.entry-content img{
+*/
 
+
+.home .sticky {
+	margin:0 -1em 0 -2em;
+    padding: 18px 20px;
+}
+
+.archives-list{margin-left:1em;}
 

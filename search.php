@@ -9,12 +9,9 @@
  */
 ?>
 <?php get_header(); ?>
-<!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->		
 <div id="yui-main">
   <div class="yui-b">
-    <!--main-->
-    <!-- Use Standard Nesting Grids and Special Nesting Grids to subdivid regions of your layout. -->
-    <!-- Special Nesting Grid C has two children, the first is 2/3, the second is 1/3 -->
+
 <?php
 if(function_exists('bcn_display'))
 {
@@ -24,29 +21,12 @@ bcn_display();
 echo '</div>';
 }
 ?>
-   <?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
-    <!--topsidebar start-->
-    <div class="topsidebar">
-      <ul>
-        <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(3) ) : else : ?>
-        <!--トップページのデフォルトイメージを-->
-		
-        <?php endif; ?>
-      </ul>
-    </div>
-    <!--topsidebar end-->
-    <br />
-    <?php  }else{ ?>
-    <!--<div style="width:100%;height:120px;overflow:hidden;margin:1em 0;">
-                 <div style="background:#aaf;width:100%;height:100%;">
-アーカイブページの画像エリア
-                </div></div>-->
-    <?php } ?>
+
     <div class="<?php echo $yui_inner_layout;?>">
 
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
-      <!-- content start-->	  
-	  
+      <!-- content start-->
+
 <!--filename search.php-->
 <?php if (have_posts()) : ?>
 
@@ -81,12 +61,12 @@ echo '</div>';
   </div>
 </div>
 <?php else : ?>
-<div class="caution">
-  <h2 class="center h2">残念ですが、何も見つかりませんでした。よろしければキーワードを変えて、検索してみてください。</h2>
+<div class="fail-search">
+  <h2 class="center h2"><?php _e("Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.","Raindrops");?> </h2>
 </div>
-<?php endif; ?>	  
-	  
-      <!-- content end-->	  
+<?php endif; ?>
+
+      <!-- content end-->
       </div>
       <!-- navigation-->
       <div class="yui-u">

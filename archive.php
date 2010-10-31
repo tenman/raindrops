@@ -19,45 +19,45 @@ get_header('xhtml1'); ?>
     <!--main-->
 
     <?php if(function_exists('bcn_display')){echo '<div class="breadcrumb">';bcn_display();echo '</div>';} ?>
-    
+
     <div class="<?php echo $yui_inner_layout;?>">
-	      <!-- content -->
+          <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
 
 <?php
-	/* Queue the first post, that way we know
-	 * what date we're dealing with (if that is the case).
-	 *
-	 * We reset this later so we can run the loop
-	 * properly with a call to rewind_posts().
-	 */
-	if ( have_posts() )
-		the_post();
+    /* Queue the first post, that way we know
+     * what date we're dealing with (if that is the case).
+     *
+     * We reset this later so we can run the loop
+     * properly with a call to rewind_posts().
+     */
+    if ( have_posts() )
+        the_post();
 ?>
 
-			<h2 class="page-title">
+            <h2 class="page-title">
 <?php if ( is_day() ) : ?>
-				<?php printf( __( 'Daily Archives: <span>%s</span>', 'raindrops' ), get_the_date('Y年n月j日') ); ?>
+                <?php printf( __( 'Daily Archives: <span>%s</span>', 'raindrops' ), get_the_date('TMN_THE_TIME_FORMAT') ); ?>
 <?php elseif ( is_month() ) : ?>
-				<?php printf( __( 'Monthly Archives: <span>%s</span>', 'raindrops' ), get_the_date('Y年n月') ); ?>
+                <?php printf( __( 'Monthly Archives: <span>%s</span>', 'raindrops' ), get_the_date(TMN_THE_MONTH_FORMAT) ); ?>
 <?php elseif ( is_year() ) : ?>
-				<?php printf( __( 'Yearly Archives: <span>%s</span>', 'raindrops' ), get_the_date('Y年') ); ?>
+                <?php printf( __( 'Yearly Archives: <span>%s</span>', 'raindrops' ), get_the_date('Y') ); ?>
 <?php else : ?>
-				<?php _e( 'Blog Archives', 'raindrops' ); ?>
+                <?php _e( 'Blog Archives', 'raindrops' ); ?>
 <?php endif; ?>
-			</h2>    
+            </h2>
 <?php
-	/* Since we called the_post() above, we need to
-	 * rewind the loop back to the beginning that way
-	 * we can run the loop properly, in full.
-	 */
-	rewind_posts();
+    /* Since we called the_post() above, we need to
+     * rewind the loop back to the beginning that way
+     * we can run the loop properly, in full.
+     */
+    rewind_posts();
 
-	/* Run the loop for the archives page to output the posts.
-	 * If you want to overload this in a child theme then include a file
-	 * called loop-archives.php and that will be used instead.
-	 */
-	 get_template_part( 'loop', 'archive' );
+    /* Run the loop for the archives page to output the posts.
+     * If you want to overload this in a child theme then include a file
+     * called loop-archives.php and that will be used instead.
+     */
+     get_template_part( 'loop', 'archive' );
 ?>
 </div>
       <!-- navigation-->

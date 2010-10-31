@@ -9,18 +9,18 @@
  */
 ?>
 <?php
-	 get_header('xhtml1');?>
+     get_header('xhtml1');?>
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 <div id="yui-main">
   <div class="yui-b" >
     <?php
-	if(function_exists('bcn_display')){
-	// Display the breadcrumb
-	echo '<div class="breadcrumb">';
-	bcn_display();
-	echo '</div>';
-	}
-	?>
+    if(function_exists('bcn_display')){
+    // Display the breadcrumb
+    echo '<div class="breadcrumb">';
+    bcn_display();
+    echo '</div>';
+    }
+    ?>
     <div class="<?php echo $yui_inner_layout;?>">
       <!-- content -->
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
@@ -29,46 +29,46 @@
         <div class="entry page">
           <div id="post-<?php the_ID(); ?>">
             <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-            
+
             <p style="margin-left:25px;" class="entry-date"><small><?php the_time(TMN_THE_TIME_FORMAT) ?>&nbsp;<?php the_author() ?></small></p>
-            
+
 <div style="entry-content clearfix">
             <?php the_content('Read the rest of this entry &raquo;'); ?>
-</div>			
-			<div class="linkpage clearfix">
-			    <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
-			</div>
-<br style="clear:both;" />			
+</div>
+            <div class="linkpage clearfix">
+                <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
+            </div>
+<br style="clear:both;" />
 
             <p class="postmetadata"><?php the_category(', ') ?>&nbsp;<?php edit_post_link('Edit', '', '  '); ?></p>
-			
-			
-			
-			<?php comments_template( '', true ); ?>			
-			
-			
+
+
+
+            <?php comments_template( '', true ); ?>
+
+
           </div>
         </div>
-      
-        <?php endwhile; ?>
-  
-		
-		<?php if ( $wp_query->max_num_pages > 1 ) : ?>
 
-		<div id="nav-below" class="clearfix">
-		  <span class="nav-previous">
-			<?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
-		  </span>
-		  <span class="nav-next">
-			<?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
-		  </span>
-		</div>
-		<!-- #nav-above -->
-		<?php endif; ?>
-		
+        <?php endwhile; ?>
+
+
+        <?php if ( $wp_query->max_num_pages > 1 ) : ?>
+
+        <div id="nav-below" class="clearfix">
+          <span class="nav-previous">
+            <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+          </span>
+          <span class="nav-next">
+            <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+          </span>
+        </div>
+        <!-- #nav-above -->
+        <?php endif; ?>
+
         <?php else : ?>
         <div class="entry">
-          <div id="top-main" style="border:1px solid #ccc;background:#fee;padding:2em;color:#333;">
+          <div id="not-found">
             <h2 class="h2">Not Found</h2>
             <p>ご指定のページが見当たりません<br />
               <small>Sorry, but you are looking for something that isn't here. </small></p>
@@ -98,7 +98,4 @@
 <!--sidebar-->
 </div>
 
-<?php get_footer(); 
-	
-
-?>
+<?php get_footer(); ?>

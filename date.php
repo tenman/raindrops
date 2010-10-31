@@ -122,7 +122,7 @@ echo '</div>';
     $last_day_of_month  = date('w', mktime(0, 0, 0, $this_month, $days_in_month, $year));
 
     // what day starts the week here?
-    $start_of_week = get_settings('start_of_week');
+    $start_of_week = get_option('start_of_week');
     if (0 != $start_of_week) {
             $end_of_week = 6 - (7 - $start_of_week);
     } else {
@@ -171,7 +171,7 @@ echo '</div>';
                                 $last_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
 title=\"$post->post_title\">$day</a>";
                         } else {
-                                $last_month[$day] = "<a href=\"" . get_settings('home') . "/$year/$lastmonth/$day\"
+                                $last_month[$day] = "<a href=\"" . get_option('home') . "/$year/$lastmonth/$day\"
 title=\"/$year/$lastmonth/$day\">$day</a>";
                         }
                 }
@@ -204,14 +204,14 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                     if (! isset($the_month[$day])) {
                             $the_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\" title=\"$post->post_title\">$day</a>";
                     } else {
-                            $the_month[$day] = "<a href=\"" . get_settings('home') . "/$year/$this_month/" . zeroise($day, 2) . "\"
+                            $the_month[$day] = "<a href=\"" . get_option('home') . "/$year/$this_month/" . zeroise($day, 2) . "\"
     title=\"$year/$this_month/" . zeroise($day, 2) . "\">$day</a>";
                     }
             }
     }
 
     $daycount = $pre_pad;
-    $here = get_settings('home');
+    $here = get_option('home');
     $cal = "<h2 class=\"h2\"><a href=\"$here/$year/\" title=\"$year\">$year</a> <a href=\"$here/$year/$this_month/\"
     title=\"$year/$this_month\">" .
     $month[zeroise($this_month, 2)] . "</a></h2>";
@@ -261,7 +261,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                                     $next_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
     title=\"$post->post_title\">$day</a>";
                             } else {
-                                    $next_month[$day] = "<a href=\"" . get_settings('home') . "/$year/$nextmonth/0$day\"
+                                    $next_month[$day] = "<a href=\"" . get_option('home') . "/$year/$nextmonth/0$day\"
     title=\"/$year/0$nextmonth/$day\">$day</a>";
                             }
                     }
@@ -315,7 +315,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         global $month;
 
-        $here = get_settings('home');
+        $here = get_option('home');
 
         $output = "<h2 class=\"h2\"><a href=\"$here/$year/\" title=\"$year\">$year</a> <a href=\"$here/$year/$mon/\" title=\"$year/$mon\">" .
         $month[zeroise($mon, 2)] . "</a><span class=\"day-name\">  $day </span></h2>";

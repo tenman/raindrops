@@ -619,7 +619,10 @@ class tmn_menu_create {
 
     function add_menus() {
         if(function_exists('add_options_page')) {
-        add_options_page(TMN_TABLE_TITLE, 'RAINDROPS Options', 8, __FILE__, array($this, 'SubMenu_GUI'));
+
+       add_options_page(TMN_TABLE_TITLE, 'RAINDROPS Options', 'edit_pages', __FILE__, array($this, 'SubMenu_GUI'));
+
+
         }
     }
 
@@ -861,6 +864,9 @@ $color_en = array("american red" => "#bf0a30","american blue" => "#002868","amer
                     $color = "#".dechex($cr).dechex($cg).dechex($cb);
                 }elseif( $cb > $cr and $cr > $cg ){
                     $color = "#".dechex($cg).dechex($cr).dechex($cb);
+                }else{
+                    $color = "#000";
+
                 }
             }
 

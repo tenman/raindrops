@@ -1,4 +1,4 @@
-Whitespace WordPress Theme
+Raindrops WordPress Theme
 http://www.tenman.info/wp3/raindrops/
 
 License: GNU General Public License v2.0

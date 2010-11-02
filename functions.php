@@ -157,18 +157,6 @@ function admin_header_style(){
         add_action('wp_print_styles', 'add_raindrops_stylesheet');
     }
 
-    add_filter('mce_css', 'raindrops_editor_style');
-
-    function my_editor_style($url) {
-
-      if ( !empty($url) )
-        $url .= ',';
-
-      // Change the path here if using sub-directory
-      $url .= trailingslashit( get_stylesheet_directory_uri() ) . 'editor-style.css';
-
-      return $url;
-    }
 
 
     wp_register_sidebar_widget('colorsample','Color Sample', 'raindrop_colors');

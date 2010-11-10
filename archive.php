@@ -20,7 +20,7 @@ get_header('xhtml1'); ?>
 
     <?php if(function_exists('bcn_display')){echo '<div class="breadcrumb">';bcn_display();echo '</div>';} ?>
 
-    <div class="<?php echo $yui_inner_layout;?>">
+    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
           <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
 

@@ -13,13 +13,14 @@
 <div id="yui-main">
   <div class="yui-b">
     <?php
-	if(function_exists('bcn_display') and is_home() == false){
-		echo '<div class="breadcrumb">';
-		bcn_display();
-		echo '</div>';
-	}
-	?>
-    <div class="<?php echo $yui_inner_layout;?>" id="container">
+    if(function_exists('bcn_display') and is_home() == false){
+        echo '<div class="breadcrumb">';
+        bcn_display();
+        echo '</div>';
+    }
+    ?>
+    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
+
       <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
         <div id="post-0" class="post error404 not-found">
@@ -39,7 +40,7 @@
       <!--rsidebar start-->
       <div class="yui-u"> <span style="display:none;">--</span>
         <?php if($rsidebar_show){get_sidebar('2');
-		} ?>
+        } ?>
         <!--rsidebar end-->
       </div>
       <!--add col here -->

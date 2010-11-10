@@ -16,12 +16,12 @@ get_header("xhtml1"); ?>
     <!-- Use Standard Nesting Grids and Special Nesting Grids to subdivid regions of your layout. -->
     <!-- Special Nesting Grid C has two children, the first is 2/3, the second is 1/3 -->
     <?php
-	if(function_exists('bcn_display') and is_home() == false){
-		echo '<div class="breadcrumb">';
-		bcn_display();
-		echo '</div>';
-	}
-	?>
+    if(function_exists('bcn_display') and is_home() == false){
+        echo '<div class="breadcrumb">';
+        bcn_display();
+        echo '</div>';
+    }
+    ?>
     <?php if ( is_home() ) { ?>
     <!--widget only toppage start-->
     <div class="topsidebar" id="content">
@@ -36,21 +36,21 @@ get_header("xhtml1"); ?>
     <!--topsidebar end-->
     <br class="clearfix" />
     <?php  } ?>
-	
-	
-    <div class="<?php echo $yui_inner_layout;?>" id="container">
+
+
+    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
       <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
-	  <?php //the_post_thumbnail(); ?>
-	  
+      <?php //the_post_thumbnail(); ?>
+
         <?php get_template_part( 'loop', 'default' );?>
-		<br style="clear:both" />
-      
+        <br style="clear:both" />
+
       </div>
       <!--rsidebar start-->
       <div class="yui-u"> <span style="display:none;">--</span>
         <?php if($rsidebar_show){get_sidebar('2');
-		} ?>
+        } ?>
         <!--rsidebar end-->
       </div>
       <!--add col here -->

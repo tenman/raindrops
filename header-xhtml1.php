@@ -9,8 +9,11 @@
  * @since Raindrops 0.1
  */
 global $current_blog;
-$this_blog = array("b". $current_blog->blog_id);
-//ob_end_clean();
+if(isset($current_blog)){
+    $this_blog = array("b". $current_blog->blog_id,"debug");
+}else{
+    $this_blog = array();
+}
 ?><?php echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>

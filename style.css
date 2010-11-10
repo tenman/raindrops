@@ -1399,9 +1399,62 @@ div.category-blog div.blog-main{
 
 
 .home .sticky {
-	margin:0 -1em 0 -2em;
+	margin:0 -1em 0 -1em;
     padding: 18px 20px;
 }
 
 .archives-list{margin-left:1em;}
+
+/* YUI nest grid add*/
+
+
+#nest.yui-gf,
+#nest.yui-ge,
+#nest.yui-gd,
+#nest.yui-gc,
+#nest.yui-g{
+	width:100%;
+}
+#nest.yui-gf .yui-u{
+
+	width:73%;
+}
+#nest.yui-gf .first{
+
+	width:23%;
+}
+
+#nest.yui-gc .yui-u{
+
+	width:33%;
+}
+#nest.yui-gc .first{
+	width:64%;
+}
+
+#nest.yui-gb .yui-u{
+	width:32%;
+}
+#nest.yui-gb .yui-u{
+
+width:32%;
+
+}
+.debug #nest.yui-g .yui-u,
+.debug #nest.yui-gb .yui-u,
+.debug #nest.yui-gc .yui-u,
+.debug #nest.yui-gd .yui-u,
+.debug #nest.yui-ge .yui-u,
+.debug #nest.yui-gf .yui-u{
+background:#ccf;
+}
+.debug #nest.yui-g .first,
+.debug #nest.yui-gb .first,
+.debug #nest.yui-gc .first,
+.debug #nest.yui-gd .first,
+.debug #nest.yui-ge .first,
+.debug #nest.yui-gf .first{
+background:#aaf;
+}
+
 

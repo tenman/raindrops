@@ -21,7 +21,7 @@
     echo '</div>';
     }
     ?>
-    <div class="<?php echo $yui_inner_layout;?>">
+    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
       <!-- content -->
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
         <?php if (have_posts()) : ?>

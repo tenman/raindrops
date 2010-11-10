@@ -400,7 +400,7 @@ if (!function_exists('raindrops_posted_on')) {
 if (!function_exists('filter_explode_meta_keys')) {
 
     function filter_explode_meta_keys( $content, $key ) {
-        $explode_keys = array( 'css', 'javascript', 'meta','embed','excerpt','template'); // 除外したいキーを設定
+        $explode_keys = array( 'css', 'javascript', 'meta','embed','excerpt','template');
         if ( in_array( $key, $explode_keys ) ) return;
         else return $content;
     }

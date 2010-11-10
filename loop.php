@@ -61,13 +61,11 @@
  */
 ?>
 <?php while (have_posts()) : the_post(); ?>
-<?php //if(in_category('blog')) {echo "blog";}else{echo "other";}?>
-<?php //$cat = get_the_category();//$cat = $cat[0];?>
+
 <?php
 $cat = "default";
 if ( in_category( "blog" )){
     $cat = "blog";
-
 }elseif ( in_category( "gallery" )){
     $cat = "gallery";
 }else{
@@ -90,7 +88,7 @@ if ( in_category( "blog" )){
  *
  *
  */
-            ?>
+?>
 <div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
   <ul class="entry-meta left">
     <li>
@@ -262,11 +260,13 @@ echo '</div>';
 <ul class="index">
   <?php while (have_posts()) : the_post(); ?>
   <li>
-    <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>> <span class="date" style="">
-      <?php the_time(TMN_THE_TIME_FORMAT) ?>
-      </span><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-      <?php the_title(); ?>
-      </a>
+    <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
+
+    <span class="entry-date published">
+      <abbr title="<?php the_time('c') ?>"><?php the_time(TMN_THE_TIME_FORMAT) ?></abbr>
+    </span>
+
+      <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
       <div style="entry-content">
         <div class="thumbnail_post" style="float:left;margin:0 1em 1em 0;">
           <?php the_post_thumbnail(); ?>
@@ -278,6 +278,8 @@ echo '</div>';
   </li>
   <?php endwhile; ?>
 </ul>
+
+
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 <div id="nav-below" class="clearfix"> <span class="nav-previous">
   <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>

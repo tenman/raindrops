@@ -7,23 +7,23 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
- 
+
 if(!defined('ABSPATH')){exit;}
 
-include(ABSPATH."/wp-load.php"); 
-	
-	include_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
+include(ABSPATH."/wp-load.php");
 
-$images_path			= get_bloginfo('stylesheet_directory').'/images/';
+    include_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
 
-$count 					= warehouse('raindrops_base_color');
-$style_type 			= warehouse('raindrops_style_type');
-$navigation_title_img 	= warehouse('raindrops_heading_image');
-$position_y 			= warehouse('raindrops_heading_image_position');
-$tmn_header_image 		= warehouse('raindrops_header_image');
-$tmn_header_color 		= warehouse('raindrops_default_fonts_color');
-$tmn_footer_image 		= warehouse('raindrops_footer_image');
-$tmn_footer_color 		= warehouse('raindrops_footer_color');
+$images_path            = get_stylesheet_directory_uri().'/images/';
+
+$count                  = warehouse('raindrops_base_color');
+$style_type             = warehouse('raindrops_style_type');
+$navigation_title_img   = warehouse('raindrops_heading_image');
+$position_y             = warehouse('raindrops_heading_image_position');
+$tmn_header_image       = warehouse('raindrops_header_image');
+$tmn_header_color       = warehouse('raindrops_default_fonts_color');
+$tmn_footer_image       = warehouse('raindrops_footer_image');
+$tmn_footer_color       = warehouse('raindrops_footer_color');
 
 define("BASE_COLOR1",$count);
 
@@ -37,17 +37,17 @@ define("BASE_COLOR1",$count);
 $raindrops_indv_css = design_output($style_type,$position_y).color_base();
 
 if(get_option("_raindrops_indv_css","none") == "none"){
-	add_option("_raindrops_indv_css",$raindrops_indv_css);
+    add_option("_raindrops_indv_css",$raindrops_indv_css);
 }else{
-	update_option("_raindrops_indv_css",$raindrops_indv_css);
+    update_option("_raindrops_indv_css",$raindrops_indv_css);
 }
 
   $parm = fileperms(STYLESHEETPATH.'/lib/');
   $parm = decoct($parm);
-  
+
 
 /*
-if(!is_writable(STYLESHEETPATH.'/lib/')){ 
+if(!is_writable(STYLESHEETPATH.'/lib/')){
 
 echo '<div style="padding:2em;color:red">'.STYLESHEETPATH.'/lib/' .__(' Permission denied change writable').'</div>';
 }
@@ -55,141 +55,141 @@ echo '<div style="padding:2em;color:red">'.STYLESHEETPATH.'/lib/' .__(' Permissi
 */
 
 function colors($num = 0, $select = 'set',$color1 = null){
-	global $images_path;	
-	
-	if($color == null){
-		$color1 = str_replace('#',"",BASE_COLOR1);
-	}else{
-		$color1 = str_replace('#',"",$color1);
-	
-	}
-		$base = new CSS_Color( $color1 );
-		
-	switch($num){
-	
-	case(0):
-		$bg 		= $base->bg['0'];
-		$fg 		= $base->fg['0'];
-		$color 	= "color:#$fg;background-color:#$bg;";
-		break;
-		case(-1):
-		$bg 		= $base->bg['-1'];
-		$fg 		= $base->fg['-1'];
-		$color 	= "color:#$fg;background-color:#$bg;";
-		break;
-		case(-2):
-		$bg 		= $base->bg['-2'];
-		$fg 		= $base->fg['-2'];
-		$color 	= "color:#$fg;background-color:#$bg;";
-		break;
-		case(-3):
-		$bg 		= $base->bg['-3'];
-		$fg 		= $base->fg['-3'];
-		$color 	= "color:#$fg;background-color:#$bg;";
-		break;
-		case(-4):
-		$bg 		= $base->bg['-4'];
-		$fg 		= $base->fg['-4'];
-		$color 	= "color:#$fg;background-color:#$bg;";
-		break;
-		case(-5):
-		$bg 		= $base->bg['-5'];
-		$fg 		= $base->fg['-5'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		case(1):
-		$bg 		= $base->bg['+1'];
-		$fg 		= $base->fg['+1'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		case(2):
-		$bg 		= $base->bg['+2'];
-		$fg 		= $base->fg['+2'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		case(3):
-		$bg 		= $base->bg['+3'];
-		$fg 		= $base->fg['+3'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		case(4):
-		$bg 		= $base->bg['+4'];
-		$fg 		= $base->fg['+4'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		case(5):
-		$bg 		= $base->bg['+5'];
-		$fg 		= $base->fg['+5'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		default:
-		$bg 		= $base->bg['0'];
-		$fg 		= $base->fg['0'];
-		$color 	= "color:#$fg;\n\tbackground-color:#$bg;";
-		break;
-		
-	}	
-	switch($select){
-	
-		case('set'):
-		
-		return $color;
-		break;
-		case('background'):
-		
-		return '#'.$bg;
-		break;
-		case('color'):
-		
-		return '#'.$fg;
-		break;
-	
-	}
-	
+    global $images_path;
+
+    if($color == null){
+        $color1 = str_replace('#',"",BASE_COLOR1);
+    }else{
+        $color1 = str_replace('#',"",$color1);
+
+    }
+        $base = new CSS_Color( $color1 );
+
+    switch($num){
+
+    case(0):
+        $bg         = $base->bg['0'];
+        $fg         = $base->fg['0'];
+        $color  = "color:#$fg;background-color:#$bg;";
+        break;
+        case(-1):
+        $bg         = $base->bg['-1'];
+        $fg         = $base->fg['-1'];
+        $color  = "color:#$fg;background-color:#$bg;";
+        break;
+        case(-2):
+        $bg         = $base->bg['-2'];
+        $fg         = $base->fg['-2'];
+        $color  = "color:#$fg;background-color:#$bg;";
+        break;
+        case(-3):
+        $bg         = $base->bg['-3'];
+        $fg         = $base->fg['-3'];
+        $color  = "color:#$fg;background-color:#$bg;";
+        break;
+        case(-4):
+        $bg         = $base->bg['-4'];
+        $fg         = $base->fg['-4'];
+        $color  = "color:#$fg;background-color:#$bg;";
+        break;
+        case(-5):
+        $bg         = $base->bg['-5'];
+        $fg         = $base->fg['-5'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+        case(1):
+        $bg         = $base->bg['+1'];
+        $fg         = $base->fg['+1'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+        case(2):
+        $bg         = $base->bg['+2'];
+        $fg         = $base->fg['+2'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+        case(3):
+        $bg         = $base->bg['+3'];
+        $fg         = $base->fg['+3'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+        case(4):
+        $bg         = $base->bg['+4'];
+        $fg         = $base->fg['+4'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+        case(5):
+        $bg         = $base->bg['+5'];
+        $fg         = $base->fg['+5'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+        default:
+        $bg         = $base->bg['0'];
+        $fg         = $base->fg['0'];
+        $color  = "color:#$fg;\n\tbackground-color:#$bg;";
+        break;
+
+    }
+    switch($select){
+
+        case('set'):
+
+        return $color;
+        break;
+        case('background'):
+
+        return '#'.$bg;
+        break;
+        case('color'):
+
+        return '#'.$fg;
+        break;
+
+    }
+
 }
 
 function color_base($color1=null,$colo2=null){
 global $images_path;
 if($color == null){
-	$color1 = str_replace('#',"",BASE_COLOR1);
+    $color1 = str_replace('#',"",BASE_COLOR1);
 }else{
-	$color1 = str_replace('#',"",$color1);
+    $color1 = str_replace('#',"",$color1);
 
 }
 if($color == null){
-	$color2 = str_replace('#',"",BASE_COLOR2);
+    $color2 = str_replace('#',"",BASE_COLOR2);
 }else{
 
-	$color2 = str_replace('#',"",$color2);
+    $color2 = str_replace('#',"",$color2);
 }
-	
 
-	
-	$base = new CSS_Color($color1);
-	$highlight = new CSS_Color($color2);
-	
-	$bg_1 = $base->bg['-1'];
-	$fg_1 = $base->fg['-1'];
-	$bg_2 = $base->bg['-2'];
-	$fg_2 = $base->fg['-2'];
-	$bg_3 = $base->bg['-3'];
-	$fg_3 = $base->fg['-3'];
-	$bg_4 = $base->bg['-4'];
-	$fg_4 = $base->fg['-4'];
-	$bg_5 = $base->bg['-5'];
-	$fg_5 = $base->fg['-5'];
-	$bg1 = $base->bg['+1'];
-	$fg1 = $base->fg['+1'];
-	$bg2 = $base->bg['+2'];
-	$fg2 = $base->fg['+2'];
-	$bg3 = $base->bg['+3'];
-	$fg3 = $base->fg['+3'];
-	$bg4 = $base->bg['+4'];
-	$fg4 = $base->fg['+4'];
-	$bg5 = $base->bg['+5'];
-	$fg5 = $base->fg['+5'];
 
-	$result=<<<CSS
+
+    $base = new CSS_Color($color1);
+    $highlight = new CSS_Color($color2);
+
+    $bg_1 = $base->bg['-1'];
+    $fg_1 = $base->fg['-1'];
+    $bg_2 = $base->bg['-2'];
+    $fg_2 = $base->fg['-2'];
+    $bg_3 = $base->bg['-3'];
+    $fg_3 = $base->fg['-3'];
+    $bg_4 = $base->bg['-4'];
+    $fg_4 = $base->fg['-4'];
+    $bg_5 = $base->bg['-5'];
+    $fg_5 = $base->fg['-5'];
+    $bg1 = $base->bg['+1'];
+    $fg1 = $base->fg['+1'];
+    $bg2 = $base->bg['+2'];
+    $fg2 = $base->fg['+2'];
+    $bg3 = $base->bg['+3'];
+    $fg3 = $base->fg['+3'];
+    $bg4 = $base->bg['+4'];
+    $fg4 = $base->fg['+4'];
+    $bg5 = $base->bg['+5'];
+    $fg5 = $base->fg['+5'];
+
+    $result=<<<CSS
 
 .color-1{
   background:#{$bg_1};

@@ -10,7 +10,7 @@
  */
 global $current_blog;
 if(isset($current_blog)){
-    $this_blog = array("b". $current_blog->blog_id,"debug");
+    $this_blog = array("b". $current_blog->blog_id);
 }else{
     $this_blog = array();
 }
@@ -109,33 +109,14 @@ endwhile;
     </div>
   </div>
 
-
-<?php
-// Check if this is a post or page, if it has a thumbnail, and if it's a big one
-if ( is_singular() &&
-        has_post_thumbnail( $post->ID ) &&
-        ( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-        $image[1] >= HEADER_IMAGE_WIDTH ) :
-
-        $aspect = round($image[2] / $image[1],3) * 100;
-        ?>
-
-    <?php
-    echo get_the_post_thumbnail( $post->ID, 'post-thumbnail','style=width:100%;height:'.$aspect.'%;' );
-
-    ?>
-
-    <?php else : ?>
-
 <?php if(SHOW_HEADER_IMAGE == true){?>
 
     <div id="header-image" class="color3" style="clear:both;background:#000 url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:0;"><span style="display:none">headerimage</span></div>
 <?php }?>
-<?php endif; ?>
  <!-- role="navigation" -->
   <div id="access">
 
-    <div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
+    <div class="skip-link screen-reader-text" id="content"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
     <?php
 
     wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>

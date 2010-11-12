@@ -263,16 +263,21 @@ echo '</div>';
     <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
 
     <span class="entry-date published">
-      <abbr title="<?php the_time('c') ?>"><?php the_time(TMN_THE_TIME_FORMAT) ?></abbr>
-    </span>
+     <?php the_time(TMN_THE_TIME_FORMAT) ?> </span>
+
+      <?php
+    echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
+?>
+
 
       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
-      <div style="entry-content">
+      <div class="entry-content clearfix">
         <div class="thumbnail_post" style="float:left;margin:0 1em 1em 0;">
           <?php the_post_thumbnail(); ?>
         </div>
-        <?php the_content();?>
+        <?php the_excerpt();?>
       </div>
+      <br class="clear" />
       <?php edit_post_link(__('Edit'), '<span>', '</span> '); ?>
     </div>
   </li>

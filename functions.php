@@ -51,11 +51,11 @@
         define('SHOW_HEADER_IMAGE',true);
     }
     if(!defined('TMN_THE_TIME_FORMAT')){
-        define("TMN_THE_TIME_FORMAT",'F j, Y');//
+        define("TMN_THE_TIME_FORMAT",'Y/n/j');//
 
     }
     if(!defined('TMN_THE_MONTH_FORMAT')){
-        define("TMN_THE_MONTH_FORMAT",'F j');//archive.php
+        define("TMN_THE_MONTH_FORMAT",'Y/m');//archive.php
 
     }
 
@@ -73,7 +73,7 @@
 
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 48, 48, true );
-    add_image_size( 'single-post-thumbnail', 600, 200, true);
+    add_image_size( 'single-post-thumbnail', 600, 400, true);
 
     // Add default posts and comments RSS feed links to head
     add_theme_support( 'automatic-feed-links' );
@@ -1277,10 +1277,14 @@ ul.index li{
     $face-3
 }
 
-#month_list td,#year_list td,#calendar_wrap td{
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td{
     border:1px solid $rgba_border;
 }
-td.month-date,td.month-name,td.time{
+td.month-date,td.month-name,td.time
+{
     $c_3
     border:1px solid $rgba_border;
 
@@ -1401,6 +1405,7 @@ border:double 3px $rgba_border;
 
     $c_2
 }
+
 DARK;
 
 /**
@@ -1602,7 +1607,7 @@ ul.index li{
     border:1px solid $c_border;
 }
 
-#month_list td,#year_list td,#calendar_wrap td{
+#month_list td,#year_list td,#calendar_wrap td,#date_list td{
     border:1px solid $rgba_border!important;
 }
 td.month-date,td.month-name,td.time{

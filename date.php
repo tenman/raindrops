@@ -211,8 +211,8 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 
     $daycount = $pre_pad;
-    $here = home_url();
-    $cal = "<h2 class=\"h2\"><a href=\"$here/$year/\" title=\"$year\">$year</a> <a href=\"$here/$year/$this_month/\"
+
+    $cal = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"".get_month_link($year,$this_month)."\"
     title=\"$year/$this_month\">" .
     $month[zeroise($this_month, 2)] . "</a></h2>";
     $cal .= '<table><tr>';
@@ -301,7 +301,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                 $months[$m][] = $post;
         }
 
-        $output = '';
+        $output = "<h2 class=\"h2\"><span class=\"year-name\">$year</span></a></span></h2>";
 
             $table_year = array(
                 '<table id="year_list"><tbody>',
@@ -320,13 +320,13 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                 '</tbody></table>');
 
 
-         $here = home_url();
+
         foreach ($months as $num => $val) {
             $num = (int)$num;
-           $table_year[$num] = '<tr><td class="month-name"><a href="'."$here/$year/$num/\" title=\"$year/$mon\">".$num.'</a></td>'.year_list ($val, $year, $num, $pad).'</tr>';
+           $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$mon\">".$num.'</a></td>'.year_list ($val, $year, $num, $pad).'</tr>';
 
         }
-    return implode("\n",$table_year);
+    return $output.implode("\n",$table_year);
     } // end get_year()
 
 
@@ -337,7 +337,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         $here = home_url();
 
-        $output = "<h2 class=\"h2\"><a href=\"$here/$year/\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"$here/$year/$mon/\" title=\"$year/$mon\"><span class=\"month-name\">" .
+        $output = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"".get_month_link($year,$mon)."\" title=\"$year/$mon\"><span class=\"month-name\">" .
        $mon . "</span></a>&nbsp;<span class=\"day-name\">". $day ."</span></h2>";
         $output .= '<table id="date_list"><tr>';
         // organize posts by hour
@@ -429,7 +429,9 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         }
         if(!empty($links)){
-        $result .= "<a href=\"$here/$y/$mo/$i\">";
+
+
+        $result .= "<a href=\"".get_day_link($y, $mo, $i)."\">";
         $result .= $i;
         $result .= " </a></span></td><td><ul>";
         $result .= $links;
@@ -444,7 +446,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         //$result .= "</ul></td></tr>\n";
     }
 
-        $output = "<h2 id=\"date_title\" class=\"h2\"><a href=\"$here/$y/\" title=\"$year\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
+        $output = "<h2 id=\"date_title\" class=\"h2\"><a href=\"".get_year_link($y)."\" title=\"$year\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
         return $output."<table id=\"month_list\">".$result."</table>";
     }
 

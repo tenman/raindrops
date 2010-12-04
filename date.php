@@ -15,13 +15,13 @@ exit;
 }
 
     $weekdaynames = array(
-        0 => __('Sunday'),
-        1 => __('Monday'),
-        2 => __('Tuesday'),
-        3 => __('Wednesday'),
-        4 => __('Thursday'),
-        5 => __('Friday'),
-        6 => __('Saturday')
+        0 => __('Sunday','Raindrops'),
+        1 => __('Monday','Raindrops'),
+        2 => __('Tuesday','Raindrops'),
+        3 => __('Wednesday','Raindrops'),
+        4 => __('Thursday','Raindrops'),
+        5 => __('Friday','Raindrops'),
+        6 => __('Saturday','Raindrops')
     );
 
     if (have_posts()) {
@@ -53,21 +53,21 @@ echo '<h1 class="page-title">';
             $one_year = query_posts("posts_per_page=-1&year=$ye");
             $output = get_year($one_year, $ye);
             wp_reset_query();
-             _e( 'Yearly Archives', 'raindrops');
+             _e( 'Yearly Archives', 'Raindrops');
 
     } elseif (is_month()) {
             $one_month = query_posts("posts_per_page=-1&year=$ye&monthnum=$mo");
             $output = month_list($one_month, $ye, $mo);
             wp_reset_query();
-            _e( 'Monthly Archives', 'raindrops');
+            _e('Monthly Archives','Raindrops');
     } elseif (is_day()) {
             $one_day = query_posts("posts_per_page=-1&year=$ye&monthnum=$mo&day=$da");
             $output = get_day($one_day, $ye, $mo, $da);
             wp_reset_query();
-            _e('Daily Archives');
+            _e('Daily Archives','Raindrops');
     }
 echo '</h1>';
-echo '<div id="content" class="narrowcolumn">';
+echo '<div class="datetable">';
 echo $output;
 echo '</div>';
 
@@ -215,7 +215,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     $cal = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"".get_month_link($year,$this_month)."\"
     title=\"$year/$this_month\">" .
     $month[zeroise($this_month, 2)] . "</a></h2>";
-    $cal .= '<table><tr>';
+    $cal .= '<table summary="Archives in '.$this_month.', '.$year.'"><tr>';
 
 
     foreach ($one_week as $day) {
@@ -304,7 +304,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $output = "<h2 class=\"h2\"><span class=\"year-name\">$year</span></a></span></h2>";
 
             $table_year = array(
-                '<table id="year_list"><tbody>',
+                '<table id="year_list" summary="Archives in '.$year.'"><tbody>',
                 '<tr><td class="month-name">1</td><td></td></tr>',
                 '<tr><td class="month-name">2</td><td></td></tr>',
                 '<tr><td class="month-name">3</td><td></td></tr>',
@@ -339,7 +339,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         $output = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"".get_month_link($year,$mon)."\" title=\"$year/$mon\"><span class=\"month-name\">" .
        $mon . "</span></a>&nbsp;<span class=\"day-name\">". $day ."</span></h2>";
-        $output .= '<table id="date_list"><tr>';
+        $output .= '<table id="date_list" summary="Archive in '.$day.', '.$mon.', '.$year.'">';
         // organize posts by hour
         //2009-05-27 08:47:10
 
@@ -367,7 +367,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                                 }
 
                 } else {
-                        $output .= '&nbsp';
+                        $output .= '<span style="visibility:hidden;">.</span>';
                 }
                 $output .= '</td></tr>';
         }
@@ -421,10 +421,10 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         foreach($one_month as $month){
 
-            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");
 
             if($d == $i and $m == $mo and $y == $ye){
-            $links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"$mytime->post_title\">".$month->post_title."</a></li>";
+            $links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".$month->post_title."\">".$month->post_title."</a></li>";
             }
 
         }
@@ -446,7 +446,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         //$result .= "</ul></td></tr>\n";
     }
 
-        $output = "<h2 id=\"date_title\" class=\"h2\"><a href=\"".get_year_link($y)."\" title=\"$year\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
+        $output = "<h2 id=\"date_title\" class=\"h2\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
         return $output."<table id=\"month_list\">".$result."</table>";
     }
 

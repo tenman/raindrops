@@ -6,431 +6,1264 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: RAINDROPS-0.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/twentyten\n"
-"POT-Creation-Date: 2010-07-14 16:21+0000\n"
-"PO-Revision-Date: 2010-09-29 11:15+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-04 19:15+0900\n"
+"PO-Revision-Date: 2010-12-04 19:17+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Japanese\n"
 "X-Poedit-Country: JAPAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-Basepath: c:\\apache\\htdocs\n"
+"X-Poedit-SearchPath-0: raindrops\n"
 
-#: 404.php:16
-#: loop.php:33
-msgid "Not Found"
-msgstr "みつかりません"
-
-#: 404.php:18
-msgid "Apologies, but the page you requested could not be found. Perhaps searching will help."
-msgstr ""
-
-#: archive.php:33
+#: raindrops/archive.php:40
 #, php-format
 msgid "Daily Archives: <span>%s</span>"
-msgstr "日別アーカイブ： <span>%s</span>"
+msgstr "日別アーカイブ: <span>%s</span>"
 
-#: archive.php:35
+#: raindrops/archive.php:42
 #, php-format
 msgid "Monthly Archives: <span>%s</span>"
-msgstr "月別アーカイブ：<span>%s</span>"
+msgstr "月別アーカイブ: <span>%s</span>"
 
-#: archive.php:37
+#: raindrops/archive.php:44
 #, php-format
 msgid "Yearly Archives: <span>%s</span>"
 msgstr "年次アーカイブ：<span>%s</span>"
 
-#: archive.php:39
-msgid "Blog Archives"
-msgstr "ブログ　アーカイブ"
-
-#: attachment.php:18
-#, php-format
-msgid "Return to %s"
-msgstr ""
-
-#. translators: %s - title of parent post
-#: attachment.php:20
-#, php-format
-msgid "<span class=\"meta-nav\">&larr;</span> %s"
-msgstr "<span class=\"meta-nav\">&larr;</span> %s"
-
-#: attachment.php:29
-#, php-format
-msgid "<span class=\"%1$s\">By</span> %2$s"
-msgstr "<span class=\"%1$s\">By</span> %2$s"
-
-#: attachment.php:33
-#: functions.php:451
-#, php-format
-msgid "View all posts by %s"
-msgstr "View all posts by %s"
-
-#: attachment.php:40
-#, php-format
-msgid "<span class=\"%1$s\">Published</span> %2$s"
-msgstr "<span class=\"%1$s\">Published</span> %2$s"
-
-#: attachment.php:50
-#, php-format
-msgid "Full size is %s pixels"
-msgstr "Full size is %s pixels"
-
-#: attachment.php:53
-msgid "Link to full-size image"
-msgstr "Link to full-size image"
-
-#: attachment.php:60
-#: attachment.php:107
-#: loop.php:95
-#: loop.php:118
-#: loop.php:160
-#: onecolumn-page.php:27
-#: page.php:32
-#: single.php:53
-msgid "Edit"
-msgstr "Edit"
-
-#: attachment.php:100
-#: functions.php:241
-#: loop.php:110
-#: loop.php:138
-msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-
-#: attachment.php:101
-#: loop.php:139
-#: onecolumn-page.php:26
-#: page.php:31
-#: single.php:31
-msgid "Pages:"
-msgstr "Pages:"
-
-#: author.php:27
+#: raindrops/author.php:41
 #, php-format
 msgid "Author Archives: %s"
-msgstr "Author Archives: %s"
+msgstr "著者アーカイブ: %s"
 
-#: author.php:37
-#: single.php:40
+#: raindrops/author.php:48
 #, php-format
 msgid "About %s"
-msgstr "About %s"
+msgstr "アバウト %s"
 
-#: category.php:16
-#, php-format
-msgid "Category Archives: %s"
-msgstr "Category Archives: %s"
-
-#: comments.php:18
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "This post is password protected. Enter the password to view any comments."
-
-#: comments.php:41
-#: comments.php:60
+#: raindrops/comments.php:27
+#: raindrops/comments.php:44
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
-msgstr "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr "<span class=\"meta-nav\">&larr;</span> 古いコメント"
 
-#: comments.php:42
-#: comments.php:61
+#: raindrops/comments.php:28
+#: raindrops/comments.php:45
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr "新しいコメント <span class=\"meta-nav\">&rarr;</span>"
 
-#: comments.php:72
-msgid "Comments are closed."
-msgstr "Comments are closed."
+#: raindrops/date.php:18
+#, fuzzy
+msgid "Sunday"
+msgstr "日曜日"
 
-#. #-#-#-#-#  twentyten.pot (Twenty Ten 1.1)  #-#-#-#-#
-#. Theme URI of the plugin/theme
-#: footer.php:33
-msgid "http://wordpress.org/"
-msgstr "http://wordpress.org/"
+#: raindrops/date.php:19
+#, fuzzy
+msgid "Monday"
+msgstr "月曜日"
 
-#: footer.php:34
-msgid "Semantic Personal Publishing Platform"
-msgstr "Semantic Personal Publishing Platform"
+#: raindrops/date.php:20
+#, fuzzy
+msgid "Tuesday"
+msgstr "火曜日"
 
-#: footer.php:35
-#, php-format
-msgid "Proudly powered by %s."
-msgstr "Proudly powered by %s."
+#: raindrops/date.php:21
+#, fuzzy
+msgid "Wednesday"
+msgstr "水曜日"
 
-#: functions.php:97
+#: raindrops/date.php:22
+#, fuzzy
+msgid "Thursday"
+msgstr "木曜日"
+
+#: raindrops/date.php:23
+#, fuzzy
+msgid "Friday"
+msgstr "金曜日"
+
+#: raindrops/date.php:24
+#, fuzzy
+msgid "Saturday"
+msgstr "土曜日"
+
+#: raindrops/functions.php:70
 msgid "Primary Navigation"
-msgstr "Primary Navigation"
+msgstr "主ナビゲーション"
 
-#. translators: header image description
-#: functions.php:133
-msgid "Berries"
-msgstr "Berries"
+#: raindrops/functions.php:140
+msgid "raindrops"
+msgstr "raindrops"
 
-#. translators: header image description
-#: functions.php:139
-msgid "Cherry Blossoms"
-msgstr "Cherry Blossoms"
+#: raindrops/functions.php:178
+#, fuzzy
+msgid "Default Sidebar"
+msgstr "左サイドバー"
 
-#. translators: header image description
-#: functions.php:145
-msgid "Concave"
-msgstr "Concave"
+#: raindrops/functions.php:191
+#, fuzzy
+msgid "Extra Sidebar"
+msgstr "左サイドバー"
 
-#. translators: header image description
-#: functions.php:151
-msgid "Fern"
-msgstr "Fern"
+#: raindrops/functions.php:204
+#, fuzzy
+msgid "Sticky Widget"
+msgstr "ウィジェットを保存"
 
-#. translators: header image description
-#: functions.php:157
-msgid "Forest Floor"
-msgstr "Forest Floor"
+#: raindrops/functions.php:216
+#, fuzzy
+msgid "Footer Widget"
+msgstr "フッターウィジェットエリア1"
 
-#. translators: header image description
-#: functions.php:163
-msgid "Inkwell"
-msgstr "Inkwell"
+#: raindrops/functions.php:227
+#, fuzzy
+msgid "Category Blog Widget"
+msgstr "ウィジェットエリア1"
 
-#. translators: header image description
-#: functions.php:169
-msgid "Path"
-msgstr "Path"
-
-#. translators: header image description
-#: functions.php:175
-msgid "Sunset"
-msgstr "Sunset"
-
-#: functions.php:308
+#: raindrops/functions.php:344
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
-msgstr "%s <span class=\"says\">says:</span>"
+msgstr "%s <span class=\"says\">の発言:</span>"
 
-#: functions.php:311
-msgid "Your comment is awaiting moderation."
-msgstr "Your comment is awaiting moderation."
-
-#. translators: 1: date, 2: time
-#: functions.php:318
+#: raindrops/functions.php:361
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
-#: functions.php:318
-#: functions.php:335
+#: raindrops/functions.php:361
+#: raindrops/functions.php:376
 msgid "(Edit)"
-msgstr "(Edit)"
+msgstr "（編集）"
 
-#: functions.php:335
-msgid "Pingback:"
-msgstr "Pingback:"
+#: raindrops/functions.php:389
+#, php-format
+msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr "カテゴリ： %1$s タグ：%2$s. ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: functions.php:354
-msgid "Primary Widget Area"
-msgstr "Primary Widget Area"
+#: raindrops/functions.php:391
+#, php-format
+msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr "カテゴリ： %1$s.ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: functions.php:356
-msgid "The primary widget area"
-msgstr "The primary widget area"
+#: raindrops/functions.php:393
+#, php-format
+msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr "ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: functions.php:365
-msgid "Secondary Widget Area"
-msgstr "Secondary Widget Area"
-
-#: functions.php:367
-msgid "The secondary widget area"
-msgstr "The secondary widget area"
-
-#: functions.php:376
-msgid "First Footer Widget Area"
-msgstr "First Footer Widget Area"
-
-#: functions.php:378
-msgid "The first footer widget area"
-msgstr "The first footer widget area"
-
-#: functions.php:387
-msgid "Second Footer Widget Area"
-msgstr "Second Footer Widget Area"
-
-#: functions.php:389
-msgid "The second footer widget area"
-msgstr "The second footer widget area"
-
-#: functions.php:398
-msgid "Third Footer Widget Area"
-msgstr "Third Footer Widget Area"
-
-#: functions.php:400
-msgid "The third footer widget area"
-msgstr "The third footer widget area"
-
-#: functions.php:409
-msgid "Fourth Footer Widget Area"
-msgstr "Fourth Footer Widget Area"
-
-#: functions.php:411
-msgid "The fourth footer widget area"
-msgstr "The fourth footer widget area"
-
-#: functions.php:442
+#: raindrops/functions.php:411
 #, php-format
 msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 msgstr "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 
-#: functions.php:468
-#, php-format
-msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+#: raindrops/functions.php:511
+#, fuzzy
+msgid "Raindrops Another Settings"
+msgstr "ギャラリー設定を更新"
 
-#: functions.php:470
-#, php-format
-msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+#: raindrops/functions.php:514
+msgid "When you do not want to use the automatic color setting"
+msgstr "自動配色設定の停止方法"
 
-#: functions.php:472
-#, php-format
-msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+#: raindrops/functions.php:515
+msgid "raindrops/functions.php TMN_USE_AUTO_COLOR value change false"
+msgstr "raindrops/functions.php を開いて、　TMN_USE_AUTO_COLOR の値を false　に変更してください"
 
-#: header.php:33
+#: raindrops/functions.php:517
+msgid "When you want to display the custom header image"
+msgstr "カスタムヘッダー画像を表示する方法"
+
+#: raindrops/functions.php:518
+msgid "raindrops/functions.php SHOW_HEADER_IMAGE value change true"
+msgstr "raindrops/functions.php を開いて　SHOW_HEADER_IMAGE の値を true　に変更してください"
+
+#: raindrops/functions.php:521
+#, fuzzy, php-format
+msgid "WEBSite：<a href=\"%1$s\">%2$s</a>"
+msgstr "<a href=\"%1$s\">%2$s %3$s</a>"
+
+#: raindrops/functions.php:545
+msgid "Tips"
+msgstr "コネタ"
+
+#: raindrops/functions.php:546
+msgid "If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once."
+msgstr "レインドロップスの設定画面から、基本色を設定するとそれに応じた背景色クラスが自動生成します"
+
+#: raindrops/functions.php:547
+#, fuzzy
+msgid "Dinamic Color Class"
+msgstr "テーマ <span class=\"b\">%1$s</span>"
+
+#: raindrops/functions.php:560
+#: raindrops/functions.php:580
+msgid "code example:please HTML editor mode"
+msgstr "HTMLモードを使ってくださいね"
+
+#: raindrops/functions.php:567
+#, fuzzy
+msgid "Dinamic Gradient Class"
+msgstr "テーマ <span class=\"b\">%1$s</span>"
+
+#: raindrops/functions.php:704
+#: raindrops/functions.php:737
+msgid "Width of Column Setting"
+msgstr "サイドバーの幅"
+
+#: raindrops/functions.php:708
+msgid "Width of page Setting"
+msgstr "ページ幅"
+
+#: raindrops/functions.php:714
+msgid "Ratio to text when extra sidebar is displayed Setting"
+msgstr "エキストラサイドバーの幅(%)"
+
+#: raindrops/functions.php:719
+msgid "Display of extra sidebar Setting"
+msgstr "エキストラサイドバーの表示"
+
+#: raindrops/functions.php:725
+msgid "Footer Fonts Color Setting"
+msgstr "フッター文字色"
+
+#: raindrops/functions.php:731
+msgid "Default Fonts Color Setting"
+msgstr "コンテンツの文字色"
+
+#: raindrops/functions.php:744
+#: raindrops/functions.php:752
+msgid "Base color Setting"
+msgstr "基本色"
+
+#: raindrops/functions.php:745
+msgid "The reference color of an automatic arrangement of color is decided."
+msgstr "ブログのベースカラー"
+
+#: raindrops/functions.php:747
+msgid "If it wants you other arrangement of color sets ..you.., themes/functions.php is opened, and it is ..value of const COLOR_SCHEME.. revokable. In default, color_en or color_en_140 can be set. "
+msgstr "色指定セレクトボックスの選択肢は、raindrops/theme/functions.phpを開いてCOLOR_SCHEMEの値を変更することができます。color_en か color_en_140　に値を変更してください"
+
+#: raindrops/functions.php:753
+msgid "The mood like dark atmosphere and the bright note, etc. is decided."
+msgstr "明るめ、暗め、等を選ぶと自動配色します。"
+
+#: raindrops/functions.php:759
+msgid "Header image Setting"
+msgstr "ページヘッダ背景画像"
+
+#: raindrops/functions.php:760
+msgid "The name of the picture file used for the header is set. "
+msgstr "ヘッダ背景画像"
+
+#: raindrops/functions.php:761
+#: raindrops/functions.php:767
+#: raindrops/functions.php:783
+msgid "As for the image, the image that exists in themes/raindrops/image/is used."
+msgstr "themes/raindrops/image/にあるファイルから、画像ファイルは選択されます。"
+
+#: raindrops/functions.php:765
+msgid "Footer image Setting"
+msgstr "ページフッタ背景画像"
+
+#: raindrops/functions.php:766
+msgid "The name of the picture file used for the footer is set. "
+msgstr "フッタ背景画像"
+
+#: raindrops/functions.php:773
+msgid "h2 headding image position Setting"
+msgstr "h2見出し背景色の位置指定"
+
+#: raindrops/functions.php:774
+#: raindrops/functions.php:782
+msgid "The name of the picture file used for the h2 headding is set. "
+msgstr "指定した画像ファイルが、h2見出しの背景画像に使用されます"
+
+#: raindrops/functions.php:775
+msgid "Please set the integral value from 0 to 7. "
+msgstr "値は、0-7の間で設定してください。"
+
+#: raindrops/functions.php:781
+msgid "h2 headding background image Setting"
+msgstr "h2見出し背景画像"
+
+#: raindrops/functions.php:784
+msgid "The header image can be chosen from among three kinds (h2.png,h2b,png,h2c.png) now. Of course, customizing is also possible. "
+msgstr "h2ヘッダ背景画像は、h2.png h2b.png h2c.pngから選ぶことができます"
+
+#: raindrops/functions.php:824
+#: raindrops/functions.php:826
+#, fuzzy
+msgid "Value"
+msgstr "値"
+
+#: raindrops/functions.php:824
+#: raindrops/functions.php:826
+#: raindrops/loop.php:208
+#: raindrops/loop.php:275
+#: raindrops/loop.php:354
+msgid "Edit"
+msgstr "編集"
+
+#: raindrops/functions.php:826
+#, fuzzy
+msgid "Color"
+msgstr "色"
+
+#: raindrops/functions.php:971
+#, fuzzy
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: raindrops/functions.php:987
+msgid "Please reload this page ex. windows F5"
+msgstr "恐縮ですが、このページをリロード(F5)してください。"
+
+#: raindrops/functions.php:999
+#, fuzzy
+msgid "none"
+msgstr "なし"
+
+#: raindrops/functions.php:999
+msgid "toki"
+msgstr "とき色"
+
+#: raindrops/functions.php:999
+msgid "tutuji"
+msgstr "つつじ色"
+
+#: raindrops/functions.php:999
+msgid "sakura"
+msgstr "桜色"
+
+#: raindrops/functions.php:999
+msgid "bara"
+msgstr "ばら色"
+
+#: raindrops/functions.php:999
+msgid "karakurenai"
+msgstr "からくれない"
+
+#: raindrops/functions.php:999
+msgid "sango"
+msgstr "さんご色"
+
+#: raindrops/functions.php:999
+msgid "koubai"
+msgstr "紅梅（こうばい）色"
+
+#: raindrops/functions.php:999
+msgid "momo"
+msgstr "桃色"
+
+#: raindrops/functions.php:999
+msgid "beni"
+msgstr "紅色"
+
+#: raindrops/functions.php:999
+msgid "beniaka"
+msgstr "紅赤"
+
+#: raindrops/functions.php:999
+msgid "enji"
+msgstr "えんじ"
+
+#: raindrops/functions.php:999
+msgid "suou"
+msgstr "蘇芳（すおう）"
+
+#: raindrops/functions.php:999
+msgid "akane"
+msgstr "茜（あかね）色"
+
+#: raindrops/functions.php:999
+msgid "aka"
+msgstr "赤"
+
+#: raindrops/functions.php:999
+msgid "syu"
+msgstr "朱色"
+
+#: raindrops/functions.php:999
+msgid "benikaba"
+msgstr "紅樺（べにかば）色"
+
+#: raindrops/functions.php:999
+msgid "benihi"
+msgstr "紅緋（べにひ）"
+
+#: raindrops/functions.php:999
+#, fuzzy
+msgid "entan"
+msgstr "メタ情報"
+
+#: raindrops/functions.php:999
+msgid "beniebitya"
+msgstr "紅海老茶"
+
+#: raindrops/functions.php:999
+msgid "tobi"
+msgstr "とび色"
+
+#: raindrops/functions.php:999
+msgid "azuki"
+msgstr "小豆（あずき）色"
+
+#: raindrops/functions.php:999
+msgid "bengara"
+msgstr "弁柄（べんがら）色"
+
+#: raindrops/functions.php:999
+msgid "ebitya"
+msgstr "海老茶"
+
+#: raindrops/functions.php:999
+msgid "kinaka"
+msgstr "金赤"
+
+#: raindrops/functions.php:999
+msgid "akatya"
+msgstr "赤茶"
+
+#: raindrops/functions.php:999
+msgid "akasabi"
+msgstr "赤錆色"
+
+#: raindrops/functions.php:999
+msgid "ouni"
+msgstr "黄丹（おうに）"
+
+#: raindrops/functions.php:999
+msgid "sekitou"
+msgstr "赤橙"
+
+#: raindrops/functions.php:999
+msgid "kaki"
+msgstr "柿色"
+
+#: raindrops/functions.php:999
+msgid "nikkei"
+msgstr "肉桂（にっけい）色"
+
+#: raindrops/functions.php:999
+msgid "kaba"
+msgstr "樺（かば）色"
+
+#: raindrops/functions.php:999
+msgid "renga"
+msgstr "れんが色"
+
+#: raindrops/functions.php:999
+msgid "sabi"
+msgstr "錆色"
+
+#: raindrops/functions.php:999
+msgid "hiwada"
+msgstr "檜皮（ひわだ）色"
+
+#: raindrops/functions.php:999
+msgid "kuri"
+msgstr "栗色"
+
+#: raindrops/functions.php:999
+msgid "kiaka"
+msgstr "黄赤"
+
+#: raindrops/functions.php:999
+msgid "taisya"
+msgstr "たいしゃ"
+
+#: raindrops/functions.php:999
+msgid "rakuda"
+msgstr "らくだ色"
+
+#: raindrops/functions.php:999
+msgid "kitye"
+msgstr "黄茶"
+
+#: raindrops/functions.php:999
+msgid "hadairo"
+msgstr "肌色"
+
+#: raindrops/functions.php:999
+msgid "daidai"
+msgstr "橙色"
+
+#: raindrops/functions.php:999
+msgid "haitya"
+msgstr "灰茶"
+
+#: raindrops/functions.php:999
+msgid "tya"
+msgstr "茶色"
+
+#: raindrops/functions.php:999
+msgid "kogetya"
+msgstr "焦茶"
+
+#: raindrops/functions.php:999
+msgid "kouji"
+msgstr "こうじ色"
+
+#: raindrops/functions.php:999
+msgid "anzu"
+msgstr "杏色"
+
+#: raindrops/functions.php:999
+msgid "mikan"
+msgstr "蜜柑色"
+
+#: raindrops/functions.php:999
+msgid "kassyoku"
+msgstr "褐色"
+
+#: raindrops/functions.php:999
+msgid "tutiiro"
+msgstr "土色"
+
+#: raindrops/functions.php:999
+msgid "komugi"
+msgstr "小麦色"
+
+#: raindrops/functions.php:999
+msgid "kohaku"
+msgstr "こはく色"
+
+#: raindrops/functions.php:999
+msgid "kintya"
+msgstr "金茶"
+
+#: raindrops/functions.php:999
+msgid "tamago"
+msgstr "卵色"
+
+#: raindrops/functions.php:999
+msgid "yamabuki"
+msgstr "山吹色"
+
+#: raindrops/functions.php:999
+msgid "oudo"
+msgstr "黄土色"
+
+#: raindrops/functions.php:999
+msgid "kutiba"
+msgstr "朽葉（くちば）色"
+
+#: raindrops/functions.php:999
+msgid "himawari"
+msgstr "ひまわり色"
+
+#: raindrops/functions.php:999
+msgid "ukon"
+msgstr "うこん色"
+
+#: raindrops/functions.php:999
+msgid "suna"
+msgstr "砂色"
+
+#: raindrops/functions.php:999
+msgid "karasi"
+msgstr "芥子（からし）色"
+
+#: raindrops/functions.php:999
+msgid "ki"
+msgstr "黄色"
+
+#: raindrops/functions.php:999
+msgid "tanpopo"
+msgstr "たんぽぽ色"
+
+#: raindrops/functions.php:999
+msgid "uguisutya"
+msgstr "鶯茶"
+
+#: raindrops/functions.php:999
+msgid "tyuki"
+msgstr "中黄"
+
+#: raindrops/functions.php:999
+msgid "kariyasu"
+msgstr "刈安（かりやす）色"
+
+#: raindrops/functions.php:999
+msgid "kihada"
+msgstr "きはだ色"
+
+#: raindrops/functions.php:999
+msgid "miru"
+msgstr "みる色"
+
+#: raindrops/functions.php:999
+msgid "biwa"
+msgstr "ひわ色"
+
+#: raindrops/functions.php:999
+msgid "uguisu"
+msgstr "鶯（うぐいす）色"
+
+#: raindrops/functions.php:999
+msgid "mattya"
+msgstr "抹茶色"
+
+#: raindrops/functions.php:999
+msgid "kimidori"
+msgstr "黄緑"
+
+#: raindrops/functions.php:999
+msgid "koke"
+msgstr "苔色"
+
+#: raindrops/functions.php:999
+msgid "wakakusa"
+msgstr "若草色"
+
+#: raindrops/functions.php:999
+msgid "moegi"
+msgstr "萌黄（もえぎ）"
+
+#: raindrops/functions.php:999
+msgid "kusa"
+msgstr "草色"
+
+#: raindrops/functions.php:999
+msgid "wakaba"
+msgstr "若葉色"
+
+#: raindrops/functions.php:999
+msgid "matuba"
+msgstr "松葉色"
+
+#: raindrops/functions.php:999
+msgid "byakuroku"
+msgstr "白緑（びゃくろく）"
+
+#: raindrops/functions.php:999
+msgid "midori"
+msgstr "緑"
+
+#: raindrops/functions.php:999
+msgid "tokiwa"
+msgstr "常磐（ときわ）色"
+
+#: raindrops/functions.php:999
+msgid "rokusyou"
+msgstr "緑青（ろくしょう）色"
+
+#: raindrops/functions.php:999
+msgid "titosemidori"
+msgstr "千歳緑（ちとせみどり）"
+
+#: raindrops/functions.php:999
+msgid "fukamidori"
+msgstr "深緑"
+
+#: raindrops/functions.php:999
+msgid "wakatake"
+msgstr "若竹色"
+
+#: raindrops/functions.php:999
+msgid "seiji"
+msgstr "青磁色"
+
+#: raindrops/functions.php:999
+msgid "aotake"
+msgstr "青竹色"
+
+#: raindrops/functions.php:999
+msgid "tetu"
+msgstr "鉄色"
+
+#: raindrops/functions.php:999
+msgid "aomidori"
+msgstr "青緑"
+
+#: raindrops/functions.php:999
+msgid "sabiasagi"
+msgstr "錆浅葱"
+
+#: raindrops/functions.php:999
+msgid "mizuasagi"
+msgstr "水浅葱"
+
+#: raindrops/functions.php:999
+msgid "sinbasi"
+msgstr "新橋色"
+
+#: raindrops/functions.php:999
+msgid "asagi"
+msgstr "浅葱（あさぎ）色"
+
+#: raindrops/functions.php:999
+msgid "byakugun"
+msgstr "白群（びゃくぐん）"
+
+#: raindrops/functions.php:999
+msgid "nando"
+msgstr "納戸色"
+
+#: raindrops/functions.php:999
+msgid "kamenozoki"
+msgstr "かめのぞき"
+
+#: raindrops/functions.php:999
+msgid "mizu"
+msgstr "水色"
+
+#: raindrops/functions.php:999
+msgid "ainezu"
+msgstr "藍鼠（あいねず）"
+
+#: raindrops/functions.php:999
+msgid "sora"
+msgstr "空色"
+
+#: raindrops/functions.php:999
+msgid "ao"
+msgstr "青"
+
+#: raindrops/functions.php:999
+msgid "ai"
+msgstr "藍色"
+
+#: raindrops/functions.php:999
+msgid "koiai"
+msgstr "濃藍（こいあい）"
+
+#: raindrops/functions.php:999
+msgid "wasurenagusa"
+msgstr "勿忘草（わすれなぐさ）色"
+
+#: raindrops/functions.php:999
+msgid "tuyukusa"
+msgstr "露草色"
+
+#: raindrops/functions.php:999
+msgid "hanada"
+msgstr "はなだ色"
+
+#: raindrops/functions.php:999
+msgid "konjou"
+msgstr "紺青（こんじょう）"
+
+#: raindrops/functions.php:999
+msgid "ruri"
+msgstr "るり色"
+
+#: raindrops/functions.php:999
+msgid "rurikon"
+msgstr "るり紺"
+
+#: raindrops/functions.php:999
+msgid "kon"
+msgstr "紺色"
+
+#: raindrops/functions.php:999
+msgid "kakitubata"
+msgstr "かきつばた色"
+
+#: raindrops/functions.php:999
+msgid "kati"
+msgstr "勝色（かちいろ）"
+
+#: raindrops/functions.php:999
+msgid "gunjou"
+msgstr "群青（ぐんじょう）色"
+
+#: raindrops/functions.php:999
+msgid "tetukon"
+msgstr "鉄紺"
+
+#: raindrops/functions.php:999
+msgid "fujinando"
+msgstr "藤納戸"
+
+#: raindrops/functions.php:999
+msgid "kikyou"
+msgstr "ききょう色"
+
+#: raindrops/functions.php:999
+msgid "konai"
+msgstr "紺藍"
+
+#: raindrops/functions.php:999
+msgid "fuji"
+msgstr "藤色"
+
+#: raindrops/functions.php:999
+msgid "fujimurasaki"
+msgstr "藤紫"
+
+#: raindrops/functions.php:999
+msgid "aomurasaki"
+msgstr "青紫"
+
+#: raindrops/functions.php:999
+msgid "sumire"
+msgstr "菫（すみれ）色"
+
+#: raindrops/functions.php:999
+msgid "hatoba"
+msgstr "鳩羽（はとば）色"
+
+#: raindrops/functions.php:999
+msgid "syoubu"
+msgstr "しょうぶ色"
+
+#: raindrops/functions.php:999
+msgid "edomurasaki"
+msgstr "江戸紫"
+
+#: raindrops/functions.php:999
+msgid "murasaki"
+msgstr "紫"
+
+#: raindrops/functions.php:999
+msgid "kodaimurasaki"
+msgstr "古代紫"
+
+#: raindrops/functions.php:999
+msgid "nasukon"
+msgstr "なす紺"
+
+#: raindrops/functions.php:999
+msgid "sikon"
+msgstr "紫紺"
+
+#: raindrops/functions.php:999
+msgid "ayame"
+msgstr "あやめ色"
+
+#: raindrops/functions.php:999
+msgid "botan"
+msgstr "牡丹（ぼたん）色"
+
+#: raindrops/functions.php:999
+msgid "akamurasaki"
+msgstr "赤紫"
+
+#: raindrops/functions.php:999
+msgid "siro"
+msgstr "白"
+
+#: raindrops/functions.php:999
+msgid "gofun"
+msgstr "胡粉（ごふん）色"
+
+#: raindrops/functions.php:999
+msgid "kinari"
+msgstr "生成り（きなり）色"
+
+#: raindrops/functions.php:999
+msgid "zouge"
+msgstr "象牙（ぞうげ）色"
+
+#: raindrops/functions.php:999
+msgid "ginnezu"
+msgstr "銀鼠（ぎんねず）"
+
+#: raindrops/functions.php:999
+msgid "tyanezumi"
+msgstr "茶鼠"
+
+#: raindrops/functions.php:999
+msgid "nezumi"
+msgstr "鼠色"
+
+#: raindrops/functions.php:999
+msgid "rikyunezumi"
+msgstr "利休鼠"
+
+#: raindrops/functions.php:999
+msgid "namari"
+msgstr "鉛色"
+
+#: raindrops/functions.php:999
+msgid "hai"
+msgstr "灰色"
+
+#: raindrops/functions.php:999
+msgid "susutake"
+msgstr "すす竹色"
+
+#: raindrops/functions.php:999
+msgid "kurotya"
+msgstr "黒茶"
+
+#: raindrops/functions.php:999
+msgid "sumi"
+msgstr "墨"
+
+#: raindrops/functions.php:999
+msgid "kuro"
+msgstr "黒"
+
+#: raindrops/functions.php:999
+msgid "tetukuro"
+msgstr "鉄黒"
+
+#: raindrops/functions.php:2199
+#, fuzzy
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: raindrops/functions.php:2199
+msgid "Option"
+msgstr "オプション"
+
+#: raindrops/header-xhtml1.php:45
+#: raindrops/header.php:56
 #, php-format
 msgid "Page %s"
-msgstr "Page %s"
+msgstr "ページ %s"
 
-#: header.php:83
-msgid "Skip to content"
-msgstr "Skip to content"
-
-#: loop.php:25
-#: loop.php:173
+#: raindrops/loop.php:23
+#: raindrops/loop.php:285
+#: raindrops/loop.php:361
+#: raindrops/page.php:60
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span>古い投稿"
 
-#: loop.php:26
-#: loop.php:174
+#: raindrops/loop.php:25
+#: raindrops/loop.php:287
+#: raindrops/loop.php:363
+#: raindrops/page.php:63
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
-#: loop.php:35
-msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
-msgstr "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
+#: raindrops/loop.php:126
+#: raindrops/loop.php:206
+#: raindrops/loop.php:273
+msgid "Leave a comment"
+msgstr "コメントを　どうぞ"
 
-#: loop.php:60
-#: loop.php:92
-msgctxt "gallery category slug"
-msgid "gallery"
-msgstr "gallery"
+#: raindrops/loop.php:126
+#: raindrops/loop.php:206
+#: raindrops/loop.php:273
+msgid "1 Comment"
+msgstr "1 コメント"
 
-#: loop.php:62
-#: loop.php:83
-#: loop.php:126
-#, php-format
-msgid "Permalink to %s"
-msgstr "Permalink to %s"
+#: raindrops/loop.php:126
+#: raindrops/loop.php:206
+#: raindrops/loop.php:273
+msgid "% Comments"
+msgstr "% コメント"
 
-#: loop.php:82
+#: raindrops/loop.php:139
+msgid "Read the rest of this entry &raquo;"
+msgstr "続きを読む　&raquo;"
+
+#: raindrops/loop.php:195
+#: raindrops/loop.php:341
 #, php-format
 msgid "This gallery contains <a %1$s>%2$s photos</a>."
-msgstr "This gallery contains <a %1$s>%2$s photos</a>."
+msgstr "このギャラリには <a %1$s>%2$s の画像があります</a>."
 
-#: loop.php:92
-msgid "View posts in the Gallery category"
-msgstr "View posts in the Gallery category"
+#: raindrops/loop.php:256
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
 
-#: loop.php:92
-msgid "More Galleries"
-msgstr "More Galleries"
+#: raindrops/loop.php:261
+#, fuzzy
+msgid "Continue&nbsp;reading&nbsp;<span class=\"meta-nav\">&rarr;</span>"
+msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
 
-#: loop.php:94
-#: loop.php:117
-#: loop.php:159
-msgid "Leave a comment"
-msgstr "Leave a comment"
+#: raindrops/loop.php:262
+msgid "Pages:"
+msgstr "ページ"
 
-#: loop.php:94
-#: loop.php:117
-#: loop.php:159
-msgid "1 Comment"
-msgstr "1 Comment"
+#: raindrops/loop.php:271
+msgid "Tagged "
+msgstr "タグ"
 
-#: loop.php:94
-#: loop.php:117
-#: loop.php:159
-msgid "% Comments"
-msgstr "% Comments"
-
-#: loop.php:101
-msgctxt "asides category slug"
-msgid "asides"
-msgstr "asides"
-
-#: loop.php:146
+#: raindrops/loop.php:311
 #, php-format
-msgid "<span class=\"%1$s\">Posted in</span> %2$s"
-msgstr "<span class=\"%1$s\">Posted in</span> %2$s"
+msgid "<span class=\"time-diff\">(Passage of %s)</span>"
+msgstr "%s <span class=\"says\">前の投稿</span>"
 
-#: loop.php:155
-#, php-format
-msgid "<span class=\"%1$s\">Tagged</span> %2$s"
-msgstr "<span class=\"%1$s\">Tagged</span> %2$s"
+#: raindrops/loop.php:349
+#, fuzzy
+msgid "Continue readingRaindrops"
+msgstr "続けて読む"
 
-#: search.php:16
-#, php-format
-msgid "Search Results for: %s"
-msgstr "Search Results for: %s"
+#: raindrops/loop.php:349
+msgid "<span class=\"button lt\"><span class=\"text\">"
+msgstr "<span class=\"button lt\"><span class=\"text\">"
 
-#: search.php:26
-msgid "Nothing Found"
-msgstr "Nothing Found"
+#~ msgid "Not Found"
+#~ msgstr "みつかりません"
+#~ msgid ""
+#~ "Apologies, but the page you requested could not be found. Perhaps "
+#~ "searching will help."
+#~ msgstr ""
+#~ "期待に沿えず、ご要望のページがみつかりません、 よろしければ、検索してみて"
+#~ "ください。"
+#~ msgid "Blog Archives"
+#~ msgstr "ブログ　アーカイブ"
+#~ msgid "Return to %s"
+#~ msgstr "Return to %s"
+#~ msgid "<span class=\"meta-nav\">&larr;</span> %s"
+#~ msgstr "<span class=\"meta-nav\">&larr;</span> %s"
+#~ msgid "<span class=\"%1$s\">By</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">By</span> %2$s"
+#~ msgid "View all posts by %s"
+#~ msgstr "View all posts by %s"
+#~ msgid "<span class=\"%1$s\">Published</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">Published</span> %2$s"
+#~ msgid "Full size is %s pixels"
+#~ msgstr "フルサイズ %s pixels"
+#~ msgid "Link to full-size image"
+#~ msgstr "フルサイズ画像にリンク"
+#~ msgid "Category Archives: %s"
+#~ msgstr "カテゴリアーカイブ: %s"
+#~ msgid ""
+#~ "This post is password protected. Enter the password to view any comments."
+#~ msgstr ""
+#~ "この投稿はパスワードつきです.パスワードを入力するとコメントを見ることがで"
+#~ "きます。"
+#~ msgid "Comments are closed."
+#~ msgstr "コメントはできません"
+#~ msgid "http://wordpress.org/"
+#~ msgstr "http://wordpress.org/"
+#~ msgid "Semantic Personal Publishing Platform"
+#~ msgstr "Semantic Personal Publishing Platform"
+#~ msgid "Proudly powered by %s."
+#~ msgstr "Proudly powered by %s."
+#~ msgid "Berries"
+#~ msgstr "Berries"
+#~ msgid "Cherry Blossoms"
+#~ msgstr "Cherry Blossoms"
+#~ msgid "Concave"
+#~ msgstr "Concave"
+#~ msgid "Fern"
+#~ msgstr "Fern"
+#~ msgid "Forest Floor"
+#~ msgstr "Forest Floor"
+#~ msgid "Inkwell"
+#~ msgstr "Inkwell"
+#~ msgid "Path"
+#~ msgstr "パス"
+#~ msgid "Sunset"
+#~ msgstr "日没"
+#~ msgid "Your comment is awaiting moderation."
+#~ msgstr "Your comment is awaiting moderation."
+#~ msgid "Pingback:"
+#~ msgstr "ピンバック："
+#~ msgid "Primary Widget Area"
+#~ msgstr "プライマリ　ウィジェット　エリア"
+#~ msgid "The primary widget area"
+#~ msgstr "プライマリ　ウィジェット　エリア"
+#~ msgid "Secondary Widget Area"
+#~ msgstr "セカンダリ　ウィジェット　エリア"
+#~ msgid "The secondary widget area"
+#~ msgstr "セカンダリ　ウィジェット　エリア"
 
-#: search.php:28
-msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
-msgstr "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+#, fuzzy
+#~ msgid "First Footer Widget Area"
+#~ msgstr "フッターウィジェットエリア1"
+#~ msgid "The first footer widget area"
+#~ msgstr "フッタ　ウィジェット　エリア"
+#~ msgid "Second Footer Widget Area"
+#~ msgstr "第2フッタ　ウィジェット　エリア"
+#~ msgid "The second footer widget area"
+#~ msgstr "第2フッタ　ウィジェット　エリア"
 
-#: sidebar.php:27
-msgid "Archives"
-msgstr "Archives"
+#, fuzzy
+#~ msgid "Third Footer Widget Area"
+#~ msgstr "フッターウィジェットエリア3"
+#~ msgid "The third footer widget area"
+#~ msgstr "第3　フッター　ウィジェット　エリア"
+#~ msgid "Fourth Footer Widget Area"
+#~ msgstr "第4　フッター　ウィジェット　エリア"
+#~ msgid "The fourth footer widget area"
+#~ msgstr "第4　フッター　ウィジェット　エリア"
+#~ msgid "Skip to content"
+#~ msgstr "Skip to content"
+#~ msgid ""
+#~ "Apologies, but no results were found for the requested archive. Perhaps "
+#~ "searching will help find a related post."
+#~ msgstr ""
+#~ "Apologies, but no results were found for the requested archive. Perhaps "
+#~ "searching will help find a related post."
+#~ msgctxt "gallery category slug"
+#~ msgid "gallery"
+#~ msgstr "ギャラリ"
+#~ msgid "Permalink to %s"
+#~ msgstr "Permalink to %s"
+#~ msgid "View posts in the Gallery category"
+#~ msgstr "View posts in the Gallery category"
+#~ msgid "More Galleries"
+#~ msgstr "More Galleries"
+#~ msgctxt "asides category slug"
+#~ msgid "asides"
+#~ msgstr "asides"
+#~ msgid "<span class=\"%1$s\">Posted in</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">Posted in</span> %2$s"
+#~ msgid "<span class=\"%1$s\">Tagged</span> %2$s"
+#~ msgstr "<span class=\"%1$s\">Tagged</span> %2$s"
+#~ msgid "Search Results for: %s"
+#~ msgstr "検索結果: %s"
+#~ msgid "Nothing Found"
+#~ msgstr "みつかりません"
+#~ msgid ""
+#~ "Sorry, but nothing matched your search criteria. Please try again with "
+#~ "some different keywords."
+#~ msgstr ""
+#~ "キーワードで見つかりませんでした。ほかのキーワードで試してみてください"
+#~ msgid "Archives"
+#~ msgstr "アーカイブ"
+#~ msgctxt "Previous post link"
+#~ msgid "&larr;"
+#~ msgstr "&larr;"
+#~ msgctxt "Next post link"
+#~ msgid "&rarr;"
+#~ msgstr "&rarr;"
+#~ msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+#~ msgstr " %s のすべての投稿を表示<span class=\"meta-nav\">&rarr;</span>"
+#~ msgid "Tag Archives: %s"
+#~ msgstr "タグアーカイブ: %s"
+#~ msgid "Twenty Ten"
+#~ msgstr "Twenty Ten"
+#~ msgid ""
+#~ "The 2010 theme for WordPress is stylish, customizable, simple, and "
+#~ "readable -- make it yours with a custom menu, header image, and "
+#~ "background. Twenty Ten supports six widgetized areas (two in the sidebar, "
+#~ "four in the footer) and featured images (thumbnails for gallery posts and "
+#~ "custom header images for posts and pages). It includes stylesheets for "
+#~ "print and the admin Visual Editor, special styles for posts in the "
+#~ "\"Asides\" and \"Gallery\" categories, and has an optional one-column "
+#~ "page template that removes the sidebar."
+#~ msgstr ""
+#~ "The 2010 theme for WordPress is stylish, customizable, simple, and "
+#~ "readable -- make it yours with a custom menu, header image, and "
+#~ "background. Twenty Ten supports six widgetized areas (two in the sidebar, "
+#~ "four in the footer) and featured images (thumbnails for gallery posts and "
+#~ "custom header images for posts and pages). It includes stylesheets for "
+#~ "print and the admin Visual Editor, special styles for posts in the "
+#~ "\"Asides\" and \"Gallery\" categories, and has an optional one-column "
+#~ "page template that removes the sidebar."
+#~ msgid "the WordPress team"
+#~ msgstr "ワードプレスチーム"
+#~ msgid ""
+#~ "black, blue, white, two-columns, fixed-width, custom-header, custom-"
+#~ "background, threaded-comments, sticky-post, translation-ready, "
+#~ "microformats, rtl-language-support, editor-style"
+#~ msgstr ""
+#~ "black, blue, white, two-columns, fixed-width, custom-header, custom-"
+#~ "background, threaded-comments, sticky-post, translation-ready, "
+#~ "microformats, rtl-language-support, editor-style"
 
-#: sidebar.php:34
-msgid "Meta"
-msgstr "Meta"
+#, fuzzy
+#~ msgid "%1$s updated successfully."
+#~ msgstr "%1$s の更新に成功しました。"
 
-#: single.php:18
-#: single.php:58
-msgctxt "Previous post link"
-msgid "&larr;"
-msgstr "&larr;"
+#, fuzzy
+#~ msgid "Try again"
+#~ msgstr "もう一度お試しください"
+#~ msgid "Welcome Raindrops."
+#~ msgstr "ようこそRaindropsへ"
+#~ msgid ""
+#~ "Your own blog offers some methods to improve it better to this theme file."
+#~ msgstr "このテーマは、あなたのブログをよりよくするための仕掛けを提供します"
+#~ msgid "For instance, it is a color."
+#~ msgstr "例えば、それは色に関するものです"
+#~ msgid ""
+#~ "The color is influencing even the person who doesn't stick to decorated "
+#~ "thing."
+#~ msgstr "色は飾り付けに執着しない人にも影響を及ぼします"
+#~ msgid "Therefore, the color was made easy to change. "
+#~ msgstr "ですから、色を簡単に変える仕掛けを作りました"
+#~ msgid "For instance, it is a layout. "
+#~ msgstr "例えば、レイアウトに関して"
+#~ msgid ""
+#~ "There is a legible document even if the same thing was written, and is a "
+#~ "document not read easily. "
+#~ msgstr ""
+#~ "同じことが書かれていても、読みやすいドキュメントもあれば、読みにくい場合も"
+#~ "あります。"
+#~ msgid "A legible document is one index in an excellent document. "
+#~ msgstr "読みやすさは、よいドキュメントの要素です"
+#~ msgid "Therefore, the layout was able to be tested."
+#~ msgstr "ですから、いろいろなレイアウトを試すことができるようにしました"
 
-#: single.php:19
-#: single.php:59
-msgctxt "Next post link"
-msgid "&rarr;"
-msgstr "&rarr;"
+#, fuzzy
+#~ msgid "Required"
+#~ msgstr " (必須) "
 
-#: single.php:44
-#, php-format
-msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+#, fuzzy
+#~ msgid "Email"
+#~ msgstr "メールアドレス"
 
-#: tag.php:16
-#, php-format
-msgid "Tag Archives: %s"
-msgstr "Tag Archives: %s"
+#, fuzzy
+#~ msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+#~ msgstr "コメントを投稿するには<a href=\"%s\">ログイン</a>してください。"
 
-#. Theme Name of the plugin/theme
-msgid "Twenty Ten"
-msgstr "Twenty Ten"
+#, fuzzy
+#~ msgid ""
+#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+#~ "of this account\">Log out?</a>"
+#~ msgstr ""
+#~ "<a href=\"%1$s\">%2$s</a> としてログインしています。<a href=\"%3$s\" "
+#~ "title=\"このアカウントからログアウトする\">ログアウトしますか ?</a></p>"
 
-#. Description of the plugin/theme
-msgid "The 2010 theme for WordPress is stylish, customizable, simple, and readable -- make it yours with a custom menu, header image, and background. Twenty Ten supports six widgetized areas (two in the sidebar, four in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the \"Asides\" and \"Gallery\" categories, and has an optional one-column page template that removes the sidebar."
-msgstr "The 2010 theme for WordPress is stylish, customizable, simple, and readable -- make it yours with a custom menu, header image, and background. Twenty Ten supports six widgetized areas (two in the sidebar, four in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the \"Asides\" and \"Gallery\" categories, and has an optional one-column page template that removes the sidebar."
+#, fuzzy
+#~ msgid "Your email address will not be published."
+#~ msgstr "メールアドレスが公開されることはありません。"
 
-#. Author of the plugin/theme
-msgid "the WordPress team"
-msgstr "the WordPress team"
+#, fuzzy
+#~ msgid ""
+#~ "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> "
+#~ "tags and attributes: %s"
+#~ msgstr ""
+#~ "次の<abbr title=\"HyperText Markup Language\">HTML</abbr> タグと属性が使え"
+#~ "ます: %s"
 
-#. Tags of the plugin/theme
-msgid "black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style"
-msgstr "black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style"
+#, fuzzy
+#~ msgid "Leave a Reply"
+#~ msgstr "コメントをどうぞ"
+
+#, fuzzy
+#~ msgid "Leave a Reply to %s"
+#~ msgstr "%s への返信"
+
+#, fuzzy
+#~ msgid "Cancel reply"
+#~ msgstr "コメントをキャンセル"
+
+#, fuzzy
+#~ msgid "Post Comment"
+#~ msgstr "コメントを送信"
+#~ msgid "dog"
+#~ msgstr "犬"
+#~ msgid "japan shoses"
+#~ msgstr "日本の履物"
+#~ msgid "japan Shoji door"
+#~ msgstr "障子"
+#~ msgid "japan tatami floor"
+#~ msgstr "畳"
+#~ msgid " Permission denied change writable"
+#~ msgstr ""
+#~ "書き込みが禁止されているので、書き込みできるパーミッションに変更してくださ"
+#~ "い"
+#~ msgid "Daily Archives"
+#~ msgstr "日別アーカイブ"
+#~ msgid "Monthly Archives"
+#~ msgstr "月別アーカイブ"
+#~ msgid ""
+#~ "\n"
+#~ "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+#~ "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim "
+#~ "veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea "
+#~ "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate "
+#~ "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint "
+#~ "occaecat cupidatat non proident, sunt in culpa qui officia deserunt "
+#~ "mollit anim id est laborum."
+#~ msgstr ""
+#~ "なんちゃら、かんちゃら、これは例文です。なんちゃら、かんちゃら、これは例文"
+#~ "です。なんちゃら、かんちゃら、これは例文です。なんちゃら、かんちゃら、これ"
+#~ "は例文です。なんちゃら、かんちゃら、これは例文です。なんちゃら、かんちゃ"
+#~ "ら、これは例文です。なんちゃら、かんちゃら、これは例文です。なんちゃら、か"
+#~ "んちゃら、これは例文です。なんちゃら、かんちゃら、これは例文です。なんちゃ"
+#~ "ら、かんちゃら、これは例文です。なんちゃら、かんちゃら、これは例文です。"
 

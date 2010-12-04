@@ -37,7 +37,7 @@ echo '</div>';
     <?php the_title(); ?>
     </a></h3>
   <small>
-  <?php the_time(TMN_THE_TIME_FORMAT) ?>
+  <?php the_time(get_option('date_format')) ?>
   </small> <br />
   <br />
   <?php the_content('Read the rest of this entry &raquo;'); ?>

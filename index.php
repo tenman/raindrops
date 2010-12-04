@@ -24,7 +24,7 @@ get_header("xhtml1"); ?>
     ?>
     <?php if ( is_home() ) { ?>
     <!--widget only toppage start-->
-    <div class="topsidebar" id="content">
+    <div class="topsidebar">
       <ul>
         <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(3) ) : else : ?>
         <li>

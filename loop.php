@@ -90,9 +90,25 @@ if ( in_category( "blog" )){
  */
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
+<?php
+$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
+
+if(isset($thumb)){
+
+$thumbnailsrc = get_url_from_element($thumb);
+$thumbnail_title = get_title_from_element($thumb);
+
+if(!empty($thumbnailsrc)){
+    echo '<div class="single-post-thumbnail">';
+    echo $thumb;
+    echo '</div>';
+    echo "<a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a>";
+}
+}
+?>
   <ul class="entry-meta left">
     <li>
-      <?php the_time(TMN_THE_TIME_FORMAT) ?>
+      <?php the_time(get_option('date_format')) ?>
     </li>
     <li>
       <?php _e('Category:');?>
@@ -109,6 +125,8 @@ if ( in_category( "blog" )){
     <li>
       <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
     </li>
+<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
+<?php endif; ?>
     <li>
       <?php edit_post_link('Edit', '', '  '); ?>
       .</li>
@@ -139,6 +157,22 @@ if ( in_category( "blog" )){
             case("gallery"):
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
+
+if(isset($thumb)){
+
+$thumbnailsrc = get_url_from_element($thumb);
+$thumbnail_title = get_title_from_element($thumb);
+
+if(!empty($thumbnailsrc)){
+    echo '<div class="single-post-thumbnail">';
+    echo $thumb;
+    echo '</div>';
+    echo "<a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a>";
+}
+}
+?>
   <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
     <?php the_title(); ?>
     </a></h2>
@@ -154,8 +188,7 @@ if ( in_category( "blog" )){
                     $image = array_shift( $images );
                     $attachment_page = $image->post_title;
                     ?>
-    <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a> </div>
-    <div style="float:left;overflow:hidden;margin-left:1em;">
+    <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a>
       <?php the_content( '' ); ?>
     </div>
     <br style="clear:both;" />
@@ -197,11 +230,20 @@ if ( in_category( "blog" )){
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php
 $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
-if(!empty($thumb)){
-echo '<div class="single-post-thumbnail">';
-echo $thumb;
-echo '</div>';
-} ?>
+
+if(isset($thumb)){
+
+$thumbnailsrc = get_url_from_element($thumb);
+$thumbnail_title = get_title_from_element($thumb);
+
+if(!empty($thumbnailsrc)){
+    echo '<div class="single-post-thumbnail">';
+    echo $thumb;
+    echo '</div>';
+    echo "<a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a>";
+}
+}
+?>
   <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
     <?php the_title(); ?>
     </a></h2>
@@ -263,19 +305,50 @@ echo '</div>';
     <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
 
     <span class="entry-date published">
-     <?php the_time(TMN_THE_TIME_FORMAT) ?> </span>
+     <?php the_time(get_option('date_format')) ?> </span>
 
       <?php
     echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
 ?>
-
-
       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
       <div class="entry-content clearfix">
-        <div class="thumbnail_post" style="float:left;margin:0 1em 1em 0;">
+
+    <?php  if( has_post_thumbnail($post->ID)){?>
+        <div class="thumbnail_post" style="float:left;margin:.5em 1em 1em 0;width:50px;">
           <?php the_post_thumbnail(); ?>
         </div>
-        <?php the_excerpt();?>
+        <?php }?>
+      <?php if(is_home()){
+
+
+
+    if( in_category( "gallery" )){
+
+                    $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+
+                    $total_images = count( $images );
+                    $image = array_shift( $images );
+                    $attachment_page = $image->post_title;
+
+    ?>
+    <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a> </div>
+
+
+    <?php
+
+            the_excerpt();?>
+
+<p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" title="' . sprintf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',$total_images); ?></em></p>
+    <?php
+
+     }else{
+            the_excerpt();
+
+    }
+                }else{
+                the_content( __( '<span class="button lt"><span class="text">'.__('Continue reading'.'Raindrops').'</span></span> ', 'obandes' ) );
+                }
+?>
       </div>
       <br class="clear" />
       <?php edit_post_link(__('Edit'), '<span>', '</span> '); ?>
@@ -283,8 +356,6 @@ echo '</div>';
   </li>
   <?php endwhile; ?>
 </ul>
-
-
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 <div id="nav-below" class="clearfix"> <span class="nav-previous">
   <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>

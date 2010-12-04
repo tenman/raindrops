@@ -7,15 +7,19 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
+
 ?>
 <?php
     global $wpdb;
 
     $stylesheet_name = 'individual-css.php';
 
+    if(!defined('TMN_USE_AUTO_COLOR')){
+        define("TMN_USE_AUTO_COLOR",true);
+    }
 
-    if(!defined('COLOR_SCHEME')){
-        define("COLOR_SCHEME","color_en_140");
+    if(!defined('TMN_COLOR_SCHEME')){
+        define("TMN_COLOR_SCHEME","color_ja");
     }
     if(!defined('TMN_TABLE_TITLE')){
         define("TMN_TABLE_TITLE",'options');
@@ -140,32 +144,31 @@ if ( function_exists( 'add_custom_image_header' ) ) {
 }
 
 
-    load_textdomain( 'raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
+    load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
 
 
     add_filter( 'comment_form_default_fields','tmn_comment_form');
     add_filter( 'the_meta_key', 'filter_explode_meta_keys', 10, 2 );
     add_filter('body_class','add_body_class');
     add_filter('contextual_help','raindrops_help');
-
-    $is_submenu = new tmn_menu_create;
-    add_action('admin_menu', array($is_submenu, 'add_menus'));
-    add_action('admin_menu', 'setup_raindrops');
+    add_filter('comment_form_field_comment','custom_remove_aria_required1');
+    add_filter('comment_form_default_fields', 'custom_remove_aria_required2');
 
 
-
-
-
-
-    if ( !is_admin() ) {
+    if ( !is_admin()) {
         wp_register_script('raindrops_script',get_stylesheet_directory_uri() .'/lib/script.php',array('jquery'),'0.1' );
         wp_enqueue_script('raindrops_script');
+
         add_action('wp_print_styles', 'add_raindrops_stylesheet');
+
     }
 
+        $is_submenu = new tmn_menu_create;
+        add_action('admin_menu', array($is_submenu, 'add_menus'));
+        add_action('admin_menu', 'setup_raindrops');
 
 
-    wp_register_sidebar_widget('colorsample','Color Sample', 'raindrop_colors');
+
 
     add_action( 'widgets_init', 'raindrops_widgets_init' );
 
@@ -207,6 +210,30 @@ if ( function_exists( 'add_custom_image_header' ) ) {
           'widget_id' => 'toppage2',
           'widget_name' => 'toppage2',
           'text' => "3"));
+
+        register_sidebar(
+          array (
+          'name' => __('Footer Widget'),
+          'id' => 'sidebar-4',
+          'before_widget' => '<li class="widget footer-widget">',
+          'after_widget' => '</li>',
+          'before_title' => '<h2 class="widgettitle footer-widget h2">',
+          'after_title' => '</h2>',
+          'widget_id' => 'footer',
+          'widget_name' => 'footer',
+          'text' => "4"));
+        register_sidebar(
+          array (
+          'name' => __('Category Blog Widget'),
+          'id' => 'sidebar-5',
+          'before_widget' => '<li class="widget category-blog-widget">',
+          'after_widget' => '</li>',
+          'before_title' => '<h2 class="widgettitle category-blog-widget h2">',
+          'after_title' => '</h2>',
+          'widget_id' => 'categoryblog',
+          'widget_name' => 'categoryblog',
+          'text' => "5"));
+
     }
 
 if(!isset($raindrops_base_setting)){
@@ -221,7 +248,7 @@ $raindrops_base_setting = array(
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_page_width",'option_value' => "doc2",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_col_width",'option_value' => "t2",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_default_fonts_color",'option_value' => "#333333",'autoload'=>'yes'),
-    array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_footer_color",'option_value' => "#333333",'autoload'=>'yes'),
+    array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_footer_color",'option_value' => "",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_show_right_sidebar",'option_value' => "show",'autoload'=>'yes'),
     array('option_id' =>'null','blog_id' => 0 ,'option_name' => "raindrops_right_sidebar_width_percent",'option_value' => "25",'autoload'=>'yes'),
 
@@ -230,10 +257,10 @@ $raindrops_base_setting = array(
 }
 
 
-
+if(TMN_USE_AUTO_COLOR == true and is_admin() == true){
 
     include_once(STYLESHEETPATH."/lib/csscolor.css.php");
-
+}
 
 if (!function_exists('add_body_class')) {
 function add_body_class($class) {
@@ -263,8 +290,10 @@ function add_body_class($class) {
             $classes[]  = 'gecko';
         break;
         case($is_IE):
-            preg_match(" |(MSIE )([0-9])(\.) |si",$_SERVER['HTTP_USER_AGENT'],$regs);
+            preg_match(" |(MSIE )([0-9])(\.)|si",$_SERVER['HTTP_USER_AGENT'],$regs);
             $classes[]      = 'ie'.$regs[2];
+
+
         break;
         case($is_opera):
              $classes[] = 'opera';
@@ -383,7 +412,7 @@ if (!function_exists('raindrops_posted_on')) {
             'meta-prep meta-prep-author',
             sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
                 get_permalink(),
-                esc_attr( get_the_time() ),
+                esc_attr( get_the_time(get_option('date_format')) ),
                 get_the_date()
             ),
             sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>',
@@ -433,49 +462,8 @@ if (!function_exists('filter_explode_meta_keys')) {
 
 
 
-function raindrop_colors($args){
-if(is_admin){
-        extract($args);
-
-        echo $before_widget;
-        echo $before_title . "Color Sample". $after_title;
-?>
-
-<p>
-<span id="toggle1" style="padding:5px 7px">color1</span>
-<span id="toggle2" style="padding:5px 7px">color2</span>
-<span id="toggle3"  style="padding:5px 7px">color3</span>
-<span id="toggle4"  style="padding:5px 7px">color4</span>
-<span id="toggle5"  style="padding:5px 7px">color5</span></p>
-<p><span id="toggle-1"  style="padding:5px 7px">color-1</span>
-<span id="toggle-2"  style="padding:5px 7px">color-2</span>
-<span id="toggle-3"  style="padding:5px 7px">color-3</span>
-<span id="toggle-4"  style="padding:5px 7px">color-4</span>
-<span id="toggle-5"  style="padding:5px 7px">color-5</span></p>
 
 
-
-
-
-<div class="toggle5 color5" style="text-align:center;padding:20px 0;">class color5</div>
-<div class="toggle4 color4" style="text-align:center;padding:20px 0;">class color4</div>
-<div class="toggle3 color3" style="text-align:center;padding:20px 0;">class color3</div>
-<div class="toggle2 color2" style="text-align:center;padding:20px 0;">class color2</div>
-<div class="toggle1 color1" style="text-align:center;padding:20px 0;">class color1</div>
-<div class="toggle-1 color-1" style="text-align:center;padding:20px 0;">class color-1</div>
-<div class="toggle-2 color-2" style="text-align:center;padding:20px 0;">class color-2</div>
-<div class="toggle-3 color-3" style="text-align:center;padding:20px 0;">class color-3</div>
-<div class="toggle-4 color-4" style="text-align:center;padding:20px 0;">class color-4</div>
-<div class="toggle-5 color-5" style="text-align:center;padding:20px 0;">class color-5</div>
-
-<?php
-        echo $after_widget;
-}
-
-
-
-
-}
 
 
 
@@ -520,18 +508,17 @@ if (!function_exists('raindrops_help')) {
 
     if(TMN_TABLE_TITLE == $title){
 
-$result = "<h2>".__('Welcome Raindrops.').'</h2>';
+$result = "<h2>".__('Raindrops Another Settings').'</h2>';
 
 
-$result .= "<p>".__('Your own blog offers some methods to improve it better to this theme file.').'</p>';
-$result .= "<p>".__('For instance, it is a color.').'</p>';
-$result .= "<p>".__('The color is influencing even the person who doesn\'t stick to decorated thing.').'</p>';
-$result .= "<p>".__('Therefore, the color was made easy to change. ').'</p>';
-$result .= "<p>".__('For instance, it is a layout. ').'</p>';
-$result .= "<p>".__('There is a legible document even if the same thing was written, and is a document not read easily. ').'</p>';
-$result .= "<p>".__('A legible document is one index in an excellent document. ').'</p>';
-$result .= "<p>".__('Therefore, the layout was able to be tested.').'</p>';
-$result .= "<p>".sprintf(__('WEBSite：<a href="%1$s">%2$s</a>'),'http://www.tenman.info/raindrops','Raindrops').'</p>';
+$result .= "<dl><dt><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
+$result .= "<dd><div class=\"icon32\" id=\"icon-options-general\"><br></div>".__('raindrops/functions.php TMN_USE_AUTO_COLOR value change false','Raindrops').'</dd><br style="clear:both;">';
+
+$result .= "<dt><strong>".__('When you want to display the custom header image','Raindrops').'</strong></dt>';
+$result .= "<dd><div class=\"icon32\" id=\"icon-themes\"><br></div>".__('raindrops/functions.php SHOW_HEADER_IMAGE value change true','Raindrops').'</dd><br style="clear:both;">';
+
+
+$result .= "<p>".sprintf(__('WEBSite：<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
 
 
         return apply_filters("raindrops_help",$result);
@@ -544,6 +531,70 @@ $result .= "<p>".sprintf(__('WEBSite：<a href="%1$s">%2$s</a>'),'http://www.ten
     }
 
 }
+    add_filter('contextual_help','raindrops_edit_help');
+
+if (!function_exists('raindrops_edit_help')) {
+
+
+    function raindrops_edit_help($text){
+    global $post_type_object;
+    global $title;
+
+    if(isset($post_type_object) and ($title == $post_type_object->labels->add_new_item or $title == $post_type_object->labels->edit_item)){
+
+$result = "<h2>".__('Tips',"Raindrops").'</h2>';
+$result .= '<p>'.__('If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once.',"Raindrops")."</p>";
+$result .= "<dl><dt><h3>".__('Dinamic Color Class','Raindrops').'</strong></h3>';
+$result .= '<dd><table><tr>
+<td style="'.colors(5,'set').'padding:0.5em;">class color5</td>
+<td style="'.colors(4,'set').'padding:0.5em;">class color4</td>
+<td style="'.colors(3,'set').'padding:0.5em;">class color3</td>
+<td style="'.colors(2,'set').'padding:0.5em;">class color2</td>
+<td style="'.colors(1,'set').'padding:0.5em;">class color1</td></tr><tr>
+<td style="'.colors('-1','set').'padding:0.5em;">class color-1</td>
+<td style="'.colors('-2','set').'padding:0.5em;">class color-2</td>
+<td style="'.colors('-3','set').'padding:0.5em;">class color-3</td>
+<td style="'.colors('-4','set').'padding:0.5em;">class color-4</td>
+<td style="'.colors('-5','set').'padding:0.5em;">class color-5</td></tr>
+<tr><td colspan="5">
+'.__('code example:please HTML editor mode','Raindrops').'
+<div  style="'.colors(2,'set').'padding:1em;">&lt;div class="color3"&gt;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum&lt;/div&gt;
+</div></td>
+</tr></table>
+</dd>';
+$result .= "<dt><h3>".__('Dinamic Gradient Class','Raindrops').'</h3></dt>';
+$result .= '<dd><table><tr>
+<td style="'.tmn_gradient_single(1,"asc").'padding:0.5em;">class gradient5</td>
+<td style="'.tmn_gradient_single(2,"asc").'padding:0.5em;">class gradient4</td>
+<td style="'.tmn_gradient_single(3,"asc").'padding:0.5em;">class gradient3</td>
+<td style="'.tmn_gradient_single(4,"asc").'padding:0.5em;">class gradient2</td>
+<td style="'.tmn_gradient_single(5,"asc").'padding:0.5em;">class gradient1</td></tr><tr>
+<td style="'.tmn_gradient_single(1,"desc").'padding:0.5em;">class gradient-1</td>
+<td style="'.tmn_gradient_single(2,"desc").'padding:0.5em;">class gradient-2</td>
+<td style="'.tmn_gradient_single(3,"desc").'padding:0.5em;">class gradient-3</td>
+<td style="'.tmn_gradient_single(4,"desc").'padding:0.5em;">class gradient-4</td>
+<td style="'.tmn_gradient_single(5,"desc").'padding:0.5em;">class gradient-5</td></tr>
+<tr><td colspan="5">
+'.__('code example:please HTML editor mode','Raindrops').'
+<div  style="'.tmn_gradient_single(3,"asc").'padding:1em;">&lt;div class="color3"&gt;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;
+</div></td>
+</tr></table>
+</dd>';
+
+$result .= "</dl>";
+        return apply_filters("raindrops_help",$result);
+
+    }else{
+
+        return $text;
+    }
+
+    }
+
+}
+
 /**
  * Raindrops admin menu
  *
@@ -562,7 +613,7 @@ class tmn_menu_create {
           global $count;
 
 
-        echo "table name:<strong>".TMN_PLUGIN_TABLE."</strong>";
+
 
         /**
          * POST　GET
@@ -598,8 +649,11 @@ class tmn_menu_create {
         }
 
 
-    echo '<div class="wrap">';
-    echo '<h2>'.TMN_TABLE_TITLE.'</h2>';
+    echo '<div class="wrap"><div id="raindrops-header" style="height:100px">';
+    echo '<div id="icon-options-general" class="icon32"><br></div>';
+    echo '<h2>Raindrops theme Settings</h2>';
+    echo "Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></div>";
+
     if(isset($_POST) and !empty($_POST)){
 
         if($ok){
@@ -608,7 +662,7 @@ class tmn_menu_create {
             echo '<div id="message" class="error fade"><p>'.__("Try again").'</p></div>';
         }
     }
-
+    echo '</div>';
     echo $this->form_user_input();
 
 
@@ -624,7 +678,6 @@ class tmn_menu_create {
     }
 
 
-
     function form_user_input(){
     global $raindrops_base_setting;
         global $wpdb;
@@ -632,22 +685,121 @@ class tmn_menu_create {
 
         $deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
 
-        $sql = 'SELECT * FROM `'.TMN_PLUGIN_TABLE.'` WHERE `option_name` LIKE \'raindrops%\'';
+        $sql = 'SELECT * FROM `'.TMN_PLUGIN_TABLE.'` WHERE `option_name` LIKE \'raindrops%\' order by `option_id` ASC';
         $results = $wpdb->get_results($sql);
 
+$lines = "";
+        $table = "<table class=\"widefat post fixed\" cellspacing=\"0\" style=\"margin-left:2em;width:90%;\">";
 
-        $lines = "<table class=\"widefat post fixed\" cellspacing=\"0\">";
-        $lines .=  '<thead><tr><th style=\"display:none;\">'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';
 
 
 
         foreach($results as $key=>$result){
+$excerpt = "";
+        switch($result->option_name){
 
-            $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
-            $lines .= '<tbody>';
-            $lines .= '<tr>';
-            $lines .= '<td style="display:none;">';
-            $lines .= '<input type="text" name="option_id" value="'.$result->option_id.'" />'.$result->option_id.'</td>';
+        case("raindrops_col_width"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Width of Column Setting','Raindrops').'</h3>';
+        break;
+        case("raindrops_page_width"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Width of page Setting','Raindrops').'</h3>';
+
+
+        break;
+        case("raindrops_right_sidebar_width_percent"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Ratio to text when extra sidebar is displayed Setting','Raindrops').'</h3>';
+
+        break;
+        case("raindrops_show_right_sidebar"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Display of extra sidebar Setting','Raindrops').'</h3>';
+
+
+        break;
+        case("raindrops_footer_color"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Footer Fonts Color Setting','Raindrops').'</h3>';
+
+
+        break;
+        case("raindrops_default_fonts_color"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Default Fonts Color Setting','Raindrops').'</h3>';
+
+
+        break;
+        case("raindrops_col_width"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Width of Column Setting','Raindrops').'</h3>';
+
+
+        break;
+
+        case("raindrops_base_color"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor: auto;background:none;">'.__('Base color Setting','Raindrops').'</h3>';
+        $excerpt .= '<p>'.__('The reference color of an automatic arrangement of color is decided.','Raindrops').'</p>';
+
+        $excerpt .= '<div style="border:1px solild #999;padding:2em;">'.__('If it wants you other arrangement of color sets ..you.., themes/functions.php is opened, and it is ..value of const COLOR_SCHEME.. revokable. In default, color_en or color_en_140 can be set. ','Raindrops').'</div>';
+
+        break;
+        case("raindrops_style_type"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Base color Setting','Raindrops').'</h3>';
+        $excerpt .= '<p>'.__('The mood like dark atmosphere and the bright note, etc. is decided.','Raindrops').'</p>';
+
+
+        break;
+        case("raindrops_header_image"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Header image Setting','Raindrops').'</h3>';
+        $excerpt .= '<p>'.__('The name of the picture file used for the header is set. ','Raindrops').'</p>';
+        $excerpt .= '<p>'.__('As for the image, the image that exists in themes/raindrops/image/is used.','Raindrops').'</p>';
+        break;
+        case("raindrops_footer_image"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('Footer image Setting','Raindrops').'</h3>';
+        $excerpt .= '<p>'.__('The name of the picture file used for the footer is set. ','Raindrops').'</p>';
+        $excerpt .= '<p>'.__('As for the image, the image that exists in themes/raindrops/image/is used.','Raindrops').'</p>';
+
+
+        break;
+        case("raindrops_heading_image_position"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('h2 headding image position Setting','Raindrops').'</h3>';
+        $excerpt .= '<p>'.__('The name of the picture file used for the h2 headding is set. ','Raindrops').'</p>';
+        $excerpt .= '<p>'.__('Please set the integral value from 0 to 7. ','Raindrops').'</p>';
+
+
+        break;
+        case("raindrops_heading_image"):
+
+        $excerpt = '<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">'.__('h2 headding background image Setting','Raindrops').'</h3>';
+        $excerpt .= '<p>'.__('The name of the picture file used for the h2 headding is set. ','Raindrops').'</p>';
+        $excerpt .= '<p>'.__('As for the image, the image that exists in themes/raindrops/image/is used.','Raindrops').'</p>';
+        $excerpt .= '<p>'.__('The header image can be chosen from among three kinds (h2.png,h2b,png,h2c.png) now. Of course, customizing is also possible. ','Raindrops').'</p>';
+
+
+        break;
+
+        default:
+
+        $excerpt = "";
+
+
+        break;
+
+
+        }
+
+    if(!empty($excerpt)){
+        $excerpt = '<div class="postbox">'.$excerpt;
+        }else{
+        $excerpt = "";
+        }
 
 
             if(preg_match("|#[0-9a-f]{6}|i",$result->option_value)){
@@ -663,10 +815,33 @@ class tmn_menu_create {
                 $style .="background:url(".get_stylesheet_directory_uri()."/images/".$result->option_value.');';
             }else{
 
-                $style .="";
+                $style .='';
             }
 
-                $lines .= '<td style="'.$style.'"><span style="background:#fff;padding:3px;">'.$result->option_name.'</span>';
+            if(empty($style)){
+                $style .='visibility:hidden';
+        $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';
+            }else{
+            $table_header =  '<thead><tr><th>'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';
+
+            }
+
+
+        $lines .= $excerpt;
+        $lines .= $table;
+            $lines .= $table_header;
+            $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
+            $lines .= '<tbody>';
+            //$lines .= $excerpt;
+            $lines .= '<tr>';
+            $lines .= '<td style="display:none;">';
+            $lines .= '<input type="text" name="option_id" value="'.$result->option_id.'" />'.$result->option_id.'</td>';
+
+
+
+
+
+                $lines .= '<td style="'.$style.'">';
                 $lines .= '<input type="hidden" name="option_name" value="'.$result->option_name.'" read-only="read-only" /></td>';
                 $lines .= '<td>'.$result->option_value.'</td>';
 
@@ -759,6 +934,15 @@ class tmn_menu_create {
 
 
 
+            }elseif($result->option_name == "raindrops_heading_image"){
+
+                $lines .= '<td style="height:225px"><input type="text" name="option_value" value="'.$result->option_value.'"';
+
+                if($result->option_name == "raindrops_base_color"){
+                    $lines .= 'id="raindrops_base_color"';
+                }
+
+                $lines .= '/></td>';
 
 
 
@@ -787,11 +971,16 @@ class tmn_menu_create {
             $lines .= '</p></td></tr></form>';
 
             $send_key_name = "";
-        }
-            $lines .= "</tbody>";
-            $lines .=  '<tfoot><tr><th style=\"display:none;\">'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></tfoot>';
 
+
+
+            $lines .= "</tbody>";
+            //$lines .=  '<tfoot><tr><th style=\"display:none;\">'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></tfoot>';
             $lines .= "</table></div>";
+        }
+
+
+            $lines .= "</div>";
 
             if(!preg_match('|<tbody>|',$lines)){
             $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr>';
@@ -806,17 +995,17 @@ class tmn_menu_create {
 
      function color_selector($name,$current_val){
 
+$color_ja= array(__('none','Raindrops') => "",__('toki','Raindrops') => "#F9A1D0",__('tutuji','Raindrops') => "#CB4B94",__('sakura','Raindrops') => "#FFDBED",__('bara','Raindrops') => "#D34778",__('karakurenai','Raindrops') => "#E3557F",__('sango','Raindrops') => "#FF87A0",__('koubai','Raindrops') => "#E08899",__('momo','Raindrops') => "#E38698",__('beni','Raindrops') => "#BD1E48",__('beniaka','Raindrops') => "#B92946",__('enji','Raindrops') => "#AE3846",__('suou','Raindrops') => "#974B52",__('akane','Raindrops') => "#A0283A",__('aka','Raindrops') => "#BF1E33",__('syu','Raindrops') => "#ED514E",__('benikaba','Raindrops') => "#A14641",__('benihi','Raindrops') => "#EE5145",__('entan','Raindrops') => "#D3503C",__('beniebitya','Raindrops') => "#703B32",__('tobi','Raindrops') => "#7D483E",__('azuki','Raindrops') => "#946259",__('bengara','Raindrops') => "#8A4031",__('ebitya','Raindrops') => "#6D3D33",__('kinaka','Raindrops') => "#ED542A",__('akatya','Raindrops') => "#B15237",__('akasabi','Raindrops') => "#923A21",__('ouni','Raindrops') => "#EF6D3E",__('sekitou','Raindrops') => "#ED551B",__('kaki','Raindrops') => "#E06030",__('nikkei','Raindrops') => "#B97761",__('kaba','Raindrops') => "#BD4A1D",__('renga','Raindrops') => "#974E33",__('sabi','Raindrops') => "#664134",__('hiwada','Raindrops') => "#8A604F",__('kuri','Raindrops') => "#754C38",__('kiaka','Raindrops') => "#E45E00",__('taisya','Raindrops') => "#BA6432",__('rakuda','Raindrops') => "#B67A52",__('kitye','Raindrops') => "#BB6421",__('hadairo','Raindrops') => "#F4BE9B",__('daidai','Raindrops') => "#FD7E00",__('haitya','Raindrops') => "#866955",__('tya','Raindrops') => "#734E30",__('kogetya','Raindrops') => "#594639",__('kouji','Raindrops') => "#FFA75E",__('anzu','Raindrops') => "#DDA273",__('mikan','Raindrops') => "#FA8000",__('kassyoku','Raindrops') => "#763900",__('tutiiro','Raindrops') => "#A96E2D",__('komugi','Raindrops') => "#D9A46D",__('kohaku','Raindrops') => "#C67400",__('kintya','Raindrops') => "#C47600",__('tamago','Raindrops') => "#FABE6F",__('yamabuki','Raindrops') => "#FFA500",__('oudo','Raindrops') => "#C18A39",__('kutiba','Raindrops') => "#897868",__('himawari','Raindrops') => "#FFB500",__('ukon','Raindrops') => "#FCAC00",__('suna','Raindrops') => "#C9B9A8",__('karasi','Raindrops') => "#CDA966",__('ki','Raindrops') => "#FFBE00",__('tanpopo','Raindrops') => "#FFBE00",__('uguisutya','Raindrops') => "#70613A",__('tyuki','Raindrops') => "#FAD43A",__('kariyasu','Raindrops') => "#EED67E",__('kihada','Raindrops') => "#D9CB65",__('miru','Raindrops') => "#736F55",__('biwa','Raindrops') => "#C2C05C",__('uguisu','Raindrops') => "#71714A",__('mattya','Raindrops') => "#BDBF92",__('kimidori','Raindrops') => "#B9C42F",__('koke','Raindrops') => "#7A7F46",__('wakakusa','Raindrops') => "#A9B735",__('moegi','Raindrops') => "#96AA3D",__('kusa','Raindrops') => "#72814B",__('wakaba','Raindrops') => "#AFC297",__('matuba','Raindrops') => "#6E815C",__('byakuroku','Raindrops') => "#CADBCF",__('midori','Raindrops') => "#4DB56A",__('tokiwa','Raindrops') => "#357C4C",__('rokusyou','Raindrops') => "#5F836D",__('titosemidori','Raindrops') => "#4A6956",__('fukamidori','Raindrops') => "#005731",__('moegi','Raindrops') => "#15543B",__('wakatake','Raindrops') => "#49A581",__('seiji','Raindrops') => "#80AA9F",__('aotake','Raindrops') => "#7AAAAC",__('tetu','Raindrops') => "#244344",__('aomidori','Raindrops') => "#0090A8",__('sabiasagi','Raindrops') => "#6C8D9B",__('mizuasagi','Raindrops') => "#7A99AA",__('sinbasi','Raindrops') => "#69AAC6",__('asagi','Raindrops') => "#0087AA",__('byakugun','Raindrops') => "#84B5CF",__('nando','Raindrops') => "#166A88",__('kamenozoki','Raindrops') => "#8CB4CE",__('mizu','Raindrops') => "#A9CEEC",__('ainezu','Raindrops') => "#5E7184",__('sora','Raindrops') => "#95C0EC",__('ao','Raindrops') => "#0067C0",__('ai','Raindrops') => "#2E4B71",__('koiai','Raindrops') => "#20324E",__('wasurenagusa','Raindrops') => "#92AFE4",__('tuyukusa','Raindrops') => "#3D7CCE",__('hanada','Raindrops') => "#3C639B",__('konjou','Raindrops') => "#3D496B",__('ruri','Raindrops') => "#3451A4",__('rurikon','Raindrops') => "#324784",__('kon','Raindrops') => "#333C5E",__('kakitubata','Raindrops') => "#4C5DAB",__('kati','Raindrops') => "#383C57",__('gunjou','Raindrops') => "#414FA3",__('tetukon','Raindrops') => "#232538",__('fujinando','Raindrops') => "#6869A8",__('kikyou','Raindrops') => "#4A49AD",__('konai','Raindrops') => "#35357D",__('fuji','Raindrops') => "#A09BD8",__('fujimurasaki','Raindrops') => "#948BDB",__('aomurasaki','Raindrops') => "#704CBC",__('sumire','Raindrops') => "#6D52AB",__('hatoba','Raindrops') => "#675D7E",__('syoubu','Raindrops') => "#7051AA",__('edomurasaki','Raindrops') => "#5F4C86",__('murasaki','Raindrops') => "#A260BF",__('kodaimurasaki','Raindrops') => "#775686",__('nasukon','Raindrops') => "#47384F",__('sikon','Raindrops') => "#402949",__('ayame','Raindrops') => "#C27BC8",__('botan','Raindrops') => "#C24DAE",__('akamurasaki','Raindrops') => "#C54EA0",__('siro','Raindrops') => "#F1F1F1",__('gofun','Raindrops') => "#F2E8EC",__('kinari','Raindrops') => "#F0E2E0",__('zouge','Raindrops') => "#E3D4CA",__('ginnezu','Raindrops') => "#A0A0A0",__('tyanezumi','Raindrops') => "#9F9190",__('nezumi','Raindrops') => "#868686",__('rikyunezumi','Raindrops') => "#787C7A",__('namari','Raindrops') => "#797A88",__('hai','Raindrops') => "#797979",__('susutake','Raindrops') => "#605448",__('kurotya','Raindrops') => "#3E2E28",__('sumi','Raindrops') => "#313131",__('kuro','Raindrops') => "#262626",__('tetukuro','Raindrops') => "#262626");
 
 
+$color_en_140 = array("none"=>"","white"=>"#ffffff","whitesmoke"=>"#f5f5f5","gainsboro"=>"#dcdcdc","lightgrey"=>"#d3d3d3","silver"=>"#c0c0c0","darkgray"=>"#a9a9a9","gray"=>"#808080","dimgray"=>"#696969","black"=>"#000000","red"=>"#ff0000","orangered"=>"#ff4500","tomato"=>"#ff6347","coral"=>"#ff7f50","salmon"=>"#fa8072","lightsalmon"=>"#ffa07a","darksalmon"=>"#e9967a","peru"=>"#cd853f","saddlebrown"=>"#8b4513","sienna"=>"#a0522d","chocolate"=>"#d2691e","sandybrown"=>"#f4a460","darkred"=>"#8b0000","maroon"=>"#800000","brown"=>"#a52a2a","firebrick"=>"#b22222","crimson"=>"#dc143c","indianred"=>"#cd5c5c","lightcoral"=>"#f08080","rosybrown"=>"#bc8f8f","palevioletred"=>"#db7093","deeppink"=>"#ff1493","hotpink"=>"#ff69b4","lightpink"=>"#ffb6c1","pink"=>"#ffc0cb","mistyrose"=>"#ffe4e1","linen"=>"#faf0e6","seashell"=>"#fff5ee","lavenderblush"=>"#fff0f5","snow"=>"#fffafa","yellow"=>"#ffff00","gold"=>"#ffd700","orange"=>"#ffa500","darkorange"=>"#ff8c00","goldenrod"=>"#daa520","darkgoldenrod"=>"#b8860b","darkkhaki"=>"#bdb76b","burlywood"=>"#deb887","tan"=>"#d2b48c","khaki"=>"#f0e68c","peachpuff"=>"#ffdab9","navajowhite"=>"#ffdead","palegoldenrod"=>"#eee8aa","moccasin"=>"#ffe4b5","wheat"=>"#f5deb3","bisque"=>"#ffe4c4","blanchedalmond"=>"#ffebcd","papayawhip"=>"#ffefd5","cornsilk"=>"#fff8dc","lightyellow"=>"#ffffe0","lightgoldenrodyellow"=>"#fafad2","lemonchiffon"=>"#fffacd","antiquewhite"=>"#faebd7","beige"=>"#f5f5dc","oldlace"=>"#fdf5e6","ivory"=>"#fffff0","floralwhite"=>"#fffaf0","greenyellow"=>"#adff2f","yellowgreen"=>"#9acd32","olive"=>"#808000","darkolivegreen"=>"#556b2f","olivedrab"=>"#6b8e23","chartreuse"=>"#7fff00","lawngreen"=>"#7cfc00","lime"=>"#00ff00","limegreen"=>"#32cd32","forestgreen"=>"#228b22","green"=>"#008000","darkgreen"=>"#006400","seagreen"=>"#2e8b57","mediumseagreen"=>"#3cb371","darkseagreen"=>"#8fbc8f","lightgreen"=>"#90ee90","palegreen"=>"#98fb98","springgreen"=>"#00ff7f","mediumspringgreen"=>"#00fa9a","honeydew"=>"#f0fff0","mintcream"=>"#f5fffa","azure"=>"#f0ffff","lightcyan"=>"#e0ffff","aliceblue"=>"#f0f8ff","darkslategray"=>"#2f4f4f","steelblue"=>"#4682b4","mediumaquamarine"=>"#66cdaa","aquamarine"=>"#7fffd4","mediumturquoise"=>"#48d1cc","turquoise"=>"#40e0d0","lightseagreen"=>"#20b2aa","darkcyan"=>"#008b8b","teal"=>"#008080","cadetblue"=>"#5f9ea0","darkturquoise"=>"#00ced1","aqua"=>"#00ffff","cyan"=>"#00ffff","lightblue"=>"#add8e6","powderblue"=>"#b0e0e6","paleturquoise"=>"#afeeee","skyblue"=>"#87ceeb","lightskyblue"=>"#87cefa","deepskyblue"=>"#00bfff","dodgerblue"=>"#1e90ff","ghostwhite"=>"#f8f8ff","lavender"=>"#e6e6fa","lightsteelblue"=>"#b0c4de","slategray"=>"#708090","lightslategray"=>"#778899","indigo"=>"#4b0082","darkslateblue"=>"#483d8b","midnightblue"=>"#191970","navy"=>"#000080","darkblue"=>"#00008b","slateblue"=>"#6a5acd","mediumslateblue"=>"#7b68ee","cornflowerblue"=>"#6495ed","royalblue"=>"#4169e1","mediumblue"=>"#0000cd","blue"=>"#0000ff","thistle"=>"#d8bfd8","plum"=>"#dda0dd","orchid"=>"#da70d6","violet"=>"#ee82ee","fuchsia"=>"#ff00ff","magenta"=>"#ff00ff","mediumpurple"=>"#9370db","mediumorchid"=>"#ba55d3","darkorchid"=>"#9932cc","blueviolet"=>"#8a2be2","darkviolet"=>"#9400d3","purple"=>"#800080","darkmagenta"=>"#8b008b","mediumvioletred"=>"#c71585");
 
-$color_en_140 = array("white"=>"#ffffff","whitesmoke"=>"#f5f5f5","gainsboro"=>"#dcdcdc","lightgrey"=>"#d3d3d3","silver"=>"#c0c0c0","darkgray"=>"#a9a9a9","gray"=>"#808080","dimgray"=>"#696969","black"=>"#000000","red"=>"#ff0000","orangered"=>"#ff4500","tomato"=>"#ff6347","coral"=>"#ff7f50","salmon"=>"#fa8072","lightsalmon"=>"#ffa07a","darksalmon"=>"#e9967a","peru"=>"#cd853f","saddlebrown"=>"#8b4513","sienna"=>"#a0522d","chocolate"=>"#d2691e","sandybrown"=>"#f4a460","darkred"=>"#8b0000","maroon"=>"#800000","brown"=>"#a52a2a","firebrick"=>"#b22222","crimson"=>"#dc143c","indianred"=>"#cd5c5c","lightcoral"=>"#f08080","rosybrown"=>"#bc8f8f","palevioletred"=>"#db7093","deeppink"=>"#ff1493","hotpink"=>"#ff69b4","lightpink"=>"#ffb6c1","pink"=>"#ffc0cb","mistyrose"=>"#ffe4e1","linen"=>"#faf0e6","seashell"=>"#fff5ee","lavenderblush"=>"#fff0f5","snow"=>"#fffafa","yellow"=>"#ffff00","gold"=>"#ffd700","orange"=>"#ffa500","darkorange"=>"#ff8c00","goldenrod"=>"#daa520","darkgoldenrod"=>"#b8860b","darkkhaki"=>"#bdb76b","burlywood"=>"#deb887","tan"=>"#d2b48c","khaki"=>"#f0e68c","peachpuff"=>"#ffdab9","navajowhite"=>"#ffdead","palegoldenrod"=>"#eee8aa","moccasin"=>"#ffe4b5","wheat"=>"#f5deb3","bisque"=>"#ffe4c4","blanchedalmond"=>"#ffebcd","papayawhip"=>"#ffefd5","cornsilk"=>"#fff8dc","lightyellow"=>"#ffffe0","lightgoldenrodyellow"=>"#fafad2","lemonchiffon"=>"#fffacd","antiquewhite"=>"#faebd7","beige"=>"#f5f5dc","oldlace"=>"#fdf5e6","ivory"=>"#fffff0","floralwhite"=>"#fffaf0","greenyellow"=>"#adff2f","yellowgreen"=>"#9acd32","olive"=>"#808000","darkolivegreen"=>"#556b2f","olivedrab"=>"#6b8e23","chartreuse"=>"#7fff00","lawngreen"=>"#7cfc00","lime"=>"#00ff00","limegreen"=>"#32cd32","forestgreen"=>"#228b22","green"=>"#008000","darkgreen"=>"#006400","seagreen"=>"#2e8b57","mediumseagreen"=>"#3cb371","darkseagreen"=>"#8fbc8f","lightgreen"=>"#90ee90","palegreen"=>"#98fb98","springgreen"=>"#00ff7f","mediumspringgreen"=>"#00fa9a","honeydew"=>"#f0fff0","mintcream"=>"#f5fffa","azure"=>"#f0ffff","lightcyan"=>"#e0ffff","aliceblue"=>"#f0f8ff","darkslategray"=>"#2f4f4f","steelblue"=>"#4682b4","mediumaquamarine"=>"#66cdaa","aquamarine"=>"#7fffd4","mediumturquoise"=>"#48d1cc","turquoise"=>"#40e0d0","lightseagreen"=>"#20b2aa","darkcyan"=>"#008b8b","teal"=>"#008080","cadetblue"=>"#5f9ea0","darkturquoise"=>"#00ced1","aqua"=>"#00ffff","cyan"=>"#00ffff","lightblue"=>"#add8e6","powderblue"=>"#b0e0e6","paleturquoise"=>"#afeeee","skyblue"=>"#87ceeb","lightskyblue"=>"#87cefa","deepskyblue"=>"#00bfff","dodgerblue"=>"#1e90ff","ghostwhite"=>"#f8f8ff","lavender"=>"#e6e6fa","lightsteelblue"=>"#b0c4de","slategray"=>"#708090","lightslategray"=>"#778899","indigo"=>"#4b0082","darkslateblue"=>"#483d8b","midnightblue"=>"#191970","navy"=>"#000080","darkblue"=>"#00008b","slateblue"=>"#6a5acd","mediumslateblue"=>"#7b68ee","cornflowerblue"=>"#6495ed","royalblue"=>"#4169e1","mediumblue"=>"#0000cd","blue"=>"#0000ff","thistle"=>"#d8bfd8","plum"=>"#dda0dd","orchid"=>"#da70d6","violet"=>"#ee82ee","fuchsia"=>"#ff00ff","magenta"=>"#ff00ff","mediumpurple"=>"#9370db","mediumorchid"=>"#ba55d3","darkorchid"=>"#9932cc","blueviolet"=>"#8a2be2","darkviolet"=>"#9400d3","purple"=>"#800080","darkmagenta"=>"#8b008b","mediumvioletred"=>"#c71585");
 
-
-$color_en = array("american red" => "#bf0a30","american blue" => "#002868","american green" => "#006e53","american yellow" => "#deb301","american light blue" => "#cbddf3","american brown" => "#9a6b37","american gray" => "#afafb1","glory red" => "#cc0033","glory blue" => "#0000ff","glory white" => "#fff9f5","big apple red" => "#ff6331","big apple blue" => "#3131ce","empire blue" => "#001873","empire cyan" => "#00b5d6","empire red" => "#d60000","empire yellow" => "#f7f700","empire orange" => "#f79429","empire green" => "#084a29","empire ebony" => "#424a00","natural red" => "#cc0033","natural blue" => "#000099","natural light blue" => "#84c8ef","natural green" => "#90c924","natural orange" => "#f39234","natural brown" => "#843a2f","natural gray" => "#bfbfbf","hawkeye red" => "#e3003d","hawkeye blue" => "#3c3c9e","hawkeye yellow" => "#ffb30f","hawkeye brown" => "#a54a00","frontier blue" => "#000080","frontier light blue" => "#d3eef7","frontier green" => "#024900","frontier yellow" => "#ffff00","frontier purple" => "#8663bd","dixie red" => "#b10021","dixie blue" => "#083152","dixie green" => "#105a21","dixie yellow" => "#ffc621","grand canyon blue" => "#002868","grand canyon red" => "#bf0a30","grand canyon brown" => "#ce5c17","grand canyon yellow" => "#fed700","grand canyon green" => "#00320b","grand canyon pink" => "#efc1a9","lincoln red" => "#e2184f","lincoln pink" => "#e24a4f","lincoln light blue" => "#64b4ff","lincoln blue" => "#3c3c9e","lincoln green" => "#3f863f","lincoln yellow" => "#ffe60f","lincoln orange" => "#ffb316","hoosier blue" => "#101195","hoosier yellow" => "#ffe700","hoosier green" => "#197351","hoosier brown" => "#563837","badger blue" => "#002986","badger light blue" => "#00b2fd","badger pink" => "#f8b8de","badger red" => "#f3334b","badger green" => "#41ad16","badger yellow" => "#ffe618","badger brown" => "#66180b","badger gray" => "#a2b9b9","mountain red" => "#ff3516","mountain blue" => "#003776","mountain green" => "#20d942","mountain yellow" => "#ffb30f","mountain brown" => "#d15b25","mountain gray" => "#c0c0c0","sooner blue" => "#0e4892","sooner light blue" => "#00adc6","sooner green" => "#1b692b","sooner opal" => "#8ab87a","sooner yellow" => "#f0c016","sooner brown" => "#421000","sooner beige" => "#ffc69c","sooner gray" => "#d6c6c6","sooner black" => "#454442","buckeye blue" => "#1a3b86","buckeye red" => "#ff0000","buckeye green" => "#00784b","buckeye yellow" => "#f8c300","buckeye brown" => "#4e3330","buckeye light blue" => "#027bc2","beaver blue" => "#002a86","beaver yellow" => "#ffea0f","golden red" => "#c10435","golden green" => "#007e3a","golden brown" => "#391800","golden yellow" => "#bc8e07","golden cyan" => "#40a7aa","golden gray" => "#84948e","sunflower blue" => "#00009c","sunflower light blue" => "#0092df","sunflower green" => "#29b910","sunflower orange" => "#ff660f","sunflower brown" => "#b34e20","sunflower purple" => "#7c4790","sunflower yellow" => "#ffe400","sunflower gray" => "#dedede","new england" => "#e25c5c","midatlantic" => "#5c7a7a","south" => "#8a84a3","florida" => "#e9bda2","midwest" => "#ffd577","texas" => "#77cbb3","great plains" => "#b6bc4d","rocky mountain" => "#e9df25","southwest" => "#ee2222","california" => "#e0fa92","pacific northwest" => "#38911c","alaska" => "#d09440","hawaii" => "#4f93c0","mountains alabama" => "#999966","metropolitan alabama" => "#ff9933","river heritage alabama" => "#996699","gulf coast alabama" => "#99cccc","southern california" => "#e03030","california desert" => "#e0b000","california central coast" => "#00b000","san joaquin valley" => "#a0a0c0","sacramento valley" => "#e0b000","sierra nevada" => "#00e000","gold country" => "#e0e000","bay area california" => "#e06060","california north coast" => "#b0b000","shasta cascades" => "#e03030","mississippi capital river" => "#336699","mississippi delta" => "#663366","mississippi pines" => "#339966","gulf coast mississippi" => "#660033","mississippi hills" => "#996633","panhandle nebraska" => "#cc9966","north central nebraska" => "#cccc66","eastern nebraska" => "#99cccc","western nevada" => "#cc9999","northern nevada" => "#cc9966","central nevada" => "#9999cc","southern nevada" => "#99cccc","central new mexico" => "#e0fa92","north central new mexico" => "#6699aa","northeast new mexico" => "#b6bc4d","northwest new mexico" => "#d09440","southwest new mexico" => "#b2cc7f","southeast new mexico" => "#ffff99","northwest ohio" => "#666633","northeast ohio" => "#669999","midohio" => "#996666","southwest ohio" => "#666699","southeast ohio" => "#cc9933","western tennessee" => "#996699","central tennessee" => "#339999","eastern tennessee" => "#339966","panhandle texas" => "#80622f","prairies and lakes" => "#335c64","piney woods" => "#406324","gulf coast texas" => "#7895a3","south texas plains" => "#7d6b71","hill country" => "#d1a85e","big bend country" => "#c6ab7a","wasatch front" => "#99cc33","canyon country" => "#cc6600","northeastern utah" => "#669900","dixie" => "#b2cc7f","central utah" => "#999933","western utah" => "#ffff99","northern virginia" => "#9966ff","eastern virginia" => "#33bbee","central virginia" => "#ff6655","southwest virginia" => "#ffcc33","shenandoah valley" => "#339933","southeast wisconsin" => "#66cc99","southwest wisconsin" => "#99ccff","northeast wisconsin" => "#009999","north central wisconsin" => "#66ccff","northwest wisconsin" => "#99cccc");
+$color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#002868","american green" => "#006e53","american yellow" => "#deb301","american light blue" => "#cbddf3","american brown" => "#9a6b37","american gray" => "#afafb1","glory red" => "#cc0033","glory blue" => "#0000ff","glory white" => "#fff9f5","big apple red" => "#ff6331","big apple blue" => "#3131ce","empire blue" => "#001873","empire cyan" => "#00b5d6","empire red" => "#d60000","empire yellow" => "#f7f700","empire orange" => "#f79429","empire green" => "#084a29","empire ebony" => "#424a00","natural red" => "#cc0033","natural blue" => "#000099","natural light blue" => "#84c8ef","natural green" => "#90c924","natural orange" => "#f39234","natural brown" => "#843a2f","natural gray" => "#bfbfbf","hawkeye red" => "#e3003d","hawkeye blue" => "#3c3c9e","hawkeye yellow" => "#ffb30f","hawkeye brown" => "#a54a00","frontier blue" => "#000080","frontier light blue" => "#d3eef7","frontier green" => "#024900","frontier yellow" => "#ffff00","frontier purple" => "#8663bd","dixie red" => "#b10021","dixie blue" => "#083152","dixie green" => "#105a21","dixie yellow" => "#ffc621","grand canyon blue" => "#002868","grand canyon red" => "#bf0a30","grand canyon brown" => "#ce5c17","grand canyon yellow" => "#fed700","grand canyon green" => "#00320b","grand canyon pink" => "#efc1a9","lincoln red" => "#e2184f","lincoln pink" => "#e24a4f","lincoln light blue" => "#64b4ff","lincoln blue" => "#3c3c9e","lincoln green" => "#3f863f","lincoln yellow" => "#ffe60f","lincoln orange" => "#ffb316","hoosier blue" => "#101195","hoosier yellow" => "#ffe700","hoosier green" => "#197351","hoosier brown" => "#563837","badger blue" => "#002986","badger light blue" => "#00b2fd","badger pink" => "#f8b8de","badger red" => "#f3334b","badger green" => "#41ad16","badger yellow" => "#ffe618","badger brown" => "#66180b","badger gray" => "#a2b9b9","mountain red" => "#ff3516","mountain blue" => "#003776","mountain green" => "#20d942","mountain yellow" => "#ffb30f","mountain brown" => "#d15b25","mountain gray" => "#c0c0c0","sooner blue" => "#0e4892","sooner light blue" => "#00adc6","sooner green" => "#1b692b","sooner opal" => "#8ab87a","sooner yellow" => "#f0c016","sooner brown" => "#421000","sooner beige" => "#ffc69c","sooner gray" => "#d6c6c6","sooner black" => "#454442","buckeye blue" => "#1a3b86","buckeye red" => "#ff0000","buckeye green" => "#00784b","buckeye yellow" => "#f8c300","buckeye brown" => "#4e3330","buckeye light blue" => "#027bc2","beaver blue" => "#002a86","beaver yellow" => "#ffea0f","golden red" => "#c10435","golden green" => "#007e3a","golden brown" => "#391800","golden yellow" => "#bc8e07","golden cyan" => "#40a7aa","golden gray" => "#84948e","sunflower blue" => "#00009c","sunflower light blue" => "#0092df","sunflower green" => "#29b910","sunflower orange" => "#ff660f","sunflower brown" => "#b34e20","sunflower purple" => "#7c4790","sunflower yellow" => "#ffe400","sunflower gray" => "#dedede","new england" => "#e25c5c","midatlantic" => "#5c7a7a","south" => "#8a84a3","florida" => "#e9bda2","midwest" => "#ffd577","texas" => "#77cbb3","great plains" => "#b6bc4d","rocky mountain" => "#e9df25","southwest" => "#ee2222","california" => "#e0fa92","pacific northwest" => "#38911c","alaska" => "#d09440","hawaii" => "#4f93c0","mountains alabama" => "#999966","metropolitan alabama" => "#ff9933","river heritage alabama" => "#996699","gulf coast alabama" => "#99cccc","southern california" => "#e03030","california desert" => "#e0b000","california central coast" => "#00b000","san joaquin valley" => "#a0a0c0","sacramento valley" => "#e0b000","sierra nevada" => "#00e000","gold country" => "#e0e000","bay area california" => "#e06060","california north coast" => "#b0b000","shasta cascades" => "#e03030","mississippi capital river" => "#336699","mississippi delta" => "#663366","mississippi pines" => "#339966","gulf coast mississippi" => "#660033","mississippi hills" => "#996633","panhandle nebraska" => "#cc9966","north central nebraska" => "#cccc66","eastern nebraska" => "#99cccc","western nevada" => "#cc9999","northern nevada" => "#cc9966","central nevada" => "#9999cc","southern nevada" => "#99cccc","central new mexico" => "#e0fa92","north central new mexico" => "#6699aa","northeast new mexico" => "#b6bc4d","northwest new mexico" => "#d09440","southwest new mexico" => "#b2cc7f","southeast new mexico" => "#ffff99","northwest ohio" => "#666633","northeast ohio" => "#669999","midohio" => "#996666","southwest ohio" => "#666699","southeast ohio" => "#cc9933","western tennessee" => "#996699","central tennessee" => "#339999","eastern tennessee" => "#339966","panhandle texas" => "#80622f","prairies and lakes" => "#335c64","piney woods" => "#406324","gulf coast texas" => "#7895a3","south texas plains" => "#7d6b71","hill country" => "#d1a85e","big bend country" => "#c6ab7a","wasatch front" => "#99cc33","canyon country" => "#cc6600","northeastern utah" => "#669900","dixie" => "#b2cc7f","central utah" => "#999933","western utah" => "#ffff99","northern virginia" => "#9966ff","eastern virginia" => "#33bbee","central virginia" => "#ff6655","southwest virginia" => "#ffcc33","shenandoah valley" => "#339933","southeast wisconsin" => "#66cc99","southwest wisconsin" => "#99ccff","northeast wisconsin" => "#009999","north central wisconsin" => "#66ccff","northwest wisconsin" => "#99cccc");
 
     $result ='<select name="'.$name.'" size="4" style="width:150px;vertical-align:bottom;margin-bottom:0px;height:100px;">';
 
-    $scheme = COLOR_SCHEME;
+    $scheme = TMN_COLOR_SCHEME;
     $current_color = array_search($current_val,$$scheme);
     $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'" selected="selected">'.$current_color.'</option>';
 
@@ -826,7 +1015,7 @@ $color_en = array("american red" => "#bf0a30","american blue" => "#002868","amer
             $cg = hexdec(substr($val,3,2))*0.5;
             $cb = hexdec(substr($val,5,2))*0.5;
 
-            if($cr+$cg+$cb < 128){
+            if($cr+$cg+$cb < 128 and !empty($val)){
                 $color = "#ccc";
             }else{
                 if($cr > $cg and $cg > $cb){
@@ -861,13 +1050,104 @@ $color_en = array("american red" => "#bf0a30","american blue" => "#002868","amer
 }
 
 
-function design_output($name="default",$position_y = 1){
+function tmn_gradient_single($i,$order = "asc"){
+
+    $g = "";
+
+    if($i>4){$i = 4;}
+
+    if($order == "asc"){
+        $custom_dark_bg1 = colors($i,'background');
+        $custom_light_bg1 = colors($i+1,'background');
+    }elseif($order == "desc"){
+        $custom_dark_bg1 = colors($i+1,'background');
+        $custom_light_bg1 = colors($i,'background');
+    }
+
+
+    $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
+    $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
+    $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+
+
+
+
+
+
+return $g;
+
+
+}
+
+
+function tmn_gradient2(){
+
+$g = "";
+    for($i = 1;$i<6;$i++){
+
+    $custom_dark_bg1 = colors($i,'background');
+    $custom_light_bg1 = colors('-'.$i,'background');
+    $custom_dark_bg2 = colors('-'.$i,'background');
+    $custom_light_bg2 = colors($i,'background');
+
+    $g .= '.gradient'.$i.'{';
+    $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
+    $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
+    $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+    $g .= "}\n";
+    $g .= '.gradient-'.$i.'{';
+    $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
+    $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
+    $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
+    $g .= "}\n";
+    }
+
+
+return $g;
+
+
+}
+function tmn_gradient(){
+
+$g = "";
+    for($i = 1;$i<5;$i++){
+
+    $custom_dark_bg1 = colors($i,'background');
+    $custom_light_bg1 = colors($i+1,'background');
+    $custom_dark_bg2 = colors($i,'background');
+    $custom_light_bg2 = colors($i-1,'background');
+
+    $g .= '.gradient'.$i.'{';
+    $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
+    $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
+    $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+    $g .= "}\n";
+    $g .= '.gradient-'.$i.'{';
+    $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
+    $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
+    $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
+    $g .= "}\n";
+    }
+
+
+return $g;
+
+
+}
+function design_output(){
 
     global $images_path;
     global $navigation_title_img;
     $c_border   = colors(0,'background');
 
-    $rgba_border = hex2rgba($c_border,0.5);
+    if($c_border == '#'){
+        $rgba_border = 'rgba(203,203,203, 0.8)';
+    }else{
+        $rgba_border = hex2rgba($c_border,0.5);
+    }
+
+    $name = warehouse('raindrops_style_type');
+
     $c_5        = colors(-5);
     $c_4        = colors(-4);
     $c_3        = colors(-3);
@@ -879,13 +1159,14 @@ function design_output($name="default",$position_y = 1){
     $c2         = colors(2);
     $c1         = colors(1);
 
+    $position_y = warehouse('raindrops_heading_image_position');
 
     $y = $position_y * 26;
     $y = '-'.$y.'px';
 
     switch( $position_y ){
         case(0):
-            $h_position_rsidebar_h2 = "background-position:0 0";
+            $h_position_rsidebar_h2 = "background-position:0 0;";
             $color = "color:#333333;";
         break;
         case(1):
@@ -928,20 +1209,36 @@ function design_output($name="default",$position_y = 1){
     global $tmn_footer_image;
     global $tmn_footer_color;
 
-    $h2_default_background = "background:".colors(3,background).' ';
+    $h2_default_background = "background:".colors(3,'background').' ';
     $h2_default_background .= "url({$images_path}{$navigation_title_img});";
-    $h2_default_background .= "color:".colors(3,color).';';
+    $h2_default_background .= "color:".colors(3,'color').';';
 
-    //$h2_dark_background = "background:".colors(-3,background).' ';
+    $h2_dark_background = "background:".colors(-3,'background').' ';
     $h2_dark_background .= "url({$images_path}{$navigation_title_img});";
-    $h2_dark_background .= "color:".colors(-3,color).';';
+    $h2_dark_background .= "color:".colors(-3,'color').';';
 
-    //$h2_light_background = "background:".colors(3,background).' ';
+    $h2_light_background = "background:".colors(3,'background').' ';
     $h2_light_background .= "url({$images_path}{$navigation_title_img});";
-    $h2_light_background .= "color:".colors(3,color).';';
+    $h2_light_background .= "color:".colors(3,'color').';';
 
+
+    $custom_dark_bg = colors('3','background');
+    $custom_light_bg = colors('1','background');
+    $custom_color = colors('1','color');
+    if(!empty($tmn_footer_color)){
+        $tmn_footer_color = 'color:'.$tmn_footer_color;
+    }else{
+        $tmn_footer_color = '';
+    }
+
+
+
+$gradient = tmn_gradient();
 
 $default =<<<DEFAULT
+
+$gradient
+
 body {
 
 margin:0!important;padding:0;
@@ -953,20 +1250,30 @@ background-image:url({$images_path}{$tmn_header_image});
 
 
 }
+.hfeed{
+    background:#fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,5);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
 
+}
 #ft {
 background:url({$images_path}{$tmn_footer_image}) repeat-x;
 color:$tmn_footer_color;
-
+$tmn_footer_color
 }
 
-.rsidebar h2,.lsidebar h2 {
+
+
+
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
 $h2_default_background
 $h_position_rsidebar_h2
 }
 .home .sticky {
 background: $c4
 border-top:solid 6px $rgba_border;
+border-bottom:solid 2px $rgba_border;
 
 }
 .social textarea#comment,
@@ -978,20 +1285,21 @@ border-top:solid 6px $rgba_border;
     border-radius:3px;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
-    border:1px solid rgba(203,203,203, 0.5);
+    border:1px solid $rgba_border;
     background: $c3
 
 }
 
 .social textarea#comment:focus,
 .social input:focus{
-    box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    border:1px solid rgba(0,0,255, 0.8);
+    box-shadow: 0 0 5px $rgba_border;
+    -webkit-box-shadow: 0 0 5px $rgba_border;
+    -moz-box-shadow: 0 0 5px $rgba_border;
+  /*  border:1px solid $rgba_border;*/
     background: $c4
 
 }
+
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
@@ -1036,12 +1344,29 @@ border:double 3px $rgba_border;
     background-color:rgba(255,255,255,0.3);
 }
 /*--------------------------------*/
-#access{
-    $c3
 
+#access{
+    /*$c3*/
+
+
+
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    border-radius:1em 1em 1em 1em;
+-moz-border-radius:1em 1em 1em 1em;
+-webkit-border-radius:1em 1em 1em 1em!important;
+border-top:1px solid rgba(255, 255, 255, 0.3);
+-moz-box-shadow: 1px 1px 3px #000;
+-webkit-box-shadow: 1px 1px 3px #000;
 }
 #access a {
-    $c3
+    /*$c3*/
+
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    color:$custom_color;
 
 
 }
@@ -1051,10 +1376,14 @@ border:double 3px $rgba_border;
     border:1px solid $rgba_border;
 
 }
-#access li:hover > a,
-#access ul ul :hover > a {
+#access li:active > a,
+#access ul ul :active > a {
+    top:0;
     $c2
-
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_light_bg), to($custom_dark_bg));
+    background: -moz-linear-gradient(top,  $custom_light_bg,  $custom_dark_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_light_bg', endColorstr='$custom_dark_bg');
+    color:$custom_color;
 }
 
 #access ul li.current_page_item > a,
@@ -1074,7 +1403,21 @@ border:double 3px $rgba_border;
 
     $c2
 }
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td{
+    border:1px solid $c_border;
+    border:1px solid $rgba_border;
+}
+td.month-date,td.month-name,td.time
+{
+    $c3
+    border:1px solid $rgba_border;
 
+}
+address{margin:10px auto;}
 DEFAULT;
 
 
@@ -1085,17 +1428,28 @@ DEFAULT;
  *
  */
 
+    $custom_dark_bg = colors('-1','background');
+    $custom_light_bg = colors('-4','background');
+    $custom_color = colors('-3','color');
+
+    if(!empty($tmn_footer_color)){
+        $tmn_footer_color = 'color:'.$tmn_footer_color;
+    }else{
+        $tmn_footer_color = '';
+    }
 
 $dark =<<<DARK
-
+$gradient
 body{
-    $c_4
 
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
 }
 #top{
 
     $c_3
-    border-bottom: medium solid $c_border;
+   /* border-bottom: medium solid $c_border;*/
 
 
 }
@@ -1104,8 +1458,10 @@ h2 a{
     background:inherit;
 
 }
+
+
+
 .entry div h2,.entry div h3{
-    $face-3
 
 }
 .entry ol ol ,.entry ul {
@@ -1115,9 +1471,15 @@ h2 a{
     $c_5
 }
 
+
+
+
+
+
 .home .sticky {
 background: $c_4
 border-top:solid 6px $rgba_border;
+border-bottom:solid 2px $rgba_border;
 
 }
 
@@ -1127,7 +1489,7 @@ background: $c_5
 
 }
 #hd{
-    $c_3
+    $c_5
     background-image:url({$images_path}{$tmn_header_image});
 
 
@@ -1145,6 +1507,7 @@ background: $c_5
 }
 #doc,#doc2,#doc3,#doc4{
     $c_5
+    color:$tmn_header_color;
 }
 #nav{
     $c_3
@@ -1165,9 +1528,7 @@ ul.nav li a:hover,ul.nav li a:active{
 .rsidebar{
     $c_5
 }
-.rsidebar h2,.lsidebar h2{
-    $face-3
-}
+
 ol.commentlist :hover{
     background:url({$images_path}latestbck.gif) repeat-x;
     }
@@ -1180,14 +1541,21 @@ ol.tblist li{
     $c_3
 border-top: medium solid $c_border;
 background:url({$images_path}{$tmn_footer_image}) repeat-x;
-color:$tmn_footer_color;
+$tmn_footer_color
+}
+#ft #wp-calendar{
+    $c_3
+border:1px solid $c_border!important;
+
 }
 .lsidebar{
     $c_5
 }
 
-.rsidebar h2,.lsidebar h2 {
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+$c_3
 $h2_dark_background
+$h_position_rsidebar_h2
 }
 a:link,a:active,a:visited,a:hover{
     $c_5
@@ -1265,34 +1633,33 @@ border-top:1px solid $rgba_border;
 }
 ul.archive li,
 ul.index li{
-    border-top:1px solid $c_border;
-    border-top:1px solid $rgba_border;
+  /*  border-top:1px solid $c_border;
+    border-top:1px solid $rgba_border;*/
 
 }
 .itiran{
     border:1px solid $c_border;
 }
 .pagenate{
-    /*$c_3*/
-    $face-3
+
 }
 
+#month_list,
 #month_list td,
 #year_list td,
 #calendar_wrap td,
 #date_list td{
+    border:1px solid $c_border;
     border:1px solid $rgba_border;
 }
 td.month-date,td.month-name,td.time
 {
     $c_3
+    border-bottom:1px solid $c_border;
     border:1px solid $rgba_border;
 
 }
-.footer-widget h2{
-background:none;
 
-}
 blockquote {
     border-top:double 3px $c_border;
     border-bottom:double 3px $c_border;
@@ -1306,6 +1673,10 @@ fieldset {
 }
 legend{
     $c_5
+}
+div.social{
+
+
 }
 
 .social textarea#comment,
@@ -1324,10 +1695,10 @@ legend{
 
 .social textarea#comment:focus,
 .social input:focus{
-    box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    border:1px solid rgba(0,0,255, 0.8);
+   box-shadow: 0 0 5px $rgba_border;
+    -webkit-box-shadow: 0 0 5px $rgba_border;
+    -moz-box-shadow: 0 0 5px $rgba_border;
+   /* border:1px solid $rgba_border;*/
     background: $c4
 
 }
@@ -1365,34 +1736,48 @@ background: $rgba_border
 border:double 3px $rgba_border;
 }
 /*--------------------------------*/
-#access{
-    $c_5
 
-    border-bottom:1px solid $rgba_border;
+#access{
+
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    border-radius:1em 1em 1em 1em;
+-moz-border-radius:1em 1em 1em 1em;
+-webkit-border-radius:1em 1em 1em 1em!important;
+border-top:1px solid rgba(255, 255, 255, 0.3);
+-moz-box-shadow: 1px 1px 3px #000;
+-webkit-box-shadow: 1px 1px 3px #000;
 
 }
 #access a {
-    $c_4
-    border-top:1px solid $rgba_border;
-    border-bottom:1px solid $rgba_border;
+
+        background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    color:$custom_color;
 
 }
 #access ul ul a {
 
     $c_3
-    border:1px solid $rgba_border;
+   /* border:1px solid $rgba_border;*/
 
 }
-#access li:hover > a,
-#access ul ul :hover > a {
-    $c_2
-        border:1px solid $rgba_border;
+#access li:active > a,
+#access ul ul :active > a {
+    /*$c_2*/
+    top:0;
+        background: -webkit-gradient(linear, left top, left bottom, from($custom_light_bg), to($custom_dark_bg));
+    background: -moz-linear-gradient(top,  $custom_light_bg,  $custom_dark_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_light_bg', endColorstr='$custom_dark_bg');
+    color:$custom_color;
 }
 #access ul li.current_page_item > a,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-    border:1px solid $rgba_border;
+   /* border:1px solid $rgba_border;*/
 
     $c_3
 }
@@ -1401,11 +1786,11 @@ border:double 3px $rgba_border;
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
-    border:1px solid $rgba_border;
+   /* border:1px solid $rgba_border;*/
 
     $c_2
 }
-
+address{margin:10px auto;}
 DARK;
 
 /**
@@ -1414,17 +1799,38 @@ DARK;
  *
  *
  */
+    $custom_dark_bg = colors('4','background');
+    $custom_light_bg = colors('2','background');
+    $custom_color = colors('3','color');
+    $base_gradient = tmn_gradient_single(2,"asc");
 
+    if(!empty($tmn_footer_color)){
+        $tmn_footer_color = 'color:'.$tmn_footer_color;
+    }else{
+        $tmn_footer_color = '';
+    }
 $light =<<<LIGHT
 
+$gradient
 
+h1,h2,h3,h4,h5,h6,#bd a,.postmetadata{background:none!important;}
 body{
     margin:0!important;
     $c4
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+}
+.hfeed{
+    $base_gradient
+    box-shadow: 0 0 5px $rgba_border;
+    -webkit-box-shadow: 0 0 5px $rgba_border;
+    -moz-box-shadow: 0 0 5px $rgba_border;
+
 }
 #top{
     $c3
-    border-bottom: medium solid $c_border;
+    /*border-bottom: medium solid $c_border;*/
 }
 h2,h3{
     $c5
@@ -1432,6 +1838,7 @@ h2,h3{
 .home .sticky {
 background: $c4
 border-top:solid 6px $rgba_border;
+border-bottom:solid 2px $rgba_border;
 
 }
 .home .sticky a{
@@ -1450,8 +1857,13 @@ background: none;
 }
 
 #hd{
-    $c3
-    background-image:url({$images_path}{$tmn_header_image});
+   $c1
+background-image:url({$images_path}{$tmn_header_image});
+
+
+
+
+
 
 }
 #hd h1,.h1,#site-title{
@@ -1490,12 +1902,6 @@ ul.nav li a:hover,ul.nav li a:active{
 .rsidebar{
     $c5
 }
-.rsidebar h2,
-.lsidebar h2{
-    $h2_light_background;
-
-}
-
 
 .postmetadata{
     $c5
@@ -1509,16 +1915,16 @@ ol.tblist li{background:transparent url({$images_path}c.gif) 0 2px no-repeat;}
     $c3
     border-top: medium solid $c_border;
     background:url({$images_path}{$tmn_footer_image}) repeat-x;
-    color:$tmn_footer_color;
-
+    $tmn_footer_color
 }
 
 /*.lsidebar h2{
     $h2_light_background
 
 }*/
-.rsidebar h2,.lsidebar h2 {
-$h2_default_background
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+$c3
+$h2_light_background;
 $h_position_rsidebar_h2
 }
 
@@ -1599,19 +2005,25 @@ hr{
 }
 ul.archive li,
 ul.index li{
-    border-top:1px solid $c_border;
-    border-top:1px solid $rgba_border;
+   /* border-top:1px solid $c_border;
+    border-top:1px solid $rgba_border;*/
 
 }
 .itiran{
     border:1px solid $c_border;
 }
 
-#month_list td,#year_list td,#calendar_wrap td,#date_list td{
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td{
+    border:1px solid $c_border;
     border:1px solid $rgba_border!important;
 }
 td.month-date,td.month-name,td.time{
     $c_3
+    border-bottom:1px solid $c_border;
     border:1px solid $rgba_border;
 
 }
@@ -1638,6 +2050,8 @@ fieldset {
 legend{
     $c5
 }
+
+
 .social textarea#comment,.social input[type="text"]{
     outline:none;
     transition: all 0.25s ease-in-out;
@@ -1650,10 +2064,10 @@ legend{
 }
 
 .social textarea#comment:focus,.social input[type="text"]{
-    box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 255, 1);
-    border:1px solid rgba(0,0,255, 0.8);
+    box-shadow: 0 0 5px $rgba_border;
+    -webkit-box-shadow: 0 0 5px $rgba_border;
+    -moz-box-shadow: 0 0 5px $rgba_border;
+    border:1px solid $rgba_border;
 }
 .social input[type="submit"] {
     border:double 3px $rgba_border;
@@ -1690,11 +2104,25 @@ border:double 3px $rgba_border;
 }
 /*--------------------------------*/
 #access{
-    $c3
+
+
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    border-radius:1em 1em 1em 1em;
+-moz-border-radius:1em 1em 1em 1em;
+-webkit-border-radius:1em 1em 1em 1em!important;
+border-top:1px solid rgba(255, 255, 255, 0.3);
+-moz-box-shadow: 1px 1px 3px #000;
+-webkit-box-shadow: 1px 1px 3px #000;
 
 }
 #access a {
-    $c3
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    color:$custom_color;
+
 
 }
 #access ul ul a {
@@ -1702,9 +2130,14 @@ border:double 3px $rgba_border;
     $c3
 
 }
-#access li:hover > a,
-#access ul ul :hover > a {
-    $c2
+
+#access li:active > a,
+#access ul ul :active > a {
+    top:0;
+    background: -webkit-gradient(linear, left top, left bottom, from($custom_light_bg), to($custom_dark_bg));
+    background: -moz-linear-gradient(top,  $custom_light_bg,  $custom_dark_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_light_bg', endColorstr='$custom_dark_bg');
+    color:$custom_color;
 }
 #access ul li.current_page_item > a,
 #access ul li.current-menu-ancestor > a,
@@ -1721,6 +2154,7 @@ border:double 3px $rgba_border;
 
     $c2
 }
+address{margin:10px auto;}
 LIGHT;
 
 
@@ -1751,7 +2185,7 @@ global $wpdb;
     $raindrops_url  = get_stylesheet_directory_uri() . '/lib/' .INDIVIDUAL_STYLE;
     $raindrops_file = STYLESHEETPATH . '/lib/' .INDIVIDUAL_STYLE;
 
-    if ( file_exists($raindrops_file) ) {
+    if ( file_exists($raindrops_file) and TMN_USE_AUTO_COLOR == true) {
         wp_register_style('raindrops_individual_style_sheet', $raindrops_url,array(),time(),'all');
         wp_enqueue_style( 'raindrops_individual_style_sheet');
     }
@@ -1766,6 +2200,37 @@ $form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website' )
 return $form;
 }
 
+
+/**
+ * remove aria_required
+ *
+ */
+
+
+
+
+function custom_remove_aria_required1($arg){
+
+    $change = array("aria-required=\"true\"","aria-required='true'");
+    $arg = str_replace($change,'',$arg);
+    return $arg;
+
+}
+
+function custom_remove_aria_required2($args) {
+
+    $change = array("aria-required=\"true\"","aria-required='true'");
+    if(isset($args['author'])){
+    $args['author'] = str_replace($change,'',$args['author']);
+}
+
+
+if(isset($args['email'])){
+$args['email'] = str_replace($change,'',$args['email']);
+}
+    return $args;
+}
+
 function setup_raindrops(){
 
     global $wpdb,$raindrops_base_setting;
@@ -1775,12 +2240,30 @@ function setup_raindrops(){
         if(empty($results)){
             foreach($raindrops_base_setting as $add){
 
-                add_option($add['option_name'],$add['option_value'],"description",$add['autoload']);
+                add_option($add['option_name'],$add['option_value'],"",$add['autoload']);
 
             }
 
         }
 
     }
+
+function get_url_from_element($tag){
+
+preg_match('|(https?)(://[[:alnum:]\+\$\;\?\.%,!#~*/:@&=_-]+)|i',$tag,$regs);
+
+if(empty($regs[2])){return false;}
+return $regs[1].$regs[2];
+
+}
+function get_title_from_element($tag){
+
+preg_match('|title=\"([^\"]+)\"|i',$tag,$regs);
+
+if(empty($regs[1])){return "no title";}
+
+return $regs[1];
+
+}
 
 ?>

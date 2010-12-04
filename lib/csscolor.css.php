@@ -10,9 +10,8 @@
 
 if(!defined('ABSPATH')){exit;}
 
-include(ABSPATH."/wp-load.php");
-
-    include_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
+//include_once(ABSPATH."/wp-load.php");
+include_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
 
 $images_path            = get_stylesheet_directory_uri().'/images/';
 
@@ -34,7 +33,7 @@ define("BASE_COLOR1",$count);
  *
  */
 
-$raindrops_indv_css = design_output($style_type,$position_y).color_base();
+$raindrops_indv_css = design_output().color_base();
 
 if(get_option("_raindrops_indv_css","none") == "none"){
     add_option("_raindrops_indv_css",$raindrops_indv_css);
@@ -57,7 +56,10 @@ echo '<div style="padding:2em;color:red">'.STYLESHEETPATH.'/lib/' .__(' Permissi
 function colors($num = 0, $select = 'set',$color1 = null){
     global $images_path;
 
-    if($color == null){
+    if($color1 == null){
+	
+		
+		
         $color1 = str_replace('#',"",BASE_COLOR1);
     }else{
         $color1 = str_replace('#',"",$color1);
@@ -148,25 +150,26 @@ function colors($num = 0, $select = 'set',$color1 = null){
 
 }
 
-function color_base($color1=null,$colo2=null){
+function color_base($color1=null,$color2=null){
 global $images_path;
-if($color == null){
+if($color1 == null){
     $color1 = str_replace('#',"",BASE_COLOR1);
 }else{
     $color1 = str_replace('#',"",$color1);
 
 }
-if($color == null){
-    $color2 = str_replace('#',"",BASE_COLOR2);
+/*
+if($color2 == null){
+    //$color2 = str_replace('#',"",BASE_COLOR2);
 }else{
 
-    $color2 = str_replace('#',"",$color2);
-}
+    //$color2 = str_replace('#',"",$color2);
+}*/
 
 
 
     $base = new CSS_Color($color1);
-    $highlight = new CSS_Color($color2);
+   // $highlight = new CSS_Color($color2);
 
     $bg_1 = $base->bg['-1'];
     $fg_1 = $base->fg['-1'];
@@ -213,10 +216,7 @@ if($color == null){
   background:#{$bg_5};
   color:#{$fg_5};
 }
-.color0{
-  background:#{$bg0};
-  color:#{$fg0};
-}
+
 .color1{
   background:#{$bg1};
   color:#{$fg1};

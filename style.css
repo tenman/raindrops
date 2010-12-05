@@ -5,13 +5,12 @@ Description: basic template
 Author: Tenman
 Author URI: http://www.tenman.info/
 Version: 0.26
+License: GNU General Public License v2.0
+Licence URI: URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
 
-
-License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 enjoy this theme
 
@@ -53,30 +52,8 @@ strong{
 	padding:5px;
 }
 
-/*
 
-.ja em {
-    font-style: normal;
-    padding: 6px 0 0;
-    background:url("../images/ja-em.png") repeat-x!important;
-}
 
-.ja blockquote[title]:before {
-    margin-bottom: 0.3em;
-    display: block;
-    content: "引用: "attr(title);
-    color: #000;
-}
- 
-.ja blockquote[cite]:after {
-    padding: 0.2em 20px;
-    display: block;
-    content: "引用元: "attr(cite);
-    color: #333;
-    text-align: right;
-}
-
-*/
 
 
 

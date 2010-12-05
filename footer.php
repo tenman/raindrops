@@ -21,10 +21,16 @@
 	  <br style="clear:both;" />
     </div>
     <!--footer-widget end-->
-  <address><small>&copy;<?php date("Y");?><?php bloginfo('name'); ?>    <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a> and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a></small>&nbsp;&nbsp;<small><a href="http://www.tenman.info/wp3/raindrops">Raindrops Theme</a></small>&nbsp;&nbsp;
-    <!-- <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds. -->
-    <?php wp_footer(); ?>
+  <address>	
+<?php printf('<small>&copy;%s %s <a href="%s">%s</a> and <a href="%s">%s</a><.small>&nbsp;',date("Y"),get_bloginfo('name'),get_bloginfo('rss2_url') ,__("Entries (RSS)","Raindrops"),get_bloginfo('comments_rss2_url'),__('Comments (RSS)',"Raindrops"));
+
+printf('&nbsp;<small><a href="%s">%s</a></small>&nbsp;&nbsp;','http://www.tenman.info/wp3/raindrops',__("Raindrops Theme","Raindrops"));
+
+?>
 	</address>
+
+<?php wp_footer(); ?>	
+
   </div>
  </div>
 </body>

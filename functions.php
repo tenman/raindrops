@@ -266,11 +266,11 @@ if (!function_exists('add_body_class')) {
 function add_body_class($class) {
 
     /**
-     * body class add　lang
+     * body class addlang
      *
-     *　example
+     *example
      *
-     *　$classes= array('class1'、'class2');
+     *$classes= array('class1','class2');
      *
      */
     $lang = WPLANG;
@@ -470,7 +470,7 @@ if (!function_exists('filter_explode_meta_keys')) {
 
 
 /**
- * warehouse　get raindrops setting
+ * warehouseget raindrops setting
  *
  *
  */
@@ -518,7 +518,7 @@ $result .= "<dt><strong>".__('When you want to display the custom header image',
 $result .= "<dd><div class=\"icon32\" id=\"icon-themes\"><br></div>".__('raindrops/functions.php SHOW_HEADER_IMAGE value change true','Raindrops').'</dd><br style="clear:both;">';
 
 
-$result .= "<p>".sprintf(__('WEBSite：<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
+$result .= "<p>".sprintf(__('WEBSite:<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
 
 
         return apply_filters("raindrops_help",$result);
@@ -578,10 +578,7 @@ $result .= '<dd><table><tr>
 <tr><td colspan="5">
 '.__('code example:please HTML editor mode','Raindrops').'
 <div  style="'.tmn_gradient_single(3,"asc").'padding:1em;">&lt;div class="color3"&gt;
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;
-</div></td>
-</tr></table>
-</dd>';
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;</div></td></tr></table></dd>';
 
 $result .= "</dl>";
         return apply_filters("raindrops_help",$result);
@@ -616,7 +613,7 @@ class tmn_menu_create {
 
 
         /**
-         * POST　GET
+         * POSTGET
          *
          *
          */
@@ -2160,7 +2157,7 @@ LIGHT;
 
 if(isset($$name)){
 return apply_filters("raindrops_colors", $$name );
-    //return $$name;
+
 }else{
     return false;
 }

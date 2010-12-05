@@ -1,13 +1,11 @@
 <?php
 /**
- *　cssファイルの集約と圧縮
+ *style central
  *
  *
  *
  */
-
 header("Content-type: text/css");
-
 $dir = dirname(dirname(dirname(__FILE__)));
 
 ob_start ("ob_gzhandler");
@@ -21,14 +19,11 @@ if(basename(dirname(dirname(__FILE__))) !== "raindrops"){
 $current_style = preg_replace("|@import[^;]+;|","",file_get_contents('../style.css'));
 whitespace_del($current_style);
 }
-
 ob_end_flush();
 
 function whitespace_del($text){
-
-$result = str_replace(array("\r","\n","\t","　"),"",$text);
+$result = str_replace(array("\r","\n","\t",""),"",$text);
 echo $result;
 
 }
-
 ?>

@@ -53,7 +53,7 @@
 <?php if(is_single()){
 
 /**
- *　when Single page
+ * when Single page
  *
  *
  *
@@ -291,7 +291,7 @@ if(!empty($thumbnailsrc)){
 <?php }else{
 
 /**
- *　list post
+ * list post
  *
  *
  *

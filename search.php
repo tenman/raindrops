@@ -41,8 +41,7 @@ echo '</div>';
   </small> <br />
   <br />
   <?php the_content('Read the rest of this entry &raquo;'); ?>
-  <?php //the_content_rss('', TRUE, '', 50); //text2htmlが検索結果で利かない　?>
-  <br />
+
   <br />
   <p class="postmetadata">Posted in
     <?php the_category(', ') ?>

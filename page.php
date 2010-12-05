@@ -33,7 +33,7 @@
             <p style="margin-left:25px;" class="entry-date"><small><?php the_time(get_option('date_format')) ?>&nbsp;<?php the_author() ?></small></p>
 
 <div style="entry-content clearfix">
-            <?php the_content('Read the rest of this entry &raquo;'); ?>
+            <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
 </div>
             <div class="linkpage clearfix">
                 <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
@@ -57,10 +57,10 @@
 
         <div id="nav-below" class="clearfix">
           <span class="nav-previous">
-            <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+            <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
           </span>
           <span class="nav-next">
-            <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+            <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
           </span>
         </div>
         <!-- #nav-above -->
@@ -69,9 +69,9 @@
         <?php else : ?>
         <div class="entry">
           <div id="not-found">
-            <h2 class="h2">Not Found</h2>
-            <p>ご指定のページが見当たりません<br />
-              <small>Sorry, but you are looking for something that isn't here. </small></p>
+            <h2 class="h2"><?php _e("Not Found","Raindrops"); ?></h2>
+            <p><br />
+              <small><?php _e("Sorry, but you are looking for something that isn't here.","Raindrops");?></small></p>
           </div>
         </div>
         <?php endif; ?>

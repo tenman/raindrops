@@ -102,7 +102,7 @@ if(!empty($thumbnailsrc)){
     echo '<div class="single-post-thumbnail">';
     echo $thumb;
     echo '</div>';
-    echo "<a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a>";
+    echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
 }
 }
 ?>
@@ -169,11 +169,11 @@ if(!empty($thumbnailsrc)){
     echo '<div class="single-post-thumbnail">';
     echo $thumb;
     echo '</div>';
-    echo "<a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a>";
+    echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
 }
 }
 ?>
-  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark">
     <?php the_title(); ?>
     </a></h2>
   <div class="entry-meta">
@@ -188,11 +188,9 @@ if(!empty($thumbnailsrc)){
                     $image = array_shift( $images );
                     $attachment_page = $image->post_title;
                     ?>
-    <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a>
       <?php the_content( '' ); ?>
-    </div>
     <br style="clear:both;" />
-    <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" title="' . sprintf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',$total_images); ?></em></p>
+    <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
   </div>
   <!-- .entry-content -->
   <div class="entry-utility">
@@ -210,14 +208,9 @@ if(!empty($thumbnailsrc)){
   <!-- #entry-utility -->
 </div>
 <?php
-
             break;
 
-
-
-
             default:
-
 /**
  * other single page
  *
@@ -240,11 +233,11 @@ if(!empty($thumbnailsrc)){
     echo '<div class="single-post-thumbnail">';
     echo $thumb;
     echo '</div>';
-    echo "<a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a>";
+    echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
 }
 }
 ?>
-  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
     <?php the_title(); ?>
     </a></h2>
   <div class="entry-meta">
@@ -310,16 +303,18 @@ if(!empty($thumbnailsrc)){
       <?php
     echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
 ?>
-      <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+
+
+
+      <?php if(is_home()){?>
+       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
       <div class="entry-content clearfix">
 
-    <?php  if( has_post_thumbnail($post->ID)){?>
+    <?php    if( has_post_thumbnail($post->ID)){?>
         <div class="thumbnail_post" style="float:left;margin:.5em 1em 1em 0;width:50px;">
           <?php the_post_thumbnail(); ?>
         </div>
-        <?php }?>
-      <?php if(is_home()){
-
+        <?php }
 
 
     if( in_category( "gallery" )){
@@ -338,7 +333,7 @@ if(!empty($thumbnailsrc)){
 
             the_excerpt();?>
 
-<p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" title="' . sprintf( esc_attr__( 'Permalink to %s', 'raindrops' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',$total_images); ?></em></p>
+<p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
     <?php
 
      }else{
@@ -346,7 +341,13 @@ if(!empty($thumbnailsrc)){
 
     }
                 }else{
+
+         ?> <h2 class="h2 entry-title"><?php if( has_post_thumbnail($post->ID)){echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';}    ?>
+      <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+      <div class="entry-content clearfix">
+<?php
                 the_content( __( '<span class="button lt"><span class="text">'.__('Continue reading'.'Raindrops').'</span></span> ', 'obandes' ) );
+
                 }
 ?>
       </div>

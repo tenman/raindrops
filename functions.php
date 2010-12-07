@@ -153,7 +153,7 @@ if ( function_exists( 'add_custom_image_header' ) ) {
     add_filter('contextual_help','raindrops_help');
     add_filter('comment_form_field_comment','custom_remove_aria_required1');
     add_filter('comment_form_default_fields', 'custom_remove_aria_required2');
-
+    add_filter( 'the_meta_key', 'filter_explode_meta_keys', 10, 2 );
 
     if ( !is_admin()) {
         wp_register_script('raindrops_script',get_stylesheet_directory_uri() .'/lib/script.php',array('jquery'),'0.1' );
@@ -1131,7 +1131,7 @@ return $g;
 
 
 }
-function design_output(){
+function design_output($name = 'default'){
 
     global $images_path;
     global $navigation_title_img;
@@ -1143,7 +1143,7 @@ function design_output(){
         $rgba_border = hex2rgba($c_border,0.5);
     }
 
-    $name = warehouse('raindrops_style_type');
+    //$name = warehouse('raindrops_style_type');
 
     $c_5        = colors(-5);
     $c_4        = colors(-4);

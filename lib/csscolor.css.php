@@ -33,7 +33,7 @@ define("BASE_COLOR1",$count);
  *
  */
 
-$raindrops_indv_css = design_output().color_base();
+$raindrops_indv_css = design_output($style_type).color_base();
 
 if(get_option("_raindrops_indv_css","none") == "none"){
     add_option("_raindrops_indv_css",$raindrops_indv_css);
@@ -57,9 +57,9 @@ function colors($num = 0, $select = 'set',$color1 = null){
     global $images_path;
 
     if($color1 == null){
-	
-		
-		
+
+
+
         $color1 = str_replace('#',"",BASE_COLOR1);
     }else{
         $color1 = str_replace('#',"",$color1);

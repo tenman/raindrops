@@ -53,10 +53,6 @@ strong{
 }
 
 
-
-
-
-
 /* headding */
 h1,
 h1 a,
@@ -133,7 +129,7 @@ h6 a,
 	display:inline;
 	background:none;
 }
-
+/*
 .ja h1,
 .ja h1 a,
 .ja .h1 a,
@@ -165,7 +161,7 @@ h6 a,
 .ja .h6 a{
 	font-size:93%;
 	}
-		
+*/
 #site-title {
 	display:inline!important;
 	

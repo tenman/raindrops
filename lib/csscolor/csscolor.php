@@ -18,7 +18,6 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-ob_end_clean();
 require_once 'PEAR.php';
 
 define('CSS_COLOR_ERROR', 100);
@@ -44,7 +43,7 @@ class CSS_Color extends PEAR
   // Note: you should not change this directly,
   // instead use setBrightDiff() and getBrightDiff()
   var $minBrightDiff = 126;
-  
+
   // colorDiff is the minimum color difference
   // between the background and the foreground.
   // Note: you should not change this directly,
@@ -90,7 +89,7 @@ class CSS_Color extends PEAR
     // Make sure we got a valid hex value
     if (!$this->isHex($bgHex)) {
       $this->raiseError("background color '$bgHex' is not a hex color value",
-			__FUNCTION__, __LINE__);
+            __FUNCTION__, __LINE__);
       return false;
     }
 
@@ -112,7 +111,7 @@ class CSS_Color extends PEAR
     // Make sure we got a valid hex value
     if (!$this->isHex($fgHex)) {
       $this->raiseError("background color '$bgHex' is not a hex color value",
-			__FUNCTION__, __LINE__);
+            __FUNCTION__, __LINE__);
       return false;
     }
 
@@ -149,13 +148,13 @@ class CSS_Color extends PEAR
     // Make sure inputs are valid
     if (!is_numeric($percent) || $percent < 0 || $percent > 1) {
       $this->raiseError("percent=$percent is not valid",
-			__FUNCTION__, __LINE__);
+            __FUNCTION__, __LINE__);
       return false;
     }
 
     if (!is_int($mask) || $mask < 0 || $mask > 255) {
       $this->raiseError("mask=$mask is not valid",
-			__FUNCTION__, __LINE__);
+            __FUNCTION__, __LINE__);
       return false;
     }
 
@@ -170,7 +169,7 @@ class CSS_Color extends PEAR
 
       // In case rounding up causes us to go to 256
       if ($rgb[$i] > 255) {
-	$rgb[$i] = 255;
+    $rgb[$i] = 255;
       }
 
     }
@@ -192,23 +191,23 @@ class CSS_Color extends PEAR
 
     // Regexp for a valid hex digit
     $d = '[a-fA-F0-9]';
-    
+
     // Make sure $hex is valid
     if (preg_match("/^($d$d)($d$d)($d$d)\$/", $hex, $rgb)) {
-      
+
       return array(
-		   hexdec($rgb[1]),
-		   hexdec($rgb[2]),
-		   hexdec($rgb[3])
-		   );
+           hexdec($rgb[1]),
+           hexdec($rgb[2]),
+           hexdec($rgb[3])
+           );
     }
     if (preg_match("/^($d)($d)($d)$/", $hex, $rgb)) {
-      
+
       return array(
-		   hexdec($rgb[1] . $rgb[1]),
-		   hexdec($rgb[2] . $rgb[2]),
-		   hexdec($rgb[3] . $rgb[3])
-		   );
+           hexdec($rgb[1] . $rgb[1]),
+           hexdec($rgb[2] . $rgb[2]),
+           hexdec($rgb[3] . $rgb[3])
+           );
     }
 
     $this->raiseError("cannot convert hex '$hex' to RGB", __FUNCTION__, __LINE__);
@@ -240,7 +239,7 @@ class CSS_Color extends PEAR
 
       // Add a leading zero if necessary
       if(strlen($hexDigit) == 1) {
-	$hexDigit = "0" . $hexDigit;
+    $hexDigit = "0" . $hexDigit;
       }
 
       // Append to the hex string
@@ -259,10 +258,10 @@ class CSS_Color extends PEAR
 
     // Regexp for a valid hex digit
     $d = '[a-fA-F0-9]';
-    
+
     // Make sure $hex is valid
     if (preg_match("/^#?$d$d$d$d$d$d\$/", $hex) ||
-	preg_match("/^#?$d$d$d\$/", $hex)) {
+    preg_match("/^#?$d$d$d\$/", $hex)) {
       return true;
     }
     return false;
@@ -285,7 +284,7 @@ class CSS_Color extends PEAR
 
       // Make sure the decimal digit is between 0 and 255
       if (!is_int($dec) || $dec < 0 || $dec > 255) {
-	return false;
+    return false;
       }
     }
 
@@ -316,17 +315,17 @@ class CSS_Color extends PEAR
       $lighterBrightDiff = $this->brightnessDiff($bgHex, $lighter);
 
       if ($lighterBrightDiff > $darkerBrightDiff) {
-	$newFG = $lighter;
-	$newFGBrightDiff = $lighterBrightDiff;
+    $newFG = $lighter;
+    $newFGBrightDiff = $lighterBrightDiff;
       } else {
-	$newFG = $darker;
-	$newFGBrightDiff = $darkerBrightDiff;
+    $newFG = $darker;
+    $newFGBrightDiff = $darkerBrightDiff;
       }
       $newFGColorDiff = $this->colorDiff($bgHex, $newFG);
 
       if ($newFGBrightDiff >= $this->minBrightDiff &&
-	  $newFGColorDiff >= $this->minColorDiff) {
-	break;
+      $newFGColorDiff >= $this->minColorDiff) {
+    break;
       }
     }
 
@@ -425,8 +424,8 @@ class CSS_Color extends PEAR
   function &raiseError($message, $method, $line)
   {
     $error = PEAR::raiseError(sprintf("%s.%s() line %d: %s",
-				      get_class($this), $method, $line, $message),
-			      CSS_COLOR_ERROR);
+                      get_class($this), $method, $line, $message),
+                  CSS_COLOR_ERROR);
   }
 
 }

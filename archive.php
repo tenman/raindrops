@@ -10,7 +10,7 @@ Template Name: Archives
  * @subpackage Raindrops
  * @since Raindrop 0.1
  */
-
+global $rsidebar_show;
 get_header('xhtml1'); ?>
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 

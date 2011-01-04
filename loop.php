@@ -20,9 +20,9 @@
  if ( $wp_query->max_num_pages > 1 ) : ?>
 
 <div id="nav-above" class="clearfix"> <span class="nav-previous">
-  <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+  <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
   </span> <span class="nav-next">
-  <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
   </span> </div>
 <!-- #nav-above -->
 <?php endif; ?>
@@ -38,11 +38,11 @@
  if ( ! have_posts() ) : ?>
 <div id="post-0" class="post error404 not-found">
   <h1 class="entry-title h1">
-    <?php _e( 'Not Found', 'raindrops' ); ?>
+    <?php _e( 'Not Found', 'Raindrops' ); ?>
   </h1>
   <div class="entry-content">
     <p>
-      <?php _e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'raindrops' ); ?>
+      <?php _e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'Raindrops' ); ?>
     </p>
     <?php get_search_form(); ?>
   </div>
@@ -123,7 +123,7 @@ if(!empty($thumbnailsrc)){
       <?php the_author(); ?>
     </li>
     <li>
-      <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
+      <?php comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); ?>
     </li>
 <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
 <?php endif; ?>
@@ -136,7 +136,8 @@ if(!empty($thumbnailsrc)){
       <?php the_title(); ?>
       </a></h2>
     <div class="entry-content clearfix">
-      <?php the_content(__('Read the rest of this entry &raquo;', 'raindrops')) ?>
+      <?php the_content(__('Read the rest of this entry &raquo;', 'Raindrops')) ?>
+      <div class="clearfix"></div>
       <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
     </div>
   </div>
@@ -173,12 +174,8 @@ if(!empty($thumbnailsrc)){
 }
 }
 ?>
-  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark">
-    <?php the_title(); ?>
-    </a></h2>
-  <div class="entry-meta">
-    <?php raindrops_posted_on(); ?>
-  </div>
+  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+  <div class="entry-meta"><?php raindrops_posted_on(); ?></div>
   <!-- .entry-meta -->
   <div class="entry-content">
     <?php
@@ -189,21 +186,22 @@ if(!empty($thumbnailsrc)){
                     $attachment_page = $image->post_title;
                     ?>
       <?php the_content( '' ); ?>
-    <br style="clear:both;" />
-    <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
+      <div class="clearfix"></div>
+    <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
   </div>
+
   <!-- .entry-content -->
   <div class="entry-utility">
     <?php
                     $category_id = get_cat_ID( 'Gallery' );
                     $category_link = get_category_link( $category_id );
                 ?>
-    <a href="<?php echo $category_link; ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'raindrops' ); ?>">
-    <?php _e( 'More Galleries', 'raindrops' ); ?>
+    <a href="<?php echo $category_link; ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'Raindrops' ); ?>">
+    <?php _e( 'More Galleries', 'Raindrops' ); ?>
     </a> <span class="meta-sep"> | </span> <span class="comments-link">
-    <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
+    <?php comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); ?>
     </span>
-    <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+    <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
   <!-- #entry-utility -->
 </div>
@@ -219,53 +217,51 @@ if(!empty($thumbnailsrc)){
  *
  */
 
-            ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php
-$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
-
-if(isset($thumb)){
-
-$thumbnailsrc = get_url_from_element($thumb);
-$thumbnail_title = get_title_from_element($thumb);
-
-if(!empty($thumbnailsrc)){
-    echo '<div class="single-post-thumbnail">';
-    echo $thumb;
-    echo '</div>';
-    echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
-}
-}
 ?>
-  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
-    <?php the_title(); ?>
-    </a></h2>
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+    $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
+
+    if(isset($thumb)){
+
+    $thumbnailsrc = get_url_from_element($thumb);
+    $thumbnail_title = get_title_from_element($thumb);
+
+        if(!empty($thumbnailsrc)){
+            echo '<div class="single-post-thumbnail">';
+            echo $thumb;
+            echo '</div>';
+            echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
+        }
+    }
+?>
+  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
   <div class="entry-meta">
     <?php raindrops_posted_on(); ?>
   </div>
   <!-- .entry-meta -->
   <?php if ( is_archive() || is_search() ) : // Only display Excerpts for archives & search ?>
   <div class="entry-summary">
-    <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+    <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
   </div>
   <!-- .entry-summary -->
   <?php else : ?>
   <div class="entry-content clearfix">
-    <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
-    <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'raindrops' ), 'after' => '</div>' ) ); ?>
+    <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+    <div class="clearfix"></div>
+    <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'Raindrops' ), 'after' => '</div>' ) ); ?>
   </div>
   <!-- .entry-content -->
   <?php endif;?>
+
   <div class="entry-utility"> <span class="cat-links"><span class="entry-utility-prep entry-utility-prep-cat-links">
-    <?php _e( 'Posted in ', 'raindrops' ); ?>
+    <?php _e( 'Posted in ', 'Raindrops' ); ?>
     </span>
     <?php the_category( ', ' ); ?>
     </span> <span class="meta-sep"> | </span>
-    <?php the_tags( '<span class="tag-links"><span class="entry-utility-prep entry-utility-prep-tag-links">' . __( 'Tagged ', 'raindrops' ) . '</span>', ', ', '<span class="meta-sep"> | </span>' ); ?>
-    <span class="comments-link">
-    <?php comments_popup_link( __( 'Leave a comment', 'raindrops' ), __( '1 Comment', 'raindrops' ), __( '% Comments', 'raindrops' ) ); ?>
-    </span>
-    <?php edit_post_link( __( 'Edit', 'raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+    <?php the_tags( '<span class="tag-links"><span class="entry-utility-prep entry-utility-prep-tag-links">' . __( 'Tagged ', 'Raindrops' ) . '</span>', ', ', '<span class="meta-sep"> | </span>' ); ?>
+
+    <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
   <!-- #entry-utility -->
   <?php comments_template( '', true ); ?>
@@ -275,9 +271,9 @@ if(!empty($thumbnailsrc)){
 <?php endwhile; ?>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 <div id="nav-below" class="clearfix"> <span class="nav-previous">
-  <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+  <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
   </span> <span class="nav-next">
-  <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
   </span> </div>
 <!-- #nav-above -->
 <?php endif; ?>
@@ -301,7 +297,7 @@ if(!empty($thumbnailsrc)){
      <?php the_time(get_option('date_format')) ?> </span>
 
       <?php
-    echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
+    echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
 ?>
 
 
@@ -333,7 +329,7 @@ if(!empty($thumbnailsrc)){
 
             the_excerpt();?>
 
-<p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
+<p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
     <?php
 
      }else{
@@ -346,7 +342,7 @@ if(!empty($thumbnailsrc)){
       <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
       <div class="entry-content clearfix">
 <?php
-                the_content( __( '<span class="button lt"><span class="text">'.__('Continue reading'.'Raindrops').'</span></span> ', 'obandes' ) );
+                the_content( __( '<span class="button lt"><span class="text">'.__('Continue reading'.'Raindrops').'</span></span> ', 'Raindrops' ) );
 
                 }
 ?>
@@ -359,9 +355,9 @@ if(!empty($thumbnailsrc)){
 </ul>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 <div id="nav-below" class="clearfix"> <span class="nav-previous">
-  <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'raindrops' ) ); ?>
+  <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
   </span> <span class="nav-next">
-  <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'raindrops' ) ); ?>
+  <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
   </span> </div>
 <!-- #nav-above -->
 <?php endif; ?>

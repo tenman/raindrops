@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RAINDROPS-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-05 09:34+0900\n"
-"PO-Revision-Date: 2010-12-05 09:34+0900\n"
+"POT-Creation-Date: 2011-01-04 20:10+0900\n"
+"PO-Revision-Date: 2011-01-04 20:11+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,8 @@ msgid "Primary Navigation"
 msgstr "主ナビゲーション"
 
 #: raindrops/functions.php:140
-msgid "raindrops"
+#, fuzzy
+msgid "Raindrops"
 msgstr "raindrops"
 
 #: raindrops/functions.php:178
@@ -331,9 +332,9 @@ msgstr "値"
 
 #: raindrops/functions.php:820
 #: raindrops/functions.php:822
-#: raindrops/loop.php:208
-#: raindrops/loop.php:275
-#: raindrops/loop.php:354
+#: raindrops/loop.php:204
+#: raindrops/loop.php:264
+#: raindrops/loop.php:351
 msgid "Edit"
 msgstr "編集"
 
@@ -949,34 +950,31 @@ msgid "Page %s"
 msgstr "ページ %s"
 
 #: raindrops/loop.php:23
-#: raindrops/loop.php:285
-#: raindrops/loop.php:361
+#: raindrops/loop.php:274
+#: raindrops/loop.php:358
 #: raindrops/page.php:60
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span>古い投稿"
 
 #: raindrops/loop.php:25
-#: raindrops/loop.php:287
-#: raindrops/loop.php:363
+#: raindrops/loop.php:276
+#: raindrops/loop.php:360
 #: raindrops/page.php:63
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新しい投稿 <span class=\"meta-nav\">&rarr;</span>"
 
 #: raindrops/loop.php:126
-#: raindrops/loop.php:206
-#: raindrops/loop.php:273
+#: raindrops/loop.php:202
 msgid "Leave a comment"
 msgstr "コメントを　どうぞ"
 
 #: raindrops/loop.php:126
-#: raindrops/loop.php:206
-#: raindrops/loop.php:273
+#: raindrops/loop.php:202
 msgid "1 Comment"
 msgstr "1 コメント"
 
 #: raindrops/loop.php:126
-#: raindrops/loop.php:206
-#: raindrops/loop.php:273
+#: raindrops/loop.php:202
 msgid "% Comments"
 msgstr "% コメント"
 
@@ -985,40 +983,40 @@ msgstr "% コメント"
 msgid "Read the rest of this entry &raquo;"
 msgstr "続きを読む　&raquo;"
 
-#: raindrops/loop.php:195
-#: raindrops/loop.php:341
+#: raindrops/loop.php:190
+#: raindrops/loop.php:332
 #, php-format
 msgid "This gallery contains <a %1$s>%2$s photos</a>."
 msgstr "このギャラリには <a %1$s>%2$s の画像があります</a>."
 
-#: raindrops/loop.php:256
+#: raindrops/loop.php:245
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
 
-#: raindrops/loop.php:261
+#: raindrops/loop.php:250
 #, fuzzy
 msgid "Continue&nbsp;reading&nbsp;<span class=\"meta-nav\">&rarr;</span>"
 msgstr "続きを読む <span class=\"meta-nav\">&rarr;</span>"
 
-#: raindrops/loop.php:262
+#: raindrops/loop.php:252
 msgid "Pages:"
 msgstr "ページ"
 
-#: raindrops/loop.php:271
+#: raindrops/loop.php:262
 msgid "Tagged "
 msgstr "タグ"
 
-#: raindrops/loop.php:311
+#: raindrops/loop.php:300
 #, php-format
 msgid "<span class=\"time-diff\">(Passage of %s)</span>"
 msgstr "%s <span class=\"says\">前の投稿</span>"
 
-#: raindrops/loop.php:349
+#: raindrops/loop.php:345
 #, fuzzy
 msgid "Continue readingRaindrops"
 msgstr "続けて読む"
 
-#: raindrops/loop.php:349
+#: raindrops/loop.php:345
 msgid "<span class=\"button lt\"><span class=\"text\">"
 msgstr "<span class=\"button lt\"><span class=\"text\">"
 

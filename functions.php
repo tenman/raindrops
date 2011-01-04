@@ -67,7 +67,7 @@
     add_editor_style();
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
-        'primary' => __( 'Primary Navigation', 'raindrops' ),
+        'primary' => __( 'Primary Navigation', 'Raindrops' ),
     ) );
 
     // This theme allows users to set a custom background
@@ -137,7 +137,7 @@ if ( function_exists( 'add_custom_image_header' ) ) {
             'url' => '%s/images/headers/wp3.jpg',
             'thumbnail_url' => '%s/images/headers/wp3-thumbnail.jpg',
             /* translators: header image description */
-            'description' => __( 'raindrops', 'raindrops' )
+            'description' => __( 'Raindrops', 'Raindrops' )
         )
 
     ) );
@@ -341,7 +341,7 @@ if (!function_exists('raindrops_comment')) {
             </div>
                 <div style="overflow:hidden;*width:100%;padding-left:1em;" class="clearfix">
 
-                <?php printf( __( '%s <span class="says">says:</span>', 'raindrops' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+                <?php printf( __( '%s <span class="says">says:</span>', 'Raindrops' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
                 </div>
             </div><!-- .comment-author .vcard -->
 
@@ -350,7 +350,7 @@ if (!function_exists('raindrops_comment')) {
 
             <?php if ( $comment->comment_approved == '0' ) : ?>
             <div style="overflow:hidden;*width:100%;padding-left:1em;" class="clearfix">
-                <em><?php _e( 'Your comment is awaiting moderation.', 'raindrops' ); ?></em>
+                <em><?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?></em>
                 <br />
                 </div>
             <?php endif; ?>
@@ -358,7 +358,7 @@ if (!function_exists('raindrops_comment')) {
             <div class="comment-meta commentmetadata clearfix" style="overflow:hidden;*width:100%;padding-left:1em;"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
                 <?php
                     /* translators: 1: date, 2: time */
-                    printf( __( '%1$s at %2$s', 'raindrops' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'raindrops' ), ' ' );
+                    printf( __( '%1$s at %2$s', 'Raindrops' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' );
                 ?>
             </div><!-- .comment-meta .commentmetadata -->
 
@@ -373,7 +373,7 @@ if (!function_exists('raindrops_comment')) {
         <?php else : ?>
 
         <li class="post pingback">
-            <p><?php _e( 'Pingback:', 'raindrops' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'raindrops'), ' ' ); ?></p>
+            <p><?php _e( 'Pingback:', 'Raindrops' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'Raindrops'), ' ' ); ?></p>
 
         <?php endif;
     }
@@ -386,11 +386,11 @@ if (!function_exists('raindrops_posted_in')) {
         // Retrieves tag list of current post, separated by commas.
         $tag_list = get_the_tag_list( '', ', ' );
         if ( $tag_list ) {
-            $posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'raindrops' );
+            $posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
         } elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-            $posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'raindrops' );
+            $posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
         } else {
-            $posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'raindrops' );
+            $posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
         }
         // Prints the string, replacing the placeholders.
         printf(
@@ -408,7 +408,7 @@ if (!function_exists('raindrops_posted_in')) {
 if (!function_exists('raindrops_posted_on')) {
 
     function raindrops_posted_on() {
-        printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'raindrops' ),
+        printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'Raindrops' ),
             'meta-prep meta-prep-author',
             sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
                 get_permalink(),
@@ -417,7 +417,7 @@ if (!function_exists('raindrops_posted_on')) {
             ),
             sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>',
                 get_author_posts_url( get_the_author_meta( 'ID' ) ),
-                sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ),
+                sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ),
                 get_the_author()
             )
         );

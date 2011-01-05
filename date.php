@@ -13,6 +13,7 @@ if(isset($_GET['ec3_listing']) and !empty($_GET['ec3_listing'])){
 exit;
 
 }
+$ht_deputy = "no-title";
 
     $weekdaynames = array(
         0 => __('Sunday','Raindrops'),
@@ -292,7 +293,9 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     function get_year($posts = '', $year = '', $pad = 0) {
 
         $months = array();
-
+        $y = "";
+        $m = "";
+        $d = "";
         // first let's parse through our posts, organizing them by month
         foreach ($posts as $post) {
                 $y = substr($post->post_date, 0, 4);
@@ -323,7 +326,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         foreach ($months as $num => $val) {
             $num = (int)$num;
-           $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$mon\">".$num.'</a></td>'.year_list ($val, $year, $num, $pad).'</tr>';
+           $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td>'.year_list ($val, $year, $num, $pad).'</tr>';
 
         }
     return $output.implode("\n",$table_year);
@@ -334,6 +337,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     function get_day($posts = '', $year = '', $mon = '', $day = '', $pad = 1){
 
         global $month;
+        global $ht_deputy;
 
         $here = home_url();
 
@@ -362,6 +366,9 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
                 if (isset($today[$i])) {
                                 foreach ($today[$i] as $mytime) {
+
+                                    if($mytime->post_title == ''){$mytime->post_title = $ht_deputy;}
+
                                         $output .= "<a href=\"" . get_permalink($mytime->ID) . "\"
         title=\"$mytime->post_title\">$mytime->post_title</a><br />";
                                 }
@@ -386,11 +393,14 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
     function year_list($one_month,$ye,$mo){
         $result = "";
-
-
+    global $ht_deputy;
+    $d = "";
+    $links = "";
             foreach($one_month as $month){
         //var_dump($month->post_date);
-                list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+                //list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+                list($y,$m,$d) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+            if($month->post_title == ''){$month->post_title = $ht_deputy;}
 
                 if($m == $mo and $ye == $y){
                 $links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
@@ -403,8 +413,6 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                 $result .= $links;
                 $result .= "</ul></td></tr>";
                 }
-
-
         return $result;
     }
 
@@ -412,6 +420,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
 
     function month_list($one_month,$ye,$mo){
+    global $ht_deputy;
         $result = "";
         $here = home_url();
     for($i=1;$i <= days_in_month($mo, $ye);$i++){
@@ -420,7 +429,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $links = "";
 
         foreach($one_month as $month){
-
+            if($month->post_title == ''){$month->post_title = $ht_deputy;}
             list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");
 
             if($d == $i and $m == $mo and $y == $ye){

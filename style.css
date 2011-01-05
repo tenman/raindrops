@@ -273,7 +273,7 @@ ol,ul{
 	margin-left:2.5em;
 }
 ol li{
-	list-style-type:decimal;
+
 }
 
 dl {
@@ -490,14 +490,14 @@ li.question {
 	padding:5px 5px 5px 30px;
 }
 
-p.pagenate a {
+.pagenate a {
 	overflow:hidden;
 	text-decoration:none;
 	width:15px;
 	margin:0;
 }
 
-p.pagenate a:hover {
+.pagenate a:hover {
 	font-weight:700;
 	height:100%;
 	text-decoration:none;
@@ -1049,13 +1049,16 @@ ul.index li .edit {
 	margin:0 10%;
 }
 
-ol.commentlist{
-list-style:decimal;
+ol.commentlist >li{
+	list-style:decimal;
 }
+/*
+
+
 ol.commentlist .comment-author{
 
 
-}
+}*/
 .comment-author img{
 	float:left;
 }

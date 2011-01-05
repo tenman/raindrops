@@ -328,62 +328,57 @@ if (!function_exists('raindrops_comment')) {
     function raindrops_comment( $comment, $args, $depth ) {
 
         $GLOBALS['comment'] = $comment; ?>
-        <?php if ( '' == $comment->comment_type ) : ?>
+<?php if ( '' == $comment->comment_type ) : ?>
 
-
-        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-            <div id="comment-<?php comment_ID(); ?>">
-
-
-            <div class="comment-author vcard">
-             <div style="width:40px;float-left">
-                <?php echo get_avatar( $comment, 32 ); ?>
-            </div>
-                <div style="overflow:hidden;*width:100%;padding-left:1em;" class="clearfix">
-
-                <?php printf( __( '%s <span class="says">says:</span>', 'Raindrops' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-                </div>
-            </div><!-- .comment-author .vcard -->
-
-
-
-
-            <?php if ( $comment->comment_approved == '0' ) : ?>
-            <div style="overflow:hidden;*width:100%;padding-left:1em;" class="clearfix">
-                <em><?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?></em>
-                <br />
-                </div>
-            <?php endif; ?>
-
-            <div class="comment-meta commentmetadata clearfix" style="overflow:hidden;*width:100%;padding-left:1em;"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-                <?php
+<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+  <div id="comment-<?php comment_ID(); ?>">
+    <div class="comment-author vcard">
+      <div style="width:40px;float:left"> <?php echo get_avatar( $comment, 32 ); ?> </div>
+      <div style="overflow:hidden;*width:100%;padding-left:1em;" class="clearfix"> <?php printf( __( '%s <span class="says">says:</span>', 'Raindrops' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?> </div>
+    </div>
+    <!-- .comment-author .vcard -->
+    <?php if ( $comment->comment_approved == '0' ) : ?>
+    <div style="overflow:hidden;*width:100%;padding-left:1em;" class="clearfix"> <em>
+      <?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?>
+      </em> <br />
+    </div>
+    <?php endif; ?>
+    <div class="comment-meta commentmetadata clearfix" style="overflow:hidden;*width:100%;padding-left:1em;"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+      <?php
                     /* translators: 1: date, 2: time */
-                    printf( __( '%1$s at %2$s', 'Raindrops' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' );
+                    printf( __( '%1$s at %2$s', 'Raindrops' ), get_comment_date(),  get_comment_time() ); ?>
+      </a>
+      <?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' );
                 ?>
-            </div><!-- .comment-meta .commentmetadata -->
-
-            <div class="comment-body"><?php comment_text(); ?></div>
-
-            <div class="reply">
-                <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-            </div><!-- .reply -->
-
-        </div><!-- #comment-##  -->
-
-        <?php else : ?>
-
-        <li class="post pingback">
-            <p><?php _e( 'Pingback:', 'Raindrops' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'Raindrops'), ' ' ); ?></p>
-
-        <?php endif;
+    </div>
+    <!-- .comment-meta .commentmetadata -->
+    <div class="comment-body">
+      <?php comment_text(); ?>
+    </div>
+    <div class="reply">
+      <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+    </div>
+    <!-- .reply -->
+  </div>
+  <!-- #comment-##  -->
+  <?php else : ?>
+<li class="post pingback">
+  <p>
+    <?php _e( 'Pingback:', 'Raindrops' ); ?>
+    <?php comment_author_link(); ?>
+    <?php edit_comment_link( __('(Edit)', 'Raindrops'), ' ' ); ?>
+  </p>
+  <?php endif;
     }
 
 }
 
 
 if (!function_exists('raindrops_posted_in')) {
+
     function raindrops_posted_in() {
         // Retrieves tag list of current post, separated by commas.
+
         $tag_list = get_the_tag_list( '', ', ' );
         if ( $tag_list ) {
             $posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );

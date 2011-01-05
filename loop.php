@@ -17,6 +17,7 @@
  *
  *
  */
+$ht_deputy = "";
  if ( $wp_query->max_num_pages > 1 ) : ?>
 
 <div id="nav-above" class="clearfix"> <span class="nav-previous">
@@ -72,6 +73,8 @@ if ( in_category( "blog" )){
     $cat = "default";
 
 }
+
+if(get_the_title() == ''){$ht_deputy = $post->ID;}
 
 
 ?>
@@ -133,7 +136,7 @@ if(!empty($thumbnailsrc)){
   </ul>
   <div class="blog-main left">
     <h2 class="entry-title  clearfix h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-      <?php the_title(); ?>
+      <?php the_title(); echo $ht_deputy; ?>
       </a></h2>
     <div class="entry-content clearfix">
       <?php the_content(__('Read the rest of this entry &raquo;', 'Raindrops')) ?>
@@ -174,7 +177,7 @@ if(!empty($thumbnailsrc)){
 }
 }
 ?>
-  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); echo $ht_deputy; ?></a></h2>
   <div class="entry-meta"><?php raindrops_posted_on(); ?></div>
   <!-- .entry-meta -->
   <div class="entry-content">
@@ -235,7 +238,7 @@ if(!empty($thumbnailsrc)){
         }
     }
 ?>
-  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); echo $ht_deputy; ?></a></h2>
   <div class="entry-meta">
     <?php raindrops_posted_on(); ?>
   </div>
@@ -254,14 +257,9 @@ if(!empty($thumbnailsrc)){
   <!-- .entry-content -->
   <?php endif;?>
 
-  <div class="entry-utility"> <span class="cat-links"><span class="entry-utility-prep entry-utility-prep-cat-links">
-    <?php _e( 'Posted in ', 'Raindrops' ); ?>
-    </span>
-    <?php the_category( ', ' ); ?>
-    </span> <span class="meta-sep"> | </span>
-    <?php the_tags( '<span class="tag-links"><span class="entry-utility-prep entry-utility-prep-tag-links">' . __( 'Tagged ', 'Raindrops' ) . '</span>', ', ', '<span class="meta-sep"> | </span>' ); ?>
-
-    <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+  <div class="entry-utility">
+  <?php echo raindrops_posted_in();?>
+  <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
   <!-- #entry-utility -->
   <?php comments_template( '', true ); ?>
@@ -290,11 +288,13 @@ if(!empty($thumbnailsrc)){
 <!-- not single-->
 <ul class="index">
   <?php while (have_posts()) : the_post(); ?>
+  <?php if(get_the_title() == ''){$ht_deputy = $post->ID;}?>
+
   <li>
     <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
 
-    <span class="entry-date published">
-     <?php the_time(get_option('date_format')) ?> </span>
+    <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); echo $ht_deputy; ?>"><span class="entry-date published">
+     <?php the_time(get_option('date_format')) ?> </span></a>
 
       <?php
     echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
@@ -303,7 +303,8 @@ if(!empty($thumbnailsrc)){
 
 
       <?php if(is_home()){?>
-       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+
+       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); echo $ht_deputy; ?></a></h2>
       <div class="entry-content clearfix">
 
     <?php    if( has_post_thumbnail($post->ID)){?>
@@ -339,7 +340,7 @@ if(!empty($thumbnailsrc)){
                 }else{
 
          ?> <h2 class="h2 entry-title"><?php if( has_post_thumbnail($post->ID)){echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';}    ?>
-      <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+      <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); echo $ht_deputy; ?></a></h2>
       <div class="entry-content clearfix">
 <?php
                 the_content( __( '<span class="button lt"><span class="text">'.__('Continue reading'.'Raindrops').'</span></span> ', 'Raindrops' ) );

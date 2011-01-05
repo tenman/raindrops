@@ -577,7 +577,7 @@ $result .= '<dd><table><tr>
 <td style="'.tmn_gradient_single(5,"desc").'padding:0.5em;">class gradient-5</td></tr>
 <tr><td colspan="5">
 '.__('code example:please HTML editor mode','Raindrops').'
-<div  style="'.tmn_gradient_single(3,"asc").'padding:1em;">&lt;div class="color3"&gt;
+<div  style="'.tmn_gradient_single(3,"asc").'padding:1em;">&lt;div class="gradient3"&gt;
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;</div></td></tr></table></dd>';
 
 $result .= "</dl>";

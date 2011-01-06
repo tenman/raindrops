@@ -1,0 +1,46 @@
+/* ja CSS Document */
+
+
+.ja h1,
+.ja h1 a,
+.ja .h1 a,
+.ja #site-title{
+	font-size:174%;
+	}
+.ja h2,
+.ja h2 a,
+.ja .h2 a{
+	font-size:138.5%;
+	}
+.ja h3,
+.ja h3 a,
+.ja .h3 a{
+	font-size:116%;
+	}
+.ja h4,
+.ja h4 a,
+.ja .h4 a{
+	font-size:108%;
+	}
+.ja h5,
+.ja h5 a,
+.ja .h5 a{
+	font-size:100%;
+	}
+.ja h6,
+.ja h6 a,
+.ja .h6 a{
+	font-size:93%;
+	}
+
+.footer-widget h2,
+.rsidebar h2,
+.lsidebar h2,
+.widgettitle h2,
+h2.footer-content {
+	height:17px;
+	text-indent:1em;
+	font-size:108%;
+	padding:5px 0;
+	/*font-family:Geneva, Arial, Helvetica, sans-serif;*/
+}

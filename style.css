@@ -4,16 +4,11 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: basic template
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.264
-License: GNU General Public License v2.0
-Licence URI: http://www.gnu.org/licenses/gpl-2.0.html
-
+Version: 0.27
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
-
-
-enjoy this theme
-
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
@@ -129,39 +124,6 @@ h6 a,
 	display:inline;
 	background:none;
 }
-/*
-.ja h1,
-.ja h1 a,
-.ja .h1 a,
-.ja #site-title{
-	font-size:174%;
-	}
-.ja h2,
-.ja h2 a,
-.ja .h2 a{
-	font-size:123.1%;
-	}
-.ja h3,
-.ja h3 a,
-.ja .h3 a{
-	font-size:116%;
-	}
-.ja h4,
-.ja h4 a,
-.ja .h4 a{
-	font-size:108%;
-	}
-.ja h5,
-.ja h5 a,
-.ja .h5 a{
-	font-size:100%;
-	}
-.ja h6,
-.ja h6 a,
-.ja .h6 a{
-	font-size:93%;
-	}
-*/
 #site-title {
 	display:inline!important;
 	

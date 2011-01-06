@@ -123,7 +123,9 @@ if(!empty($thumbnailsrc)){
     </li>
     <li>
       <?php _e('Auther:');?>
-      <?php the_author(); ?>
+      <?php //the_author();
+      echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
+                get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
     </li>
     <li>
       <?php comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); ?>
@@ -131,8 +133,7 @@ if(!empty($thumbnailsrc)){
 <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
 <?php endif; ?>
     <li>
-      <?php edit_post_link('Edit', '', '  '); ?>
-      .</li>
+      <?php edit_post_link('Edit', '', '  '); ?></li>
   </ul>
   <div class="blog-main left">
     <h2 class="entry-title  clearfix h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
@@ -143,6 +144,7 @@ if(!empty($thumbnailsrc)){
       <div class="clearfix"></div>
       <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
     </div>
+    <?php comments_template( '', true ); ?>
   </div>
 </div>
 <?php
@@ -206,6 +208,7 @@ if(!empty($thumbnailsrc)){
     </span>
     <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
+  <?php comments_template( '', true ); ?>
   <!-- #entry-utility -->
 </div>
 <?php
@@ -227,8 +230,8 @@ if(!empty($thumbnailsrc)){
 
     if(isset($thumb)){
 
-    $thumbnailsrc = get_url_from_element($thumb);
-    $thumbnail_title = get_title_from_element($thumb);
+        $thumbnailsrc = get_url_from_element($thumb);
+        $thumbnail_title = get_title_from_element($thumb);
 
         if(!empty($thumbnailsrc)){
             echo '<div class="single-post-thumbnail">';

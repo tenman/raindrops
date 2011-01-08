@@ -7,6 +7,7 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
+
 ?>
 <?php
     global $wpdb;
@@ -62,7 +63,10 @@
 
     }
 
-	add_action('load-themes.php', 'install_navigation');
+    if(SHOW_HEADER_IMAGE == false){
+        add_action("admin_head","header_image_alert");
+    }
+    add_action('load-themes.php', 'install_navigation');
 
     add_editor_style();
     // This theme uses wp_nav_menu() in one location.
@@ -378,9 +382,9 @@ if (!function_exists('raindrops_posted_in')) {
 
     function raindrops_posted_in() {
         // Retrieves tag list of current post, separated by commas.
-		
+
         $tag_list = get_the_tag_list( '', ', ' );
-		
+
         if ( $tag_list ) {
             $posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
         } elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
@@ -1523,7 +1527,7 @@ background: $c_5
     background:none;
 }
 #header-image{
-background-color:$custom_light_bg!important;	
+background-color:$custom_light_bg!important;
 }
 #doc,#doc2,#doc3,#doc4{
     $c_5
@@ -1905,7 +1909,7 @@ background-image:url({$images_path}{$tmn_header_image});
 
 }
 #header-image{
-background-color:$custom_light_bg!important;	
+background-color:$custom_light_bg!important;
 }
 #doc,#doc2,#doc3,#doc4{
     $c5
@@ -1926,12 +1930,12 @@ ul.nav li a:hover,ul.nav li a:active{
     $c4
 }
 #sidebar{
-    $c5
+   /* $c5*/
     border-color:$rgba_border;
 }
 
 .rsidebar{
-    $c5
+   /* $c5*/
 }
 
 .postmetadata{
@@ -2302,11 +2306,11 @@ return $regs[1];
 
 function first_only_msg($type=0) {
     if ( $type == 1 ) {
-	
+
         $link = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.__FILE__;
-		
-		$msg = sprintf(__('Thank you for adopting the Raindrops theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.') ,$link);
-		
+
+        $msg = sprintf(__('Thank you for adopting the Raindrops theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.','Raindrops') ,$link);
+
     }
     return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
 }
@@ -2316,20 +2320,28 @@ function install_navigation() {
         add_action('admin_notices', create_function(null, 'echo first_only_msg(1);'));
         add_option('raindrops_install', true);
     } else {
+
         add_action('switch_theme', create_function(null, 'delete_option("raindrops_install");'));
-		add_action('switch_theme', create_function(null, 'delete_option("_raindrops_indv_css");'));
-		add_action('switch_theme', 'bye_raindrops');
-	
-		
+        add_action('switch_theme', create_function(null, 'delete_option("_raindrops_indv_css");'));
+        add_action('switch_theme', 'bye_raindrops');
+
+
     }
 }
 
 function bye_raindrops(){
 global $raindrops_base_setting;
-		foreach( $raindrops_base_setting as $bye){
-        	delete_option($bye['option_name']);
-			
-		}
+        foreach( $raindrops_base_setting as $bye){
+            delete_option($bye['option_name']);
+
+        }
+}
+
+
+function header_image_alert(){
+    if($_GET['page'] == 'custom-header'){
+    printf('<script type="text/javascript">alert(\'%s\');</script>',__('Please open raindrops/functions.php, and set the value of SHOW_HEADER_IMAGE to true.','Raindrops'));
+    }
 }
 
 ?>

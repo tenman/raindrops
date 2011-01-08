@@ -10,7 +10,7 @@
 
 if(!defined('ABSPATH')){exit;}
 
-require_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
+require_once(get_stylesheet_directory()."/lib/csscolor/csscolor.php");
 
 $images_path            = get_stylesheet_directory_uri().'/images/';
 

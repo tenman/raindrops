@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: RAINDROPS-0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-08 21:14+0900\n"
-"PO-Revision-Date: 2011-01-08 22:12+0900\n"
+"PO-Revision-Date: 2011-01-08 23:06+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -163,17 +163,17 @@ msgstr "（編集）"
 #: raindrops/functions.php:389
 #, php-format
 msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "カテゴリ： %1$s タグ：%2$s. ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
+msgstr "カテゴリ： %1$s タグ：%2$s.  <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
 #: raindrops/functions.php:391
 #, php-format
 msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "カテゴリ： %1$s.ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
+msgstr "カテゴリ： %1$s. <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
 #: raindrops/functions.php:393
 #, php-format
 msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-msgstr "ブックマーク用 <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
+msgstr " <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
 #: raindrops/functions.php:411
 #, php-format

@@ -263,7 +263,7 @@ $raindrops_base_setting = array(
 
 if(TMN_USE_AUTO_COLOR == true and is_admin() == true){
 
-    require_once(STYLESHEETPATH."/lib/csscolor.css.php");
+    require_once(get_stylesheet_directory()."/lib/csscolor.css.php");
 }
 
 if (!function_exists('add_body_class')) {
@@ -1206,17 +1206,17 @@ function design_output($name = 'default'){
     global $tmn_footer_image;
     global $tmn_footer_color;
 
-    $h2_default_background = "background:".colors(3,'background').' ';
+    $h2_default_background = "background:".colors(4,'background').' ';
     $h2_default_background .= "url({$images_path}{$navigation_title_img});";
-    $h2_default_background .= "color:".colors(3,'color').';';
+    $h2_default_background .= "color:".colors(4,'color').';';
 
     $h2_dark_background = "background:".colors(-3,'background').' ';
     $h2_dark_background .= "url({$images_path}{$navigation_title_img});";
     $h2_dark_background .= "color:".colors(-3,'color').';';
 
-    $h2_light_background = "background:".colors(3,'background').' ';
+    $h2_light_background = "background:".colors(4,'background').' ';
     $h2_light_background .= "url({$images_path}{$navigation_title_img});";
-    $h2_light_background .= "color:".colors(3,'color').';';
+    $h2_light_background .= "color:".colors(4,'color').';';
 
 
     $custom_dark_bg = colors('3','background');
@@ -1506,7 +1506,7 @@ background:none;
 
 #yui-main{
 
-background: $c_5
+    $c_5
 
 }
 #hd{
@@ -1823,10 +1823,10 @@ DARK;
  *
  *
  */
-    $custom_dark_bg = colors('4','background');
-    $custom_light_bg = colors('2','background');
+    $custom_dark_bg = colors('5','background');
+    $custom_light_bg = colors('3','background');
     $custom_color = colors('3','color');
-    $base_gradient = tmn_gradient_single(2,"asc");
+    $base_gradient = tmn_gradient_single(3,"asc");
 
     if(!empty($tmn_footer_color)){
         $tmn_footer_color = 'color:'.$tmn_footer_color;
@@ -1837,44 +1837,49 @@ $light =<<<LIGHT
 
 $gradient
 
-h1,h2,h3,h4,h5,h6,#bd a,.postmetadata{background:none!important;}
 body{
     margin:0!important;
     $c4
     background: -webkit-gradient(linear, left top, left bottom, from($custom_dark_bg), to($custom_light_bg));
-background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
+    background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
 }
+#top{
+    $c2
+}
+
+
 .hfeed{
-    $base_gradient
+    /*$base_gradient*/
+    $c5
     box-shadow: 0 0 5px $rgba_border;
     -webkit-box-shadow: 0 0 5px $rgba_border;
     -moz-box-shadow: 0 0 5px $rgba_border;
 
 }
-#top{
-    $c2
-    /*border-bottom: medium solid $c_border;*/
-}
+
 h2,h3{
     $c5
 }
 .home .sticky {
-background: $c4
-border-top:solid 6px $rgba_border;
-border-bottom:solid 2px $rgba_border;
+    background: $c4
+    border-top:solid 6px $rgba_border;
+    border-bottom:solid 2px $rgba_border;
 
 }
 .home .entry-meta{
-background: $c4
-border-top:solid 2px $rgba_border;
-border-bottom:solid 2px $rgba_border;
-
-
+    background: $c4
+    border-top:solid 2px $rgba_border;
+    border-bottom:solid 2px $rgba_border;
 }
 
 .home .sticky a{
-background: none;
+    background: none;
+
+}
+#yui-main{
+
+    /*$c5*/
 
 }
 
@@ -1889,13 +1894,8 @@ background: none;
 }
 
 #hd{
-   $c1
-background-image:url({$images_path}{$tmn_header_image});
-
-
-
-
-
+   $c3
+    background-image:url({$images_path}{$tmn_header_image});
 
 }
 #hd h1,.h1,#site-title{
@@ -1909,14 +1909,12 @@ background-image:url({$images_path}{$tmn_header_image});
 
 }
 #header-image{
-background-color:$custom_light_bg!important;
+    background-color:$custom_light_bg!important;
 }
 #doc,#doc2,#doc3,#doc4{
     $c5
 }
-div#bd{
 
-}
 #nav{
     $c3
 }
@@ -1930,12 +1928,10 @@ ul.nav li a:hover,ul.nav li a:active{
     $c4
 }
 #sidebar{
-   /* $c5*/
     border-color:$rgba_border;
 }
 
 .rsidebar{
-   /* $c5*/
 }
 
 .postmetadata{
@@ -1953,20 +1949,20 @@ ol.tblist li{background:transparent url({$images_path}c.gif) 0 2px no-repeat;}
     $tmn_footer_color
 }
 
-/*.lsidebar h2{
-    $h2_light_background
 
-}*/
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-$c3
-$h2_light_background;
-$h_position_rsidebar_h2
+    $c3
+    $h2_light_background;
+    $h_position_rsidebar_h2
 }
 
 a:link,a:active,a:visited,a:hover{
     $c5
 }
-#hd h1 a:link,#hd h1 a:active,#hd h1 a:visited,#hd h1 a:hover{
+#hd h1 a:link,
+#hd h1 a:active,
+#hd h1 a:visited,
+#hd h1 a:hover{
     $c3
     background:none;
 }
@@ -1981,17 +1977,17 @@ dl.author dd,
 dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt{
-border-bottom:1px solid $c_border;
+    border-bottom:1px solid $c_border;
 }
 
 #items li{
-border-bottom:1px solid $c_border;
+    border-bottom:1px solid $c_border;
 }
 .attachment .caption dd{
-border-bottom:1px solid $c_border;
+    border-bottom:1px solid $c_border;
 }
 .attachment .caption dt{
-border-bottom:double 3px $c_border;
+    border-bottom:double 3px $c_border;
 }
 ul.archive,
 ul.index{
@@ -2001,7 +1997,7 @@ ul.index{
 
 }
 .sitemap.new li{
-border-bottom:1px solid $c_border;
+    border-bottom:1px solid $c_border;
 }
 .social{
     border-top:3px double $c_border;border-bottom:3px double $c_border;
@@ -2012,7 +2008,7 @@ border-bottom:1px solid $c_border;
 }
 
 ul.all_entry h2{
-border-bottom:3px double $c_border;
+    border-bottom:3px double $c_border;
 }
 ul.category li{
     border-bottom:1px solid $c_border;
@@ -2034,14 +2030,13 @@ ul.archive ul li {
 }
 
 hr{
-    border:none;border-top:1px solid $c_border;
+    border:none;
+    border-top:1px solid $c_border;
     border-top:1px solid $rgba_border;
 
 }
 ul.archive li,
 ul.index li{
-   /* border-top:1px solid $c_border;
-    border-top:1px solid $rgba_border;*/
 
 }
 .itiran{
@@ -2068,7 +2063,7 @@ td.month-date,td.month-name,td.time{
 }
 
 .footer-widget h2{
-background:none;
+    background:none;
 
 }
 blockquote {
@@ -2120,22 +2115,21 @@ legend{
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-
-border:double 3px $rgba_border;
-background: $c4
+    border:double 3px $rgba_border;
+    background: $c4
 }
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"]{
-background: $c4
-border:double 3px $rgba_border;
+    background: $c4
+    border:double 3px $rgba_border;
 }
 .entry-content select{
-background: $c4
-border:double 3px $rgba_border;
+    background: $c4
+    border:double 3px $rgba_border;
 }
 .entry-content textarea{
-background: $rgba_border
-border:double 3px $rgba_border;
+    background: $rgba_border
+    border:double 3px $rgba_border;
 }
 /*--------------------------------*/
 #access{
@@ -2145,11 +2139,11 @@ border:double 3px $rgba_border;
     background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
     border-radius:1em 1em 1em 1em;
--moz-border-radius:1em 1em 1em 1em;
--webkit-border-radius:1em 1em 1em 1em!important;
-border-top:1px solid rgba(255, 255, 255, 0.3);
--moz-box-shadow: 1px 1px 3px #000;
--webkit-box-shadow: 1px 1px 3px #000;
+    -moz-border-radius:1em 1em 1em 1em;
+    -webkit-border-radius:1em 1em 1em 1em!important;
+    border-top:1px solid rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
 
 }
 #access a {
@@ -2157,13 +2151,9 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
     background: -moz-linear-gradient(top,  $custom_dark_bg,  $custom_light_bg);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_bg', endColorstr='$custom_light_bg');
     color:$custom_color;
-
-
 }
 #access ul ul a {
-
     $c3
-
 }
 
 #access li:active > a,
@@ -2178,7 +2168,6 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-
     $c3
 }
 * html #access ul li.current_page_item a,
@@ -2186,10 +2175,13 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
-
     $c2
 }
-address{margin:10px auto;}
+address{
+    margin:10px auto;
+}
+
+h1,h2,h3,h4,h5,h6,#bd a,.postmetadata{background:none!important;}
 LIGHT;
 
 
@@ -2336,8 +2328,6 @@ global $raindrops_base_setting;
 
         }
 }
-
-
 function header_image_alert(){
     if($_GET['page'] == 'custom-header'){
     printf('<script type="text/javascript">alert(\'%s\');</script>',__('Please open raindrops/functions.php, and set the value of SHOW_HEADER_IMAGE to true.','Raindrops'));

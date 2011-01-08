@@ -6,17 +6,9 @@
  *
  */
 header("Content-type: text/css");
-<?php
-/**
- *style central
- *
- *
- *
- */
-header("Content-type: text/css");
 $dir = dirname(dirname(dirname(__FILE__)));
 $config_dir = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
-include_once($config_dir.'/wp-config.php');
+require_once($config_dir.'/wp-config.php');
 ob_start ("ob_gzhandler");
 echo '@charset "utf-8";';
 whitespace_del(file_get_contents($dir.'/raindrops/reset-fonts-grids.css'));

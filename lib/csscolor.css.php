@@ -10,8 +10,7 @@
 
 if(!defined('ABSPATH')){exit;}
 
-//include_once(ABSPATH."/wp-load.php");
-include_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
+require_once(STYLESHEETPATH."/lib/csscolor/csscolor.php");
 
 $images_path            = get_stylesheet_directory_uri().'/images/';
 

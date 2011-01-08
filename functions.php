@@ -7,7 +7,6 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
-
 ?>
 <?php
     global $wpdb;
@@ -63,6 +62,7 @@
 
     }
 
+	add_action('load-themes.php', 'install_navigation');
 
     add_editor_style();
     // This theme uses wp_nav_menu() in one location.
@@ -259,7 +259,7 @@ $raindrops_base_setting = array(
 
 if(TMN_USE_AUTO_COLOR == true and is_admin() == true){
 
-    include_once(STYLESHEETPATH."/lib/csscolor.css.php");
+    require_once(STYLESHEETPATH."/lib/csscolor.css.php");
 }
 
 if (!function_exists('add_body_class')) {
@@ -378,8 +378,9 @@ if (!function_exists('raindrops_posted_in')) {
 
     function raindrops_posted_in() {
         // Retrieves tag list of current post, separated by commas.
-
+		
         $tag_list = get_the_tag_list( '', ', ' );
+		
         if ( $tag_list ) {
             $posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
         } elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
@@ -661,9 +662,9 @@ class tmn_menu_create {
 }
 
     function add_menus() {
-        if(function_exists('add_options_page')) {
+        if(function_exists('add_theme_page')) {
 
-       add_options_page(TMN_TABLE_TITLE, 'RAINDROPS Options', 'edit_pages', __FILE__, array($this, 'SubMenu_GUI'));
+       add_theme_page(TMN_TABLE_TITLE, 'RAINDROPS Options', 'edit_pages', __FILE__, array($this, 'SubMenu_GUI'));
 
 
         }
@@ -1258,7 +1259,9 @@ $tmn_footer_color
 
 
 
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+.footer-widget h2,
+.rsidebar h2,
+.lsidebar h2 {
 $h2_default_background
 $h_position_rsidebar_h2
 }
@@ -1266,6 +1269,13 @@ $h_position_rsidebar_h2
 background: $c4
 border-top:solid 6px $rgba_border;
 border-bottom:solid 2px $rgba_border;
+
+}
+.home .entry-meta{
+background: $c4
+border-top:solid 2px $rgba_border;
+border-bottom:solid 2px $rgba_border;
+
 
 }
 .social textarea#comment,
@@ -1440,7 +1450,7 @@ body{
 }
 #top{
 
-    $c_3
+    $c_4
    /* border-bottom: medium solid $c_border;*/
 
 
@@ -1475,6 +1485,21 @@ border-bottom:solid 2px $rgba_border;
 
 }
 
+.home .entry-meta{
+background: $c_4
+border-top:solid 2px $rgba_border;
+border-bottom:solid 2px $rgba_border;
+
+
+}
+
+.home .sticky a,
+.home .entry-meta a{
+background:none;
+
+
+}
+
 #yui-main{
 
 background: $c_5
@@ -1496,6 +1521,9 @@ background: $c_5
 #site-description{
     $c_3
     background:none;
+}
+#header-image{
+background-color:$custom_light_bg!important;	
 }
 #doc,#doc2,#doc3,#doc4{
     $c_5
@@ -1821,7 +1849,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$custom_dark_b
 
 }
 #top{
-    $c3
+    $c2
     /*border-bottom: medium solid $c_border;*/
 }
 h2,h3{
@@ -1833,6 +1861,14 @@ border-top:solid 6px $rgba_border;
 border-bottom:solid 2px $rgba_border;
 
 }
+.home .entry-meta{
+background: $c4
+border-top:solid 2px $rgba_border;
+border-bottom:solid 2px $rgba_border;
+
+
+}
+
 .home .sticky a{
 background: none;
 
@@ -1867,6 +1903,9 @@ background-image:url({$images_path}{$tmn_header_image});
     $c3
     background:none;
 
+}
+#header-image{
+background-color:$custom_light_bg!important;	
 }
 #doc,#doc2,#doc3,#doc4{
     $c5
@@ -2256,6 +2295,41 @@ if(empty($regs[1])){return "no title";}
 
 return $regs[1];
 
+}
+
+
+
+
+function first_only_msg($type=0) {
+    if ( $type == 1 ) {
+	
+        $link = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.__FILE__;
+		
+		$msg = sprintf(__('Thank you for adopting the Raindrops theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.') ,$link);
+		
+    }
+    return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
+}
+
+function install_navigation() {
+    if ( false === get_option('raindrops_install') ) {
+        add_action('admin_notices', create_function(null, 'echo first_only_msg(1);'));
+        add_option('raindrops_install', true);
+    } else {
+        add_action('switch_theme', create_function(null, 'delete_option("raindrops_install");'));
+		add_action('switch_theme', create_function(null, 'delete_option("_raindrops_indv_css");'));
+		add_action('switch_theme', 'bye_raindrops');
+	
+		
+    }
+}
+
+function bye_raindrops(){
+global $raindrops_base_setting;
+		foreach( $raindrops_base_setting as $bye){
+        	delete_option($bye['option_name']);
+			
+		}
 }
 
 ?>

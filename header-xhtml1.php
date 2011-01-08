@@ -113,7 +113,7 @@ endwhile;
 
 <?php if(SHOW_HEADER_IMAGE == true){?>
 
-    <div id="header-image" class="color3" style="clear:both;background:#000 url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:0;"><span style="display:none">headerimage</span></div>
+    <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:5px 0;"><span style="display:none">headerimage</span></div>
 <?php }?>
  <!-- role="navigation" -->
   <div id="access">

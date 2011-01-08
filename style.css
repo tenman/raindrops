@@ -4,7 +4,8 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: basic template
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.270
+Version: 0.271
+
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
 License: GNU General Public License v2.0
@@ -23,6 +24,10 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
+
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+
 
 /**
  * css3
@@ -127,6 +132,10 @@ h6 a,
 #site-title {
 	display:inline!important;
 	
+}
+div.error404{
+	margin:5% 10%;
+
 }
 div.author .h2,
 .error404 h1,
@@ -623,7 +632,7 @@ padding:0;
 #hd {
 	overflow:hidden;
 	padding:.5em 2em;
-	
+		
 }
 
 #hideAll {
@@ -801,6 +810,7 @@ height:auto;
 
 max-width:100%;
 }
+
 .entry-meta,
 .blogrolls dd,
 #site-description {
@@ -824,9 +834,8 @@ max-width:100%;
 
 
 .blog .entry-title {
-	/*text-indent:1em;*/
-	margin:0 .5em;
 	padding:0;
+	
 }
 
 .blog .entry-content {
@@ -846,6 +855,19 @@ max-width:100%;
 	margin:0;
 	padding:.5em;
 }
+
+
+.home .category-blog .entry-meta,
+.home div.entry-meta{
+ text-align:center;
+ margin:0 -0.2em;
+ width:100%;
+ }
+
+.home .category-blog .entry-meta a{
+	display:inline;
+ }
+
 
 .fail-search,
 #not-found {
@@ -1261,7 +1283,7 @@ top:1px;
 
 -------*/
 
-#access a:hover{color:red;}
+/*#access a:hover{color:red;}*/
 #access {
 	display: block;
 	float: left;
@@ -1542,8 +1564,8 @@ div.category-blog div.blog-main{
 	height:200px; /*see: functions.php add_image_size( 'single-post-thumbnail'*/
 	overflow:hidden;
 	text-align:center;
-	background:#000;
-	border:1px solid #000;
+	
+	
 	
 }
 .single-post-thumbnail img{
@@ -1616,6 +1638,55 @@ width:32%;
 	visibility:hidden;
 }
 
+div.nest.yui-ga,
+div.nest.yui-gb,
+div.nest.yui-gc,
+div.nest.yui-gd,
+div.nest.yui-ge,
+div.nest.yui-gf{
+	min-height:1%;
+	display:block;
+}
+
+div.nest.yui-gf,
+div.nest.yui-ge,
+div.nest.yui-gd,
+div.nest.yui-gc,
+div.nest.yui-g{
+	width:100%!important;
+}
+div.nest.yui-gf .yui-u{
+
+	width:73%!important;
+}
+div.nest.yui-gf .first{
+
+	width:23%!important;
+}
+
+div.nest.yui-gc .yui-u{
+
+	width:33%!important;
+}
+div.nest.yui-gc .first{
+	width:64%!important;
+}
+
+div.nest.yui-gb .yui-u{
+	width:32%!important;
+}
+div.nest.yui-gb .yui-u{
+
+width:32%!important;
+
+}
+div.nest :after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both!important;
+	visibility:hidden;
+}
 
 .debug #nest.yui-g .yui-u,
 .debug #nest.yui-gb .yui-u,
@@ -1643,7 +1714,8 @@ clear:both;
 width:100%;
 }
 #date_list td{
-text-indent:1em;
+/*text-indent:1em;*/
+padding-left:1em;
 }
 #year_list .month-name a,
 #month_list .day-name a{

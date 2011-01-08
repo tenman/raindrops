@@ -123,8 +123,8 @@ if(!empty($thumbnailsrc)){
     </li>
     <li>
       <?php _e('Auther:');?>
-      <?php //the_author();
-      echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
+      <?php //the_author(); 
+	  echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
                 get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
     </li>
     <li>
@@ -144,7 +144,7 @@ if(!empty($thumbnailsrc)){
       <div class="clearfix"></div>
       <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
     </div>
-    <?php comments_template( '', true ); ?>
+	<?php comments_template( '', true ); ?>	
   </div>
 </div>
 <?php
@@ -230,8 +230,8 @@ if(!empty($thumbnailsrc)){
 
     if(isset($thumb)){
 
-        $thumbnailsrc = get_url_from_element($thumb);
-        $thumbnail_title = get_title_from_element($thumb);
+		$thumbnailsrc = get_url_from_element($thumb);
+		$thumbnail_title = get_title_from_element($thumb);
 
         if(!empty($thumbnailsrc)){
             echo '<div class="single-post-thumbnail">';
@@ -260,7 +260,7 @@ if(!empty($thumbnailsrc)){
   <!-- .entry-content -->
   <?php endif;?>
 
-  <div class="entry-utility">
+  <div class="entry-utility"> 
   <?php echo raindrops_posted_in();?>
   <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
@@ -306,7 +306,7 @@ if(!empty($thumbnailsrc)){
 
 
       <?php if(is_home()){?>
-
+	  
        <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); echo $ht_deputy; ?></a></h2>
       <div class="entry-content clearfix">
 
@@ -351,7 +351,9 @@ if(!empty($thumbnailsrc)){
                 }
 ?>
       </div>
-      <br class="clear" />
+  	<div class="entry-meta">	  
+	  <?php raindrops_posted_in();?>
+	  </div>
       <?php edit_post_link(__('Edit'), '<span>', '</span> '); ?>
     </div>
   </li>

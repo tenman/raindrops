@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: RAINDROPS-0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-08 21:14+0900\n"
-"PO-Revision-Date: 2011-01-08 23:06+0900\n"
+"PO-Revision-Date: 2011-01-09 09:04+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -946,7 +946,7 @@ msgstr "オプション"
 #: raindrops/functions.php:2312
 #, php-format
 msgid "Thank you for adopting the Raindrops theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href=\"%s\">Raindrops settings view</a>."
-msgstr "レインドロップ巣テーマを選んでくれてありがとう　このテーマは、最初にちょっと設定が必要なので、このリンク <a href=\"%s\">レインドロップス設定ページ</a>を開いてください"
+msgstr "レインドロップスを選んでくれてありがとう　このテーマは、最初にちょっと設定が必要なので、このリンク <a href=\"%s\">レインドロップス設定ページ</a>を開いてください"
 
 #: raindrops/functions.php:2341
 #, fuzzy

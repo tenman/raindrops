@@ -2197,7 +2197,7 @@ return apply_filters("raindrops_colors", $$name );
 
 
 function add_raindrops_stylesheet() {
-
+global $current_blog;
 global $wpdb;
 
     $raindrops_url  = get_stylesheet_directory_uri(). '/lib/style.php';
@@ -2213,7 +2213,7 @@ global $wpdb;
     $raindrops_file = STYLESHEETPATH . '/lib/' .INDIVIDUAL_STYLE;
 
     if ( file_exists($raindrops_file) and TMN_USE_AUTO_COLOR == true) {
-        wp_register_style('raindrops_individual_style_sheet', $raindrops_url,array(),time(),'all');
+        wp_register_style('raindrops_individual_style_sheet', $raindrops_url,array(),time().'-'.$current_blog->blog_id,'all');
         wp_enqueue_style( 'raindrops_individual_style_sheet');
     }
 }

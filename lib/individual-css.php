@@ -10,7 +10,7 @@
 
     $number = $_GET['ver'];
 
-    if(!preg_match('|[0-9]+-([0-9]{1,})|',$number,$regs)){
+    if(!preg_match('|[0-9a-f]{32}-([0-9]{1,})|si',$number,$regs)){
 
         exit;
     }

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: basic template
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.274
+Version: 0.275
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -244,9 +244,11 @@ ol,ul{
 	margin-left:2.5em;
 }
 ol li{
-
+	list-style:decimal;
 }
-
+ul li{
+	list-style:circle;
+}
 dl {
 	clear:both;
 	margin-left:1.5em;
@@ -963,8 +965,11 @@ ul.index li .edit {
 	overflow:hidden;
 	width:99%;
 	margin-right:1%;
+	
 }
-
+.topsidebar li{
+	list-style:none;
+}
 .topsidebar ul li ul li a,
 #bigbanner ul li ul li a,
 .lsidebar ul li ul li a,
@@ -1036,6 +1041,10 @@ ul.index li .edit {
 ol.commentlist >li{
 	list-style:decimal;
 }
+.commentlist ul li{
+	list-style:none;
+}
+
 /*
 
 
@@ -1551,6 +1560,7 @@ div.category-blog div.blog-main{
 .category-blog .entry-meta li{
 	padding:.5em;
 	margin:0;
+	list-style:none;
 	}
 .category-blog .entry-meta span,
 .category-blog .entry-meta  a{

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RAINDROPS-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-08 21:14+0900\n"
-"PO-Revision-Date: 2011-01-09 09:04+0900\n"
+"POT-Creation-Date: 2011-01-12 09:34+0900\n"
+"PO-Revision-Date: 2011-01-12 09:34+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -120,835 +120,835 @@ msgstr "主ナビゲーション"
 msgid "Raindrops"
 msgstr "raindrops"
 
-#: raindrops/functions.php:182
+#: raindrops/functions.php:179
 #, fuzzy
 msgid "Default Sidebar"
 msgstr "左サイドバー"
 
-#: raindrops/functions.php:195
+#: raindrops/functions.php:192
 #, fuzzy
 msgid "Extra Sidebar"
 msgstr "左サイドバー"
 
-#: raindrops/functions.php:208
+#: raindrops/functions.php:205
 #, fuzzy
 msgid "Sticky Widget"
 msgstr "ウィジェットを保存"
 
-#: raindrops/functions.php:220
+#: raindrops/functions.php:217
 #, fuzzy
 msgid "Footer Widget"
 msgstr "フッターウィジェットエリア1"
 
-#: raindrops/functions.php:231
+#: raindrops/functions.php:228
 #, fuzzy
 msgid "Category Blog Widget"
 msgstr "ウィジェットエリア1"
 
-#: raindrops/functions.php:341
+#: raindrops/functions.php:338
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"says\">の発言:</span>"
 
-#: raindrops/functions.php:353
+#: raindrops/functions.php:350
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
-#: raindrops/functions.php:355
-#: raindrops/functions.php:373
+#: raindrops/functions.php:352
+#: raindrops/functions.php:370
 msgid "(Edit)"
 msgstr "（編集）"
 
-#: raindrops/functions.php:389
+#: raindrops/functions.php:386
 #, php-format
 msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr "カテゴリ： %1$s タグ：%2$s.  <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: raindrops/functions.php:391
+#: raindrops/functions.php:388
 #, php-format
 msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr "カテゴリ： %1$s. <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: raindrops/functions.php:393
+#: raindrops/functions.php:390
 #, php-format
 msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr " <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">パーマリンク</a>."
 
-#: raindrops/functions.php:411
+#: raindrops/functions.php:408
 #, php-format
 msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 msgstr "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</span> %3$s"
 
-#: raindrops/functions.php:511
+#: raindrops/functions.php:508
 #, fuzzy
 msgid "Raindrops Another Settings"
 msgstr "ギャラリー設定を更新"
 
-#: raindrops/functions.php:514
+#: raindrops/functions.php:511
 msgid "When you do not want to use the automatic color setting"
 msgstr "自動配色設定の停止方法"
 
-#: raindrops/functions.php:515
+#: raindrops/functions.php:512
 msgid "raindrops/functions.php TMN_USE_AUTO_COLOR value change false"
 msgstr "raindrops/functions.php を開いて、　TMN_USE_AUTO_COLOR の値を false　に変更してください"
 
-#: raindrops/functions.php:517
+#: raindrops/functions.php:514
 msgid "When you want to display the custom header image"
 msgstr "カスタムヘッダー画像を表示する方法"
 
-#: raindrops/functions.php:518
+#: raindrops/functions.php:515
 msgid "raindrops/functions.php SHOW_HEADER_IMAGE value change true"
 msgstr "raindrops/functions.php を開いて　SHOW_HEADER_IMAGE の値を true　に変更してください"
 
-#: raindrops/functions.php:521
+#: raindrops/functions.php:518
 #, fuzzy, php-format
 msgid "WEBSite:<a href=\"%1$s\">%2$s</a>"
 msgstr "<a href=\"%1$s\">%2$s %3$s</a>"
 
-#: raindrops/functions.php:545
+#: raindrops/functions.php:542
 msgid "Tips"
 msgstr "コネタ"
 
-#: raindrops/functions.php:546
+#: raindrops/functions.php:543
 msgid "If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once."
 msgstr "レインドロップスの設定画面から、基本色を設定するとそれに応じた背景色クラスが自動生成します"
 
-#: raindrops/functions.php:547
+#: raindrops/functions.php:544
 #, fuzzy
 msgid "Dinamic Color Class"
 msgstr "テーマ <span class=\"b\">%1$s</span>"
 
-#: raindrops/functions.php:560
-#: raindrops/functions.php:579
+#: raindrops/functions.php:557
+#: raindrops/functions.php:576
 msgid "code example:please HTML editor mode"
 msgstr "HTMLモードを使ってくださいね"
 
-#: raindrops/functions.php:566
+#: raindrops/functions.php:563
 #, fuzzy
 msgid "Dinamic Gradient Class"
 msgstr "テーマ <span class=\"b\">%1$s</span>"
 
-#: raindrops/functions.php:657
+#: raindrops/functions.php:654
 #, fuzzy, php-format
 msgid "%1$s updated successfully."
 msgstr "%1$s の更新に成功しました。"
 
-#: raindrops/functions.php:659
+#: raindrops/functions.php:656
 #, fuzzy
 msgid "Try again"
 msgstr "もう一度お試しください"
 
-#: raindrops/functions.php:700
-#: raindrops/functions.php:733
+#: raindrops/functions.php:697
+#: raindrops/functions.php:730
 msgid "Width of Column Setting"
 msgstr "サイドバーの幅"
 
-#: raindrops/functions.php:704
+#: raindrops/functions.php:701
 msgid "Width of page Setting"
 msgstr "ページ幅"
 
-#: raindrops/functions.php:710
+#: raindrops/functions.php:707
 msgid "Ratio to text when extra sidebar is displayed Setting"
 msgstr "エキストラサイドバーの幅(%)"
 
-#: raindrops/functions.php:715
+#: raindrops/functions.php:712
 msgid "Display of extra sidebar Setting"
 msgstr "エキストラサイドバーの表示"
 
-#: raindrops/functions.php:721
+#: raindrops/functions.php:718
 msgid "Footer Fonts Color Setting"
 msgstr "フッター文字色"
 
-#: raindrops/functions.php:727
+#: raindrops/functions.php:724
 msgid "Default Fonts Color Setting"
 msgstr "コンテンツの文字色"
 
-#: raindrops/functions.php:740
-#: raindrops/functions.php:748
+#: raindrops/functions.php:737
+#: raindrops/functions.php:745
 msgid "Base color Setting"
 msgstr "基本色"
 
-#: raindrops/functions.php:741
+#: raindrops/functions.php:738
 msgid "The reference color of an automatic arrangement of color is decided."
 msgstr "ブログのベースカラー"
 
-#: raindrops/functions.php:743
+#: raindrops/functions.php:740
 msgid "If it wants you other arrangement of color sets ..you.., themes/functions.php is opened, and it is ..value of const COLOR_SCHEME.. revokable. In default, color_en or color_en_140 can be set. "
 msgstr "色指定セレクトボックスの選択肢は、raindrops/theme/functions.phpを開いてCOLOR_SCHEMEの値を変更することができます。color_en か color_en_140　に値を変更してください"
 
-#: raindrops/functions.php:749
+#: raindrops/functions.php:746
 msgid "The mood like dark atmosphere and the bright note, etc. is decided."
 msgstr "明るめ、暗め、等を選ぶと自動配色します。"
 
-#: raindrops/functions.php:755
+#: raindrops/functions.php:752
 msgid "Header image Setting"
 msgstr "ページヘッダ背景画像"
 
-#: raindrops/functions.php:756
+#: raindrops/functions.php:753
 msgid "The name of the picture file used for the header is set. "
 msgstr "ヘッダ背景画像"
 
-#: raindrops/functions.php:757
-#: raindrops/functions.php:763
-#: raindrops/functions.php:779
+#: raindrops/functions.php:754
+#: raindrops/functions.php:760
+#: raindrops/functions.php:776
 msgid "As for the image, the image that exists in themes/raindrops/image/is used."
 msgstr "themes/raindrops/image/にあるファイルから、画像ファイルは選択されます。"
 
-#: raindrops/functions.php:761
+#: raindrops/functions.php:758
 msgid "Footer image Setting"
 msgstr "ページフッタ背景画像"
 
-#: raindrops/functions.php:762
+#: raindrops/functions.php:759
 msgid "The name of the picture file used for the footer is set. "
 msgstr "フッタ背景画像"
 
-#: raindrops/functions.php:769
+#: raindrops/functions.php:766
 msgid "h2 headding image position Setting"
 msgstr "h2見出し背景色の位置指定"
 
-#: raindrops/functions.php:770
-#: raindrops/functions.php:778
+#: raindrops/functions.php:767
+#: raindrops/functions.php:775
 msgid "The name of the picture file used for the h2 headding is set. "
 msgstr "指定した画像ファイルが、h2見出しの背景画像に使用されます"
 
-#: raindrops/functions.php:771
+#: raindrops/functions.php:768
 msgid "Please set the integral value from 0 to 7. "
 msgstr "値は、0-7の間で設定してください。"
 
-#: raindrops/functions.php:777
+#: raindrops/functions.php:774
 msgid "h2 headding background image Setting"
 msgstr "h2見出し背景画像"
 
-#: raindrops/functions.php:780
+#: raindrops/functions.php:777
 msgid "The header image can be chosen from among three kinds (h2.png,h2b,png,h2c.png) now. Of course, customizing is also possible. "
 msgstr "h2ヘッダ背景画像は、h2.png h2b.png h2c.pngから選ぶことができます"
 
-#: raindrops/functions.php:820
-#: raindrops/functions.php:822
+#: raindrops/functions.php:817
+#: raindrops/functions.php:819
 #, fuzzy
 msgid "Value"
 msgstr "値"
 
-#: raindrops/functions.php:820
-#: raindrops/functions.php:822
+#: raindrops/functions.php:817
+#: raindrops/functions.php:819
 #: raindrops/loop.php:209
 #: raindrops/loop.php:265
 #: raindrops/loop.php:357
 msgid "Edit"
 msgstr "編集"
 
-#: raindrops/functions.php:822
+#: raindrops/functions.php:819
 #, fuzzy
 msgid "Color"
 msgstr "色"
 
-#: raindrops/functions.php:967
+#: raindrops/functions.php:964
 #, fuzzy
 msgid "Save Changes"
 msgstr "変更を保存"
 
-#: raindrops/functions.php:983
+#: raindrops/functions.php:980
 msgid "Please reload this page ex. windows F5"
 msgstr "恐縮ですが、このページをリロード(F5)してください。"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 #, fuzzy
 msgid "none"
 msgstr "なし"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "toki"
 msgstr "とき色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tutuji"
 msgstr "つつじ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sakura"
 msgstr "桜色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "bara"
 msgstr "ばら色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "karakurenai"
 msgstr "からくれない"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sango"
 msgstr "さんご色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "koubai"
 msgstr "紅梅（こうばい）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "momo"
 msgstr "桃色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "beni"
 msgstr "紅色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "beniaka"
 msgstr "紅赤"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "enji"
 msgstr "えんじ"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "suou"
 msgstr "蘇芳（すおう）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "akane"
 msgstr "茜（あかね）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "aka"
 msgstr "赤"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "syu"
 msgstr "朱色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "benikaba"
 msgstr "紅樺（べにかば）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "benihi"
 msgstr "紅緋（べにひ）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 #, fuzzy
 msgid "entan"
 msgstr "メタ情報"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "beniebitya"
 msgstr "紅海老茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tobi"
 msgstr "とび色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "azuki"
 msgstr "小豆（あずき）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "bengara"
 msgstr "弁柄（べんがら）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ebitya"
 msgstr "海老茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kinaka"
 msgstr "金赤"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "akatya"
 msgstr "赤茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "akasabi"
 msgstr "赤錆色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ouni"
 msgstr "黄丹（おうに）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sekitou"
 msgstr "赤橙"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kaki"
 msgstr "柿色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "nikkei"
 msgstr "肉桂（にっけい）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kaba"
 msgstr "樺（かば）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "renga"
 msgstr "れんが色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sabi"
 msgstr "錆色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "hiwada"
 msgstr "檜皮（ひわだ）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kuri"
 msgstr "栗色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kiaka"
 msgstr "黄赤"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "taisya"
 msgstr "たいしゃ"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "rakuda"
 msgstr "らくだ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kitye"
 msgstr "黄茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "hadairo"
 msgstr "肌色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "daidai"
 msgstr "橙色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "haitya"
 msgstr "灰茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tya"
 msgstr "茶色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kogetya"
 msgstr "焦茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kouji"
 msgstr "こうじ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "anzu"
 msgstr "杏色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "mikan"
 msgstr "蜜柑色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kassyoku"
 msgstr "褐色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tutiiro"
 msgstr "土色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "komugi"
 msgstr "小麦色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kohaku"
 msgstr "こはく色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kintya"
 msgstr "金茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tamago"
 msgstr "卵色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "yamabuki"
 msgstr "山吹色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "oudo"
 msgstr "黄土色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kutiba"
 msgstr "朽葉（くちば）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "himawari"
 msgstr "ひまわり色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ukon"
 msgstr "うこん色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "suna"
 msgstr "砂色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "karasi"
 msgstr "芥子（からし）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ki"
 msgstr "黄色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tanpopo"
 msgstr "たんぽぽ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "uguisutya"
 msgstr "鶯茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tyuki"
 msgstr "中黄"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kariyasu"
 msgstr "刈安（かりやす）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kihada"
 msgstr "きはだ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "miru"
 msgstr "みる色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "biwa"
 msgstr "ひわ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "uguisu"
 msgstr "鶯（うぐいす）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "mattya"
 msgstr "抹茶色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kimidori"
 msgstr "黄緑"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "koke"
 msgstr "苔色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "wakakusa"
 msgstr "若草色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "moegi"
 msgstr "萌黄（もえぎ）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kusa"
 msgstr "草色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "wakaba"
 msgstr "若葉色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "matuba"
 msgstr "松葉色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "byakuroku"
 msgstr "白緑（びゃくろく）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "midori"
 msgstr "緑"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tokiwa"
 msgstr "常磐（ときわ）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "rokusyou"
 msgstr "緑青（ろくしょう）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "titosemidori"
 msgstr "千歳緑（ちとせみどり）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "fukamidori"
 msgstr "深緑"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "wakatake"
 msgstr "若竹色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "seiji"
 msgstr "青磁色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "aotake"
 msgstr "青竹色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tetu"
 msgstr "鉄色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "aomidori"
 msgstr "青緑"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sabiasagi"
 msgstr "錆浅葱"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "mizuasagi"
 msgstr "水浅葱"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sinbasi"
 msgstr "新橋色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "asagi"
 msgstr "浅葱（あさぎ）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "byakugun"
 msgstr "白群（びゃくぐん）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "nando"
 msgstr "納戸色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kamenozoki"
 msgstr "かめのぞき"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "mizu"
 msgstr "水色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ainezu"
 msgstr "藍鼠（あいねず）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sora"
 msgstr "空色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ao"
 msgstr "青"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ai"
 msgstr "藍色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "koiai"
 msgstr "濃藍（こいあい）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "wasurenagusa"
 msgstr "勿忘草（わすれなぐさ）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tuyukusa"
 msgstr "露草色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "hanada"
 msgstr "はなだ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "konjou"
 msgstr "紺青（こんじょう）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ruri"
 msgstr "るり色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "rurikon"
 msgstr "るり紺"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kon"
 msgstr "紺色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kakitubata"
 msgstr "かきつばた色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kati"
 msgstr "勝色（かちいろ）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "gunjou"
 msgstr "群青（ぐんじょう）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tetukon"
 msgstr "鉄紺"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "fujinando"
 msgstr "藤納戸"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kikyou"
 msgstr "ききょう色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "konai"
 msgstr "紺藍"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "fuji"
 msgstr "藤色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "fujimurasaki"
 msgstr "藤紫"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "aomurasaki"
 msgstr "青紫"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sumire"
 msgstr "菫（すみれ）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "hatoba"
 msgstr "鳩羽（はとば）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "syoubu"
 msgstr "しょうぶ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "edomurasaki"
 msgstr "江戸紫"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "murasaki"
 msgstr "紫"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kodaimurasaki"
 msgstr "古代紫"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "nasukon"
 msgstr "なす紺"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sikon"
 msgstr "紫紺"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ayame"
 msgstr "あやめ色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "botan"
 msgstr "牡丹（ぼたん）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "akamurasaki"
 msgstr "赤紫"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "siro"
 msgstr "白"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "gofun"
 msgstr "胡粉（ごふん）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kinari"
 msgstr "生成り（きなり）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "zouge"
 msgstr "象牙（ぞうげ）色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "ginnezu"
 msgstr "銀鼠（ぎんねず）"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tyanezumi"
 msgstr "茶鼠"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "nezumi"
 msgstr "鼠色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "rikyunezumi"
 msgstr "利休鼠"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "namari"
 msgstr "鉛色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "hai"
 msgstr "灰色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "susutake"
 msgstr "すす竹色"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kurotya"
 msgstr "黒茶"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "sumi"
 msgstr "墨"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "kuro"
 msgstr "黒"
 
-#: raindrops/functions.php:995
+#: raindrops/functions.php:992
 msgid "tetukuro"
 msgstr "鉄黒"
 
-#: raindrops/functions.php:2233
+#: raindrops/functions.php:2223
 #, fuzzy
 msgid "Website"
 msgstr "ウェブサイト"
 
-#: raindrops/functions.php:2233
+#: raindrops/functions.php:2223
 msgid "Option"
 msgstr "オプション"
 
-#: raindrops/functions.php:2312
+#: raindrops/functions.php:2302
 #, php-format
 msgid "Thank you for adopting the Raindrops theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href=\"%s\">Raindrops settings view</a>."
 msgstr "レインドロップスを選んでくれてありがとう　このテーマは、最初にちょっと設定が必要なので、このリンク <a href=\"%s\">レインドロップス設定ページ</a>を開いてください"
 
-#: raindrops/functions.php:2341
+#: raindrops/functions.php:2331
 #, fuzzy
 msgid "Please open raindrops/functions.php, and set the value of SHOW_HEADER_IMAGE to true."
 msgstr "raindrops/functions.php を開いて　SHOW_HEADER_IMAGE の値を true　に変更してください"

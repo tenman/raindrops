@@ -2194,7 +2194,6 @@ return apply_filters("raindrops_colors", $$name );
 
 
 function add_raindrops_stylesheet() {
-global $current_blog;
 global $wpdb;
 
     $raindrops_url  = get_stylesheet_directory_uri(). '/lib/style.php';
@@ -2205,17 +2204,16 @@ global $wpdb;
         wp_enqueue_style( 'raindrops_style_sheet');
     }
 
-    $stylesheet_name = 'b'.str_replace("wp","",$wpdb->prefix).'-csscolor.css';
+    //$stylesheet_name = 'b'.str_replace("wp","",$wpdb->prefix).'-csscolor.css';
     $raindrops_url  = get_stylesheet_directory_uri() . '/lib/' .INDIVIDUAL_STYLE;
     $raindrops_file = get_stylesheet_directory() . '/lib/' .INDIVIDUAL_STYLE;
 
     if ( file_exists($raindrops_file) and TMN_USE_AUTO_COLOR == true) {
-        $ver = md5_file($raindrops_file);
-        wp_register_style('raindrops_individual_style_sheet', $raindrops_url,array(),$ver.'-'.$current_blog->blog_id,'all');
+        $ver = md5(get_option('_raindrops_indv_css'));
+        wp_register_style('raindrops_individual_style_sheet', $raindrops_url,array(),$ver,'all');
         wp_enqueue_style( 'raindrops_individual_style_sheet');
     }
 }
-
 
 
 function tmn_comment_form($form){
@@ -2331,5 +2329,8 @@ function header_image_alert(){
     printf('<script type="text/javascript">alert(\'%s\');</script>',__('Please open raindrops/functions.php, and set the value of SHOW_HEADER_IMAGE to true.','Raindrops'));
     }
 }
+
+
+
 
 ?>

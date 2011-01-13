@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: basic template
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.278
+Version: 0.279
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -857,16 +857,19 @@ max-width:100%;
 	margin:0;
 	padding:.5em;
 }
+.entry-meta{
+	line-height:1.6;
+
+}
 
 
-.home .category-blog .entry-meta,
-.home div.entry-meta{
+div.entry-meta{
  text-align:center;
  margin:0 -0.2em;
  width:100%;
  }
 
-.home .category-blog .entry-meta a{
+.category-blog .entry-meta-list a{
 	display:inline;
  }
 
@@ -1549,7 +1552,7 @@ div.category-blog div.blog-main{
 	padding:0;
 	text-indent:0;
 	}
-.category-blog .entry-meta{
+.category-blog .entry-meta-list{
 	list-style:none;
 	width:20%;
 	margin:0;
@@ -1557,13 +1560,13 @@ div.category-blog div.blog-main{
 	text-align:left;
 	float:left;
 	}
-.category-blog .entry-meta li{
+.category-blog .entry-meta-list li{
 	padding:.5em;
 	margin:0;
 	list-style:none;
 	}
-.category-blog .entry-meta span,
-.category-blog .entry-meta  a{
+.category-blog .entry-meta-list span,
+.category-blog .entry-meta-list  a{
 	display:block;
 	text-decoration:none;
 	}

@@ -1,75 +1,66 @@
 <?php
 /**
- * Thtml5 header for our theme.
+ * The xhtml1.0 transitional header for our theme.
  *
+ * Displays all of the <head> section and everything up till <div id="bd">
  *
  * @package WordPress
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
+
 global $current_blog;
-$this_blog = array("b". $current_blog->blog_id);
+if(isset($current_blog)){
+    $this_blog = array("b". $current_blog->blog_id);
+}else{
+    $this_blog = array();
+}
 
-ob_end_clean();
-?><!DOCTYPE html> 
-<head> 
-<meta charset=<?php echo get_bloginfo( 'charset' );?>> 
-<!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]--> 
-<link rel="stylesheet" href="http://html5resetcss.googlecode.com/files/html5-reset-1.4.css" media="all"> 
-<!--Include YUI Loader: --> 
-<script type="text/javascript" src="http://yui.yahooapis.com/2.8.0r4/build/yuiloader/yuiloader-min.js"></script> 
-<!--Use YUI Loader to bring in your other dependencies: --> 
-<script type="text/javascript"> 
-// Instantiate and configure YUI Loader: 
-(function() { 
-    var loader = new YAHOO.util.YUILoader({ 
-        base: "", 
-        require: ["base","fonts","grids","reset"], 
-        loadOptional: false, 
-        combine: true, 
-        filter: "MIN", 
-        allowRollup: true, 
-        onSuccess: function() { 
-        } 
-    }); 
-loader.insert(); 
-})(); 
-</script> 
-<title>
-<?php
-	/*
-	 * Print the <title> tag based on what is being viewed.
-	 */
-	global $page, $paged;
+?><?php echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="<?php echo WPLANG;?>" xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="content-type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
+<meta http-equiv="content-script-type" content="text/javascript" />
+<meta http-equiv="content-style-type" content="text/css" />
+<title><?php
+    /*
+     * Print the <title> tag based on what is being viewed.
+     */
+    global $page, $paged;
 
-	wp_title( '|', true, 'right' );
-	// Add the blog name.
-	bloginfo( 'name' );
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " | $site_description";
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'raindrops' ), max( $paged, $page ) );
-	?>
+    wp_title( '|', true, 'right' );
+
+    // Add the blog name.
+    bloginfo( 'name' );
+
+    // Add the blog description for the home/front page.
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) )
+        echo " | $site_description";
+
+    // Add a page number if necessary:
+    if ( $paged >= 2 || $page >= 2 )
+        echo ' | ' . sprintf( __( 'Page %s', 'raindrops' ), max( $paged, $page ) );
+
+    ?>
 </title>
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php
-	/* We add some JavaScript to pages with the comment form
-	 * to support sites with threaded comments (when in use).
-	 */
-	if ( is_singular() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
 
-	/* Always have wp_head() just before the closing </head>
-	 * tag of your theme, or you will break many plugins, which
-	 * generally use this hook to add elements to <head> such
-	 * as styles, scripts, and meta tags.
-	 */
-	wp_head();
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<link rev="made" href="mailto:<?php echo str_replace("@","&#64;",get_bloginfo( 'admin_email' )); ?>" />
+<?php
+    /* We add some JavaScript to pages with the comment form
+     * to support sites with threaded comments (when in use).
+     */
+    if ( is_singular() && get_option( 'thread_comments' ) )
+        wp_enqueue_script( 'comment-reply' );
+
+    /* Always have wp_head() just before the closing </head>
+     * tag of your theme, or you will break many plugins, which
+     * generally use this hook to add elements to <head> such
+     * as styles, scripts, and meta tags.
+     */
+    wp_head();
 ?>
 <?php
 /**
@@ -78,31 +69,31 @@ loader.insert();
  *
  */
 if (is_single() || is_page()) {
- 
- while (have_posts()) : the_post(); 
- 
+
+ while (have_posts()) : the_post();
+
     $css = get_post_meta($post->ID, 'css', true);
     if (!empty($css)) { ?>
 <style type="text/css">
-	/*<![CDATA[*/
-	<?php echo $css; ?>
-	/*]]>*/
-		</style>
+    /*<![CDATA[*/
+    <?php echo $css; ?>
+    /*]]>*/
+        </style>
 <?php }
-	$javascript = get_post_meta($post->ID, 'javascript', true);
+    $javascript = get_post_meta($post->ID, 'javascript', true);
     if (!empty($javascript)) { ?>
 <script type="text/javascript">
-		/*<![CDATA[*/
+        /*<![CDATA[*/
         <?php echo $javascript; ?>
-		/*]]>*/
+        /*]]>*/
         </script>
 <?php }
-	$meta = get_post_meta($post->ID, 'meta', true);
+    $meta = get_post_meta($post->ID, 'meta', true);
     if (!empty($meta)) { ?>
 <?php echo $meta; ?>
 <?php }
-endwhile; 	
-} 
+endwhile;
+}
 ?>
 </head>
 <body <?php body_class($this_blog); ?>>
@@ -119,26 +110,19 @@ endwhile;
     </div>
   </div>
 
-  
-<?php
-// Check if this is a post or page, if it has a thumbnail, and if it's a big one
-if ( is_singular() &&
-		has_post_thumbnail( $post->ID ) &&
-		( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-		$image[1] >= HEADER_IMAGE_WIDTH ) :
-	echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
-else : ?>
-	<div style="background:#000 url(<?php header_image(); ?>);width:100%;height:198px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:0;" ><span style="display:none;">headerimage</span></div>
-<?php endif; ?>
+<?php if(SHOW_HEADER_IMAGE == true){?>
+
+    <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:5px 0;"><span style="display:none">headerimage</span></div>
+<?php }?>
  <!-- role="navigation" -->
   <div id="access">
-	  
-	<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-    <?php 
-	
-	wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
-	
-	</div>
+
+    <div class="skip-link screen-reader-text" id="content"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
+    <?php
+
+    wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+
+    </div>
   <br class="clearfix" />
 </div>
 <!--header-->

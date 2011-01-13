@@ -62,7 +62,6 @@ $ht_deputy = "";
  */
 ?>
 <?php while (have_posts()) : the_post(); ?>
-
 <?php
 $cat = "default";
 if ( in_category( "blog" )){
@@ -93,7 +92,7 @@ if(get_the_title() == ''){$ht_deputy = $post->ID;}
  */
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-<?php
+  <?php
 $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
 if(isset($thumb)){
@@ -109,10 +108,11 @@ if(!empty($thumbnailsrc)){
 }
 }
 ?>
-  <ul class="entry-meta left">
+  <ul class="entry-meta-list left">
     <li>
       <?php the_time(get_option('date_format')) ?>
     </li>
+    <li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ) ); ?></li>
     <li>
       <?php _e('Category:');?>
       <?php the_category(' ') ?>
@@ -123,28 +123,29 @@ if(!empty($thumbnailsrc)){
     </li>
     <li>
       <?php _e('Auther:');?>
-      <?php //the_author(); 
-	  echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
+      <?php //the_author();
+      echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
                 get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
     </li>
     <li>
       <?php comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); ?>
     </li>
-<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
-<?php endif; ?>
+    <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
+    <?php endif; ?>
     <li>
-      <?php edit_post_link('Edit', '', '  '); ?></li>
+      <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+    </li>
   </ul>
   <div class="blog-main left">
     <h2 class="entry-title  clearfix h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
       <?php the_title(); echo $ht_deputy; ?>
       </a></h2>
     <div class="entry-content clearfix">
-      <?php the_content(__('Read the rest of this entry &raquo;', 'Raindrops')) ?>
+      <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
       <div class="clearfix"></div>
       <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
     </div>
-	<?php comments_template( '', true ); ?>	
+    <?php comments_template( '', true ); ?>
   </div>
 </div>
 <?php
@@ -163,7 +164,7 @@ if(!empty($thumbnailsrc)){
             case("gallery"):
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<?php
+  <?php
 $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
 if(isset($thumb)){
@@ -179,8 +180,12 @@ if(!empty($thumbnailsrc)){
 }
 }
 ?>
-  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); echo $ht_deputy; ?></a></h2>
-  <div class="entry-meta"><?php raindrops_posted_on(); ?></div>
+  <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark">
+    <?php the_title(); echo $ht_deputy; ?>
+    </a></h2>
+  <div class="entry-meta">
+    <?php raindrops_posted_on(); ?>
+  </div>
   <!-- .entry-meta -->
   <div class="entry-content">
     <?php
@@ -190,11 +195,10 @@ if(!empty($thumbnailsrc)){
                     $image = array_shift( $images );
                     $attachment_page = $image->post_title;
                     ?>
-      <?php the_content( '' ); ?>
-      <div class="clearfix"></div>
+    <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+    <div class="clearfix"></div>
     <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
   </div>
-
   <!-- .entry-content -->
   <div class="entry-utility">
     <?php
@@ -225,13 +229,13 @@ if(!empty($thumbnailsrc)){
 
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<?php
+  <?php
     $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
     if(isset($thumb)){
 
-		$thumbnailsrc = get_url_from_element($thumb);
-		$thumbnail_title = get_title_from_element($thumb);
+        $thumbnailsrc = get_url_from_element($thumb);
+        $thumbnail_title = get_title_from_element($thumb);
 
         if(!empty($thumbnailsrc)){
             echo '<div class="single-post-thumbnail">';
@@ -241,14 +245,16 @@ if(!empty($thumbnailsrc)){
         }
     }
 ?>
-  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); echo $ht_deputy; ?></a></h2>
+  <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
+    <?php the_title(); echo $ht_deputy; ?>
+    </a></h2>
   <div class="entry-meta">
     <?php raindrops_posted_on(); ?>
   </div>
   <!-- .entry-meta -->
   <?php if ( is_archive() || is_search() ) : // Only display Excerpts for archives & search ?>
   <div class="entry-summary">
-    <?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+    <?php the_excerpt(); ?>
   </div>
   <!-- .entry-summary -->
   <?php else : ?>
@@ -259,10 +265,8 @@ if(!empty($thumbnailsrc)){
   </div>
   <!-- .entry-content -->
   <?php endif;?>
-
-  <div class="entry-utility"> 
-  <?php echo raindrops_posted_in();?>
-  <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+  <div class="entry-utility"> <?php echo raindrops_posted_in();?>
+    <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
   </div>
   <!-- #entry-utility -->
   <?php comments_template( '', true ); ?>
@@ -292,32 +296,25 @@ if(!empty($thumbnailsrc)){
 <ul class="index">
   <?php while (have_posts()) : the_post(); ?>
   <?php if(get_the_title() == ''){$ht_deputy = $post->ID;}?>
-
   <li>
     <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
-
     <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); echo $ht_deputy; ?>"><span class="entry-date published">
-     <?php the_time(get_option('date_format')) ?> </span></a>
-
-      <?php
+    <?php the_time(get_option('date_format')) ?>
+    </span></a>
+    <?php
     echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
 ?>
+    <? if( in_category( "gallery" )){     ?>
 
-
-
-      <?php if(is_home()){?>
-	  
-       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); echo $ht_deputy; ?></a></h2>
-      <div class="entry-content clearfix">
-
-    <?php    if( has_post_thumbnail($post->ID)){?>
-        <div class="thumbnail_post" style="float:left;margin:.5em 1em 1em 0;width:50px;">
-          <?php the_post_thumbnail(); ?>
-        </div>
-        <?php }
-
-
-    if( in_category( "gallery" )){
+    <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
+      <?php the_title(); echo $ht_deputy; ?>
+      </a></h2>
+    <div class="entry-content clearfix">
+      <?php    if( has_post_thumbnail($post->ID)){?>
+      <div class="thumbnail_post" style="float:left;margin:.5em 1em 1em 0;width:50px;">
+        <?php the_post_thumbnail(); ?>
+      </div>
+      <?php }
 
                     $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
 
@@ -326,35 +323,67 @@ if(!empty($thumbnailsrc)){
                     $attachment_page = $image->post_title;
 
     ?>
-    <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a> </div>
-
-
-    <?php
-
-            the_excerpt();?>
-
-<p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
-    <?php
-
-     }else{
-            the_excerpt();
-
-    }
-                }else{
-
-         ?> <h2 class="h2 entry-title"><?php if( has_post_thumbnail($post->ID)){echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';}    ?>
-      <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); echo $ht_deputy; ?></a></h2>
-      <div class="entry-content clearfix">
-<?php
-                the_content( __( '<span class="button lt"><span class="text">'.__('Continue reading'.'Raindrops').'</span></span> ', 'Raindrops' ) );
-
-                }
-?>
+      <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a> </div>
+      <?php the_excerpt();?>
+      <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
+          <div class="entry-meta">
+        <?php raindrops_posted_in();?>
+        <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
       </div>
-  	<div class="entry-meta">	  
-	  <?php raindrops_posted_in();?>
-	  </div>
-      <?php edit_post_link(__('Edit'), '<span>', '</span> '); ?>
+      </div>
+      <?php
+
+     }elseif( in_category( "blog" )){
+
+         ?>
+
+      <h2 class="h2 entry-title">
+        <?php if( has_post_thumbnail($post->ID)){
+         echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';
+         } ?>
+        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
+        <?php the_title(); echo $ht_deputy; ?>
+        </a></h2>
+      <div class="entry-content">
+        <ul class="left" style="width:120px;margin:0;text-align:left;">
+          <li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
+          <li>
+            <?php _e('Auther:');?>
+            <?php
+      echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
+                get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
+          </li>
+          <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
+          <?php endif; ?>
+
+        </ul>
+        <?php the_excerpt();?>
+      </div>
+      <div class="clearfix"></div>
+      <div class="entry-meta">
+        <?php raindrops_posted_in();?>
+        <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+      </div>
+
+
+      <?php }else{ ?>
+      <h2 class="h2 entry-title">
+        <?php if( has_post_thumbnail($post->ID)){
+         echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';
+         } ?>
+        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
+        <?php the_title(); echo $ht_deputy; ?>
+        </a></h2>
+      <div class="entry-content clearfix">
+        <?php the_excerpt();?>
+      </div>
+       <div class="entry-meta">
+        <?php raindrops_posted_in();?>
+        <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+      </div>
+      <?php } ?>
+
+      <div class="clearfix"></div>
     </div>
   </li>
   <?php endwhile; ?>

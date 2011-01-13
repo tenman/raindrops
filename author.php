@@ -52,35 +52,35 @@ if ( get_the_author_meta( 'description' ) ) : ?>
 
 <?php endif; ?>
 
-		<dl class="<?php echo esc_attr(basename(__FILE__,'.php'));?> <?php echo esc_attr(basename(dirname(__FILE__)));?>">
-		
-		<?php if(!empty($curauth->user_url)){ ?>
-		  <dt><?php _e('Website','Raindrops'); ?></dt>
-		  <dd><a href="<?php echo esc_url($curauth->user_url); ?>"><?php echo esc_url($curauth->user_url); ?></a></dd>
-		<?php }  ?>
-		<?php if(!empty($curauth->user_email) and is_email($curauth->user_email)){ ?>
-		  <dt><?php _e('email','Raindrops'); ?></dt>
-		  <dd><a href="mailto:<?php echo htmlspecialchars($curauth->user_email); ?>"><?php echo htmlspecialchars($curauth->user_email); ?></a></dd>
-		<?php }  ?>
-		
-		<?php if(!empty($curauth->user_nicename)){ ?>
-		  <dt><?php _e('nicename','Raindrops'); ?></dt>
-		  <dd><?php echo esc_html($curauth->user_nicename); ?></dd>
-		<?php } ?>
-		  <dt><?php _e('registered','Raindrops'); ?></dt>
-		  <dd><?php echo esc_html( $curauth->user_registered); ?></dd>
-		
-		<?php if(!empty($curauth->user_displayname)){ ?>
-		  <dt><?php _e('displayname','Raindrops'); ?></dt>
-		  <dd><?php echo $curauth->user_displayname; ?></dd>
-		<?php }  ?>
-		
-		 <?php if(!empty($curauth->user_description)){ ?>
-		  <dt><?php _e('description','Raindrops'); ?></dt>
-		  <dd><?php echo $curauth->user_description; ?></dd>
-		<?php } ?>
-		
-		</dl>
+        <dl class="<?php echo esc_attr(basename(__FILE__,'.php'));?> <?php echo esc_attr(basename(dirname(__FILE__)));?>">
+
+        <?php if(!empty($curauth->user_url)){ ?>
+          <dt><?php _e('Website','Raindrops'); ?></dt>
+          <dd><a href="<?php echo esc_url($curauth->user_url); ?>"><?php echo esc_url($curauth->user_url); ?></a></dd>
+        <?php }  ?>
+        <?php if(!empty($curauth->user_email) and is_email($curauth->user_email)){ ?>
+          <dt><?php _e('email','Raindrops'); ?></dt>
+          <dd><a href="mailto:<?php echo htmlspecialchars($curauth->user_email); ?>"><?php echo htmlspecialchars($curauth->user_email); ?></a></dd>
+        <?php }  ?>
+
+        <?php if(!empty($curauth->user_nicename)){ ?>
+          <dt><?php _e('nicename','Raindrops'); ?></dt>
+          <dd><?php echo esc_html($curauth->user_nicename); ?></dd>
+        <?php } ?>
+          <dt><?php _e('registered','Raindrops'); ?></dt>
+          <dd><?php echo esc_html( $curauth->user_registered); ?></dd>
+
+        <?php if(!empty($curauth->user_displayname)){ ?>
+          <dt><?php _e('displayname','Raindrops'); ?></dt>
+          <dd><?php echo $curauth->user_displayname; ?></dd>
+        <?php }  ?>
+
+         <?php if(!empty($curauth->user_description)){ ?>
+          <dt><?php _e('description','Raindrops'); ?></dt>
+          <dd><?php echo $curauth->user_description; ?></dd>
+        <?php } ?>
+
+        </dl>
 
         <br style="clear:both;" />
         <h2 class="h2"><?php sprintf(__("Posts by %s",'Raindrops'),$curauth->nickname); ?>:</h2>

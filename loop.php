@@ -304,7 +304,7 @@ if(!empty($thumbnailsrc)){
     <?php
     echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
 ?>
-    <? if( in_category( "gallery" )){     ?>
+    <?php if( in_category( "gallery" )){     ?>
 
     <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
       <?php the_title(); echo $ht_deputy; ?>

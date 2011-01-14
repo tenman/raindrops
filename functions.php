@@ -604,7 +604,8 @@ $result .= "</dl>";
 
 
 function jquery_toggle_action(){
-
+echo '<meta http-equiv="content-script-type" content="text/css" />';
+echo '<meta http-equiv="content-script-type" content="text/javascript" />';
 
     echo '<script type="text/javascript">';
 
@@ -690,8 +691,8 @@ class tmn_menu_create {
     echo '<div class="wrap"><div id="title-raindrops-header" style="height:100px">';
     echo '<div id="icon-options-general" class="icon32"><br></div>';
     echo '<h2>Raindrops theme Settings</h2>';
-    echo "Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></div>";
-    echo '<button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button>';
+    echo "<p>Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></p></div>";
+    echo '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div>';
     if(isset($_POST) and !empty($_POST)){
 
         if($ok){

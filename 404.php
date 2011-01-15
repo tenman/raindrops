@@ -23,14 +23,10 @@
 
       <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+        <h1 class="entry-title"><?php _e( 'Not Found', 'raindrops' ); ?></h1>
         <div id="post-0" class="post error404 not-found">
-          <h1 class="entry-title">
-            <?php _e( 'Not Found', 'raindrops' ); ?>
-          </h1>
           <div class="entry-content">
-            <p>
-              <?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', 'raindrops' ); ?>
-            </p>
+          <p><?php _e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'Raindrops' ); ?></p>
             <?php get_search_form(); ?>
           </div>
           <!-- .entry-content -->
@@ -38,11 +34,8 @@
         <!-- #post-0 -->
       </div>
       <!--rsidebar start-->
-      <div class="yui-u"> <span style="display:none;">--</span>
-        <?php if($rsidebar_show){get_sidebar('2');
-        } ?>
-        <!--rsidebar end-->
-      </div>
+      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('2');} ?></div>
+      <!--rsidebar end-->
       <!--add col here -->
     </div>
     <!--main-->

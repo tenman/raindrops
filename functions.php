@@ -66,7 +66,7 @@
         add_action("admin_head","header_image_alert");
     }
 
-    if('/'.$_GET['page'] == __FILE__){
+    if(isset($_GET['page']) and '/'.$_GET['page'] == __FILE__){
         add_action("admin_head","jquery_toggle_action");
     }
 
@@ -91,13 +91,22 @@
     add_theme_support( 'automatic-feed-links' );
 
 
+    /**
+     * embed css , javascript , meta from custom field
+     *
+     * field name css, javascript, meta
+     *
+     *
+     */
+
+    add_filter("wp_head","tmn_embed_meta",'99');
 
     // custom content_width
     /*When the value is specified for this variable,
     it is not ..width of the page.. revokable from the management screen. */
 
-    $page_width = '';
-    $content_width = '';
+    // $page_width = '';
+   // $content_width = '';
 
 
 
@@ -517,7 +526,7 @@ if (!function_exists('raindrops_help')) {
 
     if(TMN_TABLE_TITLE == $title){
 
-$result = "<h2>".__('Raindrops Another Settings').'</h2>';
+$result = "<h2 class=\"h2\">".__('Raindrops Another Settings').'</h2>';
 
 
 $result .= "<dl><dt><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
@@ -540,9 +549,11 @@ $result .= "<p>".sprintf(__('WEBSite:<a href="%1$s">%2$s</a>'),'http://www.tenma
     }
 
 }
-    add_filter('contextual_help','raindrops_edit_help');
 
-if (!function_exists('raindrops_edit_help')) {
+if (TMN_USE_AUTO_COLOR == true){
+    add_filter('contextual_help','raindrops_edit_help');
+}
+if (!function_exists('raindrops_edit_help') and TMN_USE_AUTO_COLOR == true) {
 
 
     function raindrops_edit_help($text){
@@ -551,7 +562,7 @@ if (!function_exists('raindrops_edit_help')) {
 
     if(isset($post_type_object) and ($title == $post_type_object->labels->add_new_item or $title == $post_type_object->labels->edit_item)){
 
-$result = "<h2>".__('Tips',"Raindrops").'</h2>';
+$result = "<h2 class=\"h2\">".__('Tips',"Raindrops").'</h2>';
 $result .= '<p>'.__('If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once.',"Raindrops")."</p>";
 $result .= "<dl><dt><h3>".__('Dinamic Color Class','Raindrops').'</strong></h3>';
 $result .= '<dd><table><tr>
@@ -690,7 +701,7 @@ class tmn_menu_create {
 
     echo '<div class="wrap"><div id="title-raindrops-header" style="height:100px">';
     echo '<div id="icon-options-general" class="icon32"><br></div>';
-    echo '<h2>Raindrops theme Settings</h2>';
+    echo '<h2 class="h2">Raindrops theme Settings</h2>';
     echo "<p>Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></p></div>";
     echo '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div>';
     if(isset($_POST) and !empty($_POST)){
@@ -864,6 +875,20 @@ $table = "<table class=\"widefat post fixed\" cellspacing=\"0\" style=\"margin-l
             $table_header =  '<thead><tr><th>'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';
 
             }
+
+        if (TMN_USE_AUTO_COLOR == false and (   $result->option_name == "raindrops_footer_color" or
+                                                $result->option_name == "raindrops_default_fonts_color" or
+                                                $result->option_name == "raindrops_base_color" or
+                                                $result->option_name == "raindrops_header_image" or
+                                                $result->option_name == "raindrops_footer_image" or
+                                                $result->option_name == "raindrops_heading_image_position" or
+                                                $result->option_name == "raindrops_heading_image" or
+                                                $result->option_name == "raindrops_style_type") ){
+
+            continue;
+        }
+
+
 
 
         $lines .= $excerpt;
@@ -2379,5 +2404,50 @@ function header_image_alert(){
 
 
 
+    function tmn_embed_meta($content){
+        $result = "";
+        global $post;
 
+    /**
+     * insert into embed style ,javascript script and embed tags from custom field
+     *
+     *
+     */
+        if (is_single() || is_page()) {
+
+            if(have_posts()){
+
+             while (have_posts()) : the_post();
+
+                $css = get_post_meta($post->ID, 'css', true);
+                if (!empty($css)) {
+                $result .= '<style type="text/css">';
+                $result .= "\n/*<![CDATA[*/\n";
+                $result .=  $css;
+                $result .= "\n/*]]>*/\n";
+                $result .= "</style>";
+                }
+
+                $javascript = get_post_meta($post->ID, 'javascript', true);
+                if (!empty($javascript)) {
+                $result .= '<script type="text/javascript">';
+                $result .= "\n/*<![CDATA[*/\n";
+                $result .= $javascript;
+                $result .= "\n/*]]>*/\n";
+                $result .= "</script>";
+                }
+                $meta = get_post_meta($post->ID, 'meta', true);
+                if (!empty($meta)) {
+                $result .= $meta;
+                }
+              endwhile;
+            }else{
+
+
+            }
+        }
+        echo $result;
+
+        return $content;
+    }
 ?>

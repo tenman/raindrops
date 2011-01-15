@@ -33,7 +33,7 @@ function whitespace_del($path){
 
     $handle = fopen($path, "r") or die ("error not open");
     $buffer = "";
-
+    $buffers = "";
     while (!feof($handle)) {
         $buffer = fgetss($handle);
 

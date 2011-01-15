@@ -16,7 +16,7 @@
 
 <?php if ( have_comments() ) : ?>
 
-    <h2 id="comments-title"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'raindrops' ),number_format_i18n( get_comments_number() ), '<strong>' . get_the_title() . '</strong>' ,get_comments_number());?></h2>
+    <h2 id="comments-title" class="h2"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'raindrops' ),number_format_i18n( get_comments_number() ), '<strong>' . get_the_title() . '</strong>' ,get_comments_number());?></h2>
 
 
 

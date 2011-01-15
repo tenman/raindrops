@@ -38,17 +38,17 @@ get_header('xhtml1'); ?>
 
 <div id="yui-main">
   <div class="yui-b">
-<?php
+    <?php
 if(function_exists('bcn_display')){
     echo '<div class="breadcrumb">';
     bcn_display();
     echo '</div>';
 }
 ?>
-<div class="<?php echo $yui_inner_layout;?>">
-<!-- content -->
-<div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
-<?php
+    <div class="<?php echo $yui_inner_layout;?>">
+      <!-- content -->
+      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+        <?php
 echo '<h1 class="page-title">';
     if (is_year()) {
             $one_year = query_posts("posts_per_page=-1&year=$ye");
@@ -74,10 +74,6 @@ echo '</div>';
 
 
 ?>
-
-
-
-
       </div>
       <!-- navigation-->
       <div class="yui-u">
@@ -100,9 +96,7 @@ echo '</div>';
 <!-- navigation 2 -->
 <!--sidebar-->
 </div>
-
 <?php get_footer(); ?>
-
 <?php
 
     function days_in_month($month, $year) {
@@ -250,7 +244,6 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     post_date > '$year-$nextmonth-01 00:00:01' AND post_date < '$year-$nextmonth-0$end 23:59:59' ORDER BY post_date");
             if ($new_posts) {
                     if (10 > $nextmonth) {
-                            //$nextmonth = "0$nextmonth";
 
                             $nextmonth = printf("%02d", $nextmonth);
 
@@ -285,7 +278,8 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $cal .= $after;
         $cal .= '</tr></table>';
     return $cal;
-    } //end get_month()
+    }
+/*end get_month()*/
 
 
 
@@ -293,9 +287,9 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     function get_year($posts = '', $year = '', $pad = 0) {
 
         $months = array();
-		$y = "";
-		$m = "";
-		$d = "";
+        $y = "";
+        $m = "";
+        $d = "";
         // first let's parse through our posts, organizing them by month
         foreach ($posts as $post) {
                 $y = substr($post->post_date, 0, 4);
@@ -330,22 +324,19 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         }
     return $output.implode("\n",$table_year);
-    } // end get_year()
-
-
+    }
+/* end get_year()*/
 
     function get_day($posts = '', $year = '', $mon = '', $day = '', $pad = 1){
 
         global $month;
-		global $ht_deputy;
+        global $ht_deputy;
 
         $here = home_url();
 
         $output = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"".get_month_link($year,$mon)."\" title=\"$year/$mon\"><span class=\"month-name\">" .
        $mon . "</span></a>&nbsp;<span class=\"day-name\">". $day ."</span></h2>";
         $output .= '<table id="date_list" summary="Archive in '.$day.', '.$mon.', '.$year.'">';
-        // organize posts by hour
-        //2009-05-27 08:47:10
 
         foreach ($posts as $mytime) {
                 $h = substr($mytime->post_date, 11, 2);
@@ -366,8 +357,8 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
                 if (isset($today[$i])) {
                                 foreach ($today[$i] as $mytime) {
-								
-									if($mytime->post_title == ''){$mytime->post_title = $ht_deputy;}
+
+                                    if($mytime->post_title == ''){$mytime->post_title = $ht_deputy;}
 
                                         $output .= "<a href=\"" . get_permalink($mytime->ID) . "\"
         title=\"$mytime->post_title\">$mytime->post_title</a><br />";
@@ -381,26 +372,18 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $output .= '</table>';
         return $output;
     }
-    // end get_day()
-
-
-
-
-
-
-
-
+/* end get_day()*/
 
     function year_list($one_month,$ye,$mo){
         $result = "";
-	global $ht_deputy;
-	$d = "";
-	$links = "";
+    global $ht_deputy;
+    $d = "";
+    $links = "";
             foreach($one_month as $month){
         //var_dump($month->post_date);
                 //list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
                 list($y,$m,$d) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
-			if($month->post_title == ''){$month->post_title = $ht_deputy;}
+            if($month->post_title == ''){$month->post_title = $ht_deputy;}
 
                 if($m == $mo and $ye == $y){
                 $links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
@@ -420,7 +403,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
 
     function month_list($one_month,$ye,$mo){
-	global $ht_deputy;
+    global $ht_deputy;
         $result = "";
         $here = home_url();
     for($i=1;$i <= days_in_month($mo, $ye);$i++){
@@ -429,7 +412,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $links = "";
 
         foreach($one_month as $month){
-			if($month->post_title == ''){$month->post_title = $ht_deputy;}
+            if($month->post_title == ''){$month->post_title = $ht_deputy;}
             list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");
 
             if($d == $i and $m == $mo and $y == $ye){
@@ -458,10 +441,5 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $output = "<h2 id=\"date_title\" class=\"h2\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
         return $output."<table id=\"month_list\">".$result."</table>";
     }
-
-
-
-
-
 
 ?>

@@ -62,39 +62,6 @@ if(isset($current_blog)){
      */
     wp_head();
 ?>
-<?php
-/**
- * insert into embed style ,javascript script and embed tags from custom field
- *
- *
- */
-if (is_single() || is_page()) {
-
- while (have_posts()) : the_post();
-
-    $css = get_post_meta($post->ID, 'css', true);
-    if (!empty($css)) { ?>
-<style type="text/css">
-    /*<![CDATA[*/
-    <?php echo $css; ?>
-    /*]]>*/
-        </style>
-<?php }
-    $javascript = get_post_meta($post->ID, 'javascript', true);
-    if (!empty($javascript)) { ?>
-<script type="text/javascript">
-        /*<![CDATA[*/
-        <?php echo $javascript; ?>
-        /*]]>*/
-        </script>
-<?php }
-    $meta = get_post_meta($post->ID, 'meta', true);
-    if (!empty($meta)) { ?>
-<?php echo $meta; ?>
-<?php }
-endwhile;
-}
-?>
 </head>
 <body <?php body_class($this_blog); ?>>
 <div id="<?php echo warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.warehouse('raindrops_col_width'); ?> hfeed">
@@ -117,7 +84,7 @@ endwhile;
  <!-- role="navigation" -->
   <div id="access">
 
-    <div class="skip-link screen-reader-text" id="content"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
+    <div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
     <?php
 
     wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>

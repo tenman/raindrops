@@ -28,10 +28,8 @@ printf('&nbsp;<small><a href="%s">%s</a></small>&nbsp;&nbsp;','http://www.tenman
 
 ?>
     </address>
-
-<?php wp_footer(); ?>
-
   </div>
  </div>
+<?php wp_footer(); ?>
 </body>
 </html>

@@ -1,10 +1,11 @@
 /*   
 Theme Name: raindrops
 Theme URI: http://www.tenman.info/wp3/raindrops/
-Description: basic template
+Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. 
+An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.280
+Version: 0.281
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -220,8 +221,7 @@ submit{
 
 }
 input[type="submit"],input[type="reset"],input[type="file"]{
-	padding:4px 7px;
-
+	padding:0 3px;
 }
 
 .entry-content blockquote {

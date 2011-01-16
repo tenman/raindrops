@@ -1,13 +1,10 @@
 <?php
 header("Content-type: text/css");
 $dir = dirname(dirname(dirname(__FILE__)));
-$config_dir = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
 
-    if(file_exists($config_dir.'/wp-config.php')){
-        require_once($config_dir.'/wp-config.php');
-    }else{
-        require_once(dirname($config_dir).'/wp-config.php') or die("error");
-    }
+$config_dir = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
+require_once($config_dir."/wp-load.php");
+
 
 ob_start ("ob_gzhandler");
 echo '@charset "utf-8";';

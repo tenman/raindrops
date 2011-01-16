@@ -18,7 +18,7 @@ if(isset($current_blog)){
 
 ?><?php echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xml:lang="<?php echo WPLANG;?>" xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="content-type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="content-script-type" content="text/javascript" />

@@ -78,6 +78,23 @@ if(get_the_title() == ''){$ht_deputy = $post->ID;}
 
 ?>
 <?php
+$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
+
+if(isset($thumb)){
+
+$thumbnailsrc = get_url_from_element($thumb);
+$thumbnail_title = get_title_from_element($thumb);
+
+if(!empty($thumbnailsrc)){
+    echo '<div class="single-post-thumbnail" style="margin-top:1em;">';
+    echo '<a href="'.$thumbnailsrc.'" onclick="javascrip:this.target=\'_blank\'" rel="lightbox">';
+    echo $thumb;
+    echo '</a>';
+    echo '</div>';
+}
+}
+?>
+<?php
 
             switch($cat){
 
@@ -92,22 +109,7 @@ if(get_the_title() == ''){$ht_deputy = $post->ID;}
  */
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-  <?php
-$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
-if(isset($thumb)){
-
-$thumbnailsrc = get_url_from_element($thumb);
-$thumbnail_title = get_title_from_element($thumb);
-
-if(!empty($thumbnailsrc)){
-    echo '<div class="single-post-thumbnail">';
-    echo $thumb;
-    echo '</div>';
-    echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
-}
-}
-?>
   <ul class="entry-meta-list left">
     <li>
       <?php the_time(get_option('date_format')) ?>
@@ -164,22 +166,7 @@ if(!empty($thumbnailsrc)){
             case("gallery"):
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php
-$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
-if(isset($thumb)){
-
-$thumbnailsrc = get_url_from_element($thumb);
-$thumbnail_title = get_title_from_element($thumb);
-
-if(!empty($thumbnailsrc)){
-    echo '<div class="single-post-thumbnail">';
-    echo $thumb;
-    echo '</div>';
-    echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
-}
-}
-?>
   <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark">
     <?php the_title(); echo $ht_deputy; ?>
     </a></h2>
@@ -194,11 +181,14 @@ if(!empty($thumbnailsrc)){
                     $total_images = count( $images );
                     $image = array_shift( $images );
                     $attachment_page = $image->post_title;
+
                     ?>
+
+<div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
     <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
     <div class="clearfix"></div>
-    <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
-  </div>
+    <p style="margin:1em;"><em><?php echo sprintf( __( 'This gallery contains %1$s photographs in all as ', 'Raindrops' ),$total_images).'&nbsp;'.wp_get_attachment_link( $image->ID ,false,true).'&nbsp;'.__('photograph etc.','Raindrops');?></em></p>
+    </div>
   <!-- .entry-content -->
   <div class="entry-utility entry-meta">
     <?php
@@ -229,22 +219,7 @@ if(!empty($thumbnailsrc)){
 
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php
-    $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
-    if(isset($thumb)){
-
-        $thumbnailsrc = get_url_from_element($thumb);
-        $thumbnail_title = get_title_from_element($thumb);
-
-        if(!empty($thumbnailsrc)){
-            echo '<div class="single-post-thumbnail">';
-            echo $thumb;
-            echo '</div>';
-            echo "<p class=\"thumb-link\"><a href=\"$thumbnailsrc\" onclick=\"javascrip:this.target='_blank'\"><span class=\"thumbnail-title\">$thumbnail_title</span></a></p>";
-        }
-    }
-?>
   <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
     <?php the_title(); echo $ht_deputy; ?>
     </a></h2>
@@ -310,6 +285,7 @@ if(!empty($thumbnailsrc)){
         <?php    if( has_post_thumbnail($post->ID)){?>
         <div class="thumbnail_post" style="float:left;margin:.5em 1em 1em 0;width:50px;">
           <?php the_post_thumbnail(); ?>
+
         </div>
         <?php }
 
@@ -320,10 +296,10 @@ if(!empty($thumbnailsrc)){
                     $attachment_page = $image->post_title;
 
     ?>
-        <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a> </div>
+        <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
         <?php the_excerpt();?>
-        <div class="clearfix"></div>
-        <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
+         <div class="clearfix"></div>
+        <p style="margin:1em;"><em><?php printf( __( 'This gallery contains %1$s photos.', 'Raindrops' ),$total_images); ?></em></p>
         <div class="entry-meta">
           <?php raindrops_posted_in();?>
           <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
@@ -338,9 +314,7 @@ if(!empty($thumbnailsrc)){
       <div class="entry-content">
         <ul class="left" style="width:120px;margin:0;text-align:left;">
           <li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
-          <li>
-            <?php _e('Auther:');?>
-            <?php
+          <li><?php
       echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
                 get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
           </li>
@@ -357,7 +331,9 @@ if(!empty($thumbnailsrc)){
       <?php }else{ ?>
       <h2 class="h2 entry-title">
         <?php if( has_post_thumbnail($post->ID)){
-         echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';
+         echo '<span class="h2-thumb">';
+         the_post_thumbnail(array(48,48),array("style"=>"vertical-align:middle;"));
+         echo '</span>';
          } ?>
         <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
         <?php the_title(); echo $ht_deputy; ?>

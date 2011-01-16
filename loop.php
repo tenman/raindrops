@@ -322,6 +322,7 @@ if(!empty($thumbnailsrc)){
     ?>
         <div class="gallery-thumb"> <a class="size-thumbnail" href="<?php the_permalink(); ?><?php echo $attachment_page;?>/"> <?php echo wp_get_attachment_image( $image->ID, 'thumbnail' );?> </a> </div>
         <?php the_excerpt();?>
+        <div class="clearfix"></div>
         <p style="margin:1em;"><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'Raindrops' ),'href="' . get_permalink() .$attachment_page. '/" rel="bookmark"',$total_images); ?></em></p>
         <div class="entry-meta">
           <?php raindrops_posted_in();?>

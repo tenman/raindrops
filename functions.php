@@ -1294,7 +1294,11 @@ function design_output($name = 'default'){
     }else{
         $tmn_footer_color = '';
     }
-
+    if(!empty($tmn_header_color)){
+        $tmn_header_color = 'color:'.$tmn_header_color;
+    }else{
+        $tmn_header_color = '';
+    }
 
 
 $gradient = tmn_gradient();
@@ -1307,7 +1311,10 @@ body {
 
 margin:0!important;padding:0;
 background-repeat:repeat-x;
-color:$tmn_header_color;
+
+}
+#yui-main{
+$tmn_header_color;
 }
 #hd{
 background-image:url({$images_path}{$tmn_header_image});
@@ -1506,9 +1513,14 @@ DEFAULT;
     $custom_color = colors('-3','color');
 
     if(!empty($tmn_footer_color)){
-        $tmn_footer_color = 'color:'.$tmn_footer_color;
+        $tmn_footer_color = $tmn_footer_color;
     }else{
         $tmn_footer_color = '';
+    }
+    if(!empty($tmn_header_color)){
+        $tmn_header_color = $tmn_header_color;
+    }else{
+        $tmn_header_color = '';
     }
 
 $dark =<<<DARK
@@ -1574,7 +1586,7 @@ background:none;
 #yui-main{
 
     $c_5
-
+ $tmn_header_color
 }
 #hd{
     $c_5
@@ -1598,7 +1610,7 @@ background-color:$custom_light_bg!important;
 }
 #doc,#doc2,#doc3,#doc4{
     $c_5
-    color:$tmn_header_color;
+
 }
 #nav{
     $c_3
@@ -1896,10 +1908,16 @@ DARK;
     $base_gradient = tmn_gradient_single(3,"asc");
 
     if(!empty($tmn_footer_color)){
-        $tmn_footer_color = 'color:'.$tmn_footer_color;
+        $tmn_footer_color = $tmn_footer_color;
     }else{
         $tmn_footer_color = '';
     }
+    if(!empty($tmn_header_color)){
+        $tmn_header_color = $tmn_header_color;
+    }else{
+        $tmn_header_color = '';
+    }
+
 $light =<<<LIGHT
 
 $gradient
@@ -1948,7 +1966,7 @@ h2,h3{
 #yui-main{
 
     /*$c5*/
-
+ $tmn_header_color
 }
 
 .entry div h2,.entry div h3{

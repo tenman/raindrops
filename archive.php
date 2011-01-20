@@ -32,7 +32,6 @@ get_header('xhtml1'); ?>
         the_post();
 ?>
         <h2 class="page-title h2">
-        <?php echo TMN_THE_MONTH_FORMAT;?>
           <?php if ( is_day() ) : ?>
           <?php printf( __( 'Daily Archives:', 'Raindrops' ), get_the_date( TMN_THE_TIME_FORMAT ) ); ?>
           <?php elseif ( is_month() ) : ?>

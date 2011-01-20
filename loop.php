@@ -124,7 +124,7 @@ if(!empty($thumbnailsrc)){
       <?php the_tags(); ?>
     </li>
     <li>
-      <?php _e('Auther:');?>
+      <?php _e('Author:');?>
       <?php //the_author();
       echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
                 get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>

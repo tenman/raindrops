@@ -47,7 +47,6 @@ if(isset($current_blog)){
 </title>
 
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<link rev="made" href="mailto:<?php echo str_replace("@","&#64;",get_bloginfo( 'admin_email' )); ?>" />
 <?php
     /* We add some JavaScript to pages with the comment form
      * to support sites with threaded comments (when in use).
@@ -68,11 +67,22 @@ if(isset($current_blog)){
 <!--header-->
 <div id="top">
   <div id="hd">
+        <?php
+        //echo get_theme_mod('header_text', "default");
+        //|| ! Custom_Image_Header->header_text()
+        if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+            $style = ' style="display:none;"';
+        }elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
+            $style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
+        }else{
+            $style = '';
+        }
+        ?>
     <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-    <<?php echo $heading_tag; ?> id="site-title" class="h1"> <span> <a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+    <<?php echo $heading_tag; ?> id="site-title" class="h1"> <span> <a <?php echo $style; ?> href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
     <?php bloginfo( 'name' ); ?>
     </a> </span> </<?php echo $heading_tag; ?>>
-    <div id="site-description">
+    <div id="site-description" <?php echo $style; ?>>
       <?php bloginfo( 'description' ); ?>
     </div>
   </div>

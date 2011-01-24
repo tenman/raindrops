@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.290
+Version: 0.291
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -1481,12 +1481,16 @@ div.aligncenter {
 
 }
 .wp-caption {
+   border: 1px solid #ddd;
    text-align: center;
    /*background-color: #f3f3f3;*/
-   padding-top: 4px;
+   padding: 4px 2px;
    margin: 10px;
    /* optional rounded corners for browsers that support it */
-
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
    max-width:100%;
    height:auto;
 }
@@ -1743,3 +1747,22 @@ height:100%;
 body.page .nocomments{
 	display:none;
 }
+.yui-g,.gecko .yui-gf{width:100%!important;margin:0;position:relative;left:-12px;}
+.yui-gb div.yui-u{
+	width:32%;
+}
+/*.gecko .yui-gf{border:0 solid #ccc;margin-left:1.99%;}
+.gecko .yui-gf div.first{width:24%;float:left;}
+.gecko .yui-gf .yui-u {width:74%;float:right;}
+.gecko .yui-ge div.first{width:74%;float:left;}
+.gecko .yui-ge .yui-u {width:24%;float:right;}
+.ie8 .yui-gf div.first{width:24%;float:left;}
+.ie8 .yui-gf .yui-u {width:74%;float:right;}
+.ie8 .yui-ge div.first{width:74%;float:left;}
+.ie8 .yui-ge .yui-u {width:24%;float:right;}
+*/
+.gecko .yui-gf{margin-left:2.6%;}
+.yui-gf div.first{width:24%;float:left;}
+.yui-gf .yui-u {width:74%;float:right;}
+.yui-ge div.first{width:74%;float:left;}
+.yui-ge .yui-u {width:24%;float:right;}

@@ -734,14 +734,23 @@ class tmn_menu_create {
         $result .= '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div>';
         if(isset($_POST) and !empty($_POST)){
 
-            if($ok){
+        if($ok){
+        $add_str = "";
+        $scheme = TMN_COLOR_SCHEME;
+        global $$scheme;
+        $add_str = array_search($option_value,$$scheme);
+        $add_str .= array_search($option_value,$this->col_settings_raindrops_col_width);
+        $add_str .= array_search($option_value,$this->col_settings_raindrops_page_width);
+        $add_str .= array_search($option_value,$this->col_settings_raindrops_right_sidebar_width_percent);
+        $add_str .= array_search($option_value,$this->col_settings_raindrops_show_right_sidebar);
+        $add_str .= array_search($option_value,$this->col_settings_raindrops_style_type);
 
-                $result .= '<div id="message" class="updated fade" title="'.$option_name.'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $option_value).'</p></div>';
+        $result .= '<div id="message" class="updated fade" title="'.$option_name.'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']').'</p></div>';
 
-            }else{
+        }else{
 
-                $result .= '<div id="message" class="error fade"><p>'.__("Try again").'</p></div>';
-            }
+            $result .= '<div id="message" class="error fade"><p>'.__("Try again").'</p></div>';
+        }
         }
         $result .= '</div>';
         $result .= '<div id="reset2"></div>';

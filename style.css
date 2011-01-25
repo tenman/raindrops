@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.291
+Version: 0.292
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -1747,22 +1747,32 @@ height:100%;
 body.page .nocomments{
 	display:none;
 }
-.yui-g,.gecko .yui-gf{width:100%!important;margin:0;position:relative;left:-12px;}
+.yui-g,.gecko .yui-gf{width:100%!important;margin:0;}
 .yui-gb div.yui-u{
 	width:32%;
 }
-/*.gecko .yui-gf{border:0 solid #ccc;margin-left:1.99%;}
-.gecko .yui-gf div.first{width:24%;float:left;}
-.gecko .yui-gf .yui-u {width:74%;float:right;}
-.gecko .yui-ge div.first{width:74%;float:left;}
-.gecko .yui-ge .yui-u {width:24%;float:right;}
-.ie8 .yui-gf div.first{width:24%;float:left;}
-.ie8 .yui-gf .yui-u {width:74%;float:right;}
-.ie8 .yui-ge div.first{width:74%;float:left;}
-.ie8 .yui-ge .yui-u {width:24%;float:right;}
-*/
-.gecko .yui-gf{margin-left:2.6%;}
-.yui-gf div.first{width:24%;float:left;}
-.yui-gf .yui-u {width:74%;float:right;}
-.yui-ge div.first{width:74%;float:left;}
-.yui-ge .yui-u {width:24%;float:right;}
+
+
+.post .yui-gf  div.first{width:24%;float:left;}
+.post .yui-gf  .yui-u {width:74%;float:right;}
+.post .yui-ge div.first{width:74%;float:left;}
+.post .yui-ge .yui-u {width:24%;float:right;}
+div.post .yui-gc div.first{width:66%;}
+div.post .yui-gc .yui-u{width:32%;}
+.gecko div.page .yui-gf{margin-left:2.6%;}
+
+.gecko div.page  .yui-gc div.first{width:66%;}
+.gecko div.page  .yui-gc .yui-u{width:32%;}
+.gecko div.page .yui-gf  .yui-u {width:74%;float:right;}
+.gecko div.page .yui-gf  div.first{width:24%;float:left;}
+.gecko div.page .yui-ge div.first{width:74%;float:left;}
+.gecko div.page .yui-ge .yui-u {width:24%;float:right;}
+
+.chrome div.page .yui-gf  div.first{width:24%;float:left;}
+.chrome div.page .yui-gf  .yui-u {width:74%;float:right;}
+
+.ie8 div.page  .yui-gc div.first{width:66%;}
+.ie8 div.page  .yui-gc .yui-u{width:32%;}
+.ie8 div.page .yui-gf  .yui-u {width:74%;float:right;}
+.ie8 div.page .yui-gf  div.first{width:24%;float:left;}
+.ie8 div.page .yui-ge div.first{width:74%;float:left;}

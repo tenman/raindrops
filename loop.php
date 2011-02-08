@@ -17,7 +17,7 @@
  *
  *
  */
-$ht_deputy = "";
+$ht_deputy = "NoTitle";
  if ( $wp_query->max_num_pages > 1 ) : ?>
 
 <div id="nav-above" class="clearfix"> <span class="nav-previous">
@@ -87,7 +87,7 @@ $thumbnail_title = get_title_from_element($thumb);
 
 if(!empty($thumbnailsrc)){
     echo '<div class="single-post-thumbnail" style="margin-top:1em;">';
-    echo '<a href="'.$thumbnailsrc.'" onclick="javascrip:this.target=\'_blank\'" rel="lightbox">';
+    echo '<a href="'.esc_url($thumbnailsrc).'" onclick="javascrip:this.target=\'_blank\'" rel="lightbox">';
     echo $thumb;
     echo '</a>';
     echo '</div>';
@@ -108,7 +108,7 @@ if(!empty($thumbnailsrc)){
  *
  */
 ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php  post_class('clearfix'); ?>>
 
   <ul class="entry-meta-list left">
     <li>
@@ -140,7 +140,7 @@ if(!empty($thumbnailsrc)){
   </ul>
   <div class="blog-main left">
     <h2 class="entry-title  clearfix h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-      <?php the_title(); echo $ht_deputy; ?>
+      <?php echo blank_fallback(get_the_title(), $ht_deputy); ?>
       </a></h2>
     <div class="entry-content clearfix">
       <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
@@ -168,7 +168,7 @@ if(!empty($thumbnailsrc)){
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark">
-    <?php the_title(); echo $ht_deputy; ?>
+        <?php echo blank_fallback(get_the_title(), $ht_deputy); ?>
     </a></h2>
   <div class="entry-meta-gallery">
     <?php raindrops_posted_on(); ?>
@@ -183,7 +183,6 @@ if(!empty($thumbnailsrc)){
                     $attachment_page = $image->post_title;
 
                     ?>
-
 <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
     <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
     <div class="clearfix"></div>
@@ -221,7 +220,7 @@ if(!empty($thumbnailsrc)){
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <h2 class="h2 entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark">
-    <?php the_title(); echo $ht_deputy; ?>
+      <?php echo blank_fallback(get_the_title(), $ht_deputy); ?>
     </a></h2>
   <div class="entry-meta-default">
     <?php raindrops_posted_on(); ?>
@@ -269,27 +268,19 @@ if(!empty($thumbnailsrc)){
 <!-- not single-->
 <ul class="index">
   <?php while (have_posts()) : the_post(); ?>
-  <?php if(get_the_title() == ''){$ht_deputy = $post->ID;}?>
   <li>
-    <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); echo $ht_deputy; ?>"><span class="entry-date published">
+    <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to<?php echo blank_fallback(get_the_title(), $ht_deputy); ?>
+"><span class="entry-date published">
       <?php the_time(get_option('date_format')) ?>
       </span></a>
       <?php
     echo sprintf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()) ) ;
 ?>
       <?php if( in_category( "gallery" )){     ?>
-      <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-        <?php the_title(); echo $ht_deputy; ?>
-        </a></h2>
+      <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a></h2>
       <div class="entry-content clearfix">
-        <?php    if( has_post_thumbnail($post->ID)){?>
-        <div class="thumbnail_post" style="float:left;margin:.5em 1em 1em 0;width:50px;">
-          <?php the_post_thumbnail(); ?>
-
-        </div>
-        <?php }
-
-                    $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+        <?php
+			        $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
 
                     $total_images = count( $images );
                     $image = array_shift( $images );
@@ -308,9 +299,7 @@ if(!empty($thumbnailsrc)){
       <?php     }elseif( in_category( "blog" )){         ?>
       <h2 class="h2 entry-title">
         <?php if( has_post_thumbnail($post->ID)){ echo '<span class="h2-thumb">';the_post_thumbnail();echo '</span>';} ?>
-        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-        <?php the_title(); echo $ht_deputy; ?>
-        </a></h2>
+        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a></h2>
       <div class="entry-content">
         <ul class="left" style="width:120px;margin:0;text-align:left;">
           <li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
@@ -335,9 +324,7 @@ if(!empty($thumbnailsrc)){
          the_post_thumbnail(array(48,48),array("style"=>"vertical-align:middle;"));
          echo '</span>';
          } ?>
-        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-        <?php the_title(); echo $ht_deputy; ?>
-        </a></h2>
+        <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a></h2>
       <div class="entry-content clearfix">
         <?php the_excerpt();?>
       </div>

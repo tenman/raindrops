@@ -12,36 +12,36 @@ if(!defined('ABSPATH')){exit;}
 
 require_once(get_stylesheet_directory()."/lib/csscolor/csscolor.php");
 
-$images_path            = get_stylesheet_directory_uri().'/images/';
+	$images_path            = get_stylesheet_directory_uri().'/images/';
+	
+	$count                  = warehouse('raindrops_base_color');
+	$style_type             = warehouse('raindrops_style_type');
+	$navigation_title_img   = warehouse('raindrops_heading_image');
+	$position_y             = warehouse('raindrops_heading_image_position');
+	$tmn_header_image       = warehouse('raindrops_header_image');
+	$tmn_header_color       = warehouse('raindrops_default_fonts_color');
+	$tmn_footer_image       = warehouse('raindrops_footer_image');
+	$tmn_footer_color       = warehouse('raindrops_footer_color');
 
-$count                  = warehouse('raindrops_base_color');
-$style_type             = warehouse('raindrops_style_type');
-$navigation_title_img   = warehouse('raindrops_heading_image');
-$position_y             = warehouse('raindrops_heading_image_position');
-$tmn_header_image       = warehouse('raindrops_header_image');
-$tmn_header_color       = warehouse('raindrops_default_fonts_color');
-$tmn_footer_image       = warehouse('raindrops_footer_image');
-$tmn_footer_color       = warehouse('raindrops_footer_color');
-
-define("BASE_COLOR1",$count);
-
-//define("BASE_COLOR2","#ff0000");
-
-/**
- * save stylesheet
- *
- */
-
-$raindrops_indv_css = design_output($style_type).color_base();
-
-if(get_option("_raindrops_indv_css","none") == "none"){
-    add_option("_raindrops_indv_css",$raindrops_indv_css);
-}else{
-    update_option("_raindrops_indv_css",$raindrops_indv_css);
-}
-
-  $parm = fileperms(get_stylesheet_directory().'/lib/');
-  $parm = decoct($parm);
+	define("BASE_COLOR1",$count);
+	
+	//define("BASE_COLOR2","#ff0000");
+	
+	/**
+	 * save stylesheet
+	 *
+	 */
+	
+	$raindrops_indv_css = design_output($style_type).color_base();
+	
+	if(get_option("_raindrops_indv_css","none") == "none"){
+		add_option("_raindrops_indv_css",$raindrops_indv_css);
+	}else{
+		update_option("_raindrops_indv_css",$raindrops_indv_css);
+	}
+	
+	$parm = fileperms(get_stylesheet_directory().'/lib/');
+	$parm = decoct($parm);
 
 
 function colors($num = 0, $select = 'set',$color1 = null){
@@ -157,8 +157,6 @@ if($color2 == null){
     //$color2 = str_replace('#',"",$color2);
 }*/
 
-
-
     $base = new CSS_Color($color1);
    // $highlight = new CSS_Color($color2);
 
@@ -266,22 +264,225 @@ CSS;
 return $result;
 }
 
-function hex2rgba($color,$opecity){
+	function hex2rgba($color,$opecity){
+	
+		if ($color[0] == '#')
+			$color = substr($color, 1);
+	
+		if (strlen($color) == 6)
+			list($r, $g, $b) = array($color[0].$color[1],
+									 $color[2].$color[3],
+									 $color[4].$color[5]);
+		elseif (strlen($color) == 3)
+			list($r, $g, $b) = array($color[0].$color[0], $color[1].$color[1], $color[2].$color[2]);
+		else
+			return false;
+	
+		$r = hexdec($r); $g = hexdec($g); $b = hexdec($b);
+	
+		return "rgba({$r}, {$g}, {$b},{$opecity})";
+	}
 
-    if ($color[0] == '#')
-        $color = substr($color, 1);
 
-    if (strlen($color) == 6)
-        list($r, $g, $b) = array($color[0].$color[1],
-                                 $color[2].$color[3],
-                                 $color[4].$color[5]);
-    elseif (strlen($color) == 3)
-        list($r, $g, $b) = array($color[0].$color[0], $color[1].$color[1], $color[2].$color[2]);
-    else
-        return false;
 
-    $r = hexdec($r); $g = hexdec($g); $b = hexdec($b);
+	function design_output($name = 'default'){
 
-    return "rgba({$r}, {$g}, {$b},{$opecity})";
+		$filename = get_stylesheet_directory().'/lib/templates/'.$name.'.php';
+		$fp = fopen($filename, "r");
+		$content = fread( $fp, filesize($filename) ); // ファイルサイズ分読みこみ
+		fclose( $fp );
+		$content = preg_replace_callback('|%([a-z0-9_-]+)?%|si',"style_rewite",$content);
+
+		return apply_filters("raindrops_colors", $content );
+	
+
+	}
+
+function style_rewite($element){
+
+
+$element = $element[1];
+	$name = warehouse("raindrops_style_type");
+
+    global $images_path;
+    global $navigation_title_img;
+    global $tmn_header_image;
+    global $tmn_header_color;
+    global $tmn_footer_image;
+    global $tmn_footer_color;	
+	
+    $c_border   = colors(0,'background');
+
+    if($c_border == '#'){
+        $rgba_border = 'rgba(203,203,203, 0.8)';
+    }else{
+        $rgba_border = hex2rgba($c_border,0.5);
+    }
+
+
+
+	if(preg_match("|c([0-5])|",$element,$regs)){
+		$$element = colors($regs[1]);	
+	
+	}
+	if(preg_match("|c_([0-5])|",$element,$regs)){
+		$$element = colors( - $regs[1]);	
+	
+	}
+	
+
+    $position_y = warehouse('raindrops_heading_image_position');
+
+    $y = $position_y * 26;
+    $y = '-'.$y.'px';
+
+    switch( $position_y ){
+        case(0):
+            $h_position_rsidebar_h2 = "background-position:0 0;";
+        break;
+        case(1):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        case(2):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        case(3):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        case(4):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        case(5):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        case(6):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        case(7):
+            $h_position_rsidebar_h2 = "background-position:0 $y;";
+        break;
+        default:
+            $h_position_rsidebar_h2 = "background-position:0 208px;";
+        break;
+
+    }
+
+		$h2_default_background = "background:".colors(4,'background').' ';
+		$h2_default_background .= "url({$images_path}{$navigation_title_img});";
+		$h2_default_background .= "color:".colors(4,'color').';';
+	
+		$h2_dark_background = "background:".colors(-3,'background').' ';
+		$h2_dark_background .= "url({$images_path}{$navigation_title_img});";
+		$h2_dark_background .= "color:".colors(-3,'color').';';
+	
+		$h2_light_background = "background:".colors(4,'background').' ';
+		$h2_light_background .= "url({$images_path}{$navigation_title_img});";
+		$h2_light_background .= "color:".colors(4,'color').';';
+
+
+
+	switch($name){
+	
+		case("default"):
+			$custom_dark_bg = colors('3','background');
+			$custom_light_bg = colors('1','background');
+			$custom_color = colors('1','color');
+			if(!empty($tmn_footer_color)){
+				$tmn_footer_color = 'color:'.$tmn_footer_color;
+			}else{
+				$tmn_footer_color = '';
+			}
+			if(!empty($tmn_header_color)){
+				$tmn_header_color = 'color:'.$tmn_header_color;
+			}else{
+				$tmn_header_color = '';
+			}
+		
+		
+			$gradient = tmn_gradient();
+		
+		break;
+		
+		case("dark"):
+		/**
+		 *
+		 *
+		 *dark
+		 *
+		 */
+		
+			$custom_dark_bg = colors('-1','background');
+			$custom_light_bg = colors('-4','background');
+			$custom_color = colors('-3','color');
+		
+			if(!empty($tmn_footer_color)){
+				$tmn_footer_color = $tmn_footer_color;
+			}else{
+				$tmn_footer_color = '';
+			}
+			if(!empty($tmn_header_color)){
+				$tmn_header_color = $tmn_header_color;
+			}else{
+				$tmn_header_color = '';
+			}
+		break;
+		case("light"):
+		/**
+		 * light
+		 *
+		 *
+		 *
+		 */
+			$custom_dark_bg = colors('5','background');
+			$custom_light_bg = colors('3','background');
+			$custom_color = colors('3','color');
+			$base_gradient = tmn_gradient_single(3,"asc");
+		
+			if(!empty($tmn_footer_color)){
+				$tmn_footer_color = $tmn_footer_color;
+			}else{
+				$tmn_footer_color = '';
+			}
+			if(!empty($tmn_header_color)){
+				$tmn_header_color = $tmn_header_color;
+			}else{
+				$tmn_header_color = '';
+			}
+		break;
+		
+		default:
+		
+			$custom_dark_bg = colors('3','background');
+			$custom_light_bg = colors('1','background');
+			$custom_color = colors('1','color');
+			if(!empty($tmn_footer_color)){
+				$tmn_footer_color = 'color:'.$tmn_footer_color;
+			}else{
+				$tmn_footer_color = '';
+			}
+			if(!empty($tmn_header_color)){
+				$tmn_header_color = 'color:'.$tmn_header_color;
+			}else{
+				$tmn_header_color = '';
+			}
+		
+		
+			$gradient = tmn_gradient();
+		
+		break;
+
+	}
+
+	if(isset($$element)){
+		return $$element;
+		}else{
+		return "/*--".$element." can not bind--*/";
+		}
+
+
 }
+
+
+
+
 ?>

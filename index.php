@@ -14,7 +14,9 @@ get_header("xhtml1"); ?>
   <div class="yui-b">
     <!--main-->
     <!-- Use Standard Nesting Grids and Special Nesting Grids to subdivid regions of your layout. -->
-    <!-- Special Nesting Grid C has two children, the first is 2/3, the second is 1/3 -->
+    <!-- Special Nesting Grid C has two children, the first is 2/3, the second is 1/3 --><!--dddd-->
+
+      <?php //the_post_thumbnail(); ?>
     <?php
     if(function_exists('bcn_display') and is_home() == false){
         echo '<div class="breadcrumb">';
@@ -48,9 +50,8 @@ get_header("xhtml1"); ?>
 
       </div>
       <!--rsidebar start-->
-      <div class="yui-u"> <span style="display:none;">--</span>
-        <?php if($rsidebar_show){get_sidebar('2');
-        } ?>
+      <div class="yui-u"> 
+        <?php if($rsidebar_show){get_sidebar('2');} ?>
         <!--rsidebar end-->
       </div>
       <!--add col here -->
@@ -60,7 +61,7 @@ get_header("xhtml1"); ?>
 </div>
 <!--sidebar-->
 <!-- navigation 2 -->
-<div class="yui-b"> <span style="display:none;">--</span>
+<div class="yui-b">
   <!--lsidebar start-->
   <?php get_sidebar('1'); ?>
   <!--lsidebar end-->

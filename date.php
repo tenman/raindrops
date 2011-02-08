@@ -13,7 +13,7 @@ if(isset($_GET['ec3_listing']) and !empty($_GET['ec3_listing'])){
 exit;
 
 }
-$ht_deputy = "no-title";
+$ht_deputy = "NoTitle";
 
     $weekdaynames = array(
         0 => __('Sunday','Raindrops'),
@@ -35,7 +35,7 @@ $ht_deputy = "no-title";
     }
 
 get_header('xhtml1'); ?>
-
+<!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 <div id="yui-main">
   <div class="yui-b">
     <?php
@@ -45,8 +45,8 @@ if(function_exists('bcn_display')){
     echo '</div>';
 }
 ?>
-    <div class="<?php echo $yui_inner_layout;?>">
-      <!-- content -->
+ <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
+     <!-- content -->
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
         <?php
 echo '<h1 class="page-title">';
@@ -298,7 +298,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                 $months[$m][] = $post;
         }
 
-        $output = "<h2 class=\"h2\"><span class=\"year-name\">$year</span></a></span></h2>";
+        $output = "<h2 class=\"h2\"><span class=\"year-name\">$year</span></h2>";
 
             $table_year = array(
                 '<table id="year_list" summary="Archives in '.$year.'"><tbody>',
@@ -379,10 +379,12 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     global $ht_deputy;
     $d = "";
     $links = "";
+	
             foreach($one_month as $month){
         //var_dump($month->post_date);
                 //list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
                 list($y,$m,$d) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+				
             if($month->post_title == ''){$month->post_title = $ht_deputy;}
 
                 if($m == $mo and $ye == $y){
@@ -392,10 +394,10 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
             }
 
             if(!empty($links)){
-                $result .= " </span></td><td><ul>";
+                $result .= " <td><ul>";
                 $result .= $links;
-                $result .= "</ul></td></tr>";
-                }
+                $result .= "</ul></td>";
+             }
         return $result;
     }
 

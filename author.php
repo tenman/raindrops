@@ -83,7 +83,7 @@ if ( get_the_author_meta( 'description' ) ) : ?>
         </dl>
 
         <br style="clear:both;" />
-        <h2 class="h2"><?php sprintf(__("Posts by %s",'Raindrops'),$curauth->nickname); ?>:</h2>
+        <h2 class="h2"><?php printf(__("Posts by %s",'Raindrops'),$curauth->nickname); ?></h2>
 
         <dl class="<?php echo  esc_attr(basename(__FILE__,'.php'));?> <?php echo  esc_attr(basename(dirname(__FILE__)));?>">
           <!-- The Loop -->

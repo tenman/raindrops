@@ -9,7 +9,7 @@
  */
 ?>
 <?php get_header("xhtml1"); ?>
-
+<!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 <div id="yui-main">
   <div class="yui-b">
     <?php
@@ -43,7 +43,7 @@
 </div>
 <!--sidebar-->
 <!-- navigation 2 -->
-<div class="yui-b"> <span style="display:none;">--</span>
+<div class="yui-b">
   <!--lsidebar start-->
   <?php get_sidebar('1'); ?>
   <!--lsidebar end-->

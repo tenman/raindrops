@@ -1,11 +1,11 @@
 /*   
 Theme Name: raindrops
-Theme URI: http://www.tenman.info/wp3/raindrops/
+Theme URI: http://www.tenman.info/wp3/sugerdrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.292
+Version: 0.3
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -684,7 +684,7 @@ padding:0;
 #nav-above,
 #nav-below {
 	text-align:center;
-	margin:3em;
+	/*margin:3em;*/
 }
 
 
@@ -893,7 +893,7 @@ div.entry-meta{
 
 ul.archive,
 ul.index {
-	margin:2em 0;
+	margin:0;
 }
 
 ul.archive li,
@@ -1747,12 +1747,13 @@ height:100%;
 body.page .nocomments{
 	display:none;
 }
-.yui-g,.gecko .yui-gf{width:100%!important;margin:0;}
+.yui-g,.gecko .yui-gf{width:100%!important;margin:0;position:relative;left:-12px;}
 .yui-gb div.yui-u{
 	width:32%;
 }
 
 
+.gecko .post .yui-gf{margin-left:2.6%;}
 .post .yui-gf  div.first{width:24%;float:left;}
 .post .yui-gf  .yui-u {width:74%;float:right;}
 .post .yui-ge div.first{width:74%;float:left;}
@@ -1767,7 +1768,6 @@ div.post .yui-gc .yui-u{width:32%;}
 .gecko div.page .yui-gf  div.first{width:24%;float:left;}
 .gecko div.page .yui-ge div.first{width:74%;float:left;}
 .gecko div.page .yui-ge .yui-u {width:24%;float:right;}
-
 .chrome div.page .yui-gf  div.first{width:24%;float:left;}
 .chrome div.page .yui-gf  .yui-u {width:74%;float:right;}
 

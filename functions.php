@@ -12,8 +12,149 @@
 <?php
     global $wpdb;
 
+    $raindrops_base_setting = array(
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_base_color",
+        'option_value' => "#345678",
+        'autoload'=>'yes',
+        'title'=> __('Base Color for Automatic Arrangement','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please specify your favorite color. It is based on the specified color,
+         and an automatic arrangement of color is designed. Please set the value of TMN_USE_AUTO_COLOR of function.php to false when you want to stop it. The specification of the color and border is removed. Even if this function is used,
+         you can freely specify it with style.css. Because the author of Raindrops is Japanese,
+         a traditional color of Japan is set in the specification of the color If it wants you other arrangement of color sets themes/functions.php is opened,
+         and it is value of const COLOR_SCHEME revokable. In default,
+         color_en or color_en_140 can be set. ','Raindrops','Raindrops'),
+         'validate'=>'raindrops_base_color_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_style_type",
+        'option_value' => "default",
+        'autoload'=>'yes',
+        'title'=>__('Color Type','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('The mood like dark atmosphere and the bright note,
+         etc. is decided.','Raindrops'),
+         'validate'=>'raindrops_style_type_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_header_image",
+        'option_value' => "header.png",
+        'autoload'=>'yes',
+        'title'=>__('Header image','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('The name of the picture file used for the header is set. As for the image,
+         the image that exists in themes/raindrops/image/is used.','Raindrops'),
+         'validate'=>'raindrops_header_image_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_footer_image",
+        'option_value' => "footer.png",
+        'autoload'=>'yes',
+        'title'=>__('Footer image','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('The name of the picture file used for the footer is set.As for the image,
+         the image that exists in themes/raindrops/image/is used.','Raindrops'),
+         'validate'=>'raindrops_footer_image_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_heading_image_position",
+        'option_value' => "0",
+        'autoload'=>'yes',
+        'title'=>__('image position h2 background image','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
+        'validate'=>'raindrops_heading_image_position_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_heading_image",
+        'option_value' => "h2.png",
+        'autoload'=>'yes',
+        'title'=>__('Background Image h2','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('The name of the picture file used for the h2 headding is set. As for the image,
+         the image that exists in themes/raindrops/image/is used.The header image can be chosen from among three kinds [h2.png,
+        h2b.png,h2c.png] now. Of course, customizing is also possible. ','Raindrops'),
+         'validate'=>'raindrops_heading_image_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_page_width",
+        'option_value' => "doc2",
+        'autoload'=>'yes',
+        'title'=>__('Page Width','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please choose width on the page.
+    Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px fluid.
+    Please add the variable to functions.php when you want to specify page other size. For instance,
+         $page_width =  700;The width of the page if it specifies it will be changed to 700px centerd at once.','Raindrops'),
+         'validate'=>'raindrops_page_width_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_col_width",
+        'option_value' => "t2",
+        'autoload'=>'yes',
+        'title'=>__('Column Width and Position','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified.','Raindrops'),
+        'validate'=>'raindrops_col_width_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_default_fonts_color",
+        'option_value' => "",
+        'autoload'=>'yes',
+        'title'=>__('Fonts Color ','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please specify the color of the entry content. Please use it when you want to decide the text color though the automatic arrangement of color function does well in most cases.When none is selected from the selection box,
+         it becomes an automatic arrangement of color. ','Raindrops'),
+         'validate'=>'raindrops_default_fonts_color_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_footer_color",
+        'option_value' => "",
+        'autoload'=>'yes',
+        'title'=>__('Fonts Color Footer ','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please specify the text color of the footer. Please use it when you want to decide the text color though the automatic arrangement of color function does well in most cases.When none is selected from the selection box,
+         it becomes an automatic arrangement of color. ','Raindrops'),
+         'validate'=>'raindrops_footer_color_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_show_right_sidebar",
+        'option_value' => "show",
+        'autoload'=>'yes',
+        'title'=>__('Extra Sidebar','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show','Raindrops'),
+        'validate'=>'raindrops_show_right_sidebar_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_right_sidebar_width_percent",
+        'option_value' => "25",
+        'autoload'=>'yes',
+        'title'=>__('Extra Sidebar Width','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('When display extra sidebar is set to show,
+         it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
+         'validate'=>'raindrops_right_sidebar_width_percent_validate'),
+
+    );
+
+
     require_once(get_stylesheet_directory()."/config.php");
-    //Fatal error: Call to undefined function is_plugin_active()
+
 
     if(SHOW_HEADER_IMAGE == false){
         add_action("admin_head","header_image_alert");
@@ -23,13 +164,6 @@
     if(isset($_GET['page']) and $_GET['page'] == 'raindrops_settings'){
         add_action("admin_head","jquery_toggle_action");
     }
-
-
-
-    //$page_width = '';
-    //$content_width = '';
-
-
 
     if(isset($page_width) and !empty($page_width)){
 
@@ -126,6 +260,7 @@
     add_action('admin_menu', array($is_submenu, 'add_menus'));
     add_action('admin_menu', 'setup_raindrops');
     add_action( 'widgets_init', 'raindrops_widgets_init' );
+
 
 
 
@@ -502,12 +637,15 @@
 
 
     function warehouse($name){
+
         global $raindrops_base_setting;
         global $page_width;
+
         $vertical = array();
 
 
         foreach($raindrops_base_setting as $key=>$val){
+
             if(!is_null($raindrops_base_setting)){
                 $vertical[] = $val['option_name'];
             }
@@ -560,13 +698,13 @@
 
 
     $result .= "<dl><dt><div class=\"icon32\" id=\"icon-options-general\"><br></div><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('raindrops/functions.php TMN_USE_AUTO_COLOR value change false','Raindrops').'</dd><br style="clear:both;">';
+    $result .= "<dd>".__('raindrops/functions.php TMN_USE_AUTO_COLOR value change false','Raindrops').'</dd><br class="clear" />';
 
     $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br></div><strong>".__('When you want to display the custom header image','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('raindrops/functions.php SHOW_HEADER_IMAGE value change true','Raindrops').'</dd><br style="clear:both;">';
+    $result .= "<dd>".__('raindrops/functions.php SHOW_HEADER_IMAGE value change true','Raindrops').'</dd><br class="clear" />';
 
     $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br></div><strong>".__('When you want to all reset the settings','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('Please install it switching to other themes once to reset all items, and again again. When switching to other themes, Raindrops restores all customizing information. ','Raindrops').'</dd><br style="clear:both;">';
+    $result .= "<dd>".__('Please install it switching to other themes once to reset all items, and again again. When switching to other themes, Raindrops restores all customizing information. ','Raindrops').'</dd><br class="clear" />';
 
     $result .= "<p>".sprintf(__('WEBSite:<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
 
@@ -1267,8 +1405,7 @@
     function first_only_msg($type=0) {
 
         if ( $type == 1 ) {
-            $query  = ltrim(__FILE__,'/');
-            //$link     = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
+
             $query  = 'raindrops_settings';
             $link   = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
 

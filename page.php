@@ -39,12 +39,12 @@
               </small></p>
             <div style="entry-content">
               <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
-              <div class="clearfix"></div>
+              <br class="clear" />
             </div>
             <div class="linkpage clearfix">
               <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
             </div>
-            <br style="clear:both;" />
+            <br class="clear" />
             <p class="postmetadata">
               <?php the_category(', ') ?>
               &nbsp;

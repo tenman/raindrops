@@ -18,7 +18,7 @@
         </li>
         <?php endif; ?>
       </ul>
-      <br style="clear:both;" />
+      <br class="clear" />
     </div>
     <!--footer-widget end-->
   <address>

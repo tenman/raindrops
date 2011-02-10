@@ -232,13 +232,24 @@ td.month-date,td.month-name,td.time{
     background:none;
 
 }
-blockquote {
-    border-top:double 3px %c_border%;
-    border-bottom:double 3px %c_border%;
-    border-top:double 3px %rgba_border%;
-    border-bottom:double 3px %rgba_border%;
+.entry-content blockquote{
+    border-left:solid 3px %c_border%;
 
     background:#fefefe;
+}
+cite{
+    background:#fefefe;
+}
+
+cite a:link,cite a:active,cite a:visited,cite a:hover{
+
+
+}
+
+cite a:link,cite a:active,cite a:visited,cite a:hover{
+
+    %c4%
+    background:none!important;
 }
 fieldset {
     border:1px solid %rgba_border%;

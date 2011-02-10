@@ -126,7 +126,8 @@ border:1px solid %c_border%!important;
 %h_position_rsidebar_h2%
 }
 a:link,a:active,a:visited,a:hover{
-    %c_5%
+  %c_5%
+
 }
 
 #hd h1 a:link,#hd h1 a:active,#hd h1 a:visited,#hd h1 a:hover{
@@ -228,14 +229,20 @@ td.month-date,td.month-name,td.time
 
 }
 
-blockquote {
-    border-top:double 3px %c_border%;
-    border-bottom:double 3px %c_border%;
-    border-top:double 3px %rgba_border%;
-    border-bottom:double 3px %rgba_border%;
+.entry-content blockquote,cite {
+    border-left:solid 3px %c_border%;
 
     %c4%
 }
+cite{
+    %c4%
+}
+cite a:link,cite a:active,cite a:visited,cite a:hover{
+
+    %c4%
+    background:none!important;
+}
+
 fieldset {
     border:1px solid %rgba_border%;
 }

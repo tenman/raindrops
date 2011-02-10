@@ -67,17 +67,17 @@ if(isset($current_blog)){
 <!--header-->
 <div id="top">
   <div id="hd">
-  		<?php
-		//echo get_theme_mod('header_text', "default");
-		//|| ! Custom_Image_Header->header_text()
-		if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-			$style = ' style="display:none;"';
-		}elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
-			$style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
-		}else{
-			$style = '';
-		}
-		?>
+        <?php
+        //echo get_theme_mod('header_text', "default");
+        //|| ! Custom_Image_Header->header_text()
+        if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+            $style = ' style="display:none;"';
+        }elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
+            $style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
+        }else{
+            $style = '';
+        }
+        ?>
     <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
     <<?php echo $heading_tag; ?> id="site-title" class="h1"> <span> <a <?php echo $style; ?> href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
     <?php bloginfo( 'name' ); ?>
@@ -89,7 +89,7 @@ if(isset($current_blog)){
 
 <?php if(SHOW_HEADER_IMAGE == true){?>
 
-    <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:5px 0;"><span style="display:none">headerimage</span></div>
+    <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:5px 0;"><span class="hide">headerimage</span></div>
 <?php }?>
  <!-- role="navigation" -->
   <div id="access">
@@ -100,7 +100,7 @@ if(isset($current_blog)){
     wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
 
     </div>
-  <br class="clearfix" />
+  <br class="clear" />
 </div>
 <!--header-->
-<div id="bd" style="clear:both;">
+<div id="bd" class="clearfix">

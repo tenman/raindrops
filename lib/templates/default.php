@@ -38,14 +38,18 @@ color:%tmn_footer_color%
 }
 .home .sticky {
 background: %c4%
-border-top:solid 6px %rgba_border%
-border-bottom:solid 2px %rgba_border%
+border-top:solid 6px %c_border%;
+border-bottom:solid 2px %c_border%;
+border-top:solid 6px %rgba_border%;
+border-bottom:solid 2px %rgba_border%;
 
 }
 .entry-meta{
 background: %c4%
-border-top:solid 2px %rgba_border%
-border-bottom:solid 2px %rgba_border%
+border-top:solid 2px %c_border%;
+border-bottom:solid 2px %c_border%;
+border-top:solid 2px %rgba_border%;
+border-bottom:solid 2px %rgba_border%;
 
 
 }
@@ -58,17 +62,17 @@ border-bottom:solid 2px %rgba_border%
     border-radius:3px;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
-    border:1px solid %rgba_border%
+    border:1px solid %rgba_border%;
     background: %c3%
 
 }
 
 .social textarea#comment:focus,
 .social input:focus{
-    box-shadow: 0 0 5px %rgba_border%
-    -webkit-box-shadow: 0 0 5px %rgba_border%
-    -moz-box-shadow: 0 0 5px %rgba_border%
-  /*  border:1px solid %rgba_border%*/
+    box-shadow: 0 0 5px %rgba_border%;
+    -webkit-box-shadow: 0 0 5px %rgba_border%;
+    -moz-box-shadow: 0 0 5px %rgba_border%;
+  /*  border:1px solid %rgba_border%;*/
     background: %c4%
 
 }
@@ -77,29 +81,37 @@ border-bottom:solid 2px %rgba_border%
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
 
-border:double 3px %rgba_border%
+border:double 3px %rgba_border%;
 background: %c4%
 }
 .entry-content input[type="submit"],
 .entry-content input[type="radio"]{
 background: %c3%
-border:double 3px %rgba_border%
+border:double 3px %rgba_border%;
 }
 .entry-content select{
 background: %c4%
-border:double 3px %rgba_border%
+border:double 3px %rgba_border%;
 }
 
-.entry-content blockquote {
-    border-top:double 3px %c_border%
-    border-bottom:double 3px %c_border%
-    border-top:double 3px %rgba_border%
-    border-bottom:double 3px %rgba_border%
+.entry-content blockquote{
 
     %c4%
+    border-left:solid 3px %c_border%;
+
+
+}
+cite{
+    %c4%
+}
+cite a:link,cite a:active,cite a:visited,cite a:hover{
+
+    %c4%
+    background:none!important;
 }
 .entry-content fieldset {
-    border:1px solid %rgba_border%
+    border:solid 1px %c_border%;
+    border:1px solid %rgba_border%;
 }
 .entry-content legend{
     %c5%
@@ -107,11 +119,13 @@ border:double 3px %rgba_border%
 
 .entry-content td{
     %c4%
+    border:solid 1px %c_border%;
     border:solid 1px %rgba_border%
 }
 .entry-content th{
     %c3%
-    border:solid 1px %rgba_border%
+    border:solid 1px %c_border%;
+    border:solid 1px %rgba_border%;
 }
 .entry-content tr:nth-child(even) {
     background-color:rgba(255,255,255,0.3);
@@ -146,7 +160,7 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 #access ul ul a {
 
     %c3%
-    border:1px solid %rgba_border%
+    border:1px solid %rgba_border%;
 
 }
 #access li:active > a,
@@ -163,7 +177,7 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-    border:1px solid %rgba_border%
+    border:1px solid %rgba_border%;
 
     %c3%
 }
@@ -172,7 +186,7 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
-    border:1px solid %rgba_border%
+    border:1px solid %rgba_border%;
 
     %c2%
 }
@@ -181,18 +195,18 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 #year_list td,
 #calendar_wrap td,
 #date_list td{
-    border:1px solid %c_border%
-    border:1px solid %rgba_border%
+    border:1px solid %c_border%;
+    border:1px solid %rgba_border%;
 }
 td.month-date,td.month-name,td.time
 {
     %c3%
-    border:1px solid %rgba_border%
+    border:1px solid %rgba_border%;
 
 }
 address{margin:10px auto;}
 .wp-caption {
-   border:solid 1px %rgba_border%
+   border:solid 1px %rgba_border%;
    -moz-border-radius: 3px;
    -khtml-border-radius: 3px;
    -webkit-border-radius: 3px;

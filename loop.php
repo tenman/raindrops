@@ -73,7 +73,6 @@ if ( in_category( "blog" )){
 
 }
 
-if(get_the_title() == ''){$ht_deputy = $post->ID;}
 
 
 ?>
@@ -116,15 +115,15 @@ if(!empty($thumbnailsrc)){
     </li>
     <li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ) ); ?></li>
     <li>
-      <?php _e('Category:');?>
+      <?php _e('Category:','Raindrops');?>
       <?php the_category(' ') ?>
     </li>
     <li>
-      <?php _e('Tags:');?>
+      <?php _e('Tags:','Raindrops');?>
       <?php the_tags(); ?>
     </li>
     <li>
-      <?php _e('Author:');?>
+      <?php _e('Author:','Raindrops');?>
       <?php //the_author();
       echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
                 get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
@@ -144,7 +143,7 @@ if(!empty($thumbnailsrc)){
       </a></h2>
     <div class="entry-content clearfix">
       <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-      <div class="clearfix"></div>
+      <br class="clear" />
       <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
     </div>
     <?php comments_template( '', true ); ?>
@@ -185,7 +184,7 @@ if(!empty($thumbnailsrc)){
                     ?>
 <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
     <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-    <div class="clearfix"></div>
+    <br class="clear" />
     <p style="margin:1em;"><em><?php echo sprintf( __( 'This gallery contains %1$s photographs in all as ', 'Raindrops' ),$total_images).'&nbsp;'.wp_get_attachment_link( $image->ID ,false,true).'&nbsp;'.__('photograph etc.','Raindrops');?></em></p>
     </div>
   <!-- .entry-content -->
@@ -234,7 +233,7 @@ if(!empty($thumbnailsrc)){
   <?php else : ?>
   <div class="entry-content clearfix">
     <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-    <div class="clearfix"></div>
+    <br class="clear" />
     <?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'Raindrops' ), 'after' => '</div>' ) ); ?>
   </div>
   <!-- .entry-content -->
@@ -266,6 +265,7 @@ if(!empty($thumbnailsrc)){
  */
 ?>
 <!-- not single-->
+
 <ul class="index">
   <?php while (have_posts()) : the_post(); ?>
   <li>
@@ -280,7 +280,7 @@ if(!empty($thumbnailsrc)){
       <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a></h2>
       <div class="entry-content clearfix">
         <?php
-			        $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
+                    $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
 
                     $total_images = count( $images );
                     $image = array_shift( $images );
@@ -288,8 +288,15 @@ if(!empty($thumbnailsrc)){
 
     ?>
         <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
-        <?php the_excerpt();?>
-         <div class="clearfix"></div>
+        <?php
+        if(TMN_USE_LIST_EXCERPT == true){
+            the_excerpt();
+        }else{
+
+            the_content();
+        }
+        ?>
+         <br class="clear" />
         <p style="margin:1em;"><em><?php printf( __( 'This gallery contains %1$s photos.', 'Raindrops' ),$total_images); ?></em></p>
         <div class="entry-meta">
           <?php raindrops_posted_in();?>
@@ -310,9 +317,16 @@ if(!empty($thumbnailsrc)){
           <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar(5) ) : else : ?>
           <?php endif; ?>
         </ul>
-        <?php the_excerpt();?>
+        <?php
+        if(TMN_USE_LIST_EXCERPT == true){
+            the_excerpt();
+        }else{
+
+            the_content();
+        }
+        ?>
       </div>
-      <div class="clearfix"></div>
+      <br class="clear" />
       <div class="entry-meta">
         <?php raindrops_posted_in();?>
         <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
@@ -326,14 +340,21 @@ if(!empty($thumbnailsrc)){
          } ?>
         <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a></h2>
       <div class="entry-content clearfix">
-        <?php the_excerpt();?>
+         <?php
+        if(TMN_USE_LIST_EXCERPT == true){
+            the_excerpt();
+        }else{
+
+            the_content();
+        }
+        ?>
       </div>
       <div class="entry-meta">
         <?php raindrops_posted_in();?>
         <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
       </div>
       <?php } ?>
-      <div class="clearfix"></div>
+      <br class="clear" />
     </div>
   </li>
   <?php endwhile; ?>

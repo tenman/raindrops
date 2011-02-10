@@ -29,7 +29,7 @@
           <div class="entry attachment">
             <h2 class="image-title h2"><?php the_title(); ?></h2>
             <p>
-              <?php _e("Entry");?>
+              <?php _e("Entry",'Raindrops');?>
               <a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"> <?php echo get_the_title($post->post_parent); ?></a></p>
             <?php $image = get_post_meta($post->ID, 'image', true); ?>
             <?php $image = wp_get_attachment_image_src($image, 'full'); ?>

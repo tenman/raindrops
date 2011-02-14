@@ -10,17 +10,18 @@
 ?>
 <?php
     global $wpdb;
+
     require_once(get_stylesheet_directory()."/config.php");
-	
+
     if(TMN_USE_AUTO_COLOR == true and is_admin() == true ){
         require_once(get_stylesheet_directory()."/lib/csscolor.css.php");
         add_filter('contextual_help','raindrops_edit_help');
     }
-	
+
     if(SHOW_HEADER_IMAGE == false){
         add_action("admin_head","header_image_alert");
     }
-	
+
     if(isset($_GET['page']) and $_GET['page'] == 'raindrops_settings'){
         add_action("admin_head","jquery_toggle_action");
     }
@@ -57,7 +58,7 @@
             )
         ) );
     }
-	
+
     add_action('load-themes.php', 'install_navigation');
     add_editor_style();
     register_nav_menus( array(
@@ -93,7 +94,7 @@
         return;
         }
     }
-	
+
 
 /**
  * Validate admin panel form value.
@@ -337,7 +338,7 @@
 /**
  * Echo posted_on block
  *
- * 
+ *
  * loop.php
  *
  */
@@ -361,7 +362,7 @@
     }
 
 /**
- * Special custom field key CSS javascript metatags 
+ * Special custom field key CSS javascript metatags
  *
  * css,javascrip,meta is separated anothor Custom Field.
  *
@@ -387,26 +388,30 @@
         global $raindrops_base_setting;
         global $page_width;
         $vertical = array();
-        foreach($raindrops_base_setting as $key=>$val){
-            if(!is_null($raindrops_base_setting)){
-                $vertical[] = $val['option_name'];
+        if(isset($raindrops_base_setting)){
+            foreach($raindrops_base_setting as $key=>$val){
+                if(!is_null($raindrops_base_setting)){
+                    $vertical[] = $val['option_name'];
+                }
             }
-        }
-            $row = array_search($name,$vertical);
-        if(isset($page_width) and !empty($page_width) and $name == 'raindrops_page_width'){
-            return 'custom-doc';
-        }
+
+                $row = array_search($name,$vertical);
+            if(isset($page_width) and !empty($page_width) and $name == 'raindrops_page_width'){
+                return 'custom-doc';
+            }
+
             return get_option($name, $raindrops_base_setting[$row]['option_value']);
+        }
     }
 
 /**
- * Return $raindrops_base_setting value. 
+ * Return $raindrops_base_setting value.
  *
  *
  *
  *
  */
-	
+
     function tmn_admin_meta($name,$meta_name){
         global $raindrops_base_setting;
         global $page_width;
@@ -614,8 +619,10 @@
                  isset($_POST) and
                  $option_value == $valid_function($option_value)
                   ){
-                  update_option($option_name,$option_value);
-                   $ok = true;
+                  if(update_option($option_name,$option_value)){
+                    do_action( 'raindrops_change_style' );
+                    $ok = true;
+                   }
             }
             if($option_value !== $valid_function($option_value)){
                 $add_str .= __("BAD value","Raindrops");
@@ -626,23 +633,26 @@
             $result .= "<h2>" . get_current_theme() . __(' Theme Settings') . "</h2>";
             $result .= "<p>Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></p></div>";
             $result .= '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div>';
+
             if(isset($_POST) and !empty($_POST)){
             if($ok){
-            $add_str = "";
-            $scheme = TMN_COLOR_SCHEME;
-            global $$scheme;
-            $add_str = array_search($option_value,$$scheme);
-            $add_str .= array_search($option_value,$this->col_settings_raindrops_col_width);
-            $add_str .= array_search($option_value,$this->col_settings_raindrops_page_width);
-            $add_str .= array_search($option_value,$this->col_settings_raindrops_right_sidebar_width_percent);
-            $add_str .= array_search($option_value,$this->col_settings_raindrops_show_right_sidebar);
-            $add_str .= array_search($option_value,$this->col_settings_raindrops_style_type);
-            if($option_value !== $valid_function($option_value)){
-                $add_str = __("BAD value","Raindrops");
-            }
+                $add_str = "";
+                $scheme = TMN_COLOR_SCHEME;
+                global $$scheme;
+                $add_str = array_search($option_value,$$scheme);
+                $add_str .= array_search($option_value,$this->col_settings_raindrops_col_width);
+                $add_str .= array_search($option_value,$this->col_settings_raindrops_page_width);
+                $add_str .= array_search($option_value,$this->col_settings_raindrops_right_sidebar_width_percent);
+                $add_str .= array_search($option_value,$this->col_settings_raindrops_show_right_sidebar);
+                $add_str .= array_search($option_value,$this->col_settings_raindrops_style_type);
+
+                if($option_value !== $valid_function($option_value)){
+                    $add_str = __("BAD value","Raindrops");
+                }
+
             $result .= '<div id="message" class="updated fade" title="'.$option_name.'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']').'</p></div>';
             }else{
-                $result .= '<div id="message" class="error fade"><p>'.__("Try again").$add_str.'</p></div>';
+            $result .= '<div id="message" class="error fade" style="height:200px;"><p>'.__("Try again").$add_str.'</p></div>';
             }
             }
             $result .= '</div>';
@@ -820,7 +830,7 @@
     } //end class
 
 /**
- * Show real gradient where admin panel help 
+ * Show real gradient where admin panel help
  *
  *
  *
@@ -842,7 +852,7 @@
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
         return $g;
     }
-	
+
     function tmn_gradient(){
         $g = "";
         for($i = 1;$i<5;$i++){
@@ -851,13 +861,13 @@
         $custom_dark_bg2 = colors($i,'background');
         $custom_light_bg2 = colors($i-1,'background');
         $g .= '.gradient'.$i.'{';
-		$g .= 'color:'.colors($i,'color').';';
+        $g .= 'color:'.colors($i,'color').';';
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
         $g .= "}\n";
         $g .= '.gradient-'.$i.'{';
-		$g .= 'color:'.colors($i,'color').';';
+        $g .= 'color:'.colors($i,'color').';';
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
@@ -884,7 +894,7 @@
     }
 
 /**
- * filter function comment form 
+ * filter function comment form
  *
  *
  *

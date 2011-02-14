@@ -3,16 +3,6 @@ if(!defined('ABSPATH')){exit;}
 
     $stylesheet_name = 'individual-css.php';
 
-
-//example setting conditional layout
-
-    if(warehouse("raindrops_style_type") == 'minimal'){
-
-        define('SHOW_HEADER_IMAGE',false);
-        define("TMN_USE_LIST_EXCERPT",true);
-
-    }
-
     //$page_width = '';
     //$content_width = '';
 
@@ -284,7 +274,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
          'validate'=>'raindrops_right_sidebar_width_percent_validate'),
 
     );
-	
+
     if(warehouse('raindrops_show_right_sidebar') == 'hide'){
         $rsidebar_show = false;
     }else{

@@ -4,8 +4,6 @@ header("Content-type: text/css");
     $raindrops_config_dir = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
     require_once($raindrops_config_dir."/wp-load.php");
     $lang       = get_bloginfo("language");
-echo $raindrops_dirs;
-//ob_start ("ob_gzhandler");
     echo '@charset "utf-8";';
     echo whitespace_del($raindrops_dir.'/raindrops/reset-fonts-grids.css');
     echo whitespace_del($raindrops_dir.'/raindrops/grids.css');
@@ -21,7 +19,6 @@ echo $raindrops_dirs;
 
     echo $current_style;
     }
-//ob_end_flush();
 
 function whitespace_del($path){
     $handle = fopen($path, "r") or die ("error not open");

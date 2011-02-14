@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.301
+Version: 0.302
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -234,6 +234,10 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 	font-style:italic;
 }
 
+.entry-content  div.wp-caption{
+	max-width:94%!important;
+	
+	}
 
 .comment-body blockquote blockquote {
 	margin-left:0.5em;
@@ -928,6 +932,9 @@ ul.index li .edit {
 	margin:0 2em;
 }
 
+.edit-link{
+
+}
 .page .hentry .entry-content {
 	margin-top:2em;
 }
@@ -1286,28 +1293,11 @@ a:active {
 position:relative;
 top:1px;
 }
-/*-------
+#top{
+	padding-bottom:5px;
 
-#top ul li {
-	float:left;
-	list-style:none;
-	text-align:center;
-	list-style-position:inside;
 
 }
-.debug #top ul li {
-	border:1px solid red;
-
-}
-.debug #top ul li a{
-	border:1px solid #555;
-	list-style-position:inside;
-}
-
-
--------*/
-
-/*#access a:hover{color:red;}*/
 #access {
 	display: block;
 	float: left;

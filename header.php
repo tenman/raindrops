@@ -8,14 +8,12 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
-
-global $current_blog;
-if(isset($current_blog)){
-    $this_blog = array("b". $current_blog->blog_id);
-}else{
-    $this_blog = array();
-}
-
+	global $current_blog;
+	if(isset($current_blog)){
+		$this_blog = array("b". $current_blog->blog_id);
+	}else{
+		$this_blog = array();
+	}
 ?><?php echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
@@ -45,31 +43,20 @@ if(isset($current_blog)){
 
     ?>
 </title>
-
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php
-    /* We add some JavaScript to pages with the comment form
-     * to support sites with threaded comments (when in use).
-     */
-    if ( is_singular() && get_option( 'thread_comments' ) )
+    if ( is_singular() && get_option( 'thread_comments' )){
         wp_enqueue_script( 'comment-reply' );
+	}
 
-    /* Always have wp_head() just before the closing </head>
-     * tag of your theme, or you will break many plugins, which
-     * generally use this hook to add elements to <head> such
-     * as styles, scripts, and meta tags.
-     */
     wp_head();
 ?>
 </head>
 <body <?php body_class($this_blog); ?>>
 <div id="<?php echo warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.warehouse('raindrops_col_width'); ?> hfeed">
-<!--header-->
 <div id="top">
   <div id="hd">
         <?php
-        //echo get_theme_mod('header_text', "default");
-        //|| ! Custom_Image_Header->header_text()
         if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
             $style = ' style="display:none;"';
         }elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
@@ -78,29 +65,36 @@ if(isset($current_blog)){
             $style = '';
         }
         ?>
-    <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-    <<?php echo $heading_tag; ?> id="site-title" class="h1"> <span> <a <?php echo $style; ?> href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-    <?php bloginfo( 'name' ); ?>
-    </a> </span> </<?php echo $heading_tag; ?>>
+<?php
+    if( is_home() or is_front_page() ){
+        $heading_elememt = 'h1';
+    }else{
+        $heading_elememt = 'div';
+    }
+    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s">%s</a></span></%s>';
+
+    printf(
+        $title_format,
+        $heading_elememt,
+        home_url(),
+        esc_attr(get_bloginfo( 'name', 'display' )),
+        "home",
+        get_bloginfo( 'name', 'display' ),
+        $heading_elememt
+        );
+?>
     <div id="site-description" <?php echo $style; ?>>
       <?php bloginfo( 'description' ); ?>
     </div>
   </div>
-
 <?php if(SHOW_HEADER_IMAGE == true){?>
 
     <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:5px 0;"><span class="hide">headerimage</span></div>
 <?php }?>
- <!-- role="navigation" -->
   <div id="access">
-
     <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-    <?php
-
-    wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
-
+    <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
     </div>
   <br class="clear" />
 </div>
-<!--header-->
 <div id="bd" class="clearfix">

@@ -8,7 +8,7 @@ body{
 }
 #top{
 
-    %c\4%
+   %c_4%
 
 }
 
@@ -27,14 +27,14 @@ h2 a{
 }
 
 .home .sticky {
-background: %c\4%
+background:%c_4%
 border-top:solid 6px %rgba_border%;
 border-bottom:solid 2px %rgba_border%;
 
 }
 
 .entry-meta{
-background: %c\4%
+background:%c_4%
 border-top:solid 2px %rgba_border%;
 border-bottom:solid 2px %rgba_border%;
 
@@ -84,10 +84,10 @@ ul.nav{
     %c_3%
 }
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited{
-    %c\4%
+   %c_4%
 }
 ul.nav li a:hover,ul.nav li a:active{
-    %c\4%
+   %c_4%
 }
 #sidebar{
     %c_5%
@@ -229,17 +229,17 @@ td.month-date,td.month-name,td.time
 
 }
 
-.entry-content blockquote,cite {
+.entry-content blockquote {
     border-left:solid 3px %c_border%;
 
-    %c4%
+   %c_4%
 }
 cite{
-    %c4%
+   %c_4%
 }
 cite a:link,cite a:active,cite a:visited,cite a:hover{
 
-    %c4%
+   %c_4%
     background:none!important;
 }
 
@@ -274,7 +274,7 @@ div.social{
     -webkit-box-shadow: 0 0 5px %rgba_border%;
     -moz-box-shadow: 0 0 5px %rgba_border%;
    /* border:1px solid %rgba_border%;*/
-    background: %c4%
+    background:%c_4%
 
 }
 .social input[type="submit"] {
@@ -283,7 +283,7 @@ border:double 3px %rgba_border%;
 background: %c3%
 }
 .entry-content td{
-    %c4%
+   %c_4%
     border:solid 1px %rgba_border%;
 }
 .entry-content th{

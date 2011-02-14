@@ -48,7 +48,7 @@
             <p class="postmetadata">
               <?php the_category(', ') ?>
               &nbsp;
-              <?php edit_post_link('Edit', '', '  '); ?>
+<?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
             </p>
             <?php comments_template( '', true ); ?>
           </div>

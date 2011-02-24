@@ -11,20 +11,21 @@
 <?php
     global $wpdb;
 
-    require_once(get_stylesheet_directory()."/config.php");
+    require_once(get_template_directory()."/config.php");
 
     if(TMN_USE_AUTO_COLOR == true and is_admin() == true ){
-        require_once(get_stylesheet_directory()."/lib/csscolor.css.php");
+        require_once(get_template_directory()."/lib/csscolor.css.php");
         add_filter('contextual_help','raindrops_edit_help');
     }
 
-    if(SHOW_HEADER_IMAGE == false){
+    if(TMN_SHOW_HEADER_IMAGE !== true){
         add_action("admin_head","header_image_alert");
     }
 
     if(isset($_GET['page']) and $_GET['page'] == 'raindrops_settings'){
         add_action("admin_head","jquery_toggle_action");
     }
+	
     if(isset($page_width) and !empty($page_width)){
         add_action("wp_head","tmn_custom_width");
         function tmn_custom_width($content,$key){
@@ -161,10 +162,10 @@
         return get_option("raindrops_page_width");
     }
     function raindrops_heading_image_validate($input){
-            if(preg_match('/(http:|\/\/|\/)/si',$input)){
-                return get_option("raindrops_heading_image");
-            }
-                return $input;
+		if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+		return get_option("raindrops_heading_image");  
+		}
+		return $input;
     }
     function raindrops_heading_image_position_validate($input){
         if(is_numeric($input) and $input < 8 and -1 < $input ){
@@ -173,18 +174,16 @@
         return get_option("raindrops_heading_image_position");
     }
     function raindrops_footer_image_validate($input){
-            if(preg_match('/(http:|\/\/|\/)/si',$input)){
-                return get_option("raindrops_footer_image");
-            }
-                return $input;
+	   if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+			return get_option("raindrops_header_image");  
+		}
+			return $input;
     }
     function raindrops_header_image_validate($input){
-            if(preg_match('/(http:|\/\/|\/)/si',$input)){
-                return get_option("raindrops_header_image");
-            }
-            if(preg_match('/^[a-z0-9_-]+$/si',$input)){
-                return $input;
-            }
+		if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+			return get_option("raindrops_header_image");  
+		}
+		 return $input;
     }
     function raindrops_style_type_validate($input){
         $obj = new tmn_menu_create();
@@ -281,8 +280,7 @@
                         /* translators: 1: date, 2: time */
                         printf( __( '%1$s at %2$s', 'Raindrops' ), get_comment_date(),  get_comment_time() ); ?>
           </a>
-          <?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' );
-                    ?>
+          <?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' ); ?>
         </div>
         <!-- .comment-meta .commentmetadata -->
         <div class="comment-body">
@@ -441,7 +439,7 @@
     $result .= "<dl><dt><div class=\"icon32\" id=\"icon-options-general\"><br></div><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
     $result .= "<dd>".__('raindrops/functions.php TMN_USE_AUTO_COLOR value change false','Raindrops').'</dd><br class="clear" />';
     $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br></div><strong>".__('When you want to display the custom header image','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('raindrops/functions.php SHOW_HEADER_IMAGE value change true','Raindrops').'</dd><br class="clear" />';
+    $result .= "<dd>".__('raindrops/functions.php TMN_SHOW_HEADER_IMAGE value change true','Raindrops').'</dd><br class="clear" />';
     $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br></div><strong>".__('When you want to all reset the settings','Raindrops').'</strong></dt>';
     $result .= "<dd>".__('Please install it switching to other themes once to reset all items, and again again. When switching to other themes, Raindrops restores all customizing information. ','Raindrops').'</dd><br class="clear" />';
     $result .= "<p>".sprintf(__('WEBSite:<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
@@ -632,7 +630,7 @@
             $result .= screen_icon();
             $result .= "<h2>" . get_current_theme() . __(' Theme Settings') . "</h2>";
             $result .= "<p>Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></p></div>";
-            $result .= '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div>';
+            $result .= '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div><br style="clear:both;" />';
 
             if(isset($_POST) and !empty($_POST)){
             if($ok){
@@ -652,7 +650,7 @@
 
             $result .= '<div id="message" class="updated fade" title="'.$option_name.'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']').'</p></div>';
             }else{
-            $result .= '<div id="message" class="error fade" style="height:200px;"><p>'.__("Try again").$add_str.'</p></div>';
+            $result .= '<div id="message" class="error fade" ><p>'.__("Try again").$add_str.'</p></div>';
             }
             }
             $result .= '</div>';
@@ -663,7 +661,7 @@
         function add_menus() {
             if(function_exists('add_theme_page')) {
 
-           add_theme_page(TMN_TABLE_TITLE, 'RAINDROPS Options', 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
+           add_theme_page(TMN_TABLE_TITLE, 'Raindrops Options', 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
             }
         }
         function form_user_input(){
@@ -1039,7 +1037,7 @@
     }
 
 /**
- * Alert when SHOW_HEADER_IMAGE false
+ * Alert when TMN_SHOW_HEADER_IMAGE false
  *
  *
  *
@@ -1048,7 +1046,7 @@
 
     function header_image_alert(){
         if(isset($_GET['page']) and $_GET['page'] == 'custom-header'){
-        printf('<script type="text/javascript">alert(\'%s\');</script>',__('Please open raindrops/functions.php, and set the value of SHOW_HEADER_IMAGE to true.','Raindrops'));
+        printf('<script type="text/javascript">alert(\'%s\');</script>',__('Please open raindrops/functions.php, and set the value of TMN_SHOW_HEADER_IMAGE to true.','Raindrops'));
         }
     }
 
@@ -1110,4 +1108,41 @@
             return $fallback;
         }
     }
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
+	function raindrops_prev_next_post($position = "nav-above"){
+
+		$raindrops_max_length     = 40;
+		$raindrops_prev_length    = $raindrops_max_length + 1;
+		
+		if(!is_attachment()){
+	
+			$raindrops_max_length     = 40;
+			$raindrops_prev_post_id   = get_adjacent_post(true,'',true) ;
+			$raindrops_prev_length    = strlen(get_the_title($raindrops_prev_post_id));
+			$raindrops_next_post_id   = get_adjacent_post(false,'',false) ;
+			$raindrops_next_length    = strlen(get_the_title($raindrops_next_post_id));
+	
+		}
 ?>
+
+<div id="<?php echo $position;?>" class="clearfix">
+<?php if($raindrops_prev_length < $raindrops_max_length ){?>
+  <span class="nav-previous"><?php previous_post_link('%link','<span class="button">&laquo; prev: %title</span>'); ?></span>
+<?php }else{?>
+  <span class="nav-previous"><?php previous_post_link('%link','<span class="long-title">&laquo;prev: %title</span>'); ?></span>
+<?php }?>
+<?php if($raindrops_next_length < $raindrops_max_length ){?>
+  <div class="nav-next"><?php next_post_link('%link','<span class="button">next: %title &raquo;</span>'); ?></div>
+<?php }else{?>
+  <div class="nav-next"><?php next_post_link('%link','<span class="long-title">next: %title &raquo; </span>'); ?></div>
+<?php }?>
+</div>
+<?php }?>

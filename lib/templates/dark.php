@@ -120,15 +120,23 @@ border:1px solid %c_border%!important;
     %c_5%
 }
 
+
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-%c_3%
-%h2_dark_background%
-%h_position_rsidebar_h2%
+	%c_3%
+	%h2_dark_background%
+	%h_position_rsidebar_h2%
+	-webkit-border-top-right-radius: 1em;
+	-moz-border-radius-topright: 1em;
+	border-top-right-radius: 1em;
+	-webkit-border-top-left-radius: 1em;
+	-moz-border-radius-topleft: 1em;
+	border-top-left-radius: 1em;
 }
 a:link,a:active,a:visited,a:hover{
   %c_5%
 
 }
+
 
 #hd h1 a:link,#hd h1 a:active,#hd h1 a:visited,#hd h1 a:hover{
     %c_3%
@@ -232,7 +240,7 @@ td.month-date,td.month-name,td.time
 .entry-content blockquote {
     border-left:solid 3px %c_border%;
 
-   %c_4%
+   %c_3%
 }
 cite{
    %c_4%

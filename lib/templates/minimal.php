@@ -7,7 +7,7 @@ background:#fff;
 
 }
 #access .menu  ul li{
-border:1px solid %rgba_border%
+/*border:1px solid %rgba_border%*/
 }
 #year_list,
 #year_list td,
@@ -23,6 +23,9 @@ border:1px solid %rgba_border%
     %c5%
     %h2_default_background%
     %h_position_rsidebar_h2%
+	
+
+		/*border:1px solid %rgba_border%*/
 }
 
 .entry-content blockquote{

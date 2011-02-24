@@ -56,15 +56,15 @@
 <div id="<?php echo warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.warehouse('raindrops_col_width'); ?> hfeed">
 <div id="top">
   <div id="hd">
-        <?php
-        if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-            $style = ' style="display:none;"';
-        }elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
-            $style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
-        }else{
-            $style = '';
-        }
-        ?>
+<?php
+	if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+		$style = ' style="display:none;"';
+	}elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
+		$style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
+	}else{
+		$style = '';
+	}
+?>
 <?php
     if( is_home() or is_front_page() ){
         $heading_elememt = 'h1';
@@ -83,18 +83,17 @@
         $heading_elememt
         );
 ?>
-    <div id="site-description" <?php echo $style; ?>>
-      <?php bloginfo( 'description' ); ?>
-    </div>
-  </div>
-<?php if(SHOW_HEADER_IMAGE == true){?>
-
-    <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;margin:5px 0;"><span class="hide">headerimage</span></div>
+<div id="site-description" <?php echo $style; ?>>
+<?php bloginfo( 'description' ); ?>
+</div>
+</div>
+<?php if(TMN_SHOW_HEADER_IMAGE !== false){?>
+<div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;"><span class="hide">headerimage</span></div>
 <?php }?>
-  <div id="access">
-    <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-    <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
-    </div>
-  <br class="clear" />
+<div id="access">
+<div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
+<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+</div>
+<br class="clear" />
 </div>
 <div id="bd" class="clearfix">

@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.305
+Version: 0.306
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -60,16 +60,21 @@ h1 a,
 .h1 a,
 #site-title{
 	font-size:174%;
+	letter-spacing: 0.05em;	
+
 	}
 h2,
 h2 a,
-.h2 a{
+.h2 a,
+.page_title{
 	font-size:161.6%;
+	letter-spacing: 0.07em;	
 	}
 h3,
 h3 a,
 .h3 a{
 	font-size:138.5%;
+	letter-spacing: 0.1em;	
 	}
 h4,
 h4 a,
@@ -94,12 +99,11 @@ h3,
 .h2,
 .h3{
 clear:both;
-	font-weight:700;
+	font-weight:bold;
 	overflow:hidden;
 	line-height:1.5;
 	margin:.5em 0;
 	font-family:"Times New Roman", Times, serif;
-	
 }
 
 h4,
@@ -130,10 +134,7 @@ h6 a,
 	display:inline;
 	background:none;
 }
-#site-title {
-	display:inline!important;
-	
-}
+
 div.error404{
 	margin:5% 10%;
 
@@ -649,7 +650,8 @@ padding:0;
 
 #hd {
 	overflow:hidden;
-	padding:.5em 2em;
+	padding:.5em 1em;
+	height:5em;
 		
 }
 
@@ -775,6 +777,10 @@ h2.footer-content {
 	font-size:116%;
 	padding:5px 0;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
+	margin-bottom:0;
+}
+.lsidebar h2 ul li ul{
+	margin-top:-2px;
 }
 h2 a.rsswidget {
 font-size:77%;
@@ -1295,9 +1301,21 @@ top:1px;
 }
 #top{
 	padding-bottom:5px;
-
+	position:relative;
 
 }
+#site-title{
+	display:inline!important;
+	
+	
+
+}
+#site-description {
+	position:absolute;
+	top:10px;
+	right:10px;	
+}
+
 #access {
 	display: block;
 	float: left;
@@ -1308,7 +1326,7 @@ top:1px;
     border-bottom:1px solid #000\0/;		
     width:100%\0/;/*ie8*/
 	
-	margin-top:2px;
+	margin-top:5px;
 	margin-top:0\0/;/*ie8*/
 
 }

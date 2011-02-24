@@ -9,7 +9,9 @@
 	}
 .ja h2,
 .ja h2 a,
-.ja .h2 a{
+.ja .h2 a
+.ja .page-title
+.ja .entry-title{
 	font-size:138.5%;
 	}
 .ja h3,

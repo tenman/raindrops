@@ -16,10 +16,11 @@ background-image:url(%images_path%%tmn_header_image%);
 }
 .hfeed{
     background:#fff;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    -webkit-box-shadow: 0 0 5px rgba(0,0,0,5);
-    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
-
+    box-shadow: 0 0 15px rgba(51,51,51,0.6);
+    -webkit-box-shadow: 0 0 15px rgba(51,51,51,0.6);
+    -moz-box-shadow: 0 0 15px rgba(51,51,51,0.6);
+	border:1px solid #fff;
+	border-top:none;
 }
 #ft {
 background:url(%images_path%%tmn_footer_image%) repeat-x;

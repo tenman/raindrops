@@ -15,6 +15,7 @@ exit;
 }
 $ht_deputy = "NoTitle";
 
+
     $weekdaynames = array(
         0 => __('Sunday','Raindrops'),
         1 => __('Monday','Raindrops'),

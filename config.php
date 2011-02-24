@@ -48,8 +48,8 @@ if(!defined('ABSPATH')){exit;}
     if(!defined('HEADER_IMAGE_HEIGHT')){
         define('HEADER_IMAGE_HEIGHT', 198);
     }
-    if(!defined('SHOW_HEADER_IMAGE')){
-        define('SHOW_HEADER_IMAGE',true);
+    if(!defined('TMN_SHOW_HEADER_IMAGE')){
+        define('TMN_SHOW_HEADER_IMAGE',false);
     }
     if(!defined('TMN_THE_TIME_FORMAT')){
         define("TMN_THE_TIME_FORMAT",'Y/n/j');//
@@ -140,7 +140,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_base_color",
-        'option_value' => "#345678",
+        'option_value' => "#444444",
         'autoload'=>'yes',
         'title'=> __('Base Color for Automatic Arrangement','Raindrops'),
         'excerpt1'=>'',

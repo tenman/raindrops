@@ -10,7 +10,7 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 #top{
-    %c2%
+    %c4%
 }
 
 
@@ -60,17 +60,17 @@ h2,h3{
 }
 
 #hd{
-   %c3%
+   %c4%
     background-image:url(%images_path%%tmn_header_image%);
 
 }
 #hd h1,.h1,#site-title{
-    %c3%
+    %c4%
     background:none;
 
 }
 #site-description{
-    %c3%
+    %c4%
     background:none;
 
 }
@@ -120,6 +120,13 @@ ol.tblist li{background:transparent url(%images_path%c.gif) 0 2px no-repeat;}
     %c3%
     %h2_light_background%;
     %h_position_rsidebar_h2%
+	
+	-webkit-border-top-left-radius: 1em;
+	-moz-border-radius-topleft: 1em;
+	border-top-left-radius: 1em;
+	-webkit-border-bottom-right-radius: 1em;
+	-moz-border-radius-bottomright: 1em;
+	border-bottom-right-radius: 1em;
 }
 
 a:link,a:active,a:visited,a:hover{
@@ -129,7 +136,7 @@ a:link,a:active,a:visited,a:hover{
 #hd h1 a:active,
 #hd h1 a:visited,
 #hd h1 a:hover{
-    %c3%
+    %c4%
     background:none;
 }
 

@@ -349,12 +349,12 @@ CSS;
 				$custom_light_bg = colors('1','background');
 				$custom_color = colors('1','color');
 				if(!empty($tmn_footer_color)){
-					$tmn_footer_color = 'color:'.$tmn_footer_color;
+					$tmn_footer_color = $tmn_footer_color;
 				}else{
 					$tmn_footer_color = '';
 				}
 				if(!empty($tmn_header_color)){
-					$tmn_header_color = 'color:'.$tmn_header_color;
+					$tmn_header_color = $tmn_header_color;
 				}else{
 					$tmn_header_color = '';
 				}
@@ -404,12 +404,12 @@ CSS;
 				$custom_light_bg = colors('1','background');
 				$custom_color = colors('1','color');
 				if(!empty($tmn_footer_color)){
-					$tmn_footer_color = 'color:'.$tmn_footer_color;
+					$tmn_footer_color = $tmn_footer_color;
 				}else{
 					$tmn_footer_color = '';
 				}
 				if(!empty($tmn_header_color)){
-					$tmn_header_color = 'color:'.$tmn_header_color;
+					$tmn_header_color = $tmn_header_color;
 				}else{
 					$tmn_header_color = '';
 				}

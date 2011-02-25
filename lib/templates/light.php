@@ -46,7 +46,7 @@ h2,h3{
 #yui-main{
 
     /*%c5%*/
- %tmn_header_color%
+ color:%tmn_header_color%;
 }
 
 .entry div h2,.entry div h3{
@@ -112,7 +112,7 @@ ol.tblist li{background:transparent url(%images_path%c.gif) 0 2px no-repeat;}
     %c3%
     border-top: medium solid %c_border%;
     background:url(%images_path%%tmn_footer_image%) repeat-x;
-    %tmn_footer_color%
+    color:%tmn_footer_color%;
 }
 
 

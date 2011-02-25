@@ -3,16 +3,13 @@
 body {
 
 margin:0!important;padding:0;
-background-repeat:repeat-x;
-
+	background-repeat:repeat-x;
 }
 #yui-main{
-%tmn_header_color%
+	color:%tmn_header_color%;
 }
 #hd{
-background-image:url(%images_path%%tmn_header_image%);
-
-
+	background-image:url(%images_path%%tmn_header_image%);
 }
 .hfeed{
     background:#fff;
@@ -23,9 +20,8 @@ background-image:url(%images_path%%tmn_header_image%);
 	border-top:none;
 }
 #ft {
-background:url(%images_path%%tmn_footer_image%) repeat-x;
-color:%tmn_footer_color%
-%tmn_footer_color%
+	background:url(%images_path%%tmn_footer_image%) repeat-x;
+	color:%tmn_footer_color%;
 }
 
 

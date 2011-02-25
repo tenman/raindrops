@@ -51,7 +51,7 @@ background:none;
 #yui-main{
 
     %c_5%
- %tmn_header_color%
+	color:%tmn_header_color%;
 }
 #hd{
     %c_5%
@@ -107,9 +107,9 @@ ol.tblist li{
     }
 #ft{
     %c_3%
-border-top: medium solid %c_border%;
-background:url(%images_path%%tmn_footer_image%) repeat-x;
-%tmn_footer_color%
+	border-top: medium solid %c_border%;
+	background:url(%images_path%%tmn_footer_image%) repeat-x;
+	color:%tmn_footer_color%;
 }
 #ft #wp-calendar{
     %c_3%

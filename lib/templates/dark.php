@@ -51,7 +51,7 @@ background:none;
 #yui-main{
 
     %c_5%
-	color:%tmn_header_color%;
+    color:%tmn_header_color%;
 }
 #hd{
     %c_5%
@@ -96,7 +96,10 @@ ul.nav li a:hover,ul.nav li a:active{
 .rsidebar{
     %c_5%
 }
+div.comment-body blockquote{
 
+    background:none!important;
+}
 ol.commentlist :hover{
     background:url(%images_path%latestbck.gif) repeat-x;
     }
@@ -107,9 +110,9 @@ ol.tblist li{
     }
 #ft{
     %c_3%
-	border-top: medium solid %c_border%;
-	background:url(%images_path%%tmn_footer_image%) repeat-x;
-	color:%tmn_footer_color%;
+    border-top: medium solid %c_border%;
+    background:url(%images_path%%tmn_footer_image%) repeat-x;
+    color:%tmn_footer_color%;
 }
 #ft #wp-calendar{
     %c_3%
@@ -122,15 +125,15 @@ border:1px solid %c_border%!important;
 
 
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-	%c_3%
-	%h2_dark_background%
-	%h_position_rsidebar_h2%
-	-webkit-border-top-right-radius: 1em;
-	-moz-border-radius-topright: 1em;
-	border-top-right-radius: 1em;
-	-webkit-border-top-left-radius: 1em;
-	-moz-border-radius-topleft: 1em;
-	border-top-left-radius: 1em;
+    %c_3%
+    %h2_dark_background%
+    %h_position_rsidebar_h2%
+    -webkit-border-top-right-radius: 1em;
+    -moz-border-radius-topright: 1em;
+    border-top-right-radius: 1em;
+    -webkit-border-top-left-radius: 1em;
+    -moz-border-radius-topleft: 1em;
+    border-top-left-radius: 1em;
 }
 a:link,a:active,a:visited,a:hover{
   %c_5%
@@ -272,7 +275,7 @@ div.social{
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border:1px solid rgba(203,203,203, 0.5);
-    background: %c3%
+    %c_3%
 
 }
 
@@ -282,7 +285,7 @@ div.social{
     -webkit-box-shadow: 0 0 5px %rgba_border%;
     -moz-box-shadow: 0 0 5px %rgba_border%;
    /* border:1px solid %rgba_border%;*/
-    background:%c_4%
+    %c3%
 
 }
 .social input[type="submit"] {

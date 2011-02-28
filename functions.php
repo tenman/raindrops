@@ -791,7 +791,7 @@
                 $lines .= '</p></td></tr></form>';
                 $send_key_name = "";
                 $lines .= "</tbody>";
-                $lines .= "</table></div>";
+                $lines .= "</table><br></div>";
             }
                 $lines .= "</div>";
                 if(!preg_match('|<tbody>|',$lines)){

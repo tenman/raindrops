@@ -638,7 +638,7 @@
             $result .= screen_icon();
             $result .= "<h2>" . get_current_theme() . __(' Theme Settings') . "</h2>";
             $result .= "<p>Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></p></div>";
-            $result .= '<div style="clear:both;margin:2em;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div><br style="clear:both;" />';
+            $result .= '<div style="clear:both;position:relative;top:60px;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div><br style="clear:both;" />';
 
             if(isset($_POST) and !empty($_POST)){
             if($ok){
@@ -656,14 +656,17 @@
                     $add_str = __("BAD value","Raindrops");
                 }
 
-            $result .= '<div id="message" class="updated fade" title="'.$option_name.'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']').'</p></div>';
+            $result .= '<div id="message" class="updated fade" title="'.esc_attr($option_name).'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']');
+                if ( is_multisite() ) {
+                    $result .= '<a href="themes.php?page=raindrops_settings">Update Setting</a></p></div>';
+                }
             }else{
-            $result .= '<div id="message" class="error fade" ><p>'.__("Try again").$add_str.'</p></div>';
+                $result .= '<div id="message" class="error fade" ><p>'.__("Try again").$add_str.'</p></div>';
             }
             }
             $result .= '</div>';
             $result .= '<div id="reset2"></div>';
-            $result .= $this->form_user_input();
+            $result .= '<div style="margin-top:60px;">'.$this->form_user_input().'</div>';
             echo $result;
         }
         function add_menus() {

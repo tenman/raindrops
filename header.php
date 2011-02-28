@@ -8,12 +8,12 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
-	global $current_blog;
-	if(isset($current_blog)){
-		$this_blog = array("b". $current_blog->blog_id);
-	}else{
-		$this_blog = array();
-	}
+    global $current_blog,$tmn_show_header_image;
+    if(isset($current_blog)){
+        $this_blog = array("b". $current_blog->blog_id);
+    }else{
+        $this_blog = array();
+    }
 ?><?php echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
@@ -47,7 +47,7 @@
 <?php
     if ( is_singular() && get_option( 'thread_comments' )){
         wp_enqueue_script( 'comment-reply' );
-	}
+    }
 
     wp_head();
 ?>
@@ -57,13 +57,13 @@
 <div id="top">
   <div id="hd">
 <?php
-	if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-		$style = ' style="display:none;"';
-	}elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
-		$style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
-	}else{
-		$style = '';
-	}
+    if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+        $style = ' style="display:none;"';
+    }elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
+        $style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
+    }else{
+        $style = '';
+    }
 ?>
 <?php
     if( is_home() or is_front_page() ){
@@ -87,7 +87,7 @@
 <?php bloginfo( 'description' ); ?>
 </div>
 </div>
-<?php if(TMN_SHOW_HEADER_IMAGE !== false){?>
+<?php if($tmn_show_header_image == 'yes'){?>
 <div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;"><span class="hide">headerimage</span></div>
 <?php }?>
 <div id="access">

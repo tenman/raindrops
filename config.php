@@ -48,9 +48,8 @@ if(!defined('ABSPATH')){exit;}
     if(!defined('HEADER_IMAGE_HEIGHT')){
         define('HEADER_IMAGE_HEIGHT', 198);
     }
-    if(!defined('TMN_SHOW_HEADER_IMAGE')){
-        define('TMN_SHOW_HEADER_IMAGE',false);
-    }
+    $tmn_show_header_image = get_option("raindrops_header_image_show",'no');
+
     if(!defined('TMN_THE_TIME_FORMAT')){
         define("TMN_THE_TIME_FORMAT",'Y/n/j');//
 
@@ -155,7 +154,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_style_type",
-        'option_value' => "default",
+        'option_value' => "dark",
         'autoload'=>'yes',
         'title'=>__('Color Type','Raindrops'),
         'excerpt1'=>'',
@@ -272,6 +271,16 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt2'=>__('When display extra sidebar is set to show,
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate'),
+
+        array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_header_image_show",
+        'option_value' => "no",
+        'autoload'=>'yes',
+        'title'=>__('Appearance Header Image','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('When display Header Image is set to yes'),
+         'validate'=>'raindrops_header_image_show_validate'),
 
     );
 

@@ -68,7 +68,7 @@
     add_custom_background();
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 48, 48, true );
-    add_image_size( 'single-post-thumbnail', 600, 400, true);
+    add_image_size( 'single-post-thumbnail', 600, 200, true);
     add_theme_support( 'automatic-feed-links' );
     load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
     add_filter("wp_head","tmn_embed_meta",'99');
@@ -659,6 +659,8 @@
             $result .= '<div id="message" class="updated fade" title="'.esc_attr($option_name).'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']');
                 if ( is_multisite() ) {
                     $result .= '<a href="themes.php?page=raindrops_settings">Update Setting</a></p></div>';
+                }else{
+                    $result .= '</p></div>';
                 }
             }else{
                 $result .= '<div id="message" class="error fade" ><p>'.__("Try again").$add_str.'</p></div>';

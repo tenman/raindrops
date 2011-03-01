@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.311
+Version: 0.312
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -1600,18 +1600,18 @@ div.category-blog div.blog-main{
 	height:200px; /*see: functions.php add_image_size( 'single-post-thumbnail'*/
 	overflow:hidden;
 	text-align:center;
-	
-	
-	
+}
+.single-post-thumnail{
+	margin-top:1em;
+
 }
 .single-post-thumbnail img{
-	margin-top:-100px;
-	min-width:600px;
+
+	/*min-width:600px;*/
 	height:auto;	
 }
 
-/*.entry-content img{
-*/
+
 
 
 .home .sticky {

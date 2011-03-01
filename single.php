@@ -52,9 +52,9 @@ if(function_exists('bcn_display') and is_home() == false){
 
         if(!empty($thumbnailsrc)){
             echo '<div class="single-post-thumbnail" style="margin-top:1em;">';
-            echo '<a href="'.esc_url($thumbnailsrc).'" onclick="javascrip:this.target=\'_blank\'" rel="lightbox">';
+           // echo '<a href="'.esc_url($thumbnailsrc).'" onclick="javascrip:this.target=\'_blank\'" rel="lightbox">';
             echo $thumb;
-            echo '</a>';
+           // echo '</a>';
             echo '</div>';
         }
     }

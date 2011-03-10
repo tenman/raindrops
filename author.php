@@ -88,7 +88,7 @@ if ( get_the_author_meta( 'description' ) ) : ?>
         <dl class="<?php echo  esc_attr(basename(__FILE__,'.php'));?> <?php echo  esc_attr(basename(dirname(__FILE__)));?>">
           <!-- The Loop -->
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-          <dt><?php the_time(get_option('date_format')) ?></dt>
+          <dt><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?></dt>
           <dd><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
             <?php the_title(); ?></a><?php //the_category('&');?></dd>
 

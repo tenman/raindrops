@@ -65,8 +65,7 @@ if(function_exists('bcn_display') and is_home() == false){
 ?>
 <div id="post-<?php the_ID(); ?>" <?php  post_class('clearfix'); ?>>
 <ul class="entry-meta-list left">
-<li>
-<?php the_time(get_option('date_format')) ?>
+<li><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
 </li>
 <li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ) ); ?></li>
 <li>

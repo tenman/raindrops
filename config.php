@@ -48,8 +48,10 @@ if(!defined('ABSPATH')){exit;}
     if(!defined('HEADER_IMAGE_HEIGHT')){
         define('HEADER_IMAGE_HEIGHT', 198);
     }
-    $tmn_show_header_image = get_option("raindrops_header_image_show",'no');
-
+	
+    $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
+    $tmn_show_header_image = $raindrops_theme_settings["raindrops_header_image_show"];
+	
     if(!defined('TMN_THE_TIME_FORMAT')){
         define("TMN_THE_TIME_FORMAT",'Y/n/j');//
 
@@ -283,7 +285,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
          'validate'=>'raindrops_header_image_show_validate'),
 
     );
-
     if(warehouse('raindrops_show_right_sidebar') == 'hide'){
         $rsidebar_show = false;
     }else{

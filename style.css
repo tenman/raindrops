@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.312
+Version: 0.313
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -234,7 +234,9 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 	padding:0 1em;
 	font-style:italic;
 }
-
+.entry-content table {
+	width:100%;
+}
 .entry-content  div.wp-caption{
 	max-width:94%!important;
 	
@@ -242,9 +244,9 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 
 .comment-body blockquote blockquote {
 	margin-left:0.5em;
-	padding-left:0.5em;
+	padding-left:1.5em;
 	background:#ccc;
-	border:1px solid #ccc;
+	border-left:6px solid;
 }
 .comment-body blockquote blockquote blockquote{
 	background:#fff;
@@ -275,11 +277,22 @@ dd {
 	margin:0 .5em 0 3em;
 	padding:.5em;
 }
-
+tr,
 table{
-max-width:100%;
-margin:auto;
+	max-width:100%;
+	margin:auto;
 }
+pre,
+div,
+input,
+textarea{
+	max-width:100%;
+}
+pre{
+	overflow:auto;
+	padding-bottom:1em;	
+}
+
 .hentry table tr:nth-child(odd){
 	opacity: 0.8;
 	-moz-opacity: 0.8; /* Firefox */
@@ -418,8 +431,9 @@ dl.my_tags dt {
 
 
 fieldset {
-	margin:1em 4.4em;
+	margin:1em;
 	padding:1em;
+	max-width:100%;
 }
 legend{
 	padding:7px 10px;
@@ -610,17 +624,22 @@ ul.archive ul li {
 	
 }
 
+
 .widget-wrapper{
 	margin:0;
-	
-
 }
 #ft .widget-wrapper{
 margin:auto;
 overflow:hidden;
 }
-#ft div.widget-wrapper>ul>li{
+#ft .widget-wrapper > ul{
+margin:1em 1em 0 1em;
 
+}
+#ft div.widget-wrapper>ul>li{
+padding:1em;
+width:30%;
+height:240px;
 float:left;
 display:inline;
 }
@@ -702,8 +721,6 @@ padding:0;
 
 #nav-above,
 #nav-below {
-	text-align:center;
-	/*margin:3em;*/
 }
 
 
@@ -738,9 +755,9 @@ padding:0;
 	line-height:1.4;
 	margin-top:0.3em;
 }
-.debug .lsidebar li a,
-.debug .rsidebar li a{
-	border:1px solid #ccc;
+.lsidebar .children li:nth-last-child(1),
+.rsidebar .children li:nth-last-child(1){
+	border:none;
 }
 
 .lsidebar li.page_item a,
@@ -888,7 +905,7 @@ max-width:100%;
 
 div.entry-meta{
  text-align:center;
- margin:0 -0.2em;
+ margin:1em -0.2em;
  width:100%;
  }
 
@@ -1674,7 +1691,7 @@ width:32%;
 	visibility:hidden;
 }
 
-div.nest.yui-ga,
+div.nest.yui-g,
 div.nest.yui-gb,
 div.nest.yui-gc,
 div.nest.yui-gd,
@@ -1768,12 +1785,26 @@ height:100%;
 body.page .nocomments{
 	display:none;
 }
-.yui-g,.gecko .yui-gf{width:100%!important;margin:0;position:relative;left:-12px;}
+.yui-g,.gecko .yui-gf{width:100%!important;margin:0;position:relative;left:0;}
 .yui-gb div.yui-u{
 	width:32%;
 }
 
-
+div.yui-gf,
+div.yui-ge,
+div.yui-gd,
+div.yui-gc,
+div.yui-gb,
+div.yui-g{
+	width:100%!important;
+}
+div.nest :after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both!important;
+	visibility:hidden;
+}
 .gecko .post .yui-gf{margin-left:2.6%;}
 .post .yui-gf  div.first{width:24%;float:left;}
 .post .yui-gf  .yui-u {width:74%;float:right;}
@@ -1800,4 +1831,44 @@ div.post .yui-gc .yui-u{width:32%;}
 
 .hide{
 display:none!important;
+}
+
+li.comment {
+	/*font-size:167%;*/
+}
+
+.children{
+	margin-left:0;
+}
+.commentlist > li{
+	font-size:197%;
+	font-style:italic;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+.commentlist .pingback p,
+.commentlist .comment-body,
+.commentlist .reply,
+.commentlist .comment-author,
+.commentlist .comment-meta
+{
+	font-style:normal;
+	font-size:48%;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	position:relative\9; /*ie*/
+	top:-25px\9;		/*ie*/
+}
+.commentlist .pingback p{
+	top:0\9;		/*ie*/
+
+}
+.form-allowed-tags{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+}
+.form-allowed-tags code{
+	padding:.5em;
+	font-family:"Courier New", Courier, mono;
+	display:block;
+}
+.comment-meta{
+	background:none;		
 }

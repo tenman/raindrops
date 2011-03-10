@@ -51,7 +51,7 @@ while (have_posts()){
 <li>
 <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
 <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to<?php echo esc_attr(blank_fallback(get_the_title(), $ht_deputy)); ?>">
-<span class="entry-date published"><?php the_time(get_option('date_format')) ?></span></a><?php printf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()));?>
+<span class="entry-date published"><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?></span></a><?php printf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()));?>
 	
 	
 <?php 	if( in_category( "gallery" )){     ?>
@@ -196,10 +196,13 @@ function raindrops_loop_title(){
 		$page_title = __("Category Archives",'Raindrops');
 		$page_title_c = single_cat_title('', false);
 	}elseif (is_archive()){
+	
+		 $raindrops_date_format = get_option('date_format');
+		 
 		if (is_day()){
 			$Raindrops_class_name = 'dayly-archives'; 
 			$page_title = __('Daily Archives', 'Raindrops');
-			$page_title_c = get_the_date(get_option('date_format'));
+			$page_title_c = get_the_date(get_option($raindrops_date_format));
 		}elseif (is_month()){
 			$Raindrops_class_name = 'monthly-archives'; 
 			$page_title = __('Monthly Archives', 'Raindrops');

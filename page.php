@@ -33,7 +33,7 @@
               <?php the_title(); ?>
               </a></h2>
             <p style="margin-left:25px;" class="entry-date"><small>
-              <?php the_time(get_option('date_format')) ?>
+              <?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
               &nbsp;
               <?php the_author() ?>
               </small></p>

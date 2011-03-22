@@ -10,6 +10,10 @@ INSTALL:
 2. Go to Admin WordPress and select presentation.
 3. Select Raindrops theme
 
+QUICK START
+see: http://www.tenman.info/wp3/raindrops/quick-start/
+
+
 Questions, bugs and others can be emailed me to a.tenman@gmail.com
 
 Tenman

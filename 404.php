@@ -12,14 +12,7 @@
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 <div id="yui-main">
   <div class="yui-b">
-    <?php
-    if(function_exists('bcn_display') and is_home() == false){
-        echo '<div class="breadcrumb">';
-        bcn_display();
-        echo '</div>';
-    }
-    ?>
-    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
+     <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
 
       <!-- content -->
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
@@ -34,7 +27,7 @@
         <!-- #post-0 -->
       </div>
       <!--rsidebar start-->
-      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('2');} ?></div>
+      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
       <!--rsidebar end-->
       <!--add col here -->
     </div>
@@ -45,7 +38,7 @@
 <!-- navigation 2 -->
 <div class="yui-b">
   <!--lsidebar start-->
-  <?php get_sidebar('1'); ?>
+  <?php get_sidebar('default'); ?>
   <!--lsidebar end-->
 </div>
 <!-- navigation 2 -->

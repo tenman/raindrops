@@ -39,14 +39,7 @@ get_header('xhtml1'); ?>
 <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
 <div id="yui-main">
   <div class="yui-b">
-    <?php
-if(function_exists('bcn_display')){
-    echo '<div class="breadcrumb">';
-    bcn_display();
-    echo '</div>';
-}
-?>
- <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
+    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
      <!-- content -->
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
         <?php
@@ -79,7 +72,7 @@ echo '</div>';
       <!-- navigation-->
       <div class="yui-u">
         <!--rsidebar start-->
-        <?php if($rsidebar_show){get_sidebar('2');} ?>
+        <?php if($rsidebar_show){get_sidebar('extra');} ?>
         <!--rsidebar end-->
       </div>
       <!--add col here -->
@@ -91,7 +84,7 @@ echo '</div>';
 <!-- navigation 2 -->
 <div class="yui-b">
   <!--lsidebar start-->
-  <?php get_sidebar('1'); ?>
+  <?php get_sidebar('default'); ?>
   <!--lsidebar end-->
 </div>
 <!-- navigation 2 -->
@@ -299,7 +292,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
                 $months[$m][] = $post;
         }
 
-        $output = "<h2 class=\"h2\"><span class=\"year-name\">$year</span></h2>";
+        $output = "<h2 class=\"h2 year\"><span class=\"year-name\">$year</span></h2>";
 
             $table_year = array(
                 '<table id="year_list" summary="Archives in '.$year.'"><tbody>',
@@ -335,7 +328,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         $here = home_url();
 
-        $output = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"".get_month_link($year,$mon)."\" title=\"$year/$mon\"><span class=\"month-name\">" .
+        $output = "<h2 class=\"h2 year-month-date\"><a href=\"".get_year_link($year)."\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"".get_month_link($year,$mon)."\" title=\"$year/$mon\"><span class=\"month-name\">" .
        $mon . "</span></a>&nbsp;<span class=\"day-name\">". $day ."</span></h2>";
         $output .= '<table id="date_list" summary="Archive in '.$day.', '.$mon.', '.$year.'">';
 
@@ -441,7 +434,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         //$result .= "</ul></td></tr>\n";
     }
 
-        $output = "<h2 id=\"date_title\" class=\"h2\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
+        $output = "<h2 id=\"date_title\" class=\"h2 year-month\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
         return $output."<table id=\"month_list\">".$result."</table>";
     }
 

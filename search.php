@@ -12,15 +12,6 @@
 
 <div id="yui-main">
   <div class="yui-b">
-    <?php
-if(function_exists('bcn_display'))
-{
-// Display the breadcrumb
-echo '<div class="breadcrumb">';
-bcn_display();
-echo '</div>';
-}
-?>
     <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
         <!-- content start-->
@@ -66,7 +57,7 @@ echo '</div>';
       <!-- navigation-->
       <div class="yui-u">
         <!--rsidebar start-->
-        <?php if($rsidebar_show){get_sidebar('2');} ?>
+        <?php if($rsidebar_show){get_sidebar('extra');} ?>
         <!--rsidebar end-->
       </div>
       <!--add col here -->
@@ -78,7 +69,7 @@ echo '</div>';
 <!-- navigation 2 -->
 <div class="yui-b">
   <!--lsidebar start-->
-  <?php get_sidebar('1'); ?>
+  <?php get_sidebar('default'); ?>
   <!--lsidebar end-->
 </div>
 <!-- navigation 2 -->

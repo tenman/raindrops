@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.313
+Version: 0.314
 
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 
@@ -245,6 +245,7 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 .comment-body blockquote blockquote {
 	margin-left:0.5em;
 	padding-left:1.5em;
+	padding-bottom:2px;
 	background:#ccc;
 	border-left:6px solid;
 }
@@ -638,7 +639,7 @@ margin:1em 1em 0 1em;
 }
 #ft div.widget-wrapper>ul>li{
 padding:1em;
-width:30%;
+width:29%;
 height:240px;
 float:left;
 display:inline;
@@ -1552,6 +1553,10 @@ div.aligncenter {
 
 
 }
+.gallery-caption{
+
+
+}
 .shadow{
 margin:2em;
 padding:1em;
@@ -1576,9 +1581,8 @@ box-shadow: 7px 7px 8px #cccccc;
 	text-align:left;
 	}
 div.category-blog div.blog-main{
-	margin-left:2%;
 	overflow:hidden;
-	width:78%;
+	width:68%;
 	}
 .category-blog .entry-title{
 	border:none;
@@ -1594,16 +1598,38 @@ div.category-blog div.blog-main{
 	}
 .category-blog .entry-meta-list{
 	list-style:none;
-	width:20%;
-	margin:0;
-	padding:0;
+	width:29%;
+	margin:0 1% 0 0!important;
+	padding:0!important;
 	text-align:left;
-	float:left;
+	overflow:hidden;
+	max-width:180px;
+	
 	}
-.category-blog .entry-meta-list li{
-	padding:.5em;
+.category-blog #categoryblog *{
+	overflow:hidden;
+	line-height:2;
 	margin:0;
+	max-width:100%;
+}
+.category-blog-widget div,
+.category-blog-widget ul,
+.category-blog-widget ol{
+	margin:0!important;
+}
+.category-blog #categoryblog .widget{
+}
+.category-blog .entry-meta-list .avatar{
+	text-align:center;
+}
+.category-blog .entry-meta-list .author{
+	text-align:center;
+}
+
+.category-blog .entry-meta-list li{
+	padding:0;
 	list-style:none;
+	margin:0;
 	}
 .category-blog .entry-meta-list span,
 .category-blog .entry-meta-list  a{
@@ -1627,9 +1653,6 @@ div.category-blog div.blog-main{
 	/*min-width:600px;*/
 	height:auto;	
 }
-
-
-
 
 .home .sticky {
     padding: 18px 20px;
@@ -1836,26 +1859,33 @@ display:none!important;
 li.comment {
 	/*font-size:167%;*/
 }
+.entry-meta a,
+.comment a{
+	background:none!important;
+}
+li.comment *:hover {
+	none;
+}
 
 .children{
 	margin-left:0;
 }
-.commentlist > li{
-	font-size:197%;
-	font-style:italic;
-	font-family:Georgia, "Times New Roman", Times, serif;
-}
+
 .commentlist .pingback p,
 .commentlist .comment-body,
 .commentlist .reply,
-.commentlist .comment-author,
+
+.commentlist .raindrops-comment-author-meta,
 .commentlist .comment-meta
 {
+	top:-25px;
 	font-style:normal;
-	font-size:48%;
+/*	font-size:48%;*/
 	font-family:Geneva, Arial, Helvetica, sans-serif;
-	position:relative\9; /*ie*/
-	top:-25px\9;		/*ie*/
+	/*position:relative\9;*/ /*ie*/
+	/*top:-25px\9;*/		/*ie*/
+	margin-bottom:0.3em;
+	
 }
 .commentlist .pingback p{
 	top:0\9;		/*ie*/
@@ -1871,4 +1901,95 @@ li.comment {
 }
 .comment-meta{
 	background:none;		
+}
+.comment-author{
+
+
+}
+.raindrops-comment-avatar{
+	width:40px;float:left;
+	}
+.raindrops-comment-author-meta{
+	margin-left:50px;
+	padding:0;
+
+}
+.comment-meta{
+	text-align:right;
+	font-size:
+}
+.comment-body{
+	padding:3px;
+}
+.comment > div{
+	padding:3px;
+}
+.children div{
+	margin:5px;
+	
+}
+.commentmetadata{
+	overflow:hidden;
+	*width:100%;
+	padding-right:1em;
+}
+#header-image{
+	position:relative;
+}
+#header-image p{
+	position:relative;
+	top:35%;
+	text-align:center;
+	font-size:200%;
+	text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+	/*filter:progid:DXImageTransform.Microsoft.Glow(Color=white,Strength=2);*/
+
+}
+.datetable{
+
+}
+.datetable a:hover{
+
+	text-decoration:underline;
+}
+.datetable td ul{
+
+
+	padding:0;
+	margin:0;
+}
+
+.datetable td li{
+
+	list-style:none;
+	padding:0 0 0 1em;
+	margin:0;
+	line-height:2;
+}
+
+#month_list td.month-date,
+.datetable td.month-name{
+
+	padding:0 0.3em 0 0;
+}
+
+.year-month-date,
+.year-month,
+.year{
+}
+.year .year-name{
+	font-size:161.6%;
+}
+
+h2.year-month .year-name{
+}
+h2.year-month .month-name{
+	font-size:161.6%;
+}
+h2.year-month-date .year-name{
+}
+h2.year-month-date .month-name{
+}
+h2.year-month-date .day-name{
+	font-size:161.6%;
 }

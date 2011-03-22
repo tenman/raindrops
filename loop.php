@@ -57,7 +57,7 @@ while (have_posts()){
 <?php 	if( in_category( "gallery" )){     ?>
 		
 <h2 class="h2 entry-title">
-<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a>
 </h2>
 <div class="entry-content clearfix">
 <?php
@@ -94,12 +94,12 @@ while (have_posts()){
 				echo '</span>';
 			} 
 ?>
-<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a>
 </h2>
 <div class="entry-content">
-<ul class="left" style="width:120px;margin:0;text-align:left;">
-<li><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
-<li>
+<ul class="left entry-meta-list" id="categoryblog">
+<li class="avatar"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
+<li class="author">
 <?php 	
 			printf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
 					get_author_posts_url( get_the_author_meta( 'ID' ) ), 
@@ -107,12 +107,7 @@ while (have_posts()){
 			);
 ?>
 </li>
-<?php 	
-			if(function_exists('dynamic_sidebar') && dynamic_sidebar(5)){
-			}else{ 
-			
-			}
-?>
+<?php 		dynamic_sidebar('sidebar-5');?>
 </ul>
 <?php
 			if(TMN_USE_LIST_EXCERPT == true){
@@ -138,7 +133,7 @@ while (have_posts()){
 				echo '</span>';
 			} 
 ?>
-<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a></h2>
+<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a></h2>
 <div class="entry-content clearfix">
 <?php
 			if(TMN_USE_LIST_EXCERPT == true){
@@ -157,7 +152,7 @@ while (have_posts()){
 </div>
 </li>
 <?php 
-} //end shile 
+} //end while 
 ?>
 </ul>
 <?php 		if ( $wp_query->max_num_pages > 1 ){ ?>
@@ -206,7 +201,7 @@ function raindrops_loop_title(){
 		}elseif (is_month()){
 			$Raindrops_class_name = 'monthly-archives'; 
 			$page_title = __('Monthly Archives', 'Raindrops');
-			if(get_bloginfo("language") == 'ja'){
+			if(get_locale() == 'ja'){
 				$page_title_c = get_the_date('Y / F');
 			}else{
 				$page_title_c = get_the_date('F Y');

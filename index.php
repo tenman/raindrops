@@ -11,18 +11,11 @@ get_header("xhtml1"); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
 <div class="yui-b">
-<?php
-if(function_exists('bcn_display') and is_home() == false){
-echo '<div class="breadcrumb">';
-bcn_display();
-echo '</div>';
-}
-?>
 <?php 
 	if ( is_home() ) { 
 	//This widget show only home;
 		echo '<div class="topsidebar">'."\n".'<ul>';
-		if ( function_exists('dynamic_sidebar') && dynamic_sidebar(3) ){  
+		if (dynamic_sidebar('sidebar-3') ){  
 		}else{
 			echo '<li><div class="hide">dinamic_sidebar 3 none</div></li>';
 		} 
@@ -36,7 +29,7 @@ echo '</div>';
 </div>
 <?php //rsidebar start ?>
 <div class="yui-u"> 
-<?php if($rsidebar_show){get_sidebar('2');} ?>
+<?php if($rsidebar_show){get_sidebar('extra');} ?>
 </div>
 <?php //add nest grid here?>
 </div>
@@ -45,7 +38,7 @@ echo '</div>';
 </div>
 <div class="yui-b">
 <?php //lsidebar start ?>
-<?php get_sidebar('1'); ?>
+<?php get_sidebar('default'); ?>
 </div>
 </div>
 <?php get_footer(); ?>

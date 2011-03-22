@@ -16,13 +16,6 @@ Template Name: Auther
 
 <div id="yui-main">
   <div class="yui-b">
-    <?php
-    if(function_exists('bcn_display') and is_home() == false){
-        echo '<div class="breadcrumb">';
-        bcn_display();
-        echo '</div>';
-    }
-    ?>
      <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
       <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
 
@@ -105,7 +98,7 @@ if ( get_the_author_meta( 'description' ) ) : ?>
 
     <!-- navigation-->
     <div class="yui-u"> <span style="display:none;">----navigation sidebar-----</span>
-      <?php if($rsidebar_show){get_sidebar('2');
+      <?php if($rsidebar_show){get_sidebar('extra');
         } ?>
       <!--rsidebar end-->
     </div>
@@ -118,7 +111,7 @@ if ( get_the_author_meta( 'description' ) ) : ?>
 <!-- navigation 2 -->
 <div class="yui-b"> <span style="display:none;">----navigation sidebar-----</span>
   <!--lsidebar start-->
-  <?php get_sidebar('1'); ?>
+  <?php get_sidebar('default'); ?>
   <!--lsidebar end-->
 </div>
 <!-- navigation 2 -->

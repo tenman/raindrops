@@ -18,7 +18,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
 <head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="content-type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>" />
+<meta http-equiv="content-type" content="<?php bloginfo('html_type');?>; charset=<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="content-script-type" content="text/javascript" />
 <meta http-equiv="content-style-type" content="text/css" />
 <title><?php
@@ -57,15 +57,34 @@
 <div id="top">
   <div id="hd">
 <?php
+
+/**
+ * Appearance header admin panel text show hide switch relative action
+ *
+ * Site description diaplay on header image when if header text Display Text value is yes.
+ * Site description diaplay on header bar when if header text Display Text value is no.
+ *
+ *
+ */
+
     if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+		$raindrops_pge_header = '';
         $style = ' style="display:none;"';
-    }elseif(preg_match("|[0-9a-f]{6}|si",get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ))){
-        $style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
+    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
+        $style = ' style="color:#' . get_header_textcolor() . ';"';
+		$raindrops_pge_header = ' style="display:none;"';
     }else{
         $style = '';
+		$raindrops_pge_header = ' style="display:none;"';
+
     }
-?>
-<?php
+/**
+ * Conditional Switch html headding element 
+ *
+ *
+ *
+ *
+ */
     if( is_home() or is_front_page() ){
         $heading_elememt = 'h1';
     }else{
@@ -82,14 +101,46 @@
         get_bloginfo( 'name', 'display' ),
         $heading_elememt
         );
+
+/**
+ * Site description diaplay on header bar when if header text Display Text value is no.
+ *
+ *
+ *
+ *
+ */
+	$raincrops_site_desctiption_html = '<div id="site-description" %s>%s</div>';
+	 
+	printf(
+		$raincrops_site_desctiption_html,
+		$raindrops_pge_header,
+		get_bloginfo( 'description' )
+		);
+
 ?>
-<div id="site-description" <?php echo $style; ?>>
-<?php bloginfo( 'description' ); ?>
 </div>
-</div>
-<?php if($tmn_show_header_image == 'yes'){?>
-<div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;"><span class="hide">headerimage</span></div>
-<?php }?>
+<?php
+/**
+ * $tmn_show_header_image value decide where Appearance Raindrops options panel 
+ * Appearance header image
+ *
+ *
+ *
+ */
+if($tmn_show_header_image == 'yes'){
+?>
+<div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;"><p<?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
+<?php 
+} //endif $tmn_show_header_image == 'yes'
+
+/**
+ * Appearance menus admin panel relative horizontal menubar
+ *
+ *
+ *
+ *
+ */
+?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
 <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>

@@ -71,14 +71,13 @@ color:%tmn_header_color%;
 %c_5%
 background-image:url(%images_path%%tmn_header_image%);
 }
-#hd h1,.h1,#site-title{
-%c_3%
+#site-description,
+#hd h1,
+.h1,
+#site-title{
 background:none;
 }
-#site-description{
-%c_3%
-background:none;
-}
+
 #header-image{
 background-color:%custom_light_bg%!important;
 }
@@ -353,12 +352,28 @@ background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
+
 li.byuser,
-li.bypostauthor {
-%c_2%
+li.bypostauthor{
+%c3%
 }
 cite.fn{
 	background:none;
+}
+div[id^="comment-"]{
+%c_4%
+
+}
+.children:hover,
+.children{
+
+}
+.datetable td li{
+	border-bottom:solid 1px %rgba_border%;
+}
+.datetable td li:nth-last-child(1){
+	border-bottom:none;
+
 }
 
 DOC;
@@ -593,6 +608,13 @@ li.bypostauthor {
 .comment-meta a,
 cite.fn{
 	background:none;
+}
+.datetable td li{
+	border-bottom:solid 1px %rgba_border%;
+}
+.datetable td li:nth-last-child(1){
+	border-bottom:none;
+
 }
 
 DOC;
@@ -992,10 +1014,17 @@ h1,h2,h3,h4,h5,h6,#bd a,.postmetadata{background:none!important;}
 }
 li.byuser,
 li.bypostauthor {
-%c2%
+%c3%
 }
 cite.fn{
 	background:none;
+}
+.datetable td li{
+	border-bottom:solid 1px %rgba_border%;
+}
+.datetable td li:nth-last-child(1){
+	border-bottom:none;
+
 }
 
 
@@ -1024,6 +1053,13 @@ background:#fff;
 #access .menu  ul li{
 /*border:1px solid %rgba_border%*/
 }
+a{
+ text-decoration:underline;
+ }
+a,
+#yui-main{
+	color:%tmn_header_color%;
+}
 #year_list,
 #year_list td,
 #month_list,
@@ -1049,11 +1085,15 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
 background:none!important;
 }
 .home .sticky {
-background: %c5%
+%c4%
 border-top:solid 6px %c_border%;
 border-bottom:solid 2px %c_border%;
 border-top:solid 6px %rgba_border%;
 border-bottom:solid 2px %rgba_border%;
+}
+.sticky a{
+%c4%
+
 }
 li.byuser,
 li.bypostauthor {
@@ -1062,7 +1102,13 @@ li.bypostauthor {
 cite.fn{
 	background:none;
 }
+.datetable td li{
+	border-bottom:solid 1px %rgba_border%;
+}
+.datetable td li:nth-last-child(1){
+	border-bottom:none;
 
+}
 
 DOC;
 
@@ -1334,12 +1380,13 @@ CSS;
  *
  */
 	function design_output($name = 'dark'){
-		global $images_path;
-		global $navigation_title_img;
-		global $tmn_header_image;
-		global $tmn_header_color;
-		global $tmn_footer_image;
-		global $tmn_footer_color;
+	
+		$images_path            = get_stylesheet_directory_uri().'/images/';
+		$navigation_title_img   = warehouse('raindrops_heading_image');
+		$tmn_header_image       = warehouse('raindrops_header_image');
+		$tmn_header_color       = warehouse('raindrops_default_fonts_color');
+		$tmn_footer_image       = warehouse('raindrops_footer_image');
+		$tmn_footer_color       = warehouse('raindrops_footer_color');
 		
 		if(empty($name)){ $name = 'dark';}
 		

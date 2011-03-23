@@ -50,8 +50,6 @@ while (have_posts()){
 ?>
 <li>
 <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
-<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to<?php echo esc_attr(blank_fallback(get_the_title(), $ht_deputy)); ?>">
-<span class="entry-date published"><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?></span></a><?php printf( __( '<span class="time-diff">(Passage of %s)</span>', 'Raindrops' ), human_time_diff(get_the_time('U'),time()));?>
 	
 	
 <?php 	if( in_category( "gallery" )){     ?>
@@ -59,6 +57,9 @@ while (have_posts()){
 <h2 class="h2 entry-title">
 <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a>
 </h2>
+<div class="posted-on">
+<?php raindrops_posted_on();?>
+</div>
 <div class="entry-content clearfix">
 <?php
 			$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
@@ -96,6 +97,9 @@ while (have_posts()){
 ?>
 <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a>
 </h2>
+<div class="posted-on">
+<?php raindrops_posted_on();?>
+</div>
 <div class="entry-content">
 <ul class="left entry-meta-list" id="categoryblog">
 <li class="avatar"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
@@ -134,6 +138,9 @@ while (have_posts()){
 			} 
 ?>
 <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a></h2>
+<div class="posted-on">
+<?php raindrops_posted_on();?>
+</div>
 <div class="entry-content clearfix">
 <?php
 			if(TMN_USE_LIST_EXCERPT == true){
@@ -167,72 +174,4 @@ while (have_posts()){
 }
 
 
-function raindrops_loop_title(){
-
-/**
- * list post
- *
- *
- *
- *
- */
-	$Raindrops_class_name = "";
-	$page_title = "";
-	if(is_search()){
-		$Raindrops_class_name = 'serch-result'; 
-		$page_title = __("Search Results",'Raindrops');
-		$page_title_c = get_search_query();
-	}elseif(is_tag()){
-		$Raindrops_class_name = 'tag-archives'; 
-		$page_title = __("Tag Archives",'Raindrops');
-		$page_title_c = single_term_title("", false);
-	}elseif(is_category()){
-		$Raindrops_class_name = 'category-archives'; 
-		$page_title = __("Category Archives",'Raindrops');
-		$page_title_c = single_cat_title('', false);
-	}elseif (is_archive()){
-	
-		 $raindrops_date_format = get_option('date_format');
-		 
-		if (is_day()){
-			$Raindrops_class_name = 'dayly-archives'; 
-			$page_title = __('Daily Archives', 'Raindrops');
-			$page_title_c = get_the_date(get_option($raindrops_date_format));
-		}elseif (is_month()){
-			$Raindrops_class_name = 'monthly-archives'; 
-			$page_title = __('Monthly Archives', 'Raindrops');
-			if(get_locale() == 'ja'){
-				$page_title_c = get_the_date('Y / F');
-			}else{
-				$page_title_c = get_the_date('F Y');
-			}
-		}elseif (is_year()){
-			$Raindrops_class_name = 'yearly-archives'; 
-			$page_title = __('Yearly Archives', 'Raindrops');
-			$page_title_c = get_the_date('Y');
-		}elseif (is_author()){
-			$Raindrops_class_name = 'author-archives'; 
-			$page_title =	__("Author Archives",'Raindrops');
-
-			while (have_posts()){ the_post();
-				$page_title_c = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'Raindrops_author_bio_avatar_size', 32 ) ).' '.get_the_author();
-				break;
-			}
-			rewind_posts();
-		}else{
-			$Raindrops_class_name = 'blog-archives';
-			$page_title = __("Blog Archives",'Raindrops');
-		}
-	}
-	
-echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
-	
-	if(!empty($page_title)){
-		printf('<li><h1 class="h1" id="archives-title">%s <span>%s</span></h1></li>',
-				$page_title,
-				$page_title_c
-		);
-	}	
-	
-}
 ?>

@@ -9,7 +9,7 @@
  */
 ?>
 <div id="ft">
-  <!--footer-widget start-->
+<!--footer-widget start-->
 <div class="widget-wrapper clearfix">
   <ul>
 	<?php if ( !dynamic_sidebar('sidebar-4') ){ ?>

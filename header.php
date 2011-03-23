@@ -59,10 +59,10 @@
 <?php
 
 /**
- * Appearance header admin panel text show hide switch relative action
+ * Site description display position
  *
- * Site description diaplay on header image when if header text Display Text value is yes.
- * Site description diaplay on header bar when if header text Display Text value is no.
+ * Site description diaplay at image when if header text Display Text value is yes.
+ * Site description diaplay at header bar when if header text Display Text value is no.
  *
  *
  */
@@ -103,7 +103,7 @@
         );
 
 /**
- * Site description diaplay on header bar when if header text Display Text value is no.
+ * Site description diaplay at header bar when if header text Display Text value is no.
  *
  *
  *
@@ -121,20 +121,20 @@
 </div>
 <?php
 /**
- * $tmn_show_header_image value decide where Appearance Raindrops options panel 
- * Appearance header image
+ * header image
+ * 
  *
  *
  *
  */
 if($tmn_show_header_image == 'yes'){
 ?>
-<div id="header-image" class="color3" style="clear:both;background:url(<?php header_image(); ?>);width:100%;height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;background-repeat:no-repeat;background-position:top center;"><p<?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
+<div id="header-image" style="background-image:url(<?php header_image(); ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
 <?php 
 } //endif $tmn_show_header_image == 'yes'
 
 /**
- * Appearance menus admin panel relative horizontal menubar
+ * horizontal menubar
  *
  *
  *

@@ -11,18 +11,17 @@
 <?php get_header('xhtml1'); ?>
 
 <div id="yui-main">
-  <!--<?php echo basename(__FILE__,'.php');?>[<?php echo basename(dirname(__FILE__));?>]-->
+<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">
-    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
-      <!-- content -->
-      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+    <div class="<?php echo yui_class_modify();?>" id="container">
+      <div class="yui-u first raindrops-image" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <div id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
           <div class="entry attachment">
             <h2 class="image-title h2"><?php the_title(); ?></h2>
-            <p>
-              <?php _e("Entry : ",'Raindrops');?>
-              <a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"> <?php echo get_the_title($post->post_parent); ?></a></p>
+            <p class="parent-entry"><?php _e("Entry : ",'Raindrops');?>
+              <a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php echo get_the_title($post->post_parent); ?></a>
+			</p>
             <?php $image = get_post_meta($post->ID, 'image', true); ?>
             <?php $image = wp_get_attachment_image_src($image, 'full'); ?>
             <p class="image"><a href="<?php echo $image[0];?>" ><img src="<?php echo $image[0];?>" width="100%"  alt="<?php the_title(); ?>" style="max-image:100%;height:auto;" /></a></p>
@@ -50,34 +49,16 @@
             </div>
           </div>
           <div class="clearfix"></div>
-		  <?php 		edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
-
+		  <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
         </div>
         <?php endwhile; else: ?>
-        <p>
-          <?php _e("Sorry, no attachments matched your criteria.","Raindrops");?>
-        </p>
+        <p><?php _e("Sorry, no attachments matched your criteria.","Raindrops");?></p>
         <?php endif; ?>
       </div>
-      <!-- navigation-->
-      <div class="yui-u">
-        <!--rsidebar start-->
-        <?php if($rsidebar_show){get_sidebar('extra');} ?>
-        <!--rsidebar end-->
-      </div>
-      <!--add col here -->
+      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
     </div>
-    <!--main-->
   </div>
 </div>
-<!--sidebar-->
-<!-- navigation 2 -->
-<div class="yui-b">
-  <!--lsidebar start-->
-  <?php get_sidebar('default'); ?>
-  <!--lsidebar end-->
-</div>
-<!-- navigation 2 -->
-<!--sidebar-->
+<div class="yui-b"><?php get_sidebar('default'); ?></div>
 </div>
 <?php get_footer(); ?>

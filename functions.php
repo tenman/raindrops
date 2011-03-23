@@ -773,6 +773,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     if (!function_exists('raindrops_posted_on')) {
         function raindrops_posted_on() {
 			$raindrops_date_format = get_option('date_format');
+			$author = blank_fallback(get_the_author(),'Somebody');
             printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'Raindrops' ),
                 'meta-prep meta-prep-author',
                 sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
@@ -782,8 +783,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                 ),
                 sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>',
                     get_author_posts_url( get_the_author_meta( 'ID' ) ),
-                    sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ),
-                    get_the_author()
+                    sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ),
+                    $author
                 )
             );
         }
@@ -1668,3 +1669,438 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 <?php }?>
 </div>
 <?php }?>
+<?php
+
+/**
+ * date.php
+ *
+ *
+ *
+ *
+ */
+
+
+    function days_in_month($month, $year) {
+            $daysInMonth = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+            if ($month != 2) {
+                    return $daysInMonth[$month - 1];
+            }
+            return (checkdate($month, 29, $year)) ? 29 : 28;
+    }
+
+    function get_month ($posts = '', $year = '', $this_month = '', $pad = 1) {
+
+    global $wpdb, $weekdaynames, $month;
+
+    // info about this month
+    $days_in_month      = days_in_month($this_month, $year);
+    $first_day_of_month = date('w', mktime(0, 0, 0, $this_month, '1', $year));
+    $last_day_of_month  = date('w', mktime(0, 0, 0, $this_month, $days_in_month, $year));
+
+    // what day starts the week here?
+    $start_of_week = get_option('start_of_week');
+    if (0 != $start_of_week) {
+            $end_of_week = 6 - (7 - $start_of_week);
+    } else {
+            $end_of_week = 7;
+    }
+
+    // one week here
+    for ($i = $start_of_week; $i < ($start_of_week + 7); $i++) {
+            if ($i >= 7) {
+                    $one_week[] = $weekdaynames[$i - 7];
+            } else {
+
+                    $one_week[] = $weekdaynames[$i];
+            }
+    }
+
+    // pad the beginning of the calendar with dates from last month
+    // grab any post data for those days
+
+    $pre_pad = 0;
+    $before = '';
+    if ($start_of_week != $first_day_of_month) {
+            if ($first_day_of_month > $start_of_week) {
+                    $pre_pad = ($first_day_of_month - $start_of_week);
+            } elseif ($start_of_week > $first_day_of_month) {
+                    $pre_pad = (7 - $start_of_week) + $first_day_of_month;
+            }
+    }
+
+    $days_in_last_month = date('t', mktime(0, 0, 0, $this_month-1, '1', $year));
+
+    if ( (0 != $pre_pad) && ($pad) ) {
+            $start = ($days_in_last_month - $pre_pad)+1;
+            $lastmonth = $this_month - 1;
+
+
+        $old_posts = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_status = 'publish' AND post_date >
+    '$year-$lastmonth-$start 00:00:01' AND post_date < '$year-$lastmonth-$days_in_last_month 23:59:59' ORDER BY post_date");
+
+
+        if ($old_posts) {
+                $last_month = array();
+                foreach ($old_posts as $post) {
+                        $day = substr($post->post_date, 8, 2);
+                        if (! isset($last_month[$day])) {
+                                $last_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
+title=\"$post->post_title\">$day</a>";
+                        } else {
+                                $last_month[$day] = "<a href=\"" . home_url() . "/$year/$lastmonth/$day\"
+title=\"/$year/$lastmonth/$day\">$day</a>";
+                        }
+                }
+        }
+    }
+
+    for ($i = ($days_in_last_month - $pre_pad)+1; $i <= $days_in_last_month; $i++) {
+                    if (! $pad) {
+                            $before .= '<td> </td>';
+                    } else {
+                            $before .= '<td class="lastmonth">';
+                            if (isset($last_month[$i])) {
+                                    $before .= $last_month[$i];
+                            } else {
+                                    $before .= $i;
+                            }
+                            $before .= '</td>';
+                    }
+    } // end if ($pad) ...
+
+    $the_month = array();
+
+    // prepare an array for this month's posts, by date
+    if (! empty($posts)) {
+            foreach ($posts as $post) {
+                    $day = substr($post->post_date, 8, 2);
+                    if (10 > $day) {
+                            $day = substr($day, 1, 1);
+                    }
+                    if (! isset($the_month[$day])) {
+                            $the_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\" title=\"$post->post_title\">$day</a>";
+                    } else {
+                            $the_month[$day] = "<a href=\"" . home_url() . "/$year/$this_month/" . zeroise($day, 2) . "\"
+    title=\"$year/$this_month/" . zeroise($day, 2) . "\">$day</a>";
+                    }
+            }
+    }
+
+    $daycount = $pre_pad;
+
+    $cal = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"".get_month_link($year,$this_month)."\"
+    title=\"$year/$this_month\">" .
+    $month[zeroise($this_month, 2)] . "</a></h2>";
+    $cal .= '<table summary="Archives in '.$this_month.', '.$year.'"><tr>';
+
+
+    foreach ($one_week as $day) {
+            $cal .= "<th>$day</th>";
+    }
+
+    $cal .= '</tr><tr>' . $before;
+    for ($i = 1; $i <= $days_in_month; $i++) {
+            $cal .= '<td> ';
+            if (isset($the_month[$i])) {
+                    $cal .=  $the_month[$i];
+            } else {
+                    $cal .= $i;
+            }
+            $cal .= ' </td>';
+            $daycount++;
+            if ($daycount >= 7) {
+                    $cal .= '</tr><tr>';
+                    $daycount = 0;
+            }
+    }
+
+    $after = '';
+
+    // if necessary, pad the end of the calendar with dates from next month
+    // grab any post data for those days
+    if ( ($end_of_week != $last_day_of_month) && ($pad) ) {
+            $end = (7 - $daycount);
+            $nextmonth = $this_month + 1;
+            $new_posts = $wpdb->get_results("SELECT ID, post_title, post_date FROM $wpdb->posts WHERE post_status = 'publish' AND
+    post_date > '$year-$nextmonth-01 00:00:01' AND post_date < '$year-$nextmonth-0$end 23:59:59' ORDER BY post_date");
+            if ($new_posts) {
+                    if (10 > $nextmonth) {
+
+                            $nextmonth = printf("%02d", $nextmonth);
+
+                    }
+                    $next_month = array();
+                    foreach ($new_posts as $post) {
+                            $day = substr($post->post_date, 9, 1);
+                            if (! isset($next_month[$day])) {
+                                    $next_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
+    title=\"$post->post_title\">$day</a>";
+                            } else {
+                                    $next_month[$day] = "<a href=\"" . home_url() . "/$year/$nextmonth/0$day\"
+    title=\"/$year/0$nextmonth/$day\">$day</a>";
+                            }
+                    }
+            }
+    }
+
+    for ($i = 1; $i <= (7 - $daycount); $i++) {
+            if (! $pad) {
+                    $after .= '<td> </td>';
+            } else {
+                    $after .= '<td class="lastmonth">';
+                    if (isset($next_month[$i])) {
+                            $after .= $next_month[$i];
+                    } else {
+                            $after .= $i;
+                    }
+                    $after .= '</td>';
+            }
+    } // end if ($pad) ...
+        $cal .= $after;
+        $cal .= '</tr></table>';
+    return $cal;
+    }
+/*end get_month()*/
+
+
+
+
+    function get_year($posts = '', $year = '', $pad = 0) {
+
+        $months = array();
+        $y = "";
+        $m = "";
+        $d = "";
+        // first let's parse through our posts, organizing them by month
+        foreach ($posts as $post) {
+                $y = substr($post->post_date, 0, 4);
+                $m = substr($post->post_date, 5, 2);
+                $d = substr($post->post_date, 8, 2);
+                $months[$m][] = $post;
+        }
+
+        $output = "<h2 class=\"h2 year\"><span class=\"year-name\">$year</span></h2>";
+
+            $table_year = array(
+                '<table id="year_list" summary="Archives in '.$year.'"><tbody>',
+                '<tr><td class="month-name">1</td><td></td></tr>',
+                '<tr><td class="month-name">2</td><td></td></tr>',
+                '<tr><td class="month-name">3</td><td></td></tr>',
+                '<tr><td class="month-name">4</td><td></td></tr>',
+                '<tr><td class="month-name">5</td><td></td></tr>',
+                '<tr><td class="month-name">6</td><td></td></tr>',
+                '<tr><td class="month-name">7</td><td></td></tr>',
+                '<tr><td class="month-name">8</td><td></td></tr>',
+                '<tr><td class="month-name">9</td><td></td></tr>',
+                '<tr><td class="month-name">10</td><td></td></tr>',
+                '<tr><td class="month-name">11</td><td></td></tr>',
+                '<tr><td class="month-name">12</td><td></td></tr>',
+                '</tbody></table>');
+
+
+
+        foreach ($months as $num => $val) {
+            $num = (int)$num;
+           $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td>'.year_list ($val, $year, $num, $pad).'</tr>';
+
+        }
+    return $output.implode("\n",$table_year);
+    }
+/* end get_year()*/
+
+    function get_day($posts = '', $year = '', $mon = '', $day = '', $pad = 1){
+
+        global $month;
+        global $ht_deputy;
+
+        $here = home_url();
+
+        $output = "<h2 class=\"h2 year-month-date\"><a href=\"".get_year_link($year)."\" title=\"$year\"><span class=\"year-name\">$year</span></a> <a href=\"".get_month_link($year,$mon)."\" title=\"$year/$mon\"><span class=\"month-name\">" .
+       $mon . "</span></a>&nbsp;<span class=\"day-name\">". $day ."</span></h2>";
+        $output .= '<table id="date_list" summary="Archive in '.$day.', '.$mon.', '.$year.'">';
+
+        foreach ($posts as $mytime) {
+                $h = substr($mytime->post_date, 11, 2);
+                if (10 > $h) {
+                        $h = substr($h, 1, 1);
+                }
+                $today[$h][] = $mytime;
+        }
+
+        for ($i = 0; $i <= 24; $i++) {
+                $output .= '<tr><td class="time">';
+                if (10 > $i) {
+                        $output .= "0$i:00";
+                } else {
+                        $output .= "$i:00";
+                }
+                $output .= '</td><td>';
+
+                if (isset($today[$i])) {
+                                foreach ($today[$i] as $mytime) {
+
+                                    if($mytime->post_title == ''){$mytime->post_title = $ht_deputy;}
+
+                                        $output .= "<a href=\"" . get_permalink($mytime->ID) . "\"
+        title=\"$mytime->post_title\">$mytime->post_title</a><br />";
+                                }
+
+                } else {
+                        $output .= '<span style="visibility:hidden;">.</span>';
+                }
+                $output .= '</td></tr>';
+        }
+        $output .= '</table>';
+        return $output;
+    }
+/* end get_day()*/
+
+    function year_list($one_month,$ye,$mo){
+        $result = "";
+    global $ht_deputy;
+    $d = "";
+    $links = "";
+	
+            foreach($one_month as $month){
+        //var_dump($month->post_date);
+                //list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+                list($y,$m,$d) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+				
+            if($month->post_title == ''){$month->post_title = $ht_deputy;}
+
+                if($m == $mo and $ye == $y){
+                $links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
+                }
+
+            }
+
+            if(!empty($links)){
+                $result .= " <td><ul>";
+                $result .= $links;
+                $result .= "</ul></td>";
+             }
+        return $result;
+    }
+
+
+
+
+    function month_list($one_month,$ye,$mo){
+    global $ht_deputy;
+        $result = "";
+        $here = home_url();
+    for($i=1;$i <= days_in_month($mo, $ye);$i++){
+        $result .= "<tr><td class=\"month-date\"><span class=\"day-name\">";
+
+        $links = "";
+
+        foreach($one_month as $month){
+            if($month->post_title == ''){$month->post_title = $ht_deputy;}
+            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");
+
+            if($d == $i and $m == $mo and $y == $ye){
+            $links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".$month->post_title."\">".$month->post_title."</a></li>";
+            }
+
+        }
+        if(!empty($links)){
+
+
+        $result .= "<a href=\"".get_day_link($y, $mo, $i)."\">";
+        $result .= $i;
+        $result .= " </a></span></td><td><ul>";
+        $result .= $links;
+        $result .= "</ul></td></tr>";
+        }else{
+
+        $result .= $i;
+        $result .= " </span></td><td>&nbsp;</td></tr>";
+
+        }
+
+        //$result .= "</ul></td></tr>\n";
+    }
+
+        $output = "<h2 id=\"date_title\" class=\"h2 year-month\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
+        return $output."<table id=\"month_list\">".$result."</table>";
+    }
+
+?><?php
+function raindrops_loop_title(){
+
+/** 
+ * ardhive title
+ *
+ * loo.php 
+ *
+ *
+ */
+	$Raindrops_class_name = "";
+	$page_title = "";
+	if(is_search()){
+		$Raindrops_class_name = 'serch-result'; 
+		$page_title = __("Search Results",'Raindrops');
+		$page_title_c = get_search_query();
+	}elseif(is_tag()){
+		$Raindrops_class_name = 'tag-archives'; 
+		$page_title = __("Tag Archives",'Raindrops');
+		$page_title_c = single_term_title("", false);
+	}elseif(is_category()){
+		$Raindrops_class_name = 'category-archives'; 
+		$page_title = __("Category Archives",'Raindrops');
+		$page_title_c = single_cat_title('', false);
+	}elseif (is_archive()){
+	
+		 $raindrops_date_format = get_option('date_format');
+		 
+		if (is_day()){
+			$Raindrops_class_name = 'dayly-archives'; 
+			$page_title = __('Daily Archives', 'Raindrops');
+			$page_title_c = get_the_date(get_option($raindrops_date_format));
+		}elseif (is_month()){
+			$Raindrops_class_name = 'monthly-archives'; 
+			$page_title = __('Monthly Archives', 'Raindrops');
+			if(get_locale() == 'ja'){
+				$page_title_c = get_the_date('Y / F');
+			}else{
+				$page_title_c = get_the_date('F Y');
+			}
+		}elseif (is_year()){
+			$Raindrops_class_name = 'yearly-archives'; 
+			$page_title = __('Yearly Archives', 'Raindrops');
+			$page_title_c = get_the_date('Y');
+		}elseif (is_author()){
+			$Raindrops_class_name = 'author-archives'; 
+			$page_title =	__("Author Archives",'Raindrops');
+
+			while (have_posts()){ the_post();
+				$page_title_c = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'Raindrops_author_bio_avatar_size', 32 ) ).' '.get_the_author();
+				break;
+			}
+			rewind_posts();
+		}else{
+			$Raindrops_class_name = 'blog-archives';
+			$page_title = __("Blog Archives",'Raindrops');
+		}
+	}
+	
+echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
+	
+	if(!empty($page_title)){
+		printf('<li><h1 class="h1" id="archives-title">%s <span>%s</span></h1></li>',
+				$page_title,
+				$page_title_c
+		);
+	}	
+	
+}
+
+function yui_class_modify($obandes_inner_class = 'yui-ge'){
+	global $yui_inner_layout;
+	
+	if(isset($yui_inner_layout)){
+		$obandes_inner_class = $yui_inner_layout;
+	}
+	return $obandes_inner_class;
+}
+?>

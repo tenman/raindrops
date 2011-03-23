@@ -11,111 +11,75 @@ Template Name: Auther
  * @since Raindrop 0.1
  */
 
-?>
+?>        
+<?php $curauth = get_userdata(intval($author));?>
 <?php get_header('xhtml1'); ?>
-
 <div id="yui-main">
   <div class="yui-b">
-     <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
-      <div class="yui-u first <?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+    <div class="<?php echo yui_class_modify();?>" id="container">
+      <div class="yui-u first author-infomation" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+	  
+<h2 class="h2"><?php	printf( __( 'Author Archives: %s','Raindrops'), $curauth->nickname);?></h2>
 
+	<table summary="author infomation" class="author-meta">
+	  <tr>
+		<td class="avatar-col"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?> </td>
+		<td><dl class="author raindrops" style="margin:0;padding:0;">
+			<?php	if ( esc_html( $curauth->description) ){ ?>
+			<dt>
+			  <?php _e('Profile','Raindrops');?>
+			</dt>
+			<dd>
+			  <?php echo esc_html( $curauth->description); ?>
+			</dd>
+			<?php } ?>
+			<?php if(!empty($curauth->user_url)){ ?>
+			<dt>
+			  <?php _e('Website','Raindrops'); ?>
+			</dt>
+			<dd><a href="<?php echo esc_url($curauth->user_url); ?>"><?php echo esc_url($curauth->user_url); ?></a></dd>
+			<?php }  ?>
+			<dt>
+			  <?php _e('registered','Raindrops'); ?>
+			</dt>
+			<dd><?php echo esc_html( $curauth->user_registered); ?></dd>
+			
 
-
-        <?php
-        if(isset($_GET['author_name'])){
-            $curauth = get_userdatabylogin($author_name);
-        }else{
-            $curauth = get_userdata(intval($author));
-        }
-        ?>
-
-<?php if(have_posts())  the_post();?>
-
-<h2 class="page-title author h2"><?php printf( __( 'Author Archives: %s', 'raindrops' ), "<span class='vcard'><a class='url fn n' href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "' title='" . esc_attr( get_the_author() ) . "' rel='me'>" . get_the_author() . "</a></span>" ); ?></h2>
-
-<?php
-
-// If a user has filled out their description, show a bio on their entries.
-if ( get_the_author_meta( 'description' ) ) : ?>
-
-     <dl class="<?php echo basename(__FILE__,'.php');?> <?php echo basename(dirname(__FILE__));?>">
-        <dt style="border:none;"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?><br /><?php printf( __( 'About %s', 'raindrops' ), get_the_author() ); ?></dt>
-        <dd style="border:none;"><?php the_author_meta( 'description' ); ?></dd>
-        </dl>
-
-<?php endif; ?>
-
-        <dl class="<?php echo esc_attr(basename(__FILE__,'.php'));?> <?php echo esc_attr(basename(dirname(__FILE__)));?>">
-
-        <?php if(!empty($curauth->user_url)){ ?>
-          <dt><?php _e('Website','Raindrops'); ?></dt>
-          <dd><a href="<?php echo esc_url($curauth->user_url); ?>"><?php echo esc_url($curauth->user_url); ?></a></dd>
-        <?php }  ?>
-        <?php if(!empty($curauth->user_email) and is_email($curauth->user_email)){ ?>
-          <dt><?php _e('email','Raindrops'); ?></dt>
-          <dd><a href="mailto:<?php echo htmlspecialchars($curauth->user_email); ?>"><?php echo htmlspecialchars($curauth->user_email); ?></a></dd>
-        <?php }  ?>
-
-        <?php if(!empty($curauth->user_nicename)){ ?>
-          <dt><?php _e('nicename','Raindrops'); ?></dt>
-          <dd><?php echo esc_html($curauth->user_nicename); ?></dd>
-        <?php } ?>
-          <dt><?php _e('registered','Raindrops'); ?></dt>
-          <dd><?php echo esc_html( $curauth->user_registered); ?></dd>
-
-        <?php if(!empty($curauth->user_displayname)){ ?>
-          <dt><?php _e('displayname','Raindrops'); ?></dt>
-          <dd><?php echo $curauth->user_displayname; ?></dd>
-        <?php }  ?>
-
-         <?php if(!empty($curauth->user_description)){ ?>
-          <dt><?php _e('description','Raindrops'); ?></dt>
-          <dd><?php echo $curauth->user_description; ?></dd>
-        <?php } ?>
-
-        </dl>
-
+		  </dl></td>
+	  </tr>
+	</table>
+		
         <br class="clear" />
-        <h2 class="h2"><?php printf(__("Posts by %s",'Raindrops'),$curauth->nickname); ?></h2>
+		
+<h2 class="h2"><?php _e("Recent post",'Raindrops'); ?></h2>
 
-        <dl class="<?php echo  esc_attr(basename(__FILE__,'.php'));?> <?php echo  esc_attr(basename(dirname(__FILE__)));?>">
-          <!-- The Loop -->
-          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-          <dt><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?></dt>
-          <dd><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
-            <?php the_title(); ?></a><?php //the_category('&');?></dd>
-
-          <?php endwhile; else: ?>
-
-          <p>
-            <?php _e('No posts by this author.','Raindrops'); ?>
-          </p>
-          <?php endif; ?>
-          <!-- End Loop -->
-
-        </dl>
-</div>
-
-    <!-- navigation-->
-    <div class="yui-u"> <span style="display:none;">----navigation sidebar-----</span>
-      <?php if($rsidebar_show){get_sidebar('extra');
-        } ?>
-      <!--rsidebar end-->
+		<dl class="author">
+		  <!-- The Loop -->
+		  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		  <dt>
+			<?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
+			&nbsp;&nbsp;<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
+			<?php the_title(); ?>
+			</a> </dt>
+		  <dd>
+			<?php _e( 'Categories :', 'Raindrops');?>
+			<?php the_category(', ');?>
+		  </dd>
+		  <dd>
+			<?php _e( 'Tag :', 'Raindrops');?>
+			<?php echo get_the_tag_list( '', ', ' );?> </dd>
+		  <?php endwhile; else: ?>
+		  <p>
+			<?php _e('No posts by this author.','Raindrops'); ?>
+		  </p>
+		  <?php endif; ?>
+		  <!-- End Loop -->
+		</dl>
+      </div>
+      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
     </div>
-    <!--add col here -->
   </div>
-  <!--main-->
 </div>
+<div class="yui-b"><?php get_sidebar('default'); ?></div>
 </div>
-<!--sidebar-->
-<!-- navigation 2 -->
-<div class="yui-b"> <span style="display:none;">----navigation sidebar-----</span>
-  <!--lsidebar start-->
-  <?php get_sidebar('default'); ?>
-  <!--lsidebar end-->
-</div>
-<!-- navigation 2 -->
-<!--sidebar-->
-</div>
-
 <?php get_footer(); ?>

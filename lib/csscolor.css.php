@@ -356,6 +356,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_b
 li.byuser,
 li.bypostauthor{
 %c3%
+border:3px double %custom_dark_bg%;
 }
 cite.fn{
 	background:none;
@@ -375,7 +376,11 @@ div[id^="comment-"]{
 	border-bottom:none;
 
 }
-
+.fail-search,
+#not-found {
+%c_3%
+border:3px double %custom_dark_bg%;
+}
 DOC;
 
 return $style;
@@ -616,7 +621,11 @@ cite.fn{
 	border-bottom:none;
 
 }
-
+.fail-search,
+#not-found {
+%c3%
+border:3px double %custom_dark_bg%;
+}
 DOC;
 return $style;
 }
@@ -1026,7 +1035,11 @@ cite.fn{
 	border-bottom:none;
 
 }
-
+.fail-search,
+#not-found {
+%c4%
+border:3px double %custom_dark_bg%;
+}
 
 DOC;
 
@@ -1097,7 +1110,7 @@ border-bottom:solid 2px %rgba_border%;
 }
 li.byuser,
 li.bypostauthor {
-%c4%
+%c3%
 }
 cite.fn{
 	background:none;
@@ -1109,7 +1122,10 @@ cite.fn{
 	border-bottom:none;
 
 }
-
+.fail-search,
+#not-found {
+border:3px double  %rgba_border%;
+}
 DOC;
 
 return $style;

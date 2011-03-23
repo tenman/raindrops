@@ -7,72 +7,78 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
+ 
 ?>
 <?php get_header("xhtml1"); ?>
-
+<?php $ht_deputy = "NoTitle";?>
 <div id="yui-main">
+  <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">
-    <div class="<?php if(isset($yui_inner_layout)){echo $yui_inner_layout;}else{echo 'yui-ge';}?>" id="container">
+    <div class="<?php echo yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
-        <!-- content start-->
-        <!--filename search.php-->
-        <?php if (have_posts()) : ?>
-        <h2 class="pagetitle h2">Search Results</h2>
-        <?php while (have_posts()) : the_post(); ?>
-        <div class="entry">
-          <h3 id="post-<?php the_ID(); ?>" class="h3"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
-            <?php the_title(); ?>
-            </a></h3>
-          <small>
-          <?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
-          </small> <br />
-          <br />
-          <?php the_content('Read the rest of this entry &raquo;'); ?>
-          <div class="clearfix"></div>
-          <p class="postmetadata">Posted in
-            <?php the_category(', ') ?>
-            |
-			<?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
-            <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?>
-          </p>
-        </div>
-        <?php endwhile; ?>
-        <div class="navigation">
-          <div class="alignleft">
-            <?php next_posts_link('&laquo; Previous Entries') ?>
-          </div>
-          <div class="alignright">
-            <?php previous_posts_link('Next Entries &raquo;') ?>
-          </div>
-        </div>
-        <?php else : ?>
+        <?php if (have_posts()){ ?>
+        <h1 class="pagetitle h1">Search Results</h1>
+        <ul class="search-results">
+		<li>		
+        <?php
+	 	if ( $wp_query->max_num_pages > 1 ){ ?>
+        <div id="nav-above" class="clearfix"> <span class="nav-previous">
+          <?php 	next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
+          </span><span class="nav-next">
+          <?php 	previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+          </span></div>
+        <?php 	}?>
+		</li>
+      <?php while (have_posts()){ the_post(); ?>
+          <li>
+            <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
+              <h2 class="h2 entry-title">
+                <?php 
+			if( has_post_thumbnail($post->ID)){
+				echo '<span class="h2-thumb">';
+				the_post_thumbnail(array(48,48),array("style"=>"vertical-align:middle;"));
+				echo '</span>';
+			} 
+?>
+                <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a></h2>
+				
+              <div class="posted-on"><?php raindrops_posted_on();?></div>
+              <div class="entry-content clearfix"><?php		the_excerpt();?></div>
+              <div class="entry-meta">
+			  	<?php raindrops_posted_in();?>
+                <?php 	edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+              </div>
+              <br class="clear" />
+            </div>
+          </li>
+		  
+      <?php }?>
+        <li>
+        <?php if ( $wp_query->max_num_pages > 1 ){ ?>
+        <div id="nav-below" class="clearfix"><span class="nav-previous">
+          <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
+          </span><span class="nav-next">
+          <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+          </span> </div>
+        <?php }?>
+		</li>
+		</ul>
+		
+        <?php }else{ ?>
         <div class="fail-search">
           <h2 class="center h2">
             <?php _e("Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.","Raindrops");?>
           </h2>
+		  <?php get_search_form(); ?>
         </div>
-        <?php endif; ?>
-        <!-- content end-->
+        <?php } ?>
       </div>
-      <!-- navigation-->
-      <div class="yui-u">
-        <!--rsidebar start-->
-        <?php if($rsidebar_show){get_sidebar('extra');} ?>
-        <!--rsidebar end-->
-      </div>
-      <!--add col here -->
+      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
     </div>
-    <!--main-->
   </div>
 </div>
-<!--sidebar-->
-<!-- navigation 2 -->
 <div class="yui-b">
-  <!--lsidebar start-->
   <?php get_sidebar('default'); ?>
-  <!--lsidebar end-->
 </div>
-<!-- navigation 2 -->
-<!--sidebar-->
 </div>
 <?php get_footer(); ?>

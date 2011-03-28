@@ -8,23 +8,12 @@
  * @since Raindrop 0.1
  */
 ?>
-<?php
-/**
- * Conditional sett
- *
- *
- *
- *
- */
-
-
-?>
 <?php get_header("xhtml1"); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b">
      <div class="<?php echo yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <h1 class="entry-title"><?php _e( 'Not Found', 'raindrops' ); ?></h1>
         <div id="post-0" class="post error404 not-found">
           <div class="entry-content">

@@ -24,13 +24,13 @@
 <address>
 <?php 
 printf(
-'<small>&copy;%s %s <a href="%s">%s</a> and <a href="%s">%s</a></small>&nbsp;',
+'<small>&copy;%s %s <a href="%s" class="entry-rss">%s</a> and <a href="%s" class="comments-rss">%s</a></small>&nbsp;',
 date("Y"),
 get_bloginfo('name'),
 get_bloginfo('rss2_url') ,
-__("Entries (RSS)","Raindrops"),
+__("Entries <span>(RSS)</span>","Raindrops"),
 get_bloginfo('comments_rss2_url'),
-__('Comments (RSS)',"Raindrops")
+__('Comments <span>(RSS)</span>',"Raindrops")
 );
 
 printf(

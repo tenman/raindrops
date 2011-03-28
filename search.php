@@ -15,7 +15,7 @@
   <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">
     <div class="<?php echo yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php if (have_posts()){ ?>
         <h1 class="pagetitle h1">Search Results</h1>
         <ul class="search-results">

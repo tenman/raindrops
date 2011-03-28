@@ -1,21 +1,72 @@
 html .mceContentBody {
-    max-width:640px;
-}
-* {
-    font-family:serif;
-    color: #444;
-    line-height: 1.5;
+max-width:640px;
+
 }
 
+a{
+text-decoration:none;
 
+}
 a:link {
-    color:#0066CC;
+
 }
 a:visited {
-    color:#743399;
+
 }
 a:active,
 a:hover {
-    color: #FF4B33;
+text-decoration:underline;
 }
-
+/* wordPress native */
+.aligncenter,
+div.aligncenter {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+.alignleft {
+	display:inline;
+	float: left;
+	margin-right:10px;
+}
+.alignright {
+	display:inline;
+   float: right;
+   margin-left:1em;
+}
+.size-thumbnail{
+	padding:.5em;
+}
+.wp-caption {
+   border: 1px solid #ddd;
+   text-align: center;
+   /*background-color: #f3f3f3;*/
+   padding: 4px 2px;
+   margin: 10px;
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+   max-width:100%;
+   height:auto;
+}
+.wp-caption img {
+   margin: 0;
+   padding: 0;
+   border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+   font-size: 100%;
+   line-height: 1.5;
+   padding: 0 4px 5px;
+   margin: 0;
+}
+.stickey{
+}
+li.byuser,
+.bypostauthor{
+	margin:5px;
+}
+.gallery-caption{
+}

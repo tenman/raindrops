@@ -37,7 +37,7 @@ Released under the terms of the GNU GPL version 2
   <div class="yui-b">
     <div class="<?php echo yui_class_modify();?>" id="container">
      <!-- content -->
-      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
 <h2 class="page-title"><?php
     if (is_year()) {
             $one_year = query_posts("posts_per_page=-1&year=$ye");

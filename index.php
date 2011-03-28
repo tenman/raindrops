@@ -23,11 +23,11 @@ get_header("xhtml1"); ?>
 		}else{
 			echo '<li><div class="hide">dinamic_sidebar 3 none</div></li>';
 		} 
-		echo '</ul>'."\n".'</div>'."\n".'<br class="clearfix" />';
+		echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
 	} ?>
 	
     <div class="<?php echo yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php get_template_part( 'loop', 'default' );?>
         <br style="clear:both" />
       </div>

@@ -51,6 +51,6 @@
     <p class="nocomments"><?php _e('Comments are closed.','Raindrops'); ?></p>
 <?php 		} // end ! comments_open() ?>
 <?php }// end have_comments() ?>
-<br class="clearfix" />
+<br class="clear" />
 <div class="social"><?php comment_form(); ?></div>
 </div>

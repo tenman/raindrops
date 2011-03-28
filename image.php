@@ -14,10 +14,10 @@
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">
     <div class="<?php echo yui_class_modify();?>" id="container">
-      <div class="yui-u first raindrops-image" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <div id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
-          <div class="entry attachment">
+          <div class="entry attachment raindrops-image-page">
             <h2 class="image-title h2"><?php the_title(); ?></h2>
             <p class="parent-entry"><?php _e("Entry : ",'Raindrops');?>
               <a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php echo get_the_title($post->post_parent); ?></a>
@@ -32,23 +32,24 @@
                 </dd>
                 <dd class="serif">
                   <?php the_content('<p >Read the rest of this entry &raquo;</p>'); ?>
-                  <div class="clearfix"></div>
+                  <br class="clear" />
                 </dd>
 				
               </dl>
             </div>
-            <div class="clearfix"></div>
+            <br class="clear" />
             <hr />
-            <div class="navigation">
-              <div style="text-align:left;float:left;">
+            <div class="attachment-navigation">
+              <div class="prev" style="text-align:left;float:left;">
                 <?php previous_image_link(0) ?>
               </div>
-              <div style="float:right;text-align:right;">
+              <div class="next" style="float:right;">
                 <?php next_image_link(0) ?>
               </div>
+			  <br class="clear" />
             </div>
           </div>
-          <div class="clearfix"></div>
+          <br class="clear" />
 		  <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
         </div>
         <?php endwhile; else: ?>

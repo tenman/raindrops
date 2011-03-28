@@ -35,98 +35,119 @@ background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
+
+legend,
+a:link,a:active,a:visited,a:hover,
+.lsidebar,
+#sidebar,
+.rsidebar,
+#doc,#doc2,#doc3,#doc4,
+#hd,
+#yui-main,
+.entry ol ol ,.entry ul,
+.entry ul * {
+%c_5%
+}
+
+div[id^="comment-"],
+.entry-content td,
+cite a:link,cite a:active,cite a:visited,cite a:hover,
+cite,
+ul.nav li a,ul.nav li a:link,ul.nav li a:visited,
+ul.nav li a:hover,ul.nav li a:active,
+body,
+.entry-meta,
+.home .sticky, 
 #top{
 %c_4%
 }
+input[type="submit"],
+.fail-search,
+#not-found ,
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a,
+#access ul ul a,
+.searchform input[type="text"],
+.social textarea#comment,
+.social input[type="text"],
+.hentry input[type="password"],
+.entry-content blockquote,
+td.month-date,td.month-name,td.time,
+.footer-widget h2,.rsidebar h2,.lsidebar h2,
+#ft #wp-calendar,
+#ft,
+#nav,
+ul.nav{
+%c_3%
+}
+
+* html #access ul li.current_page_item a,
+* html #access ul li.current-menu-ancestor a,
+* html #access ul li.current-menu-item a,
+* html #access ul li.current-menu-parent a,
+* html #access ul li a:hover {
+/* border:1px solid %rgba_border%;*/
+%c_2%
+}
+.social input[type="submit"],
+input[type="submit"]{
+%c3%
+color:#fff;
+}
+
 h2 a{
 background:inherit;
 }
 .entry div h2,.entry div h3{
 }
-.entry ol ol ,.entry ul {
-%c_5%
-}
-.entry ul * {
-%c_5%
-}
-.home .sticky {
-background:%c_4%
-border-top:solid 6px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
-}
-.entry-meta{
-background:%c_4%
-border-top:solid 2px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
-}
-.home .sticky a,
-.home .entry-meta a{
-background:none;
-}
-#yui-main{
-%c_5%
-color:%tmn_header_color%;
-}
+
 #hd{
-%c_5%
 background-image:url(%images_path%%tmn_header_image%);
-}
-#site-description,
-#hd h1,
-.h1,
-#site-title{
-background:none;
 }
 
 #header-image{
 background-color:%custom_light_bg%!important;
 }
-#doc,#doc2,#doc3,#doc4{
-%c_5%
+
+
+.home .sticky,
+.entry-meta{
+border-top:solid 2px %c_border%;
+border-bottom:solid 2px %c_border%;
+border-top:solid 2px %rgba_border%;
+border-bottom:solid 2px %rgba_border%;
 }
-#nav{
-%c_3%
+.home .sticky{
+border-top:solid 6px %c_border%;
+border-top:solid 6px %rgba_border%;
 }
-ul.nav{
-%c_3%
+.attachment .caption dt{
+border-bottom:double 3px %c_border%;
+border-bottom:3px double %rgba_border%;
+
 }
-ul.nav li a,ul.nav li a:link,ul.nav li a:visited{
-%c_4%
-}
-ul.nav li a:hover,ul.nav li a:active{
-%c_4%
-}
-#sidebar{
-%c_5%
-}
-.rsidebar{
-%c_5%
-}
-div.comment-body blockquote{
-background:none!important;
+
+#yui-main{
+color:%tmn_header_color%;
 }
 ol.commentlist :hover{
 background:url(%images_path%latestbck.gif) repeat-x;
 }
-ol.commentlist li :hover{background:none;}
 ol.tblist li{
 background:transparent url(%images_path%c.gif) 0 2px no-repeat;
 }
 #ft{
-%c_3%
 border-top: medium solid %c_border%;
 background:url(%images_path%%tmn_footer_image%) repeat-x;
 color:%tmn_footer_color%;
 }
 #ft #wp-calendar{
-%c_3%
 border:1px solid %c_border%!important;
 }
-.lsidebar{
-%c_5%
-}
+
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-%c_3%
 %h2_dark_background%
 %h_position_rsidebar_h2%
 -webkit-border-top-right-radius: 1em;
@@ -136,116 +157,78 @@ border-top-right-radius: 1em;
 -moz-border-radius-topleft: 1em;
 border-top-left-radius: 1em;
 }
-a:link,a:active,a:visited,a:hover{
-%c_5%
-}
-#hd h1 a:link,#hd h1 a:active,#hd h1 a:visited,#hd h1 a:hover{
-%c_3%
-background:none;
-}
+.datetable td li,
 .rsidebar ul li ul li,
-.lsidebar ul li ul li{
-border-bottom:1px solid %c_border%;
-border-bottom:1px solid %rgba_border%;
-}
+.lsidebar ul li ul li,
+.blog .entry-utility li,
+.mycomment,
+.blog .entry-utility li,
 dl.author dd,
 dl.author dt,
 dl.my_tags dd,
-dl.my_tags dt{
-border-bottom:1px solid %c_border%;
-}
+dl.my_tags dt,
+ul.category li,
+ul.sitemap ul li,
+ul.archive ul li,
+ul.all_entry h2,
+.attachment .caption dd,
+ul.archive,ul.index,
+.sitemap.new li,
 #items li{
 border-bottom:1px solid %c_border%;
-}
-.attachment .caption dd{
-border-bottom:1px solid %c_border%;
-}
-.attachment .caption dt{
-border-bottom:double 3px %c_border%;
-}
-ul.archive,ul.index{
-margin:2em 0;border-bottom:
-1px solid %c_border%;
 border-bottom:1px solid %rgba_border%;
 }
-.sitemap.new li{
-border-bottom:1px solid %c_border%;
-}
-.social{
-border-top:3px double %c_border%;
-border-bottom:3px double %c_border%;
-border-bottom:3px double %rgba_border%;
-border-top:3px double %rgba_border%;
-}
-ul.all_entry h2{
-border-bottom:3px double %c_border%;
-}
-ul.category li{
-border-bottom:1px solid %c_border%;
-border-bottom:1px solid %rgba_border%;
-}
-ul.sitemap ul li,
-ul.archive ul li {
-border-bottom:1px solid %c_border%;
-}
-.blog .entry-utility li{
-border-bottom:1px solid %c_border%;
-}
-.mycomment{
-border-bottom:1px dashed %c_border%;
-}
-.blog .entry-utility li{
-border-bottom:1px solid %c_border%;
-}
+
 hr{
 border:none;
 border-top:1px solid %c_border%;
 border-top:1px solid %rgba_border%;
 }
+
 ul.archive li,
 ul.index li{
-/*  border-top:1px solid %c_border%;
-border-top:1px solid %rgba_border%;*/
+
 }
-.itiran{
-border:1px solid %c_border%;
-}
+
 .pagenate{
 }
 #month_list,
 #month_list td,
 #year_list td,
 #calendar_wrap td,
-#date_list td{
+#date_list td,
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td,
+fieldset,
+.itiran,
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td,
+.searchform input[type="text"],
+.searchform input[type="submit"],
+.hentry input[type="password"],
+.social textarea#comment,
+.social input[type="text"],
+.social input[type="submit"],
+.entry-content blockquote,
+td.month-date,td.month-name,td.time{
 border:1px solid %c_border%;
 border:1px solid %rgba_border%;
 }
-td.month-date,td.month-name,td.time
-{
-%c_3%
-border-bottom:1px solid %c_border%;
-border:1px solid %rgba_border%;
-}
+
 .entry-content blockquote {
-border-left:solid 3px %c_border%;
-%c_3%
-}
-cite{
-%c_4%
-}
-cite a:link,cite a:active,cite a:visited,cite a:hover{
-%c_4%
-background:none!important;
-}
-fieldset {
-border:1px solid %rgba_border%;
-}
-legend{
-%c_5%
+border-left:solid 6px %c_border%;
 }
 div.social{
 }
+.searchform input[type="text"],
 .social textarea#comment,
+.hentry input[type="password"],
 .social input[type="text"] {
 outline:none;
 transition: all 0.25s ease-in-out;
@@ -255,47 +238,48 @@ border-radius:3px;
 -webkit-border-radius:3px;
 -moz-border-radius:3px;
 border:1px solid rgba(203,203,203, 0.5);
-%c_3%
 }
-.social textarea#comment:focus,
+
+.searchform input:focus,
+.searchform input:focus,
+.social textarea:focus,
+.hentry input:focus,
 .social input:focus{
 box-shadow: 0 0 5px %rgba_border%;
 -webkit-box-shadow: 0 0 5px %rgba_border%;
 -moz-box-shadow: 0 0 5px %rgba_border%;
-/* border:1px solid %rgba_border%;*/
-%c3%
 }
-.social input[type="submit"] {
-border:double 3px %rgba_border%;
-background: %c3%
-}
-.entry-content td{
-%c_4%
-border:solid 1px %rgba_border%;
-}
+
+li.byuser,
+li.bypostauthor,
+.social textarea#comment:focus,
+.social input:focus,
 .entry-content th{
 %c3%
+}
+.wp-caption,
+.entry-content td,
+.entry-content th{
 border:solid 1px %rgba_border%;
 }
+.searchform  input[type="submit"],
+.entry-content textarea,
+.entry-content input[type="password"]
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
-.entry-content input[type="file"]{
-border:double 3px %rgba_border%;
-background: %c3%
-}
+.entry-content input[type="file"],
 .entry-content input[type="checkbox"],
-.entry-content input[type="radio"]{
-background: %c3%
-border:double 3px %rgba_border%;
-}
+.entry-content input[type="radio"],
 .entry-content select{
-background: %c3%
-border:double 3px %rgba_border%;
+/*border:double 3px %rgba_border%;*/
 }
+
 .entry-content textarea{
 background: %rgba_border%
-border:double 3px %rgba_border%;
 }
+
+.searchform input[type="submit"],
+input[type="submit"],
 #access{
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
@@ -307,43 +291,26 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 -moz-box-shadow: 1px 1px 3px #000;
 -webkit-box-shadow: 1px 1px 3px #000;
 }
+
 #access a {
-	background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 color:%custom_color%;
 }
-#access ul ul a {
-%c_3%
-/* border:1px solid %rgba_border%;*/
-}
+
 #access li:active > a,
 #access ul ul :active > a {
-/*%c_2%*/
 top:0;
-	background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
+background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
 background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
 color:%custom_color%;
 }
-#access ul li.current_page_item > a,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a {
-/* border:1px solid %rgba_border%;*/
-%c_3%
-}
-* html #access ul li.current_page_item a,
-* html #access ul li.current-menu-ancestor a,
-* html #access ul li.current-menu-item a,
-* html #access ul li.current-menu-parent a,
-* html #access ul li a:hover {
-/* border:1px solid %rgba_border%;*/
-%c_2%
-}
-address{margin:10px auto;}
+
+
+
 .wp-caption {
-border:solid 1px %rgba_border%;
 -moz-border-radius: 3px;
 -khtml-border-radius: 3px;
 -webkit-border-radius: 3px;
@@ -353,33 +320,42 @@ background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 
+.fail-search,
+#not-found,
 li.byuser,
 li.bypostauthor{
-%c3%
-border:3px double %custom_dark_bg%;
-}
-cite.fn{
-	background:none;
-}
-div[id^="comment-"]{
-%c_4%
-
+border:1px solid %custom_dark_bg%;
 }
 .children:hover,
 .children{
 
 }
-.datetable td li{
-	border-bottom:solid 1px %rgba_border%;
-}
 .datetable td li:nth-last-child(1){
-	border-bottom:none;
-
+border-bottom:none;
 }
-.fail-search,
-#not-found {
-%c_3%
-border:3px double %custom_dark_bg%;
+h1#site-title,
+#ft a,
+.category32, 
+.archive li a, 
+.page .hentry .entry-title a,
+.archive.category h2 a,
+cite.fn,
+cite a:link,
+cite a:active,
+cite a:visited,
+cite a:hover,
+#hd h1 a:link,
+#hd h1 a:active,
+#hd h1 a:visited,
+#hd h1 a:hover,
+ol.commentlist li :hover,
+div.comment-body blockquote,
+#site-description,
+#site-title,
+#site-title span a,
+.home .sticky a,
+.home .entry-meta a{
+background:none!important;
 }
 DOC;
 
@@ -431,6 +407,12 @@ margin:0!important;padding:0;
 %h2_default_background%
 %h_position_rsidebar_h2%
 }
+.rsidebar ul li ul li,
+.lsidebar ul li ul li{
+    border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %rgba_border%;
+}
+
 .home .sticky {
 background: %c4%
 border-top:solid 6px %c_border%;
@@ -580,18 +562,24 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 
     %c2%
 }
-#month_list,
-#month_list td,
-#year_list td,
-#calendar_wrap td,
-#date_list td{
+table,
+table td{
     border:1px solid %c_border%;
     border:1px solid %rgba_border%;
 }
+
 td.month-date,td.month-name,td.time
 {
     %c3%
+	
     border:1px solid %rgba_border%;
+
+}
+.datetable td li{
+	border-bottom:solid 1px %rgba_border%;
+}
+.datetable td li:nth-last-child(1){
+	border-bottom:none;
 
 }
 address{margin:10px auto;}
@@ -790,12 +778,17 @@ a:link,a:active,a:visited,a:hover{
     border-bottom:1px solid %c_border%;
     border-bottom:1px solid %rgba_border%;
 }
-
+.lsidebar h2.widgettitle,
+.rsidebar h2.widgettitle{
+	text-indent:0;
+}
 dl.author dd,
 dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt{
     border-bottom:1px solid %c_border%;
+	border-bottom:1px solid %rgba_border%;
+
 }
 
 #items li{
@@ -847,28 +840,16 @@ ul.archive ul li {
     border-bottom:1px solid %c_border%;
 }
 
-hr{
-    border:none;
-    border-top:1px solid %c_border%;
-    border-top:1px solid %rgba_border%;
-
-}
 ul.archive li,
 ul.index li{
 
 }
-.itiran{
+table,
+table td{
     border:1px solid %c_border%;
+    border:1px solid %rgba_border%;
 }
 
-#month_list,
-#month_list td,
-#year_list td,
-#calendar_wrap td,
-#date_list td{
-    border:1px solid %c_border%;
-    border:1px solid %rgba_border%!important;
-}
 td.month-date,td.month-name,td.time{
    %c_3%
     border-bottom:1px solid %c_border%;
@@ -911,7 +892,8 @@ legend{
 }
 
 
-.social textarea#comment,.social input[type="text"]{
+.social textarea#comment,
+.social input[type="text"]{
     outline:none;
     transition: all 0.25s ease-in-out;
     -webkit-transition: all 0.25s ease-in-out;
@@ -922,7 +904,8 @@ legend{
     border:1px solid rgba(0,0,0, 0.2);
 }
 
-.social textarea#comment:focus,.social input[type="text"]{
+.social textarea#comment:focus,
+.social input[type="text"]:focus{
     box-shadow: 0 0 5px %rgba_border%;
     -webkit-box-shadow: 0 0 5px %rgba_border%;
     -moz-box-shadow: 0 0 5px %rgba_border%;
@@ -935,10 +918,12 @@ legend{
 
 .entry-content td{
     %c4%
+	border:solid 1px %c_border%;
     border:solid 1px %rgba_border%;
 }
 .entry-content th{
     %c3%
+	border:solid 1px %c_border%;
     border:solid 1px %rgba_border%;
 }
 .entry-content input[type="submit"],
@@ -1028,6 +1013,7 @@ li.bypostauthor {
 cite.fn{
 	background:none;
 }
+
 .datetable td li{
 	border-bottom:solid 1px %rgba_border%;
 }
@@ -1063,8 +1049,8 @@ $style =<<<DOC
 #access ul ul.children a{
 background:#fff;
 }
-#access .menu  ul li{
-/*border:1px solid %rgba_border%*/
+#access .children li{
+ border:1px solid %rgba_border%
 }
 a{
  text-decoration:underline;
@@ -1073,13 +1059,15 @@ a,
 #yui-main{
 	color:%tmn_header_color%;
 }
+#datelist table,
 #year_list,
 #year_list td,
 #month_list,
 #month_list td,
 #datelist,
 #date_list td{
-border:1px solid %rgba_border%
+border:solid 1px %c_border%!important;
+border:1px solid %rgba_border%!important;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 %c5%
@@ -1151,10 +1139,22 @@ return $style;
  */
 	$raindrops_indv_css 	= design_output($style_type).color_base();
 	$raindrops_options 		= get_option("raindrops_theme_settings");
-	$add_array				= array('_raindrops_indv_css'=> $raindrops_indv_css );
-	$raindrops_options 		= array_merge($raindrops_options,$add_array);
+	
+	if(is_array($raindrops_options)){
 
-	update_option("raindrops_theme_settings",$raindrops_options);
+		if(array_key_exists('_raindrops_indv_css',$raindrops_options)){
+			$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+		}else{
+			$add_array				= array('_raindrops_indv_css'=> $raindrops_indv_css );
+			$raindrops_options 		= array_merge($raindrops_options,$add_array);
+		}
+		update_option("raindrops_theme_settings",$raindrops_options);
+	
+	}else{
+		$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+		add_option(	$raindrops_options );
+	}
+
 /**
  * Create CSS Color Declaration
  *

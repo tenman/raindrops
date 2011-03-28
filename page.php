@@ -13,7 +13,7 @@
 <div id="yui-main">
   <div class="yui-b" >
     <div class="<?php echo yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php if($rsidebar_show == false){echo "style=\"width:100%;\"";} ?>>
+      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php if (have_posts()){ ?>
         <?php 		while (have_posts()){ the_post(); ?>
         <div class="entry page">
@@ -21,12 +21,7 @@
             <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
               <?php the_title(); ?>
               </a></h2>
-            <div class="page-meta">
-              <?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
-              &nbsp;
-              <?php the_author() ?>
-            </div>
-            <div style="entry-content">
+               <div style="entry-content">
               <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
               <br class="clear" />
             </div>

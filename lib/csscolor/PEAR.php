@@ -567,8 +567,8 @@ class PEAR
         }
         if (intval(PHP_VERSION) < 5) {
             // little non-eval hack to fix bug #12147
-            include 'PEAR/FixPHP5PEARWarnings.php';
-            return $a;
+            //include 'PEAR/FixPHP5PEARWarnings.php';
+            //return $a;
         }
         if ($skipmsg) {
             $a = new $ec($code, $mode, $options, $userinfo);
@@ -914,7 +914,7 @@ class PEAR_Error
         }
         if ($this->mode & PEAR_ERROR_EXCEPTION) {
             trigger_error("PEAR_ERROR_EXCEPTION is obsolete, use class PEAR_Exception for exceptions", E_USER_WARNING);
-            eval('$e = new Exception($this->message, $this->code);throw($e);');
+            //eval('$e = new Exception($this->message, $this->code);throw($e);');
         }
     }
 

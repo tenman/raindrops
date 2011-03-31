@@ -108,10 +108,10 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 
 <div class="entry-content clearfix">
 <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-<br class="clear" />
+<div class="clearfix"></div>
 <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 </div>
-  <br class="clear" />
+<div class="clearfix"></div>
 <?php if(is_single()){  raindrops_prev_next_post('nav-below');}?>
 
 <?php comments_template( '', true ); ?>
@@ -141,7 +141,7 @@ $attachment_page = $image->post_title;
 ?>
 <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
 <?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-<br class="clear" />
+<div class="clearfix"></div>
 
 <p style="margin:1em;"><em><?php echo sprintf( __( 'This gallery contains %1$s photographs in all as ', 'Raindrops' ),$total_images).'&nbsp;'.wp_get_attachment_link( $image->ID ,false,true).'&nbsp;'.__('photograph etc.','Raindrops');?></em></p>
 </div>
@@ -186,8 +186,9 @@ default:
 
 <?php }else{ // is not archives & search?>
 
-<div class="entry-content clearfix"><?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?><br class="clear" />
-<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'Raindrops' ), 'after' => '</div>' ) ); ?>
+<div class="entry-content clearfix"><?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+<div class="clearfix"></div>
+<?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 </div>
 <?php } // end is_archive() || is_search() ?>
 
@@ -213,7 +214,7 @@ echo '<!-- #post-'.get_the_ID().' -->';
 </span> </div>
 <!-- #nav-above -->
 <?php } }?>
-<br style="clear:both" />
+<div class="clearfix"></div>
 </div>
 <?php //rsidebar start ?>
 <div class="yui-u">

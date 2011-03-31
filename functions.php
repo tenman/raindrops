@@ -21,7 +21,7 @@ if(!defined('ABSPATH')){exit;}
  *
  *
  */
-    //$page_width = '';
+    $page_width = '';
 
 /**
  * If you need specific $content_width.
@@ -34,6 +34,23 @@ if(!defined('ABSPATH')){exit;}
     //$content_width = '';
 
 
+/**
+ * 750px,950px centered layout fluid or fixed page width switch
+ *
+ *
+ * value 'fixed' or empty
+ *
+ */
+ 	$fluid_or_fixed = 'fixed';
+
+/**
+ * fluid page  main column minimam width px
+ *
+ *
+ *
+ *
+ */
+	$fluid_minimam_width = '400';
 /**
  * the_excerpt use where index,archive,other not single pages.
  * If TMN_USE_LIST_EXCERPT value false and use the_content .
@@ -476,6 +493,110 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             echo $custom_content_width;
         }
     }
+	
+
+/**
+ * fluid or fixed page width
+ *
+ *
+ *
+ *
+ */
+
+		if(	isset($fluid_or_fixed) and 
+			!empty($fluid_or_fixed) and
+			(warehouse("raindrops_page_width") == 'doc' or warehouse("raindrops_page_width") == 'doc2')){
+ 	     	add_action("wp_head","tmn_is_fixed");
+		}elseif(isset($fluid_minimam_width) and !empty($fluid_minimam_width)){
+ 	     	add_action("wp_head","tmn_is_fluid");
+		
+			
+		}
+
+  		function tmn_is_fluid($content,$key){
+			global  $is_IE, $fluid_minimam_width;
+			$width 			= intval($fluid_minimam_width);			
+			$width			= $width / 13;
+			$sidebar_width	= 'yui-'.warehouse('raindrops_col_width');
+			$adjust 		= 20;
+			
+			if($sidebar_width == 'yui-t1'){
+				$raindrops_default_col_width = 160 + $adjust;
+			}elseif($sidebar_width == 'yui-t2'){
+				$raindrops_default_col_width = 180 + $adjust;
+			}elseif($sidebar_width == 'yui-t3'){
+				$raindrops_default_col_width = 300 + $adjust;
+			}elseif($sidebar_width == 'yui-t4'){
+				$raindrops_default_col_width = 180 + $adjust;
+			}elseif($sidebar_width == 'yui-t5'){
+				$raindrops_default_col_width = 240 + $adjust;
+			}elseif($sidebar_width == 'yui-t6'){
+				$raindrops_default_col_width = 300 + $adjust;
+			}else{
+				$raindrops_default_col_width = 0;
+			}
+			
+			$horizontal_nav_width = $raindrops_default_col_width + intval($fluid_minimam_width);
+			$horizontal_nav_width = $horizontal_nav_width / 13;
+						
+			if($is_IE){ 
+				$width 					= round($width * 0.9759,1);
+				$horizontal_nav_width 	= round($horizontal_nav_width * 0.9759,1) + 1;		 
+			}else{
+				$width 					= round($width,1);
+				$horizontal_nav_width 	= round($horizontal_nav_width * 0.9759,1); 
+			}
+			
+			
+            $fluid_min_width = '<style type="text/css">'.
+							"\n#container{min-width:".
+							$width.
+							'em;}'.
+							"\n#access{min-width:".
+							$horizontal_nav_width.
+							'em;}</style>';
+            echo $fluid_min_width;
+        }		
+		
+  		function tmn_is_fixed($content,$key){
+			global $is_IE;
+			$add_ie = '';
+			$pw = warehouse("raindrops_page_width");
+			
+            if($pw == 'doc'){
+         		$width		= 750;
+				$width		= $width / 13;
+			}
+			if($pw == 'doc2'){
+                $width 		= 950;
+				$width	    = $width / 13;
+			}
+			
+			$raindrops_main_width = raindrops_main_width();
+			$raindrops_main_width = $raindrops_main_width / 13;
+						
+			if($is_IE){ 
+				$width 					= round($width * 0.9759,1); 
+				$add_ie 				= '';
+				$raindrops_main_width 	= round($raindrops_main_width * 0.9759,1);
+			}else{
+				$width 					= round($width,1); 
+			}
+			
+            $custom_fixed_width = '<style type="text/css">'."
+				\n#".$pw.'{margin:auto;text-align:left;'."\n".
+            				'min-width:'.$width.'em;'.
+							$add_ie.
+							'}'.
+							"\n#container{min-width:".
+							$raindrops_main_width.
+							'em;}</style>';
+            echo $custom_fixed_width;
+        }		
+
+	
+	
+	
     if(!isset($content_width) or empty($content_width)){
         $content_width = raindrops_content_width();
     }
@@ -1146,7 +1267,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
-                                            __("Update Setting","Raindrops"));
+                                            __(" Please click.The setting will be fixed.","Raindrops"));
                     }else{
                         $result .= '</p></div>';
                     }
@@ -1545,12 +1666,15 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function first_only_msg($type=0) {
         if ( $type == 1 ) {
             $query  = 'raindrops_settings';
             $link   = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
+			if (version_compare(PHP_VERSION, '5.0.0', '<')) {	
+			$msg 	= sprintf(__('Sorry Your PHP version is %s Please use PHP version 5 or later.','Raindrops'),PHP_VERSION);
+			}else{		
             $msg    = sprintf(__('Thank you for adopting the %s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.','Raindrops'),get_current_theme() ,$link);
+			}
         }
         return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
     }
@@ -1696,16 +1820,10 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 ?>
 
 <div id="<?php echo $position;?>" class="clearfix">
-<?php if($raindrops_prev_length < $raindrops_max_length ){?>
+
   <span class="nav-previous"><?php previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>'); ?></span>
-<?php }else{?>
-  <span class="nav-previous"><?php previous_post_link('%link','<span class="long-title"><span class="meta-nav">&laquo;</span> %title</span>'); ?></span>
-<?php }?>
-<?php if($raindrops_next_length < $raindrops_max_length ){?>
+
   <div class="nav-next"><?php next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>'); ?></div>
-<?php }else{?>
-  <div class="nav-next"><?php next_post_link('%link','<span class="long-title"> %title <span class="meta-nav">&raquo;</span></span>'); ?></div>
-<?php }?>
 </div>
 <?php }?>
 <?php
@@ -2134,13 +2252,13 @@ echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
 
 }
 
-function yui_class_modify($obandes_inner_class = 'yui-ge'){
+function yui_class_modify($raindrops_inner_class = 'yui-ge'){
     global $yui_inner_layout;
 
     if(isset($yui_inner_layout)){
-        $obandes_inner_class = $yui_inner_layout;
+        $raindrops_inner_class = $yui_inner_layout;
     }
-    return $obandes_inner_class;
+    return $raindrops_inner_class;
 }
 
 function is_2col_raindrops($action = true,$echo = true){
@@ -2160,6 +2278,89 @@ function is_2col_raindrops($action = true,$echo = true){
 
 }
 
+	function raindrops_main_width(){
+	
+        $adjust 				= 16;
+        $default 				= 400;
+		$document_width 		= warehouse('raindrops_page_width');
+		$sidebar_width 			= 'yui-'.warehouse('raindrops_col_width');
+		
+	if($document_width == 'doc'){
+				$w = 750;
+				$adjust = 16;
+				if($sidebar_width == 'yui-t1'){
+					$raindrops_content_width = $w - 160 - $adjust;
+				}elseif($sidebar_width == 'yui-t2'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t3'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}elseif($sidebar_width == 'yui-t4'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t5'){
+					$raindrops_content_width = $w - 240 - $adjust;
+				}elseif($sidebar_width == 'yui-t6'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}else{
+					$raindrops_content_width = $default;
+				}
+			}elseif($document_width == 'doc2'){
+				$w = 950;
+					$adjust = 16;
+				if($sidebar_width == 'yui-t1'){
+					$raindrops_content_width = $w - 160 - $adjust;
+				}elseif($sidebar_width == 'yui-t2'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t3'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}elseif($sidebar_width == 'yui-t4'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t5'){
+					$raindrops_content_width = $w - 240 - $adjust;
+				}elseif($sidebar_width == 'yui-t6'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}else{
+					$raindrops_content_width = $default;
+				}
+			}elseif($document_width == 'doc3'){
+				$w = 750;
+				if($sidebar_width == 'yui-t1'){
+					$raindrops_content_width = $w - 160 - $adjust;
+				}elseif($sidebar_width == 'yui-t2'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t3'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}elseif($sidebar_width == 'yui-t4'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t5'){
+					$raindrops_content_width = $w - 240 - $adjust;
+				}elseif($sidebar_width == 'yui-t6'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}else{
+					$raindrops_content_width = $default;
+				}
+			}elseif($document_width == 'doc4'){
+				$w = 974;
+				$adjust = 16;
+				if($sidebar_width == 'yui-t1'){
+					$raindrops_content_width = $w - 160 - $adjust;
+				}elseif($sidebar_width == 'yui-t2'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t3'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}elseif($sidebar_width == 'yui-t4'){
+					$raindrops_content_width = $w - 180 - $adjust;
+				}elseif($sidebar_width == 'yui-t5'){
+					$raindrops_content_width = $w - 240 - $adjust;
+				}elseif($sidebar_width == 'yui-t6'){
+					$raindrops_content_width = $w - 300 - $adjust;
+				}else{
+					$raindrops_content_width = $default;
+				}
+			}	
+	
+			return $raindrops_content_width;	
+	}
+
     function raindrops_content_width(){
 		global $page_width;
         $adjust 				= 16;
@@ -2172,19 +2373,19 @@ function is_2col_raindrops($action = true,$echo = true){
 			$w = $page_width;
 			$adjust = 16;
 			if($sidebar_width == 'yui-t1'){
-				$obandes_content_width = $w - 160 - $adjust;
+				$raindrops_content_width = $w - 160 - $adjust;
 			}elseif($sidebar_width == 'yui-t2'){
-				$obandes_content_width = $w - 180 - $adjust;
+				$raindrops_content_width = $w - 180 - $adjust;
 			}elseif($sidebar_width == 'yui-t3'){
-				$obandes_content_width = $w - 300 - $adjust;
+				$raindrops_content_width = $w - 300 - $adjust;
 			}elseif($sidebar_width == 'yui-t4'){
-				$obandes_content_width = $w - 180 - $adjust;
+				$raindrops_content_width = $w - 180 - $adjust;
 			}elseif($sidebar_width == 'yui-t5'){
-				$obandes_content_width = $w - 240 - $adjust;
+				$raindrops_content_width = $w - 240 - $adjust;
 			}elseif($sidebar_width == 'yui-t6'){
-				$obandes_content_width = $w - 300 - $adjust;
+				$raindrops_content_width = $w - 300 - $adjust;
 			}else{
-				$obandes_content_width = $default;
+				$raindrops_content_width = $default;
 			}
 			
 			
@@ -2194,95 +2395,95 @@ function is_2col_raindrops($action = true,$echo = true){
 				$w = 750;
 				$adjust = 16;
 				if($sidebar_width == 'yui-t1'){
-					$obandes_content_width = $w - 160 - $adjust;
+					$raindrops_content_width = $w - 160 - $adjust;
 				}elseif($sidebar_width == 'yui-t2'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t3'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}elseif($sidebar_width == 'yui-t4'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t5'){
-					$obandes_content_width = $w - 240 - $adjust;
+					$raindrops_content_width = $w - 240 - $adjust;
 				}elseif($sidebar_width == 'yui-t6'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}else{
-					$obandes_content_width = $default;
+					$raindrops_content_width = $default;
 				}
 			}elseif($document_width == 'doc2'){
 				$w = 950;
 					$adjust = 16;
 				if($sidebar_width == 'yui-t1'){
-					$obandes_content_width = $w - 160 - $adjust;
+					$raindrops_content_width = $w - 160 - $adjust;
 				}elseif($sidebar_width == 'yui-t2'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t3'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}elseif($sidebar_width == 'yui-t4'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t5'){
-					$obandes_content_width = $w - 240 - $adjust;
+					$raindrops_content_width = $w - 240 - $adjust;
 				}elseif($sidebar_width == 'yui-t6'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}else{
-					$obandes_content_width = $default;
+					$raindrops_content_width = $default;
 				}
 			}elseif($document_width == 'doc3'){
 				$w = 750;
 				if($sidebar_width == 'yui-t1'){
-					$obandes_content_width = $w - 160 - $adjust;
+					$raindrops_content_width = $w - 160 - $adjust;
 				}elseif($sidebar_width == 'yui-t2'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t3'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}elseif($sidebar_width == 'yui-t4'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t5'){
-					$obandes_content_width = $w - 240 - $adjust;
+					$raindrops_content_width = $w - 240 - $adjust;
 				}elseif($sidebar_width == 'yui-t6'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}else{
-					$obandes_content_width = $default;
+					$raindrops_content_width = $default;
 				}
 			}elseif($document_width == 'doc4'){
 				$w = 974;
 				$adjust = 16;
 				if($sidebar_width == 'yui-t1'){
-					$obandes_content_width = $w - 160 - $adjust;
+					$raindrops_content_width = $w - 160 - $adjust;
 				}elseif($sidebar_width == 'yui-t2'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t3'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}elseif($sidebar_width == 'yui-t4'){
-					$obandes_content_width = $w - 180 - $adjust;
+					$raindrops_content_width = $w - 180 - $adjust;
 				}elseif($sidebar_width == 'yui-t5'){
-					$obandes_content_width = $w - 240 - $adjust;
+					$raindrops_content_width = $w - 240 - $adjust;
 				}elseif($sidebar_width == 'yui-t6'){
-					$obandes_content_width = $w - 300 - $adjust;
+					$raindrops_content_width = $w - 300 - $adjust;
 				}else{
-					$obandes_content_width = $default;
+					$raindrops_content_width = $default;
 				}
 			}
 		}
 
 		if(warehouse('raindrops_show_right_sidebar') == 'hide'){
-			return $obandes_content_width;
+			return $raindrops_content_width;
 		}else{
 		
 			if($extra_sidebar_width == '25'){
-				return round($obandes_content_width * 0.74);
+				return round($raindrops_content_width * 0.74);
 			}elseif($extra_sidebar_width == '75'){
-				return round($obandes_content_width * 0.24);
+				return round($raindrops_content_width * 0.24);
 			}elseif($extra_sidebar_width == '33'){
-				return round($obandes_content_width * 0.74);
+				return round($raindrops_content_width * 0.74);
 			}elseif($extra_sidebar_width == '66'){
-				return round($obandes_content_width * 0.32);
+				return round($raindrops_content_width * 0.32);
 			}elseif($extra_sidebar_width == '50'){
-				return round($obandes_content_width * 0.49);
+				return round($raindrops_content_width * 0.49);
 			}else{
-				return round($obandes_content_width);
+				return round($raindrops_content_width);
 			}
 		}
-    return $obandes_content_width;
+    return $raindrops_content_width;
     }
 	
 ?>

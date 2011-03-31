@@ -29,11 +29,12 @@
 function raindrops_dark(){
 
 $style =<<<DOC
+
 %gradient%
+
 body{
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 
 legend,
@@ -61,6 +62,8 @@ body,
 #top{
 %c_4%
 }
+input[type="file"],
+input[type="reset"],
 input[type="submit"],
 .fail-search,
 #not-found ,
@@ -91,12 +94,17 @@ ul.nav{
 /* border:1px solid %rgba_border%;*/
 %c_2%
 }
+
+input[type="file"],
+input[type="reset"],
 .social input[type="submit"],
 input[type="submit"]{
 %c3%
 color:#fff;
 }
-
+.h1{
+text-shadow: #000 -1px -1px 0;
+}
 h2 a{
 background:inherit;
 }
@@ -178,6 +186,16 @@ ul.archive,ul.index,
 border-bottom:1px solid %c_border%;
 border-bottom:1px solid %rgba_border%;
 }
+
+.ie6 .datetable td li,
+.ie7 .datetable td li,
+.ie8 .datetable td li{
+border-bottom:none;
+border-bottom:none;
+}
+
+
+
 
 hr{
 border:none;
@@ -262,22 +280,29 @@ li.bypostauthor,
 .entry-content th{
 border:solid 1px %rgba_border%;
 }
+
 .searchform  input[type="submit"],
 .entry-content textarea,
-.entry-content input[type="password"]
+.entry-content input[type="password"],
+.entry-content input[type="text"],
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"],
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"],
 .entry-content select{
-/*border:double 3px %rgba_border%;*/
+%c_3%
 }
+option:nth-child(even){
+%c_4%
 
+}
 .entry-content textarea{
 background: %rgba_border%
 }
 
+input[type="file"],
+input[type="reset"],
 .searchform input[type="submit"],
 input[type="submit"],
 #access{
@@ -287,20 +312,21 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_b
 border-radius:1em 1em 1em 1em;
 -moz-border-radius:1em 1em 1em 1em;
 -webkit-border-radius:1em 1em 1em 1em!important;
-border-top:1px solid rgba(255, 255, 255, 0.3);
+/*border-top:1px solid rgba(255, 255, 255, 0.3);*/
 -moz-box-shadow: 1px 1px 3px #000;
 -webkit-box-shadow: 1px 1px 3px #000;
 }
-
+#access .children li,
 #access a {
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 color:%custom_color%;
-}
 
-#access li:active > a,
-#access ul ul :active > a {
+}
+#access .children li:active,
+#access li:active,
+#access ul ul :active {
 top:0;
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
 background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
@@ -333,6 +359,11 @@ border:1px solid %custom_dark_bg%;
 .datetable td li:nth-last-child(1){
 border-bottom:none;
 }
+.reply,
+.comment-body,
+.comment-body *,
+.comment-author,
+.comment-author *,
 h1#site-title,
 #ft a,
 .category32, 
@@ -348,7 +379,7 @@ cite a:hover,
 #hd h1 a:active,
 #hd h1 a:visited,
 #hd h1 a:hover,
-ol.commentlist li :hover,
+/*ol.commentlist li :hover,*/
 div.comment-body blockquote,
 #site-description,
 #site-title,
@@ -379,7 +410,7 @@ $style =<<<DOC
 
 body {
 
-margin:0!important;padding:0;
+	margin:0!important;padding:0;
 	background-repeat:repeat-x;
 }
 #yui-main{
@@ -393,7 +424,8 @@ margin:0!important;padding:0;
     box-shadow: 0 0 15px rgba(51,51,51,0.6);
     -webkit-box-shadow: 0 0 15px rgba(51,51,51,0.6);
     -moz-box-shadow: 0 0 15px rgba(51,51,51,0.6);
-	border:1px solid #fff;
+	border:1px solid %c_border%;
+    border-bottom:1px solid %rgba_border%;
 	border-top:none;
 }
 #ft {
@@ -430,6 +462,19 @@ border-bottom:solid 2px %rgba_border%;
 
 
 }
+textarea,
+input[type="password"],
+input[type="text"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"]{
+	%c4%
+}
+input[type="checkbox"],
+input[type="radio"],
+select{
+	%cc4%
+}
 .social textarea#comment,
 .social input[type="text"] {
     outline:none;
@@ -457,32 +502,27 @@ border-bottom:solid 2px %rgba_border%;
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-
-border:double 3px %rgba_border%;
-background: %c4%
+	border:solid 1px %rgba_border%;
+	background: %c4%
 }
 .entry-content input[type="submit"],
 .entry-content input[type="radio"]{
-background: %c3%
-border:double 3px %rgba_border%;
+	background: %c3%
+	border:solid 1px %rgba_border%;
 }
 .entry-content select{
-background: %c4%
-border:double 3px %rgba_border%;
+	background: %c4%
+	border:solid 1px %rgba_border%;
 }
 
 .entry-content blockquote{
-
     %c4%
     border-left:solid 3px %c_border%;
-
-
 }
 cite{
     %c4%
 }
 cite a:link,cite a:active,cite a:visited,cite a:hover{
-
     %c4%
     background:none!important;
 }
@@ -507,6 +547,12 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
 .entry-content tr:nth-child(even) {
     background-color:rgba(255,255,255,0.3);
 }
+
+hr{
+border-top:1px dashed %c_border%;
+border-top:1px dashed %rgba_border%;
+}
+
 /*--------------------------------*/
 
 #access{
@@ -522,18 +568,14 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 -webkit-box-shadow: 1px 1px 3px #000;
 }
 #access a {
-    /*%c3%*/
-
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%
 }
 #access ul ul a {
-
     %c3%
     border:1px solid %rgba_border%;
-
 }
 #access li:active > a,
 #access ul ul :active > a {
@@ -550,7 +592,6 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
     border:1px solid %rgba_border%;
-
     %c3%
 }
 * html #access ul li.current_page_item a,
@@ -559,7 +600,6 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
     border:1px solid %rgba_border%;
-
     %c2%
 }
 table,
@@ -568,10 +608,8 @@ table td{
     border:1px solid %rgba_border%;
 }
 
-td.month-date,td.month-name,td.time
-{
+td.month-date,td.month-name,td.time{
     %c3%
-	
     border:1px solid %rgba_border%;
 
 }
@@ -811,10 +849,6 @@ ul.index{
     border-bottom:1px solid %c_border%;
 }
 .social{
-    border-top:3px double %c_border%;border-bottom:3px double %c_border%;
-    border-bottom:3px double %c_border%;
-    border-bottom:3px double %rgba_border%;
-    border-top:3px double %rgba_border%;
 
 }
 
@@ -890,8 +924,25 @@ fieldset {
 legend{
     %c5%
 }
+hr{
+border-top:1px dashed %c_border%;
+border-top:1px dashed %rgba_border%;
+}
 
 
+textarea,
+input[type="password"],
+input[type="text"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"]{
+	%c4%
+}
+input[type="checkbox"],
+input[type="radio"],
+select{
+	%cc4%
+}
 .social textarea#comment,
 .social input[type="text"]{
     outline:none;
@@ -916,11 +967,6 @@ legend{
     background: %c4%
 }
 
-.entry-content td{
-    %c4%
-	border:solid 1px %c_border%;
-    border:solid 1px %rgba_border%;
-}
 .entry-content th{
     %c3%
 	border:solid 1px %c_border%;
@@ -941,10 +987,12 @@ legend{
     background: %c4%
     border:double 3px %rgba_border%;
 }
+
 .entry-content textarea{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
+
 /*--------------------------------*/
 #access{
 
@@ -961,20 +1009,20 @@ legend{
 
 }
 #access a {
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%))!important;
+    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%)!important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
 #access ul ul a {
     %c3%
 }
-
-#access li:active > a,
-#access ul ul :active > a {
+#access .children li:active >a,
+#access li:active >a ,
+#access ul ul :active >a{
     top:0;
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
-    background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
+    background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%)!important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
     color:%custom_color%;
 }
@@ -995,8 +1043,19 @@ address{
     margin:10px auto;
 }
 
-h1,h2,h3,h4,h5,h6,#bd a,.postmetadata{background:none!important;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#bd a,
+.postmetadata{
+background:none!important;
+}
+
 .wp-caption {
+   border:solid 1px #999;
    border:solid 1px %rgba_border%;
    -moz-border-radius: 3px;
    -khtml-border-radius: 3px;
@@ -1008,7 +1067,10 @@ h1,h2,h3,h4,h5,h6,#bd a,.postmetadata{background:none!important;}
 }
 li.byuser,
 li.bypostauthor {
-%c3%
+	%c_3%
+	border:solid 1px %c_border%;
+	border:solid 1px %rgba_border%;
+
 }
 cite.fn{
 	background:none;
@@ -1026,14 +1088,13 @@ cite.fn{
 %c4%
 border:3px double %custom_dark_bg%;
 }
-
 DOC;
 
 return $style;
 }
 ?>
 <?php
-
+/////////////////////////////////////////////////
 /**
  * minimal
  *
@@ -1113,6 +1174,15 @@ cite.fn{
 .fail-search,
 #not-found {
 border:3px double  %rgba_border%;
+}
+th{
+%c4%
+border-bottom:solid 1px %rgba_border%;
+}
+td{
+
+border-bottom:solid 1px %rgba_border%;
+
 }
 DOC;
 

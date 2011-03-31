@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.316
+Version: 0.317
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,18 +21,23 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
-a{text-decoration:none;
-}
-.hentry a{
+.hfeed a{
 background:none!important;
+text-decoration:none;
+
 }
 a:active {
 position:relative;
 top:1px;
 }
-
-a:hover{text-decoration:underline}
-
+a:hover{
+text-decoration:underline!important;
+}
+.nav-next a:hover{
+/* for ie and webkit*/
+text-decoration:none;
+border-bottom:1px solid;
+}
 /**
  * css3
  *
@@ -218,6 +223,14 @@ p {
 	line-height:1.5;
 	margin-bottom:1em;
 }
+input[type="checkbox"],
+input[type="radio"],
+select{
+	margin:0 3px;
+}
+input[type="reset"],
+input[type="file"],
+input[type="reset"],
 input[type="submit"],
 submit{
 	 border-radius:1em;
@@ -230,20 +243,31 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 	padding:0 3px;
 }
 .entry-content blockquote {
+	clear:both;
 	margin:1em 2.5em;
 	padding:1em;
 }
+.entry-content blockquote blockquote{
+	clear:both;
+	margin:1em 0 1em 1em;
+	padding:.5em;
+	overflow:auto;
+}
+
 .entry-content cite {
-	margin:0.2em 2.5em;
+	margin:0.2em .5em;
 	padding:0 1em;
 	font-style:italic;
 }
 .entry-content table {
 	width:100%;
 }
+.entry-content table caption{
+	font-weight:bold;
+	margin:0 0 .5em 0;
+}
 .entry-content  div.wp-caption{
 	max-width:94%!important;
-	
 	}
 .comment-body blockquote blockquote {
 	margin-left:0.5em;
@@ -532,7 +556,7 @@ ul.archive ul li {
 	padding:.5em 0;
 }
 #doc2{
-	width:950px;
+	/*width:950px;*/
 }
 #bd {
 	min-height:480px;
@@ -1160,7 +1184,6 @@ text-align:center;
 	width:99%;
 	margin-left:0.5%;
 	margin-left:0\0/;
-    border-bottom:1px solid #000\0/;		
     width:100%\0/;/*ie8*/
 	
 	margin-top:5px;
@@ -1168,7 +1191,6 @@ text-align:center;
 }
 * html #access,/*ie6*/
 *+html #access{/*1e7*/
-    border-bottom:1px solid #000;		
 	width:100%;
 	margin-top:0;
 }
@@ -1209,6 +1231,7 @@ div.menu li a{
 	display:block;
 	
 }
+
 #access ul ul {
 	box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
 	-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
@@ -1220,7 +1243,7 @@ div.menu li a{
 	left: 0;
 	float: left;
 	width: 15em;
-	z-index: 99999;
+	z-index: 99;
 	text-align:center;
 }
 #access ul ul li {
@@ -1287,6 +1310,7 @@ div.menu li {
 #access{
 	/*display: none !important;*/
 }
+
 /* Text meant only for screen readers */
 .screen-reader-text {
 	position: absolute;
@@ -1562,7 +1586,7 @@ background:#aaf;
 }
 /* nest*/
 br.clear{
-clear:both;
+clear:both!important;
 }
 #month_list,#year_list,#date_list{
 width:100%;
@@ -1647,7 +1671,7 @@ li.comment {
 	background:none!important;
 }
 li.comment *:hover {
-	none;
+	/*none;*/
 }
 .children{
 	margin-left:0;
@@ -1796,6 +1820,7 @@ background-repeat:
 no-repeat;
 background-position:top center;
 }
+#comments .form-allowed-tags:before,
 #comments .nopassword:before,
 #comments .nocomments:before,
 .comment-notes:before,
@@ -1839,4 +1864,16 @@ margin-right:3px;
 content:url("images/next.png");
 margin-left:3px;
 vertical-align:top;	
+}
+td[class^="horizon"],
+div[class^="horizon"]{
+text-align:left;
+border:none;
+
+}
+.ie6 .gallery-size-thumbnail .gallery-icon img,
+.ie7 .gallery-size-thumbnail .gallery-icon img,
+.ie8 .gallery-size-thumbnail .gallery-icon img{
+width:100%;
+height:100%;
 }

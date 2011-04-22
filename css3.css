@@ -1,0 +1,90 @@
+/* CSS Document */
+/**
+ * css3
+ *
+ *
+ *
+ *
+ */
+strong{
+ 	text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
+}
+.corner{
+    border-radius:5px;
+    -moz-border-radius:5px;
+	padding:5px;
+}
+.hentry table tr:nth-child(odd){
+	opacity: 0.7;
+	-moz-opacity: 0.7; /* Firefox */
+	filter: alpha(opacity=0.7); /* IE6/7 */
+	-ms-filter: "alpha(opacity=0.7)"; /* IE8 */
+}
+.hentry table tr:nth-child(even){
+	opacity: 0.9;
+	-moz-opacity: 0.9; /* Firefox */
+	filter: alpha(opacity=0.9); /* IE6/7 */
+	-ms-filter: "alpha(opacity=0.9)"; /* IE8 */
+}
+
+input[type="reset"],
+input[type="file"],
+input[type="reset"],
+input[type="submit"],
+submit{
+	 border-radius:1em;
+    -moz-border-radius:1em;
+	-webkit-border-radius:1em;
+	padding:1em;
+	font-size:86%;
+}
+.nav-next span{
+	display:-moz-inline-box;
+	display:inline-block;
+	text-align:left;
+}
+.lsidebar .children li:nth-last-child(1),
+.rsidebar .children li:nth-last-child(1){
+	border:none;
+}
+.lsidebar li.page_item a:hover,
+.lsidebar li.category_report a:hover,
+.lsidebar .widget ul li a:hover {
+	-moz-opacity:0.75;
+	filter:alpha(opacity=75);
+	opacity:0.75;
+}
+#access ul ul {
+	box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+.wp-caption {
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+.shadow{
+	box-shadow: 7px 7px 8px #cccccc;
+	-webkit-box-shadow: 7px 7px 8px #cccccc;
+	-moz-box-shadow: 7px 7px 8px #cccccc;
+	/*filter: progid:DXImageTransform.Microsoft.dropShadow(color=#cccccc, offX=7, offY=7, positive=true);zoom:1;*/
+}
+#access{
+	-webkit-text-size-adjust: 120%;
+}
+#header-image p{
+	position:relative;
+	top:35%;
+	text-align:center;
+	font-size:200%;
+	text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+	/*filter:progid:DXImageTransform.Microsoft.Glow(Color=white,Strength=2);*/
+}
+
+.datetable td li:nth-last-child(1){
+border-bottom:none;
+}
+

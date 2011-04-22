@@ -70,7 +70,7 @@
     if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
 		$raindrops_pge_header = '';
         $style = ' style="display:none;"';
-    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
+    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor()) and 'bad' !== get_header_textcolor()){
         $style = ' style="color:#' . get_header_textcolor() . ';"';
 		$raindrops_pge_header = ' style="display:none;"';
     }else{
@@ -129,7 +129,7 @@
  */
 if($tmn_show_header_image == 'yes'){
 ?>
-<div id="header-image" style="background-image:url(<?php header_image(); ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
+<div id="header-image" style="background-image:url(<?php header_image(); ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:#<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
 <?php 
 } //endif $tmn_show_header_image == 'yes'
 

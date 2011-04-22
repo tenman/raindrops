@@ -11,7 +11,7 @@
 <?php
 /** Style Settings INDEX
  *
- * default
+ * w3standard
  * dark
  * minimal
  * light
@@ -30,13 +30,9 @@ function raindrops_dark(){
 
 $style =<<<DOC
 
-%gradient%
-
 body{
-background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+%c1%
 }
-
 legend,
 a:link,a:active,a:visited,a:hover,
 .lsidebar,
@@ -49,6 +45,12 @@ a:link,a:active,a:visited,a:hover,
 .entry ul * {
 %c_5%
 }
+.lsidebar,
+#sidebar,
+.rsidebar{
+%c_4%
+}
+
 
 div[id^="comment-"],
 .entry-content td,
@@ -56,7 +58,6 @@ cite a:link,cite a:active,cite a:visited,cite a:hover,
 cite,
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited,
 ul.nav li a:hover,ul.nav li a:active,
-body,
 .entry-meta,
 .home .sticky, 
 #top{
@@ -86,11 +87,11 @@ ul.nav{
 %c_3%
 }
 
-* html #access ul li.current_page_item a,
-* html #access ul li.current-menu-ancestor a,
-* html #access ul li.current-menu-item a,
-* html #access ul li.current-menu-parent a,
-* html #access ul li a:hover {
+.ie6 #access ul li.current_page_item a,
+.ie6 #access ul li.current-menu-ancestor a,
+.ie6 #access ul li.current-menu-item a,
+.ie6 #access ul li.current-menu-parent a,
+.ie6 #access ul li a:hover {
 /* border:1px solid %rgba_border%;*/
 %c_2%
 }
@@ -99,11 +100,7 @@ input[type="file"],
 input[type="reset"],
 .social input[type="submit"],
 input[type="submit"]{
-%c3%
-color:#fff;
-}
-.h1{
-text-shadow: #000 -1px -1px 0;
+%c_3%
 }
 h2 a{
 background:inherit;
@@ -124,25 +121,22 @@ background-color:%custom_light_bg%!important;
 .entry-meta{
 border-top:solid 2px %c_border%;
 border-bottom:solid 2px %c_border%;
-border-top:solid 2px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
 }
 .home .sticky{
 border-top:solid 6px %c_border%;
-border-top:solid 6px %rgba_border%;
 }
 .attachment .caption dt{
 border-bottom:double 3px %c_border%;
-border-bottom:3px double %rgba_border%;
 
 }
 
 #yui-main{
 color:%tmn_header_color%;
 }
+/*
 ol.commentlist :hover{
 background:url(%images_path%latestbck.gif) repeat-x;
-}
+}*/
 ol.tblist li{
 background:transparent url(%images_path%c.gif) 0 2px no-repeat;
 }
@@ -158,12 +152,7 @@ border:1px solid %c_border%!important;
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 %h2_dark_background%
 %h_position_rsidebar_h2%
--webkit-border-top-right-radius: 1em;
--moz-border-radius-topright: 1em;
-border-top-right-radius: 1em;
--webkit-border-top-left-radius: 1em;
--moz-border-radius-topleft: 1em;
-border-top-left-radius: 1em;
+
 }
 .datetable td li,
 .rsidebar ul li ul li,
@@ -184,7 +173,6 @@ ul.archive,ul.index,
 .sitemap.new li,
 #items li{
 border-bottom:1px solid %c_border%;
-border-bottom:1px solid %rgba_border%;
 }
 
 .ie6 .datetable td li,
@@ -200,7 +188,6 @@ border-bottom:none;
 hr{
 border:none;
 border-top:1px solid %c_border%;
-border-top:1px solid %rgba_border%;
 }
 
 ul.archive li,
@@ -236,7 +223,6 @@ fieldset,
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
 border:1px solid %c_border%;
-border:1px solid %rgba_border%;
 }
 
 .entry-content blockquote {
@@ -244,29 +230,7 @@ border-left:solid 6px %c_border%;
 }
 div.social{
 }
-.searchform input[type="text"],
-.social textarea#comment,
-.hentry input[type="password"],
-.social input[type="text"] {
-outline:none;
-transition: all 0.25s ease-in-out;
--webkit-transition: all 0.25s ease-in-out;
--moz-transition: all 0.25s ease-in-out;
-border-radius:3px;
--webkit-border-radius:3px;
--moz-border-radius:3px;
-border:1px solid rgba(203,203,203, 0.5);
-}
 
-.searchform input:focus,
-.searchform input:focus,
-.social textarea:focus,
-.hentry input:focus,
-.social input:focus{
-box-shadow: 0 0 5px %rgba_border%;
--webkit-box-shadow: 0 0 5px %rgba_border%;
--moz-box-shadow: 0 0 5px %rgba_border%;
-}
 
 li.byuser,
 li.bypostauthor,
@@ -278,7 +242,6 @@ li.bypostauthor,
 .wp-caption,
 .entry-content td,
 .entry-content th{
-border:solid 1px %rgba_border%;
 }
 
 .searchform  input[type="submit"],
@@ -293,14 +256,169 @@ border:solid 1px %rgba_border%;
 .entry-content select{
 %c_3%
 }
-option:nth-child(even){
-%c_4%
 
+
+
+#access .children li ,
+#access .children a {
+background:%custom_light_bg%;
+color:%custom_color%;
+z-index:999;
+}
+
+
+.fail-search,
+#not-found,
+li.byuser,
+li.bypostauthor{
+border:1px solid;
+}
+.children:hover,
+.children{
+
+}
+.reply,
+
+h1#site-title,
+#ft a,
+.category32, 
+.archive li a, 
+.page .hentry .entry-title a,
+.archive.category h2 a,
+cite.fn,
+cite a:link,
+cite a:active,
+cite a:visited,
+cite a:hover,
+#hd h1 a:link,
+#hd h1 a:active,
+#hd h1 a:visited,
+#hd h1 a:hover,
+/*ol.commentlist li :hover,*/
+div.comment-body blockquote,
+#site-description,
+#site-title,
+#site-title span a,
+.home .sticky a,
+.home .entry-meta a{
+background:none!important;
+}
+DOC;
+
+$css3 =<<<CSS3
+
+%gradient%
+
+.h1{
+text-shadow: #000 -1px -1px 0;
+}
+
+body{
+background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+}
+hr{
+border:none;
+border-top:1px solid %rgba_border%;
+}
+
+.home .sticky,
+.entry-meta{
+border-top:solid 2px %rgba_border%;
+border-bottom:solid 2px %rgba_border%;
+}
+.home .sticky{
+border-top:solid 6px %rgba_border%;
+}
+.wp-caption,
+.entry-content td,
+.entry-content th{
+border:solid 1px %rgba_border%;
+}
+
+.attachment .caption dt{
+border-bottom:3px double %rgba_border%;
+}
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+-webkit-border-top-right-radius: 1em;
+-moz-border-radius-topright: 1em;
+border-top-right-radius: 1em;
+-webkit-border-top-left-radius: 1em;
+-moz-border-radius-topleft: 1em;
+border-top-left-radius: 1em;
+}
+.datetable td li,
+.rsidebar ul li ul li,
+.lsidebar ul li ul li,
+.blog .entry-utility li,
+.mycomment,
+.blog .entry-utility li,
+dl.author dd,
+dl.author dt,
+dl.my_tags dd,
+dl.my_tags dt,
+ul.category li,
+ul.sitemap ul li,
+ul.archive ul li,
+ul.all_entry h2,
+.attachment .caption dd,
+ul.archive,ul.index,
+.sitemap.new li,
+#items li{
+border-bottom:1px solid %rgba_border%;
+}
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td,
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td,
+fieldset,
+.itiran,
+#month_list,
+#month_list td,
+#year_list td,
+#calendar_wrap td,
+#date_list td,
+.searchform input[type="text"],
+.searchform input[type="submit"],
+.hentry input[type="password"],
+.social textarea#comment,
+.social input[type="text"],
+.social input[type="submit"],
+.entry-content blockquote,
+td.month-date,td.month-name,td.time{
+border:1px solid %rgba_border%;
+}
+.searchform input:focus,
+.searchform input:focus,
+.social textarea:focus,
+.hentry input:focus,
+.social input:focus{
+box-shadow: 0 0 5px %rgba_border%;
+-webkit-box-shadow: 0 0 5px %rgba_border%;
+-moz-box-shadow: 0 0 5px %rgba_border%;
+}
+.searchform input[type="text"],
+.social textarea#comment,
+.hentry input[type="password"],
+.social input[type="text"] {
+outline:none;
+transition: all 0.25s ease-in-out;
+-webkit-transition: all 0.25s ease-in-out;
+-moz-transition: all 0.25s ease-in-out;
+border-radius:3px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border:1px solid rgba(203,203,203, 0.5);
 }
 .entry-content textarea{
 background: %rgba_border%
 }
-
 input[type="file"],
 input[type="reset"],
 .searchform input[type="submit"],
@@ -333,9 +451,6 @@ background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
 color:%custom_color%;
 }
-
-
-
 .wp-caption {
 -moz-border-radius: 3px;
 -khtml-border-radius: 3px;
@@ -345,68 +460,28 @@ background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
+.entry-content blockquote {
+border-left:solid 6px %rgba_border%;
+}
 
-.fail-search,
-#not-found,
-li.byuser,
-li.bypostauthor{
-border:1px solid %custom_dark_bg%;
-}
-.children:hover,
-.children{
 
-}
-.datetable td li:nth-last-child(1){
-border-bottom:none;
-}
-.reply,
-.comment-body,
-.comment-body *,
-.comment-author,
-.comment-author *,
-h1#site-title,
-#ft a,
-.category32, 
-.archive li a, 
-.page .hentry .entry-title a,
-.archive.category h2 a,
-cite.fn,
-cite a:link,
-cite a:active,
-cite a:visited,
-cite a:hover,
-#hd h1 a:link,
-#hd h1 a:active,
-#hd h1 a:visited,
-#hd h1 a:hover,
-/*ol.commentlist li :hover,*/
-div.comment-body blockquote,
-#site-description,
-#site-title,
-#site-title span a,
-.home .sticky a,
-.home .entry-meta a{
-background:none!important;
-}
-DOC;
-
-return $style;
+CSS3;
+return $style.$css3;
 }
 ?>
 <?php
 
 /**
- * default
+ * w3standard
  *
  *
  *
  *
  */
 
-function raindrops_default(){
+function raindrops_w3standard(){
 
 $style =<<<DOC
-%gradient%
 
 body {
 
@@ -421,12 +496,6 @@ body {
 }
 .hfeed{
     background:#fff;
-    box-shadow: 0 0 15px rgba(51,51,51,0.6);
-    -webkit-box-shadow: 0 0 15px rgba(51,51,51,0.6);
-    -moz-box-shadow: 0 0 15px rgba(51,51,51,0.6);
-	border:1px solid %c_border%;
-    border-bottom:1px solid %rgba_border%;
-	border-top:none;
 }
 #ft {
 	background:url(%images_path%%tmn_footer_image%) repeat-x;
@@ -436,30 +505,25 @@ body {
 .footer-widget h2,
 .rsidebar h2,
 .lsidebar h2 {
-%h2_default_background%
+/*%h2_w3standard_background%*/
 %h_position_rsidebar_h2%
 }
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
-    border-bottom:1px solid %c_border%;
-    border-bottom:1px solid %rgba_border%;
+list-style-type:square;
+list-style-position:inside;
 }
 
 .home .sticky {
-background: %c4%
+%c5%
 border-top:solid 6px %c_border%;
 border-bottom:solid 2px %c_border%;
-border-top:solid 6px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
 
 }
 .entry-meta{
-background: %c4%
+%c4%
 border-top:solid 2px %c_border%;
 border-bottom:solid 2px %c_border%;
-border-top:solid 2px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
-
 
 }
 textarea,
@@ -473,51 +537,41 @@ input[type="file"]{
 input[type="checkbox"],
 input[type="radio"],
 select{
-	%cc4%
+	%c4%
 }
 .social textarea#comment,
 .social input[type="text"] {
     outline:none;
-    transition: all 0.25s ease-in-out;
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    border-radius:3px;
-    -webkit-border-radius:3px;
-    -moz-border-radius:3px;
-    border:1px solid %rgba_border%;
-    background: %c3%
+    %c3%
 
 }
 
 .social textarea#comment:focus,
 .social input:focus{
-    box-shadow: 0 0 5px %rgba_border%;
-    -webkit-box-shadow: 0 0 5px %rgba_border%;
-    -moz-box-shadow: 0 0 5px %rgba_border%;
-  /*  border:1px solid %rgba_border%;*/
-    background: %c4%
+    %c4%
+
+}
+.entry-content ul li{
+	list-style-type:square;
 
 }
 
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-	border:solid 1px %rgba_border%;
-	background: %c4%
+	%c4%
 }
 .entry-content input[type="submit"],
 .entry-content input[type="radio"]{
-	background: %c3%
-	border:solid 1px %rgba_border%;
+	%c3%
 }
 .entry-content select{
-	background: %c4%
-	border:solid 1px %rgba_border%;
+	%c4%
 }
 
 .entry-content blockquote{
     %c4%
-    border-left:solid 3px %c_border%;
+    border-left:solid 6px %c_border%;
 }
 cite{
     %c4%
@@ -528,7 +582,6 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
 }
 .entry-content fieldset {
     border:solid 1px %c_border%;
-    border:1px solid %rgba_border%;
 }
 .entry-content legend{
     %c5%
@@ -537,53 +590,30 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
 .entry-content td{
     %c4%
     border:solid 1px %c_border%;
-    border:solid 1px %rgba_border%
 }
 .entry-content th{
     %c3%
     border:solid 1px %c_border%;
-    border:solid 1px %rgba_border%;
-}
-.entry-content tr:nth-child(even) {
-    background-color:rgba(255,255,255,0.3);
 }
 
 hr{
 border-top:1px dashed %c_border%;
-border-top:1px dashed %rgba_border%;
 }
 
 /*--------------------------------*/
 
 #access{
     /*%c3%*/
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-    border-radius:1em 1em 1em 1em;
--moz-border-radius:1em 1em 1em 1em;
--webkit-border-radius:1em 1em 1em 1em!important;
-border-top:1px solid rgba(255, 255, 255, 0.3);
--moz-box-shadow: 1px 1px 3px #000;
--webkit-box-shadow: 1px 1px 3px #000;
 }
 #access a {
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-    color:%custom_color%
 }
 #access ul ul a {
     %c3%
-    border:1px solid %rgba_border%;
 }
 #access li:active > a,
 #access ul ul :active > a {
     top:0;
     %c2%
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
-    background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
     color:%custom_color%
 }
 
@@ -591,45 +621,38 @@ border-top:1px solid rgba(255, 255, 255, 0.3);
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-    border:1px solid %rgba_border%;
     %c3%
 }
-* html #access ul li.current_page_item a,
-* html #access ul li.current-menu-ancestor a,
-* html #access ul li.current-menu-item a,
-* html #access ul li.current-menu-parent a,
-* html #access ul li a:hover {
-    border:1px solid %rgba_border%;
+.ie6 #access ul li.current_page_item a,
+.ie6 #access ul li.current-menu-ancestor a,
+.ie6 #access ul li.current-menu-item a,
+.ie6 #access ul li.current-menu-parent a,
+.ie6 #access ul li a:hover {
     %c2%
 }
+
 table,
-table td{
-    border:1px solid %c_border%;
-    border:1px solid %rgba_border%;
+table td,
+#access > li{
+    border:1px solid #ccc;
+
+}
+tfoot td{
+	border:none;
+}
+.lsidebar  li,
+.rsidebar li{
+	border:none!important;
 }
 
 td.month-date,td.month-name,td.time{
-    %c3%
-    border:1px solid %rgba_border%;
+    %c4%
 
 }
 .datetable td li{
-	border-bottom:solid 1px %rgba_border%;
-}
-.datetable td li:nth-last-child(1){
-	border-bottom:none;
-
 }
 address{margin:10px auto;}
 .wp-caption {
-   border:solid 1px %rgba_border%;
-   -moz-border-radius: 3px;
-   -khtml-border-radius: 3px;
-   -webkit-border-radius: 3px;
-   border-radius: 3px;
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 
 li.byuser,
@@ -641,16 +664,11 @@ cite.fn{
 	background:none;
 }
 .datetable td li{
-	border-bottom:solid 1px %rgba_border%;
-}
-.datetable td li:nth-last-child(1){
-	border-bottom:none;
-
 }
 .fail-search,
 #not-found {
 %c3%
-border:3px double %custom_dark_bg%;
+border:3px double;
 }
 DOC;
 return $style;
@@ -671,43 +689,29 @@ function raindrops_light(){
 
 $style =<<<DOC
 
-%gradient%
 
 body{
     margin:0!important;
     %c4%
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 #top{
-    %c4%
+    %c5%
 }
 
 
 .hfeed{
-    /*%base_gradient%*/
     %c5%
-    box-shadow: 0 0 5px %rgba_border%;
-    -webkit-box-shadow: 0 0 5px %rgba_border%;
-    -moz-box-shadow: 0 0 5px %rgba_border%;
-
 }
 
 h2,h3{
     %c5%
 }
 .home .sticky {
-    background: %c4%
-    border-top:solid 6px %rgba_border%;
-    border-bottom:solid 2px %rgba_border%;
-
+    %c4%
 }
 
 .entry-meta{
-    background: %c4%
-    border-top:solid 2px %rgba_border%;
-    border-bottom:solid 2px %rgba_border%;
+    %c4%
 }
 
 .home .sticky a{
@@ -731,8 +735,9 @@ h2,h3{
 }
 
 #hd{
-   %c4%
-    background-image:url(%images_path%%tmn_header_image%);
+   color:#000;
+   
+    background:#fff url(%images_path%%tmn_header_image%);
 
 }
 #hd h1,.h1,#site-title{
@@ -759,13 +764,10 @@ ul.nav{
     %c3%
 }
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited{
-    %c_%4
+    %c4%
 }
 ul.nav li a:hover,ul.nav li a:active{
     %c4%
-}
-#sidebar{
-    border-color:%rgba_border%;
 }
 
 .rsidebar{
@@ -774,9 +776,9 @@ ul.nav li a:hover,ul.nav li a:active{
 .postmetadata{
     %c5%
 }
-
+/*
 ol.commentlist :hover{background:url(%images_path%latestbck.gif) repeat-x;}
-ol.commentlist li :hover{background:none;}
+ol.commentlist li :hover{background:none;}*/
 ol.tblist li{background:transparent url(%images_path%c.gif) 0 2px no-repeat;}
 
 #ft{
@@ -791,13 +793,6 @@ ol.tblist li{background:transparent url(%images_path%c.gif) 0 2px no-repeat;}
     %c3%
     %h2_light_background%;
     %h_position_rsidebar_h2%
-	
-	-webkit-border-top-left-radius: 1em;
-	-moz-border-radius-topleft: 1em;
-	border-top-left-radius: 1em;
-	-webkit-border-bottom-right-radius: 1em;
-	-moz-border-radius-bottomright: 1em;
-	border-bottom-right-radius: 1em;
 }
 
 a:link,a:active,a:visited,a:hover{
@@ -814,7 +809,7 @@ a:link,a:active,a:visited,a:hover{
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
     border-bottom:1px solid %c_border%;
-    border-bottom:1px solid %rgba_border%;
+   
 }
 .lsidebar h2.widgettitle,
 .rsidebar h2.widgettitle{
@@ -825,8 +820,6 @@ dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt{
     border-bottom:1px solid %c_border%;
-	border-bottom:1px solid %rgba_border%;
-
 }
 
 #items li{
@@ -842,7 +835,6 @@ ul.archive,
 ul.index{
     margin:2em 0;
     border-bottom:1px solid %c_border%;
-    border-bottom:1px solid %rgba_border%;
 
 }
 .sitemap.new li{
@@ -857,7 +849,6 @@ ul.all_entry h2{
 }
 ul.category li{
     border-bottom:1px solid %c_border%;
-    border-bottom:1px solid %rgba_border%;
 
 }
 ul.sitemap ul li,
@@ -881,14 +872,11 @@ ul.index li{
 table,
 table td{
     border:1px solid %c_border%;
-    border:1px solid %rgba_border%;
 }
 
 td.month-date,td.month-name,td.time{
    %c_3%
     border-bottom:1px solid %c_border%;
-    border:1px solid %rgba_border%;
-
 }
 
 td.month-date,td.month-name,td.time{
@@ -918,15 +906,11 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
     %c4%
     background:none!important;
 }
-fieldset {
-    border:1px solid %rgba_border%;
-}
 legend{
     %c5%
 }
 hr{
 border-top:1px dashed %c_border%;
-border-top:1px dashed %rgba_border%;
 }
 
 
@@ -943,6 +927,176 @@ input[type="radio"],
 select{
 	%cc4%
 }
+
+.social textarea#comment:focus,
+.social input[type="text"]:focus{
+
+    border:1px solid %c_border%;
+}
+.social input[type="submit"] {
+    border:double 3px %c_border%;
+    %c4%
+}
+
+.entry-content th{
+    %c3%
+	border:solid 1px %c_border%;
+}
+.entry-content input[type="submit"],
+.entry-content input[type="reset"],
+.entry-content input[type="file"]{
+    border:double 3px %c_border%;
+    %c4%
+}
+.entry-content input[type="checkbox"],
+.entry-content input[type="radio"]{
+    %c4%
+    border:double 3px %c_border%;
+}
+.entry-content select{
+    %c4%
+    border:double 3px %c_border%;
+}
+
+.entry-content textarea{
+    border:double 3px %c_border%;
+}
+
+/*--------------------------------*/
+#access{
+
+
+
+
+}
+#access a {
+}
+#access ul ul a {
+    %c3%
+}
+#access .children li:active >a,
+#access li:active >a ,
+#access ul ul :active >a{
+    top:0;
+}
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a {
+    %c3%
+}
+.ie6 #access ul li.current_page_item a,
+.ie6 #access ul li.current-menu-ancestor a,
+.ie6 #access ul li.current-menu-item a,
+.ie6 #access ul li.current-menu-parent a,
+.ie6 #access ul li a:hover {
+    %c2%
+}
+address{
+    margin:10px auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#bd a,
+.postmetadata{
+background:none!important;
+}
+
+.wp-caption {
+   border:solid 1px #999;
+}
+li.byuser,
+li.bypostauthor {
+	%c_3%
+	border:solid 1px %c_border%;
+}
+cite.fn{
+	background:none;
+}
+
+.datetable td li{
+}
+.fail-search,
+#not-found {
+%c4%
+border:3px double %c_border%;
+}
+DOC;
+
+
+$css3=<<<CSS3
+
+%gradient%
+
+body{
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+}
+
+.hfeed{
+    box-shadow: 0 0 5px %rgba_border%;
+    -webkit-box-shadow: 0 0 5px %rgba_border%;
+    -moz-box-shadow: 0 0 5px %rgba_border%;
+
+}
+
+.home .sticky {
+    border-top:solid 6px %rgba_border%;
+    border-bottom:solid 2px %rgba_border%;
+
+}
+
+.entry-meta{
+
+    border-top:solid 2px %rgba_border%;
+    border-bottom:solid 2px %rgba_border%;
+}
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+	-webkit-border-top-left-radius: 1em;
+	-moz-border-radius-topleft: 1em;
+	border-top-left-radius: 1em;
+	-webkit-border-bottom-right-radius: 1em;
+	-moz-border-radius-bottomright: 1em;
+	border-bottom-right-radius: 1em;
+}
+.rsidebar ul li ul li,
+.lsidebar ul li ul li{
+    border-bottom:1px solid %rgba_border%;
+}
+dl.author dd,
+dl.author dt,
+dl.my_tags dd,
+dl.my_tags dt{
+	border-bottom:1px solid %rgba_border%;
+
+}
+ul.index{
+    border-bottom:1px solid %rgba_border%;
+
+}
+ul.category li{
+    border-bottom:1px solid %rgba_border%;
+
+}
+table td{
+    border:1px solid %rgba_border%;
+}
+td.month-date,td.month-name,td.time{
+    border:1px solid %rgba_border%;
+
+}
+fieldset {
+    border:1px solid %rgba_border%;
+}
+hr{
+border-top:1px dashed %rgba_border%;
+}
 .social textarea#comment,
 .social input[type="text"]{
     outline:none;
@@ -954,7 +1108,6 @@ select{
     -moz-border-radius:3px;
     border:1px solid rgba(0,0,0, 0.2);
 }
-
 .social textarea#comment:focus,
 .social input[type="text"]:focus{
     box-shadow: 0 0 5px %rgba_border%;
@@ -964,27 +1117,22 @@ select{
 }
 .social input[type="submit"] {
     border:double 3px %rgba_border%;
-    background: %c4%
 }
 
 .entry-content th{
-    %c3%
-	border:solid 1px %c_border%;
     border:solid 1px %rgba_border%;
 }
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
     border:double 3px %rgba_border%;
-    background: %c4%
+
 }
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"]{
-    background: %c4%
     border:double 3px %rgba_border%;
 }
 .entry-content select{
-    background: %c4%
     border:double 3px %rgba_border%;
 }
 
@@ -993,7 +1141,6 @@ select{
     border:double 3px %rgba_border%;
 }
 
-/*--------------------------------*/
 #access{
 
 
@@ -1014,48 +1161,16 @@ select{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
-#access ul ul a {
-    %c3%
-}
 #access .children li:active >a,
 #access li:active >a ,
 #access ul ul :active >a{
-    top:0;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
     background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%)!important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
     color:%custom_color%;
 }
-#access ul li.current_page_item > a,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a {
-    %c3%
-}
-* html #access ul li.current_page_item a,
-* html #access ul li.current-menu-ancestor a,
-* html #access ul li.current-menu-item a,
-* html #access ul li.current-menu-parent a,
-* html #access ul li a:hover {
-    %c2%
-}
-address{
-    margin:10px auto;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-#bd a,
-.postmetadata{
-background:none!important;
-}
 
 .wp-caption {
-   border:solid 1px #999;
    border:solid 1px %rgba_border%;
    -moz-border-radius: 3px;
    -khtml-border-radius: 3px;
@@ -1067,30 +1182,23 @@ background:none!important;
 }
 li.byuser,
 li.bypostauthor {
-	%c_3%
-	border:solid 1px %c_border%;
 	border:solid 1px %rgba_border%;
 
-}
-cite.fn{
-	background:none;
 }
 
 .datetable td li{
 	border-bottom:solid 1px %rgba_border%;
 }
-.datetable td li:nth-last-child(1){
-	border-bottom:none;
-
+#sidebar{
+    border-color:%rgba_border%;
 }
-.fail-search,
-#not-found {
-%c4%
-border:3px double %custom_dark_bg%;
+table,
+table td{
+    border:1px solid %rgba_border%;
 }
-DOC;
 
-return $style;
+CSS3;
+return $style.$css3;
 }
 ?>
 <?php
@@ -1106,12 +1214,11 @@ return $style;
 function raindrops_minimal(){
 
 $style =<<<DOC
-%gradient%
+
 #access ul ul.children a{
 background:#fff;
 }
 #access .children li{
- border:1px solid %rgba_border%
 }
 a{
  text-decoration:underline;
@@ -1128,11 +1235,10 @@ a,
 #datelist,
 #date_list td{
 border:solid 1px %c_border%!important;
-border:1px solid %rgba_border%!important;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 %c5%
-%h2_default_background%
+%h2_w3standard_background%
 %h_position_rsidebar_h2%
 }
 .entry-content blockquote{
@@ -1150,8 +1256,6 @@ background:none!important;
 %c4%
 border-top:solid 6px %c_border%;
 border-bottom:solid 2px %c_border%;
-border-top:solid 6px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
 }
 .sticky a{
 %c4%
@@ -1165,26 +1269,46 @@ cite.fn{
 	background:none;
 }
 .datetable td li{
-	border-bottom:solid 1px %rgba_border%;
-}
-.datetable td li:nth-last-child(1){
-	border-bottom:none;
-
+	border-bottom:solid 1px %c_border%;
 }
 .fail-search,
 #not-found {
-border:3px double  %rgba_border%;
+border:3px double;
 }
 th{
 %c4%
-border-bottom:solid 1px %rgba_border%;
 }
 td{
 
-border-bottom:solid 1px %rgba_border%;
 
 }
 DOC;
+
+
+$css3 =<<<CSS3
+
+%gradient%
+
+#access .children li,
+#datelist table,
+#year_list,
+#year_list td,
+#month_list,
+#month_list td,
+#datelist,
+#date_list td{
+border:1px solid %rgba_border%!important;
+}
+.home .sticky {
+border-top:solid 6px %rgba_border%;
+border-bottom:solid 2px %rgba_border%;
+}
+.datetable td li,
+th,
+td{
+border-bottom:solid 1px %rgba_border%;
+}
+CSS3;
 
 return $style;
 }
@@ -1527,9 +1651,9 @@ CSS;
 				$h_position_rsidebar_h2 = "background-position:0 208px;";
 			break;
 		}
-			$h2_default_background = "background:".colors(4,'background').' ';
-			$h2_default_background .= "url({$images_path}{$navigation_title_img});";
-			$h2_default_background .= "color:".colors(4,'color').';';
+			$h2_w3standard_background = "background:".colors(5,'background').' ';
+			$h2_w3standard_background .= "url({$images_path}{$navigation_title_img});";
+			$h2_w3standard_background .= "color:".colors(4,'color').';';
 			$h2_dark_background = "background:".colors(-3,'background').' ';
 			$h2_dark_background .= "url({$images_path}{$navigation_title_img});";
 			$h2_dark_background .= "color:".colors(-3,'color').';';
@@ -1538,19 +1662,19 @@ CSS;
 			$h2_light_background .= "color:".colors(4,'color').';';
 			
 		switch($name){
-			case("default"):
+			case("w3standard"):
 				$custom_dark_bg = colors('3','background');
 				$custom_light_bg = colors('1','background');
 				$custom_color = colors('1','color');
 				if(!empty($tmn_footer_color)){
 					$tmn_footer_color = $tmn_footer_color;
 				}else{
-					$tmn_footer_color = '';
+					$tmn_footer_color = '#000';
 				}
 				if(!empty($tmn_header_color)){
 					$tmn_header_color = $tmn_header_color;
 				}else{
-					$tmn_header_color = '';
+					$tmn_header_color = '#000';
 				}
 				$gradient = tmn_gradient();
 			break;
@@ -1564,12 +1688,12 @@ CSS;
 				if(!empty($tmn_footer_color)){
 					$tmn_footer_color = $tmn_footer_color;
 				}else{
-					$tmn_footer_color = '';
+					$tmn_footer_color = '#fff';
 				}
 				if(!empty($tmn_header_color)){
 					$tmn_header_color = $tmn_header_color;
 				}else{
-					$tmn_header_color = '';
+					$tmn_header_color = '#fff';
 				}
 				$gradient = tmn_gradient();
 			break;
@@ -1584,12 +1708,12 @@ CSS;
 				if(!empty($tmn_footer_color)){
 					$tmn_footer_color = $tmn_footer_color;
 				}else{
-					$tmn_footer_color = '';
+					$tmn_footer_color = '#333';
 				}
 				if(!empty($tmn_header_color)){
 					$tmn_header_color = $tmn_header_color;
 				}else{
-					$tmn_header_color = '';
+					$tmn_header_color = '#333';
 				}
 				$gradient = tmn_gradient();
 			break;
@@ -1600,12 +1724,12 @@ CSS;
 				if(!empty($tmn_footer_color)){
 					$tmn_footer_color = $tmn_footer_color;
 				}else{
-					$tmn_footer_color = '';
+					$tmn_footer_color = '#000';
 				}
 				if(!empty($tmn_header_color)){
 					$tmn_header_color = $tmn_header_color;
 				}else{
-					$tmn_header_color = '';
+					$tmn_header_color = '#000';
 				}
 				$gradient = tmn_gradient();
 			break;

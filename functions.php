@@ -9,7 +9,30 @@
  */
 ?>
 <?php
+add_action("admin_bar_menu", "customize_menu");
 
+function customize_menu(){
+	global $wp_admin_bar, $post;
+
+	$children = get_children(array("post_parent" => $post->ID));
+
+	$wp_admin_bar->add_menu(array(
+		"id" => "mymenu",
+		"title" => "Post: " . $post->post_title,
+		"href" => "http://google.com",
+		"meta" => array("target" => 'blank')
+	));
+
+	if($children){
+		foreach($children as $c){
+			$wp_admin_bar->add_menu(array(
+				"parent" => "mymenu",
+				"title" => $c->post_title,
+				"href" => get_permalink($c->ID)
+			));
+		}
+	}
+	}
 if(!defined('ABSPATH')){exit;}
 
     global $wpdb;
@@ -103,7 +126,7 @@ if(!defined('ABSPATH')){exit;}
     }
 
 /**
- *  Specific automatic color at title,description when value '-none-'.
+ *  Specific automatic color at title,description when value 'bad'.
  *
  *
  *
@@ -111,7 +134,7 @@ if(!defined('ABSPATH')){exit;}
  */
 
     if(!defined('HEADER_TEXTCOLOR')){
-        define('HEADER_TEXTCOLOR', '-none-');
+        define('HEADER_TEXTCOLOR', 'bad');
     }
 
 /**
@@ -314,7 +337,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'title'=>__('Color Type','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The mood like dark atmosphere and the bright note,
-         etc. is decided. If you need Appearance background settings. You should select default or minimal.','Raindrops'),
+         etc. is decided. If you need Appearance background settings. You should select w3standard or minimal.','Raindrops'),
          'validate'=>'raindrops_style_type_validate'),
 
         array('option_id' =>'null',
@@ -513,7 +536,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 			
 		}
 
-  		function tmn_is_fluid($content,$key){
+  		function tmn_is_fluid(){
 			global  $is_IE, $fluid_minimam_width;
 			$width 			= intval($fluid_minimam_width);			
 			$width			= $width / 13;
@@ -558,17 +581,19 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             echo $fluid_min_width;
         }		
 		
-  		function tmn_is_fixed($content,$key){
+  		function tmn_is_fixed(){
 			global $is_IE;
 			$add_ie = '';
 			$pw = warehouse("raindrops_page_width");
 			
             if($pw == 'doc'){
          		$width		= 750;
+				$px = 'width:'.$width.'px;';
 				$width		= $width / 13;
 			}
 			if($pw == 'doc2'){
                 $width 		= 950;
+				$px = 'width:'.$width.'px;';
 				$width	    = $width / 13;
 			}
 			
@@ -587,6 +612,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 				\n#".$pw.'{margin:auto;text-align:left;'."\n".
             				'min-width:'.$width.'em;'.
 							$add_ie.
+							$px.
 							'}'.
 							"\n#container{min-width:".
 							$raindrops_main_width.
@@ -1199,7 +1225,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         var $col_settings_raindrops_style_type = array(
             "light"=>"light",
             "dark"=>"dark",
-            "default"=>"default",
+            "w3standard"=>"w3standard",
             "minimal"=>"minimal"
             );
 
@@ -1554,6 +1580,19 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             wp_register_style('child_style', $child,array('lang_style'),$raindrops_version,'all');
             wp_enqueue_style( 'dhild_style');
             }
+
+/* add small js*/			
+			$raindrops_js   = $template_uri.'/raindrops.js';
+            wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,'all');
+            wp_enqueue_script('raindrops');
+			
+			if(warehouse("raindrops_style_type") == 'w3standard'){
+			$raindrops_css3   = $template_uri.'/css3.css';
+            wp_register_style('raindrops_css3', $raindrops_css3,array('child_style'),$raindrops_version,'all');
+            wp_enqueue_style('raindrops_css3');			
+			
+			
+			}			
     }
 
 /**
@@ -1613,6 +1652,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
     function setup_raindrops(){
         global $wpdb,$raindrops_base_setting;
+		
+		if(TMN_USE_AUTO_COLOR == false){return;}
         $raindrops_theme_settings = get_option('raindrops_theme_settings');
 
        foreach($raindrops_base_setting as $add){
@@ -2023,6 +2064,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
 
     function get_year($posts = '', $year = '', $pad = 0) {
+  		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
 
         $months = array();
         $y = "";
@@ -2058,8 +2100,9 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         foreach ($months as $num => $val) {
             $num = (int)$num;
-           $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td>'.year_list ($val, $year, $num, $pad).'</tr>';
-
+		 				
+           //$table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a>('.count($val).')</td>'.year_list ($val, $year, $num).'</tr>';
+	         $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td><td class="month-excerpt"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".sprintf(__("%s Articles archived","Raindrops"),count($val)).'</a></td></tr>';
         }
     return $output.implode("\n",$table_year);
     }
@@ -2114,23 +2157,21 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
     function year_list($one_month,$ye,$mo){
         $result = "";
-    global $ht_deputy;
-    $d = "";
-    $links = "";
-
-            foreach($one_month as $month){
-        //var_dump($month->post_date);
-                //list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
+  		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
+    	$d = "";
+    	$links = "";
+	        foreach($one_month as $key=>$month){
                 list($y,$m,$d) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
 
-            if($month->post_title == ''){$month->post_title = $ht_deputy;}
-
-                if($m == $mo and $ye == $y){
-                $links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
-                }
-
-            }
-
+					if($month->post_title == ''){
+						$month->post_title = $ht_deputy;
+					}
+	
+					if($m == $mo and $ye == $y){
+						$links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
+					}
+		
+			}
             if(!empty($links)){
                 $result .= " <td><ul>";
                 $result .= $links;
@@ -2140,28 +2181,45 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 
 
-
+function cmp_ids( $a , $b){
+  $cmp = strcmp( $a->post_date , $b->post_date ); 
+  return $cmp;
+}
 
     function month_list($one_month,$ye,$mo){
-    global $ht_deputy;
+    global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
+
         $result = "";
         $here = home_url();
-    for($i=1;$i <= days_in_month($mo, $ye);$i++){
-        $result .= "<tr><td class=\"month-date\"><span class=\"day-name\">";
-
+		$z = -1;		
+			$c = 0;	
+	for($i=1;$i <= days_in_month($mo, $ye);$i++){
         $links = "";
+	usort( $one_month , "cmp_ids" );				
+	
+		$page_break = false;
+		$first_data = false;		
+        foreach($one_month as $key=>$month){
 
-        foreach($one_month as $month){
             if($month->post_title == ''){$month->post_title = $ht_deputy;}
-            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");
-
-            if($d == $i and $m == $mo and $y == $ye){
-            $links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".$month->post_title."\">".$month->post_title."</a></li>";
-            }
-
+            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");			
+			if($key <  $calendar_page_last and $key >= $calendar_page_start){ 
+			
+				if($d == $i and $m == $mo and $y == $ye){
+				$first_data = true;
+				$links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".$month->post_title."\">".$month->post_title."</a></li>";
+				
+				$c++;
+				}
+				
+			}
         }
-        if(!empty($links)){
+		if($z == $c and $c == $post_per_page){
+			break ;
+		}
 
+        if(!empty($links)){
+        $result .= "<tr><td class=\"month-date\"><span class=\"day-name\">";
 
         $result .= "<a href=\"".get_day_link($y, $mo, $i)."\">";
         $result .= $i;
@@ -2169,13 +2227,11 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $result .= $links;
         $result .= "</ul></td></tr>";
         }else{
-
-        $result .= $i;
-        $result .= " </span></td><td>&nbsp;</td></tr>";
-
+		$result .= "<tr class=\"no-archive\"><td class=\"month-date\"><span class=\"day-name\">";
+			$result .= $i;
+			$result .= " </span></td><td>&nbsp;</td></tr>";
         }
-
-        //$result .= "</ul></td></tr>\n";
+		$z = $c;
     }
 
         $output = "<h2 id=\"date_title\" class=\"h2 year-month\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";

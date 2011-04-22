@@ -17,10 +17,12 @@ version: 2.8.1
  */
 body {
 	font:13px/1.231 arial,helvetica,clean,sans-serif;
+}
+body.ie7{
 	/* for IE6/7 */ 
-	*font-size:small; 
+	font-size:small; 
 	/* for IE Quirks Mode */
-	*font:x-small; 
+	font:x-small sans-serif; 
 }
 
 /**
@@ -39,7 +41,7 @@ button {
  */
 table {
 	font-size:inherit;
-	font:100%;
+	font:100% sans-serif;
 }
 
 /**
@@ -51,6 +53,12 @@ kbd,
 samp,
 tt {
 	font-family:monospace;
-	*font-size:108%;
 	line-height:100%;
+}
+.ie7 pre,
+.ie7 code,
+.ie7 kbd,
+.ie7 samp,
+.ie7 tt {
+	font-size:108%;
 }

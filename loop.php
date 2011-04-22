@@ -94,7 +94,7 @@ while (have_posts()){
       <?php raindrops_posted_on();?>
     </div>
     <div class="entry-content">
-      <ul class="left entry-meta-list" id="categoryblog">
+      <ul class="left entry-meta-list categoryblog">
         <li class="avatar"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?></li>
         <li class="author">
           <?php 	

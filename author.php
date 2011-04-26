@@ -16,7 +16,7 @@ Template Name: Auther
 <?php get_header('xhtml1'); ?>
 <div id="yui-main">
   <div class="yui-b">
-    <div class="<?php echo yui_class_modify();?>" id="container">
+    <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first author-infomation" <?php is_2col_raindrops('style="width:99%;"');?>>
 	  
 <h2 class="h2"><?php	printf( __( 'Author Archives: %s','Raindrops'), $curauth->nickname);?></h2>

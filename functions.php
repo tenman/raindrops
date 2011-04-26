@@ -9,30 +9,8 @@
  */
 ?>
 <?php
-add_action("admin_bar_menu", "customize_menu");
 
-function customize_menu(){
-	global $wp_admin_bar, $post;
 
-	$children = get_children(array("post_parent" => $post->ID));
-
-	$wp_admin_bar->add_menu(array(
-		"id" => "mymenu",
-		"title" => "Post: " . $post->post_title,
-		"href" => "http://google.com",
-		"meta" => array("target" => 'blank')
-	));
-
-	if($children){
-		foreach($children as $c){
-			$wp_admin_bar->add_menu(array(
-				"parent" => "mymenu",
-				"title" => $c->post_title,
-				"href" => get_permalink($c->ID)
-			));
-		}
-	}
-	}
 if(!defined('ABSPATH')){exit;}
 
     global $wpdb;
@@ -194,7 +172,6 @@ if(!defined('ABSPATH')){exit;}
 
 
     $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
-    $tmn_show_header_image = $raindrops_theme_settings["raindrops_header_image_show"];
 
 
 /**
@@ -337,7 +314,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'title'=>__('Color Type','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The mood like dark atmosphere and the bright note,
-         etc. is decided. If you need Appearance background settings. You should select w3standard or minimal.','Raindrops'),
+         etc. is decided.','Raindrops'),
          'validate'=>'raindrops_style_type_validate'),
 
         array('option_id' =>'null',
@@ -392,7 +369,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'title'=>__('Page Width','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('Please choose width on the page.
-    Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px fluid.
+    Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px.
     Please add the variable to functions.php when you want to specify page other size. For instance,
          $page_width =  700;The width of the page if it specifies it will be changed to 700px centerd at once.','Raindrops'),
          'validate'=>'raindrops_page_width_validate'),
@@ -450,15 +427,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate'),
 
-        array('option_id' =>'null',
-        'blog_id' => 0 ,
-        'option_name' => "raindrops_header_image_show",
-        'option_value' => "no",
-        'autoload'=>'yes',
-        'title'=>__('Appearance Site Header Image','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('When display Site Header Image is set to yes'),
-         'validate'=>'raindrops_header_image_show_validate'),
 
     );
     if(warehouse('raindrops_show_right_sidebar') == 'hide'){
@@ -493,12 +461,9 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         add_filter('contextual_help','raindrops_edit_help');
     }
 
-    if($tmn_show_header_image !== 'yes'){
-        add_action("admin_head","header_image_alert");
-    }
 
     if(isset($_GET['page']) and $_GET['page'] == 'raindrops_settings'){
-        add_action("admin_head","jquery_toggle_action");
+        add_action("admin_head","raindrops_jquery_toggle_action");
     }
 
     if(isset($page_width) and !empty($page_width)){
@@ -642,7 +607,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         ) );
     }
 
-    add_action('load-themes.php', 'install_navigation');
+    add_action('load-themes.php', 'raindrops_install_navigation');
     add_editor_style();
     register_nav_menus( array(
         'primary' => __( 'Primary Navigation', 'Raindrops' ),
@@ -656,12 +621,12 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
     add_filter("wp_head","tmn_embed_meta",'99');
     add_filter( 'comment_form_default_fields','tmn_comment_form');
-    add_filter( 'the_meta_key', 'filter_explode_meta_keys', 10, 2 );
+    add_filter( 'the_meta_key', 'raindrops_filter_explode_meta_keys', 10, 2 );
     add_filter('body_class','raindrops_add_body_class');
     add_filter('contextual_help','raindrops_help');
     add_filter('comment_form_field_comment','custom_remove_aria_required1');
     add_filter('comment_form_default_fields', 'custom_remove_aria_required2');
-    add_filter( 'the_meta_key', 'filter_explode_meta_keys', 10, 2 );
+    add_filter( 'the_meta_key', 'raindrops_filter_explode_meta_keys', 10, 2 );
     if ( !is_admin()) {
        add_action('wp_print_styles', 'add_raindrops_stylesheet');
     }
@@ -806,14 +771,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         return $raindrops_options["raindrops_base_color"];
     }
 
-    function raindrops_header_image_show_validate($input){
-		global $raindrops_options;
-        if($input == 'yes'){
-            return 'yes';
-        }else{
-            return 'no';
-        }
-    }
 
 /**
  * Filter functon body_class()
@@ -959,7 +916,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     if (!function_exists('raindrops_posted_on')) {
         function raindrops_posted_on() {
             $raindrops_date_format = get_option('date_format');
-            $author = blank_fallback(get_the_author(),'Somebody');
+            $author = raindrops_blank_fallback(get_the_author(),'Somebody');
             printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'Raindrops' ),
                 'meta-prep meta-prep-author',
                 sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
@@ -984,8 +941,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    if (!function_exists('filter_explode_meta_keys')) {
-        function filter_explode_meta_keys( $content, $key ) {
+    if (!function_exists('raindrops_filter_explode_meta_keys')) {
+        function raindrops_filter_explode_meta_keys( $content, $key ) {
             $explode_keys = array( 'css', 'javascript', 'meta');
             if ( in_array( $key, $explode_keys ) ) return;
             else return $content;
@@ -1062,12 +1019,12 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         global $title;
         if(TMN_TABLE_TITLE == $title){
     $result = "<h2 class=\"h2\">".__('Raindrops Another Settings').'</h2>';
-    $result .= "<dl><dt><div class=\"icon32\" id=\"icon-options-general\"><br></div><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('raindrops/config.php TMN_USE_AUTO_COLOR value change false','Raindrops').'</dd><br class="clear" />';
-    $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br></div><strong>".__('When you want to display the custom header image','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('Raindrops theme option tmn_show_header_image value change yes','Raindrops').'</dd><br class="clear" />';
-    $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br></div><strong>".__('When you want to all reset the settings','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('Please install it switching to other themes once to reset all items, and again again. When switching to other themes, Raindrops restores all customizing information. ','Raindrops').'</dd><br class="clear" />';
+    $result .= "<dl><dt><div class=\"icon32\" id=\"icon-options-general\"><br /></div><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
+    $result .= "<dd>".__('raindrops/functions.php TMN_USE_AUTO_COLOR value change false','Raindrops').'<br class="clear" /></dd>';
+    $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br /></div><strong>".__('When you want to change horizontal menu','Raindrops').'</strong></dt>';
+    $result .= "<dd>".__('Be careful! CSS Specificity: e.g .aciform strong{color:red;} is OK .aciform strong{background:black;} is not styled, background like this "div#access .menu li.aciform strong{background:black;}" is OK.','Raindrops').'<br class="clear" /></dd>';
+    $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br /></div><strong>".__('When you want to all reset the settings','Raindrops').'</strong></dt>';
+    $result .= "<dd>".__('Please install it switching to other themes once to reset all items, and again again. When switching to other themes, Raindrops restores all customizing information. ','Raindrops').'<br class="clear" /></dd></dl>';
     $result .= "<p>".sprintf(__('WEBSite:<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
             return apply_filters("raindrops_help",$result);
         }else{
@@ -1147,7 +1104,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    function jquery_toggle_action(){
+    function raindrops_jquery_toggle_action(){
         echo '<meta http-equiv="content-script-type" content="text/css" />';
         echo '<meta http-equiv="content-script-type" content="text/javascript" />';
         echo '<script type="text/javascript">';
@@ -1209,7 +1166,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             "750px centered"=>"doc",
             "950px centered"=>"doc2",
             "100% fluid"=>"doc3",
-            "974px fluid"=>"doc4"
+            "974px"=>"doc4"
             );
         var $col_settings_raindrops_right_sidebar_width_percent = array(
             "25%"=>"25",
@@ -1230,8 +1187,10 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             );
 
         function SubMenu_GUI() {
+            global $wpdb,$count, $raindrops_base_setting;
+            $ok     = false;			
             $result = "";
-            global $wpdb,$count;
+			
             $count = $wpdb->query("SELECT * FROM `".TMN_PLUGIN_TABLE."`;");
             /**
              * POSTGET
@@ -1239,8 +1198,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
              *
              */
             if(isset($_POST) and !empty($_POST)){
-                global $raindrops_base_setting;
-                $ok             = false;
+
                 $option_id      = intval($_POST['option_id']);
                 $option_value   = esc_html($_POST['option_value']);
                 $option_name    = esc_html($_POST['option_name']);
@@ -1261,9 +1219,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
                 }
 
-                if($option_value !== $valid_function($option_value)){
-                    $add_str .= __("BAD value","Raindrops");
-                }
             }
 
             $result .= '<div class="wrap"><div id="title-raindrops-header" style="height:100px">';
@@ -1273,9 +1228,16 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             $result .= '<div style="clear:both;position:relative;top:60px;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div><br style="clear:both;" />';
 
             if(isset($_POST) and !empty($_POST)){
-
+			
+					$add_str = "";
+				    if($option_value !== $valid_function($option_value)){
+                        $add_str = __("BAD value! Try again","Raindrops");
+                    }else{
+                        $add_str = __("There is no change because it is the same value.","Raindrops");			
+					}
+				
                 if($ok){
-                    $add_str = "";
+                    
                     $scheme = TMN_COLOR_SCHEME;
                     global $$scheme;
                     $add_str = array_search($option_value,$$scheme);
@@ -1285,9 +1247,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                     $add_str .= array_search($option_value,$this->col_settings_raindrops_show_right_sidebar);
                     $add_str .= array_search($option_value,$this->col_settings_raindrops_style_type);
 
-                    if($option_value !== $valid_function($option_value)){
-                        $add_str = __("BAD value","Raindrops");
-                    }
+                
 
                 $result .= '<div id="message" class="updated fade" title="'.esc_attr($option_name).'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']');
                     if ( is_multisite() ) {
@@ -1298,7 +1258,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                         $result .= '</p></div>';
                     }
                 }else{
-                    $result .= '<div id="message" class="error fade" ><p>'.__("Try again").$add_str.'</p></div>';
+                    $result .= '<div id="message" class="error fade" ><p>'.$add_str.'</p></div>';
                 }
             }
 
@@ -1372,9 +1332,9 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
 
                 $lines .= $excerpt;
+               	$lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
                 $lines .= $table;
                 $lines .= $table_header;
-                $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
                 $lines .= '<tbody>';
                 $lines .= '<tr>';
                 $lines .= '<td style="display:none;">';
@@ -1434,24 +1394,25 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                     //if($key == "raindrops_base_color"){
                         $lines .= 'id="'.$key.'"';
                     //}
-                    $lines .= '/></td>';
+                    $lines .= ' /></td>';
                 }else{
                     $lines .= '<td>';
                     $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="option_value" value="'.esc_attr__($val).'"';
                     $lines .= 'id="'.esc_attr($key).'"';
-                    $lines .= '/></td>';
+                    $lines .= ' /></td>';
                 }
                 $i++;
                 $lines .= '<td>';
                 $lines .= "<input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save Changes').'" />';
-                $lines .= '</p></td></tr></form>';
+               /* $lines .= '</p></td></tr></form>';*/
+                $lines .= '</td></tr>';
                 $send_key_name = "";
                 $lines .= "</tbody>";
-                $lines .= "</table><br></div>";
+                $lines .= "</table></form><br /></div>";
             }
                 $lines .= "</div>";
                 if(!preg_match('|<tbody>|',$lines)){
-                    $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr>';
+                    $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
                 }
                 return $lines;
         }
@@ -1586,7 +1547,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,'all');
             wp_enqueue_script('raindrops');
 			
-			if(warehouse("raindrops_style_type") == 'w3standard'){
+			if(warehouse("raindrops_style_type") !== 'w3standard'){
 			$raindrops_css3   = $template_uri.'/css3.css';
             wp_register_style('raindrops_css3', $raindrops_css3,array('child_style'),$raindrops_version,'all');
             wp_enqueue_style('raindrops_css3');			
@@ -1680,9 +1641,9 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-	add_filter('the_content','ie_height_expand_issue');
+	add_filter('the_content','raindrops_ie_height_expand_issue');
 
-	function ie_height_expand_issue($content){
+	function raindrops_ie_height_expand_issue($content){
 		global $is_IE,$content_width;
 	
 		if($is_IE){
@@ -1707,7 +1668,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-    function first_only_msg($type=0) {
+    function raindrops_first_only_msg($type=0) {
         if ( $type == 1 ) {
             $query  = 'raindrops_settings';
             $link   = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
@@ -1728,12 +1689,12 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    function install_navigation() {
+    function raindrops_install_navigation() {
 
         $install = get_option('raindrops_theme_settings');
 
         if (!array_key_exists('install', $install)) {
-            add_action('admin_notices', create_function(null, 'echo first_only_msg(1);'));
+            add_action('admin_notices', create_function(null, 'echo raindrops_first_only_msg(1);'));
             $install['install'] = true;
             update_option('raindrops_theme_settings',$install);
         } else {
@@ -1741,21 +1702,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         }
     }
 
-/**
- * Alert when $tmn_show_header_image not 'yes'
- *
- *
- *
- *
- */
-
-    function header_image_alert(){
-        if(isset($_GET['page']) and $_GET['page'] == 'custom-header'){
-
-        printf('<script type="text/javascript">alert(\'%s\');</script>',__('Current theme setting is hide header image. You need Raindrops option setting. Please open Raindrops option panel, and set the value of tmn_show_header_image to yes.','Raindrops'));
-        }
-
-    }
 
 /**
  * insert into embed style ,javascript script and embed tags from custom field
@@ -1771,6 +1717,13 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
         $raindrops_options  = get_option("raindrops_theme_settings");
         $css                = $raindrops_options['_raindrops_indv_css'];
+		
+		$background = get_background_image();
+		$color = get_background_color();
+		
+		if(!empty($background) or !empty($color)){
+			$css = preg_replace("|body[^{]*{[^}]+}|","",$css);
+		}
 
         if(empty($css)){
             $css = "cannot get style value check me";
@@ -1828,7 +1781,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    function blank_fallback($string,$fallback){
+    function raindrops_blank_fallback($string,$fallback){
         if(!empty($string)){
             return $string;
         }else{
@@ -1878,7 +1831,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  */
 
 
-    function days_in_month($month, $year) {
+    function raindrops_days_in_month($month, $year) {
             $daysInMonth = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
             if ($month != 2) {
                     return $daysInMonth[$month - 1];
@@ -1886,14 +1839,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return (checkdate($month, 29, $year)) ? 29 : 28;
     }
 
-    function get_month ($posts = '', $year = '', $this_month = '', $pad = 1) {
+    function raindrops_get_month ($posts = '', $year = '', $this_month = '', $pad = 1) {
 
     global $wpdb, $weekdaynames, $month;
 
     // info about this month
-    $days_in_month      = days_in_month($this_month, $year);
+    $raindrops_days_in_month      = raindrops_days_in_month($this_month, $year);
     $first_day_of_month = date('w', mktime(0, 0, 0, $this_month, '1', $year));
-    $last_day_of_month  = date('w', mktime(0, 0, 0, $this_month, $days_in_month, $year));
+    $last_day_of_month  = date('w', mktime(0, 0, 0, $this_month, $raindrops_days_in_month, $year));
 
     // what day starts the week here?
     $start_of_week = get_option('start_of_week');
@@ -1986,7 +1939,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
     $daycount = $pre_pad;
 
-    $cal = "<h2 class=\"h2\"><a href=\"".get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"".get_month_link($year,$this_month)."\"
+    $cal = "<h2 class=\"h2\"><a href=\"".raindrops_get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"". get_month_link($year,$this_month)."\"
     title=\"$year/$this_month\">" .
     $month[zeroise($this_month, 2)] . "</a></h2>";
     $cal .= '<table summary="Archives in '.$this_month.', '.$year.'"><tr>';
@@ -1997,7 +1950,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 
     $cal .= '</tr><tr>' . $before;
-    for ($i = 1; $i <= $days_in_month; $i++) {
+    for ($i = 1; $i <= $raindrops_days_in_month; $i++) {
             $cal .= '<td> ';
             if (isset($the_month[$i])) {
                     $cal .=  $the_month[$i];
@@ -2058,12 +2011,12 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $cal .= '</tr></table>';
     return $cal;
     }
-/*end get_month()*/
+/*end raindrops_get_month()*/
 
 
 
 
-    function get_year($posts = '', $year = '', $pad = 0) {
+    function raindrops_get_year($posts = '', $year = '', $pad = 0) {
   		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
 
         $months = array();
@@ -2081,7 +2034,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $output = "<h2 class=\"h2 year\"><span class=\"year-name\">$year</span></h2>";
 
             $table_year = array(
-                '<table id="year_list" summary="Archives in '.$year.'"><tbody>',
+                '<table id="raindrops_year_list" summary="Archives in '.$year.'"><tbody>',
                 '<tr><td class="month-name">1</td><td></td></tr>',
                 '<tr><td class="month-name">2</td><td></td></tr>',
                 '<tr><td class="month-name">3</td><td></td></tr>',
@@ -2101,14 +2054,13 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         foreach ($months as $num => $val) {
             $num = (int)$num;
 		 				
-           //$table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a>('.count($val).')</td>'.year_list ($val, $year, $num).'</tr>';
-	         $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td><td class="month-excerpt"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".sprintf(__("%s Articles archived","Raindrops"),count($val)).'</a></td></tr>';
+	         $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td><td class="month-excerpt"><a href="'. get_month_link($year,$num)."\" title=\"$year/$num\">".sprintf(__("%s Articles archived","Raindrops"),count($val)).'</a></td></tr>';
         }
     return $output.implode("\n",$table_year);
     }
-/* end get_year()*/
+/* end raindrops_get_year()*/
 
-    function get_day($posts = '', $year = '', $mon = '', $day = '', $pad = 1){
+    function raindrops_get_day($posts = '', $year = '', $mon = '', $day = '', $pad = 1){
 
         global $month;
         global $ht_deputy;
@@ -2153,9 +2105,9 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
         $output .= '</table>';
         return $output;
     }
-/* end get_day()*/
+/* end raindrops_get_day()*/
 
-    function year_list($one_month,$ye,$mo){
+    function raindrops_year_list($one_month,$ye,$mo){
         $result = "";
   		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
     	$d = "";
@@ -2181,7 +2133,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 
 
-function cmp_ids( $a , $b){
+function raindrops_cmp_ids( $a , $b){
   $cmp = strcmp( $a->post_date , $b->post_date ); 
   return $cmp;
 }
@@ -2193,9 +2145,9 @@ function cmp_ids( $a , $b){
         $here = home_url();
 		$z = -1;		
 			$c = 0;	
-	for($i=1;$i <= days_in_month($mo, $ye);$i++){
+	for($i=1;$i <= raindrops_days_in_month($mo, $ye);$i++){
         $links = "";
-	usort( $one_month , "cmp_ids" );				
+	usort( $one_month , "raindrops_cmp_ids" );				
 	
 		$page_break = false;
 		$first_data = false;		
@@ -2238,7 +2190,7 @@ function cmp_ids( $a , $b){
         return $output."<table id=\"month_list\">".$result."</table>";
     }
 
-?><?php
+
 function raindrops_loop_title(){
 
 /**
@@ -2308,7 +2260,7 @@ echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
 
 }
 
-function yui_class_modify($raindrops_inner_class = 'yui-ge'){
+function raindrops_yui_class_modify($raindrops_inner_class = 'yui-ge'){
     global $yui_inner_layout;
 
     if(isset($yui_inner_layout)){
@@ -2541,5 +2493,47 @@ function is_2col_raindrops($action = true,$echo = true){
 		}
     return $raindrops_content_width;
     }
+
+
+if(!class_exists("raindrops_description_walker")){	
+	class raindrops_description_walker extends Walker_Nav_Menu{
+		  function start_el(&$output, $item, $depth, $args)
+		  {
+			   global $wp_query;
+			   $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 	
+			   $class_names = $value = '';
+	
+			   $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+	
+			   $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+			   $class_names = ' class="'. esc_attr( $class_names ) . '"';
+	
+			   $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+	
+			   $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+			   $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+			   $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+			   $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+	
+			   $prepend = '<strong>';
+			   $append = '</strong>';
+			   $description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
+	
+			   if($depth != 0)
+			   {
+						 $description = $append = $prepend = "";
+			   }
+	
+				$item_output = $args->before;
+				$item_output .= '<a'. $attributes .'>';
+				$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
+				$item_output .= $description.$args->link_after;
+				$item_output .= '</a>';
+				$item_output .= $args->after;
+	
+				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+				}
+	}
+}	
 ?>

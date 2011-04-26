@@ -29,7 +29,6 @@
 function raindrops_dark(){
 
 $style =<<<DOC
-
 body{
 %c1%
 }
@@ -40,6 +39,7 @@ a:link,a:active,a:visited,a:hover,
 .rsidebar,
 #doc,#doc2,#doc3,#doc4,
 #hd,
+h1,
 #yui-main,
 .entry ol ol ,.entry ul,
 .entry ul * {
@@ -182,9 +182,6 @@ border-bottom:none;
 border-bottom:none;
 }
 
-
-
-
 hr{
 border:none;
 border-top:1px solid %c_border%;
@@ -199,19 +196,19 @@ ul.index li{
 }
 #month_list,
 #month_list td,
-#year_list td,
+#raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
 #month_list,
 #month_list td,
-#year_list td,
+#raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
 fieldset,
 .itiran,
 #month_list,
 #month_list td,
-#year_list td,
+#raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
 .searchform input[type="text"],
@@ -279,7 +276,6 @@ border:1px solid;
 }
 .reply,
 
-h1#site-title,
 #ft a,
 .category32, 
 .archive li a, 
@@ -301,17 +297,16 @@ div.comment-body blockquote,
 #site-title span a,
 .home .sticky a,
 .home .entry-meta a{
+%c_4%
 background:none!important;
 }
+h1{color:#fff!important;}
+
 DOC;
 
 $css3 =<<<CSS3
 
 %gradient%
-
-.h1{
-text-shadow: #000 -1px -1px 0;
-}
 
 body{
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
@@ -369,19 +364,19 @@ border-bottom:1px solid %rgba_border%;
 }
 #month_list,
 #month_list td,
-#year_list td,
+#raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
 #month_list,
 #month_list td,
-#year_list td,
+#raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
 fieldset,
 .itiran,
 #month_list,
 #month_list td,
-#year_list td,
+#raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
 .searchform input[type="text"],
@@ -463,7 +458,9 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_b
 .entry-content blockquote {
 border-left:solid 6px %rgba_border%;
 }
-
+#header-image p{
+text-shadow: 2px 2px 2px #000;
+}
 
 CSS3;
 return $style.$css3;
@@ -1228,8 +1225,8 @@ a,
 	color:%tmn_header_color%;
 }
 #datelist table,
-#year_list,
-#year_list td,
+#raindrops_year_list,
+#raindrops_year_list td,
 #month_list,
 #month_list td,
 #datelist,
@@ -1291,8 +1288,8 @@ $css3 =<<<CSS3
 
 #access .children li,
 #datelist table,
-#year_list,
-#year_list td,
+#raindrops_year_list,
+#raindrops_year_list td,
 #month_list,
 #month_list td,
 #datelist,
@@ -1473,6 +1470,12 @@ return $style;
 		$fg4 = $base->fg['+4'];
 		$bg5 = $base->bg['+5'];
 		$fg5 = $base->fg['+5'];
+		
+		
+		
+		
+		
+		
 		$result=<<<CSS
 .color-1{
   background:#{$bg_1};
@@ -1660,6 +1663,10 @@ CSS;
 			$h2_light_background = "background:".colors(4,'background').' ';
 			$h2_light_background .= "url({$images_path}{$navigation_title_img});";
 			$h2_light_background .= "color:".colors(4,'color').';';
+
+
+
+
 			
 		switch($name){
 			case("w3standard"):
@@ -1751,6 +1758,6 @@ CSS;
 				}
 			}
 		}
-		return apply_filters("raindrops_colors", $content );
+		return apply_filters("raindrops_colors", $content);
 	}
 ?>

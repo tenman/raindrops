@@ -12,7 +12,7 @@
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b" >
-    <div class="<?php echo yui_class_modify();?>" id="container">
+    <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php if (have_posts()){ ?>
         <?php 		while (have_posts()){ the_post(); ?>

@@ -50,7 +50,7 @@ while (have_posts()){
 <li>
   <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
 <?php 	if( in_category( "gallery" )){     ?>
-    <h2 class="h2 entry-title"> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a> </h2>
+    <h2 class="h2 entry-title"> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo esc_html(raindrops_blank_fallback(get_the_title(), $ht_deputy)); ?></a> </h2>
     <div class="posted-on">
       <?php raindrops_posted_on();?>
     </div>
@@ -89,7 +89,7 @@ while (have_posts()){
 				echo '</span>';
 			} 
 ?>
-      <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a> </h2>
+      <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(raindrops_blank_fallback(get_the_title(), $ht_deputy)); ?></a> </h2>
     <div class="posted-on">
       <?php raindrops_posted_on();?>
     </div>
@@ -128,7 +128,7 @@ while (have_posts()){
 				echo '</span>';
 			} 
 ?>
-      <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(blank_fallback(get_the_title(), $ht_deputy)); ?></a></h2>
+      <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(raindrops_blank_fallback(get_the_title(), $ht_deputy)); ?></a></h2>
     <div class="posted-on">
       <?php raindrops_posted_on();?>
     </div>

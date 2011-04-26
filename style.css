@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.320
+Version: 0.321
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -809,9 +809,9 @@ ul.index {
 ul.archive li,
 ul.index li {
 	/*line-height:2.5;*/
-	/*ist-style:none;
+	ist-style:none;
 	clear:both;
-	display:block;*/
+	display:block;
 	margin:0;
 	padding:0;
 }
@@ -825,7 +825,7 @@ ul.index li .edit {
 	float:right;
 	margin:0 2em;
 }
-.entry-content li{
+.entry-content ul li{
 	list-style-type:disc;
 }
 .edit-link{
@@ -1223,7 +1223,6 @@ div.menu li a{
 	margin:0;
 	width:100%;
 	display:block;
-	
 }
 
 #access ul ul {
@@ -1233,10 +1232,11 @@ div.menu li a{
 	top: 3em;
 	left: 0;
 	float: left;
-	width: 12em;
+	width: 10em;
 	z-index: 99;
 	text-align:center;
 }
+
 #access ul ul li {
 	min-width: 10em;
 	margin:0;
@@ -1583,14 +1583,14 @@ background:#aaf;
 br.clear{
 clear:both!important;
 }
-#month_list,#year_list,#date_list{
+#month_list,#raindrops_year_list,#date_list{
 width:100%;
 }
 #date_list td{
 /*text-indent:1em;*/
 padding-left:1em;
 }
-#year_list .month-name a,
+#raindrops_year_list .month-name a,
 #month_list .day-name a{
 background:inherit;
 display:block;

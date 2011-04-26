@@ -66,13 +66,13 @@ if( $wp_rewrite->using_permalinks() )
 
 <div id="yui-main">
   <div class="yui-b">
-    <div class="<?php echo yui_class_modify();?>" id="container">
+    <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
      <!-- content -->
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
 <h2 class="page-title"><?php
     if (is_year()) {
             $one_year = query_posts("posts_per_page=-1&year=$ye");
-            $output = get_year($one_year,$ye);
+            $output = raindrops_get_year($one_year,$ye);
             wp_reset_query();
              _e( 'Yearly Archives', 'Raindrops');
 
@@ -83,7 +83,7 @@ if( $wp_rewrite->using_permalinks() )
             _e('Monthly Archives','Raindrops');
     } elseif (is_day()) {
             $one_day = query_posts("posts_per_page=-1&year=$ye&monthnum=$mo&day=$da");
-            $output = get_day($one_day, $ye, $mo, $da);
+            $output = raindrops_get_day($one_day, $ye, $mo, $da);
             wp_reset_query();
             _e('Daily Archives','Raindrops');
     }

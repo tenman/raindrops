@@ -12,7 +12,7 @@ get_header("xhtml1"); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
 <div class="yui-b">
-<div class="<?php echo yui_class_modify();?>" id="container">
+<div class="<?php echo raindrops_yui_class_modify();?>" id="container">
 <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
 <?php
 /**
@@ -103,7 +103,7 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 </ul>
 <div class="blog-main left">
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo raindrops_blank_fallback(get_the_title(), $ht_deputy); ?></a>
 </h2>
 
 <div class="entry-content clearfix">
@@ -124,7 +124,7 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo raindrops_blank_fallback(get_the_title(), $ht_deputy); ?></a>
 </h2>
 
 <div class="entry-meta-gallery">
@@ -174,7 +174,7 @@ default:
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo raindrops_blank_fallback(get_the_title(), $ht_deputy); ?></a>
 </h2>
 <div class="entry-meta-default">
 <?php raindrops_posted_on(); ?>

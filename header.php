@@ -8,7 +8,7 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
-    global $current_blog,$tmn_show_header_image;
+    global $current_blog;
     if(isset($current_blog)){
         $this_blog = array("b". $current_blog->blog_id);
     }else{
@@ -127,12 +127,12 @@
  *
  *
  */
-if($tmn_show_header_image == 'yes'){
+$raindrops_header_image = get_header_image();
+if( !empty($raindrops_header_image)){
 ?>
-<div id="header-image" style="background-image:url(<?php header_image(); ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:#<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
+<div id="header-image" style="background-image:url(<?php echo $raindrops_header_image; ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:#<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
 <?php 
-} //endif $tmn_show_header_image == 'yes'
-
+}
 /**
  * horizontal menubar
  *
@@ -143,7 +143,7 @@ if($tmn_show_header_image == 'yes'){
 ?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'walker' => new raindrops_description_walker() ) ); ?>
 </div>
 <br class="clear" />
 </div>

@@ -26,7 +26,7 @@ get_header("xhtml1"); ?>
 		echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
 	} ?>
 	
-    <div class="<?php echo yui_class_modify();?>" id="container">
+    <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php get_template_part( 'loop', 'default' );?>
         <br style="clear:both" />

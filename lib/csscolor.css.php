@@ -480,6 +480,12 @@ function raindrops_w3standard(){
 
 $style =<<<DOC
 
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+%c5%
+%h2_w3standard_background%
+%h_position_rsidebar_h2%
+}
+
 body {
 
 	margin:0!important;padding:0;
@@ -691,6 +697,11 @@ function raindrops_light(){
 
 $style =<<<DOC
 
+.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+    
+    %h2_light_background%;
+    %h_position_rsidebar_h2%
+}
 
 body{
     margin:0!important;
@@ -717,7 +728,7 @@ h2,h3{
 }
 
 .home .sticky a{
-    background: none;
+    background-color: none;
 
 }
 #yui-main{
@@ -791,11 +802,7 @@ ol.tblist li{background:transparent url(%images_path%c.gif) 0 2px no-repeat;}
 }
 
 
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
-    %c3%
-    %h2_light_background%;
-    %h_position_rsidebar_h2%
-}
+
 
 a:link,a:active,a:visited,a:hover{
     %c5%
@@ -885,10 +892,6 @@ td.month-date,td.month-name,td.time{
     %c3%
 }
 
-.footer-widget h2{
-    background:none;
-
-}
 .entry-content blockquote{
     border-left:solid 3px %c_border%;
 
@@ -927,7 +930,7 @@ input[type="file"]{
 input[type="checkbox"],
 input[type="radio"],
 select{
-	%cc4%
+	%c4%
 }
 
 .social textarea#comment:focus,
@@ -998,12 +1001,7 @@ address{
     margin:10px auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+
 #bd a,
 .postmetadata{
 background:none!important;

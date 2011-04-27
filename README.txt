@@ -21,6 +21,16 @@ If you select Header Text 'display text' value 'yes'
 and site description text shows on the Header Image.
 select 'no' and description show page right top position.
 
+Raindrops option 'Background image h2'
+color type dark and minimal have this option.
+If you need background image setting when open style.css
+and last line comment out like this
+e.g.
+.rd-type-w3standard .footer-widget h2,.rsidebar h2,.lsidebar h2,
+.rd-type-light .footer-widget h2,.rsidebar h2,.lsidebar h2 {
+/*background:none!important;*/
+}
+
 Custom Background
 If you want your original background. you can change every color type.
 

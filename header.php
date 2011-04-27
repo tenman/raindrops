@@ -68,18 +68,18 @@
  */
 
     if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-		$raindrops_pge_header = '';
+        $raindrops_pge_header = '';
         $style = ' style="display:none;"';
     }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor()) and 'bad' !== get_header_textcolor()){
         $style = ' style="color:#' . get_header_textcolor() . ';"';
-		$raindrops_pge_header = ' style="display:none;"';
+        $raindrops_pge_header = ' style="display:none;"';
     }else{
         $style = '';
-		$raindrops_pge_header = ' style="display:none;"';
+        $raindrops_pge_header = ' style="display:none;"';
 
     }
 /**
- * Conditional Switch html headding element 
+ * Conditional Switch html headding element
  *
  *
  *
@@ -109,20 +109,20 @@
  *
  *
  */
-	$raincrops_site_desctiption_html = '<div id="site-description" %s>%s</div>';
-	 
-	printf(
-		$raincrops_site_desctiption_html,
-		$raindrops_pge_header,
-		get_bloginfo( 'description' )
-		);
+    $raincrops_site_desctiption_html = '<div id="site-description" %s>%s</div>';
+
+    printf(
+        $raincrops_site_desctiption_html,
+        $raindrops_pge_header,
+        get_bloginfo( 'description' )
+        );
 
 ?>
 </div>
 <?php
 /**
  * header image
- * 
+ *
  *
  *
  *
@@ -131,7 +131,7 @@ $raindrops_header_image = get_header_image();
 if( !empty($raindrops_header_image)){
 ?>
 <div id="header-image" style="background-image:url(<?php echo $raindrops_header_image; ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:#<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
-<?php 
+<?php
 }
 /**
  * horizontal menubar
@@ -143,7 +143,7 @@ if( !empty($raindrops_header_image)){
 ?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'walker' => new raindrops_description_walker() ) ); ?>
+<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'walker' => new raindrops_description_walker(), 'fallback_cb' => wp_page_menu()) ); ?>
 </div>
 <br class="clear" />
 </div>

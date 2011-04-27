@@ -511,6 +511,11 @@ list-style-type:square;
 list-style-position:inside;
 }
 
+.ie8 .lsidebar .widget ul li a {
+	list-style:none;
+	
+}
+
 .home .sticky {
 %c5%
 border-top:solid 6px %c_border%;

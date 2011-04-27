@@ -667,6 +667,15 @@ padding:0;
 .lsidebar{
 	margin-left:3px;
 }
+.rd-type-light .lsidebar{
+	margin-left:6px;
+}
+.rd-type-light .yui-t4 .lsidebar,
+.rd-type-light .yui-t5 .lsidebar,
+.rd-type-light .yui-t6 .lsidebar{
+	margin-right:6px;
+	margin-left:0;
+}
 
 .rsidebar > ul > li,
 .lsidebar > ul > li{
@@ -690,13 +699,20 @@ padding:0;
 	display:block;
 	margin-top:0.3em;
 }
+/* ie8 list child display:block; list-marker break issue */
+.ie8 .lsidebar li.page_item a,
+.ie8 .lsidebar li.category_report a,
+.ie8 .lsidebar .widget ul li a {
+	display:inline;
+}
+
 .lsidebar li.page_item,
 .lsidebar li.category_report,
 .lsidebar .widget ul li {
 	min-height:2em;
 }
 .lsidebar ul {
-	list-style-position: inside;
+	/*list-style-position: inside;*/
 }
 .footer-widget h2,
 .rsidebar h2,
@@ -710,6 +726,7 @@ h2.footer-content {
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 	margin-bottom:0;
 }
+.rd-type-light .rsidebar h2,
 .rd-type-w3standard .rsidebar h2,
 .rd-type-w3standard .lsidebar h2{
 	text-indent:0;
@@ -806,15 +823,24 @@ ul.index {
 	margin:.5em 0;
 	max-width:99%;
 }
-ul.archive li,
-ul.index li {
+ul.archive > li,
+ul.index > li {
 	/*line-height:2.5;*/
-	ist-style:none;
+	list-style:none;
 	clear:both;
 	display:block;
 	margin:0;
 	padding:0;
 }
+ul.archive > li .entry-content ul li,
+ul.index > li .entry-content ul li{
+	list-style:disc;
+}
+ul.archive > li .entry-content ol li,
+ul.index > li .entry-content ol li{
+	list-style:decimal;
+}
+
 ul.archive li .date,
 ul.index li .date {
 	width:13em;
@@ -886,6 +912,9 @@ ul.index li .edit {
 	height:100%;
 	text-decoration:none;
 	width:100%;
+	width:100%; 
+	vertical-align:bottom;
+
 }
 .topsidebar ul li ul li,
 #bigbanner ul li ul li,

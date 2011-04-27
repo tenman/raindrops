@@ -153,11 +153,6 @@ if(!defined('ABSPATH')){exit;}
 
     }
 
-
-
-
-
-
     if(!defined('TMN_TABLE_TITLE')){
         define("TMN_TABLE_TITLE",'options');
     }
@@ -169,11 +164,7 @@ if(!defined('ABSPATH')){exit;}
         define('TMN_TABLE_VERSION','0.1');
     }
 
-
-
     $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
-
-
 /**
  * single-post-thumbnail
  *
@@ -194,8 +185,6 @@ if(!defined('ABSPATH')){exit;}
  *
  *
  */
-
-
     if(!function_exists('raindrops_widgets_init')){
 
         function raindrops_widgets_init() {
@@ -259,7 +248,6 @@ if(!defined('ABSPATH')){exit;}
               'widget_id' => 'categoryblog',
               'widget_name' => 'categoryblog',
               'text' => "5"));
-
         }
     }
 
@@ -278,7 +266,6 @@ $color_en_140 = array("none"=>"","white"=>"#ffffff","whitesmoke"=>"#f5f5f5","gai
 
 $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#002868","american green" => "#006e53","american yellow" => "#deb301","american light blue" => "#cbddf3","american brown" => "#9a6b37","american gray" => "#afafb1","glory red" => "#cc0033","glory blue" => "#0000ff","glory white" => "#fff9f5","big apple red" => "#ff6331","big apple blue" => "#3131ce","empire blue" => "#001873","empire cyan" => "#00b5d6","empire red" => "#d60000","empire yellow" => "#f7f700","empire orange" => "#f79429","empire green" => "#084a29","empire ebony" => "#424a00","natural red" => "#cc0033","natural blue" => "#000099","natural light blue" => "#84c8ef","natural green" => "#90c924","natural orange" => "#f39234","natural brown" => "#843a2f","natural gray" => "#bfbfbf","hawkeye red" => "#e3003d","hawkeye blue" => "#3c3c9e","hawkeye yellow" => "#ffb30f","hawkeye brown" => "#a54a00","frontier blue" => "#000080","frontier light blue" => "#d3eef7","frontier green" => "#024900","frontier yellow" => "#ffff00","frontier purple" => "#8663bd","dixie red" => "#b10021","dixie blue" => "#083152","dixie green" => "#105a21","dixie yellow" => "#ffc621","grand canyon blue" => "#002868","grand canyon red" => "#bf0a30","grand canyon brown" => "#ce5c17","grand canyon yellow" => "#fed700","grand canyon green" => "#00320b","grand canyon pink" => "#efc1a9","lincoln red" => "#e2184f","lincoln pink" => "#e24a4f","lincoln light blue" => "#64b4ff","lincoln blue" => "#3c3c9e","lincoln green" => "#3f863f","lincoln yellow" => "#ffe60f","lincoln orange" => "#ffb316","hoosier blue" => "#101195","hoosier yellow" => "#ffe700","hoosier green" => "#197351","hoosier brown" => "#563837","badger blue" => "#002986","badger light blue" => "#00b2fd","badger pink" => "#f8b8de","badger red" => "#f3334b","badger green" => "#41ad16","badger yellow" => "#ffe618","badger brown" => "#66180b","badger gray" => "#a2b9b9","mountain red" => "#ff3516","mountain blue" => "#003776","mountain green" => "#20d942","mountain yellow" => "#ffb30f","mountain brown" => "#d15b25","mountain gray" => "#c0c0c0","sooner blue" => "#0e4892","sooner light blue" => "#00adc6","sooner green" => "#1b692b","sooner opal" => "#8ab87a","sooner yellow" => "#f0c016","sooner brown" => "#421000","sooner beige" => "#ffc69c","sooner gray" => "#d6c6c6","sooner black" => "#454442","buckeye blue" => "#1a3b86","buckeye red" => "#ff0000","buckeye green" => "#00784b","buckeye yellow" => "#f8c300","buckeye brown" => "#4e3330","buckeye light blue" => "#027bc2","beaver blue" => "#002a86","beaver yellow" => "#ffea0f","golden red" => "#c10435","golden green" => "#007e3a","golden brown" => "#391800","golden yellow" => "#bc8e07","golden cyan" => "#40a7aa","golden gray" => "#84948e","sunflower blue" => "#00009c","sunflower light blue" => "#0092df","sunflower green" => "#29b910","sunflower orange" => "#ff660f","sunflower brown" => "#b34e20","sunflower purple" => "#7c4790","sunflower yellow" => "#ffe400","sunflower gray" => "#dedede","new england" => "#e25c5c","midatlantic" => "#5c7a7a","south" => "#8a84a3","florida" => "#e9bda2","midwest" => "#ffd577","texas" => "#77cbb3","great plains" => "#b6bc4d","rocky mountain" => "#e9df25","southwest" => "#ee2222","california" => "#e0fa92","pacific northwest" => "#38911c","alaska" => "#d09440","hawaii" => "#4f93c0","mountains alabama" => "#999966","metropolitan alabama" => "#ff9933","river heritage alabama" => "#996699","gulf coast alabama" => "#99cccc","southern california" => "#e03030","california desert" => "#e0b000","california central coast" => "#00b000","san joaquin valley" => "#a0a0c0","sacramento valley" => "#e0b000","sierra nevada" => "#00e000","gold country" => "#e0e000","bay area california" => "#e06060","california north coast" => "#b0b000","shasta cascades" => "#e03030","mississippi capital river" => "#336699","mississippi delta" => "#663366","mississippi pines" => "#339966","gulf coast mississippi" => "#660033","mississippi hills" => "#996633","panhandle nebraska" => "#cc9966","north central nebraska" => "#cccc66","eastern nebraska" => "#99cccc","western nevada" => "#cc9999","northern nevada" => "#cc9966","central nevada" => "#9999cc","southern nevada" => "#99cccc","central new mexico" => "#e0fa92","north central new mexico" => "#6699aa","northeast new mexico" => "#b6bc4d","northwest new mexico" => "#d09440","southwest new mexico" => "#b2cc7f","southeast new mexico" => "#ffff99","northwest ohio" => "#666633","northeast ohio" => "#669999","midohio" => "#996666","southwest ohio" => "#666699","southeast ohio" => "#cc9933","western tennessee" => "#996699","central tennessee" => "#339999","eastern tennessee" => "#339966","panhandle texas" => "#80622f","prairies and lakes" => "#335c64","piney woods" => "#406324","gulf coast texas" => "#7895a3","south texas plains" => "#7d6b71","hill country" => "#d1a85e","big bend country" => "#c6ab7a","wasatch front" => "#99cc33","canyon country" => "#cc6600","northeastern utah" => "#669900","dixie" => "#b2cc7f","central utah" => "#999933","western utah" => "#ffff99","northern virginia" => "#9966ff","eastern virginia" => "#33bbee","central virginia" => "#ff6655","southwest virginia" => "#ffcc33","shenandoah valley" => "#339933","southeast wisconsin" => "#66cc99","southwest wisconsin" => "#99ccff","northeast wisconsin" => "#009999","north central wisconsin" => "#66ccff","northwest wisconsin" => "#99cccc");
 
-
 /**
  * Raindrops settings.
  *
@@ -286,9 +273,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
-
-
     $raindrops_base_setting = array(
 
         array('option_id' =>'null',
@@ -426,8 +410,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt2'=>__('When display extra sidebar is set to show,
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate'),
-
-
     );
     if(warehouse('raindrops_show_right_sidebar') == 'hide'){
         $rsidebar_show = false;
@@ -448,11 +430,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     }else{
         $yui_inner_layout = 'yui-ge';
     }
-
-
-?>
-<?php
-
 
     if(TMN_USE_AUTO_COLOR == true and is_admin() == true ){
         get_template_part('lib/csscolor/csscolor');
@@ -481,8 +458,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             echo $custom_content_width;
         }
     }
-	
-
 /**
  * fluid or fixed page width
  *
@@ -831,7 +806,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  * comments.php
  *
  */
-
     if (!function_exists('raindrops_comment')) {
         function raindrops_comment( $comment, $args, $depth ) {
             $GLOBALS['comment'] = $comment; ?>
@@ -874,7 +848,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
       <?php endif;
         }
     }
-
 /**
  * Echo posted in block
  *
@@ -882,7 +855,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  * loop.php
  *
  */
-
     if (!function_exists('raindrops_posted_in')) {
         function raindrops_posted_in() {
             // Retrieves tag list of current post, separated by commas.
@@ -992,7 +964,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function tmn_admin_meta($name,$meta_name){
         global $raindrops_base_setting;
         global $page_width;
@@ -1013,7 +984,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     if (!function_exists('raindrops_help')) {
         function raindrops_help($text){
         global $title;
@@ -1095,7 +1065,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         }
         }
     }
-
 /**
  * Admin Panel toggle action
  *
@@ -1103,7 +1072,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function raindrops_jquery_toggle_action(){
         echo '<meta http-equiv="content-script-type" content="text/css" />';
         echo '<meta http-equiv="content-script-type" content="text/javascript" />';
@@ -1138,7 +1106,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function raindrops_options_init(){
         global $raindrops_base_setting;
         if(isset($raindrops_base_setting)){
@@ -1147,6 +1114,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             }
         }
     }
+
+/**
+ * Raindrops option panel
+ *
+ *
+ *
+ *
+ */
 
     class tmn_menu_create {
         var $accesskey  = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
@@ -1185,6 +1160,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             "w3standard"=>"w3standard",
             "minimal"=>"minimal"
             );
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
 
         function SubMenu_GUI() {
             global $wpdb,$count, $raindrops_base_setting;
@@ -1268,6 +1251,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             echo $result;
         }
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
         function add_menus() {
             if(function_exists('add_theme_page')) {
 
@@ -1275,6 +1266,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             }
         }
 
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
 
         function form_user_input(){
             global $raindrops_base_setting;
@@ -1416,6 +1415,15 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                 }
                 return $lines;
         }
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
          function color_selector($name,$current_val,$i){
             global $color_ja,$color_en_140,$color_en;
             $result = sprintf($this->line_select_element,$this->accesskey[$i],$name,4,100);
@@ -1475,6 +1483,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         return $g;
     }
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     function tmn_gradient(){
         $g = "";
         for($i = 1;$i<5;$i++){
@@ -1497,6 +1513,15 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         }
         return $g;
     }
+
+/**
+ * add stylesheet and few javascript
+ *
+ *
+ *
+ *
+ */
+
     function add_raindrops_stylesheet() {
 
         $themes                 = get_themes();
@@ -1577,13 +1602,11 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function custom_remove_aria_required1($arg){
         $change = array("aria-required=\"true\"","aria-required='true'");
         $arg = str_replace($change,'',$arg);
         return $arg;
     }
-
 /**
  * filter function remove area required
  *
@@ -1701,8 +1724,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             add_action('switch_theme', create_function(null, 'delete_option("raindrops_theme_settings");'));
         }
     }
-
-
 /**
  * insert into embed style ,javascript script and embed tags from custom field
  *
@@ -1710,7 +1731,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function tmn_embed_meta($content){
         $result = "";
         global $post;
@@ -1772,7 +1792,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         echo $result;
         return $content;
     }
-
 /**
  *  Alternative character when no title
  *
@@ -1780,7 +1799,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-
     function raindrops_blank_fallback($string,$fallback){
         if(!empty($string)){
             return $string;
@@ -1788,15 +1806,13 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return $fallback;
         }
     }
-
 /**
- *
+ * Article navigation
  *
  *
  *
  *
  */
-
     function raindrops_prev_next_post($position = "nav-above"){
 
         $raindrops_max_length     = 40;
@@ -1819,9 +1835,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
   <div class="nav-next"><?php next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>'); ?></div>
 </div>
-<?php }?>
-<?php
-
+<?php }
 /**
  * date.php
  *
@@ -2014,8 +2028,13 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 /*end raindrops_get_month()*/
 
 
-
-
+/**
+ * for date.php
+ *
+ *
+ *
+ *
+ */
     function raindrops_get_year($posts = '', $year = '', $pad = 0) {
   		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
 
@@ -2059,6 +2078,14 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     return $output.implode("\n",$table_year);
     }
 /* end raindrops_get_year()*/
+
+/**
+ * for date.php
+ *
+ *
+ *
+ *
+ */
 
     function raindrops_get_day($posts = '', $year = '', $mon = '', $day = '', $pad = 1){
 
@@ -2107,6 +2134,14 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 /* end raindrops_get_day()*/
 
+/**
+ * for date.php
+ *
+ *
+ *
+ *
+ */
+
     function raindrops_year_list($one_month,$ye,$mo){
         $result = "";
   		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
@@ -2133,10 +2168,26 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 
 
+/**
+ * sort month_list
+ *
+ *
+ *
+ *
+ */
+
 function raindrops_cmp_ids( $a , $b){
   $cmp = strcmp( $a->post_date , $b->post_date ); 
   return $cmp;
 }
+
+/**
+ * for date.php
+ *
+ *
+ *
+ *
+ */
 
     function month_list($one_month,$ye,$mo){
     global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
@@ -2190,6 +2241,14 @@ function raindrops_cmp_ids( $a , $b){
         return $output."<table id=\"month_list\">".$result."</table>";
     }
 
+
+/**
+ * index ,archive,loops page title
+ *
+ *
+ *
+ *
+ */
 
 function raindrops_loop_title(){
 
@@ -2260,6 +2319,14 @@ echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
 
 }
 
+/**
+ * yui helper function
+ *
+ *
+ *
+ *
+ */
+
 function raindrops_yui_class_modify($raindrops_inner_class = 'yui-ge'){
     global $yui_inner_layout;
 
@@ -2285,6 +2352,14 @@ function is_2col_raindrops($action = true,$echo = true){
 	
 
 }
+
+/**
+ * yui layout curc
+ *
+ *
+ *
+ *
+ */
 
 	function raindrops_main_width(){
 	
@@ -2368,6 +2443,14 @@ function is_2col_raindrops($action = true,$echo = true){
 	
 			return $raindrops_content_width;	
 	}
+
+/**
+ * content width curc
+ *
+ *
+ *
+ *
+ */
 
     function raindrops_content_width(){
 		global $page_width;
@@ -2494,46 +2577,110 @@ function is_2col_raindrops($action = true,$echo = true){
     return $raindrops_content_width;
     }
 
+/**
+ * horizontal menu extend
+ *
+ *
+ *
+ *
+ */
 
-if(!class_exists("raindrops_description_walker")){	
+if(!class_exists("raindrops_description_walker")){
+	
 	class raindrops_description_walker extends Walker_Nav_Menu{
-		  function start_el(&$output, $item, $depth, $args)
-		  {
-			   global $wp_query;
-			   $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 	
-			   $class_names = $value = '';
+	var $defaults = array( 
+					'menu' => '',
+					 'container' => 'div',
+					 'container_class' => '',
+					 'container_id' => '',
+					 'menu_class' => 'menu',
+					 'menu_id' => '',
+					 'echo' => true,
+					 'fallback_cb' => 'wp_page_menu',
+					 'before' => '',
+					 'after' => '',
+					 'link_before' => '',
+					 'link_after' => '',
+					// 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					// 'walker' => '',
+					 'theme_location' => '' 
+					 );
 	
-			   $classes = empty( $item->classes ) ? array() : (array) $item->classes;
-	
-			   $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-			   $class_names = ' class="'. esc_attr( $class_names ) . '"';
-	
-			   $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
-	
-			   $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-			   $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-			   $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-			   $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-	
-			   $prepend = '<strong>';
-			   $append = '</strong>';
-			   $description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
-	
-			   if($depth != 0)
-			   {
-						 $description = $append = $prepend = "";
-			   }
-	
-				$item_output = $args->before;
-				$item_output .= '<a'. $attributes .'>';
-				$item_output .= $args->link_before .$prepend.apply_filters( 'the_title', $item->title, $item->ID ).$append;
-				$item_output .= $description.$args->link_after;
-				$item_output .= '</a>';
-				$item_output .= $args->after;
-	
-				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		  function start_el(&$output, $item, $depth = 0, $args){
+				global $wp_query;
+				
+				$args 				= wp_parse_args( $args, $this->defaults );
+				$class_names 		= ''; 
+				$value 				= '';
+				$prepend 			= '<strong>';
+				$append 			= '</strong>'; 
+			   	$attributes			= '';
+				$item_output 		= '';
+				$description		= '';
+				
+				if($depth != 0){
+					$append 		= '';
+					$prepend 		= '';
 				}
+				
+				if(!isset( $item->classes ) or empty( $item->classes )){
+					$classes 		=  array();
+				}else{
+					$classes 		=  (array) $item->classes;
+					$class_names 	= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+					$class_names 	= ' class="'. esc_attr( $class_names ) . '"';		
+				}
+			   
+				if( $depth ){
+					$indent 		= str_repeat( "\t", $depth ) ;
+				}else{
+					$indent 		= 	 '';
+				}
+				
+				$output				.= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+				
+				if(!empty( $item->attr_title )){
+					$attributes  	.= ' title="'  . esc_attr( $item->attr_title ) .'"';
+				}
+				if(!empty( $item->target )){
+					$attributes  	.= ' target="' . esc_attr( $item->target     ) .'"';
+				}
+				if(!empty( $item->xfn )){
+					$attributes  	.= ' rel="'    . esc_attr( $item->xfn        ) .'"';
+				}
+				if(!empty( $item->url )){
+					$attributes  	.= ' href="'   . esc_attr( $item->url        ) .'"';
+				}
+				
+				
+				if(!empty( $item->description ) and $depth == 0){
+					$description   	= '<span>'.esc_attr( $item->description ).'</span>';
+				}
+
+				
+				if(isset($args->before) and !empty($args->before)){
+					$item_output .= $args->before;
+				}
+				$item_output .= '<a'. $attributes .'>';
+				if(isset($args->link_before) and !empty($args->link_before)){
+					$item_output .= $args->link_before ;
+				}
+				if(	isset($item->title) and !empty($item->title) and 
+					isset($item->ID) and !empty($item->ID)			){
+					
+					$item_output .= $prepend.apply_filters( 'the_title', $item->title, $item->ID ). $append;
+				}
+					$item_output .= $description;
+				if(isset($args->after) and !empty($args->after)){
+					$item_output .= $args->link_after;
+				}
+					$item_output .= '</a>';
+				if(isset($args->after) and !empty($args->after)){
+					$item_output .= $args->after;
+				}
+					$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+			}
 	}
 }	
 ?>

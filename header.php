@@ -143,15 +143,8 @@ if( !empty($raindrops_header_image)){
 ?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-<?php 
-$raindrops_nav_menu = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'walker' => new raindrops_description_walker(), 'echo' => false));
-$len = trim(strip_tags($raindrops_nav_menu));
-
-if(	!empty($len) ){
-	echo $raindrops_nav_menu;
-}else{
-	 wp_page_menu();
-}
+<?php
+wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary'));
 ?>
 </div>
 <br class="clear" />

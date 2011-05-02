@@ -43,7 +43,7 @@ if(!defined('ABSPATH')){exit;}
  * value 'fixed' or empty
  *
  */
- 	$fluid_or_fixed = 'fixed';
+    $fluid_or_fixed = 'fixed';
 
 /**
  * fluid page  main column minimam width px
@@ -52,7 +52,7 @@ if(!defined('ABSPATH')){exit;}
  *
  *
  */
-	$fluid_minimam_width = '400';
+    $fluid_minimam_width = '400';
 /**
  * the_excerpt use where index,archive,other not single pages.
  * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
@@ -169,7 +169,7 @@ if(!defined('ABSPATH')){exit;}
 /**
  * single-post-thumbnail
  *
- * 
+ *
  *
  *
  */
@@ -285,7 +285,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt1'=>'',
         'excerpt2'=>__('Please specify your favorite color. and an automatic arrangement of color is designed.','Raindrops'),
          'validate'=>'raindrops_base_color_validate',
-		 'list' => 1),
+         'list' => 1),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -297,8 +297,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt2'=>__('The mood like dark atmosphere and the bright note,
          etc. is decided.','Raindrops'),
          'validate'=>'raindrops_style_type_validate',
-		 'list' => 2,
-		),
+         'list' => 2,
+        ),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -310,8 +310,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt2'=>__('The name of the picture file used for the header is set. As for the image,
          the image that exists in themes/raindrops/image/is used. for display test image "header.png"','Raindrops'),
          'validate'=>'raindrops_header_image_validate',
-		 'list' => 3,
-		),
+         'list' => 3,
+        ),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -337,8 +337,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
          the image that exists in themes/raindrops/image/is used.The header image can be chosen from among three kinds [h2.png,
         h2b.png,h2c.png] now. Of course, customizing is also possible. ','Raindrops'),
          'validate'=>'raindrops_heading_image_validate','list' => 5),
-		 
-		array('option_id' =>'null',
+
+        array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image_position",
         'option_value' => "0",
@@ -463,103 +463,103 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-		if(	isset($fluid_or_fixed) and 
-			!empty($fluid_or_fixed) and
-			(raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
- 	     	add_action("wp_head","raindrops_is_fixed");
-		}elseif(isset($fluid_minimam_width) and !empty($fluid_minimam_width)){
- 	     	add_action("wp_head","raindrops_is_fluid");
-		
-			
-		}
+        if( isset($fluid_or_fixed) and
+            !empty($fluid_or_fixed) and
+            (raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
+            add_action("wp_head","raindrops_is_fixed");
+        }elseif(isset($fluid_minimam_width) and !empty($fluid_minimam_width)){
+            add_action("wp_head","raindrops_is_fluid");
 
-  		function raindrops_is_fluid(){
-			global  $is_IE, $fluid_minimam_width;
-			$width 			= intval($fluid_minimam_width);			
-			$width			= $width / 13;
-			$sidebar_width	= 'yui-'.raindrops_warehouse('raindrops_col_width');
-			$adjust 		= 20;
-			
-			if($sidebar_width == 'yui-t1'){
-				$raindrops_default_col_width = 160 + $adjust;
-			}elseif($sidebar_width == 'yui-t2'){
-				$raindrops_default_col_width = 180 + $adjust;
-			}elseif($sidebar_width == 'yui-t3'){
-				$raindrops_default_col_width = 300 + $adjust;
-			}elseif($sidebar_width == 'yui-t4'){
-				$raindrops_default_col_width = 180 + $adjust;
-			}elseif($sidebar_width == 'yui-t5'){
-				$raindrops_default_col_width = 240 + $adjust;
-			}elseif($sidebar_width == 'yui-t6'){
-				$raindrops_default_col_width = 300 + $adjust;
-			}else{
-				$raindrops_default_col_width = 0;
-			}
-			
-			$horizontal_nav_width = $raindrops_default_col_width + intval($fluid_minimam_width);
-			$horizontal_nav_width = $horizontal_nav_width / 13;
-						
-			if($is_IE){ 
-				$width 					= round($width * 0.9759,1);
-				$horizontal_nav_width 	= round($horizontal_nav_width * 0.9759,1) + 1;		 
-			}else{
-				$width 					= round($width,1);
-				$horizontal_nav_width 	= round($horizontal_nav_width * 0.9759,1); 
-			}
-			
-			
+
+        }
+
+        function raindrops_is_fluid(){
+            global  $is_IE, $fluid_minimam_width;
+            $width          = intval($fluid_minimam_width);
+            $width          = $width / 13;
+            $sidebar_width  = 'yui-'.raindrops_warehouse('raindrops_col_width');
+            $adjust         = 20;
+
+            if($sidebar_width == 'yui-t1'){
+                $raindrops_default_col_width = 160 + $adjust;
+            }elseif($sidebar_width == 'yui-t2'){
+                $raindrops_default_col_width = 180 + $adjust;
+            }elseif($sidebar_width == 'yui-t3'){
+                $raindrops_default_col_width = 300 + $adjust;
+            }elseif($sidebar_width == 'yui-t4'){
+                $raindrops_default_col_width = 180 + $adjust;
+            }elseif($sidebar_width == 'yui-t5'){
+                $raindrops_default_col_width = 240 + $adjust;
+            }elseif($sidebar_width == 'yui-t6'){
+                $raindrops_default_col_width = 300 + $adjust;
+            }else{
+                $raindrops_default_col_width = 0;
+            }
+
+            $horizontal_nav_width = $raindrops_default_col_width + intval($fluid_minimam_width);
+            $horizontal_nav_width = $horizontal_nav_width / 13;
+
+            if($is_IE){
+                $width                  = round($width * 0.9759,1);
+                $horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1) + 1;
+            }else{
+                $width                  = round($width,1);
+                $horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1);
+            }
+
+
             $fluid_min_width = '<style type="text/css">'.
-							"\n#container{min-width:".
-							$width.
-							'em;}'.
-							"\n#access{min-width:".
-							$horizontal_nav_width.
-							'em;}</style>';
+                            "\n#container{min-width:".
+                            $width.
+                            'em;}'.
+                            "\n#access{min-width:".
+                            $horizontal_nav_width.
+                            'em;}</style>';
             echo $fluid_min_width;
-        }		
-		
-  		function raindrops_is_fixed(){
-			global $is_IE;
-			$add_ie = '';
-			$pw = raindrops_warehouse("raindrops_page_width");
-			
-            if($pw == 'doc'){
-         		$width		= 750;
-				$px = 'width:'.$width.'px;';
-				$width		= $width / 13;
-			}
-			if($pw == 'doc2'){
-                $width 		= 950;
-				$px = 'width:'.$width.'px;';
-				$width	    = $width / 13;
-			}
-			
-			$raindrops_main_width = raindrops_main_width();
-			$raindrops_main_width = $raindrops_main_width / 13;
-						
-			if($is_IE){ 
-				$width 					= round($width * 0.9759,1); 
-				$add_ie 				= '';
-				$raindrops_main_width 	= round($raindrops_main_width * 0.9759,1);
-			}else{
-				$width 					= round($width,1); 
-			}
-			
-            $custom_fixed_width = '<style type="text/css">'."
-				\n#".$pw.'{margin:auto;text-align:left;'."\n".
-            				'min-width:'.$width.'em;'.
-							$add_ie.
-							$px.
-							'}'.
-							"\n#container{min-width:".
-							$raindrops_main_width.
-							'em;}</style>';
-            echo $custom_fixed_width;
-        }		
+        }
 
-	
-	
-	
+        function raindrops_is_fixed(){
+            global $is_IE;
+            $add_ie = '';
+            $pw = raindrops_warehouse("raindrops_page_width");
+
+            if($pw == 'doc'){
+                $width      = 750;
+                $px = 'width:'.$width.'px;';
+                $width      = $width / 13;
+            }
+            if($pw == 'doc2'){
+                $width      = 950;
+                $px = 'width:'.$width.'px;';
+                $width      = $width / 13;
+            }
+
+            $raindrops_main_width = raindrops_main_width();
+            $raindrops_main_width = $raindrops_main_width / 13;
+
+            if($is_IE){
+                $width                  = round($width * 0.9759,1);
+                $add_ie                 = '';
+                $raindrops_main_width   = round($raindrops_main_width * 0.9759,1);
+            }else{
+                $width                  = round($width,1);
+            }
+
+            $custom_fixed_width = '<style type="text/css">'."
+                \n#".$pw.'{margin:auto;text-align:left;'."\n".
+                            'min-width:'.$width.'em;'.
+                            $add_ie.
+                            $px.
+                            '}'.
+                            "\n#container{min-width:".
+                            $raindrops_main_width.
+                            'em;}</style>';
+            echo $custom_fixed_width;
+        }
+
+
+
+
     if(!isset($content_width) or empty($content_width)){
         $content_width = raindrops_content_width();
     }
@@ -587,7 +587,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     add_custom_background();
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 48, 48, true );
-	
+
     add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT, true);
     add_theme_support( 'automatic-feed-links' );
     load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
@@ -625,24 +625,24 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
     function raindrops_use_automatic_color_validate($input){
-		$input = str_replace("#","",$input);
-		if(ctype_xdigit($input)){
-			return '#'.$input;
-		}else{
-			$raindrops_options = get_option("raindrops_theme_settings");	
-			return $raindrops_options["raindrops_use_automatic_color"];
-		}
+        $input = str_replace("#","",$input);
+        if(ctype_xdigit($input)){
+            return '#'.$input;
+        }else{
+            $raindrops_options = get_option("raindrops_theme_settings");
+            return $raindrops_options["raindrops_use_automatic_color"];
+        }
         return $input;
     }
     function raindrops_right_sidebar_width_percent_validate($input){
-	    $obj = new raindrops_menu_create();
+        $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_right_sidebar_width_percent;
         foreach($vals as $val){
             if($input == $val){
             return $input;
             }
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_right_sidebar_width_percent"];
     }
     function raindrops_show_right_sidebar_validate($input){
@@ -653,7 +653,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return $input;
             }
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["col_settings_raindrops_show_right_sidebar"];
     }
     function raindrops_footer_color_validate($input){
@@ -661,7 +661,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         if(preg_match("|#[0-9a-f]{6}|i",$input)){
             return $input;
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_default_fonts_color"];
     }
     function raindrops_default_fonts_color_validate($input){
@@ -669,7 +669,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         if(preg_match("|#[0-9a-f]{6}|i",$input)){
             return $input;
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_default_fonts_color"];
     }
     function raindrops_col_width_validate($input){
@@ -680,7 +680,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return $input;
             }
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_col_width"];
     }
     function raindrops_page_width_validate($input){
@@ -691,12 +691,12 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return $input;
             }
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_page_width"];
     }
     function raindrops_heading_image_validate($input){
         if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_heading_image"];
         }
         return $input;
@@ -705,20 +705,20 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         if(is_numeric($input) and $input < 8 and -1 < $input ){
         return $input;
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_heading_image_position"];
     }
     function raindrops_footer_image_validate($input){
-		global $raindrops_options;
+        global $raindrops_options;
        if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_header_image"];
         }
             return $input;
     }
     function raindrops_header_image_validate($input){
         if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
-			$raindrops_options = get_option("raindrops_theme_settings");	
+            $raindrops_options = get_option("raindrops_theme_settings");
             return $raindrops_options["raindrops_header_image"];
         }
          return $input;
@@ -731,7 +731,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return $input;
             }
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_style_type"];
     }
     function raindrops_base_color_validate($input){
@@ -739,7 +739,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         if(preg_match("|#[0-9a-f]{6}|i",$input)){
             return $input;
         }
-		$raindrops_options = get_option("raindrops_theme_settings");	
+        $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_base_color"];
     }
 
@@ -754,11 +754,11 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     if (!function_exists('raindrops_add_body_class')) {
         function raindrops_add_body_class($class) {
             $lang = get_locale();
-			
-			$raindrops_options = get_option("raindrops_theme_settings");	
-   
-			$color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
-			
+
+            $raindrops_options = get_option("raindrops_theme_settings");
+
+            $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
+
             $classes= array($lang,$color_type);
              $classes= array_merge($classes,$class);
                 global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
@@ -1135,7 +1135,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
         function SubMenu_GUI() {
             global $wpdb,$count, $raindrops_base_setting;
-            $ok     = false;			
+            $ok     = false;
             $result = "";
             $count = $wpdb->query("SELECT * FROM `".RAINDROPS_PLUGIN_TABLE."`;");
             /**
@@ -1146,31 +1146,31 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             if(isset($_POST) and !empty($_POST)){
 
                 $option_id      = intval($_POST['option_id']);
-				$raindrops_updates = "";
-				
-				foreach($_POST["raindrops_option_values"] as $key=>$val){
-				
-				
-					$valid_function = $key.'_validate';
-		
-				   if($val == $valid_function($val)){
+                $raindrops_updates = "";
+
+                foreach($_POST["raindrops_option_values"] as $key=>$val){
+
+
+                    $valid_function = $key.'_validate';
+
+                   if($val == $valid_function($val)){
 
                       $new_settings         = get_option('raindrops_theme_settings');
                       $new_settings[$key]   = $val;
-					  
+
                       if(update_option('raindrops_theme_settings',$new_settings)){
                         $ok = true;
-						do_action( 'raindrops_change_style' );
+                        do_action( 'raindrops_change_style' );
 
-						$raindrops_updates .= ','.$key;
+                        $raindrops_updates .= ','.$key;
 
                       }
 
-                	}else{
-						$raindrops_updates = $key."value error";
-					}
-				
-				}
+                    }else{
+                        $raindrops_updates = $key."value error";
+                    }
+
+                }
             }
 
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
@@ -1179,10 +1179,10 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             $result .= "<p>Saved Database table name:<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
 
             if(isset($_POST) and !empty($_POST)){
-                    
+
                     $scheme = RAINDROPS_COLOR_SCHEME;
                     global $$scheme;
-				if($ok == true){
+                if($ok == true){
                 $result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.'), $raindrops_updates);
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
@@ -1191,9 +1191,9 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                     }else{
                         $result .= '</p></div>';
                     }
-				}
-					
-					
+                }
+
+
             }
 
             $result .= '</div>';
@@ -1234,8 +1234,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             $i              = 0;
             $deliv          = htmlspecialchars($_SERVER['REQUEST_URI']);
             $results        = get_option('raindrops_theme_settings');
-			$current_heading_image = raindrops_warehouse("raindrops_heading_image");
-			ksort($results);
+            $current_heading_image = raindrops_warehouse("raindrops_heading_image");
+            ksort($results);
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
 //$lines .= $excerpt;
@@ -1260,12 +1260,12 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                 }
 
                 if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val)){
-                    $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';					
+                    $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
                 }else{
                     $style .='';
                 }
 
-				
+
                 if(empty($style)){
                     $style .='visibility:hidden';
                     $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value").'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
@@ -1284,18 +1284,18 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     continue;
                 }
 
-				$lines .= $excerpt;
+                $lines .= $excerpt;
                 $lines .= $table;
                 $lines .= $table_header;
                 $lines .= '<tbody>';
                 $lines .= '<tr>';
-				$lines .= '<td style="display:none;">';
+                $lines .= '<td style="display:none;">';
                 $lines .= '<input type="text" name="option_id" value="'.$i.'" />'.$i.'</td>';
-				if($key == "raindrops_heading_image_position"){
-				$lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
-				}else{
+                if($key == "raindrops_heading_image_position"){
+                $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+                }else{
                 $lines .= '<td style="'.$style.'">';
-				}
+                }
                 $lines .= '<input type="hidden" name="option_name" value="'.esc_attr($key).'" read-only="read-only" /></td>';
                 $lines .= '<td>'.esc_html($val).'</td>';
 
@@ -1317,11 +1317,11 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                         $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-				}elseif($key == "raindrops_show_right_sidebar"){
+                }elseif($key == "raindrops_show_right_sidebar"){
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',2,40);
                     foreach($this->col_settings_raindrops_show_right_sidebar as $key=>$current){
-                        
+
                         $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
@@ -1329,7 +1329,7 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',5,100);
                     foreach($this->col_settings_raindrops_right_sidebar_width_percent as $key=>$current){
-                        
+
                         $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
@@ -1338,7 +1338,7 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',3,60);
                     foreach($this->col_settings_raindrops_style_type as $key=>$current){
-                        
+
                         $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
@@ -1352,12 +1352,12 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     $lines .= ' /></td>';
                 }
                 $i++;
-				$lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save').'" /></td>';
+                $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save').'" /></td>';
 
                 $lines .= '</tr>';
-				
+
                 $send_key_name = "";
- 				$lines .= "</tbody></table><br /></div>";			
+                $lines .= "</tbody></table><br /></div>";
             }
 $lines .= $this->table_template."<tr><td><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save Changes').'" /></td></tr></table></form><br style="clear:both;">';
                 $lines .= "</div>";
@@ -1380,7 +1380,7 @@ $lines .= $this->table_template."<tr><td><input type=\"submit\" class=\"button-p
             $result = sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$name.']',4,100);
             $scheme = RAINDROPS_COLOR_SCHEME;
             $current_color = array_search($current_val,$$scheme);
-			
+
 $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'" '.selected(1,1,false).'>'.$current_color.'</option>';
                 foreach($$scheme as $key=>$val){
                     $cr = hexdec(substr($val,1,2))*0.5;
@@ -1519,18 +1519,18 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
             wp_enqueue_style( 'dhild_style');
             }
 
-/* add small js*/			
-			$raindrops_js   = $template_uri.'/raindrops.js';
+/* add small js*/
+            $raindrops_js   = $template_uri.'/raindrops.js';
             wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,'all');
             wp_enqueue_script('raindrops');
-			
-			if(raindrops_warehouse("raindrops_style_type") !== 'w3standard'){
-			$raindrops_css3   = $template_uri.'/css3.css';
+
+            if(raindrops_warehouse("raindrops_style_type") !== 'w3standard'){
+            $raindrops_css3   = $template_uri.'/css3.css';
             wp_register_style('raindrops_css3', $raindrops_css3,array('child_style'),$raindrops_version,'all');
-            wp_enqueue_style('raindrops_css3');			
-			
-			
-			}			
+            wp_enqueue_style('raindrops_css3');
+
+
+            }
     }
 
 /**
@@ -1588,8 +1588,8 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
 
     function setup_raindrops(){
         global $wpdb,$raindrops_base_setting;
-		
-		if(RAINDROPS_USE_AUTO_COLOR == false){return;}
+
+        if(RAINDROPS_USE_AUTO_COLOR == false){return;}
         $raindrops_theme_settings = get_option('raindrops_theme_settings');
 
        foreach($raindrops_base_setting as $add){
@@ -1609,32 +1609,32 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
     }
 
 /**
- * image element has attribute 'width','height' and image size > column width 
+ * image element has attribute 'width','height' and image size > column width
  * style max-width value 100% set when expand height height attribute value.
  *
  * IE filter
  *
  */
 
-	add_filter('the_content','raindrops_ie_height_expand_issue');
+    add_filter('the_content','raindrops_ie_height_expand_issue');
 
-	function raindrops_ie_height_expand_issue($content){
-		global $is_IE,$content_width;
-	
-		if($is_IE){
-			preg_match_all('#(<img)([^>]+)(height|width)(=")([0-9]+)"([^>]+)(height|width)(=")([0-9]+)"([^>]+)>#',$content,$images,PREG_SET_ORDER);
-			
-			foreach($images as $image){
-				if(($image[3] == "width" and $image[5] > $content_width) or ($image[7] == "width" and $image[9] > $content_width)){
-					$content = str_replace($image[0],$image[1].$image[2].$image[6].$image[10].'>',$content);
-				}
-			}
-			return $content;
-		}else{
-		
-			return $content;
-		}
-	}
+    function raindrops_ie_height_expand_issue($content){
+        global $is_IE,$content_width;
+
+        if($is_IE){
+            preg_match_all('#(<img)([^>]+)(height|width)(=")([0-9]+)"([^>]+)(height|width)(=")([0-9]+)"([^>]+)>#',$content,$images,PREG_SET_ORDER);
+
+            foreach($images as $image){
+                if(($image[3] == "width" and $image[5] > $content_width) or ($image[7] == "width" and $image[9] > $content_width)){
+                    $content = str_replace($image[0],$image[1].$image[2].$image[6].$image[10].'>',$content);
+                }
+            }
+            return $content;
+        }else{
+
+            return $content;
+        }
+    }
 
 /**
  * Raindrops once message when install.
@@ -1647,11 +1647,11 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
         if ( $type == 1 ) {
             $query  = 'raindrops_settings';
             $link   = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
-			if (version_compare(PHP_VERSION, '5.0.0', '<')) {	
-			$msg 	= sprintf(__('Sorry Your PHP version is %s Please use PHP version 5 or later.','Raindrops'),PHP_VERSION);
-			}else{		
+            if (version_compare(PHP_VERSION, '5.0.0', '<')) {
+            $msg    = sprintf(__('Sorry Your PHP version is %s Please use PHP version 5 or later.','Raindrops'),PHP_VERSION);
+            }else{
             $msg    = sprintf(__('Thank you for adopting the %s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.','Raindrops'),get_current_theme() ,$link);
-			}
+            }
         }
         return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
     }
@@ -1676,7 +1676,7 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
             add_action('switch_theme', create_function(null, 'delete_option("raindrops_theme_settings");'));
         }
     }
-	
+
 /**
  * insert into embed style ,javascript script and embed tags from custom field
  *
@@ -1701,17 +1701,17 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 .gallery-columns-7 dl{ width: 14.28% }
 .gallery-columns-8 dl{ width: 12.5% }
 .gallery-columns-9 dl{ width: 11.1% }';
-		$css				= $raindrops_gallerys;
-	
+        $css                = $raindrops_gallerys;
+
         $raindrops_options  = get_option("raindrops_theme_settings");
-        $css               	.= $raindrops_options['_raindrops_indv_css'];
-		
-		$background = get_background_image();
-		$color = get_background_color();
-		
-		if(!empty($background) or !empty($color)){
-			$css = preg_replace("|body[^{]*{[^}]+}|","",$css);
-		}
+        $css                .= $raindrops_options['_raindrops_indv_css'];
+
+        $background = get_background_image();
+        $color = get_background_color();
+
+        if(!empty($background) or !empty($color)){
+            $css = preg_replace("|body[^{]*{[^}]+}|","",$css);
+        }
 
         if(empty($css)){
             $css = "cannot get style value check me";
@@ -2004,7 +2004,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
  *
  */
     function raindrops_get_year($posts = '', $year = '', $pad = 0) {
-  		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
+        global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
 
         $months = array();
         $y = "";
@@ -2040,8 +2040,8 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
         foreach ($months as $num => $val) {
             $num = (int)$num;
-		 				
-	         $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td><td class="month-excerpt"><a href="'. get_month_link($year,$num)."\" title=\"$year/$num\">".sprintf(__("%s Articles archived","Raindrops"),count($val)).'</a></td></tr>';
+
+             $table_year[$num] = '<tr><td class="month-name"><a href="'.get_month_link($year,$num)."\" title=\"$year/$num\">".$num.'</a></td><td class="month-excerpt"><a href="'. get_month_link($year,$num)."\" title=\"$year/$num\">".sprintf(__("%s Articles archived","Raindrops"),count($val)).'</a></td></tr>';
         }
     return $output.implode("\n",$table_year);
     }
@@ -2112,21 +2112,21 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
 
     function raindrops_year_list($one_month,$ye,$mo){
         $result = "";
-  		global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
-    	$d = "";
-    	$links = "";
-	        foreach($one_month as $key=>$month){
+        global $ht_deputy,$calendar_page_number,$post_per_page, $calendar_page_last, $calendar_page_start;
+        $d = "";
+        $links = "";
+            foreach($one_month as $key=>$month){
                 list($y,$m,$d) = sscanf($month->post_date,"%d-%d-%d $d:$d:$d");
 
-					if($month->post_title == ''){
-						$month->post_title = $ht_deputy;
-					}
-	
-					if($m == $mo and $ye == $y){
-						$links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
-					}
-		
-			}
+                    if($month->post_title == ''){
+                        $month->post_title = $ht_deputy;
+                    }
+
+                    if($m == $mo and $ye == $y){
+                        $links .= "<li class=\"$mo\"><a href=\"" . get_permalink($month->ID) . "\" title=\"$month->post_title\">".$month->post_title."</a></li>";
+                    }
+
+            }
             if(!empty($links)){
                 $result .= " <td><ul>";
                 $result .= $links;
@@ -2145,7 +2145,7 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
  */
 
 function raindrops_cmp_ids( $a , $b){
-  $cmp = strcmp( $a->post_date , $b->post_date ); 
+  $cmp = strcmp( $a->post_date , $b->post_date );
   return $cmp;
 }
 
@@ -2162,32 +2162,32 @@ function raindrops_cmp_ids( $a , $b){
 
         $result = "";
         $here = home_url();
-		$z = -1;		
-			$c = 0;	
-	for($i=1;$i <= raindrops_days_in_month($mo, $ye);$i++){
+        $z = -1;
+            $c = 0;
+    for($i=1;$i <= raindrops_days_in_month($mo, $ye);$i++){
         $links = "";
-	usort( $one_month , "raindrops_cmp_ids" );				
-	
-		$page_break = false;
-		$first_data = false;		
+    usort( $one_month , "raindrops_cmp_ids" );
+
+        $page_break = false;
+        $first_data = false;
         foreach($one_month as $key=>$month){
 
             if($month->post_title == ''){$month->post_title = $ht_deputy;}
-            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");			
-			if($key <  $calendar_page_last and $key >= $calendar_page_start){ 
-			
-				if($d == $i and $m == $mo and $y == $ye){
-				$first_data = true;
-				$links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".$month->post_title."\">".$month->post_title."</a></li>";
-				
-				$c++;
-				}
-				
-			}
+            list($y,$m,$d,$h,$m,$s) = sscanf($month->post_date,"%d-%d-%d %d:%d:%d");
+            if($key <  $calendar_page_last and $key >= $calendar_page_start){
+
+                if($d == $i and $m == $mo and $y == $ye){
+                $first_data = true;
+                $links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".$month->post_title."\">".$month->post_title."</a></li>";
+
+                $c++;
+                }
+
+            }
         }
-		if($z == $c and $c == $post_per_page){
-			break ;
-		}
+        if($z == $c and $c == $post_per_page){
+            break ;
+        }
 
         if(!empty($links)){
         $result .= "<tr><td class=\"month-date\"><span class=\"day-name\">";
@@ -2198,11 +2198,11 @@ function raindrops_cmp_ids( $a , $b){
         $result .= $links;
         $result .= "</ul></td></tr>";
         }else{
-		$result .= "<tr class=\"no-archive\"><td class=\"month-date\"><span class=\"day-name\">";
-			$result .= $i;
-			$result .= " </span></td><td>&nbsp;</td></tr>";
+        $result .= "<tr class=\"no-archive\"><td class=\"month-date\"><span class=\"day-name\">";
+            $result .= $i;
+            $result .= " </span></td><td>&nbsp;</td></tr>";
         }
-		$z = $c;
+        $z = $c;
     }
 
         $output = "<h2 id=\"date_title\" class=\"h2 year-month\"><a href=\"".get_year_link($y)."\" title=\"$y\"><span class=\"year-name\">{$y} </span></a> <span class=\"month-name\">" . $m . " </span></h2>";
@@ -2306,18 +2306,18 @@ function raindrops_yui_class_modify($raindrops_inner_class = 'yui-ge'){
 
 function is_2col_raindrops($action = true,$echo = true){
 
-	if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
-	
-		if($echo == true){
-			echo $action;
-		}else{
-			return $action;
-		}
-	
-	}else{
-		return false;
-	} 
-	
+    if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
+
+        if($echo == true){
+            echo $action;
+        }else{
+            return $action;
+        }
+
+    }else{
+        return false;
+    }
+
 
 }
 
@@ -2329,88 +2329,88 @@ function is_2col_raindrops($action = true,$echo = true){
  *
  */
 
-	function raindrops_main_width(){
-	
-        $adjust 				= 16;
-        $default 				= 400;
-		$document_width 		= raindrops_warehouse('raindrops_page_width');
-		$sidebar_width 			= 'yui-'.raindrops_warehouse('raindrops_col_width');
-		
-	if($document_width == 'doc'){
-				$w = 750;
-				$adjust = 16;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}elseif($document_width == 'doc2'){
-				$w = 950;
-					$adjust = 16;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}elseif($document_width == 'doc3'){
-				$w = 750;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}elseif($document_width == 'doc4'){
-				$w = 974;
-				$adjust = 16;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}	
-	
-			return $raindrops_content_width;	
-	}
+    function raindrops_main_width(){
+
+        $adjust                 = 16;
+        $default                = 400;
+        $document_width         = raindrops_warehouse('raindrops_page_width');
+        $sidebar_width          = 'yui-'.raindrops_warehouse('raindrops_col_width');
+
+    if($document_width == 'doc'){
+                $w = 750;
+                $adjust = 16;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }elseif($document_width == 'doc2'){
+                $w = 950;
+                    $adjust = 16;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }elseif($document_width == 'doc3'){
+                $w = 750;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }elseif($document_width == 'doc4'){
+                $w = 974;
+                $adjust = 16;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }
+
+            return $raindrops_content_width;
+    }
 
 /**
  * content width curc
@@ -2421,235 +2421,128 @@ function is_2col_raindrops($action = true,$echo = true){
  */
 
     function raindrops_content_width(){
-		global $page_width;
-        $adjust 				= 16;
-        $default 				= 400;
-		$document_width 		= raindrops_warehouse('raindrops_page_width');
-		$sidebar_width 			= 'yui-'.raindrops_warehouse('raindrops_col_width');
-		$extra_sidebar_width 	= raindrops_warehouse('raindrops_right_sidebar_width_percent');
-		
-		if(isset($page_width) and !empty($page_width)){
-			$w = $page_width;
-			$adjust = 16;
-			if($sidebar_width == 'yui-t1'){
-				$raindrops_content_width = $w - 160 - $adjust;
-			}elseif($sidebar_width == 'yui-t2'){
-				$raindrops_content_width = $w - 180 - $adjust;
-			}elseif($sidebar_width == 'yui-t3'){
-				$raindrops_content_width = $w - 300 - $adjust;
-			}elseif($sidebar_width == 'yui-t4'){
-				$raindrops_content_width = $w - 180 - $adjust;
-			}elseif($sidebar_width == 'yui-t5'){
-				$raindrops_content_width = $w - 240 - $adjust;
-			}elseif($sidebar_width == 'yui-t6'){
-				$raindrops_content_width = $w - 300 - $adjust;
-			}else{
-				$raindrops_content_width = $default;
-			}
-			
-			
-		}else{
-			
-			if($document_width == 'doc'){
-				$w = 750;
-				$adjust = 16;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}elseif($document_width == 'doc2'){
-				$w = 950;
-					$adjust = 16;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}elseif($document_width == 'doc3'){
-				$w = 750;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}elseif($document_width == 'doc4'){
-				$w = 974;
-				$adjust = 16;
-				if($sidebar_width == 'yui-t1'){
-					$raindrops_content_width = $w - 160 - $adjust;
-				}elseif($sidebar_width == 'yui-t2'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t3'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}elseif($sidebar_width == 'yui-t4'){
-					$raindrops_content_width = $w - 180 - $adjust;
-				}elseif($sidebar_width == 'yui-t5'){
-					$raindrops_content_width = $w - 240 - $adjust;
-				}elseif($sidebar_width == 'yui-t6'){
-					$raindrops_content_width = $w - 300 - $adjust;
-				}else{
-					$raindrops_content_width = $default;
-				}
-			}
-		}
+        global $page_width;
+        $adjust                 = 16;
+        $default                = 400;
+        $document_width         = raindrops_warehouse('raindrops_page_width');
+        $sidebar_width          = 'yui-'.raindrops_warehouse('raindrops_col_width');
+        $extra_sidebar_width    = raindrops_warehouse('raindrops_right_sidebar_width_percent');
 
-		if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
-			return $raindrops_content_width;
-		}else{
-		
-			if($extra_sidebar_width == '25'){
-				return round($raindrops_content_width * 0.74);
-			}elseif($extra_sidebar_width == '75'){
-				return round($raindrops_content_width * 0.24);
-			}elseif($extra_sidebar_width == '33'){
-				return round($raindrops_content_width * 0.74);
-			}elseif($extra_sidebar_width == '66'){
-				return round($raindrops_content_width * 0.32);
-			}elseif($extra_sidebar_width == '50'){
-				return round($raindrops_content_width * 0.49);
-			}else{
-				return round($raindrops_content_width);
-			}
-		}
+        if(isset($page_width) and !empty($page_width)){
+            $w = $page_width;
+            $adjust = 16;
+            if($sidebar_width == 'yui-t1'){
+                $raindrops_content_width = $w - 160 - $adjust;
+            }elseif($sidebar_width == 'yui-t2'){
+                $raindrops_content_width = $w - 180 - $adjust;
+            }elseif($sidebar_width == 'yui-t3'){
+                $raindrops_content_width = $w - 300 - $adjust;
+            }elseif($sidebar_width == 'yui-t4'){
+                $raindrops_content_width = $w - 180 - $adjust;
+            }elseif($sidebar_width == 'yui-t5'){
+                $raindrops_content_width = $w - 240 - $adjust;
+            }elseif($sidebar_width == 'yui-t6'){
+                $raindrops_content_width = $w - 300 - $adjust;
+            }else{
+                $raindrops_content_width = $default;
+            }
+
+
+        }else{
+
+            if($document_width == 'doc'){
+                $w = 750;
+                $adjust = 16;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }elseif($document_width == 'doc2'){
+                $w = 950;
+                    $adjust = 16;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }elseif($document_width == 'doc3'){
+                $w = 750;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }elseif($document_width == 'doc4'){
+                $w = 974;
+                $adjust = 16;
+                if($sidebar_width == 'yui-t1'){
+                    $raindrops_content_width = $w - 160 - $adjust;
+                }elseif($sidebar_width == 'yui-t2'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t3'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }elseif($sidebar_width == 'yui-t4'){
+                    $raindrops_content_width = $w - 180 - $adjust;
+                }elseif($sidebar_width == 'yui-t5'){
+                    $raindrops_content_width = $w - 240 - $adjust;
+                }elseif($sidebar_width == 'yui-t6'){
+                    $raindrops_content_width = $w - 300 - $adjust;
+                }else{
+                    $raindrops_content_width = $default;
+                }
+            }
+        }
+
+        if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
+            return $raindrops_content_width;
+        }else{
+
+            if($extra_sidebar_width == '25'){
+                return round($raindrops_content_width * 0.74);
+            }elseif($extra_sidebar_width == '75'){
+                return round($raindrops_content_width * 0.24);
+            }elseif($extra_sidebar_width == '33'){
+                return round($raindrops_content_width * 0.74);
+            }elseif($extra_sidebar_width == '66'){
+                return round($raindrops_content_width * 0.32);
+            }elseif($extra_sidebar_width == '50'){
+                return round($raindrops_content_width * 0.49);
+            }else{
+                return round($raindrops_content_width);
+            }
+        }
     return $raindrops_content_width;
     }
 
-/**
- * horizontal menu extend
- *
- *
- *
- *
- */
-
-if(!class_exists("raindrops_description_walker")){
-	
-	class raindrops_description_walker extends Walker_Nav_Menu{
-	
-	var $defaults = array( 
-					'menu' => '',
-					 'container' => 'div',
-					 'container_class' => '',
-					 'container_id' => '',
-					 'menu_class' => 'menu',
-					 'menu_id' => '',
-					 'echo' => true,
-					 'fallback_cb' => 'wp_page_menu',
-					 'before' => '',
-					 'after' => '',
-					 'link_before' => '',
-					 'link_after' => '',
-					// 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-					// 'walker' => '',
-					// 'theme_location' => '' 
-					 );
-	
-		  function start_el(&$output, $item, $depth = 0, $args){
-				global $wp_query;
-				
-				//$args 				= wp_parse_args( $args, $this->defaults );
-				$class_names 		= ''; 
-				$value 				= '';
-				$prepend 			= '<strong>';
-				$append 			= '</strong>'; 
-			   	$attributes			= '';
-				$item_output 		= '';
-				$description		= '';
-				
-				if($depth != 0){
-					$append 		= '';
-					$prepend 		= '';
-				}
-				
-				if(!isset( $item->classes ) or empty( $item->classes )){
-					$classes 		=  '';
-				}else{
-					$classes 		=  (array) $item->classes;
-					$class_names 	= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-					$class_names 	= ' class="'. esc_attr( $class_names ) . '"';		
-				}
-			   
-				if( $depth ){
-					$indent 		= str_repeat( "\t", $depth ) ;
-				}else{
-					$indent 		= 	 '';
-				}
-				
-				$output				= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
-				
-				if(!empty( $item->attr_title )){
-					$attributes  	.= ' title="'  . esc_attr( $item->attr_title ) .'"';
-				}
-				if(!empty( $item->target )){
-					$attributes  	.= ' target="' . esc_attr( $item->target     ) .'"';
-				}
-				if(!empty( $item->xfn )){
-					$attributes  	.= ' rel="'    . esc_attr( $item->xfn        ) .'"';
-				}
-				if(!empty( $item->url )){
-					$attributes  	.= ' href="'   . esc_attr( $item->url        ) .'"';
-				}
-				
-				
-				if(!empty( $item->description ) and $depth == 0){
-					$description   	= '<span>'.esc_attr( $item->description ).'</span>';
-				}
-
-				
-				if(isset($args->before) and !empty($args->before)){
-					$item_output .= $args->before;
-				}
-				$item_output .= '<a'. $attributes .'>';
-				if(isset($args->link_before) and !empty($args->link_before)){
-					$item_output .= $args->link_before ;
-				}
-				if(	isset($item->title) and !empty($item->title) and 
-					isset($item->ID) and !empty($item->ID)			){
-					
-					$item_output .= $prepend.apply_filters( 'the_title', $item->title, $item->ID ). $append;
-				}
-					$item_output .= $description;
-				if(isset($args->after) and !empty($args->after)){
-					$item_output .= $args->link_after;
-				}
-					$item_output .= '</a>';
-				if(isset($args->after) and !empty($args->after)){
-					$item_output .= $args->after;
-				}
-					$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-					
-			}
-	}
-}	
 ?>

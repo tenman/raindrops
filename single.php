@@ -47,7 +47,7 @@ get_header("xhtml1"); ?>
 			
 		if($thumbnailwidth > $content_width){ 
 			$thumbnailheight	= $thumbnailsrc[2];
-			$ratio 				= round(TMN_SINGLE_POST_THUMBNAIL_HEIGHT/ TMN_SINGLE_POST_THUMBNAIL_WIDTH,2);
+			$ratio 				= round(RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT/ RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH,2);
 			$ie_height			= round($content_width * $ratio);
 	
 			$thumbnail_title    = basename($thumbnailsrc[0]);

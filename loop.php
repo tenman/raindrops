@@ -64,7 +64,7 @@ while (have_posts()){
 ?>
       <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
       <?php
-			if(TMN_USE_LIST_EXCERPT == true){
+			if(RAINDROPS_USE_LIST_EXCERPT == true){
 				the_excerpt();
 			}else{
 				the_content();
@@ -107,7 +107,7 @@ while (have_posts()){
         <?php 		dynamic_sidebar('sidebar-5');?>
       </ul>
       <?php
-			if(TMN_USE_LIST_EXCERPT == true){
+			if(RAINDROPS_USE_LIST_EXCERPT == true){
 				the_excerpt();
 			}else{
 				the_content();
@@ -134,7 +134,7 @@ while (have_posts()){
     </div>
     <div class="entry-content clearfix">
       <?php
-			if(TMN_USE_LIST_EXCERPT == true){
+			if(RAINDROPS_USE_LIST_EXCERPT == true){
 				the_excerpt();
 			}else{
 				the_content();

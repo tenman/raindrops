@@ -9,6 +9,7 @@
  */
 ?>
 <?php
+add_filter( 'use_default_gallery_style', '__return_false' );
 
 
 if(!defined('ABSPATH')){exit;}
@@ -54,14 +55,14 @@ if(!defined('ABSPATH')){exit;}
 	$fluid_minimam_width = '400';
 /**
  * the_excerpt use where index,archive,other not single pages.
- * If TMN_USE_LIST_EXCERPT value false and use the_content .
+ * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
  *
  *
  *
  */
 
-    if(!defined('TMN_USE_LIST_EXCERPT')){
-        define("TMN_USE_LIST_EXCERPT",false);
+    if(!defined('RAINDROPS_USE_LIST_EXCERPT')){
+        define("RAINDROPS_USE_LIST_EXCERPT",false);
     }
 
 /**
@@ -73,8 +74,8 @@ if(!defined('ABSPATH')){exit;}
  */
 
 
-    if(!defined('TMN_USE_AUTO_COLOR')){
-        define("TMN_USE_AUTO_COLOR",true);
+    if(!defined('RAINDROPS_USE_AUTO_COLOR')){
+        define("RAINDROPS_USE_AUTO_COLOR",true);
     }
 
 /**
@@ -86,8 +87,8 @@ if(!defined('ABSPATH')){exit;}
  */
 
 
-    if(!defined('TMN_COLOR_SCHEME')){
-        define("TMN_COLOR_SCHEME","color_ja");
+    if(!defined('RAINDROPS_COLOR_SCHEME')){
+        define("RAINDROPS_COLOR_SCHEME","color_ja");
     }
 
 /**
@@ -104,7 +105,7 @@ if(!defined('ABSPATH')){exit;}
     }
 
 /**
- *  Specific automatic color at title,description when value 'bad'.
+ *  Specific automatic color at title,description when value ''.
  *
  *
  *
@@ -112,7 +113,7 @@ if(!defined('ABSPATH')){exit;}
  */
 
     if(!defined('HEADER_TEXTCOLOR')){
-        define('HEADER_TEXTCOLOR', 'bad');
+        define('HEADER_TEXTCOLOR', '');
     }
 
 /**
@@ -144,24 +145,24 @@ if(!defined('ABSPATH')){exit;}
  *
  */
 
-    if(!defined('TMN_THE_TIME_FORMAT')){
-        define("TMN_THE_TIME_FORMAT",'Y/n/j');//
+    if(!defined('RAINDROPS_THE_TIME_FORMAT')){
+        define("RAINDROPS_THE_TIME_FORMAT",'Y/n/j');//
 
     }
-    if(!defined('TMN_THE_MONTH_FORMAT')){
-        define("TMN_THE_MONTH_FORMAT",'Y/m');//archive.php
+    if(!defined('RAINDROPS_THE_MONTH_FORMAT')){
+        define("RAINDROPS_THE_MONTH_FORMAT",'Y/m');//archive.php
 
     }
 
-    if(!defined('TMN_TABLE_TITLE')){
-        define("TMN_TABLE_TITLE",'options');
+    if(!defined('RAINDROPS_TABLE_TITLE')){
+        define("RAINDROPS_TABLE_TITLE",'options');
     }
 
-    if(!defined('TMN_PLUGIN_TABLE')){
-        define('TMN_PLUGIN_TABLE',$wpdb->prefix . TMN_TABLE_TITLE);
+    if(!defined('RAINDROPS_PLUGIN_TABLE')){
+        define('RAINDROPS_PLUGIN_TABLE',$wpdb->prefix . RAINDROPS_TABLE_TITLE);
     }
-    if(!defined('TMN_TABLE_VERSION')){
-        define('TMN_TABLE_VERSION','0.1');
+    if(!defined('RAINDROPS_TABLE_VERSION')){
+        define('RAINDROPS_TABLE_VERSION','0.1');
     }
 
     $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
@@ -172,11 +173,11 @@ if(!defined('ABSPATH')){exit;}
  *
  *
  */
-    if(!defined('TMN_SINGLE_POST_THUMBNAIL_WIDTH')){
-        define('TMN_SINGLE_POST_THUMBNAIL_WIDTH',600);
+    if(!defined('RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH')){
+        define('RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH',600);
     }
-    if(!defined('TMN_SINGLE_POST_THUMBNAIL_HEIGHT')){
-        define('TMN_SINGLE_POST_THUMBNAIL_HEIGHT',200);
+    if(!defined('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT')){
+        define('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT',200);
     }
 /**
  * widget settings
@@ -252,7 +253,7 @@ if(!defined('ABSPATH')){exit;}
     }
 
 /**
- * TMN_COLOR_SCHEME
+ * RAINDROPS_COLOR_SCHEME
  *
  *
  *
@@ -280,15 +281,11 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'option_name' => "raindrops_base_color",
         'option_value' => "#444444",
         'autoload'=>'yes',
-        'title'=> __('Base Color for Automatic Arrangement','Raindrops'),
+        'title'=> __('Base Color for Automatic Corlor Arrangement','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('Please specify your favorite color. It is based on the specified color,
-         and an automatic arrangement of color is designed. Please set the value of TMN_USE_AUTO_COLOR of function.php to false when you want to stop it. The specification of the color and border is removed. Even if this function is used,
-         you can freely specify it with style.css. Because the author of Raindrops is Japanese,
-         a traditional color of Japan is set in the specification of the color If it wants you other arrangement of color sets themes/functions.php is opened,
-         and it is value of const COLOR_SCHEME revokable. In default,
-         color_en or color_en_140 can be set. ','Raindrops','Raindrops'),
-         'validate'=>'raindrops_base_color_validate'),
+        'excerpt2'=>__('Please specify your favorite color. and an automatic arrangement of color is designed.','Raindrops'),
+         'validate'=>'raindrops_base_color_validate',
+		 'list' => 1),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -299,51 +296,57 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt1'=>'',
         'excerpt2'=>__('The mood like dark atmosphere and the bright note,
          etc. is decided.','Raindrops'),
-         'validate'=>'raindrops_style_type_validate'),
+         'validate'=>'raindrops_style_type_validate',
+		 'list' => 2,
+		),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_header_image",
-        'option_value' => "header.png",
+        'option_value' => "",
         'autoload'=>'yes',
         'title'=>__('Header bar background image','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The name of the picture file used for the header is set. As for the image,
-         the image that exists in themes/raindrops/image/is used.','Raindrops'),
-         'validate'=>'raindrops_header_image_validate'),
+         the image that exists in themes/raindrops/image/is used. for display test image "header.png"','Raindrops'),
+         'validate'=>'raindrops_header_image_validate',
+		 'list' => 3,
+		),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_image",
-        'option_value' => "footer.png",
+        'option_value' => "",
         'autoload'=>'yes',
         'title'=>__('Footer bar background image','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The name of the picture file used for the footer is set.As for the image,
-         the image that exists in themes/raindrops/image/is used.','Raindrops'),
-         'validate'=>'raindrops_footer_image_validate'),
+         the image that exists in themes/raindrops/image/is used. for display test image "footer.png".','Raindrops'),
+         'validate'=>'raindrops_footer_image_validate','list' => 4),
 
-        array('option_id' =>'null',
-        'blog_id' => 0 ,
-        'option_name' => "raindrops_heading_image_position",
-        'option_value' => "0",
-        'autoload'=>'yes',
-        'title'=>__('image position h2 background image','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
-        'validate'=>'raindrops_heading_image_position_validate'),
+
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image",
         'option_value' => "h2.png",
         'autoload'=>'yes',
-        'title'=>__('Background Image h2','Raindrops'),
+        'title'=>__('Widget Title(h2) Background Image','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The name of the picture file used for the h2 headding is set. As for the image,
+        'excerpt2'=>__('The name of the picture file used for the h2 headding is set where sidebar widget titles. As for the image,
          the image that exists in themes/raindrops/image/is used.The header image can be chosen from among three kinds [h2.png,
         h2b.png,h2c.png] now. Of course, customizing is also possible. ','Raindrops'),
-         'validate'=>'raindrops_heading_image_validate'),
+         'validate'=>'raindrops_heading_image_validate','list' => 5),
+		 
+		array('option_id' =>'null',
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_heading_image_position",
+        'option_value' => "0",
+        'autoload'=>'yes',
+        'title'=>__('Widget Title(h2) Background Image Position','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
+        'validate'=>'raindrops_heading_image_position_validate','list' => 6),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -353,10 +356,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'title'=>__('Page Width','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('Please choose width on the page.
-    Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px.
-    Please add the variable to functions.php when you want to specify page other size. For instance,
-         $page_width =  700;The width of the page if it specifies it will be changed to 700px centerd at once.','Raindrops'),
-         'validate'=>'raindrops_page_width_validate'),
+    Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px.','Raindrops'),
+         'validate'=>'raindrops_page_width_validate','list' => 7),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -366,7 +367,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'title'=>__('Column Width and Position','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified.','Raindrops'),
-        'validate'=>'raindrops_col_width_validate'),
+        'validate'=>'raindrops_col_width_validate','list' => 8),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -377,7 +378,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt1'=>'',
         'excerpt2'=>__('Please specify the color of the entry content. Please use it when you want to decide the text color though the automatic arrangement of color function does well in most cases.When none is selected from the selection box,
          it becomes an automatic arrangement of color. ','Raindrops'),
-         'validate'=>'raindrops_default_fonts_color_validate'),
+         'validate'=>'raindrops_default_fonts_color_validate','list' => 9),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -388,7 +389,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt1'=>'',
         'excerpt2'=>__('Please specify the text color of the footer. Please use it when you want to decide the text color though the automatic arrangement of color function does well in most cases.When none is selected from the selection box,
          it becomes an automatic arrangement of color. ','Raindrops'),
-         'validate'=>'raindrops_footer_color_validate'),
+         'validate'=>'raindrops_footer_color_validate','list' => 10),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -398,7 +399,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'title'=>__('Extra Sidebar','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show','Raindrops'),
-        'validate'=>'raindrops_show_right_sidebar_validate'),
+        'validate'=>'raindrops_show_right_sidebar_validate','list' => 11),
 
         array('option_id' =>'null',
         'blog_id' => 0 ,
@@ -409,43 +410,39 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         'excerpt1'=>'',
         'excerpt2'=>__('When display extra sidebar is set to show,
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
-         'validate'=>'raindrops_right_sidebar_width_percent_validate'),
+         'validate'=>'raindrops_right_sidebar_width_percent_validate','list' => 12),
     );
-    if(warehouse('raindrops_show_right_sidebar') == 'hide'){
+    if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
         $rsidebar_show = false;
     }else{
         $rsidebar_show = true;
     }
 
-    if(warehouse('raindrops_right_sidebar_width_percent') == '25'){
+    if(raindrops_warehouse('raindrops_right_sidebar_width_percent') == '25'){
         $yui_inner_layout = 'yui-ge';
-    }elseif(warehouse('raindrops_right_sidebar_width_percent') == '75'){
+    }elseif(raindrops_warehouse('raindrops_right_sidebar_width_percent') == '75'){
         $yui_inner_layout = 'yui-gf';
-    }elseif(warehouse('raindrops_right_sidebar_width_percent') == '33'){
+    }elseif(raindrops_warehouse('raindrops_right_sidebar_width_percent') == '33'){
         $yui_inner_layout = 'yui-gc';
-    }elseif(warehouse('raindrops_right_sidebar_width_percent') == '66'){
+    }elseif(raindrops_warehouse('raindrops_right_sidebar_width_percent') == '66'){
         $yui_inner_layout = 'yui-gd';
-    }elseif(warehouse('raindrops_right_sidebar_width_percent') == '50'){
+    }elseif(raindrops_warehouse('raindrops_right_sidebar_width_percent') == '50'){
         $yui_inner_layout = 'yui-g';
     }else{
         $yui_inner_layout = 'yui-ge';
     }
 
-    if(TMN_USE_AUTO_COLOR == true and is_admin() == true ){
+    if(RAINDROPS_USE_AUTO_COLOR == true and is_admin() == true ){
         get_template_part('lib/csscolor/csscolor');
         get_template_part('lib/csscolor.css');
-
         add_filter('contextual_help','raindrops_edit_help');
     }
 
 
-    if(isset($_GET['page']) and $_GET['page'] == 'raindrops_settings'){
-        add_action("admin_head","raindrops_jquery_toggle_action");
-    }
 
     if(isset($page_width) and !empty($page_width)){
-        add_action("wp_head","tmn_custom_width");
-        function tmn_custom_width($content,$key){
+        add_action("wp_head","raindrops_custom_width");
+        function raindrops_custom_width($content,$key){
             global $page_width;
                 $c_width = (int)$page_width;
                 $width    = $c_width / 13;
@@ -468,19 +465,19 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
 		if(	isset($fluid_or_fixed) and 
 			!empty($fluid_or_fixed) and
-			(warehouse("raindrops_page_width") == 'doc' or warehouse("raindrops_page_width") == 'doc2')){
- 	     	add_action("wp_head","tmn_is_fixed");
+			(raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
+ 	     	add_action("wp_head","raindrops_is_fixed");
 		}elseif(isset($fluid_minimam_width) and !empty($fluid_minimam_width)){
- 	     	add_action("wp_head","tmn_is_fluid");
+ 	     	add_action("wp_head","raindrops_is_fluid");
 		
 			
 		}
 
-  		function tmn_is_fluid(){
+  		function raindrops_is_fluid(){
 			global  $is_IE, $fluid_minimam_width;
 			$width 			= intval($fluid_minimam_width);			
 			$width			= $width / 13;
-			$sidebar_width	= 'yui-'.warehouse('raindrops_col_width');
+			$sidebar_width	= 'yui-'.raindrops_warehouse('raindrops_col_width');
 			$adjust 		= 20;
 			
 			if($sidebar_width == 'yui-t1'){
@@ -521,10 +518,10 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             echo $fluid_min_width;
         }		
 		
-  		function tmn_is_fixed(){
+  		function raindrops_is_fixed(){
 			global $is_IE;
 			$add_ie = '';
-			$pw = warehouse("raindrops_page_width");
+			$pw = raindrops_warehouse("raindrops_page_width");
 			
             if($pw == 'doc'){
          		$width		= 750;
@@ -591,11 +588,11 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 48, 48, true );
 	
-    add_image_size( 'single-post-thumbnail', TMN_SINGLE_POST_THUMBNAIL_WIDTH, TMN_SINGLE_POST_THUMBNAIL_HEIGHT, true);
+    add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT, true);
     add_theme_support( 'automatic-feed-links' );
     load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
-    add_filter("wp_head","tmn_embed_meta",'99');
-    add_filter( 'comment_form_default_fields','tmn_comment_form');
+    add_filter("wp_head","raindrops_embed_meta",'99');
+    add_filter( 'comment_form_default_fields','raindrops_comment_form');
     add_filter( 'the_meta_key', 'raindrops_filter_explode_meta_keys', 10, 2 );
     add_filter('body_class','raindrops_add_body_class');
     add_filter('contextual_help','raindrops_help');
@@ -605,7 +602,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     if ( !is_admin()) {
        add_action('wp_print_styles', 'add_raindrops_stylesheet');
     }
-    $is_submenu = new tmn_menu_create;
+    $is_submenu = new raindrops_menu_create;
     add_action( 'admin_init', 'raindrops_options_init' );
     add_action('admin_menu', array($is_submenu, 'add_menus'));
     add_action('admin_menu', 'setup_raindrops');
@@ -638,7 +635,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         return $input;
     }
     function raindrops_right_sidebar_width_percent_validate($input){
-	    $obj = new tmn_menu_create();
+	    $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_right_sidebar_width_percent;
         foreach($vals as $val){
             if($input == $val){
@@ -649,7 +646,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         return $raindrops_options["raindrops_right_sidebar_width_percent"];
     }
     function raindrops_show_right_sidebar_validate($input){
-        $obj = new tmn_menu_create();
+        $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_show_right_sidebar;
         foreach($vals as $val){
             if($input == $val){
@@ -676,7 +673,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         return $raindrops_options["raindrops_default_fonts_color"];
     }
     function raindrops_col_width_validate($input){
-        $obj = new tmn_menu_create();
+        $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_col_width;
         foreach($vals as $val){
             if($input == $val){
@@ -687,7 +684,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         return $raindrops_options["raindrops_col_width"];
     }
     function raindrops_page_width_validate($input){
-        $obj = new tmn_menu_create();
+        $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_page_width;
         foreach($vals as $val){
             if($input == $val){
@@ -727,7 +724,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
          return $input;
     }
     function raindrops_style_type_validate($input){
-        $obj = new tmn_menu_create();
+        $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_style_type;
         foreach($vals as $val){
             if($input == $val){
@@ -928,7 +925,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  * for templates
  */
-    function warehouse($name){
+    function raindrops_warehouse($name){
         global $raindrops_base_setting;
         global $page_width;
         $vertical = array();
@@ -964,7 +961,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-    function tmn_admin_meta($name,$meta_name){
+    function raindrops_admin_meta($name,$meta_name){
         global $raindrops_base_setting;
         global $page_width;
         $vertical = array();
@@ -987,10 +984,10 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     if (!function_exists('raindrops_help')) {
         function raindrops_help($text){
         global $title;
-        if(TMN_TABLE_TITLE == $title){
+        if(RAINDROPS_TABLE_TITLE == $title){
     $result = "<h2 class=\"h2\">".__('Raindrops Another Settings').'</h2>';
     $result .= "<dl><dt><div class=\"icon32\" id=\"icon-options-general\"><br /></div><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
-    $result .= "<dd>".__('raindrops/functions.php TMN_USE_AUTO_COLOR value change false','Raindrops').'<br class="clear" /></dd>';
+    $result .= "<dd>".__('raindrops/functions.php RAINDROPS_USE_AUTO_COLOR value change false','Raindrops').'<br class="clear" /></dd>';
     $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br /></div><strong>".__('When you want to change horizontal menu','Raindrops').'</strong></dt>';
     $result .= "<dd>".__('Be careful! CSS Specificity: e.g .aciform strong{color:red;} is OK .aciform strong{background:black;} is not styled, background like this "div#access .menu li.aciform strong{background:black;}" is OK.','Raindrops').'<br class="clear" /></dd>';
     $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br /></div><strong>".__('When you want to all reset the settings','Raindrops').'</strong></dt>';
@@ -1011,7 +1008,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    if (!function_exists('raindrops_edit_help') and TMN_USE_AUTO_COLOR == true) {
+    if (!function_exists('raindrops_edit_help') and RAINDROPS_USE_AUTO_COLOR == true) {
         function raindrops_edit_help($text){
         global $post_type_object;
         global $title;
@@ -1020,38 +1017,38 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             $result .= '<p>'.__('If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once.',"Raindrops")."</p>";
             $result .= "<dl><dt><h3>".__('Dinamic Color Class','Raindrops').'</strong></h3>';
             $result .= '<dd><table><tr>
-            <td style="'.colors(5,'set').'padding:0.5em;">class color5</td>
-            <td style="'.colors(4,'set').'padding:0.5em;">class color4</td>
-            <td style="'.colors(3,'set').'padding:0.5em;">class color3</td>
-            <td style="'.colors(2,'set').'padding:0.5em;">class color2</td>
-            <td style="'.colors(1,'set').'padding:0.5em;">class color1</td></tr><tr>
-            <td style="'.colors('-1','set').'padding:0.5em;">class color-1</td>
-            <td style="'.colors('-2','set').'padding:0.5em;">class color-2</td>
-            <td style="'.colors('-3','set').'padding:0.5em;">class color-3</td>
-            <td style="'.colors('-4','set').'padding:0.5em;">class color-4</td>
-            <td style="'.colors('-5','set').'padding:0.5em;">class color-5</td></tr>
+            <td style="'.raindrops_colors(5,'set').'padding:0.5em;">class color5</td>
+            <td style="'.raindrops_colors(4,'set').'padding:0.5em;">class color4</td>
+            <td style="'.raindrops_colors(3,'set').'padding:0.5em;">class color3</td>
+            <td style="'.raindrops_colors(2,'set').'padding:0.5em;">class color2</td>
+            <td style="'.raindrops_colors(1,'set').'padding:0.5em;">class color1</td></tr><tr>
+            <td style="'.raindrops_colors('-1','set').'padding:0.5em;">class color-1</td>
+            <td style="'.raindrops_colors('-2','set').'padding:0.5em;">class color-2</td>
+            <td style="'.raindrops_colors('-3','set').'padding:0.5em;">class color-3</td>
+            <td style="'.raindrops_colors('-4','set').'padding:0.5em;">class color-4</td>
+            <td style="'.raindrops_colors('-5','set').'padding:0.5em;">class color-5</td></tr>
             <tr><td colspan="5">
             '.__('code example:please HTML editor mode','Raindrops').'
-            <div  style="'.colors(2,'set').'padding:1em;">&lt;div class="color3"&gt;
+            <div  style="'.raindrops_colors(2,'set').'padding:1em;">&lt;div class="color3"&gt;
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum&lt;/div&gt;
             </div></td>
             </tr></table>
             </dd>';
             $result .= "<dt><h3>".__('Dinamic Gradient Class','Raindrops').'</h3></dt>';
             $result .= '<dd><table><tr>
-            <td style="'.tmn_gradient_single(1,"asc").'padding:0.5em;">class gradient5</td>
-            <td style="'.tmn_gradient_single(2,"asc").'padding:0.5em;">class gradient4</td>
-            <td style="'.tmn_gradient_single(3,"asc").'padding:0.5em;">class gradient3</td>
-            <td style="'.tmn_gradient_single(4,"asc").'padding:0.5em;">class gradient2</td>
-            <td style="'.tmn_gradient_single(5,"asc").'padding:0.5em;">class gradient1</td></tr><tr>
-            <td style="'.tmn_gradient_single(1,"desc").'padding:0.5em;">class gradient-1</td>
-            <td style="'.tmn_gradient_single(2,"desc").'padding:0.5em;">class gradient-2</td>
-            <td style="'.tmn_gradient_single(3,"desc").'padding:0.5em;">class gradient-3</td>
-            <td style="'.tmn_gradient_single(4,"desc").'padding:0.5em;">class gradient-4</td>
-            <td style="'.tmn_gradient_single(5,"desc").'padding:0.5em;">class gradient-5</td></tr>
+            <td style="'.raindrops_gradient_single(1,"asc").'padding:0.5em;">class gradient5</td>
+            <td style="'.raindrops_gradient_single(2,"asc").'padding:0.5em;">class gradient4</td>
+            <td style="'.raindrops_gradient_single(3,"asc").'padding:0.5em;">class gradient3</td>
+            <td style="'.raindrops_gradient_single(4,"asc").'padding:0.5em;">class gradient2</td>
+            <td style="'.raindrops_gradient_single(5,"asc").'padding:0.5em;">class gradient1</td></tr><tr>
+            <td style="'.raindrops_gradient_single(1,"desc").'padding:0.5em;">class gradient-1</td>
+            <td style="'.raindrops_gradient_single(2,"desc").'padding:0.5em;">class gradient-2</td>
+            <td style="'.raindrops_gradient_single(3,"desc").'padding:0.5em;">class gradient-3</td>
+            <td style="'.raindrops_gradient_single(4,"desc").'padding:0.5em;">class gradient-4</td>
+            <td style="'.raindrops_gradient_single(5,"desc").'padding:0.5em;">class gradient-5</td></tr>
             <tr><td colspan="5">
             '.__('code example:please HTML editor mode','Raindrops').'
-            <div  style="'.tmn_gradient_single(3,"asc").'padding:1em;">&lt;div class="gradient3"&gt;
+            <div  style="'.raindrops_gradient_single(3,"asc").'padding:1em;">&lt;div class="gradient3"&gt;
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;</div></td></tr></table></dd>';
             $result .= "<dl><dt><h3>".__('About Featured Image','Raindrops').'</strong></h3>';
             $result .= "<dl><dd><p>".__('image width and height aspect ratio is 3:1. another aspect ratio will be trimming center','Raindrops').'</p></dd>';
@@ -1064,39 +1061,6 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             return $text;
         }
         }
-    }
-/**
- * Admin Panel toggle action
- *
- *
- *
- *
- */
-    function raindrops_jquery_toggle_action(){
-        echo '<meta http-equiv="content-script-type" content="text/css" />';
-        echo '<meta http-equiv="content-script-type" content="text/javascript" />';
-        echo '<script type="text/javascript">';
-        echo 'jQuery(function(){';
-        echo '  jQuery(\'.widefat\').css({"margin":"2em"});';
-        echo '  jQuery(".rd-excerpt").css({"margin-left":"3em"});';
-        echo '    jQuery(\'*[class^="raindrops"]\').hide().css("width","100%");';
-        echo '    jQuery(\'*[id^="raindrops"]\').css({ "cursor":"pointer", "color":"#009999"}).click(';
-        echo '      function(){';
-        echo '        var target ="."+jQuery(this).attr("id");';
-        echo '        jQuery(target).toggle("slow");';
-        echo '      });';
-        echo '    jQuery(\'*[id^="showAll"]\').css("cursor","pointer").click(';
-        echo '      function(){';
-        echo '        jQuery(\'*[class^="raindrops"]\').show().css("width","100%");';
-        echo '      }';
-        echo '    );';
-        echo '    jQuery(\'*[id^="hideAll"]\').css("cursor","pointer").click(';
-        echo '      function(){';
-        echo '        jQuery(\'*[class^="raindrops"]\').hide().css("width","100%");';
-        echo '      }';
-        echo '    );';
-        echo '  });';
-        echo '</script>';
     }
 
 /**
@@ -1123,9 +1087,9 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    class tmn_menu_create {
+    class raindrops_menu_create {
         var $accesskey  = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
-        var $table_template = '<table class="%s widefat post fixed" style="margin:2em;">';
+        var $table_template = '<table class="%s widefat post fixed" style="margin:2em;width:540px;">';
         var $title_template = '<h3 title="%s" id="%s" style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">%s</h3>';
         var $excerpt_template = '<div style="margin:2em;">%s</div>';
         var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="width:150px;vertical-align:bottom;margin-bottom:0px;height:%spx;">';
@@ -1173,8 +1137,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             global $wpdb,$count, $raindrops_base_setting;
             $ok     = false;			
             $result = "";
-			
-            $count = $wpdb->query("SELECT * FROM `".TMN_PLUGIN_TABLE."`;");
+            $count = $wpdb->query("SELECT * FROM `".RAINDROPS_PLUGIN_TABLE."`;");
             /**
              * POSTGET
              *
@@ -1183,56 +1146,44 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             if(isset($_POST) and !empty($_POST)){
 
                 $option_id      = intval($_POST['option_id']);
-                $option_value   = esc_html($_POST['option_value']);
-                $option_name    = esc_html($_POST['option_name']);
-                $valid_function = $option_name.'_validate';
+				$raindrops_updates = "";
+				
+				foreach($_POST["raindrops_option_values"] as $key=>$val){
+				
+				
+					$valid_function = $key.'_validate';
+		
+				   if($val == $valid_function($val)){
 
-                if( !empty($_POST) and
-                     isset($_POST) and
-                     $option_value == $valid_function($option_value)
-                      ){
-
-                      $new_settings                 = get_option('raindrops_theme_settings');
-                      $new_settings[$option_name]   = $option_value;
+                      $new_settings         = get_option('raindrops_theme_settings');
+                      $new_settings[$key]   = $val;
+					  
                       if(update_option('raindrops_theme_settings',$new_settings)){
-                        do_action( 'raindrops_change_style' );
                         $ok = true;
+						do_action( 'raindrops_change_style' );
 
-                       }
+						$raindrops_updates .= ','.$key;
 
-                }
+                      }
 
-            }
-
-            $result .= '<div class="wrap"><div id="title-raindrops-header" style="height:100px">';
-            $result .= screen_icon();
-            $result .= "<h2>" . get_current_theme() . __(' Theme Settings') . "</h2>";
-            $result .= "<p>Saved Database table name:<strong>".TMN_PLUGIN_TABLE."</strong></p></div>";
-            $result .= '<div style="clear:both;position:relative;top:60px;"><button id="showAll" class="button">'.__("Show All", "Raindrops").'</button>&nbsp;&nbsp;<button id="hideAll" class="button">'.__("Hide All", "Raindrops").'</button></div><br style="clear:both;" />';
-
-            if(isset($_POST) and !empty($_POST)){
-			
-					$add_str = "";
-				    if($option_value !== $valid_function($option_value)){
-                        $add_str = __("BAD value! Try again","Raindrops");
-                    }else{
-                        $add_str = __("There is no change because it is the same value.","Raindrops");			
+                	}else{
+						$raindrops_updates = $key."value error";
 					}
 				
-                if($ok){
+				}
+            }
+
+            $result .= '<div class="wrap"><div id="title-raindrops-header" >';
+            $result .= screen_icon();
+            $result .= "<h2>" . get_current_theme() . __(' Theme Settings') . "</h2>";
+            $result .= "<p>Saved Database table name:<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
+
+            if(isset($_POST) and !empty($_POST)){
                     
-                    $scheme = TMN_COLOR_SCHEME;
+                    $scheme = RAINDROPS_COLOR_SCHEME;
                     global $$scheme;
-                    $add_str = array_search($option_value,$$scheme);
-                    $add_str .= array_search($option_value,$this->col_settings_raindrops_col_width);
-                    $add_str .= array_search($option_value,$this->col_settings_raindrops_page_width);
-                    $add_str .= array_search($option_value,$this->col_settings_raindrops_right_sidebar_width_percent);
-                    $add_str .= array_search($option_value,$this->col_settings_raindrops_show_right_sidebar);
-                    $add_str .= array_search($option_value,$this->col_settings_raindrops_style_type);
-
-                
-
-                $result .= '<div id="message" class="updated fade" title="'.esc_attr($option_name).'"><p>'.sprintf(__('<strong>%1$s</strong> updated %2$s => %3$s  successfully.'),tmn_admin_meta($option_name,'title'), $option_name, $add_str.' ['.$option_value.']');
+				if($ok == true){
+                $result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.'), $raindrops_updates);
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
@@ -1240,14 +1191,14 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                     }else{
                         $result .= '</p></div>';
                     }
-                }else{
-                    $result .= '<div id="message" class="error fade" ><p>'.$add_str.'</p></div>';
-                }
+				}
+					
+					
             }
 
             $result .= '</div>';
             $result .= '<div id="reset2"></div>';
-            $result .= '<div style="margin-top:60px;">'.$this->form_user_input().'</div>';
+            $result .= '<div>'.$this->form_user_input().'</div>';
             echo $result;
         }
 
@@ -1262,7 +1213,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
         function add_menus() {
             if(function_exists('add_theme_page')) {
 
-           add_theme_page(TMN_TABLE_TITLE, 'Raindrops Options', 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
+           add_theme_page(RAINDROPS_TABLE_TITLE, 'Raindrops Options', 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
             }
         }
 
@@ -1283,18 +1234,21 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             $i              = 0;
             $deliv          = htmlspecialchars($_SERVER['REQUEST_URI']);
             $results        = get_option('raindrops_theme_settings');
+			$current_heading_image = raindrops_warehouse("raindrops_heading_image");
+			ksort($results);
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
-
+//$lines .= $excerpt;
+$lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
             foreach( $results as $key => $val ){
 
                 $excerpt    = "";
                 $table      = sprintf($this->table_template,str_replace("_","-",$key));
-                $excerpt    = sprintf($this->title_template,str_replace("_"," ",$key),str_replace("_","-",$key),tmn_admin_meta($key,'title'));
-                $excerpt .= sprintf($this->excerpt_template,tmn_admin_meta($key,'excerpt2'));
+                $excerpt    = sprintf($this->title_template,str_replace("_"," ",$key),str_replace("_","-",$key),raindrops_admin_meta($key,'title'));
+                $excerpt .= sprintf($this->excerpt_template,raindrops_admin_meta($key,'excerpt2'));
 
                 if(!empty($excerpt)){
-                    $excerpt = '<div class="postbox" style="margin:1em;width:90%;overflow:hidden;background:#dedede">'.$excerpt;
+                    $excerpt = '<div class="postbox" style="width:600px;margin:1em;color:#339999">'.$excerpt;
                 }else{
                     $excerpt = "";
                 }
@@ -1306,19 +1260,20 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                 }
 
                 if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val)){
-                    $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
+                    $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';					
                 }else{
                     $style .='';
                 }
 
+				
                 if(empty($style)){
                     $style .='visibility:hidden';
-                    $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';
+                    $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value").'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }else{
-                    $table_header =  '<thead><tr><th>'.__("Color").'</th><th>'.__("Value").'</th><th >'.__("Edit").'</th><th>&nbsp;</th></tr></thead>';
+                    $table_header =  '<thead><tr><th >'.__("Color").'</th><th>'.__("Value").'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }
 
-                if (TMN_USE_AUTO_COLOR == false and (   $key == "raindrops_footer_color" or
+                if (RAINDROPS_USE_AUTO_COLOR == false and (   $key == "raindrops_footer_color" or
                                                         $key == "raindrops_default_fonts_color" or
                                                         $key == "raindrops_base_color" or
                                                         $key == "raindrops_header_image" or
@@ -1329,86 +1284,82 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                     continue;
                 }
 
-
-                $lines .= $excerpt;
-               	$lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
+				$lines .= $excerpt;
                 $lines .= $table;
                 $lines .= $table_header;
                 $lines .= '<tbody>';
                 $lines .= '<tr>';
-                $lines .= '<td style="display:none;">';
-
+				$lines .= '<td style="display:none;">';
                 $lines .= '<input type="text" name="option_id" value="'.$i.'" />'.$i.'</td>';
+				if($key == "raindrops_heading_image_position"){
+				$lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+				}else{
                 $lines .= '<td style="'.$style.'">';
+				}
                 $lines .= '<input type="hidden" name="option_name" value="'.esc_attr($key).'" read-only="read-only" /></td>';
                 $lines .= '<td>'.esc_html($val).'</td>';
 
                 if( $key == "raindrops_base_color" or
                     $key == "raindrops_footer_color" or
                     $key == "raindrops_default_fonts_color" ){
-                    $lines .= "<td>".$this->color_selector('option_value',esc_attr__($val,'Raindrops'),$i)."</td>";
+                    $lines .= "<td>".$this->color_selector($key,esc_attr__($val,'Raindrops'),$i)."</td>";
                 }elseif($key == "raindrops_col_width"){
                     $lines .= '<td>';
-                    $lines .= sprintf($this->line_select_element,$this->accesskey[$i],"option_value",6,120);
+                    $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',6,120);
                     foreach($this->col_settings_raindrops_col_width as $key=>$current){
-                        if(strcmp($val,$current) == 0){ $selected = 'selected="selected"';}else{$selected = "";}
-                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.$selected.'>'.esc_html($key).'</option>';
+                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
                 }elseif($key == "raindrops_page_width"){
                     $lines .= '<td>';
-                    $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),"option_value",4,80);
+                    $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',4,80);
                     foreach($this->col_settings_raindrops_page_width as $key=>$current){
-                        if(strcmp($val,$current) == 0){ $selected = 'selected="selected"';}else{$selected = "";}
-                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.$selected.'>'.esc_html($key).'</option>';
+                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
+                    }
+                    $lines .='</select></td>';
+				}elseif($key == "raindrops_show_right_sidebar"){
+                    $lines .= '<td>';
+                    $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',2,40);
+                    foreach($this->col_settings_raindrops_show_right_sidebar as $key=>$current){
+                        
+                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
                 }elseif($key == "raindrops_right_sidebar_width_percent"){
                     $lines .= '<td>';
-                    $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),"option_value",5,100);
+                    $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',5,100);
                     foreach($this->col_settings_raindrops_right_sidebar_width_percent as $key=>$current){
-                        if(strcmp($val,$current) == 0){ $selected = 'selected="selected"';}else{$selected = "";}
-                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.$selected.'>'.esc_html($key).'</option>';
+                        
+                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-                }elseif($key == "raindrops_show_right_sidebar"){
-                    $lines .= '<td>';
-                    $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),esc_attr("option_value"),2,40);
-                    foreach($this->col_settings_raindrops_show_right_sidebar as $key=>$current){
-                        if(strcmp($val,$current) == 0){ $selected = 'selected="selected"';}else{$selected = "";}
-                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.$selected.'>'.esc_html($key).'</option>';
-                    }
-                    $lines .='</select></td>';
+
                 }elseif($key == "raindrops_style_type"){
                     $lines .= '<td>';
-                    $lines .= sprintf($this->line_select_element,$this->accesskey[$i],"option_value",3,60);
+                    $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',3,60);
                     foreach($this->col_settings_raindrops_style_type as $key=>$current){
-                        if(strcmp($val,$current) == 0){ $selected = 'selected="selected"';}else{$selected = "";}
-                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.$selected.'>'.esc_html($key).'</option>';
+                        
+                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
                 }elseif($key == "raindrops_heading_image"){
                     $lines .= '<td style="height:225px">';
-                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="option_value" value="'.esc_attr__($val,'Raindrops').'"';
-                    //if($key == "raindrops_base_color"){
-                        $lines .= 'id="'.$key.'"';
-                    //}
+                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val,'Raindrops').'"';
                     $lines .= ' /></td>';
                 }else{
                     $lines .= '<td>';
-                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="option_value" value="'.esc_attr__($val).'"';
-                    $lines .= 'id="'.esc_attr($key).'"';
+                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val).'"';
                     $lines .= ' /></td>';
                 }
                 $i++;
-                $lines .= '<td>';
-                $lines .= "<input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save Changes').'" />';
-               /* $lines .= '</p></td></tr></form>';*/
-                $lines .= '</td></tr>';
+				$lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save').'" /></td>';
+
+                $lines .= '</tr>';
+				
                 $send_key_name = "";
-                $lines .= "</tbody>";
-                $lines .= "</table></form><br /></div>";
+ 				$lines .= "</tbody></table><br /></div>";			
             }
+$lines .= $this->table_template."<tr><td><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save Changes').'" /></td></tr></table></form><br style="clear:both;">';
                 $lines .= "</div>";
                 if(!preg_match('|<tbody>|',$lines)){
                     $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
@@ -1426,10 +1377,11 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
 
          function color_selector($name,$current_val,$i){
             global $color_ja,$color_en_140,$color_en;
-            $result = sprintf($this->line_select_element,$this->accesskey[$i],$name,4,100);
-            $scheme = TMN_COLOR_SCHEME;
+            $result = sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$name.']',4,100);
+            $scheme = RAINDROPS_COLOR_SCHEME;
             $current_color = array_search($current_val,$$scheme);
-            $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'" selected="selected">'.$current_color.'</option>';
+			
+$result .= '<option value="'.$current_val.'" style="background:'.$current_val.'" '.selected(1,1,false).'>'.$current_color.'</option>';
                 foreach($$scheme as $key=>$val){
                     $cr = hexdec(substr($val,1,2))*0.5;
                     $cg = hexdec(substr($val,3,2))*0.5;
@@ -1467,15 +1419,15 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-    function tmn_gradient_single($i,$order = "asc"){
+    function raindrops_gradient_single($i,$order = "asc"){
         $g = "";
         if($i>4){$i = 4;}
         if($order == "asc"){
-            $custom_dark_bg1 = colors($i,'background');
-            $custom_light_bg1 = colors($i+1,'background');
+            $custom_dark_bg1 = raindrops_colors($i,'background');
+            $custom_light_bg1 = raindrops_colors($i+1,'background');
         }elseif($order == "desc"){
-            $custom_dark_bg1 = colors($i+1,'background');
-            $custom_light_bg1 = colors($i,'background');
+            $custom_dark_bg1 = raindrops_colors($i+1,'background');
+            $custom_light_bg1 = raindrops_colors($i,'background');
         }
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
@@ -1491,21 +1443,21 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    function tmn_gradient(){
+    function raindrops_gradient(){
         $g = "";
         for($i = 1;$i<5;$i++){
-        $custom_dark_bg1 = colors($i,'background');
-        $custom_light_bg1 = colors($i+1,'background');
-        $custom_dark_bg2 = colors($i,'background');
-        $custom_light_bg2 = colors($i-1,'background');
+        $custom_dark_bg1 = raindrops_colors($i,'background');
+        $custom_light_bg1 = raindrops_colors($i+1,'background');
+        $custom_dark_bg2 = raindrops_colors($i,'background');
+        $custom_light_bg2 = raindrops_colors($i-1,'background');
         $g .= '.gradient'.$i.'{';
-        $g .= 'color:'.colors($i,'color').';';
+        $g .= 'color:'.raindrops_colors($i,'color').';';
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
         $g .= "}\n";
         $g .= '.gradient-'.$i.'{';
-        $g .= 'color:'.colors($i,'color').';';
+        $g .= 'color:'.raindrops_colors($i,'color').';';
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
@@ -1572,7 +1524,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,'all');
             wp_enqueue_script('raindrops');
 			
-			if(warehouse("raindrops_style_type") !== 'w3standard'){
+			if(raindrops_warehouse("raindrops_style_type") !== 'w3standard'){
 			$raindrops_css3   = $template_uri.'/css3.css';
             wp_register_style('raindrops_css3', $raindrops_css3,array('child_style'),$raindrops_version,'all');
             wp_enqueue_style('raindrops_css3');			
@@ -1589,7 +1541,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  */
 
-    function tmn_comment_form($form){
+    function raindrops_comment_form($form){
     global $commenter;
     $form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label><span class="option">'.__('Option','Raindrops').'</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
     return $form;
@@ -1637,7 +1589,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
     function setup_raindrops(){
         global $wpdb,$raindrops_base_setting;
 		
-		if(TMN_USE_AUTO_COLOR == false){return;}
+		if(RAINDROPS_USE_AUTO_COLOR == false){return;}
         $raindrops_theme_settings = get_option('raindrops_theme_settings');
 
        foreach($raindrops_base_setting as $add){
@@ -1648,8 +1600,8 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
                 $raindrops_theme_settings[$option_name] = $add['option_value'];
             }
         }
-        $style_type                                         = warehouse("raindrops_style_type");
-        $raindrops_indv_css                                 = design_output($style_type).color_base();
+        $style_type                                         = raindrops_warehouse("raindrops_style_type");
+        $raindrops_indv_css                                 = raindrops_design_output($style_type).raindrops_color_base();
         $raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
 
         update_option('raindrops_theme_settings',$raindrops_theme_settings,"",$add['autoload']);
@@ -1724,6 +1676,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             add_action('switch_theme', create_function(null, 'delete_option("raindrops_theme_settings");'));
         }
     }
+	
 /**
  * insert into embed style ,javascript script and embed tags from custom field
  *
@@ -1731,12 +1684,27 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
  *
  *
  */
-    function tmn_embed_meta($content){
+    function raindrops_embed_meta($content){
         $result = "";
         global $post;
-
+$raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
+.gallery dl { margin: 0px; }
+.gallery .gallery-item { float: left; margin-top: 10px; text-align: center; }
+.gallery img { border: 2px solid #cfcfcf;max-width:100%; }
+.gallery .gallery-caption { margin-left: 0; }
+.gallery br { clear: both }
+.gallery-columns-2 dl{ width: 50% }
+.gallery-columns-3 dl{ width: 33.3% }
+.gallery-columns-4 dl{ width: 25% }
+.gallery-columns-5 dl{ width: 20% }
+.gallery-columns-6 dl{ width: 16.6% }
+.gallery-columns-7 dl{ width: 14.28% }
+.gallery-columns-8 dl{ width: 12.5% }
+.gallery-columns-9 dl{ width: 11.1% }';
+		$css				= $raindrops_gallerys;
+	
         $raindrops_options  = get_option("raindrops_theme_settings");
-        $css                = $raindrops_options['_raindrops_indv_css'];
+        $css               	.= $raindrops_options['_raindrops_indv_css'];
 		
 		$background = get_background_image();
 		$color = get_background_color();
@@ -1754,7 +1722,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
             if(have_posts()){
 
              while (have_posts()) : the_post();
-                if(TMN_USE_AUTO_COLOR !== true){
+                if(RAINDROPS_USE_AUTO_COLOR !== true){
                     $css = '';
                 }
                 $css    .= get_post_meta($post->ID, 'css', true);
@@ -1781,7 +1749,7 @@ $color_en = array("none"=>"","american red" => "#bf0a30","american blue" => "#00
               endwhile;
             }
         }else{
-                if(TMN_USE_AUTO_COLOR == true){
+                if(RAINDROPS_USE_AUTO_COLOR == true){
                     $result .= '<style type="text/css">';
                     $result .= "\n/*<![CDATA[*/\n";
                     $result .=  $css;
@@ -2338,7 +2306,7 @@ function raindrops_yui_class_modify($raindrops_inner_class = 'yui-ge'){
 
 function is_2col_raindrops($action = true,$echo = true){
 
-	if(warehouse('raindrops_show_right_sidebar') == 'hide'){
+	if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
 	
 		if($echo == true){
 			echo $action;
@@ -2365,8 +2333,8 @@ function is_2col_raindrops($action = true,$echo = true){
 	
         $adjust 				= 16;
         $default 				= 400;
-		$document_width 		= warehouse('raindrops_page_width');
-		$sidebar_width 			= 'yui-'.warehouse('raindrops_col_width');
+		$document_width 		= raindrops_warehouse('raindrops_page_width');
+		$sidebar_width 			= 'yui-'.raindrops_warehouse('raindrops_col_width');
 		
 	if($document_width == 'doc'){
 				$w = 750;
@@ -2456,9 +2424,9 @@ function is_2col_raindrops($action = true,$echo = true){
 		global $page_width;
         $adjust 				= 16;
         $default 				= 400;
-		$document_width 		= warehouse('raindrops_page_width');
-		$sidebar_width 			= 'yui-'.warehouse('raindrops_col_width');
-		$extra_sidebar_width 	= warehouse('raindrops_right_sidebar_width_percent');
+		$document_width 		= raindrops_warehouse('raindrops_page_width');
+		$sidebar_width 			= 'yui-'.raindrops_warehouse('raindrops_col_width');
+		$extra_sidebar_width 	= raindrops_warehouse('raindrops_right_sidebar_width_percent');
 		
 		if(isset($page_width) and !empty($page_width)){
 			$w = $page_width;
@@ -2556,7 +2524,7 @@ function is_2col_raindrops($action = true,$echo = true){
 			}
 		}
 
-		if(warehouse('raindrops_show_right_sidebar') == 'hide'){
+		if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
 			return $raindrops_content_width;
 		}else{
 		
@@ -2604,13 +2572,13 @@ if(!class_exists("raindrops_description_walker")){
 					 'link_after' => '',
 					// 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					// 'walker' => '',
-					 'theme_location' => '' 
+					// 'theme_location' => '' 
 					 );
 	
 		  function start_el(&$output, $item, $depth = 0, $args){
 				global $wp_query;
 				
-				$args 				= wp_parse_args( $args, $this->defaults );
+				//$args 				= wp_parse_args( $args, $this->defaults );
 				$class_names 		= ''; 
 				$value 				= '';
 				$prepend 			= '<strong>';
@@ -2625,7 +2593,7 @@ if(!class_exists("raindrops_description_walker")){
 				}
 				
 				if(!isset( $item->classes ) or empty( $item->classes )){
-					$classes 		=  array();
+					$classes 		=  '';
 				}else{
 					$classes 		=  (array) $item->classes;
 					$class_names 	= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
@@ -2638,7 +2606,7 @@ if(!class_exists("raindrops_description_walker")){
 					$indent 		= 	 '';
 				}
 				
-				$output				.= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+				$output				= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
 				
 				if(!empty( $item->attr_title )){
 					$attributes  	.= ' title="'  . esc_attr( $item->attr_title ) .'"';
@@ -2680,6 +2648,7 @@ if(!class_exists("raindrops_description_walker")){
 					$item_output .= $args->after;
 				}
 					$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+					
 			}
 	}
 }	

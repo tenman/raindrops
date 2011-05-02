@@ -14,6 +14,13 @@
   <div class="yui-b" >
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
+	  
+<?php $ancestor = array_pop(get_post_ancestors($post->ID)); ?>
+<ul class="rd-page-navigation clearfix">
+<?php if(empty($ancestor)) {
+wp_list_pages('depth=5&child_of=' . $post->ID . '&title_li=<strong>' . __('Pages', 'Raubdrops') . '</strong>' );}
+else {
+wp_list_pages('depth=5&child_of=' . $ancestor . '&title_li=<strong>' . __('Pages', 'Raindrops') . '</strong>' ); }?></ul>
         <?php if (have_posts()){ ?>
         <?php 		while (have_posts()){ the_post(); ?>
         <div class="entry page">

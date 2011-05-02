@@ -53,7 +53,7 @@
 ?>
 </head>
 <body <?php body_class($this_blog); ?>>
-<div id="<?php echo warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.warehouse('raindrops_col_width'); ?> hfeed">
+<div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">
 <div id="top">
   <div id="hd">
 <?php
@@ -70,7 +70,7 @@
     if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
         $raindrops_pge_header = '';
         $style = ' style="display:none;"';
-    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor()) and 'bad' !== get_header_textcolor()){
+    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
         $style = ' style="color:#' . get_header_textcolor() . ';"';
         $raindrops_pge_header = ' style="display:none;"';
     }else{
@@ -143,7 +143,16 @@ if( !empty($raindrops_header_image)){
 ?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'walker' => new raindrops_description_walker(), 'fallback_cb' => wp_page_menu()) ); ?>
+<?php 
+$raindrops_nav_menu = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'walker' => new raindrops_description_walker(), 'echo' => false));
+$len = trim(strip_tags($raindrops_nav_menu));
+
+if(	!empty($len) ){
+	echo $raindrops_nav_menu;
+}else{
+	 wp_page_menu();
+}
+?>
 </div>
 <br class="clear" />
 </div>

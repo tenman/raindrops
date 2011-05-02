@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/
-Version: 0.323
+Version: 0.400
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1924,7 +1924,25 @@ padding:3px 5px;
 display:inline-block;
 
 }
-.rd-type-w3standard .footer-widget h2,.rsidebar h2,.lsidebar h2,
-.rd-type-light .footer-widget h2,.rsidebar h2,.lsidebar h2 {
+.rd-type-w3standard .footer-widget h2,
+.rd-type-w3standard .rsidebar h2,
+.rd-type-w3standard .lsidebar h2,
+.rd-type-light .footer-widget h2,
+.rd-type-light .rsidebar h2,
+.rd-type-light .lsidebar h2 {
 background:none!important;
 }
+
+.rd-page-navigation ul > li{
+float:left;
+}
+.rd-page-navigation ul ul li{
+float:left;
+}
+
+.rd-page-navigation ul{margin:0;padding:0;}
+.rd-page-navigation li{float:left;list-style-type:none;margin:0;padding:5px 10px;width:100px;height:16px;text-align:center;}
+.rd-page-navigation a{text-decoration:none;}
+.rd-page-navigation{position:relative;top:-20px;left:-20px;margin:2em;}
+.rd-page-navigation li ul{visibility: hidden;position:relative;top:5px;left:70px;}
+.rd-page-navigation li:hover> ul{visibility:visible;}

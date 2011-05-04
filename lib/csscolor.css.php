@@ -25,6 +25,7 @@
  *
  *
  */
+raindrops_register_styles("dark");
 
 function raindrops_dark(){
 
@@ -484,6 +485,7 @@ return $style.$css3;
  *
  *
  */
+raindrops_register_styles("w3standard");
 
 function raindrops_w3standard(){
 
@@ -711,6 +713,7 @@ return $style;
  *
  *
  */
+raindrops_register_styles("light");
 
 function raindrops_light(){
 
@@ -1240,6 +1243,7 @@ return $style.$css3;
  *
  *
  */
+raindrops_register_styles("minimal");
 
 function raindrops_minimal(){
 
@@ -1477,6 +1481,37 @@ return $style;
 			return '#'.$fg;
 			break;
 		}
+	}
+function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc'){
+		global $images_path;
+		if($color == null){
+			$color = str_replace('#',"",BASE_COLOR1);
+		}else{
+			$color = str_replace('#',"",$color);
+		}
+		
+		$base = new CSS_Color( $color );
+		
+		if($num>4){$num = 4;}
+		if($num + $diff > 4){$num = 4 - $diff;}
+        if($order == "asc"){
+            $custom_dark_bg1 = raindrops_colors($num, 'background',$color);
+			
+			$num2 = (int)$num + $diff;
+
+            $custom_light_bg1 = raindrops_colors($num2, 'background',$color);
+			
+			$fg         = $base->fg[$num];
+        }elseif($order == "desc"){
+            $custom_dark_bg1 = $base->bg[$num + $diff];
+            $custom_light_bg1 = $base->bg[$num];
+			$fg         = $base->fg[$num];
+        }
+		$g = 'color:#'.$fg.';';
+        $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
+        $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
+        $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+        return $g;
 	}
 /**
  * Base Color Class Create
@@ -1787,20 +1822,42 @@ CSS;
 		
 		
 		$function_name = 'raindrops_'.$name;
-		$content = $function_name();
-
-		foreach(explode(' ',$content,-1) as $line){
 		
-			preg_match_all('|%([a-z0-9_-]+)?%|si',$line,$regs,PREG_SET_ORDER);
+		if(function_exists($function_name)){
+			$content = $function_name();
+		
+
+			foreach(explode(' ',$content,-1) as $line){
 			
-			foreach($regs as $reg){
-				if(isset($$reg[1])){
-					$content = str_replace($reg[0],$$reg[1],$content);
-				}else{
-					$content = str_replace($reg[0],'/*cannot bind data [%'.$reg[1].'%]*/',$content);
+				preg_match_all('|%([a-z0-9_-]+)?%|si',$line,$regs,PREG_SET_ORDER);
+				
+				foreach($regs as $reg){
+					if(isset($$reg[1])){
+						$content = str_replace($reg[0],$$reg[1],$content);
+					}else{
+						$content = str_replace($reg[0],'/*cannot bind data [%'.$reg[1].'%]*/',$content);
+					}
 				}
 			}
+			return apply_filters("raindrops_colors", $content);
+		
 		}
-		return apply_filters("raindrops_colors", $content);
 	}
+/**
+ * register style name 
+ *
+ *
+ *
+ *
+ */
+function raindrops_register_styles($style_name){
+	
+	static $vals;
+	
+	$vals[$style_name] = $style_name;
+	
+	return $vals;
+	
+}
+
 ?>

@@ -35,7 +35,7 @@ submit{
 	 border-radius:1em;
     -moz-border-radius:1em;
 	-webkit-border-radius:1em;
-	padding:1em;
+	padding:.2em .6em;
 	font-size:86%;
 }
 .nav-next span{

@@ -1754,7 +1754,6 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 
         $raindrops_options  = get_option("raindrops_theme_settings");
         $css                .= $raindrops_options['_raindrops_indv_css'];
-
         $background = get_background_image();
         $color = get_background_color();
 

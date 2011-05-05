@@ -1,0 +1,40 @@
+Changelog -----------------------------------
+version:0.900
+
+moved
+    const RAINDROPS_COLOR_SCHEME remove.
+
+added
+    Raindrops Option panel Color Scheme add
+    Raindrops Option panel auto gradient visible where 'RAINDROPS' background gradient.
+    csscolor.css.php add function raindrops_register_styles.
+fixed
+    Child theme issue fix
+        Child style.css can not read ploblem.
+    Option page link name fix
+        Raindrops Option to ChildTheme Option change.
+modified
+    css3.css form button size modified.
+    Child theme StyleSheet(yui-grid,reset,more) Customizing easier.
+        e.g. function add_raindrops_stylesheet(){} can define on childtheme.
+
+    If Child theme have not header embed style (csscolor.css.php function dark(),function light()...) when required function w3standard() where functions.php.
+
+made
+    Color Scheme add 'animation color','Japan','USA','WWW'
+
+----------------------------------------------
+#Changelog -----------------------------------
+#version:
+#
+#moved
+#
+#added
+#
+#fixed
+#
+#modified
+#
+#made
+#
+#----------------------------------------------

@@ -27,7 +27,7 @@
  */
 raindrops_register_styles("dark");
 
-function raindrops_dark(){
+function raindrops_indv_css_dark(){
 
 $style =<<<DOC
 body{
@@ -487,7 +487,7 @@ return $style.$css3;
  */
 raindrops_register_styles("w3standard");
 
-function raindrops_w3standard(){
+function raindrops_indv_css_w3standard(){
 
 $style =<<<DOC
 
@@ -715,7 +715,7 @@ return $style;
  */
 raindrops_register_styles("light");
 
-function raindrops_light(){
+function raindrops_indv_css_light(){
 
 $style =<<<DOC
 
@@ -1245,7 +1245,7 @@ return $style.$css3;
  */
 raindrops_register_styles("minimal");
 
-function raindrops_minimal(){
+function raindrops_indv_css_minimal(){
 
 $style =<<<DOC
 
@@ -1821,7 +1821,7 @@ CSS;
 		}
 		
 		
-		$function_name = 'raindrops_'.$name;
+		$function_name = 'raindrops_indv_css_'.$name;
 		
 		if(function_exists($function_name)){
 			$content = $function_name();

@@ -737,15 +737,12 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          return $input;
     }
     function raindrops_style_type_validate($input){
-        $obj = new raindrops_menu_create();
-        $vals = $obj->col_settings_raindrops_style_type;
-        foreach($vals as $val){
-            if($input == $val){
-            return $input;
-            }
-        }
-        $raindrops_options = get_option("raindrops_theme_settings");
-        return $raindrops_options["raindrops_style_type"];
+   		$array = raindrops_register_styles();
+		if(array_search($input,$array)){
+		return esc_html($input);
+		}else{
+		return "w3standard";
+		}
     }
     function raindrops_base_color_validate($input){
         if($input == ''){return $input;}

@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.901
+modified
+     functions.php
+        function raindrops_style_type_validate code modified why Child theme customize easier.
+     csscolor.css.php
+        function name change e.g. raindrops_dark to raindrops_indv_css_dark
+        Add raindrops_register_styles themename allways.
+             Child theme developer can create function raindrops_indv_css_ChildThemeName,
+             It will be create 'color type' and can select Theme options panel.
+
+            function raindrops_indv_css_ChildThemeName is return style string.
+            this return value are embed html document style.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.900
 
 moved

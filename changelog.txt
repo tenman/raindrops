@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:0.902
+
+fixed
+    bug functions.php line:740
+        $array = raindrops_register_styles();
+        to
+        $array = raindrops_register_styles($input);
+----------------------------------------------
+Changelog -----------------------------------
 version:0.901
 modified
      functions.php

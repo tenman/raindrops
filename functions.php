@@ -413,7 +413,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'excerpt2'=>__('When display extra sidebar is set to show,
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate','list' => 12),
-		 
+
         array('option_id' =>'null',
         'blog_id' => 0 ,
         'option_name' => "raindrops_color_scheme",
@@ -423,7 +423,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'excerpt1'=>'',
         'excerpt2'=>__('Colors list','Raindrops'),
          'validate'=>'raindrops_color_scheme_validate','list' => 12),
-	 
+
     );
     if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
         $rsidebar_show = false;
@@ -737,12 +737,12 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          return $input;
     }
     function raindrops_style_type_validate($input){
-   		$array = raindrops_register_styles();
-		if(array_search($input,$array)){
-		return esc_html($input);
-		}else{
-		return "w3standard";
-		}
+        $array = raindrops_register_styles($input);
+        if(array_search($input,$array)){
+        return esc_html($input);
+        }else{
+        return "w3standard";
+        }
     }
     function raindrops_base_color_validate($input){
         if($input == ''){return $input;}
@@ -755,7 +755,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
 
     function raindrops_color_scheme_validate($input){
         if($input == ''){return $input;}
-        
+
             return esc_html($input);
     }
 
@@ -1142,15 +1142,15 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
             "dark"=>"dark",
             "w3standard"=>"w3standard",
             "minimal"=>"minimal",
-			"helloworld"=>"helloworld",
+            "helloworld"=>"helloworld",
             );
-			
-			
-		var $col_settings_raindrops_color_scheme = array(
+
+
+        var $col_settings_raindrops_color_scheme = array(
             "Japan"=>"color_ja",
             "USA"=>"color_en",
             "WWW"=>"color_en_140",
-			"Animation Color" =>"color_anime"
+            "Animation Color" =>"color_anime"
             );
 
 
@@ -1164,7 +1164,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
 
         function SubMenu_GUI() {
             global $wpdb,$count, $raindrops_base_setting;
-			$this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
+            $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
 
             $ok     = false;
             $result = "";
@@ -1221,31 +1221,31 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
                     }else{
                         $result .= '</p></div>';
                     }
-					
+
                 }
 
             }
-			
+
 if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
-	$result 			.= '<div class="postbox" style="width:600px;margin:1em;color:#339999">';
-	$text 				= array('-4' => 'R','-3' => 'A','-2' => 'I','-1' => 'N','0' => 'D','1' => 'R','2' => 'O','3' => 'P','4' => 'S');
-	for($c = -4;$c < 5;$c++){
-	$css 				= raindrops_gradient_css(raindrops_warehouse("raindrops_base_color"),$c,1,'asc');
-	$raindrops_rnd1 	= rand(0,4);
-	$raindrops_rnd2 	= rand(5,60);
-	
-	if($c == $raindrops_rnd1){ 
-		$css 			.= 'border:5px solid #000;-moz-transform: rotate('.$raindrops_rnd2.'deg);-webkit-transform: rotate('.$raindrops_rnd2.'deg);transform: rotate('.$raindrops_rnd2.'deg);';}
-		$result 		.= '<div style="text-align:center;font-size:56px;height:60px;width:60px;float:left;'.$css.'">'.$text[$c].'</div>';
-	}
-	$result .= '<br style="clear:both;" /></div>';
+    $result             .= '<div class="postbox" style="width:600px;margin:1em;color:#339999">';
+    $text               = array('-4' => 'R','-3' => 'A','-2' => 'I','-1' => 'N','0' => 'D','1' => 'R','2' => 'O','3' => 'P','4' => 'S');
+    for($c = -4;$c < 5;$c++){
+    $css                = raindrops_gradient_css(raindrops_warehouse("raindrops_base_color"),$c,1,'asc');
+    $raindrops_rnd1     = rand(0,4);
+    $raindrops_rnd2     = rand(5,60);
+
+    if($c == $raindrops_rnd1){
+        $css            .= 'border:5px solid #000;-moz-transform: rotate('.$raindrops_rnd2.'deg);-webkit-transform: rotate('.$raindrops_rnd2.'deg);transform: rotate('.$raindrops_rnd2.'deg);';}
+        $result         .= '<div style="text-align:center;font-size:56px;height:60px;width:60px;float:left;'.$css.'">'.$text[$c].'</div>';
+    }
+    $result .= '<br style="clear:both;" /></div>';
 
 }
             $result .= '</div>';
             $result .= '<div id="reset2"></div>';
             $result .= '<div>'.$this->form_user_input().'</div>';
-		
+
             echo $result;
         }
 
@@ -1259,7 +1259,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
         function add_menus() {
             if(function_exists('add_theme_page')) {
-			$option_name          = ucwords(get_current_theme()).' Options';
+            $option_name          = ucwords(get_current_theme()).' Options';
 
            add_theme_page(RAINDROPS_TABLE_TITLE, $option_name, 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
             }
@@ -1557,13 +1557,13 @@ if(!function_exists("add_raindrops_stylesheet")){
             wp_register_style('raindrops_fonts', $fonts,array('raindrops_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_fonts');
 
-        
+
             $language           = get_locale();
 
             $lang   = $template_uri.'/languages/css/'.$language.'.css';
             wp_register_style('lang_style', $lang,array('raindrops_fonts'),$raindrops_version,'all');
             wp_enqueue_style( 'lang_style');
-			
+
             if(raindrops_warehouse("raindrops_style_type") !== 'w3standard'){
             $raindrops_css3   = $template_uri.'/css3.css';
             wp_register_style('raindrops_css3', $raindrops_css3,array('raindrops_fonts'),$raindrops_version,'all');
@@ -1571,7 +1571,7 @@ if(!function_exists("add_raindrops_stylesheet")){
 
             }
 
-            $child  			= $stylesheet_uri.'/style.css';
+            $child              = $stylesheet_uri.'/style.css';
             wp_register_style('style', $child,array('raindrops_fonts'),$raindrops_version,'all');
             wp_enqueue_style( 'style');
 
@@ -2610,21 +2610,21 @@ $style =<<<DOC
 %h_position_rsidebar_h2%
 }
 body {
-	margin:0!important;padding:0;
-	background-repeat:repeat-x;
+    margin:0!important;padding:0;
+    background-repeat:repeat-x;
 }
 #yui-main{
-	color:%raindrops_header_color%;
+    color:%raindrops_header_color%;
 }
 #hd{
-	background-image:url(%images_path%%raindrops_header_image%);
+    background-image:url(%images_path%%raindrops_header_image%);
 }
 .hfeed{
     background:#fff;
 }
 #ft {
-	background:url(%images_path%%raindrops_footer_image%) repeat-x;
-	color:%raindrops_footer_color%;
+    background:url(%images_path%%raindrops_footer_image%) repeat-x;
+    color:%raindrops_footer_color%;
 }
 .footer-widget h2,
 .rsidebar h2,
@@ -2638,8 +2638,8 @@ list-style-type:square;
 list-style-position:inside;
 }
 .ie8 .lsidebar .widget ul li a {
-	list-style:none;
-	
+    list-style:none;
+
 }
 .home .sticky {
 %c5%
@@ -2657,12 +2657,12 @@ input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
-	%c4%
+    %c4%
 }
 input[type="checkbox"],
 input[type="radio"],
 select{
-	%c4%
+    %c4%
 }
 .social textarea#comment,
 .social input[type="text"] {
@@ -2674,19 +2674,19 @@ select{
     %c4%
 }
 .entry-content ul li{
-	list-style-type:square;
+    list-style-type:square;
 }
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-	%c4%
+    %c4%
 }
 .entry-content input[type="submit"],
 .entry-content input[type="radio"]{
-	%c3%
+    %c3%
 }
 .entry-content select{
-	%c4%
+    %c4%
 }
 .entry-content blockquote{
     %c4%
@@ -2750,11 +2750,11 @@ table td,
     border:1px solid #ccc;
 }
 tfoot td{
-	border:none;
+    border:none;
 }
 .lsidebar  li,
 .rsidebar li{
-	border:none!important;
+    border:none!important;
 }
 td.month-date,td.month-name,td.time{
     %c4%
@@ -2770,7 +2770,7 @@ li.bypostauthor {
 }
 .comment-meta a,
 cite.fn{
-	background:none;
+    background:none;
 }
 .datetable td li{
 }

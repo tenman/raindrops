@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.902
+Version: 0.903
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -99,6 +99,22 @@ h6,
 	margin:.5em 0;
 	font-family:Geneva, Arial, Helvetica, sans-serif;	
 }
+/* Add 0.902  category blog at listed article issue image after headding is not float*/
+.index h1,
+.index h2,
+.index h3,
+.index .h1,
+.index .h2,
+.index .h3,
+index h4,
+.index h5,
+.index h6,
+.index .h4,
+.index .h5,
+.index .h6{
+	clear:none;
+}
+
 h1 a,
 h2 a,
 h3 a,

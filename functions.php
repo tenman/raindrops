@@ -2794,4 +2794,42 @@ return $style;
 }
 }
 
+/**
+ * plugin API
+ *
+ *
+ *
+ *
+ *
+ */
+    function plugin_is_active($plugin_path) {
+        $return_var = in_array( $plugin_path, apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) );
+        return $return_var;
+    }
+
+    if (plugin_is_active('tmn-quickpost/tmn-quickpost.php')) {
+
+            global $base_info;
+
+            foreach( $base_info['root'] as $key=>$val ) {
+                $wp_cockneyreplace['%'.$key.'%'] = $val;
+            }
+
+        function raindrops_import_post_meta(){
+
+            global $post,$base_info;
+            $r = get_post_meta($post->ID, 'template', true);
+
+            foreach( $base_info['root'] as $key=>$val ) {
+                $r = str_replace('%'.$key.'%', $val,$r);
+            }
+
+            if(class_exists('trans')){
+                $n = new trans($r);
+                return $n->text2html();
+            }else{
+                return $r;
+            }
+        }
+    }
 ?>

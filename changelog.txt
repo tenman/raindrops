@@ -4,6 +4,10 @@ fixed
     bug
     page.php line:24
         change ver name $ancestor to $raindrops_ancestor
+added
+    function
+    functions.php line:2797
+        raindrops_import_post_meta()
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.903

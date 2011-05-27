@@ -1,5 +1,12 @@
-#Changelog -----------------------------------
-#version:0.903
+Changelog -----------------------------------
+version:0.904
+fixed
+    bug
+    page.php line:24
+        change ver name $ancestor to $raindrops_ancestor
+----------------------------------------------
+Changelog -----------------------------------
+version:0.903
 modified
     style.css line:110
         add style

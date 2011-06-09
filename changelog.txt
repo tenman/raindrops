@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:0.905
+fixed
+    functions.php
+        Child theme issue
+        Const HEADER_IMAGE change value.
+            template directory/images/headers/ to stylesheet directory/images/headers/
+        Var name change.
+            $raindrops_base_setting
+            register_default_headers default url , thumnail_url change.
+
+        It can freely layout and design on Child theme.
+modified
+    index.php
+        Browser view issue
+        Class topsidebar do not show html block when sidebar is not active.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.904
 fixed
     bug

@@ -125,7 +125,7 @@ if(!defined('ABSPATH')){exit;}
  */
 
     if(!defined('HEADER_IMAGE')){
-        define('HEADER_IMAGE', '%s/images/headers/wp3.jpg');
+        define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
     }
 
 
@@ -276,9 +276,9 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
  *
  *
  */
-    $raindrops_base_setting = array(
+    $raindrops_base_setting_args = array(
 
-        array('option_id' =>'null',
+        array('option_id' => 1,
         'blog_id' => 0 ,
         'option_name' => "raindrops_base_color",
         'option_value' => "#444444",
@@ -289,7 +289,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          'validate'=>'raindrops_base_color_validate',
          'list' => 1),
 
-        array('option_id' =>'null',
+        array('option_id' => 2,
         'blog_id' => 0 ,
         'option_name' => "raindrops_style_type",
         'option_value' => "dark",
@@ -302,7 +302,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          'list' => 2,
         ),
 
-        array('option_id' =>'null',
+        array('option_id' => 3,
         'blog_id' => 0 ,
         'option_name' => "raindrops_header_image",
         'option_value' => "",
@@ -315,7 +315,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          'list' => 3,
         ),
 
-        array('option_id' =>'null',
+        array('option_id' => 4,
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_image",
         'option_value' => "",
@@ -328,7 +328,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
 
 
 
-        array('option_id' =>'null',
+        array('option_id' => 5,
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image",
         'option_value' => "h2.png",
@@ -340,7 +340,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         h2b.png,h2c.png] now. Of course, customizing is also possible. ','Raindrops'),
          'validate'=>'raindrops_heading_image_validate','list' => 5),
 
-        array('option_id' =>'null',
+        array('option_id' => 6,
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image_position",
         'option_value' => "0",
@@ -350,7 +350,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
         'validate'=>'raindrops_heading_image_position_validate','list' => 6),
 
-        array('option_id' =>'null',
+        array('option_id' => 7,
         'blog_id' => 0 ,
         'option_name' => "raindrops_page_width",
         'option_value' => "doc2",
@@ -361,7 +361,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
     Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px.','Raindrops'),
          'validate'=>'raindrops_page_width_validate','list' => 7),
 
-        array('option_id' =>'null',
+        array('option_id' => 8,
         'blog_id' => 0 ,
         'option_name' => "raindrops_col_width",
         'option_value' => "t2",
@@ -371,7 +371,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'excerpt2'=>__('Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified.','Raindrops'),
         'validate'=>'raindrops_col_width_validate','list' => 8),
 
-        array('option_id' =>'null',
+        array('option_id' => 9,
         'blog_id' => 0 ,
         'option_name' => "raindrops_default_fonts_color",
         'option_value' => "",
@@ -382,7 +382,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          it becomes an automatic arrangement of color. ','Raindrops'),
          'validate'=>'raindrops_default_fonts_color_validate','list' => 9),
 
-        array('option_id' =>'null',
+        array('option_id' => 10,
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_color",
         'option_value' => "",
@@ -393,7 +393,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          it becomes an automatic arrangement of color. ','Raindrops'),
          'validate'=>'raindrops_footer_color_validate','list' => 10),
 
-        array('option_id' =>'null',
+        array('option_id' => 11,
         'blog_id' => 0 ,
         'option_name' => "raindrops_show_right_sidebar",
         'option_value' => "show",
@@ -403,7 +403,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'excerpt2'=>__('Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show','Raindrops'),
         'validate'=>'raindrops_show_right_sidebar_validate','list' => 11),
 
-        array('option_id' =>'null',
+        array('option_id' => 12,
         'blog_id' => 0 ,
         'option_name' => "raindrops_right_sidebar_width_percent",
         'option_value' => "25",
@@ -414,7 +414,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate','list' => 12),
 
-        array('option_id' =>'null',
+        array('option_id' => 13,
         'blog_id' => 0 ,
         'option_name' => "raindrops_color_scheme",
         'option_value' => "color_ja",
@@ -425,6 +425,11 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          'validate'=>'raindrops_color_scheme_validate','list' => 12),
 
     );
+
+    if(!isset($raindrops_base_setting)){
+        $raindrops_base_setting = $raindrops_base_setting_args;
+    }
+
     if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
         $rsidebar_show = false;
     }else{
@@ -584,8 +589,8 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         }
         register_default_headers( array(
             'default' => array(
-                'url' => '%s/images/headers/wp3.jpg',
-                'thumbnail_url' => '%s/images/headers/wp3-thumbnail.jpg',
+                'url' => get_stylesheet_directory_uri().'/images/headers/wp3.jpg',
+                'thumbnail_url' => get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg',
                 /* translators: header image description */
                 'description' => __( 'Raindrops', 'Raindrops' )
             )

@@ -14,18 +14,15 @@ get_header("xhtml1"); ?>
   <div class="yui-b">
     <?php
 /**
- *	Widget only home
+ *  Widget only home
  *
  */
-	if ( is_home() ) { 
-		echo '<div class="topsidebar">'."\n".'<ul>';
-		if (dynamic_sidebar('sidebar-3') ){  
-		}else{
-			echo '<li><div class="hide">dinamic_sidebar 3 none</div></li>';
-		} 
-		echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
-	} ?>
-	
+    if ( is_home() and  is_active_sidebar('sidebar-3') ) {
+        echo '<div class="topsidebar">'."\n".'<ul>';
+        dynamic_sidebar('sidebar-3');
+        echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
+    } ?>
+
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php get_template_part( 'loop', 'default' );?>

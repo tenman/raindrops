@@ -1515,11 +1515,17 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
         $g .= "}\n";
+        $g .= '.gradient'.$i.' a{';
+        $g .= 'color:'.raindrops_colors($i+1,'color').';';
+        $g .= "}\n";
         $g .= '.gradient-'.$i.'{';
         $g .= 'color:'.raindrops_colors($i,'color').';';
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
+        $g .= "}\n";
+        $g .= '.gradient'.$i.' a{';
+        $g .= 'color:'.raindrops_colors($i-1,'color').';';
         $g .= "}\n";
         }
         return $g;

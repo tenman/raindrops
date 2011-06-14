@@ -1378,22 +1378,23 @@ return $style;
  */
 	$raindrops_indv_css 	= raindrops_design_output($style_type).raindrops_color_base();
 	$raindrops_options 		= get_option("raindrops_theme_settings");
-	
+		// if not handmade css. theme name style type is handmade
+if(raindrops_warehouse("raindrops_style_type") !== get_current_theme() ){	
 	if(is_array($raindrops_options)){
 
-		if(array_key_exists('_raindrops_indv_css',$raindrops_options)){
-			$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-		}else{
-			$add_array				= array('_raindrops_indv_css'=> $raindrops_indv_css );
-			$raindrops_options 		= array_merge($raindrops_options,$add_array);
-		}
-		update_option("raindrops_theme_settings",$raindrops_options);
-	
+			if(array_key_exists('_raindrops_indv_css',$raindrops_options)){
+				$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+			}else{
+				$add_array				= array('_raindrops_indv_css'=> $raindrops_indv_css );
+				$raindrops_options 		= array_merge($raindrops_options,$add_array);
+			}
+			update_option("raindrops_theme_settings",$raindrops_options);
+		
 	}else{
 		$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
 		add_option("raindrops_theme_settings",$raindrops_options );
 	}
-
+}
 /**
  * Create CSS Color Declaration
  *
@@ -1833,11 +1834,11 @@ CSS;
 		$function_name = 'raindrops_indv_css_'.$name;
 		
 		if(function_exists($function_name)){
+		
 			$content = $function_name();
 		
-
 			foreach(explode(' ',$content,-1) as $line){
-			
+
 				preg_match_all('|%([a-z0-9_-]+)?%|si',$line,$regs,PREG_SET_ORDER);
 				
 				foreach($regs as $reg){

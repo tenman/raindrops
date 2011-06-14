@@ -648,11 +648,13 @@ padding:0;
 }
 #nav-above,
 #nav-below {
-	max-width:99%;
+	max-width:100%;
 	
 	
 }
-
+#nav-above{
+	margin-top:7px;
+}
 .nav-next{
 	text-align:right;
 }
@@ -1787,6 +1789,7 @@ li.comment {
 .datetable td{
 	/*line-height:2.5;*/
 }
+
 .datetable .time,
 .datetable .month-name,
 .datetable .year-name,
@@ -1962,3 +1965,4 @@ float:left;
 .rd-page-navigation{position:relative;top:-20px;left:-20px;margin:2em;}
 .rd-page-navigation li ul{visibility: hidden;position:relative;top:5px;left:70px;}
 .rd-page-navigation li:hover> ul{visibility:visible;}
+

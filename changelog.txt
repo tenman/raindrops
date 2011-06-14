@@ -1,4 +1,22 @@
 Changelog -----------------------------------
+version:0.906
+added
+    Add current Automatic Color can edit option
+    AdminPanel ColorType select a Raindrops and click submit button.    Appear Textarea and you can edit stylesheet.
+
+    functions.php
+            Setup_raindrops() change action only install once
+
+            Admin panel conditional view change when color type Raindrops
+            Admin panel textarea add for stylesheet
+modified
+        Class gradient view issue anchortext contrast modifed
+        functions.php
+            $g .= '.gradient'.$i.' a{';
+            $g .= 'color:'.raindrops_colors($i-1,'color').';';
+            $g .= "}\n";
+----------------------------------------------
+Changelog -----------------------------------
 version:0.905
 fixed
     functions.php

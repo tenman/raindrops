@@ -312,7 +312,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         array('option_id' => 3,
         'blog_id' => 0 ,
         'option_name' => "raindrops_header_image",
-        'option_value' => "",
+        'option_value' => "header.png",
         'autoload'=>'yes',
         'title'=>__('Header bar background image','Raindrops'),
         'excerpt1'=>'',
@@ -324,7 +324,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         array('option_id' => 4,
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_image",
-        'option_value' => "",
+        'option_value' => "footer.png",
         'autoload'=>'yes',
         'title'=>__('Footer bar background image','Raindrops'),
         'excerpt1'=>'',
@@ -1700,7 +1700,6 @@ $result .= '<p>
      * e.g. raindrops-item-header-style-no-repeat-top-0-left-0-aomoriken.jpg
      * filename parse and create style
      */
-
      $upload_info = wp_upload_dir();
      $filename = basename($uri);
 if(file_exists(get_stylesheet_directory().'/images/'.$filename)){

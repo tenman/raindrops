@@ -1,4 +1,30 @@
 Changelog -----------------------------------
+version:0.907
+
+added
+    footer.php
+        add footer inline style
+    functions.php
+        add reset button
+        header,footer background image uploader
+    header.php
+        add header inline style
+fixed
+    functions.php
+    Missing Raindrops domain for translatable strings fix
+    style.css
+        right sidebar to lose UL LI style fix
+
+modified
+    style.css
+    Add space between to image and post content - image attached.
+    csscolor.css.php
+    div.comment-body *,div.comment-author,div.comment-author-meta,
+    remove background from dark color type
+
+    Long Site Title - image attached - overlap of long site title with description on the right and height is fixed therefore part of the long site title cannot be seen.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.906
 added
     Add current Automatic Color can edit option

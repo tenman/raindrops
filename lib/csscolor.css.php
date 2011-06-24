@@ -676,7 +676,7 @@ address{margin:10px auto;}
 
 li.byuser,
 li.bypostauthor {
-%c2%
+%c5%
 }
 .comment-meta a,
 cite.fn{

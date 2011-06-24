@@ -8,7 +8,11 @@
  * @since Raindrops 0.1
  */
 ?>
-<div id="ft">
+<?php
+$uploads = wp_upload_dir();
+$footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
+?>
+<div id="ft" style="<?php echo raindrops_upload_image_parser($footer_image_uri,'inline','#ft'); ?>">
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">
   <ul>

@@ -55,6 +55,20 @@ if(!isset($page_width)){
  */
     $fluid_minimam_width = '400';
 /**
+ * Raindrops header and footer image upload
+ *
+ *
+ *
+ *
+ */
+
+// Allow image type for footer header.
+$raindrops_allow_file_type  = array('image/png','image/jpeg','image/jpg','image/gif');
+//max upload size byte
+$raindrops_max_upload_size  = 2000000;
+//header or footer image max width px
+$raindrops_max_width        = 1300;
+/**
  * the_excerpt use where index,archive,other not single pages.
  * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
  *
@@ -79,18 +93,8 @@ if(!isset($page_width)){
         define("RAINDROPS_USE_AUTO_COLOR",true);
     }
 
-/**
- * If you want change colors when set value color_en,color_en_140 or color_ja.
- * this theme not use color picker why The range of the selection need not be infinity.
- * There is a traditional color, and the country and the region are shown symbolically in a lot of countries and regions.
- *
- *
- */
 
-/*
-    if(!defined('RAINDROPS_COLOR_SCHEME')){
-        define("RAINDROPS_COLOR_SCHEME","color_ja");
-    }*/
+
 
 /**
  * header text
@@ -167,6 +171,7 @@ if(!isset($page_width)){
     }
 
     $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
+
 /**
  * single-post-thumbnail
  *
@@ -192,7 +197,7 @@ if(!isset($page_width)){
         function raindrops_widgets_init() {
 
             register_sidebar(array (
-              'name' => __('Default Sidebar'),
+              'name' => __('Default Sidebar', 'Raindrops'),
               'id' => 'sidebar-1',
               'before_widget' => '<li class="widget default">',
               'after_widget' => '</li>
@@ -205,7 +210,7 @@ if(!isset($page_width)){
               'text' => "1"));
             register_sidebar(
               array (
-              'name' => __('Extra Sidebar'),
+              'name' => __('Extra Sidebar', 'Raindrops'),
               'id' => 'sidebar-2',
               'before_widget' => '<li class="widget extra">',
               'after_widget' => '</li>
@@ -218,7 +223,7 @@ if(!isset($page_width)){
               'text' => "2"));
             register_sidebar(
               array (
-              'name' => __('Sticky Widget'),
+              'name' => __('Sticky Widget', 'Raindrops'),
               'id' => 'sidebar-3',
               'before_widget' => '<li class="widget sticky-widget">',
               'after_widget' => '</li>',
@@ -230,7 +235,7 @@ if(!isset($page_width)){
 
             register_sidebar(
               array (
-              'name' => __('Footer Widget'),
+              'name' => __('Footer Widget', 'Raindrops'),
               'id' => 'sidebar-4',
               'before_widget' => '<li class="widget footer-widget">',
               'after_widget' => '</li>',
@@ -241,7 +246,7 @@ if(!isset($page_width)){
               'text' => "4"));
             register_sidebar(
               array (
-              'name' => __('Category Blog Widget'),
+              'name' => __('Category Blog Widget', 'Raindrops'),
               'id' => 'sidebar-5',
               'before_widget' => '<li class="widget category-blog-widget">',
               'after_widget' => '</li>',
@@ -311,8 +316,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Header bar background image','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The name of the picture file used for the header is set. As for the image,
-         the image that exists in themes/raindrops/image/is used. for display test image "header.png"','Raindrops'),
+        'excerpt2'=>__('The header image can be updated according to the uploading form that is below. This field is automatically updated when up-loading it.The file should exist in the theme images directory when the file name of this field is changed for myself. ','Raindrops'),
          'validate'=>'raindrops_header_image_validate',
          'list' => 3,
         ),
@@ -324,8 +328,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Footer bar background image','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The name of the picture file used for the footer is set.As for the image,
-         the image that exists in themes/raindrops/image/is used. for display test image "footer.png".','Raindrops'),
+        'excerpt2'=>__('The footer image can be updated according to the up-loading form that is below. This field is automatically updated when up-loading it.The file should exist in the theme images directory when the file name of this field is changed for myself.','Raindrops'),
          'validate'=>'raindrops_footer_image_validate','list' => 4),
 
 
@@ -635,7 +638,8 @@ $raindrops_current_theme_name = get_current_theme();
 
         $install_once = get_option('raindrops_theme_settings');
 
-        if (!array_key_exists('install', $install_once)) {
+        if (!array_key_exists('install', $install_once) ) {
+
             add_action('admin_init', 'setup_raindrops');
         }
 
@@ -747,7 +751,7 @@ $raindrops_current_theme_name = get_current_theme();
         global $raindrops_options;
        if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
         $raindrops_options = get_option("raindrops_theme_settings");
-        return $raindrops_options["raindrops_header_image"];
+        return $raindrops_options["raindrops_footer_image"];
         }
             return $input;
     }
@@ -847,43 +851,42 @@ $raindrops_current_theme_name = get_current_theme();
     if (!function_exists('raindrops_comment')) {
         function raindrops_comment( $comment, $args, $depth ) {
             $GLOBALS['comment'] = $comment; ?>
-    <?php if ( '' == $comment->comment_type ) : ?>
-    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-      <div id="comment-<?php comment_ID(); ?>">
-        <div class="comment-author vcard">
-          <div class="raindrops-comment-avatar"> <?php echo get_avatar( $comment, 32 ); ?> </div>
-          <div class="raindrops-comment-author-meta"> <?php printf( __( '%s <span class="says">says:</span>', 'Raindrops' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?> </div>
-          <div class="comment-meta commentmetadata clearfix"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-          <?php printf( __( '%1$s at %2$s', 'Raindrops' ), get_comment_date(),  get_comment_time() ); ?></a>
-          <?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' ); ?>
-        </div>
-        </div>
-        <!-- .comment-author .vcard -->
-        <?php if ( $comment->comment_approved == '0' ) : ?>
-        <div class="clearfix awaiting"> <em>
-          <?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?>
-          </em> <br />
-        </div>
-        <?php endif; ?>
+<?php if ( '' == $comment->comment_type ) : ?>
 
-        <!-- .comment-meta .commentmetadata -->
-        <div class="comment-body">
-          <?php comment_text(); ?>
-        </div>
-        <div class="reply">
-          <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-        </div>
-        <!-- .reply -->
+<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+  <div id="comment-<?php comment_ID(); ?>">
+    <div class="comment-author vcard">
+      <div class="raindrops-comment-avatar"> <?php echo get_avatar( $comment, 32 ); ?> </div>
+      <div class="raindrops-comment-author-meta"> <?php printf( __( '%s <span class="says">says:</span>', 'Raindrops' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?> </div>
+      <div class="comment-meta commentmetadata clearfix"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"> <?php printf( __( '%1$s at %2$s', 'Raindrops' ), get_comment_date(),  get_comment_time() ); ?></a>
+        <?php edit_comment_link( __( '(Edit)', 'Raindrops' ), ' ' ); ?>
       </div>
-      <!-- #comment-##  -->
-      <?php else : ?>
-    <li class="post pingback">
-      <p>
-        <?php _e( 'Pingback:', 'Raindrops' ); ?>
-        <?php comment_author_link(); ?>
-        <?php edit_comment_link( __('(Edit)', 'Raindrops'), ' ' ); ?>
-      </p>
-      <?php endif;
+    </div>
+    <!-- .comment-author .vcard -->
+    <?php if ( $comment->comment_approved == '0' ) : ?>
+    <div class="clearfix awaiting"> <em>
+      <?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?>
+      </em> <br />
+    </div>
+    <?php endif; ?>
+    <!-- .comment-meta .commentmetadata -->
+    <div class="comment-body">
+      <?php comment_text(); ?>
+    </div>
+    <div class="reply">
+      <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+    </div>
+    <!-- .reply -->
+  </div>
+  <!-- #comment-##  -->
+  <?php else : ?>
+<li class="post pingback">
+  <p>
+    <?php _e( 'Pingback:', 'Raindrops' ); ?>
+    <?php comment_author_link(); ?>
+    <?php edit_comment_link( __('(Edit)', 'Raindrops'), ' ' ); ?>
+  </p>
+  <?php endif;
         }
     }
 /**
@@ -1137,7 +1140,7 @@ $raindrops_current_theme_name = get_current_theme();
         var $table_template = '<table class="%s widefat post fixed" style="margin:2em;width:540px;">';
         var $title_template = '<h3 title="%s" id="%s" style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">%s</h3>';
         var $excerpt_template = '<div style="margin:2em;">%s</div>';
-        var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="width:150px;vertical-align:bottom;margin-bottom:0px;height:%spx;">';
+        var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="width:130px;vertical-align:bottom;margin-bottom:0px;height:%spx;">';
 
         var $col_settings_raindrops_col_width = array(
             "left 160px"=>"t1",
@@ -1181,6 +1184,7 @@ $raindrops_current_theme_name = get_current_theme();
             );
 
 
+
 /**
  *
  *
@@ -1201,8 +1205,7 @@ $raindrops_current_theme_name = get_current_theme();
              *
              *
              */
-            if(isset($_POST) and !empty($_POST)){
-
+            if(isset($_POST['raindrops_option_values']) and !empty($_POST['raindrops_option_values'])){
                 $option_id      = intval($_POST['option_id']);
                 $raindrops_updates = "";
 
@@ -1211,36 +1214,49 @@ $raindrops_current_theme_name = get_current_theme();
 
                     $valid_function = $key.'_validate';
 
-                   if($val == $valid_function($val)){
+               //    if($val == $valid_function($val)){
 
                       $new_settings         = get_option('raindrops_theme_settings');
                       $new_settings[$key]   = $val;
 
                       if(update_option('raindrops_theme_settings',$new_settings)){
                         $ok = true;
-                        do_action( 'raindrops_change_style' );
+                        //do_action( 'raindrops_change_style' );
 
                         $raindrops_updates .= ','.$key;
 
                       }
-
-                    }else{
+                 /*   }else{
                         $raindrops_updates = $key."value error";
-                    }
+                    }*/
 
                 }
             }
 
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
             $result .= screen_icon();
-            $result .= "<h2>" . get_current_theme() . __(' Theme Settings') . "</h2>";
+            $result .= "<h2>" . get_current_theme() . __(' Theme Settings', 'Raindrops') . "</h2>";
             $result .= "<p>Saved Database table name:<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
-            if(isset($_POST) and !empty($_POST)){
+
+
+            if(isset($_POST['reset'])){
+               foreach($raindrops_base_setting as $add){
+                    $option_name = $add['option_name'];
+                        $raindrops_theme_settings[$option_name] = $add['option_value'];
+
+                }
+                $style_type                                         = raindrops_warehouse("raindrops_style_type");
+                $raindrops_indv_css                                 = raindrops_design_output($style_type).raindrops_color_base();
+                $raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
+                update_option('raindrops_theme_settings',$raindrops_theme_settings,"",$add['autoload']);
+            }
+
+            if(isset($_POST['raindrops_option_values']) and !empty($_POST['raindrops_option_values'])){
 
                     $scheme = raindrops_warehouse("raindrops_color_scheme");
                     global $$scheme;
                 if($ok == true){
-                $result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.'), $raindrops_updates);
+                $result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), $raindrops_updates);
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
@@ -1251,7 +1267,24 @@ $raindrops_current_theme_name = get_current_theme();
 
                 }
 
+
             }
+
+            if(isset($_POST['raindrops_upload'])){
+                    global $raindrops_max_upload_size,$raindrops_max_width,$raindrops_allow_file_type;
+
+$upload_result = raindrops_upload_image($raindrops_max_upload_size, $raindrops_max_width,$raindrops_allow_file_type);
+
+if($upload_result[0] == true){
+    $result .= '<div id="message" class="updated fade" title="'.esc_attr(basename($upload_result[1])).'"><img src="'.$upload_result[2].'" width="100" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;&nbsp;'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), basename($upload_result[2]));
+}else{
+    $result .= '<div id="message" class="updated fade" title="'.esc_attr(basename($upload_result[1])).'">'.sprintf(__('updated %s  fail.', 'Raindrops'), $upload_result[1]);
+}
+
+            }
+
+
+
 
 if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
@@ -1336,7 +1369,9 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     $style="";
                 }
 
-                if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val)){
+
+
+                if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val) and $key !== "raindrops_footer_image" and $key !== "raindrops_header_image"){
                     $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
                 }else{
                     $style .='';
@@ -1345,9 +1380,9 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
 
                 if(empty($style)){
                     $style .='visibility:hidden';
-                    $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value").'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
+                    $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }else{
-                    $table_header =  '<thead><tr><th >'.__("Color").'</th><th>'.__("Value").'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
+                    $table_header =  '<thead><tr><th >'.__("Color", 'Raindrops').'</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit", 'Raindrops').'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }
 
                 if (RAINDROPS_USE_AUTO_COLOR == false and (   $key == "raindrops_footer_color" or
@@ -1381,10 +1416,20 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                 $lines .= '<tr>';
                 $lines .= '<td style="display:none;">';
                 $lines .= '<input type="text" name="option_id" value="'.$i.'" />'.$i.'</td>';
+//background setting
+
                 if($key == "raindrops_heading_image_position"){
                 $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+                }elseif($key == "raindrops_header_image"){
+                    $uploads = wp_upload_dir();
+                    $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
+                    $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($header_image_uri,'inline','#hd').'"></td></tr><tr><td>&nbsp;</td>';
+                }elseif($key == "raindrops_footer_image"){
+                    $uploads = wp_upload_dir();
+                    $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
+                    $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'" ></td></tr><tr><td>&nbsp;</td>';
                 }else{
-                $lines .= '<td style="'.$style.'">';
+                    $lines .= '<td style="'.$style.'">';
                 }
                 $lines .= '<input type="hidden" name="option_name" value="'.esc_attr($key).'" read-only="read-only" /></td>';
                 $lines .= '<td>'.esc_html($val).'</td>';
@@ -1435,7 +1480,7 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
 
                     if(raindrops_warehouse("raindrops_style_type") == get_current_theme() ){
                         $add_box = '<textarea name="raindrops_option_values[_raindrops_indv_css]" style="width:100%;" rows="20">'.stripslashes(raindrops_warehouse('_raindrops_indv_css'))."</textarea>";
-                        $add_box .= '<p>'.__('You must backup this style when theme update before').'</p>';
+                        $add_box .= '<p>'.__('You must backup this style when theme update before', 'Raindrops').'</p>';
                     }
 
                 }elseif($key == "raindrops_heading_image"){
@@ -1450,25 +1495,27 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     }
                 }else{
                     $lines .= '<td>';
-                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val).'"';
+                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val, 'Raindrops').'"';
                     $lines .= ' /></td>';
                 }
                 $i++;
-                $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save').'" /></td>';
+
+                $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save', 'Raindrops').'" /></td>';
 
                 $lines .= '</tr>';
 
                 $send_key_name = "";
                 $lines .= "</tbody></table><br />$add_box</div>";
             }
-$lines .= $this->table_template."<tr><td><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save Changes').'" /></td></tr></table></form><br style="clear:both;">';
+$lines .= "<div style=\"margin:0 50px;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr('Save Changes').'" />&nbsp;&nbsp;&nbsp;';
+$lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>">';
                 $lines .= "</div>";
                 if(!preg_match('|<tbody>|',$lines)){
                     $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
                 }
 
 
-
+                $lines .= raindrops_upload_form();
 
 
 
@@ -1520,6 +1567,174 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
         }
     } //end class
 
+/**
+ * Raindrops header footer image upload
+ *
+ *
+ *
+ *
+ */
+
+function raindrops_upload_form(){
+    global $max_upload_size;
+    global $dirlist;
+    $deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
+
+$result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;padding:50px;">
+<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;height:32px;" id="raindrops-style-type" title="raindrops style type"><div id="icon-upload" class="icon32"></div><span style="position:relative;top:10px;">Image file up-load for header and footer</span></h3>
+    <fieldset ><legend>'.__('Upload','Raindrops').'</legend>
+    <form enctype="multipart/form-data" action="'.$deliv.'" method="POST">'.wp_nonce_field('update-options2');
+
+$result .= '<p>
+    <input name="uploadfile" type="file"></p><p>
+    <p>Purpose:<label><input type="radio" name="purpose" value="header" checked="checked" />for header image</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />for footer image</label></p>
+
+    <p>Style:<label><input type="radio" name="style" value="norepeat" checked="checked" />no-repeat</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="style" value="repeatx" />repeat-x</label></p>
+    <p>position:<label>top:<input type="text" name="position-top" value="0" style="text-align:right;" />px</label>&nbsp;&nbsp;&nbsp;left:<label><input type="text" name="position-left" value="0" style="text-align:right;"  />px</label></p>
+
+    <input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
+    </form>
+    </fieldset></div>';
+
+    return $result;
+}
+
+/**
+ * Raindrops upload image check and save
+ *
+ *
+ *
+ *
+ */
+
+    function raindrops_upload_image($raindrops_max_upload_size, $raindrops_max_width,$raindrops_allow_file_type){
+        global $raindrops_max_upload_size,$raindrops_max_width,$raindrops_allow_file_type;
+        $upload_info = wp_upload_dir();
+        $propaty = '';
+
+        if(isset($_POST['raindrops_upload'])){
+
+            if(isset($_POST['purpose']) and ($_POST['purpose'] == 'header' or $_POST['purpose'] == 'footer')){
+                $save_dir = $upload_info['path'].'/raindrops-item';
+                $propaty = $propaty.'-'. $_POST['purpose'];
+            }else{
+                $result = __("purpose no data","Raindrops");
+                return array(false,$result.'a');
+            }
+            if(isset($_POST['style']) and ($_POST['style'] == 'norepeat' or $_POST['style'] == 'repeatx')){
+                $style = $_POST['style'];
+                $propaty = $propaty.'-style-'. $_POST['style'];
+            }else{
+                $result = __("style no data","Raindrops");
+                return array(false,$result.'b');
+            }
+            if(isset($_POST['position-top']) and is_numeric($_POST['position-top'])){
+                $top = $_POST['position-top'];
+                $propaty = $propaty.'-top-'. $_POST['position-top'];
+
+            }else{
+                $result = __("position top no data","Raindrops");
+                return array(false,$result.'c');
+            }
+            if(isset($_POST['position-left']) and is_numeric($_POST['position-left'])){
+                $left = $_POST['position-left'];
+                $propaty = $propaty.'-left-'. $_POST['position-left'].'-';
+
+            }else{
+                $result = __("position no data","Raindrops");
+                return array(false,$result.'d');
+            }
+
+            if($_FILES['uploadfile']['size'] > $raindrops_max_upload_size){
+              $result = "file size over".$_FILES['uploadfile']['size'].'upload-image-size'.$raindrops_max_upload_size;
+              return array(false,$result.'e');
+            }
+
+            if(in_array($_FILES['uploadfile']['type'],$raindrops_allow_file_type ) == false){
+
+              $result = sprintf(__('%s is not permitted filetype.',"Raindrops"),$_FILES['uploadfile']['type']).implode(',',$raindrops_allow_file_type);
+              return array(false,$result);
+            }
+
+          if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $save_dir.$propaty.$_FILES['uploadfile']['name'])) {
+            chmod($save_dir. $_FILES['uploadfile']['name'], 0644);
+
+            list($width, $height, $type, $attr) = getimagesize($save_dir. $_FILES['uploadfile']['name']);
+
+            if($raindrops_max_width < $width or $height > $raindrops_max_width * 1.5){
+
+                unlink($save_dir. $_FILES['uploadfile']['name']);
+                $result = sprintf(__("%d px * %d width too big. limit %d px","Raindrops"),$width,$height,$raindrops_max_width);
+                return array(false,$result.'g');
+            }
+
+                $uploaded_url = $upload_info['url'].'/raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
+                $new_settings = get_option('raindrops_theme_settings');
+
+                if($_POST['purpose'] == 'header'){
+                    $new_settings['raindrops_header_image'] = 'raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
+                }elseif($_POST['purpose'] == 'footer'){
+                    $new_settings['raindrops_footer_image'] = 'raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
+                }
+
+            update_option('raindrops_theme_settings',$new_settings);
+
+                return array(true,'success',$uploaded_url,$width,$height,true);
+
+          }else{
+                $result = __("It failed in up-loading.","Raindrops");
+                foreach($_FILES['userfile']['error'] as $error){
+                    $result .= $error;
+                }
+                return array(false,$result.'h');
+          }
+        }
+    }
+
+
+    //@param $embed string inline or external or embed
+    //@param $id #hd or #ft
+    function raindrops_upload_image_parser($uri,$embed = "inline",$id="#hd"){
+
+    /* upload image from raindrops admin panel saved filename
+     * e.g. raindrops-item-header-style-no-repeat-top-0-left-0-aomoriken.jpg
+     * filename parse and create style
+     */
+
+     $upload_info = wp_upload_dir();
+     $filename = basename($uri);
+if(file_exists(get_stylesheet_directory().'/images/'.$filename)){
+         if($id == '#hd'){
+             if(!file_exists($upload_info['path'].'/'.$filename)){
+                return 'background:url('.get_stylesheet_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
+            }
+         }elseif($id == '#ft'){
+             if(!file_exists($upload_info['path'].'/'.$filename)){
+                return 'background:url('.get_stylesheet_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
+             }
+
+         }
+}
+     preg_match("|raindrops-item-([^-]+)|",$filename,$regs);
+     $purpose = $regs[1];
+     $purpose = str_replace(array("header","footer"),array("#hd","#ft"),$purpose);
+     preg_match("|-style-([^-]+)|",$filename,$regs);
+     $style = $regs[1];
+     $style = str_replace(array('no','x'),array('no-','-x'),$style);
+     preg_match("|-top-(-?[^-]+)|",$filename,$regs);
+     $top = $regs[1];
+     preg_match("|-left-(-?[^-]+)|",$filename,$regs);
+     $left = $regs[1];
+
+     if($embed == 'inline'){
+        return 'background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;';
+     }elseif($embed == 'external' or $embed == 'embed'){
+        return $purpose. '{background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;}';
+     }else{
+        return;
+     }
+
+    }
 /**
  * Show real gradient where admin panel help
  *
@@ -1656,7 +1871,7 @@ if(!function_exists("add_raindrops_stylesheet")){
 
     function raindrops_comment_form($form){
     global $commenter;
-    $form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label><span class="option">'.__('Option','Raindrops').'</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
+    $form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website', 'Raindrops') . '</label><span class="option">'.__('Option','Raindrops').'</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
     return $form;
     }
 
@@ -1907,14 +2122,14 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 
         }
 ?>
-
-<div id="<?php echo $position;?>" class="clearfix">
-
-  <span class="nav-previous"><?php previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>'); ?></span>
-
-  <div class="nav-next"><?php next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>'); ?></div>
-</div>
-<?php }
+  <div id="<?php echo $position;?>" class="clearfix"> <span class="nav-previous">
+    <?php previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>'); ?>
+    </span>
+    <div class="nav-next">
+      <?php next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>'); ?>
+    </div>
+  </div>
+  <?php }
 /**
  * date.php
  *

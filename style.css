@@ -608,7 +608,7 @@ padding:0;
 #hd {
 	overflow:hidden;
 	padding:.5em 1em;
-	height:5em;
+	min-height:5em;
 		
 }
 #hideAll {
@@ -714,7 +714,7 @@ padding:0;
 .lsidebar li.page_item a,
 .lsidebar li.category_report a,
 .lsidebar .widget ul li a {
-	display:block;
+	/*display:block;*/
 	margin-top:0.3em;
 }
 /* ie8 list child display:block; list-marker break issue */
@@ -812,6 +812,9 @@ max-width:100%;
 #site-description {
 	text-align:right;
 }
+#site-description {
+	max-width:24%;
+	}
 .entry-utility {
 	clear:both;
 	text-align:center;
@@ -1206,8 +1209,8 @@ text-align:center;
 	position:relative;
 }
 #site-title{
-	display:inline!important;
-	
+	display:inline-block!important;
+	max-width:74%;
 	
 }
 #site-description {
@@ -1355,20 +1358,31 @@ table#wp-caledar td a{
 text-align:right;
 }
 /* wordPress native */
+.entry-content > img{
+	padding:10px 10px 0 0;
+}
+img.aligncenter,
 .aligncenter,
 div.aligncenter {
    display: block;
    margin-left: auto;
    margin-right: auto;
+   padding:10px;
 }
+div.alignleft,
+img.alignleft,
 .alignleft {
 	float: left;
-	margin-right:10px;
-}
+	padding-left:0;
+	padding:0 10px 0 0;
+
+	}
+div.alignright,
+img.alignright,
 .alignright {
    float: right;
-   margin-left:1em;
-}
+   padding:0 0 0 10px;
+   }
 .size-thumbnail{
 	padding:.5em;
 }

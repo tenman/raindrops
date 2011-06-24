@@ -55,7 +55,11 @@
 <body <?php body_class($this_blog); ?>>
 <div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">
 <div id="top">
-  <div id="hd">
+<?php
+$uploads = wp_upload_dir();
+$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
+?>
+  <div id="hd" style="<?php echo raindrops_upload_image_parser($header_image_uri,'inline','#hd'); ?>">
 <?php
 
 /**

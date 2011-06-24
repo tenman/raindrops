@@ -40,6 +40,15 @@ loop page show icon each the_content left.
 
 Category gallery and Cagory blog have Special Layout.
 
+Upload header,footer image.
+	Allow image type is png,jpeg,gif
+	max upload size 2000000byte
+	header or footer image max width 1300px
+	upload files saved your uplload dir
+	default header,footer image exists raindrops/images header.png footer.png
+	
+Be careful
+	version 0.907 Reset all setting button initializes all customizing.
 
 Questions, bugs and others can be emailed me to a.tenman@gmail.com
 

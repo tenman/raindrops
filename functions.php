@@ -1138,7 +1138,7 @@ $raindrops_current_theme_name = get_current_theme();
     class raindrops_menu_create {
         var $accesskey  = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
         var $table_template = '<table class="%s widefat post fixed" style="margin:2em;width:540px;">';
-        var $title_template = '<h3 title="%s" id="%s" style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;">%s</h3>';
+        var $title_template = '<h3 title="%s" id="%s" style="padding:0.6em;text-indent:1em;cursor:auto;background:none;">%s</h3>';
         var $excerpt_template = '<div style="margin:2em;">%s</div>';
         var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="width:130px;vertical-align:bottom;margin-bottom:0px;height:%spx;">';
 
@@ -1581,17 +1581,37 @@ function raindrops_upload_form(){
     $deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
 
 $result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;padding:50px;">
-<h3 style="position:relative;top:-0.3em;padding-bottom:0.6em;text-indent:1em;cursor:auto;background:none;height:32px;" id="raindrops-style-type" title="raindrops style type"><div id="icon-upload" class="icon32"></div><span style="position:relative;top:10px;">Image file up-load for header and footer</span></h3>
+
+    <h3 style="padding:0.6em;text-indent:1em;cursor:auto;background:none;height:32px;" id="raindrops-style-type" title="raindrops style type">
+    <div id="icon-upload" class="icon32"></div>
+    <span style="position:relative;top:10px;">'.
+    __('Image file up-load for header and footer','Raindrops').
+    '</span></h3>
+
     <fieldset ><legend>'.__('Upload','Raindrops').'</legend>
-    <form enctype="multipart/form-data" action="'.$deliv.'" method="POST">'.wp_nonce_field('update-options2');
-
-$result .= '<p>
-    <input name="uploadfile" type="file"></p><p>
-    <p>Purpose:<label><input type="radio" name="purpose" value="header" checked="checked" />for header image</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />for footer image</label></p>
-
-    <p>Style:<label><input type="radio" name="style" value="norepeat" checked="checked" />no-repeat</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="style" value="repeatx" />repeat-x</label></p>
-    <p>position:<label>top:<input type="text" name="position-top" value="0" style="text-align:right;" />px</label>&nbsp;&nbsp;&nbsp;left:<label><input type="text" name="position-left" value="0" style="text-align:right;"  />px</label></p>
-
+    <form enctype="multipart/form-data" action="'.$deliv.'" method="POST">'.wp_nonce_field('update-options2').'<p>
+    <input name="uploadfile" type="file"></p><p>'.
+    __('Purpose:','Raindrops').'<label>
+    <input type="radio" name="purpose" value="header" checked="checked" />'.
+    __('for header image','Raindrops').'</label>
+    &nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />'.
+    __('for footer image','Raindrops').
+    '</label></p><p>'.
+    __('Style:','Raindrops').'<label>
+    <input type="radio" name="style" value="norepeat" checked="checked" />'.
+    __('no-repeat','Raindrops').
+    '</label>&nbsp;&nbsp;&nbsp;<label>
+    <input type="radio" name="style" value="repeatx" />'.
+    __('repeat-x','Raindrops').'</label></p>
+    <p>'.__('position:','Raindrops').'<label>'.
+    __('top:','Raindrops').'<input type="text" name="position-top" value="0" style="text-align:right;" />'.
+    __('px','Raindrops').'</label>&nbsp;&nbsp;&nbsp;'.
+    __('left:','Raindrops').
+    '<label><input type="text" name="position-left" value="0" style="text-align:right;"  />'.
+    __('px','Raindrops').'</label></p><p>'.
+    __('box height:','Raindrops').'<label>
+    <input type="text" name="height" value="0" style="text-align:right;" />'.
+    __('px','Raindrops').'</label></p><p>
     <input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
     </form>
     </fieldset></div>';
@@ -1619,14 +1639,14 @@ $result .= '<p>
                 $propaty = $propaty.'-'. $_POST['purpose'];
             }else{
                 $result = __("purpose no data","Raindrops");
-                return array(false,$result.'a');
+                return array(false,$result);
             }
             if(isset($_POST['style']) and ($_POST['style'] == 'norepeat' or $_POST['style'] == 'repeatx')){
                 $style = $_POST['style'];
                 $propaty = $propaty.'-style-'. $_POST['style'];
             }else{
                 $result = __("style no data","Raindrops");
-                return array(false,$result.'b');
+                return array(false,$resul);
             }
             if(isset($_POST['position-top']) and is_numeric($_POST['position-top'])){
                 $top = $_POST['position-top'];
@@ -1642,12 +1662,20 @@ $result .= '<p>
 
             }else{
                 $result = __("position no data","Raindrops");
-                return array(false,$result.'d');
+                return array(false,$result);
+            }
+            if(isset($_POST['height']) and is_numeric($_POST['height'])){
+                $height = $_POST['height'];
+                $propaty = $propaty.'-height-'. $_POST['height'].'-';
+
+            }else{
+                $result = __("box height no data","Raindrops");
+                return array(false,$result);
             }
 
             if($_FILES['uploadfile']['size'] > $raindrops_max_upload_size){
               $result = "file size over".$_FILES['uploadfile']['size'].'upload-image-size'.$raindrops_max_upload_size;
-              return array(false,$result.'e');
+              return array(false,$result);
             }
 
             if(in_array($_FILES['uploadfile']['type'],$raindrops_allow_file_type ) == false){
@@ -1686,7 +1714,7 @@ $result .= '<p>
                 foreach($_FILES['userfile']['error'] as $error){
                     $result .= $error;
                 }
-                return array(false,$result.'h');
+                return array(false,$result);
           }
         }
     }
@@ -1724,11 +1752,13 @@ if(file_exists(get_stylesheet_directory().'/images/'.$filename)){
      $top = $regs[1];
      preg_match("|-left-(-?[^-]+)|",$filename,$regs);
      $left = $regs[1];
+     preg_match("|-height-([^-]+)|",$filename,$regs);
+     $height = $regs[1];
 
      if($embed == 'inline'){
-        return 'background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;';
+        return 'background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;';
      }elseif($embed == 'external' or $embed == 'embed'){
-        return $purpose. '{background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;}';
+        return $purpose. '{background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;}';
      }else{
         return;
      }

@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:0.909
+
+modified
+    functions.php
+    Admin panel image upload form i18n modify
+----------------------------------------------
+Changelog -----------------------------------
 version:0.908
 
 added

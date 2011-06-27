@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0.910
+fixed
+    functions.php
+    languages/ja.po
+    languages/ja.mo
+    Japanese translation bug fix
+----------------------------------------------
+Changelog -----------------------------------
 version:0.909
 
 modified

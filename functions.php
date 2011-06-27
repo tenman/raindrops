@@ -210,7 +210,7 @@ $raindrops_max_width        = 1300;
               'text' => "1"));
             register_sidebar(
               array (
-              'name' => __('Extra Sidebar', 'Raindrops'),
+              'name' => __('Extra Sidebar','Raindrops'),
               'id' => 'sidebar-2',
               'before_widget' => '<li class="widget extra">',
               'after_widget' => '</li>
@@ -223,7 +223,7 @@ $raindrops_max_width        = 1300;
               'text' => "2"));
             register_sidebar(
               array (
-              'name' => __('Sticky Widget', 'Raindrops'),
+              'name' => __('Sticky Widget','Raindrops'),
               'id' => 'sidebar-3',
               'before_widget' => '<li class="widget sticky-widget">',
               'after_widget' => '</li>',
@@ -303,8 +303,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Color Type','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The mood like dark atmosphere and the bright note,
-         etc. is decided. and The editor is displayed when raindrops is selected, and a present style can be edited in detail.','Raindrops'),
+        'excerpt2'=>__('The mood like dark atmosphere and the bright note, etc. is decided. and The editor is displayed when themename is selected, and a present style can be edited in detail.','Raindrops'),
          'validate'=>'raindrops_style_type_validate',
          'list' => 2,
         ),
@@ -314,7 +313,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'option_name' => "raindrops_header_image",
         'option_value' => "header.png",
         'autoload'=>'yes',
-        'title'=>__('Header bar background image','Raindrops'),
+        'title'=>__('Header background image','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The header image can be updated according to the uploading form that is below. This field is automatically updated when up-loading it.The file should exist in the theme images directory when the file name of this field is changed for myself. ','Raindrops'),
          'validate'=>'raindrops_header_image_validate',
@@ -326,7 +325,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'option_name' => "raindrops_footer_image",
         'option_value' => "footer.png",
         'autoload'=>'yes',
-        'title'=>__('Footer bar background image','Raindrops'),
+        'title'=>__('Footer background image','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The footer image can be updated according to the up-loading form that is below. This field is automatically updated when up-loading it.The file should exist in the theme images directory when the file name of this field is changed for myself.','Raindrops'),
          'validate'=>'raindrops_footer_image_validate','list' => 4),
@@ -338,11 +337,9 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'option_name' => "raindrops_heading_image",
         'option_value' => "h2.png",
         'autoload'=>'yes',
-        'title'=>__('Widget Title(h2) Background Image','Raindrops'),
+        'title'=>__('Widget Title Background Image','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The name of the picture file used for the h2 headding is set where sidebar widget titles. As for the image,
-         the image that exists in themes/raindrops/image/is used.The header image can be chosen from among three kinds [h2.png,
-        h2b.png,h2c.png] now. Of course, customizing is also possible. ','Raindrops'),
+        'excerpt2'=>__('The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png].','Raindrops'),
          'validate'=>'raindrops_heading_image_validate','list' => 5),
 
         array('option_id' => 6,
@@ -350,7 +347,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'option_name' => "raindrops_heading_image_position",
         'option_value' => "0",
         'autoload'=>'yes',
-        'title'=>__('Widget Title(h2) Background Image Position','Raindrops'),
+        'title'=>__('Widget Title Background Image Position','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
         'validate'=>'raindrops_heading_image_position_validate','list' => 6),
@@ -383,8 +380,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Fonts Color ','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('Please specify the color of the entry content. Please use it when you want to decide the text color though the automatic arrangement of color function does well in most cases.When none is selected from the selection box,
-         it becomes an automatic arrangement of color. ','Raindrops'),
+        'excerpt2'=>__('If you need to set contents Special font color.','Raindrops'),
          'validate'=>'raindrops_default_fonts_color_validate','list' => 9),
 
         array('option_id' => 10,
@@ -394,8 +390,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Fonts Color Footer ','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('Please specify the text color of the footer. Please use it when you want to decide the text color though the automatic arrangement of color function does well in most cases.When none is selected from the selection box,
-         it becomes an automatic arrangement of color. ','Raindrops'),
+        'excerpt2'=>__('If you need to set footer Special font color.','Raindrops'),
          'validate'=>'raindrops_footer_color_validate','list' => 10),
 
         array('option_id' => 11,
@@ -604,7 +599,7 @@ $raindrops_current_theme_name = get_current_theme();
                 'url' => get_stylesheet_directory_uri().'/images/headers/wp3.jpg',
                 'thumbnail_url' => get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg',
                 /* translators: header image description */
-                'description' => __( 'Raindrops', 'Raindrops' )
+                'description' => __( 'Raindrops', 'Raindrops')
             )
         ) );
     }
@@ -1015,7 +1010,7 @@ $raindrops_current_theme_name = get_current_theme();
             }
         }
             $row = array_search($name,$vertical);
-            return $raindrops_base_setting[$row][$meta_name];
+            return __($raindrops_base_setting[$row][$meta_name],'Raindrops');
     }
 
 /**
@@ -1236,7 +1231,7 @@ $raindrops_current_theme_name = get_current_theme();
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
             $result .= screen_icon();
             $result .= "<h2>" . get_current_theme() . __(' Theme Settings', 'Raindrops') . "</h2>";
-            $result .= "<p>Saved Database table name:<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
+            $result .= "<p>".__('Saved Database table name:','Raindrops')."<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
 
 
             if(isset($_POST['reset'])){
@@ -1380,7 +1375,7 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
 
                 if(empty($style)){
                     $style .='visibility:hidden';
-                    $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit").'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
+                    $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit",'Raindrops').'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }else{
                     $table_header =  '<thead><tr><th >'.__("Color", 'Raindrops').'</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit", 'Raindrops').'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }
@@ -1438,6 +1433,7 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     $key == "raindrops_footer_color" or
                     $key == "raindrops_default_fonts_color" ){
                     $lines .= "<td>".$this->color_selector($key,esc_attr__($val,'Raindrops'),$i)."</td>";
+
                 }elseif($key == "raindrops_col_width"){
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',6,120);
@@ -1560,7 +1556,7 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
                             $color = "#000";
                         }
                     }
-                    $result .= '<option value="'.$val.'" style="background:'.$val.';color:'.$color.'">'.$key.'</option>';
+                    $result .= '<option value="'.$val.'" style="background:'.$val.';color:'.$color.'">'.__($key,'Raindrops').'</option>';
                 }
             $result .='</select>';
             return $result;

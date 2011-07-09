@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.911
+modified
+    functions.php
+    text change.
+    Base Color for Automatic Color Arrangement
+    link text change
+    MultiSite User must Click here !!
+    readme.txt
+    delete Install description
+    add
+    MultiSite user must click the link when setting change where  with update result message.
+    Japanese translation bug fix
+----------------------------------------------
+Changelog -----------------------------------
 version:0.910
 fixed
     functions.php

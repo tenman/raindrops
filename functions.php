@@ -1255,7 +1255,7 @@ $raindrops_current_theme_name = get_current_theme();
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
-                                            __(" Please click.The setting will be fixed.","Raindrops"));
+                                            __(" MultiSite User must Click here !!","Raindrops"));
                     }else{
                         $result .= '</p></div>';
                     }

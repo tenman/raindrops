@@ -5,16 +5,11 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-INSTALL:
-1. Unpack this archive in your wp-content/themes/ directory.
-2. Go to Admin WordPress and select presentation.
-3. Select Raindrops theme
-
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
 Custom Header
-If you select Header Image where Appearance header panel 
+If you select Header Image where Appearance header panel
 and Raindrops will show select image.
 If you delete header Image and Raindrops hide a Header Image.
 If you select Header Text 'display text' value 'yes'
@@ -41,14 +36,15 @@ loop page show icon each the_content left.
 Category gallery and Cagory blog have Special Layout.
 
 Upload header,footer image.
-	Allow image type is png,jpeg,gif
-	max upload size 2000000byte
-	header or footer image max width 1300px
-	upload files saved your uplload dir
-	default header,footer image exists raindrops/images header.png footer.png
-	
+    Allow image type is png,jpeg,gif
+    max upload size 2000000byte
+    header or footer image max width 1300px
+    upload files saved your uplload dir
+    default header,footer image exists raindrops/images header.png footer.png
+
 Be careful
-	version 0.907 Reset all setting button initializes all customizing.
+    version 0.907 Reset all setting button initializes all customizing.
+    MultiSite user must click the link when setting change where  with update result message.
 
 Questions, bugs and others can be emailed me to a.tenman@gmail.com
 

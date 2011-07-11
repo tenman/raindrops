@@ -452,15 +452,14 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
 // and strcmp( $raindrops_current_style_type, $raindrops_current_theme_name) !== 0
 $raindrops_current_style_type = raindrops_warehouse("raindrops_style_type");
 $raindrops_current_theme_name = get_current_theme();
-    if(RAINDROPS_USE_AUTO_COLOR == true and is_admin() == true){
-
+    if(RAINDROPS_USE_AUTO_COLOR == true and is_user_logged_in()){
+//and is_admin() == true
 
             get_template_part('lib/csscolor/csscolor');
             get_template_part('lib/csscolor.css');
 
         add_filter('contextual_help','raindrops_edit_help');
     }
-
 
 
     if(isset($page_width) and !empty($page_width)){
@@ -636,10 +635,7 @@ $raindrops_current_theme_name = get_current_theme();
         if (!array_key_exists('install', $install_once) ) {
 
             add_action('admin_init', 'setup_raindrops');
-        }else{
-            add_action('admin_menu', 'setup_raindrops');
         }
-
 
     add_action( 'widgets_init', 'raindrops_widgets_init' );
     foreach($raindrops_base_setting as $setting){
@@ -2055,9 +2051,9 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 .gallery-columns-9 dl{ width: 11.1% }';
         $css                = $raindrops_gallerys;
 
-        //$raindrops_options  = get_option("raindrops_theme_settings");
-        //$css                .= $raindrops_options['_raindrops_indv_css'];
-        $css .= raindrops_warehouse('_raindrops_indv_css');
+        $raindrops_options  = get_option("raindrops_theme_settings");
+        $css                .= $raindrops_options['_raindrops_indv_css'];
+        //$css .= raindrops_warehouse('_raindrops_indv_css');
         $background = get_background_image();
         $color = get_background_color();
 

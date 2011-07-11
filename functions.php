@@ -315,7 +315,8 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Header background image','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The header image can be updated according to the uploading form that is below. This field is automatically updated when up-loading it.The file should exist in the theme images directory when the file name of this field is changed for myself. ','Raindrops'),
+        'excerpt2'=>__('The header image can be set by two methods.
+One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image.','Raindrops'),
          'validate'=>'raindrops_header_image_validate',
          'list' => 3,
         ),
@@ -327,7 +328,8 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
         'autoload'=>'yes',
         'title'=>__('Footer background image','Raindrops'),
         'excerpt1'=>'',
-        'excerpt2'=>__('The footer image can be updated according to the up-loading form that is below. This field is automatically updated when up-loading it.The file should exist in the theme images directory when the file name of this field is changed for myself.','Raindrops'),
+        'excerpt2'=>__('The footer image can be set by two methods.
+One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image.','Raindrops'),
          'validate'=>'raindrops_footer_image_validate','list' => 4),
 
 
@@ -1130,7 +1132,7 @@ $raindrops_current_theme_name = get_current_theme();
     class raindrops_menu_create {
         var $accesskey  = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
         var $table_template = '<table class="%s widefat post fixed" style="margin:2em;width:540px;">';
-        var $title_template = '<h3 title="%s" id="%s" style="padding:0.6em;text-indent:1em;cursor:auto;background:none;">%s</h3>';
+        var $title_template = '<a id="%s" href="#wphead"><small>page top</small></a><h3 title="%s" style="padding:0.6em;text-indent:1em;cursor:auto;background:none;margin-top:15px;">%s</a></h3>';
         var $excerpt_template = '<div style="margin:2em;">%s</div>';
         var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="width:130px;vertical-align:bottom;margin-bottom:0px;height:%spx;">';
 
@@ -1336,6 +1338,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             $results        = get_option('raindrops_theme_settings');
             $current_heading_image = raindrops_warehouse("raindrops_heading_image");
             $add_box        = "";
+            $raindrops_navigation_list = '<div style="padding:20px 100px;"><ul id="raindrops_navigation_list">';
 
             ksort($results);
             unset($results['_raindrops_indv_css']);
@@ -1344,9 +1347,12 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
             foreach( $results as $key => $val ){
 
+            $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
+
+
                 $excerpt    = "";
                 $table      = sprintf($this->table_template,str_replace("_","-",$key));
-                $excerpt    = sprintf($this->title_template,str_replace("_"," ",$key),str_replace("_","-",$key),raindrops_admin_meta($key,'title'));
+                $excerpt    = sprintf($this->title_template,str_replace("_","-",$key),str_replace("_"," ",$key),raindrops_admin_meta($key,'title'));
                 $excerpt .= sprintf($this->excerpt_template,raindrops_admin_meta($key,'excerpt2'));
 
                 if(!empty($excerpt)){
@@ -1412,14 +1418,16 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
 
                 if($key == "raindrops_heading_image_position"){
                 $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+
                 }elseif($key == "raindrops_header_image"){
                     $uploads = wp_upload_dir();
                     $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
-                    $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($header_image_uri,'inline','#hd').'"></td></tr><tr><td>&nbsp;</td>';
+                    $lines .= '<tr><td colspan="4"><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></td></tr><td colspan="4" style="height:150px;'.raindrops_upload_image_parser($header_image_uri,'inline','#hd').'"></td></tr><tr><td>&nbsp;</td>';
                 }elseif($key == "raindrops_footer_image"){
                     $uploads = wp_upload_dir();
                     $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
-                    $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'" ></td></tr><tr><td>&nbsp;</td>';
+                    $lines .= '<tr><td colspan="4"><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></td></tr><td colspan="4" style="height:150px;'.raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'" ></td></tr><tr><td>&nbsp;</td>';
+
                 }else{
                     $lines .= '<td style="'.$style.'">';
                 }
@@ -1512,7 +1520,7 @@ $lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=
 
 
 
-                return $lines;
+                return $raindrops_navigation_list. '</ul></div>'. $lines;
         }
 
 /**
@@ -1573,12 +1581,12 @@ function raindrops_upload_form(){
     global $dirlist;
     $deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
 
-$result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;padding:50px;">
+$result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;padding:50px;" id="raindrops_upload_form">
 
     <h3 style="padding:0.6em;text-indent:1em;cursor:auto;background:none;height:32px;" id="raindrops-style-type" title="raindrops style type">
     <div id="icon-upload" class="icon32"></div>
     <span style="position:relative;top:10px;">'.
-    __('Image file up-load for header and footer','Raindrops').
+    __('Image Upload','Raindrops').
     '</span></h3>
 
     <fieldset ><legend>'.__('Upload','Raindrops').'</legend>
@@ -1586,9 +1594,9 @@ $result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;paddi
     <input name="uploadfile" type="file"></p><p>'.
     __('Purpose:','Raindrops').'<label>
     <input type="radio" name="purpose" value="header" checked="checked" />'.
-    __('for header image','Raindrops').'</label>
+    __(' <strong>header image</strong>','Raindrops').'</label>
     &nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />'.
-    __('for footer image','Raindrops').
+    __(' <strong>footer image</strong>','Raindrops').
     '</label></p><p>'.
     __('Style:','Raindrops').'<label>
     <input type="radio" name="style" value="norepeat" checked="checked" />'.
@@ -1607,7 +1615,16 @@ $result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;paddi
     __('px','Raindrops').'</label></p><p>
     <input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
     </form>
-    </fieldset></div>';
+    </fieldset>'.
+    '<div class="raindrops_navigation_list">
+    <ul>
+    <li><a href="#raindrops-header-image">'.
+    __('Current header setting','Raindrops').
+    '</a></li>
+    <li><a href="#raindrops-footer-image">'.
+    __('Current footer setting','Raindrops').
+    '</a></li></ul></div>'.
+    '</div>';
 
     return $result;
 }

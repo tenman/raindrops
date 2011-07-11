@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:0.914
+modified
+    functions.php
+        Raindrops setting page user interface
+        description change
+
+Changelog -----------------------------------
 version:0.913
 fixed
     functions.php

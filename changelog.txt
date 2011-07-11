@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.912
+fixed
+    functions.php
+        update error fix
+        change code line 636
+        if (!array_key_exists('install', $install_once) ) {
+            add_action('admin_init', 'setup_raindrops');
+        }else{
+            add_action('admin_menu', 'setup_raindrops');
+        }
+
+        This update error occurred by e.g. phpfog
+
+Changelog -----------------------------------
 version:0.911
 modified
     functions.php

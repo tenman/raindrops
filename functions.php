@@ -636,8 +636,9 @@ $raindrops_current_theme_name = get_current_theme();
         if (!array_key_exists('install', $install_once) ) {
 
             add_action('admin_init', 'setup_raindrops');
+        }else{
+            add_action('admin_menu', 'setup_raindrops');
         }
-
 
 
     add_action( 'widgets_init', 'raindrops_widgets_init' );

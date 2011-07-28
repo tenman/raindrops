@@ -286,7 +286,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
  */
 
     $raindrops_base_setting_args = array(
-	     array('option_id' => 1,
+         array('option_id' => 1,
         'blog_id' => 0 ,
         'option_name' => "raindrops_color_scheme",
         'option_value' => "color_ja",
@@ -490,8 +490,8 @@ $raindrops_current_theme_name = get_current_theme();
  *
  */
 
-        if( isset($fluid_or_fixed) and
-            !empty($fluid_or_fixed) and
+        if( isset($raindrops_fluid_or_fixed) and
+            !empty($raindrops_fluid_or_fixed) and
             (raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
             add_action("wp_head","raindrops_is_fixed");
         }elseif(isset($raindrops_fluid_minimam_width) and !empty($raindrops_fluid_minimam_width)){
@@ -1339,18 +1339,18 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             $i              = 0;
             $deliv          = htmlspecialchars($_SERVER['REQUEST_URI']);
             $results        = get_option('raindrops_theme_settings');
-	
-			foreach($raindrops_base_setting as $key => $row){
-				$raindrops_option_name = $raindrops_base_setting[$key]['option_name'];
-				$raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
-			}
-			
-			$results = $raindrops_sort;
+
+            foreach($raindrops_base_setting as $key => $row){
+                $raindrops_option_name = $raindrops_base_setting[$key]['option_name'];
+                $raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
+            }
+
+            $results = $raindrops_sort;
             $current_heading_image = raindrops_warehouse("raindrops_heading_image");
             $add_box        = "";
-			$raindrops_navigation_add = '';
+            $raindrops_navigation_add = '';
             $raindrops_navigation_list = '<div style="padding:0px 60px 20px;"><h3 style="padding:2em 0 0;margin-left:-30px;">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
-			$raindrops_navigation_add = '';
+            $raindrops_navigation_add = '';
 
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
@@ -1358,18 +1358,18 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
             foreach( $results as $key => $val ){
 
-		if(RAINDROPS_USE_AUTO_COLOR == true){
+        if(RAINDROPS_USE_AUTO_COLOR == true){
             $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
-			if($key == 'raindrops_base_color'){
-				$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">'.__('go to Color Type','Raindrops').'</a></li></ul>';
-			}elseif($key == 'raindrops_header_image' or $key == 'raindrops_footer_image'){
-				$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></li></ul>';			
-			}elseif($key == 'raindrops_style_type'){
-				$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">'.__('Go to Base Color','Raindrops').'</a></li></ul>';
-			}else{
-				$raindrops_navigation_add = '';
-			}
-		}
+            if($key == 'raindrops_base_color'){
+                $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">'.__('go to Color Type','Raindrops').'</a></li></ul>';
+            }elseif($key == 'raindrops_header_image' or $key == 'raindrops_footer_image'){
+                $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></li></ul>';
+            }elseif($key == 'raindrops_style_type'){
+                $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">'.__('Go to Base Color','Raindrops').'</a></li></ul>';
+            }else{
+                $raindrops_navigation_add = '';
+            }
+        }
 
 
 

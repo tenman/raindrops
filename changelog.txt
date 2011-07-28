@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:0.915
+
+fixed
+    variables add prefix
+    `$fluid_or_fixed` to $raindrops_fluid_or_fixed,
+    `$page_width` to $raindrops_page_width,
+    `$fluid_minimam_width` to $raindrops_fluid_minimam_width,
+modified
+    Raindrops options change menu oder.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.914
 modified
     functions.php

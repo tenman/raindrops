@@ -9,6 +9,8 @@
  */
 ?>
 <?php
+add_filter("the_content","wpautop");
+
 add_filter( 'use_default_gallery_style', '__return_false' );
 
 if(!defined('ABSPATH')){exit;}
@@ -18,12 +20,12 @@ if(!defined('ABSPATH')){exit;}
 /**
  * If you need original page width
  * you can specific pixel page width
- * e.g. '$page_width = '776';' is  776px page width.
+ * e.g. '$raindrops_page_width = '776';' is  776px page width.
  *
  *
  */
-if(!isset($page_width)){
-    $page_width = '';
+if(!isset($raindrops_page_width)){
+    $raindrops_page_width = '';
 }
 
 /**
@@ -44,7 +46,7 @@ if(!isset($page_width)){
  * value 'fixed' or empty
  *
  */
-    $fluid_or_fixed = 'fixed';
+    $raindrops_fluid_or_fixed = 'fixed';
 
 /**
  * fluid page  main column minimam width px
@@ -53,7 +55,7 @@ if(!isset($page_width)){
  *
  *
  */
-    $fluid_minimam_width = '400';
+    $raindrops_fluid_minimam_width = '400';
 /**
  * Raindrops header and footer image upload
  *
@@ -284,8 +286,17 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
  */
 
     $raindrops_base_setting_args = array(
+	     array('option_id' => 1,
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_color_scheme",
+        'option_value' => "color_ja",
+        'autoload'=>'yes',
+        'title'=>__('Color Scheme','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Please choose the naming convention for the color list','Raindrops'),
+         'validate'=>'raindrops_color_scheme_validate','list' => 12),
 
-        array('option_id' => 1,
+        array('option_id' => 2,
         'blog_id' => 0 ,
         'option_name' => "raindrops_base_color",
         'option_value' => "#444444",
@@ -296,7 +307,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          'validate'=>'raindrops_base_color_validate',
          'list' => 1),
 
-        array('option_id' => 2,
+        array('option_id' => 3,
         'blog_id' => 0 ,
         'option_name' => "raindrops_style_type",
         'option_value' => "dark",
@@ -308,7 +319,7 @@ $color_anime = array("bl" => "#110f11", "lb9" => "#1d1f29", "bb" => "#1c232b", "
          'list' => 2,
         ),
 
-        array('option_id' => 3,
+        array('option_id' => 4,
         'blog_id' => 0 ,
         'option_name' => "raindrops_header_image",
         'option_value' => "header.png",
@@ -321,7 +332,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
          'list' => 3,
         ),
 
-        array('option_id' => 4,
+        array('option_id' => 5,
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_image",
         'option_value' => "footer.png",
@@ -334,7 +345,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
 
 
-        array('option_id' => 5,
+        array('option_id' => 6,
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image",
         'option_value' => "h2.png",
@@ -344,7 +355,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'=>__('The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png].','Raindrops'),
          'validate'=>'raindrops_heading_image_validate','list' => 5),
 
-        array('option_id' => 6,
+        array('option_id' => 7,
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image_position",
         'option_value' => "0",
@@ -354,7 +365,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
         'validate'=>'raindrops_heading_image_position_validate','list' => 6),
 
-        array('option_id' => 7,
+        array('option_id' => 8,
         'blog_id' => 0 ,
         'option_name' => "raindrops_page_width",
         'option_value' => "doc2",
@@ -365,7 +376,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px.','Raindrops'),
          'validate'=>'raindrops_page_width_validate','list' => 7),
 
-        array('option_id' => 8,
+        array('option_id' => 9,
         'blog_id' => 0 ,
         'option_name' => "raindrops_col_width",
         'option_value' => "t2",
@@ -375,7 +386,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'=>__('Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified.','Raindrops'),
         'validate'=>'raindrops_col_width_validate','list' => 8),
 
-        array('option_id' => 9,
+        array('option_id' => 10,
         'blog_id' => 0 ,
         'option_name' => "raindrops_default_fonts_color",
         'option_value' => "",
@@ -385,7 +396,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'=>__('If you need to set contents Special font color.','Raindrops'),
          'validate'=>'raindrops_default_fonts_color_validate','list' => 9),
 
-        array('option_id' => 10,
+        array('option_id' => 11,
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_color",
         'option_value' => "",
@@ -395,7 +406,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'=>__('If you need to set footer Special font color.','Raindrops'),
          'validate'=>'raindrops_footer_color_validate','list' => 10),
 
-        array('option_id' => 11,
+        array('option_id' => 12,
         'blog_id' => 0 ,
         'option_name' => "raindrops_show_right_sidebar",
         'option_value' => "show",
@@ -405,7 +416,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'=>__('Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show','Raindrops'),
         'validate'=>'raindrops_show_right_sidebar_validate','list' => 11),
 
-        array('option_id' => 12,
+        array('option_id' => 13,
         'blog_id' => 0 ,
         'option_name' => "raindrops_right_sidebar_width_percent",
         'option_value' => "25",
@@ -416,15 +427,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate','list' => 12),
 
-        array('option_id' => 13,
-        'blog_id' => 0 ,
-        'option_name' => "raindrops_color_scheme",
-        'option_value' => "color_ja",
-        'autoload'=>'yes',
-        'title'=>__('Color Scheme','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Colors list','Raindrops'),
-         'validate'=>'raindrops_color_scheme_validate','list' => 12),
+
 
     );
 
@@ -464,11 +467,11 @@ $raindrops_current_theme_name = get_current_theme();
     }
 
 
-    if(isset($page_width) and !empty($page_width)){
+    if(isset($raindrops_page_width) and !empty($raindrops_page_width)){
         add_action("wp_head","raindrops_custom_width");
         function raindrops_custom_width($content,$key){
-            global $page_width;
-                $c_width = (int)$page_width;
+            global $raindrops_page_width;
+                $c_width = (int)$raindrops_page_width;
                 $width    = $c_width / 13;
                 $ie_width = $width * 0.9759;
             $custom_content_width = '<style type="text/css">'.
@@ -491,15 +494,15 @@ $raindrops_current_theme_name = get_current_theme();
             !empty($fluid_or_fixed) and
             (raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
             add_action("wp_head","raindrops_is_fixed");
-        }elseif(isset($fluid_minimam_width) and !empty($fluid_minimam_width)){
+        }elseif(isset($raindrops_fluid_minimam_width) and !empty($raindrops_fluid_minimam_width)){
             add_action("wp_head","raindrops_is_fluid");
 
 
         }
 
         function raindrops_is_fluid(){
-            global  $is_IE, $fluid_minimam_width;
-            $width          = intval($fluid_minimam_width);
+            global  $is_IE, $raindrops_fluid_minimam_width;
+            $width          = intval($raindrops_fluid_minimam_width);
             $width          = $width / 13;
             $sidebar_width  = 'yui-'.raindrops_warehouse('raindrops_col_width');
             $adjust         = 20;
@@ -520,7 +523,7 @@ $raindrops_current_theme_name = get_current_theme();
                 $raindrops_default_col_width = 0;
             }
 
-            $horizontal_nav_width = $raindrops_default_col_width + intval($fluid_minimam_width);
+            $horizontal_nav_width = $raindrops_default_col_width + intval($raindrops_fluid_minimam_width);
             $horizontal_nav_width = $horizontal_nav_width / 13;
 
             if($is_IE){
@@ -965,7 +968,7 @@ $raindrops_current_theme_name = get_current_theme();
  */
     function raindrops_warehouse($name){
         global $raindrops_base_setting;
-        global $page_width;
+        global $raindrops_page_width;
         $vertical = array();
         if(isset($raindrops_base_setting)){
             foreach($raindrops_base_setting as $key=>$val){
@@ -975,7 +978,7 @@ $raindrops_current_theme_name = get_current_theme();
             }
 
             $row = array_search($name,$vertical);
-            if(isset($page_width) and !empty($page_width) and $name == 'raindrops_page_width'){
+            if(isset($raindrops_page_width) and !empty($raindrops_page_width) and $name == 'raindrops_page_width'){
                 return 'custom-doc';
             }
 
@@ -1001,7 +1004,7 @@ $raindrops_current_theme_name = get_current_theme();
  */
     function raindrops_admin_meta($name,$meta_name){
         global $raindrops_base_setting;
-        global $page_width;
+        global $raindrops_page_width;
         $vertical = array();
         foreach($raindrops_base_setting as $key=>$val){
             if(!is_null($raindrops_base_setting)){
@@ -1336,18 +1339,38 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             $i              = 0;
             $deliv          = htmlspecialchars($_SERVER['REQUEST_URI']);
             $results        = get_option('raindrops_theme_settings');
+	
+			foreach($raindrops_base_setting as $key => $row){
+				$raindrops_option_name = $raindrops_base_setting[$key]['option_name'];
+				$raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
+			}
+			
+			$results = $raindrops_sort;
             $current_heading_image = raindrops_warehouse("raindrops_heading_image");
             $add_box        = "";
-            $raindrops_navigation_list = '<div style="padding:20px 100px;"><ul id="raindrops_navigation_list">';
+			$raindrops_navigation_add = '';
+            $raindrops_navigation_list = '<div style="padding:0px 60px 20px;"><h3 style="padding:2em 0 0;margin-left:-30px;">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
+			$raindrops_navigation_add = '';
 
-            ksort($results);
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
 //$lines .= $excerpt;
 $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
             foreach( $results as $key => $val ){
 
+		if(RAINDROPS_USE_AUTO_COLOR == true){
             $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
+			if($key == 'raindrops_base_color'){
+				$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">'.__('go to Color Type','Raindrops').'</a></li></ul>';
+			}elseif($key == 'raindrops_header_image' or $key == 'raindrops_footer_image'){
+				$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></li></ul>';			
+			}elseif($key == 'raindrops_style_type'){
+				$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">'.__('Go to Base Color','Raindrops').'</a></li></ul>';
+			}else{
+				$raindrops_navigation_add = '';
+			}
+		}
+
 
 
                 $excerpt    = "";
@@ -1422,11 +1445,11 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                 }elseif($key == "raindrops_header_image"){
                     $uploads = wp_upload_dir();
                     $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
-                    $lines .= '<tr><td colspan="4"><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></td></tr><td colspan="4" style="height:150px;'.raindrops_upload_image_parser($header_image_uri,'inline','#hd').'"></td></tr><tr><td>&nbsp;</td>';
+                    $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($header_image_uri,'inline','#hd').'"></td></tr><tr><td>&nbsp;</td>';
                 }elseif($key == "raindrops_footer_image"){
                     $uploads = wp_upload_dir();
                     $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
-                    $lines .= '<tr><td colspan="4"><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></td></tr><td colspan="4" style="height:150px;'.raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'" ></td></tr><tr><td>&nbsp;</td>';
+                    $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'" ></td></tr><tr><td>&nbsp;</td>';
 
                 }else{
                     $lines .= '<td style="'.$style.'">';
@@ -1438,7 +1461,6 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                     $key == "raindrops_footer_color" or
                     $key == "raindrops_default_fonts_color" ){
                     $lines .= "<td>".$this->color_selector($key,esc_attr__($val,'Raindrops'),$i)."</td>";
-
                 }elseif($key == "raindrops_col_width"){
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',6,120);
@@ -1506,20 +1528,16 @@ $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-opti
                 $lines .= '</tr>';
 
                 $send_key_name = "";
-                $lines .= "</tbody></table><br />$add_box</div>";
+                $lines .= "</tbody></table><br />{$add_box}{$raindrops_navigation_add}</div>";
             }
 $lines .= "<div style=\"margin:0 50px;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr('Save Changes').'" />&nbsp;&nbsp;&nbsp;';
-$lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>">';
+$lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>"';
                 $lines .= "</div>";
                 if(!preg_match('|<tbody>|',$lines)){
                     $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
                 }
 
-
                 $lines .= raindrops_upload_form();
-
-
-
                 return $raindrops_navigation_list. '</ul></div>'. $lines;
         }
 
@@ -1619,10 +1637,10 @@ $result= '<div class="postbox" style="width:500px;margin:1em;color:#339999;paddi
     '<div class="raindrops_navigation_list">
     <ul>
     <li><a href="#raindrops-header-image">'.
-    __('Current header setting','Raindrops').
+    __('Go to current header image','Raindrops').
     '</a></li>
     <li><a href="#raindrops-footer-image">'.
-    __('Current footer setting','Raindrops').
+    __('Go to current footer image','Raindrops').
     '</a></li></ul></div>'.
     '</div>';
 
@@ -2786,15 +2804,15 @@ function is_2col_raindrops($action = true,$echo = true){
  */
 
     function raindrops_content_width(){
-        global $page_width;
+        global $raindrops_page_width;
         $adjust                 = 16;
         $default                = 400;
         $document_width         = raindrops_warehouse('raindrops_page_width');
         $sidebar_width          = 'yui-'.raindrops_warehouse('raindrops_col_width');
         $extra_sidebar_width    = raindrops_warehouse('raindrops_right_sidebar_width_percent');
 
-        if(isset($page_width) and !empty($page_width)){
-            $w = $page_width;
+        if(isset($raindrops_page_width) and !empty($raindrops_page_width)){
+            $w = $raindrops_page_width;
             $adjust = 16;
             if($sidebar_width == 'yui-t1'){
                 $raindrops_content_width = $w - 160 - $adjust;

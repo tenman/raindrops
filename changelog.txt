@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:0.917
+
+fixed
+    Layout is broken where menu mouseover the hyperlink when IE9 standard mode.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.916
 
 fixed

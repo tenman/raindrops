@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:0.918
+
+fixed
+    Textarea is not correct when select color type 'Raindrops' where Raindrops options page.
+----------------------------------------------
+
+Changelog -----------------------------------
 version:0.917
 
 fixed

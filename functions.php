@@ -1347,7 +1347,6 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
             $results = $raindrops_sort;
             $current_heading_image = raindrops_warehouse("raindrops_heading_image");
-            $add_box        = "";
             $raindrops_navigation_add = '';
             $raindrops_navigation_list = '<div style="padding:0px 60px 20px;"><h3 style="padding:2em 0 0;margin-left:-30px;">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
             $raindrops_navigation_add = '';
@@ -1357,6 +1356,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 //$lines .= $excerpt;
 $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
             foreach( $results as $key => $val ){
+			$add_box = '';
 
         if(RAINDROPS_USE_AUTO_COLOR == true){
             $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';

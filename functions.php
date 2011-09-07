@@ -914,7 +914,6 @@ $raindrops_current_theme_name = get_current_theme();
             );
         }
     }
-
 /**
  * Echo posted_on block
  *
@@ -927,7 +926,24 @@ $raindrops_current_theme_name = get_current_theme();
         function raindrops_posted_on() {
             $raindrops_date_format = get_option('date_format');
             $author = raindrops_blank_fallback(get_the_author(),'Somebody');
-            printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s', 'Raindrops' ),
+
+            if (comments_open()){
+                $raindrops_comment_html = '<a href="%1$s" class="raindrops-comment-link"><span class="raindrops-comment-string">%3$s</span>%2$s</a>';
+                if(get_comments_number() > 0 ){
+                    $raindrops_comment_string = _n('Comment','Comments',get_comments_number(),'Raindrops');
+                    $raindrops_comment_number = get_comments_number();
+                }else{
+                    $raindrops_comment_string = 'Comment';
+                    $raindrops_comment_number = '';
+                }
+            }else{
+                $raindrops_comment_html   = '';
+                $raindrops_comment_string = '';
+                $raindrops_comment_number = '';
+
+            }
+            printf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s %4$s'
+, 'Raindrops' ),
                 'meta-prep meta-prep-author',
                 sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
                     get_permalink(),
@@ -938,11 +954,13 @@ $raindrops_current_theme_name = get_current_theme();
                     get_author_posts_url( get_the_author_meta( 'ID' ) ),
                     sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ),
                     $author
-                )
+                ),
+                sprintf($raindrops_comment_html,get_comments_link(),$raindrops_comment_number,$raindrops_comment_string)
+
+
             );
         }
     }
-
 /**
  * Special custom field key CSS javascript metatags
  *
@@ -1356,7 +1374,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 //$lines .= $excerpt;
 $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
             foreach( $results as $key => $val ){
-			$add_box = '';
+            $add_box = '';
 
         if(RAINDROPS_USE_AUTO_COLOR == true){
             $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
@@ -2100,7 +2118,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
             $css = "cannot get style value check me";
         }
 
-        $css    = str_replace(array("\n","\r","\t",'&quot;','--'),array("","","",'"',''),$css);
+        $css = str_replace(array("\n","\r","\t",'&quot;','--','\"'),array("","","",'"','','"'),$css);
+
         if (is_single() || is_page()) {
             if(have_posts()){
 

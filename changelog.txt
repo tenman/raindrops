@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:0.919
+
+moved
+    comment out PHP code page.php   'parent child links' micro navigation.
+fixed
+    Issue   : Embed header style display like this input[type=\"reset\"].
+    Fix     : Change it is displayed like this input[type="reset"]
+add
+    Add comment link where posted on area.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.918
 
 fixed

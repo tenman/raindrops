@@ -94,7 +94,7 @@ $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_im
     }else{
         $heading_elememt = 'div';
     }
-    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s">%s</a></span></%s>';
+    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s" style="color:#' . get_header_textcolor() . ';">%s</a></span></%s>';
 
     printf(
         $title_format,

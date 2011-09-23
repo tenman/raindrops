@@ -9,8 +9,6 @@
  */
 ?>
 <?php
-add_filter("the_content","wpautop");
-
 add_filter( 'use_default_gallery_style', '__return_false' );
 
 if(!defined('ABSPATH')){exit;}
@@ -120,7 +118,7 @@ $raindrops_max_width        = 1300;
  */
 
     if(!defined('HEADER_TEXTCOLOR')){
-        define('HEADER_TEXTCOLOR', '');
+        define('HEADER_TEXTCOLOR', 'dddddd');
     }
 
 /**
@@ -593,11 +591,13 @@ $raindrops_current_theme_name = get_current_theme();
         $content_width = raindrops_content_width();
     }
     if ( function_exists( 'add_custom_image_header' ) ) {
-        add_custom_image_header('header_style', 'admin_header_style');
-        function header_style(){
-        }
-        function admin_header_style(){
-        }
+
+        add_custom_image_header(
+            'raindrops_header_style',
+            'raindrops_admin_header_style',
+            'raindrops_admin_header_image'
+        );
+
         register_default_headers( array(
             'default' => array(
                 'url' => get_stylesheet_directory_uri().'/images/headers/wp3.jpg',
@@ -3186,4 +3186,306 @@ return $style;
             }
         }
     }
+
+
+/** Custom Image Header for Raindrops theme
+ *
+ *
+ *
+ *
+ *
+ */
+
+
+
+if ( ! function_exists( 'raindrops_header_style' ) ){
+    function raindrops_header_style(){
+
+        ?>
+
+        <?php
+    }
+}
+
+if ( ! function_exists( 'raindrops_admin_header_style' ) ){
+    function raindrops_admin_header_style() {
+
+        $raindrops_options  = get_option("raindrops_theme_settings");
+        $css                .= $raindrops_options['_raindrops_indv_css'];
+        $background         = get_background_image();
+        $color              = get_background_color();
+        $text_color         = get_header_textcolor();
+        $page_width         = raindrops_warehouse('raindrops_page_width');
+        switch($page_width){
+
+        case("doc"):
+            $custom_header_width = '750px';
+        break;
+        case("doc2"):
+            $custom_header_width = '950px';
+        break;
+        case("doc3"):
+            $custom_header_width = '974px';
+        break;
+        case("doc4"):
+            $custom_header_width = '100%';
+        break;
+
+        }
+
+        if(!empty($background) or !empty($color)){
+            $css = preg_replace("|body[^{]*{[^}]+}|","",$css);
+       }
+       $css_result = "";
+       $csses = explode("\n",$css);
+       foreach($csses as $k=>$v){
+
+       if(preg_match('!^.+(,|{)!si',$v,$regs)){
+        $css_result .= '#headimg '.$regs[0]."\n";
+       }else{
+        $css_result .= $v."\n";
+       }
+
+       }
+       $css_result = str_replace(array('#headimg body','a:hover'),array('#headimg','a'),$css_result);
+    ?>
+        <style type="text/css">
+a:hover{color:none;}
+#headimg{
+width:<?php echo $custom_header_width;?>!important;
+position:relative;
+
+}
+
+#headimg #hd {
+    overflow:hidden;
+    padding:.5em 1em;
+    min-height:5em;
+
+}
+#headimg #hd h1,
+#headimg #hd h1 a,
+#headimg #hd .h1 a,
+#headimg #hd #site-title{
+    font-size:174%;
+    letter-spacing: 0.05em;
+    background:none;
+    }
+#headimg #hd #site-title{
+    display:inline-block!important;
+    max-width:74%;
+
+}
+#headimg #hd #site-title a{
+    color:#<?php echo $text_color;?>!important;}
+}
+#headimg #top{
+    padding-bottom:5px;
+    position:relative;
+}
+#headimg #site-title{
+    display:inline-block!important;
+    max-width:74%;
+    clear:both;
+    font-weight:bold;
+    overflow:hidden;
+    margin:.5em 0;
+    font-family:"Times New Roman", Times, serif;
+
+}
+#headimg #site-description {
+    position:absolute;
+    top:10px;
+    right:10px;
+}
+
+#headimg #access {
+    display: block;
+    float: left;
+    margin: 0 auto;
+    width:99%;
+    margin-left:0.5%;
+
+    margin-top:5px;
+}
+#headimg #access .menu,
+#headimg #access div.menu ul{
+    font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+#headimg #headimg .ie8 #access {
+    margin-left:0;
+    width:100%;
+    margin-top:0;
+}
+#headimg #header-image{
+    position:relative;
+}
+#headimg #header-image p{
+    position:relative;
+    top:35%;
+    text-align:center;
+    font-size:200%;
+    position:relative;
+    top:35%;
+    text-align:center;
+    font-size:200%;
+    text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+    /*filter:progid:DXImageTransform.Microsoft.Glow(Color=white,Strength=2);*/
+}
+
+
+#headimg #site-description {
+    text-align:right;
+}
+#headimg #site-description {
+    max-width:24%;
+    }
+#headimg #access ul ul {
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+#headimg .wp-caption {
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+#headimg .wp-caption {
+   /* optional rounded corners for browsers that support it */
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+#headimg .shadow{
+    box-shadow: 7px 7px 8px #cccccc;
+    -webkit-box-shadow: 7px 7px 8px #cccccc;
+    -moz-box-shadow: 7px 7px 8px #cccccc;
+    /*filter: progid:DXImageTransform.Microsoft.dropShadow(color=#cccccc, offX=7, offY=7, positive=true);zoom:1;*/
+}
+#headimg #access{
+    -webkit-text-size-adjust: 120%;
+}
+
+<?php echo $css_result;?>
+
+ a, a:hover{
+color:#<?php echo $text_color;?>!important;
+background:none;
+}
+#wp-admin-bar-comments a,
+#wp-admin-bar-view-site a{
+    color:#ddd!important;
+}
+span#site-title,
+#message a{
+    color: #21759B!important;
+}
+        </style>
+    <?php
+    }
+}
+if ( ! function_exists( 'raindrops_admin_header_image' ) ){
+
+    function raindrops_admin_header_image(){
+        $raindrops_header_image = get_header_image();
+    get_bloginfo( 'name' );
+
+    $raindrops_header_style = 'style="color:#'.get_theme_mod( 'header_textcolor' ).'"';
+
+
+
+    ?>
+<div id="headimg">
+    <div id="top">
+<?php
+$uploads = wp_upload_dir();
+$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
+?>
+  <div id="hd" style="<?php echo raindrops_upload_image_parser($header_image_uri,'inline','#hd'); ?>">
+<?php
+
+/**
+ * Site description display position
+ *
+ * Site description diaplay at image when if header text Display Text value is yes.
+ * Site description diaplay at header bar when if header text Display Text value is no.
+ *
+ *
+ */
+
+    if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+        $raindrops_pge_header = '';
+        $style = ' style="display:none;"';
+    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
+        $style = ' style="color:#' . get_header_textcolor() . ';"';
+        $raindrops_pge_header = ' style="display:none;"';
+    }else{
+        $style = '';
+        $raindrops_pge_header = ' style="display:none;"';
+
+    }
+/**
+ * Conditional Switch html headding element
+ *
+ *
+ *
+ *
+ */
+    if( is_home() or is_front_page() ){
+        $heading_elememt = 'h1';
+    }else{
+        $heading_elememt = 'div';
+    }
+    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s">%s</a></span></%s>';
+
+    printf(
+        $title_format,
+        $heading_elememt,
+        home_url(),
+        esc_attr(get_bloginfo( 'name', 'display' )),
+        "home",
+        get_bloginfo( 'name', 'display' ),
+        $heading_elememt
+        );
+
+/**
+ * Site description diaplay at header bar when if header text Display Text value is no.
+ *
+ *
+ *
+ *
+ */
+    $raindrops_site_desctiption_html = '<div id="site-description" %s>%s</div>';
+
+    printf(
+        $raindrops_site_desctiption_html,
+        $raindrops_pge_header,
+        get_bloginfo( 'description' )
+        );
+
+?>
+</div>
+<?php
+/**
+ * header image
+ *
+ *
+ *
+ *
+ */
+$raindrops_header_image = get_header_image();
+if( !empty($raindrops_header_image)){
+?>
+<div id="header-image" style="background-image:url(<?php echo $raindrops_header_image; ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:#<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
+<?php
+}
+?>
+<br class="clear" />
+<div>
+    <?php
+    }
+}
 ?>

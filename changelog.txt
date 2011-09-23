@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:0.920
+modified
+    It changes so that a Admin Header Image can be displayed normally.
+----------------------------------------------
+
+Changelog -----------------------------------
 version:0.919
 
 moved

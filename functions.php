@@ -3372,7 +3372,6 @@ position:relative;
 <?php echo $css_result;?>
 
  a, a:hover{
-color:#<?php echo $text_color;?>!important;
 background:none;
 }
 #wp-admin-bar-comments a,

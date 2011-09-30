@@ -263,7 +263,12 @@ background:%custom_light_bg%;
 color:%custom_color%;
 z-index:999;
 }
-
+.raindrops-tab-content,
+.raindrops-tab-page,
+.raindrops-tab-list li{
+background:%custom_light_bg%;
+color:%custom_color%;
+}
 
 .fail-search,
 #not-found,
@@ -442,6 +447,7 @@ border-radius:1em 1em 1em 1em;
 -moz-box-shadow: 1px 1px 3px #000;
 -webkit-box-shadow: 1px 1px 3px #000;
 }
+.raindrops-tab-list li,
 #access .children li,
 #access a {
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
@@ -450,6 +456,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_b
 color:%custom_color%;
 
 }
+.raindrops-tab-list li:active,
 #access .children li:active,
 #access li:active,
 #access ul ul :active {

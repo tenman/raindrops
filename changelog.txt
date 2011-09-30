@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0.922
+added
+    Tiny Mce Visual Editor Menu Add
+made
+    editor_menu.js
+----------------------------------------------
+
+Changelog -----------------------------------
 version:0.921
 modified
     It changes so that a Admin Header Image can be displayed normally.

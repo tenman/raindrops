@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.921
+Version: 0.922
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1986,4 +1986,23 @@ float:left;
 .rd-page-navigation{position:relative;top:-20px;left:-20px;margin:2em;}
 .rd-page-navigation li ul{visibility: hidden;position:relative;top:5px;left:70px;}
 .rd-page-navigation li:hover> ul{visibility:visible;}
+
+
+
+.raindrops-tab-list{
+margin:0;padding:0;
+}
+
+.raindrops-tab-content,
+.raindrops-tab-list li{
+margin:0;padding:0;
+border:1px solid rgba(200,200,200,0.3);
+
+}
+.raindrops-tab-list li{
+border-bottom:none;
+}
+.raindrops-tab-content{
+padding:1em;
+}
 

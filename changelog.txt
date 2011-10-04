@@ -1,5 +1,8 @@
 Changelog -----------------------------------
-version:0.922
+version:0.923
+fixed
+    h1 Site Title style COLOR bug fix
+     Cannot readable color when get_theme_mod() return 'blank',''.
 added
     Tiny Mce Visual Editor Menu Add
 made

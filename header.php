@@ -94,7 +94,14 @@ $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_im
     }else{
         $heading_elememt = 'div';
     }
-    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s" style="color:#' . get_header_textcolor() . ';">%s</a></span></%s>';
+
+    if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+        $hd_style = '';
+    }else{
+        $hd_style = ' style="color:#'.get_header_textcolor() . ';"';
+    }
+
+    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s" %s>%s</a></span></%s>';
 
     printf(
         $title_format,
@@ -102,6 +109,7 @@ $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_im
         home_url(),
         esc_attr(get_bloginfo( 'name', 'display' )),
         "home",
+        $hd_style,
         get_bloginfo( 'name', 'display' ),
         $heading_elememt
         );

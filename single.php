@@ -18,7 +18,7 @@ get_header("xhtml1"); ?>
 /**
  * Display navigation to next/previous pages when applicable
  */
- $ht_deputy = "NoTitle";
+
 
 //raindrops_prev_next_post();?>
 <?php if(have_posts()){
@@ -103,7 +103,7 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 </ul>
 <div class="blog-main left">
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo raindrops_blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 </h2>
 
 <div class="entry-content clearfix">
@@ -124,7 +124,7 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo raindrops_blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 </h2>
 
 <div class="entry-meta-gallery">
@@ -174,7 +174,7 @@ default:
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo raindrops_blank_fallback(get_the_title(), $ht_deputy); ?></a>
+<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 </h2>
 <div class="entry-meta-default">
 <?php raindrops_posted_on(); ?>

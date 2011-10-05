@@ -18,30 +18,19 @@ $pagination = array(
 	);
 
 if( $wp_rewrite->using_permalinks() )
-	$pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
-
-/*if( !empty($wp_query->query_vars['s']) )
-	$pagination['add_args'] = array( 's' => get_query_var( 's' ) );*/
-
-//
-
-	$calendar_page_number = get_query_var('paged');
-	//var_dump($calendar_page_number);
+	$pagination['base'] 	= user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+	$calendar_page_number 	= get_query_var('paged');
+	$post_per_page 			= get_option('posts_per_page');
 	
-		$post_per_page = get_option('posts_per_page');
-		
-		if($calendar_page_number == 0 ){$calendar_page_number = 1;}
-		
-		$calendar_page_last = $calendar_page_number * $post_per_page;
-		$calendar_page_start = $calendar_page_last - $post_per_page;
-/////////////////////////////////////////////////////////////////////////
+	if($calendar_page_number == 0 ){$calendar_page_number = 1;}
+	$calendar_page_last = $calendar_page_number * $post_per_page;
+	$calendar_page_start = $calendar_page_last - $post_per_page;
 	if(isset($_GET['ec3_listing']) and !empty($_GET['ec3_listing'])){
-	
 		get_template_part('archive');
+		
 	exit;
 	
 	}
-	$ht_deputy = "NoTitle";
     $weekdaynames = array(
         0 => __('Sunday','Raindrops'),
         1 => __('Monday','Raindrops'),

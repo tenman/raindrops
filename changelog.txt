@@ -1,12 +1,15 @@
 Changelog -----------------------------------
-version:0.923
+version:0.924
 fixed
     h1 Site Title style COLOR bug fix
      Cannot readable color when get_theme_mod() return 'blank',''.
 added
     Tiny Mce Visual Editor Menu Add
+    function raindrops_fallback_title
 made
     editor_menu.js
+modified
+    fallback value add when entry title is blank.
 ----------------------------------------------
 
 Changelog -----------------------------------

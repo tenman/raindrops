@@ -7,10 +7,8 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
- 
 ?>
 <?php get_header("xhtml1"); ?>
-<?php $ht_deputy = "NoTitle";?>
 <div id="yui-main">
   <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">
@@ -40,7 +38,7 @@
 				echo '</span>';
 			} 
 ?>
-                <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo esc_html(raindrops_blank_fallback(get_the_title(), $ht_deputy)); ?></a></h2>
+                <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo the_title(); ?></a></h2>
 				
               <div class="posted-on"><?php raindrops_posted_on();?></div>
               <div class="entry-content clearfix"><?php		the_excerpt();?></div>

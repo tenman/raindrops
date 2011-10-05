@@ -2577,7 +2577,7 @@ if(!function_exists("month_list")){
 
                 if($d == $i and $m == $mo and $y == $ye){
                 $first_data = true;
-				 $month->post_title = raindrops_fallback_title($month->post_title);
+                 $month->post_title = raindrops_fallback_title($month->post_title);
                 $links .= "<li><a href=\"" . get_permalink($month->ID) . "\" title=\"".esc_attr($month->post_title)."\">".$month->post_title."</a></li>";
 
                 $c++;
@@ -3495,30 +3495,30 @@ if( !empty($raindrops_header_image)){
  */
 
 if (isset($wp_version)) {
-	add_filter("mce_buttons", "extended_editor_mce_buttons", 0);
-	add_filter("mce_buttons_2", "extended_editor_mce_buttons_2", 0);
-	//add_filter("mce_buttons_3", "extended_editor_mce_buttons_3", 0);
+    add_filter("mce_buttons", "extended_editor_mce_buttons", 0);
+    add_filter("mce_buttons_2", "extended_editor_mce_buttons_2", 0);
+    //add_filter("mce_buttons_3", "extended_editor_mce_buttons_3", 0);
 }
 
 function extended_editor_mce_buttons($buttons) {
-	$mce_buttons = array(
-	"undo", "redo","newdocument","wp_more",'wp_page',
-	"bold", "italic", "separator",
-	"bullist", "link", "separator",
-	"formatselect", 'fullscreen', "search", "replace", "wphelp",'wp_adv','wp_adv_start');
-	return $mce_buttons;
+    $mce_buttons = array(
+    "undo", "redo","newdocument","wp_more",'wp_page',
+    "bold", "italic", "separator",
+    "bullist", "link", "separator",
+    "formatselect", 'fullscreen', "search", "replace", "wphelp",'wp_adv','wp_adv_start');
+    return $mce_buttons;
 }
 
 function extended_editor_mce_buttons_2($buttons) {
 // the second toolbar line
- 	$mce_buttons = array(
-	'formatselect', 'forecolor', 'backcolor','separator',
-	'hr','underline','strikethrough','separator',
-	'justifyleft','justifycenter','justifyright','justifyfull','outdent','indent','separator',
-	'cut', 'copy', 'paste','removeformat','cleanup','separator','charmap');
-	return $mce_buttons;
-		
-		}
+    $mce_buttons = array(
+    'formatselect', 'forecolor', 'backcolor','separator',
+    'hr','underline','strikethrough','separator',
+    'justifyleft','justifycenter','justifyright','justifyfull','outdent','indent','separator',
+    'cut', 'copy', 'paste','removeformat','cleanup','separator','charmap');
+    return $mce_buttons;
+
+        }
 function extended_editor_mce_buttons_3($buttons) {
     return array('wp_adv_end');
 }
@@ -3528,12 +3528,12 @@ add_action('init', 'raindrops_addbuttons');
 function raindrops_addbuttons(){
 if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
      return;
- 
+
    // Add only in Rich Editor mode
    if ( get_user_option('rich_editing') == 'true') {
-		add_filter('mce_external_plugins', "raindrops_editor_button_register");
-		add_filter('mce_buttons', 'raindrops_editor_add_button', 0);
-	}
+        add_filter('mce_external_plugins', "raindrops_editor_button_register");
+        add_filter('mce_buttons', 'raindrops_editor_add_button', 0);
+    }
 
 }
 
@@ -3549,24 +3549,26 @@ function raindrops_editor_button_register($plugin_array){
 
 
 
-/** Empty title fallback  
- * 
+/** Empty title fallback
+ *
  *
  * @package WordPress
  * @subpackage Raindrops
  * @since Raindrops 0.923
  */
- 
+
 add_filter('the_title','raindrops_fallback_title');
 
-	function raindrops_fallback_title($title,$display = 'hide'){
-		if(empty($title)){
-			$image_uri = get_stylesheet_directory_uri().'/images/link.png';
-			$html = '<img src="%1$s" alt="no title entry link" /><span class="%4$s">%2$s posted on %3$s</span>';
-			$raindrops_date_format = get_option('date_format');
-			return sprintf($html,$image_uri,__("This entry has no title",'Raindrops'),get_the_time($raindrops_date_format),$display);
-		}
-		
-		return $title;
-	}
+    function raindrops_fallback_title($title,$display = 'hide'){
+    if(!is_admin()){
+        if(empty($title)){
+            $image_uri = get_stylesheet_directory_uri().'/images/link.png';
+            $html = '<img src="%1$s" alt="no title entry link" /><span class="%4$s">%2$s posted on %3$s</span>';
+            $raindrops_date_format = get_option('date_format');
+            return sprintf($html,$image_uri,__("This entry has no title",'Raindrops'),get_the_time($raindrops_date_format),$display);
+        }
+    }
+
+        return $title;
+    }
 ?>

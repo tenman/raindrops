@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:0.925
+fixed
+    Function raindrops_fallback_title makes display dirty where Media Library page attached to title.
+     Do not add fallback html when is_admin().
+----------------------------------------------
+Changelog -----------------------------------
 version:0.924
 fixed
     h1 Site Title style COLOR bug fix

@@ -3486,69 +3486,6 @@ if( !empty($raindrops_header_image)){
     }
 }
 
-/** Vissual Editor Menu Add
- *
- *
- * @package WordPress
- * @subpackage Raindrops
- * @since Raindrops 0.922
- */
-
-if (isset($wp_version)) {
-    add_filter("mce_buttons", "extended_editor_mce_buttons", 0);
-    add_filter("mce_buttons_2", "extended_editor_mce_buttons_2", 0);
-    //add_filter("mce_buttons_3", "extended_editor_mce_buttons_3", 0);
-}
-
-function extended_editor_mce_buttons($buttons) {
-    $mce_buttons = array(
-    "undo", "redo","newdocument","wp_more",'wp_page',
-    "bold", "italic", "separator",
-    "bullist", "link", "separator",
-    "formatselect", 'fullscreen', "search", "replace", "wphelp",'wp_adv','wp_adv_start');
-    return $mce_buttons;
-}
-
-function extended_editor_mce_buttons_2($buttons) {
-// the second toolbar line
-    $mce_buttons = array(
-    'formatselect', 'forecolor', 'backcolor','separator',
-    'hr','underline','strikethrough','separator',
-    'justifyleft','justifycenter','justifyright','justifyfull','outdent','indent','separator',
-    'cut', 'copy', 'paste','removeformat','cleanup','separator','charmap');
-    return $mce_buttons;
-
-        }
-function extended_editor_mce_buttons_3($buttons) {
-    return array('wp_adv_end');
-}
-
-add_action('init', 'raindrops_addbuttons');
-
-function raindrops_addbuttons(){
-if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') )
-     return;
-
-   // Add only in Rich Editor mode
-   if ( get_user_option('rich_editing') == 'true') {
-        add_filter('mce_external_plugins', "raindrops_editor_button_register");
-        add_filter('mce_buttons', 'raindrops_editor_add_button', 0);
-    }
-
-}
-
-function raindrops_editor_add_button($button){
-    array_push($button, "", "addMyButton");
-    return $button;
-}
-
-function raindrops_editor_button_register($plugin_array){
-    $plugin_array['addMyButton'] = get_stylesheet_directory_uri()."/editor-menu.js";
-    return $plugin_array;
-}
-
-
-
 /** Empty title fallback
  *
  *

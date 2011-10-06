@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:0.926
+moved
+    Remove editor-menu.js
+    Remove Tiny Mce Visual Editor Menu
+----------------------------------------------
+Changelog -----------------------------------
 version:0.925
 fixed
     Function raindrops_fallback_title makes display dirty where Media Library page attached to title.
@@ -14,7 +20,6 @@ added
     function raindrops_fallback_title
 made
     editor_menu.js
-modified
     fallback value add when entry title is blank.
 ----------------------------------------------
 

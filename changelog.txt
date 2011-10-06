@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.926
+version:0.928
 moved
     Remove editor-menu.js
     Remove Tiny Mce Visual Editor Menu

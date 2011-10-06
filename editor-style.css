@@ -70,33 +70,6 @@ li.byuser,
 }
 .gallery-caption{
 }
-.raindrops-toggle{
-border:1px solid #ccc;
-min-height:100px;
-list-style:none;
-}
-li.raindrops-toggle.raindrops-toggle-title{
-border:1px solid #ccc;
-margin:2px;
-list-style:none;
-min-height:20px;
-}
-div.raindrops-tab-page,
-.raindrops-dialog-title,
-.raindrops-dialog-content,
-.yui-u{
-border:1px solid #ccc;
-margin:2px;
-}
-
-.yui-gb:before{
-content:"Each borderd box render horizontal 3column layout in Article";
-color:green
-}
-.yui-g:before{
-content:"Each borderd box render horizontal 2column layout same width in Article";
-color:green;
-}
 #tinymce img{
 max-width:100%;
 height:auto;

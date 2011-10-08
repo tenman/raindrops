@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:0.929
+moved
+    fixed
+        Raindrops option panel
+         fragment identifier change from #wphead to #wpwrap
+    made
+        file add    lib/option-panel.php
+         Move Raindrops options functions from functions.php to option-panel.php
+        file add    lib/shortcode.php
+         Add shortcodes script.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.928
 moved
     Remove editor-menu.js

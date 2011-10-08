@@ -18,8 +18,6 @@ get_header("xhtml1"); ?>
 /**
  * Display navigation to next/previous pages when applicable
  */
-
-
 //raindrops_prev_next_post();?>
 <?php if(have_posts()){
 /**

@@ -65,9 +65,8 @@
 	        var fragment = prefix + i;
 
 	        var title = "<li><a href=\"#" + fragment + "\">" + jQuery(element).eq(i).html() + "</a></li>" ;
-	            //jQuery(".raindrops-tab-list").append(title);
 				jQuery(this).parents(':eq(1)').prev().append(title);
-	            jQuery(this).parent().attr("id", fragment )/*.prepend('<a href="#">△</a>&nbsp;')*/;
+	            jQuery(this).parent().attr("id", fragment );
 				
 	     });
 		

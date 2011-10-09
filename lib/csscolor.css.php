@@ -1368,7 +1368,6 @@ return $style;
 }
 ?>
 <?php
-
     if(!defined('ABSPATH')){exit;}
     $embed_common_style = get_current_theme();
     raindrops_register_styles($embed_common_style);
@@ -1696,6 +1695,7 @@ CSS;
         $navigation_title_img   = raindrops_warehouse('raindrops_heading_image');
         $raindrops_header_image       = raindrops_warehouse('raindrops_header_image');
         $raindrops_header_color       = raindrops_warehouse('raindrops_default_fonts_color');
+		
         $raindrops_footer_image       = raindrops_warehouse('raindrops_footer_image');
         $raindrops_footer_color       = raindrops_warehouse('raindrops_footer_color');
 

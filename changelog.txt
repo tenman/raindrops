@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.929
+version:0.930
 moved
     fixed
         Raindrops option panel
@@ -9,6 +9,9 @@ moved
          Move Raindrops options functions from functions.php to option-panel.php
         file add    lib/shortcode.php
          Add shortcodes script.
+    #modified
+        functions.php
+            Cleaning PHP codes.
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.928

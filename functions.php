@@ -7,82 +7,113 @@
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
-
-
 ?>
 <?php
-add_filter( 'use_default_gallery_style', '__return_false' );
+	if(!defined('ABSPATH')){
+		exit;
+	}	
 
-if(!defined('ABSPATH')){exit;}
+/** Include functions about the Raindrops options panel
+ *
+ *
+ *
+ *
+ *
+ */
+	require_once( get_template_directory() . '/lib/option-panel.php' );
+	
+    $is_submenu = new raindrops_menu_create;
+	
 
-  //  global $wpdb;
+/** Include functions about colors ,backgrounds and borders
+ *
+ *
+ *
+ *
+ *
+ */
 
+    if(RAINDROPS_USE_AUTO_COLOR == true and is_user_logged_in()){
+		require_once('lib/csscolor/csscolor.php');
+		require_once('lib/csscolor.css.php');
+        add_filter('contextual_help','raindrops_edit_help');
+    }
 /**
+ *
+ *
+ *
+ *
+ *
+ */
+	get_template_part('lib/shortcodes');
+
+/** 
+ *
+ *
+ *
+ *
+ *
+ */
+	add_filter( 'use_default_gallery_style', '__return_false' );
+/** Original page width implementation by manual labor
  * If you need original page width
  * you can specific pixel page width
  * e.g. '$raindrops_page_width = '776';' is  776px page width.
  *
  *
  */
-if(!isset($raindrops_page_width)){
-    $raindrops_page_width = '';
-}
-
-/**
+	if(!isset($raindrops_page_width)){
+		$raindrops_page_width = '';
+	}
+/** Content width implementation by manual labor
  * If you need specific $content_width.
  * value set 400 When not setting or empty.
  *
  *
  *
  */
-
     //$content_width = '';
-
-
 /**
  * 750px,950px centered layout fluid or fixed page width switch
- *
+ * Empty value makes like a Elastic layout
  *
  * value 'fixed' or empty
  *
  */
     $raindrops_fluid_or_fixed = 'fixed';
-
-/**
- * fluid page  main column minimam width px
+/** fluid page  main column minimam width px
+ *
  *
  *
  *
  *
  */
     $raindrops_fluid_minimam_width = '400';
-/**
- * Raindrops header and footer image upload
+/** Raindrops header and footer image upload
+ *
  *
  *
  *
  *
  */
-
-// Allow image type for footer header.
-$raindrops_allow_file_type  = array('image/png','image/jpeg','image/jpg','image/gif');
+// Allow image type Raindrops footer and header.
+	$raindrops_allow_file_type  = array('image/png','image/jpeg','image/jpg','image/gif');
 //max upload size byte
-$raindrops_max_upload_size  = 2000000;
+	$raindrops_max_upload_size  = 2000000;
 //header or footer image max width px
-$raindrops_max_width        = 1300;
-/**
+	$raindrops_max_width        = 1300;
+	
+/** the_content() or the_excerpt
  * the_excerpt use where index,archive,other not single pages.
  * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
  *
  *
  *
  */
-
     if(!defined('RAINDROPS_USE_LIST_EXCERPT')){
         define("RAINDROPS_USE_LIST_EXCERPT",false);
     }
-
-/**
+/** Auto Color On or Off
  * If you want no Auto Color when set value false.
  *
  *
@@ -92,8 +123,8 @@ $raindrops_max_width        = 1300;
     if(!defined('RAINDROPS_USE_AUTO_COLOR')){
         define("RAINDROPS_USE_AUTO_COLOR",true);
     }
-/**
- * header text
+/** header text
+ *
  *
  *
  *
@@ -102,8 +133,8 @@ $raindrops_max_width        = 1300;
     if(!defined('NO_HEADER_TEXT')){
         define('NO_HEADER_TEXT', false );
     }
-/**
- *  Specific automatic color at title,description when value ''.
+/** title and description default color
+ *  
  *
  *
  *
@@ -112,8 +143,8 @@ $raindrops_max_width        = 1300;
     if(!defined('HEADER_TEXTCOLOR')){
         define('HEADER_TEXTCOLOR', 'dddddd');
     }
-/**
- * header image
+/** header image
+ * 
  *
  *
  *
@@ -122,43 +153,36 @@ $raindrops_max_width        = 1300;
     if(!defined('HEADER_IMAGE')){
         define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
     }
-
     if(!defined('HEADER_IMAGE_WIDTH')){
         define('HEADER_IMAGE_WIDTH', 950);
     }
     if(!defined('HEADER_IMAGE_HEIGHT')){
         define('HEADER_IMAGE_HEIGHT', 198);
     }
-/**
- * monthly archive, daily archive  time format
+/** Monthly archive, Daily archive  time format
+ *
  *
  *
  *
  *
  */
-
-    if(!defined('RAINDROPS_THE_TIME_FORMAT')){
-        define("RAINDROPS_THE_TIME_FORMAT",'Y/n/j');//
-
+/*    if(!defined('RAINDROPS_THE_TIME_FORMAT')){
+        define("RAINDROPS_THE_TIME_FORMAT",'Y/n/j');
     }
     if(!defined('RAINDROPS_THE_MONTH_FORMAT')){
         define("RAINDROPS_THE_MONTH_FORMAT",'Y/m');//archive.php
-
-    }
-
+    }*/
     if(!defined('RAINDROPS_TABLE_TITLE')){
         define("RAINDROPS_TABLE_TITLE",'options');
     }
-
     if(!defined('RAINDROPS_PLUGIN_TABLE')){
         define('RAINDROPS_PLUGIN_TABLE',$wpdb->prefix . RAINDROPS_TABLE_TITLE);
     }
-    if(!defined('RAINDROPS_TABLE_VERSION')){
+ /*   if(!defined('RAINDROPS_TABLE_VERSION')){
         define('RAINDROPS_TABLE_VERSION','0.1');
-    }
+    }*/
 
     $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
-
 /**
  * single-post-thumbnail
  *
@@ -172,8 +196,8 @@ $raindrops_max_width        = 1300;
     if(!defined('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT')){
         define('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT',200);
     }
-/**
- * widget settings
+/** widget settings
+ *
  *
  *
  *
@@ -245,6 +269,14 @@ $raindrops_max_width        = 1300;
         }
     }
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     if(!isset($raindrops_base_setting)){
         $raindrops_base_setting = $raindrops_base_setting_args;
     }
@@ -268,17 +300,17 @@ $raindrops_max_width        = 1300;
     }else{
         $yui_inner_layout = 'yui-ge';
     }
+	
 	$raindrops_current_style_type = raindrops_warehouse("raindrops_style_type");
 	$raindrops_current_theme_name = get_current_theme();
-	
-    if(RAINDROPS_USE_AUTO_COLOR == true and is_user_logged_in()){
 
-            get_template_part('lib/csscolor/csscolor');
-            get_template_part('lib/csscolor.css');
-
-        add_filter('contextual_help','raindrops_edit_help');
-    }
-
+/** Custom page width
+ * Whenever you can set own page width
+ *
+ *
+ *
+ *
+ */
     if(isset($raindrops_page_width) and !empty($raindrops_page_width)){
         add_action("wp_head","raindrops_custom_width");
         function raindrops_custom_width($content,$key){
@@ -294,116 +326,144 @@ $raindrops_max_width        = 1300;
             echo $custom_content_width;
         }
     }
-/**
- * fluid or fixed page width
+/** fluid or fixed page width
+ *
  *
  *
  *
  *
  */
 
-        if( isset($raindrops_fluid_or_fixed) and
-            !empty($raindrops_fluid_or_fixed) and
-            (raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
-            add_action("wp_head","raindrops_is_fixed");
-        }elseif(isset($raindrops_fluid_minimam_width) and !empty($raindrops_fluid_minimam_width)){
-            add_action("wp_head","raindrops_is_fluid");
+	if( isset($raindrops_fluid_or_fixed) and
+		!empty($raindrops_fluid_or_fixed) and
+		(raindrops_warehouse("raindrops_page_width") == 'doc' or raindrops_warehouse("raindrops_page_width") == 'doc2')){
+		add_action("wp_head","raindrops_is_fixed");
+	}elseif(isset($raindrops_fluid_minimam_width) and !empty($raindrops_fluid_minimam_width)){
+		add_action("wp_head","raindrops_is_fluid");
 
 
-        }
+	}
 
-        function raindrops_is_fluid(){
-            global  $is_IE, $raindrops_fluid_minimam_width;
-            $width          = intval($raindrops_fluid_minimam_width);
-            $width          = $width / 13;
-            $sidebar_width  = 'yui-'.raindrops_warehouse('raindrops_col_width');
-            $adjust         = 20;
+/** Value is empty where $raindrops_fluid_or_fixed
+ *
+ *
+ *
+ *
+ *
+ */
 
-            if($sidebar_width == 'yui-t1'){
-                $raindrops_default_col_width = 160 + $adjust;
-            }elseif($sidebar_width == 'yui-t2'){
-                $raindrops_default_col_width = 180 + $adjust;
-            }elseif($sidebar_width == 'yui-t3'){
-                $raindrops_default_col_width = 300 + $adjust;
-            }elseif($sidebar_width == 'yui-t4'){
-                $raindrops_default_col_width = 180 + $adjust;
-            }elseif($sidebar_width == 'yui-t5'){
-                $raindrops_default_col_width = 240 + $adjust;
-            }elseif($sidebar_width == 'yui-t6'){
-                $raindrops_default_col_width = 300 + $adjust;
-            }else{
-                $raindrops_default_col_width = 0;
-            }
+	function raindrops_is_fluid(){
+		global  $is_IE, $raindrops_fluid_minimam_width;
+		$width          = intval($raindrops_fluid_minimam_width);
+		$width          = $width / 13;
+		$sidebar_width  = 'yui-'.raindrops_warehouse('raindrops_col_width');
+		$adjust         = 20;
 
-            $horizontal_nav_width = $raindrops_default_col_width + intval($raindrops_fluid_minimam_width);
-            $horizontal_nav_width = $horizontal_nav_width / 13;
+		if($sidebar_width == 'yui-t1'){
+			$raindrops_default_col_width = 160 + $adjust;
+		}elseif($sidebar_width == 'yui-t2'){
+			$raindrops_default_col_width = 180 + $adjust;
+		}elseif($sidebar_width == 'yui-t3'){
+			$raindrops_default_col_width = 300 + $adjust;
+		}elseif($sidebar_width == 'yui-t4'){
+			$raindrops_default_col_width = 180 + $adjust;
+		}elseif($sidebar_width == 'yui-t5'){
+			$raindrops_default_col_width = 240 + $adjust;
+		}elseif($sidebar_width == 'yui-t6'){
+			$raindrops_default_col_width = 300 + $adjust;
+		}else{
+			$raindrops_default_col_width = 0;
+		}
 
-            if($is_IE){
-                $width                  = round($width * 0.9759,1);
-                $horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1) + 1;
-            }else{
-                $width                  = round($width,1);
-                $horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1);
-            }
+		$horizontal_nav_width = $raindrops_default_col_width + intval($raindrops_fluid_minimam_width);
+		$horizontal_nav_width = $horizontal_nav_width / 13;
 
-
-            $fluid_min_width = '<style type="text/css">'.
-                            "\n#container{min-width:".
-                            $width.
-                            'em;}'.
-                            "\n#access{min-width:".
-                            $width.
-                            'em;}</style>';
-            echo $fluid_min_width;
-        }
-
-        function raindrops_is_fixed(){
-            global $is_IE;
-            $add_ie = '';
-            $pw = raindrops_warehouse("raindrops_page_width");
-
-            if($pw == 'doc'){
-                $width      = 750;
-                $px = 'width:'.$width.'px;';
-                $width      = $width / 13;
-            }
-            if($pw == 'doc2'){
-                $width      = 950;
-                $px = 'width:'.$width.'px;';
-                $width      = $width / 13;
-            }
-
-            $raindrops_main_width = raindrops_main_width();
-            $raindrops_main_width = $raindrops_main_width / 13;
-
-            if($is_IE){
-                $width                  = round($width * 0.9759,1);
-                $add_ie                 = '';
-                $raindrops_main_width   = round($raindrops_main_width * 0.9759,1);
-            }else{
-                $width                  = round($width,1);
-                $raindrops_main_width   = round($raindrops_main_width,1);
-
-            }
-
-            $custom_fixed_width = '<style type="text/css">'."
-                \n#".$pw.'{margin:auto;text-align:left;'."\n".
-                            'min-width:'.$width.'em;'.
-                            $add_ie.
-                            $px.
-                            '}'.
-                            "\n#container{min-width:".
-                            $raindrops_main_width.
-                            'em;}</style>';
-            echo $custom_fixed_width;
-        }
+		if($is_IE){
+			$width                  = round($width * 0.9759,1);
+			$horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1) + 1;
+		}else{
+			$width                  = round($width,1);
+			$horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1);
+		}
 
 
+		$fluid_min_width = '<style type="text/css">'.
+						"\n#container{min-width:".
+						$width.
+						'em;}'.
+						"\n#access{min-width:".
+						$width.
+						'em;}</style>';
+		echo $fluid_min_width;
+	}
 
+/** Value is fixed where $raindrops_fluid_or_fixed.
+ *
+ *
+ *
+ *
+ *
+ */
+	function raindrops_is_fixed(){
+		global $is_IE;
+		$add_ie = '';
+		$pw = raindrops_warehouse("raindrops_page_width");
 
+		if($pw == 'doc'){
+			$width      = 750;
+			$px = 'width:'.$width.'px;';
+			$width      = $width / 13;
+		}
+		if($pw == 'doc2'){
+			$width      = 950;
+			$px = 'width:'.$width.'px;';
+			$width      = $width / 13;
+		}
+
+		$raindrops_main_width = raindrops_main_width();
+		$raindrops_main_width = $raindrops_main_width / 13;
+
+		if($is_IE){
+			$width                  = round($width * 0.9759,1);
+			$add_ie                 = '';
+			$raindrops_main_width   = round($raindrops_main_width * 0.9759,1);
+		}else{
+			$width                  = round($width,1);
+			$raindrops_main_width   = round($raindrops_main_width,1);
+
+		}
+
+		$custom_fixed_width = '<style type="text/css">'."
+			\n#".$pw.'{margin:auto;text-align:left;'."\n".
+						'min-width:'.$width.'em;'.
+						$add_ie.
+						$px.
+						'}'.
+						"\n#container{min-width:".
+						$raindrops_main_width.
+						'em;}</style>';
+		echo $custom_fixed_width;
+	}
+
+/** Content width setup
+ *
+ *
+ *
+ *
+ *
+ */
     if(!isset($content_width) or empty($content_width)){
         $content_width = raindrops_content_width();
     }
+
+/** Custom image header
+ *
+ *
+ *
+ *
+ *
+ */
+
     if ( function_exists( 'add_custom_image_header' ) ) {
 
         add_custom_image_header(
@@ -422,38 +482,212 @@ $raindrops_max_width        = 1300;
         ) );
     }
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_action('load-themes.php', 'raindrops_install_navigation');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
     add_editor_style();
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     register_nav_menus( array(
         'primary' => __( 'Primary Navigation', 'Raindrops' ),
     ) );
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
     add_custom_background();
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 48, 48, true );
 
     add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT, true);
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_theme_support( 'automatic-feed-links' );
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
     add_filter("wp_head","raindrops_embed_meta",'99');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter( 'comment_form_default_fields','raindrops_comment_form');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter( 'the_meta_key', 'raindrops_filter_explode_meta_keys', 10, 2 );
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter('body_class','raindrops_add_body_class');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter('contextual_help','raindrops_help');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter('comment_form_field_comment','custom_remove_aria_required1');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter('comment_form_default_fields', 'custom_remove_aria_required2');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     add_filter( 'the_meta_key', 'raindrops_filter_explode_meta_keys', 10, 2 );
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
+	add_filter('the_title','raindrops_fallback_title');
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
+    add_filter('the_content','raindrops_ie_height_expand_issue');
+/**
+ *
+ *
+ *
+ *
+ *
+ */
     if ( !is_admin()) {
        add_action('wp_print_styles', 'add_raindrops_stylesheet');
     }
-	/*include class raindrops_menu_create*/
-	
-	require_once( get_template_directory() . '/lib/option-panel.php' );
-	
-    $is_submenu = new raindrops_menu_create;
-    add_action( 'admin_init', 'raindrops_options_init' );
-    add_action('admin_menu', array($is_submenu, 'add_menus'));
 
-        $install_once = get_option('raindrops_theme_settings');
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+	
+    add_action( 'admin_init', 'raindrops_options_init' );
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+    add_action('admin_menu', array($is_submenu, 'add_menus'));
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+    $install_once = get_option('raindrops_theme_settings');
 
         if (!array_key_exists('install', $install_once) ) {
 
@@ -461,19 +695,25 @@ $raindrops_max_width        = 1300;
         }
 
     add_action( 'widgets_init', 'raindrops_widgets_init' );
+
+/** Add option helper
+ *
+ *
+ *
+ *
+ *
+ */
     foreach($raindrops_base_setting as $setting){
         $function_name = $setting['option_name'].'_validate';
+		
         if(!function_exists($function_name)){
-        $message = sprintf(__('If you add  %s when you must create function %s for data validation','Raindrops'),$setting['option_name'],$function_name);
+        	$message = sprintf(__('If you add  %s when you must create function %s for data validation','Raindrops'),$setting['option_name'],$function_name);
             printf('<script type="text/javascript">alert(\'%s\');</script>',$message);
         return;
         }
     }
-
-
-
-/**
- * Filter functon body_class()
+/** Extend body_class()
+ * 
  *
  * add browser class, languages class,
  *
@@ -524,8 +764,8 @@ $raindrops_max_width        = 1300;
         }
     }
 
-/**
- * wp_list_comments callback function
+/** wp_list_comments callback function
+ *
  *
  *
  * comments.php
@@ -534,7 +774,7 @@ $raindrops_max_width        = 1300;
     if (!function_exists('raindrops_comment')) {
         function raindrops_comment( $comment, $args, $depth ) {
             $GLOBALS['comment'] = $comment; ?>
-<?php if ( '' == $comment->comment_type ) : ?>
+<?php if ( '' == $comment->comment_type ){ ?>
 
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
   <div id="comment-<?php comment_ID(); ?>">
@@ -546,34 +786,28 @@ $raindrops_max_width        = 1300;
       </div>
     </div>
     <!-- .comment-author .vcard -->
-    <?php if ( $comment->comment_approved == '0' ) : ?>
-    <div class="clearfix awaiting"> <em>
-      <?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?>
-      </em> <br />
-    </div>
-    <?php endif; ?>
+    <?php if ( $comment->comment_approved == '0' ){ ?>
+    <div class="clearfix awaiting"> <em><?php _e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?></em><br /></div>
+    <?php }//endif ?>
     <!-- .comment-meta .commentmetadata -->
-    <div class="comment-body">
-      <?php comment_text(); ?>
-    </div>
+    <div class="comment-body"><?php comment_text(); ?></div>
     <div class="reply">
       <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
     </div>
     <!-- .reply -->
   </div>
   <!-- #comment-##  -->
-  <?php else : ?>
+  <?php }else{ ?>
 <li class="post pingback">
-  <p>
-    <?php _e( 'Pingback:', 'Raindrops' ); ?>
+  <p><?php _e( 'Pingback:', 'Raindrops' ); ?>
     <?php comment_author_link(); ?>
     <?php edit_comment_link( __('(Edit)', 'Raindrops'), ' ' ); ?>
   </p>
-  <?php endif;
+  <?php }//endif
         }
     }
-/**
- * Echo posted in block
+/** posted in
+ *
  *
  *
  * loop.php
@@ -600,8 +834,8 @@ $raindrops_max_width        = 1300;
             );
         }
     }
-/**
- * Echo posted_on block
+/** Posted_on
+ *  
  *
  *
  * loop.php
@@ -647,8 +881,8 @@ $raindrops_max_width        = 1300;
             );
         }
     }
-/**
- * Special custom field key CSS javascript metatags
+/** Special custom fields key css, javascript, metatags
+ * 
  *
  * css,javascrip,meta is separated anothor Custom Field.
  *
@@ -662,9 +896,8 @@ $raindrops_max_width        = 1300;
             else return $content;
         }
     }
-
-/**
- * like get_option()
+/** Like a get_option()
+ * 
  *
  * Raindrops conditional response.
  *
@@ -680,6 +913,7 @@ $raindrops_max_width        = 1300;
                     $vertical[] = $val['option_name'];
                 }
             }
+
 
             $row = array_search($name,$vertical);
             if(isset($raindrops_page_width) and !empty($raindrops_page_width) and $name == 'raindrops_page_width'){
@@ -699,8 +933,8 @@ $raindrops_max_width        = 1300;
         }
     }
 
-/**
- * Return $raindrops_base_setting value.
+/** Return $raindrops_base_setting value.
+ * 
  *
  *
  *
@@ -719,8 +953,8 @@ $raindrops_max_width        = 1300;
             return __($raindrops_base_setting[$row][$meta_name],'Raindrops');
     }
 
-/**
- * Raindrops Admin Panel help
+/** Admin Panel help
+ * 
  *
  *
  *
@@ -745,8 +979,8 @@ $raindrops_max_width        = 1300;
         }
     }
 
-/**
- * Raindrops edit help
+/** Raindrops edit help
+ *
  *
  * Check the real color of the Cradation Class and the Color Class.
  *
@@ -825,54 +1059,59 @@ $raindrops_max_width        = 1300;
     }
 
 
-
-
-    //@param $embed string inline or external or embed
-    //@param $id #hd or #ft
+/**
+ *
+ *
+ *
+ *@param $embed string inline or external or embed
+ *@param $id #hd or #ft
+ */
     function raindrops_upload_image_parser($uri,$embed = "inline",$id="#hd"){
+/* upload image from raindrops admin panel saved filename
+ * e.g. raindrops-item-header-style-no-repeat-top-0-left-0-aomoriken.jpg
+ * filename parse and create style
+ */
+ 
+		$upload_info = wp_upload_dir();
+		$filename = basename($uri);
+		
+		if(file_exists(get_stylesheet_directory().'/images/'.$filename)){
+			 if($id == '#hd'){
+				 if(!file_exists($upload_info['path'].'/'.$filename)){
+					return 'background:url('.get_stylesheet_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
+				}
+			 }elseif($id == '#ft'){
+				 if(!file_exists($upload_info['path'].'/'.$filename)){
+					return 'background:url('.get_stylesheet_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
+				 }
+	
+			 }
+		}
+		
+		 preg_match("|raindrops-item-([^-]+)|",$filename,$regs);
+		 $purpose = $regs[1];
+		 $purpose = str_replace(array("header","footer"),array("#hd","#ft"),$purpose);
+		 preg_match("|-style-([^-]+)|",$filename,$regs);
+		 $style = $regs[1];
+		 $style = str_replace(array('no','x'),array('no-','-x'),$style);
+		 preg_match("|-top-(-?[^-]+)|",$filename,$regs);
+		 $top = $regs[1];
+		 preg_match("|-left-(-?[^-]+)|",$filename,$regs);
+		 $left = $regs[1];
+		 preg_match("|-height-([^-]+)|",$filename,$regs);
+		 $height = $regs[1];
 
-    /* upload image from raindrops admin panel saved filename
-     * e.g. raindrops-item-header-style-no-repeat-top-0-left-0-aomoriken.jpg
-     * filename parse and create style
-     */
-     $upload_info = wp_upload_dir();
-     $filename = basename($uri);
-if(file_exists(get_stylesheet_directory().'/images/'.$filename)){
-         if($id == '#hd'){
-             if(!file_exists($upload_info['path'].'/'.$filename)){
-                return 'background:url('.get_stylesheet_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
-            }
-         }elseif($id == '#ft'){
-             if(!file_exists($upload_info['path'].'/'.$filename)){
-                return 'background:url('.get_stylesheet_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
-             }
-
-         }
-}
-     preg_match("|raindrops-item-([^-]+)|",$filename,$regs);
-     $purpose = $regs[1];
-     $purpose = str_replace(array("header","footer"),array("#hd","#ft"),$purpose);
-     preg_match("|-style-([^-]+)|",$filename,$regs);
-     $style = $regs[1];
-     $style = str_replace(array('no','x'),array('no-','-x'),$style);
-     preg_match("|-top-(-?[^-]+)|",$filename,$regs);
-     $top = $regs[1];
-     preg_match("|-left-(-?[^-]+)|",$filename,$regs);
-     $left = $regs[1];
-     preg_match("|-height-([^-]+)|",$filename,$regs);
-     $height = $regs[1];
-
-     if($embed == 'inline'){
-        return 'background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;';
-     }elseif($embed == 'external' or $embed == 'embed'){
-        return $purpose. '{background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;}';
-     }else{
-        return;
-     }
+		 if($embed == 'inline'){
+			return 'background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;';
+		 }elseif($embed == 'external' or $embed == 'embed'){
+			return $purpose. '{background:url('.$uri.');background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;}';
+		 }else{
+			return;
+		 }
 
     }
-/**
- * Show real gradient where admin panel help
+/** Show real gradient where admin panel help
+ *
  *
  *
  *
@@ -891,6 +1130,7 @@ if(file_exists(get_stylesheet_directory().'/images/'.$filename)){
         $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+		
         return $g;
     }
 
@@ -931,8 +1171,8 @@ if(file_exists(get_stylesheet_directory().'/images/'.$filename)){
         return $g;
     }
 
-/**
- * add stylesheet and few javascript
+/** add stylesheet and few javascript
+ *
  *
  *
  *
@@ -997,8 +1237,8 @@ if(!function_exists("add_raindrops_stylesheet")){
 
     }
 }
-/**
- * filter function comment form
+/** filter function comment form
+ *
  *
  *
  *
@@ -1006,13 +1246,14 @@ if(!function_exists("add_raindrops_stylesheet")){
  */
 
     function raindrops_comment_form($form){
-    global $commenter;
-    $form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website', 'Raindrops') . '</label><span class="option">'.__('Option','Raindrops').'</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
-    return $form;
+		global $commenter;
+		$form['url'] = '<p class="comment-form-url"><label for="url">' . __( 'Website', 'Raindrops') . '</label><span class="option">'.__('Option','Raindrops').'</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
+		
+		return $form;
     }
 
-/**
- * filter function remove area required
+/** filter function remove area required
+ *
  *
  *
  *
@@ -1021,10 +1262,11 @@ if(!function_exists("add_raindrops_stylesheet")){
     function custom_remove_aria_required1($arg){
         $change = array("aria-required=\"true\"","aria-required='true'");
         $arg = str_replace($change,'',$arg);
+		
         return $arg;
     }
-/**
- * filter function remove area required
+/** filter function remove area required
+ *
  *
  *
  *
@@ -1039,11 +1281,12 @@ if(!function_exists("add_raindrops_stylesheet")){
         if(isset($args['email'])){
             $args['email'] = str_replace($change,'',$args['email']);
         }
+		
         return $args;
     }
 
-/**
- * Option value set when install.
+/** Option value set when install.
+ *
  *
  *
  *
@@ -1052,23 +1295,26 @@ if(!function_exists("add_raindrops_stylesheet")){
     function setup_raindrops(){
         global $wpdb,$raindrops_base_setting;
 
-        if(RAINDROPS_USE_AUTO_COLOR == false){return;}
-        $raindrops_theme_settings = get_option('raindrops_theme_settings');
+        if(RAINDROPS_USE_AUTO_COLOR == false){
+			return;
+		}
+		
+		$raindrops_theme_settings = get_option('raindrops_theme_settings');
 
-       foreach($raindrops_base_setting as $add){
+		foreach($raindrops_base_setting as $add){
+		
+			$option_name = $add['option_name'];
+		
+			if(!isset($raindrops_theme_settings[$option_name])){
+				$raindrops_theme_settings[$option_name] = $add['option_value'];
+			}
+		}
+		
+		$style_type                                         = raindrops_warehouse("raindrops_style_type");
+		$raindrops_indv_css                                 = raindrops_design_output($style_type).raindrops_color_base();
+		$raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
 
-            $option_name = $add['option_name'];
-
-            if(!isset($raindrops_theme_settings[$option_name])){
-                $raindrops_theme_settings[$option_name] = $add['option_value'];
-            }
-        }
-        $style_type                                         = raindrops_warehouse("raindrops_style_type");
-        $raindrops_indv_css                                 = raindrops_design_output($style_type).raindrops_color_base();
-        $raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
-
-        update_option('raindrops_theme_settings',$raindrops_theme_settings,"",$add['autoload']);
-
+		update_option('raindrops_theme_settings',$raindrops_theme_settings,"",$add['autoload']);
     }
 /**
  * image element has attribute 'width','height' and image size > column width
@@ -1077,9 +1323,6 @@ if(!function_exists("add_raindrops_stylesheet")){
  * IE filter
  *
  */
-
-    add_filter('the_content','raindrops_ie_height_expand_issue');
-
     function raindrops_ie_height_expand_issue($content){
         global $is_IE,$content_width;
 
@@ -1091,6 +1334,7 @@ if(!function_exists("add_raindrops_stylesheet")){
                     $content = str_replace($image[0],$image[1].$image[2].$image[6].$image[10].'>',$content);
                 }
             }
+			
             return $content;
         }else{
 
@@ -1098,8 +1342,8 @@ if(!function_exists("add_raindrops_stylesheet")){
         }
     }
 
-/**
- * Raindrops once message when install.
+/** Raindrops once message when install.
+ *
  *
  *
  *
@@ -1115,6 +1359,7 @@ if(!function_exists("add_raindrops_stylesheet")){
             $msg    = sprintf(__('Thank you for adopting the %s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.','Raindrops'),get_current_theme() ,$link);
             }
         }
+		
         return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
     }
 
@@ -1223,8 +1468,9 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
         echo $result;
         return $content;
     }
-/**
- *  Alternative character when no title
+	
+/** Alternative character when value is blank
+ * 
  *
  *
  *
@@ -1237,8 +1483,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
             return $fallback;
         }
     }
-/**
- * Article navigation
+/** Article navigation
+ *
  *
  *
  *
@@ -1246,36 +1492,38 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
  */
     function raindrops_prev_next_post($position = "nav-above"){
 
-        $raindrops_max_length     = 40;
-        $raindrops_prev_length    = $raindrops_max_length + 1;
+        $raindrops_max_length		= 40;
+        $raindrops_prev_length		= $raindrops_max_length + 1;
 
         if(!is_attachment()){
-
-            $raindrops_max_length     = 40;
-            $raindrops_prev_post_id   = get_adjacent_post(true,'',true) ;
-            $raindrops_prev_length    = strlen(get_the_title($raindrops_prev_post_id));
-            $raindrops_next_post_id   = get_adjacent_post(false,'',false) ;
-            $raindrops_next_length    = strlen(get_the_title($raindrops_next_post_id));
-
+            $raindrops_max_length	= 40;
+            $raindrops_prev_post_id	= get_adjacent_post(true,'',true) ;
+            $raindrops_prev_length	= strlen(get_the_title($raindrops_prev_post_id));
+            $raindrops_next_post_id	= get_adjacent_post(false,'',false) ;
+            $raindrops_next_length	= strlen(get_the_title($raindrops_next_post_id));
         }
-?>
-  <div id="<?php echo $position;?>" class="clearfix"> <span class="nav-previous">
-    <?php previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>'); ?>
-    </span>
-    <div class="nav-next">
-      <?php next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>'); ?>
-    </div>
-  </div>
-  <?php }
-/**
- * date.php
+
+ 		$html = '<div id="%1$s" class="%2$s"><span class="%3$s">';
+		
+		printf($html,$position,"clearfix","nav-previous");
+		previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>');
+		
+    	$html = '</span><div class="%1$s">';
+		printf($html,"nav-next");
+      	next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>');
+		
+		$html = '</div></div>';
+		
+		printf($html);
+  
+	}
+/** date.php
+ *
  *
  *
  *
  *
  */
-
-
     function raindrops_days_in_month($month, $year) {
             $daysInMonth = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
             if ($month != 2) {
@@ -1284,180 +1532,186 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
             return (checkdate($month, 29, $year)) ? 29 : 28;
     }
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
     function raindrops_get_month ($posts = '', $year = '', $this_month = '', $pad = 1) {
 
-    global $wpdb, $weekdaynames, $month;
+    	global $wpdb, $weekdaynames, $month;
 
-    // info about this month
-    $raindrops_days_in_month      = raindrops_days_in_month($this_month, $year);
-    $first_day_of_month = date('w', mktime(0, 0, 0, $this_month, '1', $year));
-    $last_day_of_month  = date('w', mktime(0, 0, 0, $this_month, $raindrops_days_in_month, $year));
+		// info about this month
+		$raindrops_days_in_month      = raindrops_days_in_month($this_month, $year);
+		$first_day_of_month = date('w', mktime(0, 0, 0, $this_month, '1', $year));
+		$last_day_of_month  = date('w', mktime(0, 0, 0, $this_month, $raindrops_days_in_month, $year));
+	
+		// what day starts the week here?
+		$start_of_week = get_option('start_of_week');
+		if (0 != $start_of_week) {
+				$end_of_week = 6 - (7 - $start_of_week);
+		} else {
+				$end_of_week = 7;
+		}
 
-    // what day starts the week here?
-    $start_of_week = get_option('start_of_week');
-    if (0 != $start_of_week) {
-            $end_of_week = 6 - (7 - $start_of_week);
-    } else {
-            $end_of_week = 7;
-    }
+		// one week here
+		for ($i = $start_of_week; $i < ($start_of_week + 7); $i++) {
+				if ($i >= 7) {
+						$one_week[] = $weekdaynames[$i - 7];
+				} else {
+	
+						$one_week[] = $weekdaynames[$i];
+				}
+		}
 
-    // one week here
-    for ($i = $start_of_week; $i < ($start_of_week + 7); $i++) {
-            if ($i >= 7) {
-                    $one_week[] = $weekdaynames[$i - 7];
-            } else {
+		// pad the beginning of the calendar with dates from last month
+		// grab any post data for those days
 
-                    $one_week[] = $weekdaynames[$i];
-            }
-    }
+		$pre_pad = 0;
+		$before = '';
+		if ($start_of_week != $first_day_of_month) {
+				if ($first_day_of_month > $start_of_week) {
+						$pre_pad = ($first_day_of_month - $start_of_week);
+				} elseif ($start_of_week > $first_day_of_month) {
+						$pre_pad = (7 - $start_of_week) + $first_day_of_month;
+				}
+		}
 
-    // pad the beginning of the calendar with dates from last month
-    // grab any post data for those days
+    	$days_in_last_month = date('t', mktime(0, 0, 0, $this_month-1, '1', $year));
 
-    $pre_pad = 0;
-    $before = '';
-    if ($start_of_week != $first_day_of_month) {
-            if ($first_day_of_month > $start_of_week) {
-                    $pre_pad = ($first_day_of_month - $start_of_week);
-            } elseif ($start_of_week > $first_day_of_month) {
-                    $pre_pad = (7 - $start_of_week) + $first_day_of_month;
-            }
-    }
+		if ( (0 != $pre_pad) && ($pad) ) {
+				$start = ($days_in_last_month - $pre_pad)+1;
+				$lastmonth = $this_month - 1;
+	
+			$old_posts = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_status = 'publish' AND post_date >
+		'$year-$lastmonth-$start 00:00:01' AND post_date < '$year-$lastmonth-$days_in_last_month 23:59:59' ORDER BY post_date");
+	
+			if ($old_posts) {
+					$last_month = array();
+					foreach ($old_posts as $post) {
+							$day = substr($post->post_date, 8, 2);
+							if (! isset($last_month[$day])) {
+									$last_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
+	title=\"$post->post_title\">$day</a>";
+							} else {
+									$last_month[$day] = "<a href=\"" . home_url() . "/$year/$lastmonth/$day\"
+	title=\"/$year/$lastmonth/$day\">$day</a>";
+							}
+					}
+			}
+		}
 
-    $days_in_last_month = date('t', mktime(0, 0, 0, $this_month-1, '1', $year));
+		for ($i = ($days_in_last_month - $pre_pad)+1; $i <= $days_in_last_month; $i++) {
+						if (! $pad) {
+								$before .= '<td> </td>';
+						} else {
+								$before .= '<td class="lastmonth">';
+								if (isset($last_month[$i])) {
+										$before .= $last_month[$i];
+								} else {
+										$before .= $i;
+								}
+								$before .= '</td>';
+						}
+		} // end if ($pad) ...
 
-    if ( (0 != $pre_pad) && ($pad) ) {
-            $start = ($days_in_last_month - $pre_pad)+1;
-            $lastmonth = $this_month - 1;
+		$the_month = array();
+	
+		// prepare an array for this month's posts, by date
+		if (! empty($posts)) {
+				foreach ($posts as $post) {
+						$day = substr($post->post_date, 8, 2);
+						if (10 > $day) {
+								$day = substr($day, 1, 1);
+						}
+						if (! isset($the_month[$day])) {
+								$the_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\" title=\"$post->post_title\">$day</a>";
+						} else {
+								$the_month[$day] = "<a href=\"" . home_url() . "/$year/$this_month/" . zeroise($day, 2) . "\"
+		title=\"$year/$this_month/" . zeroise($day, 2) . "\">$day</a>";
+						}
+				}
+		}
 
+		$daycount = $pre_pad;
+	
+		$cal = "<h2 class=\"h2\"><a href=\"".raindrops_get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"". get_month_link($year,$this_month)."\"
+		title=\"$year/$this_month\">" .
+		$month[zeroise($this_month, 2)] . "</a></h2>";
+		$cal .= '<table summary="Archives in '.$this_month.', '.$year.'"><tr>';
+	
+	
+		foreach ($one_week as $day) {
+				$cal .= "<th>$day</th>";
+		}
 
-        $old_posts = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_status = 'publish' AND post_date >
-    '$year-$lastmonth-$start 00:00:01' AND post_date < '$year-$lastmonth-$days_in_last_month 23:59:59' ORDER BY post_date");
+		$cal .= '</tr><tr>' . $before;
+		for ($i = 1; $i <= $raindrops_days_in_month; $i++) {
+				$cal .= '<td> ';
+				if (isset($the_month[$i])) {
+						$cal .=  $the_month[$i];
+				} else {
+						$cal .= $i;
+				}
+				$cal .= ' </td>';
+				$daycount++;
+				if ($daycount >= 7) {
+						$cal .= '</tr><tr>';
+						$daycount = 0;
+				}
+		}
 
+		$after = '';
+	
+		// if necessary, pad the end of the calendar with dates from next month
+		// grab any post data for those days
+		if ( ($end_of_week != $last_day_of_month) && ($pad) ) {
+				$end = (7 - $daycount);
+				$nextmonth = $this_month + 1;
+				$new_posts = $wpdb->get_results("SELECT ID, post_title, post_date FROM $wpdb->posts WHERE post_status = 'publish' AND
+		post_date > '$year-$nextmonth-01 00:00:01' AND post_date < '$year-$nextmonth-0$end 23:59:59' ORDER BY post_date");
+				if ($new_posts) {
+						if (10 > $nextmonth) {
+	
+								$nextmonth = printf("%02d", $nextmonth);
+	
+						}
+						$next_month = array();
+						foreach ($new_posts as $post) {
+								$day = substr($post->post_date, 9, 1);
+								if (! isset($next_month[$day])) {
+										$next_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
+		title=\"$post->post_title\">$day</a>";
+								} else {
+										$next_month[$day] = "<a href=\"" . home_url() . "/$year/$nextmonth/0$day\"
+		title=\"/$year/0$nextmonth/$day\">$day</a>";
+								}
+						}
+				}
+		}
 
-        if ($old_posts) {
-                $last_month = array();
-                foreach ($old_posts as $post) {
-                        $day = substr($post->post_date, 8, 2);
-                        if (! isset($last_month[$day])) {
-                                $last_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
-title=\"$post->post_title\">$day</a>";
-                        } else {
-                                $last_month[$day] = "<a href=\"" . home_url() . "/$year/$lastmonth/$day\"
-title=\"/$year/$lastmonth/$day\">$day</a>";
-                        }
-                }
-        }
-    }
-
-    for ($i = ($days_in_last_month - $pre_pad)+1; $i <= $days_in_last_month; $i++) {
-                    if (! $pad) {
-                            $before .= '<td> </td>';
-                    } else {
-                            $before .= '<td class="lastmonth">';
-                            if (isset($last_month[$i])) {
-                                    $before .= $last_month[$i];
-                            } else {
-                                    $before .= $i;
-                            }
-                            $before .= '</td>';
-                    }
-    } // end if ($pad) ...
-
-    $the_month = array();
-
-    // prepare an array for this month's posts, by date
-    if (! empty($posts)) {
-            foreach ($posts as $post) {
-                    $day = substr($post->post_date, 8, 2);
-                    if (10 > $day) {
-                            $day = substr($day, 1, 1);
-                    }
-                    if (! isset($the_month[$day])) {
-                            $the_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\" title=\"$post->post_title\">$day</a>";
-                    } else {
-                            $the_month[$day] = "<a href=\"" . home_url() . "/$year/$this_month/" . zeroise($day, 2) . "\"
-    title=\"$year/$this_month/" . zeroise($day, 2) . "\">$day</a>";
-                    }
-            }
-    }
-
-    $daycount = $pre_pad;
-
-    $cal = "<h2 class=\"h2\"><a href=\"".raindrops_get_year_link($year)."\" title=\"$year\">$year</a> <a href=\"". get_month_link($year,$this_month)."\"
-    title=\"$year/$this_month\">" .
-    $month[zeroise($this_month, 2)] . "</a></h2>";
-    $cal .= '<table summary="Archives in '.$this_month.', '.$year.'"><tr>';
-
-
-    foreach ($one_week as $day) {
-            $cal .= "<th>$day</th>";
-    }
-
-    $cal .= '</tr><tr>' . $before;
-    for ($i = 1; $i <= $raindrops_days_in_month; $i++) {
-            $cal .= '<td> ';
-            if (isset($the_month[$i])) {
-                    $cal .=  $the_month[$i];
-            } else {
-                    $cal .= $i;
-            }
-            $cal .= ' </td>';
-            $daycount++;
-            if ($daycount >= 7) {
-                    $cal .= '</tr><tr>';
-                    $daycount = 0;
-            }
-    }
-
-    $after = '';
-
-    // if necessary, pad the end of the calendar with dates from next month
-    // grab any post data for those days
-    if ( ($end_of_week != $last_day_of_month) && ($pad) ) {
-            $end = (7 - $daycount);
-            $nextmonth = $this_month + 1;
-            $new_posts = $wpdb->get_results("SELECT ID, post_title, post_date FROM $wpdb->posts WHERE post_status = 'publish' AND
-    post_date > '$year-$nextmonth-01 00:00:01' AND post_date < '$year-$nextmonth-0$end 23:59:59' ORDER BY post_date");
-            if ($new_posts) {
-                    if (10 > $nextmonth) {
-
-                            $nextmonth = printf("%02d", $nextmonth);
-
-                    }
-                    $next_month = array();
-                    foreach ($new_posts as $post) {
-                            $day = substr($post->post_date, 9, 1);
-                            if (! isset($next_month[$day])) {
-                                    $next_month[$day] = "<a href=\"" . get_permalink($post->ID) . "\"
-    title=\"$post->post_title\">$day</a>";
-                            } else {
-                                    $next_month[$day] = "<a href=\"" . home_url() . "/$year/$nextmonth/0$day\"
-    title=\"/$year/0$nextmonth/$day\">$day</a>";
-                            }
-                    }
-            }
-    }
-
-    for ($i = 1; $i <= (7 - $daycount); $i++) {
-            if (! $pad) {
-                    $after .= '<td> </td>';
-            } else {
-                    $after .= '<td class="lastmonth">';
-                    if (isset($next_month[$i])) {
-                            $after .= $next_month[$i];
-                    } else {
-                            $after .= $i;
-                    }
-                    $after .= '</td>';
-            }
-    } // end if ($pad) ...
+		for ($i = 1; $i <= (7 - $daycount); $i++) {
+				if (! $pad) {
+						$after .= '<td> </td>';
+				} else {
+						$after .= '<td class="lastmonth">';
+						if (isset($next_month[$i])) {
+								$after .= $next_month[$i];
+						} else {
+								$after .= $i;
+						}
+						$after .= '</td>';
+				}
+		} // end if ($pad) ...
         $cal .= $after;
         $cal .= '</tr></table>';
-    return $cal;
+		
+    	return $cal;
     }
 /*end raindrops_get_month()*/
-
 
 /**
  * for date.php
@@ -1510,8 +1764,8 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 /* end raindrops_get_year()*/
 
-/**
- * for date.php
+/** for date.php
+ *
  *
  *
  *
@@ -1596,21 +1850,21 @@ title=\"/$year/$lastmonth/$day\">$day</a>";
     }
 
 
-/**
- * sort month_list
+/** sort month_list
+ *
  *
  *
  *
  *
  */
 
-function raindrops_cmp_ids( $a , $b){
-  $cmp = strcmp( $a->post_date , $b->post_date );
-  return $cmp;
-}
+	function raindrops_cmp_ids( $a , $b){
+	  $cmp = strcmp( $a->post_date , $b->post_date );
+	  return $cmp;
+	}
 
-/**
- * for date.php
+/** for date.php
+ *
  *
  *
  *
@@ -1679,117 +1933,110 @@ if(!function_exists("month_list")){
  *
  */
 if(!function_exists("raindrops_loop_title")){
-function raindrops_loop_title(){
-
-/**
- * ardhive title
- *
- * loo.php
- *
- *
- */
-    $Raindrops_class_name = "";
-    $page_title = "";
-    if(is_search()){
-        $Raindrops_class_name = 'serch-result';
-        $page_title = __("Search Results",'Raindrops');
-        $page_title_c = get_search_query();
-    }elseif(is_tag()){
-        $Raindrops_class_name = 'tag-archives';
-        $page_title = __("Tag Archives",'Raindrops');
-        $page_title_c = single_term_title("", false);
-    }elseif(is_category()){
-        $Raindrops_class_name = 'category-archives';
-        $page_title = __("Category Archives",'Raindrops');
-        $page_title_c = single_cat_title('', false);
-    }elseif (is_archive()){
-
-         $raindrops_date_format = get_option('date_format');
-
-        if (is_day()){
-            $Raindrops_class_name = 'dayly-archives';
-            $page_title = __('Daily Archives', 'Raindrops');
-            $page_title_c = get_the_date(get_option($raindrops_date_format));
-        }elseif (is_month()){
-            $Raindrops_class_name = 'monthly-archives';
-            $page_title = __('Monthly Archives', 'Raindrops');
-            if(get_locale() == 'ja'){
-                $page_title_c = get_the_date('Y / F');
-            }else{
-                $page_title_c = get_the_date('F Y');
-            }
-        }elseif (is_year()){
-            $Raindrops_class_name = 'yearly-archives';
-            $page_title = __('Yearly Archives', 'Raindrops');
-            $page_title_c = get_the_date('Y');
-        }elseif (is_author()){
-            $Raindrops_class_name = 'author-archives';
-            $page_title =   __("Author Archives",'Raindrops');
-
-            while (have_posts()){ the_post();
-                $page_title_c = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'Raindrops_author_bio_avatar_size', 32 ) ).' '.get_the_author();
-                break;
-            }
-            rewind_posts();
-        }else{
-            $Raindrops_class_name = 'blog-archives';
-            $page_title = __("Blog Archives",'Raindrops');
-        }
-    }
-
-echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
-
-    if(!empty($page_title)){
-        printf('<li><strong class="f16" id="archives-title">%s <span>%s</span></strong></li>',
-                $page_title,
-                $page_title_c
-        );
-    }
-
+	function raindrops_loop_title(){
+		$Raindrops_class_name = "";
+		$page_title = "";
+		if(is_search()){
+			$Raindrops_class_name = 'serch-result';
+			$page_title = __("Search Results",'Raindrops');
+			$page_title_c = get_search_query();
+		}elseif(is_tag()){
+			$Raindrops_class_name = 'tag-archives';
+			$page_title = __("Tag Archives",'Raindrops');
+			$page_title_c = single_term_title("", false);
+		}elseif(is_category()){
+			$Raindrops_class_name = 'category-archives';
+			$page_title = __("Category Archives",'Raindrops');
+			$page_title_c = single_cat_title('', false);
+		}elseif (is_archive()){
+	
+			 $raindrops_date_format = get_option('date_format');
+	
+			if (is_day()){
+				$Raindrops_class_name = 'dayly-archives';
+				$page_title = __('Daily Archives', 'Raindrops');
+				$page_title_c = get_the_date(get_option($raindrops_date_format));
+			}elseif (is_month()){
+				$Raindrops_class_name = 'monthly-archives';
+				$page_title = __('Monthly Archives', 'Raindrops');
+				if(get_locale() == 'ja'){
+					$page_title_c = get_the_date('Y / F');
+				}else{
+					$page_title_c = get_the_date('F Y');
+				}
+			}elseif (is_year()){
+				$Raindrops_class_name = 'yearly-archives';
+				$page_title = __('Yearly Archives', 'Raindrops');
+				$page_title_c = get_the_date('Y');
+			}elseif (is_author()){
+				$Raindrops_class_name = 'author-archives';
+				$page_title =   __("Author Archives",'Raindrops');
+	
+				while (have_posts()){ the_post();
+					$page_title_c = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'Raindrops_author_bio_avatar_size', 32 ) ).' '.get_the_author();
+					break;
+				}
+				rewind_posts();
+			}else{
+				$Raindrops_class_name = 'blog-archives';
+				$page_title = __("Blog Archives",'Raindrops');
+			}
+		}
+	
+	echo '<ul class="index '.esc_attr($Raindrops_class_name).'">';
+	
+		if(!empty($page_title)){
+			printf('<li><strong class="f16" id="archives-title">%s <span>%s</span></strong></li>',
+					$page_title,
+					$page_title_c
+			);
+		}
+	
+	}
 }
-}
-/**
- * yui helper function
+/** yui helper function
+ *
  *
  *
  *
  *
  */
-
-function raindrops_yui_class_modify($raindrops_inner_class = 'yui-ge'){
-    global $yui_inner_layout;
-
-    if(isset($yui_inner_layout)){
-        $raindrops_inner_class = $yui_inner_layout;
-    }
-    return $raindrops_inner_class;
-}
-
-function is_2col_raindrops($action = true,$echo = true){
-
-    if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
-
-        if($echo == true){
-            echo $action;
-        }else{
-            return $action;
-        }
-
-    }else{
-        return false;
-    }
-
-
-}
-
+	function raindrops_yui_class_modify($raindrops_inner_class = 'yui-ge'){
+		global $yui_inner_layout;
+	
+		if(isset($yui_inner_layout)){
+			$raindrops_inner_class = $yui_inner_layout;
+		}
+		return $raindrops_inner_class;
+	}
 /**
- * yui layout curc
+ *
  *
  *
  *
  *
  */
-
+	function is_2col_raindrops($action = true,$echo = true){
+	
+		if(raindrops_warehouse('raindrops_show_right_sidebar') == 'hide'){
+	
+			if($echo == true){
+				echo $action;
+			}else{
+				return $action;
+			}
+	
+		}else{
+			return false;
+		}
+	}
+/** yui layout curc
+ *
+ *
+ *
+ *
+ *
+ */
     function raindrops_main_width(){
 
         $adjust                 = 16;
@@ -1869,18 +2116,15 @@ function is_2col_raindrops($action = true,$echo = true){
                     $raindrops_content_width = $default;
                 }
             }
-
             return $raindrops_content_width;
     }
-
-/**
- * content width curc
+/** content width curc
+ *
  *
  *
  *
  *
  */
-
     function raindrops_content_width(){
         global $raindrops_page_width;
         $adjust                 = 16;
@@ -1907,10 +2151,7 @@ function is_2col_raindrops($action = true,$echo = true){
             }else{
                 $raindrops_content_width = $default;
             }
-
-
         }else{
-
             if($document_width == 'doc'){
                 $w = 750;
                 $adjust = 16;
@@ -2014,9 +2255,8 @@ function is_2col_raindrops($action = true,$echo = true){
  *
  */
 if(!function_exists("raindrops_w3standard")){
-function raindrops_w3standard(){
-
-$style =<<<DOC
+	function raindrops_w3standard(){
+		$style =<<<DOC
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 %c5%
 %h2_w3standard_background%
@@ -2204,11 +2444,11 @@ border-left:solid 1px %c_border%;
 }
 DOC;
 return $style;
-}
+	}
 }
 
-/**
- * plugin API
+/** plugin API
+ *
  *
  *
  *
@@ -2245,8 +2485,6 @@ return $style;
             }
         }
     }
-
-
 /** Custom Image Header for Raindrops theme
  *
  *
@@ -2254,12 +2492,8 @@ return $style;
  *
  *
  */
-
-
-
 if ( ! function_exists( 'raindrops_header_style' ) ){
     function raindrops_header_style(){
-
         ?>
 
         <?php
@@ -2275,52 +2509,48 @@ if ( ! function_exists( 'raindrops_admin_header_style' ) ){
         $color              = get_background_color();
         $text_color         = get_header_textcolor();
         $page_width         = raindrops_warehouse('raindrops_page_width');
+		
         switch($page_width){
-
-        case("doc"):
-            $custom_header_width = '750px';
-        break;
-        case("doc2"):
-            $custom_header_width = '950px';
-        break;
-        case("doc3"):
-            $custom_header_width = '974px';
-        break;
-        case("doc4"):
-            $custom_header_width = '100%';
-        break;
-
+			case("doc"):
+				$custom_header_width = '750px';
+			break;
+			case("doc2"):
+				$custom_header_width = '950px';
+			break;
+			case("doc3"):
+				$custom_header_width = '974px';
+			break;
+			case("doc4"):
+				$custom_header_width = '100%';
+			break;
         }
 
         if(!empty($background) or !empty($color)){
             $css = preg_replace("|body[^{]*{[^}]+}|","",$css);
-       }
-       $css_result = "";
-       $csses = explode("\n",$css);
-       foreach($csses as $k=>$v){
-
-       if(preg_match('!^.+(,|{)!si',$v,$regs)){
-        $css_result .= '#headimg '.$regs[0]."\n";
-       }else{
-        $css_result .= $v."\n";
-       }
-
-       }
-       $css_result = str_replace(array('#headimg body','a:hover'),array('#headimg','a'),$css_result);
-    ?>
+		}
+		$css_result = "";
+		$csses = explode("\n",$css);
+		
+		foreach($csses as $k=>$v){
+		   if(preg_match('!^.+(,|{)!si',$v,$regs)){
+			$css_result .= '#headimg '.$regs[0]."\n";
+		   }else{
+			$css_result .= $v."\n";
+		   }
+		}
+		$css_result = str_replace(array('#headimg body','a:hover'),array('#headimg','a'),$css_result);
+?>
         <style type="text/css">
 a:hover{color:none;}
 #headimg{
 width:<?php echo $custom_header_width;?>!important;
 position:relative;
-
 }
 
 #headimg #hd {
     overflow:hidden;
     padding:.5em 1em;
     min-height:5em;
-
 }
 #headimg #hd h1,
 #headimg #hd h1 a,
@@ -2333,7 +2563,6 @@ position:relative;
 #headimg #hd #site-title{
     display:inline-block!important;
     max-width:74%;
-
 }
 #headimg #hd #site-title a{
     color:#<?php echo $text_color;?>!important;}
@@ -2350,14 +2579,12 @@ position:relative;
     overflow:hidden;
     margin:.5em 0;
     font-family:"Times New Roman", Times, serif;
-
 }
 #headimg #site-description {
     position:absolute;
     top:10px;
     right:10px;
 }
-
 #headimg #access {
     display: block;
     float: left;
@@ -2391,8 +2618,6 @@ position:relative;
     text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
     /*filter:progid:DXImageTransform.Microsoft.Glow(Color=white,Strength=2);*/
 }
-
-
 #headimg #site-description {
     text-align:right;
 }
@@ -2427,7 +2652,6 @@ position:relative;
 #headimg #access{
     -webkit-text-size-adjust: 120%;
 }
-
 <?php echo $css_result;?>
 
  a, a:hover{
@@ -2449,66 +2673,62 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 
     function raindrops_admin_header_image(){
         $raindrops_header_image = get_header_image();
-    get_bloginfo( 'name' );
+    	/*get_bloginfo( 'name' );*/
+		$raindrops_header_style = 'style="color:#'.get_theme_mod( 'header_textcolor' ).'"';
 
-    $raindrops_header_style = 'style="color:#'.get_theme_mod( 'header_textcolor' ).'"';
+		$html ='<div id="%1$s"><div id="%2$s">';
+		
+		printf($html,'headimg','top');
 
+		$uploads 			= wp_upload_dir();
+		$header_image_uri 	= $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
 
+  		$html = '<div id="%1$s" style="%2$s">';
+		
+		printf($html,'hd',raindrops_upload_image_parser($header_image_uri,'inline','#hd'));
 
-?>
-<div id="headimg">
-    <div id="top">
-<?php
-$uploads = wp_upload_dir();
-$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
-?>
-  <div id="hd" style="<?php echo raindrops_upload_image_parser($header_image_uri,'inline','#hd'); ?>">
-<?php
-
-/**
- * Site description display position
+/** Site description display position
+ *
  *
  * Site description diaplay at image when if header text Display Text value is yes.
  * Site description diaplay at header bar when if header text Display Text value is no.
  *
  *
  */
-
-    if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-        $raindrops_pge_header = '';
-        $style = ' style="display:none;"';
-    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
-        $style = ' style="color:#' . get_header_textcolor() . ';"';
-        $raindrops_pge_header = ' style="display:none;"';
-    }else{
-        $style = '';
-        $raindrops_pge_header = ' style="display:none;"';
-
-    }
-/**
- * Conditional Switch html headding element
+		if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+			$raindrops_pge_header = '';
+			$style = ' style="display:none;"';
+		}elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
+			$style = ' style="color:#' . get_header_textcolor() . ';"';
+			$raindrops_pge_header = ' style="display:none;"';
+		}else{
+			$style = '';
+			$raindrops_pge_header = ' style="display:none;"';
+	
+		}
+/** Conditional Switch html headding element
+ *
  *
  *
  *
  *
  */
-    if( is_home() or is_front_page() ){
-        $heading_elememt = 'h1';
-    }else{
-        $heading_elememt = 'div';
-    }
-    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s">%s</a></span></%s>';
-
-    printf(
-        $title_format,
-        $heading_elememt,
-        home_url(),
-        esc_attr(get_bloginfo( 'name', 'display' )),
-        "home",
-        get_bloginfo( 'name', 'display' ),
-        $heading_elememt
-        );
-
+		if( is_home() or is_front_page() ){
+			$heading_elememt = 'h1';
+		}else{
+			$heading_elememt = 'div';
+		}
+		$title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s">%s</a></span></%s>';
+	
+		printf(
+			$title_format,
+			$heading_elememt,
+			home_url(),
+			esc_attr(get_bloginfo( 'name', 'display' )),
+			"home",
+			get_bloginfo( 'name', 'display' ),
+			$heading_elememt
+		);
 /**
  * Site description diaplay at header bar when if header text Display Text value is no.
  *
@@ -2516,37 +2736,38 @@ $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_im
  *
  *
  */
-    $raindrops_site_desctiption_html = '<div id="site-description" %s>%s</div>';
+    	$raindrops_site_desctiption_html = '<div id="site-description" %s>%s</div></div>';
 
-    printf(
-        $raindrops_site_desctiption_html,
-        $raindrops_pge_header,
-        get_bloginfo( 'description' )
-        );
-
-?>
-</div>
-<?php
-/**
- * header image
+		printf(
+			$raindrops_site_desctiption_html,
+			$raindrops_pge_header,
+			get_bloginfo( 'description' )
+		);
+/** header image
+ *
  *
  *
  *
  *
  */
-$raindrops_header_image = get_header_image();
-if( !empty($raindrops_header_image)){
-?>
-<div id="header-image" style="background-image:url(<?php echo $raindrops_header_image; ?>);height:<?php echo HEADER_IMAGE_HEIGHT;?>px;color:#<?php echo HEADER_TEXTCOLOR;?>;"><p <?php echo $style;?>><?php bloginfo( 'description' ); ?></p></div>
-<?php
-}
-?>
-<br class="clear" />
-<div>
-    <?php
+		$raindrops_header_image = get_header_image();
+		if( !empty($raindrops_header_image)){
+			$html = '<div id="%1$s" style="%2$s"><p %3$s>%4$s</p></div><br class="%5$s" /><div>';
+			
+			printf($html,
+				"header-image",
+				'background-image:url('.
+					$raindrops_header_image.
+					');height:'.HEADER_IMAGE_HEIGHT.
+					'px;color:#'.HEADER_TEXTCOLOR.
+					';', 
+				$style, 
+				get_bloginfo( 'description' ),
+				"clear"
+			);
+		}
     }
 }
-
 /** Empty title fallback
  *
  *
@@ -2554,20 +2775,15 @@ if( !empty($raindrops_header_image)){
  * @subpackage Raindrops
  * @since Raindrops 0.923
  */
-
-add_filter('the_title','raindrops_fallback_title');
-
     function raindrops_fallback_title($title,$display = 'hide'){
-    if(!is_admin()){
-        if(empty($title)){
-            $image_uri = get_stylesheet_directory_uri().'/images/link.png';
-            $html = '<img src="%1$s" alt="no title entry link" /><span class="%4$s">%2$s posted on %3$s</span>';
-            $raindrops_date_format = get_option('date_format');
-            return sprintf($html,$image_uri,__("This entry has no title",'Raindrops'),get_the_time($raindrops_date_format),$display);
-        }
-    }
-
+		if(!is_admin()){
+			if(empty($title)){
+				$image_uri = get_stylesheet_directory_uri().'/images/link.png';
+				$html = '<img src="%1$s" alt="no title entry link" /><span class="%4$s">%2$s posted on %3$s</span>';
+				$raindrops_date_format = get_option('date_format');
+				return sprintf($html,$image_uri,__("This entry has no title",'Raindrops'),get_the_time($raindrops_date_format),$display);
+			}
+		}
         return $title;
     }
-get_template_part('lib/shortcodes');
 ?>

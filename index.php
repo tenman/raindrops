@@ -1,15 +1,15 @@
 <?php
 /**
-* The xhtml1.0 transitional header for our theme.
+* Template for display index page.
 *
 *
 * @package WordPress
 * @subpackage Raindrops
 * @since Raindrops 0.1
 */
-get_header("xhtml1"); ?>
+get_header("xhtml1");
+?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
-
 <div id="yui-main">
   <div class="yui-b">
     <?php

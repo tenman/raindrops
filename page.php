@@ -1,6 +1,6 @@
 <?php
 /**
- * pages for our theme.
+ * Template for display page
  *
  *
  * @package WordPress

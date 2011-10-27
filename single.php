@@ -1,8 +1,7 @@
 <?php
 /**
- * The xhtml1.0 transitional header for our theme.
+ * Template for single post.
  *
- * Displays all of the <head> section and everything up till <div id="bd">
  *
  * @package WordPress
  * @subpackage Raindrops
@@ -36,37 +35,37 @@ get_header("xhtml1"); ?>
 
     $thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
 
-    if(has_post_thumbnail() and isset($thumb) and $is_IE){	
-	/*IE8 img element has width height attribute. and style max-width and height auto makes conflict expand height*/	
-			$thumbnailsrc 		= wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail');
-			$thumbnailuri		= esc_url($thumbnailsrc[0]);
-			$thumbnailwidth		= $thumbnailsrc[1];
+    if(has_post_thumbnail() and isset($thumb) and $is_IE){
+    /*IE8 img element has width height attribute. and style max-width and height auto makes conflict expand height*/
+            $thumbnailsrc       = wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail');
+            $thumbnailuri       = esc_url($thumbnailsrc[0]);
+            $thumbnailwidth     = $thumbnailsrc[1];
 
-			
-		if($thumbnailwidth > $content_width){ 
-			$thumbnailheight	= $thumbnailsrc[2];
-			$ratio 				= round(RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT/ RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH,2);
-			$ie_height			= round($content_width * $ratio);
-	
-			$thumbnail_title    = basename($thumbnailsrc[0]);
-			$thumbnail_title    = esc_attr($thumbnail_title);
-			$size_attribute 	= image_hwstring($content_width, $ie_height);
 
-			echo '<div class="single-post-thumbnail">';
-			echo '<img src="'.$thumbnailuri.'" '.$size_attribute.'" alt="'.$thumbnail_title.'" style="max-width:100%;" />';
-			echo '</div>';
+        if($thumbnailwidth > $content_width){
+            $thumbnailheight    = $thumbnailsrc[2];
+            $ratio              = round(RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT/ RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH,2);
+            $ie_height          = round($content_width * $ratio);
 
-		}else{
+            $thumbnail_title    = basename($thumbnailsrc[0]);
+            $thumbnail_title    = esc_attr($thumbnail_title);
+            $size_attribute     = image_hwstring($content_width, $ie_height);
+
+            echo '<div class="single-post-thumbnail">';
+            echo '<img src="'.$thumbnailuri.'" '.$size_attribute.'" alt="'.$thumbnail_title.'" style="max-width:100%;" />';
+            echo '</div>';
+
+        }else{
             echo '<div class="single-post-thumbnail">';
             echo $thumb;
             echo '</div>';
-		}
+        }
 
     }else{
             echo '<div class="single-post-thumbnail">';
             echo $thumb;
             echo '</div>';
-	}
+    }
 
     switch($cat){
 

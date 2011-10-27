@@ -1,15 +1,14 @@
 <?php
 /**
- * create individual stylesheet
- *
+ * Create individual stylesheet
  *
  * @package WordPress
  * @subpackage Raindrops
  * @since Raindrops 0.1
  */
-?>
-<?php
-/** Style Settings INDEX
+
+/**
+ * INDEX
  *
  * w3standard
  * dark
@@ -19,7 +18,7 @@
  */
 
 /**
- * dark
+ * Color type dark
  *
  *
  *
@@ -110,7 +109,7 @@ background:inherit;
 }
 
 #hd{
-background-image:url(%images_path%%raindrops_header_image%);
+background-image:url(%raindrops_images_path%%raindrops_header_image%);
 }
 
 #header-image{
@@ -136,14 +135,14 @@ color:%raindrops_header_color%;
 }
 /*
 ol.commentlist :hover{
-background:url(%images_path%latestbck.gif) repeat-x;
+background:url(%raindrops_images_path%latestbck.gif) repeat-x;
 }*/
 ol.tblist li{
-background:transparent url(%images_path%c.gif) 0 2px no-repeat;
+background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;
 }
 #ft{
 border-top: medium solid %c_border%;
-background:url(%images_path%%raindrops_footer_image%) repeat-x;
+background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
 color:%raindrops_footer_color%;
 }
 #ft #wp-calendar{
@@ -481,6 +480,11 @@ border-left:solid 6px %rgba_border%;
 #header-image p{
 text-shadow: 2px 2px 2px #000;
 }
+.raindrops-tab-content,
+.raindrops-tab-list li{
+border:1px solid rgba(200,200,200,0.3);
+
+}
 
 CSS3;
 return $style.$css3;
@@ -516,13 +520,13 @@ body {
     color:%raindrops_header_color%;
 }
 #hd{
-    background-image:url(%images_path%%raindrops_header_image%);
+    background-image:url(%raindrops_images_path%%raindrops_header_image%);
 }
 .hfeed{
     background:#fff;
 }
 #ft {
-    background:url(%images_path%%raindrops_footer_image%) repeat-x;
+    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
     color:%raindrops_footer_color%;
 }
 
@@ -709,6 +713,12 @@ border-left:solid 1px %c_border%;
 .rd-page-navigation .current_page_item{
 %c4%
 }
+.raindrops-tab-content,
+.raindrops-tab-list li{
+border:1px solid %c_border%;
+
+}
+
 DOC;
 return $style;
 }
@@ -717,7 +727,7 @@ return $style;
 <?php
 
 /**
- * light
+ * Color type light
  *
  *
  *
@@ -782,7 +792,7 @@ h2,h3{
 #hd{
    color:#000;
 
-    background:#fff url(%images_path%%raindrops_header_image%);
+    background:#fff url(%raindrops_images_path%%raindrops_header_image%);
 
 }
 #hd h1,.h1,#site-title{
@@ -822,14 +832,14 @@ ul.nav li a:hover,ul.nav li a:active{
     %c5%
 }
 /*
-ol.commentlist :hover{background:url(%images_path%latestbck.gif) repeat-x;}
+ol.commentlist :hover{background:url(%raindrops_images_path%latestbck.gif) repeat-x;}
 ol.commentlist li :hover{background:none;}*/
-ol.tblist li{background:transparent url(%images_path%c.gif) 0 2px no-repeat;}
+ol.tblist li{background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;}
 
 #ft{
     %c3%
     border-top: medium solid %c_border%;
-    background:url(%images_path%%raindrops_footer_image%) repeat-x;
+    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
     color:%raindrops_footer_color%;
 }
 
@@ -1068,7 +1078,10 @@ border-left:solid 1px %c_border%;
 .rd-page-navigation .current_page_item{
 %c5%
 }
-
+.raindrops-tab-content,
+.raindrops-tab-list li{
+border:1px solid %c_border%;
+}
 DOC;
 
 
@@ -1239,6 +1252,11 @@ table,
 table td{
     border:1px solid %rgba_border%;
 }
+.raindrops-tab-content,
+.raindrops-tab-list li{
+border:1px solid %c_border%;
+    border:1px solid %rgba_border%;
+}
 
 CSS3;
 return $style.$css3;
@@ -1247,7 +1265,7 @@ return $style.$css3;
 <?php
 /////////////////////////////////////////////////
 /**
- * minimal
+ * Color type minimal
  *
  *
  *
@@ -1256,17 +1274,106 @@ return $style.$css3;
 raindrops_register_styles("minimal");
 
 function raindrops_indv_css_minimal(){
+global $raindrops_base_color;
+    $font_color = raindrops_colors(5,"color");
+    $gradient_4d = raindrops_gradient_single_clone(4,"desc");
+    $gradient_3a = raindrops_gradient_single_clone(3,"asc");
 
 $style =<<<DOC
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
 
 #access ul ul.children a{
-background:#fff;
+    background:#fff;
 }
-#access .children li{
+.searchform{
+    padding-top:3px;
+    padding-bottom:3px;
 }
 a{
- text-decoration:underline;
- }
+
+    text-decoration:underline;
+}
+.sticky a,
+address a,
+.nav-previous a,
+#doc,#doc2,#doc3,#doc4{
+background:$raindrops_base_color;
+}
+#ft,
+#top{
+    $gradient_4d
+
+    $footer_image
+}
+/*navigation*/
+
+
+#access{
+    background:#000;
+    color:#eef;
+}
+#access a{
+    color:#fff;
+}
+#nav-below,
+.entry-meta-default,
+.posted-on,
+div.entry-content{
+margin:10px;
+}
+.lsidebar,.rsidebar{
+display:none!important;
+}
+.lsidebar > ul,.rsidebar > ul{
+
+margin-top:5px;
+}
+.raindrops-tab-list li{
+$gradient_4d
+}
+.raindrops-tab-content{
+$gradient_4d
+}
+li.widget{
+margin-bottom:10px!important;
+$gradient_4d
+border:1px solid #ccc;
+}
+/*entry*/
+
+.hentry{
+    border:1px solid #ccc;
+    $gradient_4d
+}
+.single-post .hentry{
+    border:none;
+}
+
+/* titles */
+.entry-title{
+margin:0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    $gradient_3a
+    text-indent:1em;
+}
+
+.single-post .hentry h2,
+.single-post .hentry{
+}
+
+.widget h2{
+    margin-top:0;
+
+}
+.sticky .entry-title{
+background:none;
+}
+/*comments*/
+h2#comments-title,
+.hentry div#comments{
+    background:#fff;
+}
+
 a,
 #yui-main{
     color:%raindrops_header_color%;
@@ -1295,15 +1402,6 @@ cite{
 cite a:link,cite a:active,cite a:visited,cite a:hover{
 %c5%
 background:none!important;
-}
-.home .sticky {
-%c4%
-border-top:solid 6px %c_border%;
-border-bottom:solid 2px %c_border%;
-}
-.sticky a{
-%c4%
-
 }
 li.byuser,
 li.bypostauthor {
@@ -1336,8 +1434,25 @@ border-left:solid 1px %c_border%;
 .rd-page-navigation .current_page_item{
 %c5%
 }
+.raindrops-tab-content,
+.raindrops-tab-list li{
+border:1px solid %c_border%;
+}
+.raindrops-tab-list li{
+
+border-bottom:none;
+}
+.raindrops-tab-list li a{
+$gradient_4d
+color:#000;
+}
 DOC;
 
+$style=<<<CSSB
+a{color:#333;}
+a:hover{color:#777;}
+#hd #header-image{display:none;}
+CSSB;
 
 $css3 =<<<CSS3
 
@@ -1351,16 +1466,20 @@ $css3 =<<<CSS3
 #month_list td,
 #datelist,
 #date_list td{
-border:1px solid %rgba_border%!important;
+    border:1px solid %rgba_border%!important;
 }
 .home .sticky {
-border-top:solid 6px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
+    border-top:solid 6px %rgba_border%;
+    border-bottom:solid 2px %rgba_border%;
 }
 .datetable td li,
 th,
 td{
-border-bottom:solid 1px %rgba_border%;
+    border-bottom:solid 1px %rgba_border%;
+}
+.raindrops-tab-content,
+.raindrops-tab-list li{
+    border:1px solid %rgba_border%;
 }
 CSS3;
 
@@ -1369,18 +1488,22 @@ return $style;
 ?>
 <?php
     if(!defined('ABSPATH')){exit;}
+    $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
+    if(!in_array($alias_functions,$included_files)){
+         get_template_part('lib/alias_functions');
+    }
     $embed_common_style = get_current_theme();
     raindrops_register_styles($embed_common_style);
-    $images_path            = get_stylesheet_directory_uri().'/images/';
-    $count                  = raindrops_warehouse('raindrops_base_color');
-    $style_type             = raindrops_warehouse('raindrops_style_type');
-    $navigation_title_img   = raindrops_warehouse('raindrops_heading_image');
-    $position_y             = raindrops_warehouse('raindrops_heading_image_position');
-    $raindrops_header_image       = raindrops_warehouse('raindrops_header_image');
-    $raindrops_header_color       = raindrops_warehouse('raindrops_default_fonts_color');
-    $raindrops_footer_image       = raindrops_warehouse('raindrops_footer_image');
-    $raindrops_footer_color       = raindrops_warehouse('raindrops_footer_color');
-    define("BASE_COLOR1",$count);
+    $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';
+    $raindrops_base_color                  = raindrops_warehouse_clone('raindrops_base_color');
+    $style_type             = raindrops_warehouse_clone('raindrops_style_type');
+    $navigation_title_img   = raindrops_warehouse_clone('raindrops_heading_image');
+    $position_y             = raindrops_warehouse_clone('raindrops_heading_image_position');
+    $raindrops_header_image       = raindrops_warehouse_clone('raindrops_header_image');
+    $raindrops_header_color       = raindrops_warehouse_clone('raindrops_default_fonts_color');
+    $raindrops_footer_image       = raindrops_warehouse_clone('raindrops_footer_image');
+    $raindrops_footer_color       = raindrops_warehouse_clone('raindrops_footer_color');
+    define("BASE_COLOR1",$raindrops_base_color);
 /**
  * save stylesheet
  *
@@ -1388,7 +1511,7 @@ return $style;
     $raindrops_indv_css     = raindrops_design_output($style_type).raindrops_color_base();
     $raindrops_options      = get_option("raindrops_theme_settings");
         // if not handmade css. theme name style type is handmade
-if(raindrops_warehouse("raindrops_style_type") !== get_current_theme() ){
+if(raindrops_warehouse_clone("raindrops_style_type") !== get_current_theme() ){
     if(is_array($raindrops_options)){
 
             if(array_key_exists('_raindrops_indv_css',$raindrops_options)){
@@ -1412,7 +1535,7 @@ if(raindrops_warehouse("raindrops_style_type") !== get_current_theme() ){
  *
  */
     function raindrops_colors($num = 0, $select = 'set',$color1 = null){
-        global $images_path;
+        global $raindrops_images_path;
         if($color1 == null){
             $color1 = str_replace('#',"",BASE_COLOR1);
         }else{
@@ -1493,8 +1616,17 @@ if(raindrops_warehouse("raindrops_style_type") !== get_current_theme() ){
             break;
         }
     }
+
+/**
+ * Create gradient style
+ *
+ *
+ *
+ *
+ */
+
 function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc'){
-        global $images_path;
+        global $raindrops_images_path;
         if($color == null){
             $color = str_replace('#',"",BASE_COLOR1);
         }else{
@@ -1540,7 +1672,7 @@ function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc')
  *
  */
     function raindrops_color_base($color1=null,$color2=null){
-    global $images_path;
+    global $raindrops_images_path;
     if($color1 == null){
         $color1 = str_replace('#',"",BASE_COLOR1);
     }else{
@@ -1691,13 +1823,13 @@ CSS;
  */
     function raindrops_design_output($name = 'dark'){
 
-        $images_path            = get_stylesheet_directory_uri().'/images/';
-        $navigation_title_img   = raindrops_warehouse('raindrops_heading_image');
-        $raindrops_header_image       = raindrops_warehouse('raindrops_header_image');
-        $raindrops_header_color       = raindrops_warehouse('raindrops_default_fonts_color');
-		
-        $raindrops_footer_image       = raindrops_warehouse('raindrops_footer_image');
-        $raindrops_footer_color       = raindrops_warehouse('raindrops_footer_color');
+        $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';
+        $navigation_title_img   = raindrops_warehouse_clone('raindrops_heading_image');
+        $raindrops_header_image       = raindrops_warehouse_clone('raindrops_header_image');
+        $raindrops_header_color       = raindrops_warehouse_clone('raindrops_default_fonts_color');
+
+        $raindrops_footer_image       = raindrops_warehouse_clone('raindrops_footer_image');
+        $raindrops_footer_color       = raindrops_warehouse_clone('raindrops_footer_color');
 
         if(empty($name)){ $name = 'dark';}
 
@@ -1720,7 +1852,7 @@ CSS;
         $c_4 = raindrops_colors(-4);
         $c_5 = raindrops_colors(-5);
 
-        $position_y = raindrops_warehouse('raindrops_heading_image_position');
+        $position_y = raindrops_warehouse_clone('raindrops_heading_image_position');
         $y = $position_y * 26;
         $y = '-'.$y.'px';
         switch( $position_y ){
@@ -1753,13 +1885,13 @@ CSS;
             break;
         }
             $h2_w3standard_background = "background:".raindrops_colors(5,'background').' ';
-            $h2_w3standard_background .= "url({$images_path}{$navigation_title_img});";
+            $h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
             $h2_w3standard_background .= "color:".raindrops_colors(4,'color').';';
             $h2_dark_background = "background:".raindrops_colors(-3,'background').' ';
-            $h2_dark_background .= "url({$images_path}{$navigation_title_img});";
+            $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
             $h2_dark_background .= "color:".raindrops_colors(-3,'color').';';
             $h2_light_background = "background:".raindrops_colors(4,'background').' ';
-            $h2_light_background .= "url({$images_path}{$navigation_title_img});";
+            $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
             $h2_light_background .= "color:".raindrops_colors(4,'color').';';
 
 
@@ -1809,7 +1941,7 @@ CSS;
                 $custom_dark_bg = raindrops_colors('5','background');
                 $custom_light_bg = raindrops_colors('3','background');
                 $custom_color = raindrops_colors('3','color');
-                $base_gradient = raindrops_gradient_single(3,"asc");
+                $base_gradient = raindrops_gradient_single_clone(3,"asc");
                 if(!empty($raindrops_footer_color)){
                     $raindrops_footer_color = $raindrops_footer_color;
                 }else{
@@ -1879,5 +2011,37 @@ function raindrops_register_styles($style_name){
     return $vals;
 
 }
+
+
+    function raindrops_gradient(){
+        $g = "";
+        for($i = 1;$i<5;$i++){
+        $custom_dark_bg1 = raindrops_colors($i,'background');
+        $custom_light_bg1 = raindrops_colors($i+1,'background');
+        $custom_dark_bg2 = raindrops_colors($i,'background');
+        $custom_light_bg2 = raindrops_colors($i-1,'background');
+        $g .= '.gradient'.$i.'{';
+        $g .= 'color:'.raindrops_colors($i,'color').';';
+        $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
+        $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
+        $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+        $g .= "}\n";
+        $g .= '.gradient'.$i.' a{';
+        $g .= 'color:'.raindrops_colors($i+1,'color').';';
+        $g .= "}\n";
+        $g .= '.gradient-'.$i.'{';
+        $g .= 'color:'.raindrops_colors($i,'color').';';
+        $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
+        $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
+        $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
+        $g .= "}\n";
+        $g .= '.gradient'.$i.' a{';
+        $g .= 'color:'.raindrops_colors($i-1,'color').';';
+        $g .= "}\n";
+        }
+        return $g;
+    }
+
+
 
 ?>

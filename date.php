@@ -1,4 +1,11 @@
 <?php
+/**
+* The template for Yearly monthly each date Archives
+*
+*
+* @package WordPress
+* @subpackage Raindrops
+*/
 /*
 date.php - calendar based archive navigation
 copyright (c) 2005 Scott Merrill (skippy@skippy.net)
@@ -9,28 +16,28 @@ Released under the terms of the GNU GPL version 2
 global $wp_query, $wp_rewrite;
 $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;
 $pagination = array(
-	'base' => @add_query_arg('paged','%#%'),
-	'format' => '',
-	'total' => $wp_query->max_num_pages,
-	'current' => $current,
-	'show_all' => true,
-	'type' => 'plain'
-	);
+    'base' => @add_query_arg('paged','%#%'),
+    'format' => '',
+    'total' => $wp_query->max_num_pages,
+    'current' => $current,
+    'show_all' => true,
+    'type' => 'plain'
+    );
 
 if( $wp_rewrite->using_permalinks() )
-	$pagination['base'] 	= user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
-	$calendar_page_number 	= get_query_var('paged');
-	$post_per_page 			= get_option('posts_per_page');
-	
-	if($calendar_page_number == 0 ){$calendar_page_number = 1;}
-	$calendar_page_last = $calendar_page_number * $post_per_page;
-	$calendar_page_start = $calendar_page_last - $post_per_page;
-	if(isset($_GET['ec3_listing']) and !empty($_GET['ec3_listing'])){
-		get_template_part('archive');
-		
-	exit;
-	
-	}
+    $pagination['base']     = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+    $calendar_page_number   = get_query_var('paged');
+    $post_per_page          = get_option('posts_per_page');
+
+    if($calendar_page_number == 0 ){$calendar_page_number = 1;}
+    $calendar_page_last = $calendar_page_number * $post_per_page;
+    $calendar_page_start = $calendar_page_last - $post_per_page;
+    if(isset($_GET['ec3_listing']) and !empty($_GET['ec3_listing'])){
+        get_template_part('archive');
+
+    exit;
+
+    }
     $weekdaynames = array(
         0 => __('Sunday','Raindrops'),
         1 => __('Monday','Raindrops'),
@@ -67,7 +74,7 @@ if( $wp_rewrite->using_permalinks() )
 
     } elseif (is_month()) {
             $one_month = query_posts("posts_per_page=-1&year=$ye&monthnum=$mo");
-			$output = month_list($one_month, $ye, $mo);
+            $output = month_list($one_month, $ye, $mo);
             wp_reset_query();
             _e('Monthly Archives','Raindrops');
     } elseif (is_day()) {
@@ -77,7 +84,7 @@ if( $wp_rewrite->using_permalinks() )
             _e('Daily Archives','Raindrops');
     }
 ?></h2>
-		<div class="datetable"><?php echo $output;?></div>
+        <div class="datetable"><?php echo $output;?></div>
 <?php if(is_month()) {
 echo '<div class="monthly-archives-pagenate">'.paginate_links( $pagination ).'</div>';
 

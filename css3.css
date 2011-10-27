@@ -1,10 +1,9 @@
-/* CSS Document */
-/**
- * css3
+/** Common CSS3 rule 
+ * This rule set is applied to all the color type types excluding the W3C standard  a color type.   
  *
- *
- *
- *
+ * @package WordPress
+ * @subpackage Raindrops
+ * @since Raindrops 0.320
  */
 strong{
  	text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
@@ -85,6 +84,6 @@ submit{
 }
 
 .datetable td li:nth-last-child(1){
-border-bottom:none;
+	border-bottom:none;
 }
 

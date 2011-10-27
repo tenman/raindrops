@@ -10,6 +10,15 @@ Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, y
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+/** If you needs original settings
+ * 1. Only needs CSS rule customize
+ *		Create a file WPLANG css e.g. en_US.css and add custom CSS rule
+ * 2. functions.php templates.php and etc customize
+ *		1.Copy all of files Theme Raindrops and Rename from Raindrops to Your child theme name 
+ *		2.Add new line 'Template:raindrops' where Raindrops stylesheet header (the first few lines of the stylesheet)
+ */
+
 /*-----------------------------------------------------
 Yahoo UI Library Font-size Adjustment
 Copyright (c) 2006, Yahoo! Inc. All rights reserved.
@@ -1541,6 +1550,7 @@ div.category-blog div.blog-main{
 	margin:0 .3em;
 	max-width:99%;
 }
+#archives-title,
 .archives-list{margin-left:1em;}
 /* YUI nest grid add*/
 #nest .yui-ga,
@@ -1665,7 +1675,15 @@ height:100%;
 body.page .nocomments{
 	display:none;
 }
-.yui-g,.gecko .yui-gf{width:100%!important;margin:0;position:relative;left:0;}
+.yui-g,.gecko .yui-gf{
+	width:100%!important;
+	/*margin:0;*/ 
+	position:relative;
+	left:0;
+}
+.yui-g{
+	margin:0;
+}
 .yui-gb div.yui-u{
 	width:32%;
 }

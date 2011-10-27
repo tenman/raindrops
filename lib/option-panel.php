@@ -1,6 +1,7 @@
 <?php
-/** Raindrops settings.
- * 
+/**
+ * Raindrops default settings and display the admin option panel.
+ *
  * this scripts moved from functions.php 0.929
  * @package WordPress
  * @subpackage Raindrops
@@ -367,19 +368,19 @@ One is a method of up-loading the image from the below up-loading form. Another 
              *
              */
             if(isset($_POST['raindrops_option_values']) and !empty($_POST['raindrops_option_values'])){
-                $option_id      			= intval($_POST['option_id']);
-                $raindrops_updates 			= "";
+                $option_id                  = intval($_POST['option_id']);
+                $raindrops_updates          = "";
 
                 foreach($_POST["raindrops_option_values"] as $key=>$val){
 
-					$valid_function 		= $key.'_validate';
-					$new_settings         	= get_option('raindrops_theme_settings');
-					$new_settings[$key]   	= $val;
+                    $valid_function         = $key.'_validate';
+                    $new_settings           = get_option('raindrops_theme_settings');
+                    $new_settings[$key]     = $val;
 
-					if(update_option('raindrops_theme_settings',$new_settings)){
-						$ok 				= true;
-						$raindrops_updates .= ','.$key;
-					}
+                    if(update_option('raindrops_theme_settings',$new_settings)){
+                        $ok                 = true;
+                        $raindrops_updates .= ','.$key;
+                    }
                 }
             }
 
@@ -514,39 +515,39 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                 $raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
             }
 
-            $results 					= $raindrops_sort;
-            $current_heading_image 		= raindrops_warehouse("raindrops_heading_image");
-            $raindrops_navigation_add 	= '';
-            $raindrops_navigation_list 	= '<div style="padding:0px 60px 20px;"><h3 style="padding:2em 0 0;margin-left:-30px;">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
-            $raindrops_navigation_add 	= '';
-			
+            $results                    = $raindrops_sort;
+            $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
+            $raindrops_navigation_add   = '';
+            $raindrops_navigation_list  = '<div style="padding:0px 60px 20px;"><h3 style="padding:2em 0 0;margin-left:-30px;">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
+            $raindrops_navigation_add   = '';
+
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
-			
-			$lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
-			
-            foreach( $results as $key => $val ){
-				$add_box = '';
 
-				if(RAINDROPS_USE_AUTO_COLOR == true){
-					$raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
-					if($key == 'raindrops_base_color'){
-						$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">'.__('go to Color Type','Raindrops').'</a></li></ul>';
-					}elseif($key == 'raindrops_header_image' or $key == 'raindrops_footer_image'){
-						$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></li></ul>';
-					}elseif($key == 'raindrops_style_type'){
-						$raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">'.__('Go to Base Color','Raindrops').'</a></li></ul>';
-					}else{
-						$raindrops_navigation_add = '';
-					}
-				}
+            $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
+
+            foreach( $results as $key => $val ){
+                $add_box = '';
+
+                if(RAINDROPS_USE_AUTO_COLOR == true){
+                    $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
+                    if($key == 'raindrops_base_color'){
+                        $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">'.__('go to Color Type','Raindrops').'</a></li></ul>';
+                    }elseif($key == 'raindrops_header_image' or $key == 'raindrops_footer_image'){
+                        $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></li></ul>';
+                    }elseif($key == 'raindrops_style_type'){
+                        $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">'.__('Go to Base Color','Raindrops').'</a></li></ul>';
+                    }else{
+                        $raindrops_navigation_add = '';
+                    }
+                }
 
 
 
                 $excerpt    = "";
                 $table      = sprintf($this->table_template,str_replace("_","-",$key));
                 $excerpt    = sprintf($this->title_template,str_replace("_","-",$key),str_replace("_"," ",$key),raindrops_admin_meta($key,'title'));
-                $excerpt 	.= sprintf($this->excerpt_template,raindrops_admin_meta($key,'excerpt2'));
+                $excerpt    .= sprintf($this->excerpt_template,raindrops_admin_meta($key,'excerpt2'));
 
                 if(!empty($excerpt)){
                     $excerpt = '<div class="postbox" style="width:600px;margin:1em;color:#339999">'.$excerpt;
@@ -555,9 +556,9 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                 }
 
                 if(preg_match("|#[0-9a-f]{6}|i",$val)){
-                    $style	= "background:".$val.';';
+                    $style  = "background:".$val.';';
                 }else{
-                    $style	= "";
+                    $style  = "";
                 }
 
 
@@ -608,7 +609,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 //background setting
 
                 if($key == "raindrops_heading_image_position"){
-                	$lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+                    $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
 
                 }elseif($key == "raindrops_header_image"){
                     $uploads = wp_upload_dir();
@@ -622,7 +623,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                 }else{
                     $lines .= '<td style="'.$style.'">';
                 }
-				
+
                 $lines .= '<input type="hidden" name="option_name" value="'.esc_attr($key).'" read-only="read-only" /></td>';
                 $lines .= '<td>'.esc_html($val).'</td>';
 
@@ -687,7 +688,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                     $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val, 'Raindrops').'"';
                     $lines .= ' /></td>';
                 }
-				
+
                 $i++;
 
                 $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save', 'Raindrops').'" /></td>';
@@ -697,17 +698,17 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                 $send_key_name = "";
                 $lines .= "</tbody></table><br />{$add_box}{$raindrops_navigation_add}</div>";
             }
-			
-			$lines .= "<div style=\"margin:0 50px;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr('Save Changes').'" />&nbsp;&nbsp;&nbsp;';
-			$lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>"';
-			$lines .= "</div>";
-			
-			if(!preg_match('|<tbody>|',$lines)){
-				$lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
-			}
-			$lines .= raindrops_upload_form();
-			
-			return $raindrops_navigation_list. '</ul></div>'. $lines;
+
+            $lines .= "<div style=\"margin:0 50px;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr('Save Changes').'" />&nbsp;&nbsp;&nbsp;';
+            $lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>"';
+            $lines .= "</div>";
+
+            if(!preg_match('|<tbody>|',$lines)){
+                $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
+            }
+            $lines .= raindrops_upload_form();
+
+            return $raindrops_navigation_list. '</ul></div>'. $lines;
         }
 
 /**
@@ -753,7 +754,7 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
             $result .='</select>';
             return $result;
         }
-    } 
+    }
 /**
  * Raindrops header footer image upload
  *

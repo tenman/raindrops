@@ -1,6 +1,6 @@
 <?php
 /**
- * search form for our theme.
+ * Template for search form.
  *
  *
  * @package WordPress

@@ -17,7 +17,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * 2. functions.php templates.php and etc customize
  *	1.	Copy all of files Theme Raindrops and Rename from Raindrops to Your child theme name 
  *	2.	Add new line 'Template:raindrops' where Raindrops stylesheet header (the first few lines of the stylesheet)
- *	3.	Add new line e.g. 'Template Version:0.930' (0.930 is version of parent Raindrops )where Raindrops stylesheet header (the first few lines of the stylesheet)
+ *	3.	Add new line e.g. 'Template Version:0.931' (0.931 is version of parent Raindrops )where Raindrops stylesheet header (the first few lines of the stylesheet)
  */
 
 /*-----------------------------------------------------

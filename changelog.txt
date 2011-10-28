@@ -1,4 +1,28 @@
 Changelog -----------------------------------
+version:0.931
+moved
+    fixed
+        Impropely comment is changed All files
+        It changes so that the child theme which copied and renamed all the files may also operate.
+    Add for child theme issue
+        file lib/alias_functions.php
+            modified
+                this function is changed alias function
+                    raindrops_content_width
+                    raindrops_warehouse
+                    raindrops_gradient_single
+                footer.php
+                    Child theme name show properly
+    modified
+        template customize easier
+            Add
+                function
+                    raindrops_header_image
+                    raindrops_site_description
+                    raindrops_site_title
+                    raindrops_wp_title
+----------------------------------------------
+Changelog -----------------------------------
 version:0.930
 moved
     fixed

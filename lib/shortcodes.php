@@ -25,12 +25,14 @@ if(!defined('ABSPATH')){exit;}
         return $content;
     }
 
-/** dialog shortcode
+/**
+ * dialog shortcode
  *
+ * return value e.g.<div class="gradient3 raindrops-dialog" style="[attr style]"><h3 class="gradient-2 raindrops-dialog-title" style="margin: 0; padding: 0.2em 1em;">[attr title]</h3><div class="raindrops-dialog-content pad-m">[content]</div></div>
  *
- *
- *
- *
+ * @param array()
+ * @param string
+ * @return string html block
  */
     add_shortcode('dialog', 'raindrops_dialog_shortcode');
 
@@ -45,9 +47,11 @@ if(!defined('ABSPATH')){exit;}
 /**
  * Tab shortcode
  *
+ * return value e.g.<div class="raindrops-tab"><ul class="raindrops-tab-list clearfix"><li class="dummy">Tab Area</li></ul><div class="raindrops-tab-content clearfix  [attr class]" >[content]</div></div>
  *
- *
- *
+ * @param array()
+ * @param string
+ * @return string html block
  */
     add_shortcode('tab', 'raindrops_tab_shortcode');
     add_shortcode('tab_item', 'raindrops_tab_content_shortcode');
@@ -67,6 +71,15 @@ if(!defined('ABSPATH')){exit;}
         return $before. do_shortcode(shortcode_unautop($content)) . $after;
     }
 
+/**
+ * Tab content shortcode
+ *
+ * return value e.g. <div class="raindrops-tab-page"><h3>[attr title]</h3>[content]</div>
+ *
+ * @param array()
+ * @return string html block
+ */
+
     function raindrops_tab_content_shortcode( $atts, $content = null ) {
         extract( shortcode_atts( array(
            'title' => 'title',
@@ -75,12 +88,14 @@ if(!defined('ABSPATH')){exit;}
            return '<div class="raindrops-tab-page"><h3>'.$title.'</h3>'. do_shortcode(shortcode_unautop($content)) . '</div>';
     }
 
-/** Toggle shortcode
+/**
+ * Toggle shortcode
  *
  *
  *
- *
- *
+ * @param array()
+ * @param string
+ * @return string html block
  */
     add_shortcode('toggle', 'raindrops_toggle_shortcode');
 
@@ -96,12 +111,14 @@ if(!defined('ABSPATH')){exit;}
            return $result;
 
     }
-/** Entry div shortcode
+/**
+ * Entry divides shortcode
  *
+ * It divides entry. Special grid, 2/3 - 1/3
  *
- *
- *
- *
+ * @param array()
+ * @param string
+ * @return string html block
  */
     add_shortcode('bar_right_m', 'raindrops_bar_right_middle');
     function raindrops_bar_right_middle( $atts, $content = null ) {
@@ -113,7 +130,15 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
-
+/**
+ * Entry divides shortcode
+ *
+ * It divides entry. Special grid, 3/4 - 1/4
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
     add_shortcode('bar_right_s', 'raindrops_bar_right_narrow');
     function raindrops_bar_right_narrow( $atts, $content = null ) {
         extract( shortcode_atts( array(
@@ -124,6 +149,15 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
+/**
+ * Entry divides shortcode
+ *
+ * It divides entry. Special grid, 1/3 - 2/3
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
 
     add_shortcode('bar_left_m', 'raindrops_bar_left_middle');
     function raindrops_bar_left_middle( $atts, $content = null ) {
@@ -135,6 +169,15 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
+/**
+ * Entry divides shortcode
+ *
+ * It divides entry. Special grid, 1/4 - 3/4
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
 
     add_shortcode('bar_left_s', 'raindrops_bar_left_narrow');
     function raindrops_bar_left_narrow( $atts, $content = null ) {
@@ -146,7 +189,15 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
-
+/**
+ * Entry divides shortcode
+ *
+ * It divides entry. Standard half grid
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
     add_shortcode('bar_harf', 'raindrops_bar_harf_shortcode');
     function raindrops_bar_harf_shortcode( $atts, $content = null ) {
         extract( shortcode_atts( array(
@@ -157,6 +208,16 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
+/**
+ * Entry divides shortcode
+ *
+ * It divides entry.  - Special grid, 1/3 - 1/3 - 1/3
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
+
     add_shortcode('bar_3', 'raindrops_bar_3_shortcode');
     function raindrops_bar_3_shortcode( $atts, $content = null ) {
         extract( shortcode_atts( array(
@@ -167,6 +228,16 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
+/**
+ * Entry divides shortcode content
+ *
+ * first content
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
+
     add_shortcode('col1', 'raindrops_div_left_shortcode');
 
     function raindrops_div_left_shortcode( $atts, $content = null ) {
@@ -178,6 +249,16 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
+/**
+ * Entry divides shortcode content
+ *
+ * second content
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
+
     add_shortcode('col2', 'raindrops_div_right_shortcode');
 
     function raindrops_div_right_shortcode( $atts, $content = null ) {
@@ -189,8 +270,17 @@ if(!defined('ABSPATH')){exit;}
 
            return $result;
     }
-    add_shortcode('col3', 'raindrops_div_center_shortcode');
+/**
+ * Entry divides shortcode content
+ *
+ * third content only use bar_3
+ *
+ * @param array()
+ * @param string
+ * @return string html block
+ */
 
+    add_shortcode('col3', 'raindrops_div_center_shortcode');
     function raindrops_div_center_shortcode( $atts, $content = null ) {
         extract( shortcode_atts( array(
            'class' => '',
@@ -202,12 +292,14 @@ if(!defined('ABSPATH')){exit;}
     }
 
 
-/** Custom field shortcode
+/**
+ * Custom field shortcode
  *
+ * display custom field value
  *
- *
- *
- *
+ * @param array()
+ * @param string
+ * @return string html block
  */
     add_shortcode('custom_field', 'raindrops_custom_field_shortcode');
 

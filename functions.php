@@ -13,7 +13,8 @@
 		exit;
 	}	
 
-/** Include functions about the Raindrops options panel
+/**
+ * Include functions about the Raindrops options panel
  *
  *
  *
@@ -25,8 +26,8 @@
 		$is_submenu = new raindrops_menu_create;
  	}	
 
-/** Include functions about colors ,backgrounds and borders
- *
+/**
+ * Include functions about colors ,backgrounds and borders
  *
  *
  *
@@ -47,8 +48,8 @@
 		}
         add_filter('contextual_help','raindrops_edit_help');
 	}
-/** It has alias functions.
- *
+/**
+ * It has alias functions.
  *
  *
  *
@@ -80,7 +81,9 @@
  *
  */
 	add_filter( 'use_default_gallery_style', '__return_false' );
-/** Original page width implementation by manual labor
+/**
+ * Original page width implementation by manual labor
+ *
  * If you need original page width
  * you can specific pixel page width
  * e.g. '$raindrops_page_width = '776';' is  776px page width.
@@ -90,23 +93,25 @@
 	if(!isset($raindrops_page_width)){
 		$raindrops_page_width = '';
 	}
-/** Content width implementation by manual labor
+/**
+ * Content width implementation by manual labor
+ *
  * If you need specific $content_width.
  * value set 400 When not setting or empty.
- *
- *
  *
  */
     //$content_width = '';
 /**
  * 750px,950px centered layout fluid or fixed page width switch
+ *
  * Empty value makes like a Elastic layout
  *
  * value 'fixed' or empty
  *
  */
     $raindrops_fluid_or_fixed = 'fixed';
-/** fluid page  main column minimam width px
+/**
+ * fluid page  main column minimam width px
  *
  *
  *
@@ -114,7 +119,8 @@
  *
  */
     $raindrops_fluid_minimam_width = '400';
-/** Raindrops header and footer image upload
+/**
+ * Raindrops header and footer image upload
  *
  *
  *
@@ -128,17 +134,18 @@
 //header or footer image max width px
 	$raindrops_max_width        = 1300;
 	
-/** the_content() or the_excerpt
+/**
+ * the_content() or the_excerpt
+ *
  * the_excerpt use where index,archive,other not single pages.
  * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
- *
- *
  *
  */
     if(!defined('RAINDROPS_USE_LIST_EXCERPT')){
         define("RAINDROPS_USE_LIST_EXCERPT",false);
     }
-/** Auto Color On or Off
+/**
+ * Auto Color On or Off
  * If you want no Auto Color when set value false.
  *
  *
@@ -148,7 +155,8 @@
     if(!defined('RAINDROPS_USE_AUTO_COLOR')){
         define("RAINDROPS_USE_AUTO_COLOR",true);
     }
-/** header text
+/**
+ * header text
  *
  *
  *
@@ -158,7 +166,8 @@
     if(!defined('NO_HEADER_TEXT')){
         define('NO_HEADER_TEXT', false );
     }
-/** title and description default color
+/**
+ * title and description default color
  *  
  *
  *
@@ -168,7 +177,8 @@
     if(!defined('HEADER_TEXTCOLOR')){
         define('HEADER_TEXTCOLOR', 'dddddd');
     }
-/** header image
+/**
+ * header image
  * 
  *
  *
@@ -184,28 +194,20 @@
     if(!defined('HEADER_IMAGE_HEIGHT')){
         define('HEADER_IMAGE_HEIGHT', 198);
     }
-/** Monthly archive, Daily archive  time format
+/**
+ * Monthly archive, Daily archive  time format
  *
  *
  *
  *
  *
  */
-/*    if(!defined('RAINDROPS_THE_TIME_FORMAT')){
-        define("RAINDROPS_THE_TIME_FORMAT",'Y/n/j');
-    }
-    if(!defined('RAINDROPS_THE_MONTH_FORMAT')){
-        define("RAINDROPS_THE_MONTH_FORMAT",'Y/m');//archive.php
-    }*/
     if(!defined('RAINDROPS_TABLE_TITLE')){
         define("RAINDROPS_TABLE_TITLE",'options');
     }
     if(!defined('RAINDROPS_PLUGIN_TABLE')){
         define('RAINDROPS_PLUGIN_TABLE',$wpdb->prefix . RAINDROPS_TABLE_TITLE);
     }
- /*   if(!defined('RAINDROPS_TABLE_VERSION')){
-        define('RAINDROPS_TABLE_VERSION','0.1');
-    }*/
 
     $raindrops_theme_settings = get_option('raindrops_theme_settings','no');
 /**
@@ -221,7 +223,8 @@
     if(!defined('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT')){
         define('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT',200);
     }
-/** widget settings
+/**
+ * widget settings
  *
  *
  *
@@ -329,11 +332,10 @@
 	$raindrops_current_style_type = raindrops_warehouse_clone("raindrops_style_type");
 	$raindrops_current_theme_name = get_current_theme();
 
-/** Custom page width
+/**
+ * Custom page width
+ *
  * Whenever you can set own page width
- *
- *
- *
  *
  */
     if(isset($raindrops_page_width) and !empty($raindrops_page_width)){
@@ -351,9 +353,8 @@
             echo $custom_content_width;
         }
     }
-/** fluid or fixed page width
- *
- *
+/**
+ * fluid or fixed page width
  *
  *
  *
@@ -369,7 +370,8 @@
 
 	}
 
-/** Value is empty where $raindrops_fluid_or_fixed
+/**
+ * Value is empty where $raindrops_fluid_or_fixed
  *
  *
  *
@@ -423,8 +425,8 @@
 	}
 	}
 
-/** Value is fixed where $raindrops_fluid_or_fixed.
- *
+/**
+ * Value is fixed where $raindrops_fluid_or_fixed.
  *
  *
  *
@@ -473,7 +475,8 @@
 	}
 	}
 
-/** Content width setup
+/**
+ * Content width setup
  *
  *
  *
@@ -484,7 +487,8 @@
         $content_width = raindrops_content_width_clone();
     }
 
-/** Custom image header
+/**
+ * Custom image header
  *
  *
  *
@@ -724,7 +728,8 @@
 
     add_action( 'widgets_init', 'raindrops_widgets_init' );
 
-/** Add option helper
+/**
+ * Add option helper
  *
  *
  *
@@ -740,7 +745,8 @@
         return;
         }
     }
-/** Extend body_class()
+/**
+ * Extend body_class()
  * 
  *
  * add browser class, languages class,
@@ -792,7 +798,8 @@
         }
     }
 
-/** wp_list_comments callback function
+/**
+ * wp_list_comments callback function
  *
  *
  *
@@ -834,7 +841,8 @@
   <?php }//endif
         }
     }
-/** posted in
+/**
+ * Template function posted in
  *
  *
  *
@@ -862,7 +870,8 @@
             );
         }
     }
-/** Posted_on
+/**
+ * Template function posted_on
  *  
  *
  *
@@ -909,7 +918,8 @@
             );
         }
     }
-/** Special custom fields key css, javascript, metatags
+/**
+ * Special custom fields key css, javascript, metatags
  * 
  *
  * css,javascrip,meta is separated anothor Custom Field.
@@ -924,7 +934,8 @@
             else return $content;
         }
     }
-/** Like a get_option()
+/**
+ * Like a get_option()
  * 
  *
  * Raindrops conditional response.
@@ -938,7 +949,8 @@
  }
 
 
-/** Return $raindrops_base_setting value.
+/**
+ * Return $raindrops_base_setting value.
  * 
  *
  *
@@ -960,7 +972,8 @@
     }
 	}
 
-/** Admin Panel help
+/**
+ * Admin Panel help
  * 
  *
  *
@@ -986,7 +999,8 @@
         }
     }
 
-/** Raindrops edit help
+/**
+ * Raindrops edit help
  *
  *
  * Check the real color of the Cradation Class and the Color Class.
@@ -1069,7 +1083,7 @@
 
 
 /**
- *
+ * internal function File upload
  *
  *
  *@param $embed string inline or external or embed
@@ -1121,7 +1135,8 @@
 
     }
 	}
-/** Show real gradient where admin panel help
+/**
+ * Alias function Show real gradient where admin panel help
  *
  *
  *
@@ -1135,7 +1150,7 @@
 	}
 
 /**
- *
+ * Alias function Create gradient style rule
  *
  *
  *
@@ -1147,8 +1162,8 @@
     }
 	}
 
-/** add stylesheet and few javascript
- *
+/**
+ * Set stylesheet and few javascript
  *
  *
  *
@@ -1215,8 +1230,8 @@ if(!function_exists("add_raindrops_stylesheet")){
     }
 }
 
-/** filter function comment form
- *
+/**
+ * filter function comment form
  *
  *
  *
@@ -1231,8 +1246,8 @@ if(!function_exists("add_raindrops_stylesheet")){
     }
 	}
 
-/** filter function remove area required
- *
+/**
+ * filter function remove area required
  *
  *
  *
@@ -1246,8 +1261,8 @@ if(!function_exists("add_raindrops_stylesheet")){
         return $arg;
     }
 	}
-/** filter function remove area required
- *
+/**
+ * filter function remove area required
  *
  *
  *
@@ -1267,8 +1282,8 @@ if(!function_exists("add_raindrops_stylesheet")){
     }
 	}
 
-/** Option value set when install.
- *
+/**
+ * Option value set when install.
  *
  *
  *
@@ -1328,7 +1343,8 @@ if(!function_exists("add_raindrops_stylesheet")){
     }
 	}
 
-/** Raindrops once message when install.
+/**
+ * Raindrops once message when install.
  *
  *
  *
@@ -1459,8 +1475,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
         return $content;
     }
 	}
-/** Alternative character when value is blank
- * 
+/**
+ * Alternative character when value is blank
  *
  *
  *
@@ -1475,8 +1491,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
         }
     }
 	}
-/** Article navigation
- *
+/**
+ * Article navigation
  *
  *
  *
@@ -1511,8 +1527,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
   
 	}
 	}
-/** date.php
- *
+/**
+ * date.php
  *
  *
  *
@@ -1763,8 +1779,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 	}
 /* end raindrops_get_year()*/
 
-/** for date.php
- *
+/**
+ * for date.php
  *
  *
  *
@@ -1851,8 +1867,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 	}
 
 
-/** sort month_list
- *
+/**
+ * sort month_list
  *
  *
  *
@@ -1864,7 +1880,8 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 	  return $cmp;
 	}
 	}
-/** for date.php
+/** 
+ * for date.php
  *
  *
  *
@@ -1929,7 +1946,7 @@ if(!function_exists("month_list")){
 /**
  * index ,archive,loops page title
  *
- *
+ * echo Archives title
  *
  *
  */
@@ -1995,7 +2012,8 @@ if(!function_exists("raindrops_loop_title")){
 	
 	}
 }
-/** yui helper function
+/**
+ * yui helper function
  *
  *
  *
@@ -2013,11 +2031,12 @@ if(!function_exists("raindrops_loop_title")){
 	}
 	}
 /**
+ * Template conditional function Raindrops display 2column or not 
  *
  *
- *
- *
- *
+ * @param string   css rule or text
+ * @param bool		if value is true echo or false return 
+ * @return string  input strings text
  */
 	if(!function_exists("is_2col_raindrops")){
 	function is_2col_raindrops($action = true,$echo = true){
@@ -2035,12 +2054,12 @@ if(!function_exists("raindrops_loop_title")){
 		}
 	}
 	}
-/** yui layout curc
+/**
+ * yui layout curc
  *
  *
  *
- *
- *
+ * @return content width
  */
 	if(!function_exists("raindrops_main_width")){
     function raindrops_main_width(){
@@ -2125,12 +2144,13 @@ if(!function_exists("raindrops_loop_title")){
             return $raindrops_content_width;
     }
 	}
-/** content width curc
- * return main column width 
+/**
+ * content width curc
+ *  
  *
  *
  *
- *
+ * @return main column width
  */
 	if(!function_exists("raindrops_content_width")){
     function raindrops_content_width(){
@@ -2141,8 +2161,8 @@ if(!function_exists("raindrops_loop_title")){
 	}
 	
 
-/** fallback stylesheet
- *
+/**
+ * fallback stylesheet
  *
  *
  *
@@ -2341,8 +2361,8 @@ return $style;
 	}
 }
 
-/** plugin API
- *
+/**
+ * plugin API
  *
  *
  *
@@ -2602,7 +2622,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 			$raindrops_show_hide = ' style="display:none;"';
 	
 		}
-/** Conditional Switch html headding element
+/**
+ * Conditional Switch html headding element
  *
  *
  *
@@ -2639,7 +2660,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 			$raindrops_show_hide,
 			get_bloginfo( 'description' )
 		);
-/** header image
+/**
+ * header image
  *
  *
  *
@@ -2664,8 +2686,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 		}
     }
 }
-/** Empty title fallback
- *
+/** 
+ * Empty title fallback
  *
  * @package WordPress
  * @subpackage Raindrops
@@ -2686,163 +2708,159 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 	}
 
 /**
+ * Template function print header image
  *
- *
- *
- *
- *
+ * This function has filter hook name raindrops_header_image
+ * @param array( 'img'=> 'image uri' , 'height' => 'image height' , 'color' => 'text color', 'style' => '(default) background-size:cover;' , 'description' => 'replace text from bloginfo(description) to your text','description_style' => 'Your description style rule')
+ * @return string htmlblock <div id="['header-image']" style="background-image:url([img]);height:[height];color:#[color]][style]"><p [description_style]>[WordPress site description]</p></div>
  */
+	if ( ! function_exists( 'raindrops_header_image' ) ){
 
-function raindrops_header_image($args = array()){
-
-    if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) or
-		 '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-        $description_style = ' style=display:none;';
-		
-    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
-        $description_style = ' style="color:#' . get_header_textcolor() . ';"';
-		$height = HEADER_IMAGE_HEIGHT.'px';
-    }else{
-        $description_style = '';
-		$height = 0;
-    }
-
-	$defaults = array(
-		'img' => get_header_image(),
-		'height' => $height,
-		'color' => HEADER_TEXTCOLOR,
-		'style' => 'background-size:cover;',
-		'description' => get_bloginfo( 'description' ),
-		'description_style' => $description_style
-	);
+	function raindrops_header_image($args = array()){
 	
-	$args = wp_parse_args( $args, $defaults );
-	
-	extract( $args, EXTR_SKIP );
-	$html = '<div id="%1$s" style="background-image:url(%2$s);height:%3$s;color:#%4$s;%5$s"><p %6$s>%7$s</p></div>';
-	
-	$html = sprintf($html,
-					'header-image',
-					esc_url($img),
-					esc_html($height),
-					esc_html($color),
-					esc_html($style),// css needs > but this style is inline
-					esc_html($description_style),// css needs > but this style is inline
-					esc_html($description)
-					);
-	return apply_filters( 'raindrops_header_image', $html );
-}
-
-
-
-
-/**
- *
- *
- *
- *
- *
- */
-
-function raindrops_site_description($args = array()){
-
-   if ('blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) or
+		if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) or
 			 '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-        $raindrops_show_hide = '';
-    }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
-        $raindrops_show_hide = ' style="display:none;"';
-    }else{
-        $raindrops_show_hide = ' style="display:none;"';
-    }
-
-	$defaults = array(
-		'text' => get_bloginfo( 'description' ),
-		'switch' => $raindrops_show_hide
-	);
-
-	$args = wp_parse_args( $args, $defaults );
-	extract( $args, EXTR_SKIP );
+			$description_style = ' style=display:none;';
+			
+		}elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
+			$description_style = ' style="color:#' . get_header_textcolor() . ';"';
+			$height = HEADER_IMAGE_HEIGHT.'px';
+		}else{
+			$description_style = '';
+			$height = 0;
+		}
 	
-    $html = '<div id="site-description" %1$s>%2$s</div>';
-    $html = sprintf( $html,	$switch, $text );
-					
-	return apply_filters( 'raindrops_site_description', $html );
-}
+		$defaults = array(
+			'img' => get_header_image(),
+			'height' => $height,
+			'color' => HEADER_TEXTCOLOR,
+			'style' => 'background-size:cover;',
+			'description' => get_bloginfo( 'description' ),
+			'description_style' => $description_style
+		);
+		
+		$args = wp_parse_args( $args, $defaults );
+		
+		extract( $args, EXTR_SKIP );
+		$html = '<div id="%1$s" style="background-image:url(%2$s);height:%3$s;color:#%4$s;%5$s"><p %6$s>%7$s</p></div>';
+		
+		$html = sprintf($html,
+						'header-image',
+						esc_url($img),
+						esc_html($height),
+						esc_html($color),
+						esc_html($style),// css needs > but this style is inline
+						esc_html($description_style),// css needs > but this style is inline
+						esc_html($description)
+						);
+		return apply_filters( 'raindrops_header_image', $html );
+	}
 
+	}
 
 
 /**
+ * Print site description html
+ * 
+ * This function has filter hook name raindrops_site_title
  *
- *
- *
- *
+ * @param array( "text" => 'Some text' , "switch" => ' style="display:none;"')
+ * @return string htmlblock  <div id="site-description" [input switch]>[input text]</div>
  *
  */
+	if ( ! function_exists( 'raindrops_site_description' ) ){
+	function raindrops_site_description($args = array()){
+	
+	   if ('blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) or
+				 '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+			$raindrops_show_hide = '';
+		}elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
+			$raindrops_show_hide = ' style="display:none;"';
+		}else{
+			$raindrops_show_hide = ' style="display:none;"';
+		}
+	
+		$defaults = array(
+			'text' => get_bloginfo( 'description' ),
+			'switch' => $raindrops_show_hide
+		);
+	
+		$args = wp_parse_args( $args, $defaults );
+		extract( $args, EXTR_SKIP );
+		
+		$html = '<div id="site-description" %1$s>%2$s</div>';
+		$html = sprintf( $html,	$switch, $text );
+						
+		return apply_filters( 'raindrops_site_description', $html );
+	}
+	}
 
-function raindrops_site_title($text = ""){
-    if( is_home() or is_front_page() ){
-        $heading_elememt = 'h1';
-    }else{
-        $heading_elememt = 'div';
-    }
-
-    if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-        $hd_style = '';
-    }else{
-        $hd_style = ' style="color:#'.get_header_textcolor() . ';"';
-    }
-
-    $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s" %s>%s</a></span></%s>';
-
-    $html = sprintf(
-        $title_format,
-        $heading_elememt,
-        home_url(),
-        esc_attr(get_bloginfo( 'name', 'display' )),
-        "home",
-        $hd_style,
-        get_bloginfo( 'name', 'display' ).esc_html($text),
-        $heading_elememt
-        );
-	return apply_filters( 'raindrops_site_title', $html );
-}
 
 /**
+ * Print the site title
  *
+ * This function has filter hook name raindrops_site_title
  *
- *
- *
- *
+ * @param $text string  append to title strings
+ * @return htmlblock <[h1|div] class="h1" id="site-title"><span><a href="[home url()]" title="[blog_info(name)]" rel="['home']" [style get_header_textcolor()]>[bloginfo(name)]</a></span></[h1|div]>
  */
-
-function raindrops_wp_title($text = ""){
-    /*
-     * Print the <title> tag based on what is being viewed.
-     */
-    global $page, $paged;
-
-    $title = wp_title( '|', false, 'right' );
-
-    // Add the blog name.
-    $title .= get_bloginfo( 'name' );
-
-    // Add the blog description for the home/front page.
-    $site_description = get_bloginfo( 'description', 'display' );
-    if ( $site_description and ( is_home() or is_front_page() ) ){
-    	$title .= " | $site_description";
-	}
-
-    // Add a page number if necessary:
-    if ( $paged >= 2 or $page >= 2 ){
-        $title .= ' | ' . sprintf( __( 'Page %s', 'raindrops' ), max( $paged, $page ) );
-	}
-	if(!empty($string)){
-		$title .= esc_html($text);
+	if ( ! function_exists( 'raindrops_site_title' ) ){
+	function raindrops_site_title($text = ""){
+		if( is_home() or is_front_page() ){
+			$heading_elememt = 'h1';
+		}else{
+			$heading_elememt = 'div';
+		}
 	
-	}
+		if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) || '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
+			$hd_style = '';
+		}else{
+			$hd_style = ' style="color:#'.get_header_textcolor() . ';"';
+		}
 	
-	return apply_filters( 'raindrops_wp_title', $title );
+		$title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s" %s>%s</a></span></%s>';
+	
+		$html = sprintf(
+			$title_format,
+			$heading_elememt,
+			home_url(),
+			esc_attr(get_bloginfo( 'name', 'display' )),
+			"home",
+			$hd_style,
+			get_bloginfo( 'name', 'display' ).esc_html($text),
+			$heading_elememt
+			);
+		return apply_filters( 'raindrops_site_title', $html );
+	}
+	}
 
-
-}
+/**
+ * Template function return title for html title element  
+ *
+ * This function has filter hook name raindrops_wp_title
+ * @param string text  append to title strings
+ * @return string text
+ */
+	if ( ! function_exists( 'raindrops_wp_title' ) ){
+	function raindrops_wp_title($text = ""){
+		global $page, $paged;
+	
+		$title = wp_title( '|', false, 'right' );
+		$title .= get_bloginfo( 'name' );
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description and ( is_home() or is_front_page() ) ){
+			$title .= " | $site_description";
+		}
+	
+		// Add a page number if necessary:
+		if ( $paged >= 2 or $page >= 2 ){
+			$title .= ' | ' . sprintf( __( 'Page %s', 'raindrops' ), max( $paged, $page ) );
+		}
+		if(!empty($string)){
+			$title .= esc_html($text);
+		
+		}
+		return apply_filters( 'raindrops_wp_title', $title );
+	}
+	}
 ?>

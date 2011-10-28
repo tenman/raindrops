@@ -37,11 +37,8 @@ get_bloginfo('comments_rss2_url'),
 __('Comments <span>(RSS)</span>',"Raindrops")
 );
 if( is_child_theme() ){
-echo "child";
     $raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
 }else{
-echo "not child";
-
     $raindrops_theme_name = __("Raindrops Theme","Raindrops");
 }
 printf(

@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.932
+moved
+    remove stylesheet description
+
+/** If you needs original settings
+ * 1. Only needs CSS rule customize
+ *  Create a file WPLANG css e.g. en_US.css and add custom CSS rule
+ * 2. functions.php templates.php and etc customize
+ *  1.  Copy all of files Theme Raindrops and Rename from Raindrops to Your child theme name
+ *  2.  Add new line 'Template:raindrops' where Raindrops stylesheet header (the first few lines of the stylesheet)
+ *  3.  Add new line e.g. 'Template Version:0.931' (0.931 is version of parent Raindrops )where Raindrops stylesheet header (the first few lines of the stylesheet)
+ */
+---------------------------------------------
+Changelog -----------------------------------
 version:0.931
 moved
     fixed

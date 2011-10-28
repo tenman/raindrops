@@ -3,9 +3,9 @@
  * Raindrops default settings and display the admin option panel.
  *
  * this scripts moved from functions.php 0.929
+ *
  * @package WordPress
  * @subpackage Raindrops
- * @since Raindrops 0.1
  */
 if(!defined('ABSPATH')){exit;}
     $raindrops_base_setting_args = array(
@@ -293,8 +293,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
  * Raindrops option panel
  *
  *
- *
- *
+ * @package WordPress
+ * @subpackage Raindrops
  */
 
     class raindrops_menu_create {

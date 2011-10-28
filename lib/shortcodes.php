@@ -11,9 +11,6 @@ if(!defined('ABSPATH')){exit;}
 /**
  * shortcode content clean up
  *
- * @package WordPress
- * @subpackage Raindrops
- * @since Raindrops 0.929
  */
 
     add_filter('the_content','raindrops_remove_para',99);

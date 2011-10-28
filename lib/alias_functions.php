@@ -210,4 +210,43 @@
     }
     }
 
+    if (!function_exists('raindrops_gradient_clone')) {
+/**
+ * create gradient set color and background style rule
+ *
+ *
+ * @see raindrops_gradient()
+ *
+ */
 
+    function raindrops_gradient_clone(){
+        $g = "";
+        for($i = 1;$i<5;$i++){
+        $custom_dark_bg1 = raindrops_colors($i,'background');
+        $custom_light_bg1 = raindrops_colors($i+1,'background');
+        $custom_dark_bg2 = raindrops_colors($i,'background');
+        $custom_light_bg2 = raindrops_colors($i-1,'background');
+        $g .= '.gradient'.$i.'{';
+        $g .= 'color:'.raindrops_colors($i,'color').';';
+        $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
+        $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg1.',  '.$custom_light_bg1.');';
+        $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+        $g .= "}\n";
+        $g .= '.gradient'.$i.' a{';
+        $g .= 'color:'.raindrops_colors($i+1,'color').';';
+        $g .= "}\n";
+        $g .= '.gradient-'.$i.'{';
+        $g .= 'color:'.raindrops_colors($i,'color').';';
+        $g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg2.'), to('.$custom_light_bg2.'));';
+        $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
+        $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
+        $g .= "}\n";
+        $g .= '.gradient'.$i.' a{';
+        $g .= 'color:'.raindrops_colors($i-1,'color').';';
+        $g .= "}\n";
+        }
+        return $g;
+    }
+    }
+
+?>

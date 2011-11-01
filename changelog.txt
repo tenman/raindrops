@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0.933
+moved
+    Required
+    Shortcodes should be made into a Plugin, rather than embedded into the Theme
+    Theme has required issues, but can be addressed in the next Theme revision
+    remove file lib/shortcodes.php
+---------------------------------------------
+Changelog -----------------------------------
 version:0.932
 moved
     remove stylesheet description

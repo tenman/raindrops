@@ -8,8 +8,6 @@
 * @since Raindrops 0.1
 */
 get_header("xhtml1");
-
-
 ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">

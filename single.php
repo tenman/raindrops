@@ -13,7 +13,7 @@ get_header("xhtml1"); ?>
 <div class="yui-b">
 <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
 <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
-<?php
+<?php	
 /**
  * Display navigation to next/previous pages when applicable
  */
@@ -24,6 +24,8 @@ get_header("xhtml1"); ?>
  */
  while (have_posts()){
     the_post();
+	
+
 
     $cat = "default";
     if ( in_category( "blog" )){    $cat = "blog";      }

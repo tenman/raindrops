@@ -32,5 +32,13 @@
 </li>
 <?php } ?>
 <?php } ?>
+<li>
+  <h2 class="h2">Updates:<?php _e( 'diff', 'Raindrops' ); ?></h2>
+
+<ul>
+<?php
+update_entries();?>
+</ul>
+</li>
 </ul>
 </div>

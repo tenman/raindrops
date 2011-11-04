@@ -1489,12 +1489,14 @@ return $style;
 <?php
     if(!defined('ABSPATH')){exit;}
     $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
+	if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
     if(!in_array($alias_functions,$included_files)){
          get_template_part('lib/alias_functions');
     }
     $embed_common_style = get_current_theme();
     raindrops_register_styles($embed_common_style);
     $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';
+	if(!file_exists($raindrops_images_path)){get_template_directory().'/images/';}
     $raindrops_base_color                  = raindrops_warehouse_clone('raindrops_base_color');
     $style_type             = raindrops_warehouse_clone('raindrops_style_type');
     $navigation_title_img   = raindrops_warehouse_clone('raindrops_heading_image');

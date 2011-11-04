@@ -564,7 +564,11 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
 
                 if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val) and $key !== "raindrops_footer_image" and $key !== "raindrops_header_image"){
+					if(file_exists(get_stylesheet_directory_uri()."/images/".$val)){
                     $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
+					}else{
+                    $style .="background:url(".get_template_directory_uri()."/images/".$val.');';
+					}
                 }else{
                     $style .='';
                 }

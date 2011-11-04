@@ -1184,19 +1184,20 @@ if(!function_exists("add_raindrops_stylesheet")){
 
         $template_uri = get_template_directory_uri();
         $stylesheet_uri = get_stylesheet_directory_uri();
-
+	
             $reset_font_grid    = $stylesheet_uri.'/reset-fonts-grids.css';
-
+			if(!file_exists($reset_font_grid)){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
             wp_register_style('raindrops_reset_fonts_grids', $reset_font_grid,array(),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_reset_fonts_grids');
 
             $grids  = $stylesheet_uri.'/grids.css';
+			if(!file_exists($grids)){$grids    = $template_uri.'/grids.css';}
             wp_register_style('raindrops_grids', $grids,array('raindrops_reset_fonts_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_grids');
 
 
             $fonts              = $stylesheet_uri.'/fonts.css';
-
+			if(!file_exists($fonts)){$fonts    = $template_uri.'/fonts.css';}
             wp_register_style('raindrops_fonts', $fonts,array('raindrops_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_fonts');
 
@@ -1204,6 +1205,7 @@ if(!function_exists("add_raindrops_stylesheet")){
             $language           = get_locale();
 
             $lang   = $stylesheet_uri.'/languages/css/'.$language.'.css';
+			if(!file_exists($lang)){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
             wp_register_style('lang_style', $lang,array('raindrops_fonts'),$raindrops_version,'all');
             wp_enqueue_style( 'lang_style');
 
@@ -1224,6 +1226,7 @@ if(!function_exists("add_raindrops_stylesheet")){
 
 /* add small js*/
             $raindrops_js   = $stylesheet_uri.'/raindrops.js';
+			if(!file_exists($raindrops_js)){$raindrops_js    = $template_uri.'/raindrops.js';}
             wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,'all');
             wp_enqueue_script('raindrops');
 

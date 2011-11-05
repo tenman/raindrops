@@ -1,3 +1,19 @@
+#Changelog -----------------------------------
+version:0.936
+fixed
+    Child theme display improperly
+    when file not exists header image
+    when file not exists footer image
+modified
+    when file not exists reset-fonts-grids.css
+    when file not exists grids.css
+    when file not exists fonts.css
+    when file not exists languages/css/[language].css'
+    when file not exists raindrops.js
+    when file not exists lib/alias_functions.php
+    when file not exists images directory
+
+----------------------------------------------
 Changelog -----------------------------------
 version:0.935
 fixed
@@ -9,6 +25,7 @@ fixed
     when file not exists raindrops.js
     when file not exists lib/alias_functions.php
     when file not exists images directory
+
 ---------------------------------------------
 Changelog -----------------------------------
 version:0.933

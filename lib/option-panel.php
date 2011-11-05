@@ -564,13 +564,13 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
 
                 if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val) and $key !== "raindrops_footer_image" and $key !== "raindrops_header_image"){
-					if(file_exists(get_stylesheet_directory_uri()."/images/".$val)){
-                    $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
+					if(file_exists(get_stylesheet_directory()."/images/".$val)){
+                    	$style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
 					}else{
-                    $style .="background:url(".get_template_directory_uri()."/images/".$val.');';
+                    	$style .="background:url(".get_template_directory_uri()."/images/".$val.');';
 					}
                 }else{
-                    $style .='';
+                    	$style .='';
                 }
 
 
@@ -613,7 +613,11 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 //background setting
 
                 if($key == "raindrops_heading_image_position"){
-                    $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+					if(file_exists(get_stylesheet_directory().'/images/'.$current_heading_image)){
+                    	$lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+					}else{
+                    	$lines .= '<td style="background:url('.get_template_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_template_directory_uri().'/images/number.png" />';					
+					}
 
                 }elseif($key == "raindrops_header_image"){
                     $uploads = wp_upload_dir();

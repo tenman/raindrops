@@ -186,7 +186,11 @@
  *
  */
     if(!defined('HEADER_IMAGE')){
-        define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
+		if(file_exists(get_stylesheet_directory_uri().'/images/headers/wp3.jpg')){
+        	define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
+		}else{
+        	define('HEADER_IMAGE', get_template_directory_uri().'/images/headers/wp3.jpg');
+		}
     }
     if(!defined('HEADER_IMAGE_WIDTH')){
         define('HEADER_IMAGE_WIDTH', 950);
@@ -1110,7 +1114,20 @@
                  }
 
              }
+        }elseif(file_exists(get_template_directory().'/images/'.$filename)){
+             if($id == '#hd'){
+                 if(!file_exists($upload_info['path'].'/'.$filename)){
+                    return 'background:url('.get_template_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
+                }
+             }elseif($id == '#ft'){
+                 if(!file_exists($upload_info['path'].'/'.$filename)){
+                    return 'background:url('.get_template_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
+             	}
+			}
         }
+
+		
+		
 
          preg_match("|raindrops-item-([^-]+)|",$filename,$regs);
          $purpose = $regs[1];
@@ -1183,21 +1200,23 @@ if(!function_exists("add_raindrops_stylesheet")){
         }
 
         $template_uri = get_template_directory_uri();
+		$template_path = get_template_directory_uri();
         $stylesheet_uri = get_stylesheet_directory_uri();
+		$stylesheet_path = get_stylesheet_directory_uri();
 	
             $reset_font_grid    = $stylesheet_uri.'/reset-fonts-grids.css';
-			if(!file_exists($reset_font_grid)){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
+			if(!file_exists($stylesheet_path.'/reset-fonts-grids.css')){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
             wp_register_style('raindrops_reset_fonts_grids', $reset_font_grid,array(),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_reset_fonts_grids');
 
             $grids  = $stylesheet_uri.'/grids.css';
-			if(!file_exists($grids)){$grids    = $template_uri.'/grids.css';}
+			if(!file_exists($stylesheet_path.'/grids.css')){$grids    = $template_uri.'/grids.css';}
             wp_register_style('raindrops_grids', $grids,array('raindrops_reset_fonts_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_grids');
 
 
             $fonts              = $stylesheet_uri.'/fonts.css';
-			if(!file_exists($fonts)){$fonts    = $template_uri.'/fonts.css';}
+			if(!file_exists($stylesheet_path.'/fonts.css')){$fonts    = $template_uri.'/fonts.css';}
             wp_register_style('raindrops_fonts', $fonts,array('raindrops_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_fonts');
 
@@ -1205,7 +1224,7 @@ if(!function_exists("add_raindrops_stylesheet")){
             $language           = get_locale();
 
             $lang   = $stylesheet_uri.'/languages/css/'.$language.'.css';
-			if(!file_exists($lang)){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
+			if(!file_exists($stylesheet_path.$language.'.css')){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
             wp_register_style('lang_style', $lang,array('raindrops_fonts'),$raindrops_version,'all');
             wp_enqueue_style( 'lang_style');
 
@@ -1226,7 +1245,7 @@ if(!function_exists("add_raindrops_stylesheet")){
 
 /* add small js*/
             $raindrops_js   = $stylesheet_uri.'/raindrops.js';
-			if(!file_exists($raindrops_js)){$raindrops_js    = $template_uri.'/raindrops.js';}
+			if(!file_exists($stylesheet_path.'/raindrops.js')){$raindrops_js    = $template_uri.'/raindrops.js';}
             wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,'all');
             wp_enqueue_script('raindrops');
 

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.937
+version:0.938
 
 fixed
     header image display improperly (image height)

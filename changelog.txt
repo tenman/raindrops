@@ -1,4 +1,13 @@
-#Changelog -----------------------------------
+Changelog -----------------------------------
+version:0.937
+
+fixed
+    header image display improperly (image height)
+    Color type minimal display header image improperly.(canot show image)
+    A fatal error occurs when RAINDROPS_USE_AUTO_COLOR == false
+    Raindrops option panel raindrops color scheme display improperly when RAINDROPS_USE_AUTO_COLOR == false
+----------------------------------------------
+Changelog -----------------------------------
 version:0.936
 fixed
     Child theme display improperly

@@ -1451,7 +1451,7 @@ DOC;
 $style=<<<CSSB
 a{color:#333;}
 a:hover{color:#777;}
-#hd #header-image{display:none;}
+/*#hd #header-image{display:none;}*/
 CSSB;
 
 $css3 =<<<CSS3

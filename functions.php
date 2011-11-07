@@ -186,7 +186,7 @@
  *
  */
     if(!defined('HEADER_IMAGE')){
-		if(file_exists(get_stylesheet_directory_uri().'/images/headers/wp3.jpg')){
+		if(file_exists(get_stylesheet_directory().'/images/headers/wp3.jpg')){
         	define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
 		}else{
         	define('HEADER_IMAGE', get_template_directory_uri().'/images/headers/wp3.jpg');
@@ -2741,7 +2741,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
         if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) or
              '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
             $description_style = ' style=display:none;';
-			$height = 0;
+			$height = HEADER_IMAGE_HEIGHT.'px';
         }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
             $description_style = ' style="color:#' . get_header_textcolor() . ';"';
             $height = HEADER_IMAGE_HEIGHT.'px';

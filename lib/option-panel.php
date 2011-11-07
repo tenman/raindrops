@@ -357,7 +357,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
         function SubMenu_GUI() {
             global $wpdb,$count, $raindrops_base_setting;
-            $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
+			if(RAINDROPS_USE_AUTO_COLOR == true){
+            	$this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
+			}else{
+				$this->col_settings_raindrops_style_type = array("w3standard" => "w3standard");
+			}
 
             $ok     = false;
             $result = "";
@@ -588,7 +592,8 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                                                         $key == "raindrops_footer_image" or
                                                         $key == "raindrops_heading_image_position" or
                                                         $key == "raindrops_heading_image" or
-                                                        $key == "raindrops_style_type") ){
+                                                        $key == "raindrops_style_type" or
+														$key == "raindrops_color_scheme") ){
                     continue;
                 }
 

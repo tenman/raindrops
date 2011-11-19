@@ -10,6 +10,14 @@ Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, y
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+/**
+ * Raindrops Base Style Rules
+ * 
+ *
+ * Filetype: CSS
+ * @package WordPress
+ * @subpackage Raindrops
+ */
 
 /*-----------------------------------------------------
 Yahoo UI Library Font-size Adjustment
@@ -582,9 +590,9 @@ margin:1em 1em 0 1em;
 #ft div.widget-wrapper>ul>li{
 padding:1em;
 width:29%;
-height:240px;
+/*height:240px;*/
 float:left;
-display:inline;
+display:inline-block;
 }
 #ft div.widget-wrapper ul li ul li{
 display:block;
@@ -1126,7 +1134,7 @@ li.category_report,
 	margin-left:20px!important;
 }
 #ft a,
-#top *,
+/*#top *,*/
 .category32,
 .archive li a,
 .page .hentry .entry-title a,
@@ -1490,6 +1498,7 @@ div.category-blog div.blog-main{
 }
 .category-blog .entry-meta-list .avatar{
 	text-align:center;
+	list-style:none; /*firefox 8*/
 }
 .category-blog .entry-meta-list .author{
 	text-align:center;

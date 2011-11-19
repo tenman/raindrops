@@ -291,24 +291,29 @@ cite a:link,
 cite a:active,
 cite a:visited,
 cite a:hover,
-#hd h1 a:link,
-#hd h1 a:active,
-#hd h1 a:visited,
-#hd h1 a:hover,
 /*ol.commentlist li :hover,*/
 div.comment-body blockquote,
 div.comment-body *,
 div.comment-author,
 div.comment-author-meta,
 #site-description,
-#site-title,
-#site-title span a,
+
 .home .sticky a,
 .home .entry-meta a{
 %c_4%
 background:none!important;
 }
-h1{color:#fff!important;}
+#hd h1 a:link,
+#hd h1 a:active,
+#hd h1 a:visited,
+#hd h1 a:hover,
+#site-title,
+#site-title span a{
+%c_4%
+background:none;
+}
+/*h1{color:#fff!important;}*/
+
 .rd-page-navigation li{
 border-left:solid 1px %c_border%;
 %c_4%
@@ -480,6 +485,7 @@ border-left:solid 6px %rgba_border%;
 #header-image p{
 text-shadow: 2px 2px 2px #000;
 }
+#slides .slides_container,
 .raindrops-tab-content,
 .raindrops-tab-list li{
 border:1px solid rgba(200,200,200,0.3);
@@ -1261,6 +1267,7 @@ border:1px solid %c_border%;
 CSS3;
 return $style.$css3;
 }
+
 ?>
 <?php
 /////////////////////////////////////////////////

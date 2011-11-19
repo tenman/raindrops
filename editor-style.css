@@ -1,3 +1,10 @@
+/**
+ * Admin Post Editor Visual Style rules
+ * 
+ * Filetype: CSS
+ * @package WordPress
+ * @subpackage Raindrops
+ */
 html .mceContentBody {
 max-width:640px;
 

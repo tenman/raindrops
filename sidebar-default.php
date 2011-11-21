@@ -18,7 +18,7 @@
   </ul>
 </li>
 <?php wp_list_categories('show_count=1&title_li=<h2 class="h2">'. __( 'Categories', 'Raindrops'). '</h2>'); ?>
-<?php /* If this is the frontpage */ if ( is_home() || is_page() ) { ?>
+<?php /* If this is the frontpage */ if ( is_front_page() || is_page() ) { ?>
 <?php wp_list_bookmarks(); ?>
 <li>
   <h2 class="h2">Meta<?php _e( 'Meta', 'Raindrops' ); ?></h2>

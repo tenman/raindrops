@@ -151,35 +151,34 @@
  * @see raindrops_warehouse()
  *
  */
-    function raindrops_warehouse_clone($name){
-        global $raindrops_base_setting;
-        global $raindrops_page_width;
-        $vertical = array();
-        if(isset($raindrops_base_setting)){
-            foreach($raindrops_base_setting as $key=>$val){
-                if(!is_null($raindrops_base_setting)){
-                    $vertical[] = $val['option_name'];
-                }
-            }
-
-
-            $row = array_search($name,$vertical);
-            if(isset($raindrops_page_width) and !empty($raindrops_page_width) and $name == 'raindrops_page_width'){
-                return 'custom-doc';
-            }
-
-            $result = get_option('raindrops_theme_settings');
-
-            if(isset($result[$name]) and !empty($result[$name])){
-                return $result[$name];
-            }elseif(isset($raindrops_base_setting[$row]['option_value'])
-                    and !empty($raindrops_base_setting[$row]['option_value'])){
-                return $raindrops_base_setting[$row]['option_value'];
-            }else{
-                return false;
-            }
-        }
-    }
+		function raindrops_warehouse_clone($name){
+			global $raindrops_base_setting;
+			global $raindrops_page_width;
+			$vertical = array();
+			if(isset($raindrops_base_setting)){
+				foreach($raindrops_base_setting as $key=>$val){
+					if(!is_null($raindrops_base_setting)){
+						$vertical[] = $val['option_name'];
+					}
+				}
+	
+				$row = array_search($name,$vertical);
+				if(isset($raindrops_page_width) and !empty($raindrops_page_width) and $name == 'raindrops_page_width'){
+					return 'custom-doc';
+				}
+	
+				$result = get_option('raindrops_theme_settings');
+	
+				if(isset($result[$name]) and !empty($result[$name])){
+					return apply_filters( 'raindrops_theme_settings_'.$name , $result[$name]);
+				}elseif(isset($raindrops_base_setting[$row]['option_value'])
+						and !empty($raindrops_base_setting[$row]['option_value'])){
+					return apply_filters('raindrops_theme_settings_'.$row, $raindrops_base_setting[$row]['option_value']);
+				}else{
+					return false;
+				}
+			}
+		}
     }
 
 

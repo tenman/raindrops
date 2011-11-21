@@ -2000,7 +2000,7 @@ CSS;
                     }
                 }
             }
-            return apply_filters("raindrops_colors", $content);
+            return $content;
 
         }
     }

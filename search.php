@@ -29,7 +29,7 @@
         </li>
       <?php while (have_posts()){ the_post(); ?>
           <li>
-            <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
+            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
               <h2 class="h2 entry-title">
                 <?php
             if( has_post_thumbnail($post->ID)){

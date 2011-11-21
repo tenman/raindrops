@@ -45,7 +45,7 @@ while (have_posts()){
         the_post();
 ?>
 <li>
-  <div id="post-<?php echo $post->ID; ?>" <?php post_class(); ?>>
+  <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <?php   if( in_category( "gallery" )){     ?>
     <h2 class="h2 entry-title"> <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php echo the_title(); ?></a></h2>
     <div class="posted-on">

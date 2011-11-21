@@ -257,10 +257,10 @@ One is a method of up-loading the image from the below up-loading form. Another 
             return $input;
     }
     function raindrops_header_image_validate($input){
-        if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+     /*   if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
             $raindrops_options = get_option("raindrops_theme_settings");
             return $raindrops_options["raindrops_header_image"];
-        }
+        }*/
          return $input;
     }
     function raindrops_style_type_validate($input){

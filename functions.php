@@ -32,37 +32,34 @@
  *
  */
     $included_files = get_included_files();
-	
-	foreach($included_files as $key => $val){
-		$included_file[$key] = basename($val);
-	}
-	$included_files = $included_file;
-	
-    $raindrops_color_file_path = get_stylesheet_directory().'/lib/csscolor/csscolor.php';	
-	
+
+    foreach($included_files as $key => $val){
+        $included_file[$key] = basename($val);
+    }
+    $included_files = $included_file;
+
+    $raindrops_color_file_path = get_stylesheet_directory().'/lib/csscolor/csscolor.php';
+
     if(is_user_logged_in()){
 
         if(!in_array('csscolor.php',$included_files) and
-			 file_exists($raindrops_color_file_path)){
+             file_exists($raindrops_color_file_path)){
             require_once($raindrops_color_file_path);
         }elseif(!in_array('csscolor.php',$included_files)){
-			require_once(get_template_directory().'/lib/csscolor/csscolor.php');
-		}
+            require_once(get_template_directory().'/lib/csscolor/csscolor.php');
+        }
 
-      	$raindrops_color_file_path = get_stylesheet_directory().'/lib/csscolor.css.php';
-		if(!in_array('csscolor.css.php',$included_files) and
-			 file_exists($raindrops_color_file_path)){
+        $raindrops_color_file_path = get_stylesheet_directory().'/lib/csscolor.css.php';
+        if(!in_array('csscolor.css.php',$included_files) and
+             file_exists($raindrops_color_file_path)){
             require_once($raindrops_color_file_path);
-			
+
         }elseif(!in_array('csscolor.css.php',$included_files)){
-			require_once(get_template_directory().'/lib/csscolor.css.php');
-		}
-		
-		add_filter('contextual_help','raindrops_edit_help');
-    }  
-		
-		
-		
+            require_once(get_template_directory().'/lib/csscolor.css.php');
+        }
+
+        add_filter('contextual_help','raindrops_edit_help');
+    }
 /**
  * It has alias functions.
  *
@@ -71,13 +68,13 @@
  *
  */
     $raindrops_functions_file_path = get_stylesheet_directory().'/lib/alias_functions.php';
-	
-		if(!in_array('alias_functions.php',$included_files) 
-			and file_exists($raindrops_functions_file_path)){
-			require_once($raindrops_functions_file_path);
-		}elseif(!in_array('alias_functions.php',$included_files)){
-			require_once(get_template_directory().'lib/alias_functions.php');
-		}
+
+        if(!in_array('alias_functions.php',$included_files)
+            and file_exists($raindrops_functions_file_path)){
+            require_once($raindrops_functions_file_path);
+        }elseif(!in_array('alias_functions.php',$included_files)){
+            require_once(get_template_directory().'/lib/alias_functions.php');
+        }
 /**
  *
  *
@@ -89,7 +86,7 @@
     if(!in_array($file_path,$included_files)){
         get_template_part('lib/shortcodes');
     }
-	
+
 
 
 /**
@@ -206,11 +203,11 @@
  *
  */
     if(!defined('HEADER_IMAGE')){
-		if(file_exists(get_stylesheet_directory().'/images/headers/wp3.jpg')){
-        	define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
-		}else{
-        	define('HEADER_IMAGE', get_template_directory_uri().'/images/headers/wp3.jpg');
-		}
+        if(file_exists(get_stylesheet_directory().'/images/headers/wp3.jpg')){
+            define('HEADER_IMAGE', get_stylesheet_directory_uri().'/images/headers/wp3.jpg');
+        }else{
+            define('HEADER_IMAGE', get_template_directory_uri().'/images/headers/wp3.jpg');
+        }
     }
     if(!defined('HEADER_IMAGE_WIDTH')){
         define('HEADER_IMAGE_WIDTH', 950);
@@ -471,13 +468,13 @@
             $px = 'width:'.$width.'px;';
             $width      = $width / 13;
         }
-		if($pw == 'custom-doc'){
+        if($pw == 'custom-doc'){
             $width      = $raindrops_page_width;
             $px = 'width:'.$width.'px;';
             $width      = $width / 13;
         }
 
-		
+
 
         $raindrops_main_width = raindrops_main_width();
         $raindrops_main_width = $raindrops_main_width / 13;
@@ -1143,12 +1140,12 @@
              }elseif($id == '#ft'){
                  if(!file_exists($upload_info['path'].'/'.$filename)){
                     return 'background:url('.get_template_directory_uri().'/images/'.$filename.');background-repeat:repeat-x;';
-             	}
-			}
+                }
+            }
         }
 
-		
-		
+
+
 
          preg_match("|raindrops-item-([^-]+)|",$filename,$regs);
          $purpose = $regs[1];
@@ -1221,23 +1218,23 @@ if(!function_exists("add_raindrops_stylesheet")){
         }
 
         $template_uri = get_template_directory_uri();
-		$template_path = get_template_directory_uri();
+        $template_path = get_template_directory_uri();
         $stylesheet_uri = get_stylesheet_directory_uri();
-		$stylesheet_path = get_stylesheet_directory_uri();
-	
+        $stylesheet_path = get_stylesheet_directory_uri();
+
             $reset_font_grid    = $stylesheet_uri.'/reset-fonts-grids.css';
-			if(!file_exists($stylesheet_path.'/reset-fonts-grids.css')){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
+            if(!file_exists($stylesheet_path.'/reset-fonts-grids.css')){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
             wp_register_style('raindrops_reset_fonts_grids', $reset_font_grid,array(),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_reset_fonts_grids');
 
             $grids  = $stylesheet_uri.'/grids.css';
-			if(!file_exists($stylesheet_path.'/grids.css')){$grids    = $template_uri.'/grids.css';}
+            if(!file_exists($stylesheet_path.'/grids.css')){$grids    = $template_uri.'/grids.css';}
             wp_register_style('raindrops_grids', $grids,array('raindrops_reset_fonts_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_grids');
 
 
             $fonts              = $stylesheet_uri.'/fonts.css';
-			if(!file_exists($stylesheet_path.'/fonts.css')){$fonts    = $template_uri.'/fonts.css';}
+            if(!file_exists($stylesheet_path.'/fonts.css')){$fonts    = $template_uri.'/fonts.css';}
             wp_register_style('raindrops_fonts', $fonts,array('raindrops_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_fonts');
 
@@ -1245,7 +1242,7 @@ if(!function_exists("add_raindrops_stylesheet")){
             $language           = get_locale();
 
             $lang   = $stylesheet_uri.'/languages/css/'.$language.'.css';
-			if(!file_exists($stylesheet_path.$language.'.css')){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
+            if(!file_exists($stylesheet_path.$language.'.css')){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
             wp_register_style('lang_style', $lang,array('raindrops_fonts'),$raindrops_version,'all');
             wp_enqueue_style( 'lang_style');
 
@@ -1266,7 +1263,7 @@ if(!function_exists("add_raindrops_stylesheet")){
 
 /* add small js*/
             $raindrops_js   = $stylesheet_uri.'/raindrops.js';
-			if(!file_exists($stylesheet_path.'/raindrops.js')){$raindrops_js    = $template_uri.'/raindrops.js';}
+            if(!file_exists($stylesheet_path.'/raindrops.js')){$raindrops_js    = $template_uri.'/raindrops.js';}
             wp_register_script('raindrops', $raindrops_js,array('jquery'),$raindrops_version,true);
             wp_enqueue_script('raindrops');
     }
@@ -2760,14 +2757,19 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 
         if ( 'blank' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR) or
              '' == get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)  ){
-            $description_style = ' style=display:none;';
-			$height = HEADER_IMAGE_HEIGHT.'px';
+            $description_style = ' style="display:none;"';
+            $height = HEADER_IMAGE_HEIGHT.'px';
         }elseif(preg_match("|[0-9a-f]{6}|si",get_header_textcolor())){
             $description_style = ' style="color:#' . get_header_textcolor() . ';"';
             $height = HEADER_IMAGE_HEIGHT.'px';
         }else{
             $description_style = '';
             $height = 0;
+        }
+
+        if(get_header_image() == ''){
+            $height = 0;
+            $description_style = ' style="display:none;"';
         }
 
         $defaults = array(
@@ -2790,7 +2792,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                         esc_html($height),
                         esc_html($color),
                         esc_html($style),// css needs > but this style is inline
-                        $description_style,// css needs > but this style is inline
+                        htmlspecialchars($description_style,ENT_NOQUOTES),// css needs > but this style is inline
                         esc_html($description)
                         );
         return  $html ;
@@ -2825,8 +2827,10 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
             'switch' => $raindrops_show_hide
         );
 
-        $args = wp_parse_args( $args, $defaults );
+        $args = wp_parse_args($args, $defaults );
+
         extract( $args, EXTR_SKIP );
+
 
         $html = '<div id="site-description" %1$s>%2$s</div>';
         $html = sprintf( $html, $switch, $text );

@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:0.939
+modified
+   Files header comment modify
+fixed
+   Loose include path where functions.php works improperly
+   Apply_filters not work remove from functions.php,lib/csscolor.css.php
+   Add apply_filters where function raindrops_warehouse_clone
+   Get id value from $post->ID to the_ID() where loop.php, search.php
+   Conditionals to find the front page from is_home() to is_front_page() where sidebar-default.php,sidebar.php
+   function_exists check remove from add_custom_image_header where functions.php
+   header image display improperly (image height)
+----------------------------------------------
+Changelog -----------------------------------
 version:0.938
 
 fixed

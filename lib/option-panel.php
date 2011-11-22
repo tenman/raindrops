@@ -257,10 +257,10 @@ One is a method of up-loading the image from the below up-loading form. Another 
             return $input;
     }
     function raindrops_header_image_validate($input){
-     /*   if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+        if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
             $raindrops_options = get_option("raindrops_theme_settings");
             return $raindrops_options["raindrops_header_image"];
-        }*/
+        }
          return $input;
     }
     function raindrops_style_type_validate($input){
@@ -357,11 +357,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
         function SubMenu_GUI() {
             global $wpdb,$count, $raindrops_base_setting;
-			if(RAINDROPS_USE_AUTO_COLOR == true){
-            	$this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
-			}else{
-				$this->col_settings_raindrops_style_type = array("w3standard" => "w3standard");
-			}
+            if(RAINDROPS_USE_AUTO_COLOR == true){
+                $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
+            }else{
+                $this->col_settings_raindrops_style_type = array("w3standard" => "w3standard");
+            }
 
             $ok     = false;
             $result = "";
@@ -568,13 +568,13 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
 
                 if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val) and $key !== "raindrops_footer_image" and $key !== "raindrops_header_image"){
-					if(file_exists(get_stylesheet_directory()."/images/".$val)){
-                    	$style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
-					}else{
-                    	$style .="background:url(".get_template_directory_uri()."/images/".$val.');';
-					}
+                    if(file_exists(get_stylesheet_directory()."/images/".$val)){
+                        $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
+                    }else{
+                        $style .="background:url(".get_template_directory_uri()."/images/".$val.');';
+                    }
                 }else{
-                    	$style .='';
+                        $style .='';
                 }
 
 
@@ -593,7 +593,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                                                         $key == "raindrops_heading_image_position" or
                                                         $key == "raindrops_heading_image" or
                                                         $key == "raindrops_style_type" or
-														$key == "raindrops_color_scheme") ){
+                                                        $key == "raindrops_color_scheme") ){
                     continue;
                 }
 
@@ -618,11 +618,11 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 //background setting
 
                 if($key == "raindrops_heading_image_position"){
-					if(file_exists(get_stylesheet_directory().'/images/'.$current_heading_image)){
-                    	$lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
-					}else{
-                    	$lines .= '<td style="background:url('.get_template_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_template_directory_uri().'/images/number.png" />';					
-					}
+                    if(file_exists(get_stylesheet_directory().'/images/'.$current_heading_image)){
+                        $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
+                    }else{
+                        $lines .= '<td style="background:url('.get_template_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_template_directory_uri().'/images/number.png" />';
+                    }
 
                 }elseif($key == "raindrops_header_image"){
                     $uploads = wp_upload_dir();

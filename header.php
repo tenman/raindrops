@@ -107,7 +107,7 @@ echo raindrops_header_image();
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
 <?php
-//wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary'));
+wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary'));
 ?>
 </div>
 <br class="clear" />

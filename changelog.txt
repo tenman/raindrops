@@ -1,4 +1,25 @@
 Changelog -----------------------------------
+version:0.940
+moved
+    single.php
+        remove conditional code by category
+        It is blog,gallery and default, it will be include from template part files.
+added
+    Add function raindrops_show_one_column() where functions.php
+    Add function raindrops_color_type_custom() where functions.php
+modified
+    CSS rule modify where lib/csscolor.css.php and style.css
+    page.php and single.php
+        By page edit and post edit,
+        the Color Type and the number of columns can be set to contribution.
+        see:README.txt
+made
+    Template part file
+        part-blog.php
+        part-gallery.php
+        part.php
+----------------------------------------------
+Changelog -----------------------------------
 version:0.939
 modified
    Files header comment modify

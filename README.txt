@@ -8,6 +8,34 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 0.940
+By page edit and post edit, 
+the Color Type and the number of columns can be set to contribution. 
+Add a few codes when you edit post.
+e.g.
+<!--[raindrops color_type="light" col="1"]-->
+it makes display 1column page or post.
+and raindrops color type is overwrite light.
+
+And next You can add your own color type.
+Please open functions.php
+Add code example where must last line. 
+
+raindrops_register_styles("my_css");
+
+function raindrops_indv_css_my_css(){
+
+$style = '/* Add CSS style rule*/ body{background:orange;
+color:black;}';
+
+
+return $style;
+
+}
+and add the code when you edit post.
+<!--[raindrops color_type="my_css" col="1"]-->
+
+
 Custom Header
 If you select Header Image where Appearance header panel
 and Raindrops will show select image.

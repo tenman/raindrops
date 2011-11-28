@@ -1,9 +1,10 @@
 <?php
 /**
+ * Template file index
  *
  * @package WordPress
  * @subpackage Raindrops
- * @since Raindrops 0.1
+ * @since Raindrops 0.940
  *
  * @uses get_header("xhtml1")	include template part file
  * @uses is_home()	Check Conditional is home page or not
@@ -16,9 +17,7 @@
  * @uses get_sidebar('default')	include template part file
  * @uses get_footer() 
  */
-get_header("xhtml1");
-
-?>
+get_header("xhtml1");?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b">

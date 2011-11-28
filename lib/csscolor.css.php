@@ -13,7 +13,7 @@
  * w3standard
  * dark
  * minimal
- * light
+ * Color type light
  *
  */
 
@@ -357,12 +357,12 @@ border:solid 1px %rgba_border%;
 border-bottom:3px double %rgba_border%;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
--webkit-border-top-right-radius: 1em;
+/*-webkit-border-top-right-radius: 1em;
 -moz-border-radius-topright: 1em;
 border-top-right-radius: 1em;
 -webkit-border-top-left-radius: 1em;
 -moz-border-radius-topleft: 1em;
-border-top-left-radius: 1em;
+border-top-left-radius: 1em;*/
 }
 .datetable td li,
 .rsidebar ul li ul li,
@@ -444,12 +444,14 @@ input[type="submit"],
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-border-radius:1em 1em 1em 1em;
--moz-border-radius:1em 1em 1em 1em;
--webkit-border-radius:1em 1em 1em 1em!important;
+border-radius:3px 3px 3px 3px;
+-moz-border-radius:3px 3px 3px 3px;
+-webkit-border-radius:3px 3px 3px 3px!important;
 /*border-top:1px solid rgba(255, 255, 255, 0.3);*/
 -moz-box-shadow: 1px 1px 3px #000;
 -webkit-box-shadow: 1px 1px 3px #000;
+border-top:1px solid rgba(100,100,100,1);
+
 }
 .raindrops-tab-list li,
 #access .children li,
@@ -518,7 +520,7 @@ $style =<<<DOC
 }
 
 body {
-
+%c4%
     margin:0!important;padding:0;
     background-repeat:repeat-x;
 }
@@ -560,9 +562,9 @@ border-bottom:solid 2px %c_border%;
 
 }
 .entry-meta{
-%c4%
-border-top:solid 2px %c_border%;
-border-bottom:solid 2px %c_border%;
+%c5%
+border-top:dashed 1px %c_border%;
+border-bottom:dashed 1px %c_border%;
 
 }
 textarea,
@@ -617,7 +619,6 @@ cite{
 }
 cite a:link,cite a:active,cite a:visited,cite a:hover{
     %c4%
-    background:none!important;
 }
 .entry-content fieldset {
     border:solid 1px %c_border%;
@@ -641,33 +642,39 @@ border-top:1px dashed %c_border%;
 
 /*--------------------------------*/
 
-#access{
-    /*%c3%*/
+#access{ %c5%
 }
 #access a {
+   
+
 }
 #access ul ul a {
-    %c3%
+    %c4%
 }
 #access li:active > a,
 #access ul ul :active > a {
     top:0;
     %c2%
     color:%custom_color%
+	
 }
-
+.current-post > a,
+.current_page_item > a,
+.current-menu-item > a{
+font-weight:bold;
+}
 #access ul li.current_page_item > a,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-    %c3%
+    %c4%
 }
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
 .ie6 #access ul li.current-menu-parent a,
 .ie6 #access ul li a:hover {
-    %c2%
+    %c3%
 }
 
 table,
@@ -746,7 +753,6 @@ function raindrops_indv_css_light(){
 $style =<<<DOC
 
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-
     %h2_light_background%;
     %h_position_rsidebar_h2%
 }
@@ -772,7 +778,7 @@ h2,h3{
 }
 
 .entry-meta{
-    %c4%
+    %c5%
 }
 
 .home .sticky a{
@@ -1120,12 +1126,12 @@ body{
     border-bottom:solid 2px %rgba_border%;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-    -webkit-border-top-left-radius: 1em;
+ /*   -webkit-border-top-left-radius: 1em;
     -moz-border-radius-topleft: 1em;
     border-top-left-radius: 1em;
-    -webkit-border-bottom-right-radius: 1em;
-    -moz-border-radius-bottomright: 1em;
-    border-bottom-right-radius: 1em;
+    -webkit-border-top-right-radius: 1em;
+    -moz-border-radius-topright: 1em;
+    border-top-right-radius: 1em;*/
 }
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
@@ -1209,12 +1215,12 @@ border-top:1px dashed %rgba_border%;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-    border-radius:1em 1em 1em 1em;
-    -moz-border-radius:1em 1em 1em 1em;
-    -webkit-border-radius:1em 1em 1em 1em!important;
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px!important;
     border-top:1px solid rgba(255, 255, 255, 0.3);
-    -moz-box-shadow: 1px 1px 3px #000;
-    -webkit-box-shadow: 1px 1px 3px #000;
+    -moz-box-shadow: 0 1px 3px #333;
+    -webkit-box-shadow: 0 1px 3px #333;
 
 }
 #access a {
@@ -1458,7 +1464,11 @@ DOC;
 $style=<<<CSSB
 a{color:#333;}
 a:hover{color:#777;}
-/*#hd #header-image{display:none;}*/
+#header-image{display:none!important;}
+#hd,#ft{background:none!important;}
+.footer-widget h2, .rsidebar h2, .lsidebar h2, .widgettitle h2, h2.footer-content {
+text-indent:0;}
+#access{display:none;}
 CSSB;
 
 $css3 =<<<CSS3

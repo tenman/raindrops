@@ -40,7 +40,7 @@
 
     $raindrops_color_file_path = get_stylesheet_directory().'/lib/csscolor/csscolor.php';
 
-    if(is_user_logged_in()){
+  //  if(is_user_logged_in()){
 
         if(!in_array('csscolor.php',$included_files) and
              file_exists($raindrops_color_file_path)){
@@ -59,7 +59,7 @@
         }
 
         add_filter('contextual_help','raindrops_edit_help');
-    }
+   // }
 /**
  * It has alias functions.
  *
@@ -2909,8 +2909,57 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
     }
 
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+if(!function_exists("raindrops_show_one_column")){
+	function raindrops_show_one_column(){
+		global $post;
+		if(isset($post)){
+			$raindrops_content_check = get_post($post->ID);
+			$raindrops_content_check = $raindrops_content_check->post_content;
+			
+			if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
+				return $regs[3];
+			}else{
+				return false;
+			}
+		}elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'hide'){
+				return 2;
+		}elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'show'){
+				return 3;
+		}
+	}
+}
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+if(!function_exists("raindrops_color_type_custom")){
 
+	function raindrops_color_type_custom($css){
+		global $post;
+		if(isset($post)){
+			$raindrops_content_check = get_post($post->ID);
+			$raindrops_content_check = $raindrops_content_check->post_content;
+			if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){	
+		
+			$color_type = trim($regs[3]);
+			return raindrops_design_output($color_type);
+			}
+		}else{
+			return $css;
+		}
+	}
 
+}
 
 ?>

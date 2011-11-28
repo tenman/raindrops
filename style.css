@@ -31,7 +31,7 @@ http://developer.yahoo.com/yui/fonts/
 26px = 197%
 ------------------------------------------------------*/
 .hfeed a{
-background:none!important;
+/*background:none!important;*/
 text-decoration:none;
 
 }
@@ -658,6 +658,7 @@ padding:0;
 #nav-above,
 #nav-below {
 	max-width:100%;
+	margin:0 14px;
 	
 	
 }
@@ -689,7 +690,7 @@ padding:0;
 	overflow:hidden;
 }
 .rsidebar{
-	margin-right:3px;
+	margin-right:5px;
 }
 .lsidebar{
 	margin-left:3px;
@@ -753,12 +754,12 @@ h2.footer-content {
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 	margin-bottom:0;
 }
-.rd-type-light .rsidebar h2,
+/*.rd-type-light .rsidebar h2,
 .rd-type-w3standard .rsidebar h2,
 .rd-type-w3standard .lsidebar h2{
 	text-indent:0;
 
-}
+}*/
 
 .lsidebar h2 ul li ul{
 	margin-top:-2px;
@@ -965,6 +966,12 @@ ul.index li .edit {
 	margin:0;
 	padding:0;
 }
+.lsidebar > ul{
+	margin:0 5px;
+}
+.rd-type-light .lsidebar > ul{
+	margin:0;
+}
 .social {
 	clear:both;
 	margin:10em 1em 1em;
@@ -1117,9 +1124,9 @@ ul.nav li a:visited,*/
 	border:1px solid #ccc;
 }
 hr,
-.attachment {
+div.attachment {
 	border:none;
-	margin:1em 0;
+	margin:1em;
 }
 
 .page-title,
@@ -1982,7 +1989,7 @@ display:inline-block;
 padding:3px 5px;
 display:inline-block;
 
-}
+}/*
 .rd-type-w3standard .footer-widget h2,
 .rd-type-w3standard .rsidebar h2,
 .rd-type-w3standard .lsidebar h2,
@@ -1990,7 +1997,7 @@ display:inline-block;
 .rd-type-light .rsidebar h2,
 .rd-type-light .lsidebar h2 {
 background:none!important;
-}
+}*/
 
 .rd-page-navigation ul > li{
 float:left;
@@ -2070,3 +2077,4 @@ div.raindrops-tab-page h3{
 	margin:14px;
 	padding:21px;
 }
+

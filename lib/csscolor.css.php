@@ -10,9 +10,9 @@
 /**
  * INDEX
  *
- * w3standard
- * dark
- * minimal
+ * Color type w3standard
+ * Color type dark
+ * Color type minimal
  * Color type light
  *
  */
@@ -28,23 +28,37 @@ raindrops_register_styles("dark");
 
 function raindrops_indv_css_dark(){
 
+$font_color_5 = raindrops_colors(-5,"color");
+
 $style =<<<DOC
 body{
 %c1%
 }
+
 legend,
-a:link,a:active,a:visited,a:hover,
-.lsidebar,
 #sidebar,
-.rsidebar,
-#doc,#doc2,#doc3,#doc4,
+div[id^="doc"],
 #hd,
 h1,
-#yui-main,
+div[id="yui-main"],
 .entry ol ol ,.entry ul,
 .entry ul * {
 %c_5%
 }
+
+a:link,
+a:active,
+a:visited,
+a:hover,
+#site-title,
+.h1 a{
+color:$font_color_5;
+background:none;
+}
+h2 a{
+background:inherit;
+}
+
 .lsidebar,
 #sidebar,
 .rsidebar{
@@ -68,7 +82,7 @@ input[type="reset"],
 input[type="submit"],
 .fail-search,
 #not-found ,
-#access ul li.current_page_item > a,
+#access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a,
@@ -101,9 +115,6 @@ input[type="reset"],
 .social input[type="submit"],
 input[type="submit"]{
 %c_3%
-}
-h2 a{
-background:inherit;
 }
 .entry div h2,.entry div h3{
 }
@@ -187,13 +198,7 @@ border:none;
 border-top:1px solid %c_border%;
 }
 
-ul.archive li,
-ul.index li{
 
-}
-
-.pagenate{
-}
 #month_list,
 #month_list td,
 #raindrops_year_list td,
@@ -219,15 +224,12 @@ fieldset,
 .social input[type="submit"],
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
-border:1px solid %c_border%;
+	border:1px solid %c_border%;
 }
 
 .entry-content blockquote {
 border-left:solid 6px %c_border%;
 }
-div.social{
-}
-
 
 li.byuser,
 li.bypostauthor,
@@ -235,6 +237,11 @@ li.bypostauthor,
 .social input:focus,
 .entry-content th{
 %c3%
+}
+li.byuser div.comment-body *,
+li.byuser span.says{
+%c3%
+background:none;
 }
 .wp-caption,
 .entry-content td,
@@ -253,9 +260,6 @@ li.bypostauthor,
 .entry-content select{
 %c_3%
 }
-
-
-
 #access .children li ,
 #access .children a {
 background:%custom_light_bg%;
@@ -270,17 +274,13 @@ color:%custom_color%;
 }
 
 .fail-search,
-#not-found,
-li.byuser,
-li.bypostauthor{
+#not-found{
 border:1px solid;
 }
 .children:hover,
 .children{
-
 }
 .reply,
-
 #ft a,
 .category32,
 .archive li a,
@@ -300,18 +300,11 @@ div.comment-author-meta,
 
 .home .sticky a,
 .home .entry-meta a{
-%c_4%
-background:none!important;
-}
-#hd h1 a:link,
-#hd h1 a:active,
-#hd h1 a:visited,
-#hd h1 a:hover,
-#site-title,
-#site-title span a{
-%c_4%
+color:$font_color_5;
 background:none;
 }
+
+
 /*h1{color:#fff!important;}*/
 
 .rd-page-navigation li{
@@ -493,6 +486,30 @@ text-shadow: 2px 2px 2px #000;
 border:1px solid rgba(200,200,200,0.3);
 
 }
+/*comment bubble*/
+a.raindrops-comment-link {
+}
+.raindrops-comment-link em {
+%c_2%
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  position: relative;
+}
+.raindrops-comment-link .point {
+  border-left: 0.45em solid %rgba_border%; 
+  border-bottom: 0.45em solid #FFF; /* IE fix */
+  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  overflow: hidden; /* IE fix */
+}
+a.raindrops-comment-link:hover {
+}
+a.raindrops-comment-link:hover em {
+%c2%
+}
+a.raindrops-comment-link:hover .point {
+border-left:1px solid %rgba_border%;
+}
 
 CSS3;
 return $style.$css3;
@@ -501,7 +518,7 @@ return $style.$css3;
 <?php
 
 /**
- * w3standard
+ * Color type w3standard
  *
  *
  *
@@ -658,12 +675,7 @@ border-top:1px dashed %c_border%;
     color:%custom_color%
 	
 }
-.current-post > a,
-.current_page_item > a,
-.current-menu-item > a{
-font-weight:bold;
-}
-#access ul li.current_page_item > a,
+#access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
@@ -731,7 +743,22 @@ border-left:solid 1px %c_border%;
 border:1px solid %c_border%;
 
 }
-
+a.raindrops-comment-link {
+}
+.raindrops-comment-link em {
+%c4%
+  position: relative;
+}
+.raindrops-comment-link .point {
+}
+a.raindrops-comment-link:hover {
+}
+a.raindrops-comment-link:hover em {
+%c_1%
+}
+a.raindrops-comment-link:hover .point {
+border-left:1px solid %rgba_border%;
+}
 DOC;
 return $style;
 }
@@ -750,7 +777,19 @@ raindrops_register_styles("light");
 
 function raindrops_indv_css_light(){
 
-$style =<<<DOC
+	$font_color5 = raindrops_colors(5,"color");
+
+	$style =<<<DOC
+
+a:link,
+a:active,
+a:visited,
+a:hover,
+#site-title,
+.h1 a{
+color:$font_color_5;
+background:none;
+}
 
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
     %h2_light_background%;
@@ -853,20 +892,6 @@ ol.tblist li{background:transparent url(%raindrops_images_path%c.gif) 0 2px no-r
     border-top: medium solid %c_border%;
     background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
     color:%raindrops_footer_color%;
-}
-
-
-
-
-a:link,a:active,a:visited,a:hover{
-    %c5%
-}
-#hd h1 a:link,
-#hd h1 a:active,
-#hd h1 a:visited,
-#hd h1 a:hover{
-    %c4%
-    background:none;
 }
 
 .rsidebar ul li ul li,
@@ -993,7 +1018,7 @@ select{
     border:1px solid %c_border%;
 }
 .social input[type="submit"] {
-    border:double 3px %c_border%;
+    border:solid 1px %c_border%;
     %c4%
 }
 
@@ -1038,7 +1063,7 @@ select{
 #access ul ul :active >a{
     top:0;
 }
-#access ul li.current_page_item > a,
+#access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
@@ -1066,8 +1091,6 @@ background:none!important;
 }
 li.byuser,
 li.bypostauthor {
-    %c_3%
-    border:solid 1px %c_border%;
 }
 cite.fn{
     background:none;
@@ -1122,8 +1145,8 @@ body{
 
 .entry-meta{
 
-    border-top:solid 2px %rgba_border%;
-    border-bottom:solid 2px %rgba_border%;
+    border-top:solid 1px %rgba_border%;
+    border-bottom:solid 1px %rgba_border%;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
  /*   -webkit-border-top-left-radius: 1em;
@@ -1184,7 +1207,7 @@ border-top:1px dashed %rgba_border%;
     border:1px solid %rgba_border%;
 }
 .social input[type="submit"] {
-    border:double 3px %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 
 .entry-content th{
@@ -1250,8 +1273,6 @@ border-top:1px dashed %rgba_border%;
 }
 li.byuser,
 li.bypostauthor {
-    border:solid 1px %rgba_border%;
-
 }
 
 .datetable td li{
@@ -1269,7 +1290,29 @@ table td{
 border:1px solid %c_border%;
     border:1px solid %rgba_border%;
 }
-
+a.raindrops-comment-link {
+}
+.raindrops-comment-link em {
+%c4%
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  position: relative;
+}
+.raindrops-comment-link .point {
+  border-left: 0.45em solid %rgba_border%; 
+  border-bottom: 0.45em solid #FFF; /* IE fix */
+  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  overflow: hidden; /* IE fix */
+}
+a.raindrops-comment-link:hover {
+}
+a.raindrops-comment-link:hover em {
+%c_1%
+}
+a.raindrops-comment-link:hover .point {
+border-left:1px solid %rgba_border%;
+}
 CSS3;
 return $style.$css3;
 }
@@ -1289,216 +1332,53 @@ raindrops_register_styles("minimal");
 function raindrops_indv_css_minimal(){
 global $raindrops_base_color;
     $font_color = raindrops_colors(5,"color");
-    $gradient_4d = raindrops_gradient_single_clone(4,"desc");
-    $gradient_3a = raindrops_gradient_single_clone(3,"asc");
+   
 
-$style =<<<DOC
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
-
-#access ul ul.children a{
-    background:#fff;
-}
-.searchform{
-    padding-top:3px;
-    padding-bottom:3px;
-}
-a{
-
-    text-decoration:underline;
-}
-.sticky a,
-address a,
-.nav-previous a,
-#doc,#doc2,#doc3,#doc4{
-background:$raindrops_base_color;
-}
-#ft,
-#top{
-    $gradient_4d
-
-    $footer_image
-}
-/*navigation*/
-
-
-#access{
-    background:#000;
-    color:#eef;
-}
-#access a{
-    color:#fff;
-}
-#nav-below,
-.entry-meta-default,
-.posted-on,
-div.entry-content{
-margin:10px;
-}
-.lsidebar,.rsidebar{
-display:none!important;
-}
-.lsidebar > ul,.rsidebar > ul{
-
-margin-top:5px;
-}
-.raindrops-tab-list li{
-$gradient_4d
-}
-.raindrops-tab-content{
-$gradient_4d
-}
-li.widget{
-margin-bottom:10px!important;
-$gradient_4d
-border:1px solid #ccc;
-}
-/*entry*/
-
-.hentry{
-    border:1px solid #ccc;
-    $gradient_4d
-}
-.single-post .hentry{
-    border:none;
-}
-
-/* titles */
-.entry-title{
-margin:0;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    $gradient_3a
-    text-indent:1em;
-}
-
-.single-post .hentry h2,
-.single-post .hentry{
-}
-
-.widget h2{
-    margin-top:0;
-
-}
-.sticky .entry-title{
-background:none;
-}
-/*comments*/
-h2#comments-title,
-.hentry div#comments{
-    background:#fff;
-}
-
-a,
-#yui-main{
-    color:%raindrops_header_color%;
-}
-#datelist table,
-#raindrops_year_list,
-#raindrops_year_list td,
-#month_list,
-#month_list td,
-#datelist,
-#date_list td{
-border:solid 1px %c_border%!important;
-}
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
-%c5%
-%h2_w3standard_background%
-%h_position_rsidebar_h2%
-}
-.entry-content blockquote{
-%c5%
-border-left:solid 3px %c_border%;
-}
-cite{
-%c5%
-}
-cite a:link,cite a:active,cite a:visited,cite a:hover{
-%c5%
-background:none!important;
-}
-li.byuser,
-li.bypostauthor {
-%c3%
-}
-cite.fn{
-    background:none;
-}
-.datetable td li{
-    border-bottom:solid 1px %c_border%;
-}
-.fail-search,
-#not-found {
-border:3px double;
-}
-th{
-%c4%
-}
-td{
-
-
-}
-.rd-page-navigation li{
-border-left:solid 1px %c_border%;
-%c4%
-}
-.rd-page-navigation a{
-%c4%
-}
-.rd-page-navigation .current_page_item{
-%c5%
-}
-.raindrops-tab-content,
-.raindrops-tab-list li{
-border:1px solid %c_border%;
-}
-.raindrops-tab-list li{
-
-border-bottom:none;
-}
-.raindrops-tab-list li a{
-$gradient_4d
-color:#000;
-}
-DOC;
-
-$style=<<<CSSB
-a{color:#333;}
+$style=<<<CSS
+body{border-top:6px solid $raindrops_base_color!important;}
+a{color:$font_color;}
 a:hover{color:#777;}
 #header-image{display:none!important;}
 #hd,#ft{background:none!important;}
 .footer-widget h2, .rsidebar h2, .lsidebar h2, .widgettitle h2, h2.footer-content {
 text-indent:0;}
 #access{display:none;}
-CSSB;
+/*comment bubble*/
+a.raindrops-comment-link {
+}
+.raindrops-comment-link em {
+%c4%
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+  position: relative;
+}
+.raindrops-comment-link .point {
+  border-left: 0.45em solid %rgba_border%; 
+  border-bottom: 0.45em solid #FFF; /* IE fix */
+  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  overflow: hidden; /* IE fix */
+}
+a.raindrops-comment-link:hover {
+}
+a.raindrops-comment-link:hover em {
+%c_1%
+}
+a.raindrops-comment-link:hover .point {
+border-left:1px solid %rgba_border%;
+}
+input[type="text"], 
+textarea#comment{
+ 		border:1px solid #ddd;
+        border-top-color:%rgba_border%;
+        border-left-color:%rgba_border%;
+        padding:3px;
+		-moz-border-radius: 3px;
+	   -khtml-border-radius: 3px;
+	   -webkit-border-radius: 3px;
 
-$css3 =<<<CSS3
-
-%gradient%
-
-#access .children li,
-#datelist table,
-#raindrops_year_list,
-#raindrops_year_list td,
-#month_list,
-#month_list td,
-#datelist,
-#date_list td{
-    border:1px solid %rgba_border%!important;
 }
-.home .sticky {
-    border-top:solid 6px %rgba_border%;
-    border-bottom:solid 2px %rgba_border%;
-}
-.datetable td li,
-th,
-td{
-    border-bottom:solid 1px %rgba_border%;
-}
-.raindrops-tab-content,
-.raindrops-tab-list li{
-    border:1px solid %rgba_border%;
-}
-CSS3;
+CSS;
 
 return $style;
 }

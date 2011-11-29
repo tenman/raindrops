@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.940
+Version: 0.941
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -748,7 +748,7 @@ padding:0;
 .widgettitle h2,
 h2.footer-content {
 	height:17px;
-	text-indent:1em;
+	text-indent:.5em;
 	font-size:116%;
 	padding:5px 0;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
@@ -1442,8 +1442,8 @@ li.depth-1{
 }
 li.byuser > div,
 .bypostauthor > div{
-	background:none;
-	color:#000;
+/*	background:none;
+	color:#000;*/
 }
 .gallery-caption{
 }
@@ -2078,3 +2078,44 @@ div.raindrops-tab-page h3{
 	padding:21px;
 }
 
+.social input[type="submit"]{
+	padding:2px 6px;
+}
+
+.current-post > a,
+.current_page_item > a,
+.current-menu-item > a{
+font-weight:bold;
+}
+
+/**** Speech Bubble Icons *****/
+.raindrops-comment-link {
+  position: relative;
+}
+a.raindrops-comment-link {
+ 
+  text-decoration: none;
+}
+.raindrops-comment-link em {
+  font-style: normal;
+}
+.raindrops-comment-link em {
+  padding: 0 0.4em;
+  position: relative;
+}
+.raindrops-comment-link .point {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 1.1em;
+  left: 0.4em;
+  display: block;
+  overflow: hidden; /* IE fix */
+}
+a.raindrops-comment-link:hover {
+}
+a.raindrops-comment-link:hover em {
+  cursor: pointer;
+}
+a.raindrops-comment-link:hover .point {
+}

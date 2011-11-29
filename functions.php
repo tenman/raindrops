@@ -907,7 +907,7 @@
             $author = raindrops_blank_fallback(get_the_author(),'Somebody');
 
             if (comments_open()){
-                $raindrops_comment_html = '<a href="%1$s" class="raindrops-comment-link"><span class="raindrops-comment-string">%3$s</span>%2$s</a>';
+                $raindrops_comment_html = '<a href="%1$s" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em>%2$s %3$s</em></a>';
                 if(get_comments_number() > 0 ){
                     $raindrops_comment_string = _n('Comment','Comments',get_comments_number(),'Raindrops');
                     $raindrops_comment_number = get_comments_number();
@@ -2209,13 +2209,33 @@ if(!function_exists("raindrops_loop_title")){
  */
 if(!function_exists("raindrops_w3standard")){
     function raindrops_w3standard(){
-        $style =<<<DOC
+
+$font_color = raindrops_colors($num = 5, $select = 'color',$color1 = null);
+
+
+$style =<<<DOC
+legend,
+a:link,a:active,a:visited,a:hover,
+.lsidebar,
+#sidebar,
+.rsidebar,
+#doc,#doc2,#doc3,#doc4,
+#hd,
+h1,
+#yui-main,
+.entry ol ol ,.entry ul,
+.entry ul * {
+%c5%
+}
+
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 %c5%
 %h2_w3standard_background%
 %h_position_rsidebar_h2%
 }
+
 body {
+
     margin:0!important;padding:0;
     background-repeat:repeat-x;
 }
@@ -2223,15 +2243,16 @@ body {
     color:%raindrops_header_color%;
 }
 #hd{
-    background-image:url(%images_path%%raindrops_header_image%);
+    background-image:url(%raindrops_images_path%%raindrops_header_image%);
 }
 .hfeed{
     background:#fff;
 }
 #ft {
-    background:url(%images_path%%raindrops_footer_image%) repeat-x;
+    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
     color:%raindrops_footer_color%;
 }
+
 .footer-widget h2,
 .rsidebar h2,
 .lsidebar h2 {
@@ -2243,19 +2264,23 @@ body {
 list-style-type:square;
 list-style-position:inside;
 }
+
 .ie8 .lsidebar .widget ul li a {
     list-style:none;
 
 }
+
 .home .sticky {
 %c5%
 border-top:solid 6px %c_border%;
 border-bottom:solid 2px %c_border%;
+
 }
 .entry-meta{
 %c4%
-border-top:solid 2px %c_border%;
-border-bottom:solid 2px %c_border%;
+border-top:solid 1px %c_border%;
+border-bottom:solid 1px %c_border%;
+
 }
 textarea,
 input[type="password"],
@@ -2274,14 +2299,19 @@ select{
 .social input[type="text"] {
     outline:none;
     %c3%
+
 }
+
 .social textarea#comment:focus,
 .social input:focus{
     %c4%
+
 }
 .entry-content ul li{
     list-style-type:square;
+
 }
+
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
@@ -2294,6 +2324,7 @@ select{
 .entry-content select{
     %c4%
 }
+
 .entry-content blockquote{
     %c4%
     border-left:solid 6px %c_border%;
@@ -2301,9 +2332,11 @@ select{
 cite{
     %c4%
 }
-cite a:link,cite a:active,cite a:visited,cite a:hover{
-    %c4%
-    background:none!important;
+cite a:link,
+cite a:active,
+cite a:visited,
+cite a:hover{
+    $font_color
 }
 .entry-content fieldset {
     border:solid 1px %c_border%;
@@ -2311,6 +2344,7 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
 .entry-content legend{
     %c5%
 }
+
 .entry-content td{
     %c4%
     border:solid 1px %c_border%;
@@ -2319,10 +2353,13 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
     %c3%
     border:solid 1px %c_border%;
 }
+
 hr{
 border-top:1px dashed %c_border%;
 }
+
 /*--------------------------------*/
+
 #access{
     /*%c3%*/
 }
@@ -2337,6 +2374,7 @@ border-top:1px dashed %c_border%;
     %c2%
     color:%custom_color%
 }
+
 #access ul li.current_page_item > a,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
@@ -2350,10 +2388,12 @@ border-top:1px dashed %c_border%;
 .ie6 #access ul li a:hover {
     %c2%
 }
+
 table,
 table td,
 #access > li{
     border:1px solid #ccc;
+
 }
 tfoot td{
     border:none;
@@ -2362,21 +2402,24 @@ tfoot td{
 .rsidebar li{
     border:none!important;
 }
+
 td.month-date,td.month-name,td.time{
     %c4%
+
 }
 .datetable td li{
 }
 address{margin:10px auto;}
 .wp-caption {
 }
+
 li.byuser,
 li.bypostauthor {
-%c2%
+%c5%
 }
 .comment-meta a,
 cite.fn{
-    background:none;
+
 }
 .datetable td li{
 }
@@ -2395,6 +2438,33 @@ border-left:solid 1px %c_border%;
 .rd-page-navigation .current_page_item{
 %c4%
 }
+.raindrops-tab-content,
+.raindrops-tab-list li{
+border:1px solid %c_border%;
+
+}
+/*comment bubble*/
+a.raindrops-comment-link {
+}
+.raindrops-comment-link em {
+%c4%
+  position: relative;
+}
+.raindrops-comment-link .point {
+  border-left: 0.45em solid %c_border%; 
+  border-bottom: 0.45em solid #FFF; /* IE fix */
+  border-bottom: 0.45em solid %c_border%; 
+  overflow: hidden; /* IE fix */
+}
+a.raindrops-comment-link:hover {
+}
+a.raindrops-comment-link:hover em {
+%c5%
+}
+a.raindrops-comment-link:hover .point {
+border-left:1px solid %c_border%;
+}
+
 DOC;
 return $style;
     }

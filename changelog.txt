@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:0.941
+fixed
+    CSS rule display impropaly where Site Title background.
+    csscolor.css.php and style.css
+modified
+    language file ja.po ja.mo modified
+    CSS rules specification check and modify
+----------------------------------------------
+Changelog -----------------------------------
 version:0.940
 moved
     single.php

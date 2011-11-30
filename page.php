@@ -18,19 +18,19 @@ add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b" <?php if($raindrops_current_column == '1' ){
-	echo "style=\"width:100%;margin-left:0;\"";}?>>
+    echo "style=\"width:100%;margin-left:0;\"";}?>>
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-<div class="yui-u first" 
-<?php 
+<div class="yui-u first"
+<?php
 if($raindrops_current_column == 3){
 
 }elseif($raindrops_current_column == 1){
-	echo 'style="width:99%;"';
+    echo 'style="width:99%;"';
 }elseif($raindrops_current_column == 2){
-	
-	echo 'style="width:99%;"';
+
+    echo 'style="width:99%;"';
 }elseif($raindrops_current_column == false){
-	is_2col_raindrops('style="width:99%;"');
+    is_2col_raindrops('style="width:99%;"');
 }
 
 ?>>
@@ -87,12 +87,12 @@ echo '</ul>';
         <?php       } //end max_num_pages > 1 ?>
         <?php } //end have post?>
       </div>
-	  <?php if(raindrops_show_one_column($raindrops_content_check) == 3){?>
+      <?php if(raindrops_show_one_column() == 3){?>
 <div class="yui-u">
 <?php get_sidebar('extra');?>
 </div>
 <?php
-}elseif($rsidebar_show and raindrops_show_one_column($raindrops_content_check) == false){?>
+}elseif($rsidebar_show and raindrops_show_one_column() == false){?>
 <div class="yui-u">
 <?php get_sidebar('extra');?>
 </div>
@@ -100,7 +100,7 @@ echo '</ul>';
     </div>
   </div>
 </div>
-<?php if(raindrops_show_one_column($raindrops_content_check) !== '1'){?>
+<?php if(raindrops_show_one_column() !== '1'){?>
 <div class="yui-b">
 <?php //lsidebar start ?>
 <?php get_sidebar('default'); ?>

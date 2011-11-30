@@ -6,9 +6,9 @@
  * @package WordPress
  * @subpackage Raindrops
  * @since Raindrops 0.306
- * @uses raindrops_show_one_colum	Detect current post column count
- * @uses add_filter					Overwrite Color type func raindrops_color_type_custom()
- * @uses get_header("xhtml1")		Include template part file
+ * @uses raindrops_show_one_colum   Detect current post column count
+ * @uses add_filter                 Overwrite Color type func raindrops_color_type_custom()
+ * @uses get_header("xhtml1")       Include template part file
  * @uses have_posts()
  * @uses the_post()
  * @uses in_category()
@@ -40,19 +40,19 @@ get_header("xhtml1"); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
 <div class="yui-b" <?php if($raindrops_current_column == '1' ){
-	echo "style=\"width:100%;margin-left:0;\"";}?>>
-	<div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-<div class="yui-u first" 
-<?php 
+    echo "style=\"width:100%;margin-left:0;\"";}?>>
+    <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
+<div class="yui-u first"
+<?php
 if($raindrops_current_column == 3){
 
 }elseif($raindrops_current_column == 1){
-	echo 'style="width:99%;"';
+    echo 'style="width:99%;"';
 }elseif($raindrops_current_column == 2){
-	
-	echo 'style="width:99%;"';
+
+    echo 'style="width:99%;"';
 }elseif($raindrops_current_column == false){
-	is_2col_raindrops('style="width:99%;"');
+    is_2col_raindrops('style="width:99%;"');
 }
 
 ?>>
@@ -113,11 +113,11 @@ if($raindrops_current_column == 3){
         }
 
     }else{
-		if(!empty($thumb)){
+        if(!empty($thumb)){
             echo '<div class="single-post-thumbnail">';
             echo $thumb;
             echo '</div>';
-		}
+        }
     }
 
 /**
@@ -131,23 +131,23 @@ if($raindrops_current_column == 3){
     switch($cat){
 
         case ('blog'): //category blog
-			get_template_part("part","blog");
+            get_template_part("part","blog");
             break;
 // category gallery
         case("gallery"):
-			get_template_part("part","gallery");
-			break;
+            get_template_part("part","gallery");
+            break;
 //another single page
-		default:
-		get_template_part("part");
-		
-		if(WP_DEBUG == true){
-		echo '<!-- #post-'.get_the_ID().' -->';
-		}
-	}//   end switch($cat)  
+        default:
+        get_template_part("part");
+
+        if(WP_DEBUG == true){
+        echo '<!-- #post-'.get_the_ID().' -->';
+        }
+    }//   end switch($cat)
 }//　endwhile             ?>
 
-<?php 
+<?php
 /**
  * Next Previous post link
  *
@@ -180,7 +180,7 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
 <?php get_sidebar('extra');?>
 </div>
 <?php
-}elseif($rsidebar_show and raindrops_show_one_column($raindrops_content_check) == false){?>
+}elseif($rsidebar_show and raindrops_show_one_column() == false){?>
 <div class="yui-u">
 <?php get_sidebar('extra');?>
 </div>
@@ -209,7 +209,7 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
 <?php }?>
 
 </div>
-<?php 
+<?php
 
 /**
  * Inlude Footer template part file

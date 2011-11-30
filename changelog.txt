@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:0.942
+fixed
+    remove var $raindrops_content_check
+----------------------------------------------
+Changelog -----------------------------------
 version:0.941
 fixed
     CSS rule display impropaly where Site Title background.

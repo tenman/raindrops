@@ -232,7 +232,7 @@
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
         $g .= "}\n";
         $g .= '.gradient'.$i.' a{';
-        $g .= 'color:'.raindrops_colors_clone($i+1,'color').';';
+        $g .= 'color:'.raindrops_colors_clone($i,'color').';';
         $g .= "}\n";
         $g .= '.gradient-'.$i.'{';
         $g .= 'color:'.raindrops_colors_clone($i,'color').';';
@@ -240,8 +240,8 @@
         $g .= 'background: -moz-linear-gradient(top,  '.$custom_dark_bg2.',  '.$custom_light_bg2.');';
         $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg2.'\', endColorstr=\''.$custom_light_bg2.'\');';
         $g .= "}\n";
-        $g .= '.gradient'.$i.' a{';
-        $g .= 'color:'.raindrops_colors_clone($i-1,'color').';';
+        $g .= '.gradient-'.$i.' a{';
+        $g .= 'color:'.raindrops_colors_clone($i,'color').';';
         $g .= "}\n";
         }
         return $g;

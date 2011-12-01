@@ -777,13 +777,36 @@
  */
     if (!function_exists('raindrops_add_body_class')) {
         function raindrops_add_body_class($class) {
-            $lang = get_locale();
+		global $post;
+            $lang 				= get_locale();
+            $raindrops_options 	= get_option("raindrops_theme_settings");
+	        $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
+						
+			if(is_single() or is_page()){				
+				$raindrops_content_check = get_post($post->ID);
+				$raindrops_content_check = $raindrops_content_check->post_content;
+				
+				if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){	
+			
+					$color_type = "rd-type-".trim($regs[3]);
+				}
+				if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
+					$color_type .= ' ';
+					$color_type .= "rd-col-".$regs[3];				
+				}
 
-            $raindrops_options = get_option("raindrops_theme_settings");
+			}
 
-            $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
-
-            $classes= array($lang,$color_type);
+			if(isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])){
+				$browser_lang = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+				$browser_lang = explode( ",", $browser_lang );
+				$browser_lang = esc_html($browser_lang[0]);
+				$browser_lang = 'accept-lang-'.$browser_lang;
+				$classes= array($lang,$color_type,$browser_lang);
+			}else{
+             	$classes= array($lang,$color_type);
+			}
+			
              $classes= array_merge($classes,$class);
                 global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
             switch(true){
@@ -2529,7 +2552,8 @@ if ( ! function_exists( 'raindrops_admin_header_style' ) ){
     function raindrops_admin_header_style() {
 
         $raindrops_options  = get_option("raindrops_theme_settings");
-        $css                .= $raindrops_options['_raindrops_indv_css'];
+        $css                = $raindrops_options['_raindrops_indv_css'];
+		$css 				= raindrops_color_type_custom($css);
         $background         = get_background_image();
         $color              = get_background_color();
         $text_color         = get_header_textcolor();
@@ -3023,7 +3047,7 @@ if(!function_exists("raindrops_color_type_custom")){
 			if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){	
 		
 			$color_type = trim($regs[3]);
-			return raindrops_design_output($color_type);
+			return raindrops_design_output($color_type).raindrops_color_base();
 			}
 		}else{
 			return $css;

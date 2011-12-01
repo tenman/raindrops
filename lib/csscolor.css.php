@@ -282,10 +282,8 @@ border:1px solid;
 }
 .reply,
 #ft a,
-.category32,
-.archive li a,
 .page .hentry .entry-title a,
-.archive.category h2 a,
+/*.archive.category h2 a,*/
 cite.fn,
 cite a:link,
 cite a:active,
@@ -787,8 +785,11 @@ a:visited,
 a:hover,
 #site-title,
 .h1 a{
-color:$font_color_5;
+color:$font_color5;
 background:none;
+}
+h2 a{
+background:inherit;
 }
 
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
@@ -809,9 +810,6 @@ body{
     %c5%
 }
 
-h2,h3{
-    %c5%
-}
 .home .sticky {
     %c4%
 }
@@ -1605,46 +1603,56 @@ function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc')
 
 
         $result=<<<CSS
+.color-1 a,
 .color-1{
   background:#{$bg_1};
   color:#{$fg_1};
 }
+.color-2 a,
 .color-2 {
   background:#{$bg_2};
   color:#{$fg_2};
 }
+.color-3 a,
 .color-3 {
   background:#{$bg_3};
   color:#{$fg_3};
 }
+.color-4 a,
 .color-4 {
   /** Use the base color, two shades darker */
   background:#{$bg_4};
   /** Use the corresponding foreground color */
   color:#{$fg_4};
 }
+.color-5 a,
 .color-5 {
   background:#{$bg_5};
   color:#{$fg_5};
 }
+.color1 a,
 .color1{
   background:#{$bg1};
   color:#{$fg1};
 }
+.color2 a,
 .color2 {
   background:#{$bg2};
   color:#{$fg2};
 }
+.color3 a,
 .color3 {
   background:#{$bg3};
   color:#{$fg3};
 }
+.color4 a,
 .color4 {
   /** Use the base color, two shades darker */
   background:#{$bg4};
   /** Use the corresponding foreground color */
   color:#{$fg4};
 }
+.color5 a,
 .color5 {
   background:#{$bg5};
   color:#{$fg5};

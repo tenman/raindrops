@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:0.943
+fixed
+    function raindrops_add_body_class() where functions.php
+        $color_type value impropaly
+    function raindrops_gradient_clone() where  /lib/alias_functions.php
+        Display link color impropaly
+    function raindrops_admin_header_style() where functions.php
+        Display class color1-color5 color-1-color-5  color impropaly
+        Add return value raindrops_admin_header_style()
+    function raindrops_color_base() where /lib/csscolor.css.php
+        Display class color1-color5 color-1-color-5 chile hyperlink color impropaly
+
+modified
+    raindrops_add_body_class
+        Add class browser language e.g. accept-lang-ja
+----------------------------------------------
+Changelog -----------------------------------
 version:0.942
 fixed
     remove var $raindrops_content_check

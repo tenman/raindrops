@@ -224,7 +224,7 @@ fieldset,
 .social input[type="submit"],
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
-	border:1px solid %c_border%;
+    border:1px solid %c_border%;
 }
 
 .entry-content blockquote {
@@ -236,11 +236,12 @@ li.bypostauthor,
 .social textarea#comment:focus,
 .social input:focus,
 .entry-content th{
-%c3%
+%c_3%
 }
+.raindrops-comment-author-meta cite.fn,
 li.byuser div.comment-body *,
 li.byuser span.says{
-%c3%
+%c_3%
 background:none;
 }
 .wp-caption,
@@ -495,9 +496,9 @@ a.raindrops-comment-link {
   position: relative;
 }
 .raindrops-comment-link .point {
-  border-left: 0.45em solid %rgba_border%; 
+  border-left: 0.45em solid %rgba_border%;
   border-bottom: 0.45em solid #FFF; /* IE fix */
-  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  border-bottom: 0.45em solid rgba(0,0,0,0);
   overflow: hidden; /* IE fix */
 }
 a.raindrops-comment-link:hover {
@@ -660,7 +661,7 @@ border-top:1px dashed %c_border%;
 #access{ %c5%
 }
 #access a {
-   
+
 
 }
 #access ul ul a {
@@ -671,7 +672,7 @@ border-top:1px dashed %c_border%;
     top:0;
     %c2%
     color:%custom_color%
-	
+
 }
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
@@ -775,9 +776,9 @@ raindrops_register_styles("light");
 
 function raindrops_indv_css_light(){
 
-	$font_color5 = raindrops_colors(5,"color");
+    $font_color5 = raindrops_colors(5,"color");
 
-	$style =<<<DOC
+    $style =<<<DOC
 
 a:link,
 a:active,
@@ -1298,9 +1299,9 @@ a.raindrops-comment-link {
   position: relative;
 }
 .raindrops-comment-link .point {
-  border-left: 0.45em solid %rgba_border%; 
+  border-left: 0.45em solid %rgba_border%;
   border-bottom: 0.45em solid #FFF; /* IE fix */
-  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  border-bottom: 0.45em solid rgba(0,0,0,0);
   overflow: hidden; /* IE fix */
 }
 a.raindrops-comment-link:hover {
@@ -1330,7 +1331,7 @@ raindrops_register_styles("minimal");
 function raindrops_indv_css_minimal(){
 global $raindrops_base_color;
     $font_color = raindrops_colors(5,"color");
-   
+
 
 $style=<<<CSS
 body{border-top:6px solid $raindrops_base_color!important;}
@@ -1352,9 +1353,9 @@ a.raindrops-comment-link {
   position: relative;
 }
 .raindrops-comment-link .point {
-  border-left: 0.45em solid %rgba_border%; 
+  border-left: 0.45em solid %rgba_border%;
   border-bottom: 0.45em solid #FFF; /* IE fix */
-  border-bottom: 0.45em solid rgba(0,0,0,0); 
+  border-bottom: 0.45em solid rgba(0,0,0,0);
   overflow: hidden; /* IE fix */
 }
 a.raindrops-comment-link:hover {
@@ -1365,15 +1366,15 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
 border-left:1px solid %rgba_border%;
 }
-input[type="text"], 
+input[type="text"],
 textarea#comment{
- 		border:1px solid #ddd;
+        border:1px solid #ddd;
         border-top-color:%rgba_border%;
         border-left-color:%rgba_border%;
         padding:3px;
-		-moz-border-radius: 3px;
-	   -khtml-border-radius: 3px;
-	   -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+       -khtml-border-radius: 3px;
+       -webkit-border-radius: 3px;
 
 }
 CSS;
@@ -1384,14 +1385,14 @@ return $style;
 <?php
     if(!defined('ABSPATH')){exit;}
     $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
-	if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
+    if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
     if(!in_array($alias_functions,$included_files)){
          get_template_part('lib/alias_functions');
     }
     $embed_common_style = get_current_theme();
     raindrops_register_styles($embed_common_style);
     $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';
-	if(!file_exists($raindrops_images_path)){get_template_directory().'/images/';}
+    if(!file_exists($raindrops_images_path)){get_template_directory().'/images/';}
     $raindrops_base_color                  = raindrops_warehouse_clone('raindrops_base_color');
     $style_type             = raindrops_warehouse_clone('raindrops_style_type');
     $navigation_title_img   = raindrops_warehouse_clone('raindrops_heading_image');

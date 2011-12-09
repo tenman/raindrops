@@ -1,9 +1,12 @@
 Changelog -----------------------------------
-version:0.944
+version:0.945
 
 fixed
     style.css
         The style rule which indicates a managed bar unsuitable
+    lib/csscolor.css.php
+        Comment display improperly where color type dark
+            The style rule change
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.943

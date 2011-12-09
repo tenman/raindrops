@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:0.944
+
+fixed
+    style.css
+        The style rule which indicates a managed bar unsuitable
+----------------------------------------------
+Changelog -----------------------------------
 version:0.943
 fixed
     function raindrops_add_body_class() where functions.php

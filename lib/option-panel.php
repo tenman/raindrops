@@ -299,10 +299,10 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
     class raindrops_menu_create {
         var $accesskey  = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
-        var $table_template = '<table class="%s widefat post fixed" style="margin:2em;width:540px;">';
-        var $title_template = '<a id="%s" href="#wpwrap"><small>page top</small></a><h3 title="%s" style="padding:0.6em;text-indent:1em;cursor:auto;background:none;margin-top:15px;">%s</a></h3>';
-        var $excerpt_template = '<div style="margin:2em;">%s</div>';
-        var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="width:130px;vertical-align:bottom;margin-bottom:0px;height:%spx;">';
+        var $table_template = '<table class="%s widefat post fixed raindrops-value-set-tables">';
+        var $title_template = '<a id="%s" href="#wpwrap" class="go-top"><span>page top</span></a><h3 title="%s" class="raindrops-options-title">%s</h3>';
+        var $excerpt_template = '<div class="raindrops-excerpt">%s</div>';
+        var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="height:%spx;">';
 
         var $col_settings_raindrops_col_width = array(
             "left 160px"=>"t1",
@@ -344,7 +344,6 @@ One is a method of up-loading the image from the below up-loading form. Another 
             "WWW"=>"color_en_140",
             "Animation Color" =>"color_anime"
             );
-
 
 
 /**
@@ -390,7 +389,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
             $result .= screen_icon();
-            $result .= "<h2>" . get_current_theme() . __(' Theme Settings', 'Raindrops') . "</h2>";
+            $result .= "<h2>" .  ucfirst(get_current_theme()) . __(' Theme Settings', 'Raindrops') . "</h2>";
             $result .= "<p>".__('Saved Database table name:','Raindrops')."<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
 
 /**
@@ -459,7 +458,7 @@ if($upload_result[0] == true){
 
 if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
-    $result             .= '<div class="postbox" style="width:600px;margin:1em;color:#339999">';
+    $result             .= '<div class="postbox">';
     $text               = array('-4' => 'R','-3' => 'A','-2' => 'I','-1' => 'N','0' => 'D','1' => 'R','2' => 'O','3' => 'P','4' => 'S');
     for($c = -4;$c < 5;$c++){
     $css                = raindrops_gradient_css(raindrops_warehouse("raindrops_base_color"),$c,1,'asc');
@@ -492,7 +491,8 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             if(function_exists('add_theme_page')) {
             $option_name   = ucwords(get_current_theme()).' Options';
 
-           add_theme_page(RAINDROPS_TABLE_TITLE, $option_name, 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
+           $hook_suffix = add_theme_page(RAINDROPS_TABLE_TITLE, $option_name, 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
+		   return $hook_suffix;
             }
         }
 
@@ -522,7 +522,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             $results                    = $raindrops_sort;
             $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
             $raindrops_navigation_add   = '';
-            $raindrops_navigation_list  = '<div style="padding:0px 60px 20px;"><h3 style="padding:2em 0 0;margin-left:-30px;">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
+            $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
             $raindrops_navigation_add   = '';
 
             unset($results['_raindrops_indv_css']);
@@ -554,7 +554,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                 $excerpt    .= sprintf($this->excerpt_template,raindrops_admin_meta($key,'excerpt2'));
 
                 if(!empty($excerpt)){
-                    $excerpt = '<div class="postbox" style="width:600px;margin:1em;color:#339999">'.$excerpt;
+                    $excerpt = '<div class="postbox" style="margin:1em;color:#339999">'.$excerpt;
                 }else{
                     $excerpt = "";
                 }
@@ -721,7 +721,18 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             }
             $lines .= raindrops_upload_form();
 
-            return $raindrops_navigation_list. '</ul></div>'. $lines;
+			if( is_child_theme() ){
+				$raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
+			}else{
+				$raindrops_theme_name = __("Raindrops Theme","Raindrops");
+			}
+			$add_infomation = sprintf(
+			'<div class="raindrops-option-footer-infomation"><a href="%s">%s</a></div>',
+			'http://www.tenman.info/wp3/raindrops',
+			$raindrops_theme_name
+			);
+
+            return $raindrops_navigation_list. '</ul>'.$add_infomation.'</div>'. $lines;
         }
 
 /**
@@ -781,9 +792,9 @@ function raindrops_upload_form(){
     global $dirlist;
     $deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
 
-$result= '<div class="postbox" style="width:500px;margin:1em 1em 1em -40px;color:#339999;padding:50px;" id="raindrops_upload_form">
+$result= '<div class="postbox raindrops"  id="raindrops_upload_form">
 
-    <h3 style="padding:0.6em;text-indent:1em;cursor:auto;background:none;height:32px;" id="raindrops-style-type" title="raindrops style type">
+    <h3 id="raindrops-style-type" title="raindrops style type">
     <div id="icon-upload" class="icon32"></div>
     <span style="position:relative;top:10px;">'.
     __('Image Upload','Raindrops').

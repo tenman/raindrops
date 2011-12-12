@@ -12,6 +12,8 @@ fixed
     Theme options page display improperly when the value set false
 made
     New file    admin-options.css
+    New file    images/options/arrows-vs.png
+    New file    images/options/icons32-vs.png
 
 ----------------------------------------------
 Changelog -----------------------------------

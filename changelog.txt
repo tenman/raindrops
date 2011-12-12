@@ -1,4 +1,20 @@
 Changelog -----------------------------------
+version:0.947
+
+moved
+    function raindrops_admin_print_styles
+        moved to class raindrops_menu_create member function
+added
+    function raindrops_admin_in_toolbar
+        Add Theme options link where Admin bar
+fixed
+    const RAINDROPS_USE_AUTO_COLOR
+    Theme options page display improperly when the value set false
+made
+    New file    admin-options.css
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.946
 
 added

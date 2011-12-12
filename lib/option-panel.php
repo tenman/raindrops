@@ -489,13 +489,33 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
         function add_menus() {
             if(function_exists('add_theme_page')) {
-            $option_name   = ucwords(get_current_theme()).' Options';
+            	$option_name   = ucwords(get_current_theme()).' Options';
 
-           $hook_suffix = add_theme_page(RAINDROPS_TABLE_TITLE, $option_name, 'edit_theme_options', 'raindrops_settings', array($this, 'SubMenu_GUI'));
-		   return $hook_suffix;
+           		$hook_suffix = add_theme_page(
+						RAINDROPS_TABLE_TITLE, 
+						$option_name, 
+						'edit_theme_options', 
+						'raindrops_settings', 
+						array($this, 'SubMenu_GUI')
+				);
+		   
+				if ( $hook_suffix ){	
+					add_action( 'admin_print_styles-' . $hook_suffix, array($this,'raindrops_admin_print_styles'));
+				}
             }
         }
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+
+    function raindrops_admin_print_styles(){
+		echo '<style type="text/css">@import url("'.get_stylesheet_directory_uri().'/admin-options.css");</style>';
+	}
 
 /**
  *
@@ -522,7 +542,11 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             $results                    = $raindrops_sort;
             $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
             $raindrops_navigation_add   = '';
+			if(RAINDROPS_USE_AUTO_COLOR == true){
             $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
+			}else{
+            $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper">';
+			}
             $raindrops_navigation_add   = '';
 
             unset($results['_raindrops_indv_css']);
@@ -726,11 +750,21 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 			}else{
 				$raindrops_theme_name = __("Raindrops Theme","Raindrops");
 			}
+			if(RAINDROPS_USE_AUTO_COLOR == true){
 			$add_infomation = sprintf(
 			'<div class="raindrops-option-footer-infomation"><a href="%s">%s</a></div>',
 			'http://www.tenman.info/wp3/raindrops',
 			$raindrops_theme_name
 			);
+			}else{
+			$add_infomation = sprintf(
+			'<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>',
+			'http://www.tenman.info/wp3/raindrops',
+			$raindrops_theme_name,
+			'&nbsp;&nbsp;<span>'.__("Now constant RAINDROPS_USE_AUTO_COLOR is false").'</span>'
+			);
+
+			}
 
             return $raindrops_navigation_list. '</ul>'.$add_infomation.'</div>'. $lines;
         }

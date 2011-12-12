@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:0.946
+
+added
+    function raindrops_admin_print_styles
+fixed
+    function raindrops_install_navigation
+        get_option value return false when install.
+modified
+    Raindrops options page CSS change.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.945
 
 fixed

@@ -733,14 +733,14 @@
  *
  */
  add_action('admin_menu', array($is_submenu, 'add_menus'));
-   
-  $hook_suffix = $is_submenu->add_menus();
-	
-//if($_GET['page'] == 'raindrops_settings'){
-	add_action('admin_print_styles-'.$hook_suffix, 'raindrops_admin_print_styles');
-//}
 
-	function raindrops_admin_print_styles(){
+  //$hook_suffix = $is_submenu->add_menus();
+
+if($_GET['page'] == 'raindrops_settings'){
+    add_action('admin_print_styles', 'raindrops_admin_print_styles');
+}
+if(!function_exists('raindrops_admin_print_styles')){
+    function raindrops_admin_print_styles(){
 $css =<<<CSS
 <style type="text/css">
 #wpwrap>#wpcontent>#wpbody>#wpbody-content{font-size:14px;}
@@ -810,9 +810,9 @@ background:#5589AA;
 height:35px;
 padding:20px 20px 7px 20px;
 color:#fff;
-border-radius: 5px 5px 0px 0px; 
--moz-border-radius: 5px 5px 0px 0px; 
--webkit-border-radius: 5px 5px 0px 0px; 
+border-radius: 5px 5px 0px 0px;
+-moz-border-radius: 5px 5px 0px 0px;
+-webkit-border-radius: 5px 5px 0px 0px;
 }
 .raindrops-option-footer-infomation{
 margin:0;
@@ -821,9 +821,9 @@ padding:10px;
 background:#5589AA;
 text-align:center;
 margin-left:-30px;
-border-radius: 0px 0px 5px 5px; 
--moz-border-radius: 0px 0px 5px 5px; 
--webkit-border-radius: 0px 0px 5px 5px; 
+border-radius: 0px 0px 5px 5px;
+-moz-border-radius: 0px 0px 5px 5px;
+-webkit-border-radius: 0px 0px 5px 5px;
 }
 .raindrops-option-footer-infomation a{
 color:#fff;
@@ -907,9 +907,10 @@ background: url(images/icons32-vs.png) no-repeat 0 0;
 CSS;
 
 echo $css;
-	
-	
-	}
+
+
+    }
+}
 /**
  *
  *
@@ -953,36 +954,36 @@ echo $css;
  */
     if (!function_exists('raindrops_add_body_class')) {
         function raindrops_add_body_class($class) {
-		global $post;
-            $lang 				= get_locale();
-            $raindrops_options 	= get_option("raindrops_theme_settings");
-	        $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
-						
-			if(is_single() or is_page()){				
-				$raindrops_content_check = get_post($post->ID);
-				$raindrops_content_check = $raindrops_content_check->post_content;
-				
-				if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){	
-			
-					$color_type = "rd-type-".trim($regs[3]);
-				}
-				if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
-					$color_type .= ' ';
-					$color_type .= "rd-col-".$regs[3];				
-				}
+        global $post;
+            $lang               = get_locale();
+            $raindrops_options  = get_option("raindrops_theme_settings");
+            $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
 
-			}
+            if(is_single() or is_page()){
+                $raindrops_content_check = get_post($post->ID);
+                $raindrops_content_check = $raindrops_content_check->post_content;
 
-			if(isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])){
-				$browser_lang = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
-				$browser_lang = explode( ",", $browser_lang );
-				$browser_lang = esc_html($browser_lang[0]);
-				$browser_lang = 'accept-lang-'.$browser_lang;
-				$classes= array($lang,$color_type,$browser_lang);
-			}else{
-             	$classes= array($lang,$color_type);
-			}
-			
+                if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
+
+                    $color_type = "rd-type-".trim($regs[3]);
+                }
+                if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
+                    $color_type .= ' ';
+                    $color_type .= "rd-col-".$regs[3];
+                }
+
+            }
+
+            if(isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])){
+                $browser_lang = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+                $browser_lang = explode( ",", $browser_lang );
+                $browser_lang = esc_html($browser_lang[0]);
+                $browser_lang = 'accept-lang-'.$browser_lang;
+                $classes= array($lang,$color_type,$browser_lang);
+            }else{
+                $classes= array($lang,$color_type);
+            }
+
              $classes= array_merge($classes,$class);
                 global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
             switch(true){
@@ -1275,7 +1276,7 @@ echo $css;
             $result .= "<dl><dd><p>".__('image width and height aspect ratio is 3:1. another aspect ratio will be trimming center','Raindrops').'</p></dd>';
 
             $result .= "</dl>";
-			$result .= $text;
+            $result .= $text;
 
             return $result;
         }else{
@@ -2650,9 +2651,9 @@ a.raindrops-comment-link {
   position: relative;
 }
 .raindrops-comment-link .point {
-  border-left: 0.45em solid %c_border%; 
+  border-left: 0.45em solid %c_border%;
   border-bottom: 0.45em solid #FFF; /* IE fix */
-  border-bottom: 0.45em solid %c_border%; 
+  border-bottom: 0.45em solid %c_border%;
   overflow: hidden; /* IE fix */
 }
 a.raindrops-comment-link:hover {
@@ -2729,7 +2730,7 @@ if ( ! function_exists( 'raindrops_admin_header_style' ) ){
 
         $raindrops_options  = get_option("raindrops_theme_settings");
         $css                = $raindrops_options['_raindrops_indv_css'];
-		$css 				= raindrops_color_type_custom($css);
+        $css                = raindrops_color_type_custom($css);
         $background         = get_background_image();
         $color              = get_background_color();
         $text_color         = get_header_textcolor();
@@ -3187,23 +3188,23 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  *
  */
 if(!function_exists("raindrops_show_one_column")){
-	function raindrops_show_one_column(){
-		global $post;
-		if(isset($post)){
-			$raindrops_content_check = get_post($post->ID);
-			$raindrops_content_check = $raindrops_content_check->post_content;
-			
-			if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
-				return $regs[3];
-			}else{
-				return false;
-			}
-		}elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'hide'){
-				return 2;
-		}elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'show'){
-				return 3;
-		}
-	}
+    function raindrops_show_one_column(){
+        global $post;
+        if(isset($post)){
+            $raindrops_content_check = get_post($post->ID);
+            $raindrops_content_check = $raindrops_content_check->post_content;
+
+            if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
+                return $regs[3];
+            }else{
+                return false;
+            }
+        }elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'hide'){
+                return 2;
+        }elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'show'){
+                return 3;
+        }
+    }
 }
 
 /**
@@ -3215,20 +3216,20 @@ if(!function_exists("raindrops_show_one_column")){
  */
 if(!function_exists("raindrops_color_type_custom")){
 
-	function raindrops_color_type_custom($css){
-		global $post;
-		if(isset($post)){
-			$raindrops_content_check = get_post($post->ID);
-			$raindrops_content_check = $raindrops_content_check->post_content;
-			if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){	
-		
-			$color_type = trim($regs[3]);
-			return raindrops_design_output($color_type).raindrops_color_base();
-			}
-		}else{
-			return $css;
-		}
-	}
+    function raindrops_color_type_custom($css){
+        global $post;
+        if(isset($post)){
+            $raindrops_content_check = get_post($post->ID);
+            $raindrops_content_check = $raindrops_content_check->post_content;
+            if(preg_match("!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
+
+            $color_type = trim($regs[3]);
+            return raindrops_design_output($color_type).raindrops_color_base();
+            }
+        }else{
+            return $css;
+        }
+    }
 
 }
 

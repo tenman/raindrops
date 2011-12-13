@@ -732,7 +732,7 @@
  *
  *
  */
-	 add_action('admin_menu', array($is_submenu, 'add_menus'));
+     add_action('admin_menu', array($is_submenu, 'add_menus'));
 /**
  *
  *
@@ -3063,17 +3063,21 @@ if(!function_exists("raindrops_color_type_custom")){
  *
  */
 
-add_action( 'admin_bar_menu', 'raindrops_admin_in_toolbar',99);
+$raindrops_check_wp_version = explode('-',$wp_version);
+
+if(has_action('admin_bar_menu') and $raindrops_check_wp_version[0] >= 3.3){
+    add_action( 'admin_bar_menu', 'raindrops_admin_in_toolbar',99);
+}
 if(!function_exists("raindrops_admin_in_toolbar")){
-	function raindrops_admin_in_toolbar( $wp_admin_bar ) {
-		$wp_admin_bar->add_node( array(
-		'id' => 'raindrops',
-		'title' => 'Theme Options',
-		'href' => admin_url('themes.php?page=raindrops_settings'),
-		'meta' => array(),
-		'parent' => 'appearance'
-		));
-	}
+    function raindrops_admin_in_toolbar( $wp_admin_bar ) {
+        $wp_admin_bar->add_node( array(
+        'id' => 'raindrops',
+        'title' => 'Theme Options',
+        'href' => admin_url('themes.php?page=raindrops_settings'),
+        'meta' => array(),
+        'parent' => 'appearance'
+        ));
+    }
 }
 
 ?>

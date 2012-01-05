@@ -3,8 +3,7 @@
  * Template for display image.
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  */
 ?>
@@ -51,6 +50,7 @@
           </div>
           <br class="clear" />
           <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+		  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
         </div>
         <?php endwhile; else: ?>
         <p><?php _e("Sorry, no attachments matched your criteria.","Raindrops");?></p>

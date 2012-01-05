@@ -2,8 +2,7 @@
 /**
  * Template for display loops.
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  */
  ?>
@@ -52,15 +51,15 @@ while (have_posts()){
       <?php raindrops_posted_on();?>
     </div>
     <div class="entry-content clearfix">
-      <?php
+<?php
             $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
-
+		
             $total_images = count( $images );
             $image = array_shift( $images );
-            $attachment_page = $image->post_title;
-?>
-      <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
-      <?php
+			if(isset($image)){
+            	$attachment_page = $image->post_title;
+				printf( '<div class="gallery-thumb">%s</div>',wp_get_attachment_link( $image->ID ,array(150,150) , true ) );		
+	  		}
             if(RAINDROPS_USE_LIST_EXCERPT == true){
                 the_excerpt();
             }else{
@@ -72,6 +71,7 @@ while (have_posts()){
       <div class="entry-meta">
         <?php       raindrops_posted_in();?>
         <?php       edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
       </div>
     </div>
     <?php //end entry-content?>
@@ -115,6 +115,7 @@ while (have_posts()){
     <div class="entry-meta">
       <?php         raindrops_posted_in();?>
       <?php         edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+	  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
     </div>
     <?php }else{ ?>
     <h2 class="h2 entry-title">
@@ -139,8 +140,9 @@ while (have_posts()){
 ?>
     </div>
     <div class="entry-meta">
-      <?php         raindrops_posted_in();?>
-      <?php         edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+      <?php		raindrops_posted_in();?>
+      <?php		edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+	  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
     </div>
 <?php } ?>
     <br class="clear" />

@@ -3,8 +3,7 @@
  * Template for search .
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  */
 ?>
@@ -45,6 +44,7 @@
               <div class="entry-meta">
                 <?php raindrops_posted_in();?>
                 <?php   edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
               </div>
               <br class="clear" />
             </div>

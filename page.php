@@ -3,8 +3,7 @@
  * Template for display page
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  */
 $raindrops_current_column = raindrops_show_one_column();
@@ -73,6 +72,7 @@ echo '</ul>';
               <?php the_category(', ') ?>
               &nbsp;
               <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+			  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
             </div>
             <?php comments_template( '', true ); ?>
           </div>

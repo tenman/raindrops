@@ -4,8 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="bd">
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  *
  * @uses get_bloginfo( 'charset' )

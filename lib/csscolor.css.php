@@ -1377,6 +1377,25 @@ textarea#comment{
        -webkit-border-radius: 3px;
 
 }
+#access .children,
+#access .children li{
+	width:240px;
+	border-top:none;
+}
+
+#access .children li:nth-child(1){
+	border-top:1px solid #ccc;
+}
+
+#access .children a,
+#access .children .current_page_item a{
+	width:220px;
+	text-align:left;
+	padding:10px;
+}
+#access .children li:nth-child(even) > a{
+	background:rgba(255,255,240,.7);
+}
 CSS;
 
 return $style;

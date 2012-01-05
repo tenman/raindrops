@@ -6,8 +6,7 @@ Template Name: Auther
  * The template for displaying Auther.
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrop 0.1
  */
 

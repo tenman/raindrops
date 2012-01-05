@@ -2,8 +2,7 @@
 /**
  * Template file index
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.940
  *
  * @uses get_header("xhtml1")	include template part file

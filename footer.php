@@ -3,8 +3,7 @@
  * The template for footer.
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  */
 ?>

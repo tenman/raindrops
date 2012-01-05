@@ -4,7 +4,7 @@
  *
  *
  * @package CSS_Color
- * @subpackage Raindrops
+ * @package Raindrops
  */
 ?>
 <?php

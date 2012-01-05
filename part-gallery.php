@@ -2,8 +2,7 @@
 /**
  * Template part file part-gallery
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.940
  *
  */
@@ -47,6 +46,7 @@ printf(
 <?php comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); ?>
 </span>
 <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+<?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
 </div>
 <?php if(is_single()){  raindrops_prev_next_post('nav-below');}?>
 

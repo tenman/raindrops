@@ -3,8 +3,7 @@
  * Template for single post.
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.306
  * @uses raindrops_show_one_colum   Detect current post column count
  * @uses add_filter                 Overwrite Color type func raindrops_color_type_custom()

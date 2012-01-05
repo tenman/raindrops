@@ -3,8 +3,7 @@
  * Template for extra sidebar.
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  */
 ?>

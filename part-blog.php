@@ -2,8 +2,7 @@
 /**
  * Template part file part-blog
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrops 0.1
  *
  * @uses the_ID()
@@ -54,6 +53,7 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 <?php dynamic_sidebar('sidebar-5');?>
 <li>
 <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+<?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
 </li>
 </ul>
 <div class="blog-main left">

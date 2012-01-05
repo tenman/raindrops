@@ -1,8 +1,7 @@
 /**
  * Raindrops javascript actions
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  */
 (function(){
 　jQuery(function(){
@@ -22,8 +21,7 @@
 /** Toggle
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrop 0.922
  */
 
@@ -49,8 +47,7 @@
 /** Tab Controll
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrop 0.922
  */
 

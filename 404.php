@@ -3,8 +3,7 @@
  *  The template for displaying 404 pages (Not Found).
  *
  *
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  * @since Raindrop 0.1
  */
 ?>

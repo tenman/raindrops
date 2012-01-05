@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.947
+Version: 0.948
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,8 +15,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * 
  *
  * Filetype: CSS
- * @package WordPress
- * @subpackage Raindrops
+ * @package Raindrops
  */
 
 /*-----------------------------------------------------
@@ -256,11 +255,11 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 	margin-left:0.5em;
 	padding-left:1.5em;
 	padding-bottom:2px;
-	background:#ccc;
+	/*background:#ccc;*/
 	border-left:6px solid;
 }
 .comment-body blockquote blockquote blockquote{
-	background:#fff;
+	/*background:#fff;*/
 	margin:0.2em;
 }
 ol,ul{
@@ -2118,4 +2117,12 @@ a.raindrops-comment-link:hover em {
   cursor: pointer;
 }
 a.raindrops-comment-link:hover .point {
+}
+.widget_archive select{
+	margin:5px 0;
+	width:100%;
+	max-width:100%;
+}
+.post-password-required input[type="submit"]{
+	margin:5px 0;
 }

@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:0.949
+fixed
+    Coding missing
+        Delete var $raindrops_document_type.
+        Add $raindrops_included_files = get_included_files();
+            functions.php
+    Fix display improperly when child theme where theme options page    Fix admin-option.css impropely when child theme.
+added
+    Add function_exists check where function raindrops_delete_post_link why child theme happiness
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.948
 
 moved

@@ -8,8 +8,6 @@
  */
 ?>
 <?php
-
-$raindrops_document_type = 'html5';
 /*----- Copy this area and paste Child functions.php when functions customize / Start------*/
     if(!defined('ABSPATH')){
         exit;

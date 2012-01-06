@@ -4,11 +4,24 @@ version:0.948
 moved
 
 added
-
+     function raindrops_delete_post_link();
+        This function default no echo.
+            Need SHOW_DELETE_POST_LINK set true where functions.php
 fixed
+    Impropaly comment change all template.
+         Change from @package WordPress, @subpackage Raindrops
+                to  @package Raindrops
+    function raindrops_content_width_clone
+        Fixed return improperly value.(when fruid layout doc3)
+    Template part file  loop.php
+        Thumnail image display impropaly when image not exists
+            Add image exists check.
+
+
 
 modified
-
+    lib/csscolor.css.php
+        add style rules
 made
 
 ----------------------------------------------

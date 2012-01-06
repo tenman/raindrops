@@ -2,11 +2,17 @@ Changelog -----------------------------------
 version:0.948
 
 moved
-
+    Remove file license.txt
+        A license is expressed by URL.
 added
      function raindrops_delete_post_link();
-        This function default no echo.
+        Added with each edit_post_link where template files.
+            Note:
+            This function default no echo.
             Need SHOW_DELETE_POST_LINK set true where functions.php
+     Add apply filters
+        raindrops_custom_width, raindrops_is_fluid, raindrops_is_fixed, raindrops_posted_in, raindrops_posted_on, raindrops_warehouse, raindrops_gradient_single, raindrops_gradient, raindrops_comment_form, raindrops_prev_next_post
+
 fixed
     Impropaly comment change all template.
          Change from @package WordPress, @subpackage Raindrops
@@ -17,12 +23,15 @@ fixed
         Thumnail image display impropaly when image not exists
             Add image exists check.
 
-
-
 modified
     lib/csscolor.css.php
         add style rules
+    lib/csscolor/PEAR.php, lib/csscolor/csscolor.php, README.txt
+        Add license
 made
+    lib/hooks.php
+        Sepalate add_filter and add_actions from functions.php
+            For child theme customize easy
 
 ----------------------------------------------
 Changelog -----------------------------------

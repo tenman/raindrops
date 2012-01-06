@@ -1,9 +1,10 @@
 <?php
 /**
- * class CSS_Color extends PEAR
+ * CSS_Color extends PEAR for WordPress theme Raindrops
  *
  *
- * @package CSS_Color
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * @package Raindrops
  */
 ?>

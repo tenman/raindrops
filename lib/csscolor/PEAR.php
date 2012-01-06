@@ -1,5 +1,15 @@
 <?php
 /**
+ * PEAR for WordPress theme Raindrops
+ *
+ *
+ * License: The PHP License, version 3.0
+ * License URI: http://www.php.net/license/3_0.txt
+ * @package Raindrops
+ */
+?>
+<?php
+/**
  * PEAR, the PHP Extension and Application Repository
  *
  * PEAR class and PEAR_Error class

@@ -1,6 +1,6 @@
 <?php
 /**
- * functions and constants for Raindrops theme
+ * Filter and actions for Raindrops theme
  *
  *
  * @package Raindrops
@@ -15,19 +15,19 @@
  *
  *
  */
-	add_custom_image_header(
-		'raindrops_header_style',
-		'raindrops_admin_header_style',
-		'raindrops_admin_header_image'
-	);
-	register_default_headers( array(
-		'default' => array(
-			'url' => get_stylesheet_directory_uri().'/images/headers/wp3.jpg',
-			'thumbnail_url' => get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Raindrops', 'Raindrops')
-		)
-	) );
+    add_custom_image_header(
+        'raindrops_header_style',
+        'raindrops_admin_header_style',
+        'raindrops_admin_header_image'
+    );
+    register_default_headers( array(
+        'default' => array(
+            'url' => get_stylesheet_directory_uri().'/images/headers/wp3.jpg',
+            'thumbnail_url' => get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg',
+            /* translators: header image description */
+            'description' => __( 'Raindrops', 'Raindrops')
+        )
+    ) );
 /**
  *
  *

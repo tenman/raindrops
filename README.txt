@@ -1,6 +1,10 @@
 Raindrops WordPress Theme
 http://www.tenman.info/wp3/raindrops/
 
+This themes contents is especially the thing without clear statement of a license
+supply under below license.
+
+copyright   Copyright (c) 2010-2011, Tenman
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -8,9 +12,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 0.948
+raindrops_delete_post_link()
+    This function default no work.
+    If you need delete post link
+    Please open file functions.php and const SHOW_DELETE_POST_LINK value set true.
 ver 0.940
-By page edit and post edit, 
-the Color Type and the number of columns can be set to contribution. 
+By page edit and post edit,
+the Color Type and the number of columns can be set to contribution.
 Add a few codes when you edit post.
 e.g.
 <!--[raindrops color_type="light" col="1"]-->
@@ -19,7 +28,7 @@ and raindrops color type is overwrite light.
 
 And next You can add your own color type.
 Please open functions.php
-Add code example where must last line. 
+Add code example where must last line.
 
 raindrops_register_styles("my_css");
 

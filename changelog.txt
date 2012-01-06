@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.949
+version:0.950
 fixed
     Coding missing
         Delete var $raindrops_document_type.

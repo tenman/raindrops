@@ -3,9 +3,15 @@ version:0.951
 fixed
     Footer.php HTML code change.
         if is_active_sidebar return false then no echo widget ul elements of HTML.
+    csscolor.css.php
+            Using improperly function
+            from get_template_part() to locate_template()
+            get_template_part() must not call sub directory template part file.
 modified
     images: all images must have their license explicitly declared
         Theme images list create and add readme.txt
+    arrows-vs.png, icons32-vs.png
+        Design change
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.950

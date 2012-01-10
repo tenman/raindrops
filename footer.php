@@ -14,12 +14,9 @@ $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_im
 <div id="ft" style="<?php echo raindrops_upload_image_parser($footer_image_uri,'inline','#ft'); ?>">
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">
-  <ul>
-    <?php if ( !dynamic_sidebar('sidebar-4') ){ ?>
-    <li class="hide">
-      <div>dinamic_sidebar 4 none</div>
-    </li>
-    <?php } ?>
+<?php if ( is_active_sidebar( 'sidebar-4' ) ) {?>
+	<ul><?php dynamic_sidebar('sidebar-4');?></ul>
+<?php } ?>
   </ul>
   <br class="clear" />
 </div>

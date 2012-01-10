@@ -1,10 +1,18 @@
 Raindrops WordPress Theme
 http://www.tenman.info/wp3/raindrops/
 
+wp3.jpg wp3-thumbnail.jpg,arrows-vs.png, icons32-vs.png,bg.png,c.gif,footer.png,footer,png,footerbck.gif,footerbck.png,h2.gif,h2,png,h2b.png,h2c.png,header.png,info.png,ja-em.png,link.png,next.png,number.png,previus.png,requre.png,rss.png,sidebar.png,sticky.png,stop.png,topbck.png,y.gif
+
+Above images License
+
+copyright   Copyright (c) 2010-2012, Tenman
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
 This themes contents is especially the thing without clear statement of a license
 supply under below license.
 
-copyright   Copyright (c) 2010-2011, Tenman
+copyright   Copyright (c) 2010-2012, Tenman
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

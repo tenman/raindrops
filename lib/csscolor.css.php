@@ -1405,9 +1405,13 @@ return $style;
     if(!defined('ABSPATH')){exit;}
     $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
     if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
-    if(!in_array($alias_functions,$included_files)){
-         get_template_part('lib/alias_functions');
+	
+	$raindrops_included_files = get_included_files();
+
+    if(!in_array($alias_functions,$raindrops_included_files)){
+         locate_template(array('lib/alias_functions.php'),true,true);
     }
+
     $embed_common_style = get_current_theme();
     raindrops_register_styles($embed_common_style);
     $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';

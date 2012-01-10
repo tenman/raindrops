@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:0.951
+fixed
+    Footer.php HTML code change.
+        if is_active_sidebar return false then no echo widget ul elements of HTML.
+modified
+    images: all images must have their license explicitly declared
+        Theme images list create and add readme.txt
+----------------------------------------------
+Changelog -----------------------------------
 version:0.950
 fixed
     Coding missing

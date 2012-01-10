@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.951
+version:0.952
 fixed
     Footer.php HTML code change.
         if is_active_sidebar return false then no echo widget ul elements of HTML.
@@ -7,6 +7,9 @@ fixed
             Using improperly function
             from get_template_part() to locate_template()
             get_template_part() must not call sub directory template part file.
+    comments.php
+            Conflict id attribute value, nav-above and nav-below comments paging navigation and article navigation.
+            Change comments #nav-above to #nav-above-comments and #nav-below to #nav-below-comments.
 modified
     images: all images must have their license explicitly declared
         Theme images list create and add readme.txt

@@ -15,9 +15,8 @@ $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_im
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">
 <?php if ( is_active_sidebar( 'sidebar-4' ) ) {?>
-	<ul><?php dynamic_sidebar('sidebar-4');?></ul>
+    <ul><?php dynamic_sidebar('sidebar-4');?></ul>
 <?php } ?>
-  </ul>
   <br class="clear" />
 </div>
 <!--footer-widget end-->

@@ -1,4 +1,23 @@
 Changelog -----------------------------------
+version:0.953
+added
+    functions.php
+        Add var $raindrops_document_type.
+
+fixed
+    sidebar-extra.php
+        Fix $wp_query->posts is empty when search result none and $wp_query->post->ID is error.
+        Fix const RAINDROPS_USE_LIST_EXCERPT not works.
+
+modified
+    All template files
+        template function from get_header('xhtml1') to get_header( $raindrops_document_type )
+        template function from get_footer() to get_footer( $raindrops_document_type )
+    loop.php
+        use get_template_part('part','gallery')
+        use  get_template_part('part','blog')
+----------------------------------------------
+Changelog -----------------------------------
 version:0.952
 fixed
     Footer.php HTML code change.

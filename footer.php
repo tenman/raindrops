@@ -1,10 +1,20 @@
 <?php
 /**
- * The template for footer.
+ * The template part file for footer.
  *
  *
  * @package Raindrops
  * @since Raindrops 0.1
+ *
+ * @uses wp_upload_dir() 
+ * @uses raindrops_upload_image_parser($footer_image_uri,'inline','#ft')
+ * @uses is_active_sidebar( 'sidebar-4' )
+ * @uses get_bloginfo('name')
+ * @uses get_bloginfo('rss2_url')
+ * @uses ucwords()
+ * @uses get_current_theme()
+ * @uses wp_footer()
+ *
  */
 ?>
 <?php

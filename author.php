@@ -8,11 +8,30 @@ Template Name: Auther
  *
  * @package Raindrops
  * @since Raindrop 0.1
+ *
+ * @uses get_header( $raindrops_document_type )	include template part file
+ * @uses raindrops_yui_class_modify()	add class attribute value
+ * @uses is_2col_raindrops('style="width:99%;"')	add inline style attribute
+ * @uses get_avatar()
+ * @uses apply_filters( 'raindrops_author_bio_avatar_size', 60 )
+ * @uses have_posts()
+ * @uses have_posts()
+ * @uses the_post()
+ * @uses get_option('date_format')
+ * @uses the_time($raindrops_date_format)
+ * @uses the_permalink()
+ * @uses the_title_attribute()
+ * @uses the_title()
+ * @uses the_category(', ')
+ * @uses get_the_tag_list( '', ', ' )
+ * @uses get_sidebar('extra')	include template part file
+ * @uses get_sidebar('default')	include template part file
+ * @uses get_footer( $raindrops_document_type ) 
  */
 
 ?>        
 <?php $curauth = get_userdata(intval($author));?>
-<?php get_header('xhtml1'); ?>
+<?php get_header( $raindrops_document_type ); ?>
 <div id="yui-main">
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
@@ -57,7 +76,7 @@ Template Name: Auther
 		  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		  <dt>
 			<?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
-			&nbsp;&nbsp;<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
+			&nbsp;&nbsp;<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>">
 			<?php the_title(); ?>
 			</a> </dt>
 		  <dd>
@@ -81,4 +100,4 @@ Template Name: Auther
 </div>
 <div class="yui-b"><?php get_sidebar('default'); ?></div>
 </div>
-<?php get_footer(); ?>
+<?php get_footer( $raindrops_document_type ); ?>

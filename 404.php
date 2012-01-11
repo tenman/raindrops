@@ -7,7 +7,7 @@
  * @since Raindrop 0.1
  */
 ?>
-<?php get_header("xhtml1"); ?>
+<?php get_header( $raindrops_document_type ); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b">
@@ -27,4 +27,4 @@
 </div>
 <div class="yui-b"><?php get_sidebar('default'); ?></div>
 </div>
-<?php get_footer(); ?>
+<?php get_footer( $raindrops_document_type ); ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for default sidebar.
+ * Template part file for default sidebar.
  *
  *
  * @package Raindrops

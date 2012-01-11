@@ -5,15 +5,36 @@
  *
  * @package Raindrops
  * @since Raindrops 0.1
+ *
+ * @uses raindrops_show_one_column()
+ * @uses add_filter()
+ * @uses get_header()
+ * @uses raindrops_yui_class_modify()
+ * @uses have_posts()
+ * @uses the_post()
+ * @uses the_ID()
+ * @uses post_class()
+ * @uses the_title_attribute()
+ * @uses the_title()
+ * @uses the_content()
+ * @uses wp_link_pages()
+ * @uses the_category(', ')
+ * @uses edit_post_link()
+ * @uses raindrops_delete_post_link()
+ * @uses comments_template( '', true )
+ * @uses next_posts_link()
+ * @uses previous_posts_link()
+ * @uses get_sidebar('extra')
+ * @uses get_sidebar('default')
+ * @uses get_footer( $raindrops_document_type )
+ *
  */
 $raindrops_current_column = raindrops_show_one_column();
-
 if($raindrops_current_column !== false){
-add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_custom");
+	add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_custom");
 }
-
 ?>
-<?php get_header('xhtml1'); ?>
+<?php get_header( $raindrops_document_type ); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b" <?php if($raindrops_current_column == '1' ){
@@ -33,31 +54,11 @@ if($raindrops_current_column == 3){
 }
 
 ?>>
-<?php
-/**
- * parent child links
- */
-/*
-$raindrops_ancestor         = array_pop(get_post_ancestors($post->ID));
-$raindrops_list_pages       = wp_list_pages('depth=5&echo=0&child_of=' . $post->ID . '&title_li=<strong>' . __('Pages', 'Raubdrops') . '</strong>' );
-$raindrops_ancestor_list_page = wp_list_pages('depth=5&echo=0&child_of=' . $raindrops_ancestor . '&title_li=<strong>' . __('Pages', 'Raindrops') . '</strong>' );
-
-if(empty($ancestor) and !empty($raindrops_list_pages)) {
-echo '<ul class="rd-page-navigation clearfix root">';
-echo $raindrops_list_pages;
-echo '</ul>';
-}else {
-echo '<ul class="rd-page-navigation clearfix">';
-echo $raindrops_ancestor_list_page;
-echo '</ul>';
-}
-*/
-?>
         <?php if (have_posts()){ ?>
         <?php       while (have_posts()){ the_post(); ?>
         <div class="entry page">
           <div id="post-<?php the_ID(); ?>" <?php post_class();?>>
-            <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>">
+            <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
               <?php the_title(); ?>
               </a></h2>
                <div style="entry-content">
@@ -108,4 +109,4 @@ echo '</ul>';
 <?php }?>
 
 </div>
-<?php get_footer(); ?>
+<?php get_footer( $raindrops_document_type ); ?>

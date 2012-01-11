@@ -6,8 +6,7 @@
  * @since Raindrops 0.940
  *
  */
-?><div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+?>
 <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 </h2>
 
@@ -23,8 +22,16 @@ $total_images = count( $images );
 $image = array_shift( $images );
 $attachment_page = $image->post_title;
 ?>
+<?php if((!preg_match('!\[gallery!',get_the_content()) and is_single()) or !is_single() ){?>
 <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
-<?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+<?php }?>
+<?php 
+if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
+	the_excerpt();
+}else{
+	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
+}
+?>
 <div class="clearfix"></div>
 
 <p style="margin:1em;"><em><?php echo sprintf( __( 'This gallery contains %1$s photographs in all as ', 'Raindrops' ),$total_images).'&nbsp;'.wp_get_attachment_link( $image->ID ,false,true).'&nbsp;'.__('photograph etc.','Raindrops');?></em></p>
@@ -51,4 +58,3 @@ printf(
 <?php if(is_single()){  raindrops_prev_next_post('nav-below');}?>
 
 <?php comments_template( '', true ); ?>
-</div>

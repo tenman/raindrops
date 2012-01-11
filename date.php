@@ -1,11 +1,32 @@
 <?php
 /**
-* The template for Yearly monthly each date Archives
-*
-*
-* @package WordPress
-* @subpackage Raindrops
-*/
+ * The template for Yearly monthly each date Archives
+ *
+ *
+ * @package Raindrops
+ *
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * @uses user_trailingslashit()
+ * @uses trailingslashit()
+ * @uses remove_query_arg()
+ * @uses get_query_var('paged')
+ * @uses get_option('posts_per_page')
+ * @uses get_template_part('archive')
+ * @uses mysql2date()
+ * @uses raindrops_yui_class_modify()
+ * @uses is_2col_raindrops('style="width:99%;"')
+ * @uses query_posts("posts_per_page=-1&year=$ye")
+ * @uses raindrops_get_year($one_year,$ye)
+ * @uses wp_reset_query()
+ * @uses month_list($one_month, $ye, $mo)
+ * @uses raindrops_get_day($one_day, $ye, $mo, $da)
+ * @uses paginate_links( $pagination )
+ * @uses get_sidebar('extra')
+ * @uses get_sidebar('default')
+ * @uses get_footer( $raindrops_document_type )
+ *
+ */
 /*
 date.php - calendar based archive navigation
 copyright (c) 2005 Scott Merrill (skippy@skippy.net)
@@ -57,7 +78,7 @@ if( $wp_rewrite->using_permalinks() )
             get_template_part('404');
     }
 ?>
-<?php get_header('xhtml1'); ?>
+<?php get_header( $raindrops_document_type ); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 
 <div id="yui-main">
@@ -96,4 +117,4 @@ echo '<div class="monthly-archives-pagenate">'.paginate_links( $pagination ).'</
 </div>
 <div class="yui-b"><?php get_sidebar('default'); ?></div>
 </div>
-<?php get_footer(); ?>
+<?php get_footer( $raindrops_document_type ); ?>

@@ -20,7 +20,14 @@
 
 <?php }else{ // is not archives & search?>
 
-<div class="entry-content clearfix"><?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+<div class="entry-content clearfix">
+<?php 
+if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
+	the_excerpt();
+}else{
+	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
+}
+?>
 <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 </div>
 <?php } // end is_archive() || is_search() ?>

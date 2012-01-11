@@ -7,7 +7,7 @@
  * @since Raindrops 0.306
  * @uses raindrops_show_one_colum   Detect current post column count
  * @uses add_filter                 Overwrite Color type func raindrops_color_type_custom()
- * @uses get_header("xhtml1")       Include template part file
+ * @uses get_header( $raindrops_document_type )       Include template part file
  * @uses have_posts()
  * @uses the_post()
  * @uses in_category()
@@ -24,7 +24,7 @@
  * @uses next_posts_link()
  * @uses previous_posts_link()
  * @uses get_sidebar()
- * @uses get_footer()
+ * @uses get_footer( $raindrops_document_type )
  *
  *
  */
@@ -35,12 +35,13 @@ add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_
 }
 
 
-get_header("xhtml1"); ?>
+get_header( $raindrops_document_type ); ?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
 <div class="yui-b" <?php if($raindrops_current_column == '1' ){
     echo "style=\"width:100%;margin-left:0;\"";}?>>
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
+	
 <div class="yui-u first"
 <?php
 if($raindrops_current_column == 3){
@@ -53,7 +54,6 @@ if($raindrops_current_column == 3){
 }elseif($raindrops_current_column == false){
     is_2col_raindrops('style="width:99%;"');
 }
-
 ?>>
 <?php
 /**
@@ -74,7 +74,10 @@ if($raindrops_current_column == 3){
     if(WP_DEBUG == true){
         echo '<!--Single Category '.$cat.' start-->';
     }
-
+	if($cat == "blog" or $cat == "gallery"){?>
+<div id="post-<?php the_ID(); ?>" <?php  post_class('clearfix'); ?>>
+<?php
+}
 /**
  * Show featured image
  *
@@ -126,7 +129,6 @@ if($raindrops_current_column == 3){
  *
  *
  */
-
     switch($cat){
 
         case ('blog'): //category blog
@@ -144,6 +146,11 @@ if($raindrops_current_column == 3){
         echo '<!-- #post-'.get_the_ID().' -->';
         }
     }//   end switch($cat)
+	
+if($cat == "blog" or $cat == "gallery"){?>
+</div>
+<?php
+}
 }//　endwhile             ?>
 
 <?php
@@ -218,4 +225,4 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
  *
  */
 
-get_footer(); ?>
+get_footer( $raindrops_document_type ); ?>

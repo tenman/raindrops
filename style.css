@@ -439,7 +439,7 @@ div.hentry {
 	list-style:none;
 }
 .fail-search{
-	margin-top:5em;
+	margin-top:15px;	
 }
 body.search-results .hentry{
 	margin-left:30px;
@@ -773,6 +773,10 @@ font-size:77%;
 	list-style-type:none;
 	margin:2px;
 	padding:5px 5px 5px 30px;
+}
+.raindrops-image-page .image img{
+	max-width:100%;
+	height:auto;
 }
 .raindrops-image-page .caption {
 	float:left;
@@ -1942,17 +1946,39 @@ margin:5px;
 .nav-next .meta-nav{
 display:none;
 }
-.nav-previous a:before,
-.attachment-navigation .prev:before{
-content:url("images/previous.png");
-margin-right:3px;
+.attachment-navigation .prev{
+	text-align:left;
+	float:left;
 }
-.nav-next a:after,
-.attachment-navigation .next:after{
-content:url("images/next.png");
-margin-left:3px;
-vertical-align:top;	
+.attachment-navigation .prev a{
+	background:url("images/previous.png");
+	background-repeat:no-repeat;
+	background-position:left top;
+	padding-left:20px;
 }
+.nav-previous a:before{
+	content:url("images/previous.png");
+	position:relative;
+	top:3px;
+}
+
+.nav-next a:after{
+	content:url("images/next.png");
+	position:relative;
+	top:3px;
+	padding-left:4px;
+}
+
+.attachment-navigation .next{
+	float:right;
+}
+.attachment-navigation .next a{
+	background:url("images/next.png");
+	background-repeat:no-repeat;
+	background-position:right top;
+	padding-right:20px;
+}
+
 td[class^="horizon"],
 div[class^="horizon"]{
 text-align:left;

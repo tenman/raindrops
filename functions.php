@@ -13,6 +13,15 @@
         exit;
     }
 /**
+ * HTML document type
+ *
+ *
+ *
+ * Now only 'xhtml1'
+ *
+ */
+	$raindrops_document_type = 'xhtml1';
+/**
  * Include functions about the Raindrops options panel
  *
  *
@@ -980,15 +989,16 @@ if(!function_exists("add_raindrops_stylesheet")){
             $raindrops_version  = "0.1";
         }
         $template_uri = get_template_directory_uri();
-        $template_path = get_template_directory_uri();
+        $template_path = get_template_directory();
         $stylesheet_uri = get_stylesheet_directory_uri();
-        $stylesheet_path = get_stylesheet_directory_uri();
+        $stylesheet_path = get_stylesheet_directory();
             $reset_font_grid    = $stylesheet_uri.'/reset-fonts-grids.css';
             if(!file_exists($stylesheet_path.'/reset-fonts-grids.css')){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
             wp_register_style('raindrops_reset_fonts_grids', $reset_font_grid,array(),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_reset_fonts_grids');
             $grids  = $stylesheet_uri.'/grids.css';
             if(!file_exists($stylesheet_path.'/grids.css')){$grids    = $template_uri.'/grids.css';}
+			
             wp_register_style('raindrops_grids', $grids,array('raindrops_reset_fonts_grids'),$raindrops_version,'all');
             wp_enqueue_style( 'raindrops_grids');
             $fonts              = $stylesheet_uri.'/fonts.css';

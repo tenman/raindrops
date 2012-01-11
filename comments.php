@@ -1,9 +1,20 @@
 <?php
 /**
- * The template for displaying Comments.
+ * The template part file for displaying Comments.
  *
  * @package Raindrops
  * @since Raindrops 0.1
+ *
+ * @uses post_password_required()
+ * @uses have_comments()
+ * @uses get_comments_number()
+ * @uses number_format_i18n( get_comments_number() )
+ * @uses get_the_title()
+ * @uses get_comment_pages_count()
+ * @uses previous_comments_link()
+ * @uses next_comments_link()
+ * @uses comments_open()
+ * @uses comment_form()
  */
 ?>
 <div id="comments">

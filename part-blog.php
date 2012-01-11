@@ -28,7 +28,6 @@
  * @uses comment_template()
  */
 ?>
-<div id="post-<?php the_ID(); ?>" <?php  post_class('clearfix'); ?>>
 <ul class="entry-meta-list left">
 <li class="category-blog-publish-date"><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
 </li>
@@ -57,12 +56,16 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 </li>
 </ul>
 <div class="blog-main left">
-
 <h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 </h2>
-
 <div class="entry-content clearfix">
-<?php the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
+<?php 
+if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
+	the_excerpt();
+}else{
+	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
+}
+?>
 <div class="clearfix"></div>
 <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 </div>
@@ -70,5 +73,4 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 <?php if(is_single()){  raindrops_prev_next_post('nav-below');}?>
 
 <?php comments_template( '', true ); ?>
-</div>
 </div>

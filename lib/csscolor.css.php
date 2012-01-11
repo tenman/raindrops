@@ -428,6 +428,7 @@ border:1px solid rgba(203,203,203, 0.5);
 .entry-content textarea{
 background: %rgba_border%
 }
+.fail-search,
 input[type="file"],
 input[type="reset"],
 .searchform input[type="submit"],
@@ -454,6 +455,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_b
 color:%custom_color%;
 
 }
+.fail-search,
 .raindrops-tab-list li:active,
 #access .children li:active,
 #access li:active,
@@ -479,6 +481,7 @@ border-left:solid 6px %rgba_border%;
 #header-image p{
 text-shadow: 2px 2px 2px #000;
 }
+.fail-search,
 #slides .slides_container,
 .raindrops-tab-content,
 .raindrops-tab-list li{

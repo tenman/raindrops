@@ -7,7 +7,7 @@
  * @since Raindrops 0.1
  */
 ?>
-<?php get_header("xhtml1"); ?>
+<?php get_header( $raindrops_document_type ); ?>
 <div id="yui-main">
   <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">
@@ -30,17 +30,23 @@
           <li>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
               <h2 class="h2 entry-title">
-                <?php
+            <?php
             if( has_post_thumbnail($post->ID)){
                 echo '<span class="h2-thumb">';
                 the_post_thumbnail(array(48,48),array("style"=>"vertical-align:middle;"));
                 echo '</span>';
-            }
-?>
+            }?>
                 <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo the_title(); ?></a></h2>
 
               <div class="posted-on"><?php raindrops_posted_on();?></div>
-              <div class="entry-content clearfix"><?php     the_excerpt();?></div>
+              <div class="entry-content clearfix">
+			  <?php 
+				if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
+					the_excerpt();
+				}else{
+					the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
+				}?>
+			  </div>
               <div class="entry-meta">
                 <?php raindrops_posted_in();?>
                 <?php   edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
@@ -49,7 +55,6 @@
               <br class="clear" />
             </div>
           </li>
-
       <?php }?>
         <li>
         <?php if ( $wp_query->max_num_pages > 1 ){ ?>
@@ -76,7 +81,7 @@
   </div>
 </div>
 <div class="yui-b">
-  <?php get_sidebar('default'); ?>
+<?php get_sidebar('default'); ?>
 </div>
 </div>
-<?php get_footer(); ?>
+<?php get_footer( $raindrops_document_type ); ?>

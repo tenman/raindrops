@@ -1,10 +1,9 @@
 <?php
 /**
-* Template for Sidebar.
+* Template part file for Sidebar.
 *
 *
-* @package WordPress
-* @subpackage Raindrops
+* @package Raindrops
 */
 ?>
 <div class="sidebar">

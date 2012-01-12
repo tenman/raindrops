@@ -2488,7 +2488,8 @@ if(!function_exists("raindrops_show_one_column")){
             if(preg_match("!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si",$raindrops_content_check,$regs)){
                 return $regs[3];
             }else{
-                return false;
+				return false;
+                
             }
         }elseif(raindrops_warehouse_clone('raindrops_show_right_sidebar') == 'hide'){
                 return 2;

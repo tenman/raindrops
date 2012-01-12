@@ -93,7 +93,7 @@ if($raindrops_current_column == 3){
 <?php get_sidebar('extra');?>
 </div>
 <?php
-}elseif($rsidebar_show and raindrops_show_one_column() == false){?>
+}elseif($rsidebar_show and $raindrops_current_column == false){?>
 <div class="yui-u">
 <?php get_sidebar('extra');?>
 </div>
@@ -101,8 +101,7 @@ if($raindrops_current_column == 3){
     </div>
   </div>
 </div>
-<?php if(raindrops_show_one_column() !== '1'){?>
-<div class="yui-b">
+<?php if(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?><div class="yui-b">
 <?php //lsidebar start ?>
 <?php get_sidebar('default'); ?>
 </div>

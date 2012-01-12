@@ -186,7 +186,7 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
 <?php get_sidebar('extra');?>
 </div>
 <?php
-}elseif($rsidebar_show and raindrops_show_one_column() == false){?>
+}elseif($rsidebar_show and $raindrops_current_column == false){?>
 <div class="yui-u">
 <?php get_sidebar('extra');?>
 </div>
@@ -207,7 +207,7 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
  *
  *
  */
- if(raindrops_show_one_column() !== '1'){?>
+if(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?>
 <div class="yui-b">
 <?php //lsidebar start ?>
 <?php get_sidebar('default'); ?>

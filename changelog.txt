@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:0.954
+fixed
+    Fix Display inproperly where single.php and page.php lost a column.
+     raindrops_show_one_column() return value impropely when loops after.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.953
 added
     functions.php

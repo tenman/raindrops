@@ -1,4 +1,31 @@
 Changelog -----------------------------------
+version:0.955
+
+moved
+    add_image_size( 'single-post-thumbnail'...)
+        from hook.php to functions.php
+    from    hard coded wp_enqueue_script( 'comment-reply' )
+    to      add_action( 'wp_enqueue_scripts', 'raindrops_enqueue_comment_reply' )
+
+added
+    enqueue_comment_reply() filter function
+    add_filter('wp_title','raindrops_filter_title',10,3)
+
+fixed
+    Fixed Use of undefined constant
+        RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH
+        RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT
+    Fixed Auto embed (oembed) media display impropaly
+modified
+    footer.php
+        add class clear
+    Change site title function
+        from raindrops_wp_title() to wp_title()
+        and add raindrops_filter_title()
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.954
 fixed
     Fix Display inproperly where single.php and page.php lost a column.

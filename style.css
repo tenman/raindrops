@@ -652,7 +652,7 @@ padding:0;
 	overflow:hidden;
 }
 .page_item {
-	z-index:100!important;
+	/*z-index:100!important;*/
 }
 #nav-above,
 #nav-below {
@@ -1119,12 +1119,19 @@ table#month-list a {
 .social {
 	margin:3px;
 }
-	iframe,
+	
 /*ul.nav li a,
 ul.nav li a:link,
 ul.nav li a:visited,*/
 .debug .hentry {
 	border:1px solid #ccc;
+	
+}
+iframe{
+	max-width:100%;/* For auto embed media width controll*/
+}
+#yui-main .twitter-tweet-rendered{
+	max-width:100%!important;/* For auto embed tweet width controll */
 }
 hr,
 div.attachment {

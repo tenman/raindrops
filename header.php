@@ -47,14 +47,9 @@
 <meta http-equiv="content-type" content="<?php bloginfo('html_type');?>; charset=<?php bloginfo( 'charset' ); ?>" />
 <meta http-equiv="content-script-type" content="text/javascript" />
 <meta http-equiv="content-style-type" content="text/css" />
-<title><?php echo raindrops_wp_title();?></title>
+<title><?php wp_title('|', true, 'right')?></title>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php
-    if ( is_singular() && get_option( 'thread_comments' )){
-        wp_enqueue_script( 'comment-reply' );
-    }
-    wp_head();
-?>
+<?php wp_head();?>
 </head>
 <body <?php body_class($this_blog); ?>>
 <div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">

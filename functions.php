@@ -272,6 +272,8 @@
     if(!defined('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT')){
         define('RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT',200);
     }
+    add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT, true);
+
 /**
  * widget settings
  *
@@ -2447,6 +2449,41 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
         }
     }
 /**
+ * filter function for wp_title hook
+ *
+ */
+    if ( ! function_exists( 'raindrops_filter_title' ) ){
+        function raindrops_filter_title( $title, $sep = true, $seplocation = 'right' ){
+            global $page, $paged;
+			$page_info			= '';
+			$add_title 			= array();
+			$site_description 	= get_bloginfo( 'description', 'display' );
+			
+			if(!empty($title)){
+            	$add_title[]	= str_replace($sep,'',$title);
+			}
+            	$add_title[] 	= get_bloginfo( 'name' );
+           			
+            if ( !empty($site_description) and ( is_home() or is_front_page() ) ){
+                $add_title[] 	= $site_description;
+            }
+            // Add a page number
+            if ( $paged > 1 or $page > 1 ){
+                $page_info 		= sprintf( __( ' Page %s', 'raindrops' ), max( $paged, $page ) );
+            }
+			if('right' == $seplocation){
+				$add_title 		= array_reverse( $add_title );
+				$title 			= implode( " $sep ", $add_title ). $page_info;
+			}else{
+				$title 			= implode( " $sep ", $add_title ). $page_info;
+			}
+            return  $title ;
+        }
+    }
+/**
+ * Deprecated function 
+ * Must use wp_title() and filter function raindrops_filter_title 
+ * 
  * Template function return title for html title element
  *
  * This function has filter hook name raindrops_wp_title
@@ -2574,4 +2611,18 @@ if(!function_exists("raindrops_delete_post_link")){
         }
     }
 }
+
+/**
+ * comment reply 
+ *
+ *
+ *
+ * @since 0.955
+ */
+function raindrops_enqueue_comment_reply() {
+	if ( is_singular() and comments_open() and get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+
 ?>

@@ -71,7 +71,6 @@
  */
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 48, 48, true );
-    add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT, true);
 /**
  *
  *
@@ -194,4 +193,22 @@
  *
  */
      add_action('admin_menu', array($is_submenu, 'add_menus'));
+
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+	add_filter('wp_title','raindrops_filter_title',10,3);
+/**
+ *
+ *
+ *
+ *
+ * @since 0.955
+ */
+	add_action( 'wp_enqueue_scripts', 'raindrops_enqueue_comment_reply' );
+
 ?>

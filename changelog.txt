@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.955
+version:0.956
 
 moved
     add_image_size( 'single-post-thumbnail'...)

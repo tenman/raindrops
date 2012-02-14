@@ -201,14 +201,14 @@
  *
  *
  */
-	add_filter('wp_title','raindrops_filter_title',10,3);
+    add_filter('wp_title','raindrops_filter_title',10,3);
 /**
  *
  *
  *
  *
- * @since 0.955
+ * @since 0.956
  */
-	add_action( 'wp_enqueue_scripts', 'raindrops_enqueue_comment_reply' );
+    add_action( 'wp_enqueue_scripts', 'raindrops_enqueue_comment_reply' );
 
 ?>

@@ -5,7 +5,7 @@ Description: This theme file has the automatic arrangement of color function in 
 An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.956
+Version: 0.957
 Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -906,7 +906,13 @@ ul.index li .edit {
 .pagenate {
 	clear:both;
 	text-align:center;
-	margin:20px auto;
+	margin:0 auto;
+}
+.pagenate:before{
+content:'.';
+display:block;
+clear:both;
+visibility:hidden;
 }
 .pagenate a span {
 	background:none;
@@ -1003,17 +1009,26 @@ ul.index li .edit {
 .comment-form-author input
 {display:block;}
 .commentlist{
-	margin:25px 0 0 25px;
+	margin:25px 0 0 0;
 }
 #respond{
 	text-align:left;
 	margin:0;
 }
+#respond textarea{
+	display:block;
+	width:100%;
+}
 ol.commentlist >li{
-	list-style:decimal;
+	list-style:none;
+	margin:0 0 2px 0;
+	padding:0;
 }
 .commentlist ul li{
 	list-style:none;
+}
+.commentlist .pingback{
+	padding:0 0 0 1em;
 }
 /*
 ol.commentlist .comment-author{
@@ -1027,8 +1042,22 @@ ol.commentlist .comment-author{
 }
 .comment-body{
 margin:1em;
+padding:3px;
 clear:both;
 }
+.comment-body table{
+	width:100%;
+}
+.comment-body ul li{
+	list-style-type:disc;
+}
+.comment-body ul ul li{
+	list-style-type:square;
+}
+.comment-body ul ul ul li{
+	list-style-type:circle;
+}
+
 .comment-notes{
 }
 .comment-notes .required{
@@ -1312,7 +1341,6 @@ div.menu li a{
 	z-index: 99;
 	text-align:center;
 }
-
 #access ul ul li {
 	min-width: 10em;
 	margin:0;
@@ -1332,7 +1360,8 @@ div.menu li a{
 	color:red;	/* for ie9 */
 }
 #access ul li:hover > ul {
-	display: block;
+	display:block;
+	
 }
 #access ul li.current_page_item > a,
 #access ul li.current-menu-ancestor > a,
@@ -1400,15 +1429,14 @@ div.alignleft,
 img.alignleft,
 .alignleft {
 	float: left;
-	padding-left:0;
-	padding:0 10px 0 0;
+	padding:5px 10px 5px 0;
 
 	}
 div.alignright,
 img.alignright,
 .alignright {
    float: right;
-   padding:0 0 0 10px;
+   padding:5px 0 5px 10px;
    }
 .size-thumbnail{
 	padding:.5em;
@@ -1422,11 +1450,24 @@ img.alignright,
    max-width:100%;
    height:auto;
 }
-.wp-caption img {
-   margin: 0;
-   padding: 0;
-   border: 0 none;
+
+.wp-caption.alignleft{
+	float: left;
+   margin: 5px 10px 5px 0;
+   padding: 0 0 0 0;
 }
+.wp-caption.alignright{
+	float:right;
+   margin: 5px 0 5px 10px;
+   padding: 0 0 0 0;
+}
+.wp-caption.aligncenter{
+   margin: 5px auto;
+   padding: 0 0 0 0;
+   display: block;
+
+}
+
 .wp-caption p.wp-caption-text {
    font-size: 100%;
    line-height: 1.5;
@@ -1807,9 +1848,6 @@ li.comment {
 	padding:0;
 }
 
-.comment-body{
-	padding:3px;
-}
 .comment > div{
 	padding:3px;
 }
@@ -1928,6 +1966,7 @@ margin-right:.5em;
 
 
 }
+#respond .required,
 .comment-form-email .required,
 .comment-form-author .required,
 .comment-notes .required{
@@ -1935,6 +1974,7 @@ text-indent:6em;
 width:16px;
 height:16px;
 overflow:hidden;
+display:inline-block;
 background:url("images/require.png");
 background-repeat:no-repeat;
 }
@@ -2161,4 +2201,7 @@ a.raindrops-comment-link:hover .point {
 }
 .post-password-required input[type="submit"]{
 	margin:5px 0;
+}
+li.pingback p{
+	padding:.7em 0;
 }

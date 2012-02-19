@@ -619,9 +619,11 @@
                     $classes[]  = 'unknown';
                 break;
                 }
-            return $classes;
+			return apply_filters("raindrops_add_body_class",$classes);
+            
         }
     }
+	
 /**
  * wp_list_comments callback function
  *
@@ -1213,6 +1215,9 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
             if(empty($css)){
                 $css = "cannot get style value check me";
             }
+			
+			$css = apply_filters("raindrops_embed_meta_css",$css);
+			
             $css = str_replace(array("\n","\r","\t",'&quot;','--','\"'),array("","","",'"','','"'),$css);
             if (is_single() || is_page()) {
                 if(have_posts()){
@@ -2381,8 +2386,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                             htmlspecialchars($description_style,ENT_NOQUOTES),// css needs > but this style is inline
                             esc_html($description)
                             );
-            return  $html ;
-        }
+			return apply_filters("raindrops_header_image",$html);
+		}
     }
 /**
  * Print site description html
@@ -2411,7 +2416,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
             extract( $args, EXTR_SKIP );
             $html = '<div id="site-description" %1$s>%2$s</div>';
             $html = sprintf( $html, $switch, $text );
-            return  $html ;
+			
+			return apply_filters("raindrops_site_description",$html);
         }
     }
 /**

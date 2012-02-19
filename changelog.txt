@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:0.957
+
+moved
+
+added
+
+fixed
+    Fixed IE8 menu display inproperly.
+        Not show level3 when level2 hover
+         #access ul ul :active >a
+          Comment out filter: progid:DXImageTransform.Microsoft.gradient
+modified
+
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.956
 
 moved

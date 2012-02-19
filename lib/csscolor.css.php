@@ -65,7 +65,7 @@ background:inherit;
 %c_4%
 }
 
-
+.commentlist .pingback,
 div[id^="comment-"],
 .entry-content td,
 cite a:link,cite a:active,cite a:visited,cite a:hover,
@@ -219,6 +219,8 @@ fieldset,
 .searchform input[type="text"],
 .searchform input[type="submit"],
 .hentry input[type="password"],
+#respond input[type="text"],
+#respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"],
 .social input[type="submit"],
@@ -233,6 +235,8 @@ border-left:solid 6px %c_border%;
 
 li.byuser,
 li.bypostauthor,
+#respond input[type="text"]:focus,
+#respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input:focus,
 .entry-content th{
@@ -248,7 +252,8 @@ background:none;
 .entry-content td,
 .entry-content th{
 }
-
+#respond input[type="text"],
+#respond textarea#comment,
 .searchform  input[type="submit"],
 .entry-content textarea,
 .entry-content input[type="password"],
@@ -259,7 +264,7 @@ background:none;
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"],
 .entry-content select{
-%c_3%
+%c_4%
 }
 #access .children li ,
 #access .children a {
@@ -281,6 +286,8 @@ border:1px solid;
 .children:hover,
 .children{
 }
+
+
 .reply,
 #ft a,
 .page .hentry .entry-title a,
@@ -296,13 +303,16 @@ div.comment-body *,
 div.comment-author,
 div.comment-author-meta,
 #site-description,
-
 .home .sticky a,
 .home .entry-meta a{
 color:$font_color_5;
 background:none;
 }
+.comment-author div.comment-meta a{
+color:$font_color_5;
+background:none;
 
+}
 
 /*h1{color:#fff!important;}*/
 
@@ -339,6 +349,8 @@ border-bottom:solid 2px %rgba_border%;
 .home .sticky{
 border-top:solid 6px %rgba_border%;
 }
+.comment-body th,
+.comment-body td,
 .wp-caption,
 .entry-content td,
 .entry-content th{
@@ -396,6 +408,8 @@ fieldset,
 .searchform input[type="text"],
 .searchform input[type="submit"],
 .hentry input[type="password"],
+#respond input[type="text"],
+#respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"],
 .social input[type="submit"],
@@ -405,6 +419,8 @@ border:1px solid %rgba_border%;
 }
 .searchform input:focus,
 .searchform input:focus,
+#respond input[type="text"]:focus,
+#respond textarea#comment:focus,
 .social textarea:focus,
 .hentry input:focus,
 .social input:focus{
@@ -413,6 +429,8 @@ box-shadow: 0 0 5px %rgba_border%;
 -moz-box-shadow: 0 0 5px %rgba_border%;
 }
 .searchform input[type="text"],
+#respond input[type="text"],
+#respond textarea#comment,
 .social textarea#comment,
 .hentry input[type="password"],
 .social input[type="text"] {
@@ -451,7 +469,7 @@ border-top:1px solid rgba(100,100,100,1);
 #access a {
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');*/
 color:%custom_color%;
 
 }
@@ -463,7 +481,7 @@ color:%custom_color%;
 top:0;
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
 background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
+/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');*/
 color:%custom_color%;
 }
 .wp-caption {
@@ -599,13 +617,16 @@ input[type="radio"],
 select{
     %c4%
 }
+#respond input[type="text"],
+#respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"] {
     outline:none;
     %c3%
 
 }
-
+#respond input[type="text"]:focus,
+#respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input:focus{
     %c4%
@@ -645,7 +666,7 @@ cite a:link,cite a:active,cite a:visited,cite a:hover{
 .entry-content legend{
     %c5%
 }
-
+.comment-body td,
 .entry-content td{
     %c4%
     border:solid 1px %c_border%;
@@ -1013,7 +1034,8 @@ input[type="radio"],
 select{
     %c4%
 }
-
+#respond input[type="text"]:focus,
+#respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input[type="text"]:focus{
 
@@ -1190,6 +1212,8 @@ fieldset {
 hr{
 border-top:1px dashed %rgba_border%;
 }
+#respond input[type="text"],
+#respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"]{
     outline:none;
@@ -1259,7 +1283,7 @@ border-top:1px dashed %rgba_border%;
 #access ul ul :active >a{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
     background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%)!important;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');*/
     color:%custom_color%;
 }
 

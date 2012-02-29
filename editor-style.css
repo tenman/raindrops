@@ -4,9 +4,9 @@
  * Filetype: CSS
  * @package Raindrops
  */
+@import url("style.css");
 html .mceContentBody {
 max-width:640px;
-
 }
 
 a{

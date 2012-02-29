@@ -531,6 +531,8 @@ a.raindrops-comment-link:hover .point {
 border-left:1px solid %rgba_border%;
 }
 
+
+
 CSS3;
 return $style.$css3;
 }
@@ -780,8 +782,10 @@ a.raindrops-comment-link:hover em {
 %c_1%
 }
 a.raindrops-comment-link:hover .point {
-border-left:1px solid %rgba_border%;
+border-left:1px solid %c_border%;
 }
+
+
 DOC;
 return $style;
 }
@@ -1339,6 +1343,8 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
 border-left:1px solid %rgba_border%;
 }
+
+
 CSS3;
 return $style.$css3;
 }
@@ -1393,6 +1399,7 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
 border-left:1px solid %rgba_border%;
 }
+
 input[type="text"],
 textarea#comment{
         border:1px solid #ddd;

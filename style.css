@@ -719,6 +719,8 @@ padding:0;
 	width:90%;
 	line-height:1.4;
 	margin-top:0.3em;
+	word-break:break-all;
+	word-wrap:break-word;
 }
 .lsidebar li.page_item a,
 .lsidebar li.category_report a,
@@ -1355,6 +1357,7 @@ div.menu li a{
 	padding:0.8em 0;
 	height: auto;
 }
+#access .children:hover > a,
 #access li:hover > a,
 #access ul ul :hover > a {
 	color:red;	/* for ie9 */
@@ -2098,7 +2101,6 @@ margin:0;padding:0;
 .raindrops-tab-list li{
 margin:0;
 padding:0;
-border:1px solid rgba(200,200,200,0.3);
 
 }
 .raindrops-tab-list li{

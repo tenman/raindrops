@@ -82,7 +82,7 @@
                     $raindrops_content_width = $default;
                 }
             }elseif($document_width == 'doc3'){
-				$raindrops_content_width = false;
+				$raindrops_content_width = 0;
            /*     $w = 750;
                 if($sidebar_width == 'yui-t1'){
                     $raindrops_content_width = $w - 160 - $adjust;

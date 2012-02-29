@@ -146,8 +146,34 @@
  *
  */
     if( !isset( $raindrops_fluid_minimam_width ) ){
-        $raindrops_fluid_minimam_width = '400';
+        $raindrops_fluid_minimam_width = '480';
     }
+/**
+ * fluid page  main column maximam width px
+ *
+ *
+ *
+ *
+ *
+ */
+
+    if( !isset( $raindrops_fluid_maximam_width ) ){
+        $raindrops_fluid_maximam_width = '1280';
+    }
+/**
+ * Special simple view for mobile and small width browser
+ * If it sets to true, a display simple compulsory always will be performed. 
+ *
+ * default false
+ *
+ *
+ */
+
+	if( !isset( $raindrops_fallback_human_interface_show ) ){
+        $raindrops_fallback_human_interface_show = false;
+    }
+
+	
 /**
  * Raindrops header and footer image upload
  *
@@ -393,11 +419,11 @@
                 $c_width = (int)$raindrops_page_width;
                 $width    = $c_width / 13;
                 $ie_width = $width * 0.9759;
-            $custom_content_width = '<style type="text/css">'.
+            $custom_content_width = '<style type="text/css"><!--'.
             '#custom-doc {margin:auto;text-align:left;'."\n".
             'width:'.round($width,0).'em;'."\n".
             '*width:'.round($ie_width,0).'em;'."\n".
-            'min-width:'.round($width * 0.7,0).'em;}</style>';
+            'min-width:'.round($width * 0.7,0).'em;}</style>-->';
 
             echo apply_filters("raindrops_custom_width",$custom_content_width);
         }
@@ -425,42 +451,32 @@
  */
     if (!function_exists('raindrops_is_fluid')) {
         function raindrops_is_fluid(){
-            global  $is_IE, $raindrops_fluid_minimam_width;
-            $width          = intval($raindrops_fluid_minimam_width);
-            $width          = $width / 13;
-            $sidebar_width  = 'yui-'.raindrops_warehouse_clone('raindrops_col_width');
-            $adjust         = 20;
-            if($sidebar_width == 'yui-t1'){
-                $raindrops_default_col_width = 160 + $adjust;
-            }elseif($sidebar_width == 'yui-t2'){
-                $raindrops_default_col_width = 180 + $adjust;
-            }elseif($sidebar_width == 'yui-t3'){
-                $raindrops_default_col_width = 300 + $adjust;
-            }elseif($sidebar_width == 'yui-t4'){
-                $raindrops_default_col_width = 180 + $adjust;
-            }elseif($sidebar_width == 'yui-t5'){
-                $raindrops_default_col_width = 240 + $adjust;
-            }elseif($sidebar_width == 'yui-t6'){
-                $raindrops_default_col_width = 300 + $adjust;
+            global  $is_IE, $raindrops_fluid_minimam_width, $raindrops_fluid_maximam_width;
+            $width          		= intval($raindrops_fluid_minimam_width);
+			$extra_sidebar_width    = raindrops_warehouse_clone('raindrops_right_sidebar_width_percent');
+			
+			if($extra_sidebar_width == '25'){
+                $main_column_width_fluid = 74;
+            }elseif($extra_sidebar_width == '75'){
+                $main_column_width_fluid =  24;
+            }elseif($extra_sidebar_width == '33'){
+               	$main_column_width_fluid = 64;
+            }elseif($extra_sidebar_width == '66'){
+                $main_column_width_fluid =  32;
+            }elseif($extra_sidebar_width == '50'){
+                $main_column_width_fluid =  49;
             }else{
-                $raindrops_default_col_width = 0;
+                $main_column_width_fluid = 100;
             }
-            $horizontal_nav_width = $raindrops_default_col_width + intval($raindrops_fluid_minimam_width);
-            $horizontal_nav_width = $horizontal_nav_width / 13;
-            if($is_IE){
-                $width                  = round($width * 0.9759,1);
-                $horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1) + 1;
-            }else{
-                $width                  = round($width,1);
-                $horizontal_nav_width   = round($horizontal_nav_width * 0.9759,1);
-            }
-            $fluid_min_width = '<style type="text/css">'.
-                            "\n#container{min-width:".
-                            $width.
-                            'em;}'.
+			
+            $fluid_min_width = '<style type="text/css"><!--'.
+                            "\n#doc3{min-width:".
+                            $raindrops_fluid_minimam_width.
+                            'px;max-width:'.$raindrops_fluid_maximam_width.'px;}'.
+							"\n#container > .first{width:".$main_column_width_fluid."%;}".
                             "\n#access{min-width:".
-                            $width.
-                            'em;}</style>';
+                            $raindrops_fluid_minimam_width.
+                            'px;}--></style>';
             echo apply_filters("raindrops_is_fluid",$fluid_min_width);
         }
     }
@@ -501,7 +517,7 @@
                 $width                  = round($width,1);
                 $raindrops_main_width   = round($raindrops_main_width,1);
             }
-            $custom_fixed_width = '<style type="text/css">'."
+            $custom_fixed_width = '<style type="text/css"><!--'."
                 \n#".$pw.'{margin:auto;text-align:left;'."\n".
                             'min-width:'.$width.'em;'.
                             $add_ie.
@@ -509,7 +525,7 @@
                             '}'.
                             "\n#container{min-width:".
                             $raindrops_main_width.
-                            'em;}</style>';
+                            'em;}--></style>';
 
             echo apply_filters("raindrops_is_fixed",$custom_fixed_width);
         }
@@ -1041,6 +1057,7 @@ if(!function_exists("add_raindrops_stylesheet")){
             wp_enqueue_script('raindrops');
     }
 }
+
 /**
  * filter function comment form
  *
@@ -1203,10 +1220,13 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
 .gallery-columns-7 dl{ width: 14.28% }
 .gallery-columns-8 dl{ width: 12.5% }
 .gallery-columns-9 dl{ width: 11.1% }';
-            $css                = $raindrops_gallerys;
-            $raindrops_options  = get_option("raindrops_theme_settings");
-            //$css                .= $raindrops_options['_raindrops_indv_css'];
-            $css .= raindrops_warehouse_clone('_raindrops_indv_css');
+            $css                	= $raindrops_gallerys;
+            $css 					.= apply_filters("raindrops_gallerys_css",$css);
+
+            $raindrops_options  	= get_option("raindrops_theme_settings");
+            $raindrops_indv_css 	= raindrops_warehouse_clone('_raindrops_indv_css');
+            $css 					.= apply_filters("raindrops_indv_css",$raindrops_indv_css);
+			
             $background = get_background_image();
             $color = get_background_color();
             if(!empty($background) or !empty($color)){
@@ -1217,8 +1237,11 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
             }
 			
 			$css = apply_filters("raindrops_embed_meta_css",$css);
-			
+if(WP_DEBUG !== true){			
             $css = str_replace(array("\n","\r","\t",'&quot;','--','\"'),array("","","",'"','','"'),$css);
+			}else{
+            $css = str_replace(array('&quot;','--','\"'),array('"','','"'),$css);
+			}
             if (is_single() || is_page()) {
                 if(have_posts()){
                  while (have_posts()) : the_post();
@@ -1228,7 +1251,7 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
                     $css    .= get_post_meta($post->ID, 'css', true);
                     if (!empty($css)) {
                     $result .= '<style type="text/css">';
-                    $result .= "\n/*<![CDATA[*/\n";
+                    $result .= "\n<!--/*<![CDATA[*/\n";
                     $result .=  $css;
                     $result .= "\n/*]]>*/\n";
                     $result .= "</style>";
@@ -1238,7 +1261,7 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
                     $result .= '<script type="text/javascript">';
                     $result .= "\n/*<![CDATA[*/\n";
                     $result .= $javascript;
-                    $result .= "\n/*]]>*/\n";
+                    $result .= "\n/*]]>*/-->\n";
                     $result .= "</script>";
                     }
                     $meta = get_post_meta($post->ID, 'meta', true);
@@ -1250,9 +1273,9 @@ $raindrops_gallerys = '.gallery { margin: auto; overflow: hidden; width: 100%; }
             }else{
                     if(RAINDROPS_USE_AUTO_COLOR == true){
                         $result .= '<style type="text/css">';
-                        $result .= "\n/*<![CDATA[*/\n";
+                        $result .= "\n<!--/*<![CDATA[*/\n";
                         $result .=  $css;
-                        $result .= "\n/*]]>*/\n";
+                        $result .= "\n/*]]>*/-->\n";
                         $result .= "</style>";
                     }
             }
@@ -2109,6 +2132,7 @@ if ( ! function_exists( 'raindrops_admin_header_style' ) ){
         $css_result = str_replace(array('#headimg body','a:hover'),array('#headimg','a'),$css_result);
 ?>
         <style type="text/css">
+<!--
 a:hover{color:none;}
 #headimg{
 width:<?php echo $custom_header_width;?>!important;
@@ -2229,7 +2253,7 @@ background:none;
 span#site-title,
 #message a{
     color: #21759B!important;
-}
+}-->
         </style>
 <?php
     }
@@ -2630,5 +2654,73 @@ function raindrops_enqueue_comment_reply() {
         wp_enqueue_script( 'comment-reply' );
     }
 }
+
+
+
+	add_filter('the_content', 'raindrops_fallback_human_interface');
+	add_filter('raindrops_posted_in', 'raindrops_fallback_human_interface');
+	
+	function raindrops_fallback_human_interface($content){
+		if((is_home() or is_front_page()) and small_screen_check() == true){
+			return;
+		}else{
+			return $content;
+		}
+	}
+
+
+	function small_screen_check() {
+		global $raindrops_fluid_minimam_width, $raindrops_fallback_human_interface_show;
+		$size = '';
+	  if ( !empty($_SERVER['HTTP_UA_PIXELS'] )) {
+	  	$size = $_SERVER['HTTP_UA_PIXELS'];
+	  }
+	  if(!empty( $_SERVER['HTTP_X_UP_DEVCAP_SCREENPIXELS'] ) ){    
+	  	$size = $_SERVER['HTTP_X_UP_DEVCAP_SCREENPIXELS'];
+	  }
+	  if(!empty( $_SERVER['HTTP_X_JPHONE_DISPLAY'] ) ){    
+	  	$size = $_SERVER['HTTP_X_JPHONE_DISPLAY'];
+	  }
+	  
+	  
+	  $size = split('[x,*]', $size);
+	  
+		if($raindrops_fallback_human_interface_show	== true){
+			return true;
+		}  
+	  
+	  if (isset($size[0]) and is_numeric($size[0])) {
+	    		
+		if($size[0] < $raindrops_fluid_minimam_width){
+			return true;
+		}else{
+			return false;
+		}
+	  }
+	  
+	  return false;
+	  
+	}
+	
+	function fallback_user_interface_view() {
+	//wp_deregister_style( 'style' );
+		wp_deregister_style( 'raindrops_reset_fonts_grids' );
+		wp_deregister_style( 'raindrops_grids' );
+		wp_deregister_style( 'raindrops_fonts' );
+		wp_deregister_style( 'raindrops_css3' );
+		wp_deregister_style( 'child' );
+		$current_theme          = get_current_theme();
+		$themes 			= get_themes();
+		$raindrops_version  = $themes[$current_theme]['Version'];
+		$fallback_style    	= get_template_directory_uri().'/fallback.css';
+					wp_register_style('fallback_style', $fallback_style,array(),$raindrops_version,'all');
+					wp_enqueue_style( 'fallback_style');
+		add_filter('raindrops_indv_css',__return_false());
+		add_filter('raindrops_is_fluid',__return_false());
+	}
+	
+	if(small_screen_check() == true){
+		add_action('wp_print_styles', 'fallback_user_interface_view',99);
+	} 
 
 ?>

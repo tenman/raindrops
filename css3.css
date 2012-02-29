@@ -88,3 +88,9 @@ submit{
 	border-bottom:none;
 }
 
+.raindrops-tab-content,
+.raindrops-tab-list li{
+
+border:1px solid rgba(200,200,200,0.3);
+
+}

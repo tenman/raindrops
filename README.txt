@@ -19,7 +19,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
-
+var 0.958
+    Add simple view for mobile
+    If you want show manuary
+    Open functions.php
+        Set $raindrops_fallback_human_interface_show = true
 ver 0.948
 raindrops_delete_post_link()
     This function default no work.

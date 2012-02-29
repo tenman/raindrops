@@ -1,4 +1,27 @@
 Changelog -----------------------------------
+version:0.958
+
+moved
+
+added
+    Added var $raindrops_fluid_maximam_width
+        Limit a page width when display fluid layout
+    Added functions
+        raindrops_fallback_human_interface()
+        small_screen_check()
+        fallback_user_interface_view()
+            Raindrops fluid layout view is 480px - 1280px support
+            View supply for more thin width browser
+    Note:functions.php
+    $raindrops_fallback_human_interface_show = true when if you want display this view
+fixed
+    Fixed Fluid layout minimam width display inproperly
+modified
+    CSS style rule modified
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.957
 
 moved

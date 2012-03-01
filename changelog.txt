@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0.959
+fixed
+    Fixed html comment out not closed
+made
+    blank_front.php
+        for custom front page create easy
+----------------------------------------------
+Changelog -----------------------------------
 version:0.958
 
 moved

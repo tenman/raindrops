@@ -1253,13 +1253,13 @@ if(WP_DEBUG !== true){
                     $result .= '<style type="text/css">';
                     $result .= "\n<!--/*<![CDATA[*/\n";
                     $result .=  $css;
-                    $result .= "\n/*]]>*/\n";
+                    $result .= "\n/*]]>*/-->\n";
                     $result .= "</style>";
                     }
                     $javascript = get_post_meta($post->ID, 'javascript', true);
                     if (!empty($javascript)) {
                     $result .= '<script type="text/javascript">';
-                    $result .= "\n/*<![CDATA[*/\n";
+                    $result .= "\n<!--/*<![CDATA[*/\n";
                     $result .= $javascript;
                     $result .= "\n/*]]>*/-->\n";
                     $result .= "</script>";

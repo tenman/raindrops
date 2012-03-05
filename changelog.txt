@@ -1,16 +1,23 @@
 Changelog -----------------------------------
 version:0.960
-
-moved
-
-added
-
 fixed
-
+    Fixed wrong attribute name.
+        from    <div style="entry-content">
+        to      <div class="entry-content">
+        blank_front.php, page.php
+    Fixed heading display improperly
+        Example
+        <h2>title</h2> , <h2><a href="#">title</a></h2>
+        Not same text size
+        Style rule change.
+            style.css
 modified
-
-made
-
+    Add style rule class 'columns' where css3.css
+    Add wp_deregister_style('style')
+        where function fallback_user_interface_view()
+            functions.php
+    Style rule clean up
+        style.css
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.959

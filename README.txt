@@ -19,7 +19,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
-var 0.958
+
+ver 0.960
+    Add CSS class columns
+        When a setup of page width is set to fluid 100%, page width changes in the range of 480px to 1280px by default.
+At this time, the length of the text of contents becomes long too much, and it becomes difficult to compose it.
+When describing contents, when possible, column is automatically set up by describing the whole as follows.
+
+    example(need html mode)
+    on your post content or page content
+
+    <div class="columns">
+    your content here
+    </div>
+
+ver 0.958
     Add simple view for mobile
     If you want show manuary
     Open functions.php

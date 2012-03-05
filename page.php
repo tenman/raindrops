@@ -61,7 +61,7 @@ if($raindrops_current_column == 3){
             <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
               <?php the_title(); ?>
               </a></h2>
-               <div style="entry-content">
+               <div class="entry-content">
               <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
               <br class="clear" />
             </div>

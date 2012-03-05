@@ -7,35 +7,35 @@
 
 
 .ja h1,
-.ja h1 a,
+/*.ja h1 a,*/
 .ja .h1 a,
 .ja #site-title{
 	font-size:174%;
 	}
 .ja h2,
-.ja h2 a,
+/*.ja h2 a,*/
 .ja .h2 a
 .ja .page-title
 .ja .entry-title{
 	font-size:138.5%;
 	}
 .ja h3,
-.ja h3 a,
+/*.ja h3 a,*/
 .ja .h3 a{
 	font-size:116%;
 	}
 .ja h4,
-.ja h4 a,
+/*.ja h4 a,*/
 .ja .h4 a{
 	font-size:108%;
 	}
 .ja h5,
-.ja h5 a,
+/*.ja h5 a,*/
 .ja .h5 a{
 	font-size:100%;
 	}
 .ja h6,
-.ja h6 a,
+/*.ja h6 a,*/
 .ja .h6 a{
 	font-size:93%;
 	}

@@ -2733,7 +2733,7 @@ if(!function_exists("small_screen_check")){
 if(!function_exists("fallback_user_interface_view")){
 
     function fallback_user_interface_view() {
-    //wp_deregister_style( 'style' );
+    	wp_deregister_style( 'style' );
         wp_deregister_style( 'raindrops_reset_fonts_grids' );
         wp_deregister_style( 'raindrops_grids' );
         wp_deregister_style( 'raindrops_fonts' );

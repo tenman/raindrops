@@ -157,7 +157,7 @@ $raindrops_display_extra_sidebar_column     = 'y';
  * when ''  $substitution_extra_sidebar value show
  * need $raindrops_display_extra_sidebar_column = 'y'
  * when $raindrops_display_extra_sidebar_column = ''
- *  display extra sidebar contents shows page content after
+ *  extra sidebar contents shows page content after
  */
 $raindrops_display_extra_sidebar            = 'y';
 /**
@@ -174,7 +174,7 @@ $raindrops_display_default_sidebar_column   = 'y';
  * when ''  $substitution_default_sidebar value show
  * need $raindrops_display_default_sidebar_column = 'y'
  * when $raindrops_display_default_sidebar_column = ''
- *  display default sidebar contents shows page content after
+ *  default sidebar contents shows page content after
  */
 $raindrops_display_default_sidebar          = 'y';
 /**
@@ -392,7 +392,7 @@ if($raindrops_display_extra_sidebar_column !== 'y'){
                   <?php the_title(); ?>
                   </a></h2>
                 <?php }//raindrops_display_page_title?>
-                <div style="entry-content">
+                <div class="entry-content">
                   <?php if($raindrops_display_page_content == 'y'){?>
                   <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
                   <?php

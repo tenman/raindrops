@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.960
+
+moved
+
+added
+
+fixed
+
+modified
+
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.959
 fixed
     Fixed html comment out not closed

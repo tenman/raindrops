@@ -94,3 +94,9 @@ submit{
 border:1px solid rgba(200,200,200,0.3);
 
 }
+#doc3 .entry-content .columns{
+	-moz-columns: 20em auto;
+	-webkit-columns:20em auto;
+	-o-columns: 20em auto;
+	-ms-columns: 20em auto;
+}

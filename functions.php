@@ -582,7 +582,11 @@
         global $post;
             $lang               = get_locale();
             $raindrops_options  = get_option("raindrops_theme_settings");
-            $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
+			if(isset($raindrops_options["raindrops_style_type"]) and !empty($raindrops_options["raindrops_style_type"])){
+            	$color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
+			}else{
+				$color_type = '';
+			}
             if(is_single() or is_page()){
                 $raindrops_content_check = get_post($post->ID);
                 $raindrops_content_check = $raindrops_content_check->post_content;

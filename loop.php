@@ -66,7 +66,7 @@
 					if(RAINDROPS_USE_LIST_EXCERPT == true){
 						the_excerpt();
 					}else{
-						the_content();
+	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
 					}?>
 			</div>
 			<div class="entry-meta">

@@ -137,6 +137,7 @@ h6 a,
 	text-decoration:none;
 	display:inline;
 	background:none;
+	color:red;
 }
 div.error404{
 	margin:5% 10%;
@@ -2191,16 +2192,4 @@ a.raindrops-comment-link:hover em {
 }
 li.pingback p{
 	padding:.7em 0;
-}
-.list-of-post{
-	max-width:100%;
-}
-.list-of-post  span  a{
-	word-break:break-all;
-	word-wrap:break-word;
-	max-width:100%;
-}
-.list-of-post .edit-link{
-	word-break:keep-all;
-	word-wrap:nomal;
 }

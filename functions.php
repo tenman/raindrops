@@ -2752,11 +2752,11 @@ if(!function_exists("fallback_user_interface_view")){
         $fallback_style     = get_template_directory_uri().'/fallback.css';
                     wp_register_style('fallback_style', $fallback_style,array(),$raindrops_version,'all');
                     wp_enqueue_style( 'fallback_style');
-        add_filter('raindrops_indv_css',__return_false);
-        add_filter('raindrops_is_fluid',__return_false);
+        add_filter( 'raindrops_indv_css', '__return_false' );
+        add_filter( 'raindrops_is_fluid', '__return_false' );
 
-        //add_filter('raindrops_is_fixed' ,__return_false);
-        //add_filter('raindrops_embed_meta_css',__return_false);
+        //add_filter( 'raindrops_is_fixed' , '__return_false' );
+        //add_filter( 'raindrops_embed_meta_css', '__return_false' );
 
     }
 

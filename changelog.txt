@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0.962
+fixed
+    Fixed Wrong coding
+        from    add_filter('raindrops_is_fixed' ,__return_false());
+        to      add_filter( 'raindrops_is_fixed' , '__return_false' );
+            functions.php
+----------------------------------------------
+Changelog -----------------------------------
 version:0.961
 fixed
     Fixed Undefined index: raindrops_style_type

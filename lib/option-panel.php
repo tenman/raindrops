@@ -287,7 +287,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
     }
 
     function _raindrops_indv_css_validate($input){
-        return  strip_tags($input) ;
+		// if needs core support style only
+		//return safecss_filter_attr($input);
+        return  ' '.strip_tags($input) ;
     }
 /**
  * Raindrops option panel
@@ -303,6 +305,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         var $title_template = '<a id="%s" href="#wpwrap" class="go-top"><span>page top</span></a><h3 title="%s" class="raindrops-options-title">%s</h3>';
         var $excerpt_template = '<div class="raindrops-excerpt">%s</div>';
         var $line_select_element='<select  accesskey="%s" name="%s" size="%d" style="height:%spx;">';
+
 
         var $col_settings_raindrops_col_width = array(
             "left 160px"=>"t1",
@@ -378,7 +381,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
                     $valid_function         = $key.'_validate';
                     $new_settings           = get_option('raindrops_theme_settings');
-                    $new_settings[$key]     = $val;
+                    $new_settings[$key]     = $valid_function( $val );
 
                     if(update_option('raindrops_theme_settings',$new_settings)){
                         $ok                 = true;
@@ -439,7 +442,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
 
             }
-
+			
             if(isset($_POST['raindrops_upload'])){
                     global $raindrops_max_upload_size,$raindrops_max_width,$raindrops_allow_file_type;
 

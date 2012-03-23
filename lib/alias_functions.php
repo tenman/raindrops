@@ -172,6 +172,7 @@
 	
 				if(isset($result[$name]) and !empty($result[$name])){
 					return apply_filters( 'raindrops_theme_settings_'.$name , $result[$name]);
+					
 				}elseif(isset($raindrops_base_setting[$row]['option_value'])
 						and !empty($raindrops_base_setting[$row]['option_value'])){
 					return apply_filters('raindrops_theme_settings_'.$row, $raindrops_base_setting[$row]['option_value']);

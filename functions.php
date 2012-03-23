@@ -949,7 +949,7 @@
                     }
                 }
             }
-			if(file_exists($upload_info['path'].'/'.$filename)){
+			if( file_exists($upload_info['path'].'/'.$filename) ){
 				 preg_match("|raindrops-item-([^-]+)|",$filename,$regs);
 				 $purpose = $regs[1];
 				 $purpose = str_replace(array("header","footer"),array("#hd","#ft"),$purpose);
@@ -2697,13 +2697,14 @@ if(!function_exists("small_screen_check")){
     function small_screen_check() {
         global $raindrops_fluid_minimam_width, $raindrops_fallback_human_interface_show;
         $size = '';
-      if ( !empty($_SERVER['HTTP_UA_PIXELS'] )) {
+		
+      if (isset( $_SERVER['HTTP_UA_PIXELS'] ) and !empty( $_SERVER['HTTP_UA_PIXELS'] )) {
         $size = $_SERVER['HTTP_UA_PIXELS'];
       }
-      if(!empty( $_SERVER['HTTP_X_UP_DEVCAP_SCREENPIXELS'] ) ){
+      if(isset( $_SERVER['HTTP_X_UP_DEVCAP_SCREENPIXELS'] ) and !empty( $_SERVER['HTTP_X_UP_DEVCAP_SCREENPIXELS'] ) ){
         $size = $_SERVER['HTTP_X_UP_DEVCAP_SCREENPIXELS'];
       }
-      if(!empty( $_SERVER['HTTP_X_JPHONE_DISPLAY'] ) ){
+      if(isset( $_SERVER['HTTP_X_JPHONE_DISPLAY'] ) and !empty( $_SERVER['HTTP_X_JPHONE_DISPLAY'] ) ){
         $size = $_SERVER['HTTP_X_JPHONE_DISPLAY'];
       }
 

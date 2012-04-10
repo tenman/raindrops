@@ -1,16 +1,36 @@
 Changelog -----------------------------------
 version:0.963
 
-moved
-
-added
-
 fixed
+    Fixed WordPress publish time format displays improperly
+        raindrops_posted_on()
+            functions.php
 
 modified
+    Add columns class
+            css3.css
+    var $raindrops_fluid_minimam_width value change
+        from 480 to 481
+            functions.php
+    define RAINDROPS_HEADER_BACKGROUND_COLOR,RAINDROPS_HEADER_BACKGROUND_IMAGE
+            functions.php
+    Add if(function_exists(' wp_get_theme')) check
+        The transient measure to upgrade
+        switch get_current_theme() to wp_get_theme()
+            functions.php
+            lib/option-panel.php
+    Add raindrops_add_body_class()
+        user id class move from index.php to functions.php
 
-made
-
+    Add add_filter( 'raindrops_is_fixed' , '__return_false' );
+    and add_filter( 'raindrops_embed_meta_css', '__return_false' );
+        modify add_raindrops_stylesheet()
+        functions.php
+    modify stylesheet.css
+            sidebar option elements style
+    Add add_action( 'after_setup_theme', 'raindrops_theme_setup' )
+    and function raindrops_theme_setup()
+            hooks.php
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.962

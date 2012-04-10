@@ -6,6 +6,10 @@
  * @package Raindrops
  * @since Raindrops 0.948
  */
+add_action( 'after_setup_theme', 'raindrops_theme_setup' );
+
+function raindrops_theme_setup(){
+
     add_filter( 'use_default_gallery_style', '__return_false' );
 /**
  * Custom image header
@@ -15,6 +19,19 @@
  *
  *
  */
+if( function_exists('wp_get_theme') ){ // WordPress 3.4 check
+    $args = array(
+                'default-text-color' => HEADER_TEXTCOLOR
+                ,'width' => HEADER_IMAGE_WIDTH
+                ,'height' => HEADER_IMAGE_HEIGHT
+                ,'header-text' => NO_HEADER_TEXT
+                ,'default-image' => HEADER_IMAGE
+            );
+    //they are "suggested" when flex-width and flex-height are set
+
+    add_theme_support( 'custom-header', $args );
+
+}else{
     add_custom_image_header(
         'raindrops_header_style',
         'raindrops_admin_header_style',
@@ -28,6 +45,7 @@
             'description' => __( 'Raindrops', 'Raindrops')
         )
     ) );
+}
 /**
  *
  *
@@ -61,7 +79,14 @@
  *
  *
  */
+if( function_exists('wp_get_theme') ){ // WordPress 3.4 check
+    $args = array('default-color' => RAINDROPS_HEADER_BACKGROUND_COLOR
+                ,'default-image' => RAINDROPS_HEADER_BACKGROUND_IMAGE
+            );
+    add_theme_support( 'custom-background', $args );
+}else{
     add_custom_background();
+}
 /**
  *
  *
@@ -192,15 +217,6 @@
  *
  *
  */
-     add_action('admin_menu', array($is_submenu, 'add_menus'));
-
-/**
- *
- *
- *
- *
- *
- */
     add_filter('wp_title','raindrops_filter_title',10,3);
 /**
  *
@@ -211,4 +227,5 @@
  */
     add_action( 'wp_enqueue_scripts', 'raindrops_enqueue_comment_reply' );
 
+}
 ?>

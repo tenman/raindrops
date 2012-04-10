@@ -94,6 +94,9 @@ submit{
 border:1px solid rgba(200,200,200,0.3);
 
 }
+#doc .entry-content .columns,
+#doc2 .entry-content .columns,
+#doc4 .entry-content .columns,
 #doc3 .entry-content .columns{
 	-moz-columns: 20em auto;
 	-webkit-columns:20em auto;

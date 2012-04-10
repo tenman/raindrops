@@ -64,7 +64,8 @@ background:inherit;
 .rsidebar{
 %c_4%
 }
-
+.rsidebar option.level-0,
+.lsidebar option.level-0,
 .commentlist .pingback,
 div[id^="comment-"],
 .entry-content td,
@@ -77,6 +78,15 @@ ul.nav li a:hover,ul.nav li a:active,
 #top{
 %c_4%
 }
+.rsidebar option.level-1,
+.lsidebar option.level-1{
+%c_3%
+}
+.rsidebar option.level-2,
+.lsidebar option.level-2{
+%c_2%
+}
+
 input[type="file"],
 input[type="reset"],
 input[type="submit"],
@@ -388,6 +398,8 @@ ul.archive,ul.index,
 #items li{
 border-bottom:1px solid %rgba_border%;
 }
+.rsidebar option,
+.lsidebar option,
 #month_list,
 #month_list td,
 #raindrops_year_list td,
@@ -428,6 +440,7 @@ box-shadow: 0 0 5px %rgba_border%;
 -webkit-box-shadow: 0 0 5px %rgba_border%;
 -moz-box-shadow: 0 0 5px %rgba_border%;
 }
+
 .searchform input[type="text"],
 #respond input[type="text"],
 #respond textarea#comment,
@@ -443,6 +456,7 @@ border-radius:3px;
 -moz-border-radius:3px;
 border:1px solid rgba(203,203,203, 0.5);
 }
+
 .entry-content textarea{
 background: %rgba_border%
 }
@@ -464,6 +478,7 @@ border-radius:3px 3px 3px 3px;
 border-top:1px solid rgba(100,100,100,1);
 
 }
+
 .raindrops-tab-list li,
 #access .children li,
 #access a {
@@ -1445,8 +1460,12 @@ return $style;
     if(!in_array($alias_functions,$raindrops_included_files)){
          locate_template(array('lib/alias_functions.php'),true,true);
     }
-
-    $embed_common_style = get_current_theme();
+	if(function_exists(' wp_get_theme')){ // WordPress 3.4 check
+		$embed_common_style = wp_get_theme();
+	}else{
+		$embed_common_style = get_current_theme();
+	}
+    
     raindrops_register_styles($embed_common_style);
     $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';
     if(!file_exists($raindrops_images_path)){get_template_directory().'/images/';}
@@ -1466,22 +1485,41 @@ return $style;
     $raindrops_indv_css     = raindrops_design_output($style_type).raindrops_color_base();
     $raindrops_options      = get_option("raindrops_theme_settings");
         // if not handmade css. theme name style type is handmade
-if(raindrops_warehouse_clone("raindrops_style_type") !== get_current_theme() ){
-    if(is_array($raindrops_options)){
-
-            if(array_key_exists('_raindrops_indv_css',$raindrops_options)){
-                $raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-            }else{
-                $add_array              = array('_raindrops_indv_css'=> $raindrops_indv_css );
-                $raindrops_options      = array_merge($raindrops_options,$add_array);
-            }
-            update_option("raindrops_theme_settings",$raindrops_options);
-
-    }else{
-        $raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-        add_option("raindrops_theme_settings",$raindrops_options );
-    }
-}
+		
+	if(function_exists(' wp_get_theme')){ // WordPress 3.4 check
+		if(raindrops_warehouse_clone( "raindrops_style_type" ) !==  wp_get_theme() ){
+			if( is_array( $raindrops_options ) ){
+		
+					if( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ){
+						$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+					}else{
+						$add_array              = array( '_raindrops_indv_css'=> $raindrops_indv_css );
+						$raindrops_options      = array_merge( $raindrops_options, $add_array );
+					}
+					update_option( "raindrops_theme_settings", $raindrops_options );
+			}else{
+				$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+				add_option( "raindrops_theme_settings", $raindrops_options );
+			}
+		}
+	}else{
+		if(raindrops_warehouse_clone("raindrops_style_type") !== get_current_theme() ){
+			if(is_array($raindrops_options)){
+		
+					if(array_key_exists('_raindrops_indv_css',$raindrops_options)){
+						$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+					}else{
+						$add_array              = array('_raindrops_indv_css'=> $raindrops_indv_css );
+						$raindrops_options      = array_merge($raindrops_options,$add_array);
+					}
+					update_option("raindrops_theme_settings",$raindrops_options);
+		
+			}else{
+				$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+				add_option("raindrops_theme_settings",$raindrops_options );
+			}
+		}
+	}
 /**
  * Create CSS Color Declaration
  *

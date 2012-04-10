@@ -5,7 +5,15 @@
  * @package Raindrops
  */
 
-
+body.ja,
+.ja h1,
+.ja h2, 
+.ja h3,
+.ja .h1,
+.ja .h2, 
+.ja .h3{
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+}
 .ja h1,
 /*.ja h1 a,*/
 .ja .h1 a,
@@ -49,5 +57,4 @@ h2.footer-content {
 	text-indent:1em;
 	font-size:108%;
 	padding:5px 0;
-	/*font-family:Geneva, Arial, Helvetica, sans-serif;*/
 }

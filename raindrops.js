@@ -25,7 +25,7 @@
  * @since Raindrop 0.922
  */
 
-    jQuery('.raindrops-toggle').hide().css("width","90%");
+   jQuery('.raindrops-toggle').hide().css("width","90%");
     jQuery('.raindrops-toggle.raindrops-toggle-title').show().css({"width":"90%","list-style":"none","font-weight":"bold","margin":"0 0 0 -1em"}).prepend("+ ");
     jQuery('.raindrops-toggle.raindrops-toggle-title').css("cursor","pointer").click(function(){
 

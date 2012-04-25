@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:0.964
+
+modified
+    Change theme options page context help.
+        lib/option-panel.php
+        functions.php
+fixed
+    Fixed sub sup elements display improperly.
+        style.css
+----------------------------------------------
+Changelog -----------------------------------
 version:0.963
 
 fixed

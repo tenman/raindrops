@@ -513,6 +513,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
                 if ( $hook_suffix ){
                     add_action( 'admin_print_styles-' . $hook_suffix, array($this,'raindrops_admin_print_styles'));
+					add_action( 'load-' . $hook_suffix, 'raindrops_settings_page_contextual_help' );
                 }
             }
         }

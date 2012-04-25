@@ -151,14 +151,6 @@ if( function_exists('wp_get_theme') ){ // WordPress 3.4 check
  *
  *
  */
-    add_filter('contextual_help','raindrops_help');
-/**
- *
- *
- *
- *
- *
- */
     add_filter('comment_form_field_comment','custom_remove_aria_required1');
 /**
  *

@@ -837,24 +837,61 @@
  *
  *
  */
-    if (!function_exists('raindrops_help')) {
-        function raindrops_help($text){
-        global $title;
-        if(RAINDROPS_TABLE_TITLE == $title){
-            $result = "<h2 class=\"h2\">".__('Raindrops Another Settings').'</h2>';
-            $result .= "<dl><dt><div class=\"icon32\" id=\"icon-options-general\"><br /></div><strong>".__('When you do not want to use the automatic color setting','Raindrops').'</strong></dt>';
-            $result .= "<dd>".__('raindrops/functions.php RAINDROPS_USE_AUTO_COLOR value change false','Raindrops').'<br class="clear" /></dd>';
-            $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br /></div><strong>".__('When you want to change horizontal menu','Raindrops').'</strong></dt>';
-            $result .= "<dd>".__('Be careful! CSS Specificity: e.g .aciform strong{color:red;} is OK .aciform strong{background:black;} is not styled, background like this "div#access .menu li.aciform strong{background:black;}" is OK.','Raindrops').'<br class="clear" /></dd>';
-            $result .= "<dt><div class=\"icon32\" id=\"icon-themes\"><br /></div><strong>".__('When you want to all reset the settings','Raindrops').'</strong></dt>';
-            $result .= "<dd>".__('Please install it switching to other themes once to reset all items, and again again. When switching to other themes, Raindrops restores all customizing information. ','Raindrops').'<br class="clear" /></dd></dl>';
-            $result .= "<p>".sprintf(__('WEBSite:<a href="%1$s">%2$s</a>'),'http://www.tenman.info/wp3/raindrops','Raindrops').'</p>';
-            return $result;
-        }else{
-            return $text;
+    if (!function_exists('raindrops_settings_page_contextual_help')) {
+
+        function raindrops_settings_page_contextual_help() {
+			$screen = get_current_screen();
+	
+			$theme_data = get_theme_data( get_theme_root() . '/raindrops/style.css' );
+	
+			$html = '<dt>%1$s</dt><dd>%2$s</dd>';
+			$link = '<a href="%1$s" %3$s>%2$s</a>';
+	
+	
+			$content = '';
+	
+			/* theme description*/
+			$content .= sprintf($html
+					, __('Description','Raindrops')
+					, __( $theme_data['Description'] ,'Raindrops')
+					);
+			/* theme URI*/
+			$content .= sprintf($html
+					, __('Theme URI','Raindrops')
+					, sprintf($link,$theme_data['URI'], $theme_data['URI'], 'target="_self"' )
+					);
+			/*AuthorURI*/
+			$content .= sprintf($html
+					, __('Author','Raindrops')
+					, sprintf( $link,$theme_data['AuthorURI'], $theme_data['Author'], 'target="_self"' )
+					);
+			/*Version*/
+			$content .= sprintf($html
+					, __('Version','Raindrops')
+					, $theme_data['Version']
+					);
+			/*Changelog.txt*/
+	
+			$content .= sprintf($html
+					, __('Change log text','Raindrops')
+					, sprintf( $link, get_template_directory_uri().'/changelog.txt', __('Changelog , display new window', 'Raindrops'), 'target="_blank"' )
+					,'target="_blank"'
+					);
+			/*readme.txt*/
+			$content .= sprintf($html
+					, __('Readme text','Raindrops')
+					, sprintf( $link, get_template_directory_uri().'/README.txt', __('Readme , display new window', 'Raindrops'), 'target="_blank"' )
+					);
+	
+			$content = '<dl id="raindrops-help">'.$content.'</dl>';
+
+            $screen->add_help_tab( array(
+                'id'      => 'raindrops-settings-help',
+                'title'   => __( 'raindrops infomation', 'Raindrops' ),
+                'content' => $content
+            ) );
         }
-        }
-    }
+	}
 /**
  * Raindrops edit help
  *

@@ -2196,3 +2196,12 @@ a.raindrops-comment-link:hover em {
 li.pingback p{
 	padding:.7em 0;
 }
+sub, sup{
+	font-size: .83em; 
+}
+sub{ 
+	vertical-align: sub;
+}
+sup {
+	vertical-align: super 
+}

@@ -20,6 +20,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+
+var 0.965
+    Add CSS lightbox for featured image ( Not support IE )
+    Note: header image
+        Old versions header image size was 950px 198px
+        Theme 0.965 and WordPress ver 3.4 can your original size of header image.
+        When fixed width
+            Magin add and display center when upload image width smaller than document width
+            Image width will fit to document width when upload image width bigger than document width
+        When fluid width
+            Regardless of the size of an upload image, it will be adjusted to document size.
 ver 0.960
     Add CSS class columns
         When a setup of page width is set to fluid 100%, page width changes in the range of 480px to 1280px by default.

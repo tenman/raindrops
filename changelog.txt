@@ -1,15 +1,34 @@
 Changelog -----------------------------------
 version:0.965
-
-moved
-
 added
-
-fixed
-
+    function raindrops_small_device_helper()
+        functions.php
+            for header-image size controll and primary navigation menu when fluid layout right side childrens children list show left
+    function raindrops_customize_register()
+        functions.php
+            for WordPress 3.4
 modified
-    add global var $raindrops_wp_version for WordPress version checkmade
+    add global var $raindrops_wp_version, $raindrops_current_theme_name
+
+    Inline style remove
+            footer.php
+            header.php
+            raindrops_header_image()
+            raindrops_site_title()
+    modify etc
+        lib/alias_functions.php
+        lib/csscolor.css.php
+        lib/hooks.php
+        lib/option-panel.php
+        style.css
+        css3.css
+        fallback.css
+
+        single.php
+            Add CSS lightbox for post thumbnail shows not croped view ( Not support IE )
+New file
     backward-compatibility.php
+    Move from functions.php to this for WordPress ver3.3 old functions
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.964

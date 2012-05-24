@@ -4,7 +4,11 @@ a{
 body{
 	padding:0;
 	margin:0;
+	background:none;
 }
+
+html body.custom-background { background-color: #fff; }
+#header-image{max-width:96%;}
 #doc2,
 #doc3,
 #doc4{
@@ -58,12 +62,17 @@ blockquote{
 	padding:1em;
 }
 ol,
+ul{
+	
+}
+/*ol,*/
 ol.index li,
-ul,
+/*ul,*/
 ul.index li{
-	margin:0 1em;
+	margin:0 5px;
 	padding:0;
 }
+
 .index > li{
 	list-style:none;
 }
@@ -231,9 +240,29 @@ address,
 #site-description{
 	margin:1em;
 }
+#hd,
+#ft,
+#site-title a,
 #site-title{
 	margin:0;
+	background-color:#fff!important;
+	color:#000!important;
+	background-image:none!important;
 }
+#header-image{
+	padding-top:30%;
+}
+#header-image p{
+	position:relative;
+	top:35%;
+	text-align:center;
+	font-size:200%;
+	text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3);
+}
+
 address{
 	text-align:center;
+}
+.children{
+	margin-left:10px;
 }

@@ -260,7 +260,7 @@
     function raindrops_colors_clone($num = 0, $select = 'set',$color1 = null){
         global $raindrops_images_path;
         if($color1 == null){
-            $color1 = str_replace('#',"",BASE_COLOR1);
+            $color1 = str_replace('#',"",raindrops_warehouse_clone('raindrops_base_color') );
         }else{
             $color1 = str_replace('#',"",$color1);
         }
@@ -531,7 +531,7 @@
     function raindrops_color_base_clone($color1=null,$color2=null){
     global $raindrops_images_path;
     if($color1 == null){
-        $color1 = str_replace('#',"",BASE_COLOR1);
+        $color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
     }else{
         $color1 = str_replace('#',"",$color1);
     }

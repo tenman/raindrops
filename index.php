@@ -43,4 +43,5 @@ get_header( $raindrops_document_type );?>
 </div>
 <div class="yui-b"> <?php get_sidebar('default'); ?></div>
 </div>
+
 <?php get_footer( $raindrops_document_type ); ?>

@@ -24,6 +24,7 @@
  *
  *
  */
+
 raindrops_register_styles("dark");
 
 function raindrops_indv_css_dark(){
@@ -899,7 +900,7 @@ body{
 
 }
 #header-image{
-    background-color:%custom_light_bg%!important;
+    /*background-color:%custom_light_bg%!important;*/
 }
 #doc,#doc2,#doc3,#doc4{
     %c5%
@@ -1380,16 +1381,13 @@ function raindrops_indv_css_minimal(){
 global $raindrops_base_color;
     $font_color = raindrops_colors(5,"color");
 
-
 $style=<<<CSS
 body{border-top:6px solid $raindrops_base_color!important;}
 a{color:$font_color;}
 a:hover{color:#777;}
-#header-image{display:none!important;}
 #hd,#ft{background:none!important;}
 .footer-widget h2, .rsidebar h2, .lsidebar h2, .widgettitle h2, h2.footer-content {
 text-indent:0;}
-#access{display:none;}
 /*comment bubble*/
 a.raindrops-comment-link {
 }
@@ -1452,6 +1450,7 @@ return $style;
 ?>
 <?php
     if(!defined('ABSPATH')){exit;}
+	global $raindrops_wp_version;	
     $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
     if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
 	
@@ -1460,16 +1459,16 @@ return $style;
     if(!in_array($alias_functions,$raindrops_included_files)){
          locate_template(array('lib/alias_functions.php'),true,true);
     }
-	if(function_exists(' wp_get_theme')){ // WordPress 3.4 check
+	if( $raindrops_wp_version >= '3.4' ){
 		$embed_common_style = wp_get_theme();
 	}else{
 		$embed_common_style = get_current_theme();
 	}
     
     raindrops_register_styles($embed_common_style);
-    $raindrops_images_path            = get_stylesheet_directory_uri().'/images/';
+    $raindrops_images_path        = get_stylesheet_directory_uri().'/images/';
     if(!file_exists($raindrops_images_path)){get_template_directory().'/images/';}
-    $raindrops_base_color                  = raindrops_warehouse_clone('raindrops_base_color');
+    $raindrops_base_color   = raindrops_warehouse_clone('raindrops_base_color');
     $style_type             = raindrops_warehouse_clone('raindrops_style_type');
     $navigation_title_img   = raindrops_warehouse_clone('raindrops_heading_image');
     $position_y             = raindrops_warehouse_clone('raindrops_heading_image_position');
@@ -1477,7 +1476,7 @@ return $style;
     $raindrops_header_color       = raindrops_warehouse_clone('raindrops_default_fonts_color');
     $raindrops_footer_image       = raindrops_warehouse_clone('raindrops_footer_image');
     $raindrops_footer_color       = raindrops_warehouse_clone('raindrops_footer_color');
-    define("BASE_COLOR1",$raindrops_base_color);
+  //  define("BASE_COLOR1",$raindrops_base_color);
 /**
  * save stylesheet
  *
@@ -1485,8 +1484,8 @@ return $style;
     $raindrops_indv_css     = raindrops_design_output($style_type).raindrops_color_base();
     $raindrops_options      = get_option("raindrops_theme_settings");
         // if not handmade css. theme name style type is handmade
-		
-	if(function_exists(' wp_get_theme')){ // WordPress 3.4 check
+
+	if( $raindrops_wp_version >= '3.4' ){
 		if(raindrops_warehouse_clone( "raindrops_style_type" ) !==  wp_get_theme() ){
 			if( is_array( $raindrops_options ) ){
 		
@@ -1530,7 +1529,7 @@ return $style;
     function raindrops_colors($num = 0, $select = 'set',$color1 = null){
         global $raindrops_images_path;
         if($color1 == null){
-            $color1 = str_replace('#',"",BASE_COLOR1);
+            $color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
         }else{
             $color1 = str_replace('#',"",$color1);
         }
@@ -1621,7 +1620,7 @@ return $style;
 function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc'){
         global $raindrops_images_path;
         if($color == null){
-            $color = str_replace('#',"",BASE_COLOR1);
+            $color = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
         }else{
             $color = str_replace('#',"",$color);
         }
@@ -1667,7 +1666,7 @@ function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc')
     function raindrops_color_base($color1=null,$color2=null){
     global $raindrops_images_path;
     if($color1 == null){
-        $color1 = str_replace('#',"",BASE_COLOR1);
+        $color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
     }else{
         $color1 = str_replace('#',"",$color1);
     }

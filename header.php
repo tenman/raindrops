@@ -48,11 +48,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 <body <?php body_class(); ?>>
 <div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">
 <div id="top">
-<?php
-$uploads = wp_upload_dir();
-$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
-?>
-<div id="hd" style="<?php echo raindrops_upload_image_parser($header_image_uri,'inline','#hd'); ?>">
+<div id="hd">
 <?php
 /**
  * Conditional Switch html headding element
@@ -81,7 +77,7 @@ echo raindrops_site_description();
  *
  *
  */
-echo raindrops_header_image();
+echo raindrops_header_image( 'elements' );
 ?>
 <?php
 /**
@@ -92,12 +88,14 @@ echo raindrops_header_image();
  *
  */
 ?>
+<?php if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
 <?php
 wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary'));
 ?>
 </div>
+<?php }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
 <br class="clear" />
 </div>
 <div id="bd" class="clearfix">

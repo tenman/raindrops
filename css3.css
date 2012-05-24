@@ -80,7 +80,7 @@ submit{
 	top:35%;
 	text-align:center;
 	font-size:200%;
-	text-shadow: 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff, 0 0 2px #fff;
+	text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3);
 	/*filter:progid:DXImageTransform.Microsoft.Glow(Color=white,Strength=2);*/
 }
 

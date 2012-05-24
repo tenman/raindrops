@@ -150,6 +150,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
          it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate','list' => 12),
 
+        array('option_id' => 13,
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_show_menu_primary",
+        'option_value' => "show",
+        'autoload'=>'yes',
+        'title'=>__('Menu Primary','Raindrops'),
+        'excerpt1'=>'',
+        'excerpt2'=>__('Display or not Menu Primary. default value is show. set hide when not display menu primary','Raindrops'),
+         'validate'=>'raindrops_show_menu_primary_validate','list' => 13),
 
 
     );
@@ -167,6 +176,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
     function raindrops_use_automatic_color_validate($input){
         $input = str_replace("#","",$input);
         if(ctype_xdigit($input)){
+		
+			$raindrops_options 			= get_option('raindrops_theme_settings');
+	   		$raindrops_options['raindrops_use_automatic_color'] = $input;
+			
+			$raindrops_indv_css     	= raindrops_design_output( $raindrops_options['raindrops_style_type'] ).raindrops_color_base('#'.$input);
+		/*	update_option( "raindrops_theme_settings", $raindrops_options );*/
+			
+
+			
             return '#'.$input;
         }else{
             $raindrops_options = get_option("raindrops_theme_settings");
@@ -174,6 +192,10 @@ One is a method of up-loading the image from the below up-loading form. Another 
         }
         return $input;
     }
+			
+	
+	
+	
     function raindrops_right_sidebar_width_percent_validate($input){
         $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_right_sidebar_width_percent;
@@ -266,9 +288,17 @@ One is a method of up-loading the image from the below up-loading form. Another 
     function raindrops_style_type_validate($input){
         $array = raindrops_register_styles($input);
         if(array_search($input,$array)){
-        return esc_html($input);
+//add new
+			$raindrops_options 			= get_option('raindrops_theme_settings');
+			$raindrops_base_color = raindrops_warehouse_clone( 'raindrops_base_color' );
+			$raindrops_indv_css     	= raindrops_design_output($input).raindrops_color_base($raindrops_base_color);
+		
+	   		$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+			/*update_option( "raindrops_theme_settings", $raindrops_options );*/
+
+        	return esc_html($input);
         }else{
-        return "w3standard";
+        	return "w3standard";
         }
     }
     function raindrops_base_color_validate($input){
@@ -291,6 +321,14 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		//return safecss_filter_attr($input);
         return  ' '.strip_tags($input) ;
     }
+	
+	function raindrops_show_menu_primary_validate($input){
+		if( $input == "show" ){
+			return 'show';
+		}
+		return 'hide';
+	
+	}
 /**
  * Raindrops option panel
  *
@@ -358,7 +396,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
  */
 
         function SubMenu_GUI() {
-            global $wpdb,$count, $raindrops_base_setting;
+            global $wpdb,$count, $raindrops_base_setting,$raindrops_wp_version;
             if(RAINDROPS_USE_AUTO_COLOR == true){
                 $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
             }else{
@@ -393,7 +431,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
             $result .= screen_icon();
 			
-			if(function_exists( 'wp_get_theme' )){ // WordPress 3.4 check
+			if( $raindrops_wp_version >= '3.4' ){
 				$result .= "<h2>" .  ucfirst( wp_get_theme() ) . __( ' Theme Settings', 'Raindrops' ) . "</h2>";
 			}else{
 				$result .= "<h2>" .  ucfirst(get_current_theme()) . __(' Theme Settings', 'Raindrops') . "</h2>";
@@ -497,8 +535,9 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
  */
 
         function add_menus() {
+		global $raindrops_wp_version;
             if(function_exists('add_theme_page')) {
-				if(function_exists( 'wp_get_theme' )){ // WordPress 3.4 check
+				if( $raindrops_wp_version >= '3.4' ){
 					$option_name   = ucwords( wp_get_theme() ). ' Options';
 				}else{
 					$option_name   = ucwords(get_current_theme()).' Options';
@@ -545,6 +584,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
         function form_user_input(){
             global $raindrops_base_setting;
             global $wpdb;
+			global $raindrops_wp_version;
             $option_value   = "-";
             $lines          = "";
             $i              = 0;
@@ -559,12 +599,26 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             $results                    = $raindrops_sort;
             $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
             $raindrops_navigation_add   = '';
+			
+$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raincrops').'</h3><ul style="margin-bottom:5px;">';
+$raindrops_navigation_list  .= '<li><a href="'.admin_url().'admin.php?customize=on&theme='.get_current_theme().'">'.__( 'Theme customizor','Raindrops').'</a></li>';
+$raindrops_navigation_list  .= '<li><a href="'.admin_url().'themes.php?page=custom-header">'.__( 'Custom Header','Raindrops').'</a></li>';
+$raindrops_navigation_list  .= '<li><a href="'.admin_url().'themes.php?page=custom-background">'.__( 'Custom Background','Raindrops').'</a></li>';
+
+$raindrops_navigation_list  .= '<li><a href="'.admin_url().'widgets.php">'.__( 'Widget','Raindrops').'</a></li>';
+$raindrops_navigation_list  .= '<li><a href="'.admin_url().'nav-menus.php">'.__( 'Menus','Raindrops').'</a></li>';
+$raindrops_navigation_list  .= '<li><a href="'.admin_url().'theme-editor.php">'.__( 'Theme Editor','Raindrops').'</a></li>';
+
+$raindrops_navigation_list  .= '</ul>';
+			
             if(RAINDROPS_USE_AUTO_COLOR == true){
-            $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('Menus','Raincrops').'</h3><ul id="raindrops_navigation_list">';
+            $raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raincrops').'</h3><ul id="raindrops_navigation_list">';
             }else{
             $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper">';
             }
             $raindrops_navigation_add   = '';
+			
+			
 
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
@@ -639,7 +693,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                 }
 
 
-        if(function_exists( 'wp_get_theme' )){ // WordPress 3.4 check
+        if( $raindrops_wp_version >= '3.4' ){
 			
                 if(raindrops_warehouse("raindrops_style_type") == wp_get_theme()
                                                 and (   $key == "raindrops_footer_color" or
@@ -737,11 +791,13 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
                         $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-        if(function_exists( 'wp_get_theme' )){ // WordPress 3.4 check
+        if( $raindrops_wp_version >= '3.4' ){ // WordPress 3.4 check
+		
 			if(raindrops_warehouse("raindrops_style_type") == wp_get_theme() ){
 				$add_box = '<textarea name="raindrops_option_values[_raindrops_indv_css]" style="width:100%;" rows="20">'.stripslashes(raindrops_warehouse('_raindrops_indv_css'))."</textarea>";
 				$add_box .= '<p>'.__('You must backup this style when theme update before', 'Raindrops').'</p>';
 			}
+			$add_box .= $raindrops_wp_version;
 		}else{
 			if(raindrops_warehouse("raindrops_style_type") == get_current_theme() ){
 				$add_box = '<textarea name="raindrops_option_values[_raindrops_indv_css]" style="width:100%;" rows="20">'.stripslashes(raindrops_warehouse('_raindrops_indv_css'))."</textarea>";
@@ -785,7 +841,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
 
             if( is_child_theme() ){
 			
-		if(function_exists( 'wp_get_theme' )){ // WordPress 3.4 check
+		if( $raindrops_wp_version >= '3.4' ){ // WordPress 3.4 check
 			$raindrops_theme_name = 'Child theme '.ucwords( wp_get_theme() ).' of '.__("Raindrops Theme","Raindrops");
 		}else{
 			$raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
@@ -1027,7 +1083,7 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
  *
  */
 
-$color_ja= array(__('none','Raindrops') => "",__('toki','Raindrops') => "#F9A1D0",__('tutuji','Raindrops') => "#CB4B94",__('sakura','Raindrops') => "#FFDBED",__('bara','Raindrops') => "#D34778",__('karakurenai','Raindrops') => "#E3557F",__('sango','Raindrops') => "#FF87A0",__('koubai','Raindrops') => "#E08899",__('momo','Raindrops') => "#E38698",__('beni','Raindrops') => "#BD1E48",__('beniaka','Raindrops') => "#B92946",__('enji','Raindrops') => "#AE3846",__('suou','Raindrops') => "#974B52",__('akane','Raindrops') => "#A0283A",__('aka','Raindrops') => "#BF1E33",__('syu','Raindrops') => "#ED514E",__('benikaba','Raindrops') => "#A14641",__('benihi','Raindrops') => "#EE5145",__('entan','Raindrops') => "#D3503C",__('beniebitya','Raindrops') => "#703B32",__('tobi','Raindrops') => "#7D483E",__('azuki','Raindrops') => "#946259",__('bengara','Raindrops') => "#8A4031",__('ebitya','Raindrops') => "#6D3D33",__('kinaka','Raindrops') => "#ED542A",__('akatya','Raindrops') => "#B15237",__('akasabi','Raindrops') => "#923A21",__('ouni','Raindrops') => "#EF6D3E",__('sekitou','Raindrops') => "#ED551B",__('kaki','Raindrops') => "#E06030",__('nikkei','Raindrops') => "#B97761",__('kaba','Raindrops') => "#BD4A1D",__('renga','Raindrops') => "#974E33",__('sabi','Raindrops') => "#664134",__('hiwada','Raindrops') => "#8A604F",__('kuri','Raindrops') => "#754C38",__('kiaka','Raindrops') => "#E45E00",__('taisya','Raindrops') => "#BA6432",__('rakuda','Raindrops') => "#B67A52",__('kitye','Raindrops') => "#BB6421",__('hadairo','Raindrops') => "#F4BE9B",__('daidai','Raindrops') => "#FD7E00",__('haitya','Raindrops') => "#866955",__('tya','Raindrops') => "#734E30",__('kogetya','Raindrops') => "#594639",__('kouji','Raindrops') => "#FFA75E",__('anzu','Raindrops') => "#DDA273",__('mikan','Raindrops') => "#FA8000",__('kassyoku','Raindrops') => "#763900",__('tutiiro','Raindrops') => "#A96E2D",__('komugi','Raindrops') => "#D9A46D",__('kohaku','Raindrops') => "#C67400",__('kintya','Raindrops') => "#C47600",__('tamago','Raindrops') => "#FABE6F",__('yamabuki','Raindrops') => "#FFA500",__('oudo','Raindrops') => "#C18A39",__('kutiba','Raindrops') => "#897868",__('himawari','Raindrops') => "#FFB500",__('ukon','Raindrops') => "#FCAC00",__('suna','Raindrops') => "#C9B9A8",__('karasi','Raindrops') => "#CDA966",__('ki','Raindrops') => "#FFBE00",__('tanpopo','Raindrops') => "#FFBE00",__('uguisutya','Raindrops') => "#70613A",__('tyuki','Raindrops') => "#FAD43A",__('kariyasu','Raindrops') => "#EED67E",__('kihada','Raindrops') => "#D9CB65",__('miru','Raindrops') => "#736F55",__('biwa','Raindrops') => "#C2C05C",__('uguisu','Raindrops') => "#71714A",__('mattya','Raindrops') => "#BDBF92",__('kimidori','Raindrops') => "#B9C42F",__('koke','Raindrops') => "#7A7F46",__('wakakusa','Raindrops') => "#A9B735",__('moegi','Raindrops') => "#96AA3D",__('kusa','Raindrops') => "#72814B",__('wakaba','Raindrops') => "#AFC297",__('matuba','Raindrops') => "#6E815C",__('byakuroku','Raindrops') => "#CADBCF",__('midori','Raindrops') => "#4DB56A",__('tokiwa','Raindrops') => "#357C4C",__('rokusyou','Raindrops') => "#5F836D",__('titosemidori','Raindrops') => "#4A6956",__('fukamidori','Raindrops') => "#005731",__('moegi','Raindrops') => "#15543B",__('wakatake','Raindrops') => "#49A581",__('seiji','Raindrops') => "#80AA9F",__('aotake','Raindrops') => "#7AAAAC",__('tetu','Raindrops') => "#244344",__('aomidori','Raindrops') => "#0090A8",__('sabiasagi','Raindrops') => "#6C8D9B",__('mizuasagi','Raindrops') => "#7A99AA",__('sinbasi','Raindrops') => "#69AAC6",__('asagi','Raindrops') => "#0087AA",__('byakugun','Raindrops') => "#84B5CF",__('nando','Raindrops') => "#166A88",__('kamenozoki','Raindrops') => "#8CB4CE",__('mizu','Raindrops') => "#A9CEEC",__('ainezu','Raindrops') => "#5E7184",__('sora','Raindrops') => "#95C0EC",__('ao','Raindrops') => "#0067C0",__('ai','Raindrops') => "#2E4B71",__('koiai','Raindrops') => "#20324E",__('wasurenagusa','Raindrops') => "#92AFE4",__('tuyukusa','Raindrops') => "#3D7CCE",__('hanada','Raindrops') => "#3C639B",__('konjou','Raindrops') => "#3D496B",__('ruri','Raindrops') => "#3451A4",__('rurikon','Raindrops') => "#324784",__('kon','Raindrops') => "#333C5E",__('kakitubata','Raindrops') => "#4C5DAB",__('kati','Raindrops') => "#383C57",__('gunjou','Raindrops') => "#414FA3",__('tetukon','Raindrops') => "#232538",__('fujinando','Raindrops') => "#6869A8",__('kikyou','Raindrops') => "#4A49AD",__('konai','Raindrops') => "#35357D",__('fuji','Raindrops') => "#A09BD8",__('fujimurasaki','Raindrops') => "#948BDB",__('aomurasaki','Raindrops') => "#704CBC",__('sumire','Raindrops') => "#6D52AB",__('hatoba','Raindrops') => "#675D7E",__('syoubu','Raindrops') => "#7051AA",__('edomurasaki','Raindrops') => "#5F4C86",__('murasaki','Raindrops') => "#A260BF",__('kodaimurasaki','Raindrops') => "#775686",__('nasukon','Raindrops') => "#47384F",__('sikon','Raindrops') => "#402949",__('ayame','Raindrops') => "#C27BC8",__('botan','Raindrops') => "#C24DAE",__('akamurasaki','Raindrops') => "#C54EA0",__('siro','Raindrops') => "#F1F1F1",__('gofun','Raindrops') => "#F2E8EC",__('kinari','Raindrops') => "#F0E2E0",__('zouge','Raindrops') => "#E3D4CA",__('ginnezu','Raindrops') => "#A0A0A0",__('tyanezumi','Raindrops') => "#9F9190",__('nezumi','Raindrops') => "#868686",__('rikyunezumi','Raindrops') => "#787C7A",__('namari','Raindrops') => "#797A88",__('hai','Raindrops') => "#797979",__('susutake','Raindrops') => "#605448",__('kurotya','Raindrops') => "#3E2E28",__('sumi','Raindrops') => "#313131",__('kuro','Raindrops') => "#262626",__('tetukuro','Raindrops') => "#262626");
+$color_ja = array(__('none','Raindrops') => "",__('toki','Raindrops') => "#F9A1D0",__('tutuji','Raindrops') => "#CB4B94",__('sakura','Raindrops') => "#FFDBED",__('bara','Raindrops') => "#D34778",__('karakurenai','Raindrops') => "#E3557F",__('sango','Raindrops') => "#FF87A0",__('koubai','Raindrops') => "#E08899",__('momo','Raindrops') => "#E38698",__('beni','Raindrops') => "#BD1E48",__('beniaka','Raindrops') => "#B92946",__('enji','Raindrops') => "#AE3846",__('suou','Raindrops') => "#974B52",__('akane','Raindrops') => "#A0283A",__('aka','Raindrops') => "#BF1E33",__('syu','Raindrops') => "#ED514E",__('benikaba','Raindrops') => "#A14641",__('benihi','Raindrops') => "#EE5145",__('entan','Raindrops') => "#D3503C",__('beniebitya','Raindrops') => "#703B32",__('tobi','Raindrops') => "#7D483E",__('azuki','Raindrops') => "#946259",__('bengara','Raindrops') => "#8A4031",__('ebitya','Raindrops') => "#6D3D33",__('kinaka','Raindrops') => "#ED542A",__('akatya','Raindrops') => "#B15237",__('akasabi','Raindrops') => "#923A21",__('ouni','Raindrops') => "#EF6D3E",__('sekitou','Raindrops') => "#ED551B",__('kaki','Raindrops') => "#E06030",__('nikkei','Raindrops') => "#B97761",__('kaba','Raindrops') => "#BD4A1D",__('renga','Raindrops') => "#974E33",__('sabi','Raindrops') => "#664134",__('hiwada','Raindrops') => "#8A604F",__('kuri','Raindrops') => "#754C38",__('kiaka','Raindrops') => "#E45E00",__('taisya','Raindrops') => "#BA6432",__('rakuda','Raindrops') => "#B67A52",__('kitye','Raindrops') => "#BB6421",__('hadairo','Raindrops') => "#F4BE9B",__('daidai','Raindrops') => "#FD7E00",__('haitya','Raindrops') => "#866955",__('tya','Raindrops') => "#734E30",__('kogetya','Raindrops') => "#594639",__('kouji','Raindrops') => "#FFA75E",__('anzu','Raindrops') => "#DDA273",__('mikan','Raindrops') => "#FA8000",__('kassyoku','Raindrops') => "#763900",__('tutiiro','Raindrops') => "#A96E2D",__('komugi','Raindrops') => "#D9A46D",__('kohaku','Raindrops') => "#C67400",__('kintya','Raindrops') => "#C47600",__('tamago','Raindrops') => "#FABE6F",__('yamabuki','Raindrops') => "#FFA500",__('oudo','Raindrops') => "#C18A39",__('kutiba','Raindrops') => "#897868",__('himawari','Raindrops') => "#FFB500",__('ukon','Raindrops') => "#FCAC00",__('suna','Raindrops') => "#C9B9A8",__('karasi','Raindrops') => "#CDA966",__('ki','Raindrops') => "#FFBE00",__('tanpopo','Raindrops') => "#FFBE00",__('uguisutya','Raindrops') => "#70613A",__('tyuki','Raindrops') => "#FAD43A",__('kariyasu','Raindrops') => "#EED67E",__('kihada','Raindrops') => "#D9CB65",__('miru','Raindrops') => "#736F55",__('biwa','Raindrops') => "#C2C05C",__('uguisu','Raindrops') => "#71714A",__('mattya','Raindrops') => "#BDBF92",__('kimidori','Raindrops') => "#B9C42F",__('koke','Raindrops') => "#7A7F46",__('wakakusa','Raindrops') => "#A9B735",__('moegi','Raindrops') => "#96AA3D",__('kusa','Raindrops') => "#72814B",__('wakaba','Raindrops') => "#AFC297",__('matuba','Raindrops') => "#6E815C",__('byakuroku','Raindrops') => "#CADBCF",__('midori','Raindrops') => "#4DB56A",__('tokiwa','Raindrops') => "#357C4C",__('rokusyou','Raindrops') => "#5F836D",__('titosemidori','Raindrops') => "#4A6956",__('fukamidori','Raindrops') => "#005731",__('moegi','Raindrops') => "#15543B",__('wakatake','Raindrops') => "#49A581",__('seiji','Raindrops') => "#80AA9F",__('aotake','Raindrops') => "#7AAAAC",__('tetu','Raindrops') => "#244344",__('aomidori','Raindrops') => "#0090A8",__('sabiasagi','Raindrops') => "#6C8D9B",__('mizuasagi','Raindrops') => "#7A99AA",__('sinbasi','Raindrops') => "#69AAC6",__('asagi','Raindrops') => "#0087AA",__('byakugun','Raindrops') => "#84B5CF",__('nando','Raindrops') => "#166A88",__('kamenozoki','Raindrops') => "#8CB4CE",__('mizu','Raindrops') => "#A9CEEC",__('ainezu','Raindrops') => "#5E7184",__('sora','Raindrops') => "#95C0EC",__('ao','Raindrops') => "#0067C0",__('ai','Raindrops') => "#2E4B71",__('koiai','Raindrops') => "#20324E",__('wasurenagusa','Raindrops') => "#92AFE4",__('tuyukusa','Raindrops') => "#3D7CCE",__('hanada','Raindrops') => "#3C639B",__('konjou','Raindrops') => "#3D496B",__('ruri','Raindrops') => "#3451A4",__('rurikon','Raindrops') => "#324784",__('kon','Raindrops') => "#333C5E",__('kakitubata','Raindrops') => "#4C5DAB",__('kati','Raindrops') => "#383C57",__('gunjou','Raindrops') => "#414FA3",__('tetukon','Raindrops') => "#232538",__('fujinando','Raindrops') => "#6869A8",__('kikyou','Raindrops') => "#4A49AD",__('konai','Raindrops') => "#35357D",__('fuji','Raindrops') => "#A09BD8",__('fujimurasaki','Raindrops') => "#948BDB",__('aomurasaki','Raindrops') => "#704CBC",__('sumire','Raindrops') => "#6D52AB",__('hatoba','Raindrops') => "#675D7E",__('syoubu','Raindrops') => "#7051AA",__('edomurasaki','Raindrops') => "#5F4C86",__('murasaki','Raindrops') => "#A260BF",__('kodaimurasaki','Raindrops') => "#775686",__('nasukon','Raindrops') => "#47384F",__('sikon','Raindrops') => "#402949",__('ayame','Raindrops') => "#C27BC8",__('botan','Raindrops') => "#C24DAE",__('akamurasaki','Raindrops') => "#C54EA0",__('siro','Raindrops') => "#F1F1F1",__('gofun','Raindrops') => "#F2E8EC",__('kinari','Raindrops') => "#F0E2E0",__('zouge','Raindrops') => "#E3D4CA",__('ginnezu','Raindrops') => "#A0A0A0",__('tyanezumi','Raindrops') => "#9F9190",__('nezumi','Raindrops') => "#868686",__('rikyunezumi','Raindrops') => "#787C7A",__('namari','Raindrops') => "#797A88",__('hai','Raindrops') => "#797979",__('susutake','Raindrops') => "#605448",__('kurotya','Raindrops') => "#3E2E28",__('sumi','Raindrops') => "#313131",__('kuro','Raindrops') => "#262626",__('tetukuro','Raindrops') => "#262626");
 
 $color_en_140 = array("none"=>"","white"=>"#ffffff","whitesmoke"=>"#f5f5f5","gainsboro"=>"#dcdcdc","lightgrey"=>"#d3d3d3","silver"=>"#c0c0c0","darkgray"=>"#a9a9a9","gray"=>"#808080","dimgray"=>"#696969","black"=>"#000000","red"=>"#ff0000","orangered"=>"#ff4500","tomato"=>"#ff6347","coral"=>"#ff7f50","salmon"=>"#fa8072","lightsalmon"=>"#ffa07a","darksalmon"=>"#e9967a","peru"=>"#cd853f","saddlebrown"=>"#8b4513","sienna"=>"#a0522d","chocolate"=>"#d2691e","sandybrown"=>"#f4a460","darkred"=>"#8b0000","maroon"=>"#800000","brown"=>"#a52a2a","firebrick"=>"#b22222","crimson"=>"#dc143c","indianred"=>"#cd5c5c","lightcoral"=>"#f08080","rosybrown"=>"#bc8f8f","palevioletred"=>"#db7093","deeppink"=>"#ff1493","hotpink"=>"#ff69b4","lightpink"=>"#ffb6c1","pink"=>"#ffc0cb","mistyrose"=>"#ffe4e1","linen"=>"#faf0e6","seashell"=>"#fff5ee","lavenderblush"=>"#fff0f5","snow"=>"#fffafa","yellow"=>"#ffff00","gold"=>"#ffd700","orange"=>"#ffa500","darkorange"=>"#ff8c00","goldenrod"=>"#daa520","darkgoldenrod"=>"#b8860b","darkkhaki"=>"#bdb76b","burlywood"=>"#deb887","tan"=>"#d2b48c","khaki"=>"#f0e68c","peachpuff"=>"#ffdab9","navajowhite"=>"#ffdead","palegoldenrod"=>"#eee8aa","moccasin"=>"#ffe4b5","wheat"=>"#f5deb3","bisque"=>"#ffe4c4","blanchedalmond"=>"#ffebcd","papayawhip"=>"#ffefd5","cornsilk"=>"#fff8dc","lightyellow"=>"#ffffe0","lightgoldenrodyellow"=>"#fafad2","lemonchiffon"=>"#fffacd","antiquewhite"=>"#faebd7","beige"=>"#f5f5dc","oldlace"=>"#fdf5e6","ivory"=>"#fffff0","floralwhite"=>"#fffaf0","greenyellow"=>"#adff2f","yellowgreen"=>"#9acd32","olive"=>"#808000","darkolivegreen"=>"#556b2f","olivedrab"=>"#6b8e23","chartreuse"=>"#7fff00","lawngreen"=>"#7cfc00","lime"=>"#00ff00","limegreen"=>"#32cd32","forestgreen"=>"#228b22","green"=>"#008000","darkgreen"=>"#006400","seagreen"=>"#2e8b57","mediumseagreen"=>"#3cb371","darkseagreen"=>"#8fbc8f","lightgreen"=>"#90ee90","palegreen"=>"#98fb98","springgreen"=>"#00ff7f","mediumspringgreen"=>"#00fa9a","honeydew"=>"#f0fff0","mintcream"=>"#f5fffa","azure"=>"#f0ffff","lightcyan"=>"#e0ffff","aliceblue"=>"#f0f8ff","darkslategray"=>"#2f4f4f","steelblue"=>"#4682b4","mediumaquamarine"=>"#66cdaa","aquamarine"=>"#7fffd4","mediumturquoise"=>"#48d1cc","turquoise"=>"#40e0d0","lightseagreen"=>"#20b2aa","darkcyan"=>"#008b8b","teal"=>"#008080","cadetblue"=>"#5f9ea0","darkturquoise"=>"#00ced1","aqua"=>"#00ffff","cyan"=>"#00ffff","lightblue"=>"#add8e6","powderblue"=>"#b0e0e6","paleturquoise"=>"#afeeee","skyblue"=>"#87ceeb","lightskyblue"=>"#87cefa","deepskyblue"=>"#00bfff","dodgerblue"=>"#1e90ff","ghostwhite"=>"#f8f8ff","lavender"=>"#e6e6fa","lightsteelblue"=>"#b0c4de","slategray"=>"#708090","lightslategray"=>"#778899","indigo"=>"#4b0082","darkslateblue"=>"#483d8b","midnightblue"=>"#191970","navy"=>"#000080","darkblue"=>"#00008b","slateblue"=>"#6a5acd","mediumslateblue"=>"#7b68ee","cornflowerblue"=>"#6495ed","royalblue"=>"#4169e1","mediumblue"=>"#0000cd","blue"=>"#0000ff","thistle"=>"#d8bfd8","plum"=>"#dda0dd","orchid"=>"#da70d6","violet"=>"#ee82ee","fuchsia"=>"#ff00ff","magenta"=>"#ff00ff","mediumpurple"=>"#9370db","mediumorchid"=>"#ba55d3","darkorchid"=>"#9932cc","blueviolet"=>"#8a2be2","darkviolet"=>"#9400d3","purple"=>"#800080","darkmagenta"=>"#8b008b","mediumvioletred"=>"#c71585");
 

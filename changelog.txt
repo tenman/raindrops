@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:0.965
+
+moved
+
+added
+
+fixed
+
+modified
+    add global var $raindrops_wp_version for WordPress version checkmade
+    backward-compatibility.php
+----------------------------------------------
+Changelog -----------------------------------
 version:0.964
 
 modified

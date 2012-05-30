@@ -120,6 +120,16 @@
 
 
 /**
+ * Show home link menu with wp_page_menu() function.
+ *
+ */ 
+	function raindrops_page_menu_args( $args ) {
+	    $args['show_home'] = true;
+	        return $args;
+	}
+	add_filter( 'wp_page_menu_args', 'raindrops_page_menu_args' );
+
+/**
  * Original page width implementation by manual labor
  *
  * If you need original page width
@@ -1030,6 +1040,10 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
             $raindrops_indv_css                                 = raindrops_design_output_clone($style_type).raindrops_color_base_clone();
             $raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
             update_option('raindrops_theme_settings',$raindrops_theme_settings,"",$add['autoload']);
+            
+            // Show home link in default WordPress menu with wp_nav_menu() function.
+            register_nav_menu( 'primary', __( 'Primary Menu', 'raindrops' ) );
+            
         }
     }
 /**

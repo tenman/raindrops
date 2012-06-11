@@ -1,20 +1,9 @@
 Changelog -----------------------------------
 version:0.970
-
-moved
-
+    This version changes for WordPress 3.4 support.
 added
-
-fixed
-
-modified
-
-made
-
-----------------------------------------------
-Changelog -----------------------------------
-version:0.965
-added
+    function raindrops_custom_link_color()
+    function raindrops_hyperlink_color_validate()
     function raindrops_small_device_helper()
         functions.php
             for header-image size controll and primary navigation menu when fluid layout right side childrens children list show left
@@ -40,6 +29,17 @@ modified
 
         single.php
             Add CSS lightbox for post thumbnail shows not croped view ( Not support IE )
+
+    Theme options page add links
+        Add Theme customizer link ,
+        Custom Header link,
+        Custom Background link,
+        Widget link,
+        Menus link ,
+        Theme Editor link
+
+        Reset All Settings
+            Add remove_theme_mods();
 New file
     backward-compatibility.php
     Move from functions.php to this for WordPress ver3.3 old functions

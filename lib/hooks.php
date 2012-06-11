@@ -28,17 +28,17 @@ function raindrops_theme_setup(){
 	}
 	
 	if( $raindrops_wp_version >= '3.4' ){
-		$args = array(
-					'default-text-color' => 'ddd'
+		$args = array( 'default-text-color' => 'ddd'
 					, 'width' => apply_filters( 'raindrops_header_image_width', '950' )
 					, 'flex-width' => true
 					, 'height' => apply_filters( 'raindrops_header_image_height', '198' )
 					, 'flex-height' => true
-					, 'header-text' => false
+					, 'header-text' => true
+					, 'header-textcolor' => 'dddddd'
 					, 'default-image' => $raindrops_site_image
 					, 'wp-head-callback' => 'raindrops_embed_meta'
-					, 'admin-preview-callback' => 'raindrops_admin_header_image'
-					, 'admin-head-callback' => 'raindrops_admin_header_style'
+				//	, 'admin-preview-callback' => 'raindrops_embed_meta'
+				//	, 'admin-head-callback' => 'raindrops_embed_meta'
 				);
 		//they are "suggested" when flex-width and flex-height are set
 		add_theme_support( 'custom-header', $args );
@@ -89,14 +89,29 @@ function raindrops_theme_setup(){
  *
  *
  *
+ * thanks ison
+ */
+	add_filter( 'wp_page_menu_args', 'raindrops_page_menu_args' );
+/**
+ *
+ *
+ *
+ *
  *
  */
 if( $raindrops_wp_version >= '3.4' ){
     $args = array('default-color' => ''
-                ,'default-image' => ''
+                , 'default-image' => ''
+				, 'wp-head-callback' => 'raindrops_embed_meta'
+			//	, 'admin-head-callback' => 'raindrops_admin_header_image'
+			//	, 'admin-preview-callback' => 'raindrops_embed_meta'
+			//	, 'admin-head-callback' => 'raindrops_embed_meta'
+			//	, 'admin-preview-callback' => 'raindrops_admin_header_image'
+			
+			
             );
     add_theme_support( 'custom-background', $args );
-}else{
+}elseif( ! function_exists( 'get_custom_header' ) ){
     add_custom_background();
 }
 /**

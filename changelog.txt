@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.970
+
+moved
+
+added
+
+fixed
+
+modified
+
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.965
 added
     function raindrops_small_device_helper()

@@ -26,7 +26,7 @@
  * @uses raindrops_upload_image_parser($header_image_uri,'inline','#hd')
  * @uses get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)
  * @uses get_header_textcolor()
- * @uses preg_match("|[0-9a-f]{6}|si",get_header_textcolor())
+ * @uses preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",get_header_textcolor())
  * @uses home_url()
  * @uses esc_attr()
  * @uses get_bloginfo( 'name', 'display' )
@@ -88,14 +88,14 @@ echo raindrops_header_image( 'elements' );
  *
  */
 ?>
-<?php if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){?>
+<?php
+if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-<?php
-wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary'));
-?>
+<?php 
+wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'primary') ); ?>
 </div>
-<?php }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
 <br class="clear" />
 </div>
+<?php  }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
 <div id="bd" class="clearfix">

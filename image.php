@@ -24,7 +24,6 @@
  */
 ?>
 <?php get_header( $raindrops_document_type ); ?>
-
 <div id="yui-main">
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
   <div class="yui-b">

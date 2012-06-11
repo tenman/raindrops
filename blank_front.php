@@ -36,7 +36,7 @@
  * @uses raindrops_upload_image_parser($header_image_uri,'inline','#hd')
  * @uses get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)
  * @uses get_header_textcolor()
- * @uses preg_match("|[0-9a-f]{6}|si",get_header_textcolor())
+ * @uses preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",get_header_textcolor())
  * @uses home_url()
  * @uses esc_attr()
  * @uses get_bloginfo( 'name', 'display' )

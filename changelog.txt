@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.970
+version:0.971
     This version changes for WordPress 3.4 support.
 added
     function raindrops_custom_link_color()

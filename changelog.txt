@@ -1,16 +1,11 @@
 Changelog -----------------------------------
-version:0.972
-
-moved
-
-added
-
+version:0.973
+    This version changes for Bugfix
+        MultiSite header image display improperly.
 fixed
-
-modified
-
-made
-
+    function raindrops_header_image()
+    function raindrops_small_device_helper()
+        functions.php
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.971

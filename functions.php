@@ -2446,7 +2446,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                 "clear"
             );
         }*/
-		$url = parse_url( get_theme_mod( 'header_image' ) );
+		//$url = parse_url( get_theme_mod( 'header_image' ) );
 		echo raindrops_header_image();
 		echo $add_fluid_style_description_html;
     }
@@ -2478,17 +2478,15 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  */
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4){
         function raindrops_header_image($type = 'default', $args = array() ){
-		
-		//$header_image = get_theme_mod( 'header_textcolor' );
-		
-		$image_modify = get_theme_mods();
-		$image_modify = $image_modify[header_image_data];
-		$url = parse_url( get_theme_mod( 'header_image' ) );
-		$path = $_SERVER['DOCUMENT_ROOT']. $url['path'];
-		list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-		$ratio = $img_height / $img_width;
-
-		$raindrops_page_width = raindrops_warehouse_clone('raindrops_page_width');
+			$image_modify 	= get_theme_mods();
+			$image_modify 	= $image_modify[header_image_data];
+			$url 			= get_theme_mod( 'header_image' );
+			$uploads 		= wp_upload_dir();
+			$path 			= $uploads['path'].'/'. basename( $url );		
+			list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
+			$ratio = $img_height / $img_width;
+	
+			$raindrops_page_width = raindrops_warehouse_clone('raindrops_page_width');
 		switch( true ){
 
 			case 'doc' == $raindrops_page_width :
@@ -2960,12 +2958,11 @@ if(!function_exists("fallback_user_interface_view") ){
 								
 					if( image_exists !== ''){
 	<?php							
-						$url = parse_url( get_theme_mod( 'header_image' ) );
-						$path = $_SERVER['DOCUMENT_ROOT']. $url['path'];
-						
-						list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-						
-						$ratio = $img_height / $img_width;
+			$url 		= get_theme_mod( 'header_image' );
+			$uploads 	= wp_upload_dir();
+			$path 		= $uploads['path'].'/'. basename( $url );		
+			list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
+			$ratio = $img_height / $img_width;
 	?>
 						var ratio = <?php echo $ratio;?>;		
 						var height = width * ratio;

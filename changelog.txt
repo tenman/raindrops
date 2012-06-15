@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.972
+
+moved
+
+added
+
+fixed
+
+modified
+
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:0.971
     This version changes for WordPress 3.4 support.
 added

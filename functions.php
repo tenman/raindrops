@@ -26,6 +26,11 @@
 			$raindrops_current_theme_name = get_current_theme();
 		}
 	}
+/* @since 0.974 */	
+	$raindrops_theme_data 		= get_theme_data( get_theme_root() . '/' . $raindrops_current_theme_name . '/style.css' );
+	$raindrops_version 	= $raindrops_theme_data['Version'];
+	
+		
 //if( $raindrops_wp_version >= '3.4' ){
 /*----- Copy this area and paste Child functions.php when functions customize / Start------*/
 /**
@@ -899,15 +904,17 @@
  */
 if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
     function add_raindrops_stylesheet() {
-		global $raindrops_current_theme_name;
+		global $raindrops_current_theme_name, $raindrops_version;
 			$themes                 = wp_get_themes();
             $current_theme 			= $raindrops_current_theme_name;
 			
-        if(isset($themes[$current_theme]['Version'])){
+/*        if(isset($themes[$current_theme]['Version'])){
             $raindrops_version  = $themes[$current_theme]['Version'];
         }else{
             $raindrops_version  = "0.1";
         }
+		
+*/	
         $template_uri = get_template_directory_uri();
         $template_path = get_template_directory();
         $stylesheet_uri = get_stylesheet_directory_uri();
@@ -1122,10 +1129,6 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
 			if(  $raindrops_text_color !== 'blank' ){
 				$css 					.= "\n#site-title a{color:#".$raindrops_text_color.';}';
 			}
-
-
-
-
 //page type		
 			if( isset($raindrops_fluid_or_fixed) and
 				!empty($raindrops_fluid_or_fixed) and
@@ -1138,9 +1141,17 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
 //#hd
 			$uploads = wp_upload_dir();
 			$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
+			if( $raindrops_current_theme_name !== 'raindrops' and raindrops_warehouse('raindrops_header_image') == 'header.png' ){		
+				$header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
+			}
+			
 			$css 					.= "\n#hd{".raindrops_upload_image_parser($header_image_uri,'inline','#hd').'}';
 //#ft
-			$footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');		
+			$footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
+			if( $raindrops_current_theme_name !== 'raindrops' and raindrops_warehouse('raindrops_footer_image') == 'footer.png' ){		
+				$header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
+			}
+					
 			$css 					.= 	"\n#ft{".raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'}';
 // 2col 3col change style helper			
 			$css .= '/*'. raindrops_warehouse_clone('raindrops_show_right_sidebar').'*/';
@@ -2478,11 +2489,21 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  */
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4){
         function raindrops_header_image($type = 'default', $args = array() ){
-			$image_modify 	= get_theme_mods();
-			$image_modify 	= $image_modify[header_image_data];
+		//	$image_modify 	= get_theme_mods();
+		//	$image_modify 	= $image_modify['header_image_data'];
 			$url 			= get_theme_mod( 'header_image' );
+			
+			if( empty( $url ) ){ //child theme $url empty
+				$url 			= get_header_image();
+			}		
+			
 			$uploads 		= wp_upload_dir();
-			$path 			= $uploads['path'].'/'. basename( $url );		
+			$path 			= $uploads['path'].'/'. basename( $url );
+			
+			if( ! file_exists( $path ) ){ //fallback
+				$path       = get_template_directory().'/images/headers/wp3.jpg';
+			}		
+					
 			list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
 			$ratio = $img_height / $img_width;
 	
@@ -2535,7 +2556,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                 $description_style = ' style="display:none;"';
             }
             $defaults = array(
-                'img' => get_theme_mod( 'header_image' ),
+              /*  'img' => get_theme_mod( 'header_image' ),*/
+			  	'img' => $url,
                 'height' => $height_current,
                 'color' => get_theme_mod( 'header_textcolor' ),
                 'style' => $block_style ,

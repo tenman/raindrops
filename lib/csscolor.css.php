@@ -131,7 +131,7 @@ input[type="submit"]{
 }
 
 #hd{
-background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+/*background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
 }
 
 #header-image{
@@ -164,7 +164,8 @@ background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;
 }
 #ft{
 border-top: medium solid %c_border%;
-background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
+/*background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;*/
+background-repeat:repeat-x;
 color:%raindrops_footer_color%;
 }
 #ft #wp-calendar{

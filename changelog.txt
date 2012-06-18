@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.974
+fixed
+    Fixed Script Error
+        Warning: Illegal offset type in /home/alianza1/public_html/wp-content/themes/raindrops/functions.php on line 906
+        functions.php
+
+    Fixed Child theme display improperly.
+        Custom header image, #hd background image,#ft background image
+        csscolor.css.php
+        functions.php
+
+----------------------------------------------
+
+Changelog -----------------------------------
 version:0.973
     This version changes for Bugfix
         MultiSite header image display improperly.

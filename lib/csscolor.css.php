@@ -1459,7 +1459,7 @@ return $style;
 ?>
 <?php
     if(!defined('ABSPATH')){exit;}
-	global $raindrops_wp_version;	
+	global $raindrops_wp_version, $raindrops_current_theme_name;	
     $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
     if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
 	
@@ -1468,11 +1468,8 @@ return $style;
     if(!in_array($alias_functions,$raindrops_included_files)){
          locate_template(array('lib/alias_functions.php'),true,true);
     }
-	if( $raindrops_wp_version >= '3.4' ){
-		$embed_common_style = wp_get_theme();
-	}else{
-		$embed_common_style = get_current_theme();
-	}
+
+	$embed_common_style = $raindrops_current_theme_name;
     
     raindrops_register_styles($embed_common_style);
 	
@@ -1514,7 +1511,7 @@ return $style;
 			}
 		}
 	}else{
-		if(raindrops_warehouse_clone("raindrops_style_type") !== get_current_theme() ){
+		if(raindrops_warehouse_clone("raindrops_style_type") !== $raindrops_current_theme_name ){
 			if(is_array($raindrops_options)){
 		
 					if(array_key_exists('_raindrops_indv_css',$raindrops_options)){

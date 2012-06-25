@@ -92,13 +92,10 @@ if( $raindrops_wp_version < '3.4' ){
     if ( ! function_exists( 'add_raindrops_stylesheet' ) and $wp_version < 3.4 ){
 
     function add_raindrops_stylesheet() {
-        $themes                 = get_themes();
-        $current_theme          = get_current_theme();
-        if(isset($themes[$current_theme]['Version'])){
-            $raindrops_version  = $themes[$current_theme]['Version'];
-        }else{
-            $raindrops_version  = "0.1";
-        }
+		global $raindrops_current_theme_name, $raindrops_version;
+        //$themes                 = get_themes();
+        //$current_theme          = $raindrops_current_theme_name;
+       
         $template_uri = get_template_directory_uri();
         $template_path = get_template_directory();
         $stylesheet_uri = get_stylesheet_directory_uri();

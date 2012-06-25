@@ -96,7 +96,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'=>__('Page Width','Raindrops'),
         'excerpt1'=>'',
         'excerpt2'=>__('Please choose width on the page.
-    Please choose from four kinds of inside of 750px centerd 950px centerd 100% fluid 974px.','Raindrops'),
+    Please choose from four kinds of inside of 750px centerd 950px centerd fluid 974px.','Raindrops'),
          'validate'=>'raindrops_page_width_validate','list' => 7),
 
         array('option_id' => 9,
@@ -375,7 +375,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         var $col_settings_raindrops_page_width = array(
             "750px centered"=>"doc",
             "950px centered"=>"doc2",
-            "100% fluid"=>"doc3",
+            "fluid"=>"doc3",
             "974px"=>"doc4"
             );
         var $col_settings_raindrops_right_sidebar_width_percent = array(
@@ -415,7 +415,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
  */
 
         function SubMenu_GUI() {
-            global $wpdb,$count, $raindrops_base_setting,$raindrops_wp_version;
+            global $wpdb,$count, $raindrops_base_setting,$raindrops_wp_version, $raindrops_current_theme_name;
             if(RAINDROPS_USE_AUTO_COLOR == true){
                 $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
             }else{
@@ -449,13 +449,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
             $result .= screen_icon();
-
-            if( $raindrops_wp_version >= '3.4' ){
-                $result .= "<h2>" .  ucfirst( wp_get_theme() ) . __( ' Theme Settings', 'Raindrops' ) . "</h2>";
-            }else{
-                $result .= "<h2>" .  ucfirst(get_current_theme()) . __(' Theme Settings', 'Raindrops') . "</h2>";
-            }
-
+            $result .= "<h2>" .  ucfirst( $raindrops_current_theme_name ) . __( ' Theme Settings', 'Raindrops' ) . "</h2>";
             $result .= "<p>".__('Saved Database table name:','Raindrops')."<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
 
 /**
@@ -567,13 +561,9 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
  */
 
         function add_menus() {
-        global $raindrops_wp_version;
+        global $raindrops_wp_version, $raindrops_current_theme_name;
             if(function_exists('add_theme_page')) {
-                if( $raindrops_wp_version >= '3.4' ){
-                    $option_name   = ucwords( wp_get_theme() ). ' Options';
-                }else{
-                    $option_name   = ucwords(get_current_theme()).' Options';
-                }
+                $option_name   = ucwords( $raindrops_current_theme_name ). ' Options';
                 $hook_suffix = add_theme_page(
                         RAINDROPS_TABLE_TITLE,
                         $option_name,
@@ -617,6 +607,7 @@ if(raindrops_warehouse("raindrops_style_type") == 'raindrops'){
             global $raindrops_base_setting;
             global $wpdb;
             global $raindrops_wp_version;
+			global $raindrops_current_theme_name;
             $option_value   = "-";
             $lines          = "";
             $i              = 0;
@@ -728,9 +719,8 @@ $raindrops_navigation_list  .= '</ul>';
                 }
 
 
-        if( $raindrops_wp_version >= '3.4' ){
 
-                if(raindrops_warehouse("raindrops_style_type") == wp_get_theme()
+                if(raindrops_warehouse("raindrops_style_type") == $raindrops_current_theme_name
                                                 and (   $key == "raindrops_footer_color" or
                                                         $key == "raindrops_default_fonts_color" or
                                                         $key == "raindrops_header_image" or
@@ -742,19 +732,7 @@ $raindrops_navigation_list  .= '</ul>';
                      continue;
                 }
 
-        }else{
-                if(raindrops_warehouse("raindrops_style_type") == get_current_theme()
-                                                and (   $key == "raindrops_footer_color" or
-                                                        $key == "raindrops_default_fonts_color" or
-                                                        $key == "raindrops_header_image" or
-                                                        $key == "raindrops_footer_image" or
-                                                        $key == "raindrops_heading_image_position" or
-                                                        $key == "raindrops_heading_image" or
-                                                        $key == "raindrops_hyperlink_color"
-                                                        ) ){
-                     continue;
-                }
-        }
+        
                 $lines .= $excerpt;
                 $lines .= $table;
                 $lines .= $table_header;
@@ -829,19 +807,13 @@ $raindrops_navigation_list  .= '</ul>';
                         $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-        if( $raindrops_wp_version >= '3.4' ){ // WordPress 3.4 check
 
-            if(raindrops_warehouse("raindrops_style_type") == wp_get_theme() ){
+            if(raindrops_warehouse("raindrops_style_type") == $raindrops_current_theme_name ){
                 $add_box = '<textarea name="raindrops_option_values[_raindrops_indv_css]" style="width:100%;" rows="20">'.stripslashes(raindrops_warehouse('_raindrops_indv_css'))."</textarea>";
                 $add_box .= '<p>'.__('You must backup this style when theme update before', 'Raindrops').'</p>';
             }
             $add_box .= $raindrops_wp_version;
-        }else{
-            if(raindrops_warehouse("raindrops_style_type") == get_current_theme() ){
-                $add_box = '<textarea name="raindrops_option_values[_raindrops_indv_css]" style="width:100%;" rows="20">'.stripslashes(raindrops_warehouse('_raindrops_indv_css'))."</textarea>";
-                $add_box .= '<p>'.__('You must backup this style when theme update before', 'Raindrops').'</p>';
-            }
-        }
+
                 }elseif($key == "raindrops_heading_image"){
                     $lines .= '<td style="height:225px">';
                     $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val,'Raindrops').'"';

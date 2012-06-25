@@ -1,8 +1,18 @@
 Changelog -----------------------------------
 version:0.975
 modified
+    typo
+    var name change
+        from $raindrops_fluid_minimam_width to $raindrops_fluid_minimum_width
+        from $raindrops_fluid_maximam_width to $raindrops_fluid_maximum_width
 
-made
+    get_current_theme(),wp_get_theme() changes global var $raindrops_current_theme_name
+    get_theme_data() changes global var $raindrops_theme_data
+
+fixed
+        When Browser width > $raindrops_fluid_maximum_width
+            Change  from display page left side to display center
+                using javascript see functions.php line 3010.
 
 ----------------------------------------------
 Changelog -----------------------------------

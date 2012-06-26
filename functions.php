@@ -1,4 +1,5 @@
 <?php
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -175,7 +176,7 @@
  */
 
     if( !isset( $raindrops_fluid_maximum_width ) ){
-        $raindrops_fluid_maximum_width = '1280';
+        $raindrops_fluid_maximum_width = '780';
     }
 /**
  * Special simple view for mobile and small width browser
@@ -684,18 +685,13 @@
 			$html = '<dt>%1$s</dt><dd>%2$s</dd>';
 			$link = '<a href="%1$s" %3$s>%2$s</a>';
 	
-			/*$theme_description = __( 'Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction.','Raindrops' );
-echo 			
-			if ($theme_description !== $raindrops_theme_data['Description'] ){
-				trigger_error("Raindrops theme description NOT Appropriate. functions.php line:693");
-			}*/	
 			$content = '';
 	
 			/* theme description*/
-			/*$content .= sprintf($html
+			$content .= sprintf($html
 					, __('Description','Raindrops')
-					, $theme_description
-					);*/
+					, $raindrops_theme_data['Description']
+					);
 			/* theme URI*/
 			$content .= sprintf($html
 					, __('Theme URI','Raindrops')
@@ -1118,11 +1114,6 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
             global $post, $raindrops_fluid_or_fixed,$raindrops_fluid_minimum_width,$raindrops_wp_version,$raindrops_current_theme_name;
 
             $css                    = raindrops_gallerys();
-			
-			
-				
-	
-						
 //#header-image			
 			$css					.= "\n".raindrops_header_image( 'css' )."\n";
 //site-title
@@ -1167,8 +1158,8 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
 						$css .= raindrops_custom_width();
 			}
 //when manual style rule mode
-			if( raindrops_warehouse("raindrops_style_type") == $raindrops_current_theme_name ){
-				return $css.raindrops_warehouse('_raindrops_indv_css');
+			if( raindrops_warehouse_clone("raindrops_style_type") == $raindrops_current_theme_name ){
+				return $css.raindrops_warehouse_clone('_raindrops_indv_css');
 			}
 			
 						
@@ -1321,7 +1312,7 @@ return apply_filters("raindrops_custom_link_color",$css);
             $result = "";
 			$css = raindrops_embed_css();
 
-            if (is_single() || is_page()) {
+            if ( is_single() || is_page() ){
                 if(have_posts()){
                  while (have_posts()) : the_post();
                     if(RAINDROPS_USE_AUTO_COLOR !== true){
@@ -2468,7 +2459,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
         function raindrops_fallback_title($title,$display = 'hide'){
             if(!is_admin()){
                 if(empty($title)){
-                    $image_uri = get_stylesheet_directory_uri().'/images/link.png';
+                    $image_uri = get_template_directory_uri().'/images/link.png';
                     $html = '<img src="%1$s" alt="no title entry link" /><span class="%4$s">%2$s posted on %3$s</span>';
                     $raindrops_date_format = get_option('date_format');
                     return sprintf($html,$image_uri,__("This entry has no title",'Raindrops'),get_the_time($raindrops_date_format),$display);
@@ -2493,6 +2484,10 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
 			if( empty( $url ) ){ //child theme $url empty
 				$url 			= get_header_image();
 			}		
+			
+			if( $url == 'remove-header'){
+				return;
+			}
 			
 			$uploads 		= wp_upload_dir();
 			$path 			= $uploads['path'].'/'. basename( $url );
@@ -2973,19 +2968,27 @@ if(!function_exists("fallback_user_interface_view") ){
 					var image_exists = '<?php echo $raindrops_header_image_uri;?>';
 					var width = jQuery(window).width();
 								
-					if( image_exists !== ''){
+					if( image_exists !== '' ){
 	<?php							
 			$url 		= get_theme_mod( 'header_image' );
 			$uploads 	= wp_upload_dir();
-			$path 		= $uploads['path'].'/'. basename( $url );		
-			list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-			$ratio = $img_height / $img_width;
+			$path 		= $uploads['path'].'/'. basename( $url );
+				if( ! file_exists( $path ) ){
+					$raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );	
+				}
+			
+			if( $url !== 'remove-header' ){
+				
+				list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
+				$ratio = $img_height / $img_width;
+				if( ! empty( $ratio )){
 	?>
 						var ratio = <?php echo $ratio;?>;		
 						var height = width * ratio;
 						
 						jQuery('#header-image').removeAttr('style').css({'background-image':'url('+ image_exists + ')','height': height, 'background-size': 'cover'});
-						
+			<?php }//empty $ratio
+			 }//remove header ?>			
 					}
 		<?php
 		/**
@@ -3250,7 +3253,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
 			);	
 		
 		$raindrops_style_type_choices = raindrops_register_styles("w3standard");
-		unset($raindrops_style_type_choices[$raindrops_current_theme_name]);
+		//unset($raindrops_style_type_choices[$raindrops_current_theme_name]);
 		
 		$wp_customize->add_control( 'raindrops_style_type', array(
 			'label'      => __( 'Color Type', 'raindrops' ),
@@ -3354,6 +3357,13 @@ if( ! function_exists( 'raindrops_page_menu_args' ) ){
 	}
 }
 
+
+function raindrops_esc_textarea( $css ){
+// CSS need E > F	Matches any F element that is a child of an element E.
+
+return str_replace( '&gt;', '>', $css );
+
+}
 /**
  *
  *
@@ -3364,5 +3374,4 @@ if( ! function_exists( 'raindrops_page_menu_args' ) ){
 		if( $raindrops_wp_version < '3.4' ){
 			include(get_template_directory().'/backward-compatibility.php');
 		}
-
 ?>

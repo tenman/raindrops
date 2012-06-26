@@ -252,7 +252,13 @@ if( $raindrops_wp_version < '3.4' ){
  *
  * @since 0.964 ?
  */
- add_filter('widget_text', 'do_shortcode');
-
-
+	add_filter('widget_text', 'do_shortcode');
+/**
+ *
+ *
+ *
+ *
+ * @since 0.976
+ */
+	add_filter('esc_textarea', 'raindrops_esc_textarea' );
 ?>

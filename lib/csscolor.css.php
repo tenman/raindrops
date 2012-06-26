@@ -24,7 +24,6 @@
  *
  *
  */
-
 raindrops_register_styles("dark");
 
 function raindrops_indv_css_dark(){
@@ -1836,13 +1835,25 @@ CSS;
 		$uploads 						= wp_upload_dir();
 		$raindrops_header_image       	= raindrops_warehouse_clone('raindrops_header_image');
     	$raindrops_hd_image_path 		= $uploads['path'].'/'.$raindrops_header_image;
+		
+		
+		
 		if(file_exists($raindrops_hd_image_path)){
 			$raindrops_hd_images_path = $uploads['url'].'/';
 		}else{
 	        $raindrops_hd_images_path = get_stylesheet_directory_uri().'/images/';	
 		}
 
+	if( ! file_exists( get_stylesheet_directory().'/images/' ) ){  $raindrops_hd_images_path = get_template_directory_uri().'/images/';}
+	
+		$raindrops_hd_image_path 		= apply_filters( 'raindrops_hd_image_path', $raindrops_hd_images_path );
+
         $raindrops_images_path        	= get_stylesheet_directory_uri().'/images/';
+		
+	if( ! file_exists( get_stylesheet_directory().'/images/' ) ){  $raindrops_images_path = get_template_directory_uri().'/images/';}
+
+		$raindrops_images_path 			= apply_filters( 'raindrops_images_path', $raindrops_images_path );
+		
         $navigation_title_img   		= raindrops_warehouse_clone('raindrops_heading_image');
 
         $raindrops_header_color       = raindrops_warehouse_clone('raindrops_default_fonts_color');

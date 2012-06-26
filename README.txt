@@ -20,6 +20,43 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 0.975
+    Remove textarea theme options page for customize Automatic CSS edit.
+    Original theme design another way, for example below.
+
+//add lib/csscolor.css.php
+//register new design name
+raindrops_register_styles("original");
+
+//function name prefix 'raindrops_indv_css_' must need
+function raindrops_indv_css_original(){
+    $style=<<<CSS
+    a{color:yellow;}
+    body{background:#000;color:#fff;}
+CSS;
+return $style;
+}
+    You can select theme customizer color type 'original'
+
+//child theme using example
+// child theme functions.php code example below
+
+add_action( 'after_setup_theme', 'child_theme_setup',11 );
+
+function child_theme_setup(){
+    raindrops_register_styles("original");
+
+    function raindrops_indv_css_original(){
+    $style=<<<CSS
+    a{color:yellow;}
+    body{background:#000;color:#fff;}
+
+
+
+CSS;
+    return $style;
+    }
+}
 
 var 0.965
     Add CSS lightbox for featured image ( Not support IE )

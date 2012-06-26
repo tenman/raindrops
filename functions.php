@@ -9,7 +9,7 @@
  */
     if(!defined('ABSPATH')){
         exit;
-    } 
+    }
 /**
  * Current version of WordPress
  *
@@ -17,20 +17,20 @@
  *
  * @since 0.965
  */
-	$raindrops_check_wp_version = explode('-',$wp_version);
-	$raindrops_wp_version 		= $raindrops_check_wp_version[0];
-	
-	if( !isset( $raindrops_current_theme_name ) ){
-		if( $raindrops_wp_version >= '3.4' ){
-			$raindrops_current_theme_name = wp_get_theme();
-		}else{
-			$raindrops_current_theme_name = get_current_theme();
-		}
-	}
-/* @since 0.974 */	
-	$raindrops_theme_data 		= get_theme_data( get_theme_root() . '/' . $raindrops_current_theme_name . '/style.css' );
-	$raindrops_version 			= $raindrops_theme_data['Version'];
-	
+    $raindrops_check_wp_version = explode('-',$wp_version);
+    $raindrops_wp_version       = $raindrops_check_wp_version[0];
+
+    if( !isset( $raindrops_current_theme_name ) ){
+        if( $raindrops_wp_version >= '3.4' ){
+            $raindrops_current_theme_name = wp_get_theme();
+        }else{
+            $raindrops_current_theme_name = get_current_theme();
+        }
+    }
+/* @since 0.974 */
+    $raindrops_theme_data       = get_theme_data( get_theme_root() . '/' . $raindrops_current_theme_name . '/style.css' );
+    $raindrops_version          = $raindrops_theme_data['Version'];
+
 //if( $raindrops_wp_version >= '3.4' ){
 /*----- Copy this area and paste Child functions.php when functions customize / Start------*/
 /**
@@ -54,7 +54,7 @@
         require_once( get_template_directory() . '/lib/option-panel.php' );
         $is_submenu = new raindrops_menu_create;
     }
-     add_action('admin_menu', array($is_submenu, 'add_menus'));	
+     add_action('admin_menu', array($is_submenu, 'add_menus'));
 /**
  * Include functions about colors ,backgrounds and borders
  *
@@ -176,7 +176,7 @@
  */
 
     if( !isset( $raindrops_fluid_maximum_width ) ){
-        $raindrops_fluid_maximum_width = '780';
+        $raindrops_fluid_maximum_width = '1280';
     }
 /**
  * Special simple view for mobile and small width browser
@@ -242,7 +242,7 @@
     if(!defined('RAINDROPS_USE_AUTO_COLOR')){
         define("RAINDROPS_USE_AUTO_COLOR",true);
     }
-	
+
 
 
 /**
@@ -379,8 +379,8 @@
         $raindrops_current_style_type = raindrops_warehouse_clone("raindrops_style_type");
 
     }
-	
-	
+
+
 
 /**
  * Content width setup
@@ -491,12 +491,12 @@
                     $classes[]  = 'unknown';
                 break;
             }
-			
 
-			if(isset($current_blog)){
-				$classes[] = array("b". $current_blog->blog_id);
-			}
-							
+
+            if(isset($current_blog)){
+                $classes[] = array("b". $current_blog->blog_id);
+            }
+
             return apply_filters("raindrops_add_body_class",$classes);
 
         }
@@ -680,47 +680,47 @@
     if (!function_exists('raindrops_settings_page_contextual_help')) {
 
         function raindrops_settings_page_contextual_help() {
-			global $raindrops_theme_data;
-			$screen = get_current_screen();
-			$html = '<dt>%1$s</dt><dd>%2$s</dd>';
-			$link = '<a href="%1$s" %3$s>%2$s</a>';
-	
-			$content = '';
-	
-			/* theme description*/
-			$content .= sprintf($html
-					, __('Description','Raindrops')
-					, $raindrops_theme_data['Description']
-					);
-			/* theme URI*/
-			$content .= sprintf($html
-					, __('Theme URI','Raindrops')
-					, sprintf($link,$raindrops_theme_data['URI'], $raindrops_theme_data['URI'], 'target="_self"' )
-					);
-			/*AuthorURI*/
-			$content .= sprintf($html
-					, __('Author','Raindrops')
-					, sprintf( $link,$raindrops_theme_data['AuthorURI'], $raindrops_theme_data['Author'], 'target="_self"' )
-					);
-			/*Version*/
-			$content .= sprintf($html
-					, __('Version','Raindrops')
-					, $raindrops_theme_data['Version']
-					);
-			/*Changelog.txt*/
-	
-			$content .= sprintf($html
-					, __('Change log text','Raindrops')
-					, sprintf( $link, get_template_directory_uri().'/changelog.txt', __('Changelog , display new window', 'Raindrops'), 'target="_blank"' )
-					,'target="_blank"'
-					);
-			/*readme.txt*/
-			$content .= sprintf($html
-					, __('Readme text','Raindrops')
-					, sprintf( $link, get_template_directory_uri().'/README.txt', __('Readme , display new window', 'Raindrops'), 'target="_blank"' )
-					);
-	
-			$content = '<dl id="raindrops-help">'.$content.'</dl>';
+            global $raindrops_theme_data;
+            $screen = get_current_screen();
+            $html = '<dt>%1$s</dt><dd>%2$s</dd>';
+            $link = '<a href="%1$s" %3$s>%2$s</a>';
+
+            $content = '';
+
+            /* theme description*/
+            $content .= sprintf($html
+                    , __('Description','Raindrops')
+                    , $raindrops_theme_data['Description']
+                    );
+            /* theme URI*/
+            $content .= sprintf($html
+                    , __('Theme URI','Raindrops')
+                    , sprintf($link,$raindrops_theme_data['URI'], $raindrops_theme_data['URI'], 'target="_self"' )
+                    );
+            /*AuthorURI*/
+            $content .= sprintf($html
+                    , __('Author','Raindrops')
+                    , sprintf( $link,$raindrops_theme_data['AuthorURI'], $raindrops_theme_data['Author'], 'target="_self"' )
+                    );
+            /*Version*/
+            $content .= sprintf($html
+                    , __('Version','Raindrops')
+                    , $raindrops_theme_data['Version']
+                    );
+            /*Changelog.txt*/
+
+            $content .= sprintf($html
+                    , __('Change log text','Raindrops')
+                    , sprintf( $link, get_template_directory_uri().'/changelog.txt', __('Changelog , display new window', 'Raindrops'), 'target="_blank"' )
+                    ,'target="_blank"'
+                    );
+            /*readme.txt*/
+            $content .= sprintf($html
+                    , __('Readme text','Raindrops')
+                    , sprintf( $link, get_template_directory_uri().'/README.txt', __('Readme , display new window', 'Raindrops'), 'target="_blank"' )
+                    );
+
+            $content = '<dl id="raindrops-help">'.$content.'</dl>';
 
             $screen->add_help_tab( array(
                 'id'      => 'raindrops-settings-help',
@@ -728,7 +728,7 @@
                 'content' => $content
             ) );
         }
-	}
+    }
 /**
  * Raindrops edit help
  *
@@ -901,17 +901,17 @@
  */
 if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
     function add_raindrops_stylesheet() {
-		global $raindrops_current_theme_name, $raindrops_version;
-			$themes                 = wp_get_themes();
-            $current_theme 			= $raindrops_current_theme_name;
-			
+        global $raindrops_current_theme_name, $raindrops_version;
+            $themes                 = wp_get_themes();
+            $current_theme          = $raindrops_current_theme_name;
+
 /*        if(isset($themes[$current_theme]['Version'])){
             $raindrops_version  = $themes[$current_theme]['Version'];
         }else{
             $raindrops_version  = "0.1";
         }
-		
-*/	
+
+*/
         $template_uri = get_template_directory_uri();
         $template_path = get_template_directory();
         $stylesheet_uri = get_stylesheet_directory_uri();
@@ -1069,14 +1069,14 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
  */
     if(!function_exists("raindrops_first_only_msg") ){
         function raindrops_first_only_msg($type=0) {
-		global $raindrops_current_theme_name;
+        global $raindrops_current_theme_name;
             if ( $type == 1 ) {
                 $query  = 'raindrops_settings';
                 $link   = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
                 if (version_compare(PHP_VERSION, '5.0.0', '<')) {
                 $msg    = sprintf(__('Sorry Your PHP version is %s Please use PHP version 5 or later.','Raindrops'),PHP_VERSION);
                 }else{
-				$msg    = sprintf (__('Thank you for adopting the %s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.', 'Raindrops' ), $raindrops_current_theme_name, $link );
+                $msg    = sprintf (__('Thank you for adopting the %s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.', 'Raindrops' ), $raindrops_current_theme_name, $link );
                 }
             }
             return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
@@ -1114,124 +1114,124 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
             global $post, $raindrops_fluid_or_fixed,$raindrops_fluid_minimum_width,$raindrops_wp_version,$raindrops_current_theme_name;
 
             $css                    = raindrops_gallerys();
-//#header-image			
-			$css					.= "\n".raindrops_header_image( 'css' )."\n";
+//#header-image
+            $css                    .= "\n".raindrops_header_image( 'css' )."\n";
 //site-title
-			$raindrops_text_color = get_theme_mod('header_textcolor', 'dddddd' );
-			if(  $raindrops_text_color !== 'blank' ){
-				$css 					.= "\n#site-title a{color:#".$raindrops_text_color.';}';
-			}
-//page type		
-			if( isset($raindrops_fluid_or_fixed) and
-				!empty($raindrops_fluid_or_fixed) and
-				(raindrops_warehouse_clone("raindrops_page_width") == 'doc' or raindrops_warehouse_clone("raindrops_page_width") == 'doc2' or raindrops_warehouse_clone("raindrops_page_width") == 'custom-doc')){
-				$css .= raindrops_is_fixed();
-			}elseif(isset($raindrops_fluid_minimum_width) and !empty($raindrops_fluid_minimum_width)){
-				$css .= raindrops_is_fluid();
-				add_action( "wp_head", 'raindrops_fluid_layout_helper' );
-			}
+            $raindrops_text_color = get_theme_mod('header_textcolor', 'dddddd' );
+            if(  $raindrops_text_color !== 'blank' ){
+                $css                    .= "\n#site-title a{color:#".$raindrops_text_color.';}';
+            }
+//page type
+            if( isset($raindrops_fluid_or_fixed) and
+                !empty($raindrops_fluid_or_fixed) and
+                (raindrops_warehouse_clone("raindrops_page_width") == 'doc' or raindrops_warehouse_clone("raindrops_page_width") == 'doc2' or raindrops_warehouse_clone("raindrops_page_width") == 'custom-doc')){
+                $css .= raindrops_is_fixed();
+            }elseif(isset($raindrops_fluid_minimum_width) and !empty($raindrops_fluid_minimum_width)){
+                $css .= raindrops_is_fluid();
+                add_action( "wp_head", 'raindrops_fluid_layout_helper' );
+            }
 //#hd
-			$uploads = wp_upload_dir();
-			$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
-			if( $raindrops_current_theme_name !== 'raindrops' and raindrops_warehouse('raindrops_header_image') == 'header.png' ){		
-				$header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
-			}
-			
-			$css 					.= "\n#hd{".raindrops_upload_image_parser($header_image_uri,'inline','#hd').'}';
+            $uploads = wp_upload_dir();
+            $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
+            if( $raindrops_current_theme_name !== 'raindrops' and raindrops_warehouse('raindrops_header_image') == 'header.png' ){
+                $header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
+            }
+
+            $css                    .= "\n#hd{".raindrops_upload_image_parser($header_image_uri,'inline','#hd').'}';
 //#ft
-			$footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
-			if( $raindrops_current_theme_name !== 'raindrops' and raindrops_warehouse('raindrops_footer_image') == 'footer.png' ){		
-				$header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
-			}
-					
-			$css 					.= 	"\n#ft{".raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'}';
-// 2col 3col change style helper			
-			$css .= '/*'. raindrops_warehouse_clone('raindrops_show_right_sidebar').'*/';
-			if( raindrops_warehouse_clone('raindrops_show_right_sidebar') == "show" ){
-				$css .= ' .rsidebar{display:block;} ';
-			
-			}else{
-				$css .= ' .rsidebar{display:none;} ';
-			}
+            $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
+            if( $raindrops_current_theme_name !== 'raindrops' and raindrops_warehouse('raindrops_footer_image') == 'footer.png' ){
+                $header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
+            }
+
+            $css                    .=  "\n#ft{".raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'}';
+// 2col 3col change style helper
+            $css .= '/*'. raindrops_warehouse_clone('raindrops_show_right_sidebar').'*/';
+            if( raindrops_warehouse_clone('raindrops_show_right_sidebar') == "show" ){
+                $css .= ' .rsidebar{display:block;} ';
+
+            }else{
+                $css .= ' .rsidebar{display:none;} ';
+            }
 // Custom page width helper
-			if(isset($raindrops_page_width) and !empty($raindrops_page_width)){
-						$css .= raindrops_custom_width();
-			}
+            if(isset($raindrops_page_width) and !empty($raindrops_page_width)){
+                        $css .= raindrops_custom_width();
+            }
 //when manual style rule mode
-			if( raindrops_warehouse_clone("raindrops_style_type") == $raindrops_current_theme_name ){
-				return $css.raindrops_warehouse_clone('_raindrops_indv_css');
-			}
-			
-						
-           	$raindrops_options      	= get_option("raindrops_theme_settings");
-            $raindrops_style_type     	= $raindrops_options['raindrops_style_type'];
-			$raindrops_options 			= get_option('raindrops_theme_settings');
-			$raindrops_base_color 		= raindrops_warehouse_clone( 'raindrops_base_color' );
-			$raindrops_hyperlink_color 		= raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-			$raindrops_indv_css     	= raindrops_design_output($raindrops_style_type).raindrops_color_base($raindrops_base_color);
-	   		
+            if( raindrops_warehouse_clone("raindrops_style_type") == $raindrops_current_theme_name ){
+                return $css.raindrops_warehouse_clone('_raindrops_indv_css');
+            }
+
+
+            $raindrops_options          = get_option("raindrops_theme_settings");
+            $raindrops_style_type       = $raindrops_options['raindrops_style_type'];
+            $raindrops_options          = get_option('raindrops_theme_settings');
+            $raindrops_base_color       = raindrops_warehouse_clone( 'raindrops_base_color' );
+            $raindrops_hyperlink_color      = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
+            $raindrops_indv_css         = raindrops_design_output($raindrops_style_type).raindrops_color_base($raindrops_base_color);
+
             $css                    .= apply_filters("raindrops_indv_css",$raindrops_indv_css);
-			if( $raindrops_hyperlink_color !== '' ){
-				$css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
-			}
+            if( $raindrops_hyperlink_color !== '' ){
+                $css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
+            }
 
             $background = get_background_image();
-            $color 		= get_background_color();
+            $color      = get_background_color();
 
             if(!empty($background) or !empty($color)){
                 $css = preg_replace("|body[^{]*{[^}]+}|","",$css);
             }
-			
-//body background			
-			$body_background 			= get_theme_mod( "background_color" );
-			$body_background_image 		= get_theme_mod( "background_image" );
-			
-			if( !empty( $body_background ) and !empty( $body_background_image ) ){
-				$css .= "\nbody{background:#".$body_background.' url('. $body_background_image. ');}';
-			}elseif( !empty( $body_background ) ){
-				$css .= "\nbody{background:#".$body_background.';}';
-			}elseif( !empty( $body_background_image ) ){
-				$css 					.= "\nbody{background: url(". $body_background_image. ');}';
-			}
-			
-			
-			
-			
-			
+
+//body background
+            $body_background            = get_theme_mod( "background_color" );
+            $body_background_image      = get_theme_mod( "background_image" );
+
+            if( !empty( $body_background ) and !empty( $body_background_image ) ){
+                $css .= "\nbody{background:#".$body_background.' url('. $body_background_image. ');}';
+            }elseif( !empty( $body_background ) ){
+                $css .= "\nbody{background:#".$body_background.';}';
+            }elseif( !empty( $body_background_image ) ){
+                $css                    .= "\nbody{background: url(". $body_background_image. ');}';
+            }
+
+
+
+
+
             if(empty($css)){
                 $css = "cannot get style value check me";
             }
 
-		/*	$raindrops_options['_raindrops_indv_css'] = $css;
-			update_option( "raindrops_theme_settings", $raindrops_options );*/
-			
-			if(WP_DEBUG !== true){
+        /*  $raindrops_options['_raindrops_indv_css'] = $css;
+            update_option( "raindrops_theme_settings", $raindrops_options );*/
+
+            if(WP_DEBUG !== true){
             $css = str_replace(array("\n","\r","\t",'&quot;','--','\"'),array("","","",'"','','"'),$css);
             }else{
             $css = str_replace(array('&quot;','--','\"'),array('"','','"'),$css);
             }
-			
-			return apply_filters("raindrops_embed_meta_css",$css);
 
-		}
-	}
+            return apply_filters("raindrops_embed_meta_css",$css);
+
+        }
+    }
 
 function raindrops_custom_link_color( $color ){
-	$css =<<< LINK_COLOR_CSS
+    $css =<<< LINK_COLOR_CSS
 .entry-content a:link,
 .entry-content a:active,
 .entry-content a:visited,
 .entry-content a:hover{
 color:{$color};
 }
- 
+
 .entry-title a:link,
 .entry-title a:active,
 .entry-title a:visited,
 .entry-title a:hover{
 color:{$color};
 }
- 
+
 .posted-on a:link,
 .posted-on a:active,
 .posted-on a:visited,
@@ -1244,7 +1244,7 @@ color:{$color};
 .entry-meta-default .author a{
 color:{$color};
 }/*single.php*/
- 
+
 .post .entry-meta,
 .entry-meta a:link,
 .entry-meta a:active,
@@ -1252,7 +1252,7 @@ color:{$color};
 .entry-meta a:hover{
 color:{$color};
 }
- 
+
 .rsidebar a:link,
 .rsidebar a:active,
 .rsidebar a:visited,
@@ -1265,7 +1265,7 @@ color:{$color};
 .lsidebar a:hover{
 color:{$color};
 }
- 
+
 .lsidebar .widgettitle,
 .rsidebar .h2{
 color:{$color};
@@ -1280,13 +1280,13 @@ color:{$color};
 .raindrops-comment-link a:hover em{
 color:{$color}!important;
 }
- 
+
 #nav-above .nav-previous a,
 #nav-above .nav-next a,
 #nav-below .nav-previous a,
 #nav-below .nav-next a{
 color:{$color};
- 
+
 }
 .logged-in-as a:link,
 .logged-in-as a:active,
@@ -1308,9 +1308,9 @@ return apply_filters("raindrops_custom_link_color",$css);
 
     if(!function_exists("raindrops_embed_meta")){
         function raindrops_embed_meta($content){
-			global $post;
+            global $post;
             $result = "";
-			$css = raindrops_embed_css();
+            $css = raindrops_embed_css();
 
             if ( is_single() || is_page() ){
                 if(have_posts()){
@@ -1388,7 +1388,7 @@ return apply_filters("raindrops_custom_link_color",$css);
                 $raindrops_next_length  = strlen(get_the_title($raindrops_next_post_id));
             }
             $html = '<div id="%1$s" class="%2$s"><span class="%3$s">';
-			
+
             printf($html,$position,"clearfix","nav-previous");
             previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>');
             $html = '</span><div class="%1$s">';
@@ -1398,7 +1398,7 @@ return apply_filters("raindrops_custom_link_color",$css);
             echo apply_filters("raindrops_prev_next_post",$html);
         }
     }
-	
+
 /**
  * date.php
  *
@@ -1919,7 +1919,7 @@ body {
     color:%raindrops_header_color%;
 }
 #hd{
-	background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
 }
 .hfeed{
     background:#fff;
@@ -2338,7 +2338,7 @@ span#site-title,
 
 if ( ! function_exists( 'raindrops_admin_header_image' ) ){
     function raindrops_admin_header_image(){
-		global $raindrops_current_theme_name;
+        global $raindrops_current_theme_name;
         $raindrops_header_image = get_header_image();
         /*get_bloginfo( 'name' );*/
         $raindrops_header_style = 'style="color:#'.get_theme_mod( 'header_textcolor' ).'"';
@@ -2347,24 +2347,24 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
         $uploads            = wp_upload_dir();
         $header_image_uri   = $uploads['url'].'/'.raindrops_warehouse_clone('raindrops_header_image');
         $html = '<div id="%1$s" style="%2$s">';
-		$exception_page_width = raindrops_warehouse_clone('raindrops_page_width');
-		if($exception_page_width == 'doc3'){
-		/* doc3 fluid layout , image displayed shrink , expand */ 
-			$add_fluid_style = "width:480px;";
-			$add_fluid_style_description_html = '<div style="position:absolute;left:520px;top:20px;"><p>'.__( 'Current theme is fluid settings','Raindrops' ).'</p><p>'.__( 'image size will be shrink to fit page' , 'Raindrops' ).'</p>';
-			
-			$add_fluid_style_description_html .= '<li><a href="'.admin_url().'themes.php?page=raindrops_settings#raindrops-page-width">'. __( 'Theme Settings', 'Raindrops' ).'</a></li>';
+        $exception_page_width = raindrops_warehouse_clone('raindrops_page_width');
+        if($exception_page_width == 'doc3'){
+        /* doc3 fluid layout , image displayed shrink , expand */
+            $add_fluid_style = "width:480px;";
+            $add_fluid_style_description_html = '<div style="position:absolute;left:520px;top:20px;"><p>'.__( 'Current theme is fluid settings','Raindrops' ).'</p><p>'.__( 'image size will be shrink to fit page' , 'Raindrops' ).'</p>';
 
-			$add_fluid_style_description_html .= '<li><a href="'.admin_url().'admin.php?customize=on&theme='. $raindrops_current_theme_name.'">'.__( 'Settings with Live preview ', 'Raindrops' ).'</a></li></ul>';
-			
-			$add_fluid_style_description_html .= '</div>';
-		}else{
-			$add_fluid_style = "";
-			$add_fluid_style_description_html = '';
-		}
-		
+            $add_fluid_style_description_html .= '<li><a href="'.admin_url().'themes.php?page=raindrops_settings#raindrops-page-width">'. __( 'Theme Settings', 'Raindrops' ).'</a></li>';
+
+            $add_fluid_style_description_html .= '<li><a href="'.admin_url().'admin.php?customize=on&theme='. $raindrops_current_theme_name.'">'.__( 'Settings with Live preview ', 'Raindrops' ).'</a></li></ul>';
+
+            $add_fluid_style_description_html .= '</div>';
+        }else{
+            $add_fluid_style = "";
+            $add_fluid_style_description_html = '';
+        }
+
         printf($html,'hd',raindrops_upload_image_parser($header_image_uri,'inline','#hd').$add_fluid_style);
-		
+
 /** Site description display position
  *
  *
@@ -2396,7 +2396,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
         }else{
             $heading_elememt = 'div';
         }
-		
+
         $title_format = '<%s class="h1" id="site-title"><span><a href="%s" title="%s" rel="%s">%s</a></span></%s>';
         printf(
             $title_format,
@@ -2431,7 +2431,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
      /*   $raindrops_header_image = get_header_image();
         if( !empty($raindrops_header_image)){
             $html = '<div id="%1$s" style="%2$s"><p %3$s>%4$s</p></div><br class="%5$s" /><div>';
-					$image_modify = $image_modify[header_image_data];
+                    $image_modify = $image_modify[header_image_data];
 
             printf($html,
                 "header-image",
@@ -2445,9 +2445,9 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                 "clear"
             );
         }*/
-		//$url = parse_url( get_theme_mod( 'header_image' ) );
-		echo raindrops_header_image();
-		echo $add_fluid_style_description_html;
+        //$url = parse_url( get_theme_mod( 'header_image' ) );
+        echo raindrops_header_image();
+        echo $add_fluid_style_description_html;
     }
 }
 /**
@@ -2477,69 +2477,69 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  */
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4){
         function raindrops_header_image($type = 'default', $args = array() ){
-		//	$image_modify 	= get_theme_mods();
-		//	$image_modify 	= $image_modify['header_image_data'];
-			$url 			= get_theme_mod( 'header_image' );
-			
-			if( empty( $url ) ){ //child theme $url empty
-				$url 			= get_header_image();
-			}		
-			
-			if( $url == 'remove-header'){
-				return;
-			}
-			
-			$uploads 		= wp_upload_dir();
-			$path 			= $uploads['path'].'/'. basename( $url );
-			
-			if( ! file_exists( $path ) ){ //fallback
-				$path       = get_template_directory().'/images/headers/wp3.jpg';
-			}		
-					
-			list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-			$ratio = $img_height / $img_width;
-	
-			$raindrops_page_width = raindrops_warehouse_clone('raindrops_page_width');
-		switch( true ){
+        //  $image_modify   = get_theme_mods();
+        //  $image_modify   = $image_modify['header_image_data'];
+            $url            = get_theme_mod( 'header_image' );
 
-			case 'doc' == $raindrops_page_width :
-				$raindrops_document_width = 750;
-			break;
-			case 'doc2' == $raindrops_page_width :
-				$raindrops_document_width = 950;
-			break;
-			case 'doc4' == $raindrops_page_width :
-				$raindrops_document_width = 974;
-			break;
-			case is_numeric($raindrops_page_width):
-				$raindrops_document_width = $raindrops_page_width;
-			break;
-			case 'doc3' == $raindrops_page_width :
-				$raindrops_document_width = 500;//this value is fake following javascript
-				
-			break;
-		}
-		
-		
-	if( $img_width >= $raindrops_document_width ){
-		$height_current = round($raindrops_document_width * $ratio). 'px';
-		
-		$block_style 	= 'background-size:cover;';
-	
-	}else{	
-		$height_current = $img_height.'px';
-		$block_style = 'background-repeat:no-repeat;background-position:center;background-color:#000;background-size:auto;	background-origin:content-box:';
-	}
-	
-		
+            if( empty( $url ) ){ //child theme $url empty
+                $url            = get_header_image();
+            }
+
+            if( $url == 'remove-header'){
+                return;
+            }
+
+            $uploads        = wp_upload_dir();
+            $path           = $uploads['path'].'/'. basename( $url );
+
+            if( ! file_exists( $path ) ){ //fallback
+                $path       = get_template_directory().'/images/headers/wp3.jpg';
+            }
+
+            list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
+            $ratio = $img_height / $img_width;
+
+            $raindrops_page_width = raindrops_warehouse_clone('raindrops_page_width');
+        switch( true ){
+
+            case 'doc' == $raindrops_page_width :
+                $raindrops_document_width = 750;
+            break;
+            case 'doc2' == $raindrops_page_width :
+                $raindrops_document_width = 950;
+            break;
+            case 'doc4' == $raindrops_page_width :
+                $raindrops_document_width = 974;
+            break;
+            case is_numeric($raindrops_page_width):
+                $raindrops_document_width = $raindrops_page_width;
+            break;
+            case 'doc3' == $raindrops_page_width :
+                $raindrops_document_width = 500;//this value is fake following javascript
+
+            break;
+        }
+
+
+    if( $img_width >= $raindrops_document_width ){
+        $height_current = round($raindrops_document_width * $ratio). 'px';
+
+        $block_style    = 'background-size:cover;';
+
+    }else{
+        $height_current = $img_height.'px';
+        $block_style = 'background-repeat:no-repeat;background-position:center;background-color:#000;background-size:auto;  background-origin:content-box:';
+    }
+
+
             if ( 'blank' == get_theme_mod('header_textcolor') or
                  '' == get_theme_mod( 'header_textcolor' )  ){
                 $description_style = ' style="display:none;"';
             }elseif(preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si", get_theme_mod('header_textcolor'))){
-			
+
                 $description_style = ' style="color:#' . get_theme_mod('header_textcolor') . ';"';
             }else{
-			
+
                 $description_style = '';
                 $height = 0;
             }
@@ -2549,7 +2549,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
             }
             $defaults = array(
               /*  'img' => get_theme_mod( 'header_image' ),*/
-			  	'img' => $url,
+                'img' => $url,
                 'height' => $height_current,
                 'color' => get_theme_mod( 'header_textcolor' ),
                 'style' => $block_style ,
@@ -2558,17 +2558,17 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
             );
             $args = wp_parse_args( $args, $defaults );
             extract( $args, EXTR_SKIP );
-			
-				if(raindrops_warehouse_clone("raindrops_style_type") == 'doc3'){
-					$width = 'width:100%';	
-				}else{
-					$width = 'width:'.$raindrops_document_width.'px';
-				}
-			
-			if($type == 'default' or !isset($type) ){
-			
-				$html = '<div id="%1$s" style="background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s"><p %6$s>%7$s</p></div>';
-				$html = sprintf($html,
+
+                if(raindrops_warehouse_clone("raindrops_style_type") == 'doc3'){
+                    $width = 'width:100%';
+                }else{
+                    $width = 'width:'.$raindrops_document_width.'px';
+                }
+
+            if($type == 'default' or !isset($type) ){
+
+                $html = '<div id="%1$s" style="background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s"><p %6$s>%7$s</p></div>';
+                $html = sprintf($html,
                             'header-image',
                             esc_url( $img ),
                             esc_html( $height ),
@@ -2576,16 +2576,16 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                             esc_html( $style ),// css needs > but this style is inline
                             htmlspecialchars($description_style,ENT_NOQUOTES),// css needs > but this style is inline
                             esc_html($description),
-							$width
+                            $width
                             );
-			
-			
-            	return apply_filters("raindrops_header_image",$html);
-			}elseif($type == 'css'){
-			
-				$css = '#%1$s{background-image:url(%2$s);width:%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
-				$description_style = str_replace( array( 'style=', '"' ),'',$description_style );
-				$css = sprintf($css,
+
+
+                return apply_filters("raindrops_header_image",$html);
+            }elseif($type == 'css'){
+
+                $css = '#%1$s{background-image:url(%2$s);width:%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
+                $description_style = str_replace( array( 'style=', '"' ),'',$description_style );
+                $css = sprintf($css,
                             'header-image',
                             esc_url( $img ),
                             esc_html( $height ),
@@ -2593,13 +2593,13 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                             esc_html( $style ),// css needs > but this style is inline
                             htmlspecialchars($description_style,ENT_NOQUOTES),// css needs > but this style is inline
                             esc_html($description),
-							$width
+                            $width
                             );
-				return apply_filters("raindrops_header_image_css",$css);
-			}elseif($type == 'elements'){
-			
-				$elements = '<div id="%1$s"><p>%7$s</p></div>';
-				$elements = sprintf($elements,
+                return apply_filters("raindrops_header_image_css",$css);
+            }elseif($type == 'elements'){
+
+                $elements = '<div id="%1$s"><p>%7$s</p></div>';
+                $elements = sprintf($elements,
                             'header-image',
                             esc_url( $img ),
                             esc_html( $height ),
@@ -2607,10 +2607,10 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                             esc_html( $style ),// css needs > but this style is inline
                             htmlspecialchars($description_style,ENT_NOQUOTES),// css needs > but this style is inline
                             esc_html($description),
-							$width
+                            $width
                             );
-            	return apply_filters("raindrops_header_image_elements",$elements);
-			}
+                return apply_filters("raindrops_header_image_elements",$elements);
+            }
         }
     }
 /**
@@ -2654,22 +2654,22 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  */
     if ( ! function_exists( 'raindrops_site_title' ) ){
         function raindrops_site_title($text = ""){
-		
-		    if( is_home() or is_front_page() ){
+
+            if( is_home() or is_front_page() ){
                 $heading_elememt = 'h1';
             }else{
                 $heading_elememt = 'div';
             }
-			$header_text_color = get_theme_mod('header_textcolor');
+            $header_text_color = get_theme_mod('header_textcolor');
             if ( 'blank' == $header_text_color || '' == $header_text_color ){
                 $hd_style = '';
             }else{
-			
+
                 $hd_style = ' style="color:#'. $header_text_color . ';"';
-				
+
             }
-		/*preview good but not saved*/	
-			//set_theme_mod( 'header_textcolor', $header_text_color );
+        /*preview good but not saved*/
+            //set_theme_mod( 'header_textcolor', $header_text_color );
 
             $title_format = '<%1$s class="h1" id="site-title"><a href="%2$s" title="%3$s" rel="%4$s"><span>%5$s</span></a></%1$s>';
             $html = sprintf(
@@ -2917,14 +2917,14 @@ if(!function_exists("small_screen_check")){
 if(!function_exists("fallback_user_interface_view") ){
 
     function fallback_user_interface_view() {
-	global $raindrops_current_theme_name, $raindrops_version;
+    global $raindrops_current_theme_name, $raindrops_version;
         wp_deregister_style( 'style' );
         wp_deregister_style( 'raindrops_reset_fonts_grids' );
         wp_deregister_style( 'raindrops_grids' );
         wp_deregister_style( 'raindrops_fonts' );
         wp_deregister_style( 'raindrops_css3' );
         wp_deregister_style( 'child' );
-		$current_theme		= $raindrops_current_theme_name;
+        $current_theme      = $raindrops_current_theme_name;
         $fallback_style     = get_template_directory_uri().'/fallback.css';
                     wp_register_style('fallback_style', $fallback_style,array(),$raindrops_version,'all');
                     wp_enqueue_style( 'fallback_style');
@@ -2941,8 +2941,8 @@ if(!function_exists("fallback_user_interface_view") ){
     }
 
 }
-        
-	
+
+
 
 /**
  *
@@ -2951,81 +2951,81 @@ if(!function_exists("fallback_user_interface_view") ){
  *
  *
  */
-	if(raindrops_warehouse_clone('raindrops_page_width') == "doc3"){
-		add_action('wp_footer','raindrops_small_device_helper');
-	}
-	
-	if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
-		function raindrops_small_device_helper(){
-			global $is_IE, $raindrops_fluid_maximum_width;
-			$raindrops_header_image_uri   = get_header_image();
-		?>
-			<script type="text/javascript">
-			(function(){
-			jQuery(function(){
-				var width = jQuery(window).width();
-				function raindrops_resizes(){
-					var image_exists = '<?php echo $raindrops_header_image_uri;?>';
-					var width = jQuery(window).width();
-								
-					if( image_exists !== '' ){
-	<?php							
-			$url 		= get_theme_mod( 'header_image' );
-			$uploads 	= wp_upload_dir();
-			$path 		= $uploads['path'].'/'. basename( $url );
-				if( ! file_exists( $path ) ){
-					$raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );	
-				}
-			
-			if( $url !== 'remove-header' ){
-				
-				list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-				$ratio = $img_height / $img_width;
-				if( ! empty( $ratio )){
-	?>
-						var ratio = <?php echo $ratio;?>;		
-						var height = width * ratio;
-						
-						jQuery('#header-image').removeAttr('style').css({'background-image':'url('+ image_exists + ')','height': height, 'background-size': 'cover'});
-			<?php }//empty $ratio
-			 }//remove header ?>			
-					}
-		<?php
-		/**
-		 * Check window size and mouse position
-		 * Controll childlen menu show right or left side.
-		 *
-		 *
-		 *
-		 */
-		 ?>
-				 if ( jQuery('body > div').is('#doc3') ) {
-						jQuery("#access").mousemove(function(e){
-							var menu_item_position = e.pageX ;
-		
-							if( width - 200 < menu_item_position){
-								jQuery('#access ul ul ul').addClass('left');
-							}else if( width / 2 >  menu_item_position){
-								jQuery('#access ul ul ul ul').removeClass('left');
-							}
-						});
-						
-						if( width > <?php echo $raindrops_fluid_maximum_width;?>){
-							//centering page when browser width > $raindrops_fluid_maximun_width
-							jQuery('#doc3').css({'margin':'auto'});
-						}
-						
-					
-					}
-				}
-				raindrops_resizes();
-				jQuery(window).resize( function () {raindrops_resizes()});
-				});
-			})(jQuery);
-			</script>
-			<?php
-		}
-	}
+    if(raindrops_warehouse_clone('raindrops_page_width') == "doc3"){
+        add_action('wp_footer','raindrops_small_device_helper');
+    }
+
+    if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
+        function raindrops_small_device_helper(){
+            global $is_IE, $raindrops_fluid_maximum_width;
+            $raindrops_header_image_uri   = get_header_image();
+        ?>
+            <script type="text/javascript">
+            (function(){
+            jQuery(function(){
+                var width = jQuery(window).width();
+                function raindrops_resizes(){
+                    var image_exists = '<?php echo $raindrops_header_image_uri;?>';
+                    var width = jQuery(window).width();
+
+                    if( image_exists !== '' ){
+    <?php
+            $url        = get_theme_mod( 'header_image' );
+            $uploads    = wp_upload_dir();
+            $path       = $uploads['path'].'/'. basename( $url );
+                if( ! file_exists( $path ) ){
+                    $raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );
+                }
+
+            if( $url !== 'remove-header' ){
+
+                list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
+                $ratio = $img_height / $img_width;
+                if( ! empty( $ratio )){
+    ?>
+                        var ratio = <?php echo $ratio;?>;
+                        var height = width * ratio;
+
+                        jQuery('#header-image').removeAttr('style').css({'background-image':'url('+ image_exists + ')','height': height, 'background-size': 'cover'});
+            <?php }//empty $ratio
+             }//remove header ?>
+                    }
+        <?php
+        /**
+         * Check window size and mouse position
+         * Controll childlen menu show right or left side.
+         *
+         *
+         *
+         */
+         ?>
+                 if ( jQuery('body > div').is('#doc3') ) {
+                        jQuery("#access").mousemove(function(e){
+                            var menu_item_position = e.pageX ;
+
+                            if( width - 200 < menu_item_position){
+                                jQuery('#access ul ul ul').addClass('left');
+                            }else if( width / 2 >  menu_item_position){
+                                jQuery('#access ul ul ul ul').removeClass('left');
+                            }
+                        });
+
+                        if( width > <?php echo $raindrops_fluid_maximum_width;?>){
+                            //centering page when browser width > $raindrops_fluid_maximun_width
+                            jQuery('#doc3').css({'margin':'auto'});
+                        }
+
+
+                    }
+                }
+                raindrops_resizes();
+                jQuery(window).resize( function () {raindrops_resizes()});
+                });
+            })(jQuery);
+            </script>
+            <?php
+        }
+    }
 
 /**
  *
@@ -3034,22 +3034,22 @@ if(!function_exists("fallback_user_interface_view") ){
  *
  *
  */
-	if ( ! function_exists( 'raindrops_custom_width' ) ) {
-		 function raindrops_custom_width(){
-					global $raindrops_page_width;
-						$c_width = (int)$raindrops_page_width;
-						$width    = $c_width / 13;
-						$ie_width = $width * 0.9759;
-					$custom_content_width = '/* set custom content width start */'.
-					'#custom-doc {margin:auto;text-align:left;'."\n".
-					'width:'.round($width,0).'em;'."\n".
-					'*width:'.round($ie_width,0).'em;'."\n".
-					'min-width:'.round($width * 0.7,0).'em;}/* set custom content width end */';
-		
-					return apply_filters("raindrops_custom_width",$custom_content_width);
-		 }
-	 
-	}
+    if ( ! function_exists( 'raindrops_custom_width' ) ) {
+         function raindrops_custom_width(){
+                    global $raindrops_page_width;
+                        $c_width = (int)$raindrops_page_width;
+                        $width    = $c_width / 13;
+                        $ie_width = $width * 0.9759;
+                    $custom_content_width = '/* set custom content width start */'.
+                    '#custom-doc {margin:auto;text-align:left;'."\n".
+                    'width:'.round($width,0).'em;'."\n".
+                    '*width:'.round($ie_width,0).'em;'."\n".
+                    'min-width:'.round($width * 0.7,0).'em;}/* set custom content width end */';
+
+                    return apply_filters("raindrops_custom_width",$custom_content_width);
+         }
+
+    }
 
 /**
  *
@@ -3059,7 +3059,7 @@ if(!function_exists("fallback_user_interface_view") ){
  *
  */
 
-	if ( ! function_exists( 'raindrops_is_fluid' ) ) {
+    if ( ! function_exists( 'raindrops_is_fluid' ) ) {
         function raindrops_is_fluid(){
             global  $is_IE, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width;
             $width                  = intval($raindrops_fluid_minimum_width);
@@ -3089,9 +3089,9 @@ if(!function_exists("fallback_user_interface_view") ){
                             'px;}/* raindrops is fluid end */';
             return apply_filters("raindrops_is_fluid",$fluid_width);
         }
-    } 
- 
- 
+    }
+
+
     if (!function_exists('raindrops_is_fixed')) {
         function raindrops_is_fixed(){
             global $is_IE,$raindrops_page_width;
@@ -3143,29 +3143,29 @@ if(!function_exists("fallback_user_interface_view") ){
  *
  *
  */
-	if( ! function_exists( 'raindrops_gallerys' ) ){
-	
-		function raindrops_gallerys(){
-		
-			$raindrops_gallerys = ".gallery { margin: auto; overflow: hidden; width: 100%; }\n
-			.gallery dl { margin: 0px; }\n
-			.gallery .gallery-item { float: left; margin-top: 10px; text-align: center; }\n
-			.gallery img { border: 2px solid #cfcfcf;max-width:100%; }\n
-			.gallery .gallery-caption { margin-left: 0; }\n
-			.gallery br { clear: both }\n
-			.gallery-columns-2 dl{ width: 50% }\n
-			.gallery-columns-3 dl{ width: 33.3% }\n
-			.gallery-columns-4 dl{ width: 25% }\n
-			.gallery-columns-5 dl{ width: 20% }\n
-			.gallery-columns-6 dl{ width: 16.6% }\n
-			.gallery-columns-7 dl{ width: 14.28% }\n
-			.gallery-columns-8 dl{ width: 12.5% }\n
-			.gallery-columns-9 dl{ width: 11.1% }\n";
+    if( ! function_exists( 'raindrops_gallerys' ) ){
 
-	
-			return apply_filters("raindrops_gallerys_css",$raindrops_gallerys);
-		}
-	}
+        function raindrops_gallerys(){
+
+            $raindrops_gallerys = ".gallery { margin: auto; overflow: hidden; width: 100%; }\n
+            .gallery dl { margin: 0px; }\n
+            .gallery .gallery-item { float: left; margin-top: 10px; text-align: center; }\n
+            .gallery img { border: 2px solid #cfcfcf;max-width:100%; }\n
+            .gallery .gallery-caption { margin-left: 0; }\n
+            .gallery br { clear: both }\n
+            .gallery-columns-2 dl{ width: 50% }\n
+            .gallery-columns-3 dl{ width: 33.3% }\n
+            .gallery-columns-4 dl{ width: 25% }\n
+            .gallery-columns-5 dl{ width: 20% }\n
+            .gallery-columns-6 dl{ width: 16.6% }\n
+            .gallery-columns-7 dl{ width: 14.28% }\n
+            .gallery-columns-8 dl{ width: 12.5% }\n
+            .gallery-columns-9 dl{ width: 11.1% }\n";
+
+
+            return apply_filters("raindrops_gallerys_css",$raindrops_gallerys);
+        }
+    }
 /**
  *
  *
@@ -3175,174 +3175,174 @@ if(!function_exists("fallback_user_interface_view") ){
  */
 
 if( $raindrops_wp_version >= '3.4' ){
-	add_action( 'customize_register', 'raindrops_customize_register' );
+    add_action( 'customize_register', 'raindrops_customize_register' );
 }
 
 if( ! function_exists( 'raindrops_customize_register' ) ){
-	function raindrops_customize_register($wp_customize) {
-	global $raindrops_current_theme_name;
-	
-		$wp_customize->add_section( 'raindrops_theme_settings', array(
-			'title'          => __( 'Raindrops theme settings', 'raindrops' ),
-			'priority'       => 25,
-		) );
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_style_type]', array(
-			'default'        => 'dark',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_page_width]', array(
-			'default'        => 'doc2',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_base_color]', array(
-			'default'        => '#444444',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_show_right_sidebar]', array(
-			'default'        => 'show',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_col_width]', array(
-			'default'        => 't2',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_show_menu_primary]', array(
-			'default'        => 'show',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
+    function raindrops_customize_register($wp_customize) {
+    global $raindrops_current_theme_name;
 
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_default_fonts_color]', array(
-			'default'        => '',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_hyperlink_color]', array(
-			'default'        => '',
-			'type'           => 'option',
-			'capability'     => 'edit_theme_options',
-		) );
-		
-	/*	global $color_en_140;
-		
-		$native_color = $color_en_140;
-	
-		$wp_customize->add_control( 'raindrops_base_color', array(
-			'label'      => __( 'Base color', 'raindrops' ),
-			'section'    => 'raindrops_theme_settings',
-			'settings'   => 'raindrops_theme_settings[raindrops_base_color]',
-			'type'       => 'select',
-			'choices'    => array_flip($native_color),
-		) );*/
-		
-		$wp_customize->add_control(	new WP_Customize_Color_Control( $wp_customize
-					, 'raindrops_base_color'
-					, array(
-						'label'   => __( 'Base color', 'raindrops' )
-						, 'section' => 'raindrops_theme_settings'
-						, 'settings'   => 'raindrops_theme_settings[raindrops_base_color]'
-						) 
-				) 
-			);	
-		
-		$raindrops_style_type_choices = raindrops_register_styles("w3standard");
-		//unset($raindrops_style_type_choices[$raindrops_current_theme_name]);
-		
-		$wp_customize->add_control( 'raindrops_style_type', array(
-			'label'      => __( 'Color Type', 'raindrops' ),
-			'section'    => 'raindrops_theme_settings',
-			'settings'   => 'raindrops_theme_settings[raindrops_style_type]',
-			'type'       => 'radio',
-			'choices'    => $raindrops_style_type_choices,
-		) );	
-		$wp_customize->add_control( 'raindrops_page_width', array(
-			'label'      => __( 'Page width', 'raindrops' ),
-			'section'    => 'raindrops_theme_settings',
-			'settings'   => 'raindrops_theme_settings[raindrops_page_width]',
-			'type'       => 'radio',
-			'choices'    => array(
-				'doc' => '750px fix',
-				'doc2' => '950px fix',
-				'doc3' => 'fluid',
-				'doc4' => '974px fix',
-				),
-		) );
-		
-		$wp_customize->add_control( 'raindrops_show_right_sidebar', array(
-			'label'      => __( 'Extra Sidebar', 'raindrops' ),
-			'section'    => 'raindrops_theme_settings',
-			'settings'   => 'raindrops_theme_settings[raindrops_show_right_sidebar]',
-			'type'       => 'radio',
-			'choices'    => array(
-				'show' => 'Show',
-				'hide' => 'Hide',
-				),
-		) );
-		$raindrops_col_width = array(
-				"left 160px"=>"t1",
-				"left 180px"=>"t2",
-				"left 300px"=>"t3",
-				"right 180px"=>"t4",
-				"right 240px"=>"t5",
-				"right 300px"=>"t6"
-				);
-		
-		$wp_customize->add_control( 'raindrops_col_width', array(
-			'label'      => __( 'Default Sidebar', 'raindrops' ),
-			'section'    => 'raindrops_theme_settings',
-			'settings'   => 'raindrops_theme_settings[raindrops_col_width]',
-			'type'       => 'radio',
-			'choices'    => array_flip( $raindrops_col_width ),
-		) );
-	
-		$wp_customize->add_control( 'raindrops_show_menu_primary', array(
-			'label'      => __( 'Menu Primary', 'raindrops' ),
-			'section'    => 'raindrops_theme_settings',
-			'settings'   => 'raindrops_theme_settings[raindrops_show_menu_primary]',
-			'type'       => 'radio',
-			'choices'    => array(
-				'show' => 'Show',
-				'hide' => 'Hide',
-				),
-		) );	
-		$wp_customize->add_control(	new WP_Customize_Color_Control( $wp_customize
-					, 'raindrops_default_fonts_color'
-					, array(
-						'label'   => __( 'Font Color', 'raindrops' )
-						, 'section' => 'raindrops_theme_settings'
-						, 'settings'   => 'raindrops_theme_settings[raindrops_default_fonts_color]'
-						) 
-				) 
-			);		
-		$wp_customize->add_control(	new WP_Customize_Color_Control( $wp_customize
-					, 'raindrops_hyperlink_color'
-					, array(
-						'label'   => __( 'Link Color', 'raindrops' )
-						, 'section' => 'raindrops_theme_settings'
-						, 'settings'   => 'raindrops_theme_settings[raindrops_hyperlink_color]'
-						) 
-				) 
-			);		
-	
-	}
+        $wp_customize->add_section( 'raindrops_theme_settings', array(
+            'title'          => __( 'Raindrops theme settings', 'raindrops' ),
+            'priority'       => 25,
+        ) );
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_style_type]', array(
+            'default'        => 'dark',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_page_width]', array(
+            'default'        => 'doc2',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_base_color]', array(
+            'default'        => '#444444',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_show_right_sidebar]', array(
+            'default'        => 'show',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_col_width]', array(
+            'default'        => 't2',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_show_menu_primary]', array(
+            'default'        => 'show',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_default_fonts_color]', array(
+            'default'        => '',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+        $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_hyperlink_color]', array(
+            'default'        => '',
+            'type'           => 'option',
+            'capability'     => 'edit_theme_options',
+        ) );
+
+    /*  global $color_en_140;
+
+        $native_color = $color_en_140;
+
+        $wp_customize->add_control( 'raindrops_base_color', array(
+            'label'      => __( 'Base color', 'raindrops' ),
+            'section'    => 'raindrops_theme_settings',
+            'settings'   => 'raindrops_theme_settings[raindrops_base_color]',
+            'type'       => 'select',
+            'choices'    => array_flip($native_color),
+        ) );*/
+
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
+                    , 'raindrops_base_color'
+                    , array(
+                        'label'   => __( 'Base color', 'raindrops' )
+                        , 'section' => 'raindrops_theme_settings'
+                        , 'settings'   => 'raindrops_theme_settings[raindrops_base_color]'
+                        )
+                )
+            );
+
+        $raindrops_style_type_choices = raindrops_register_styles("w3standard");
+        //unset($raindrops_style_type_choices[$raindrops_current_theme_name]);
+
+        $wp_customize->add_control( 'raindrops_style_type', array(
+            'label'      => __( 'Color Type', 'raindrops' ),
+            'section'    => 'raindrops_theme_settings',
+            'settings'   => 'raindrops_theme_settings[raindrops_style_type]',
+            'type'       => 'radio',
+            'choices'    => $raindrops_style_type_choices,
+        ) );
+        $wp_customize->add_control( 'raindrops_page_width', array(
+            'label'      => __( 'Page width', 'raindrops' ),
+            'section'    => 'raindrops_theme_settings',
+            'settings'   => 'raindrops_theme_settings[raindrops_page_width]',
+            'type'       => 'radio',
+            'choices'    => array(
+                'doc' => '750px fix',
+                'doc2' => '950px fix',
+                'doc3' => 'fluid',
+                'doc4' => '974px fix',
+                ),
+        ) );
+
+        $wp_customize->add_control( 'raindrops_show_right_sidebar', array(
+            'label'      => __( 'Extra Sidebar', 'raindrops' ),
+            'section'    => 'raindrops_theme_settings',
+            'settings'   => 'raindrops_theme_settings[raindrops_show_right_sidebar]',
+            'type'       => 'radio',
+            'choices'    => array(
+                'show' => 'Show',
+                'hide' => 'Hide',
+                ),
+        ) );
+        $raindrops_col_width = array(
+                "left 160px"=>"t1",
+                "left 180px"=>"t2",
+                "left 300px"=>"t3",
+                "right 180px"=>"t4",
+                "right 240px"=>"t5",
+                "right 300px"=>"t6"
+                );
+
+        $wp_customize->add_control( 'raindrops_col_width', array(
+            'label'      => __( 'Default Sidebar', 'raindrops' ),
+            'section'    => 'raindrops_theme_settings',
+            'settings'   => 'raindrops_theme_settings[raindrops_col_width]',
+            'type'       => 'radio',
+            'choices'    => array_flip( $raindrops_col_width ),
+        ) );
+
+        $wp_customize->add_control( 'raindrops_show_menu_primary', array(
+            'label'      => __( 'Menu Primary', 'raindrops' ),
+            'section'    => 'raindrops_theme_settings',
+            'settings'   => 'raindrops_theme_settings[raindrops_show_menu_primary]',
+            'type'       => 'radio',
+            'choices'    => array(
+                'show' => 'Show',
+                'hide' => 'Hide',
+                ),
+        ) );
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
+                    , 'raindrops_default_fonts_color'
+                    , array(
+                        'label'   => __( 'Font Color', 'raindrops' )
+                        , 'section' => 'raindrops_theme_settings'
+                        , 'settings'   => 'raindrops_theme_settings[raindrops_default_fonts_color]'
+                        )
+                )
+            );
+        $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
+                    , 'raindrops_hyperlink_color'
+                    , array(
+                        'label'   => __( 'Link Color', 'raindrops' )
+                        , 'section' => 'raindrops_theme_settings'
+                        , 'settings'   => 'raindrops_theme_settings[raindrops_hyperlink_color]'
+                        )
+                )
+            );
+
+    }
 
 }
 
-	add_filter( 'raindrops_prev_next_post', 'raindrops_remove_element');
-	add_filter( 'raindrops_posted_on', 'raindrops_remove_element');
-	add_filter( 'raindrops_posted_in', 'raindrops_remove_element');
-	
-	function raindrops_remove_element($content){
-	return preg_replace('!<span[^>]+><\/span>!','',$content);
-	
-	}
+    add_filter( 'raindrops_prev_next_post', 'raindrops_remove_element');
+    add_filter( 'raindrops_posted_on', 'raindrops_remove_element');
+    add_filter( 'raindrops_posted_in', 'raindrops_remove_element');
+
+    function raindrops_remove_element($content){
+    return preg_replace('!<span[^>]+><\/span>!','',$content);
+
+    }
 /**
  *
  *
@@ -3351,18 +3351,10 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
  * thanks  aison
  */
 if( ! function_exists( 'raindrops_page_menu_args' ) ){
-	function raindrops_page_menu_args( $args ) {
-		$args['show_home'] = true;
-		return $args;
-	}
-}
-
-
-function raindrops_esc_textarea( $css ){
-// CSS need E > F	Matches any F element that is a child of an element E.
-
-return str_replace( '&gt;', '>', $css );
-
+    function raindrops_page_menu_args( $args ) {
+        $args['show_home'] = true;
+        return $args;
+    }
 }
 /**
  *
@@ -3371,7 +3363,7 @@ return str_replace( '&gt;', '>', $css );
  *
  *
  */
-		if( $raindrops_wp_version < '3.4' ){
-			include(get_template_directory().'/backward-compatibility.php');
-		}
+        if( $raindrops_wp_version < '3.4' ){
+            include(get_template_directory().'/backward-compatibility.php');
+        }
 ?>

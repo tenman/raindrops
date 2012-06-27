@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.976
+version:0.977
     This version changes Bug fixed for Child theme
 fixed
     raindrops_fallback_title()

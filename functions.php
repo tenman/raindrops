@@ -2982,13 +2982,21 @@ if(!function_exists("fallback_user_interface_view") ){
                 list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
                 $ratio = $img_height / $img_width;
                 if( ! empty( $ratio )){
-    ?>
-                        var ratio = <?php echo $ratio;?>;
-                        var height = width * ratio;
 
-                        jQuery('#header-image').removeAttr('style').css({'background-image':'url('+ image_exists + ')','height': height, 'background-size': 'cover'});
-            <?php }//empty $ratio
-             }//remove header ?>
+
+                }else{
+                    //first_time can not get ratio
+                    //$header_image_width  = get_custom_header()->width;
+                    //$header_image_height = get_custom_header()->height;
+                    //this value HEADER_IMAGE_HEIGHT / HEADER_IMAGE_WIDTH
+                    $ratio = 0.2084210;
+                }//empty $ratio
+            ?>
+                var ratio = <?php echo $ratio;?>;
+                var height = width * ratio;
+
+                jQuery('#header-image').removeAttr('style').css({'background-image':'url('+ image_exists + ')','height': height, 'background-size': 'cover'});
+    <?php }//remove header ?>
                     }
         <?php
         /**

@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0.978
+fixed
+    Fixed Waring Error Raindrops option Upload image
+        When upload image success and image max size check.
+        Add file existance check.
+            option-panel.php
+----------------------------------------------
+Changelog -----------------------------------
 version:0.977
     This version changes Bug fixed for Child theme
 fixed

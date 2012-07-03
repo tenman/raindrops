@@ -30,7 +30,6 @@ get_header( $raindrops_document_type );?>
         dynamic_sidebar('sidebar-3');
         echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
     } ?>
-
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
         <?php get_template_part( 'loop', 'default' );?>

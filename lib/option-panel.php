@@ -993,13 +993,16 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
               return array(false,$result);
             }
           if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $save_dir.$propaty.$_FILES['uploadfile']['name'])) {
-            chmod($save_dir. $_FILES['uploadfile']['name'], 0644);
-            list($width, $height, $type, $attr) = getimagesize($save_dir. $_FILES['uploadfile']['name']);
-            if($raindrops_max_width < $width or $height > $raindrops_max_width * 1.5){
-                unlink($save_dir. $_FILES['uploadfile']['name']);
-                $result = sprintf(__("%d px * %d width too big. limit %d px","Raindrops"),$width,$height,$raindrops_max_width);
-                return array(false,$result.'g');
-            }
+		  
+			if( file_exists( $save_dir. $_FILES['uploadfile']['name'] ) ){
+				chmod($save_dir. $_FILES['uploadfile']['name'], 0644);
+				list($width, $height, $type, $attr) = getimagesize($save_dir. $_FILES['uploadfile']['name']);
+				if($raindrops_max_width < $width or $height > $raindrops_max_width * 1.5){
+					unlink($save_dir. $_FILES['uploadfile']['name']);
+					$result = sprintf(__("%d px * %d width too big. limit %d px","Raindrops"),$width,$height,$raindrops_max_width);
+					return array(false,$result.'g');
+				}
+			}
                 $uploaded_url = $upload_info['url'].'/raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
                 $new_settings = get_option('raindrops_theme_settings');
                 if($_POST['purpose'] == 'header'){

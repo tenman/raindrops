@@ -5,6 +5,11 @@ fixed
         When upload image success and image max size check.
         Add file existance check.
             option-panel.php
+Add
+    function raindrops_custom_link_color()
+    function raindrops_enqueue_comment_reply()
+        Add function exists check.
+    Support WordPress random-uploaded-image
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.977

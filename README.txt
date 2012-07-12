@@ -20,6 +20,17 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 0.980
+    functions.php line:20
+        $raindrops_actions_hook_message = false;
+        WP_DEBUG need true.
+        and When value change true then show action_hook point and message.
+        You can customize the Raindrops very Easy.
+    blank_front.php
+        for front page template.
+        You not need  PHP skills , WordPress template functions knowledge.
+        Only y or '' settings, Please try.
+
 ver 0.975
     Remove textarea theme options page for customize Automatic CSS edit.
     Original theme design another way, for example below.

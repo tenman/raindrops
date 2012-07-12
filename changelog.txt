@@ -1,4 +1,41 @@
 Changelog -----------------------------------
+version:0.980
+    This version changes for Structure which can do customization simply.
+    Note:
+    functions.php line:20
+     $raindrops_actions_hook_message = false;
+        WP_DEBUG need true.
+        and When value change true then show action_hook point and message.
+        You can customize the Raindrops very Easy.
+    blank_front.php
+        for front page template.
+         You not need  PHP skills , WordPress template functions knowledge.
+         Only y or '' settings, Please try.
+added
+    New functions
+        raindrops_prepend_doc()
+        function raindrops_after_nav_menu()
+        raindrops_prepend_entry_content()
+        raindrops_append_entry_content
+        raindrops_prepend_extra_sidebar( )
+        raindrops_append_extra_sidebar()
+        raindrops_prepend_default_sidebar()
+        raindrops_append_default_sidebar()
+        raindrops_prepend_footer()
+        raindrops_append_footer()
+        raindrops_append_doc()
+        function insert_message_action_hook_position()
+        function raindrops_action_hook_messages()
+        raindrops_entry_title()
+        raindrops_entry_content()
+        raindrops_next_prev_links()
+        raindrops_sidebar_menus()
+        raindrops_recent_posts( )
+        raindrops_category_posts()
+        raindrops_tag_posts()
+        raindrops_sidebar_menus()
+----------------------------------------------
+Changelog -----------------------------------
 version:0.979
 fixed
     Fixed Waring Error Raindrops option Upload image

@@ -2546,6 +2546,8 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                 $height = 0;
                 $description_style = ' style="display:none;"';
             }
+			
+			$description_style = apply_filters( 'raindrops_header_image_description_attr', $description_style );
             $defaults = array(
               /*  'img' => get_theme_mod( 'header_image' ),*/
                 'img' => $url,

@@ -12,8 +12,8 @@
  * @uses bloginfo('html_type')
  * @uses bloginfo( 'charset' )
  * @uses wp_title( '|', true, 'right' )
- * @uses bloginfo( 'name' ) 
- * @uses get_bloginfo( 'description', 'display' ) 
+ * @uses bloginfo( 'name' )
+ * @uses get_bloginfo( 'description', 'display' )
  * @uses bloginfo( 'pingback_url' )
  * @uses is_singular()
  * @uses get_option( 'thread_comments' )
@@ -30,9 +30,9 @@
  * @uses home_url()
  * @uses esc_attr()
  * @uses get_bloginfo( 'name', 'display' )
- * @uses raindrops_header_image($args = array()) 
- * 
- * 
+ * @uses raindrops_header_image($args = array())
+ *
+ *
  */
 echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -43,21 +43,6 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 <meta http-equiv="content-style-type" content="text/css" />
 <title><?php wp_title('|', true, 'right')?></title>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php
-
-if( is_single() and  have_posts() ){
-while ( have_posts() ) { the_post();
-?>
-<meta property="og:title" content="<?php the_title(); ?>" />
-<meta property="og:description" content="<?php the_excerpt(); ?>" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="<?php the_permalink() ?>" />
-<meta property="og:image" content="http://www.odekake.biz/wp/wp-content/uploads/raindrops-itemheader-145x145.jpg" />
-<meta property="og:site_name" content="example" />
-<?php
-}
-}
-?>
 <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
@@ -108,7 +93,7 @@ echo raindrops_header_image( 'elements' );
 if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
-<?php 
+<?php
 wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'primary') ); ?>
 </div>
 <br class="clear" />

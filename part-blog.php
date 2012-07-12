@@ -20,8 +20,8 @@
  * @uses edit_post_link()
  * @uses the_permalink()
  * @uses the_title_attribute()
- * @uses the_title()
- * @uses the_content()
+ * @uses raindrops_entry_title()
+ * @uses raindrops_entry_content()
  * @uses wp_link_pages()
  * @uses is_single()
  * @uses raindrops_prev_next_post()
@@ -56,17 +56,17 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
 </li>
 </ul>
 <div class="blog-main left">
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
-</h2>
+
+<?php raindrops_entry_title();?>
+
 <div class="entry-content clearfix">
-<?php 
-if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
-	the_excerpt();
-}else{
-	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
-}
-?>
-<div class="clearfix"></div>
+<?php raindrops_prepend_entry_content();?>
+
+<?php raindrops_entry_content();?>
+
+<div class="clearfix">
+<?php raindrops_append_entry_content();?>
+</div>
 <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 </div>
 <div class="clearfix"></div>

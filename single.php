@@ -27,7 +27,8 @@
  * @uses get_footer( $raindrops_document_type )
  * @uses get_attachment_link( )
  * @uses get_post_thumbnail_id()
- *
+ * @uses raindrops_prepend_default_sidebar()
+ * @uses raindrops_append_default_sidebar()
  *
  */
 $raindrops_current_column = raindrops_show_one_column();
@@ -185,14 +186,9 @@ if($cat == "blog" or $cat == "gallery"){?>
  *
  */
 
-if ( $wp_query->max_num_pages > 1 ){ ?>
-<div id="nav-below" class="clearfix"> <span class="nav-previous">
-<?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
-</span> <span class="nav-next">
-<?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-</span> </div>
-<!-- #nav-above -->
-<?php } }?>
+	raindrops_next_prev_links( "nav-below" );
+
+ }?>
 </div>
 <?php
 /**
@@ -206,12 +202,16 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
 
 <?php if(raindrops_show_one_column() == 3){?>
 <div class="yui-u">
+<?php raindrops_prepend_extra_sidebar( );?>
 <?php get_sidebar('extra');?>
+<?php raindrops_append_extra_sidebar();?>
 </div>
 <?php
 }elseif($rsidebar_show and $raindrops_current_column == false){?>
 <div class="yui-u">
+<?php raindrops_prepend_extra_sidebar( );?>
 <?php get_sidebar('extra');?>
+<?php raindrops_append_extra_sidebar();?>
 </div>
 <?php } ?>
 
@@ -233,7 +233,9 @@ if ( $wp_query->max_num_pages > 1 ){ ?>
 if(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?>
 <div class="yui-b">
 <?php //lsidebar start ?>
-<?php get_sidebar('default'); ?>
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
 </div>
 <?php }?>
 

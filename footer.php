@@ -14,13 +14,13 @@
  * @uses ucwords()
  * @uses get_current_theme()
  * @uses wp_footer()
- *
+ * @uses raindrops_prepend_footer()
+ * @uses raindrops_append_footer()
+ * @uses raindrops_append_doc()
  */
 ?>
-<?php
-
-?>
 <div id="ft" class="clear">
+<?php raindrops_prepend_footer();?>
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">
 <?php if ( is_active_sidebar( 'sidebar-4' ) ) {?>
@@ -52,7 +52,9 @@ $raindrops_theme_name
 );
 ?>
 </address>
-</div>
+<?php raindrops_append_footer();?>
+  </div>
+<?php raindrops_append_doc();?>
 </div>
 <?php wp_footer(); ?>
 </body>

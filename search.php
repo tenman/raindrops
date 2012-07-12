@@ -5,6 +5,9 @@
  *
  * @package Raindrops
  * @since Raindrops 0.1
+ *
+ * @uses raindrops_prepend_default_sidebar()
+ * @uses raindrops_append_default_sidebar()
  */
 ?>
 <?php get_header( $raindrops_document_type ); ?>
@@ -17,35 +20,22 @@
         <h1 class="pagetitle h1">Search Results :<?php the_search_query(); ?></h1>
         <ul class="search-results">
         <li>
-        <?php
-        if ( $wp_query->max_num_pages > 1 ){ ?>
-        <div id="nav-above" class="clearfix"> <span class="nav-previous">
-          <?php     next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
-          </span><span class="nav-next">
-          <?php     previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-          </span></div>
-        <?php   }?>
+        <?php raindrops_next_prev_links();?>
         </li>
       <?php while (have_posts()){ the_post(); ?>
           <li>
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-              <h2 class="h2 entry-title">
-            <?php
-            if( has_post_thumbnail($post->ID)){
-                echo '<span class="h2-thumb">';
-                the_post_thumbnail(array(48,48),array("style"=>"vertical-align:middle;"));
-                echo '</span>';
-            }?>
-                <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php echo the_title(); ?></a></h2>
+			
+			<?php raindrops_entry_title();?>
+
 
               <div class="posted-on"><?php raindrops_posted_on();?></div>
               <div class="entry-content clearfix">
-			  <?php 
-				if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
-					the_excerpt();
-				}else{
-					the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
-				}?>
+			  <?php raindrops_prepend_entry_content();?>
+			  
+			  <?php raindrops_entry_content();?>
+			 
+				<?php raindrops_append_entry_content();?>
 			  </div>
               <div class="entry-meta">
                 <?php raindrops_posted_in();?>
@@ -57,13 +47,7 @@
           </li>
       <?php }?>
         <li>
-        <?php if ( $wp_query->max_num_pages > 1 ){ ?>
-        <div id="nav-below" class="clearfix"><span class="nav-previous">
-          <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
-          </span><span class="nav-next">
-          <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-          </span> </div>
-        <?php }?>
+        <?php raindrops_next_prev_links( "nav-below" );?>
         </li>
         </ul>
 
@@ -76,12 +60,19 @@
         </div>
         <?php } ?>
       </div>
-      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
+      <div class="yui-u">
+	  <?php raindrops_prepend_extra_sidebar( );?>
+	  <?php if($rsidebar_show){get_sidebar('extra');} ?>
+	  <?php raindrops_append_extra_sidebar();?>
+	  </div>
     </div>
   </div>
 </div>
 <div class="yui-b">
-<?php get_sidebar('default'); ?>
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
+
 </div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

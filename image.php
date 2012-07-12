@@ -14,13 +14,14 @@
  * @uses the_post()
  * @uses the_ID()
  * @uses post_class()
- * @uses the_title()
+ * @uses raindrops_entry_title()
  * @uses get_permalink($post->post_parent)
  * @uses get_the_title($post->post_parent)
  * @uses get_post_meta($post->ID, 'image', true) 
  * @uses wp_get_attachment_image_src($image, 'full')
  * @uses the_title_attribute()
- * @uses  
+ * @uses raindrops_prepend_default_sidebar()
+ * @uses raindrops_append_default_sidebar()
  */
 ?>
 <?php get_header( $raindrops_document_type ); ?>
@@ -33,9 +34,11 @@
         <div id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
           <div class="entry attachment raindrops-image-page">
             <h2 class="image-title h2"><?php the_title(); ?></h2>
+			<?php if( $post->post_parent !== 0){?>
             <p class="parent-entry"><?php _e("Entry : ",'Raindrops');?>
               <a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php echo get_the_title($post->post_parent); ?></a>
             </p>
+			<?php }?>
             <?php $image = get_post_meta($post->ID, 'image', true); ?>
             <?php $image = wp_get_attachment_image_src($image, 'full'); ?>
             <p class="image"><a href="<?php echo $image[0];?>" ><img src="<?php echo $image[0];?>" width="100%"  alt="<?php the_title_attribute(); ?>" /></a></p>
@@ -45,8 +48,10 @@
                   <?php if ( !empty($post->post_excerpt) ) the_excerpt(); // this is the "caption" ?>
                 </dd>
                 <dd class="serif">
-                  <?php the_content('<p >Read the rest of this entry &raquo;</p>'); ?>
+				<?php raindrops_prepend_entry_content();?>
+                  <?php raindrops_entry_content(); ?>
                   <br class="clear" />
+				<?php raindrops_append_entry_content();?>  
                 </dd>
               </dl>
             </div>
@@ -70,10 +75,18 @@
         <p><?php _e("Sorry, no attachments matched your criteria.","Raindrops");?></p>
         <?php } ?>
       </div>
-      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
+      <div class="yui-u">
+	  <?php raindrops_prepend_extra_sidebar( );?>
+	  <?php if($rsidebar_show){get_sidebar('extra');} ?>
+	  <?php raindrops_append_extra_sidebar();?>
+	  </div>
     </div>
   </div>
 </div>
-<div class="yui-b"><?php get_sidebar('default'); ?></div>
+<div class="yui-b">
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
+</div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

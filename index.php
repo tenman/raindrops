@@ -35,12 +35,20 @@ get_header( $raindrops_document_type );?>
         <?php get_template_part( 'loop', 'default' );?>
         <br style="clear:both" />
       </div>
-      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
-      <?php //add nest grid here?>
+      <div class="yui-u">
+	  <?php raindrops_prepend_extra_sidebar( );?>
+	  <?php if($rsidebar_show){get_sidebar('extra');} ?>
+	  <?php raindrops_append_extra_sidebar();?>
+	  </div>
+      <?php //add nest grid here ?>
     </div>
   </div>
 </div>
-<div class="yui-b"> <?php get_sidebar('default'); ?></div>
+<div class="yui-b">
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
+</div>
 </div>
 
 <?php get_footer( $raindrops_document_type ); ?>

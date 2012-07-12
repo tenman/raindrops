@@ -2273,3 +2273,25 @@ sup {
 x:-o-prefocus, .raindrops-lightbox-overlay img {
 	height: 100%;
 }
+
+.raindrops-recent-posts
+.raindrops-category-posts
+.raindrops-tag-posts{
+clear:both;	
+}
+.raindrops-recent-posts .title,
+.raindrops-category-posts .title,
+.raindrops-tag-posts .title{
+	
+}
+.raindrops-recent-posts .list,
+.raindrops-category-posts .list,
+.raindrops-tag-posts .list{
+ margin:0;
+}
+
+#yui-main .raindrops-recent-posts .list li,
+#yui-main .raindrops-category-posts .list li,
+#yui-main .raindrops-tag-posts .list li{
+ list-style-type:none;	
+}

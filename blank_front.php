@@ -10,110 +10,73 @@
  *
  */
 /**
- * The xhtml1.0 transitional header for our theme.
+ * When you display the Sticky post, $show_sticky_post set value true. 
  *
- * Displays all of the <head> section and everything up till <div id="bd">
  *
- * @package Raindrops
- * @since Raindrops 0.1
- *
- * @uses get_bloginfo( 'charset' )
- * @uses language_attributes('xhtml')
- * @uses bloginfo('html_type')
- * @uses bloginfo( 'charset' )
- * @uses wp_title( '|', true, 'right' )
- * @uses bloginfo( 'name' )
- * @uses get_bloginfo( 'description', 'display' )
- * @uses bloginfo( 'pingback_url' )
- * @uses is_singular()
- * @uses get_option( 'thread_comments' )
- * @uses wp_enqueue_script( 'comment-reply' )
- * @uses wp_head()
- * @uses body_class($this_blog)
- * @uses raindrops_warehouse('raindrops_page_width')
- * @uses raindrops_warehouse('raindrops_col_width')
- * @uses wp_upload_dir()
- * @uses raindrops_upload_image_parser($header_image_uri,'inline','#hd')
- * @uses get_theme_mod('header_textcolor', HEADER_TEXTCOLOR)
- * @uses get_header_textcolor()
- * @uses preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",get_header_textcolor())
- * @uses home_url()
- * @uses esc_attr()
- * @uses get_bloginfo( 'name', 'display' )
- * @uses raindrops_header_image($args = array())
- *
- * @uses raindrops_show_one_column()
- * @uses add_filter()
- * @uses get_header()
- * @uses raindrops_yui_class_modify()
- * @uses have_posts()
- * @uses the_post()
- * @uses the_ID()
- * @uses post_class()
- * @uses the_title_attribute()
- * @uses the_title()
- * @uses the_content()
- * @uses wp_link_pages()
- * @uses the_category(', ')
- * @uses edit_post_link()
- * @uses raindrops_delete_post_link()
- * @uses comments_template( '', true )
- * @uses next_posts_link()
- * @uses previous_posts_link()
- * @uses get_sidebar('extra')
- * @uses get_sidebar('default')
- * @uses get_footer( $raindrops_document_type )
- *
- * @uses wp_upload_dir()
- * @uses raindrops_upload_image_parser($footer_image_uri,'inline','#ft')
- * @uses is_active_sidebar( 'sidebar-4' )
- * @uses get_bloginfo('name')
- * @uses get_bloginfo('rss2_url')
- * @uses ucwords()
- * @uses get_current_theme()
- * @uses wp_footer()
  *
  */
-/*
-You can add widget
-    the_widget($widget, $instance, $args);
-    see http://codex.wordpress.org/Function_Reference/the_widget
-    widget name below
-        (string) the widget's PHP class name.
-        WP_Widget_Archives -- Archives
-        WP_Widget_Calendar -- Calendar
-        WP_Widget_Categories -- Categories
-        WP_Widget_Links -- Links
-        WP_Widget_Meta -- Meta
-        WP_Widget_Pages -- Pages
-        WP_Widget_Recent_Comments -- Recent Comments
-        WP_Widget_Recent_Posts -- Recent Posts
-        WP_Widget_RSS -- RSS
-        WP_Widget_Search -- Search (a search from)
-        WP_Widget_Tag_Cloud -- Tag Cloud
-        WP_Widget_Text -- Text
-        WP_Nav_Menu_Widget
+$show_sticky_post = false;
 
-    for example
-        line:319 , 343
-
-        //the_widget here start
-
-            the_widget("WP_Widget_Calendar");//add widget
-        //the_widget here end
-*/
+$raindrops_sticky_post_args = array(
+		'posts_per_page' => 1,
+		'post__in'  => get_option( 'sticky_posts' ),
+		'ignore_sticky_posts' => 1
+	);
 /**
- * Settings
- *  need display value 'y'
- *  no need display value ''
+ * When you display links list of the Recent Posts , please delete comment out of add_action(). 
+ *
  *
  *
  */
+//position
+//add_action('raindrops_append_entry_content','raindrops_recent_posts' );
+//config
+$raindrops_recent_posts_setting= array( 'title'=>__('Recent posts','Raindrops'),
+										'numberposts'=> 5 	//show count
+										);
 
+/**
+ * When you display the category contain post list , please delete comment out of add_action(). 
+ *
+ *
+ *
+ *
+ */
+//position
+//add_action('raindrops_append_entry_content','raindrops_category_posts' );
+//config										
+$raindrops_category_posts_setting= array( 'title'=> __( 'Categories', 'Raindrops' ) ,
+											'numberposts' => 5 ,	//show count
+											'category'=> 0 ,//category id
+											'orderby'=> 'post_date', 
+											'order'=> 'DESC' 
+										);
+/**
+ *　When you display the tagged entry list , please delete comment out of add_action().
+ *
+ *
+ *
+ *
+ */
+//position
+//add_action('raindrops_append_entry_content','raindrops_tag_posts' );
+//config
+$raindrops_tag_posts_setting = array('title'=> __( 'Tags', 'Raindrops' ),
+									'numberposts'=> 5 ,		//show count	
+									'tax_query'=> array( 
+												array(
+													'taxonomy'=>'post_tag',
+													'terms'=> array('post-formats') ,//tag slug
+													'field'=>'slug',
+													'operator'=>'IN'
+													),
+												'relation'=> 'AND'
+												)
+									);
 /**
  * Display or not Site title
  *
- *
+ * value y then show other hide.
  *
  *
  */
@@ -121,7 +84,7 @@ $raindrops_display_title                    = 'y';
 /**
  * Display or not Site description
  *
- *
+ * value y then show other hide.
  *
  *
  */
@@ -130,7 +93,7 @@ $raindrops_display_description              = 'y';
 /**
  * Display or not Site header image
  *
- *
+ * value y then show other hide.
  *
  *
  */
@@ -138,66 +101,74 @@ $raindrops_display_header_image             = 'y';
 /**
  * Display or not horizontal navigation
  *
- *
+ * value y then show other hide.
  *
  *
  */
-$raindrops_display_horizontal_navigation    = 'y';
+$raindrops_display_nav_menus    = 'y';
+
 /**
- * Keep the space extra sidebar
+ * Display or not widget
  *
- * when ''  sidebar contents displayed after page content
- *
- *
+ * value y then show other hide.
  */
-$raindrops_display_extra_sidebar_column     = 'y';
+$raindrops_display_widget            = 'y';
+
 /**
- * Display or not extrasidebar contents
+ * Add your html , line:211 $custom_text_extra_sidebar 
  *
- * when ''  $substitution_extra_sidebar value show
- * need $raindrops_display_extra_sidebar_column = 'y'
- * when $raindrops_display_extra_sidebar_column = ''
- *  extra sidebar contents shows page content after
- */
-$raindrops_display_extra_sidebar            = 'y';
+ * value y then show other hide.
+ *
+ */ 
+$raindrops_add_custom_text_extra_sidebar     = '';
 /**
- * Keep the space default sidebar
+ * Add your html , line:194 $custom_text_default_sidebar 
  *
- * when ''  sidebar contents displayed after page content
- *
+ * value y then show other hide.
  *
  */
-$raindrops_display_default_sidebar_column   = 'y';
+$raindrops_add_custom_text_default_sidebar   = '';
+
 /**
- * Display or not defaultsidebar contents
+ * When you not need left margin ( blank default sidebar width ).
  *
- * when ''  $substitution_default_sidebar value show
- * need $raindrops_display_default_sidebar_column = 'y'
- * when $raindrops_display_default_sidebar_column = ''
- *  default sidebar contents shows page content after
+ * value y then show other hide.
+ *
  */
-$raindrops_display_default_sidebar          = 'y';
+$raindrops_remove_left_margin = '';
+
+/**
+ * When you not need right margin ( blank extra sidebar width ).
+ *
+ * value y then show other hide.
+ *
+ */
+
+$raindrops_remove_right_margin = '';
 /**
  * Display or not page title
+ * value y then show other hide.
  *
  */
 $raindrops_display_page_title               = 'y';
 /**
  * Display or not page content
  *
- * when ''  $substitution_content value show
+ * value y then show other hide.
  *
  */
 $raindrops_display_page_content             = 'y';
 /**
  * Display or not wp_link_pages
  *
+ * value y then show other hide.
  *
  */
 $raindrops_display_wp_link_pages            = 'y';
 /**
  * Display or not comment form
  *
+ * value y then show other hide.
  *
  */
 
@@ -205,22 +176,21 @@ $raindrops_display_comments_template        = 'y';
 /**
  * Display or not next previus link
  *
+ * value y then show other hide.
  *
  */
 $raindrops_display_next_previus_link        = 'y';
 
 /**
- * substitution_content
+ * custom_text_default_sidebar
  *
- * This showes when $raindrops_display_page_content = ''
  *
  *
  */
 
-$substitution_content = <<<SUBSTITUTION_CONTENT
+$custom_text_default_sidebar = <<<SUBSTITUTION_CONTENT
 
-<h1>hello world</h1>
-
+<h2>hello world</h2>
 
 
 
@@ -230,292 +200,184 @@ SUBSTITUTION_CONTENT;
  * substitution extra sidebar content
  *
  * This showes when
- *      $raindrops_display_extra_sidebar_column     = 'y';
- *      and
- *      $raindrops_display_extra_sidebar            = '';
+ *      raindrops_add_custom_text_extra_sidebar     = 'y';
  */
 
-$substitution_extra_sidebar = <<<SUBSTITUTION_EXTRA_SIDEBAR
+$custom_text_extra_sidebar = <<<SUBSTITUTION_EXTRA_SIDEBAR
 
 <h2>hello world</h2>
-
 
 
 
 SUBSTITUTION_EXTRA_SIDEBAR;
 
-/**
- * substitution default sidebar content
- *
- * This showes when
- *      $raindrops_display_default_sidebar_column   = 'y';
- *      and
- *      $raindrops_display_default_sidebar          = '';
- */
-
-$substitution_default_sidebar = <<<SUBSTITUTION_DEFAULT_SIDEBAR
-
-<h2>hello world</h2>
 
 
+////////////////////////////////Functions and filters//////////////////////////////////////////////
 
-
-SUBSTITUTION_DEFAULT_SIDEBAR;
-
-
-////////////////////////////////End Settings ////////////////////////////////
-
-/**
- * Template area
- *
- *
- *
- *
- */
-    $raindrops_current_column = raindrops_show_one_column();
-    if($raindrops_current_column !== false){
-        add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_custom");
-    }
-    global $current_blog;
-    if(isset($current_blog)){
-        $this_blog = array("b". $current_blog->blog_id);
-    }else{
-        $this_blog = array();
-    }
- echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
-<head profile="http://gmpg.org/xfn/11">
-<meta http-equiv="content-type" content="<?php bloginfo('html_type');?>; charset=<?php bloginfo( 'charset' ); ?>" />
-<meta http-equiv="content-script-type" content="text/javascript" />
-<meta http-equiv="content-style-type" content="text/css" />
-<title>
-<?php wp_title('|', true, 'right')?>
-</title>
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php wp_head();?>
-</head>
-<body <?php body_class($this_blog); ?>>
-<div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php if($raindrops_display_default_sidebar_column == 'y'){echo 'yui-'.raindrops_warehouse('raindrops_col_width');} ?> hfeed">
-  <div id="top">
-    <?php
-$uploads = wp_upload_dir();
-$header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
-?>
-<div id="hd" style="<?php echo raindrops_upload_image_parser($header_image_uri,'inline','#hd'); ?>">
-<?php
-/**
- * Conditional Switch html headding element
- *
- * example
- *  raindrops_site_title(" add some text");
- *
- */
-if($raindrops_display_title == 'y'){
-    echo raindrops_site_title();
+if($raindrops_display_title !== 'y'){
+	add_filter( 'raindrops_site_title', '__return_null' );
 }
-/**
- * Site description diaplay at header bar when if header text Display Text value is no.
- *
- * example
- *  raindrops_site_description(array("text"=>"replace text","switch" => 'style="display:none;"');
- *
- *
- */
-if($raindrops_display_description == 'y'){
-    echo raindrops_site_description();
+if($raindrops_display_description !== 'y'){
+	add_filter( 'raindrops_site_description', '__return_null' );
 }
-?>
-    </div>
-<?php
-/**
- * header image
- * array("style"=>"border:3px solid red;",'img' => 'replace your image uri','color' => 'hexcolor not need #','description' => 'replace your text','description_style' => 'desctiption style rule')
- *
- *
- *
- */
-if($raindrops_display_header_image == 'y'){
-    echo raindrops_header_image();
+if($raindrops_display_header_image !== 'y'){
+	add_filter( 'raindrops_header_image_elements', '__return_null' );
 }
-?>
-<?php
-/**
- * horizontal menubar
- *
- *
- *
- *
- */
-if($raindrops_display_horizontal_navigation == 'y'){
-?>
-    <div id="access">
-      <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>">
-        <?php _e( 'Skip to content', 'raindrops' ); ?>
-        </a></div>
-      <?php
-wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary'));
-?>
-    </div>
-    <?php }?>
-    <br class="clear" />
-  </div>
-  <div id="bd" class="clearfix">
-    <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
-    <div id="yui-main">
-      <div <?php if($raindrops_display_extra_sidebar_column == 'y' or $raindrops_display_default_sidebar_column == 'y'){ echo 'class="yui-b"';}?>
-   <?php if($raindrops_current_column == '1'){
-    echo "style=\"width:100%;margin-left:0;\"";}?>>
-        <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-          <div class="yui-u first"
-<?php
-if($raindrops_current_column == 3){
-
-}elseif($raindrops_current_column == 1){
-    echo 'style="width:99%;"';
-}elseif($raindrops_current_column == 2){
-
-    echo 'style="width:99%;"';
-}elseif($raindrops_current_column == false){
-    is_2col_raindrops('style="width:99%;"');
+if($raindrops_display_nav_menus !== 'y'){
+	add_filter( 'wp_nav_menu', '__return_null' );
 }
-if($raindrops_display_extra_sidebar_column !== 'y'){
-     echo 'style="width:99%;"';
+if( $raindrops_display_page_content !== 'y' ){
+
+	
+			add_filter( 'raindrops_entry_content', '__return_null' );
+	
+		
+		add_filter( 'raindrops_posted_in', '__return_null' );
+		add_filter( 'raindrops_posted_on', '__return_null' );
 }
-?>>
-            <?php if (have_posts()){ ?>
-            <?php       while (have_posts()){ the_post(); ?>
-            <div class="entry page">
-              <div id="post-<?php the_ID(); ?>" <?php post_class();?>>
-                <?php if($raindrops_display_page_title == 'y'){?>
-                <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-                  <?php the_title(); ?>
-                  </a></h2>
-                <?php }//raindrops_display_page_title?>
-                <div class="entry-content">
-                  <?php if($raindrops_display_page_content == 'y'){?>
-                  <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
-                  <?php
-              }else{
-              echo $substitution_content;
-              }   ?>
-                  <br class="clear" />
-                </div>
-                <?php if($raindrops_display_wp_link_pages == 'y'){?>
-                <div class="linkpage clearfix">
-                  <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
-                </div>
-                <?php }//raindrops_display_wp_link_pages ?>
-                <br class="clear" />
-                <div class="postmetadata">
-                  <?php if($raindrops_display_page_content == 'y'){?>
-                  <?php the_category(', ') ?>
-                  &nbsp;
-                  <?php }//raindrops_display_postmetada  use $raindrops_display_page_content ?>
-                  <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
-                  <?php     raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
-                </div>
-                <?php
-            if($raindrops_display_comments_template == 'y'){
-                comments_template( '', true );
-            }
-            ?>
-              </div>
-            </div>
-            <?php       } //endwhile ?>
-            <?php       if ( $wp_query->max_num_pages > 1  and $raindrops_display_next_previus_link == 'y'){ ?>
-            <div id="nav-below" class="clearfix"> <span class="nav-previous">
-              <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
-              </span> <span class="nav-next">
-              <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-              </span> </div>
-            <?php       } //end max_num_pages > 1 ?>
-            <?php } //end have post?>
-          </div>
-          <?php if(raindrops_show_one_column() == 3){?>
-          <div class="yui-u">
-            <?php get_sidebar('extra');?>
-          </div>
-          <?php
-}elseif($rsidebar_show and $raindrops_current_column == false){?>
-         <div class="yui-u">
-            <?php
-if($raindrops_display_extra_sidebar == 'y'){
-    get_sidebar('extra');
-}elseif($raindrops_display_extra_sidebar_column == 'y'){
-    echo $substitution_extra_sidebar;
-//the_widget here start
-
-
-//the_widget here end
+if($raindrops_display_wp_link_pages !== 'y'){
+	add_filter( 'wp_link_pages_args','raindrops_wp_link_pages_filter');
 }
-?>
-          </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-    <?php if($raindrops_current_column == 3 or $raindrops_current_column == 2){?>
-    <div <?php if($raindrops_display_extra_sidebar_column == 'y'){ echo 'class="yui-b"';}?>>
-      <?php get_sidebar('default'); ?>
-    </div>
-    <?php
-}elseif(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?>
-    <div <?php if($raindrops_display_default_sidebar_column == 'y'){echo 'class="yui-b"';}?>>
-      <?php //lsidebar start ?>
-      <?php
-if($raindrops_display_default_sidebar == 'y'){
-    get_sidebar('default');
-}elseif($raindrops_display_default_sidebar_column == 'y'){
-    echo $substitution_default_sidebar;
-//the_widget here start
+function raindrops_wp_link_pages_filter($args){
+	$args['echo'] = false;
+	return $args;
+}
+				
+if( $raindrops_display_comments_template !== 'y' ){
+	add_filter( 'comments_open', '__return_false' );
+}
 
+if($raindrops_display_next_previus_link !== 'y' ){
+	add_filter( 'raindrops_next_prev_links', '__return_null' );
+}
 
-//the_widget here end
-}?>
-    </div>
-    <?php }?>
-  </div>
-  <?php
-$uploads = wp_upload_dir();
-$footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
-?>
-  <div id="ft" class="clear" style="<?php echo raindrops_upload_image_parser($footer_image_uri,'inline','#ft'); ?>">
-    <!--footer-widget start-->
-    <div class="widget-wrapper clearfix">
-      <?php if ( is_active_sidebar( 'sidebar-4' ) ) {?>
-      <ul>
-        <?php dynamic_sidebar('sidebar-4');?>
-      </ul>
-      <?php } ?>
-      <br class="clear" />
-    </div>
-    <!--footer-widget end-->
-    <address>
-    <?php
-printf(
-'<small>&copy;%s %s <a href="%s" class="entry-rss">%s</a> and <a href="%s" class="comments-rss">%s</a></small>&nbsp;',
-date("Y"),
-get_bloginfo('name'),
-get_bloginfo('rss2_url') ,
-__("Entries <span>(RSS)</span>","Raindrops"),
-get_bloginfo('comments_rss2_url'),
-__('Comments <span>(RSS)</span>',"Raindrops")
-);
-if( is_child_theme() ){
-    $raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
+if( $raindrops_display_widget          !== 'y' ){
+	add_filter( 'dynamic_sidebar_params', '__return_empty_array' );
+	add_filter( 'raindrops_sidebar_menus', '__return_null' );
+}	
+if( $raindrops_add_custom_text_default_sidebar   == 'y' ){
+		add_action( 'raindrops_prepend_default_sidebar','raindrops_prepend_default_sidebar_filter');
+}
+
+if( $raindrops_add_custom_text_extra_sidebar   == 'y' ){
+		add_action( 'raindrops_prepend_extra_sidebar','raindrops_prepend_default_sidebar_filter');
+}
+
+function raindrops_prepend_default_sidebar_filter(){
+	global $custom_text_default_sidebar;
+	echo $custom_text_default_sidebar;
+}
+function raindrops_prepend_extra_sidebar_filter(){
+	global $custom_text_extra_sidebar;
+	echo $custom_text_extra_sidebar;
+}
+
+if( $raindrops_display_page_title !== 'y' ){
+add_filter( 'raindrops_entry_title',  '__return_null' );
+
+}
+
+if( $raindrops_remove_left_margin !== 'y' ){
+
+$raindrops_devide_column_class= 'yui-b';
+
 }else{
-    $raindrops_theme_name = __("Raindrops Theme","Raindrops");
+$raindrops_devide_column_class= '';
+
 }
-printf(
-'&nbsp;<small><a href="%s">%s</a></small>&nbsp;&nbsp;',
-'http://www.tenman.info/wp3/raindrops',
-$raindrops_theme_name
-);
-?>
-    </address>
+
+if( $raindrops_remove_left_margin !== 'y' ){
+
+$raindrops_devide_column_extra_class= 'yui-u';
+
+}else{
+$raindrops_devide_column_extra_class= '';
+
+}
+////////////////////////////////Template ////////////////////////////////
+get_header( $raindrops_document_type );?>
+<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+<div id="yui-main">
+  <div class="<?php echo $raindrops_devide_column_class;?>">
+    <?php
+/**
+ *  Widget only home
+ *
+ */
+    if ( is_home() and  is_active_sidebar('sidebar-3') ) {
+        echo '<div class="topsidebar">'."\n".'<ul>';
+        dynamic_sidebar('sidebar-3');
+        echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
+    } ?>
+    <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
+      <div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php is_2col_raindrops('style="width:99%;"');?> 
+	  <?php if( $raindrops_devide_column_extra_class !== 'yui-u' ){echo 'style="width:99%;"';}?> >
+<?php if( $show_sticky_post == true ){ ?>
+	  <div>
+	  	<ul class="raindrops-sticky-posts">
+<?php
+/**
+ *  Sticky post
+ *
+ */
+		$the_query = new WP_Query( $raindrops_sticky_post_args );
+		
+		while ( $the_query->have_posts() ){ $the_query->the_post();	
+			
+				$html = '<div id="post-%1$s" class="%2$s">';
+				
+				printf( $html, 
+						get_the_ID(),
+						join( ' ', get_post_class( ) )
+						);
+		
+				$html = '<h2 class="%1$s"><a href="%2$s">%3$s</a></h2>';
+			
+				printf( $html,
+						'entry-title h2',
+						get_permalink(), 
+						the_title('','',false)
+						);
+						
+				$html = '<div class="%1$s">';
+				printf( $html, 'entry-content clearfix' );
+	
+
+				if(RAINDROPS_USE_LIST_EXCERPT == true){
+					the_excerpt();
+				}else{
+					the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
+				}
+				
+				print( '</div>' );
+						
+		}	//end while
+				wp_reset_postdata(); ?>
+		</ul>
+	  </div>
+<?php }		//endif( $show_sticky_post == true ) ?>
+		<?php get_template_part( 'loop', 'default' );?>
+        <br style="clear:both" />
+      </div>
+	 <?php if( $raindrops_devide_column_extra_class == 'yui-u' ){?>
+      <div class="yui-u">
+	  <?php raindrops_prepend_extra_sidebar( );?>
+	  <?php if($rsidebar_show){get_sidebar('extra');} ?>
+	  <?php raindrops_append_extra_sidebar();?>
+	  </div>
+	 <?php }//if( $raindrops_devide_column_class == 'yui-u' )?>
+      <?php //add nest grid here ?>
+    </div>
   </div>
 </div>
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php if( $raindrops_devide_column_class == 'yui-b' ){?>
+<div class="yui-b">
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
+</div>
+<?php }//if( $raindrops_devide_column_class == 'yui-b' ) ?>
+
+</div>
+<?php get_footer( $raindrops_document_type ); ?>

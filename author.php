@@ -21,12 +21,14 @@ Template Name: Auther
  * @uses the_time($raindrops_date_format)
  * @uses the_permalink()
  * @uses the_title_attribute()
- * @uses the_title()
+ * @uses raindrops_entry_title()
  * @uses the_category(', ')
  * @uses get_the_tag_list( '', ', ' )
  * @uses get_sidebar('extra')	include template part file
  * @uses get_sidebar('default')	include template part file
  * @uses get_footer( $raindrops_document_type ) 
+ * @uses raindrops_prepend_default_sidebar()
+ * @uses raindrops_append_default_sidebar()
  */
 
 ?>        
@@ -94,10 +96,18 @@ Template Name: Auther
 		  <!-- End Loop -->
 		</dl>
       </div>
-      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
+      <div class="yui-u">
+	  <?php raindrops_prepend_extra_sidebar( );?>
+	  <?php if($rsidebar_show){get_sidebar('extra');} ?>
+	  <?php raindrops_append_extra_sidebar();?>
+</div>
     </div>
   </div>
 </div>
-<div class="yui-b"><?php get_sidebar('default'); ?></div>
+<div class="yui-b">
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
+</div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

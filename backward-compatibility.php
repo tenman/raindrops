@@ -147,3 +147,32 @@ if( $raindrops_wp_version < '3.4' ){
 	
 	}
 
+/**
+ * Deprecated function
+ * Must use wp_title() and filter function raindrops_filter_title
+ *
+ * Template function return title for html title element
+ *
+ * This function has filter hook name raindrops_wp_title
+ * @param string text  append to title strings
+ * @return string text
+ */
+    if ( ! function_exists( 'raindrops_wp_title' ) ){
+        function raindrops_wp_title($text = ""){
+            global $page, $paged;
+            $title = wp_title( '|', false, 'right' );
+            $title .= get_bloginfo( 'name' );
+            $site_description = get_bloginfo( 'description', 'display' );
+            if ( $site_description and ( is_home() or is_front_page() ) ){
+                $title .= " | $site_description";
+            }
+            // Add a page number if necessary:
+            if ( $paged >= 2 or $page >= 2 ){
+                $title .= ' | ' . sprintf( __( 'Page %s', 'raindrops' ), max( $paged, $page ) );
+            }
+            if(!empty($string)){
+                $title .= esc_html($text);
+            }
+            return  $title ;
+        }
+    }

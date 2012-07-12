@@ -15,8 +15,8 @@
  * @uses the_ID()
  * @uses post_class()
  * @uses the_title_attribute()
- * @uses the_title()
- * @uses the_content()
+ * @uses raindrops_entry_title()
+ * @uses raindrops_entry_content()
  * @uses wp_link_pages()
  * @uses the_category(', ')
  * @uses edit_post_link()
@@ -27,7 +27,8 @@
  * @uses get_sidebar('extra')
  * @uses get_sidebar('default')
  * @uses get_footer( $raindrops_document_type )
- *
+ * @uses raindrops_prepend_default_sidebar()
+ * @uses raindrops_append_default_sidebar()
  */
 $raindrops_current_column = raindrops_show_one_column();
 if($raindrops_current_column !== false){
@@ -58,12 +59,14 @@ if($raindrops_current_column == 3){
         <?php       while (have_posts()){ the_post(); ?>
         <div class="entry page">
           <div id="post-<?php the_ID(); ?>" <?php post_class();?>>
-            <h2 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-              <?php the_title(); ?>
-              </a></h2>
-               <div class="entry-content">
-              <?php the_content(__('Read the rest of this entry &raquo;','Raindrops')); ?>
+		  
+            <?php raindrops_entry_title(); ?>
+			
+            <div class="entry-content">
+			  <?php raindrops_prepend_entry_content();?>
+              <?php raindrops_entry_content();?>
               <br class="clear" />
+			  <?php raindrops_append_entry_content();?>
             </div>
             <div class="linkpage clearfix">
               <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
@@ -79,23 +82,23 @@ if($raindrops_current_column == 3){
           </div>
         </div>
         <?php       } //endwhile ?>
-        <?php       if ( $wp_query->max_num_pages > 1 ){ ?>
-        <div id="nav-below" class="clearfix"> <span class="nav-previous">
-          <?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ); ?>
-          </span> <span class="nav-next">
-          <?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?>
-          </span> </div>
-        <?php       } //end max_num_pages > 1 ?>
+		
+        <?php raindrops_next_prev_links( "nav-below" );?>
+		
         <?php } //end have post?>
       </div>
       <?php if(raindrops_show_one_column() == 3){?>
 <div class="yui-u">
+<?php raindrops_prepend_extra_sidebar( );?>
 <?php get_sidebar('extra');?>
+<?php raindrops_append_extra_sidebar();?>
 </div>
 <?php
 }elseif($rsidebar_show and $raindrops_current_column == false){?>
 <div class="yui-u">
+<?php raindrops_prepend_extra_sidebar( );?>
 <?php get_sidebar('extra');?>
+<?php raindrops_append_extra_sidebar();?>
 </div>
 <?php } ?>
     </div>
@@ -103,7 +106,9 @@ if($raindrops_current_column == 3){
 </div>
 <?php if(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?><div class="yui-b">
 <?php //lsidebar start ?>
-<?php get_sidebar('default'); ?>
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
 </div>
 <?php }?>
 

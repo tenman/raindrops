@@ -7,14 +7,15 @@
  *
  */
 ?>
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
-</h2>
+<?php raindrops_entry_title();?>
+
 
 <div class="entry-meta-gallery">
 <?php raindrops_posted_on(); ?>
 </div>
 
 <div class="entry-content">
+<?php raindrops_prepend_entry_content();?>
 <?php
 $images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
 
@@ -25,14 +26,10 @@ $attachment_page = $image->post_title;
 <?php if((!preg_match('!\[gallery!',get_the_content()) and is_single()) or !is_single() ){?>
 <div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
 <?php }?>
-<?php 
-if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
-	the_excerpt();
-}else{
-	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
-}
-?>
-<div class="clearfix"></div>
+<?php raindrops_entry_content();?>
+<div class="clearfix">
+<?php raindrops_append_entry_content();?>
+</div>
 
 <p style="margin:1em;"><em><?php echo sprintf( __( 'This gallery contains %1$s photographs in all as ', 'Raindrops' ),$total_images).'&nbsp;'.wp_get_attachment_link( $image->ID ,false,true).'&nbsp;'.__('photograph etc.','Raindrops');?></em></p>
 </div>

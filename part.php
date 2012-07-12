@@ -8,8 +8,8 @@
  */
 ?><div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<h2 class="entry-title h2"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permalink to %s', 'Raindrops' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
-</h2>
+<?php raindrops_entry_title();?>
+
 <div class="entry-meta-default">
 <?php raindrops_posted_on(); ?>
 </div>
@@ -21,14 +21,10 @@
 <?php }else{ // is not archives & search?>
 
 <div class="entry-content clearfix">
-<?php 
-if(RAINDROPS_USE_LIST_EXCERPT !== false and !is_single()){
-	the_excerpt();
-}else{
-	the_content( __( 'Continue&nbsp;reading&nbsp;<span class="meta-nav">&rarr;</span>', 'Raindrops' ) );
-}
-?>
+<?php raindrops_prepend_entry_content();?>
+<?php raindrops_entry_content();?>
 <?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
+<?php raindrops_append_entry_content();?>
 </div>
 <?php } // end is_archive() || is_search() ?>
 

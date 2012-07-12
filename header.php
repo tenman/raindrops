@@ -43,10 +43,26 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 <meta http-equiv="content-style-type" content="text/css" />
 <title><?php wp_title('|', true, 'right')?></title>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php
+
+if( is_single() and  have_posts() ){
+while ( have_posts() ) { the_post();
+?>
+<meta property="og:title" content="<?php the_title(); ?>" />
+<meta property="og:description" content="<?php the_excerpt(); ?>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<?php the_permalink() ?>" />
+<meta property="og:image" content="http://www.odekake.biz/wp/wp-content/uploads/raindrops-itemheader-145x145.jpg" />
+<meta property="og:site_name" content="example" />
+<?php
+}
+}
+?>
 <?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
 <div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">
+<?php raindrops_prepend_doc();?>
 <div id="top">
 <div id="hd">
 <?php
@@ -96,6 +112,7 @@ if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
 wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'primary') ); ?>
 </div>
 <br class="clear" />
+<?php raindrops_after_nav_menu();?>
 </div>
 <?php  }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
 <div id="bd" class="clearfix">

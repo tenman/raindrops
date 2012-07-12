@@ -25,7 +25,8 @@
  * @uses get_sidebar('extra')
  * @uses get_sidebar('default')
  * @uses get_footer( $raindrops_document_type )
- *
+ * @uses raindrops_prepend_default_sidebar()
+ * @uses raindrops_append_default_sidebar()
  */
 /*
 date.php - calendar based archive navigation
@@ -111,10 +112,18 @@ echo '<div class="monthly-archives-pagenate">'.paginate_links( $pagination ).'</
 
 }?>
       </div>
-      <div class="yui-u"><?php if($rsidebar_show){get_sidebar('extra');} ?></div>
+      <div class="yui-u">
+	  <?php raindrops_prepend_extra_sidebar( );?>
+	  <?php if($rsidebar_show){get_sidebar('extra');} ?>
+	  <?php raindrops_append_extra_sidebar();?>
+	  </div>
     </div>
   </div>
 </div>
-<div class="yui-b"><?php get_sidebar('default'); ?></div>
+<div class="yui-b">
+<?php raindrops_prepend_default_sidebar();?>	
+      <?php get_sidebar('default'); ?>
+<?php raindrops_append_default_sidebar();?>
+</div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

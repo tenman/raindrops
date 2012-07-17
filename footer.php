@@ -6,7 +6,7 @@
  * @package Raindrops
  * @since Raindrops 0.1
  *
- * @uses wp_upload_dir() 
+ * @uses wp_upload_dir()
  * @uses raindrops_upload_image_parser($footer_image_uri,'inline','#ft')
  * @uses is_active_sidebar( 'sidebar-4' )
  * @uses get_bloginfo('name')
@@ -55,7 +55,6 @@ $raindrops_theme_name
 <?php raindrops_append_footer();?>
   </div>
 <?php raindrops_append_doc();?>
-</div>
 </div>
 <?php wp_footer(); ?>
 </body>

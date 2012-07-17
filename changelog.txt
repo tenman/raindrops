@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:0.982
+    0.981 contain Fixed is not appropriate
+fixed
+    Fixed Stupid 0.981 Fixed Not clesed element div.hfeed
+        It returned.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.981
     This version changes for HTML bug fix
 fixed

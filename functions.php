@@ -504,7 +504,7 @@
 
 
             if(isset($current_blog)){
-                $classes[] = array("b". $current_blog->blog_id);
+                $classes[] = "b". $current_blog->blog_id;
             }
 
             return apply_filters("raindrops_add_body_class",$classes);
@@ -3665,7 +3665,7 @@ if( ! function_exists( 'raindrops_sidebar_menus' ) ){
 			$html .= wp_list_pages('title_li=<h2 class="h2">'. __( 'Pages', 'Raindrops').'</h2>&echo=0' );
 			$html .= '<li><h2 class="h2">'. __( 'Archives', 'Raindrops' ). '</h2>';
 			$html .= '<ul>'. wp_get_archives('type=monthly&echo=0'). '</ul>';
-			$hrml .= '</li>';
+			$html .= '</li>';
 			$html .= wp_list_categories('show_count=1&title_li=<h2 class="h2">'. __( 'Categories', 'Raindrops'). '</h2>&echo=0' );
 			if ( is_front_page() || is_page() ) {
 				$html .= wp_list_bookmarks( 'echo=0' );

@@ -56,6 +56,7 @@ $raindrops_theme_name
   </div>
 <?php raindrops_append_doc();?>
 </div>
+</div>
 <?php wp_footer(); ?>
 </body>
 </html>

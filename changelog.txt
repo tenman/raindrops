@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:0.981
+    This version changes for HTML bug fix
+fixed
+    Fixed Not clesed element div.hfeed
+        footer.php
+    Fixed raindrops_add_body_class output class 'array' when multisite.
+        functions.php
+    Fixed underfined val $hrml, change from $hrml to $html.
+        functions.php
+----------------------------------------------
+Changelog -----------------------------------
 version:0.980
     This version changes for Structure which can do customization simply.
     Note:

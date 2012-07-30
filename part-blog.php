@@ -47,7 +47,11 @@ echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"   rel=
         get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author() );?>
 </li>
 <li>
-<?php comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); ?>
+<?php  
+	if ( comments_open( ) ) { 
+	 	comments_popup_link( __( 'Leave a comment', 'Raindrops' ), __( '1 Comment', 'Raindrops' ), __( '% Comments', 'Raindrops' ) ); 
+	}
+?>
 </li>
 <?php dynamic_sidebar('sidebar-5');?>
 <li>

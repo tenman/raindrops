@@ -83,8 +83,6 @@ h3,
 	overflow:hidden;
 	margin:.5em 0;
 	font-family:"Times New Roman", Times, serif;
-	word-break:break-all;
-	word-wrap:break-word;
 }
 h4,
 h5,
@@ -96,8 +94,6 @@ h6,
 	font-weight:400;
 	margin:.5em 0;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
-	word-break:break-all;
-	word-wrap:break-word;
 }
 /* Add 0.902  category blog at listed article issue image after headding is not float*/
 .index h1,
@@ -330,7 +326,7 @@ abbr{
 	}
 */
 tt,code,kbd{
-	font-family:"Courier New", Courier, mono;
+	font-family:"Courier New", Courier, monospace;
 }
 i,
 var{
@@ -705,8 +701,6 @@ padding:0;
 	width:90%;
 	line-height:1.4;
 	margin-top:0.3em;
-	word-break:break-all;
-	word-wrap:break-word;
 }
 .lsidebar li.page_item a,
 .lsidebar li.category_report a,
@@ -917,7 +911,6 @@ ul.index li .edit {
 	height:100%;
 	text-decoration:none;
 	width:100%;
-	width:100%; 
 	vertical-align:bottom;
 
 }
@@ -1042,7 +1035,7 @@ ol.commentlist >li{
 	height:1%;
 }
 [rel=category] {
-	color:red;
+	/*color:red;*/
 }
 .debug .rsidebar,
 .debug .lsidebar{
@@ -1224,10 +1217,8 @@ br.clearfix {
 #access {
 	display: block;
 	float: left;
-	margin: 0 auto;
 	width:99%;
 	margin-left:0.5%;
-	
 	margin-top:5px;
 }
 .ie8 #access {
@@ -1442,7 +1433,7 @@ li.byuser,
 }
 li.byuser > div cite,
 li.byuser > div a{
-	color:#000;
+	/*color:#000;*/
 }
 .gallery-caption{
 }
@@ -1823,7 +1814,7 @@ li.comment {
 }
 .form-allowed-tags code{
 	padding:.5em;
-	font-family:"Courier New", Courier, mono;
+	font-family:"Courier New", Courier, monospace;
 	display:block;
 }
 .comment-meta{
@@ -2213,66 +2204,7 @@ sup {
 	height:auto;
 }
 
-.raindrops-light-box{
-	position: relative;
-	background: #f1d2c2;
-	cursor:pointer;	
-}
-.raindrops-lightbox-overlay{
-	width: 0px;
-	height: 0px;
-	position: fixed;
-	overflow: hidden;
-	left: 0px;
-	top: 0px;
-	padding: 0px;
-	z-index: 99;
-	text-align: center;
-}
 
-.raindrops-lightbox-overlay a.lb-close{
-	background: #fff;
-	z-index: 1001;
-	color: #000;
-	position: absolute;
-	top: 30px;
-	left: 60%;
-	font-size: 15px;
-	line-height: 26px;
-	text-align: center;
-	width: 50px;
-	height: 37px;
-	overflow: hidden;
-	margin-left: -25px;
-	opacity: 0;
-	-webkit-border-radius: 25px;
-	-moz-border-radius: 25px;
-	border-radius: 25px;
-	padding-top:13px;
-}
-.raindrops-lightbox-overlay img{
-	/*For Opera*/
-	max-height: 100%;
-	position: relative;
-	padding:10px;
-	background:#fff;
-}
-.raindrops-lightbox-overlay:target {
-	width: auto;
-	height: auto;
-	bottom: 0px;
-	right: 0px;
-	padding: 90px 100px 120px 100px;
-	border:1px solid red;
-	background:rgba(52,52,52,.5);
-}
-.raindrops-lightbox-overlay:target a.lb-close,
-.raindrops-lightbox-overlay:target > div{
-	opacity: 1;
-}
-x:-o-prefocus, .raindrops-lightbox-overlay img {
-	height: 100%;
-}
 
 .raindrops-recent-posts
 .raindrops-category-posts

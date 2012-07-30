@@ -117,18 +117,24 @@ if($raindrops_current_column == 3){
         }
     }else{
 		$raindrops_post_thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' );
-
+		$flag = true;
+			if( raindrops_warehouse( 'raindrops_style_type' ) == 'w3standard' ){
+				//Sorry w3standard css can not use CSS3 then remove light box
+				$flag = false;
+			}
         if(!empty($thumb)){
             echo '<div class="single-post-thumbnail">';
-			echo '<a href="#raindrops-light-box" class="raindrops-light-box">';
+			if( $flag ){ echo '<a href="#raindrops-light-box" class="raindrops-light-box">';}
             echo $thumb;
-			echo '</a>';
+			if( $flag ){ echo '</a>';}
             echo '</div>';
 			/* for light box */
-			echo '<div class="raindrops-lightbox-overlay" id="raindrops-light-box">';
-			echo '<a href="#page" class="lb-close">Close</a>';
-			echo '<img src="'.$raindrops_post_thumbnail_src[0].'" alt="single post thumbnail" />';
-			echo '</div>';
+			if( $flag ){
+				echo '<div class="raindrops-lightbox-overlay" id="raindrops-light-box">';
+				echo '<a href="#page" class="lb-close">Close</a>';
+				echo '<img src="'.$raindrops_post_thumbnail_src[0].'" alt="single post thumbnail" />';
+				echo '</div>';
+			}
 			
         }
     }

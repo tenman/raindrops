@@ -16,7 +16,8 @@ http://developer.yahoo.com/yui/license.html
 version: 2.8.1
 */
 body {
-	font:13px/1.231 arial,helvetica,clean,sans-serif;
+	font:13px arial,helvetica,clean,sans-serif;
+	line-height:1.231;
 }
 body.ie7{
 	/* for IE6/7 */ 

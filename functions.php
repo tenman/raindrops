@@ -1308,7 +1308,11 @@ if(!function_exists("raindrops_custom_link_color")){
 	}
 LINK_COLOR_CSS;
 	
-	return apply_filters("raindrops_custom_link_color",$css);
+
+    if(preg_match("!#([0-9a-f]{6}|[0-9a-f]{3})!si",$color)){
+		return apply_filters("raindrops_custom_link_color",$css);
+	}
+	
 	}
 }
 /**
@@ -2526,11 +2530,14 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
         $block_style    = 'background-size:cover;';
 
     }else{
-        $height_current = $img_height.'px';
-        $block_style = 'background-repeat:no-repeat;background-position:center;background-color:#000;background-size:auto;  background-origin:content-box:';
+        $height_current = round( $img_height ).'px';
+        $block_style = 'background-repeat:no-repeat;background-position:center;background-color:#000;background-size:auto;  background-origin:content-box;';
     }
+	//w3standard can not use CSS3
 
-
+	if( raindrops_warehouse( 'raindrops_style_type' ) == 'w3standard' ){
+			$block_style = 'background-repeat:no-repeat;background-position:center;background-color:#000;';
+	}
             if ( 'blank' == get_theme_mod('header_textcolor') or
                  '' == get_theme_mod( 'header_textcolor' )  ){
                 $description_style = ' style="display:none;"';
@@ -2559,8 +2566,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
             );
             $args = wp_parse_args( $args, $defaults );
             extract( $args, EXTR_SKIP );
-
-                if(raindrops_warehouse_clone("raindrops_style_type") == 'doc3'){
+                if(raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc3' ){
                     $width = 'width:100%';
                 }else{
                     $width = 'width:'.$raindrops_document_width.'px';
@@ -2584,7 +2590,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                 return apply_filters("raindrops_header_image",$html);
             }elseif($type == 'css'){
 
-                $css = '#%1$s{background-image:url(%2$s);width:%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
+                $css = '#%1$s{background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
                 $description_style = str_replace( array( 'style=', '"' ),'',$description_style );
                 $css = sprintf($css,
                             'header-image',

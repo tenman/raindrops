@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:0.983
+    This version changes for CSS
+
+modified
+    color type w3standard CSS modify
+        Remove CSS3 , CSS2.1 valid
+fixed
+    Fixed Custom header image CSS bug
+Note:
+    When color type w3standard
+        Remove CSS light box.
+----------------------------------------------
+Changelog -----------------------------------
 version:0.982
     0.981 contain Fixed is not appropriate
 fixed

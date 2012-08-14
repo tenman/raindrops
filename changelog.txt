@@ -1,15 +1,17 @@
 Changelog -----------------------------------
 version:0.984
 
-moved
-
 added
+    raindrops_monthly_archive_prev_next_navigation()
+        Add next prev month navigation where  monthly archive( date.php)
+    raindrops_customize_controls_print_styles()
+        Add  color type screen shot where theme customizer.
+    $raindrops_add_class
+        Add Sticky post display controll.
 
-fixed
+        If Blog pages show at most is 10 and sticky post next page then shows the sticky post.
+        Change Sticky post display once.
 
-modified
-
-made
 
 ----------------------------------------------
 Changelog -----------------------------------

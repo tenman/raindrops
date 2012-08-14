@@ -106,7 +106,8 @@ if( $wp_rewrite->using_permalinks() )
             _e('Daily Archives','Raindrops');
     }
 ?></h2>
-        <div class="datetable"><?php echo $output;?></div>
+<?php 	raindrops_monthly_archive_prev_next_navigation();?>
+       <div class="datetable"><?php echo $output;?></div>
 <?php if(is_month()) {
 echo '<div class="monthly-archives-pagenate">'.paginate_links( $pagination ).'</div>';
 

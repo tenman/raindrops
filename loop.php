@@ -16,9 +16,16 @@
 	if(have_posts()){
 		raindrops_loop_title();
 		while (have_posts()){
-				the_post();?>
+				the_post();
+		//default: sticky exists 2page when sticky post shown
+		//The sticky post displays once where home top.
+				$raindrops_add_class = array();
+				
+		if( is_sticky() ){
+			$raindrops_add_class = array( 'raindrops-sticky' );
+		} ?>
 		<li>
-		  <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		  <div id="post-<?php the_ID(); ?>" <?php post_class( $raindrops_add_class ); ?>>
 <?php
 /**
  * In category gallery

@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -3862,7 +3864,119 @@ if( ! function_exists( 'raindrops_tag_posts' ) ){
 		wp_reset_postdata();
 	}
 }
+
+if( ! function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ){
+function raindrops_monthly_archive_prev_next_navigation(){
+	global $wpdb, $wp_query;
+
+	if( is_month() ){
+	
+		$thisyear 	= mysql2date('Y', $wp_query->posts[0]->post_date);
+		$thismonth 	= mysql2date('m', $wp_query->posts[0]->post_date);
 		
+		$unixmonth 	= mktime(0, 0 , 0, $thismonth, 1, $thisyear);
+		$last_day 	= date('t', $unixmonth);
+		
+		$previous 	= $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year	FROM $wpdb->posts
+			WHERE post_date < '$thisyear-$thismonth-01'
+			AND post_type = 'post' AND post_status = 'publish'
+				ORDER BY post_date DESC
+				LIMIT 1");
+		$next 		= $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year FROM $wpdb->posts
+			WHERE post_date > '$thisyear-$thismonth-{$last_day} 23:59:59'
+			AND post_type = 'post' AND post_status = 'publish'
+				ORDER BY post_date ASC
+				LIMIT 1");
+				
+		$html 		= '<a href="%1$s" class="%3$s">%2$s</a>';
+				
+		if ( $previous ) {
+			$calendar_output = sprintf( $html,
+										get_month_link($previous->year,
+										$previous->month) ,
+										sprintf(__('Prev Month( %sth )','Raindrops'),
+										$previous->month),
+										'alignleft' 
+									  );
+		}
+		$calendar_output .= "\t" ;
+		if ( $next ) {
+			$calendar_output .= sprintf( $html, 
+										get_month_link($next->year, 
+										$next->month),
+										sprintf(__('Next Month( %sth )','Raindrops'),
+										$next->month),
+										'alignright'
+										);
+		}
+		
+		$html = '<div class="%1$s">%2$s</div>';
+		
+			$calendar_output = sprintf( $html,
+										'raindrops-monthly-archive-prev-next-avigation',
+										$calendar_output
+									);
+		
+		echo apply_filters( 'raindrops_monthly_archive_prev_next_navigation', $calendar_output );
+	}
+}
+}
+/**
+ *
+ *
+ *
+ *
+ *
+ */
+if( ! function_exists( 'raindrops_customize_controls_print_styles' ) ){
+	function raindrops_customize_controls_print_styles(){
+	
+	?>
+	<style>
+	#customize-control-raindrops_style_type .customize-control-title + label{
+	
+		background:url(<?php echo get_template_directory_uri().'/images/screen-shot-dark.png';?>);
+		height:180px;
+		display:block;
+		background-position:0px 20px;
+		background-repeat:no-repeat;
+		background-size:cover;
+	}
+	#customize-control-raindrops_style_type .customize-control-title  + label + label{
+	
+		background:url(<?php echo get_template_directory_uri().'/images/screen-shot-w3standard.png';?>);
+		height:180px;
+		display:block;
+		background-position:0px 20px;
+		background-repeat:no-repeat;
+		background-size:cover;
+	}
+	#customize-control-raindrops_style_type .customize-control-title  + label +label + label{
+	
+		background:url(<?php echo get_template_directory_uri().'/images/screen-shot-light.png';?>);
+		height:180px;
+		display:block;
+		background-position:0px 20px;
+		background-repeat:no-repeat;
+		background-size:cover;
+	}
+	#customize-control-raindrops_style_type .customize-control-title  + label +label + label + label{
+	
+		background:url(<?php echo get_template_directory_uri().'/images/screen-shot-minimal.png';?>);
+		height:180px;
+		display:block;
+		background-position:0px 20px;
+		background-repeat:no-repeat;
+		background-size:cover;
+	}
+	
+	</style>
+	
+	<?php
+	
+	
+	}
+}		
 /**
  *
  *

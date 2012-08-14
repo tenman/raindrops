@@ -243,8 +243,16 @@ if( $raindrops_wp_version < '3.4' ){
  * @since 0.956
  */
     add_action( 'wp_enqueue_scripts', 'raindrops_enqueue_comment_reply' );
+/**
+ *
+ *
+ *
+ *
+ * @since 0.956
+ */
 
-}
+add_action('customize_controls_print_styles','raindrops_customize_controls_print_styles');
+
 /**
  *
  *
@@ -253,4 +261,5 @@ if( $raindrops_wp_version < '3.4' ){
  * @since 0.964 ?
  */
     add_filter('widget_text', 'do_shortcode');
+}
 ?>

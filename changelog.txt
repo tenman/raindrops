@@ -2,7 +2,12 @@ Changelog -----------------------------------
 version:0985
 
 fixed
+    Theme Customizer works improperly.
 
+    Fixed Not Work.
+            Background Repeat,
+            Background Position,
+            Background Attachment
 ----------------------------------------------
 Changelog -----------------------------------
 version:0.984

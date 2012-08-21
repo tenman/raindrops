@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * functions and constants for Raindrops theme
  *
@@ -1188,20 +1186,30 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
             }
 
 //body background
-            $body_background            = get_theme_mod( "background_color" );
-            $body_background_image      = get_theme_mod( "background_image" );
+            $body_background				= get_theme_mod( "background_color" );
+            $body_background_image			= get_theme_mod( "background_image" );
+            $body_background_repeat			= get_theme_mod( "background_repeat" );
+            $body_background_position_x		= get_theme_mod( "background_position_x" );
+            $body_background_attachment		= get_theme_mod( "background_attachment" );
+			
 
-            if( !empty( $body_background ) and !empty( $body_background_image ) ){
+            if( $body_background !== false and !empty( $body_background ) and !empty( $body_background_image ) ){
                 $css .= "\nbody{background:#".$body_background.' url('. $body_background_image. ');}';
-            }elseif( !empty( $body_background ) ){
-                $css .= "\nbody{background:#".$body_background.';}';
+            }elseif( $body_background !== false and !empty( $body_background ) ){
+                $css .= "\nbody{background-color:#".$body_background.';}';
             }elseif( !empty( $body_background_image ) ){
-                $css                    .= "\nbody{background: url(". $body_background_image. ');}';
+                $css                    .= "\nbody{background-image: url(". $body_background_image. ');}';
             }
-
-
-
-
+			
+			if( isset( $body_background_repeat ) and !empty( $body_background_repeat ) ){
+                $css                    .= "\nbody{background-repeat: ". $body_background_repeat. ';}';
+			}
+			if( isset( $body_background_position_x ) and !empty( $body_background_position_x ) ){
+                $css                    .= "\nbody{background-position:top ". $body_background_position_x. ';}';
+			}
+			if( isset( $body_background_attachment ) and !empty( $body_background_attachment ) ){
+                $css                    .= "\nbody{background-attachment: ". $body_background_attachment. ';}';
+			}
 
             if(empty($css)){
                 $css = "cannot get style value check me";

@@ -20,7 +20,7 @@ get_header( $raindrops_document_type );?>
 <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b">
-    <?php
+<?php
 /**
  *  Widget only home
  *

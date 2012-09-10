@@ -3678,7 +3678,6 @@ if( ! function_exists( 'raindrops_sidebar_menus' ) ){
 		if( $position == 'default' ){
 		
 			$html = wp_list_pages('title_li=<h2 class="h2">'. __( 'Pages', 'Raindrops').'</h2>&echo=0' );
-			$html .= wp_list_pages('title_li=<h2 class="h2">'. __( 'Pages', 'Raindrops').'</h2>&echo=0' );
 			$html .= '<li><h2 class="h2">'. __( 'Archives', 'Raindrops' ). '</h2>';
 			$html .= '<ul>'. wp_get_archives('type=monthly&echo=0'). '</ul>';
 			$html .= '</li>';

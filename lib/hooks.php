@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Filter and actions for Raindrops theme
  *
@@ -11,6 +13,20 @@ add_action( 'after_setup_theme', 'raindrops_theme_setup' );
 function raindrops_theme_setup(){
     global $raindrops_wp_version;
     add_filter( 'use_default_gallery_style', '__return_false' );
+	
+	
+	add_theme_support( 'post-formats',
+		array(  'aside',
+				'gallery',
+				'chat',
+				'link',
+				'image',
+				'status',
+				'quote',
+				'video'
+			)
+	);
+
 /**
  * Custom image header
  *
@@ -261,5 +277,6 @@ add_action('customize_controls_print_styles','raindrops_customize_controls_print
  * @since 0.964 ?
  */
     add_filter('widget_text', 'do_shortcode');
+
 }
 ?>

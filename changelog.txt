@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:0986
+
+fixed
+    Fixed duplicate wp_list_pages menu
+        This problem was pointed out Faelandaea ,I appreciate.
+----------------------------------------------
+
+Changelog -----------------------------------
 version:0985
 
 fixed

@@ -1,7 +1,8 @@
 <?php
 /**
 * Template part file for Sidebar.
-*
+* This template is not used except, when special.
+* This template will be used when not exists sidebar-default or sidebar-extra templates
 *
 * @package Raindrops
 */

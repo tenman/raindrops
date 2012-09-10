@@ -13,20 +13,6 @@ add_action( 'after_setup_theme', 'raindrops_theme_setup' );
 function raindrops_theme_setup(){
     global $raindrops_wp_version;
     add_filter( 'use_default_gallery_style', '__return_false' );
-	
-	
-	add_theme_support( 'post-formats',
-		array(  'aside',
-				'gallery',
-				'chat',
-				'link',
-				'image',
-				'status',
-				'quote',
-				'video'
-			)
-	);
-
 /**
  * Custom image header
  *

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0986
+version:0987
 
 fixed
     Fixed duplicate wp_list_pages menu

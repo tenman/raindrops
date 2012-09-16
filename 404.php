@@ -16,7 +16,7 @@
   <div class="yui-b">
      <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
-        <h1 class="entry-title"><?php _e( 'Error 404 - Not Found', 'raindrops' ); ?></h1>
+        <h1 class="entry-title"><?php _e( 'Error 404 - Not Found', 'Raindrops' ); ?></h1>
         <div id="post-0" class="post error404 not-found">
           <div class="entry-content">
           <p><?php _e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'Raindrops' ); ?></p>

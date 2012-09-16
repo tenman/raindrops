@@ -168,7 +168,7 @@ if( $raindrops_wp_version < '3.4' ){
             }
             // Add a page number if necessary:
             if ( $paged >= 2 or $page >= 2 ){
-                $title .= ' | ' . sprintf( __( 'Page %s', 'raindrops' ), max( $paged, $page ) );
+                $title .= ' | ' . sprintf( __( 'Page %s', 'Raindrops' ), max( $paged, $page ) );
             }
             if(!empty($string)){
                 $title .= esc_html($text);

@@ -634,7 +634,7 @@ if($upload_result[0] == true){
             $results                    = $raindrops_sort;
             $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
             $raindrops_navigation_add   = '';
-$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raincrops').'</h3><ul style="margin-bottom:5px;">';
+$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;">';
 if( $raindrops_wp_version >= '3.4' ){
 $raindrops_navigation_list  .= '<li><a href="'.admin_url( 'customize.php' ).'">'.__( 'Theme customizer','Raindrops').'</a></li>';
 }
@@ -645,7 +645,7 @@ $raindrops_navigation_list  .= '<li><a href="'.admin_url( 'nav-menus.php' ).'">'
 $raindrops_navigation_list  .= '<li><a href="'.admin_url( 'theme-editor.php' ).'">'.__( 'Theme Editor','Raindrops').'</a></li>';
 $raindrops_navigation_list  .= '</ul>';
             if(RAINDROPS_USE_AUTO_COLOR == true){
-            $raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raincrops').'</h3><ul id="raindrops_navigation_list">';
+            $raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raindrops').'</h3><ul id="raindrops_navigation_list">';
             }else{
             $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper">';
             }
@@ -812,7 +812,7 @@ $raindrops_navigation_list  .= '</ul>';
             $lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>"';
             $lines .= "</div>";
             if(!preg_match('|<tbody>|',$lines)){
-                $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Ranidrops').'</td></tr></tbody>';
+                $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Raindrops').'</td></tr></tbody>';
             }
             $lines .= raindrops_upload_form();
             if( is_child_theme() ){

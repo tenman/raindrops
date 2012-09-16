@@ -92,7 +92,7 @@ echo raindrops_header_image( 'elements' );
 <?php
 if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
 <div id="access">
-<div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php _e( 'Skip to content', 'raindrops' ); ?></a></div>
+<div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php _e( 'Skip to content', 'Raindrops' ); ?></a></div>
 <?php 
 wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'primary') ); ?>
 </div>

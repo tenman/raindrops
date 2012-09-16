@@ -1,4 +1,5 @@
 <?php
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -9,6 +10,15 @@
     if(!defined('ABSPATH')){
         exit;
     }
+/** 
+ * move from hooks.php
+ * and change from load_textdomain() to load_theme_text_domain()
+ *
+ *
+ * @since 0.988
+ */
+load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
+
 /** NEW
  * When WP_DEBUG value true and $raindrops_actions_hook_message value true
  * Show Raindrops action filter position and examples
@@ -2720,7 +2730,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
             }
             // Add a page number
             if ( $paged > 1 or $page > 1 ){
-                $page_info      = sprintf( __( ' Page %s', 'raindrops' ), max( $paged, $page ) );
+                $page_info      = sprintf( __( ' Page %s', 'Raindrops' ), max( $paged, $page ) );
             }
             if('right' == $seplocation){
                 $add_title      = array_reverse( $add_title );
@@ -3185,7 +3195,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
     global $raindrops_current_theme_name;
 
         $wp_customize->add_section( 'raindrops_theme_settings', array(
-            'title'          => __( 'Raindrops theme settings', 'raindrops' ),
+            'title'          => __( 'Raindrops theme settings', 'Raindrops' ),
             'priority'       => 25,
         ) );
         $wp_customize->add_setting( 'raindrops_theme_settings[raindrops_style_type]', array(
@@ -3237,7 +3247,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         $native_color = $color_en_140;
 
         $wp_customize->add_control( 'raindrops_base_color', array(
-            'label'      => __( 'Base color', 'raindrops' ),
+            'label'      => __( 'Base color', 'Raindrops' ),
             'section'    => 'raindrops_theme_settings',
             'settings'   => 'raindrops_theme_settings[raindrops_base_color]',
             'type'       => 'select',
@@ -3247,7 +3257,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
                     , 'raindrops_base_color'
                     , array(
-                        'label'   => __( 'Base color', 'raindrops' )
+                        'label'   => __( 'Base color', 'Raindrops' )
                         , 'section' => 'raindrops_theme_settings'
                         , 'settings'   => 'raindrops_theme_settings[raindrops_base_color]'
                         )
@@ -3258,14 +3268,14 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         //unset($raindrops_style_type_choices[$raindrops_current_theme_name]);
 
         $wp_customize->add_control( 'raindrops_style_type', array(
-            'label'      => __( 'Color Type', 'raindrops' ),
+            'label'      => __( 'Color Type', 'Raindrops' ),
             'section'    => 'raindrops_theme_settings',
             'settings'   => 'raindrops_theme_settings[raindrops_style_type]',
             'type'       => 'radio',
             'choices'    => $raindrops_style_type_choices,
         ) );
         $wp_customize->add_control( 'raindrops_page_width', array(
-            'label'      => __( 'Page width', 'raindrops' ),
+            'label'      => __( 'Page width', 'Raindrops' ),
             'section'    => 'raindrops_theme_settings',
             'settings'   => 'raindrops_theme_settings[raindrops_page_width]',
             'type'       => 'radio',
@@ -3278,7 +3288,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         ) );
 
         $wp_customize->add_control( 'raindrops_show_right_sidebar', array(
-            'label'      => __( 'Extra Sidebar', 'raindrops' ),
+            'label'      => __( 'Extra Sidebar', 'Raindrops' ),
             'section'    => 'raindrops_theme_settings',
             'settings'   => 'raindrops_theme_settings[raindrops_show_right_sidebar]',
             'type'       => 'radio',
@@ -3297,7 +3307,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
                 );
 
         $wp_customize->add_control( 'raindrops_col_width', array(
-            'label'      => __( 'Default Sidebar', 'raindrops' ),
+            'label'      => __( 'Default Sidebar', 'Raindrops' ),
             'section'    => 'raindrops_theme_settings',
             'settings'   => 'raindrops_theme_settings[raindrops_col_width]',
             'type'       => 'radio',
@@ -3305,7 +3315,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         ) );
 
         $wp_customize->add_control( 'raindrops_show_menu_primary', array(
-            'label'      => __( 'Menu Primary', 'raindrops' ),
+            'label'      => __( 'Menu Primary', 'Raindrops' ),
             'section'    => 'raindrops_theme_settings',
             'settings'   => 'raindrops_theme_settings[raindrops_show_menu_primary]',
             'type'       => 'radio',
@@ -3317,7 +3327,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
                     , 'raindrops_default_fonts_color'
                     , array(
-                        'label'   => __( 'Font Color', 'raindrops' )
+                        'label'   => __( 'Font Color', 'Raindrops' )
                         , 'section' => 'raindrops_theme_settings'
                         , 'settings'   => 'raindrops_theme_settings[raindrops_default_fonts_color]'
                         )
@@ -3326,7 +3336,7 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
                     , 'raindrops_hyperlink_color'
                     , array(
-                        'label'   => __( 'Link Color', 'raindrops' )
+                        'label'   => __( 'Link Color', 'Raindrops' )
                         , 'section' => 'raindrops_theme_settings'
                         , 'settings'   => 'raindrops_theme_settings[raindrops_hyperlink_color]'
                         )

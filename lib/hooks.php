@@ -128,14 +128,7 @@ if( $raindrops_wp_version >= '3.4' ){
  *
  */
     add_theme_support( 'automatic-feed-links' );
-/**
- *
- *
- *
- *
- *
- */
-    load_textdomain( 'Raindrops', get_template_directory().'/languages/'.get_locale().'.mo' );
+
 /**
  *
  *

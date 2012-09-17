@@ -1083,13 +1083,14 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
     if(!function_exists("raindrops_first_only_msg") ){
         function raindrops_first_only_msg($type=0) {
         global $raindrops_current_theme_name;
+		
             if ( $type == 1 ) {
                 $query  = 'raindrops_settings';
                 $link   = get_site_url('', 'wp-admin/themes.php', 'admin') . '?page='.$query;
                 if (version_compare(PHP_VERSION, '5.0.0', '<')) {
                 $msg    = sprintf(__('Sorry Your PHP version is %s Please use PHP version 5 or later.','Raindrops'),PHP_VERSION);
                 }else{
-                $msg    = sprintf (__('Thank you for adopting the %s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%s">Raindrops settings view</a>.', 'Raindrops' ), $raindrops_current_theme_name, $link );
+                $msg    = sprintf (__('Thank you for adopting the %1$s theme. It is necessary to set it to this theme. Please move to a set screen clicking this <a href="%2$s">Raindrops settings view</a>.', 'Raindrops' ), $raindrops_current_theme_name, $link );
                 }
             }
             return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";

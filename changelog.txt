@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:0.988
+fixed
+    Fixed Wrong theme_textdomain where __() , _e().
+modified
+    function change from load_textdomain() to load_theme_textdomain()
+----------------------------------------------
+Changelog -----------------------------------
 version:0987
 
 fixed

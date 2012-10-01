@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-12 14:01+0900\n"
-"PO-Revision-Date: 2012-09-17 08:28:39+0000\n"
+"PO-Revision-Date: 2012-10-01 02:07:42+0000\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -422,7 +422,7 @@ msgstr "タグ別アーカイブ: "
 #, fuzzy
 #@ Raindrops
 msgid "Category Archives"
-msgstr "カテゴリー別アーカイブ: %s"
+msgstr "カテゴリー別アーカイブ"
 
 #: functions.php:1838
 #@ Raindrops
@@ -514,7 +514,7 @@ msgstr "フォント色"
 #, fuzzy
 #@ Raindrops
 msgid "Link Color"
-msgstr "色"
+msgstr "リンクの色"
 
 #: functions.php:3410
 #, php-format

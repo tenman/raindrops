@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * The xhtml1.0 transitional header for our theme.
  *

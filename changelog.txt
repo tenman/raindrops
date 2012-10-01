@@ -1,4 +1,19 @@
 Changelog -----------------------------------
+version:0.990
+
+moved
+
+added
+
+fixed
+
+modified
+
+made
+
+----------------------------------------------
+
+Changelog -----------------------------------
 version:0.989
 fixed
     Fixed Wrong theme_textdomain where __() , _e().

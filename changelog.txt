@@ -1,15 +1,19 @@
 Changelog -----------------------------------
 version:0.990
 
-moved
-
-added
-
 fixed
+    for example
+    [raindrops color_type="minimal" col="1"]
+    write with post or page (textarea)
 
-modified
+    Fixed Above short code like Raindrops notation works improperly.
+    Attribute color_type not work
 
-made
+    Fixed Correction of a translation character string
+     ( japanese )
+Added
+    Add Customizer Menu
+    class Raindrops_Customize_Navigation_Control extends WP_Customize_Control
 
 ----------------------------------------------
 

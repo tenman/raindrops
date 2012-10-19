@@ -1,4 +1,20 @@
 Changelog -----------------------------------
+version:0.991
+
+fixed
+    Fixed miss coding
+        from    $page_title_c = get_the_date(get_option($raindrops_date_format));
+        to      $page_title_c = get_the_date( $raindrops_date_format );
+
+
+Added
+    Post formats support status and gallery.
+modified
+    Add post formats style rules.
+    Embed iframe elements style rules change where text widget.
+    remove height:auto;
+----------------------------------------------
+Changelog -----------------------------------
 version:0.990
 
 fixed

@@ -71,8 +71,8 @@ if($raindrops_current_column == 3){
     the_post();
 
     $cat = "default";
-    if ( in_category( "blog" )){    $cat = "blog";      }
-    if ( in_category( "gallery" )){ $cat = "gallery";   }
+    if ( in_category( "blog" ) or has_post_format( 'status' )){    $cat = "blog";      }
+    if ( in_category( "gallery" ) or has_post_format( 'gallery' )){ $cat = "gallery";   }
 
     if(WP_DEBUG == true){
         echo '<!--Single Category '.$cat.' start-->';

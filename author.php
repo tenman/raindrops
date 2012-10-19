@@ -30,17 +30,15 @@ Template Name: Auther
  * @uses raindrops_prepend_default_sidebar()
  * @uses raindrops_append_default_sidebar()
  */
-
 ?>        
 <?php $curauth = get_userdata(intval($author));?>
 <?php get_header( $raindrops_document_type ); ?>
+<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
 <div id="yui-main">
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
       <div class="yui-u first author-infomation" <?php is_2col_raindrops('style="width:99%;"');?>>
-	  
 <h2 class="h2"><?php	printf( __( 'Author Archives: %s','Raindrops'), $curauth->nickname);?></h2>
-
 	<table summary="author infomation" class="author-meta">
 	  <tr>
 		<td class="avatar-col"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?> </td>
@@ -63,16 +61,11 @@ Template Name: Auther
 			  <?php _e('registered','Raindrops'); ?>
 			</dt>
 			<dd><?php echo esc_html( $curauth->user_registered); ?></dd>
-			
-
 		  </dl></td>
 	  </tr>
 	</table>
-		
         <br class="clear" />
-		
 <h2 class="h2"><?php _e("Recent post",'Raindrops'); ?></h2>
-
 		<dl class="author">
 		  <!-- The Loop -->
 		  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

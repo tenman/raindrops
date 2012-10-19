@@ -13,6 +13,8 @@ add_action( 'after_setup_theme', 'raindrops_theme_setup' );
 function raindrops_theme_setup(){
     global $raindrops_wp_version;
     add_filter( 'use_default_gallery_style', '__return_false' );
+	//add ver0.991
+	add_theme_support( 'post-formats', array( 'status', 'gallery' ) );
 /**
  * Custom image header
  *

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * functions and constants for Raindrops theme
  *
@@ -1824,7 +1823,7 @@ if(!function_exists("raindrops_loop_title")){
             if (is_day()){
                 $Raindrops_class_name = 'dayly-archives';
                 $page_title = __('Daily Archives', 'Raindrops');
-                $page_title_c = get_the_date(get_option($raindrops_date_format));
+                $page_title_c = get_the_date( $raindrops_date_format );
             }elseif (is_month()){
                 $Raindrops_class_name = 'monthly-archives';
                 $page_title = __('Monthly Archives', 'Raindrops');

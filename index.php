@@ -50,5 +50,4 @@ get_header( $raindrops_document_type );?>
 <?php raindrops_append_default_sidebar();?>
 </div>
 </div>
-
 <?php get_footer( $raindrops_document_type ); ?>

@@ -726,7 +726,7 @@ padding:0;
 h2.footer-content {
 	height:17px;
 	text-indent:.5em;
-	font-size:116%;
+	/*font-size:116%; em issue*/
 	padding:5px 0;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 	margin-bottom:0;
@@ -1449,23 +1449,28 @@ li.byuser > div a{
  *
  *
  */
+.format-status,
 .category-blog{
 }
+div.format-status div.blog-main,
 div.category-blog div.blog-main{
 	overflow:hidden;
 	width:68%;
 	}
+.format-status .entry-title,
 .category-blog .entry-title{
 	border:none;
 	margin:0;
 	padding:0;
 	}
+.format-status .entry-content,
 .category-blog .entry-content{
 	border:none;
 	margin:20px 0 0 0;
 	padding:0;
 	text-indent:0;
 	}
+.format-status .entry-meta-list,
 .category-blog .entry-meta-list{
 	list-style:none;
 	width:29%;
@@ -1475,37 +1480,48 @@ div.category-blog div.blog-main{
 	overflow:hidden;
 	max-width:180px;
 }
+.format-status ul.categoryblog *,
 .category-blog ul.categoryblog *{
 	overflow:hidden;
 	line-height:2;
 	margin:0;
 	max-width:100%;
 }
+.format-status-widget div,
+.format-status-widget ul,
+.format-status-widget ol,
 .category-blog-widget div,
 .category-blog-widget ul,
 .category-blog-widget ol{
 	margin:0!important;
 }
+.format-status #categoryblog .widget,
 .category-blog #categoryblog .widget{
 }
+.format-status .entry-meta-list .avatar,
 .category-blog .entry-meta-list .avatar{
 	text-align:center;
 	list-style:none; /*firefox 8*/
 }
+.format-status .entry-meta-list .author,
 .category-blog .entry-meta-list .author{
-	text-align:center;
+	/*text-align:center;*/
+	display:inline;
 }
+.format-status .entry-meta-list li,
 .category-blog .entry-meta-list li{
 	padding:0;
 	list-style:none;
 	margin:0;
 	}
+.format-status .entry-meta-list span,
+.format-status .entry-meta-list  a,
 .category-blog .entry-meta-list span,
 .category-blog .entry-meta-list  a{
 	display:block;
 	text-decoration:none;
 	}
-
+.format-status .entry-meta-list a,
 .category-blog .entry-meta-list a{
 	display:inline;
  }
@@ -1513,8 +1529,13 @@ div.category-blog div.blog-main{
 	margin:1em 0!important;
 	font-weight:bold;
 }
+.format-status .avatar,
 .category-blog .avatar{
 	margin-bottom:1em;	
+}
+.format-status .entry-meta-list #calendar_wrap,
+.category-blog .entry-meta-list #calendar_wrap{
+
 }
 
 /* add*/
@@ -2198,12 +2219,14 @@ sub{
 sup {
 	vertical-align: super 
 }
-.textwidget iframe,
 .textwidget img{
 	max-width:100%;
 	height:auto;
 }
-
+.textwidget iframe{
+	max-width:100%;
+	/* remove height:auto ver 0.991*/
+}
 
 
 .raindrops-recent-posts
@@ -2237,4 +2260,37 @@ clear:both;
 
 .ie9 #site-title a span{
 	color:red;
+}
+hr + br.space,
+body + br.space,
+div + br.space,
+dl + br.space,
+dt + br.space,
+dd + br.space,
+ul + br.space,
+ol + br.space,
+li + br.space,
+h1 + br.space,
+h2 + br.space,
+h3 + br.space,
+h4 + br.space,
+h5 + br.space,
+h6 + br.space,
+pre + br.space,
+code + br.space,
+form + br.space,
+fieldset + br.space,
+legend + br.space,
+input + br.space,
+button + br.space,
+textarea + br.space,
+blockquote + br.space,
+table br.space,
+th + br.space,
+tbody + br.space,
+thead + br.space,
+tfoot + br.space,
+tr + br.space,
+td + br.space{
+	display:none;
 }

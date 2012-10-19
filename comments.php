@@ -23,9 +23,7 @@
     <?php _e( 'This post is password protected. Enter the password to view any comments.', 'Raindrops' ); ?></p>
 </div>
 <?php return;   }?>
-
 <?php if ( have_comments() ){ ?>
-
 <h2 id="comments-title" class="h2"><?php
     printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s',
             get_comments_number(), 'Raindrops' ),
@@ -33,9 +31,7 @@
             '<strong>' . get_the_title() . '</strong>' ,
             get_comments_number());?>
 </h2>
-
 <?php       if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ){ // Are there comments to navigate through? ?>
-
 <div id="nav-above-comments" class="clearfix">
     <span class="nav-previous"><?php previous_comments_link( __( '<span class="meta-nav">&larr;</span> Older Comments', 'Raindrops' ) ); ?></span>
     <span class="nav-next"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?></span>
@@ -43,9 +39,7 @@
 <?php       } // check for comment navigation ?>
 
 <ol class="commentlist"><?php   wp_list_comments( array( 'callback' => 'raindrops_comment' ) );?></ol>
-
 <?php       if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ){ // Are there comments to navigate through? ?>
-
 <div id="nav-below-comments" class="clearfix">
     <span class="nav-previous"><?php previous_comments_link( __( '<span class="meta-nav">&larr;</span> Older Comments', 'Raindrops' ) ); ?></span>
     <span class="nav-next"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', 'Raindrops' ) ); ?></span>
@@ -57,8 +51,7 @@
      * let's leave a little note, shall we?
      */
             if ( ! comments_open() ){
-?>
-    <p class="nocomments"><?php _e('Comments are closed.','Raindrops'); ?></p>
+?><p class="nocomments"><?php _e('Comments are closed.','Raindrops'); ?></p>
 <?php       } // end ! comments_open() ?>
 <?php }// end have_comments() ?>
 <br class="clear" />

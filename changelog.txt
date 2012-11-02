@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.992
+version:0.993
 
 added
     The addition of new functionality.

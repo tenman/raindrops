@@ -1363,7 +1363,16 @@ LINK_COLOR_CSS;
                     if(RAINDROPS_USE_AUTO_COLOR !== true){
                         $css = '';
                     }
-                    $css    .= get_post_meta($post->ID, 'css', true);
+                    $css_single = get_post_meta($post->ID, 'css', true);
+					if( OVERRIDE_POST_STYLE_ALL_CONTENTS == true ){
+					
+						$css .= preg_replace_callback( '![^}]+{[^}]+}!siu'
+																,'raindrops_css_add_id'
+																, $css_single 
+																);
+					}else{
+						$css .= $css_single;
+					}
                     if (!empty($css)) {
                     $result .= '<style type="text/css" id="raindrops-embed-css">';
                     $result .= "\n<!--/*<![CDATA[*/\n";

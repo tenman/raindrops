@@ -16,7 +16,13 @@
  * Color type light
  *
  */
-
+/**
+ * Color type default
+ *
+ * blank style
+ *
+ *
+ */
 /**
  * Color type dark
  *

@@ -49,8 +49,7 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
     $raindrops_theme_data       = get_theme_data( get_theme_root() . '/' . $raindrops_current_theme_name . '/style.css' );
     $raindrops_version          = $raindrops_theme_data['Version'];
 
-//if( $raindrops_wp_version >= '3.4' ){
-/*----- Copy this area and paste Child functions.php when functions customize / Start------*/
+
 /**
  * HTML document type
  *
@@ -130,9 +129,6 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
         }elseif(!in_array('alias_functions.php',$raindrops_included_files)){
             require_once(get_template_directory().'/lib/hooks.php');
         }
-
-/*----- Copy this area and paste Child functions.php when functions customize / End------*/
-
 /**
  * Your extend function , settings write below.
  *
@@ -229,7 +225,17 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
     if( !isset( $raindrops_max_width  ) ){
         $raindrops_max_width        = 1300;
     }
-
+	
+/**
+ * Custom fields name css is add to post style rules.
+ *
+ * When false add to style single post and pages
+ * When true add to style all list style posts and pages
+ * @since 0.992
+ */	
+if( ! defined('OVERRIDE_POST_STYLE_ALL_CONTENTS' ) ){
+	define( "OVERRIDE_POST_STYLE_ALL_CONTENTS", true );
+}
 /**
  *
  *
@@ -1351,10 +1357,9 @@ LINK_COLOR_CSS;
             global $post;
             $result = "";
             $css = raindrops_embed_css();
+			$result_indv = '';
 
             if ( is_single() || is_page() ){
-                if(have_posts()){
-                 while (have_posts()) : the_post();
                     if(RAINDROPS_USE_AUTO_COLOR !== true){
                         $css = '';
                     }
@@ -1378,21 +1383,57 @@ LINK_COLOR_CSS;
                     if (!empty($meta)) {
                     $result .= $meta;
                     }
-                  endwhile;
-                }
             }else{
                     if(RAINDROPS_USE_AUTO_COLOR == true){
                         $result .= '<style type="text/css">';
                         $result .= "\n<!--/*<![CDATA[*/\n";
                         $result .=  $css;
-                        $result .= "\n/*]]>*/-->\n";
-                        $result .= "</style>";
                     }
+					if( OVERRIDE_POST_STYLE_ALL_CONTENTS == true ){
+					if(have_posts()){
+						$result .= "\n/*start custom fields style for loop pages*/\n";
+						while ( have_posts() ){ 
+							the_post();
+							$collections = get_post_meta($post->ID, 'css', true);
+							
+							$result_indv .= preg_replace_callback( '![^}]+{[^}]+}!siu'
+															,'raindrops_css_add_id'
+															, $collections 
+															);
+                 		}
+				 		rewind_posts();
+					}
+					}
+					
+					if(WP_DEBUG !== true){
+					$result_indv = str_replace(array("\n","\r","\t",'&quot;','--','\"'),array("","","",'"','','"'),$result_indv);
+					}
+						$result .= $result_indv;
+						$result .= "\n/*end custom fields style for loop pages*/\n";
+					    $result .= "\n/*]]>*/-->\n";
+                        $result .= "</style>";
             }
             echo $result;
             return $content;
         }
     }
+/**
+ *
+ *
+ *
+ * @since 0.992
+ */
+    if( ! function_exists( "raindrops_css_add_id" ) ){
+		function raindrops_css_add_id( $matches ){
+			global $post;
+			$result = '';
+			foreach( $matches as $k => $match){
+				$match 	= str_replace(',',', #post-'.$post->ID.' ', $match );
+				$result .= '#post-'.$post->ID.' '.trim( $match ). "\n";
+			}
+			return $result;
+		}
+	}
 /**
  * Alternative character when value is blank
  *
@@ -3264,19 +3305,6 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
 				),
 		) );
 
-
-    /*  global $color_en_140;
-
-        $native_color = $color_en_140;
-
-        $wp_customize->add_control( 'raindrops_base_color', array(
-            'label'      => __( 'Base color', 'Raindrops' ),
-            'section'    => 'raindrops_theme_settings',
-            'settings'   => 'raindrops_theme_settings[raindrops_base_color]',
-            'type'       => 'select',
-            'choices'    => array_flip($native_color),
-        ) );*/
-
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize
                     , 'raindrops_base_color'
                     , array(
@@ -4063,7 +4091,26 @@ if( class_exists( 'WP_Customize_Control' ) ){
         }
          
     }
-}		
+}
+
+/**
+ *
+ *
+ *
+ * @since: 0.992
+ */
+if( ! function_exists( 'raindrops_mobile_meta' ) ){
+    function obandes_mobile_meta(){
+        if( wp_is_mobile() and raindrops_warehouse('raindrops_page_width') == 'doc3' ){
+    ?>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style"      content="default">
+    <?php
+        }
+    }
+}
+		
 /**
  *
  *

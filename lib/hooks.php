@@ -258,6 +258,12 @@ add_action('customize_controls_print_styles','raindrops_customize_controls_print
  * @since 0.964 ?
  */
     add_filter('widget_text', 'do_shortcode');
-
+/**
+ *
+ *
+ *
+ * @since 0.992
+ */
+	add_action( 'wp_head', 'raindrops_mobile_meta');
 }
 ?>

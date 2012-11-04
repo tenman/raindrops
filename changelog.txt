@@ -1,3 +1,11 @@
+#Changelog -----------------------------------
+fixed
+version:0.994
+    Fixed Raindrops has Warning Error
+     typo functions.php line:4112
+     function name change
+        from obandes_mobile_meta to raindrops_mobile_meta
+#----------------------------------------------
 Changelog -----------------------------------
 version:0.993
 

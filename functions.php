@@ -1,4 +1,20 @@
 <?php
+	add_filter( 'wp_insert_post_data' , 'filter_handler' , '99999');
+function filter_handler( $data ){
+
+$pattern = '/(&nbsp;(\s)*)+/';
+$data['post_content'] = preg_replace_callback(
+            $pattern,
+            "nbsp2br",
+            $data['post_content']);
+  return $data;
+}
+
+function nbsp2br($matches){
+	$count = substr_count( $matches[0], '&nbsp;' );
+	return '<br class="force-br" style="line-height:'.$count * 1.5.'" />'."\n\n" ;
+}
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -949,7 +965,7 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
             wp_enqueue_style( 'raindrops_fonts');
             $language           = get_locale();
             $lang   = $stylesheet_uri.'/languages/css/'.$language.'.css';
-            if(!file_exists($stylesheet_path.$language.'.css')){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
+            if(!file_exists($stylesheet_path.'/languages/css/'.$language.'.css')){$lang    = $template_uri.'/languages/css/'.$language.'.css';}
             wp_register_style('lang_style', $lang,array('raindrops_fonts'),$raindrops_version,'all');
             wp_enqueue_style( 'lang_style');
             if(raindrops_warehouse_clone("raindrops_style_type") !== 'w3standard'){

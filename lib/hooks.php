@@ -38,7 +38,6 @@ function raindrops_theme_setup(){
                     , 'height' => apply_filters( 'raindrops_header_image_height', '198' )
                     , 'flex-height' => true
                     , 'header-text' => true
-                    , 'header-textcolor' => 'dddddd'
                     , 'default-image' => $raindrops_site_image
                     , 'wp-head-callback' => 'raindrops_embed_meta'
                 );

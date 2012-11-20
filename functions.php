@@ -1,20 +1,4 @@
 <?php
-	add_filter( 'wp_insert_post_data' , 'filter_handler' , '99999');
-function filter_handler( $data ){
-
-$pattern = '/(&nbsp;(\s)*)+/';
-$data['post_content'] = preg_replace_callback(
-            $pattern,
-            "nbsp2br",
-            $data['post_content']);
-  return $data;
-}
-
-function nbsp2br($matches){
-	$count = substr_count( $matches[0], '&nbsp;' );
-	return '<br class="force-br" style="line-height:'.$count * 1.5.'" />'."\n\n" ;
-}
-
 /**
  * functions and constants for Raindrops theme
  *
@@ -4135,7 +4119,6 @@ if( ! function_exists( 'raindrops_mobile_meta' ) ){
         }
     }
 }
-
 /**
  *
  *

@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:0.996
+
+added
+    Page template page-templates/front-page.php
+    Page template page-templates/full-width.php
+fixed
+    Fixed nav menu children position when doc3 fluid layout.
+modified
+    modify Raindrops new h1-h6 font size
+    language file modify
+----------------------------------------------
+Changelog -----------------------------------
 version:0.995
 fixed Child theme languages/css/WPLANG.css not work
 ----------------------------------------------

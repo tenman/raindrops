@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:0.996
+version:0.997
 
 added
     Page template page-templates/front-page.php

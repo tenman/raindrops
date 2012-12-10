@@ -4,7 +4,6 @@
  * Filetype: CSS
  * @package Raindrops
  */
-
 body.ja,
 .ja h1,
 .ja h2, 
@@ -14,47 +13,91 @@ body.ja,
 .ja .h3{
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
+/* 
 .ja h1,
-/*.ja h1 a,*/
-.ja .h1 a,
+.ja .h1:not(h1),
 .ja #site-title{
 	font-size:174%;
 	}
 .ja h2,
-/*.ja h2 a,*/
-.ja .h2 a
-.ja .page-title
+.ja .h2:not(h2),
+.ja .page-title,
 .ja .entry-title{
 	font-size:138.5%;
 	}
 .ja h3,
-/*.ja h3 a,*/
-.ja .h3 a{
+.ja .h3:not(h3){
 	font-size:116%;
 	}
 .ja h4,
-/*.ja h4 a,*/
-.ja .h4 a{
+.ja .h4:not(h4){
 	font-size:108%;
 	}
 .ja h5,
-/*.ja h5 a,*/
-.ja .h5 a{
+.ja .h5:not(H5){
 	font-size:100%;
 	}
 .ja h6,
-/*.ja h6 a,*/
-.ja .h6 a{
+.ja .h6:not(h6){
 	font-size:93%;
-	}
+	}*/
+/* Raindrops new h1-h6 font size from ver 0.996 start */
 
-.footer-widget h2,
-.rsidebar h2,
-.lsidebar h2,
-.widgettitle h2,
-h2.footer-content {
+.ja #site-title{
+	font-size:197%;
+	letter-spacing: 0.04em;	
+
+}
+.ja .entry-title{
+	font-size:197%;
+	letter-spacing: 0.07em;	
+}
+.ja .lsidebar h2,
+.ja .rsidebar h2{
+	font-size:108%;
+}
+.ja .h1:not(h1),
+.ja h1{
+	font-size:161.6%;
+	letter-spacing: 0;	
+
+	}
+.ja .h2:not(h2),
+.ja h2{
+	font-size:138.5%;
+	letter-spacing: 0;	
+
+	}
+.ja .h3:not(h3),
+.ja h3{
+	font-size:116%;
+	letter-spacing: 0;	
+
+	}
+.ja .h4:not(h4),
+.ja h4{
+	font-size:100%;
+	letter-spacing: 0;	
+
+	}
+.ja .h5:not(h5),
+.ja h5{
+	font-size:small;
+	letter-spacing: 0.2em;	
+	}
+.ja .h6:not(h6),
+.ja h6{
+	font-size:xx-small;
+	letter-spacing: 0.2em;	
+	}
+/* Raindrops new h1-h6 font size from ver 0.996 end */ 
+.ja .footer-widget h2,
+.ja .rsidebar h2,
+.ja .lsidebar h2,
+.ja .widgettitle h2,
+.ja h2.footer-content {
 	height:17px;
-	text-indent:1em;
+	text-indent:.5em;
 	font-size:108%;
 	padding:5px 0;
 }

@@ -4,8 +4,8 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.995
-Tags:black, blue, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
+Version: 0.996
+Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready,flexible-header, post-formats, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -42,35 +42,81 @@ a:active {
 }
 
 /* headding */
-h1,
-.h1 a,
-#site-title{
+/* Raindrops h1-h6 old font-size rule
+h1,.h1 a,#site-title{
 	font-size:174%;
 	letter-spacing: 0.05em;	
 	}
-h2,
-.h2 a,
-.page_title{
+h2,.h2 a,.page_title{
 	font-size:161.6%;
 	letter-spacing: 0.07em;	
 	}
-h3,
-.h3 a{
+h3,.h3 a{
 	font-size:138.5%;
 	letter-spacing: 0.1em;	
 	}
-h4,
-.h4 a{
+h4,.h4 a{
 	font-size:123.1%;
 	}
-h5,
-.h5 a{
+h5,.h5 a{
 	font-size:116%;
 	}
-h6,
-.h6 a{
+h6,.h6 a{
 	font-size:108%;
 	}
+this rule will be removed Raindrops ver 0.997.
+*/
+/* Raindrops new h1-h6 font size from ver 0.996 start */
+
+#site-title{
+	font-size:296%;
+	letter-spacing: 0.04em;	
+
+}
+.entry-title{
+	font-size:230.7%;
+	letter-spacing: 0.07em;	
+}
+
+.lsidebar h2,
+.rsidebar h2{
+	font-size:123.1%;
+}
+.h1:not(h1),
+h1{
+	font-size:197%;
+	letter-spacing: 0.07em;	
+
+	}
+.h2:not(h2),
+h2{
+	font-size:153.9%;
+	letter-spacing: 0.07em;	
+
+	}
+.h3:not(h3),
+h3{
+	font-size:123.1%;
+	letter-spacing: 0.1em;	
+
+	}
+.h4:not(h4),
+h4{
+	font-size:100%;
+	letter-spacing: 0.1em;	
+
+	}
+.h5:not(h5),
+h5{
+	font-size:small;
+	letter-spacing: 0.05em;	
+	}
+.h6:not(h6),
+h6{
+	font-size:xx-small;
+	letter-spacing: 0.1em;	
+	}
+/* Raindrops new h1-h6 font size from ver 0.996 end */ 
 	
 h1,
 h2,
@@ -543,6 +589,11 @@ ul.archive ul li {
 #bd {
 	min-height:480px;
 }
+.page-template-page-templatesfront-page-php #bd{
+	min-height:0;
+
+}
+
 #bigbanner {
 	clear:both;
 	overflow:hidden;
@@ -580,7 +631,19 @@ ul.archive ul li {
 	width:29%;
 	float:left;
 	display:inline-block;
+	margin:auto;
 }
+@media screen and (max-width: 680px) {
+	#ft div.widget-wrapper>ul>li{
+		padding:0.5em;
+	}
+}
+
+#ft div.widget-wrapper>ul>li:nth-child(3n+1){
+	clear:left;
+	margin-left:0;
+}
+
 #ft div.widget-wrapper ul li ul li{
 display:block;
 }
@@ -726,7 +789,7 @@ padding:0;
 h2.footer-content {
 	height:17px;
 	text-indent:.5em;
-	padding:0 0 10px;
+	padding:2px 0 8px;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
 	margin-bottom:0;
 }
@@ -2260,36 +2323,22 @@ clear:both;
 .ie9 #site-title a span{
 	color:red;
 }
-hr + br.space,
-body + br.space,
-div + br.space,
-dl + br.space,
-dt + br.space,
-dd + br.space,
-ul + br.space,
-ol + br.space,
-li + br.space,
-h1 + br.space,
-h2 + br.space,
-h3 + br.space,
-h4 + br.space,
-h5 + br.space,
-h6 + br.space,
-pre + br.space,
-code + br.space,
-form + br.space,
-fieldset + br.space,
-legend + br.space,
-input + br.space,
-button + br.space,
-textarea + br.space,
-blockquote + br.space,
-table br.space,
-th + br.space,
-tbody + br.space,
-thead + br.space,
-tfoot + br.space,
-tr + br.space,
-td + br.space{
-	display:none;
+
+#wpadminbar div{
+	max-width:none;
+}
+#access .current_page_item{
+	height:3em;
+}
+.page-template-page-templatesfull-width-php .widget-wrapper li{
+	text-align:left;
+}
+.page-template-page-templatesfull-width-php .widget-wrapper li{
+	text-align:left;
+}
+.static-front-media{
+	padding:10px 1em 0 0;
+}
+.static-front-content{
+	margin:10px 0 0 1em;
 }

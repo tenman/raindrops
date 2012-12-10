@@ -265,7 +265,7 @@ if( ! defined('OVERRIDE_POST_STYLE_ALL_CONTENTS' ) ){
  *
  */
     if(!defined('RAINDROPS_USE_AUTO_COLOR')){
-        define("RAINDROPS_USE_AUTO_COLOR",true);
+        define("RAINDROPS_USE_AUTO_COLOR",true );
     }
 
 
@@ -931,8 +931,10 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
             $themes                 = wp_get_themes();
             $current_theme          = $raindrops_current_theme_name;
             $template_uri           = get_template_directory_uri();
+			//$template_uri			= str_replace('http:','',$template_uri);
             $template_path          = get_template_directory();
             $stylesheet_uri         = get_stylesheet_directory_uri();
+			//$stylesheet_uri			= str_replace('http:','',$stylesheet_uri);
             $stylesheet_path        = get_stylesheet_directory();
             $reset_font_grid    = $stylesheet_uri.'/reset-fonts-grids.css';
             if(!file_exists($stylesheet_path.'/reset-fonts-grids.css')){$reset_font_grid    = $template_uri.'/reset-fonts-grids.css';}
@@ -1358,11 +1360,13 @@ LINK_COLOR_CSS;
             $result = "";
             $css = raindrops_embed_css();
             $result_indv = '';
+			
+			if(RAINDROPS_USE_AUTO_COLOR !== true){
+				$css = '';
+			}			
 
             if ( is_single() || is_page() ){
-                    if(RAINDROPS_USE_AUTO_COLOR !== true){
-                        $css = '';
-                    }
+
                     $css_single = get_post_meta($post->ID, 'css', true);
                     if( OVERRIDE_POST_STYLE_ALL_CONTENTS == true ){
 
@@ -1393,13 +1397,15 @@ LINK_COLOR_CSS;
                     $result .= $meta;
                     }
             }else{
-                    if(RAINDROPS_USE_AUTO_COLOR == true){
-                        $result .= '<style type="text/css">';
-                        $result .= "\n<!--/*<![CDATA[*/\n";
-                        $result .=  $css;
-                    }
+					$result .= '<style type="text/css">';
+					$result .= "\n<!--/*<![CDATA[*/\n";
+			        $result .=  $css;
+
                     if( OVERRIDE_POST_STYLE_ALL_CONTENTS == true ){
                     if(have_posts()){
+					 	if( RAINDROPS_USE_AUTO_COLOR == false ){
+							
+						}
                         $result .= "\n/*start custom fields style for loop pages*/\n";
                         while ( have_posts() ){
                             the_post();
@@ -2992,12 +2998,11 @@ if(!function_exists("fallback_user_interface_view") ){
 
     if(small_screen_check() == true){
         add_action('wp_print_styles', 'fallback_user_interface_view',99);
+				add_action( 'wp_head', 'raindrops_mobile_meta' );
+
     }
 
 }
-
-
-
 /**
  *
  *
@@ -3017,10 +3022,11 @@ if(!function_exists("fallback_user_interface_view") ){
             <script type="text/javascript">
             (function(){
             jQuery(function(){
-                var width = jQuery(window).width();
+				var width = jQuery('div#header-image').width();
                 function raindrops_resizes(){
                     var image_exists = '<?php echo $raindrops_header_image_uri;?>';
-                    var width = jQuery(window).width();
+				var width = jQuery('div#header-image').width();
+                var window_width = jQuery(window).width();
 
                     if( image_exists !== '' ){
     <?php
@@ -3070,19 +3076,16 @@ if(!function_exists("fallback_user_interface_view") ){
                         jQuery("#access").mousemove(function(e){
                             var menu_item_position = e.pageX ;
 
-                            if( width - 200 < menu_item_position){
+                            if( window_width - 200 < menu_item_position){
                                 jQuery('#access ul ul ul').addClass('left');
-                            }else if( width / 2 >  menu_item_position){
-                                jQuery('#access ul ul ul ul').removeClass('left');
+                            }else if( window_width / 2 >  menu_item_position){
+                                jQuery('#access ul ul ul').removeClass('left');
                             }
                         });
-
-                        if( width > <?php echo $raindrops_fluid_maximum_width;?>){
+                        if( window_width > <?php echo $raindrops_fluid_maximum_width;?>){
                             //centering page when browser width > $raindrops_fluid_maximun_width
                             jQuery('#doc3').css({'margin':'auto'});
                         }
-
-
                     }
                 }
                 raindrops_resizes();
@@ -3093,7 +3096,6 @@ if(!function_exists("fallback_user_interface_view") ){
             <?php
         }
     }
-
 /**
  *
  *

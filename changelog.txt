@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:0.999
+
+modified
+    Document type change from xhtml1.0 to html5
+    if you need xhtml1.0
+        functions.php $raindrops_document_type = 'html5' change value from 'html5' to 'xhtml'.
+    Remove inline style( when page width 'fluid' ).
+    Change default page width from 'doc2' to 'fluid'.
+    Support Responsive layout when 'fluid'
+    Change $raindrops_fluid_minimum_width( functions.php line:181 ) value from 450 to 320
+added
+    New template file   header-html5.php
+----------------------------------------------
+Changelog -----------------------------------
 version:0.998
 
 added

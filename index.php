@@ -16,8 +16,9 @@
  * @uses get_sidebar('default')	include template part file
  * @uses get_footer( $raindrops_document_type ) 
  */
-get_header( $raindrops_document_type );?>
-<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+get_header( $raindrops_document_type );
+raindrops_debug_navitation( __FILE__ );
+?>
 <div id="yui-main">
   <div class="yui-b">
 <?php
@@ -31,8 +32,14 @@ get_header( $raindrops_document_type );?>
         echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
     } ?>
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
-        <?php get_template_part( 'loop', 'default' );?>
+		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
+		 <?php
+		if( $raindrops_document_type == 'html5' ){
+			get_template_part( 'loop', 'html5' );
+		}else{
+			get_template_part( 'loop', 'default' );
+		}
+        ?>
         <br style="clear:both" />
       </div>
       <div class="yui-u">

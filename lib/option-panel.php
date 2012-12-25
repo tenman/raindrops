@@ -82,7 +82,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         array('option_id' => 8,
         'blog_id' => 0 ,
         'option_name' => "raindrops_page_width",
-        'option_value' => "doc2",
+        'option_value' => "doc3",
         'autoload'=>'yes',
         'title'=>__('Page Width','Raindrops'),
         'excerpt1'=>'',
@@ -604,10 +604,11 @@ if($upload_result[0] == true){
  *
  */
     function raindrops_admin_print_styles(){
+		global $raindrops_wp_version;
         if(file_exists(get_stylesheet_directory().'/admin-options.css')){
-            echo '<style type="text/css">@import url("'.get_stylesheet_directory_uri().'/admin-options.css");</style>';
+            echo '<style type="text/css">@import url("'.get_stylesheet_directory_uri().'/admin-options.css?ver='.$raindrops_wp_version.'");</style>';
         }else{
-            echo '<style type="text/css">@import url("'.get_template_directory_uri().'/admin-options.css");</style>';
+            echo '<style type="text/css">@import url("'.get_template_directory_uri().'/admin-options.css?ver='.$raindrops_wp_version.'");</style>';
         }
     }
 /**

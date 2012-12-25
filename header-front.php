@@ -8,6 +8,37 @@
  * @since Raindrops 0.997
  *
  */
+global $raindrops_document_type;
+switch( $raindrops_document_type ){
+/**
+ *
+ *
+ *
+ *
+ */
+case( 'html5' ):
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<title>
+<?php wp_title('|', true, 'right')?>
+</title>
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]--> 
+<?php wp_head();?>
+</head>
+<?php
+break;
+/**
+ *
+ *
+ *
+ *
+ */
+default:
 echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml'); ?>>
@@ -19,6 +50,10 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head();?>
 </head>
+<?php
+break;
+}
+?>
 <body <?php body_class(); ?>>
 <div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">
 <?php raindrops_prepend_doc();?>
@@ -57,6 +92,7 @@ echo raindrops_site_description();
 ?>
 <?php
 if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
+<p class="raindrops-mobile-menu"><a href="#access" class="open">+</a><span class="menu-text">menu</span><a href="#<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="close">-</a></p>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php _e( 'Skip to content', 'Raindrops' ); ?></a></div>
 <?php

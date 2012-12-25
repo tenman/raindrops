@@ -32,7 +32,7 @@ function raindrops_theme_setup(){
     }
 
     if( $raindrops_wp_version >= '3.4' ){
-        $args = array( 'default-text-color' => 'ddd'
+        $args = array( 'default-text-color' => 'bbb'
                     , 'width' => apply_filters( 'raindrops_header_image_width', '950' )
                     , 'flex-width' => true
                     , 'height' => apply_filters( 'raindrops_header_image_height', '198' )
@@ -41,6 +41,7 @@ function raindrops_theme_setup(){
                     , 'default-image' => $raindrops_site_image
                     , 'wp-head-callback' => 'raindrops_embed_meta'
                 );
+						
         //they are "suggested" when flex-width and flex-height are set
         add_theme_support( 'custom-header', $args );
 

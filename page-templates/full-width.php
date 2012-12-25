@@ -11,7 +11,7 @@ if($raindrops_current_column !== false){
 	add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_custom");
 }
 ?>
-<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+<?php raindrops_debug_navitation( __FILE__ ); ?>
 <div id="yui-main">
 <div id="container">
 <?php

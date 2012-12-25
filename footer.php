@@ -19,7 +19,7 @@
  * @uses raindrops_append_doc()
  */
 ?>
-<div id="ft" class="clear">
+<<?php raindrops_doctype_elements( 'div','footer' );?> id="ft" class="clear">
 <?php raindrops_prepend_footer();?>
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">
@@ -53,7 +53,7 @@ $raindrops_theme_name
 ?>
 </address>
 <?php raindrops_append_footer();?>
-  </div>
+  </<?php raindrops_doctype_elements( 'div','footer' );?>>
 <?php raindrops_append_doc();?>
 </div>
 <?php wp_footer(); ?>

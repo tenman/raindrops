@@ -26,10 +26,17 @@
 ?>
 <?php get_header( $raindrops_document_type ); ?>
 <div id="yui-main">
-<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
-  <div class="yui-b">
+<?php raindrops_debug_navitation( __FILE__ ); ?>
+<div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
+	
+<?php 
+switch(	$raindrops_document_type ){
+case( 'html5' ):
+?><!--<?php echo $raindrops_document_type;?>-->
+	
+	
+		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
         <?php if (have_posts()){ while (have_posts()){ the_post(); ?>
         <div id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
           <div class="entry attachment raindrops-image-page">
@@ -75,6 +82,66 @@
         <p><?php _e("Sorry, no attachments matched your criteria.","Raindrops");?></p>
         <?php } ?>
       </div>
+	  
+<?php
+break;
+default:
+?><!--<?php echo $raindrops_document_type;?>-->
+
+
+
+		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
+        <?php if (have_posts()){ while (have_posts()){ the_post(); ?>
+        <div id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
+          <div class="entry attachment raindrops-image-page">
+            <h2 class="image-title h2"><?php the_title(); ?></h2>
+			<?php if( $post->post_parent !== 0){?>
+            <p class="parent-entry"><?php _e("Entry : ",'Raindrops');?>
+              <a href="<?php echo get_permalink($post->post_parent); ?>" rev="attachment"><?php echo get_the_title($post->post_parent); ?></a>
+            </p>
+			<?php }?>
+            <?php $image = get_post_meta($post->ID, 'image', true); ?>
+            <?php $image = wp_get_attachment_image_src($image, 'full'); ?>
+            <p class="image"><a href="<?php echo $image[0];?>" ><img src="<?php echo $image[0];?>" width="100%"  alt="<?php the_title_attribute(); ?>" /></a></p>
+            <div class="caption">
+              <dl>
+                <dd class="caption">
+                  <?php if ( !empty($post->post_excerpt) ) the_excerpt(); // this is the "caption" ?>
+                </dd>
+                <dd class="serif">
+				<?php raindrops_prepend_entry_content();?>
+                  <?php raindrops_entry_content(); ?>
+                  <br class="clear" />
+				<?php raindrops_append_entry_content();?>  
+                </dd>
+              </dl>
+            </div>
+            <br class="clear" />
+            <hr />
+            <div class="attachment-navigation">
+              <div class="prev">
+                <?php previous_image_link(0) ?>
+              </div>
+              <div class="next">
+                <?php next_image_link(0) ?>
+              </div>
+              <br class="clear" />
+            </div>
+          </div>
+          <br class="clear" />
+          <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+		  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+        </div>
+        <?php } }else{ ?>
+        <p><?php _e("Sorry, no attachments matched your criteria.","Raindrops");?></p>
+        <?php } ?>
+      </div>
+<?php
+break;
+}?>	
+	  
+	  
+	  
       <div class="yui-u">
 	  <?php raindrops_prepend_extra_sidebar( );?>
 	  <?php if($rsidebar_show){get_sidebar('extra');} ?>

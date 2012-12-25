@@ -91,6 +91,7 @@ echo raindrops_header_image( 'elements' );
 ?>
 <?php
 if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
+<p class="raindrops-mobile-menu"><a href="#access" class="open">+</a><span class="menu-text">menu</span><a href="#<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="close">-</a></p>
 <div id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php _e( 'Skip to content', 'Raindrops' ); ?></a></div>
 <?php 

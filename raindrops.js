@@ -42,8 +42,6 @@
 
 　});
 
-
-
 })(jQuery);
 
 /** Tab Controll

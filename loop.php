@@ -25,7 +25,7 @@
 			$raindrops_add_class = array( 'raindrops-sticky' );
 		} ?>
 		<li>
-		  <div id="post-<?php the_ID(); ?>" <?php post_class( $raindrops_add_class ); ?>>
+		  <<?php raindrops_doctype_elements('div','article');?> id="post-<?php the_ID(); ?>" <?php post_class( $raindrops_add_class ); ?>>
 <?php
 /**
  * In category gallery
@@ -74,7 +74,7 @@
 			</div>
 		<?php } ?>
 			<br class="clear" />
-		  </div>
+		  </<?php raindrops_doctype_elements('div','article');?>>
 		</li>
 		<?php	} //end while	?>
 	</ul>

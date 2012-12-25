@@ -29,6 +29,7 @@ $attachment_page = $image->post_title;
 <?php raindrops_entry_content();?>
 <div class="clearfix">
 <?php raindrops_append_entry_content();?>
+<?php wp_link_pages('before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
 </div>
 
 <p style="margin:1em;"><em><?php echo sprintf( __( 'This gallery contains %1$s photographs in all as ', 'Raindrops' ),$total_images).'&nbsp;'.wp_get_attachment_link( $image->ID ,false,true).'&nbsp;'.__('photograph etc.','Raindrops');?></em></p>

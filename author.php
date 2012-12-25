@@ -33,12 +33,12 @@ Template Name: Auther
 ?>        
 <?php $curauth = get_userdata(intval($author));?>
 <?php get_header( $raindrops_document_type ); ?>
-<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+<?php raindrops_debug_navitation( __FILE__ ); ?>
 <div id="yui-main">
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-      <div class="yui-u first author-infomation" <?php is_2col_raindrops('style="width:99%;"');?>>
-<h2 class="h2"><?php	printf( __( 'Author Archives: %s','Raindrops'), $curauth->nickname);?></h2>
+		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
+	<h2 class="h2"><?php	printf( __( 'Author Archives: %s','Raindrops'), $curauth->nickname);?></h2>
 	<table summary="author infomation" class="author-meta">
 	  <tr>
 		<td class="avatar-col"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ); ?> </td>

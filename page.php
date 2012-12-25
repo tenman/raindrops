@@ -36,29 +36,17 @@ if($raindrops_current_column !== false){
 }
 ?>
 <?php get_header( $raindrops_document_type ); ?>
-<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+<?php raindrops_debug_navitation( __FILE__ ); ?>
 <div id="yui-main">
-  <div class="yui-b" <?php if($raindrops_current_column == '1' ){
-    echo "style=\"width:100%;margin-left:0;\"";}?>>
+  <div class="yui-b <?php raindrops_add_class('yui-b'); ?>">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-<div class="yui-u first"
-<?php
-if($raindrops_current_column == 3){
+		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
 
-}elseif($raindrops_current_column == 1){
-    echo 'style="width:99%;"';
-}elseif($raindrops_current_column == 2){
-
-    echo 'style="width:99%;"';
-}elseif($raindrops_current_column == false){
-    is_2col_raindrops('style="width:99%;"');
-}
-
-?>>
         <?php if (have_posts()){ ?>
         <?php       while (have_posts()){ the_post(); ?>
+<!--<?php echo $raindrops_document_type;?>-->
         <div class="entry page">
-          <div id="post-<?php the_ID(); ?>" <?php post_class();?>>
+          <<?php raindrops_doctype_elements('div','article');?> id="post-<?php the_ID(); ?>" <?php post_class();?>>
 		  
             <?php raindrops_entry_title(); ?>
 			
@@ -79,8 +67,11 @@ if($raindrops_current_column == 3){
 			  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
             </div>
             <?php comments_template( '', true ); ?>
-          </div>
+          </<?php raindrops_doctype_elements('div','article');?>>
         </div>
+		
+		
+		
         <?php       } //endwhile ?>
 		
         <?php raindrops_next_prev_links( "nav-below" );?>
@@ -107,10 +98,9 @@ if($raindrops_current_column == 3){
 <?php if(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?><div class="yui-b">
 <?php //lsidebar start ?>
 <?php raindrops_prepend_default_sidebar();?>	
-      <?php get_sidebar('default'); ?>
+<?php get_sidebar('default'); ?>
 <?php raindrops_append_default_sidebar();?>
 </div>
 <?php }?>
-
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

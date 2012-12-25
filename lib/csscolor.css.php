@@ -890,9 +890,12 @@ body{
 }
 
 #hd{
-   color:#000;
+  /* color:#000;*/
+%c2%
+    border-top: 6px solid %c_border%;
 
 	background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+	background-position:0 -5px;
 
 }
 #hd h1,.h1,#site-title{
@@ -1012,13 +1015,10 @@ table td{
 }
 
 td.month-date,td.month-name,td.time{
-   %c_3%
+   %c4%
     border-bottom:1px solid %c_border%;
 }
 
-td.month-date,td.month-name,td.time{
-    %c3%
-}
 
 .entry-content blockquote{
     border-left:solid 3px %c_border%;
@@ -1318,10 +1318,13 @@ border-top:1px dashed %rgba_border%;
    -moz-border-radius: 3px;
    -khtml-border-radius: 3px;
    -webkit-border-radius: 3px;
-   border-radius: 3px;
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+   border-radius:0 0 3px 3px;
+  /*  background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');*/
+}
+.wp-caption{
+	padding:0;
 }
 li.byuser,
 li.bypostauthor {
@@ -1364,6 +1367,14 @@ a.raindrops-comment-link:hover em {
 }
 a.raindrops-comment-link:hover .point {
 border-left:1px solid %rgba_border%;
+}
+#bd .raindrops-lightbox-overlay  a{
+background:#fff!important;
+}
+#bd a {
+}
+.footer-widget>ul>li{
+	border-bottom:1px solid %rgba_border%;
 }
 
 
@@ -1438,25 +1449,37 @@ textarea#comment{
        -webkit-border-radius: 3px;
 
 }
+
 #access .children,
 #access .children li{
-	width:240px;
 	border-top:none;
 }
+
+
 
 #access .children li:nth-child(1){
 	border-top:1px solid #ccc;
 }
-
+#access .sub-menu a,
 #access .children a,
 #access .children .current_page_item a{
-	width:220px;
 	text-align:left;
 	padding:10px;
+	background:#fff;
+    border-left-color:%rgba_border%;
 }
-#access .children li:nth-child(even) > a{
-	background:rgba(255,255,240,.7);
+#access .sub-menu a:hover,
+#access .children a:hover,
+#access .children .current_page_item a:hover{
+	%c4%
 }
+blockquote{
+	border-left:6px solid;
+	border-left-color:%rgba_border%;
+	padding:10px;
+	%c4%
+}
+
 CSS;
 
 return $style;
@@ -1875,7 +1898,15 @@ CSS;
         }else{
             $rgba_border = raindrops_hex2rgba($c_border,0.5);
         }
-
+		
+		if( $name == 'light' ){
+			if($c_border == '#'){
+				$rgba_border = 'rgba(203,203,203, 0.4)';
+			}else{
+				$rgba_border = raindrops_hex2rgba($c_border,0.2);
+			}
+		
+		}
         $c1 = raindrops_colors(0);
         $c1 = raindrops_colors(1);
         $c2 = raindrops_colors(2);
@@ -1926,7 +1957,7 @@ CSS;
             $h2_dark_background = "background:".raindrops_colors(-3,'background').' ';
             $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
             $h2_dark_background .= "color:".raindrops_colors(-3,'color').';';
-            $h2_light_background = "background:".raindrops_colors(4,'background').' ';
+            $h2_light_background = "background:".raindrops_colors(5,'background').' ';
             $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
             $h2_light_background .= "color:".raindrops_colors(4,'color').';';
 
@@ -1974,7 +2005,7 @@ CSS;
             /**
              * light
              */
-                $custom_dark_bg = raindrops_colors('5','background');
+                $custom_dark_bg = raindrops_colors('4','background');
                 $custom_light_bg = raindrops_colors('3','background');
                 $custom_color = raindrops_colors('3','color');
                 $base_gradient = raindrops_gradient_single_clone(3,"asc");

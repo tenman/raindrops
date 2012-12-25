@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.998
+Version: 0.999
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -287,7 +287,7 @@ input[type="submit"],input[type="reset"],input[type="file"]{
 	margin:0 0 .5em 0;
 }
 .entry-content  div.wp-caption{
-	max-width:94%!important;
+	max-width:98%!important;
 	}
 .comment-body blockquote blockquote {
 	margin-left:0.5em;
@@ -316,7 +316,7 @@ dl {
 }
 dt {
 	font-weight:700;
-	margin:0 .5em 0 1em;
+	/*margin:0 .5em 0 1em;*/
 	padding:.5em;
 }
 dd {
@@ -399,6 +399,17 @@ radio{
 .ja em{
 	font-style:normal;
 }
+.gallery-columns-1 dl dd,
+.gallery-columns-1 dl dt,
+.gallery-columns-1 dl{
+	float:none;
+	width:100%
+}
+.gallery-columns-1 dl dt img{
+	margin:auto;
+}
+
+
 .gallery dl{
 	clear:none;
 	margin:0;
@@ -406,9 +417,10 @@ radio{
 .gallery .gallery-caption {
     font-size: 93%;
 	line-height:1.3;
-	margin: 0 0 1em;
+	/*margin: 0 0 1em;*/
 	text-align:left;
-	padding-left:2em;
+	/*padding-left:2em;*/
+	text-align:center;
 	
 }
 .category-gallery .size-thumbnail img {
@@ -605,7 +617,7 @@ ul.archive ul li {
 	display:block;
 }
 .datetable{
-	padding:1em;
+	padding:0 0 0 10px;
 }
 #date_title a,
 .datetable a {
@@ -654,15 +666,26 @@ padding:0;
 .footer-widget{
 	width:33.3%;
 	display:inline-block;
+	
 }
+.footer-widget ul{
+	margin:0 10px;		
+}
+.footer-widget ul li{
+	line-height:2;		
+}
+
 .debug .footer-widget{
 	border:1px solid #ccc;
 }
 .footer-widget h2{
 	width:100%;
-	margin:0;
 	clear:both;
 	text-indent:0.3em;
+}
+div#ft a,
+footer a{
+	text-decoration:none;
 }
 #hd {
 	overflow:hidden;
@@ -705,8 +728,14 @@ padding:0;
 #nav-above,
 #nav-below {
 	max-width:100%;
-	margin:0 14px;
+	margin:0;
 }
+.rd-col-1 #nav-above,
+.rd-col-1 #nav-below {
+	max-width:100%;
+	margin:0 10px;
+}
+
 #nav-above{
 	margin-top:7px;
 }
@@ -791,7 +820,7 @@ h2.footer-content {
 	text-indent:.5em;
 	padding:2px 0 8px;
 	font-family:Geneva, Arial, Helvetica, sans-serif;
-	margin-bottom:0;
+	margin-bottom:10px;
 }
 
 .lsidebar h2 ul li ul{
@@ -1173,18 +1202,25 @@ iframe{
 hr,
 div.attachment {
 	border:none;
-	margin:1em;
+	/*margin:1em;*/
 }
 
-.page-title,
 #date_title,
+.page-title{
+	margin-left:10px;
+}
 .datetable h2,
+#date_title{
+	margin-left:0;
+}
+
+
 .link_category_list h2,
 .link_category_list dt,
 .link_category_list p,
 .items .breadcrumb,
 li.category_report,
-#date_title{
+{
 	margin-left:20px!important;
 }
 #ft a,
@@ -1329,6 +1365,10 @@ div.menu li a{
 	margin:0;
 	width:100%;
 	display:block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	box-sizing: border-box;
 }
 #access ul ul {
 	display: none;
@@ -1431,9 +1471,10 @@ div.alignleft,
 img.alignleft,
 .alignleft {
 	float: left;
-	padding:5px 10px 5px 0;
+	padding:5px 10px 2px 0;
 
 	}
+
 div.alignright,
 img.alignright,
 .alignright {
@@ -1448,11 +1489,15 @@ img.alignright,
 	text-align: center;
 	/*background-color: #f3f3f3;*/
 	padding: 5px 2px 0 2px;
-	margin: 10px;
+	/*margin: 10px;*/
 	max-width:100%;
 	height:auto;
 }
-
+.wp-caption.alignnone{
+	float: none;
+	margin: 5px 10px 5px 0;
+	padding: 5px 0 0 0;
+}
 .wp-caption.alignleft{
 	float: left;
 	margin: 5px 10px 5px 0;
@@ -1497,8 +1542,7 @@ li.byuser > div cite,
 li.byuser > div a{
 	/*color:#000;*/
 }
-.gallery-caption{
-}
+
 .shadow{
 	margin:2em;
 	padding:1em;
@@ -1621,12 +1665,13 @@ div.category-blog div.blog-main{
 	background:url(images/sticky.png);
 }
 .home #container{
-	margin:0 .3em;
-	max-width:99%;
+	margin:0;
+	/*margin:0 .3em;
+	max-width:99%;*/
 }
 #archives-title,
 .archives-list{
-	margin-left:1em;
+	/*margin-left:1em;*/
 }
 /* YUI nest grid add*/
 #nest .yui-ga,
@@ -2341,4 +2386,159 @@ clear:both;
 }
 .static-front-content{
 	margin:10px 0 0 1em;
+}
+.raindrops-expand-width{
+	width:99%!important;
+}
+.raindrops-margin-left-none{
+	margin-left:0!important;
+}
+.yui-t6 #container > .first,
+.yui-t5 #container > .first,
+.yui-t4 #container > .first{
+	margin-left:10px;
+	margin-right:-10px;
+}
+.yui-t2 #container > .first,
+.yui-t1 #container > .first{
+/*	margin-left:0;
+	margin-right:0;*/
+
+}
+
+.raindrops-monthly-archive-prev-next-avigation{
+	margin:10px;
+}
+.rd-col-1.single-post #yui-main .yui-b,
+.rd-col-1.single-post .yui-b,
+.rd-col-1.page #yui-main .yui-b{
+	margin-right:0;
+	margin-left:0;
+}
+.page-template-page-templatesfront-page-php #ft .widget{
+	text-align:left;
+}
+.page-template-page-templatesfront-page-php #ft .widget h2{
+	/*text-align:left;*/
+}
+.raindrops-mobile-menu{
+	display:none!important;
+}
+/* Responsive Settings */
+@media screen and (min-width : 640px){
+	#doc3 .nav-menu-toggle{ 
+		display:none!important;
+	}
+	#doc3 #access{display:block!important;}
+}
+@media screen and (max-width : 640px){
+	#doc3 .raindrops-mobile-menu{
+		display:block!important;
+	}
+	#doc3 #access{display:none!important;}
+	#doc3 #access:target{display:block!important;}
+	
+	.ie6 #doc3 #access:target{display:block!important;}
+	.ie7 #doc3 #access:target{display:block!important;}
+	.ie8 #doc3 #access:target{display:block!important;}
+	.raindrops-mobile-menu{
+	 	position:relative;margin:0 10px;
+	}
+	#doc3 .raindrops-mobile-menu .open{
+	  position:absolute;top:0;left:0;
+	}	
+	#doc3 .raindrops-mobile-menu .close{
+	  position:absolute;top:0;right:0;
+	}
+	#doc3 .raindrops-mobile-menu .menu-text{
+	  position:absolute;top:0;left:47%;
+	}	
+	#doc3 #access ul ul,
+	#doc3 #access ul,
+	#doc3 #access ul li,
+	#doc3.yui-t6 #container > div.first,
+	#doc3.yui-t5 #container > div.first, 
+	#doc3.yui-t4 #container > div.first,
+	#doc3.yui-t3 #container > div.first,
+	#doc3.yui-t1 #container > div.first,
+	#doc3.yui-t2 #bd > div.yui-b,
+	#doc3.yui-t2 #yui-main div.yui-b,
+	#doc3 #container > div.first,
+	#doc3 #container > .yui-u,
+	#doc3 .footer-widget,
+	#doc3 #ft div.widget-wrapper>ul>li,
+	#doc3 #ft .widget-wrapper ul,
+	#doc3 #bd .yui-b,
+	#doc3 #yui-main {
+		float:none;
+		margin:0;
+		margin-left:none;
+		margin-right:none;
+		/*border:1px solid red;*/
+		display:block;
+		max-width:100%;
+		width:100%;
+		box-sizing: border-box;
+		margin-right:0;
+		clear:both;
+		background-repeat:no-repeat;
+		position:static;
+	}
+	#doc3 .reply, #ft a, 
+	#doc3 .page .hentry .entry-title a,
+	#doc3 cite.fn, 
+	#doc3 cite a:link, 
+	#doc3 cite a:active, 
+	#doc3 cite a:visited, 
+	#doc3 cite a:hover, 
+	#doc3 div.comment-body blockquote, 
+	#doc3 div.comment-body *,
+	#doc3 div.comment-author, 
+	#doc3 div.comment-author-meta, 
+	#doc3 #site-description, 
+	 .home #doc3 .sticky a, 
+	 .home #doc3 .entry-meta a,
+	#doc3 .topsidebar ul li ul li a, 
+	#doc3 #bigbanner ul li ul li a, 
+	#doc3 .lsidebar ul li ul li a, 
+	#doc3 .rsidebar ul li ul li a,
+	#doc3 .lsidebar li.page_item a, 
+	#doc3 .lsidebar li.category_report a, 
+	#doc3 .lsidebar .widget ul li a{
+		display:block;
+			background-repeat:no-repeat;
+			width:100%;
+			height:100%;
+			/*border:1px solid red!important;*/
+			margin:0;
+			padding:0.5em;
+			box-sizing: border-box;
+			font-size:123%;
+	
+	}
+	.ja #doc3 .footer-widget h2,
+	.ja #doc3 .rsidebar h2,
+	.ja #doc3 .lsidebar h2, 
+	.ja #doc3 .widgettitle h2, 
+	.ja #doc3 h2.footer-content{	
+			background-repeat:no-repeat;
+			height:2em;
+	}
+	#doc3 #access ul ul{
+		text-align:left;
+		text-indent:1em;
+	}
+	#doc3 #access ul ul ul{
+		text-align:left!important;
+		text-indent:2em;
+		}
+	
+	#doc3 .raindrops-mobile-menu{
+		display:inline-block;
+		height:1em;
+		text-align:right;
+		padding:1em;
+		font-size:138.5%;
+	}
+
 }

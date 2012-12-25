@@ -261,7 +261,7 @@ if( $raindrops_remove_left_margin !== 'y' or $raindrops_add_custom_text_extra_si
 }
 ////////////////////////////////Template ////////////////////////////////
 get_header( $raindrops_document_type );?>
-<?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+<?php raindrops_debug_navitation( __FILE__ ); ?>
 <div id="yui-main">
   <div class="<?php echo $raindrops_devide_column_class;?>">
     <?php

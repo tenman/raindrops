@@ -12,10 +12,10 @@
 ?>
 <?php get_header( $raindrops_document_type ); ?>
 <div id="yui-main">
-  <?php if(WP_DEBUG == true){echo '<!--'.basename(__FILE__,'.php').'['.basename(dirname(__FILE__)).']-->';}?>
+  <?php raindrops_debug_navitation( __FILE__ ); ?>
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-      <div class="yui-u first" <?php is_2col_raindrops('style="width:99%;"');?>>
+		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
         <?php if (have_posts()){ ?>
         <h1 class="pagetitle h1">Search Results :<?php the_search_query(); ?></h1>
         <ul class="search-results">
@@ -50,7 +50,6 @@
         <?php raindrops_next_prev_links( "nav-below" );?>
         </li>
         </ul>
-
         <?php }else{ ?>
         <div class="fail-search">
           <h2 class="center h2">
@@ -72,7 +71,6 @@
 <?php raindrops_prepend_default_sidebar();?>	
       <?php get_sidebar('default'); ?>
 <?php raindrops_append_default_sidebar();?>
-
 </div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

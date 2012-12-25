@@ -7,7 +7,7 @@
  * @since Raindrops 0.1
  */
 ?>
-<div class="lsidebar">
+<<?php raindrops_doctype_elements( 'div','nav' );?> class="lsidebar">
 <ul>
 <?php
 	if (!dynamic_sidebar('sidebar-1')){
@@ -15,4 +15,4 @@
 	} 
 ?>
 </ul>
-</div>
+</<?php raindrops_doctype_elements( 'div','nav' );?>>

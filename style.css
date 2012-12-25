@@ -2446,12 +2446,16 @@ clear:both;
 	}
 	#doc3 .raindrops-mobile-menu .open{
 	  position:absolute;top:0;left:0;
+	  font-size:153.9%;
+	  width:10%;
 	}	
 	#doc3 .raindrops-mobile-menu .close{
-	  position:absolute;top:0;right:0;
+	  position:absolute;top:2px;right:5%;
+	  font-size:153.9%;
+	  width:10%;
 	}
 	#doc3 .raindrops-mobile-menu .menu-text{
-	  position:absolute;top:0;left:47%;
+	  position:absolute;top:0;left:44%;
 	}	
 	#doc3 #access ul ul,
 	#doc3 #access ul,
@@ -2539,6 +2543,9 @@ clear:both;
 		text-align:right;
 		padding:1em;
 		font-size:138.5%;
+	}
+	#doc3 #access .children li{
+		border:none;
 	}
 
 }

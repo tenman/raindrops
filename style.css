@@ -2507,7 +2507,7 @@ clear:both;
 	#doc3 .lsidebar ul li ul li a, 
 	#doc3 .rsidebar ul li ul li a,
 	#doc3 .lsidebar li.page_item a, 
-	#doc3 .lsidebar li.category_report a, 
+	#doc3 .lsidebar li.category_report a,
 	#doc3 .lsidebar .widget ul li a{
 		display:block;
 			background-repeat:no-repeat;
@@ -2520,13 +2520,18 @@ clear:both;
 			font-size:123%;
 	
 	}
-	.ja #doc3 .footer-widget h2,
-	.ja #doc3 .rsidebar h2,
-	.ja #doc3 .lsidebar h2, 
-	.ja #doc3 .widgettitle h2, 
-	.ja #doc3 h2.footer-content{	
+	#doc3 widget_tag_cloud{
+		diplay:inline;
+		padding:.5em;
+	}
+	#doc3 .footer-widget h2,
+	#doc3 .rsidebar h2,
+	#doc3 .lsidebar h2, 
+	#doc3 .widgettitle h2, 
+	#doc3 h2.footer-content{	
 			background-repeat:no-repeat;
 			height:2em;
+			background:none;
 	}
 	#doc3 #access ul ul{
 		text-align:left;

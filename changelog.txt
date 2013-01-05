@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:1.000
+
+fixed
+    Fixed header element end tag vanish when raindrops_show_menu_primary hide.
+modified
+    style.css
+----------------------------------------------
+Changelog -----------------------------------
 version:0.999
 
 modified

@@ -58,7 +58,7 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
  * Now only 'xhtml'
  * ver 0.999 add type 'html5'
  */
-    $raindrops_document_type = 'xhtml';
+    $raindrops_document_type = 'html5';
 /**
  * Include functions about the Raindrops options panel
  *
@@ -2709,7 +2709,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  */
     if ( ! function_exists( 'raindrops_site_description' ) ){
         function raindrops_site_description($args = array()){
-		
+
            if ('blank' == get_theme_mod('header_textcolor') or
                      '' == get_theme_mod('header_textcolor')  ){
                 $raindrops_show_hide = '';

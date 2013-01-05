@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 0.999
+Version: 1.000
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -108,7 +108,7 @@ h4{
 	}
 .h5:not(h5),
 h5{
-	font-size:small;
+	font-size:85%;
 	letter-spacing: 0.05em;	
 	}
 .h6:not(h6),
@@ -260,8 +260,8 @@ input[type="radio"],
 select{
 	margin:0 3px;
 }
-input[type="submit"],input[type="reset"],input[type="file"]{
-	padding:0 3px;
+input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
+	border:1px solid;
 }
 .entry-content blockquote {
 	clear:both;
@@ -2436,7 +2436,12 @@ clear:both;
 		display:block!important;
 	}
 	#doc3 #access{display:none!important;}
-	#doc3 #access:target{display:block!important;}
+	#doc3 #access:target{
+		display:block!important;
+		/* target link position ajust */
+		padding-top:100px;
+        margin-top:-100px;
+	}
 	
 	.ie6 #doc3 #access:target{display:block!important;}
 	.ie7 #doc3 #access:target{display:block!important;}
@@ -2487,6 +2492,11 @@ clear:both;
 		clear:both;
 		background-repeat:no-repeat;
 		position:static;
+	}
+	div.post,
+	article{
+		margin:0 5px 0 10px!important;
+		box-sizing: border-box;
 	}
 	#doc3 .reply, #ft a, 
 	#doc3 .page .hentry .entry-title a,
@@ -2552,5 +2562,15 @@ clear:both;
 	#doc3 #access .children li{
 		border:none;
 	}
-
+	#doc3 #site-title{
+		font-size:153.9%;
+	}
+	#nav-above,
+	#nav-below{
+		margin:0 10px;
+	}
+	#doc3 #header-image p{
+		font-size:123.1%;
+		font-weight:bold;
+	}
 }

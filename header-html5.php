@@ -64,7 +64,6 @@ wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'prim
 </nav>
 <br class="clear" />
 <?php raindrops_after_nav_menu();?>
-</header>
 <?php  }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
+</header>
 <div id="bd" class="clearfix">
-

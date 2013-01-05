@@ -70,7 +70,6 @@ submit{
 	box-shadow: 7px 7px 8px #cccccc;
 	-webkit-box-shadow: 7px 7px 8px #cccccc;
 	-moz-box-shadow: 7px 7px 8px #cccccc;
-	/*filter: progid:DXImageTransform.Microsoft.dropShadow(color=#cccccc, offX=7, offY=7, positive=true);zoom:1;*/
 }
 #access{
 	-webkit-text-size-adjust: 120%;
@@ -79,9 +78,7 @@ submit{
 	position:relative;
 	top:35%;
 	text-align:center;
-	font-size:200%;
 	text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3);
-	/*filter:progid:DXImageTransform.Microsoft.Glow(Color=white,Strength=2);*/
 }
 
 .datetable td li:nth-last-child(1){

@@ -471,7 +471,7 @@ background: %rgba_border%
 input[type="file"],
 input[type="reset"],
 .searchform input[type="submit"],
-input[type="submit"],
+input[type="submit"], 
 #access{
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
@@ -484,6 +484,9 @@ border-radius:3px 3px 3px 3px;
 -webkit-box-shadow: 1px 1px 3px #000;
 border-top:1px solid rgba(100,100,100,1);
 
+}
+.entry-content input[type="submit"]{
+	border: solid 1px %rgba_border%;
 }
 
 .raindrops-tab-list li,

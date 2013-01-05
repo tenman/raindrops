@@ -99,6 +99,6 @@ wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'prim
 </div>
 <br class="clear" />
 <?php raindrops_after_nav_menu();?>
-</div>
 <?php  }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
+</div>
 <div id="bd" class="clearfix">

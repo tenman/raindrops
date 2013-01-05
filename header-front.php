@@ -57,7 +57,7 @@ break;
 <body <?php body_class(); ?>>
 <div id="<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="<?php echo 'yui-'.raindrops_warehouse('raindrops_col_width'); ?> hfeed">
 <?php raindrops_prepend_doc();?>
-<div id="top">
+<<?php raindrops_doctype_elements('div','header');?> id="top">
 <div id="hd">
 <?php
 /**
@@ -93,20 +93,21 @@ echo raindrops_site_description();
 <?php
 if( raindrops_warehouse( 'raindrops_show_menu_primary' ) == "show" ){ ?>
 <p class="raindrops-mobile-menu"><a href="#access" class="open">+</a><span class="menu-text">menu</span><a href="#<?php echo raindrops_warehouse('raindrops_page_width'); ?>" class="close">-</a></p>
-<div id="access">
+<<?php raindrops_doctype_elements('div','nav');?> id="access">
 <div class="skip-link screen-reader-text"><a href="#container" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php _e( 'Skip to content', 'Raindrops' ); ?></a></div>
 <?php
 wp_nav_menu( array('container_class' => 'menu-header', 'theme_location' => 'primary') ); ?>
-</div>
+</<?php raindrops_doctype_elements('div','nav');?>>
 <br class="clear" />
 <?php raindrops_after_nav_menu();?>
-</div>
 <?php  }//raindrops_warehouse( 'raindrops_show_menu_primary' ) ?>
+</<?php raindrops_doctype_elements('div','header');?>>
 
 <?php
 $raindrops_header_image = raindrops_header_image( 'elements' );
 if( ! empty( $raindrops_header_image ) or has_post_thumbnail() ){
 ?>
+<span id="container"></span>
 <div class="yui-g">
     <div class="yui-u first">
         <div class="static-front-content">

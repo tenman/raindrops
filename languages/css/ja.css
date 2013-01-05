@@ -11,7 +11,7 @@ body.ja,
 .ja .h1,
 .ja .h2, 
 .ja .h3{
-	font-family:Geneva, Arial, Helvetica, sans-serif;
+		font-family:'Meiryo',Arial,sans-serif
 }
 /* 
 .ja h1,
@@ -82,7 +82,7 @@ body.ja,
 	}
 .ja .h5:not(h5),
 .ja h5{
-	font-size:small;
+	font-size:85%;
 	letter-spacing: 0.2em;	
 	}
 .ja .h6:not(h6),

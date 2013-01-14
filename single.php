@@ -65,6 +65,9 @@ if(have_posts()){
 	<div id="post-<?php the_ID(); ?>" <?php  post_class('clearfix'); ?>>
 <?php
 	}
+
+	
+
 	/**
 	 * Show featured image
 	 *
@@ -72,71 +75,8 @@ if(have_posts()){
 	 *
 	 *
 	 */
-		$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
-	
-		if(has_post_thumbnail() and isset($thumb) and $is_IE){
-		/*IE8 img element has width height attribute. and style max-width and height auto makes conflict expand height*/
-				$thumbnailsrc       = wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail');
-				$thumbnailuri       = esc_url($thumbnailsrc[0]);
-				$thumbnailwidth     = $thumbnailsrc[1];
-	
-	
-			if($thumbnailwidth > $content_width){
-				$thumbnailheight    = $thumbnailsrc[2];
-				$ratio              = round(RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT/ RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH,2);
-				$ie_height          = round($content_width * $ratio);
-	
-				$thumbnail_title    = basename($thumbnailsrc[0]);
-				$thumbnail_title    = esc_attr($thumbnail_title);
-				$size_attribute     = image_hwstring($content_width, $ie_height);
-	
-				echo '<div class="single-post-thumbnail">';
-				echo '<img src="'.$thumbnailuri.'" '.$size_attribute.'" alt="'.$thumbnail_title.'" style="max-width:100%;" />';
-				echo '</div>';
-	
-			}else{
-				echo '<div class="single-post-thumbnail">';
-				echo $thumb;
-				echo '</div>';
-			}
-		}else{
-			$raindrops_post_thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' );
-			$flag = true;
-				if( raindrops_warehouse( 'raindrops_style_type' ) == 'w3standard' ){
-					//Sorry w3standard css can not use CSS3 then remove light box
-					$flag = false;
-				}
-			if(!empty($thumb)){
-				echo '<div class="single-post-thumbnail">';
-				if( $flag ){ echo '<a href="#raindrops-light-box" class="raindrops-light-box">';}
-				echo $thumb;
-				if( $flag ){ echo '</a>';}
-				echo '</div>';
-				/* for light box */
-				if( $flag ){
-					echo '<div class="raindrops-lightbox-overlay" id="raindrops-light-box">';
-					echo '<a href="#page" class="lb-close">Close</a>';
-					echo '<img src="'.$raindrops_post_thumbnail_src[0].'" alt="single post thumbnail" />';
-					echo '</div>';
-				}
-				
-			}
-		}
-	/**
-	 *　Add navigation link for post thumbnail 
-	 *
-	 *
-	 *
-	 *
-	 */
-	if ( has_post_thumbnail() ) {
-		$raindrops_html_piece = '<p style="text-align:center;font-size:small;"><a href="%1$s">%2$s</a></p>';
-				
-		printf( $raindrops_html_piece
-			,  get_attachment_link( get_post_thumbnail_id() )
-			, __( 'Go to Attachment page', 'Raindrops')
-		);
-	} 
+    raindrops_featured_image();
+	 
 	/**
 	 * Show Category base special layout and default single template part
 	 *

@@ -10,21 +10,24 @@
 /**
  * Display navigation to next/previous pages when applicable
  */
-
 	raindrops_next_prev_links();
-  
 	if(have_posts()){
 		raindrops_loop_title();
+		$raindrops_loop_number = 1;
 		while (have_posts()){
 				the_post();
 		//default: sticky exists 2page when sticky post shown
 		//The sticky post displays once where home top.
 				$raindrops_add_class = array();
 				
-		if( is_sticky() ){
-			$raindrops_add_class = array( 'raindrops-sticky' );
-		} ?>
-		<li>
+			if( is_sticky() ){
+				$raindrops_add_class = array( 'raindrops-sticky' );
+			}
+			$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number );
+			printf( '<li class="loop-%1$s%2$s">', $raindrops_loop_class[0],$raindrops_loop_class[1] );
+			$raindrops_loop_number++;
+			
+			?>
 		  <<?php raindrops_doctype_elements('div','article');?> id="post-<?php the_ID(); ?>" <?php post_class( $raindrops_add_class ); ?>>
 <?php
 /**

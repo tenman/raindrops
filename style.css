@@ -16,7 +16,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Filetype: CSS
  * @package Raindrops
  */
-
 /*-----------------------------------------------------
 Yahoo UI Library Font-size Adjustment
 Copyright (c) 2006, Yahoo! Inc. All rights reserved.
@@ -2421,10 +2420,19 @@ clear:both;
 .page-template-page-templatesfront-page-php #ft .widget h2{
 	/*text-align:left;*/
 }
+#date_list a:target{
+		/* target link position ajust */
+		padding-top:50px;
+        margin-top:-50px;
+}
 .raindrops-mobile-menu{
 	display:none!important;
 }
-/* Responsive Settings */
+
+
+
+
+
 @media screen and (min-width : 640px){
 	#doc3 .nav-menu-toggle{ 
 		display:none!important;
@@ -2481,14 +2489,13 @@ clear:both;
 	#doc3 #yui-main {
 		float:none;
 		margin:0;
-		margin-left:none;
-		margin-right:none;
+		margin-left:0;
+		margin-right:0;
 		/*border:1px solid red;*/
 		display:block;
 		max-width:100%;
 		width:100%;
 		box-sizing: border-box;
-		margin-right:0;
 		clear:both;
 		background-repeat:no-repeat;
 		position:static;
@@ -2531,7 +2538,7 @@ clear:both;
 	
 	}
 	#doc3 widget_tag_cloud{
-		diplay:inline;
+		display:inline;
 		padding:.5em;
 	}
 	#doc3 .footer-widget h2,
@@ -2550,7 +2557,7 @@ clear:both;
 	#doc3 #access ul ul ul{
 		text-align:left!important;
 		text-indent:2em;
-		}
+	}
 	
 	#doc3 .raindrops-mobile-menu{
 		display:inline-block;
@@ -2572,5 +2579,118 @@ clear:both;
 	#doc3 #header-image p{
 		font-size:123.1%;
 		font-weight:bold;
+	}
+}
+
+
+
+.portfolio{
+	margin-bottom:20px;
+}
+
+.portfolio .index{
+	margin:2em 1em;
+	border-bottom:none;
+}
+.portfolio ul.index > li{
+	width:33.3%;
+	clear: none;
+	display:inline-block;
+	float:left!important;
+	height:200px;
+	overflow:hidden;
+	padding:10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+.portfolio .index .raindrops-sticky{
+	display:block;
+}
+.portfolio .index ul,
+.portfolio ul.index > li.loop-9:after, 
+.portfolio ul.index > li.loop-6:after,
+.portfolio ul.index > li.loop-3:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.portfolio-page-content,
+.stickies{
+	margin:1% 3%;
+}
+.portfolio-page-content{
+	padding:5px 10px;
+}
+.portfolio ul.index > li .post{
+	border:1px solid rgba( 104, 104, 104, 0.5 );
+	height:180px;
+	background-size:cover;
+	text-align:center;
+}
+.portfolio .index > li .entry-title a{
+	margin:0 10px;
+	font-size:86%;
+}
+.portfolio .index > li .post .h2-thumb,
+.portfolio .index > li:not(.loop-item-show-allways) .post .entry-meta,
+.portfolio .index > li:not(.loop-item-show-allways) .post .raindrops-comment-link,
+.portfolio .index > li:not(.loop-item-show-allways) .post .entry-title a{
+	display:none;
+}
+.portfolio .index > li .raindrops-comment-link{
+	margin:0 0 0 0;
+}
+.portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link{
+	display:inline;
+}
+.portfolio .index > li:not(.loop-item-show-allways) .post:hover .entry-meta,
+.portfolio .index > li:not(.loop-item-show-allways) .post:hover .entry-title a{
+	display:block;
+	cursor:pointer;
+}
+.portfolio ul.index > li .post:hover{
+	background:none!important;
+}
+body:not(.logged-in) .portfolio .index > li article .entry-meta{
+	border:none;
+}
+/* IE */
+.ie6 .portfolio .index > li .post .h2-thumb,
+.ie7 .portfolio .index > li .post .h2-thumb,
+.ie8 .portfolio .index > li .post .h2-thumb{
+	display:block;
+}
+.ie6 .portfolio .index > li .post .entry-meta,
+.ie7 .portfolio .index > li .post .entry-meta,
+.ie8 .portfolio .index > li .post .entry-meta{
+	border:none;
+}
+.ie6 #yui-main.portfolio ul.index > li .post,
+.ie7 #yui-main.portfolio ul.index > li .post,
+.ie8 #yui-main.portfolio ul.index > li .post{
+	background:none!important;
+}
+@media screen and (max-width : 640px){
+	.portfolio > ul{
+		margin-left:0;
+	}
+	.portfolio ul.index > li{
+		width:100%;
+		display:block;
+		padding:10px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box; 
+		-ms-box-sizing: border-box; 
+		box-sizing: border-box;
+		margin:auto;
+		float:none;
+	}
+	.portfolio ul.index > li .post{
+		background-repeat:no-repeat;
+		background-position:center center!important;
 	}
 }

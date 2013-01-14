@@ -49,7 +49,131 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
     $raindrops_theme_data       = get_theme_data( get_theme_root() . '/' . $raindrops_current_theme_name . '/style.css' );
     $raindrops_version          = $raindrops_theme_data['Version'];
 
+if( ! function_exists( 'raindrops_featured_image' ) ){
+    function raindrops_featured_image(){
+		/**
+		 * Show featured image
+		 *
+		 *
+		 *
+		 *
+		 */
+			$thumb = get_the_post_thumbnail($post->ID,'single-post-thumbnail');
+		
+			if(has_post_thumbnail() and isset($thumb) and $is_IE){
+			/*IE8 img element has width height attribute. and style max-width and height auto makes conflict expand height*/
+					$thumbnailsrc       = wp_get_attachment_image_src(get_post_thumbnail_id(), 'single-post-thumbnail');
+					$thumbnailuri       = esc_url($thumbnailsrc[0]);
+					$thumbnailwidth     = $thumbnailsrc[1];
+		
+		
+				if($thumbnailwidth > $content_width){
+					$thumbnailheight    = $thumbnailsrc[2];
+					$ratio              = round(RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT/ RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH,2);
+					$ie_height          = round($content_width * $ratio);
+		
+					$thumbnail_title    = basename($thumbnailsrc[0]);
+					$thumbnail_title    = esc_attr($thumbnail_title);
+					$size_attribute     = image_hwstring($content_width, $ie_height);
+		
+					echo '<div class="single-post-thumbnail">';
+					echo '<img src="'.$thumbnailuri.'" '.$size_attribute.'" alt="'.$thumbnail_title.'" style="max-width:100%;" />';
+					echo '</div>';
+		
+				}else{
+					echo '<div class="single-post-thumbnail">';
+					echo $thumb;
+					echo '</div>';
+				}
+			}else{
+				$raindrops_post_thumbnail_src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' );
+				$flag = true;
+					if( raindrops_warehouse( 'raindrops_style_type' ) == 'w3standard' or USE_FEATURED_IMAGE_LIGHT_BOX == false ){
+						//Sorry w3standard css can not use CSS3 then remove light box
+						$flag = false;
+					}
+				if(!empty($thumb)){
+					echo '<div class="single-post-thumbnail">';
+					if( $flag ){ 
+						echo '<a href="#raindrops-light-box" class="raindrops-light-box">';
+					}else{
+						printf( '<a href="%1$s">', get_attachment_link( get_post_thumbnail_id() ) );
+					}
+					echo $thumb;
+					if( $flag ){ echo '</a>';}
+					echo '</div>';
+					/* for light box */
+					if( $flag ){
+						echo '<div class="raindrops-lightbox-overlay" id="raindrops-light-box">';
+						echo '<a href="#page" class="lb-close">Close</a>';
+						echo '<img src="'.$raindrops_post_thumbnail_src[0].'" alt="single post thumbnail" />';
+						echo '</div>';
+					}
+					
+				}
+			}
+		/**
+		 *　Add navigation link for post thumbnail 
+		 *
+		 *
+		 *
+		 *
+		 */
+		if ( has_post_thumbnail() and USE_FEATURED_IMAGE_LIGHT_BOX == true ) {
+			$raindrops_html_piece = '<p style="text-align:center;font-size:small;"><a href="%1$s">%2$s</a></p>';
+					
+			printf( $raindrops_html_piece
+				,  get_attachment_link( get_post_thumbnail_id() )
+				, __( 'Go to Attachment page', 'Raindrops')
+			);
+		}
+	
+	}
+}
+	
+	
+define( 'USE_FEATURED_IMAGE_LIGHT_BOX', false );
+/**
+ * raindrops loop class 
+ *
+ *
+ *
+ * 
+ * ver 1.001
+ */
+if( ! function_exists( 'raindrops_loop_class' ) ){
+	function raindrops_loop_class( $raindrops_loop_number ,$add_class = '' ){
+		$str_class = '';
+		$raindrops_background = '';
+		
+		if( is_array($add_class) ){ 
+			foreach( $add_class as $class){
+				$str_class = ' '. $class;
+			}
+		}else{
+			$str_class = ' '. $add_class;
+		}
+		
+		$raindrops_loop_five = $str_class;
+		
+		if( $raindrops_loop_number == 12 ){
+			$raindrops_loop_number = 0;
+		}elseif( $raindrops_loop_number % 5 == 0 ){
+			$raindrops_loop_five .= ' loop-five';
+		}
+		
+		$post_thumbnail_id 		= get_post_thumbnail_id( get_the_ID() );
+		$raindrops_background	= wp_get_attachment_image_src( $post_thumbnail_id, 'post-thumbnail' );
+		list($raindrops_background, $width, $height) = $raindrops_background;
 
+		if( ! $raindrops_background ){
+			$raindrops_loop_five	.= ' loop-item-show-allways';
+		}else{
+			$raindrops_background	= 'style="background:url('.$raindrops_background.');background-size:cover;"';
+		}
+		return array( $raindrops_loop_number, $raindrops_loop_five, $raindrops_background );
+	}
+}
 /**
  * HTML document type
  *
@@ -609,8 +733,13 @@ if( ! defined('OVERRIDE_POST_STYLE_ALL_CONTENTS' ) ){
  */
     if (!function_exists('raindrops_posted_on')) {
         function raindrops_posted_on() {
-            $raindrops_date_format = get_option('date_format'). ' '. get_option( 'time_format' );
-            $author = raindrops_blank_fallback(get_the_author(),'Somebody');
+		global $post;
+            $raindrops_date_format	= get_option('date_format'). ' '. get_option( 'time_format' );
+            $author 				= raindrops_blank_fallback(get_the_author(),'Somebody');
+			$archive_year			= get_the_time('Y'); 
+			$archive_month			= get_the_time('m'); 
+			$archive_day			= get_the_time('d'); 
+			$day_link				= esc_url( get_day_link( $archive_year, $archive_month, $archive_day).'#post-'.$post->ID  );
             if (comments_open()){
                 $raindrops_comment_html = '<a href="%1$s" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em>%2$s %3$s</em></a>';
                 if(get_comments_number() > 0 ){
@@ -628,10 +757,12 @@ if( ! defined('OVERRIDE_POST_STYLE_ALL_CONTENTS' ) ){
             $result = sprintf( __( '<span class="%1$s">Posted on</span> %2$s <span class="meta-sep">by</span> %3$s %4$s'
 , 'Raindrops' ),
                 'meta-prep meta-prep-author',
-                sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-                    get_permalink(),
+                sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>',
+                    $day_link,
                     esc_attr( get_the_time($raindrops_date_format) ),
-                    get_the_date( $raindrops_date_format )
+                    get_the_date( $raindrops_date_format ),
+					raindrops_doctype_elements('span','time',false),
+					raindrops_doctype_elements('', 'datetime="'.esc_attr( get_the_date( 'c' ) ).'"', false)
                 ),
                 sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>',
                     get_author_posts_url( get_the_author_meta( 'ID' ) ),
@@ -1745,7 +1876,7 @@ LINK_COLOR_CSS;
                                     foreach ($today[$i] as $mytime) {
                                         $mytime->post_title = raindrops_fallback_title($mytime->post_title);
                                             $output .= "<a href=\"" . get_permalink($mytime->ID) . "\"
-            title=\"".esc_attr($mytime->post_title)."\">$mytime->post_title</a><br />";
+            id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
                                     }
                     } else {
                             $output .= '<span style="visibility:hidden;">.</span>';
@@ -2571,8 +2702,19 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
                 $url = get_random_header_image();
             }
 
-            $uploads        = wp_upload_dir();
-            $path           = $uploads['path'].'/'. basename( $url );
+           /* $uploads        = wp_upload_dir();
+            $path           = $uploads['path'].'/'. basename( $url );*/
+			
+			$uploads    = wp_upload_dir();
+			$file_name	=  basename( $url );
+			//get_option( 'uploads_use_yearmonth_folders' )
+			if( preg_match( '|/[0-9]{4}/[0-9]{2}/'.$file_name.'$|', $url, $regs ) ){
+				$child_path = $regs[0];
+			}else{
+				$child_path = '/'. $file_name;
+			}
+			
+			$path = $uploads['path']. $child_path;
 
             if( ! file_exists( $path ) ){ //fallback
                 $path       = get_template_directory().'/images/headers/wp3.jpg';
@@ -2709,7 +2851,7 @@ if ( ! function_exists( 'raindrops_admin_header_image' ) ){
  */
     if ( ! function_exists( 'raindrops_site_description' ) ){
         function raindrops_site_description($args = array()){
-
+		
            if ('blank' == get_theme_mod('header_textcolor') or
                      '' == get_theme_mod('header_textcolor')  ){
                 $raindrops_show_hide = '';
@@ -3035,8 +3177,20 @@ if(!function_exists("fallback_user_interface_view") ){
                 $url = get_random_header_image();
             }
 
-            $uploads    = wp_upload_dir();
-            $path       = $uploads['path'].'/'. basename( $url );
+           /* $uploads    = wp_upload_dir();
+            $path       = $uploads['path'].'/'. basename( $url );*/
+			
+			$uploads    = wp_upload_dir();
+			$file_name	=  basename( $url );
+			//get_option( 'uploads_use_yearmonth_folders' )
+			if( preg_match( '|/[0-9]{4}/[0-9]{2}/'.$file_name.'$|', $url, $regs ) ){
+				$child_path = $regs[0];
+			}else{
+				$child_path = '/'. $file_name;
+			}
+			
+			$path = $uploads['path']. $child_path;
+			
                 if( ! file_exists( $path ) ){
                     $raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );
                 }
@@ -3232,7 +3386,6 @@ if(!function_exists("fallback_user_interface_view") ){
             .gallery-columns-9 dl{ width: 11.1% }\n
             .gallery-columns-10 dl{ width: 9.9% }\n";
 
-
             return apply_filters("raindrops_gallerys_css",$raindrops_gallerys);
         }
     }
@@ -3247,7 +3400,12 @@ if(!function_exists("fallback_user_interface_view") ){
 if( $raindrops_wp_version >= '3.4' ){
     add_action( 'customize_register', 'raindrops_customize_register' );
 }
-
+/**
+ *
+ *
+ *
+ *
+ */
 if( ! function_exists( 'raindrops_customize_register' ) ){
     function raindrops_customize_register($wp_customize) {
     global $raindrops_current_theme_name;
@@ -3418,10 +3576,15 @@ if( ! function_exists( 'raindrops_customize_register' ) ){
     }
 
 }
-
     add_filter( 'raindrops_prev_next_post', 'raindrops_remove_element');
     add_filter( 'raindrops_posted_on', 'raindrops_remove_element');
     add_filter( 'raindrops_posted_in', 'raindrops_remove_element');
+/**
+ *
+ *
+ *
+ *
+ */	
 if( ! function_exists( 'raindrops_remove_element' ) ){
     function raindrops_remove_element($content){
     return preg_replace('!<span[^>]+><\/span>!','',$content);
@@ -3684,7 +3847,6 @@ if( ! function_exists( 'raindrops_entry_title' ) ){
         echo apply_filters( 'raindrops_entry_title', $html );
     }
 }
-
 /**
  *
  *
@@ -3692,7 +3854,6 @@ if( ! function_exists( 'raindrops_entry_title' ) ){
  *
  * @since 0.980
  */
-
 if( ! function_exists( 'raindrops_entry_content' ) ){
     function raindrops_entry_content($more_link_text = null, $stripteaser = false){
         global $post;
@@ -3709,11 +3870,7 @@ if( ! function_exists( 'raindrops_entry_content' ) ){
             $content = apply_filters('raindrops_entry_content', $content);
             $content = str_replace(']]>', ']]&gt;', $content);
             echo $content;
-
         }
-
-
-
     }
 }
 
@@ -3730,20 +3887,16 @@ if( ! function_exists( 'raindrops_next_prev_links' ) ){
         global $wp_query;
 
         if ( $wp_query->max_num_pages > 1 ){
-
             $html = '<div id="%3$s" class="clearfix"><span class="nav-previous">%1$s</span><span class="nav-next">%2$s</span></div>';
             $html = sprintf( $html,
                     get_next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'Raindrops' ) ),
                     get_previous_posts_link( __( '<span>Newer posts <span class="meta-nav">&rarr;</span></span>', 'Raindrops' ) ),
                     $position
                     );
-
             echo apply_filters(  'raindrops_next_prev_links' , $html );
         }
-
     }
 }
-
 /**
  *
  *
@@ -3774,32 +3927,26 @@ if( ! function_exists( 'raindrops_sidebar_menus' ) ){
 
         }else{
         // extra sidebar
-
-            $html = '<li><h2 class="h2">'. __('Recent Post', 'Raindrops'). '</h2>';
-
+            $html 					= '<li><h2 class="h2">'. __('Recent Post', 'Raindrops'). '</h2>';
             $raindrops_get_posts    = get_posts('numberposts=0&offset=1');
 
             if(isset($raindrops_get_posts)){
-            $html .= '<ul>';
-                foreach($raindrops_get_posts as $post){
-                    setup_postdata($post);
-                    if (!empty($wp_query->posts) and $post->ID == $wp_query->post->ID ) {
-                        $attr = ' class="current-post"';
-                    }
-                $html .= '<li '.$attr.'><a href="'. get_permalink(). '">    '.the_title('','',false).'</a></li>';
-
-               }
-            $html .= '</ul></li>';
-
+				$html .= '<ul>';
+					foreach($raindrops_get_posts as $post){
+						setup_postdata($post);
+						if (!empty($wp_query->posts) and $post->ID == $wp_query->post->ID ) {
+							$attr = ' class="current-post"';
+						}
+					$html .= '<li '.$attr.'><a href="'. get_permalink(). '">    '.the_title('','',false).'</a></li>';
+	
+				   }
+				$html .= '</ul></li>';
             }
         }
-
         echo apply_filters( 'raindrops_sidebar_menus', $html );
         wp_reset_postdata();
     }
 }
-
-
 /**
  * recent posta
  *
@@ -3810,7 +3957,9 @@ if( ! function_exists( 'raindrops_sidebar_menus' ) ){
 if( ! function_exists( 'raindrops_recent_posts' ) ){
     function raindrops_recent_posts( ){
         global $raindrops_recent_posts_setting,$post;
-        if( ! isset( $raindrops_recent_posts_setting ) ){return;}
+        if( ! isset( $raindrops_recent_posts_setting ) ){
+			return;
+		}
         $default= array(
                 'title'=> __('Recent Post','Raindrops' ),
                 'numberposts'=> 10,
@@ -3826,15 +3975,14 @@ if( ! function_exists( 'raindrops_recent_posts' ) ){
                 'post_status'=> 'publish',
                 'suppress_filters'=> true
         );
-        $args= wp_parse_args($raindrops_recent_posts_setting, $default);
-        $title= $args['title'];
+        $args		= wp_parse_args($raindrops_recent_posts_setting, $default);
+        $title		= $args['title'];
         unset( $args['title'] );
-        $html = '<li class="%3$s"><a href="%1$s">%2$s</a></li>';
-        $results= wp_get_recent_posts( $args ) ;
+        $html 		= '<li class="%3$s"><a href="%1$s">%2$s</a></li>';
+        $results	= wp_get_recent_posts( $args ) ;
 
         $result     = sprintf('<h2 class="%2$s">%1$s</h2>',$title,'title h2');
         $result     .= sprintf( '<ul class="%1$s">' , 'list' );
-
         foreach( $results as $key=> $val ){
             $result .= sprintf( $html,
                                 $val['guid'],
@@ -3844,9 +3992,7 @@ if( ! function_exists( 'raindrops_recent_posts' ) ){
         }
 
         $result     .= sprintf( '</ul>' );
-
         $result = sprintf('<div class="%1$s">%2$s</div>', 'raindrops-recent-posts pad-m clearfix', $result );
-
         echo apply_filters( 'raindrops_recent_posts', $result );
     }
 }
@@ -3861,9 +4007,9 @@ if( ! function_exists( 'raindrops_recent_posts' ) ){
 if( ! function_exists( 'raindrops_category_posts' ) ){
     function raindrops_category_posts( ){
         global $post, $raindrops_category_posts_setting;
-
-        if( ! isset( $raindrops_category_posts_setting ) ){return;}
-
+        if( ! isset( $raindrops_category_posts_setting ) ){
+			return;
+		}
         $settings= array( 'title'            => __('Categories','Raindrops' ),
                             'numberposts' => 0,
                             'offset'=> 0,
@@ -3894,7 +4040,6 @@ if( ! function_exists( 'raindrops_category_posts' ) ){
                 $result      .= sprintf('</ul>');
         }
                 $result = sprintf('<div class="%1$s">%2$s</div>','raindrops-category-posts pad-m clearfix', $result );
-
         echo apply_filters( 'raindrops_category_posts', $result );
         wp_reset_postdata();
     }
@@ -3910,9 +4055,7 @@ if( ! function_exists( 'raindrops_category_posts' ) ){
 if( ! function_exists( 'raindrops_tag_posts' ) ){
     function raindrops_tag_posts( ){
         global $post, $raindrops_tag_posts_setting;
-
         if( ! isset( $raindrops_tag_posts_setting ) ){return;}
-
         $settings= array( 'title' => __('Tags','Raindrops' ),
                             'numberposts' => 0,
                             'offset'=> 0,
@@ -3931,9 +4074,7 @@ if( ! function_exists( 'raindrops_tag_posts' ) ){
         $settings= wp_parse_args($raindrops_tag_posts_setting,$settings);
         $title= $settings['title'];
         unset( $settings['title'] );
-
         $posts= get_posts($settings);
-
         if( $posts ){
             $result      = sprintf('<h2 class="%2$s">%1$s</h2>', $title, 'title h2' );
             $result     .= sprintf( '<ul class="%1$s">' , 'list' );
@@ -3947,67 +4088,60 @@ if( ! function_exists( 'raindrops_tag_posts' ) ){
             $result      .= sprintf('</ul>');
         }
         $result = sprintf('<div class="%1$s">%2$s</div>','raindrops-tag-posts pad-m clearfix', $result );
-
         echo apply_filters( 'raindrops_tag_posts', $result );
         wp_reset_postdata();
     }
 }
 
 if( ! function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ){
-function raindrops_monthly_archive_prev_next_navigation(){
-    global $wpdb, $wp_query;
-
-    if( is_month() ){
-
-        $thisyear   = mysql2date('Y', $wp_query->posts[0]->post_date);
-        $thismonth  = mysql2date('m', $wp_query->posts[0]->post_date);
-
-        $unixmonth  = mktime(0, 0 , 0, $thismonth, 1, $thisyear);
-        $last_day   = date('t', $unixmonth);
-
-        $previous   = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year FROM $wpdb->posts
-            WHERE post_date < '$thisyear-$thismonth-01'
-            AND post_type = 'post' AND post_status = 'publish'
-                ORDER BY post_date DESC
-                LIMIT 1");
-        $next       = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year FROM $wpdb->posts
-            WHERE post_date > '$thisyear-$thismonth-{$last_day} 23:59:59'
-            AND post_type = 'post' AND post_status = 'publish'
-                ORDER BY post_date ASC
-                LIMIT 1");
-
-        $html       = '<a href="%1$s" class="%3$s">%2$s</a>';
-
-        if ( $previous ) {
-            $calendar_output = sprintf( $html,
-                                        get_month_link($previous->year,
-                                        $previous->month) ,
-                                        sprintf(__('Prev Month( %sth )','Raindrops'),
-                                        $previous->month),
-                                        'alignleft'
-                                      );
-        }
-        $calendar_output .= "\t" ;
-        if ( $next ) {
-            $calendar_output .= sprintf( $html,
-                                        get_month_link($next->year,
-                                        $next->month),
-                                        sprintf(__('Next Month( %sth )','Raindrops'),
-                                        $next->month),
-                                        'alignright'
-                                        );
-        }
-
-        $html = '<div class="%1$s">%2$s</div>';
-
-            $calendar_output = sprintf( $html,
-                                        'raindrops-monthly-archive-prev-next-avigation',
-                                        $calendar_output
-                                    );
-
-        echo apply_filters( 'raindrops_monthly_archive_prev_next_navigation', $calendar_output );
-    }
-}
+	function raindrops_monthly_archive_prev_next_navigation(){
+		global $wpdb, $wp_query;
+		if( is_month() ){
+			$thisyear   = mysql2date('Y', $wp_query->posts[0]->post_date);
+			$thismonth  = mysql2date('m', $wp_query->posts[0]->post_date);
+			$unixmonth  = mktime(0, 0 , 0, $thismonth, 1, $thisyear);
+			$last_day   = date('t', $unixmonth);
+	
+			$previous   = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year FROM $wpdb->posts
+				WHERE post_date < '$thisyear-$thismonth-01'
+				AND post_type = 'post' AND post_status = 'publish'
+					ORDER BY post_date DESC
+					LIMIT 1");
+			$next       = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year FROM $wpdb->posts
+				WHERE post_date > '$thisyear-$thismonth-{$last_day} 23:59:59'
+				AND post_type = 'post' AND post_status = 'publish'
+					ORDER BY post_date ASC
+					LIMIT 1");
+	
+			$html       = '<a href="%1$s" class="%3$s">%2$s</a>';
+	
+			if ( $previous ) {
+				$calendar_output = sprintf( $html,
+											get_month_link($previous->year,
+											$previous->month) ,
+											sprintf(__('Prev Month( %sth )','Raindrops'),
+											$previous->month),
+											'alignleft'
+										  );
+			}
+			$calendar_output .= "\t" ;
+			if ( $next ) {
+				$calendar_output .= sprintf( $html,
+											get_month_link($next->year,
+											$next->month),
+											sprintf(__('Next Month( %sth )','Raindrops'),
+											$next->month),
+											'alignright'
+											);
+			}
+			$html = '<div class="%1$s">%2$s</div>';
+				$calendar_output = sprintf( $html,
+											'raindrops-monthly-archive-prev-next-avigation',
+											$calendar_output
+										);
+			echo apply_filters( 'raindrops_monthly_archive_prev_next_navigation', $calendar_output );
+		}
+	}
 }
 /**
  *
@@ -4018,9 +4152,8 @@ function raindrops_monthly_archive_prev_next_navigation(){
  */
 if( ! function_exists( 'raindrops_customize_controls_print_styles' ) ){
     function raindrops_customize_controls_print_styles(){
-
     ?>
-    <style>
+    <style type="text/css">
     #customize-control-raindrops_style_type .customize-control-title + label{
 
         background:url(<?php echo get_template_directory_uri().'/images/screen-shot-dark.png';?>);
@@ -4059,10 +4192,7 @@ if( ! function_exists( 'raindrops_customize_controls_print_styles' ) ){
     }
 
     </style>
-
     <?php
-
-
     }
 }
 /**
@@ -4072,7 +4202,6 @@ if( ! function_exists( 'raindrops_customize_controls_print_styles' ) ){
  *
  * @since 0.990
  */
-
 if( class_exists( 'WP_Customize_Control' ) ){
     class Raindrops_Customize_Navigation_Control extends WP_Customize_Control {
         public $type= 'navigation';
@@ -4100,7 +4229,6 @@ if( class_exists( 'WP_Customize_Control' ) ){
 
     }
 }
-
 /**
  *
  *
@@ -4124,51 +4252,50 @@ if( ! function_exists( 'raindrops_mobile_meta' ) ){
  *
  * @since 0.999
  */
-function raindrops_add_class( $id = 'yui-u first', $echo = false ){
-    $class          = '';
-    $raindrops_current_column = raindrops_show_one_column();
-
-    if( $id == 'yui-u first' ){
-
-        if($raindrops_current_column == 3){
-            $class = '';
-        }elseif($raindrops_current_column == 1){
-            if( is_single() or is_page() ){
-                $class = 'raindrops-expand-width';
-            }
-        }elseif($raindrops_current_column == 2){
-            if( is_single() or is_page() ){
-                $class = 'raindrops-expand-width';
-            }
-
-        }elseif($raindrops_current_column == false){
-            $check = is_2col_raindrops('not-add-class' , false);
-
-            if( $check == false ){
-                $class = '';
-            }elseif( $check == 'not-add-class' ){
-                $class = 'raindrops-expand-width';
-            }else{
-                $class = '';
-            }
-        }
-    }
-
-    if( $id == 'yui-b' ){
-        if($raindrops_current_column == '1' ){
-            $class = "raindrops-expand-width raindrops-margin-left-none";
-        }
-    }
-
-
-
-
-    if( $echo !== false ){
-        echo $class;
-    }else{
-        return $class;
-    }
-
+if( ! function_exists( 'raindrops_add_class' ) ){
+	function raindrops_add_class( $id = 'yui-u first', $echo = false ){
+		global $rsidebar_show;
+		$class          = '';
+		$raindrops_current_column = raindrops_show_one_column();
+	
+		if( $id == 'yui-u first' ){
+	
+			if($raindrops_current_column == 3){
+				$class = '';
+			}elseif($raindrops_current_column == 1){
+				if( is_single() or is_page() or $rsidebar_show == false){
+					$class = 'raindrops-expand-width';
+				}
+			}elseif($raindrops_current_column == 2){
+				if( is_single() or is_page() or $rsidebar_show == false){
+					$class = 'raindrops-expand-width';
+				}
+			}elseif($raindrops_current_column == false){
+				$check = is_2col_raindrops('not-add-class' , false);
+	
+				if( $check == false ){
+					$class = '';
+				}elseif( $check == 'not-add-class' ){
+					$class = 'raindrops-expand-width';
+				}else{
+					$class = '';
+				}
+			}
+		}
+	
+		if( $id == 'yui-b' ){
+			if($raindrops_current_column == '1' ){
+				$class = "raindrops-expand-width raindrops-margin-left-none";
+			}
+		}
+	
+		if( $echo !== false ){
+			echo $class;
+		}else{
+			return $class;
+		}
+	
+	}
 }
 /**
  *
@@ -4176,12 +4303,12 @@ function raindrops_add_class( $id = 'yui-u first', $echo = false ){
  *
  *
  */
-function raindrops_debug_navitation($template){
-    if(WP_DEBUG == true){
-        echo '<!--'.basename($template,'.php').'['.basename(dirname(__FILE__)).']-->';
-    }
-
-
+if( ! function_exists( 'raindrops_debug_navitation' ) ){
+	function raindrops_debug_navitation($template){
+		if(WP_DEBUG == true){
+			echo '<!--'.basename($template,'.php').'['.basename(dirname(__FILE__)).']-->';
+		}
+	}
 }
 /**
  *
@@ -4189,13 +4316,16 @@ function raindrops_debug_navitation($template){
  *
  *
  */
-function raindrops_doctype_elements($xhtml,$html5){
-    global $raindrops_document_type;
-
-    echo $$raindrops_document_type;
+if( ! function_exists( 'raindrops_doctype_elements' ) ){
+	function raindrops_doctype_elements($xhtml,$html5,$echo = true){
+		global $raindrops_document_type;
+		if($echo == true ){
+			echo $$raindrops_document_type;
+		}else{
+			return $$raindrops_document_type;
+		}
+	}
 }
-
-
 /**
  *
  *
@@ -4206,5 +4336,4 @@ function raindrops_doctype_elements($xhtml,$html5){
 if( $raindrops_wp_version < '3.4' ){
     include(get_template_directory().'/backward-compatibility.php');
 }
-
 ?>

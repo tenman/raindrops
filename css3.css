@@ -118,6 +118,10 @@ h6,
 	word-break:break-all;
 	word-wrap:break-word;
 }
+.entry-title a{
+	word-break:normal;
+	word-wrap:normal;/* Internet Explorer */
+}
 
 .raindrops-light-box{
 	position: relative;
@@ -163,14 +167,27 @@ h6,
 	padding:10px;
 	background:#fff;
 }
+.chrome .raindrops-lightbox-overlay img{
+	max-height: 70%;
+}
+.gecko .raindrops-lightbox-overlay img{
+	max-height: 50%;
+}
 .raindrops-lightbox-overlay:target {
 	width: auto;
 	height: auto;
 	bottom: 0px;
 	right: 0px;
-	padding: 90px 100px 120px 100px;
-	border:1px solid red;
+	padding: 90px 30px 30px 20px;
 	background:rgba(52,52,52,.5);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+.gecko .raindrops-lightbox-overlay:target {
+	padding: 90px auto 20px;
+	
 }
 .raindrops-lightbox-overlay:target a.lb-close,
 .raindrops-lightbox-overlay:target > div{

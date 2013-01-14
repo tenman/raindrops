@@ -1,4 +1,22 @@
 Changelog -----------------------------------
+version:1.001
+fixed
+    Fixed Custom Header Image works improperly when 'Organize my uploads into month- and year-based folders'.
+Add
+    Add function raindrops_featured_image().
+    Add USE_FEATURED_IMAGE_LIGHT_BOX
+        The featured image light box  not shown by default.
+    New Template file for front page.
+        page-templates/front-portfolio.php
++----------------------------------------------
+Changelog -----------------------------------
+version:1.000
+fixed
+    Fixed header element end tag vanish when raindrops_show_menu_primary hide.
+modified
+    style.css
++----------------------------------------------
+Changelog -----------------------------------
 version:0.999
 
 modified

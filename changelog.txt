@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.001
+version:1.002
 fixed
     Fixed Custom Header Image works improperly when 'Organize my uploads into month- and year-based folders'.
 Add

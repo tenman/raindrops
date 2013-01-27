@@ -1,16 +1,9 @@
 Changelog -----------------------------------
 version:1.003
-
-moved
-
-added
-
-fixed
-
 modified
-
-made
-
+    Modified raindrops_loop_class()
+    Modified html5 figure elements add
+    Modified extra sidebar position css
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.001

@@ -37,7 +37,7 @@
  *
  *
  */
-		if( in_category( "gallery" )){     
+		if( in_category( "gallery" ) or has_post_format( "gallery" ) ){     
 			get_template_part('part','gallery');
 /**
  * In category blog 
@@ -46,7 +46,7 @@
  *
  *
  */
-		}elseif(in_category( "blog" )){	
+		}elseif(in_category( "blog" ) or has_post_format( "status" ) ){	
 			get_template_part('part','blog');
 /**
  * Default loop

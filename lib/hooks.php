@@ -120,8 +120,7 @@ if( $raindrops_wp_version >= '3.4' ){
  $args = array( 'width' => apply_filters( 'raindrops_post_thumbnails_width', 'flex-width' ), 'height' => apply_filters( 'raindrops_post_thumbnails_height', 'flex-height' )
 
                 );
-    add_theme_support( 'post-thumbnails');
-   /* set_post_thumbnail_size( 48, 48, true );*/
+    add_theme_support( 'post-thumbnails' );
 /**
  *
  *
@@ -267,5 +266,13 @@ add_action('customize_controls_print_styles','raindrops_customize_controls_print
     if( $raindrops_wp_version >= '3.4'){
         add_action( 'wp_head', 'raindrops_mobile_meta');
     }
+/**
+ * Switch elements from div to figure when doctype html5 
+ *
+ *
+ * @since 1.003
+ */
+	add_filter('img_caption_shortcode', 'my_img_caption_shortcode_filter',10,3);
+
 }
 ?>

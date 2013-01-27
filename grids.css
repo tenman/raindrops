@@ -308,21 +308,21 @@ margin-left: 1.9%;
 width: 31.9%;
 }
 
-.yui-gc div.first, 
+.yui-gc > div.first, 
 	.yui-gd .yui-u {
 	width: 66%;
 }
 
-.yui-gd div.first {
+.yui-gd > div.first {
 	width: 32%;
 }
 
-.yui-ge div.first, 
+.yui-ge > div.first, 
 	.yui-gf .yui-u {
 	width: 74.2%;
 }
 
-.yui-ge .yui-u,
+.yui-ge > .yui-u,
 	.yui-gf div.first {
 	width: 24%;
 }

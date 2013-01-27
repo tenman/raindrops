@@ -8,8 +8,6 @@
  */
 ?>
 <?php raindrops_entry_title();?>
-
-
 <div class="entry-meta-gallery">
 <?php raindrops_posted_on(); ?>
 </div>
@@ -23,8 +21,8 @@ $total_images = count( $images );
 $image = array_shift( $images );
 $attachment_page = $image->post_title;
 ?>
-<?php if((!preg_match('!\[gallery!',get_the_content()) and is_single()) or !is_single() ){?>
-<div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,array(150,150),true); ?></div>
+<?php if( !preg_match('!\[gallery!',get_the_content()) ){?>
+<div class="gallery-thumb"><?php echo wp_get_attachment_link( $image->ID ,'thumbnail',true ); ?></div>
 <?php }?>
 <?php raindrops_entry_content();?>
 <div class="clearfix">

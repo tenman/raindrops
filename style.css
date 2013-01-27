@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.002
+Version: 1.003
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -71,6 +71,11 @@ this rule will be removed Raindrops ver 0.997.
 	font-size:296%;
 	letter-spacing: 0.04em;	
 
+}
+.pagetitle{
+	font-size:230.7%;
+	letter-spacing: 0.07em;
+	text-align:center;
 }
 .entry-title{
 	font-size:230.7%;
@@ -285,6 +290,7 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 	font-weight:bold;
 	margin:0 0 .5em 0;
 }
+.entry-content  figure.wp-caption,
 .entry-content  div.wp-caption{
 	max-width:98%!important;
 	}
@@ -426,6 +432,7 @@ radio{
 	border: 10px solid #f1f1f1;
 	margin-bottom: 0;
 }
+.format-gallery .gallery-thumb,
 .category-gallery .gallery-thumb{
 	float:left;
 	margin-right:1em;
@@ -765,6 +772,17 @@ footer a{
 .rsidebar{
 	margin-right:5px;
 }
+.yui-t4 .rsidebar,
+.yui-t5 .rsidebar,
+.yui-t6 .rsidebar{
+	margin-left:10px;
+	margin-right:0;
+}
+.yui-t1 .rsidebar,
+.yui-t2 .rsidebar,
+.yui-t3 .rsidebar{
+	margin-right:5px;
+}
 .lsidebar{
 	margin-left:3px;
 }
@@ -1022,6 +1040,11 @@ ul.index li .edit {
 	list-style:none;
 	margin:0;
 	padding:0;
+}
+#doc4 #container.yui-gc > .yui-u:not(.first),
+#doc3 #container.yui-gc > .yui-u:not(.first){
+	width:35%;
+	margin:0;
 }
 .lsidebar > ul{
 	margin:0 5px;
@@ -2387,8 +2410,14 @@ clear:both;
 	margin:10px 0 0 1em;
 }
 .raindrops-expand-width{
-	width:99%!important;
+	/*width:99%!important;*/
+	width:100%!important;
 }
+.rd-col-1 article{
+	max-width:100%;
+	margin:0 20px;
+}
+
 .raindrops-margin-left-none{
 	margin-left:0!important;
 }
@@ -2429,7 +2458,9 @@ clear:both;
 	display:none!important;
 }
 
-
+.edit-link{
+	margin-left:10px;
+}
 
 
 

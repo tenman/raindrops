@@ -1,4 +1,8 @@
 Changelog -----------------------------------
+version:1.004
+modified
+----------------------------------------------
+Changelog -----------------------------------
 version:1.003
 modified
     Modified raindrops_loop_class()

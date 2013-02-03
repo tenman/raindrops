@@ -61,10 +61,10 @@ font-size:23px;
 margin:0;
 margin-left:-30px;
 font-size:23px;
-background:#5589AA;
+background:rgba(200,200,200,0.5);
 height:35px;
 padding:20px 20px 7px 20px;
-color:#fff;
+/*color:#fff;*/
 border-radius: 5px 5px 0px 0px;
 -moz-border-radius: 5px 5px 0px 0px;
 -webkit-border-radius: 5px 5px 0px 0px;
@@ -81,7 +81,7 @@ border-radius: 0px 0px 5px 5px;
 -webkit-border-radius: 0px 0px 5px 5px;
 }
 .raindrops-option-footer-infomation a{
-color:#fff;
+color:#555;
 }
 
 .raindrops-navigation-wrapper{
@@ -92,7 +92,7 @@ margin:1em;
 margin:0;
 padding:10px 0;
 margin-left:-30px;
-background:#eef;
+background:rgba(200,200,200,0.2);
 }
 .raindrops-navigation-wrapper li{
 padding:.4em;
@@ -157,6 +157,3 @@ width:48px;
 height:40px;
 background: url(images/options/icons32-vs.png) no-repeat 0 0;
 }
-
-
-

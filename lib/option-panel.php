@@ -635,7 +635,7 @@ if($upload_result[0] == true){
             $results                    = $raindrops_sort;
             $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
             $raindrops_navigation_add   = '';
-$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;">';
+$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
 if( $raindrops_wp_version >= '3.4' ){
 $raindrops_navigation_list  .= '<li><a href="'.admin_url( 'customize.php' ).'">'.__( 'Theme customizer','Raindrops').'</a></li>';
 }
@@ -646,7 +646,7 @@ $raindrops_navigation_list  .= '<li><a href="'.admin_url( 'nav-menus.php' ).'">'
 $raindrops_navigation_list  .= '<li><a href="'.admin_url( 'theme-editor.php' ).'">'.__( 'Theme Editor','Raindrops').'</a></li>';
 $raindrops_navigation_list  .= '</ul>';
             if(RAINDROPS_USE_AUTO_COLOR == true){
-            $raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raindrops').'</h3><ul id="raindrops_navigation_list">';
+            $raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raindrops').'</h3><ul id="raindrops_navigation_list" class="raindrops-options-menu">';
             }else{
             $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper">';
             }
@@ -839,7 +839,7 @@ $raindrops_navigation_list  .= '</ul>';
             '&nbsp;&nbsp;<span>'.__("Now constant RAINDROPS_USE_AUTO_COLOR is false").'</span>'
             );
             }
-            return $raindrops_navigation_list. '</ul>'.$add_infomation.'</div>'. $lines;
+            return $raindrops_navigation_list. '</ul>'.$add_infomation.'</div>'. $lines.'<br style="clear:both" />';
         }
 /**
  *

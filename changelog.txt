@@ -1,6 +1,10 @@
 Changelog -----------------------------------
 version:1.004
 modified
+    Theme options panel design change
+Fixed
+    Fixed Post format gallery has error when set post format gallery and no gallery item.
+    Fixed Post format status display improperly when window width less than 640px
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.003

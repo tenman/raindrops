@@ -1,6 +1,16 @@
 Changelog -----------------------------------
 version:1.005
 Fixed
+    Fixed function raindrops_small_device_helper has bug
+        header image display improperly
+        when uploading files ‘Organize my uploads into month- and year-based folders’ checked
+
+    Fixed front-portfolio.php sticky post Wrong Coding.
+
+    Fixed reset-fonts-grids.css
+            white bar at the bottom of the page.
+                Thanks Paintballer
+
 
 ----------------------------------------------
 Changelog -----------------------------------

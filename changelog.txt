@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.005
+Fixed
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.004
 modified
     Theme options panel design change

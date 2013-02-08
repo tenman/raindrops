@@ -3054,38 +3054,19 @@ if(!function_exists("fallback_user_interface_view") ){
                 $url = get_random_header_image();
             }
 
-           /* $uploads    = wp_upload_dir();
-            $path       = $uploads['path'].'/'. basename( $url );*/
-
             $uploads    = wp_upload_dir();
             $file_name  =  basename( $url );
-            //get_option( 'uploads_use_yearmonth_folders' )
-            if( preg_match( '|/[0-9]{4}/[0-9]{2}/'.$file_name.'$|', $url, $regs ) ){
-                $child_path = $regs[0];
-            }else{
-                $child_path = '/'. $file_name;
-            }
-
-            $path = $uploads['path']. $child_path;
-
-                if( ! file_exists( $path ) ){
-                    $raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );
-                }
+			$child_path	= '/'. $file_name;
+            $path		= $uploads['path']. $child_path;
 
             if( $url !== 'remove-header' ){
-
-                list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-                $ratio = $img_height / $img_width;
-                if( ! empty( $ratio )){
-
-
-                }else{
-                    //first_time can not get ratio
-                    //$header_image_width  = get_custom_header()->width;
-                    //$header_image_height = get_custom_header()->height;
-                    //this value HEADER_IMAGE_HEIGHT / HEADER_IMAGE_WIDTH
-                    $ratio = 0.2084210;
-                }//empty $ratio
+				if( file_exists( $path ) ){
+					list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
+					$ratio = $img_height / $img_width;
+				}else{
+					$raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );
+					$ratio = 0.2084210;
+				}
             ?>
                 var ratio = <?php echo $ratio;?>;
                 var height = width * ratio;

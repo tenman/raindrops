@@ -35,6 +35,7 @@
         the_content();
      }
     }
+	
 ?>
 </div>
 <?php
@@ -42,13 +43,14 @@
  *  Sticky Posts
  *
  */
-	$args = array( 'post__in'  => get_option( 'sticky_posts' ) );
-	$raindrops_posts = get_posts( $args );
+	$raindrops_get_posts_args	= array( 'numberposts' => -1, 'post_status' => 'publish' );
+	$raindrops_posts			= get_posts( $args );
 ?>
 <div class="stickies">
 <?php		
 	foreach($raindrops_posts as $post){
             setup_postdata( $post );?>
+	<?php if( is_sticky() ){?>
 		<<?php raindrops_doctype_elements('div','article');?> id="post-<?php the_ID(); ?>" <?php post_class(); ?>><?php
 		
 			the_title('<h2 class="h2 entry-title">','</h2>');
@@ -56,7 +58,8 @@
 			the_content();	?>
 			</div>
 		</<?php raindrops_doctype_elements('div','article');?>>
-<?php } ?>
+	<?php }// is_sticky()?>
+<?php }//end if ?>
 </div>
 <?php
     wp_reset_postdata( );

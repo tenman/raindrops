@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.007
+Fixed
+    Fixed no use getimagesize() another page width 750px,950px,974px        Change get_custom_header()
+----------------------------------------------
+Changelog -----------------------------------
 version:1.006
 Fixed
     Fixed WARNING: wp-content/themes/raindrops/functions.php:3065 - Division by zero

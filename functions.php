@@ -2563,42 +2563,18 @@ span#site-title,
  */
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4){
         function raindrops_header_image($type = 'default', $args = array() ){
-        //  $image_modify   = get_theme_mods();
-        //  $image_modify   = $image_modify['header_image_data'];
-            $url            = get_theme_mod( 'header_image' );
 
-            if( empty( $url ) ){ //child theme $url empty
-                $url            = get_header_image();
-            }
+			$raindrops_header_image   			= get_custom_header();
+			$raindrops_header_image_uri   		= $raindrops_header_image -> url;
+			$raindrops_header_image_width   	= $raindrops_header_image -> width;
+			$raindrops_header_image_height   	= $raindrops_header_image -> height;
 
-            if( $url == 'remove-header'){
+
+            if( $raindrops_header_image_uri == 'remove-header'){
                 return;
             }
 
-            if( $url == 'random-uploaded-image'){
-                $url = get_random_header_image();
-            }
-
-           /* $uploads        = wp_upload_dir();
-            $path           = $uploads['path'].'/'. basename( $url );*/
-
-            $uploads    = wp_upload_dir();
-            $file_name  =  basename( $url );
-            //get_option( 'uploads_use_yearmonth_folders' )
-            if( preg_match( '|/[0-9]{4}/[0-9]{2}/'.$file_name.'$|', $url, $regs ) ){
-                $child_path = $regs[0];
-            }else{
-                $child_path = '/'. $file_name;
-            }
-
-            $path = $uploads['path']. $child_path;
-
-            if( ! file_exists( $path ) ){ //fallback
-                $path       = get_template_directory().'/images/headers/wp3.jpg';
-            }
-
-            list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-            $ratio = $img_height / $img_width;
+            $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
 
             $raindrops_page_width = raindrops_warehouse_clone('raindrops_page_width');
         switch( true ){
@@ -2622,13 +2598,13 @@ span#site-title,
         }
 
 
-    if( $img_width >= $raindrops_document_width ){
+    if( $raindrops_header_image_width >= $raindrops_document_width ){
         $height_current = round($raindrops_document_width * $ratio). 'px';
 
         $block_style    = 'background-size:cover;';
 
     }else{
-        $height_current = round( $img_height ).'px';
+        $height_current = round( $raindrops_header_image_height ).'px';
         $block_style = 'background-repeat:no-repeat;background-position:center;background-color:#000;background-size:auto;  background-origin:content-box;';
     }
     //w3standard can not use CSS3
@@ -2654,7 +2630,7 @@ span#site-title,
             $description_style = apply_filters( 'raindrops_header_image_description_attr', $description_style );
             $defaults = array(
               /*  'img' => get_theme_mod( 'header_image' ),*/
-                'img' => $url,
+                'img' => $raindrops_header_image_uri,
                 'height' => $height_current,
                 'color' => get_theme_mod( 'header_textcolor' ),
                 'style' => $block_style ,
@@ -2662,6 +2638,7 @@ span#site-title,
                 'description_style' => $description_style
             );
             $args = wp_parse_args( $args, $defaults );
+			
             extract( $args, EXTR_SKIP );
                 if(raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc3' ){
                     $width = 'width:100%';
@@ -2687,7 +2664,7 @@ span#site-title,
                 return apply_filters("raindrops_header_image",$html);
             }elseif($type == 'css'){
 
-                $css = '#%1$s{background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
+             $css = '#%1$s{background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
                 $description_style = str_replace( array( 'style=', '"' ),'',$description_style );
                 $css = sprintf($css,
                             'header-image',
@@ -2701,7 +2678,6 @@ span#site-title,
                             );
                 return apply_filters("raindrops_header_image_css",$css);
             }elseif($type == 'elements'){
-
                 $elements = '<div id="%1$s"><p>%7$s</p></div>';
                 $elements = sprintf($elements,
                             'header-image',

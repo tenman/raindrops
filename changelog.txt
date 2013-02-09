@@ -16,6 +16,9 @@ Fixed
                 margin:0 auto;
             }
         }
+Modified
+        hooks.php Add if ( ! function_exists( 'raindrops_theme_setup' ) )
+            Customize easy For Child Theme
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.005

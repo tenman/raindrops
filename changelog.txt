@@ -1,4 +1,23 @@
 Changelog -----------------------------------
+version:1.006
+Fixed
+    Fixed WARNING: wp-content/themes/raindrops/functions.php:3065 - Division by zero
+    Fixed NOTICE: wp-content/themes/raindrops/functions.php:3064 - getimagesize(): Read error!
+        Change function from getimagesize() to get_custom_header().
+    Fixed NOTICE: wp-content/themes/raindrops/functions.php:4238 - Undefined variable: is_IE
+        add global $is_IE
+    Fixed Use of variable in translation function in lib/option-panel.php, lines 755, 760, 793, 880. Translation function calls must NOT contain PHP variables.
+        Remove Translation.
+    Fixed While using the fluid width setting, the layout aligns itself to the left hand side in viewport widths greater than 1280px. Would be nice if it center aligns itself. [tip: using `margin: 0 auto;` instead of `margin: 0 2%;` for `#doc3` could fix this.]
+        Add media query
+
+        @media screen and (min-width : 1280px){
+            #doc3{
+                margin:0 auto;
+            }
+        }
+----------------------------------------------
+Changelog -----------------------------------
 version:1.005
 Fixed
     Fixed function raindrops_small_device_helper has bug

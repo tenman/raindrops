@@ -752,12 +752,12 @@ $raindrops_navigation_list  .= '</ul>';
                     $key == "raindrops_base_color" or
                     $key == "raindrops_footer_color" or
                     $key == "raindrops_default_fonts_color" ){
-                    $lines .= "<td>".$this->color_selector($key,esc_attr__($val,'Raindrops'),$i)."</td>";
+                    $lines .= "<td>".$this->color_selector($key,esc_attr( $val ),$i)."</td>";
                 }elseif($key == "raindrops_col_width"){
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',6,120);
                     foreach($this->col_settings_raindrops_col_width as $key=>$current){
-                        $lines .= '<option value="'.esc_attr__($current,'Raindrops').'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
+                        $lines .= '<option value="'.esc_attr( $current ).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
                 }elseif($key == "raindrops_page_width"){
@@ -790,7 +790,7 @@ $raindrops_navigation_list  .= '</ul>';
                     $lines .='</select></td>';
                 }elseif($key == "raindrops_heading_image"){
                     $lines .= '<td style="height:225px">';
-                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr__($val,'Raindrops').'"';
+                    $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr( $val ).'"';
                     $lines .= ' /></td>';
                 }elseif($key == "raindrops_color_scheme"){
                     $lines .= '<td>';
@@ -877,7 +877,7 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
                             $color = "#000";
                         }
                     }
-                    $result .= '<option value="'.$val.'" style="background:'.$val.';color:'.$color.'">'.__($key,'Raindrops').'</option>';
+                    $result .= '<option value="'.$val.'" style="background:'.$val.';color:'.$color.'">'. $key .'</option>';
                 }
             $result .='</select>';
             return $result;

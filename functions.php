@@ -3032,10 +3032,16 @@ if(!function_exists("fallback_user_interface_view") ){
         add_action('wp_footer','raindrops_small_device_helper');
     }
 
+
     if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
         function raindrops_small_device_helper(){
             global $is_IE, $raindrops_fluid_maximum_width;
-            $raindrops_header_image_uri   = get_header_image();
+			
+           // $raindrops_header_image_uri   = get_header_image();
+			$raindrops_header_image   			= get_custom_header();
+			$raindrops_header_image_uri   		= $raindrops_header_image -> url;
+			$raindrops_header_image_width   	= $raindrops_header_image -> width;
+			$raindrops_header_image_height   	= $raindrops_header_image -> height;
         ?>
             <script type="text/javascript">
             (function(){
@@ -3047,26 +3053,9 @@ if(!function_exists("fallback_user_interface_view") ){
                 var window_width = jQuery(window).width();
 
                     if( image_exists !== '' ){
-    <?php
-            $url        = get_theme_mod( 'header_image' );
-
-            if( $url == 'random-uploaded-image'){
-                $url = get_random_header_image();
-            }
-
-            $uploads    = wp_upload_dir();
-            $file_name  =  basename( $url );
-			$child_path	= '/'. $file_name;
-            $path		= $uploads['path']. $child_path;
-
+		<?php
             if( $url !== 'remove-header' ){
-				if( file_exists( $path ) ){
-					list($img_width, $img_height, $img_type, $img_attr) = getimagesize($path);
-					$ratio = $img_height / $img_width;
-				}else{
-					$raindrops_hd_images_path = get_template_directory().'/images/headers/'. basename( $url );
-					$ratio = 0.2084210;
-				}
+					$ratio = $raindrops_header_image_height / $raindrops_header_image_width;
             ?>
                 var ratio = <?php echo $ratio;?>;
                 var height = width * ratio;
@@ -4225,7 +4214,7 @@ if( ! function_exists( 'my_img_caption_shortcode_filter' ) ){
  */
 if( ! function_exists( 'raindrops_featured_image' ) ){
     function raindrops_featured_image(){
-    global $post;
+    global $post, $is_IE;
         /**
          * Show featured image
          *

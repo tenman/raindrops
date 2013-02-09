@@ -2564,10 +2564,10 @@ span#site-title,
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4){
         function raindrops_header_image($type = 'default', $args = array() ){
 
-			$raindrops_header_image   			= get_custom_header();
-			$raindrops_header_image_uri   		= $raindrops_header_image -> url;
-			$raindrops_header_image_width   	= $raindrops_header_image -> width;
-			$raindrops_header_image_height   	= $raindrops_header_image -> height;
+            $raindrops_header_image             = get_custom_header();
+            $raindrops_header_image_uri         = $raindrops_header_image -> url;
+            $raindrops_header_image_width       = $raindrops_header_image -> width;
+            $raindrops_header_image_height      = $raindrops_header_image -> height;
 
 
             if( $raindrops_header_image_uri == 'remove-header'){
@@ -2638,7 +2638,7 @@ span#site-title,
                 'description_style' => $description_style
             );
             $args = wp_parse_args( $args, $defaults );
-			
+
             extract( $args, EXTR_SKIP );
                 if(raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc3' ){
                     $width = 'width:100%';
@@ -3012,12 +3012,12 @@ if(!function_exists("fallback_user_interface_view") ){
     if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
         function raindrops_small_device_helper(){
             global $is_IE, $raindrops_fluid_maximum_width;
-			
+
            // $raindrops_header_image_uri   = get_header_image();
-			$raindrops_header_image   			= get_custom_header();
-			$raindrops_header_image_uri   		= $raindrops_header_image -> url;
-			$raindrops_header_image_width   	= $raindrops_header_image -> width;
-			$raindrops_header_image_height   	= $raindrops_header_image -> height;
+            $raindrops_header_image             = get_custom_header();
+            $raindrops_header_image_uri         = $raindrops_header_image -> url;
+            $raindrops_header_image_width       = $raindrops_header_image -> width;
+            $raindrops_header_image_height      = $raindrops_header_image -> height;
         ?>
             <script type="text/javascript">
             (function(){
@@ -3029,9 +3029,9 @@ if(!function_exists("fallback_user_interface_view") ){
                 var window_width = jQuery(window).width();
 
                     if( image_exists !== '' ){
-		<?php
+        <?php
             if( $url !== 'remove-header' ){
-					$ratio = $raindrops_header_image_height / $raindrops_header_image_width;
+                    $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
             ?>
                 var ratio = <?php echo $ratio;?>;
                 var height = width * ratio;
@@ -4286,6 +4286,8 @@ if( ! function_exists( 'raindrops_loop_class' ) ){
         }elseif( is_page() ){
             global $template;
             $template_name  = basename($template, '.php');
+        }else{
+            $template_name  = '';
         }
 
         $str_class              = '';

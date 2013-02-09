@@ -604,7 +604,7 @@ if($upload_result[0] == true){
  *
  */
     function raindrops_admin_print_styles(){
-		global $raindrops_wp_version;
+        global $raindrops_wp_version;
         if(file_exists(get_stylesheet_directory().'/admin-options.css')){
             echo '<style type="text/css">@import url("'.get_stylesheet_directory_uri().'/admin-options.css?ver='.$raindrops_wp_version.'");</style>';
         }else{
@@ -877,7 +877,7 @@ $result .= '<option value="'.$current_val.'" style="background:'.$current_val.'"
                             $color = "#000";
                         }
                     }
-                    $result .= '<option value="'.$val.'" style="background:'.$val.';color:'.$color.'">'. $key .'</option>';
+                    $result .= '<option value="'.esc_attr( $val ).'" style="background:'.esc_attr( $val ).';color:'.esc_attr( $color ).'">'. esc_html( $key ) .'</option>';
                 }
             $result .='</select>';
             return $result;

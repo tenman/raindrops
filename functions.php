@@ -3030,7 +3030,7 @@ if(!function_exists("fallback_user_interface_view") ){
 
                     if( image_exists !== '' ){
         <?php
-            if( $url !== 'remove-header' ){
+            if( $raindrops_header_image_uri !== 'remove-header' ){
                     $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
             ?>
                 var ratio = <?php echo $ratio;?>;

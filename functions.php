@@ -3919,6 +3919,7 @@ if( ! function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ){
             $thismonth  = mysql2date('m', $wp_query->posts[0]->post_date);
             $unixmonth  = mktime(0, 0 , 0, $thismonth, 1, $thisyear);
             $last_day   = date('t', $unixmonth);
+            $calendar_output = '';
 
             $previous   = $wpdb->get_row("SELECT MONTH(post_date) AS month, YEAR(post_date) AS year FROM $wpdb->posts
                 WHERE post_date < '$thisyear-$thismonth-01'

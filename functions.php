@@ -3009,7 +3009,15 @@ if(!function_exists("fallback_user_interface_view") ){
     }
 
 
-    if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
+/*
+ * Raindrops 1.008 can not remove custom header image.
+ *
+ * WordPress Theme Raindrops 1.008 has bug Please replace raindrops_small_device_helper function
+ * functions.php
+ */
+
+
+if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
         function raindrops_small_device_helper(){
             global $is_IE, $raindrops_fluid_maximum_width;
 
@@ -3027,19 +3035,17 @@ if(!function_exists("fallback_user_interface_view") ){
                     var image_exists = '<?php echo $raindrops_header_image_uri;?>';
                 var width = jQuery('div#header-image').width();
                 var window_width = jQuery(window).width();
-
-                    if( image_exists !== '' ){
-        <?php
-            if( $raindrops_header_image_uri !== 'remove-header' ){
-                    $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
+  		<?php
+			if( get_header_image() !== false ){
+                  $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
             ?>
                 var ratio = <?php echo $ratio;?>;
                 var height = width * ratio;
 
                 jQuery('#header-image').removeAttr('style').css({'background-image':'url('+ image_exists + ')','height': height, 'background-size': 'cover'});
-    <?php }//remove header ?>
-                    }
-        <?php
+    <?php //remove header 
+	
+             }
         /**
          * Check window size and mouse position
          * Controll childlen menu show right or left side.

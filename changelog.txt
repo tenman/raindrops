@@ -1,6 +1,13 @@
 Changelog -----------------------------------
 version:1.008
 Fixed
+    Fixed IE + color type 'light' display improperly.
+        Thanks @Gonta
+    Fixed Can not remove custom header image.
+----------------------------------------------
+Changelog -----------------------------------
+version:1.008
+Fixed
     Fixed NOTICE: wp-content/themes/raindrops/functions.php:3033 - Undefined variable: uri
     Fixed NOTICE: wp-content/themes/raindrops/functions.php:3946 - Undefined variable: calendar_output
 ----------------------------------------------

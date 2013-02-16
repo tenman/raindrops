@@ -8,6 +8,7 @@ Fixed
         Posted in display improperly where without home.
 Modified
     From Comma separated values to only space where Posted in tags list and categoris list
+    Static Page support featured image.
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.008

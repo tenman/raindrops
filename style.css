@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.009
+Version: 1.008
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -71,6 +71,9 @@ this rule will be removed Raindrops ver 0.997.
 	font-size:296%;
 	letter-spacing: 0.04em;	
 
+}
+.ie8 #site-title{
+	font-size:236.8%;
 }
 .pagetitle{
 	font-size:230.7%;
@@ -285,6 +288,8 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 }
 .entry-content table {
 	width:100%;
+	border-collapse:separate;
+	border-spacing:0;
 }
 .entry-content table caption{
 	font-weight:bold;
@@ -1391,15 +1396,15 @@ div.menu li a{
 	-ms-box-sizing: border-box; 
 	box-sizing: border-box;
 }
-/* add ver 1.009 fix IE + color type 'light' display improperly. */
 .ie8 #access .menu-header > ul > li > a,
 .ie8 div.menu > ul > li > a,
 .ie9 #access .menu-header > ul > li > a,
 .ie9 div.menu > ul > li > a{
-    margin:0;
-    width:auto;
-    display:inline-block;
+	margin:0;
+	width:auto;
+	display:inline-block;
 }
+
 #access ul ul {
 	display: none;
 	position: absolute;
@@ -1430,6 +1435,7 @@ div.menu li a{
 	padding:0.8em 0;
 	height: auto;
 }
+#access .sub-menu:hover > a,
 #access .children:hover > a,
 #access li:hover > a,
 #access ul ul :hover > a {
@@ -1948,6 +1954,7 @@ li.comment {
 .comment a{
 	background:none!important;
 }
+.sub-menu,
 .children{
 	margin-left:0;
 }
@@ -1991,6 +1998,7 @@ li.comment {
 .comment > div{
 	padding:3px;
 }
+.sub-menu div,
 .children div{	
 }
 .commentmetadata{
@@ -2184,6 +2192,7 @@ input[type="file"]{
 .tagcloud{
 	padding:1em;
 }
+#access .sub-menu li,
 #access .children li{
 	border:1px solid #ccc;
 	background:#fff;
@@ -2396,7 +2405,7 @@ clear:both;
 }
 
 .ie9 #site-title a span{
-	color:red;
+	/*color:red;*/
 }
 
 #wpadminbar div{
@@ -2508,6 +2517,12 @@ clear:both;
 	  font-size:153.9%;
 	  width:10%;
 	}
+	#doc3 .page-title,
+	#doc3 #archives-title{
+		display:block;
+		font-size:153.0%;
+		text-align:center;
+	}
 	#doc3 .raindrops-mobile-menu .menu-text{
 	  position:absolute;top:10px;left:44%;
 	}	
@@ -2532,7 +2547,6 @@ clear:both;
 		margin:0;
 		margin-left:0;
 		margin-right:0;
-		/*border:1px solid red;*/
 		display:block;
 		max-width:100%;
 		width:100%;
@@ -2541,25 +2555,34 @@ clear:both;
 		background-repeat:no-repeat;
 		position:static;
 	}
-	div.post,
-	article{
+	#doc3 .datetable{
+		margin:0 5px 10px 0!important;
+		box-sizing: border-box;
+	}
+	
+	#doc3 .rsidebar,
+	#doc3 .lsidebar,
+	#doc3 div.post,
+	#doc3 article{
 		margin:0 5px 0 10px!important;
 		box-sizing: border-box;
 	}
 	#doc3 .reply, #ft a, 
 	#doc3 .page .hentry .entry-title a,
-	#doc3 cite.fn, 
+	/*#doc3 cite.fn, 
 	#doc3 cite a:link, 
 	#doc3 cite a:active, 
 	#doc3 cite a:visited, 
 	#doc3 cite a:hover, 
-	#doc3 div.comment-body blockquote, 
+	#doc3 div.comment-body blockquote,
 	#doc3 div.comment-body *,
 	#doc3 div.comment-author, 
-	#doc3 div.comment-author-meta, 
-	#doc3 #site-description, 
-	 .home #doc3 .sticky a, 
-	 .home #doc3 .entry-meta a,
+	#doc3 div.comment-author-meta, */
+	#doc3 #site-description,
+	.home #doc3 .sticky a, 
+	.home #doc3 .entry-meta a,
+	.archive #doc3 .entry-meta a,
+	.single #doc3 .entry-meta a,		
 	#doc3 .topsidebar ul li ul li a, 
 	#doc3 #bigbanner ul li ul li a, 
 	#doc3 .lsidebar ul li ul li a, 
@@ -2568,19 +2591,35 @@ clear:both;
 	#doc3 .lsidebar li.category_report a,
 	#doc3 .lsidebar .widget ul li a{
 		display:block;
-			background-repeat:no-repeat;
-			width:100%;
-			height:100%;
-			/*border:1px solid red!important;*/
-			margin:0;
-			padding:0.5em;
-			box-sizing: border-box;
-			font-size:123%;
+		background-repeat:no-repeat;
+		width:100%;
+		height:100%;
+		margin:0;
+		padding:0.5em;
+		box-sizing: border-box;
+		font-size:123%;
 	
 	}
-	#doc3 widget_tag_cloud{
-		display:inline;
+	#doc3 .page .hentry .entry-title a{
+		padding:0;
+	}
+		
+	#doc3 #ft .categories ul li a,
+	#doc3 #ft .categories ul li a,
+	#doc3 .rsidebar .categories ul li a,
+	#doc3 .lsidebar .categories ul li a{
+		display:inline-block;
+		width:85%;
 		padding:.5em;
+	}
+	#doc3 #ft .widget_tag_cloud .tagcloud a,
+	#doc3 #ft .widget_tag_cloud .tagcloud a,
+	#doc3 .rsidebar .widget_tag_cloud .tagcloud a,
+	#doc3 .lsidebar .widget_tag_cloud .tagcloud a{
+		display:inline-block!important;
+		width:23%;
+		padding:.5em 0;
+	
 	}
 	#doc3 .footer-widget h2,
 	#doc3 .rsidebar h2,
@@ -2607,6 +2646,7 @@ clear:both;
 		padding:1em;
 		font-size:138.5%;
 	}
+	#doc3 #access .sub-menu li,
 	#doc3 #access .children li{
 		border:none;
 	}

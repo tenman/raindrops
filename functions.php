@@ -581,18 +581,18 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
     if (!function_exists('raindrops_posted_in')) {
         function raindrops_posted_in() {
             // Retrieves tag list of current post, separated by commas.
-            $tag_list = get_the_tag_list( '', ', ' );
+            $tag_list = get_the_tag_list( '', ' ' );
             if ( $tag_list ) {
-                $posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
+                $posted_in = __( '<span class="this-posted-in">This entry was posted in</span> %1$s <span class="tagged">and tagged</span> %2$s <span>Bookmark the </span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
             } elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-                $posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
+                $posted_in = __( '<span class="this-posted-in">This entry was posted in </span>%1$s <span class="bookmark-the">Bookmark the <span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
             } else {
-                $posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'Raindrops' );
+                $posted_in = __( '<span class="bookmark-the">Bookmark the </span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
             }
             // Prints the string, replacing the placeholders.
             $result = sprintf(
                 $posted_in,
-                get_the_category_list( ', ' ),
+                get_the_category_list( ' ' ),
                 $tag_list,
                 get_permalink(),
                 the_title_attribute( 'echo=0' )
@@ -2568,14 +2568,17 @@ span#site-title,
             $raindrops_header_image_uri         = $raindrops_header_image -> url;
             $raindrops_header_image_width       = $raindrops_header_image -> width;
             $raindrops_header_image_height      = $raindrops_header_image -> height;
+            $raindrops_restore_check            = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
 
-
-            if( $raindrops_header_image_uri == 'remove-header'){
+            if( $raindrops_restore_check == 'remove-header'){
                 return;
             }
 
-            $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
+            if( empty( $raindrops_header_image_uri ) ){
+                $raindrops_header_image_uri = $raindrops_restore_check;
+            }
 
+            $ratio = $raindrops_header_image_height / $raindrops_header_image_width;
             $raindrops_page_width = raindrops_warehouse_clone('raindrops_page_width');
         switch( true ){
 

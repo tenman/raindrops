@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.008
+Version: 1.009
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2559,25 +2559,21 @@ clear:both;
 		margin:0 5px 10px 0!important;
 		box-sizing: border-box;
 	}
-	
+	#doc3 .this-posted-in,
+	#doc3 .bookmark-the{
+		font-weight:bold;
+		font-size:131%;
+	}	
 	#doc3 .rsidebar,
 	#doc3 .lsidebar,
 	#doc3 div.post,
 	#doc3 article{
-		margin:0 5px 0 10px!important;
+		margin:0 8px!important;
 		box-sizing: border-box;
 	}
+
 	#doc3 .reply, #ft a, 
 	#doc3 .page .hentry .entry-title a,
-	/*#doc3 cite.fn, 
-	#doc3 cite a:link, 
-	#doc3 cite a:active, 
-	#doc3 cite a:visited, 
-	#doc3 cite a:hover, 
-	#doc3 div.comment-body blockquote,
-	#doc3 div.comment-body *,
-	#doc3 div.comment-author, 
-	#doc3 div.comment-author-meta, */
 	#doc3 #site-description,
 	.home #doc3 .sticky a, 
 	.home #doc3 .entry-meta a,
@@ -2651,8 +2647,15 @@ clear:both;
 		border:none;
 	}
 	#doc3 #site-title{
-		font-size:153.9%;
+		font-size:167%;
 	}
+	#doc3 .entry-title{
+		font-size:153.5%;
+	}
+	#doc3 #site-description{
+		font-size:108%;
+	}
+
 	#nav-above,
 	#nav-below{
 		margin:0 10px;
@@ -2673,8 +2676,9 @@ clear:both;
 	}
 
 }
+@media screen and (max-width : 480px){
 
-
+}
 
 .portfolio{
 	margin-bottom:20px;

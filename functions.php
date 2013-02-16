@@ -1,5 +1,29 @@
 <?php
 /**
+ * IE browser only fixed layout when default responsive layout.
+ *
+ * IE browser can not display responsive only fulid layout.
+ * and contain many issue ( ie8 not support background-size etc )
+ * This snippet may be display Fixed layout when IE access.
+ *
+ * If you need when paste the below code Raindrops theme functions.php
+ */
+//add_filter( 'raindrops_theme_settings_raindrops_page_width','raindrops_ie_responsive_settings_change' );
+
+function raindrops_ie_responsive_settings_change( $content ){
+    global $is_IE;
+
+    if( $is_IE ){
+    /*
+     * doc 750px width fixed layout
+     * doc2 950px width fixed layout
+     * doc4 974px width fixed layout
+     */
+        return 'doc2';
+    }
+    return $content;
+}
+/**
  * functions and constants for Raindrops theme
  *
  *
@@ -583,9 +607,9 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
             // Retrieves tag list of current post, separated by commas.
             $tag_list = get_the_tag_list( '', ' ' );
             if ( $tag_list ) {
-                $posted_in = __( '<span class="this-posted-in">This entry was posted in</span> %1$s <span class="tagged">and tagged</span> %2$s <span>Bookmark the </span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
+                $posted_in = __( '<span class="this-posted-in">This entry was posted in</span> %1$s <span class="tagged">and tagged</span> %2$s <span class="bookmark-the">Bookmark the </span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
             } elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-                $posted_in = __( '<span class="this-posted-in">This entry was posted in </span>%1$s <span class="bookmark-the">Bookmark the <span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
+                $posted_in = __( '<span class="this-posted-in">This entry was posted in </span>%1$s <span class="bookmark-the">Bookmark the </span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
             } else {
                 $posted_in = __( '<span class="bookmark-the">Bookmark the </span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>', 'Raindrops' );
             }
@@ -1482,24 +1506,29 @@ LINK_COLOR_CSS;
  */
     if(!function_exists("raindrops_prev_next_post")){
         function raindrops_prev_next_post($position = "nav-above"){
-            $raindrops_max_length       = 40;
-            $raindrops_prev_length      = $raindrops_max_length + 1;
-            if(!is_attachment()){
-                $raindrops_max_length   = 40;
-                $raindrops_prev_post_id = get_adjacent_post(true,'',true) ;
-                $raindrops_prev_length  = strlen(get_the_title($raindrops_prev_post_id));
-                $raindrops_next_post_id = get_adjacent_post(false,'',false) ;
-                $raindrops_next_length  = strlen(get_the_title($raindrops_next_post_id));
+
+            if( is_category() ){
+                $filter = true; //display same category.
+            }else{
+                $filter = false;
             }
+            //exclude separate 'and'
+            $exclude_category = apply_filters( 'raindrops_next_prev_excluded_categories','');
+
             $html = '<div id="%1$s" class="%2$s"><span class="%3$s">';
 
             printf($html,$position,"clearfix","nav-previous");
-            previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>');
+
+            previous_post_link('%link','<span class="button"><span class="meta-nav">&laquo;</span> %title</span>', $filter , $exclude_category );
+
             $html = '</span><div class="%1$s">';
+
             printf($html,"nav-next");
-            next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>');
+            next_post_link('%link','<span class="button"> %title <span class="meta-nav">&raquo;</span></span>', $filter , $exclude_category );
+
             $html = '</div></div>';
             echo apply_filters("raindrops_prev_next_post",$html);
+
         }
     }
 

@@ -1,9 +1,13 @@
 Changelog -----------------------------------
-version:1.008
+version:1.009
 Fixed
     Fixed IE + color type 'light' display improperly.
         Thanks @Gonta
     Fixed Can not remove custom header image.
+    Fixed Less than 640px width browser style issue.
+        Posted in display improperly where without home.
+Modified
+    From Comma separated values to only space where Posted in tags list and categoris list
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.008

@@ -1316,11 +1316,12 @@ if(!function_exists("raindrops_custom_link_color")){
     .lsidebar a:hover{
     color:{$color};
     }
-
+/*  .footer-widget .widgettitle,
     .lsidebar .widgettitle,
-    .rsidebar .h2{
+    .rsidebar .widgettitle{
     color:{$color};
-    }
+    }*/
+
     #wp-calendar{
     color:{$color};
     }
@@ -3132,7 +3133,11 @@ if(!function_exists("fallback_user_interface_view") ){
                 $main_column_width_fluid = 100;
             }
 
-            $fluid_width = '/* raindrops is fluid start */'.
+            if( raindrops_warehouse_clone('raindrops_show_right_sidebar') !== 'show' ){
+                $main_column_width_fluid = 100;
+            }
+
+            $fluid_width = '/* raindrops is fluid start  */'.
                             "\n#doc3{min-width:".
                             $raindrops_fluid_minimum_width.
                             'px;max-width:'.$raindrops_fluid_maximum_width.'px;}'.

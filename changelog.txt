@@ -6,6 +6,7 @@ Fixed
     Fixed Can not remove custom header image.
     Fixed Less than 640px width browser style issue.
         Posted in display improperly where without home.
+    Fixed Extra Sidebar space issue when hide extra sidebar on loop pages( ex: index.php )
 Modified
     From Comma separated values to only space where Posted in tags list and categoris list
     Static Page support featured image.

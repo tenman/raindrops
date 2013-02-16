@@ -29,10 +29,11 @@
  * @uses get_footer( $raindrops_document_type )
  * @uses raindrops_prepend_default_sidebar()
  * @uses raindrops_append_default_sidebar()
+ * @uses the_post_thumbnail()
  */
 $raindrops_current_column = raindrops_show_one_column();
 if($raindrops_current_column !== false){
-	add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_custom");
+    add_filter("raindrops_theme_settings__raindrops_indv_css","raindrops_color_type_custom");
 }
 ?>
 <?php get_header( $raindrops_document_type ); ?>
@@ -40,21 +41,22 @@ if($raindrops_current_column !== false){
 <div id="yui-main">
   <div class="yui-b <?php raindrops_add_class('yui-b'); ?>">
     <div class="<?php echo raindrops_yui_class_modify();?>" id="container">
-		<div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
+        <div class="yui-u first <?php raindrops_add_class('yui-u first',true);?>">
 
         <?php if (have_posts()){ ?>
         <?php       while (have_posts()){ the_post(); ?>
 <!--<?php echo $raindrops_document_type;?>-->
         <div class="entry page">
           <<?php raindrops_doctype_elements('div','article');?> id="post-<?php the_ID(); ?>" <?php post_class();?>>
-		  
+
             <?php raindrops_entry_title(); ?>
-			
+
             <div class="entry-content">
-			  <?php raindrops_prepend_entry_content();?>
+              <?php raindrops_prepend_entry_content();?>
+              <?php the_post_thumbnail( 'full','class=page-featured-image'); ?>
               <?php raindrops_entry_content();?>
               <br class="clear" />
-			  <?php raindrops_append_entry_content();?>
+              <?php raindrops_append_entry_content();?>
             </div>
             <div class="linkpage clearfix">
               <?php wp_link_pages('before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>'); ?>
@@ -64,18 +66,18 @@ if($raindrops_current_column !== false){
               <?php the_category(', ') ?>
               &nbsp;
               <?php edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
-			  <?php		raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
+              <?php     raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); ?>
             </div>
             <?php comments_template( '', true ); ?>
           </<?php raindrops_doctype_elements('div','article');?>>
         </div>
-		
-		
-		
+
+
+
         <?php       } //endwhile ?>
-		
+
         <?php raindrops_next_prev_links( "nav-below" );?>
-		
+
         <?php } //end have post?>
       </div>
       <?php if(raindrops_show_one_column() == 3){?>
@@ -97,7 +99,7 @@ if($raindrops_current_column !== false){
 </div>
 <?php if(raindrops_show_one_column() !== '1' or $raindrops_current_column == false){?><div class="yui-b">
 <?php //lsidebar start ?>
-<?php raindrops_prepend_default_sidebar();?>	
+<?php raindrops_prepend_default_sidebar();?>
 <?php get_sidebar('default'); ?>
 <?php raindrops_append_default_sidebar();?>
 </div>

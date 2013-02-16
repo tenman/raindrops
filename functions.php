@@ -1,29 +1,5 @@
 <?php
 /**
- * IE browser only fixed layout when default responsive layout.
- *
- * IE browser can not display responsive only fulid layout.
- * and contain many issue ( ie8 not support background-size etc )
- * This snippet may be display Fixed layout when IE access.
- *
- * If you need when paste the below code Raindrops theme functions.php
- */
-//add_filter( 'raindrops_theme_settings_raindrops_page_width','raindrops_ie_responsive_settings_change' );
-
-function raindrops_ie_responsive_settings_change( $content ){
-    global $is_IE;
-
-    if( $is_IE ){
-    /*
-     * doc 750px width fixed layout
-     * doc2 950px width fixed layout
-     * doc4 974px width fixed layout
-     */
-        return 'doc2';
-    }
-    return $content;
-}
-/**
  * functions and constants for Raindrops theme
  *
  *
@@ -3681,7 +3657,7 @@ if( ! function_exists( 'raindrops_entry_title' ) ){
         global $post;
         $thumbnail = '';
 
-        if( has_post_thumbnail($post->ID) and ! is_single() ){
+        if( has_post_thumbnail($post->ID) and ! is_singular() ){
             $thumbnail .= '<span class="h2-thumb">';
             $thumbnail .= get_the_post_thumbnail($post->ID, array(48,48),array("style"=>"vertical-align:text-bottom;"));
             $thumbnail .= '</span>';

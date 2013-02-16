@@ -10,6 +10,19 @@ Fixed
 Modified
     From Comma separated values to only space where Posted in tags list and categoris list
     Static Page support featured image.
+
+Add
+    Recent Raindrops support responsive blog for modern browsers.
+    Raindrops not support responsive for IE browser.
+    Raindrops can display fluid layout for IE.
+    Add to conditional $raindrops_fluid_minimum_width value.
+
+        functions.php line:191
+
+        if( $is_IE ){
+            $raindrops_fluid_minimum_width = '640';
+        }
+
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.008

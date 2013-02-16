@@ -181,6 +181,18 @@ load_theme_textdomain( 'Raindrops', get_template_directory() . '/languages' );
         $raindrops_fluid_minimum_width = '320';
     }
 /**
+ * $raindrops_fluid_minimum_width for IE
+ *
+ * IE browser not support responsive
+ *
+ *
+ *
+ */
+    if( $is_IE ){
+        $raindrops_fluid_minimum_width = '640';
+    }
+
+/**
  * fluid page  main column maximum width px
  *
  *

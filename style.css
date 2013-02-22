@@ -2413,7 +2413,7 @@ clear:both;
 	max-width:none;
 }
 #access .current_page_item{
-	height:3em;
+	/*height:3em;*/
 }
 .page-template-page-templatesfull-width-php .widget-wrapper li{
 	text-align:left;

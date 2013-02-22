@@ -73,12 +73,11 @@ echo raindrops_site_description();
 <?php
 /**
  * header image
- * array("style"=>"border:3px solid red;",'img' => 'replace your image uri','color' => 'hexcolor not need #','description' => 'replace your text','description_style' => 'desctiption style rule')
  *
- *
+ * if no link home_url() then use 'elements'
  *
  */
-echo raindrops_header_image( 'elements' );
+echo raindrops_header_image( 'home_url' );
 ?>
 <?php
 /**

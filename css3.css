@@ -101,6 +101,9 @@ border:1px solid rgba(200,200,200,0.3);
 	-ms-columns: 20em auto;
 }
 
+/*
+ * ver 1.100 comment out 
+ * next version remove.
 h1,
 h2,
 h3,
@@ -117,7 +120,7 @@ h6,
 .rsidebar li a{
 	word-break:break-all;
 	word-wrap:break-word;
-}
+}*/
 .entry-title a{
 	word-break:normal;
 	word-wrap:normal;/* Internet Explorer */

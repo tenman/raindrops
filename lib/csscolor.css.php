@@ -1180,7 +1180,11 @@ $css3=<<<CSS3
 body{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+  /* 1.100 comment out
+   * this style rule remove horizontal scrollbar IE 
+   * 1.101 will remove.
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+   */
 }
 
 .hfeed{

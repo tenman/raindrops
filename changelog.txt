@@ -1,4 +1,25 @@
 Changelog -----------------------------------
+version:1.100
+added
+    Sidebar widget title add element span
+        Handling of a title text is made easy on CSS work.
+    Add home link for Custom Header Image
+        If you not need link then
+        header-html5.php
+            change from raindrops_header_image( 'home_url' )
+                    to  raindrops_header_image( 'elements' ) //not link
+fixed
+    Fixed IE8 + color type 'light' display improperly.
+        A horizontal scroll bar stops operating.
+            lib/csscolor.css.php
+                comment out below body rule.
+                filter: progid:DXImageTransform.Microsoft.gradient();
+modified
+    CSS Property 'word-wrap' value break-word
+        From several users, the style a new line for is started in the middle of a word had interrogative voice.
+        In a tentative way, I remove this rule.
+        If there are any opinions, please give http://www.tenman.info/wp3/raindrops/ a comment.----------------------------------------------
+Changelog -----------------------------------
 version:1.009
 Fixed
     Fixed IE + color type 'light' display improperly.

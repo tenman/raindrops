@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.102
+modified
+    Add IE version check $raindrops_fluid_minimum_width
+----------------------------------------------
+Changelog -----------------------------------
 version:1.101
 added
     add_filter('widget_text','raindrops_ie_height_expand_issue');

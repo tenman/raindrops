@@ -1087,12 +1087,13 @@ if(!function_exists("add_raindrops_stylesheet") and $wp_version >= 3.4 ){
         function raindrops_ie_height_expand_issue($content){
             global $is_IE,$content_width;
             if($is_IE){
-                preg_match_all('#(<img)([^>]+)(height|width)(=")([0-9]+)"([^>]+)(height|width)(=")([0-9]+)"([^>]+)>#',$content,$images,PREG_SET_ORDER);
+                preg_match_all('#(<img)([^>]+)(height|width)(=")([0-9]+)"([^>]+)(height|width)(=")([0-9]+)"([^>]*)>#',$content,$images,PREG_SET_ORDER);
                 foreach($images as $image){
                     if(($image[3] == "width" and $image[5] > $content_width) or ($image[7] == "width" and $image[9] > $content_width)){
                         $content = str_replace($image[0],$image[1].$image[2].$image[6].$image[10].'>',$content);
-                    }
+					}
                 }
+				
                 return $content;
             }else{
                 return $content;

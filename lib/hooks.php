@@ -205,7 +205,14 @@ if ( ! function_exists( 'raindrops_theme_setup' ) ){
      *
      *
      */
-        add_filter('the_content','raindrops_ie_height_expand_issue');
+	    add_filter('the_content','raindrops_ie_height_expand_issue');
+	/**
+	 *
+	 *
+	 *
+	 *	@since 1.100
+	 */
+        add_filter('widget_text','raindrops_ie_height_expand_issue');
     /**
      *
      *

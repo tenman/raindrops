@@ -38,7 +38,7 @@
 </li>
 <li>
 <?php _e('Tags:','Raindrops');?>
-<?php the_tags(); ?>
+<?php the_tags(' ',' '); ?>
 </li>
 <li>
 <?php _e('Author:','Raindrops');?>

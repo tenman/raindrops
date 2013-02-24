@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.101
+added
+    add_filter('widget_text','raindrops_ie_height_expand_issue');
+fixed
+    Fixed function raindrops_ie_height_expand_issue()
+        regex change
+            support <img attr... /> and <img attr... >
+    Tags title display twice when post format status.
+
+modified
+    style.css
+----------------------------------------------
+Changelog -----------------------------------
 version:1.100
 added
     Sidebar widget title add element span
@@ -18,7 +31,8 @@ modified
     CSS Property 'word-wrap' value break-word
         From several users, the style a new line for is started in the middle of a word had interrogative voice.
         In a tentative way, I remove this rule.
-        If there are any opinions, please give http://www.tenman.info/wp3/raindrops/ a comment.----------------------------------------------
+        If there are any opinions, please give http://www.tenman.info/wp3/raindrops/ a comment.
+----------------------------------------------
 Changelog -----------------------------------
 version:1.009
 Fixed

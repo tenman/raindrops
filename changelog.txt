@@ -1,4 +1,40 @@
 Changelog -----------------------------------
+version:1.103
+
+added
+    function raindrops_postmeta_cap()
+        User level 0-3 user cannot use custom field keyname 'css','meta','javascript'.
+modified
+    footer.php
+        Change from get_bloginfo('name') to $raindrops_current_theme_name
+        Change from 'http://www.tenman.info/wp3/raindrops' to $raindrops_current_data_theme_uri
+
+    functions.php
+        Add
+            $raindrops_current_data
+            $raindrops_current_data_theme_uri
+            $raindrops_current_data_author_uri
+            $raindrops_current_data_version
+            $raindrops_current_theme_name
+        Move files
+            hooks.php to functions.php
+
+            register_nav_menus()
+            add_theme_support()
+        Change hook
+            add_raindrops_stylesheet use wp_enqueue_scripts hook
+    csscolor.php,PEAR.php
+
+    Class name is changed
+        From CSS_Color to raindrops_CSS_Color
+            member functions prefixed
+        From PEAR to raindrops_PEAR
+            member functions prefixed
+Removed
+    PEAR.php
+         Merged lib/csscolor/csscolor.php
+
+----------------------------------------------
 version:1.102
 modified
     Add IE version check $raindrops_fluid_minimum_width

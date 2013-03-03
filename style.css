@@ -1321,6 +1321,7 @@ br.clearfix {
 }
 #wp-calendar a{
 	text-decoration:underline;
+	white-space:nowrap;
 }
 .widget form{
 	text-align:center;

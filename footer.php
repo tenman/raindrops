@@ -18,6 +18,7 @@
  * @uses raindrops_append_footer()
  * @uses raindrops_append_doc()
  */
+global $raindrops_current_theme_name, $raindrops_current_data_theme_uri;
 ?>
 <<?php raindrops_doctype_elements( 'div','footer' );?> id="ft" class="clear">
 <?php raindrops_prepend_footer();?>
@@ -31,23 +32,26 @@
 <!--footer-widget end-->
 <address>
 <?php
+
 printf(
 '<small>&copy;%s %s <a href="%s" class="entry-rss">%s</a> and <a href="%s" class="comments-rss">%s</a></small>&nbsp;',
 date("Y"),
-get_bloginfo('name'),
+$raindrops_current_theme_name,
 get_bloginfo('rss2_url') ,
 __("Entries <span>(RSS)</span>","Raindrops"),
 get_bloginfo('comments_rss2_url'),
 __('Comments <span>(RSS)</span>',"Raindrops")
 );
 if( is_child_theme() ){
-    $raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
+	
+    $raindrops_theme_name = 'Child theme '.esc_html( ucwords($raindrops_current_theme_name) ).' of '.__("Raindrops Theme","Raindrops");
+	
 }else{
     $raindrops_theme_name = __("Raindrops Theme","Raindrops");
 }
 printf(
 '&nbsp;<small><a href="%s">%s</a></small>&nbsp;&nbsp;',
-'http://www.tenman.info/wp3/raindrops',
+$raindrops_current_data_theme_uri,
 $raindrops_theme_name
 );
 ?>

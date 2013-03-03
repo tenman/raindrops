@@ -264,7 +264,7 @@
         }else{
             $color1 = str_replace('#',"",$color1);
         }
-            $base = new CSS_Color( $color1 );
+            $base = new raindrops_CSS_Color( $color1 );
         switch($num){
         case(0):
             $bg         = $base->bg['0'];
@@ -535,7 +535,7 @@
     }else{
         $color1 = str_replace('#',"",$color1);
     }
-        $base = new CSS_Color($color1);
+        $base = new raindrops_CSS_Color($color1);
         $bg_1 = $base->bg['-1'];
         $fg_1 = $base->fg['-1'];
         $bg_2 = $base->bg['-2'];

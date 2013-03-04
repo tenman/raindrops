@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.104
+
+Warning: call_user_func_array() expects parameter 1 to be a valid callback, function 'raindrops_theme_support_setup' not found or invalid function name
+
+fixed
+    Fixed delete below code from functions.php line 176
+        add_action( 'after_setup_theme', 'raindrops_theme_support_setup' );
+
+It is thankful to xaotikdesigns who pointed out this bug.
+----------------------------------------------
+
+Changelog -----------------------------------
 version:1.103
 
 added

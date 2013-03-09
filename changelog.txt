@@ -1,18 +1,4 @@
 Changelog -----------------------------------
-version:1.105
-
-moved
-
-added
-
-fixed
-
-modified
-
-made
-
-----------------------------------------------
-Changelog -----------------------------------
 version:1.104
 
 Warning: call_user_func_array() expects parameter 1 to be a valid callback, function 'raindrops_theme_support_setup' not found or invalid function name

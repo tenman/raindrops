@@ -1,4 +1,19 @@
 Changelog -----------------------------------
+version:1.105
+fixed
+    Fixed Post format Status display improperly on index.php
+        style.css style rule chanage.
+modified
+    member functions prefixed.
+        option-panel.php class raindrops_menu_create
+    functions more readable.
+        functions.php
+added
+    add_theme_support( 'custom-header') add $args below
+        'admin-preview-callback' => 'raindrops_admin_header_image'
+        'admin-head-callback' => 'raindrops_admin_header_style'
+----------------------------------------------
+Changelog -----------------------------------
 version:1.104
 
 Warning: call_user_func_array() expects parameter 1 to be a valid callback, function 'raindrops_theme_support_setup' not found or invalid function name

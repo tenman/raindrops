@@ -1,7 +1,20 @@
 Changelog -----------------------------------
 version:1.107
 fixed
-
+    Fixed full size editor width display improperly when page width fluid.
+    Fixed Nested grid display improperly front-page.php + sticky widget area + text widget
+     example:
+        <div class="yui-gb">
+            <div class="yui-u first">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            </div>
+            <div class="yui-u">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            </div>
+            <div class="yui-u">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+        </div>
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.106

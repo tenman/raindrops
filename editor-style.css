@@ -6,7 +6,7 @@
  */
 @import url("style.css");
 html .mceContentBody {
-max-width:640px;
+/*max-width:640px;*/
 }
 
 a{

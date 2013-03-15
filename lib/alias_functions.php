@@ -82,8 +82,8 @@
                     $raindrops_content_width = $default;
                 }
             }elseif($document_width == 'doc3'){
-				$raindrops_content_width = 0;
-           /*     $w = 750;
+				//$raindrops_content_width = 0;
+               $w = 950;
                 if($sidebar_width == 'yui-t1'){
                     $raindrops_content_width = $w - 160 - $adjust;
                 }elseif($sidebar_width == 'yui-t2'){
@@ -98,7 +98,12 @@
                     $raindrops_content_width = $w - 300 - $adjust;
                 }else{
                     $raindrops_content_width = $default;
-                }*/
+                }
+			/* 
+			   Fluid Responsive layout can not set correct value
+			   but needs fallback value.
+			   return 0 makes full size editor display improperly. 
+			 */
             }elseif($document_width == 'doc4'){
                 $w = 974;
                 $adjust = 16;

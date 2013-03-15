@@ -2641,9 +2641,9 @@ span#site-title,
             if ( $exception_page_width == 'doc3' ) {
             /* doc3 fluid layout , image displayed shrink , expand */
                 $add_fluid_style = "width:480px;";
-                $add_fluid_style_description_html = '<div style="padding:1em;position:absolute;left:520px;top:20px;background:#000;border:2px dashed #777"><p>'.__( 'Current theme is fluid settings','Raindrops' ).'</p><p>'.__( 'image size will be shrink to fit page' , 'Raindrops' ).'</p>';
+                $add_fluid_style_description_html = '<div style="padding:1em;position:absolute;left:520px;top:20px;background:#000;color:#fff;border:2px dashed #777"><p>'.__( 'Current theme is fluid settings','Raindrops' ).'</p><p>'.__( 'image size will be shrink to fit page' , 'Raindrops' ).'</p>';
 
-                $add_fluid_style_description_html .= '<li><a href="'.admin_url( ).'themes.php?page=raindrops_settings#raindrops-page-width">'. __( 'Theme Settings', 'Raindrops' ).'</a></li>';
+                $add_fluid_style_description_html .= '<li><a href="'.admin_url( ).'themes.php?page=raindrops_settings#raindrops-page-width" style="color:#00CCCC;">'. __( 'Theme Settings', 'Raindrops' ).'</a></li>';
 
                 $add_fluid_style_description_html .= '</div>';
             } else {

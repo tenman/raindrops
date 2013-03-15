@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.107
+fixed
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.106
 fixed
     Fixed Post format Status display improperly on index.php

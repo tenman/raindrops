@@ -26,10 +26,26 @@
  * @uses is_single()
  * @uses raindrops_prev_next_post()
  * @uses comment_template()
+ * @uses get_day_link()
  */
 ?>
 <ul class="entry-meta-list left">
-<li class="category-blog-publish-date"><?php $raindrops_date_format = get_option('date_format'); the_time($raindrops_date_format); ?>
+<li class="category-blog-publish-date">
+<?php
+	$raindrops_date_html_module = '<a href="%1$s">%2$s</a>';
+	 
+	$raindrops_date_format		= get_option('date_format');
+	$raindrops_archive_year		= get_the_time( 'Y' );
+	$raindrops_archive_month	= get_the_time( 'm' );
+	$raindrops_archive_day		= get_the_time( 'd' );
+	$raindrops_day_link			= esc_url( get_day_link( $raindrops_archive_year,
+														 $raindrops_archive_month, 
+														 $raindrops_archive_day ).'#post-'.$post->ID  
+										);
+	$raindrops_status_date		= get_the_time( $raindrops_date_format );
+			
+	printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
+?>
 </li>
 <li class="blog-avatar"><?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ) ); ?></li>
 <li>

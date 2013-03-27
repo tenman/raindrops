@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.108
+
+moved
+
+added
+
+fixed
+
+modified
+
+made
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.107
 fixed
     Fixed full size editor width display improperly when page width fluid.

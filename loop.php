@@ -11,7 +11,7 @@
  * Display navigation to next/previous pages when applicable
  */
 	raindrops_next_prev_links();
-	if(have_posts()){
+	if ( have_posts() ) {
 		raindrops_loop_title();
 		$raindrops_loop_number = 1;
 		while (have_posts()){
@@ -20,7 +20,7 @@
 		//The sticky post displays once where home top.
 				$raindrops_add_class = array();
 				
-			if( is_sticky() ){
+			if ( is_sticky() ) {
 				$raindrops_add_class = array( 'raindrops-sticky' );
 			}
 			$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number );
@@ -37,7 +37,7 @@
  *
  *
  */
-		if( in_category( "gallery" ) or has_post_format( "gallery" ) ){     
+		if ( in_category( "gallery" ) or has_post_format( "gallery" ) ) {     
 			get_template_part('part','gallery');
 /**
  * In category blog 
@@ -46,7 +46,7 @@
  *
  *
  */
-		}elseif(in_category( "blog" ) or has_post_format( "status" ) ){	
+		} elseif (in_category( "blog" ) or has_post_format( "status" ) ) {	
 			get_template_part('part','blog');
 /**
  * Default loop
@@ -55,7 +55,7 @@
  *
  *
  */
-		}else{ ?>
+		} else { ?>
 		
 			<?php raindrops_entry_title(); ?>
 	

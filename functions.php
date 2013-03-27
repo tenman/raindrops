@@ -2031,7 +2031,8 @@ LINK_COLOR_CSS;
 
         function raindrops_loop_title( ) {
             $Raindrops_class_name = "";
-            $page_title = "";
+            $page_title		= "";
+            $page_title_c	= "";
             if ( is_search( ) ) {
                 $Raindrops_class_name = 'serch-result';
                 $page_title = __( "Search Results",'Raindrops' );

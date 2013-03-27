@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.107
+Version: 1.108
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -266,6 +266,11 @@ input[type="checkbox"],
 input[type="radio"],
 select{
 	margin:0 3px;
+}
+option,
+select{
+	margin:auto;
+	max-width:100%;
 }
 input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 	border:1px solid;
@@ -2347,6 +2352,7 @@ a.raindrops-comment-link {
 a.raindrops-comment-link:hover em {
 	cursor: pointer;
 }
+.widget select,
 .widget_archive select{
 	margin:5px 0;
 	width:100%;
@@ -2689,6 +2695,10 @@ clear:both;
 	}
 	#doc3 .category-blog-publish-date{
 		margin:.3em 0 1em!important;
+	}
+	.widget select{
+		margin:5px 3%;
+		width:94%;
 	}
 }
 @media screen and (max-width : 480px){

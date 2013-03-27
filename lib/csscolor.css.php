@@ -92,7 +92,7 @@ ul.nav li a:hover,ul.nav li a:active,
 .lsidebar option.level-2{
 %c_2%
 }
-
+.widget select,
 input[type="file"],
 input[type="reset"],
 input[type="submit"],
@@ -405,6 +405,7 @@ ul.archive,ul.index,
 #items li{
 border-bottom:1px solid %rgba_border%;
 }
+.widget select,
 .rsidebar option,
 .lsidebar option,
 #month_list,
@@ -498,6 +499,7 @@ background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 color:%custom_color%;
 
 }
+
 .fail-search,
 .raindrops-tab-list li:active,
 #access .children li:active,

@@ -10,9 +10,9 @@
 <<?php raindrops_doctype_elements( 'div','nav' );?> class="lsidebar">
 <ul>
 <?php
-	if (!dynamic_sidebar('sidebar-1')){
+	if ( ! dynamic_sidebar('sidebar-1' ) ) {
 		raindrops_sidebar_menus( 'default' );
 	} 
 ?>
 </ul>
-</<?php raindrops_doctype_elements( 'div','nav' );?>>
+</<?php raindrops_doctype_elements( 'div', 'nav' );?>>

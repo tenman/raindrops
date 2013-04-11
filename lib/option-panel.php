@@ -7,35 +7,38 @@
  * @package WordPress
  * @subpackage Raindrops
  */
-if(!defined('ABSPATH')){exit;}
+	if ( ! defined('ABSPATH' ) ) {
+		exit;
+	}
+	
     $raindrops_base_setting_args = array(
          array('option_id' => 1,
         'blog_id' => 0 ,
         'option_name' => "raindrops_color_scheme",
         'option_value' => "raindrops_color_ja",
-        'autoload'=>'yes',
-        'title'=>__('Color Scheme','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Please choose the naming convention for the color list','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Color Scheme','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Please choose the naming convention for the color list','Raindrops'),
          'validate'=>'raindrops_color_scheme_validate','list' => 12),
         array('option_id' => 2,
         'blog_id' => 0 ,
         'option_name' => "raindrops_base_color",
         'option_value' => "#444444",
         'autoload'=>'yes',
-        'title'=> __('Base Color for Automatic Color Arrangement','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Please specify your favorite color. and an automatic arrangement of color is designed.','Raindrops'),
+        'title' => esc_html__('Base Color for Automatic Color Arrangement','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Please specify your favorite color. and an automatic arrangement of color is designed.','Raindrops'),
          'validate'=>'raindrops_base_color_validate',
          'list' => 1),
         array('option_id' => 3,
         'blog_id' => 0 ,
         'option_name' => "raindrops_style_type",
         'option_value' => "dark",
-        'autoload'=>'yes',
-        'title'=>__('Color Type','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('The mood like dark atmosphere and the bright note, etc. is decided. and The editor is displayed when themename is selected, and a present style can be edited in detail.','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Color Type','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('The mood like dark atmosphere and the bright note, etc. is decided. and The editor is displayed when themename is selected, and a present style can be edited in detail.','Raindrops'),
          'validate'=>'raindrops_style_type_validate',
          'list' => 2,
         ),
@@ -43,10 +46,10 @@ if(!defined('ABSPATH')){exit;}
         'blog_id' => 0 ,
         'option_name' => "raindrops_header_image",
         'option_value' => "header.png",
-        'autoload'=>'yes',
-        'title'=>__('Header background image','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('The header image can be set by two methods.
+        'autoload' => 'yes',
+        'title' => esc_html__('Header background image','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('The header image can be set by two methods.
 One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image.','Raindrops'),
          'validate'=>'raindrops_header_image_validate',
          'list' => 3,
@@ -55,29 +58,29 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_image",
         'option_value' => "footer.png",
-        'autoload'=>'yes',
-        'title'=>__('Footer background image','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('The footer image can be set by two methods.
+        'autoload' => 'yes',
+        'title' => esc_html__('Footer background image','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('The footer image can be set by two methods.
 One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image.','Raindrops'),
          'validate'=>'raindrops_footer_image_validate','list' => 4),
         array('option_id' => 6,
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image",
         'option_value' => "h2.png",
-        'autoload'=>'yes',
-        'title'=>__('Widget Title Background Image','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png].','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Widget Title Background Image','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png].','Raindrops'),
          'validate'=>'raindrops_heading_image_validate','list' => 5),
         array('option_id' => 7,
         'blog_id' => 0 ,
         'option_name' => "raindrops_heading_image_position",
         'option_value' => "0",
-        'autoload'=>'yes',
-        'title'=>__('Widget Title Background Image Position','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Widget Title Background Image Position','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. ','Raindrops'),
         'validate'=>'raindrops_heading_image_position_validate','list' => 6),
         array('option_id' => 8,
         'blog_id' => 0 ,
@@ -85,73 +88,76 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_value' => "doc3",
         'autoload'=>'yes',
         'title'=>__('Page Width','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Please choose width on the page.
-    Please choose from four kinds of inside of 750px centerd 950px centerd fluid 974px.','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Please choose width on the page.', 'Raindrops').
+    					esc_html__('Please choose from four kinds of inside of','Raindrops').
+						esc_html__('750px centerd 950px centerd fluid 974px.','Raindrops'),
          'validate'=>'raindrops_page_width_validate','list' => 7),
         array('option_id' => 9,
         'blog_id' => 0 ,
         'option_name' => "raindrops_col_width",
         'option_value' => "t2",
-        'autoload'=>'yes',
-        'title'=>__('Column Width and Position','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified.','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Column Width and Position','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified.','Raindrops'),
         'validate'=>'raindrops_col_width_validate','list' => 8),
         array('option_id' => 10,
         'blog_id' => 0 ,
         'option_name' => "raindrops_default_fonts_color",
         'option_value' => "",
-        'autoload'=>'yes',
-        'title'=>__('Fonts Color ','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('If you need to set contents Special font color.','Raindrops'),
-         'validate'=>'raindrops_default_fonts_color_validate','list' => 9),
+        'autoload' => 'yes',
+        'title' => esc_html__('Text color in content ','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('If you need to set contents Special font color.','Raindrops'),
+         'validate' => 'raindrops_default_fonts_color_validate','list' => 9),
         array('option_id' => 11,
         'blog_id' => 0 ,
         'option_name' => "raindrops_footer_color",
         'option_value' => "",
-        'autoload'=>'yes',
-        'title'=>__('Fonts Color Footer ','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('If you need to set footer Special font color.','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Text color in footer ','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('If you need to set footer Special font color.','Raindrops'),
          'validate'=>'raindrops_footer_color_validate','list' => 10),
         array('option_id' => 12,
         'blog_id' => 0 ,
         'option_name' => "raindrops_show_right_sidebar",
         'option_value' => "show",
-        'autoload'=>'yes',
-        'title'=>__('Extra Sidebar','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show','Raindrops'),
-        'validate'=>'raindrops_show_right_sidebar_validate','list' => 11),
+        'autoload' => 'yes',
+        'title' => esc_html__('Extra Sidebar','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show','Raindrops'),
+        'validate' => 'raindrops_show_right_sidebar_validate','list' => 11),
         array('option_id' => 13,
         'blog_id' => 0 ,
         'option_name' => "raindrops_right_sidebar_width_percent",
         'option_value' => "25",
-        'autoload'=>'yes',
-        'title'=>__('Extra Sidebar Width','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('When display extra sidebar is set to show,
-         it is necessary to specify it. It can decide to divide the width of which place of extra sidebar and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Extra Sidebar Width','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('When display extra sidebar is set to show', 'Raindrops' ).
+						esc_html__('it is necessary to specify it.','Raindrops').
+						esc_html__( 'It can decide to divide the width of which place of extra sidebar', 'Raindrops').
+						esc_html__('and to give it. Please select it from among 25% 33% 50% 66% 75%. ','Raindrops'),
          'validate'=>'raindrops_right_sidebar_width_percent_validate','list' => 12),
         array('option_id' => 14,
         'blog_id' => 0 ,
         'option_name' => "raindrops_show_menu_primary",
         'option_value' => "show",
-        'autoload'=>'yes',
-        'title'=>__('Menu Primary','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Display or not Menu Primary. default value is show. set hide when not display menu primary','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Menu Primary','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Display or not Menu Primary. default value is show. set hide when not display menu primary','Raindrops'),
          'validate'=>'raindrops_show_menu_primary_validate','list' => 13),
         array('option_id' => 15,
         'blog_id' => 0 ,
         'option_name' => "raindrops_hyperlink_color",
         'option_value' => "",
-        'autoload'=>'yes',
-        'title'=>__('Link color','Raindrops'),
-        'excerpt1'=>'',
-        'excerpt2'=>__('Hyper link color','Raindrops'),
+        'autoload' => 'yes',
+        'title' => esc_html__('Link color','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Hyper link color','Raindrops'),
          'validate'=>'raindrops_hyperlink_color_validate','list' => 14),
     );
     if(!isset($raindrops_base_setting)){
@@ -502,7 +508,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
             }
             $result .= '<div class="wrap"><div id="title-raindrops-header" >';
             $result .= screen_icon();
-            $result .= "<h2>" .  ucfirst( $raindrops_current_theme_name ) . __( ' Theme Settings', 'Raindrops' ) . "</h2>";
+            $result .= "<h2>" .  ucfirst( $raindrops_current_theme_name ) . esc_html__( ' Theme Settings', 'Raindrops' ) . "</h2>";
             $result .= "<p>".__('Saved Database table name:','Raindrops')."<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
 /**
  *
@@ -545,7 +551,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
-                                            __(" MultiSite User must Click here !!","Raindrops"));
+                                            esc_html__(" MultiSite User must Click here !!","Raindrops"));
                     }else{
                         $result .= '</p></div>';
                     }
@@ -823,7 +829,7 @@ $raindrops_navigation_list  .= '</ul>';
             $raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
         }
             }else{
-                $raindrops_theme_name = __("Raindrops Theme","Raindrops");
+                $raindrops_theme_name = esc_html__("Raindrops Theme","Raindrops");
             }
             if(RAINDROPS_USE_AUTO_COLOR == true){
             $add_infomation = sprintf(
@@ -898,42 +904,45 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
     <h3 id="raindrops-style-type" title="raindrops style type">
     <div id="icon-upload" class="icon32"></div>
     <span style="position:relative;top:10px;">'.
-    __('Image Upload','Raindrops').
+    esc_html__('Image Upload','Raindrops').
     '</span></h3>
     <fieldset ><legend>'.__('Upload','Raindrops').'</legend>
     <form enctype="multipart/form-data" action="'.$deliv.'" method="POST">'.wp_nonce_field('update-options2').'<p>
     <input name="uploadfile" type="file"></p><p>'.
-    __('Purpose:','Raindrops').'<label>
+    esc_html__('Purpose:','Raindrops').'<label>
     <input type="radio" name="purpose" value="header" checked="checked" />'.
-    __(' <strong>header image</strong>','Raindrops').'</label>
+    '<strong>'.
+	esc_html__('Header Image', 'Raindrops').
+	'</strong></label>
     &nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />'.
-    __(' <strong>footer image</strong>','Raindrops').
-    '</label></p><p>'.
-    __('Style:','Raindrops').'<label>
+    '<strong>'.
+	esc_html__('Footer Image','Raindrops').
+    '</strong></label></p><p>'.
+    esc_html__('Style:','Raindrops').'<label>
     <input type="radio" name="style" value="norepeat" checked="checked" />'.
-    __('no-repeat','Raindrops').
+    esc_html__('no-repeat','Raindrops').
     '</label>&nbsp;&nbsp;&nbsp;<label>
     <input type="radio" name="style" value="repeatx" />'.
-    __('repeat-x','Raindrops').'</label></p>
+    esc_html__('repeat-x','Raindrops').'</label></p>
     <p>'.__('position:','Raindrops').'<label>'.
-    __('top:','Raindrops').'<input type="text" name="position-top" value="0" style="text-align:right;" />'.
-    __('px','Raindrops').'</label>&nbsp;&nbsp;&nbsp;'.
-    __('left:','Raindrops').
+    esc_html__('top:','Raindrops').'<input type="text" name="position-top" value="0" style="text-align:right;" />'.
+    esc_html__('px','Raindrops').'</label>&nbsp;&nbsp;&nbsp;'.
+    esc_html__('left:','Raindrops').
     '<label><input type="text" name="position-left" value="0" style="text-align:right;"  />'.
-    __('px','Raindrops').'</label></p><p>'.
-    __('box height:','Raindrops').'<label>
+    esc_html__('px','Raindrops').'</label></p><p>'.
+    esc_html__('box height:','Raindrops').'<label>
     <input type="text" name="height" value="0" style="text-align:right;" />'.
-    __('px','Raindrops').'</label></p><p>
+    esc_html__('px','Raindrops').'</label></p><p>
     <input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
     </form>
     </fieldset>'.
     '<div class="raindrops_navigation_list">
     <ul>
     <li><a href="#raindrops-header-image">'.
-    __('Go to current header image','Raindrops').
+    esc_html__('Go to current header image','Raindrops').
     '</a></li>
     <li><a href="#raindrops-footer-image">'.
-    __('Go to current footer image','Raindrops').
+    esc_html__('Go to current footer image','Raindrops').
     '</a></li></ul></div>'.
     '</div>';
     return $result;
@@ -958,35 +967,35 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
                 $save_dir = $upload_info['path'].'/raindrops-item';
                 $propaty = $propaty.'-'. $_POST['purpose'];
             }else{
-                $result = __("purpose no data","Raindrops");
+                $result = esc_html__("purpose no data","Raindrops");
                 return array(false,$result);
             }
             if(isset($_POST['style']) and ($_POST['style'] == 'norepeat' or $_POST['style'] == 'repeatx')){
                 $style = $_POST['style'];
                 $propaty = $propaty.'-style-'. $_POST['style'];
             }else{
-                $result = __("style no data","Raindrops");
+                $result = esc_html__("style no data","Raindrops");
                 return array(false,$result);
             }
             if(isset($_POST['position-top']) and is_numeric($_POST['position-top'])){
                 $top = $_POST['position-top'];
                 $propaty = $propaty.'-top-'. $_POST['position-top'];
             }else{
-                $result = __("position top no data","Raindrops");
+                $result = esc_html__("position top no data","Raindrops");
                 return array(false,$result.'c');
             }
             if(isset($_POST['position-left']) and is_numeric($_POST['position-left'])){
                 $left = $_POST['position-left'];
                 $propaty = $propaty.'-left-'. $_POST['position-left'].'-';
             }else{
-                $result = __("position no data","Raindrops");
+                $result = esc_html__("position no data","Raindrops");
                 return array(false,$result);
             }
             if(isset($_POST['height']) and is_numeric($_POST['height'])){
                 $height = $_POST['height'];
                 $propaty = $propaty.'x-height-'. $_POST['height'].'-';
             }else{
-                $result = __("box height no data","Raindrops");
+                $result = esc_html__("box height no data","Raindrops");
                 return array(false,$result);
             }
             if($_FILES['uploadfile']['size'] > $raindrops_max_upload_size){
@@ -1018,7 +1027,7 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
             update_option('raindrops_theme_settings',$new_settings);
                 return array(true,'success',$uploaded_url,$width,$height,true);
           }else{
-                $result = __("It failed in up-loading.","Raindrops");
+                $result = esc_html__("It failed in up-loading.","Raindrops");
                 foreach($_FILES['userfile']['error'] as $error){
                     $result .= $error;
                 }

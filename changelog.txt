@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:1.109
+modified
+    Correction of template coding
+    gettext change from __() to esc_html__()
+    Translation check using WP_LANG 'ja'
+    Remove file backward-compatibility.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.108
 fixed
     Fixed Invalid argument supplied error.

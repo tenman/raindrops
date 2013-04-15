@@ -184,7 +184,11 @@
  *
  * add ver0.991
  */
-    add_theme_support( 'post-formats', array( 'status', 'gallery' ) );
+	add_theme_support( 'post-formats',
+						array(  'gallery',
+								'status'
+							)
+					);
 /**
  *
  *
@@ -721,23 +725,23 @@
                                 '</span> %1$s <span class="tagged">'.
                                 esc_html__( 'and tagged', 'Raindrops' ).
                                 '</span> %2$s <span class="bookmark-the">'.
-                                esc_html__( 'Bookmark the ', 'Raindrops' ).
-                                '</span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
+                                esc_html__( 'Bookmark the', 'Raindrops' ).
+                                '</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
                                 esc_html__( 'permalink', 'Raindrops' ).
                                 '</a>';
 
             } elseif ( is_object_in_taxonomy( get_post_type( ), 'category' ) ) {
                 $posted_in = '<span class="this-posted-in">'.
                                 esc_html__( 'This entry was posted in', 'Raindrops' ).
-                                '</span>%1$s <span class="bookmark-the">'.
+                                '</span> %1$s <span class="bookmark-the">'.
                                 esc_html__( 'Bookmark the', 'Raindrops' ).
-                                '</span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
+                                '</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
                                 esc_html__( 'permalink', 'Raindrops' ).
                                 '</a>';
             } else {
                 $posted_in = '<span class="bookmark-the">'.
-                                esc_html( 'Bookmark the ', 'Raindrops' ).
-                                '</span><a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
+                                esc_html( 'Bookmark the', 'Raindrops' ).
+                                '</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
                                 esc_html__( 'permalink', 'Raindrops' ).
                                 '</a>';
             }
@@ -784,7 +788,7 @@
                 $raindrops_comment_string = '';
                 $raindrops_comment_number = '';
             }
-            $result = sprintf( esc_html__( '%1$s Posted on %2$s by %3$s %4$s', 'Raindrops' ),
+            $result = sprintf( esc_html__( '%1$s %5$s %2$s %6$s %3$s %4$s', 'Raindrops' ),
                 '<span class="meta-prep meta-prep-author">',
                 '</span>'. sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>',
                     $day_link,
@@ -797,8 +801,11 @@
                     get_author_posts_url( get_the_author_meta( 'ID' ) ),
                     sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ),
                     $author
+					
                 ),
-                sprintf( $raindrops_comment_html,get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string )
+                sprintf( $raindrops_comment_html,get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string ),
+				'<span class="posted-on-string">'. __( 'Posted on', 'Raindrops' ). '</span>',
+				'<span class="posted-by-string">'. __( 'by', 'Raindrops' ). '</span>'
             );
 
             echo apply_filters( "raindrops_posted_on", $result );

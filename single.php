@@ -31,60 +31,56 @@
  * @uses raindrops_append_default_sidebar( )
  *
  */
- 
-		$raindrops_current_column = raindrops_show_one_column( );
-	
-		if ( $raindrops_current_column !== false ) {
-			add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
-		}
-	
-		get_header( $raindrops_document_type ); 
-	
-		raindrops_debug_navitation( __FILE__ ); 
+
+        $raindrops_current_column = raindrops_show_one_column( );
+
+        if ( $raindrops_current_column !== false ) {
+            add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
+        }
+
+        get_header( $raindrops_document_type );
+
+        raindrops_debug_navitation( __FILE__ );
 ?>
-	<div id="yui-main">
-		<div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
-			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-				<div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+    <div id="yui-main">
+        <div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
+            <div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
+                <div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
 <?php
 /**
  * Display navigation to next/previous pages when applicable
  */
 
-		if ( have_posts( ) ) {
-			/**
-			 * when Single page
-			 */
-			while ( have_posts( ) ) {
-			
-				the_post( );
-			
-				$cat = "default";
-				
-				if ( in_category( "blog" ) ) {
-				
-					$cat = "blog";
-				}
-				
-				if ( in_category( "gallery" ) ) {
-				
-					$cat = "gallery";
-				}
-				
-				$format= get_post_format();
-				
-				if( $format !== false ){
-				
-					$cat = $format;
-				}
-			
-				if ( WP_DEBUG == true ) {
-				
-					echo '<!--Single Category '.$cat.' start-->';
-				}
-				
-?>				
-						<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?> >			
+        if ( have_posts( ) ) {
+            /**
+             * when Single page
+             */
+            $format= get_post_format();
+
+            while ( have_posts( ) ) {
+
+                the_post( );
+
+                $cat = "default";
+
+                if ( in_category( "blog" ) or has_post_format( "status" ) ) {
+
+                    $cat = "blog";
+                } elseif ( in_category( "gallery" or has_post_format( "gallery" ) ) ) {
+
+                    $cat = "gallery";
+                } elseif ( $format !== false ) {
+
+                    $cat = $format;
+                }
+
+                if ( WP_DEBUG == true ) {
+
+                    echo '<!--Single Category '.$cat.' start-->';
+                }
+
+?>
+                        <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?> >
 <?php
 /**
  * Show featured image
@@ -93,7 +89,7 @@
  *
  *
  */
-				raindrops_featured_image( );
+                raindrops_featured_image( );
 /**
  * Show Category base special layout and default single template part
  *
@@ -101,27 +97,13 @@
  *
  *
  */
-				switch ( $cat ) {
-			
-					case ( 'blog' ): 
-					//category blog
-						get_template_part( "part", "blog" );
-						break;
-					// category gallery
-					case( 'gallery' ):
-						get_template_part( "part", "gallery" );
-						break;
-					//another single page
-					default:
-						
-						
-   						get_template_part( "part", $format );      
-			
-					if ( WP_DEBUG == true ) {
-						echo '<!-- #post-'.get_the_ID( ).' -->';
-					}
-				}	//   end switch( $cat )								 
-			}		//　endwhile
+                get_template_part( "part", $cat );
+
+                if ( WP_DEBUG == true ) {
+                    echo '<!-- #post-'.get_the_ID( ).' -->';
+                }
+
+            }       //　endwhile
 /**
  * Next Previous post link
  *
@@ -129,13 +111,13 @@
  *
  *
  */
-			raindrops_next_prev_links( "nav-below" );
-	
-		}			// if( have_posts( ) ) 
+            raindrops_next_prev_links( "nav-below" );
+
+        }           // if( have_posts( ) )
 ?>
-					
-						</<?php raindrops_doctype_elements( 'div', 'article' );?>>
-					</div>
+
+                        </<?php raindrops_doctype_elements( 'div', 'article' );?>>
+                    </div>
 <?php
 /**
  * Show Extra sidebar column rsidebar start
@@ -144,36 +126,36 @@
  *
  *
  */
-		if ( raindrops_show_one_column( ) == 3 ) {
-?>	
-					<div class="yui-u">
-<?php		
-			raindrops_prepend_extra_sidebar( );
-			
-			get_sidebar( 'extra' );
-			
-			raindrops_append_extra_sidebar( );
+        if ( raindrops_show_one_column( ) == 3 ) {
 ?>
-					</div>
+                    <div class="yui-u">
 <?php
-	} elseif ( $rsidebar_show and $raindrops_current_column == false ) {
-?>	
-					<div class="yui-u">
-<?php		
-			raindrops_prepend_extra_sidebar( );
-			
-			get_sidebar( 'extra' );
-			
-			raindrops_append_extra_sidebar( );
+            raindrops_prepend_extra_sidebar( );
+
+            get_sidebar( 'extra' );
+
+            raindrops_append_extra_sidebar( );
 ?>
-					</div>
+                    </div>
 <?php
-		}
- 			//add nest grid here 
-?> 
-				</div>
-			</div>
-		</div>
+    } elseif ( $rsidebar_show and $raindrops_current_column == false ) {
+?>
+                    <div class="yui-u">
+<?php
+            raindrops_prepend_extra_sidebar( );
+
+            get_sidebar( 'extra' );
+
+            raindrops_append_extra_sidebar( );
+?>
+                    </div>
+<?php
+        }
+            //add nest grid here
+?>
+                </div>
+            </div>
+        </div>
 <?php
 /**
  * Show main column lsidebar start
@@ -182,19 +164,19 @@
  *
  *
  */
-		if ( raindrops_show_one_column( ) !== '1' or $raindrops_current_column == false ) {
-?>		
-		<div class="yui-b">
-<?php			
-					raindrops_prepend_default_sidebar( );
-					
-					get_sidebar( 'default' );
-					
-					raindrops_append_default_sidebar( );
-?>					
-		</div>
-<?php		
-		}
+        if ( raindrops_show_one_column( ) !== '1' or $raindrops_current_column == false ) {
 ?>
-	</div>
+        <div class="yui-b">
+<?php
+                    raindrops_prepend_default_sidebar( );
+
+                    get_sidebar( 'default' );
+
+                    raindrops_append_default_sidebar( );
+?>
+        </div>
+<?php
+        }
+?>
+    </div>
 <?php get_footer( $raindrops_document_type );?>

@@ -1,4 +1,8 @@
 Changelog -----------------------------------
+version:1.112
+    fixed Post Format Status Display improperly on single.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.111
 Added
     Retina display support

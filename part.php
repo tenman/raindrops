@@ -6,12 +6,23 @@
  * @since Raindrops 0.940
  *
  */
+ 	$format = get_post_format( );
+	
+	if ( $format === false ) {
+	
+		$raindrops_entry_meta_class = 'entry-meta-default';
+	}else{
+	
+		$raindrops_entry_meta_class = 'entry-meta-'. $format;
+	}
+	
 ?>
-	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php post_class( ); ?> >
 <?php 
 		raindrops_entry_title( );
+		
+		
 ?>
-		<div class="entry-meta-default">
+		<div class="<?php echo $raindrops_entry_meta_class; ?>">
 <?php 
 		raindrops_posted_on( ); 
 ?>
@@ -55,4 +66,3 @@
 	
 	comments_template( '', true ); 
 ?>
-	</<?php raindrops_doctype_elements( 'div', 'article' );?>>

@@ -22,16 +22,6 @@
 			
 				the_post( );
 				
-		//default: sticky exists 2page when sticky post shown
-		//The sticky post displays once where home top.
-		
-				$raindrops_add_class = array( );
-				
-				if ( is_sticky( ) ) {
-				
-					$raindrops_add_class = array( 'raindrops-sticky' );
-				}
-				
 				$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number );
 				
 				printf( '<li class="loop-%1$s%2$s">',
@@ -40,10 +30,11 @@
 					);
 					
 				$raindrops_loop_number++;
+?>				
+	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> >			
 			
-?>
-	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php post_class( $raindrops_add_class ); ?> >
 <?php
+				$format= get_post_format();
 /**
  * In category gallery
  *
@@ -64,6 +55,15 @@
 				} elseif (in_category( "blog" ) or has_post_format( "status" ) ) {
 					
 					get_template_part( 'part', 'blog' );
+					
+					
+					
+					
+					
+				} elseif ( $format !== false ){
+				
+				
+					get_template_part( 'part', $format );
 /**
  * Default loop
  *
@@ -105,7 +105,7 @@
 				} 
 ?>
 				<br class="clear" />
-	</<?php raindrops_doctype_elements( 'div', 'article' );?>>
+		</<?php raindrops_doctype_elements( 'div', 'article' );?>>
 	</li>
 <?php	
 			} //end while

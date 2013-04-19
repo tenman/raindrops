@@ -34,7 +34,7 @@
 					the_post( ); 
 ?>
 		<li>
-		<div id="post-<?php the_ID( ); ?>" <?php post_class( ); ?> >
+		<div id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> >
 <?php 
 			raindrops_entry_title( );
 ?>

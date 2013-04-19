@@ -13,7 +13,7 @@
  * @uses have_posts( )
  * @uses the_post( )
  * @uses the_ID( )
- * @uses post_class( )
+ * @uses raindrops_post_class( )
  * @uses the_title_attribute( )
  * @uses raindrops_entry_title( )
  * @uses raindrops_entry_content( )
@@ -34,9 +34,7 @@
 		$raindrops_current_column = raindrops_show_one_column( );
 		
 		if ( $raindrops_current_column !== false ) {
-		
 			add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
-			
 		}
  
 		get_header( $raindrops_document_type );
@@ -57,7 +55,7 @@
 				printf( '<!--%1$s-->', $raindrops_document_type );
 ?>
         			<div class="entry page">
-          				<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php post_class( );?>>
+          				<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( );?>>
 
 <?php 
 				raindrops_entry_title( );

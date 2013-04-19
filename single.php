@@ -61,14 +61,21 @@
 			
 				$cat = "default";
 				
-				if ( in_category( "blog" ) or has_post_format( 'status' ) ) {
+				if ( in_category( "blog" ) ) {
 				
 					$cat = "blog";
 				}
 				
-				if ( in_category( "gallery" ) or has_post_format( 'gallery' ) ) {
+				if ( in_category( "gallery" ) ) {
 				
 					$cat = "gallery";
+				}
+				
+				$format= get_post_format();
+				
+				if( $format !== false ){
+				
+					$cat = $format;
 				}
 			
 				if ( WP_DEBUG == true ) {
@@ -76,11 +83,9 @@
 					echo '<!--Single Category '.$cat.' start-->';
 				}
 				
-				if ( $cat == "blog" or $cat == "gallery" ) {
-?>			
-					<div id="post-<?php the_ID( ); ?>" <?php  post_class( 'clearfix' ); ?> >
+?>				
+						<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?> >			
 <?php
-				}
 /**
  * Show featured image
  *
@@ -108,21 +113,14 @@
 						break;
 					//another single page
 					default:
-						$format= get_post_format();
+						
 						
    						get_template_part( "part", $format );      
 			
 					if ( WP_DEBUG == true ) {
 						echo '<!-- #post-'.get_the_ID( ).' -->';
 					}
-				}	//   end switch( $cat )
-			
-				if( $cat == "blog" or $cat == "gallery" or $format == 'blog' or $format == 'gallery' ) {
-?>				
-						</div>
-<?php
-				}
-			
+				}	//   end switch( $cat )								 
 			}		//　endwhile
 /**
  * Next Previous post link
@@ -135,6 +133,8 @@
 	
 		}			// if( have_posts( ) ) 
 ?>
+					
+						</<?php raindrops_doctype_elements( 'div', 'article' );?>>
 					</div>
 <?php
 /**

@@ -48,7 +48,7 @@
 			
 				the_post( );
 ?>
-				<div id="post-<?php the_ID( ); ?>"  <?php post_class( ); ?>>
+				<div id="post-<?php the_ID( ); ?>"  <?php raindrops_post_class( ); ?>>
 					<div class="entry attachment raindrops-image-page">
 						<h2 class="image-title h2"><?php the_title( ); ?></h2>
 <?php
@@ -153,7 +153,7 @@
 					the_post( );
 				
 ?>
-				<div id="post-<?php the_ID( ); ?>"  <?php post_class( ); ?>>
+				<div id="post-<?php the_ID( ); ?>"  <?php raindrops_post_class( ); ?>>
 					<div class="entry attachment raindrops-image-page">
 						<h2 class="image-title h2">
 <?php

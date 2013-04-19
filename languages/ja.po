@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-15 13:07+0900\n"
-"PO-Revision-Date: 2013-04-15 13:12+0900\n"
+"POT-Creation-Date: 2013-04-18 17:11+0900\n"
+"PO-Revision-Date: 2013-04-18 17:12+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "プロフィール"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/author.php:79
-#: wp/wp-content/themes/raindrops/functions.php:1181
+#: wp/wp-content/themes/raindrops/functions.php:1268
 #, fuzzy
 msgid "Website"
 msgstr "ウェブサイト"
@@ -91,15 +91,15 @@ msgstr "最近の投稿"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/blank_front.php:47
-#: wp/wp-content/themes/raindrops/functions.php:3981
-#: wp/wp-content/themes/raindrops/functions.php:4077
+#: wp/wp-content/themes/raindrops/functions.php:4086
+#: wp/wp-content/themes/raindrops/functions.php:4182
 #, fuzzy
 msgid "Categories"
 msgstr "カテゴリー"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/blank_front.php:63
-#: wp/wp-content/themes/raindrops/functions.php:4124
+#: wp/wp-content/themes/raindrops/functions.php:4229
 #, fuzzy
 msgid "Tags"
 msgstr "タグ:"
@@ -191,19 +191,19 @@ msgstr "土曜日"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/date.php:99
-#: wp/wp-content/themes/raindrops/functions.php:2102
+#: wp/wp-content/themes/raindrops/functions.php:2189
 msgid "Yearly Archives"
 msgstr "年別アーカイブ: "
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/date.php:105
-#: wp/wp-content/themes/raindrops/functions.php:2094
+#: wp/wp-content/themes/raindrops/functions.php:2181
 msgid "Monthly Archives"
 msgstr "月別アーカイブ"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/date.php:110
-#: wp/wp-content/themes/raindrops/functions.php:2090
+#: wp/wp-content/themes/raindrops/functions.php:2177
 msgid "Daily Archives"
 msgstr "日別アーカイブ: "
 
@@ -228,437 +228,440 @@ msgid "Raindrops Theme"
 msgstr "レインドロップス　テーマ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:127
+#: wp/wp-content/themes/raindrops/functions.php:128
 msgid "Primary Navigation"
 msgstr "主ナビゲーション"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:434
-#: wp/wp-content/themes/raindrops/functions.php:3591
+#: wp/wp-content/themes/raindrops/functions.php:435
+#: wp/wp-content/themes/raindrops/functions.php:3696
 msgid "Default Sidebar"
 msgstr "デフォルトサイドバー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:447
-#: wp/wp-content/themes/raindrops/functions.php:3572
+#: wp/wp-content/themes/raindrops/functions.php:448
+#: wp/wp-content/themes/raindrops/functions.php:3677
 msgid "Extra Sidebar"
 msgstr "エキストラサイドバー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:460
+#: wp/wp-content/themes/raindrops/functions.php:461
 msgid "Sticky Widget"
 msgstr "スティッキーウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:471
+#: wp/wp-content/themes/raindrops/functions.php:472
 msgid "Footer Widget"
 msgstr "フッターウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:482
+#: wp/wp-content/themes/raindrops/functions.php:483
 msgid "Category Blog Widget"
 msgstr "カテゴリ　ブログ　ウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:563
+#: wp/wp-content/themes/raindrops/functions.php:564
 #, php-format
 msgid "If you add  %s when you must create function %s for data validation"
 msgstr "フォームに新しい項目(%s)を追加したら、その項目のバリデーション関数（%s）も書かなければなりませんよ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:672
+#: wp/wp-content/themes/raindrops/functions.php:673
 #, fuzzy
 msgid "says:"
 msgstr "タグ:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:677
+#: wp/wp-content/themes/raindrops/functions.php:678
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:678
-#: wp/wp-content/themes/raindrops/functions.php:709
+#: wp/wp-content/themes/raindrops/functions.php:679
+#: wp/wp-content/themes/raindrops/functions.php:710
 #, fuzzy
 msgid " Edit "
 msgstr "編集"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:685
+#: wp/wp-content/themes/raindrops/functions.php:686
 #, fuzzy
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは管理者の承認待ちです。"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:707
+#: wp/wp-content/themes/raindrops/functions.php:708
 #, fuzzy
 msgid "Pingback:"
 msgstr "ピンバック:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:730
-#: wp/wp-content/themes/raindrops/functions.php:741
+#: wp/wp-content/themes/raindrops/functions.php:742
+#: wp/wp-content/themes/raindrops/functions.php:753
+#: wp/wp-content/themes/raindrops/functions.php:786
+#: wp/wp-content/themes/raindrops/functions.php:794
 msgid "This entry was posted in"
 msgstr " "
 
-#: wp/wp-content/themes/raindrops/functions.php:732
+#: wp/wp-content/themes/raindrops/functions.php:744
+#: wp/wp-content/themes/raindrops/functions.php:788
 msgid "and tagged"
 msgstr "タグ"
 
-#: wp/wp-content/themes/raindrops/functions.php:734
-#: wp/wp-content/themes/raindrops/functions.php:743
+#: wp/wp-content/themes/raindrops/functions.php:746
+#: wp/wp-content/themes/raindrops/functions.php:755
 msgid "Bookmark the"
 msgstr "&nbsp;　　"
 
-#: wp/wp-content/themes/raindrops/functions.php:736
-#: wp/wp-content/themes/raindrops/functions.php:745
-#: wp/wp-content/themes/raindrops/functions.php:751
+#: wp/wp-content/themes/raindrops/functions.php:748
+#: wp/wp-content/themes/raindrops/functions.php:757
+#: wp/wp-content/themes/raindrops/functions.php:763
 msgid "permalink"
 msgstr "パーマリンク"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:786
+#: wp/wp-content/themes/raindrops/functions.php:855
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "コメント"
 msgstr[1] "コメント"
 
-#: wp/wp-content/themes/raindrops/functions.php:797
+#: wp/wp-content/themes/raindrops/functions.php:866
 #, fuzzy, php-format
 msgid "%1$s %5$s %2$s %6$s %3$s %4$s"
 msgstr "%1$s  %2$s　 %3$s %4$s"
 
-#: wp/wp-content/themes/raindrops/functions.php:808
+#: wp/wp-content/themes/raindrops/functions.php:877
 #, php-format
 msgid "View all posts by %s"
 msgstr " %sのすべての投稿"
 
-#: wp/wp-content/themes/raindrops/functions.php:813
+#: wp/wp-content/themes/raindrops/functions.php:882
 msgid "Posted on"
 msgstr " "
 
-#: wp/wp-content/themes/raindrops/functions.php:814
+#: wp/wp-content/themes/raindrops/functions.php:883
 msgid "by"
 msgstr "&nbsp; "
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:895
+#: wp/wp-content/themes/raindrops/functions.php:982
 msgid "Description"
 msgstr "概要"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:900
+#: wp/wp-content/themes/raindrops/functions.php:987
 msgid "Theme URI"
 msgstr "テーマ　URI"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:905
+#: wp/wp-content/themes/raindrops/functions.php:992
 #, fuzzy
 msgid "Author"
 msgstr "作成者:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:910
+#: wp/wp-content/themes/raindrops/functions.php:997
 msgid "Version"
 msgstr "バージョン"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:916
+#: wp/wp-content/themes/raindrops/functions.php:1003
 msgid "Change log text"
 msgstr "変更履歴"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:917
+#: wp/wp-content/themes/raindrops/functions.php:1004
 msgid "Changelog , display new window"
 msgstr "変更履歴の表示（新しい画面）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:922
+#: wp/wp-content/themes/raindrops/functions.php:1009
 msgid "Readme text"
 msgstr "説明書き"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:923
+#: wp/wp-content/themes/raindrops/functions.php:1010
 msgid "Readme , display new window"
 msgstr "説明の表示（新しい画面)"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:930
+#: wp/wp-content/themes/raindrops/functions.php:1017
 #, fuzzy
 msgid "raindrops infomation"
 msgstr "レインドロップス　その他の設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:949
+#: wp/wp-content/themes/raindrops/functions.php:1036
 msgid "Tips"
 msgstr "コネタ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:950
+#: wp/wp-content/themes/raindrops/functions.php:1037
 msgid "If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once."
 msgstr "レインドロップスの設定画面から、基本色を設定するとそれに応じた背景色クラスが自動生成します"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:951
+#: wp/wp-content/themes/raindrops/functions.php:1038
 msgid "Dinamic Color Class"
 msgstr "動的な色クラス"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:964
-#: wp/wp-content/themes/raindrops/functions.php:983
+#: wp/wp-content/themes/raindrops/functions.php:1051
+#: wp/wp-content/themes/raindrops/functions.php:1070
 msgid "code example:please HTML editor mode"
 msgstr "HTMLモードを使ってくださいね"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:970
+#: wp/wp-content/themes/raindrops/functions.php:1057
 msgid "Dinamic Gradient Class"
 msgstr "動的なグラデーションクラス"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:986
+#: wp/wp-content/themes/raindrops/functions.php:1073
 msgid "About Featured Image"
 msgstr "アイキャッチ画像について"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:987
+#: wp/wp-content/themes/raindrops/functions.php:1074
 msgid "image width and height aspect ratio is 3:1. another aspect ratio will be trimming center"
 msgstr "画像の幅と、高さの比は3;1です。これ以外の比率の場合は中央に合わせてトリミングします"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1181
+#: wp/wp-content/themes/raindrops/functions.php:1268
 msgid "Option"
 msgstr "オプション"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1288
+#: wp/wp-content/themes/raindrops/functions.php:1375
 #, php-format
 msgid "Sorry Your PHP version is %s Please use PHP version 5 or later."
 msgstr "あなたの使っているバージョンは　 %s　です。このバージョンは、サポートしていないので、PHP５以降を使ってください。"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1290
+#: wp/wp-content/themes/raindrops/functions.php:1377
 #, fuzzy, php-format
 msgid "Thank you for adopting the %1$s theme. It is necessary to set it to this theme. Please move to a set screen clicking this "
 msgstr "%1$s テーマを使ってくれてありがとう。テーマを利用する前に<a href=\"%2$s\">%1$s テーマ　オプションページ</a>をクリックして、一度だけ、テーマオプションページを表示させてください"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1292
+#: wp/wp-content/themes/raindrops/functions.php:1379
 #, fuzzy
 msgid "Raindrops settings view"
 msgstr "レインドロップス設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1912
+#: wp/wp-content/themes/raindrops/functions.php:1999
 #, php-format
 msgid "%s Articles archived"
 msgstr "%s のアーカイブがあります"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2076
+#: wp/wp-content/themes/raindrops/functions.php:2163
 #, fuzzy
 msgid "Search Results"
 msgstr "検索結果"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2080
+#: wp/wp-content/themes/raindrops/functions.php:2167
 msgid "Tag Archives"
 msgstr "タグ別アーカイブ: "
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2084
+#: wp/wp-content/themes/raindrops/functions.php:2171
 #, fuzzy
 msgid "Category Archives"
 msgstr "カテゴリー別アーカイブ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2106
+#: wp/wp-content/themes/raindrops/functions.php:2193
 msgid "Author Archives"
 msgstr "作成者別アーカイブ: "
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2114
+#: wp/wp-content/themes/raindrops/functions.php:2201
 msgid "Blog Archives"
 msgstr "ブログ　アーカイブ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2683
+#: wp/wp-content/themes/raindrops/functions.php:2770
 msgid "Current theme is fluid settings"
 msgstr "現在のテーマは、ページ幅がブラウザにフィットします"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2683
+#: wp/wp-content/themes/raindrops/functions.php:2770
 msgid "image size will be shrink to fit page"
 msgstr "画像サイズは、ページサイズにフィットします"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2685
+#: wp/wp-content/themes/raindrops/functions.php:2772
 #, fuzzy
 msgid "Theme Settings"
 msgstr "テーマ設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2775
+#: wp/wp-content/themes/raindrops/functions.php:2878
 msgid "This entry has no title"
 msgstr "この投稿にはタイトルがありません"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3024
+#: wp/wp-content/themes/raindrops/functions.php:3129
 #, fuzzy, php-format
 msgid " Page %s"
 msgstr "ページ %s"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3102
+#: wp/wp-content/themes/raindrops/functions.php:3207
 #: wp/wp-content/themes/raindrops/image.php:123
 #: wp/wp-content/themes/raindrops/image.php:232
 #: wp/wp-content/themes/raindrops/loop.php:100
-#: wp/wp-content/themes/raindrops/page.php:92
+#: wp/wp-content/themes/raindrops/page.php:90
 #: wp/wp-content/themes/raindrops/part-blog.php:99
 msgid "Trash"
 msgstr "ゴミ箱"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3474
+#: wp/wp-content/themes/raindrops/functions.php:3579
 msgid "Raindrops theme settings"
 msgstr "レインドロップス　テーマ設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3478
+#: wp/wp-content/themes/raindrops/functions.php:3583
 msgid "Another Settings link"
 msgstr "その他の設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3528
+#: wp/wp-content/themes/raindrops/functions.php:3633
 msgid "Custom Header"
 msgstr "カスタムヘッダー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3529
+#: wp/wp-content/themes/raindrops/functions.php:3634
 msgid "Widget"
 msgstr "ウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3530
+#: wp/wp-content/themes/raindrops/functions.php:3635
 #, fuzzy
 msgid "Nav Menus"
 msgstr "メニュー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3531
+#: wp/wp-content/themes/raindrops/functions.php:3636
 msgid "Raindrops Settings"
 msgstr "レインドロップス設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3532
+#: wp/wp-content/themes/raindrops/functions.php:3637
 msgid "Theme"
 msgstr "テーマ"
 
-#: wp/wp-content/themes/raindrops/functions.php:3533
+#: wp/wp-content/themes/raindrops/functions.php:3638
 msgid "Dashbord"
 msgstr "ダッシュボード"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3541
+#: wp/wp-content/themes/raindrops/functions.php:3646
 msgid "Base color"
 msgstr "ベースカラー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3552
+#: wp/wp-content/themes/raindrops/functions.php:3657
 msgid "Color Type"
 msgstr "配色タイプ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3559
+#: wp/wp-content/themes/raindrops/functions.php:3664
 #, fuzzy
 msgid "Page width"
 msgstr "ページ幅"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3599
+#: wp/wp-content/themes/raindrops/functions.php:3704
 msgid "Menu Primary"
 msgstr "メインメニュー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3611
+#: wp/wp-content/themes/raindrops/functions.php:3716
 #, fuzzy
 msgid "Font Color"
 msgstr "フォント色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3620
+#: wp/wp-content/themes/raindrops/functions.php:3725
 #, fuzzy
 msgid "Link Color"
 msgstr "リンクの色"
 
 # @ default
-#: wp/wp-content/themes/raindrops/functions.php:3709
+#: wp/wp-content/themes/raindrops/functions.php:3814
 #, php-format
 msgid "add_action( '%1$s', 'your_function' ) or add template part file the name '%2$s'."
 msgstr "add_action( '%1$s', 'your_function' ) あるいは'%2$s'.テンプレートを追加していただく事で、この場所にコンテンツを追加できます"
 
-#: wp/wp-content/themes/raindrops/functions.php:3930
+#: wp/wp-content/themes/raindrops/functions.php:4035
 msgid "Continue&nbsp;reading "
 msgstr "続きを読む"
 
-#: wp/wp-content/themes/raindrops/functions.php:3955
+#: wp/wp-content/themes/raindrops/functions.php:4060
 msgid " Older posts"
 msgstr "過去の投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3956
+#: wp/wp-content/themes/raindrops/functions.php:4061
 msgid "Newer posts"
 msgstr "新しい投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3977
+#: wp/wp-content/themes/raindrops/functions.php:4082
 #, fuzzy
 msgid "Pages"
 msgstr "ページ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3978
+#: wp/wp-content/themes/raindrops/functions.php:4083
 #, fuzzy
 msgid "Archives"
 msgstr "アーカイブ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3984
+#: wp/wp-content/themes/raindrops/functions.php:4089
 #, fuzzy
 msgid "Meta"
 msgstr "メタ情報"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3993
-#: wp/wp-content/themes/raindrops/functions.php:4028
+#: wp/wp-content/themes/raindrops/functions.php:4098
+#: wp/wp-content/themes/raindrops/functions.php:4133
 #, fuzzy
 msgid "Recent Post"
 msgstr "最近の投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4194
+#: wp/wp-content/themes/raindrops/functions.php:4299
 #, php-format
 msgid "Prev Month( %sth )"
 msgstr "前月（　%s月　）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4204
+#: wp/wp-content/themes/raindrops/functions.php:4309
 #, php-format
 msgid "Next Month( %sth )"
 msgstr "次月（　%s月　）"
 
-#: wp/wp-content/themes/raindrops/functions.php:4291
+#: wp/wp-content/themes/raindrops/functions.php:4396
 msgid "New window"
 msgstr "新しいウィンドウ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4527
+#: wp/wp-content/themes/raindrops/functions.php:4634
 msgid "Go to Attachment page"
 msgstr "添付ファイルへ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4643
-#: wp/wp-content/themes/raindrops/functions.php:4644
+#: wp/wp-content/themes/raindrops/functions.php:4750
+#: wp/wp-content/themes/raindrops/functions.php:4751
 #, fuzzy
 msgid "Skip to content"
 msgstr "コンテンツへ移動"
@@ -673,7 +676,7 @@ msgstr "投稿："
 #: wp/wp-content/themes/raindrops/image.php:121
 #: wp/wp-content/themes/raindrops/image.php:230
 #: wp/wp-content/themes/raindrops/loop.php:98
-#: wp/wp-content/themes/raindrops/page.php:90
+#: wp/wp-content/themes/raindrops/page.php:88
 #: wp/wp-content/themes/raindrops/part-blog.php:94
 msgid "Edit"
 msgstr "編集"

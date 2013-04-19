@@ -1,10 +1,10 @@
 /*   
 Theme Name: raindrops
 Theme URI: http://www.tenman.info/wp3/raindrops/
-Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. 
+Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.110
+Version: 1.111
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1704,8 +1704,16 @@ li.byuser > div a{
 	max-width:100%;	
 }
 .home .sticky {
-	padding: 18px 20px 0 20px;
+	padding: 0 20px 0 20px;
 	background:url(images/sticky.png);
+}
+.home .sticky .entry-meta{
+	border:none!important;
+}
+.home .sticky .entry-title a{
+    pointer-events: none;
+    cursor: default;
+    text-decoration:none;
 }
 .home #container{
 	margin:0;
@@ -2114,9 +2122,18 @@ h2.year-month-date .day-name{
 #comments .nocomments:before,
 .comment-notes:before,
 .logged-in-as:before{
-	content: url("images/info.png");
+	/*content: url("images/info.png");
 	vertical-align:middle;
+	margin-right:.5em;*/
 	margin-right:.5em;
+	content:" ";
+	display:inline-block;
+	width:16px;
+	height:16px;
+    background-size:cover;
+	vertical-align:text-bottom;
+	background: url("images/info.png");
+
 }
 #respond .required,
 .comment-form-email .required,
@@ -2129,18 +2146,201 @@ h2.year-month-date .day-name{
 	display:inline-block;
 	background:url("images/require.png");
 	background-repeat:no-repeat;
+		background-size:16px 16px;
+
 }
 .error404 .entry-title:before{
-	content: url("images/stop.png");
-	margin-right:5px;
+	/*content: url("images/stop.png");
+	margin-right:5px;*/
+	/*margin-right:.5em;*/
+	content:" ";
+	display:inline-block;
+	width:16px;
+	height:16px;
+    background-size:cover;
+	background: url("images/stop.png");
+
 }
 address .comments-rss:after,
 address .entry-rss:after{
-	content:url("images/rss.png");
+	/*content:url("images/rss.png");
 	position:relative;
 	top:5px;
-	margin:5px;
+	margin:5px;*/
+	margin:0 .5em;
+	content:" ";
+	display:inline-block;
+	width:16px;
+	height:16px;
+    background-size:cover;
+	vertical-align:text-bottom;
+	background: url("images/rss.png");
+
 }
+/* post format */
+.format-link .entry-content{
+	display:table;
+	width:100%;
+	
+}
+.entry-meta-link{
+	text-align:right;
+}
+.entry-meta-link .meta-prep-author,
+.entry-meta-link .meta-prep-author + a,
+.entry-meta-link .posted-by-string,
+.entry-meta-link .author,
+.format-link .entry-title{
+	display:none;
+}
+.format-link .entry-content p:first-of-type a{
+	display:table-cell;
+	text-align:center;
+	height:100px;
+	vertical-align:middle;
+	width:800px;
+	max-width:100%;
+	background: url("images/sticky.png");
+}
+
+.format-link .entry-content p:first-of-type a:before{
+		display:inline-block;
+		width:24px;
+		height:24px;
+}
+
+.post-format-content{
+	text-align:center;
+}
+
+div:not(.raindrops-empty-content),
+article:not(.raindrops-empty-content),
+.entry-meta-default{
+	/*text-align:left;*/
+}
+article:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link,
+div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
+	margin-right:0;
+	position:static;
+	text-align:left;
+}
+
+.raindrops-empty-content .entry-meta-gallery,
+.raindrops-empty-content .entry-meta-audio,
+.raindrops-empty-content .entry-meta-aside,
+.raindrops-empty-content .entry-meta-chat,
+.raindrops-empty-content .entry-meta-link,
+.raindrops-empty-content .entry-meta-image,
+.raindrops-empty-content .entry-meta-quote,
+.raindrops-empty-content .entry-meta-video {
+	text-align:right;
+}
+.raindrops-empty-content .entry-meta-gallery .raindrops-comment-link,
+.raindrops-empty-content .entry-meta-audio .raindrops-comment-link,
+.raindrops-empty-content .entry-meta-aside .raindrops-comment-link,
+.raindrops-empty-content .entry-meta-chat .raindrops-comment-link,
+/*.raindrops-empty-content .entry-meta-link .raindrops-comment-link,*/
+.raindrops-empty-content .entry-meta-image .raindrops-comment-link,
+.raindrops-empty-content .entry-meta-quote .raindrops-comment-link,
+.raindrops-empty-content .entry-meta-video .raindrops-comment-link{
+	margin-right:10px;
+	position:relative;
+	top:-20px;
+	text-align:right;
+}
+/* post format chat */
+.raindrops-chat-text + *,
+.raindrops-chat-text-after,
+.raindrops-chat-text{
+	margin-left:4em;
+}
+.raindrops-chat{
+	margin:0;
+}
+
+.raindrops-chat:before{
+	margin:0 10px;
+    content:" ";
+	display:inline-block;
+	width:13px;
+	height:13px;
+    background-size:cover;
+}
+.raindrops-chat-author-0:before{
+ 	background-image: url('images/raindrops-chat-author-0.png');
+}
+.raindrops-chat-author-1:before{
+ 	background-image: url('images/raindrops-chat-author-1.png');
+}
+.raindrops-chat-author-2:before{
+ 	background-image: url('images/raindrops-chat-author-2.png');
+
+}
+.raindrops-chat-author-3:before{
+ 	background-image: url('images/raindrops-chat-author-3.png');
+
+}
+.raindrops-chat-author-4:before{
+ 	background-image: url('images/raindrops-chat-author-4.png');
+
+}
+.raindrops-chat-author-5:before{
+ 	background-image: url('images/raindrops-chat-author-5.png');
+
+}
+
+.icon-post-format-notitle,
+.icon-link-no-title{
+		display:inline-block;
+		width:24px;
+		height:24px;
+		background-repeat:no-repeat;
+
+}
+.icon-link-no-title{
+		background: url("images/link.png");
+		background-size:24px 24px;
+
+}
+.icon-post-format-aside{
+		background: url("images/post-format-aside.png");
+		background-size:24px 24px;
+}
+
+.icon-post-format-audio{
+		background: url("images/post-format-audio.png");
+		background-size:24px 24px;
+}
+.icon-post-format-chat{
+		background: url("images/post-format-chat.png");
+		background-size:24px 24px;
+}
+.icon-post-format-gallery{
+		background: url("images/post-format-gallery.png");
+		background-size:24px 24px;
+}
+.icon-post-format-image{
+		background: url("images/post-format-image.png");
+		background-size:24px 24px;
+}
+.icon-post-format-link{
+		background: url("images/post-format-link.png");
+		background-size:24px 24px;
+}
+.icon-post-format-quote{
+		background: url("images/post-format-quote.png");
+		background-size:24px 24px;
+}
+.icon-post-format-status{
+		background: url("images/post-format-status.png");
+		background-size:24px 24px;
+}
+
+.icon-post-format-video{
+		background: url("images/post-format-video.png");
+		background-size:24px 24px;
+}
+
 .nav-previous .meta-nav,
 .nav-next .meta-nav{
 	display:none;
@@ -2154,17 +2354,37 @@ address .entry-rss:after{
 	background-repeat:no-repeat;
 	background-position:left top;
 	padding-left:20px;
+	background-size:16px 16px;
+
 }
 .nav-previous a:before{
-	content:url("images/previous.png");
+	/*content:url("images/previous.png");
 	position:relative;
-	top:3px;
+	top:3px;*/
+	margin:.5em;
+	content:" ";
+	display:inline-block;
+	width:16px;
+	height:16px;
+    background-size:cover;
+	vertical-align:middle;
+	background: url("images/previous.png");
+
 }
 .nav-next a:after{
-	content:url("images/next.png");
+	/*content:url("images/next.png");
 	position:relative;
 	top:3px;
-	padding-left:4px;
+	padding-left:4px;*/
+	margin:.5em;
+	content:" ";
+	display:inline-block;
+	width:16px;
+	height:16px;
+    background-size:cover;
+	vertical-align:middle;
+	background: url("images/next.png");
+
 }
 .attachment-navigation .next{
 	float:right;
@@ -2174,6 +2394,7 @@ address .entry-rss:after{
 	background-repeat:no-repeat;
 	background-position:right top;
 	padding-right:20px;
+	background-size:16px 16px;
 }
 
 td[class^="horizon"],
@@ -2830,7 +3051,123 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
 		margin:0 auto;
 	}
 }
-.post-format-content{
-	text-align:center;
-}
 
+
+
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2), 
+only screen and (min-resolution: 192dpi) { 
+
+	#comments .form-allowed-tags:before,
+	#comments .nopassword:before,
+	#comments .nocomments:before,
+	.comment-notes:before,
+	.logged-in-as:before{
+		background: url("images/retina/info.png");
+		background-size:16px 16px;
+	}
+	#respond .required,
+	.comment-form-email .required,
+	.comment-form-author .required,
+	.comment-notes .required{
+		background:url("images/retina/require.png");
+		background-size:16px 16px;
+		background-repeat:no-repeat;
+	}
+	.error404 .entry-title:before{
+		background: url("images/retina/stop.png");
+		background-size:16px 16px;
+	}
+	address .comments-rss:after,
+	address .entry-rss:after{
+		background: url("images/retina/rss.png");
+		background-size:16px 16px;
+	}
+	.raindrops-chat-author-0:before{
+		background-image: url('images/retina/raindrops-chat-author-0.png');
+		background-size:16px 16px;
+	}
+	.raindrops-chat-author-1:before{
+		background-image: url('images/retina/raindrops-chat-author-1.png');
+		background-size:16px 16px;
+	}
+	.raindrops-chat-author-2:before{
+		background-image: url('images/retina/raindrops-chat-author-2.png');
+		background-size:16px 16px;
+	
+	}
+	.raindrops-chat-author-3:before{
+		background-image: url('images/retina/raindrops-chat-author-3.png');
+		background-size:16px 16px;
+	
+	}
+	.raindrops-chat-author-4:before{
+		background-image: url('images/retina/raindrops-chat-author-4.png');
+		background-size:16px 16px;
+	
+	}
+	.raindrops-chat-author-5:before{
+		background-image: url('images/retina/raindrops-chat-author-5.png');
+		background-size:16px 16px;
+	
+	}
+	.attachment-navigation .prev a{
+		background:url("images/retina/previous.png");
+		background-size:16px 16px;
+	}
+	.nav-previous a:before{
+		background: url("images/retina/previous.png");
+		background-size:16px 16px;
+	}
+	.nav-next a:after{
+		background: url("images/retina/next.png");
+		background-size:16px 16px;
+	
+	}
+	.attachment-navigation .next a{
+		background:url("images/retina/next.png");
+		background-size:16px 16px;
+	}
+	
+	.icon-link-no-title{
+		background: url("images/retina/link.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-aside{
+		background: url("images/retina/post-format-aside.png");
+		background-size:24px 24px;
+	}
+	
+	.icon-post-format-audio{
+		background: url("images/retina/post-format-audio.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-chat{
+		background: url("images/retina/post-format-chat.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-gallery{
+		background: url("images/retina/post-format-gallery.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-image{
+		background: url("images/retina/post-format-image.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-link{
+		background: url("images/retina/post-format-link.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-quote{
+		background: url("images/retina/post-format-quote.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-status{
+		background: url("images/retina/post-format-status.png");
+		background-size:24px 24px;
+	}
+	.icon-post-format-video{
+		background: url("images/retina/post-format-video.png");
+		background-size:24px 24px;
+	}
+}

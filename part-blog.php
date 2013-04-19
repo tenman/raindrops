@@ -6,7 +6,7 @@
  * @since Raindrops 0.1
  *
  * @uses the_ID( )
- * @uses post_class( )
+ * @uses raindrops_post_class( )
  * @uses get_option( 'date_format' )
  * @uses the_time( )
  * @uses get_avatar( )

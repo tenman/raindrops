@@ -53,7 +53,7 @@
 		foreach( $raindrops_posts as $post ){
             setup_postdata( $post );?>
 		<?php if ( is_sticky( ) ) {?>
-			<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php post_class( ); ?> >
+			<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> >
 	<?php
 	
 				the_title( '<h2 class="h2 entry-title">', '</h2>' );
@@ -107,7 +107,7 @@
             printf( '<li class="loop-%1$s%2$s">', $raindrops_loop_class[0], $raindrops_loop_class[1] );
             $raindrops_loop_number++;
 ?>
-          <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php post_class( ); ?> <?php echo $raindrops_loop_class[2]; ?> >
+          <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> <?php echo $raindrops_loop_class[2]; ?> >
 		  
 <?php 
 		raindrops_entry_title( ); 

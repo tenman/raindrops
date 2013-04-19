@@ -81,7 +81,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
  * if no link home_url( ) then use 'elements'
  *
  */
-		echo raindrops_header_image( 'home_url' );
+		echo raindrops_header_image( 'elsements' );
 
 /**
  * horizontal menubar

@@ -1,6 +1,63 @@
 Changelog -----------------------------------
 version:1.111
-modified
+Added
+    Retina display support
+        Add file
+        new file:   images/please_upload.png
+        new file:   images/post-format-aside.png
+        new file:   images/post-format-audio.png
+        new file:   images/post-format-chat.png
+        new file:   images/post-format-gallery.png
+        new file:   images/post-format-image.png
+        new file:   images/post-format-link.png
+        new file:   images/post-format-quote.png
+        new file:   images/post-format-status.png
+        new file:   images/post-format-video.png
+        new file:   images/raindrops-chat-author-0.png
+        new file:   images/raindrops-chat-author-1.png
+        new file:   images/raindrops-chat-author-2.png
+        new file:   images/raindrops-chat-author-3.png
+        new file:   images/raindrops-chat-author-4.png
+        new file:   images/raindrops-chat-author-5.png
+        new file:   images/retina/info.png
+        new file:   images/retina/link.png
+        new file:   images/retina/next.png
+        new file:   images/retina/post-format-aside.png
+        new file:   images/retina/post-format-audio.png
+        new file:   images/retina/post-format-chat.png
+        new file:   images/retina/post-format-gallery.png
+        new file:   images/retina/post-format-image.png
+        new file:   images/retina/post-format-link.png
+        new file:   images/retina/post-format-quote.png
+        new file:   images/retina/post-format-status.png
+        new file:   images/retina/post-format-video.png
+        new file:   images/retina/previous.png
+        new file:   images/retina/raindrops-chat-author-0.png
+        new file:   images/retina/raindrops-chat-author-1.png
+        new file:   images/retina/raindrops-chat-author-2.png
+        new file:   images/retina/raindrops-chat-author-3.png
+        new file:   images/retina/raindrops-chat-author-4.png
+        new file:   images/retina/raindrops-chat-author-5.png
+        new file:   images/retina/require.png
+        new file:   images/retina/rss.png
+        new file:   images/retina/stop.png
+        new file:   images/wp3.jpg
+
+    Add support Post Format
+        'aside', 'chat', 'link', 'image', 'quote', 'video'
+    Add raindrops_post_class()
+    Add raindrops_chat_filter()
+    Add raindrops_chat_author_id()
+
+Removed
+        removed posted on, posted in, on Stiky Post
+
+Note: The display of the contents at the time of applying Post Format
+
+    When entry title is blank
+        Show Post format image link to single.php
+    When entry content is blank
+        posted on is hide and shows only comment link
 
 ----------------------------------------------
 Changelog -----------------------------------

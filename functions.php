@@ -102,7 +102,7 @@
  *
  */
     $raindrops_functions_file_path = get_stylesheet_directory( ).'/lib/alias_functions.php';
-	
+
         if ( ! in_array( 'alias_functions.php', $raindrops_included_files )
             and file_exists( $raindrops_functions_file_path ) ) {
             require_once( $raindrops_functions_file_path );
@@ -167,35 +167,35 @@
  *
  *
  */
-	$raindrops_functions_file_path = get_stylesheet_directory( ).'/lib/hooks.php';
+    $raindrops_functions_file_path = get_stylesheet_directory( ).'/lib/hooks.php';
 
-	if ( ! in_array( 'alias_functions.php', $raindrops_included_files )
-		and file_exists( $raindrops_functions_file_path ) ) {
+    if ( ! in_array( 'alias_functions.php', $raindrops_included_files )
+        and file_exists( $raindrops_functions_file_path ) ) {
 
-		require_once( $raindrops_functions_file_path );
+        require_once( $raindrops_functions_file_path );
 
-	} elseif ( !in_array( 'alias_functions.php', $raindrops_included_files ) ) {
+    } elseif ( !in_array( 'alias_functions.php', $raindrops_included_files ) ) {
 
-		require_once(get_template_directory( ).'/lib/hooks.php' );
+        require_once(get_template_directory( ).'/lib/hooks.php' );
 
-	}
+    }
 /**
  *
  *
  *
  * add ver0.991 gallery,status
  */
-	add_theme_support( 'post-formats',
-					array(  'aside',
-							'gallery',
-							'chat',
-							'link',
-							'image',
-							'status',
-							'quote',
-							'video'
-						)
-				);
+    add_theme_support( 'post-formats',
+                    array(  'aside',
+                            'gallery',
+                            'chat',
+                            'link',
+                            'image',
+                            'status',
+                            'quote',
+                            'video'
+                        )
+                );
 /**
  *
  *
@@ -724,104 +724,104 @@
     if ( ! function_exists( 'raindrops_posted_in' ) ) {
 
         function raindrops_posted_in( ) {
-		
-			if( is_sticky() ){
-				return;
-			}
+
+            if( is_sticky() ){
+                return;
+            }
             // Retrieves tag list of current post, separated by space.
-			
-			  $format = get_post_format( );
-			  $tag_list = get_the_tag_list( '', ' ' );
-			 
-			 if ( $format === false ) {
-				
-				
-				
-				if ( $tag_list ) {
-					$posted_in = '<span class="this-posted-in">'.
-									esc_html__( 'This entry was posted in','Raindrops' ).
-									'</span> %1$s <span class="tagged">'.
-									esc_html__( 'and tagged', 'Raindrops' ).
-									'</span> %2$s <span class="bookmark-the">'.
-									esc_html__( 'Bookmark the', 'Raindrops' ).
-									'</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
-									esc_html__( 'permalink', 'Raindrops' ).
-									'</a>';
-	
-				} elseif ( is_object_in_taxonomy( get_post_type( ), 'category' ) ) {
-					$posted_in = '<span class="this-posted-in">'.
-									esc_html__( 'This entry was posted in', 'Raindrops' ).
-									'</span> %1$s <span class="bookmark-the">'.
-									esc_html__( 'Bookmark the', 'Raindrops' ).
-									'</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
-									esc_html__( 'permalink', 'Raindrops' ).
-									'</a>';
-				} else {
-					$posted_in = '<span class="bookmark-the">'.
-									esc_html( 'Bookmark the', 'Raindrops' ).
-									'</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
-									esc_html__( 'permalink', 'Raindrops' ).
-									'</a>';
-				}
-				
-				
-							 
-				// Prints the string, replacing the placeholders.
-				$result = $format.sprintf(
-					$posted_in,
-					get_the_category_list( ' ' ),
-					$tag_list,
-					get_permalink( ),
-					the_title_attribute( 'echo=0' )
-				);
-				echo apply_filters( "raindrops_posted_in", $result );
-			
-			 }else{
-			 
-			    //          	$format = '<a class="post-format-link" href="' .  . '"><span><span class="post-format-text">' . __( 'Post Fotmat', 'Raindrops' ). '</span> '.   .'</span></a>&nbsp;';
 
-			 
-				if ( $tag_list ) {
-					$posted_in = '<span class="this-posted-in">'.
-									esc_html__( 'This entry was posted in','Raindrops' ).
-									'</span> %1$s <span class="tagged">'.
-									esc_html__( 'and tagged', 'Raindrops' ).
-									'</span> %2$s '.
-									'<a href="%3$s"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
-	
-				} elseif ( is_object_in_taxonomy( get_post_type( ), 'category' ) ) {
-					$posted_in = '<span class="this-posted-in">'.
-									esc_html__( 'This entry was posted in', 'Raindrops' ).
-									'</span> %1$s %2$s'.
-									'<a href="%3$s"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
+              $format = get_post_format( );
+              $tag_list = get_the_tag_list( '', ' ' );
 
-				} else {
-					$posted_in = '<a href="%3$s"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
+             if ( $format === false ) {
 
-				}
-				
-				
-							 
-				// Prints the string, replacing the placeholders.
-				$result = sprintf(
-					$posted_in,
-					get_the_category_list( ' ' ),
-					$tag_list,
-					esc_url( get_post_format_link( $format ) ),
-					esc_html( 'More format', 'Raindrops' ),
-					get_post_format_string( $format )
-				);
-				echo apply_filters( "raindrops_posted_in", $result );
-			 
-			 
-			 
-			 
-			 
-			 	
-			 }
-			
-			
-			
+
+
+                if ( $tag_list ) {
+                    $posted_in = '<span class="this-posted-in">'.
+                                    esc_html__( 'This entry was posted in','Raindrops' ).
+                                    '</span> %1$s <span class="tagged">'.
+                                    esc_html__( 'and tagged', 'Raindrops' ).
+                                    '</span> %2$s <span class="bookmark-the">'.
+                                    esc_html__( 'Bookmark the', 'Raindrops' ).
+                                    '</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
+                                    esc_html__( 'permalink', 'Raindrops' ).
+                                    '</a>';
+
+                } elseif ( is_object_in_taxonomy( get_post_type( ), 'category' ) ) {
+                    $posted_in = '<span class="this-posted-in">'.
+                                    esc_html__( 'This entry was posted in', 'Raindrops' ).
+                                    '</span> %1$s <span class="bookmark-the">'.
+                                    esc_html__( 'Bookmark the', 'Raindrops' ).
+                                    '</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
+                                    esc_html__( 'permalink', 'Raindrops' ).
+                                    '</a>';
+                } else {
+                    $posted_in = '<span class="bookmark-the">'.
+                                    esc_html( 'Bookmark the', 'Raindrops' ).
+                                    '</span> <a href="%3$s" title="Permalink to %4$s" rel="bookmark">'.
+                                    esc_html__( 'permalink', 'Raindrops' ).
+                                    '</a>';
+                }
+
+
+
+                // Prints the string, replacing the placeholders.
+                $result = $format.sprintf(
+                    $posted_in,
+                    get_the_category_list( ' ' ),
+                    $tag_list,
+                    get_permalink( ),
+                    the_title_attribute( 'echo=0' )
+                );
+                echo apply_filters( "raindrops_posted_in", $result );
+
+             }else{
+
+                //              $format = '<a class="post-format-link" href="' .  . '"><span><span class="post-format-text">' . __( 'Post Fotmat', 'Raindrops' ). '</span> '.   .'</span></a>&nbsp;';
+
+
+                if ( $tag_list ) {
+                    $posted_in = '<span class="this-posted-in">'.
+                                    esc_html__( 'This entry was posted in','Raindrops' ).
+                                    '</span> %1$s <span class="tagged">'.
+                                    esc_html__( 'and tagged', 'Raindrops' ).
+                                    '</span> %2$s '.
+                                    '<a href="%3$s"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
+
+                } elseif ( is_object_in_taxonomy( get_post_type( ), 'category' ) ) {
+                    $posted_in = '<span class="this-posted-in">'.
+                                    esc_html__( 'This entry was posted in', 'Raindrops' ).
+                                    '</span> %1$s %2$s'.
+                                    '<a href="%3$s"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
+
+                } else {
+                    $posted_in = '<a href="%3$s"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
+
+                }
+
+
+
+                // Prints the string, replacing the placeholders.
+                $result = sprintf(
+                    $posted_in,
+                    get_the_category_list( ' ' ),
+                    $tag_list,
+                    esc_url( get_post_format_link( $format ) ),
+                    esc_html( 'More format', 'Raindrops' ),
+                    get_post_format_string( $format )
+                );
+                echo apply_filters( "raindrops_posted_in", $result );
+
+
+
+
+
+
+             }
+
+
+
         }
     }
 /**
@@ -838,11 +838,11 @@
 
         function raindrops_posted_on( ) {
             global $post;
-			
-			if( is_sticky() ){
-				return;
-			}
-			
+
+            if( is_sticky() ){
+                return;
+            }
+
             $raindrops_date_format  = get_option( 'date_format' ). ' '. get_option( 'time_format' );
             $author                 = raindrops_blank_fallback(get_the_author( ),'Somebody' );
             $archive_year           = get_the_time( 'Y' );
@@ -876,32 +876,32 @@
                     get_author_posts_url( get_the_author_meta( 'ID' ) ),
                     sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ),
                     $author
-					
+
                 ),
                 sprintf( $raindrops_comment_html,get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string ),
-				'<span class="posted-on-string">'. __( 'Posted on', 'Raindrops' ). '</span>',
-				'<span class="posted-by-string">'. __( 'by', 'Raindrops' ). '</span>'
+                '<span class="posted-on-string">'. __( 'Posted on', 'Raindrops' ). '</span>',
+                '<span class="posted-by-string">'. __( 'by', 'Raindrops' ). '</span>'
             );
-			
-			$format = get_post_format();
-			
 
-			$content_empty_check = trim( get_the_content() );
-			
-			if ( false === $format ) {			
+            $format = get_post_format();
 
-            	echo apply_filters( "raindrops_posted_on", $result );
-			
-			} elseif( empty( $content_empty_check ) ) {
 
-			 	printf( $raindrops_comment_html,get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string );
-			
-			} else {
-			
-            	echo apply_filters( "raindrops_posted_on", $result );
-			
-			}
-			
+            $content_empty_check = trim( get_the_content() );
+
+            if ( false === $format ) {
+
+                echo apply_filters( "raindrops_posted_on", $result );
+
+            } elseif( empty( $content_empty_check ) ) {
+
+                printf( $raindrops_comment_html,get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string );
+
+            } else {
+
+                echo apply_filters( "raindrops_posted_on", $result );
+
+            }
+
         }
     }
 /**
@@ -2851,37 +2851,39 @@ span#site-title,
  *
  *
  */
- 
+
     if ( ! function_exists( 'raindrops_fallback_title' ) ) {
         function raindrops_fallback_title( $title, $display = 'hide' ) {
 
-			if ( !is_admin( ) ) {
-			
-				$format = get_post_format();
-				
-				if ( false === $format ) {
-					$image_uri = get_template_directory_uri( ).'/images/link.png';
-					
-					$class = 'icon-link-no-title';
-				} else {
-					$image_uri = get_template_directory_uri( ).'/images/post-format-'.$format.'.png';
-					
-					$class = 'icon-post-format-notitle icon-post-format-'. $format;
-				
-				}
-	
-				if ( empty( $title ) ) {
-					
-					//$html = '<img src="%1$s" alt="no title entry link" width="24" height="24" /><span class="%4$s">%2$s posted on %3$s</span>';
-					$html = '<span class="'.$class.'" title="Post Format '. $format. '" width="24" height="24" /><span class="%4$s">%2$s posted on %3$s</span>';
-					
-					$raindrops_date_format = get_option( 'date_format' );
-					return sprintf( $html, $image_uri,esc_html__( "This entry has no title",'Raindrops' ),get_the_time( $raindrops_date_format ), $display);
-				}
-				
-			}
-			return $title;
-				
+            global $post;
+
+            if ( !is_admin( ) ) {
+
+                $format = get_post_format( $post->ID );
+
+                if ( false === $format ) {
+                    $image_uri = get_template_directory_uri( ).'/images/link.png';
+
+                    $class = 'icon-link-no-title';
+                } else {
+                    $image_uri = get_template_directory_uri( ).'/images/post-format-'.$format.'.png';
+
+                    $class = 'icon-post-format-notitle icon-post-format-'. $format;
+
+                }
+
+                if ( empty( $title ) ) {
+
+                    //$html = '<img src="%1$s" alt="no title entry link" width="24" height="24" /><span class="%4$s">%2$s posted on %3$s</span>';
+                    $html = '<span class="'.$class.'" title="Post Format '. $format. '" width="24" height="24" /><span class="%4$s">%2$s posted on %3$s</span>';
+
+                    $raindrops_date_format = get_option( 'date_format' );
+                    return sprintf( $html, $image_uri,esc_html__( "This entry has no title",'Raindrops' ),get_the_time( $raindrops_date_format ), $display);
+                }
+
+            }
+            return $title;
+
         }
     }
 /**
@@ -4427,7 +4429,7 @@ span#site-title,
             }
         }
     }
-	
+
 
 /**
  *
@@ -4751,7 +4753,7 @@ span#site-title,
                                     esc_attr__( 'Skip to content', 'Raindrops' ),
                                     esc_html__( 'Skip to content', 'Raindrops' ),
                                     $raindrops_nav_menu_primary,
-									raindrops_doctype_elements('div', 'nav', false)
+                                    raindrops_doctype_elements('div', 'nav', false)
                                 );
 
                 echo apply_filters( 'raindrops_nav_menu_primary_html', $html );
@@ -4760,48 +4762,48 @@ span#site-title,
         }
 
     }
-	
+
 /**
  *
  *
  *
  *
  * @since 0.48
- */	
-	if( ! function_exists( 'raindrops_post_class' ) ){
-		
-		function raindrops_post_class( $class = '' , $post_id = null ){
-		
-			global $post;
-		
-			$classes = get_post_class( $class, $post_id );
-			
-			if ( is_sticky( ) ) {
-			
-				$classes[] = 'raindrops-sticky';
-			}
-			
-			$raindrops_content_empty_class = trim( get_the_content( ) );
-			
-			if ( empty( $raindrops_content_empty_class ) ){
-			
-				$classes[] = 'raindrops-empty-content';
-			
-			}
-	
-			$raindrops_title_empty_class = trim( the_title( '', '', false ) );
-			
-			if ( empty( $raindrops_title_empty_class ) ){
-			
-				$classes[] = 'raindrops-empty-title';
-			
-			}
-	
-			$classes = array_map('esc_attr', $classes);
-		
-			echo 'class="' . join( ' ', $classes ) . '"';
-		}
-	}
+ */
+    if( ! function_exists( 'raindrops_post_class' ) ){
+
+        function raindrops_post_class( $class = '' , $post_id = null ){
+
+            global $post;
+
+            $classes = get_post_class( $class, $post_id );
+
+            if ( is_sticky( ) ) {
+
+                $classes[] = 'raindrops-sticky';
+            }
+
+            $raindrops_content_empty_class = trim( get_the_content( ) );
+
+            if ( empty( $raindrops_content_empty_class ) ){
+
+                $classes[] = 'raindrops-empty-content';
+
+            }
+
+            $raindrops_title_empty_class = trim( the_title( '', '', false ) );
+
+            if ( empty( $raindrops_title_empty_class ) ){
+
+                $classes[] = 'raindrops-empty-title';
+
+            }
+
+            $classes = array_map('esc_attr', $classes);
+
+            echo 'class="' . join( ' ', $classes ) . '"';
+        }
+    }
 
 /**
  *
@@ -4815,14 +4817,14 @@ span#site-title,
 
 if( ! function_exists( 'raindrops_chat_filter' ) ){
     function raindrops_chat_filter($contents){
-	
-	
+
+
             if ( ! has_post_format( 'chat' ) ){
                 return $contents;
             }else{
-				/* chat notation use : remove protocol from url */		
-				$contents = str_replace( array( 'http:', 'https:'), '', $contents );
-			}
+                /* chat notation use : remove protocol from url */
+                $contents = str_replace( array( 'http:', 'https:'), '', $contents );
+            }
 
             $new_contents   = explode( '<p>', $contents);
 
@@ -4864,13 +4866,13 @@ if( ! function_exists( 'raindrops_chat_filter' ) ){
  * @since 1.111
  */
 
-	if( ! function_exists( 'raindrops_chat_author_id' ) ){
-		function raindrops_chat_author_id( $author ){
-			static $raindrops_chat_author_id   = array();
-			$raindrops_chat_author_id[]        = $author;
-			$raindrops_chat_author_id          = array_unique( $raindrops_chat_author_id );
-	
-			return array_search( $author, $raindrops_chat_author_id);
-		}
-	}
+    if( ! function_exists( 'raindrops_chat_author_id' ) ){
+        function raindrops_chat_author_id( $author ){
+            static $raindrops_chat_author_id   = array();
+            $raindrops_chat_author_id[]        = $author;
+            $raindrops_chat_author_id          = array_unique( $raindrops_chat_author_id );
+
+            return array_search( $author, $raindrops_chat_author_id);
+        }
+    }
 ?>

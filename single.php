@@ -55,11 +55,13 @@
             /**
              * when Single page
              */
-            $format= get_post_format();
+
 
             while ( have_posts( ) ) {
 
                 the_post( );
+
+                $format = get_post_format();
 
                 $cat = "default";
 

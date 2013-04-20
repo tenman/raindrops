@@ -68,7 +68,7 @@
                 if ( in_category( "blog" ) or has_post_format( "status" ) ) {
 
                     $cat = "blog";
-                } elseif ( in_category( "gallery" or has_post_format( "gallery" ) ) ) {
+                } elseif ( in_category( "gallery" ) or has_post_format( "gallery" ) ) {
 
                     $cat = "gallery";
                 } elseif ( $format !== false ) {
@@ -78,7 +78,7 @@
 
                 if ( WP_DEBUG == true ) {
 
-                    echo '<!--Single Category '.$cat.' start-->';
+                    echo '<!--Single Post Format or 2 Category '.$cat.' start-->';
                 }
 
 ?>

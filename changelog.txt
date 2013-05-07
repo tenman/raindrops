@@ -1,4 +1,7 @@
 Changelog -----------------------------------
+version:1.114
+----------------------------------------------
+Changelog -----------------------------------
 version:1.113
     fixed Post Format posted in Display improperly on single.php
 ----------------------------------------------

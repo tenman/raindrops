@@ -499,6 +499,18 @@ background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
 color:%custom_color%;
 
 }
+.ie10 #access{
+    background-image: -ms-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%)!important;
+
+}
+.ie10 #access a {
+    background-image: -ms-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+}
+.ie10 #access .children li:active >a,
+.ie10 #access li:active >a ,
+.ie10 #access ul ul :active >a{
+    background-image: -ms-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
+}
 
 .fail-search,
 .raindrops-tab-list li:active,
@@ -1292,7 +1304,6 @@ border-top:1px dashed %rgba_border%;
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
-
 #access{
 
 
@@ -1320,6 +1331,18 @@ border-top:1px dashed %rgba_border%;
     background: -moz-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%)!important;
     /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');*/
     color:%custom_color%;
+}
+.ie10 #access{
+    background-image: -ms-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%)!important;
+
+}
+.ie10 #access a {
+    background-image: -ms-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+}
+.ie10 #access .children li:active >a,
+.ie10 #access li:active >a ,
+.ie10 #access ul ul :active >a{
+    background-image: -ms-linear-gradient(top,  %custom_light_bg%,  %custom_dark_bg%);
 }
 
 .wp-caption {

@@ -1,5 +1,17 @@
 Changelog -----------------------------------
 version:1.115
+    modified
+        function raindrops_install_navigation()
+            Theme data automatic change is supported at the time of site change.        header-front.php
+            Support Responsive
+        front-portfolio.php
+            The posts contain featured image shows 9
+        searchform.php
+            Add esc_url()
+        csscolor.css.php
+            Add gradient for IE10 at nav_menu
+    fixed
+        broser detect regex fail IE10
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.113

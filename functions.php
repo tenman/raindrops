@@ -1371,18 +1371,59 @@
  *
  *
  *
- *
+ * ver 1.114 Theme data automatic change is supported at the time of site change. 
  */
+			
     if ( ! function_exists( "raindrops_install_navigation" ) ) {
-
+ 
         function raindrops_install_navigation( ) {
-            $install = get_option( 'raindrops_theme_settings' );
+            	$install	= get_option( 'raindrops_theme_settings' );
+		$upload_dir	= wp_upload_dir();
+			
             if ( $install == false or !array_key_exists( 'install', $install ) ) {
-                add_action( 'admin_notices', create_function(null, 'echo raindrops_first_only_msg( 1 );' ) );
+		$install['current_stylesheet_dir_url']		= get_stylesheet_directory_uri();
+		$install['current_upload_base_url']		= $upload_dir['baseurl'];
+ 
+                //add_action( 'admin_notices', create_function(null, 'echo raindrops_first_only_msg( 1 );' ) );
                 $install['install'] = true;
+				
                 update_option( 'raindrops_theme_settings', $install );
             } else {
-                add_action( 'switch_theme', create_function(null, 'delete_option( "raindrops_theme_settings" );' ) );
+							
+				if( isset( $install['current_stylesheet_dir_url'] ) and get_stylesheet_directory_uri() !== $install['current_stylesheet_dir_url'] ){
+				
+					$install['_raindrops_indv_css'] = str_replace( $install['current_stylesheet_dir_url'],
+																	get_stylesheet_directory_uri(),						   	
+																	$install['_raindrops_indv_css']
+																);
+					$install['old_stylesheet_dir_url']	= $install['current_stylesheet_dir_url'];
+					$install['current_stylesheet_dir_url']	= get_stylesheet_directory_uri();
+							
+					update_option( 'raindrops_theme_settings', $install );
+				}elseif( ! isset( $install['current_stylesheet_dir_url'] ) ){
+						
+					$install['current_stylesheet_dir_url']	= get_stylesheet_directory_uri();
+					update_option( 'raindrops_theme_settings', $install );
+				}
+				
+				if( isset( $install['current_upload_base_url'] ) and $upload_dir !== $install['current_upload_base_url'] ){
+						
+					$install['_raindrops_indv_css'] = str_replace( $install['current_upload_base_url'],
+											$upload_dir['baseurl'],
+											$install['_raindrops_indv_css']
+										);
+					$install['old_upload_base_url']	= $install['current_upload_base_url'];
+					$install['current_upload_base_url'] = $upload_dir['baseurl'];
+							
+					update_option( 'raindrops_theme_settings', $install );
+				}elseif(  ! isset( $install['current_upload_base_url'] ) ){
+						
+					$install['current_upload_base_url']		= $upload_dir['baseurl'];
+					
+					update_option( 'raindrops_theme_settings', $install );
+				}
+			
+			add_action( 'switch_theme', create_function(null, 'delete_option( "raindrops_theme_settings" );' ) );
             }
         }
     }

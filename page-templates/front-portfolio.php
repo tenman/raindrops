@@ -2,6 +2,9 @@
 /**
  * Template Name: front portfolio Template
  *
+ *
+ * The posts contain featured image shows 9
+ *
  */
         get_header( $raindrops_document_type );
 
@@ -75,7 +78,7 @@
  *
  */
     $args = array(
-        'numberposts'     => '9',
+        'numberposts'     => 9, //  set -1 contain featured image posts all shows
         'offset'          => 0,
         'category'        => '',
         'orderby'         => 'post_date',
@@ -87,6 +90,7 @@
         'post_type'       => 'post',
         'post_mime_type'  => '',
         'post_parent'     => '',
+		 'meta_key'       => '_thumbnail_id', //contain fertured image
         'post_status'     => 'publish',
         'post__not_in' => get_option( 'sticky_posts' ) );
 
@@ -97,7 +101,6 @@
 /**
  * Display navigation to next/previous pages when applicable
  */
-    raindrops_next_prev_links( );
         raindrops_loop_title( );
         $raindrops_loop_number = 1;
 
@@ -123,7 +126,6 @@
           </<?php raindrops_doctype_elements( 'div', 'article' );?>>
         </li>
 <?php }//foreach( $raindrops_posts as $post ) ?>
-<?php raindrops_next_prev_links( "nav-below" );?>
 
     </ul><br class="clear" />
 <?php

@@ -106,7 +106,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 		if( ! empty( $raindrops_header_image ) or has_post_thumbnail( ) ){
 ?>
 			<span id="container"></span>
-			<div class="yui-g">
+			<div class="yui-g fron-page-top-container">
 				<div class="yui-u first">
 					<div class="static-front-content">
 <?php	

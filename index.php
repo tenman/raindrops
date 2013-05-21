@@ -39,7 +39,7 @@
 		} 
 ?>
     	<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-			<div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+			<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 <?php
 			get_template_part( 'loop', $raindrops_document_type );
 ?>

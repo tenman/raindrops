@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html <?php language_attributes( ); ?>>
 	<head>
-		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<meta http-equiv="content-type" content="<?php bloginfo( 'html_type' );?>; charset=<?php bloginfo( 'charset' ); ?>" />
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]--> 
 <?php
+		global $raindrops_link_unique_text;
 		wp_head( );
 ?>
 	</head>
@@ -17,6 +18,9 @@
 ?>
 		<header id="top">
 			<div id="hd">
+			<div class="skip-link screen-reader-text">
+				<a href="#container" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' );?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
+			</div>
 <?php
 /**
  * Conditional Switch html headding element
@@ -27,10 +31,8 @@
  */
 		echo raindrops_site_title( );
 /**
- * Site description diaplay at header bar when if header text Display Text value is no.
+ * Site description diaplay 
  *
- * example
- *  raindrops_site_description( array("text"=>"replace text","switch" => 'style="display:none;"' );
  *
  *
  */
@@ -42,9 +44,39 @@
  * header image
  *
  * if no link home_url( ) then use 'elements'
+ * if need link home_url( ) then use 'home_url'
+ *
+ * var 1.116 default setting change from home_url to elements
+ * FAE accessibility rule Ensure that links that point to the same HREF use the same link text.
+ *
+ *
+ * Tips
+ * Header Image and Site description
+ * Fixed width page can change a header image from this template ( without fluid layout )
+ *
+ 	echo raindrops_header_image( 'default', 
+									array('height'=> '300px',
+									'img' => 'http://tenman.info/images/pen.jpg',
+									//'img' => 'http://example.com/images/example.jpg',
+									'text_attr' => 'style="color:red;"' ,
+									'text'=> 'change text' ) 
+							);
+ * Page width fluid can below
+ *
+  	echo raindrops_header_image( 'default', 
+									array( 'text_attr' => 'class="hello"' ,
+									'text'=> 'change text' ) 
+							);
  *
  */
-		echo raindrops_header_image( 'home_url' );
+		if ( $raindrops_link_unique_text == true ) {
+		 
+			echo raindrops_header_image( 'elements' );
+		}else{
+		 
+			echo raindrops_header_image( 'home_url' );
+		}
+		
 ?>
 <?php
 /**
@@ -56,7 +88,6 @@
  */
  
 		raindrops_nav_menu_primary( );
-		
 
 		raindrops_after_nav_menu( );
 ?>

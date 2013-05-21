@@ -83,10 +83,11 @@
 		$category_link 	= get_category_link( $category_id );
 		
 		printf(
-			'<a href="%s" title="%s">%s</a> | ',
+			'%4$s<a href="%1$s" title="%2$s">%3$s</a> | ',
 			esc_url( $category_link ),
 			esc_attr__( 'View posts in the Gallery category', 'Raindrops' ),
-			esc_html__( 'More Galleries', 'Raindrops' )
+			' '. esc_html__( 'Gallery', 'Raindrops' ),
+			esc_html__( 'Link to Category', 'Raindrops' )
 			);
 ?>
 		<span class="comments-link">
@@ -94,7 +95,7 @@
 		comments_popup_link(  esc_html__( 'Leave a comment', 'Raindrops' ),  esc_html__( '1 Comment', 'Raindrops' ),  esc_html__( '% Comments', 'Raindrops' ) ); ?>
 		</span>
 <?php
-		edit_post_link(  esc_html__( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+		edit_post_link(  esc_html__( 'Edit', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
 		raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' ); 
 ?>

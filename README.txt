@@ -22,6 +22,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 1.116
+	Add Accessibility check
+		http://fae.cita.uiuc.edu/about/rules/
+		tool: http://fae.cita.uiuc.edu/
+		pass Ruleset: 1011-1
+
 ver 1.111
     Support Post Format.
         Note: The display of the contents at the time of applying Post Format
@@ -113,7 +119,7 @@ ver 0.948
 raindrops_delete_post_link()
     This function default no work.
     If you need delete post link
-    Please open file functions.php and const SHOW_DELETE_POST_LINK value set true.
+    Please open file functions.php and const RAINDROPS_SHOW_DELETE_POST_LINK value set true.
 ver 0.940
 By page edit and post edit,
 the Color Type and the number of columns can be set to contribution.

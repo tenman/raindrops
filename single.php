@@ -31,6 +31,7 @@
  * @uses raindrops_append_default_sidebar( )
  *
  */
+		$raindrops_home_url = trailingslashit( home_url() );
 
         $raindrops_current_column = raindrops_show_one_column( );
 
@@ -39,18 +40,17 @@
         }
 
         get_header( $raindrops_document_type );
-
         raindrops_debug_navitation( __FILE__ );
 ?>
     <div id="yui-main">
         <div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
             <div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-                <div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+                <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 <?php
 /**
  * Display navigation to next/previous pages when applicable
  */
-
+		
         if ( have_posts( ) ) {
             /**
              * when Single page
@@ -82,7 +82,19 @@
                 }
 
 ?>
-                        <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?> >
+<?php
+			if ( is_sticky( ) ) {
+?>
+	<div class="sticky-single-follow-text">
+						
+		<strong><a href="<?php echo $raindrops_home_url;?>"><?php esc_html_e( 'Sticky Post Shows Only WEB Site Home.', 'Raindrops' );?></a></strong>	
+	</div>
+<?php		
+			}
+
+?>
+                        <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?> <?php echo raindrops_tabindex();?>>		
+		
 <?php
 /**
  * Show featured image
@@ -115,7 +127,11 @@
  */
             raindrops_next_prev_links( "nav-below" );
 
-        }           // if( have_posts( ) )
+        } else {
+		
+		
+		
+		}           // if( have_posts( ) )
 ?>
 
                         </<?php raindrops_doctype_elements( 'div', 'article' );?>>

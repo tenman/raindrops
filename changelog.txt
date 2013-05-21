@@ -1,4 +1,7 @@
 Changelog -----------------------------------
+version:1.116
+----------------------------------------------
+Changelog -----------------------------------
 version:1.115
     modified
         function raindrops_install_navigation()
@@ -324,7 +327,7 @@ fixed
     Fixed Custom Header Image works improperly when 'Organize my uploads into month- and year-based folders'.
 Add
     Add function raindrops_featured_image().
-    Add USE_FEATURED_IMAGE_LIGHT_BOX
+    Add RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX
         The featured image light box  not shown by default.
     New Template file for front page.
         page-templates/front-portfolio.php
@@ -887,7 +890,7 @@ added
         Added with each edit_post_link where template files.
             Note:
             This function default no echo.
-            Need SHOW_DELETE_POST_LINK set true where functions.php
+            Need RAINDROPS_SHOW_DELETE_POST_LINK set true where functions.php
      Add apply filters
         raindrops_custom_width, raindrops_is_fluid, raindrops_is_fixed, raindrops_posted_in, raindrops_posted_on, raindrops_warehouse, raindrops_gradient_single, raindrops_gradient, raindrops_comment_form, raindrops_prev_next_post
 

@@ -159,12 +159,69 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1' => '',
         'excerpt2' => esc_html__('Hyper link color','Raindrops'),
          'validate'=>'raindrops_hyperlink_color_validate','list' => 14),
-    );
-    if(!isset($raindrops_base_setting)){
+		 array('option_id' => 16,
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_accessibility_settings",
+        'option_value' => "no",
+        'autoload' => 'yes',
+        'title' => esc_html__('Accessibility Settings','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Accessibility Settings is create a unique link text. set to yes or no.','Raindrops'),
+         'validate'=>'raindrops_accessibility_settings_validate','list' => 15
+		 ),
+		 array('option_id' => 17,
+        'blog_id' => 0 ,
+        'option_name' => "raindrops_doc_type_settings",
+        'option_value' => "html5",
+        'autoload' => 'yes',
+        'title' => esc_html__('Document Type Settings','Raindrops'),
+        'excerpt1' => '',
+        'excerpt2' => esc_html__('Default Document type html5. Set to xhtml or html5.','Raindrops'),
+         'validate'=>'raindrops_doc_type_settings_validate','list' => 16
+		 ),
+    	);
+
+    if ( ! isset($raindrops_base_setting ) ) {
+	
         $raindrops_base_setting = $raindrops_base_setting_args;
     }
+
 /**
  * Validate admin panel form value.
+ *
+ *
+ *
+ *
+ */
+	function raindrops_doc_type_settings_validate( $output ){
+	
+		$output = (string) $output;
+	
+		if( $output == 'html5' or $output == 'xhtml' ){
+			return $output;
+		}
+		
+		return 'html5';
+	}
+/**
+ * 
+ *
+ *
+ *
+ *
+ */
+	function raindrops_accessibility_settings_validate( $output ){
+	
+		$output = (string) $output;
+	
+		if( $output == 'yes' or $output == 'no' ){
+			return $output;
+		}
+		
+		return 'no';
+	}
+/**
+ * 
  *
  *
  *

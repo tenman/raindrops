@@ -4,8 +4,8 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.115
-Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
+Version: 1.116
+Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -39,7 +39,6 @@ a:active {
 }
 .nav-next a:hover{
 }
-
 /* headding */
 /* Raindrops h1-h6 old font-size rule
 h1,.h1 a,#site-title{
@@ -280,6 +279,16 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 	margin:1em 2.5em;
 	padding:1em;
 }
+.entry-meta-list .edit-link .post-edit-link .raindrops_unique_identifier,
+.raindrops_unique_identifier,
+.entry-title .raindrops_unique_identifier,
+.sticky .raindrops_unique_identifier,
+.entry-meta-list .edit-link .post-edit-link .posted-on-published-property,
+.posted-on-published-property,
+.entry-title .posted-on-published-property,
+.sticky .posted-on-published-property{
+	display:none!important;
+}
 .entry-content blockquote blockquote{
 	clear:both;
 	margin:1em 0 1em 1em;
@@ -310,6 +319,9 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 	padding-bottom:2px;
 	/*background:#ccc;*/
 	border-left:6px solid;
+}
+.entry-content .more-link-post-unique{
+	visibility:hidden;
 }
 .comment-body blockquote blockquote blockquote{
 	/*background:#fff;*/
@@ -1494,6 +1506,13 @@ div.menu li {
 	position: absolute;
 	left: -9000px;
 }
+.screen-reader-text a:active, 
+.screen-reader-text a:focus
+{
+position:static;
+width:auto;
+height:auto;
+} 
 table#wp-caledar td a{
 	text-align:right;
 }
@@ -1720,9 +1739,16 @@ li.byuser > div a{
 	/*margin:0 .3em;
 	max-width:99%;*/
 }
+#archives-title{
+		display:block;
+		font-size:153.0%;
+		text-align:center;
+
+}
 #archives-title,
 .archives-list{
 	/*margin-left:1em;*/
+
 }
 /* YUI nest grid add*/
 #nest .yui-ga,
@@ -2208,7 +2234,10 @@ address .entry-rss:after{
 		width:24px;
 		height:24px;
 }
-
+.post-format-text{
+	font-weight:bold;
+	margin:0 .5em 0 2em;
+}
 .post-format-content{
 	text-align:center;
 }
@@ -2224,7 +2253,18 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 	position:static;
 	text-align:left;
 }
-
+/*.entry-meta-gallery,
+.entry-meta-audio,
+.entry-meta-aside,
+.entry-meta-chat,
+.entry-meta-link,
+.entry-meta-image,
+.entry-meta-quote,
+.entry-meta-video,*/
+.posted-on {
+/*	text-align:left;
+	margin-top:-28px;*/
+}
 .raindrops-empty-content .entry-meta-gallery,
 .raindrops-empty-content .entry-meta-audio,
 .raindrops-empty-content .entry-meta-aside,
@@ -2243,11 +2283,12 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .raindrops-empty-content .entry-meta-image .raindrops-comment-link,
 .raindrops-empty-content .entry-meta-quote .raindrops-comment-link,
 .raindrops-empty-content .entry-meta-video .raindrops-comment-link{
-	margin-right:10px;
+	/*margin-right:10px;
 	position:relative;
 	top:-20px;
-	text-align:right;
+	text-align:right;*/
 }
+
 /* post format chat */
 .raindrops-chat-text + *,
 .raindrops-chat-text-after,
@@ -2291,54 +2332,74 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 
 .icon-post-format-notitle,
 .icon-link-no-title{
-		display:inline-block;
-		width:24px;
-		height:24px;
-		background-repeat:no-repeat;
+	display:inline-block;
+	width:24px;
+	height:24px;
+	background-repeat:no-repeat;
 
 }
 .icon-link-no-title{
-		background: url("images/link.png");
-		background-size:24px 24px;
+	background: url("images/link.png");
+	background-size:24px 24px;
 
 }
 .icon-post-format-aside{
-		background: url("images/post-format-aside.png");
-		background-size:24px 24px;
+	background: url("images/post-format-aside.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
+
 }
 
 .icon-post-format-audio{
-		background: url("images/post-format-audio.png");
-		background-size:24px 24px;
+	background: url("images/post-format-audio.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 .icon-post-format-chat{
-		background: url("images/post-format-chat.png");
-		background-size:24px 24px;
+	background: url("images/post-format-chat.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 .icon-post-format-gallery{
-		background: url("images/post-format-gallery.png");
-		background-size:24px 24px;
+	background: url("images/post-format-gallery.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
+
 }
 .icon-post-format-image{
-		background: url("images/post-format-image.png");
-		background-size:24px 24px;
+	background: url("images/post-format-image.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 .icon-post-format-link{
-		background: url("images/post-format-link.png");
-		background-size:24px 24px;
+	background: url("images/post-format-link.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 .icon-post-format-quote{
-		background: url("images/post-format-quote.png");
-		background-size:24px 24px;
+	background: url("images/post-format-quote.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 .icon-post-format-status{
-		background: url("images/post-format-status.png");
-		background-size:24px 24px;
+	background: url("images/post-format-status.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 
 .icon-post-format-video{
-		background: url("images/post-format-video.png");
-		background-size:24px 24px;
+	background: url("images/post-format-video.png");
+	background-size:24px 24px;
+	width:24px;
+	height:24px;
 }
 
 .nav-previous .meta-nav,
@@ -2438,7 +2499,6 @@ input[type="file"]{
 .page-numbers{
 	padding:3px 5px;
 	display:inline-block;
-
 }
 
 .rd-page-navigation ul > li{
@@ -2611,7 +2671,7 @@ sup {
 .raindrops-recent-posts
 .raindrops-category-posts
 .raindrops-tag-posts{
-clear:both;	
+	clear:both;	
 }
 .raindrops-recent-posts .title,
 .raindrops-category-posts .title,
@@ -2621,17 +2681,24 @@ clear:both;
 .raindrops-recent-posts .list,
 .raindrops-category-posts .list,
 .raindrops-tag-posts .list{
- margin:0;
+	margin:0;
 }
 
 #yui-main .raindrops-recent-posts .list li,
 #yui-main .raindrops-category-posts .list li,
 #yui-main .raindrops-tag-posts .list li{
- list-style-type:none;	
+	list-style-type:none;	
 }
 
 .raindrops-sticky{
 	display:none;
+}
+.page-template-page-templatesfront-portfolio-php .raindrops-sticky{
+	display:block;
+}
+.sticky-single-follow-text{
+	margin-top:5em;
+	text-align:center;
 }
 .sticky.raindrops-sticky{
 	display:block;
@@ -2700,9 +2767,9 @@ clear:both;
 	/*text-align:left;*/
 }
 #date_list a:target{
-		/* target link position ajust */
-		padding-top:50px;
-        margin-top:-50px;
+	/* target link position ajust */
+	padding-top:50px;
+	margin-top:-50px;
 }
 .raindrops-mobile-menu{
 	display:none!important;
@@ -2718,12 +2785,6 @@ clear:both;
 	margin:48px auto;
 }
 
-
-
-
-
-
-
 @media screen and (min-width : 640px){
 	#doc3 .nav-menu-toggle{ 
 		display:none!important;
@@ -2731,6 +2792,15 @@ clear:both;
 	#doc3 #access{display:block!important;}
 }
 @media screen and (max-width : 640px){
+
+	html .gecko{
+		max-width:100%;
+		margin:0;
+		padding:0;
+		overflow-x:hidden;
+	}
+	
+
 	#doc3 .raindrops-mobile-menu{
 		display:block!important;
 	}
@@ -2754,20 +2824,72 @@ clear:both;
 	  position:absolute;top:4px;left:0;
 	  font-size:153.9%;
 	  width:10%;
+	  background: url(images/raindrops-nav-menu-expand.png);
+	  background-repeat:no-repeat;
+	  background-position:center;
+	  
+	}
+	#doc3 .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
+		visibility:hidden;
+		width:20px;
+		height:20px;
+		display:inline-block;
+		text-indent:-100px;
 	}	
 	#doc3 .raindrops-mobile-menu .close{
 	  position:absolute;top:2px;right:5%;
 	  font-size:153.9%;
 	  width:10%;
+	  background: url(images/raindrops-nav-menu-shrunk.png);
+  	  background-repeat:no-repeat;
+  	  background-position:center;
+
+
 	}
+	#doc3 .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
+		visibility:hidden;
+		width:20px;
+		height:20px;
+		display:inline-block;
+		
+	}	
+	
 	#doc3 .page-title,
 	#doc3 #archives-title{
 		display:block;
 		font-size:153.0%;
 		text-align:center;
+		
+	}
+	div#doc3 .entry-meta-gallery,	
+	div#doc3 .entry-meta-aside,	
+	div#doc3 .entry-meta-status,	
+	div#doc3 .entry-meta-quote,
+	div#doc3 .entry-meta-image,
+	div#doc3 .entry-meta-link,
+	div#doc3 .entry-meta-video,
+	div#doc3 .entry-meta-chat,
+	div#doc3 .entry-meta-audio,
+	div#doc3 .posted-on{
+		text-align:right;
+	/*	line-height:2;*/
+	}
+	#doc3 .mejs-horizontal-volume-total{
+		max-width:100%;
+	}
+	#doc3 .raindrops-comment-link{
+		display:inline-block;
+	}
+	#doc3 .entry-title{
+		margin:.5em 0;
+		font-family:sans-serif;
 	}
 	#doc3 .raindrops-mobile-menu .menu-text{
 	  position:absolute;top:10px;left:44%;
+	}
+	#doc3 .entry-content blockquote{
+		margin:1em 0;
+		max-width:100%;
 	}	
 	#doc3 #access ul ul,
 	#doc3 #access ul,
@@ -2943,9 +3065,22 @@ clear:both;
 		width:98%;
 		
 	}
+	#doc3 .raindrops-image-page .attachment-navigation .prev a,
+	#doc3 .raindrops-image-page .attachment-navigation .next a{
+		background-repeat:no-repeat;
+	}
+	#doc3 .raindrops-image-page .attachment-navigation .next a{
+		background-position:top right;
+	}
+
 
 }
 @media screen and (max-width : 480px){
+	html .gecko{
+		max-width:98.4%;
+		margin:0;
+		padding:0;
+	}
 
 }
 
@@ -3067,6 +3202,7 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
 
 
 
+
 @media 
 only screen and (-webkit-min-device-pixel-ratio: 2), 
 only screen and (min-resolution: 192dpi) { 
@@ -3183,4 +3319,51 @@ only screen and (min-resolution: 192dpi) {
 		background: url("images/retina/post-format-video.png");
 		background-size:24px 24px;
 	}
+}
+/* portfolio template */
+.portfolio-nav{
+	margin:10px;
+	/*border:1px solid red;*/
+	position:relative;
+	overflow:hidden;
+	height:50px;
+}
+.portfolio-nav > ul{
+	margin:0 -4px;
+	padding:0;
+}
+.portfolio-nav > ul > li{
+	margin:0 -2px;
+	padding:18px 0;
+
+	display:inline-block;
+	width:33%;
+	height:50px;
+	/*border:1px solid red;*/
+	text-align:center;
+
+}
+.portfolio-nav-current{
+	font-weight:bold;
+}
+.portfolio-prev:after{
+content: url( images/next.png );
+vertical-align:middle;
+margin:6px;
+
+}
+.portfolio-next:before,
+.portfolio-page2:before{
+content: url( images/previous.png );
+vertical-align:middle;
+margin:6px;
+}
+.no-portfolio{
+height:320px;
+}
+
+.raindrops-accessible-mode .hfeed a:focus{
+  
+  border-bottom:1px solid #FFCC33;
+  margin-bottom:-1px;
 }

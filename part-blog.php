@@ -33,8 +33,8 @@
 		<li class="category-blog-publish-date">
 <?php
 		$raindrops_date_html_module = '<a href="%1$s">%2$s</a>';
-		 
-		$raindrops_date_format		= get_option( 'date_format' );
+		$raindrops_date_format  = get_option( 'date_format' ). ' '. get_option( 'time_format' );		 
+		//$raindrops_date_format		= get_option( 'date_format' );
 		$raindrops_archive_year		= get_the_time( 'Y' );
 		$raindrops_archive_month	= get_the_time( 'm' );
 		$raindrops_archive_day		= get_the_time( 'd' );
@@ -49,7 +49,12 @@
 		</li>
 		<li class="blog-avatar">
 <?php 
-		echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ) ); 
+		echo get_avatar( get_the_author_meta( 'user_email' ),
+							apply_filters( 'raindrops_author_bio_avatar_size',
+							90 ),
+							'',
+							__('Author', 'Raindrops' ) .' '.  get_the_author_meta( 'display_name' ) 
+						 ); 
 ?>
 		</li>
 		<li>
@@ -79,7 +84,7 @@
 		<li>
 <?php  
 		if ( comments_open( ) ) { 
-			comments_popup_link(  esc_html__( 'Leave a comment', 'Raindrops' ),
+			comments_popup_link(  esc_html__( 'Leave a comment', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ),
 								  esc_html__( '1 Comment', 'Raindrops' ),
 								  esc_html__( '% Comments', 'Raindrops' ) 
 							); 
@@ -91,12 +96,12 @@
 ?>
 		<li>
 <?php 
-		edit_post_link(  esc_html__( 'Edit', 'Raindrops' ),
+		edit_post_link(  esc_html__( 'Edit', 'Raindrops' ).raindrops_link_unique( 'Post', $post->ID ),
 						'<span class="edit-link">',
 						'</span>' 
 					); 
 
-		raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ),
+		raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ),
 									'<span class="edit-link">',
 									'</span>' 
 								); 

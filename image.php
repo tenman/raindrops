@@ -40,7 +40,7 @@
 			
 			printf( '<!--%1$$s-->', $raindrops_document_type );
 ?>
-				<div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 <?php 
 		if ( have_posts( ) ) { 
 		
@@ -118,9 +118,9 @@
 					</div>
 					<br class="clear" />
 <?php 
-			edit_post_link(  esc_html__( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+			edit_post_link(  esc_html__( 'Edit', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 			
-			raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+			raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 ?>
         		</div>
 <?php 
@@ -143,7 +143,7 @@
 		
 		printf( '<!--%$1s-->', $raindrops_document_type );
 ?>
-			<div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+			<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 		
 <?php
 			if (have_posts( ) ) {
@@ -227,9 +227,9 @@
 					</div>
 					<br class="clear" />
 <?php
-			edit_post_link(  esc_html__( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+			edit_post_link(  esc_html__( 'Edit', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-			raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+			raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 ?>
 				</div>
 <?php 

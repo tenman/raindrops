@@ -104,7 +104,7 @@ if ( ! function_exists( 'raindrops_theme_setup' ) ){
      *
      *
      */
-        add_filter('the_title','raindrops_fallback_title');
+        add_filter( 'the_title', 'raindrops_fallback_title', 10, 2 );
     /**
      *
      *
@@ -187,7 +187,7 @@ if ( ! function_exists( 'raindrops_theme_setup' ) ){
      *
      * @since 1.003
      */
-        add_filter('img_caption_shortcode', 'my_img_caption_shortcode_filter',10,3);
+        add_filter('img_caption_shortcode', 'raindrops_img_caption_shortcode_filter',10,3);
 
     }
 }

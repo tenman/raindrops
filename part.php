@@ -28,7 +28,7 @@
 ?>
 		</div>
 <?php 
-	if ( is_archive( ) or is_search( ) ) { // Only display Excerpts for archives & search 
+	if ( ( is_archive( ) or is_search( ) ) and !is_tax() ) { // Only display Excerpts for archives & search 
 ?>
 		<div class="entry-summary"><?php the_excerpt( ); ?></div>
 <?php 
@@ -52,9 +52,9 @@
 <?php 
 		echo raindrops_posted_in( );
 		
-		edit_post_link(  esc_html__( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+		edit_post_link(  esc_html__( 'Edit', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 		 
-		raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+		raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 ?>
 		</div>
 <?php 

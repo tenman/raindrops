@@ -25,13 +25,13 @@
 				$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number );
 				
 				printf( '<li class="loop-%1$s%2$s">',
-						esc_attr( $raindrops_loop_class[0] ),
-						esc_attr( $raindrops_loop_class[1] ) 
+						esc_attr( trim( $raindrops_loop_class[0] ) ),
+						esc_attr( trim( $raindrops_loop_class[1] ) ) 
 					);
 					
 				$raindrops_loop_number++;
 ?>				
-	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> >			
+	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> <?php echo raindrops_tabindex();?>">		
 			
 <?php
 				$format= get_post_format();
@@ -95,9 +95,9 @@
 <?php
 					raindrops_posted_in( );
 					
-					edit_post_link( esc_html__( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+					edit_post_link( esc_html__( 'Edit', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-					raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+					raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
 ?>
 			</div>

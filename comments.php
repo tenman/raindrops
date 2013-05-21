@@ -19,7 +19,7 @@
 ?>
 	<div id="comments">
 <?php 
-		if ( post_password_required( ) ){
+		if ( post_password_required( ) ) {
 ?>
     	<p class="nopassword">
 <?php
@@ -33,7 +33,7 @@
 			return;
 		}
 		
-		if ( have_comments( ) ){ 
+		if ( have_comments( ) ) { 
 ?>
 		<h2 id="comments-title" class="h2">
 <?php

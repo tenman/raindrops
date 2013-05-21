@@ -89,7 +89,7 @@ Released under the terms of the GNU GPL version 2
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
      			<!-- content -->
-				<div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 					<h2 class="page-title">
 <?php
 		if ( is_year( ) ) {

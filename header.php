@@ -44,6 +44,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php
+		global $raindrops_link_unique_text;
 		wp_head( );
 ?>
 	</head>
@@ -81,7 +82,13 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
  * if no link home_url( ) then use 'elements'
  *
  */
-		echo raindrops_header_image( 'elsements' );
+		if ( $raindrops_link_unique_text == true ) {
+		 
+			echo raindrops_header_image( 'elements' );
+		}else{
+		 
+			echo raindrops_header_image( 'home_url' );
+		}
 
 /**
  * horizontal menubar
@@ -91,7 +98,6 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
  *
  */
  		raindrops_nav_menu_primary( );
-		
 
 		raindrops_after_nav_menu( );
 ?>

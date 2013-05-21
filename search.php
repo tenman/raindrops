@@ -17,7 +17,7 @@
   <?php raindrops_debug_navitation( __FILE__ ); ?>
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-		<div class="yui-u first <?php raindrops_add_class( 'yui-u first', true );?>">
+		<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 		
 <?php if ( have_posts( ) ) { ?>
 		
@@ -57,9 +57,9 @@
 <?php 		
 			raindrops_posted_in( );
 			
-			edit_post_link(  esc_html__( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+			edit_post_link(  esc_html__( 'Edit', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 			
-			raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+			raindrops_delete_post_link(  esc_html__( 'Trash', 'Raindrops' ). raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 ?>
 		</div>
 		<br class="clear" />

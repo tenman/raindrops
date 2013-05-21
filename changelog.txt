@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:1.117
+    Remove tag accessibility-ready
+
+The following theme tags are not allowed:
+- accessibility-ready
+See http://wordpress.org/themes/about/ for a complete list of approved theme tags.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.116
     modified
         html meta element from charset attribute to http-equiv

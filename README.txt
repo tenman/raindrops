@@ -23,10 +23,30 @@ QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
 ver 1.116
-	Add Accessibility check
-		http://fae.cita.uiuc.edu/about/rules/
-		tool: http://fae.cita.uiuc.edu/
-		pass Ruleset: 1011-1
+    This version trying theme accessibility.
+
+    How to activate Accessibility mode.
+        Open Raindrops option page.
+        Accessibility Settings value set to yes.( default no ).
+
+    accessibility checking tool
+        Functional Accessibility Evaluator 1.1
+        http://fae.cita.uiuc.edu/
+
+    How to use NVDA reader.
+        english version
+        http://www.nvaccess.org/
+        japanese version
+        http://sourceforge.jp/projects/nvdajp/
+
+        1. nvda start
+        2. Show WordPress blog with Raindrops.
+        3. accesskey alt + s (chrome win) alt + shift + s (firefox) then searchform active.
+        4. enter tab key Please press the tab key several times.
+        5. focus entry then nvda read a content
+
+                enter then move to single.php ( nvda ) or
+                press tab key then move to current entry title ( for not nvda )                 and more press tab key move to next content ( back to shift + tab )
 
 ver 1.111
     Support Post Format.

@@ -93,7 +93,7 @@
 			}
 
 ?>
-                        <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?> <?php echo raindrops_tabindex();?>>		
+                        <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?>>		
 		
 <?php
 /**

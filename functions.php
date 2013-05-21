@@ -2294,11 +2294,11 @@ LINK_COLOR_CSS;
 						
 						if ( ! isset( $next_month[$day] ) ) {
 								$next_month[$day] = "<a href=\"" . get_permalink( $post->ID ) . "\"
-title=\"$post->post_title\"". raindrops_tabindex(). ">$day</a>";
+title=\"$post->post_title\">$day</a>";
 						} else {
 						
 								$next_month[$day] = "<a href=\"" . home_url( ) . "/$year/$nextmonth/0$day\"
-title=\"/$year/0$nextmonth/$day\"". raindrops_tabindex(). ">$day</a>";
+title=\"/$year/0$nextmonth/$day\">$day</a>";
 						}
 					}
 				}
@@ -4707,7 +4707,7 @@ span#site-title,
                 $thumbnail .= '</span>';
             }
 
-            $html = '<h2 class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s"'. raindrops_tabindex(). '>%4$s</a></h2>';
+            $html = '<h2 class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></h2>';
 
             $html = sprintf( $html,
                             'h2 entry-title',
@@ -5724,16 +5724,5 @@ function raindrops_counter(){
 	
 	return $count++;
 }
-
-
-function raindrops_tabindex(){
-
-	static $count = 3;
-	
-	return ' tabindex="'. $count++. '" ';
-}
-
-
-
 
 ?>

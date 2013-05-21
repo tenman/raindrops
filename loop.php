@@ -31,7 +31,7 @@
 					
 				$raindrops_loop_number++;
 ?>				
-	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?> <?php echo raindrops_tabindex();?>">		
+	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?>>		
 			
 <?php
 				$format= get_post_format();

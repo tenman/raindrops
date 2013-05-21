@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:1.118
+    Remove accesskey and tabindex
+
+    delete How to use NVDA reader. ver 1.116 from README.txt
+
+----------------------------------------------
+
+Changelog -----------------------------------
 version:1.117
     Remove tag accessibility-ready
 
@@ -41,7 +49,7 @@ Note:
     accessibility checking tool
         Functional Accessibility Evaluator 1.1
         http://fae.cita.uiuc.edu/
-
+[var 1.118 deleted ]
     How to use NVDA reader.
         english version
         http://www.nvaccess.org/
@@ -56,7 +64,7 @@ Note:
 
                 enter then move to single.php ( nvda ) or
                 press tab key then move to current entry title ( for not nvda )                 and more press tab key move to next content ( back to shift + tab )
-
+[/ var 1.118 deleted ]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.115

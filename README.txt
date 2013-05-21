@@ -34,20 +34,6 @@ ver 1.116
         Functional Accessibility Evaluator 1.1
         http://fae.cita.uiuc.edu/
 
-    How to use NVDA reader.
-        english version
-        http://www.nvaccess.org/
-        japanese version
-        http://sourceforge.jp/projects/nvdajp/
-
-        1. nvda start
-        2. Show WordPress blog with Raindrops.
-        3. accesskey alt + s (chrome win) alt + shift + s (firefox) then searchform active.
-        4. enter tab key Please press the tab key several times.
-        5. focus entry then nvda read a content
-
-                enter then move to single.php ( nvda ) or
-                press tab key then move to current entry title ( for not nvda )                 and more press tab key move to next content ( back to shift + tab )
 
 ver 1.111
     Support Post Format.

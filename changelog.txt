@@ -1,7 +1,12 @@
 Changelog -----------------------------------
 version:1.119
+    modified
+        accessibility issues
+    Fixed
+        firefox browser image size improperly when table contain images
+        below element patturn overflow image
 
-
+        <table><tr><td><img /></td></tr></table>
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.118

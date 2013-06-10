@@ -188,6 +188,20 @@ if ( ! function_exists( 'raindrops_theme_setup' ) ){
      * @since 1.003
      */
         add_filter('img_caption_shortcode', 'raindrops_img_caption_shortcode_filter',10,3);
+    /**
+     * Archive link title add string 'Archives ' for for screen reader
+     *
+     *
+     * @since 1.008
+     */
+		add_filter( 'get_archives_link', 'raindrops_accessible_titled' );
+    /**
+     * 
+     *
+     *
+     * @since 1.008
+     */
+		add_filter( 'the_category', 'raindrops_remove_category_rel' );
 
     }
 }

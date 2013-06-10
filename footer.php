@@ -12,7 +12,6 @@
  * @uses get_bloginfo( 'name' )
  * @uses get_bloginfo( 'rss2_url' )
  * @uses ucwords( )
- * @uses get_current_theme( )
  * @uses wp_footer( )
  * @uses raindrops_prepend_footer( )
  * @uses raindrops_append_footer( )

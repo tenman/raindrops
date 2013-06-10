@@ -17,10 +17,10 @@
 		raindrops_prepend_doc( );
 ?>
 		<header id="top">
-			<div id="hd">
-			<div class="skip-link screen-reader-text">
+			<div id="hd" <?php raindrops_doctype_elements( '','role="banner"' );?>>
+				<div class="skip-link screen-reader-text">
 				<a href="#container" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' );?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
-			</div>
+				</div>
 <?php
 /**
  * Conditional Switch html headding element

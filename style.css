@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.118
+Version: 1.119
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,8 +34,26 @@ a:active {
 	position:relative;
 	top:1px;
 }
+a:visited{
+	opacity:0.8!important;
+}
+
 #bd a:hover{
 	text-decoration:underline!important;
+}
+
+.gecko #bd h2 a:hover{
+	text-decoration:none!important;
+	border-bottom:solid 1px;
+}
+.raindrops-accessible-mode .hfeed a:focus{
+  
+  border-bottom:1px solid #FFCC33!important;
+  margin-bottom:-1px;
+}
+
+.gecko td img.size-full{
+	width:100%;
 }
 .nav-next a:hover{
 }
@@ -289,6 +307,19 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 .sticky .posted-on-published-property{
 	display:none!important;
 }
+.format-status .format-status-not-single-post{
+	margin:2em 0;
+}
+.format-status .post-format-status-main{
+	margin:0 0 2em;
+}
+.format-status .format-status-not-single-post .entry-meta{
+	margin-top:20px;
+}
+.format-status .format-status-not-single-post .blog-avatar{
+	text-align:center;
+	padding:24px 0 15px;
+}
 .entry-content blockquote blockquote{
 	clear:both;
 	margin:1em 0 1em 1em;
@@ -355,6 +386,33 @@ table{
 	max-width:100%;
 	margin:auto;
 }
+table {
+	display:table;
+	box-sizing:border-box;
+	table-layout:fixed;
+	width:100%;
+}
+table.auto {
+	table-layout:auto;
+}
+table.center .left,
+table.left td,
+table td.left{
+	text-align:left;
+}
+table.center td,
+table td.center{
+	text-align:center;
+}
+table td.right{
+	text-align:right;
+}
+
+tr,
+th,
+td {
+	max-width:100%;
+}
 pre,
 .hfeed div,
 input,
@@ -369,12 +427,12 @@ pre{
 s, strike,del{
 	text-decoration:line-through;
 }
-ins{
+/*ins{
 	text-decoration:underline;
 }
 	ins:before{
 	content:"+ ";
-	}
+	}*/
 q{
 }
 	q:before{
@@ -1620,6 +1678,9 @@ li.byuser > div a{
 .format-status,
 .category-blog{
 }
+
+.format-status .post-format-status-main,
+.format-status .post-format-status-main,
 .format-status div.blog-main,
 .category-blog div.blog-main{
 	overflow:hidden;
@@ -1655,6 +1716,9 @@ li.byuser > div a{
 	margin:0;
 	max-width:100%;
 }
+.status-side-bar div,
+.status-side-bar ul,
+.status-side-bar ol,
 .format-status-widget div,
 .format-status-widget ul,
 .format-status-widget ol,
@@ -1666,10 +1730,13 @@ li.byuser > div a{
 .format-status #categoryblog .widget,
 .category-blog #categoryblog .widget{
 }
-.format-status .entry-meta-list .avatar,
-.category-blog .entry-meta-list .avatar{
+.format-status .entry-meta-list .category-blog-publish-date,
+.format-status .entry-meta-list .post-format-status-publish-date,
+.format-status .entry-meta-list .blog-avatar, 
+.format-status .entry-meta-list .post-format-status-avatar{
 	text-align:center;
 	list-style:none; /*firefox 8*/
+	margin-bottom:10px;
 }
 .format-status .entry-meta-list .author,
 .category-blog .entry-meta-list .author{
@@ -1693,6 +1760,7 @@ li.byuser > div a{
 .category-blog .entry-meta-list a{
 	display:inline;
  }
+.post-format-status-publish-date,
 .category-blog-publish-date{
 	margin:1em 0!important;
 	font-weight:bold;
@@ -2122,6 +2190,17 @@ h2.year-month-date .day-name{
 	font-size:161.6%;
 }
 /*author.php*/
+.author .avatar-col{
+	text-align:left;
+}
+.author-meta tr,
+.author .author-meta .avatar-col .avatar{
+	opacity:1!important;
+}
+.author-meta {
+
+}
+/*
 .author-infomation{
 	margin:0 3px;
 	max-width:99%;
@@ -2136,6 +2215,7 @@ h2.year-month-date .day-name{
 	vertical-align:top;
 	padding:1em 0 0 0;
 }
+*/
 #header-image{
 	clear:both;
 	width:100%;
@@ -2240,6 +2320,7 @@ address .entry-rss:after{
 }
 .post-format-content{
 	text-align:center;
+	margin:auto;
 }
 
 div:not(.raindrops-empty-content),
@@ -2903,6 +2984,8 @@ sup {
 	#doc3.yui-t2 #yui-main div.yui-b,
 	#doc3 #container > div.first,
 	#doc3 #container > .yui-u,
+	.ahthor #doc3 #container div.first,
+	.author #doc3 #container .yui-u,
 	#doc3 .footer-widget,
 	#doc3 #ft div.widget-wrapper>ul>li,
 	#doc3 #ft .widget-wrapper ul,
@@ -3040,14 +3123,17 @@ sup {
 	.home #doc3 .format-status .entry-meta-list{
 		display:none;
 	}
-	.home #doc3 .format-status .blog-main:before{
+	/* .format-status .blog-main:before  old style*/
+	.home #doc3 .format-status .post-format-status-main:before{
 		content: 'STATUS';
 		display:block;
 		font-weight:bold;
 		font-family:sans-serif;
 	}
+	#doc3 .post-format-status-publish-date,
 	#doc3 .category-blog-publish-date{
 		margin:.3em 0 1em!important;
+		margin:.3rem 0 1rem!important;
 	}
 	.widget select{
 		margin:5px 3%;
@@ -3347,24 +3433,18 @@ only screen and (min-resolution: 192dpi) {
 	font-weight:bold;
 }
 .portfolio-prev:after{
-content: url( images/next.png );
-vertical-align:middle;
-margin:6px;
+	content: url( images/next.png );
+	vertical-align:middle;
+	margin:6px;
 
 }
 .portfolio-next:before,
 .portfolio-page2:before{
-content: url( images/previous.png );
-vertical-align:middle;
-margin:6px;
+	content: url( images/previous.png );
+	vertical-align:middle;
+	margin:6px;
 }
 .no-portfolio{
-height:320px;
-}
-
-.raindrops-accessible-mode .hfeed a:focus{
-  
-  border-bottom:1px solid #FFCC33!important;
-  margin-bottom:-1px;
+	height:320px;
 }
 

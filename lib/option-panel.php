@@ -880,11 +880,10 @@ $raindrops_navigation_list  .= '</ul>';
             }
             $lines .= raindrops_upload_form();
             if( is_child_theme() ){
-        if( $raindrops_wp_version >= '3.4' ){ // WordPress 3.4 check
-            $raindrops_theme_name = 'Child theme '.ucwords( wp_get_theme() ).' of '.__("Raindrops Theme","Raindrops");
-        }else{
-            $raindrops_theme_name = 'Child theme '.ucwords(get_current_theme()).' of '.__("Raindrops Theme","Raindrops");
-        }
+				if( $raindrops_wp_version >= '3.4' ){ // WordPress 3.4 check
+				
+					$raindrops_theme_name = 'Child theme '.ucwords( wp_get_theme() ).' of '.__("Raindrops Theme","Raindrops");
+				}
             }else{
                 $raindrops_theme_name = esc_html__("Raindrops Theme","Raindrops");
             }

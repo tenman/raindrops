@@ -38,7 +38,6 @@
 		
 			case( 'html5' ):
 			
-			printf( '<!--%1$$s-->', $raindrops_document_type );
 ?>
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 <?php 
@@ -74,7 +73,7 @@
 ?>
 						<p class="image">
 							<a href="<?php echo $image[0];?>" >
-								<img src="<?php echo $image[0];?>" width="100%"  alt="<?php the_title_attribute( ); ?>" />
+								<img src="<?php echo $image[0];?>" width="<?php echo $image[1];?>" height="<?php echo $image[2];?>" alt="<?php the_title_attribute( ); ?>" />
 							</a>
 						</p>
 						<div class="caption">

@@ -40,13 +40,17 @@ Template Name: Auther
 	<div id="yui-main">
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
+				<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?>>		
+
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+				
 					<h2 class="h2">
 <?php
 		printf( esc_html__( 'Author Archives: %s', 'Raindrops' ), $curauth->nickname );
 ?>
 					</h2>
-					<table summary="author infomation" class="author-meta">
+					
+					<table <?php raindrops_doctype_elements( 'summary="author infomation"', '');?> class="author-meta">
 						<tr>
 							<td class="avatar-col">
 <?php 
@@ -141,8 +145,21 @@ Template Name: Auther
 				echo get_the_tag_list( '', ', ' );
 ?>
 							</dd>
-<?php 
-			} //end while
+		  					
+<?php
+				$format = get_post_format( );
+				
+				if( $format !== false ){
+?>
+							<dd>
+<?php
+					esc_html_e( 'Format :', 'Raindrops' );
+					echo ' <a href="'.esc_url( get_post_format_link( $format ) ). '">'. esc_html( get_post_format_string( $format ) ). '</a>';
+?>
+							</dd>
+<?php
+				} // post format 
+			} //end while			
 		} else {
 ?>
 					<p>
@@ -153,7 +170,12 @@ Template Name: Auther
 ?>
 		  <!-- End Loop -->
 					</dl>
+			
+<?php			
+					raindrops_next_prev_links( "nav-below" );
+?>
 				</div>
+				</<?php raindrops_doctype_elements( 'div', 'article' );?>>
 					<div class="yui-u">
 <?php 
 		raindrops_prepend_extra_sidebar( );

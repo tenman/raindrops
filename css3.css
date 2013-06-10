@@ -14,13 +14,13 @@ strong{
     -moz-border-radius:5px;
 	padding:5px;
 }
-.hentry table tr:nth-child(odd){
+.hentry table.opacity tr:nth-child(odd){
 	opacity: 0.7;
 	-moz-opacity: 0.7; /* Firefox */
 	filter: alpha(opacity=0.7); /* IE6/7 */
 	-ms-filter: "alpha(opacity=0.7)"; /* IE8 */
 }
-.hentry table tr:nth-child(even){
+.hentry table.opacity tr:nth-child(even){
 	opacity: 0.9;
 	-moz-opacity: 0.9; /* Firefox */
 	filter: alpha(opacity=0.9); /* IE6/7 */

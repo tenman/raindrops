@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-18 17:11+0900\n"
-"PO-Revision-Date: 2013-04-18 17:12+0900\n"
+"POT-Creation-Date: 2013-06-07 10:39+0900\n"
+"PO-Revision-Date: 2013-06-07 10:47+0900\n"
 "Last-Translator: Akio Tenman <akio@tenman.info>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "MIME-Version: 1.0\n"
@@ -31,57 +31,55 @@ msgid "Apologies, but no results were found for the requested Archive. Perhaps s
 msgstr "リクエストされたアーカイブには何も見つかりませんでした。検索すれば関連投稿が見つかるかもしれません。"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:46
+#: wp/wp-content/themes/raindrops/author.php:49
 #, php-format
 msgid "Author Archives: %s"
 msgstr "著者アーカイブ: %s"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:63
+#: wp/wp-content/themes/raindrops/author.php:67
 #, fuzzy
 msgid "Profile"
 msgstr "プロフィール"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:79
-#: wp/wp-content/themes/raindrops/functions.php:1268
+#: wp/wp-content/themes/raindrops/author.php:83
+#: wp/wp-content/themes/raindrops/functions.php:1459
 #, fuzzy
 msgid "Website"
 msgstr "ウェブサイト"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:94
+#: wp/wp-content/themes/raindrops/author.php:98
 msgid "registered"
 msgstr "registered"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:109
+#: wp/wp-content/themes/raindrops/author.php:113
 #, fuzzy
 msgid "Recent post"
 msgstr "最近の投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:133
+#: wp/wp-content/themes/raindrops/author.php:137
 #, fuzzy
 msgid "Categories :"
 msgstr "カテゴリー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:140
+#: wp/wp-content/themes/raindrops/author.php:144
 #, fuzzy
 msgid "Tag :"
 msgstr "タグ"
 
-# @ Raindrops
-#: wp/wp-content/themes/raindrops/author.php:149
-msgid "No posts by this author."
-msgstr "この著者の投稿はありません"
+#: wp/wp-content/themes/raindrops/author.php:156
+msgid "Format :"
+msgstr ""
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/backward-compatibility.php:171
-#, php-format
-msgid "Page %s"
-msgstr "ページ %s"
+#: wp/wp-content/themes/raindrops/author.php:166
+msgid "No posts by this author."
+msgstr "この著者の投稿はありません"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/blank_front.php:33
@@ -91,15 +89,15 @@ msgstr "最近の投稿"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/blank_front.php:47
-#: wp/wp-content/themes/raindrops/functions.php:4086
-#: wp/wp-content/themes/raindrops/functions.php:4182
+#: wp/wp-content/themes/raindrops/functions.php:4843
+#: wp/wp-content/themes/raindrops/functions.php:4927
 #, fuzzy
 msgid "Categories"
 msgstr "カテゴリー"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/blank_front.php:63
-#: wp/wp-content/themes/raindrops/functions.php:4229
+#: wp/wp-content/themes/raindrops/functions.php:4989
 #, fuzzy
 msgid "Tags"
 msgstr "タグ:"
@@ -191,530 +189,544 @@ msgstr "土曜日"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/date.php:99
-#: wp/wp-content/themes/raindrops/functions.php:2189
+#: wp/wp-content/themes/raindrops/functions.php:2652
 msgid "Yearly Archives"
 msgstr "年別アーカイブ: "
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/date.php:105
-#: wp/wp-content/themes/raindrops/functions.php:2181
+#: wp/wp-content/themes/raindrops/functions.php:2640
 msgid "Monthly Archives"
 msgstr "月別アーカイブ"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/date.php:110
-#: wp/wp-content/themes/raindrops/functions.php:2177
+#: wp/wp-content/themes/raindrops/functions.php:2635
 msgid "Daily Archives"
 msgstr "日別アーカイブ: "
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/footer.php:49
+#: wp/wp-content/themes/raindrops/footer.php:48
 msgid "and"
 msgstr "　"
 
-#: wp/wp-content/themes/raindrops/footer.php:57
+#: wp/wp-content/themes/raindrops/footer.php:56
 msgid "Entries RSS"
 msgstr "投稿フィード"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/footer.php:59
+#: wp/wp-content/themes/raindrops/footer.php:58
 msgid "Comments RSS"
 msgstr "コメントフィード"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/footer.php:64
-#: wp/wp-content/themes/raindrops/footer.php:67
+#: wp/wp-content/themes/raindrops/footer.php:63
+#: wp/wp-content/themes/raindrops/footer.php:66
 msgid "Raindrops Theme"
 msgstr "レインドロップス　テーマ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:128
+#: wp/wp-content/themes/raindrops/functions.php:134
 msgid "Primary Navigation"
 msgstr "主ナビゲーション"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:435
-#: wp/wp-content/themes/raindrops/functions.php:3696
+#: wp/wp-content/themes/raindrops/functions.php:525
+#: wp/wp-content/themes/raindrops/functions.php:4390
 msgid "Default Sidebar"
 msgstr "デフォルトサイドバー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:448
-#: wp/wp-content/themes/raindrops/functions.php:3677
+#: wp/wp-content/themes/raindrops/functions.php:539
+#: wp/wp-content/themes/raindrops/functions.php:4369
 msgid "Extra Sidebar"
 msgstr "エキストラサイドバー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:461
+#: wp/wp-content/themes/raindrops/functions.php:553
 msgid "Sticky Widget"
 msgstr "スティッキーウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:472
+#: wp/wp-content/themes/raindrops/functions.php:565
 msgid "Footer Widget"
 msgstr "フッターウィジェット"
 
-# @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:483
-msgid "Category Blog Widget"
-msgstr "カテゴリ　ブログ　ウィジェット"
+#: wp/wp-content/themes/raindrops/functions.php:577
+msgid "Post Format Status Sidebar"
+msgstr "投稿フォーマット　ステータス　サイドバー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:564
+#: wp/wp-content/themes/raindrops/functions.php:672
 #, php-format
 msgid "If you add  %s when you must create function %s for data validation"
 msgstr "フォームに新しい項目(%s)を追加したら、その項目のバリデーション関数（%s）も書かなければなりませんよ"
 
+#: wp/wp-content/themes/raindrops/functions.php:800
+msgid "Avatar"
+msgstr "アバター"
+
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:673
+#: wp/wp-content/themes/raindrops/functions.php:805
 #, fuzzy
 msgid "says:"
 msgstr "タグ:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:678
+#: wp/wp-content/themes/raindrops/functions.php:810
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:679
-#: wp/wp-content/themes/raindrops/functions.php:710
+#: wp/wp-content/themes/raindrops/functions.php:811
+#: wp/wp-content/themes/raindrops/functions.php:844
 #, fuzzy
 msgid " Edit "
 msgstr "編集"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:686
+#: wp/wp-content/themes/raindrops/functions.php:818
 #, fuzzy
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは管理者の承認待ちです。"
 
+#: wp/wp-content/themes/raindrops/functions.php:828
+msgid "Reply"
+msgstr "返信"
+
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:708
+#: wp/wp-content/themes/raindrops/functions.php:841
 #, fuzzy
 msgid "Pingback:"
 msgstr "ピンバック:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:742
-#: wp/wp-content/themes/raindrops/functions.php:753
-#: wp/wp-content/themes/raindrops/functions.php:786
-#: wp/wp-content/themes/raindrops/functions.php:794
+#: wp/wp-content/themes/raindrops/functions.php:875
+#: wp/wp-content/themes/raindrops/functions.php:884
+#: wp/wp-content/themes/raindrops/functions.php:902
+#: wp/wp-content/themes/raindrops/functions.php:911
 msgid "This entry was posted in"
 msgstr " "
 
-#: wp/wp-content/themes/raindrops/functions.php:744
-#: wp/wp-content/themes/raindrops/functions.php:788
+#: wp/wp-content/themes/raindrops/functions.php:877
+#: wp/wp-content/themes/raindrops/functions.php:904
 msgid "and tagged"
 msgstr "タグ"
 
-#: wp/wp-content/themes/raindrops/functions.php:746
-#: wp/wp-content/themes/raindrops/functions.php:755
+#: wp/wp-content/themes/raindrops/functions.php:879
 msgid "Bookmark the"
 msgstr "&nbsp;　　"
 
-#: wp/wp-content/themes/raindrops/functions.php:748
-#: wp/wp-content/themes/raindrops/functions.php:757
-#: wp/wp-content/themes/raindrops/functions.php:763
-msgid "permalink"
-msgstr "パーマリンク"
-
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:855
+#: wp/wp-content/themes/raindrops/functions.php:965
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "コメント"
 msgstr[1] "コメント"
 
-#: wp/wp-content/themes/raindrops/functions.php:866
+#: wp/wp-content/themes/raindrops/functions.php:980
 #, fuzzy, php-format
 msgid "%1$s %5$s %2$s %6$s %3$s %4$s"
 msgstr "%1$s  %2$s　 %3$s %4$s"
 
-#: wp/wp-content/themes/raindrops/functions.php:877
+#: wp/wp-content/themes/raindrops/functions.php:991
 #, php-format
 msgid "View all posts by %s"
 msgstr " %sのすべての投稿"
 
-#: wp/wp-content/themes/raindrops/functions.php:882
+#: wp/wp-content/themes/raindrops/functions.php:996
 msgid "Posted on"
 msgstr " "
 
-#: wp/wp-content/themes/raindrops/functions.php:883
+#: wp/wp-content/themes/raindrops/functions.php:997
 msgid "by"
 msgstr "&nbsp; "
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:982
+#: wp/wp-content/themes/raindrops/functions.php:1105
 msgid "Description"
 msgstr "概要"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:987
+#: wp/wp-content/themes/raindrops/functions.php:1110
 msgid "Theme URI"
 msgstr "テーマ　URI"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:992
+#: wp/wp-content/themes/raindrops/functions.php:1115
+#: wp/wp-content/themes/raindrops/part-blog.php:65
 #, fuzzy
 msgid "Author"
 msgstr "作成者:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:997
+#: wp/wp-content/themes/raindrops/functions.php:1120
 msgid "Version"
 msgstr "バージョン"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1003
+#: wp/wp-content/themes/raindrops/functions.php:1126
 msgid "Change log text"
 msgstr "変更履歴"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1004
+#: wp/wp-content/themes/raindrops/functions.php:1127
 msgid "Changelog , display new window"
 msgstr "変更履歴の表示（新しい画面）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1009
+#: wp/wp-content/themes/raindrops/functions.php:1132
 msgid "Readme text"
 msgstr "説明書き"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1010
+#: wp/wp-content/themes/raindrops/functions.php:1133
 msgid "Readme , display new window"
 msgstr "説明の表示（新しい画面)"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1017
+#: wp/wp-content/themes/raindrops/functions.php:1140
 #, fuzzy
 msgid "raindrops infomation"
 msgstr "レインドロップス　その他の設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1036
+#: wp/wp-content/themes/raindrops/functions.php:1162
 msgid "Tips"
 msgstr "コネタ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1037
+#: wp/wp-content/themes/raindrops/functions.php:1163
 msgid "If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once."
 msgstr "レインドロップスの設定画面から、基本色を設定するとそれに応じた背景色クラスが自動生成します"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1038
+#: wp/wp-content/themes/raindrops/functions.php:1164
 msgid "Dinamic Color Class"
 msgstr "動的な色クラス"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1051
-#: wp/wp-content/themes/raindrops/functions.php:1070
+#: wp/wp-content/themes/raindrops/functions.php:1177
+#: wp/wp-content/themes/raindrops/functions.php:1196
 msgid "code example:please HTML editor mode"
 msgstr "HTMLモードを使ってくださいね"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1057
+#: wp/wp-content/themes/raindrops/functions.php:1183
 msgid "Dinamic Gradient Class"
 msgstr "動的なグラデーションクラス"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1073
+#: wp/wp-content/themes/raindrops/functions.php:1199
 msgid "About Featured Image"
 msgstr "アイキャッチ画像について"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1074
+#: wp/wp-content/themes/raindrops/functions.php:1200
 msgid "image width and height aspect ratio is 3:1. another aspect ratio will be trimming center"
 msgstr "画像の幅と、高さの比は3;1です。これ以外の比率の場合は中央に合わせてトリミングします"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1268
+#: wp/wp-content/themes/raindrops/functions.php:1459
 msgid "Option"
 msgstr "オプション"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1375
+#: wp/wp-content/themes/raindrops/functions.php:1606
 #, php-format
 msgid "Sorry Your PHP version is %s Please use PHP version 5 or later."
 msgstr "あなたの使っているバージョンは　 %s　です。このバージョンは、サポートしていないので、PHP５以降を使ってください。"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1377
+#: wp/wp-content/themes/raindrops/functions.php:1608
 #, fuzzy, php-format
 msgid "Thank you for adopting the %1$s theme. It is necessary to set it to this theme. Please move to a set screen clicking this "
 msgstr "%1$s テーマを使ってくれてありがとう。テーマを利用する前に<a href=\"%2$s\">%1$s テーマ　オプションページ</a>をクリックして、一度だけ、テーマオプションページを表示させてください"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1379
+#: wp/wp-content/themes/raindrops/functions.php:1610
 #, fuzzy
 msgid "Raindrops settings view"
 msgstr "レインドロップス設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:1999
+#: wp/wp-content/themes/raindrops/functions.php:2399
 #, php-format
 msgid "%s Articles archived"
 msgstr "%s のアーカイブがあります"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2163
+#: wp/wp-content/themes/raindrops/functions.php:2616
 #, fuzzy
 msgid "Search Results"
 msgstr "検索結果"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2167
+#: wp/wp-content/themes/raindrops/functions.php:2621
 msgid "Tag Archives"
 msgstr "タグ別アーカイブ: "
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2171
+#: wp/wp-content/themes/raindrops/functions.php:2626
 #, fuzzy
 msgid "Category Archives"
 msgstr "カテゴリー別アーカイブ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2193
+#: wp/wp-content/themes/raindrops/functions.php:2657
 msgid "Author Archives"
 msgstr "作成者別アーカイブ: "
 
+#: wp/wp-content/themes/raindrops/functions.php:2670
+#: wp/wp-content/themes/raindrops/functions.php:2676
+#: wp/wp-content/themes/raindrops/functions.php:2682
+#: wp/wp-content/themes/raindrops/functions.php:2688
+#: wp/wp-content/themes/raindrops/functions.php:2694
+#: wp/wp-content/themes/raindrops/functions.php:2700
+#: wp/wp-content/themes/raindrops/functions.php:2706
+#: wp/wp-content/themes/raindrops/functions.php:2712
+#: wp/wp-content/themes/raindrops/functions.php:2718
+#, fuzzy
+msgid "Post Format"
+msgstr " "
+
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2201
+#: wp/wp-content/themes/raindrops/functions.php:2723
 msgid "Blog Archives"
 msgstr "ブログ　アーカイブ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2770
+#: wp/wp-content/themes/raindrops/functions.php:3313
 msgid "Current theme is fluid settings"
 msgstr "現在のテーマは、ページ幅がブラウザにフィットします"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2770
+#: wp/wp-content/themes/raindrops/functions.php:3313
 msgid "image size will be shrink to fit page"
 msgstr "画像サイズは、ページサイズにフィットします"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2772
+#: wp/wp-content/themes/raindrops/functions.php:3315
 #, fuzzy
 msgid "Theme Settings"
 msgstr "テーマ設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:2878
-msgid "This entry has no title"
-msgstr "この投稿にはタイトルがありません"
-
-# @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3129
+#: wp/wp-content/themes/raindrops/functions.php:3737
 #, fuzzy, php-format
 msgid " Page %s"
 msgstr "ページ %s"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3207
-#: wp/wp-content/themes/raindrops/image.php:123
-#: wp/wp-content/themes/raindrops/image.php:232
+#: wp/wp-content/themes/raindrops/functions.php:3833
+#: wp/wp-content/themes/raindrops/image.php:122
+#: wp/wp-content/themes/raindrops/image.php:231
 #: wp/wp-content/themes/raindrops/loop.php:100
 #: wp/wp-content/themes/raindrops/page.php:90
-#: wp/wp-content/themes/raindrops/part-blog.php:99
+#: wp/wp-content/themes/raindrops/part-blog.php:113
+#: wp/wp-content/themes/raindrops/part-blog.php:208
+#: wp/wp-content/themes/raindrops/part-blog.php:220
+#: wp/wp-content/themes/raindrops/part-gallery.php:100
 msgid "Trash"
 msgstr "ゴミ箱"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3579
+#: wp/wp-content/themes/raindrops/functions.php:4253
 msgid "Raindrops theme settings"
 msgstr "レインドロップス　テーマ設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3583
+#: wp/wp-content/themes/raindrops/functions.php:4260
 msgid "Another Settings link"
 msgstr "その他の設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3633
+#: wp/wp-content/themes/raindrops/functions.php:4325
 msgid "Custom Header"
 msgstr "カスタムヘッダー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3634
+#: wp/wp-content/themes/raindrops/functions.php:4326
 msgid "Widget"
 msgstr "ウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3635
+#: wp/wp-content/themes/raindrops/functions.php:4327
 #, fuzzy
 msgid "Nav Menus"
 msgstr "メニュー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3636
+#: wp/wp-content/themes/raindrops/functions.php:4328
 msgid "Raindrops Settings"
 msgstr "レインドロップス設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3637
+#: wp/wp-content/themes/raindrops/functions.php:4329
 msgid "Theme"
 msgstr "テーマ"
 
-#: wp/wp-content/themes/raindrops/functions.php:3638
+#: wp/wp-content/themes/raindrops/functions.php:4330
 msgid "Dashbord"
 msgstr "ダッシュボード"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3646
+#: wp/wp-content/themes/raindrops/functions.php:4338
 msgid "Base color"
 msgstr "ベースカラー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3657
+#: wp/wp-content/themes/raindrops/functions.php:4348
 msgid "Color Type"
 msgstr "配色タイプ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3664
+#: wp/wp-content/themes/raindrops/functions.php:4355
 #, fuzzy
 msgid "Page width"
 msgstr "ページ幅"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3704
+#: wp/wp-content/themes/raindrops/functions.php:4399
 msgid "Menu Primary"
 msgstr "メインメニュー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3716
+#: wp/wp-content/themes/raindrops/functions.php:4412
 #, fuzzy
 msgid "Font Color"
 msgstr "フォント色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:3725
+#: wp/wp-content/themes/raindrops/functions.php:4421
 #, fuzzy
 msgid "Link Color"
 msgstr "リンクの色"
 
 # @ default
-#: wp/wp-content/themes/raindrops/functions.php:3814
+#: wp/wp-content/themes/raindrops/functions.php:4516
 #, php-format
 msgid "add_action( '%1$s', 'your_function' ) or add template part file the name '%2$s'."
 msgstr "add_action( '%1$s', 'your_function' ) あるいは'%2$s'.テンプレートを追加していただく事で、この場所にコンテンツを追加できます"
 
-#: wp/wp-content/themes/raindrops/functions.php:4035
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/functions.php:4740
+#, fuzzy
+msgid "Featured Image"
+msgstr "アイキャッチ画像について"
+
+#: wp/wp-content/themes/raindrops/functions.php:4781
 msgid "Continue&nbsp;reading "
 msgstr "続きを読む"
 
-#: wp/wp-content/themes/raindrops/functions.php:4060
+#: wp/wp-content/themes/raindrops/functions.php:4781
+msgid "&nbsp;Post ID&nbsp;"
+msgstr "&nbsp;投稿 ID&nbsp;"
+
+#: wp/wp-content/themes/raindrops/functions.php:4810
 msgid " Older posts"
 msgstr "過去の投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4061
+#: wp/wp-content/themes/raindrops/functions.php:4811
 msgid "Newer posts"
 msgstr "新しい投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4082
-#, fuzzy
-msgid "Pages"
-msgstr "ページ"
-
-# @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4083
+#: wp/wp-content/themes/raindrops/functions.php:4837
 #, fuzzy
 msgid "Archives"
 msgstr "アーカイブ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4089
-#, fuzzy
-msgid "Meta"
-msgstr "メタ情報"
-
-# @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4098
-#: wp/wp-content/themes/raindrops/functions.php:4133
+#: wp/wp-content/themes/raindrops/functions.php:4870
 #, fuzzy
 msgid "Recent Post"
 msgstr "最近の投稿"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4299
+#: wp/wp-content/themes/raindrops/functions.php:5073
 #, php-format
 msgid "Prev Month( %sth )"
 msgstr "前月（　%s月　）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4309
+#: wp/wp-content/themes/raindrops/functions.php:5086
 #, php-format
 msgid "Next Month( %sth )"
 msgstr "次月（　%s月　）"
 
-#: wp/wp-content/themes/raindrops/functions.php:4396
+#: wp/wp-content/themes/raindrops/functions.php:5177
 msgid "New window"
 msgstr "新しいウィンドウ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4634
+#: wp/wp-content/themes/raindrops/functions.php:5468
 msgid "Go to Attachment page"
 msgstr "添付ファイルへ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/functions.php:4750
-#: wp/wp-content/themes/raindrops/functions.php:4751
+#: wp/wp-content/themes/raindrops/header-html5.php:22
 #, fuzzy
 msgid "Skip to content"
 msgstr "コンテンツへ移動"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/image.php:59
-#: wp/wp-content/themes/raindrops/image.php:168
+#: wp/wp-content/themes/raindrops/image.php:58
+#: wp/wp-content/themes/raindrops/image.php:167
 msgid "Entry : "
 msgstr "投稿："
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/image.php:121
-#: wp/wp-content/themes/raindrops/image.php:230
+#: wp/wp-content/themes/raindrops/image.php:120
+#: wp/wp-content/themes/raindrops/image.php:229
 #: wp/wp-content/themes/raindrops/loop.php:98
 #: wp/wp-content/themes/raindrops/page.php:88
-#: wp/wp-content/themes/raindrops/part-blog.php:94
+#: wp/wp-content/themes/raindrops/part-blog.php:108
+#: wp/wp-content/themes/raindrops/part-blog.php:206
+#: wp/wp-content/themes/raindrops/part-blog.php:218
+#: wp/wp-content/themes/raindrops/part-gallery.php:98
 msgid "Edit"
 msgstr "編集"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/image.php:132
-#: wp/wp-content/themes/raindrops/image.php:242
+#: wp/wp-content/themes/raindrops/image.php:131
+#: wp/wp-content/themes/raindrops/image.php:241
 #, fuzzy
 msgid "Sorry, no attachments matched your criteria."
 msgstr "条件に合う投稿はありませんでした。"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/part-blog.php:57
+#: wp/wp-content/themes/raindrops/part-blog.php:71
 msgid "Category:"
 msgstr "カテゴリー："
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/part-blog.php:64
+#: wp/wp-content/themes/raindrops/part-blog.php:78
 msgid "Tags:"
 msgstr "タグ："
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/part-blog.php:71
+#: wp/wp-content/themes/raindrops/part-blog.php:85
 msgid "Author:"
 msgstr "作成者："
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/part-blog.php:82
+#: wp/wp-content/themes/raindrops/part-blog.php:96
+#: wp/wp-content/themes/raindrops/part-gallery.php:95
 msgid "Leave a comment"
 msgstr "コメントを　どうぞ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/part-blog.php:83
+#: wp/wp-content/themes/raindrops/part-blog.php:97
+#: wp/wp-content/themes/raindrops/part-gallery.php:95
 msgid "1 Comment"
 msgstr "1 コメント"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/part-blog.php:84
+#: wp/wp-content/themes/raindrops/part-blog.php:98
+#: wp/wp-content/themes/raindrops/part-gallery.php:95
 msgid "% Comments"
 msgstr "% コメント"
 
@@ -733,21 +745,48 @@ msgstr "写真　他"
 msgid "View posts in the Gallery category"
 msgstr "カテゴリー　Gallery 投稿の表示"
 
-# @ Raindrops
 #: wp/wp-content/themes/raindrops/part-gallery.php:89
-msgid "More Galleries"
-msgstr "ギャラリー詳細"
+msgid "Gallery"
+msgstr "ギャラリー"
+
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/part-gallery.php:90
+#, fuzzy
+msgid "Link to Category"
+msgstr "カテゴリー："
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/search.php:81
 msgid "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it."
 msgstr "残念ですが、何も見つかりませんでした。よろしければ、別のキーワードで、再度お試しください"
 
+#: wp/wp-content/themes/raindrops/searchform.php:18
+msgid "must not contain html tags"
+msgstr "htmlタグは使えません"
+
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/searchform.php:10
+#: wp/wp-content/themes/raindrops/searchform.php:18
+#: wp/wp-content/themes/raindrops/searchform.php:19
+#: wp/wp-content/themes/raindrops/searchform.php:29
 #, fuzzy
 msgid "Search"
 msgstr "検索"
+
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/sidebar.php:15
+#, fuzzy
+msgid "Pages"
+msgstr "ページ"
+
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/sidebar.php:34
+#, fuzzy
+msgid "Meta"
+msgstr "メタ情報"
+
+#: wp/wp-content/themes/raindrops/single.php:90
+msgid "Sticky Post Shows Only WEB Site Home."
+msgstr "スティキー投稿は、トップページだけで表示します"
 
 # @ Raindrops
 #: wp/wp-content/themes/raindrops/lib/option-panel.php:20
@@ -907,961 +946,1012 @@ msgstr "リンクの色"
 msgid "Hyper link color"
 msgstr "リンクの色"
 
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:167
+msgid "Accessibility Settings"
+msgstr "アクセシビリティ設定"
+
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:169
+msgid "Accessibility Settings is create a unique link text. set to yes or no."
+msgstr "アクセシビリティセッティングはリンクテキストをユニークなものに変更します。yes または no を入力してください"
+
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:511
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:177
+#, fuzzy
+msgid "Document Type Settings"
+msgstr "テーマ設定"
+
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:179
+msgid "Default Document type html5. Set to xhtml or html5."
+msgstr "html文書型は、標準でhtml5です。xhtml　または　html5を入力してください"
+
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:568
 msgid " Theme Settings"
 msgstr "テーマ設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:512
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:569
 msgid "Saved Database table name:"
 msgstr "この設定が保存されるデータベーステーブル"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:550
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:571
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:607
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:628
 #, php-format
 msgid "updated %1$s  successfully."
 msgstr "%1$s を更新しました。"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:554
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:611
 msgid " MultiSite User must Click here !!"
 msgstr "マルチサイトの方は、ここをクリックする必要があります"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:573
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:630
 #, php-format
 msgid "updated %s  fail."
 msgstr " %s  を更新できません"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:644
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:701
 msgid "WordPress Native Theme Options"
 msgstr "ワードプレスのデザイン設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:646
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:703
 msgid "Theme customizer"
 msgstr "テーマカスタマイザー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:649
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:706
 msgid "Custom Background"
 msgstr "カスタム背景"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:651
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:708
 msgid "Menus"
 msgstr "メニュー"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:652
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:709
 msgid "Theme Editor"
 msgstr "テーマファイルの編集"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:655
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:712
 msgid "Raindrops Extend Theme Options"
 msgstr "テーマ、レインドロップスの拡張設定"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:668
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:725
 msgid "go to Color Type"
 msgstr "配色タイプへ移動"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:670
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:727
 msgid "Go to upload form"
 msgstr "アップロードフォームへ移動"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:672
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:729
 msgid "Go to Base Color"
 msgstr "フォント色へ移動"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:702
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:704
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:759
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:761
 #, fuzzy
 msgid "Value"
 msgstr "値"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:704
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:761
 #, fuzzy
 msgid "Color"
 msgstr "色"
 
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:813
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:870
 msgid "Save"
 msgstr "保存"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:822
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:879
 msgid "Please reload this page ex. windows F5"
 msgstr "恐縮ですが、このページをリロード(F5)してください。"
 
 # @ default
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:845
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:901
 msgid "Now constant RAINDROPS_USE_AUTO_COLOR is false"
 msgstr "定数　TMN_USE_AUTO_COLOR　が　false　に設定されています"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:907
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:963
 msgid "Image Upload"
 msgstr "画像アップロード"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:909
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:965
 #, fuzzy
 msgid "Upload"
 msgstr "アップロード"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:912
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:968
 msgid "Purpose:"
 msgstr "用途"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:915
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:971
 #, fuzzy
 msgid "Header Image"
 msgstr "ヘッダの背景画像"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:919
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:975
 #, fuzzy
 msgid "Footer Image"
 msgstr "フッターウィジェット"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:921
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:977
 msgid "Style:"
 msgstr "スタイル:"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:923
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:979
 #, fuzzy
 msgid "no-repeat"
 msgstr "繰り返しなし"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:926
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:982
 msgid "repeat-x"
 msgstr "横方向に繰り返し"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:927
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:983
 msgid "position:"
 msgstr "位置"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:928
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:984
 #, fuzzy
 msgid "top:"
 msgstr "上"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:929
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:932
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:935
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:985
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:988
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:991
 msgid "px"
 msgstr "ピクセル"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:930
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:986
 #, fuzzy
 msgid "left:"
 msgstr "左"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:933
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:989
 #, fuzzy
 msgid "box height:"
 msgstr "高さの上限"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:942
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:998
 #, fuzzy
 msgid "Go to current header image"
 msgstr "ヘッダー画像を削除"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:945
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1001
 #, fuzzy
 msgid "Go to current footer image"
 msgstr "背景画像を削除"
 
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:970
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1026
 msgid "purpose no data"
 msgstr "purpose no data"
 
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:977
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1033
 msgid "style no data"
 msgstr "style no data"
 
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:984
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1040
 msgid "position top no data"
 msgstr "position top no data"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:991
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1047
 #, fuzzy
 msgid "position no data"
 msgstr "位置"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:998
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1054
 #, fuzzy
 msgid "box height no data"
 msgstr "高さの上限"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1006
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1062
 #, php-format
 msgid "%s is not permitted filetype."
 msgstr "%sは許可されていないファイルタイプです"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1016
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1072
 #, php-format
 msgid "%d px * %d width too big. limit %d px"
 msgstr "%d px * %d は画像サイズが大きすぎます　最大 %d pxに制限しています"
 
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1030
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1086
 msgid "It failed in up-loading."
 msgstr "アップロード　失敗"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 #, fuzzy
 msgid "none"
 msgstr "なし"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "toki"
 msgstr "とき色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tutuji"
 msgstr "つつじ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sakura"
 msgstr "桜色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "bara"
 msgstr "ばら色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "karakurenai"
 msgstr "からくれない"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sango"
 msgstr "さんご色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "koubai"
 msgstr "紅梅（こうばい）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "momo"
 msgstr "桃色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "beni"
 msgstr "紅色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "beniaka"
 msgstr "紅赤"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "enji"
 msgstr "えんじ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "suou"
 msgstr "蘇芳（すおう）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "akane"
 msgstr "茜（あかね）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "aka"
 msgstr "赤"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "syu"
 msgstr "朱色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "benikaba"
 msgstr "紅樺（べにかば）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "benihi"
 msgstr "紅緋（べにひ）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "entan"
 msgstr "鉛丹"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "beniebitya"
 msgstr "紅海老茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tobi"
 msgstr "とび色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "azuki"
 msgstr "小豆（あずき）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "bengara"
 msgstr "弁柄（べんがら）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ebitya"
 msgstr "海老茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kinaka"
 msgstr "金赤"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "akatya"
 msgstr "赤茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "akasabi"
 msgstr "赤錆色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ouni"
 msgstr "黄丹（おうに）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sekitou"
 msgstr "赤橙"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kaki"
 msgstr "柿色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "nikkei"
 msgstr "肉桂（にっけい）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kaba"
 msgstr "樺（かば）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "renga"
 msgstr "れんが色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sabi"
 msgstr "錆色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "hiwada"
 msgstr "檜皮（ひわだ）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kuri"
 msgstr "栗色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kiaka"
 msgstr "黄赤"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "taisya"
 msgstr "たいしゃ"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "rakuda"
 msgstr "らくだ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kitye"
 msgstr "黄茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "hadairo"
 msgstr "肌色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "daidai"
 msgstr "橙色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "haitya"
 msgstr "灰茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tya"
 msgstr "茶色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kogetya"
 msgstr "焦茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kouji"
 msgstr "こうじ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "anzu"
 msgstr "杏色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "mikan"
 msgstr "蜜柑色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kassyoku"
 msgstr "褐色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tutiiro"
 msgstr "土色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "komugi"
 msgstr "小麦色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kohaku"
 msgstr "こはく色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kintya"
 msgstr "金茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tamago"
 msgstr "卵色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "yamabuki"
 msgstr "山吹色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "oudo"
 msgstr "黄土色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kutiba"
 msgstr "朽葉（くちば）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "himawari"
 msgstr "ひまわり色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ukon"
 msgstr "うこん色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "suna"
 msgstr "砂色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "karasi"
 msgstr "芥子（からし）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ki"
 msgstr "黄色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tanpopo"
 msgstr "たんぽぽ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "uguisutya"
 msgstr "鶯茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tyuki"
 msgstr "中黄"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kariyasu"
 msgstr "刈安（かりやす）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kihada"
 msgstr "きはだ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "miru"
 msgstr "みる色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "biwa"
 msgstr "ひわ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "uguisu"
 msgstr "鶯（うぐいす）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "mattya"
 msgstr "抹茶色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kimidori"
 msgstr "黄緑"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "koke"
 msgstr "苔色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "wakakusa"
 msgstr "若草色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "moegi"
 msgstr "萌黄（もえぎ）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kusa"
 msgstr "草色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "wakaba"
 msgstr "若葉色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "matuba"
 msgstr "松葉色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "byakuroku"
 msgstr "白緑（びゃくろく）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "midori"
 msgstr "緑"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tokiwa"
 msgstr "常磐（ときわ）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "rokusyou"
 msgstr "緑青（ろくしょう）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "titosemidori"
 msgstr "千歳緑（ちとせみどり）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "fukamidori"
 msgstr "深緑"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "wakatake"
 msgstr "若竹色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "seiji"
 msgstr "青磁色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "aotake"
 msgstr "青竹色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tetu"
 msgstr "鉄色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "aomidori"
 msgstr "青緑"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sabiasagi"
 msgstr "錆浅葱"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "mizuasagi"
 msgstr "水浅葱"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sinbasi"
 msgstr "新橋色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "asagi"
 msgstr "浅葱（あさぎ）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "byakugun"
 msgstr "白群（びゃくぐん）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "nando"
 msgstr "納戸色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kamenozoki"
 msgstr "かめのぞき"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "mizu"
 msgstr "水色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ainezu"
 msgstr "藍鼠（あいねず）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sora"
 msgstr "空色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ao"
 msgstr "青"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ai"
 msgstr "藍色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "koiai"
 msgstr "濃藍（こいあい）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "wasurenagusa"
 msgstr "勿忘草（わすれなぐさ）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tuyukusa"
 msgstr "露草色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "hanada"
 msgstr "はなだ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "konjou"
 msgstr "紺青（こんじょう）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ruri"
 msgstr "るり色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "rurikon"
 msgstr "るり紺"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kon"
 msgstr "紺色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kakitubata"
 msgstr "かきつばた色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kati"
 msgstr "勝色（かちいろ）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "gunjou"
 msgstr "群青（ぐんじょう）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tetukon"
 msgstr "鉄紺"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "fujinando"
 msgstr "藤納戸"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kikyou"
 msgstr "ききょう色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "konai"
 msgstr "紺藍"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "fuji"
 msgstr "藤色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "fujimurasaki"
 msgstr "藤紫"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "aomurasaki"
 msgstr "青紫"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sumire"
 msgstr "菫（すみれ）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "hatoba"
 msgstr "鳩羽（はとば）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "syoubu"
 msgstr "しょうぶ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "edomurasaki"
 msgstr "江戸紫"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "murasaki"
 msgstr "紫"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kodaimurasaki"
 msgstr "古代紫"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "nasukon"
 msgstr "なす紺"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sikon"
 msgstr "紫紺"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ayame"
 msgstr "あやめ色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "botan"
 msgstr "牡丹（ぼたん）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "akamurasaki"
 msgstr "赤紫"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "siro"
 msgstr "白"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "gofun"
 msgstr "胡粉（ごふん）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kinari"
 msgstr "生成り（きなり）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "zouge"
 msgstr "象牙（ぞうげ）色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "ginnezu"
 msgstr "銀鼠（ぎんねず）"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tyanezumi"
 msgstr "茶鼠"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "nezumi"
 msgstr "鼠色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "rikyunezumi"
 msgstr "利休鼠"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "namari"
 msgstr "鉛色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "hai"
 msgstr "灰色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "susutake"
 msgstr "すす竹色"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kurotya"
 msgstr "黒茶"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "sumi"
 msgstr "墨"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "kuro"
 msgstr "黒"
 
 # @ Raindrops
-#: wp/wp-content/themes/raindrops/lib/option-panel.php:1045
+#: wp/wp-content/themes/raindrops/lib/option-panel.php:1101
 msgid "tetukuro"
 msgstr "鉄黒"
 
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:187
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:192
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:206
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:243
+#, fuzzy
+msgid "Page"
+msgstr "ページ"
+
+# @ Raindrops
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:219
+#, fuzzy
+msgid "Now Page"
+msgstr "ページ %s"
+
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:231
+#: wp/wp-content/themes/raindrops/page-templates/front-portfolio.php:267
+msgid "Portfolio Home"
+msgstr "ポートフォリオ　ホーム"
+
+# @ Raindrops
+#~ msgid "Page %s"
+#~ msgstr "ページ %s"
+# @ Raindrops
+#~ msgid "Category Blog Widget"
+#~ msgstr "カテゴリ　ブログ　ウィジェット"
+#~ msgid "permalink"
+#~ msgstr "パーマリンク"
+# @ Raindrops
+#~ msgid "This entry has no title"
+#~ msgstr "この投稿にはタイトルがありません"
+# @ Raindrops
+#~ msgid "More Galleries"
+#~ msgstr "ギャラリー詳細"
 #~ msgid "Bookmark the "
 #~ msgstr "　　"
-
 # @ Raindrops
 #, fuzzy
 #~ msgid "<span>Newer posts <span class=\"meta-nav\">&rarr;</span></span>"

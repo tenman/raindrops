@@ -1,6 +1,17 @@
 Changelog -----------------------------------
 version:1.120
 
+    Fixed confuse template settings
+        Deleted header-html5.php template
+        Modified header.php template.
+            change xhtml to html5
+        Added header-xhtml template for document type xhtml 1.0
+
+    Fixed
+        body_class language class display improperly.
+    Modified
+        Add function raindrops_non_breaking_title
+            Entry title none breaking text breakable
 ----------------------------------------------
 
 Changelog -----------------------------------

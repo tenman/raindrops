@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.119
+Version: 1.120
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2772,7 +2772,17 @@ sup {
 }
 
 .raindrops-sticky{
+	/*display:none;*/
+	/* commentout 1.120*/
+}
+.single .raindrops-sticky .entry-content,
+.single .raindrops-sticky .entry-title{
+	/* add 1.120*/
 	display:none;
+}
+
+.sticky-single-follow-text #nva-below{
+	display:block;
 }
 .page-template-page-templatesfront-portfolio-php .raindrops-sticky{
 	display:block;
@@ -2865,6 +2875,85 @@ sup {
 .mejs-container{
 	margin:48px auto;
 }
+/* optional responsive grid  width < 640px then 100% 
+	example 
+	
+	div.line
+		div.unit.size1of3
+		div.unit.size2of3
+	/div
+*/
+.line ul,
+.line li{
+	margin:0;
+	padding:0;
+}
+.line img{
+	max-width:100%;
+	height:auto;
+}
+
+.line,
+.lastUnit {
+	overflow: hidden;
+}
+.unit{
+	float:left;
+}
+.unitExt{
+	float:right;
+}
+.size1of1{
+	float:none;
+}
+.size1of2{
+	width:50%;
+}
+.size1of3{
+	width:33.33333%;
+}
+.size2of3{
+	width:66.66666%;
+}
+.size1of4{
+	width:24.99%;
+}
+.size3of4{
+	width:75%;
+}
+.size1of5{
+	width:19.99%;
+}
+.size2of5{
+	width:40%;
+}
+.size3of5{
+	width:60%;
+}
+.size4of5{
+	width:80%;
+}
+.lastUnit {
+	float:none;
+	width:auto;
+}
+.size1of1,
+.size1of2,
+.size1of3,
+.size2of3,
+.size1of4,
+.size3of4,
+.size1of5,
+.size2of5,
+.size3of5,
+.size4of5{
+    padding:10px;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;*/
+}
+/* optional responsive grid  end */
 
 @media screen and (min-width : 640px){
 	#doc3 .nav-menu-toggle{ 
@@ -2971,7 +3060,17 @@ sup {
 	#doc3 .entry-content blockquote{
 		margin:1em 0;
 		max-width:100%;
-	}	
+	}
+		#doc3 .size1of1,
+	#doc3 .size1of2,
+	#doc3 .size1of3,
+	#doc3 .size2of3,
+	#doc3 .size1of4,
+	#doc3 .size3of4,
+	#doc3 .size1of5,
+	#doc3 .size2of5,
+	#doc3 .size3of5,
+	#doc3 .size4of5,
 	#doc3 #access ul ul,
 	#doc3 #access ul,
 	#doc3 #access ul li,

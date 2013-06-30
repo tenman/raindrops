@@ -83,15 +83,15 @@
 
 ?>
 <?php
-			if ( is_sticky( ) ) {
+				if ( is_sticky( ) ) {
 ?>
 	<div class="sticky-single-follow-text">
 						
-		<strong><a href="<?php echo $raindrops_home_url;?>"><?php esc_html_e( 'Sticky Post Shows Only WEB Site Home.', 'Raindrops' );?></a></strong>	
+		<strong><a href="<?php echo $raindrops_home_url;?>"><?php esc_html_e( 'Sticky Post Shows Only WEB Site Home.', 'Raindrops' );?></a></strong>
+		
 	</div>
-<?php		
-			}
-
+<?php
+				}
 ?>
                         <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?>>		
 		

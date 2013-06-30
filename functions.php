@@ -720,7 +720,7 @@
             if ( isset( $_SERVER["HTTP_ACCEPT_LANGUAGE"] ) ) {
 			
                 $browser_lang = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
-                $browser_lang = explode( ", ", $browser_lang );
+                $browser_lang = explode( ",", $browser_lang );
                 $browser_lang = esc_html( $browser_lang[0] );
                 $browser_lang = 'accept-lang-'.$browser_lang;
                 $classes= array( $lang, $color_type, $browser_lang );
@@ -728,6 +728,7 @@
 			
                 $classes= array( $lang, $color_type );
             }
+			
 			
 			$classes= array_merge( $classes, $class );
 			 
@@ -3408,6 +3409,7 @@ span#site-title,
         function raindrops_fallback_title( $title, $id = 0 ) {
 
             global $post;
+			$format_label = '';
 			
 			if( $id == 0 ){
 				$id = $post->ID;
@@ -3450,9 +3452,10 @@ span#site-title,
 
             }
 			
+			if( isset( $post->ID ) ) {  // for example search result fail
 			
-			
-			$title = raindrops_link_unique( $format_label , $post->ID ). $title;
+				$title = raindrops_link_unique( $format_label , $post->ID ). $title;
+			}
 			
             return $title;
 
@@ -3589,7 +3592,8 @@ span#site-title,
                 return apply_filters( "raindrops_header_image", $html );
             } elseif ( $type == 'css' ) {
 
-				$css = '#%1$s{background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s} #%1$s p {%6$s}';
+				$css = '#%1$s{background-image:url(%2$s);%8$s;height:%3$s;color:#%4$s;%5$s}'."\n". '#%1$s p {%6$s}';
+				$text_attr = str_replace( array('style','=','"',"'"), '', $text_attr );
                 $css = sprintf( $css,
                             'header-image',
                             esc_url( $img ),
@@ -5795,7 +5799,7 @@ span#site-title,
  *
  * @since 1.118
  */
-add_filter('image_send_to_editor','raindrops_remove_category_rel');
+	add_filter('image_send_to_editor','raindrops_remove_category_rel');
  
     if ( ! function_exists( 'raindrops_remove_category_rel' ) ) {
 
@@ -5809,7 +5813,7 @@ add_filter('image_send_to_editor','raindrops_remove_category_rel');
 
 
 
-add_filter( 'widget_posts_args', 'raindrops_remove_sticky_link_from_recent_post_widget' );
+	add_filter( 'widget_posts_args', 'raindrops_remove_sticky_link_from_recent_post_widget' );
 
     if ( ! function_exists( 'raindrops_remove_sticky_link_from_recent_post_widget' ) ) {
 
@@ -5820,5 +5824,69 @@ add_filter( 'widget_posts_args', 'raindrops_remove_sticky_link_from_recent_post_
 		return $args;
 		}
 	}
+/**
+ * Entry title none breaking text breakable
+ *
+ *
+ * test filter.
+ * @since 1.119
+ */
+	add_filter( 'the_title','raindrops_non_breaking_title' );
+	
+    if ( ! function_exists( 'raindrops_non_breaking_title' ) ) {
 
+		function raindrops_non_breaking_title( $title ){
+		
+			global $raindrops_document_type;
+		
+			//Floccinaucinihilipilification
+			
+			if ( ! is_admin( ) and $raindrops_document_type == 'html5' ) {
+			
+				if ( preg_match("/[\x20-\x7E]{30,}/", strip_tags( $title ) ) and preg_match('!([A-Z])!', $title ) ) {
+				
+					return preg_replace( '!([A-Z])!','<wbr>$1', $title );
+				} elseif ( preg_match("/[\x20-\x7E]{30,}/", strip_tags( $title ) ) ){
+				
+					return preg_replace( '!([^a-z])!','$1<wbr>', $title );
+				}
+			}
+			
+			return $title;
+		}
+	}
+/**
+ * Entry content none breaking text ( url ) breakable
+ *
+ *
+ * test filter.
+ * @since 1.119
+ */
+	
+	add_filter( 'the_content','raindrops_non_breaking_content', 11 );
+	
+    if ( ! function_exists( 'raindrops_non_breaking_content' ) ) {
+
+		function raindrops_non_breaking_content( $content ){
+		
+			global $raindrops_document_type;
+		
+			//long url link text breakable
+			
+			if ( ! is_admin( ) and $raindrops_document_type == 'html5' ) {
+			
+				return preg_replace_callback("|>([-_.!˜*\'()a-zA-Z0-9;\/?:@&=+$,%#]{30,})<|", 'raindrops_add_wbr_content_long_text', $content );
+				
+			}
+			
+			return $content;
+		}
+	}
+
+	function raindrops_add_wbr_content_long_text( $matches ){
+	
+		foreach( $matches as $match ){
+			return preg_replace( '!([/])!','$1<wbr>', $match );
+		}	
+	}
 ?>

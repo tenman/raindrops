@@ -1,5 +1,16 @@
 Changelog -----------------------------------
 version:1.121
+    Add browser detection select var $raindrops_browser_detection
+        use server side browser detection or javascript browser ditection
+        default change server side( PHP ) to javascript browser detection for cached Raindrops theme.
+
+    Add style rules for
+        .entry-content input[type="email"],
+        .entry-content input[type="text"],
+        .entry-content input[type=url],
+        .entry-content input[type=tel],
+        .entry-content input[type=number],
+        .entry-content input[type=color],
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.120

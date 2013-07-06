@@ -605,13 +605,14 @@ One is a method of up-loading the image from the below up-loading form. Another 
                     global $$scheme;
                 if($ok == true){
                 $result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), $raindrops_updates);
-                    if ( is_multisite() ) {
+					// comment out 1.121 next version will removed.
+                    /*if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
                                             esc_html__(" MultiSite User must Click here !!","Raindrops"));
-                    }else{
+                    }else{*/
                         $result .= '</p></div>';
-                    }
+                    /*}*/
                 }
             }
 /**

@@ -241,6 +241,13 @@ fieldset,
 .social textarea#comment,
 .social input[type="text"],
 .social input[type="submit"],
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type=url],
+.entry-content input[type=tel],
+.entry-content input[type=number],
+.entry-content input[type=color],
+.entry-content textarea,
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
     border:1px solid %c_border%;
@@ -280,6 +287,12 @@ background:none;
 .entry-content input[type="file"],
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"],
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type=url],
+.entry-content input[type=tel],
+.entry-content input[type=number],
+.entry-content input[type=color],
 .entry-content select{
 %c_4%
 }
@@ -433,6 +446,12 @@ fieldset,
 .social textarea#comment,
 .social input[type="text"],
 .social input[type="submit"],
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type=url],
+.entry-content input[type=tel],
+.entry-content input[type=number],
+.entry-content input[type=color],
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
 border:1px solid %rgba_border%;
@@ -651,7 +670,7 @@ input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
-    %c4%
+    %c5%
 }
 input[type="checkbox"],
 input[type="radio"],
@@ -677,18 +696,31 @@ select{
     list-style-type:square;
 
 }
-
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type=url],
+.entry-content input[type=tel],
+.entry-content input[type=number],
+.entry-content input[type=color]{
+	border:1px solid %rgba_border%;
+}
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-    %c4%
+    %c5%
 }
-.entry-content input[type="submit"],
+
 .entry-content input[type="radio"]{
     %c3%
 }
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type="url"],
+.entry-content input[type="tel"],
+.entry-content input[type="number"],
+.entry-content input[type="color"],
 .entry-content select{
-    %c4%
+    %c5%
 }
 
 .entry-content blockquote{
@@ -1084,6 +1116,12 @@ select{
 
     border:1px solid %c_border%;
 }
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type=url],
+.entry-content input[type=tel],
+.entry-content input[type=number],
+.entry-content input[type=color],
 .social input[type="submit"] {
     border:solid 1px %c_border%;
     %c4%
@@ -1104,6 +1142,12 @@ select{
     %c4%
     border:double 3px %c_border%;
 }
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type="url"],
+.entry-content input[type="tel"],
+.entry-content input[type="number"],
+.entry-content input[type="color"],
 .entry-content select{
     %c4%
     border:double 3px %c_border%;
@@ -1279,7 +1323,13 @@ border-top:1px dashed %rgba_border%;
     -moz-box-shadow: 0 0 5px %rgba_border%;
     border:1px solid %rgba_border%;
 }
-.social input[type="submit"] {
+.entry-content input[type="email"],
+.entry-content input[type="text"],
+.entry-content input[type=url],
+.entry-content input[type=tel],
+.entry-content input[type=number],
+.entry-content input[type=color],
+.social input[type="submit"]{
     border:1px solid %rgba_border%;
 }
 
@@ -1296,6 +1346,7 @@ border-top:1px dashed %rgba_border%;
 .entry-content input[type="radio"]{
     border:double 3px %rgba_border%;
 }
+
 .entry-content select{
     border:double 3px %rgba_border%;
 }

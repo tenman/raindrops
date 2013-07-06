@@ -224,7 +224,19 @@
             $raindrops_nav_menu_home_link = true;
         }
     }
+/**
+ * browser detection
+ * use server side browser detection or javascript browser ditection
+ * 
+ * javascript browser ditection is At a target [ operate / even when cash plug-in is used / properly ] 
+ * value bool
+ *  
+ * ver 1.121
+ */
+    if ( ! isset( $raindrops_browser_detection ) ) {
 
+		$raindrops_browser_detection = false;
+	}	
 /**
  * HTML document type
  *
@@ -686,90 +698,86 @@
  */
     if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 
-        function raindrops_add_body_class( $class ) {
+        function raindrops_add_body_class( $classes ) {
 
-            global $post, $current_blog, $raindrops_link_unique_text;
-;
+            global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection;
 
-            $lang               = get_locale( );
-            $raindrops_options  = get_option( "raindrops_theme_settings" );
+            $classes[]			= get_locale( );
+	
+			if ( is_single( ) or is_page( ) ) {
+				$color_type = '';
 
-            if ( isset( $raindrops_options["raindrops_style_type"] ) and !empty( $raindrops_options["raindrops_style_type"] ) ) {
+				$raindrops_content_check = get_post( $post->ID );
+				$raindrops_content_check = $raindrops_content_check->post_content;
 
-                $color_type = "rd-type-".$raindrops_options["raindrops_style_type"];
-            } else {
+				if (preg_match( "!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|' )*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+					$color_type = "rd-type-".trim( $regs[3] );
+				}
 
-                $color_type = '';
-            }
+				if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+					$color_type .= ' ';
+					$color_type .= "rd-col-".$regs[3];
+				}
+				
+				$classes[] = $color_type;
+			} else {
+			
+				$raindrops_options	= get_option( "raindrops_theme_settings" );
+	
+				if ( isset( $raindrops_options["raindrops_style_type"] ) and !empty( $raindrops_options["raindrops_style_type"] ) ) {
+					$classes[] = "rd-type-".$raindrops_options["raindrops_style_type"];
+				} 
+			}
+			
+			if( $raindrops_browser_detection == true ){
 
-            if ( is_single( ) or is_page( ) ) {
-
-                $raindrops_content_check = get_post( $post->ID );
-                $raindrops_content_check = $raindrops_content_check->post_content;
-
-                if (preg_match( "!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|' )*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
-                    $color_type = "rd-type-".trim( $regs[3] );
-                }
-
-                if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
-                    $color_type .= ' ';
-                    $color_type .= "rd-col-".$regs[3];
-                }
-            }
-
-            if ( isset( $_SERVER["HTTP_ACCEPT_LANGUAGE"] ) ) {
-
-                $browser_lang = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
-                $browser_lang = explode( ",", $browser_lang );
-                $browser_lang = esc_html( $browser_lang[0] );
-                $browser_lang = 'accept-lang-'.$browser_lang;
-                $classes= array( $lang, $color_type, $browser_lang );
-            } else {
-
-                $classes= array( $lang, $color_type );
-            }
-
-
-            $classes= array_merge( $classes, $class );
-
-            global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-
-            switch( true ) {
-                case( $is_lynx ):
-                     $classes[] = 'lynx';
-                break;
-                case( $is_gecko ):
-                    $classes[]  = 'gecko';
-                break;
-                case( $is_IE ):
-                    preg_match( " |(MSIE )([0-9]{1,2})(\.)|si", $_SERVER['HTTP_USER_AGENT'], $regs );
-                    $classes[]      = 'ie'.$regs[2];
-                break;
-                case( $is_opera ):
-                     $classes[] = 'opera';
-                break;
-                case( $is_NS4 ):
-                    $classes[]  = 'ns4';
-                break;
-                case( $is_safari ):
-                    $classes[]  = 'safari';
-                break;
-                case( $is_chrome ):
-                    $classes[]  = 'chrome';
-                break;
-                case( $is_iphone ):
-                    $classes[]  = 'iphone';
-                break;
-                default:
-                    $classes[]  = 'unknown';
-                break;
-            }
-
+				if ( isset( $_SERVER["HTTP_ACCEPT_LANGUAGE"] ) ) {
+				
+					$browser_lang	= $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+					$browser_lang	= explode( ",", $browser_lang );
+					$browser_lang	= esc_html( $browser_lang[0] );
+					$browser_lang	= 'accept-lang-'.$browser_lang;
+					$classes[]		= $browser_lang ;
+				} 
+				
+				switch( true ) {
+					case( $is_lynx ):
+						 $classes[] = 'lynx';
+					break;
+					case( $is_gecko ):
+						$classes[]  = 'gecko';
+					break;
+					case( $is_IE ):
+						preg_match( " |(MSIE )([0-9]{1,2})(\.)|si", $_SERVER['HTTP_USER_AGENT'], $regs );
+						$classes[]      = 'ie'.$regs[2];
+					break;
+					case( $is_opera ):
+						 $classes[] = 'opera';
+					break;
+					case( $is_NS4 ):
+						$classes[]  = 'ns4';
+					break;
+					case( $is_safari ):
+						$classes[]  = 'safari';
+					break;
+					case( $is_chrome ):
+						$classes[]  = 'chrome';
+					break;
+					case( $is_iphone ):
+						$classes[]  = 'iphone';
+					break;
+					default:
+						$classes[]  = 'unknown';
+					break;
+				}
+			}
+			
             if ( isset( $current_blog ) ) {
 
                 $classes[] = "b". $current_blog->blog_id;
             }
 
+           
 
             if ( $raindrops_link_unique_text == true ) {
                 $classes[] = 'raindrops-accessible-mode';
@@ -3997,7 +4005,7 @@ span#site-title,
 
         function raindrops_small_device_helper( ) {
 
-            global $is_IE, $raindrops_fluid_maximum_width;
+            global $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post;
 
             $raindrops_header_image             = get_custom_header( );
             $raindrops_header_image_uri         = $raindrops_header_image -> url;
@@ -4034,6 +4042,73 @@ span#site-title,
 <?php //remove header
 
              }
+			//detect lang  add ver 1.120
+			if( $raindrops_browser_detection !== true ){
+			
+				if ( is_single( ) or is_page( ) ) {
+					$color_type = '';
+	
+					$raindrops_content_check = get_post( $post->ID );
+					$raindrops_content_check = $raindrops_content_check->post_content;
+	
+					if (preg_match( "!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|' )*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+						$color_type = "rd-type-".trim( $regs[3] );
+					}
+	
+					if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+						$color_type .= ' ';
+						$color_type .= "rd-col-".$regs[3];
+					}
+?>
+					jQuery('body').addClass( '<?php echo $color_type;?>' );
+<?php					
+				} else {
+				
+					$raindrops_options	= get_option( "raindrops_theme_settings" );
+		
+					if ( isset( $raindrops_options["raindrops_style_type"] ) and !empty( $raindrops_options["raindrops_style_type"] ) ) {
+?>
+					jQuery('body').addClass( '<?php echo "rd-type-".$raindrops_options["raindrops_style_type"];?>' );
+<?php
+					} 
+				}
+?>
+				if ( navigator.userLanguage ) {
+					baseLang = navigator.userLanguage.substring(0,2).toLowerCase();
+				} else {
+					baseLang = navigator.language.substring(0,2).toLowerCase();
+				}
+				
+				jQuery('body').addClass( 'accept-lang-' +  baseLang );
+				
+				if (/MSIE (\d+\.\d+);/.test(navigator.userAgent) ) {
+				 
+					 var ieversion = new Number( RegExp.$1 );
+					 
+					 ieversion = Math.floor( ieversion );
+					 jQuery('body').addClass( 'ie' +  ieversion );
+				}
+				
+				var userAgent = window.navigator.userAgent.toLowerCase();
+				
+				if (userAgent.indexOf('opera') != -1) {
+					 jQuery('body').addClass( 'opera' );
+				} else if (userAgent.indexOf('chrome') != -1) {
+					 jQuery('body').addClass( 'chrome' );
+				} else if (userAgent.indexOf('safari') != -1) {
+					 jQuery('body').addClass( 'safari' );
+				} else if (userAgent.indexOf('gecko') != -1) {
+					 jQuery('body').addClass( 'gecko' );
+				} else if (userAgent.indexOf('iphone') != -1) {
+					 jQuery('body').addClass( 'iphone' );
+				} else if (userAgent.indexOf('Netscape') != -1) {
+					 jQuery('body').addClass( 'netscape' );
+				} else {
+					 jQuery('body').addClass( 'unknown' );
+				}
+
+<?php
+			}//end if( $raindrops_browser_detection == true )
 /**
  * Check window size and mouse position
  * Controll childlen menu show right or left side.

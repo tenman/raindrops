@@ -30,7 +30,6 @@ Template Name: Auther
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  */
-
 		$curauth = get_userdata( intval( $author ) );
 		
 		get_header( $raindrops_document_type );
@@ -50,9 +49,9 @@ Template Name: Auther
 ?>
 					</h2>
 					
-					<table <?php raindrops_doctype_elements( 'summary="author infomation"', '');?> class="author-meta">
+					<table <?php raindrops_doctype_elements( 'summary="author infomation"', '');?> class="author-meta left auto">
 						<tr>
-							<td class="avatar-col">
+							<td class="avatar-col" style="width:60px;vertical-align:top;">
 <?php 
 		echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) );
 ?>
@@ -84,11 +83,14 @@ Template Name: Auther
 ?>
 									</dt>
 										<dd>
-											<a href="<?php echo esc_url( $curauth->user_url ); ?>">
-<?php 
-			echo esc_url( $curauth->user_url );
+<?php	
+			$raindrops_html_author_url = '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>';
+			printf( $raindrops_html_author_url,
+                    esc_url( $curauth->user_url ),
+					sprintf( 'link to author %1$s', esc_attr( $curauth->display_name ) ),
+                    esc_url( $curauth->user_url )
+					);
 ?>
-											</a>
 										</dd>
 <?php
 		}
@@ -124,13 +126,22 @@ Template Name: Auther
 ?>
 						<dt>
 <?php 
-				$raindrops_date_format = get_option( 'date_format' ); the_time( $raindrops_date_format );
+				$raindrops_date_format = get_option( 'date_format' ); 
+				$raindrops_year           = get_the_time( 'Y' );
+				$raindrops_month          = get_the_time( 'm' );
+				$raindrops_day            = get_the_time( 'd' );
+				$day_link               = esc_url( get_day_link( $raindrops_year, $raindrops_month, $raindrops_day).'#post-'.$post->ID  );
+		
+				printf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>',
+                    $day_link,
+                    esc_attr( 'archives daily '. get_the_time( $raindrops_date_format ) ),
+                    get_the_date( $raindrops_date_format ),
+                    raindrops_doctype_elements( 'span','time',false ),
+                    raindrops_doctype_elements( '', 'datetime="'.esc_attr( get_the_date( 'c' ) ).'"', false )
+                );
+				
+				raindrops_entry_title( );
 ?>
-			&nbsp;&nbsp;<a href="<?php the_permalink( ) ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute( ); ?>">
-<?php 
-				the_title( );
-?>
-							</a>
 						</dt>
 		  					<dd>
 <?php 

@@ -955,11 +955,6 @@
 
             global $post;
 
-            if( is_sticky() ){
-
-                return;
-            }
-
             $raindrops_date_format  = get_option( 'date_format' ). ' '. get_option( 'time_format' );
             $author                 = raindrops_blank_fallback(get_the_author( ),'Somebody' );
             $archive_year           = get_the_time( 'Y' );
@@ -988,7 +983,7 @@
 
             $result = sprintf( esc_html__( '%1$s %5$s %2$s %6$s %3$s %4$s', 'Raindrops' ),
                 '<span class="meta-prep meta-prep-author">',
-                '</span>'. sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>',
+                '</span>'. sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>',
                     $day_link,
                     esc_attr( 'archives daily '. get_the_time( $raindrops_date_format ) ),
                     get_the_date( $raindrops_date_format ),
@@ -1507,10 +1502,10 @@
 
             global $raindrops_document_type;
 
-            if( $raindrops_document_type == 'html5' ){
+        /*   if( $raindrops_document_type == 'html5' ){
 
                 return $args;
-            }
+            }*/
 
 
             $change = array( "aria-required=\"true\"", "aria-required='true'" );
@@ -2557,7 +2552,7 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
 
                 $page_break = false;
                 $first_data = false;
-
+//var_dump( $one_month );
                 foreach( $one_month as $key=>$month ) {
 
                     $month->post_title = raindrops_fallback_title( $month->post_title );
@@ -2570,13 +2565,36 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
 
                             $first_data = true;
                             $month->post_title = raindrops_fallback_title( $month->post_title );
-                            $links .= "<li><a href=\"" . get_permalink( $month->ID ) . "\" title=\"".esc_attr( $month->post_title )."\">".$month->post_title."</a></li>";
+
+            $html = '<li id="post-"%5$s" %6$s>
+						<span class="%1$s"><a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></span>
+						<%7$s class="entry-date updated" %8$s>%9$s</%7$s>
+						<span class="author vcard"><a class="url fn n" href="%10$s" title="%11$s" rel="vcard:url">%12$s</a></span> 					</li>';
+					
+			$display_name = get_the_author_meta( 'display_name', $month->post_author );
+
+            $links .= sprintf( $html,
+                            'h2 entry-title',
+                            esc_url( get_permalink( $month->ID ) ),
+                            'link to content: '. esc_attr( $month->post_title ),
+                            $month->post_title,
+							$month->ID,
+							' '.raindrops_post_class( array( 'clearfix' ) , null, false ),
+							raindrops_doctype_elements( 'span','time',false ),
+							raindrops_doctype_elements( '', 'datetime="'.esc_attr( get_the_date( 'c' ) ).'"', false ),
+							$month->post_date,
+							get_author_posts_url( get_the_author_meta( 'ID' ) ),
+							sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $display_name ),
+							$display_name
+                            );
 
                             $c++;
                         }
                     }
                 }
-
+//var_dump( "z:{$z} c:{$c} post_per_page:{$post_per_page}" )."\n<br>";
+				$post_per_page = get_option( 'posts_per_page' );
+				$post_per_page = apply_filters( 'month_list_post_count', $post_per_page );
                 if ( $z == $c and $c == $post_per_page ) {
 
                     break ;
@@ -5697,7 +5715,7 @@ span#site-title,
  */
     if ( ! function_exists( 'raindrops_post_class' ) ) {
 
-        function raindrops_post_class( $class = '' , $post_id = null ){
+        function raindrops_post_class( $class = '' , $post_id = null , $echo = true ){
 
             global $post;
 
@@ -5725,8 +5743,14 @@ span#site-title,
             }
 
             $classes = array_map('esc_attr', $classes);
+			
+			if( $echo == true ){
 
-            echo 'class="' . join( ' ', $classes ) . '"';
+            	echo 'class="' . join( ' ', $classes ) . '"';
+			} else {
+
+            	return 'class="' . join( ' ', $classes ) . '"';
+			}
         }
     }
 

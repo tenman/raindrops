@@ -137,7 +137,8 @@
 <?php 
 			wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
 ?>
-		</div>
+			</div>
+		
 	</div>
 		<div class="clearfix"></div>
 <?php 
@@ -228,6 +229,9 @@
 				
 				printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
 			}
+?>
+	</div>
+<?php
 
 	}
 ?>

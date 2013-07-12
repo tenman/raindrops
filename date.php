@@ -41,27 +41,46 @@ Released under the terms of the GNU GPL version 2
 		}else{
 			$current 			= 1;
 		}
+		
+		if ( have_posts( ) ) {
+				$ye = mysql2date( 'Y', $wp_query->posts[0]->post_date );
+				$mo = mysql2date( 'm', $wp_query->posts[0]->post_date );
+				$da = mysql2date( 'd', $wp_query->posts[0]->post_date );
+		} else {
+				get_template_part( '404' );
+		}
+		
+		$calendar_page_number   = get_query_var( 'paged' );
+		$post_per_page_pre		= get_option( 'posts_per_page' );
+		$post_per_page			= apply_filters( 'month_list_post_count', $post_per_page_pre );
+		
+		if( isset( $ye ) and ! empty( $ye ) and isset( $mo ) and ! empty( $mo ) ){
+					
+			$raindrops_page_total = ( int )  ceil( $wp_query->max_num_pages * $post_per_page_pre / $post_per_page );
+		
+		} else {
+		
+			$raindrops_page_total = $wp_query->max_num_pages;
+		}		
+
 	
 		$pagination 			= array(
 									'base' => @add_query_arg( 'paged', '%#%' ),
 									'format' => '',
-									'total' => $wp_query->max_num_pages,
+									'total' => $raindrops_page_total,
 									'current' => $current,
 									'show_all' => true,
 									'type' => 'plain'
 									);
-
+									
 		if( $wp_rewrite->using_permalinks( ) ){
 			$pagination['base']     = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
 		}
 	
-		$calendar_page_number   = get_query_var( 'paged' );
-		$post_per_page          = get_option( 'posts_per_page' );
-
 		if($calendar_page_number == 0 ){
 			$calendar_page_number = 1;
 		}
-	
+
 		$calendar_page_last 	= $calendar_page_number * $post_per_page;
 		$calendar_page_start 	= $calendar_page_last - $post_per_page;
 		$weekdaynames 			= array(
@@ -73,13 +92,6 @@ Released under the terms of the GNU GPL version 2
 										5 => esc_html__( 'Friday', 'Raindrops' ),
 										6 => esc_html__( 'Saturday', 'Raindrops' )
 									);
-		if ( have_posts( ) ) {
-				$ye = mysql2date( 'Y', $wp_query->posts[0]->post_date );
-				$mo = mysql2date( 'm', $wp_query->posts[0]->post_date );
-				$da = mysql2date( 'd', $wp_query->posts[0]->post_date );
-		} else {
-				get_template_part( '404' );
-		}
 		
 		get_header( $raindrops_document_type );
 		
@@ -90,7 +102,7 @@ Released under the terms of the GNU GPL version 2
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
      			<!-- content -->
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
-					<h2 class="page-title">
+					<h2 class="page-title ">
 <?php
 		if ( is_year( ) ) {
 				$one_year = query_posts( "posts_per_page=-1&year=$ye" );

@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.122
+
+Fixed
+    author.php
+        Table layout display improperly.
+    entry-blog.php
+        html add div close tag.
+modified
+    author.php
+        add microformats
+    date.php
+        add microformats
+    comment form
+        remove area required when html5
+            Markup validation Service error
+                Attribute aria-required not allowed on element textarea at this point.
+
+    Add filter
+
+        This filter can change Monthly Archive entry list count.
+
+        for example
+
+        add_filter( 'month_list_post_count', 'my_month_list_post_count' );
+
+        function my_month_list_post_count( $count ) {
+
+            return 10;
+        }
+----------------------------------------------
+Changelog -----------------------------------
 version:1.121
     Add browser detection select var $raindrops_browser_detection
         use server side browser detection or javascript browser ditection

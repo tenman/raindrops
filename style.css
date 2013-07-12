@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.121
+Version: 1.122
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1812,6 +1812,9 @@ li.byuser > div a{
     cursor: default;
     text-decoration:none;
 }
+.home .sticky .posted-on{
+	display:none;
+}
 .home #container{
 	margin:0;
 	/*margin:0 .3em;
@@ -2798,8 +2801,9 @@ sup {
 	display:block;
 }
 .sticky-single-follow-text{
-	margin-top:5em;
-	text-align:center;
+	margin-top:45px;
+	text-align:left;
+	font-size:230.7%;
 }
 .sticky.raindrops-sticky{
 	display:block;
@@ -3559,4 +3563,23 @@ only screen and (min-resolution: 192dpi) {
 
 .rd-type-w3standard input[type="submit"]{
 	padding:3px 5px;
+}
+.author .entry-title{
+	display:inline-block;
+	font-size:138.5%;
+	margin-left:.6em;
+}
+.author .h2-thumb img{
+	width:24px;
+	height:24px;
+}
+.date .entry-title{
+	font-size:123.1%;
+	font-weight:normal;
+	display:inline-block;
+	arial,helvetica,clean,sans-serif;
+}
+.date .entry-date,
+.date .author{
+	display:none;
 }

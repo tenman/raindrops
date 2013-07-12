@@ -19,8 +19,6 @@
 ?>
 <?php 
 		raindrops_entry_title( );
-		
-		
 ?>
 		<div class="<?php echo $raindrops_entry_meta_class; ?>">
 <?php 

@@ -1478,11 +1478,6 @@
 
             global $raindrops_document_type;
 
-            if( $raindrops_document_type == 'html5' ){
-
-                return $arg;
-            }
-
             $change = array( "aria-required=\"true\"", "aria-required='true'" );
             $arg    = str_replace( $change,'', $arg );
 
@@ -1501,12 +1496,6 @@
         function custom_remove_aria_required2( $args ) {
 
             global $raindrops_document_type;
-
-        /*   if( $raindrops_document_type == 'html5' ){
-
-                return $args;
-            }*/
-
 
             $change = array( "aria-required=\"true\"", "aria-required='true'" );
 
@@ -2552,7 +2541,7 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
 
                 $page_break = false;
                 $first_data = false;
-//var_dump( $one_month );
+
                 foreach( $one_month as $key=>$month ) {
 
                     $month->post_title = raindrops_fallback_title( $month->post_title );
@@ -2592,7 +2581,7 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
                         }
                     }
                 }
-//var_dump( "z:{$z} c:{$c} post_per_page:{$post_per_page}" )."\n<br>";
+
 				$post_per_page = get_option( 'posts_per_page' );
 				$post_per_page = apply_filters( 'month_list_post_count', $post_per_page );
                 if ( $z == $c and $c == $post_per_page ) {
@@ -3433,8 +3422,9 @@ span#site-title,
     if ( ! function_exists( 'raindrops_fallback_title' ) ) {
 
         function raindrops_fallback_title( $title, $id = 0 ) {
-
+		
             global $post;
+			
             $format_label = '';
 
             if( $id == 0 ){

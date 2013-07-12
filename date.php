@@ -72,7 +72,7 @@ Released under the terms of the GNU GPL version 2
 									'show_all' => true,
 									'type' => 'plain'
 									);
-									
+
 		if( $wp_rewrite->using_permalinks( ) ){
 			$pagination['base']     = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
 		}
@@ -102,7 +102,7 @@ Released under the terms of the GNU GPL version 2
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
      			<!-- content -->
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
-					<h2 class="page-title ">
+					<h2 class="page-title">
 <?php
 		if ( is_year( ) ) {
 				$one_year = query_posts( "posts_per_page=-1&year=$ye" );

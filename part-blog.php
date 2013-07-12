@@ -122,7 +122,6 @@
 <?php 
 			raindrops_entry_title( );
 ?>
-	
 			<div class="entry-content clearfix">
 <?php 
 			raindrops_prepend_entry_content( );

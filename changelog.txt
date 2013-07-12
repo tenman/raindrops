@@ -1,20 +1,22 @@
 Changelog -----------------------------------
-version:1.122
+version:1.123
 
-Fixed
-    author.php
-        Table layout display improperly.
-    entry-blog.php
-        html add div close tag.
-modified
-    author.php
-        add microformats
-    date.php
-        add microformats
-    comment form
-        remove area required when html5
-            Markup validation Service error
-                Attribute aria-required not allowed on element textarea at this point.
+    Fixed
+        author.php
+            Table layout display improperly.
+        entry-blog.php
+            html add div close tag.
+    modified
+        author.php
+            add microformats
+        date.php
+            add microformats
+        comment form
+            remove area required when html5
+                Markup validation Service error
+                    Attribute aria-required not allowed on element textarea at this point.
+        lib/option-panel.php
+            raindrops_color_selector() add $scheme check.
 
     Add filter
 

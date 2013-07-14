@@ -4,6 +4,12 @@ version:1.124
 fixed
     Fixed monthly archive list element id broken.
 
+    Avatar image not contain alt attribute.
+        author.php
+modified
+    Add wpautop when showing 'Biographical Info' at author.php
+    function raindrops_entry_title()
+        modified title element changeable
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.123

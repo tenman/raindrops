@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:1.124
+
+fixed
+    Fixed monthly archive list element id broken.
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.123
 
     Fixed

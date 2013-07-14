@@ -2555,7 +2555,7 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
                             $first_data = true;
                             $month->post_title = raindrops_fallback_title( $month->post_title );
 
-            $html = '<li id="post-"%5$s" %6$s>
+            $html = '<li id="post-%5$s" %6$s>
 						<span class="%1$s"><a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></span>
 						<%7$s class="entry-date updated" %8$s>%9$s</%7$s>
 						<span class="author vcard"><a class="url fn n" href="%10$s" title="%11$s" rel="vcard:url">%12$s</a></span> 					</li>';
@@ -4813,12 +4813,20 @@ span#site-title,
  */
     if ( ! function_exists( 'raindrops_entry_title' ) ) {
 
-        function raindrops_entry_title( ) {
+        function raindrops_entry_title( $args = array() ) {
 
             global $post;
+			
+			$default= array(
+				'raindrops_title_element' => 'h2',
+            );
+
+            $args      = wp_parse_args( $args, $default );
 
             $thumbnail = '';
-
+			
+			extract($args, EXTR_SKIP);
+			
             if ( has_post_thumbnail( $post->ID ) and ! is_singular( ) ) {
 
                 $thumbnail .= '<span class="h2-thumb">';
@@ -4829,13 +4837,12 @@ span#site-title,
                 $thumbnail .= '</span>';
             }
 
-            $html = '<h2 class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></h2>';
+            $html = '<'. $raindrops_title_element. ' class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></'. $raindrops_title_element. '>';
 
             $html = sprintf( $html,
                             'h2 entry-title',
                             get_permalink( ),
                             the_title_attribute( array( 'before' => '', 'after' =>  '', 'echo' => false ) ),
-                          //  raindrops_link_unique( 'Article', get_the_ID() ). the_title( '','',false ),
                             the_title( '','',false ),
                             $thumbnail
                             );

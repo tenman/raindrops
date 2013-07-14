@@ -53,7 +53,8 @@ Template Name: Auther
 						<tr>
 							<td class="avatar-col" style="width:60px;vertical-align:top;">
 <?php 
-		echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) );
+		echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ,'', 
+		esc_attr__('Author Avatar Image','Raindrops') );
 ?>
 							</td>
 							<td>
@@ -68,7 +69,7 @@ Template Name: Auther
 									</dt>
 										<dd>
 <?php 
-			echo esc_html( $curauth->description );
+			echo wpautop( esc_html( $curauth->description ) );
 ?>
 										</dd>
 <?php
@@ -140,7 +141,7 @@ Template Name: Auther
                     raindrops_doctype_elements( '', 'datetime="'.esc_attr( get_the_date( 'c' ) ).'"', false )
                 );
 				
-				raindrops_entry_title( );
+				raindrops_entry_title( array( 'raindrops_title_element' => 'span') );
 ?>
 						</dt>
 		  					<dd>

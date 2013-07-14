@@ -101,3 +101,19 @@ body.ja,
 	font-size:108%;
 	padding:5px 0;
 }
+.ja .author .entry-title{
+	display:inline-block;
+	font-size:123.1%;
+	margin-left:.6em;
+}
+.ja .author .h2-thumb img{
+	width:24px;
+	height:24px;
+}
+.ja.date .entry-title{
+	font-size:108%;
+	font-weight:normal;
+	display:inline-block;
+	arial,helvetica,clean,sans-serif;
+}
+

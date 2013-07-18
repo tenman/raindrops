@@ -2,15 +2,6 @@ Changelog -----------------------------------
 version:1.125
 
 fixed
-    Fixed default sidebar search form shows list before WordPress 3.5.2
-        if smaller than WordPress 3.6 then not showing search form.
-    Fixed searchform.php html5 html structure not correct.
-        WAI ARIA role="search" move from input attribute to form attribute.
-----------------------------------------------
-Changelog -----------------------------------
-version:1.124
-
-fixed
     Fixed monthly archive list element id broken.
 
     Avatar image not contain alt attribute.
@@ -19,6 +10,12 @@ modified
     Add wpautop when showing 'Biographical Info' at author.php
     function raindrops_entry_title()
         modified title element changeable
+
+    Modified Post format status
+        Change show posted on link at front page.
+            Care for microformats
+        get_avatar image modified for microformats at front page.
+
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.123

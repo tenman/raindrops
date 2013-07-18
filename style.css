@@ -1720,6 +1720,10 @@ li.byuser > div a{
 	overflow:hidden;
 	max-width:180px;
 }
+.format-status .vcard .url .fn,
+.category-blog .vcard .url .fn{
+	display:none;
+}
 .format-status ul.categoryblog *,
 .category-blog ul.categoryblog *{
 	overflow:hidden;

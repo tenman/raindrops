@@ -158,6 +158,12 @@
  */
 ?>
 		<div class="format-status-not-single-post">
+		<div class="posted-on">
+<?php 
+					raindrops_posted_on( );
+?>
+		</div>
+
 			<ul class="entry-meta-list left">
 				<li class="blog-avatar">
 <?php
@@ -169,9 +175,10 @@
 								get_the_author_meta( 'display_name' ) 
 							 ); 
 			printf( 
-				'<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>',
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), $raindrops_avatar );
+				'<span class="author vcard"><a class="url" href="%1$s"   rel="vcard:url">%2$s<span class="fn n">%3$s</span></a></span>',
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), $raindrops_avatar, get_the_author_meta( 'display_name' ) );
 ?>
+
 				</li>
 			</ul>
 		
@@ -179,6 +186,7 @@
 <?php 
 			raindrops_entry_title( );
 ?>
+
 				<div class="entry-content clearfix">
 <?php 
 			raindrops_prepend_entry_content( );

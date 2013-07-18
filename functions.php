@@ -4921,22 +4921,25 @@ span#site-title,
 
         function raindrops_sidebar_menus( $position = 'default' ) {
 
-            global $post;
+            global $post, $raindrops_wp_version;
 
             $attr = '';
 
             if ( $position == 'default' ) {
-
-                $html = '<li>'.get_search_form( false ). '</li>';
-                $html .= '<li><h2 class="h2">'. esc_html__( 'Archives', 'Raindrops' ). '</h2>';
+				if( $raindrops_wp_version < 3.6 ) {
+					$html = '';
+								// version 3.5.2 get_search_form always echo , It shows list elements before.
+				} else {
+                	$html = '<li id="search-default" class="widget-container widget_search">'. get_search_form( false ). '</li>';
+				}
+                $html .= '<li><h2 class="h2 widget-title">'. esc_html__( 'Archives', 'Raindrops' ). '</h2>';
                 $html .= '<ul>'. wp_get_archives( 'type=monthly&echo=0' ). '</ul>';
                 $html .= '</li>';
 
             } else {
 
-                $html = wp_list_categories( 'show_count=1&title_li=<h2 class="h2">'. esc_html__( 'Categories', 'Raindrops' ). '</h2>&echo=0' );
+                $html = wp_list_categories( 'show_count=1&title_li=<h2 class="h2 widget-title">'. esc_html__( 'Categories', 'Raindrops' ). '</h2>&echo=0' );
             }
-
 
             echo apply_filters( 'raindrops_sidebar_menus', $html );
 

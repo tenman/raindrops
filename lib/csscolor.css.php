@@ -939,8 +939,10 @@ body{
 }
 
 #hd{
-  /* color:#000;*/
+/* change 1.125 next version remove
 %c2%
+*/
+%c5%
     border-top: 6px solid %c_border%;
 
 	background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
@@ -1167,7 +1169,10 @@ select{
 #access a {
 }
 #access ul ul a {
+/* change 1.125 next version remove
     %c3%
+	*/
+	%c5%
 }
 #access .children li:active >a,
 #access li:active >a ,
@@ -1178,7 +1183,10 @@ select{
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
+/* change 1.125 next version remove
     %c3%
+	*/
+	%c5%
 }
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
@@ -2088,8 +2096,8 @@ CSS;
             /**
              * light
              */
-                $custom_dark_bg = raindrops_colors('4','background');
-                $custom_light_bg = raindrops_colors('3','background');
+                $custom_dark_bg = raindrops_colors('5','background');
+                $custom_light_bg = raindrops_colors('4','background');
                 $custom_color = raindrops_colors('3','color');
                 $base_gradient = raindrops_gradient_single_clone(3,"asc");
                 if(!empty($raindrops_footer_color)){

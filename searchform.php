@@ -12,10 +12,10 @@
 
 		if( $raindrops_document_type == 'html5' ) {
 ?>
-<form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" >
+<form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php raindrops_doctype_elements( '','role="search"' );?>>
   <div class="searchform">
     <label class="screen-reader-text" for="s">Search for:</label>
-    <input type="text" value="<?php the_search_query( ); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags' , 'Raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'Raindrops' ); ?>" name="s" id="s" <?php raindrops_doctype_elements( '','role="search"' );?> />
+    <input type="text" value="<?php the_search_query( ); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags' , 'Raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'Raindrops' ); ?>" name="s" id="s"  />
     <input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'Raindrops' );?>" />
   </div>
 </form>

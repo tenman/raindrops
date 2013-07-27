@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.126
+Version: 1.127
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1332,8 +1332,7 @@ div.attachment {
 .link_category_list dt,
 .link_category_list p,
 .items .breadcrumb,
-li.category_report,
-{
+li.category_report{
 	margin-left:20px!important;
 }
 #ft a,
@@ -2970,7 +2969,7 @@ sup {
     -moz-box-sizing:border-box;
     -ms-box-sizing:border-box;
     -webkit-box-sizing:border-box;
-    box-sizing:border-box;*/
+    box-sizing:border-box;
 }
 /* optional responsive grid  end */
 
@@ -3239,14 +3238,18 @@ sup {
 	}
 	
 	.home #doc3 .format-status .entry-meta-list{
-		display:none;
+		
 	}
-	/* .format-status .blog-main:before  old style*/
+
+	.home #doc3 .format-status .post-format-status-main{
+
+	}
 	.home #doc3 .format-status .post-format-status-main:before{
 		content: 'STATUS';
 		display:block;
 		font-weight:bold;
 		font-family:sans-serif;
+		margin-top:1em;
 	}
 	#doc3 .post-format-status-publish-date,
 	#doc3 .category-blog-publish-date{
@@ -3341,13 +3344,14 @@ sup {
 }
 .portfolio .index > li .post .h2-thumb,
 .portfolio .index > li:not(.loop-item-show-allways) .post .entry-meta,
-.portfolio .index > li:not(.loop-item-show-allways) .post .raindrops-comment-link,
+.portfolio .index > li:not(.loop-item-show-allways) .post .raindrops-comment-link em,
 .portfolio .index > li:not(.loop-item-show-allways) .post .entry-title a{
 	display:none;
 }
 .portfolio .index > li .raindrops-comment-link{
 	margin:0 0 0 0;
 }
+.portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link em,
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link{
 	display:inline;
 }
@@ -3403,9 +3407,6 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
 		margin:0 auto;
 	}
 }
-
-
-
 
 @media 
 only screen and (-webkit-min-device-pixel-ratio: 2), 
@@ -3524,6 +3525,10 @@ only screen and (min-resolution: 192dpi) {
 		background-size:24px 24px;
 	}
 }
+
+
+
+
 /* portfolio template */
 .portfolio-nav{
 	margin:10px;
@@ -3582,7 +3587,6 @@ only screen and (min-resolution: 192dpi) {
 	font-size:123.1%;
 	font-weight:normal;
 	display:inline-block;
-	arial,helvetica,clean,sans-serif;
 }
 .date .entry-date,
 .date .author{

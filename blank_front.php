@@ -354,8 +354,9 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 					$html = '<div class="%1$s">';
 					printf( $html, 'entry-content clearfix' );
 	
-	
-					if ( RAINDROPS_USE_LIST_EXCERPT == true ) {
+					$raindrops_excerpt_condition = raindrops_detect_excerpt_condition();
+					
+					if ( $raindrops_excerpt_condition == true ) {
 						the_excerpt( );
 					} else {
 						the_content( esc_html__( 'Continue&nbsp;reading', 'Raindrops' ). ' <span class="meta-nav">&rarr;</span>' );

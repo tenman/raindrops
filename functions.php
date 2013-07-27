@@ -1,4 +1,4 @@
-<?php
+<?php		  
 /**
  * functions and constants for Raindrops theme
  *
@@ -457,11 +457,50 @@
  * the_excerpt use where index,archive,other not single pages.
  * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
  *
+ * add ver 1.127
+ * When use excerpt please set $raindrops_where_excerpts
  */
     if ( ! defined( 'RAINDROPS_USE_LIST_EXCERPT' ) ) {
 
         define( "RAINDROPS_USE_LIST_EXCERPT", false );
     }
+	
+	// values 'is_search', 'is_archive', 'is_category' ,'is_tax', 'is_tag' any conditional function name
+	
+	if( ! isset( $raindrops_where_excerpts ) ) {
+		
+		$raindrops_where_excerpts = array( 'is_search' );
+	}
+/**
+ *
+ *
+ *
+ * @since 1.127
+ */
+	if ( ! function_exists( 'raindrops_detect_excerpt_condition' ) ) {
+		
+		function raindrops_detect_excerpt_condition( ){
+		
+			global $raindrops_where_excerpts;
+			
+			if( RAINDROPS_USE_LIST_EXCERPT !== true ) {
+			
+				return false;
+			}
+			
+			if( ! empty( $raindrops_where_excerpts ) ) {
+			
+				foreach( $raindrops_where_excerpts as $excerpt ) {
+				
+					if( $excerpt() == true ){
+						return true;
+					}
+				}
+			}
+			
+			return false;
+		}
+	}
 /**
  * Auto Color On or Off
  * If you want no Auto Color when set value false.
@@ -4862,10 +4901,18 @@ span#site-title,
         function raindrops_entry_content( $more_link_text = null, $stripteaser = false ) {
 
             global $post;
+			
+			$raindrops_excerpt_condition = raindrops_detect_excerpt_condition();
+					
+			//var_dump( $raindrops_excerpt_condition );
+			//echo 'hello';
 
-            if ( RAINDROPS_USE_LIST_EXCERPT == true and ! is_single( ) and ! is_page( ) ) {
+         //   if ( RAINDROPS_USE_LIST_EXCERPT == true and ! is_single( ) and ! is_page( ) ) {
+            if ( $raindrops_excerpt_condition == true ) {
+				/* remove shortcodes */
+				$excerpt = preg_replace('!\[[^\]]+\]!', '', get_the_excerpt( ) );
 
-                $excerpt = apply_filters( 'the_excerpt', get_the_excerpt( ) );
+                $excerpt = apply_filters( 'the_excerpt', $excerpt );
 
                 echo apply_filters( 'raindrops_entry_content', $excerpt );
             } else {

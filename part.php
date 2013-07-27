@@ -25,13 +25,7 @@
 		raindrops_posted_on( ); 
 ?>
 		</div>
-<?php 
-	if ( ( is_archive( ) or is_search( ) ) and !is_tax() ) { // Only display Excerpts for archives & search 
-?>
-		<div class="entry-summary"><?php the_excerpt( ); ?></div>
-<?php 
-	} else { // is not archives & search
-?>
+
 		<div class="entry-content clearfix">
 <?php 
 		raindrops_prepend_entry_content( );
@@ -43,9 +37,7 @@
 		raindrops_append_entry_content( );
 ?>
 		</div>
-<?php 
-	} // end is_archive( ) || is_search( ) 
-?>
+
 		<div class="entry-utility entry-meta">
 <?php 
 		echo raindrops_posted_in( );

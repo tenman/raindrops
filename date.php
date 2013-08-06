@@ -19,7 +19,7 @@
  * @uses query_posts( "posts_per_page=-1&year=$ye" )
  * @uses raindrops_get_year( $one_year, $ye )
  * @uses wp_reset_query( )
- * @uses month_list( $one_month, $ye, $mo )
+ * @uses raindrops_month_list( $one_month, $ye, $mo )
  * @uses raindrops_get_day( $one_day, $ye, $mo, $da )
  * @uses paginate_links( $pagination )
  * @uses get_sidebar( 'extra' )
@@ -52,7 +52,7 @@ Released under the terms of the GNU GPL version 2
 		
 		$calendar_page_number   = get_query_var( 'paged' );
 		$post_per_page_pre		= get_option( 'posts_per_page' );
-		$post_per_page			= apply_filters( 'month_list_post_count', $post_per_page_pre );
+		$post_per_page			= apply_filters( 'raindrops_month_list_post_count', $post_per_page_pre );
 		
 		if( isset( $ye ) and ! empty( $ye ) and isset( $mo ) and ! empty( $mo ) ){
 					
@@ -112,7 +112,7 @@ Released under the terms of the GNU GPL version 2
 	
 		} elseif ( is_month( ) ) {
 				$one_month = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo" );
-				$output    = month_list( $one_month, $ye, $mo );
+				$output    = raindrops_month_list( $one_month, $ye, $mo );
 				wp_reset_query( );
 				esc_html_e('Monthly Archives','Raindrops' );
 		} elseif ( is_day( ) ) {

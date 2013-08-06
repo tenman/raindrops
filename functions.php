@@ -1,4 +1,4 @@
-<?php		  
+<?php
 /**
  * functions and constants for Raindrops theme
  *
@@ -2561,9 +2561,9 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
  *
  *
  */
-    if ( ! function_exists( "month_list" ) ) {
+    if ( ! function_exists( "raindrops_month_list" ) ) {
 
-        function month_list( $one_month, $ye, $mo ) {
+        function raindrops_month_list( $one_month, $ye, $mo ) {
 
             global $calendar_page_number, $post_per_page, $calendar_page_last, $calendar_page_start;
 
@@ -2622,7 +2622,7 @@ id=\"post-". $mytime->ID. "\">$mytime->post_title</a><br />";
                 }
 
 				$post_per_page = get_option( 'posts_per_page' );
-				$post_per_page = apply_filters( 'month_list_post_count', $post_per_page );
+				$post_per_page = apply_filters( 'raindrops_month_list_post_count', $post_per_page );
                 if ( $z == $c and $c == $post_per_page ) {
 
                     break ;

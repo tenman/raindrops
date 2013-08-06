@@ -26,7 +26,7 @@
 				
 				printf( '<li class="loop-%1$s%2$s">',
 						esc_attr( trim( $raindrops_loop_class[0] ) ),
-						esc_attr( trim( $raindrops_loop_class[1] ) ) 
+						esc_attr( rtrim( $raindrops_loop_class[1] ) )
 					);
 					
 				$raindrops_loop_number++;

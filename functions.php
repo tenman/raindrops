@@ -6085,7 +6085,7 @@ span#site-title,
 			
 											if( empty($thumnail_exists) ) {
 			
-												printf( '<h2 class="entry-title page-featured-template">'.$html.'</h2>', $link, esc_attr( $title ), $title); 
+												printf( '<h2 class="entry-title page-featured-template">'.$html.'</h2>', $link, esc_attr( strip_tags( $title ) ), $title); 
 												
 												echo apply_filters( 'the_content', $content->post_content);
 											}else{
@@ -6106,7 +6106,6 @@ span#site-title,
 										if( ! is_null( $content ) ) {
 											
 											$title = get_the_title( $id );
-											$title = apply_filters( 'the_title', $title );
 											$link  = get_permalink( $id );
 			
 											$thumnail_exists = $content->__get('_thumbnail_id'); 
@@ -6114,7 +6113,7 @@ span#site-title,
 											
 											if( empty($thumnail_exists) ) {
 			
-												printf( $html, $link, esc_attr( $title ), $title); 
+												printf( '<h2 class="entry-title page-featured-template">'.$html.'</h2>', $link, esc_attr( strip_tags( $title ) ), $title); 
 												
 												echo apply_filters( 'the_content', $content->post_content);
 											}else{

@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.130
+Fixed
+    Fixed visual issue entry title before featured image size.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.129
 Added
     Add page template page-featured.php

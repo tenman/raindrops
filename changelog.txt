@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.129
+Added
+    Add page template page-featured.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.128
 Fixed
     Fixed Wrong function name from month_list to raindrops_month_list

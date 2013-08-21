@@ -6029,10 +6029,109 @@ span#site-title,
         }
     }
 
-    function raindrops_add_wbr_content_long_text( $matches ){
+	if( ! function_exists( 'raindrops_add_wbr_content_long_text' ) ) {
+		function raindrops_add_wbr_content_long_text( $matches ){
+	
+			foreach( $matches as $match ){
+				return preg_replace( '!([/])!','$1<wbr>', $match );
+			}
+		}
+	}
 
-        foreach( $matches as $match ){
-            return preg_replace( '!([/])!','$1<wbr>', $match );
-        }
-    }
+	if( ! function_exists( 'raindrops_poster' ) ) {
+	
+		function raindrops_poster( $args ){
+					
+					$args_count = count( $args );
+					
+					$html = '<a href="%1$s" title="link to %2$s" class="page-featured-template">%3$s</a>';
+					
+					for( $i = 0; $i<$args_count;$i++ ){
+					
+						echo '<div class="line">';
+					
+						foreach ( $args[$i] as $key => $page_item ){
+						
+							echo '<div class="'.$page_item['class'].'">';
+							
+							if( $page_item['type'][0] == 'include' ){
+		
+								if( is_string( $page_item['type'][1] ) ) {
+														
+									locate_template( array( $page_item['type'][1] ), true, true );							
+								} elseif ( is_array($page_item['type'][1] ) ) {
+								
+									locate_template( $page_item['type'][1], true, true );
+								}
+		
+							}
+							
+							if( $page_item['type'][0] == 'widget' ){
+							
+								the_widget( $page_item['type'][1],$page_item['type'][2],$page_item['type'][3] );
+							}
+							
+							if( $page_item['type'][0] == 'page' or $page_item['type'][0] == 'post') {
+								if( is_numeric( $page_item['type'][1] ) ) {
+								
+									$content 			= get_post( $page_item['type'][1] );
+									
+									if( ! is_null( $content ) ) {
+										$thumnail_exists	= $content->__get('_thumbnail_id'); 
+										$title				= $content->post_title;
+										$link				= get_permalink( $page_item['type'][1] );
+										$image				= get_the_post_thumbnail( $page_item['type'][1]);
+										
+			
+											if( empty($thumnail_exists) ) {
+			
+												printf( '<h2 class="entry-title page-featured-template">'.$html.'</h2>', $link, esc_attr( $title ), $title); 
+												
+												echo apply_filters( 'the_content', $content->post_content);
+											}else{
+											
+												$image = get_the_post_thumbnail( $page_item['type'][1] );
+												
+												printf( $html, $link, esc_attr( $title ) , $image ); 
+											
+											}
+									}
+		
+								} elseif ( is_array($page_item['type'][1] ) ) {
+								 
+									 foreach( $page_item['type'][1] as $id ){
+									 
+										$content = get_post( $id );
+										
+										if( ! is_null( $content ) ) {
+											
+											$title = get_the_title( $id );
+											$title = apply_filters( 'the_title', $title );
+											$link  = get_permalink( $id );
+			
+											$thumnail_exists = $content->__get('_thumbnail_id'); 
+											
+											
+											if( empty($thumnail_exists) ) {
+			
+												printf( $html, $link, esc_attr( $title ), $title); 
+												
+												echo apply_filters( 'the_content', $content->post_content);
+											}else{
+											
+												$image = get_the_post_thumbnail( $id );
+												
+												printf( $html, $link, esc_attr( $title ) , $image ); 
+											
+											}
+										}
+									} 
+								}
+							}
+							echo '</div>';				
+						}
+						echo '</div>';
+					}		
+		}
+	}
 ?>

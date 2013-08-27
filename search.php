@@ -9,8 +9,9 @@
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  */
+		do_action( 'raindrops_'. basename(__FILE__) );
 
- get_header( $raindrops_document_type );
+		get_header( $raindrops_document_type );
  
 ?>
 <div id="yui-main">

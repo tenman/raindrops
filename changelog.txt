@@ -1,4 +1,32 @@
 Changelog -----------------------------------
+version:1.131
+Added
+    Add new action hooks
+        do_action( 'raindrops_'. basename(__FILE__) );
+        date.php , page.php , image.php , search.php ,
+        front-page.php , front-portfolio.php ,
+        full-width.php and page-featured.php
+
+    for example
+
+        Raindrops monthly archives is table listed
+        If you need normal loop list on Child Theme.
+
+        <code>
+
+        Add to Child Themes functions.php
+
+        add_action( 'raindrops_date.php', 'raindrops_fallback_template' );
+        function raindrops_fallback_template(){
+
+            get_template_part( 'index' );
+            exit;
+        }
+        </code>
+        Completely, operation in which the date.php template of the parent theme
+        did not exist is easily realizable.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.130
 Fixed
     Fixed visual issue entry title before featured image size.

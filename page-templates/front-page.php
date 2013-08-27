@@ -11,6 +11,8 @@
  * @uses dynamic_sidebar( 'sidebar-3' )	include template part file
  * @uses get_footer( $raindrops_document_type ) 
  */
+		do_action( 'raindrops_'. basename(__FILE__) );
+
 		get_header( 'front' );
 		
 		raindrops_debug_navitation( __FILE__ );

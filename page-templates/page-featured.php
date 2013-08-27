@@ -4,7 +4,7 @@
  *
  * This template is a top page etc. and can create the layout of arbitrary complicated composition. 
  */
- 
+do_action( 'raindrops_'. basename(__FILE__) );
 //args
 /*
 	$page_lists = array( array([first block settings]), array([second block settings]) ... );

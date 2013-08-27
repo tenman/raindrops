@@ -6,6 +6,8 @@
  * The posts contain featured image shows 9
  *
  */
+		do_action( 'raindrops_'. basename(__FILE__) );
+
         get_header( $raindrops_document_type );
 
         $raindrops_current_column = raindrops_show_one_column( );

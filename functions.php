@@ -1785,7 +1785,14 @@
             }
 
             $raindrops_options          = get_option( "raindrops_theme_settings" );
-            $raindrops_style_type       = $raindrops_options['raindrops_style_type'];
+			
+if( isset( $raindrops_options['raindrops_style_type'] ) and !empty( $raindrops_options['raindrops_style_type'] ) ){
+			
+            	$raindrops_style_type       = $raindrops_options['raindrops_style_type'];
+			}else{
+			
+            	$raindrops_style_type       = '';
+			}
             $raindrops_options          = get_option( 'raindrops_theme_settings' );
             $raindrops_base_color       = raindrops_warehouse_clone( 'raindrops_base_color' );
             $raindrops_hyperlink_color  = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );

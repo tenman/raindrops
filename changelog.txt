@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.132
+Modified
+    font style rule move from style.css to fonts.css
+        ( without media query font settings )
+
+    Note:h1,h2,h3 font-weight change from bold to normal
+        ( setting rule contain fonts.css )
+    Image file uploader add wp_verify_nonce check
+        lib/option-panel.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.131
 Added
     Add new action hooks

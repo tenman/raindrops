@@ -110,10 +110,15 @@ body.ja,
 	width:24px;
 	height:24px;
 }
-.ja.date .entry-title{
+.ja.date table .entry-title{
 	font-size:108%;
 	font-weight:normal;
 	display:inline-block;
+	arial,helvetica,clean,sans-serif;
+	
+}
+.ja.date .entry-title{
+	font-weight:normal;
 	arial,helvetica,clean,sans-serif;
 }
 

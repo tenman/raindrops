@@ -17,7 +17,7 @@
 			raindrops_loop_title( );
 			
 			$raindrops_loop_number = 1;
-			
+
 			while ( have_posts( ) ) {
 			
 				the_post( );

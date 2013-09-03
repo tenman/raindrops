@@ -58,89 +58,7 @@ a:visited{
 .nav-next a:hover{
 }
 /* headding */
-/* Raindrops h1-h6 old font-size rule
-h1,.h1 a,#site-title{
-	font-size:174%;
-	letter-spacing: 0.05em;	
-	}
-h2,.h2 a,.page_title{
-	font-size:161.6%;
-	letter-spacing: 0.07em;	
-	}
-h3,.h3 a{
-	font-size:138.5%;
-	letter-spacing: 0.1em;	
-	}
-h4,.h4 a{
-	font-size:123.1%;
-	}
-h5,.h5 a{
-	font-size:116%;
-	}
-h6,.h6 a{
-	font-size:108%;
-	}
-this rule will be removed Raindrops ver 0.997.
-*/
-/* Raindrops new h1-h6 font size from ver 0.996 start */
 
-#site-title{
-	font-size:296%;
-	letter-spacing: 0.04em;	
-
-}
-.ie8 #site-title{
-	font-size:236.8%;
-}
-.pagetitle{
-	font-size:230.7%;
-	letter-spacing: 0.07em;
-	text-align:center;
-}
-.entry-title{
-	font-size:230.7%;
-	letter-spacing: 0.07em;	
-}
-
-.lsidebar h2,
-.rsidebar h2{
-	font-size:123.1%;
-}
-.h1:not(h1),
-h1{
-	font-size:197%;
-	letter-spacing: 0.07em;	
-
-	}
-.h2:not(h2),
-h2{
-	font-size:153.9%;
-	letter-spacing: 0.07em;	
-
-	}
-.h3:not(h3),
-h3{
-	font-size:123.1%;
-	letter-spacing: 0.1em;	
-
-	}
-.h4:not(h4),
-h4{
-	font-size:100%;
-	letter-spacing: 0.1em;	
-
-	}
-.h5:not(h5),
-h5{
-	font-size:85%;
-	letter-spacing: 0.05em;	
-	}
-.h6:not(h6),
-h6{
-	font-size:xx-small;
-	letter-spacing: 0.1em;	
-	}
-/* Raindrops new h1-h6 font size from ver 0.996 end */ 
 	
 h1,
 h2,
@@ -149,10 +67,8 @@ h3,
 .h2,
 .h3{
 	clear:both;
-	font-weight:bold;
 	overflow:hidden;
 	margin:.5em 0;
-	font-family:"Times New Roman", Times, serif;
 }
 h4,
 h5,
@@ -161,9 +77,7 @@ h6,
 .h5,
 .h6{
 	clear:both;
-	font-weight:400;
 	margin:.5em 0;
-	font-family:Geneva, Arial, Helvetica, sans-serif;
 }
 /* Add 0.902  category blog at listed article issue image after headding is not float*/
 .index h1,
@@ -204,60 +118,6 @@ div.error404{
 #page-title{
 	margin-left:2em;
 }
-/*font class*/
-.f10 {
-	font-size:77%;
-}
-.f11 {
-	font-size:85%;
-}
-
-.f12 {
-	font-size:93%;
-}
-.f13 {
-	font-size:100%;
-}
-.f14 {
-	font-size:108%;
-}
-.f15 {
-	font-size:116%;
-}
-.f16 {
-	font-size:123.1%;
-}
-.f17 {
-	font-size:131%;
-}
-.f18 {
-	font-size:138.5%;
-}
-.f19 {
-	font-size:146.5%;
-}
-
-.f20 {
-	font-size:153.9%;
-}
-.f21 {
-	font-size:161.6%;
-}
-.f22 {
-	font-size:167%;
-}
-.f23 {
-	font-size:174%;
-}
-.f24 {
-	font-size:182%;
-}
-.f25 {
-	font-size:189%;
-}
-.f26 {
-	font-size:197%;
-}
 /* elemants */
 body{
 }
@@ -270,7 +130,6 @@ b{
 	text-decoration:none;
 }
 p{
-	font-size:100%;
 	line-height:1.5;
 	margin-bottom:1em;
 }
@@ -337,7 +196,6 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 .entry-content cite {
 	margin:0.2em .5em;
 	padding:0 1em;
-	font-style:italic;
 }
 .entry-content table {
 	width:100%;
@@ -345,7 +203,6 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 	border-spacing:0;
 }
 .entry-content table caption{
-	font-weight:bold;
 	margin:0 0 .5em 0;
 }
 .entry-content  figure.wp-caption,
@@ -381,8 +238,6 @@ dl {
 	overflow:hidden;
 }
 dt {
-	font-weight:700;
-	/*margin:0 .5em 0 1em;*/
 	padding:.5em;
 }
 dd {
@@ -468,21 +323,6 @@ abbr{
 	
 	}
 */
-tt,code,kbd{
-	font-family:"Courier New", Courier, monospace;
-}
-i,
-var{
-	font-style:italic;
-	font-family:"Times New Roman", Times, serif;
-}
-em{
-	font-style:italic;
-	font-weight:400;
-}
-strong{
-	font-weight:700;
-}
 label,
 radio{
 	display:inline-block!important;
@@ -493,9 +333,6 @@ radio{
 	float:left;
 }
 
-.ja em{
-	font-style:normal;
-}
 .gallery-columns-1 dl dd,
 .gallery-columns-1 dl dt,
 .gallery-columns-1 dl{
@@ -505,20 +342,13 @@ radio{
 .gallery-columns-1 dl dt img{
 	margin:auto;
 }
-
-
 .gallery dl{
 	clear:none;
 	margin:0;
 }
 .gallery .gallery-caption {
-    font-size: 93%;
 	line-height:1.3;
-	/*margin: 0 0 1em;*/
-	text-align:left;
-	/*padding-left:2em;*/
 	text-align:center;
-	
 }
 .category-gallery .size-thumbnail img {
 	border: 10px solid #f1f1f1;
@@ -563,7 +393,6 @@ li {
 }
 th {
 	text-align:center;
-	font-weight:700;
 	padding:.2em;
 }
 td {
@@ -622,7 +451,6 @@ li.question {
 	margin:0;
 }
 .pagenate a:hover {
-	font-weight:700;
 	height:100%;
 	text-decoration:none;
 	width:100%;
@@ -931,15 +759,11 @@ h2.footer-content {
 	height:17px;
 	text-indent:.5em;
 	padding:2px 0 8px;
-	font-family:Geneva, Arial, Helvetica, sans-serif;
 	margin-bottom:10px;
 }
 
 .lsidebar h2 ul li ul{
 	margin-top:-2px;
-}
-h2 a.rsswidget {
-	font-size:77%;
 }
 .answer {
 	background:url(./images/icon.png);
@@ -1262,37 +1086,7 @@ ol.commentlist >li{
 .debug .h1 {
 	border:1px solid navy;
 }
-.px11,
-small {
-	font-size:85%;
-}
-.px14,
-big {
-	font-size:108%;
-}
-.px15
-{
-	font-size:116%;
-}
-.px16{
-	font-size:123.1%;
-}
-.px17
-{
-	font-size:131%;
-}
-.px18
-{
-	font-size:138.5%;
-}
-.px19
-{
-	font-size:146.5%;
-	background:none;
-}
-.attachment .title {
-	font-weight:700;
-}
+
 dl a,
 .category a,
 #top a,
@@ -1387,25 +1181,8 @@ br.clearfix {
 	margin:0;
 	padding:0;
 }
-.yui-t1 #wp-calendar caption,
-.yui-t1 #wp-calendar td{
-	font-size:8px;
-}
 
-.yui-t4 #wp-calendar td,
-.yui-t4 #wp-calendar caption,
-.yui-t2 #wp-calendar td{
-	font-size:11px;
-}
-.yui-t5 #wp-calendar caption,
-.yui-t5 #wp-calendar td{
-	font-size:14px;
-}
-.yui-t3 #wp-calendar caption,
-.yui-t6 #wp-calendar caption,
-.yui-t3 #wp-calendar td,
-.yui-t6 #wp-calendar td{
-}
+
 #wp-calendar caption{
 	margin:.3em 0;
 }
@@ -1556,7 +1333,6 @@ div.menu{
 }
 #access .menu-header,
 div.menu {
-	font-size: 100%;
 	margin-left: 1%;
 	width: 99%;
 }
@@ -1568,10 +1344,6 @@ div.menu ul {
 div.menu li {
 	float: left;
 	position: relative;
-}
-#access .menu,
-#access div.menu ul{
-	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
 
 /* Text meant only for screen readers */
@@ -1657,7 +1429,6 @@ img.alignright,
 	margin:5px 0 0 0;
 }
 .wp-caption p.wp-caption-text {
-	font-size: 100%;
 	line-height: 1.5;
 	padding: 0 4px 5px;
 	margin: 0;
@@ -1782,7 +1553,6 @@ li.byuser > div a{
 .post-format-status-publish-date,
 .category-blog-publish-date{
 	margin:1em 0!important;
-	font-weight:bold;
 }
 .format-status .avatar,
 .category-blog .avatar{
@@ -1831,13 +1601,10 @@ li.byuser > div a{
 }
 #archives-title{
 		display:block;
-		font-size:153.0%;
 		text-align:center;
-
 }
 #archives-title,
 .archives-list{
-	/*margin-left:1em;*/
 
 }
 /* YUI nest grid add*/
@@ -2098,19 +1865,13 @@ li.comment {
 .commentlist .raindrops-comment-author-meta,
 .commentlist .comment-meta{
 	top:-25px;
-	font-style:normal;
-	font-family:Geneva, Arial, Helvetica, sans-serif;
 	margin-bottom:0.3em;
 }
 .ie8 .commentlist .pingback p{
 	top:0;		/*ie*/
 }
-.form-allowed-tags{
-	font-family:Geneva, Arial, Helvetica, sans-serif;
-}
 .form-allowed-tags code{
 	padding:.5em;
-	font-family:"Courier New", Courier, monospace;
 	display:block;
 }
 .comment-meta{
@@ -2152,7 +1913,6 @@ li.comment {
 	position:relative;
 	top:35%;
 	text-align:center;
-	font-size:200%;
 }
 .datetable{
 	margin-bottom:1em;
@@ -2164,14 +1924,6 @@ li.comment {
 	/*line-height:2.5;*/
 }
 
-.datetable .time,
-.datetable .month-name,
-.datetable .year-name,
-.datetable .day-name{
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:16px;
-	font-style:italic;
-}
 .datetable td ul{
 	padding:0;
 	margin:0;
@@ -2195,21 +1947,6 @@ li.comment {
 .year-month-date,
 .year-month,
 .year{
-}
-.year .year-name{
-	font-size:161.6%;
-}
-h2.year-month .year-name{
-}
-h2.year-month .month-name{
-	font-size:161.6%;
-}
-h2.year-month-date .year-name{
-}
-h2.year-month-date .month-name{
-}
-h2.year-month-date .day-name{
-	font-size:161.6%;
 }
 /*author.php*/
 .author .avatar-col{
@@ -2337,7 +2074,6 @@ address .entry-rss:after{
 		height:24px;
 }
 .post-format-text{
-	font-weight:bold;
 	margin:0 .5em 0 2em;
 }
 .post-format-content{
@@ -2704,11 +2440,6 @@ div.raindrops-tab-page h3{
 	padding:2px 6px;
 }
 
-.current-post > a,
-.current_page_item > a,
-.current-menu-item > a{
-	font-weight:bold;
-}
 
 /**** Speech Bubble Icons *****/
 .raindrops-comment-link {
@@ -2716,9 +2447,6 @@ div.raindrops-tab-page h3{
 }
 a.raindrops-comment-link {
 	text-decoration: none;
-}
-.raindrops-comment-link em {
-	font-style: normal;
 }
 .raindrops-comment-link em {
 	padding: 0 0.4em;
@@ -2747,9 +2475,6 @@ a.raindrops-comment-link:hover em {
 }
 li.pingback p{
 	padding:.7em 0;
-}
-sub, sup{
-	font-size: .83em; 
 }
 sub{ 
 	vertical-align: sub;
@@ -2812,7 +2537,6 @@ sup {
 .sticky-single-follow-text{
 	margin-top:45px;
 	text-align:left;
-	font-size:230.7%;
 }
 .sticky.raindrops-sticky{
 	display:block;
@@ -3345,7 +3069,6 @@ sup {
 }
 .portfolio .index > li .entry-title a{
 	margin:0 10px;
-	font-size:86%;
 }
 .portfolio .index > li .post .h2-thumb,
 .portfolio .index > li:not(.loop-item-show-allways) .post .entry-meta,
@@ -3557,9 +3280,6 @@ only screen and (min-resolution: 192dpi) {
 	text-align:center;
 
 }
-.portfolio-nav-current{
-	font-weight:bold;
-}
 .portfolio-prev:after{
 	content: url( images/next.png );
 	vertical-align:middle;
@@ -3581,7 +3301,6 @@ only screen and (min-resolution: 192dpi) {
 }
 .author .entry-title{
 	display:inline-block;
-	font-size:138.5%;
 	margin-left:.6em;
 }
 .author .h2-thumb img{
@@ -3589,7 +3308,6 @@ only screen and (min-resolution: 192dpi) {
 	height:24px;
 }
 .date table .entry-title{
-	font-size:123.1%;
 	font-weight:normal;
 	display:inline-block;
 }
@@ -3603,12 +3321,8 @@ h2.page-featured-template{
 	margin:36px 0;
 
 }
-.unit .page-featured-template .wp-post-image{
+.unit .page-featured-template:not('.h2-thumb') .wp-post-image{
 	max-width:100%;
 	width:auto;
 	height:auto;
-}
-.h2-thumb .wp-post-image{
-	width:48px;
-	height:48px;
 }

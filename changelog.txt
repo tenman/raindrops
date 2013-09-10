@@ -1,6 +1,18 @@
 Changelog -----------------------------------
 version:1.133
 Modified
+    add filter
+        raindrops_light_dark_bg
+        raindrops_light_light_bg
+        raindrops_light_color
+        raindrops_default_dark_bg
+        raindrops_default_light_bg
+        raindrops_default_color
+        raindrops_dark_dark_bg
+        raindrops_dark_light_bg
+        raindrops_dark_color
+
+        for wp_nav_menu(),body background, change brightness or darkness
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.132

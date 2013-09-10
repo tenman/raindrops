@@ -102,7 +102,7 @@ input[type="submit"],
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a,
-#access ul ul a,
+/*#access ul ul a,*/
 .searchform input[type="text"],
 .social textarea#comment,
 .social input[type="text"],
@@ -1172,7 +1172,7 @@ select{
 /* change 1.125 next version remove
     %c3%
 	*/
-	%c5%
+	/*%c5%*/
 }
 #access .children li:active >a,
 #access li:active >a ,
@@ -1200,7 +1200,7 @@ address{
 }
 
 
-#bd a,
+#bd article:not(.format-link) a,
 .postmetadata{
 background:none!important;
 }
@@ -1244,8 +1244,10 @@ $css3=<<<CSS3
 %gradient%
 
 body{
+/*
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top,  %custom_dark_bg%,  %custom_light_bg%);
+*/	
   /* 1.100 comment out
    * this style rule remove horizontal scrollbar IE 
    * 1.101 will remove.
@@ -1577,24 +1579,41 @@ return $style;
 }
 ?>
 <?php
-    if(!defined('ABSPATH')){exit;}
-	global $raindrops_wp_version, $raindrops_current_theme_name;	
+/**
+ *
+ *
+ *
+ *
+ */
+    if(!defined('ABSPATH')){
+		exit;
+	}
+	global $raindrops_wp_version, $raindrops_current_theme_name;
+		
     $alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
-    if(!file_exists($alias_functions)){get_template_directory().'/lib/alias_functions.php';}
+	
+    if(!file_exists($alias_functions)){
+	
+		get_template_directory().'/lib/alias_functions.php';
+	}
 	
 	$raindrops_included_files = get_included_files();
 
     if(!in_array($alias_functions,$raindrops_included_files)){
+	
          locate_template(array('lib/alias_functions.php'),true,true);
     }
 
 	$embed_common_style = $raindrops_current_theme_name;
     
     raindrops_register_styles($embed_common_style);
-	
 
 	$raindrops_images_path        = get_stylesheet_directory_uri().'/images/';
-	if(!file_exists($raindrops_images_path)){get_template_directory().'/images/';}
+	
+	if(!file_exists($raindrops_images_path)){
+	
+		get_template_directory().'/images/';
+	}
 	
     $raindrops_base_color   = raindrops_warehouse_clone('raindrops_base_color');
     $style_type             = raindrops_warehouse_clone('raindrops_style_type');
@@ -1935,16 +1954,6 @@ CSS;
         return "rgba({$r}, {$g}, {$b},{$opecity})";
     }
 /**
- * Style template and Declaration merge
- *
- * %something% to Declaration value
- *
- *
- */
-/*    function raindrops_design_output($name = 'default'){
-
-    }
-/**
  * Declaration Calculator
  *
  *
@@ -2058,8 +2067,8 @@ CSS;
 
         switch($name){
             case("w3standard"):
-                $custom_dark_bg = raindrops_colors('3','background');
-                $custom_light_bg = raindrops_colors('1','background');
+                $custom_dark_bg = raindrops_colors(3,'background');
+                $custom_light_bg = raindrops_colors( 1, 'background' );
                 $custom_color = raindrops_colors('1','color');
                 if(!empty($raindrops_footer_color)){
                     $raindrops_footer_color = $raindrops_footer_color;
@@ -2077,9 +2086,14 @@ CSS;
             /**
              *dark
              */
-                $custom_dark_bg = raindrops_colors('-1','background');
-                $custom_light_bg = raindrops_colors('-4','background');
-                $custom_color = raindrops_colors('-3','color');
+			    $custom_dark_bg = apply_filters( 'raindrops_dark_dark_bg', -1 );
+                $custom_dark_bg = raindrops_colors( $custom_dark_bg, 'background' );
+
+				$custom_light_bg = apply_filters( 'raindrops_dark_light_bg', -4 ); 	
+                $custom_light_bg = raindrops_colors( $custom_light_bg , 'background' );
+				
+				$custom_color = apply_filters( 'raindrops_dark_color', -3 ); 
+                $custom_color = raindrops_colors($custom_color,'color');
                 if(!empty($raindrops_footer_color)){
                     $raindrops_footer_color = $raindrops_footer_color;
                 }else{
@@ -2096,10 +2110,18 @@ CSS;
             /**
              * light
              */
-                $custom_dark_bg = raindrops_colors('5','background');
-                $custom_light_bg = raindrops_colors('4','background');
-                $custom_color = raindrops_colors('3','color');
+			 
+				$custom_dark_bg = apply_filters( 'raindrops_light_dark_bg', 5 );
+                $custom_dark_bg = raindrops_colors( $custom_dark_bg, 'background' );
+				
+				$custom_light_bg = apply_filters( 'raindrops_light_light_bg', 4 ); 
+                $custom_light_bg = raindrops_colors( $custom_light_bg, 'background' );
+				
+				$custom_color = apply_filters( 'raindrops_light_color', 3 ); 
+                $custom_color = raindrops_colors($custom_color,'color');
+
                 $base_gradient = raindrops_gradient_single_clone(3,"asc");
+				
                 if(!empty($raindrops_footer_color)){
                     $raindrops_footer_color = $raindrops_footer_color;
                 }else{
@@ -2113,9 +2135,15 @@ CSS;
                 $gradient = raindrops_gradient_clone();
             break;
             default:
-                $custom_dark_bg = raindrops_colors('3','background');
-                $custom_light_bg = raindrops_colors('1','background');
-                $custom_color = raindrops_colors('1','color');
+				$custom_dark_bg = apply_filters( 'raindrops_default_dark_bg', 3 );
+                $custom_dark_bg = raindrops_colors($custom_dark_bg, 'background' );
+				
+				$custom_light_bg = apply_filters( 'raindrops_default_light_bg', 1 ); 
+                $custom_light_bg = raindrops_colors($custom_light_bg, 'background' );
+				
+				$custom_color = apply_filters( 'raindrops_default_color', 1 ); 
+                $custom_color = raindrops_colors($custom_color,'color');
+				
                 if(!empty($raindrops_footer_color)){
                     $raindrops_footer_color = $raindrops_footer_color;
                 }else{

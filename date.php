@@ -34,6 +34,8 @@ copyright ( c ) 2005 Scott Merrill ( skippy@skippy.net )
 Released under the terms of the GNU GPL version 2
    http://www.gnu.org/licenses/gpl.html
 */
+		do_action( 'raindrops_'. basename(__FILE__) );
+
 		global $wp_query, $wp_rewrite;
 
 		if( $wp_query->query_vars['paged'] > 1 ){ 

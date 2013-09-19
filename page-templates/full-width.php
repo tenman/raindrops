@@ -3,6 +3,7 @@
  * Template Name: Full-width Page Template, No Sidebar
  *
  */
+		do_action( 'raindrops_'. basename(__FILE__) );
 
 		get_header( $raindrops_document_type );
 		

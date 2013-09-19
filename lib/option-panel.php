@@ -1032,6 +1032,17 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
         $type           = '';
         $attr           = '';
         if(isset($_POST['raindrops_upload'])){
+			
+			if( ! isset( $_REQUEST['_wpnonce'] ) ) {
+				$result = esc_html__("Cannot be trusted data","Raindrops");
+                return array(false,$result);
+			} else {
+				if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'update-options2' ) ) {
+					$result = esc_html__("Can not Upload Security issue","Raindrops");
+					return array(false,$result);
+				} 			
+			}
+		
             if(isset($_POST['purpose']) and ($_POST['purpose'] == 'header' or $_POST['purpose'] == 'footer')){
                 $save_dir = $upload_info['path'].'/raindrops-item';
                 $propaty = $propaty.'-'. $_POST['purpose'];

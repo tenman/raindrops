@@ -31,6 +31,8 @@
  * @uses raindrops_append_default_sidebar( )
  * @uses the_post_thumbnail( )
  */
+		do_action( 'raindrops_'. basename(__FILE__) );
+
 		$raindrops_current_column = raindrops_show_one_column( );
 		
 		if ( $raindrops_current_column !== false ) {

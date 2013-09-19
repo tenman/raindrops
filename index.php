@@ -16,6 +16,7 @@
  * @uses get_sidebar( 'default' )	include template part file
  * @uses get_footer( $raindrops_document_type ) 
  */
+		global $rsidebar_show, $raindrops_document_type;
  
 		get_header( $raindrops_document_type );
 		

@@ -1,13 +1,8 @@
 Changelog -----------------------------------
-<<<<<<< HEAD
 version:1.134
 Modified
-    add filter
-
 ----------------------------------------------
 Changelog -----------------------------------
-=======
->>>>>>> origin/master
 version:1.133
 Modified
     add filter

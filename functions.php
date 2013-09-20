@@ -160,7 +160,7 @@
                     , 'flex-height' => true
                     , 'header-text' => true
                     , 'default-image' => $raindrops_site_image
-                    , 'wp-head-callback' => 'raindrops_embed_meta'
+                    , 'wp-head-callback' => apply_filters( 'raindrops_wp-head-callback', 'raindrops_embed_meta' )
                     , 'admin-preview-callback' => 'raindrops_admin_header_image'
                     , 'admin-head-callback' => 'raindrops_admin_header_style'
                 );
@@ -283,7 +283,7 @@
 
         $args = array( 'default-color' => ''
                     , 'default-image' => ''
-                    , 'wp-head-callback' => 'raindrops_embed_meta'
+                    , 'wp-head-callback' => apply_filters( 'raindrops_wp-head-callback', 'raindrops_embed_meta' )
                 );
 
         add_theme_support( 'custom-background', $args );
@@ -1297,13 +1297,13 @@
 
                      if ( !file_exists( $upload_info['path'].'/'.$filename ) ) {
 
-                        return 'background:url( '.get_stylesheet_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;';
+                        return apply_filters( 'raindrops_upload_image_parser_hd', 'background:url( '.get_stylesheet_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;' );
                     }
                  } elseif ( $id == '#ft' ) {
 
                      if ( !file_exists( $upload_info['path'].'/'.$filename ) ) {
 
-                        return 'background:url( '.get_stylesheet_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;';
+                        return apply_filters( 'raindrops_upload_image_parser_ft', 'background:url( '.get_stylesheet_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;' );
                      }
                  }
             } elseif (file_exists(get_template_directory( ).'/images/'.$filename ) ) {
@@ -1312,13 +1312,13 @@
 
                      if ( !file_exists( $upload_info['path'].'/'.$filename ) ) {
 
-                        return 'background:url( '.get_template_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;';
+                        return apply_filters( 'raindrops_upload_image_parser_hd', 'background:url( '.get_template_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;' );
                     }
                  } elseif ( $id == '#ft' ) {
 
                      if ( !file_exists( $upload_info['path'].'/'.$filename ) ) {
 
-                        return 'background:url( '.get_template_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;';
+                        return apply_filters( 'raindrops_upload_image_parser_ft', 'background:url( '.get_template_directory_uri( ).'/images/'.$filename.' );background-repeat:repeat-x;' );
                     }
                 }
             }
@@ -1349,10 +1349,10 @@
 
                  if ( $embed == 'inline' ) {
 
-                    return 'background:url( '.$uri.' );background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;';
+                    return apply_filters( 'raindrops_upload_image_parser_prop', 'background:url( '.$uri.' );background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;' );
                  } elseif ( $embed == 'external' or $embed == 'embed' ) {
 
-                    return $purpose. '{background:url( '.$uri.' );background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;}';
+                    return apply_filters( 'raindrops_upload_image_parser_prop', $purpose. '{background:url( '.$uri.' );background-repeat:'.$style.';background-position:'.$left.'px '.$top.'px;min-height:'.$height.'px;}' );
                  } else {
 
                     return;
@@ -2058,7 +2058,7 @@ LINK_COLOR_CSS;
                     $result .= "</style>";
             }
 
-            echo $result;
+            echo apply_filters( 'raindrops_embed_meta_echo', $result );
 
             return $content;
         }

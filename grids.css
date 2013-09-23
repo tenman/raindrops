@@ -491,6 +491,7 @@ width: 31.9%;
 }
 
 /* Width Accommodation for Nested Contexts */
+
 .ie7 .yui-gb .yui-ge .yui-u,
 .ie7 .yui-gb .yui-gf div.first {
 	width: 24%;
@@ -548,3 +549,59 @@ width: 31.9%;
 	/*zoom: 1;*/
 	height:1%;
 }
+
+/* 
+	Pixel Size Limits For Layout Boxes 
+		Keep layouts when body element font size rule change
+*/
+
+.yui-t1 .yui-b{
+	max-width:162px;
+}
+.yui-t1 #yui-main .yui-b{
+	margin-left:173px;
+}
+.yui-t2 .yui-b{
+	max-width:182px;
+}
+.yui-t2 #yui-main .yui-b{
+	margin-left:193px;
+}
+.yui-t3 .yui-b{
+	max-width:302px;
+}
+.yui-t3 #yui-main .yui-b{
+	margin-left:313px;
+}
+.yui-t4 .yui-b{
+	max-width:182px;
+}
+.yui-t4 #yui-main .yui-b{
+	margin-right:193px;
+}
+.yui-t5 .yui-b{
+	max-width:242px;
+}
+.yui-t5 #yui-main .yui-b{
+	margin-right:253px;
+}
+
+.yui-t6 .yui-b{
+	max-width:302px;
+	
+}
+.yui-t6 #yui-main .yui-b{
+	max-width:100%;
+	margin-right:313px;
+}
+
+.yui-t1 #yui-main .yui-b,
+.yui-t2 #yui-main .yui-b,
+.yui-t3 #yui-main .yui-b,
+.yui-t4 #yui-main .yui-b,
+.yui-t5 #yui-main .yui-b,
+.yui-t6 #yui-main .yui-b{
+	max-width:100%;
+}
+
+

@@ -1,7 +1,9 @@
 Changelog -----------------------------------
 version:1.135
 Fixed
-    Fixed layout broken when add style rule font-size to body element
+	Fixed layout broken when add style rule font-size to body element
+Removed
+	backward-compatibility.php
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.134

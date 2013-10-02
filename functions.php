@@ -3533,7 +3533,9 @@ span#site-title,
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4 ) {
 
         function raindrops_header_image( $type = 'default', $args = array( ) ) {
-
+		
+			global $raindrops_document_width;
+			
             $raindrops_header_image             = get_custom_header( );
             $raindrops_header_image_uri         = $raindrops_header_image -> url;
             $raindrops_header_image_width       = $raindrops_header_image -> width;
@@ -6036,7 +6038,7 @@ span#site-title,
         }
     }
 
-	if( ! function_exists( 'raindrops_add_wbr_content_long_text' ) ) {
+	if ( ! function_exists( 'raindrops_add_wbr_content_long_text' ) ) {
 		function raindrops_add_wbr_content_long_text( $matches ){
 	
 			foreach( $matches as $match ){
@@ -6045,7 +6047,7 @@ span#site-title,
 		}
 	}
 
-	if( ! function_exists( 'raindrops_poster' ) ) {
+	if ( ! function_exists( 'raindrops_poster' ) ) {
 	
 		function raindrops_poster( $args ){
 					
@@ -6138,6 +6140,56 @@ span#site-title,
 						}
 						echo '</div>';
 					}		
+		}
+	}
+/**
+ * comment list class
+ *
+ *
+ * since 1.136
+ */
+	if ( ! function_exists( 'raindrops_comment_class' ) ) {
+
+		function raindrops_comment_class( $comment_class = array() , $add_start_attribute = true ) {
+		
+				$comment_class[]		= 'commentlist';
+				$comment_page			= get_query_var( 'cpage' );
+				
+				if ( is_numeric( $comment_page ) ) {
+				
+					$comment_class[]	= esc_attr( sprintf( 'comments-p%1$d', $comment_page ) );
+				} else {
+				
+					$comment_page 		= '';
+				}
+				
+				printf( 'class="%1$s"', join( ' ', $comment_class ) );
+				
+				if( $add_start_attribute and !empty( $comment_page ) ) {
+				
+					$comment_per_page	= get_option( 'comments_per_page' );
+					$comment_page		= $comment_page - 1;
+					$start				= ( $comment_page * $comment_per_page ) + 1;
+					
+					printf( ' start="%1$d"', $start );
+				}
+		}
+	}
+/**
+ * 
+ *
+ *
+ * since 1.136
+ */
+	if ( ! function_exists( 'raindrops_filter_header_text_color' ) ) {
+
+		function raindrops_filter_header_text_color( $color ){
+			global $raindrops_fallback_human_interface_show;
+		
+			if( $raindrops_fallback_human_interface_show == true ){
+				return 'blank';
+			}
+			return $color;
 		}
 	}
 ?>

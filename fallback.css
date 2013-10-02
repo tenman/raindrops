@@ -100,7 +100,7 @@ a{
 	text-decoration:none;
 	display:inline-block;
 	padding:.3em;
-	border:1px solid #ccc;
+/*	border:1px solid #ccc;*/
 	word-break:break-all;
 	word-wrap:break-word;
 	
@@ -142,7 +142,7 @@ a{
 .entry-title a,
 .lsidebar ul ul li a,
 .rsidebar ul ul li a{
-	width:96%;
+	/*width:96%;*/
 }
 .clearfix{
 
@@ -228,7 +228,7 @@ table{
 	left: 0;
 }
 .skip-link{
-	background:url("images/access.gif");
+/*	background:url("images/access.gif");*/
 	background-repeat:no-repeat;
 	background-position:5px 5px;
   
@@ -266,3 +266,6 @@ address{
 .children{
 	margin-left:10px;
 }
+.raindrops-mobile-menu{
+	display:none;
+	}

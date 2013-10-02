@@ -202,6 +202,14 @@ if ( ! function_exists( 'raindrops_theme_setup' ) ){
      * @since 1.008
      */
 		add_filter( 'the_category', 'raindrops_remove_category_rel' );
+    /**
+     * 
+     *
+     *
+     * @since 1.136
+     */
+		add_filter( 'theme_mod_header_textcolor' , 'raindrops_filter_header_text_color' );
+
 
     }
 }

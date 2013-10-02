@@ -16,6 +16,7 @@
  * @uses comments_open( )
  * @uses comment_form( )
  */
+		global $raindrops_document_type;
 ?>
 	<div id="comments">
 <?php 
@@ -61,11 +62,11 @@
 		</div>
 <?php
        } // check for comment navigation 
+	   
 ?>
-
-		<ol class="commentlist">
+		<ol <?php raindrops_comment_class(); ?>>
 <?php
-		wp_list_comments( array( 'callback' => 'raindrops_comment' ) );
+		wp_list_comments( array( 'callback' => 'raindrops_comment','format' => $raindrops_document_type ) );
 ?>
 		</ol>
 <?php

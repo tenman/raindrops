@@ -1,5 +1,8 @@
 Changelog -----------------------------------
 version:1.136
+Add
+	Add new function raindrops_comment_class()
+	Add new filter function raindrops_filter_header_text_color
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.135

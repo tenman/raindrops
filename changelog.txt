@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.137
+Fixed
+	Fixed custom-doc display improperly.
+		when functions.php $raindrops_page_width value set 
+		then page width display improperly and header image hide.----------------------------------------------
+Changelog -----------------------------------
 version:1.136
 Add
 	Add new function raindrops_comment_class()

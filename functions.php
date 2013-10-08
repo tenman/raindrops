@@ -1722,7 +1722,7 @@
 
         function raindrops_embed_css( ) {
 
-            global $post, $raindrops_fluid_or_fixed, $raindrops_fluid_minimum_width, $raindrops_wp_version, $raindrops_current_theme_name;
+            global $post, $raindrops_fluid_or_fixed, $raindrops_fluid_minimum_width, $raindrops_wp_version, $raindrops_current_theme_name, $raindrops_page_width;
 
             $css                    = raindrops_gallerys( );
 //#header-image
@@ -1740,6 +1740,7 @@
                 ( Raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc' or raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc2' or raindrops_warehouse_clone( "raindrops_page_width" ) == 'custom-doc' ) ) {
 
                 $css .= raindrops_is_fixed( );
+				
             } elseif ( isset( $raindrops_fluid_minimum_width ) and !empty( $raindrops_fluid_minimum_width ) ) {
 
                 $css .= raindrops_is_fluid( );
@@ -1774,10 +1775,11 @@
                 $css                .= ' .rsidebar{display:none;} ';
             }
 // Custom page width helper
-            if ( isset( $raindrops_page_width ) and !empty( $raindrops_page_width ) ) {
-
+			/* Duplication next version removed . change from raindrops_custom_width( ) to raindrops_is_fixed(). */
+            /*if ( isset( $raindrops_page_width ) and !empty( $raindrops_page_width ) ) {
+			
                 $css                .= raindrops_custom_width( );
-            }
+            }*/
 //when manual style rule mode
             if ( raindrops_warehouse_clone( "raindrops_style_type" ) == $raindrops_current_theme_name ) {
 
@@ -3179,6 +3181,7 @@ DOC;
     if ( ! function_exists( 'raindrops_admin_header_style' ) ) {
 
         function raindrops_admin_header_style( ) {
+			global $raindrops_page_width;
             $raindrops_options  = get_option( "raindrops_theme_settings" );
             $css                = $raindrops_options['_raindrops_indv_css'];
             $css                = raindrops_color_type_custom( $css );
@@ -3186,6 +3189,9 @@ DOC;
             $color              = get_background_color( );
             $text_color         = get_header_textcolor( );
             $page_width         = raindrops_warehouse_clone( 'raindrops_page_width' );
+			
+			$custom_header_width = $raindrops_page_width;
+			
             switch( $page_width ) {
                 case( "doc" ):
                     $custom_header_width = '750px';
@@ -3194,10 +3200,13 @@ DOC;
                     $custom_header_width = '950px';
                 break;
                 case( "doc3" ):
-                    $custom_header_width = '974px';
+                    //$custom_header_width = '974px';
+                    $custom_header_width = '100%';
+					
                 break;
                 case( "doc4" ):
-                    $custom_header_width = '100%';
+                    //$custom_header_width = '100%';
+                    $custom_header_width = '974px';
                 break;
             }
             if ( !empty( $background ) or !empty( $color ) ) {
@@ -3530,12 +3539,14 @@ span#site-title,
  * @param array( 'img'=> 'image uri' , 'height' => 'image height' , 'color' => 'text color', 'style' => '(default ) background-size:cover;' , 'description' => 'replace text from bloginfo( description ) to your text','description_style' => 'Your description style rule' )
  * @return string htmlblock <div id="['header-image']" style="background-image:url([img]);height:[height];color:#[color]][style]"><p [description_style]>[WordPress site description]</p></div>
  */
+
     if ( ! function_exists( 'raindrops_header_image' ) and $wp_version >= 3.4 ) {
 
         function raindrops_header_image( $type = 'default', $args = array( ) ) {
 		
-			global $raindrops_document_width;
+			global $raindrops_page_width;
 			
+			$raindrops_document_width 			= $raindrops_page_width;			
             $raindrops_header_image             = get_custom_header( );
             $raindrops_header_image_uri         = $raindrops_header_image -> url;
             $raindrops_header_image_width       = $raindrops_header_image -> width;
@@ -3551,28 +3562,27 @@ span#site-title,
             }
 
             $ratio                              = $raindrops_header_image_height / $raindrops_header_image_width;
-            $raindrops_page_width               = raindrops_warehouse_clone( 'raindrops_page_width' );
+            $raindrops_width               		= raindrops_warehouse_clone( 'raindrops_page_width' );
 
             switch( true ) {
 
-                case 'doc' == $raindrops_page_width :
+                case 'doc' == $raindrops_width :
                     $raindrops_document_width = 750;
                 break;
-                case 'doc2' == $raindrops_page_width :
+                case 'doc2' == $raindrops_width :
                     $raindrops_document_width = 950;
                 break;
-                case 'doc4' == $raindrops_page_width :
+                case 'doc4' == $raindrops_width :
                     $raindrops_document_width = 974;
                 break;
-                case is_numeric( $raindrops_page_width ):
+                case is_numeric( $raindrops_width ):
                     $raindrops_document_width = $raindrops_page_width;
                 break;
-                case 'doc3' == $raindrops_page_width :
+                case 'doc3' == $raindrops_width :
                     $raindrops_document_width = 500;//this value is fake following javascript
-
                 break;
             }
-
+			
             if ( $raindrops_header_image_width >= $raindrops_document_width ) {
 
                 $height_current = round( $raindrops_document_width * $ratio ). 'px';
@@ -4204,16 +4214,27 @@ span#site-title,
  *
  *
  */
+ 
+ 
     if ( ! function_exists( 'raindrops_custom_width' ) ) {
 
          function raindrops_custom_width( ) {
 
             global $raindrops_page_width;
 
-            $c_width                = ( int )$raindrops_page_width;
+            $c_width                = ( int ) $raindrops_page_width;
             $width                  = $c_width / 13;
             $ie_width               = $width * 0.9759;
+			
+			return "/* test: $c_width */" ;
+///* raindrops is fixed start*/
+                
+//#custom-doc{margin:auto;text-align:left;
+//min-width:0em;width:custom-docpx;}
+//#container{min-width:-11.2em;}/* raindrops is fixed end */
 
+
+			
             $custom_content_width   = '/* set custom content width start */'.
             '#custom-doc {margin:auto;text-align:left;'."\n".
             'width:'.round( $width,0).'em;'."\n".
@@ -4224,6 +4245,9 @@ span#site-title,
          }
 
     }
+	
+//	var_dump( raindrops_custom_width( ) );
+
 /**
  *
  *

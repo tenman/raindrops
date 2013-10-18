@@ -1,6 +1,17 @@
 Changelog -----------------------------------
 version:1.138
+Added
+	Add Action hooks functions.php
+		do_action( 'raindrops_include_after' );
+		do_action( 'raindrops_last' );
+
 Fixed
+	Previus review issue
+		Deprecated: Function split() is deprecated
+		Change from  split()
+		to preg_split( '[x,*]', $size );
+	Fixed When RAINDROPS_USE_AUTO_COLOR == false
+		raindrops_edit_help() has error.
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.137

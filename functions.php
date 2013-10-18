@@ -1200,12 +1200,17 @@
  *
  *
  */
-    if ( ! function_exists( 'raindrops_edit_help' ) and RAINDROPS_USE_AUTO_COLOR == true ) {
+    if ( ! function_exists( 'raindrops_edit_help' ) ) {
 
         function raindrops_edit_help( $text, $force = false ) {
 
             global $post_type_object;
             global $title;
+			
+			if ( RAINDROPS_USE_AUTO_COLOR !== true and $force !== true ) {
+			
+				return $text;	
+			}
 
             if (( isset( $post_type_object ) and ( $title == $post_type_object->labels->add_new_item or $title == $post_type_object->labels->edit_item ) or $force == true ) ) {
 

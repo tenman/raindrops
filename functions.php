@@ -119,6 +119,13 @@
  *
  *
  *
+ * @since 1.138
+ */
+	do_action( 'raindrops_include_after' );
+/**
+ *
+ *
+ *
  *
  *
  */
@@ -3995,7 +4002,7 @@ span#site-title,
                 $size = $_SERVER['HTTP_X_JPHONE_DISPLAY'];
             }
 
-            $size = split( '[x,*]', $size );
+            $size = preg_split( '[x,*]', $size );
 
             if ( $raindrops_fallback_human_interface_show == true ) {
                 return true;
@@ -6216,4 +6223,11 @@ span#site-title,
 			return $color;
 		}
 	}
+/**
+ *
+ *
+ *
+ * @since 1.138
+ */	
+	do_action( 'raindrops_last' );
 ?>

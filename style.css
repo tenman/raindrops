@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.137
+Version: 1.138
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1207,6 +1207,9 @@ br.clearfix {
 	top:10px;
 	right:10px;	
 }
+
+/* wp_nav_menu settings */
+
 #access {
 	display: block;
 	float: left;
@@ -1214,46 +1217,30 @@ br.clearfix {
 	margin-left:0.5%;
 	margin-top:5px;
 }
-.ie8 #access {
-	margin-left:0;
-	width:100%;
-	margin-top:0;
-}
-
-.ie6 #access,/*ie6*/
-.ie7 #access{/*1e7*/
-	width:100%;
-	margin-top:0;
-}
-.debug #access{
-	border:1px solid red;
-}
 #access ul{
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline;
 }
+div.menu ul,
 #access li{
 	margin:0;
 	list-style-type:none;
+	/* each link width here example width:12em; or display:inline-block; and percent width, example width:16%; */	
+	/* text-align:center here example text-align:center; */
 }
 #access a {
 	display: block;
 	line-height: 3em;
 	padding: 0 0.4em;
 	text-decoration: none;
-}
-div.menu ul {
-	list-style: none;
-	margin: 0;
-	
+	/* link text font size here */
 }
 #access .menu-header li,
 div.menu li {
 	float: left;
 	position: relative;
 	padding:0;
-	
 }
 #access .menu-header li a,
 div.menu li a{
@@ -1265,20 +1252,10 @@ div.menu li a{
 	-ms-box-sizing: border-box; 
 	box-sizing: border-box;
 }
-.ie8 #access .menu-header > ul > li > a,
-.ie8 div.menu > ul > li > a,
-.ie9 #access .menu-header > ul > li > a,
-.ie9 div.menu > ul > li > a{
-	margin:0;
-	width:auto;
-	display:inline-block;
-}
-
 #access ul ul {
 	display: none;
 	position: absolute;
-	/*top: 38px;*/
-	top: 3em;
+	top: 3em; /* If set linktext font-size, example #access a {font-size:123.1%} then this value 3em * 1.231 */
 	left: 0;
 	float: left;
 	width: 10em;
@@ -1304,12 +1281,6 @@ div.menu li a{
 	padding:0.8em 0;
 	height: auto;
 }
-#access .sub-menu:hover > a,
-#access .children:hover > a,
-#access li:hover > a,
-#access ul ul :hover > a {
-	/* color:red;	for ie9 */
-}
 #access ul li:hover > ul {
 	display:block;
 }
@@ -1321,12 +1292,6 @@ div.menu li a{
 	width:100%;
 	height:100%;
 	
-}
-.ie6 #access ul li.current_page_item a,
-.ie6 #access ul li.current-menu-ancestor a,
-.ie6 #access ul li.current-menu-item a,
-.ie6 #access ul li.current-menu-parent a,
-.ie6 #access ul li a:hover {
 }
 #access .menu-header,
 div.menu{
@@ -1346,7 +1311,43 @@ div.menu li {
 	float: left;
 	position: relative;
 }
+#access .sub-menu li,
+#access .children li{
+	border:1px solid #ccc;
+	background:#fff;
+	color:#000;
+}
+#access .current_page_item{
+}
 
+.ie8 #access {
+	margin-left:0;
+	width:100%;
+	margin-top:0;
+}
+
+.ie6 #access,/*ie6*/
+.ie7 #access{/*1e7*/
+	width:100%;
+	margin-top:0;
+}
+.debug #access{
+	border:1px solid red;
+}
+.ie8 #access .menu-header > ul > li > a,
+.ie8 div.menu > ul > li > a,
+.ie9 #access .menu-header > ul > li > a,
+.ie9 div.menu > ul > li > a{
+	margin:0;
+	width:auto;
+	display:inline-block;
+}
+.ie6 #access ul li.current_page_item a,
+.ie6 #access ul li.current-menu-ancestor a,
+.ie6 #access ul li.current-menu-item a,
+.ie6 #access ul li.current-menu-parent a,
+.ie6 #access ul li a:hover {
+}
 /* Text meant only for screen readers */
 .screen-reader-text {
 	position: absolute;
@@ -2029,10 +2030,6 @@ li.comment {
 }
 address .comments-rss:after,
 address .entry-rss:after{
-	/*content:url("images/rss.png");
-	position:relative;
-	top:5px;
-	margin:5px;*/
 	margin:0 .5em;
 	content:" ";
 	display:inline-block;
@@ -2259,9 +2256,6 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 
 }
 .nav-previous a:before{
-	/*content:url("images/previous.png");
-	position:relative;
-	top:3px;*/
 	margin:.5em;
 	content:" ";
 	display:inline-block;
@@ -2321,12 +2315,7 @@ input[type="file"]{
 .tagcloud{
 	padding:1em;
 }
-#access .sub-menu li,
-#access .children li{
-	border:1px solid #ccc;
-	background:#fff;
-	color:#000;
-}
+
 .monthly-archives-pagenate{
 	text-align:center;
 }
@@ -2549,9 +2538,6 @@ sup {
 
 #wpadminbar div{
 	max-width:none;
-}
-#access .current_page_item{
-	/*height:3em;*/
 }
 .page-template-page-templatesfull-width-php .widget-wrapper li{
 	text-align:left;
@@ -3171,30 +3157,30 @@ only screen and (min-resolution: 192dpi) {
 	}
 	.raindrops-chat-author-0:before{
 		background-image: url('images/retina/raindrops-chat-author-0.png');
-		background-size:16px 16px;
+		background-size:13px 13px;
 	}
 	.raindrops-chat-author-1:before{
 		background-image: url('images/retina/raindrops-chat-author-1.png');
-		background-size:16px 16px;
+		background-size:13px 13px;
 	}
 	.raindrops-chat-author-2:before{
 		background-image: url('images/retina/raindrops-chat-author-2.png');
-		background-size:16px 16px;
+		background-size:13px 13px;
 	
 	}
 	.raindrops-chat-author-3:before{
 		background-image: url('images/retina/raindrops-chat-author-3.png');
-		background-size:16px 16px;
+		background-size:13px 13px;
 	
 	}
 	.raindrops-chat-author-4:before{
 		background-image: url('images/retina/raindrops-chat-author-4.png');
-		background-size:16px 16px;
+		background-size:13px 13px;
 	
 	}
 	.raindrops-chat-author-5:before{
 		background-image: url('images/retina/raindrops-chat-author-5.png');
-		background-size:16px 16px;
+		background-size:13px 13px;
 	
 	}
 	.attachment-navigation .prev a{
@@ -3338,4 +3324,3 @@ h2.page-featured-template{
 	float:right;
 	width:48%;
 }
-

@@ -1,5 +1,33 @@
 Changelog -----------------------------------
 version:1.139
+	Add action hooks all templates
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
+		do_action( 'raindrops_after_'.basename( __FILE__) );
+
+	Add action hooks all template part files
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+	Add filter hooks functions.php
+		raindrops_theme_url
+		raindrops_author_url
+
+	Add function raindrops_detect_header_image_size( $xy = 'width' )
+		functions.php
+	Add new dynamic CSS class raindrops-pub-new,raindrops-mod-new
+		raindrops_post_class() functions.php
+		description: raindrops-pub-new and raindrops-mod-new
+			From the present, it is contributed 
+			within three days or 
+			the above-mentioned class is 
+			automatically added to the updated contribution.
+		
+		3day change 7day 
+
+			add_filter( 'raindrops_new_period', 'my_new_period' );
+			function my_new_period( $day ) {
+
+				return 7;
+			}
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.138

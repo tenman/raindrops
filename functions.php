@@ -38,8 +38,8 @@
     $raindrops_wp_version               = $raindrops_check_wp_version[0];
 /* @since 1.103 */
     $raindrops_current_data             = wp_get_theme( );
-    $raindrops_current_data_theme_uri   = apply_filters( 'raindrops_themeuri', $raindrops_current_data->get( 'ThemeURI' ) );
-    $raindrops_current_data_author_uri  = apply_filters( 'raindrops_authoruri', $raindrops_current_data->get( 'AuthorURI' ) );
+    $raindrops_current_data_theme_uri   = apply_filters( 'raindrops_theme_url', $raindrops_current_data->get( 'ThemeURI' ) );
+    $raindrops_current_data_author_uri  = apply_filters( 'raindrops_author_url', $raindrops_current_data->get( 'AuthorURI' ) );
     $raindrops_current_data_version     = $raindrops_current_data->get( 'Version' );
     $raindrops_current_theme_name       = $raindrops_current_data->get( 'Name' );
 
@@ -4187,11 +4187,7 @@ span#site-title,
 ?>
                 var raindrops_ratio = <?php echo apply_filters( 'raindrops_header_image_ratio', $ratio );?>;
                 var raindrops_height = raindrops_width * raindrops_ratio;
-
-             /*   jQuery( '#header-image' ).removeAttr( 'style' ).css({'background-image':'url( '+ image_exists + ' )','height': raindrops_height, 'background-size': 'cover'});*/
-			 //	if( <?php echo $raindrops_header_image_width; ?> >= raindrops_width ) {
                 	jQuery( '#header-image' ).removeAttr( 'style' ).css({'height': raindrops_height});
-				//}
 
 
 <?php //remove header

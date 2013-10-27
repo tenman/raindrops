@@ -551,6 +551,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
              *
              */
             if(isset($_POST['raindrops_option_values']) and !empty($_POST['raindrops_option_values'])){
+			
+				if( ! wp_verify_nonce($_POST['_wpnonce'],'update-options') ) {  
+					wp_die ( esc_html__('Post Errors 14', 'Raindrops') );
+	
+				}
+				if( ! check_admin_referer('update-options','_wpnonce') ) {
+					wp_die ( esc_html__('Post Errors 18', 'Raindrops' ) );
+				
+				}
+
                 $option_id                  = intval($_POST['option_id']);
                 $raindrops_updates          = "";
                 foreach($_POST["raindrops_option_values"] as $key=>$val){

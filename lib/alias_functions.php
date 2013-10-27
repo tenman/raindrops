@@ -661,5 +661,5 @@ function raindrops_register_styles_clone($style_name){
     return $vals;
 
 }
-	
+
 ?>

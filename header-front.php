@@ -8,6 +8,10 @@
  * @since Raindrops 0.997
  *
  */
+		global $template;
+		
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+
 		global $raindrops_document_type;
 		
 		switch( $raindrops_document_type ){
@@ -148,3 +152,4 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 			</div>
 		</div>
 	<div id="bd" class="clearfix">
+<?php 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

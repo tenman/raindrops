@@ -18,7 +18,9 @@
  * @uses raindrops_append_doc( )
  */
  
-		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri;
+		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template;
+		
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 		
 ?>
 	<<?php raindrops_doctype_elements( 'div','footer' );?> id="ft" class="clear">
@@ -83,3 +85,4 @@
 <?php wp_footer( ); ?>
 </body>
 </html>
+<?php 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

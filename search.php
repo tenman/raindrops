@@ -12,6 +12,7 @@
 		do_action( 'raindrops_'. basename(__FILE__) );
 
 		get_header( $raindrops_document_type );
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
  
 ?>
 <div id="yui-main">
@@ -50,6 +51,10 @@
 			raindrops_prepend_entry_content( );
 			
 			raindrops_entry_content( );
+			
+?>
+			<br class="clear" />
+<?php 
 			
 			raindrops_append_entry_content( );
 ?>

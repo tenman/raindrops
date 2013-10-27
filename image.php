@@ -26,6 +26,7 @@
 		do_action( 'raindrops_'. basename(__FILE__) );
 
 		get_header( $raindrops_document_type );
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
 
 ?>
 	<div id="yui-main">
@@ -201,7 +202,9 @@
 			
 			raindrops_entry_content( );
 			
-			printf( '<br class="%1$s" />', 'clear' );
+?>
+									<br class="clear" />
+<?php 
 			
 			raindrops_append_entry_content( );
 			

@@ -1,4 +1,7 @@
 Changelog -----------------------------------
+version:1.139
+----------------------------------------------
+Changelog -----------------------------------
 version:1.138
 Added
 	Add Action hooks functions.php

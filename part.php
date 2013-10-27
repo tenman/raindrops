@@ -6,6 +6,10 @@
  * @since Raindrops 0.940
  *
  */
+	global $template;
+		
+	do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+	
  	$format = get_post_format( );
 	
 	if ( $format === false ) {
@@ -33,7 +37,10 @@
 		raindrops_entry_content( );
 		
 		wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
-		 
+?>
+		<br class="clear" />
+<?php 
+	 
 		raindrops_append_entry_content( );
 ?>
 		</div>
@@ -54,5 +61,6 @@
 		
 	}
 	
-	comments_template( '', true ); 
-?>
+	comments_template( '', true );
+	 
+	do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

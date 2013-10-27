@@ -9,8 +9,8 @@
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  */
-
 		get_header( $raindrops_document_type ); 
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
 		
 		raindrops_debug_navitation( __FILE__ );
 		
@@ -62,4 +62,8 @@
 ?>	
 	</div>
 </div>
-<?php get_footer( $raindrops_document_type ); ?>
+<?php 		
+		do_action( 'raindrops_after_'.basename( __FILE__) );
+
+		get_footer( $raindrops_document_type );
+?>

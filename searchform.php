@@ -8,8 +8,10 @@
  */
 ?>
 <?php
-		global $raindrops_document_type;
-
+		global $raindrops_document_type, $template;
+		
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+	
 		if( $raindrops_document_type == 'html5' ) {
 ?>
 <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php raindrops_doctype_elements( '','role="search"' );?>>
@@ -31,4 +33,4 @@
 </form>
 <?php		
 		}
-?>
+		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

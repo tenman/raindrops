@@ -88,6 +88,10 @@
 					
 					raindrops_entry_content( );
 					
+?>
+									<br class="clear" />
+<?php 
+					
 					raindrops_append_entry_content( );
 ?>
 		</div>

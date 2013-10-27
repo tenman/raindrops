@@ -6,6 +6,10 @@
 *
 * @package Raindrops
 */
+		global $template;
+		
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+
 ?>
 <div class="sidebar">
 <ul>
@@ -50,3 +54,4 @@
 <?php } //if ( ! dynamic_sidebar('sidebar-1' ) ) ?>
 </ul>
 </div>
+<?php 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

@@ -6,6 +6,10 @@
  * @since Raindrops 0.940
  *
  */
+		global $template;
+		
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+
 		raindrops_entry_title( );
 		
 ?>
@@ -106,4 +110,6 @@
 			raindrops_prev_next_post( 'nav-below' );
 		}
 ?>
-<?php comments_template( '', true ); ?>
+<?php 
+		comments_template( '', true ); 
+ 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php 
+		global $template;
+		
+		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+		
+	?><!DOCTYPE html>
 <html <?php language_attributes( ); ?>>
 	<head>
 		<meta http-equiv="content-type" content="<?php bloginfo( 'html_type' );?>; charset=<?php bloginfo( 'charset' ); ?>" />
@@ -77,8 +82,6 @@
 			echo raindrops_header_image( 'home_url' );
 		}
 		
-?>
-<?php
 /**
  * horizontal menubar
  *
@@ -93,3 +96,5 @@
 ?>
 		</header>
 		<div id="bd" class="clearfix">
+<?php 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>
+

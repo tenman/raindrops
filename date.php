@@ -96,6 +96,7 @@ Released under the terms of the GNU GPL version 2
 									);
 		
 		get_header( $raindrops_document_type );
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
 		
 		raindrops_debug_navitation( __FILE__ );
 ?>

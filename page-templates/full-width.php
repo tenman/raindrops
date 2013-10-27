@@ -6,6 +6,7 @@
 		do_action( 'raindrops_'. basename(__FILE__) );
 
 		get_header( $raindrops_document_type );
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
 		
 		$raindrops_current_column = raindrops_show_one_column( );
 		

@@ -14,6 +14,7 @@
 		do_action( 'raindrops_'. basename(__FILE__) );
 
 		get_header( 'front' );
+		do_action( 'raindrops_pre_'.basename( __FILE__) );
 		
 		raindrops_debug_navitation( __FILE__ );
 		

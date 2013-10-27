@@ -711,6 +711,7 @@ if( ! isset( $raindrops_post_thumbnails_args ) ) {
     if ( $install_once == false or !array_key_exists( 'install', $install_once ) ) {
 
         add_action( 'admin_init', 'setup_raindrops' );
+
     }
 
     add_action( 'widgets_init', 'raindrops_widgets_init' );
@@ -1597,6 +1598,17 @@ if( ! isset( $raindrops_post_thumbnails_args ) ) {
             $raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
 
             update_option( 'raindrops_theme_settings', $raindrops_theme_settings, "", $add['autoload'] );
+			
+			if(file_exists(get_stylesheet_directory().'/images/headers/wp3.jpg')){
+				$raindrops_site_image = get_stylesheet_directory_uri().'/images/headers/wp3.jpg';
+				$raindrops_site_thumbnail_image = get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg';
+			}else{
+				$raindrops_site_image = get_template_directory_uri().'/images/headers/wp3.jpg';
+				$raindrops_site_thumbnail_image = get_template_directory_uri().'/images/headers/wp3-thumbnail.jpg';
+			}
+        
+			set_theme_mod('default-image', $raindrops_site_image);
+
         }
     }
 /**

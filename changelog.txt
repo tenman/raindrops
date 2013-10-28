@@ -1,6 +1,19 @@
 Changelog -----------------------------------
 version:1.141
-	
+	Remove currently not using functions , vars and PHP5.4 strict errors
+
+		Remove function raindrops_get_month()
+		Remove function &raindrops_raiseError()
+			lib/csscolor/csscolor.php
+		Remove ver $count
+			lib/option-panel.php
+
+	Replace function
+
+		from move_uploaded_file()
+		to wp_handle_upload()
+
+	Add filter function raindrops_theme_upload_filename()
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.140

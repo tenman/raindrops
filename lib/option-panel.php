@@ -1102,12 +1102,11 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
 						  return array(false,$result);
 			}		
 
-			//$uploadedfile = $_FILES['uploadfile']['tmp_name'];
 			$uploadedfile = $_FILES['uploadfile'];
 			$upload_overrides = array( 'test_form' => false,);
 										/*"name" => $propaty.$_FILES['uploadfile']['name'],'unique_filename_callback' => 'raindrops_upload_image_filename_cb'*/	
 										
-			function make_filename_hash($filename) {
+			function raindrops_theme_upload_filename($filename) {
 			
 				$info = pathinfo($filename);
 				$ext  = empty($info['extension']) ? '' : '.' . $info['extension'];
@@ -1138,7 +1137,7 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
 				return $propaty. $name. $ext;
 			}
 			
-			add_filter('sanitize_file_name', 'make_filename_hash', 10);							
+			add_filter('sanitize_file_name', 'raindrops_theme_upload_filename', 10);							
 										
 										
 												

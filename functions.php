@@ -1525,9 +1525,9 @@ if( ! isset( $raindrops_post_thumbnails_args ) ) {
  *
  *
  */
-    if ( ! function_exists( "custom_remove_aria_required1" ) ) {
+    if ( ! function_exists( "raindrops_custom_remove_aria_required1" ) ) {
 
-        function custom_remove_aria_required1( $arg ) {
+        function raindrops_custom_remove_aria_required1( $arg ) {
 
             global $raindrops_document_type;
 
@@ -1544,9 +1544,9 @@ if( ! isset( $raindrops_post_thumbnails_args ) ) {
  *
  *
  */
-    if ( ! function_exists( "custom_remove_aria_required2" ) ) {
+    if ( ! function_exists( "raindrops_custom_remove_aria_required2" ) ) {
 
-        function custom_remove_aria_required2( $args ) {
+        function raindrops_custom_remove_aria_required2( $args ) {
 
             global $raindrops_document_type;
 

@@ -1,4 +1,14 @@
 Changelog -----------------------------------
+version:1.142
+	Fixed function name improperly, not prefixed
+		Change 
+		from custom_remove_aria_required1()
+		to raindrops_custom_remove_aria_required1
+		Change 
+		from custom_remove_aria_required1()
+		to raindrops_custom_remove_aria_required1
+----------------------------------------------
+Changelog -----------------------------------
 version:1.141
 	Remove currently not using functions , vars and PHP5.4 strict errors
 

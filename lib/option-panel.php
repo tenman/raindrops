@@ -974,57 +974,57 @@ $raindrops_navigation_list  .= '</ul>';
  *
  *
  */
-function raindrops_upload_form(){
-    global $max_upload_size;
-    global $dirlist;
-    $deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
-$result= '<div class="postbox raindrops"  id="raindrops_upload_form">
-    <h3 id="raindrops-style-type" title="raindrops style type">
-    <div id="icon-upload" class="icon32"></div>
-    <span style="position:relative;top:10px;">'.
-    esc_html__('Image Upload','Raindrops').
-    '</span></h3>
-    <fieldset ><legend>'.__('Upload','Raindrops').'</legend>
-    <form enctype="multipart/form-data" action="'.$deliv.'" method="POST">'.wp_nonce_field('update-options2').'<p>
-    <input name="uploadfile" type="file"></p><p>'.
-    esc_html__('Purpose:','Raindrops').'<label>
-    <input type="radio" name="purpose" value="header" checked="checked" />'.
-    '<strong>'.
-	esc_html__('Header Image', 'Raindrops').
-	'</strong></label>
-    &nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />'.
-    '<strong>'.
-	esc_html__('Footer Image','Raindrops').
-    '</strong></label></p><p>'.
-    esc_html__('Style:','Raindrops').'<label>
-    <input type="radio" name="style" value="norepeat" checked="checked" />'.
-    esc_html__('no-repeat','Raindrops').
-    '</label>&nbsp;&nbsp;&nbsp;<label>
-    <input type="radio" name="style" value="repeatx" />'.
-    esc_html__('repeat-x','Raindrops').'</label></p>
-    <p>'.__('position:','Raindrops').'<label>'.
-    esc_html__('top:','Raindrops').'<input type="text" name="position-top" value="0" style="text-align:right;" />'.
-    esc_html__('px','Raindrops').'</label>&nbsp;&nbsp;&nbsp;'.
-    esc_html__('left:','Raindrops').
-    '<label><input type="text" name="position-left" value="0" style="text-align:right;"  />'.
-    esc_html__('px','Raindrops').'</label></p><p>'.
-    esc_html__('box height:','Raindrops').'<label>
-    <input type="text" name="height" value="0" style="text-align:right;" />'.
-    esc_html__('px','Raindrops').'</label></p><p>
-    <input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
-    </form>
-    </fieldset>'.
-    '<div class="raindrops_navigation_list">
-    <ul>
-    <li><a href="#raindrops-header-image">'.
-    esc_html__('Go to current header image','Raindrops').
-    '</a></li>
-    <li><a href="#raindrops-footer-image">'.
-    esc_html__('Go to current footer image','Raindrops').
-    '</a></li></ul></div>'.
-    '</div>';
-    return $result;
-}
+	function raindrops_upload_form(){
+		global $max_upload_size;
+		global $dirlist;
+		$deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
+	$result= '<div class="postbox raindrops"  id="raindrops_upload_form">
+		<h3 id="raindrops-style-type" title="raindrops style type">
+		<div id="icon-upload" class="icon32"></div>
+		<span style="position:relative;top:10px;">'.
+		esc_html__('Image Upload','Raindrops').
+		'</span></h3>
+		<fieldset ><legend>'.__('Upload','Raindrops').'</legend>
+		<form enctype="multipart/form-data" action="'.$deliv.'" method="POST">'.wp_nonce_field('update-options2').'<p>
+		<input name="uploadfile" type="file"></p><p>'.
+		esc_html__('Purpose:','Raindrops').'<label>
+		<input type="radio" name="purpose" value="header" checked="checked" />'.
+		'<strong>'.
+		esc_html__('Header Image', 'Raindrops').
+		'</strong></label>
+		&nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />'.
+		'<strong>'.
+		esc_html__('Footer Image','Raindrops').
+		'</strong></label></p><p>'.
+		esc_html__('Style:','Raindrops').'<label>
+		<input type="radio" name="style" value="norepeat" checked="checked" />'.
+		esc_html__('no-repeat','Raindrops').
+		'</label>&nbsp;&nbsp;&nbsp;<label>
+		<input type="radio" name="style" value="repeatx" />'.
+		esc_html__('repeat-x','Raindrops').'</label></p>
+		<p>'.__('position:','Raindrops').'<label>'.
+		esc_html__('top:','Raindrops').'<input type="text" name="position-top" value="0" style="text-align:right;" />'.
+		esc_html__('px','Raindrops').'</label>&nbsp;&nbsp;&nbsp;'.
+		esc_html__('left:','Raindrops').
+		'<label><input type="text" name="position-left" value="0" style="text-align:right;"  />'.
+		esc_html__('px','Raindrops').'</label></p><p>'.
+		esc_html__('box height:','Raindrops').'<label>
+		<input type="text" name="height" value="0" style="text-align:right;" />'.
+		esc_html__('px','Raindrops').'</label></p><p>
+		<input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
+		</form>
+		</fieldset>'.
+		'<div class="raindrops_navigation_list">
+		<ul>
+		<li><a href="#raindrops-header-image">'.
+		esc_html__('Go to current header image','Raindrops').
+		'</a></li>
+		<li><a href="#raindrops-footer-image">'.
+		esc_html__('Go to current footer image','Raindrops').
+		'</a></li></ul></div>'.
+		'</div>';
+		return $result;
+	}
 /**
  * Raindrops upload image check and save
  *

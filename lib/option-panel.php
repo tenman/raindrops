@@ -536,7 +536,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  */
         function raindrops_SubMenu_GUI() {
-            global $wpdb,$count, $raindrops_base_setting,$raindrops_wp_version, $raindrops_current_theme_name;
+            global $wpdb, $raindrops_base_setting,$raindrops_wp_version, $raindrops_current_theme_name;
             if(RAINDROPS_USE_AUTO_COLOR == true){
                 $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
             }else{
@@ -544,7 +544,6 @@ One is a method of up-loading the image from the below up-loading form. Another 
             }
             $ok     = false;
             $result = "";
-            $count = $wpdb->query("SELECT * FROM `".RAINDROPS_PLUGIN_TABLE."`;");
             /**
              * POSTGET
              *
@@ -1088,6 +1087,7 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
                 $result = esc_html__("box height no data","Raindrops");
                 return array(false,$result);
             }
+			
             if($_FILES['uploadfile']['size'] > $raindrops_max_upload_size){
               $result = "file size over".$_FILES['uploadfile']['size'].'upload-image-size'.$raindrops_max_upload_size;
               return array(false,$result);
@@ -1096,29 +1096,89 @@ $result= '<div class="postbox raindrops"  id="raindrops_upload_form">
               $result = sprintf(__('%s is not permitted filetype.',"Raindrops"),$_FILES['uploadfile']['type']).implode(',',$raindrops_allow_file_type);
               return array(false,$result);
             }
-          if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $save_dir.$propaty.$_FILES['uploadfile']['name'])) {
 
-            if( file_exists( $save_dir. $_FILES['uploadfile']['name'] ) ){
-                chmod($save_dir. $_FILES['uploadfile']['name'], 0644);
-                list($width, $height, $type, $attr) = getimagesize($save_dir. $_FILES['uploadfile']['name']);
-                if($raindrops_max_width < $width or $height > $raindrops_max_width * 1.5){
-                    unlink($save_dir. $_FILES['uploadfile']['name']);
-                    $result = sprintf(__("%d px * %d width too big. limit %d px","Raindrops"),$width,$height,$raindrops_max_width);
-                    return array(false,$result.'g');
-                }
-            }
+			if( ! function_exists( 'wp_handle_upload' ) ){ 
+						$result = sprintf(__('%s function is not exists',"Raindrops"), 'wp_handle_upload' );
+						  return array(false,$result);
+			}		
+
+			//$uploadedfile = $_FILES['uploadfile']['tmp_name'];
+			$uploadedfile = $_FILES['uploadfile'];
+			$upload_overrides = array( 'test_form' => false,);
+										/*"name" => $propaty.$_FILES['uploadfile']['name'],'unique_filename_callback' => 'raindrops_upload_image_filename_cb'*/	
+										
+			function make_filename_hash($filename) {
+			
+				$info = pathinfo($filename);
+				$ext  = empty($info['extension']) ? '' : '.' . $info['extension'];
+				$name = basename($filename, $ext);
+				
+				$propaty = 'raindrops-item';
+				
+				if(isset($_POST['purpose']) and ($_POST['purpose'] == 'header' or $_POST['purpose'] == 'footer')){
+					$propaty = $propaty.'-'. $_POST['purpose'];
+				}
+				if(isset($_POST['style']) and ($_POST['style'] == 'norepeat' or $_POST['style'] == 'repeatx')){
+					$style = $_POST['style'];
+					$propaty = $propaty.'-style-'. $_POST['style'];
+				}
+				if(isset($_POST['position-top']) and is_numeric($_POST['position-top'])){
+					$top = $_POST['position-top'];
+					$propaty = $propaty.'-top-'. $_POST['position-top'];
+				}
+				if(isset($_POST['position-left']) and is_numeric($_POST['position-left'])){
+					$left = $_POST['position-left'];
+					$propaty = $propaty.'-left-'. $_POST['position-left'].'-';
+				}
+				if(isset($_POST['height']) and is_numeric($_POST['height'])){
+					$height = $_POST['height'];
+					$propaty = $propaty.'x-height-'. $_POST['height'].'-';
+				}
+
+				return $propaty. $name. $ext;
+			}
+			
+			add_filter('sanitize_file_name', 'make_filename_hash', 10);							
+										
+										
+												
+			if ( ( $test = wp_handle_upload( $uploadedfile, $upload_overrides ) ) ) {
+			
+				if( isset( $test['error'] ) ) {
+				
+							$result = $test['error'];
+							  return array(false,$result);
+	
+				}
+
+				if( file_exists( $save_dir. $_FILES['uploadfile']['name'] ) ){
+					chmod($save_dir. $_FILES['uploadfile']['name'], 0644);
+					list($width, $height, $type, $attr) = getimagesize($save_dir. $_FILES['uploadfile']['name']);
+					if($raindrops_max_width < $width or $height > $raindrops_max_width * 1.5){
+						unlink($save_dir. $_FILES['uploadfile']['name']);
+						$result = sprintf(__("%d px * %d width too big. limit %d px","Raindrops"),$width,$height,$raindrops_max_width);
+						return array(false,$result.'g');
+					}
+				}
+				
                 $uploaded_url = $upload_info['url'].'/raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
                 $new_settings = get_option('raindrops_theme_settings');
+				
                 if($_POST['purpose'] == 'header'){
+				
                     $new_settings['raindrops_header_image'] = 'raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
                 }elseif($_POST['purpose'] == 'footer'){
+				
                     $new_settings['raindrops_footer_image'] = 'raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
                 }
-            update_option('raindrops_theme_settings',$new_settings);
+				
+            	update_option('raindrops_theme_settings',$new_settings);
                 return array(true,'success',$uploaded_url,$width,$height,true);
           }else{
+		  
                 $result = esc_html__("It failed in up-loading.","Raindrops");
                 foreach($_FILES['userfile']['error'] as $error){
+				
                     $result .= $error;
                 }
                 return array(false,$result);

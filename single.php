@@ -32,7 +32,6 @@
  *
  */
 		$raindrops_home_url = trailingslashit( home_url() );
-
         $raindrops_current_column = raindrops_show_one_column( );
 
         if ( $raindrops_current_column !== false ) {
@@ -41,7 +40,6 @@
 
         get_header( $raindrops_document_type );
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-
         raindrops_debug_navitation( __FILE__ );
 ?>
     <div id="yui-main">
@@ -67,10 +65,10 @@
 
                 $cat = "default";
 
-                if ( in_category( "blog" ) or has_post_format( "status" ) ) {
+                if ( in_category( "blog" ) || has_post_format( "status" ) ) {
 
                     $cat = "blog";
-                } elseif ( in_category( "gallery" ) or has_post_format( "gallery" ) ) {
+                } elseif ( in_category( "gallery" ) || has_post_format( "gallery" ) ) {
 
                     $cat = "gallery";
                 } elseif ( $format !== false ) {
@@ -78,7 +76,7 @@
                     $cat = $format;
                 }
 
-                if ( WP_DEBUG == true ) {
+                if ( true == WP_DEBUG ) {
 
                     echo '<!--Single Post Format or 2 Category '.$cat.' start-->';
                 }
@@ -95,10 +93,7 @@
 	</div>
 <?php
 				}
-?>
-	
-		
-<?php
+
 /**
  * Show featured image
  *
@@ -116,7 +111,7 @@
  */
                 get_template_part( "part", $cat );
 
-                if ( WP_DEBUG == true ) {
+                if ( true == WP_DEBUG ) {
                     echo '<!-- #post-'.get_the_ID( ).' -->';
                 }
 
@@ -134,7 +129,7 @@
 		
 		
 		
-		}           // if( have_posts( ) )
+		}           // if ( have_posts( ) )
 ?>
 
                         </<?php raindrops_doctype_elements( 'div', 'article' );?>>
@@ -147,7 +142,7 @@
  *
  *
  */
-        if ( raindrops_show_one_column( ) == 3 ) {
+        if ( 3 == raindrops_show_one_column( ) ) {
 ?>
                     <div class="yui-u">
 <?php
@@ -159,7 +154,7 @@
 ?>
                     </div>
 <?php
-    } elseif ( $rsidebar_show and $raindrops_current_column == false ) {
+    } elseif ( $rsidebar_show && false == $raindrops_current_column ) {
 ?>
                     <div class="yui-u">
 <?php
@@ -185,7 +180,7 @@
  *
  *
  */
-        if ( raindrops_show_one_column( ) !== '1' or $raindrops_current_column == false ) {
+        if ( '1' !== raindrops_show_one_column( ) || false == $raindrops_current_column ) {
 ?>
         <div class="yui-b">
 <?php

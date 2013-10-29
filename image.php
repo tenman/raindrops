@@ -24,10 +24,8 @@
  * @uses raindrops_append_default_sidebar( )
  */
 		do_action( 'raindrops_'. basename(__FILE__) );
-
 		get_header( $raindrops_document_type );
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-
 ?>
 	<div id="yui-main">
 <?php 
@@ -36,7 +34,7 @@
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 <?php 
-		switch(	$raindrops_document_type ){
+		switch(	$raindrops_document_type ) {
 		
 			case( 'html5' ):
 			

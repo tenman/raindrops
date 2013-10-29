@@ -1,8 +1,6 @@
 <?php 
 		global $template;
-		
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-		
 	?><!DOCTYPE html>
 <html <?php language_attributes( ); ?>>
 	<head>
@@ -74,10 +72,10 @@
 							);
  *
  */
-		if ( $raindrops_link_unique_text == true ) {
+		if ( true == $raindrops_link_unique_text ) {
 		 
 			echo raindrops_header_image( 'elements' );
-		}else{
+		} else {
 		 
 			echo raindrops_header_image( 'home_url' );
 		}
@@ -97,4 +95,3 @@
 		</header>
 		<div id="bd" class="clearfix">
 <?php 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>
-

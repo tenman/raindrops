@@ -62,7 +62,7 @@ define('RAINDROPS_PEAR_ERROR_EXCEPTION', 32);
 define('RAINDROPS_PEAR_ZE2', (function_exists('version_compare') &&
                     version_compare(zend_version(), "2-dev", "ge")));
 
-if (substr(PHP_OS, 0, 3) == 'WIN') {
+if ( 'WIN' == substr(PHP_OS, 0, 3) ) {
     define('RAINDROPS_OS_WINDOWS', true);
     define('RAINDROPS_OS_UNIX',    false);
     define('RAINDROPS_PEAR_OS',    'Windows');
@@ -669,16 +669,16 @@ class raindrops_PEAR
     {
         if (!extension_loaded($ext)) {
             // if either returns true dl() will produce a FATAL error, stop that
-            if ((ini_get('enable_dl') != 1) || (ini_get('safe_mode') == 1)) {
+            if ( ( 1 != ini_get('enable_dl') ) || ( 1 == ini_get( 'safe_mode' ) ) ) {
                 return false;
             }
             if (RAINDROPS_OS_WINDOWS) {
                 $suffix = '.dll';
-            } elseif (PHP_OS == 'HP-UX') {
+            } elseif ('HP-UX' == PHP_OS) {
                 $suffix = '.sl';
-            } elseif (PHP_OS == 'AIX') {
+            } elseif ('AIX' == PHP_OS) {
                 $suffix = '.a';
-            } elseif (PHP_OS == 'OSX') {
+            } elseif ('OSX' == PHP_OS) {
                 $suffix = '.bundle';
             } else {
                 $suffix = '.so';
@@ -784,9 +784,12 @@ class raindrops_PEAR_Error
     function raindrops_PEAR_Error($message = 'unknown error', $code = null,
                         $mode = null, $options = null, $userinfo = null)
     {
-        if ($mode === null) {
+	
+        if ( null === $mode ) {
+		
             $mode = RAINDROPS_PEAR_ERROR_RETURN;
         }
+		
         $this->message   = $message;
         $this->code      = $code;
         $this->mode      = $mode;
@@ -801,49 +804,65 @@ class raindrops_PEAR_Error
             $this->level = E_USER_NOTICE;
             $this->callback = $options;
         } else {
-            if ($options === null) {
+		
+            if (null === $options ) {
+			
                 $options = E_USER_NOTICE;
             }
+			
             $this->level = $options;
             $this->callback = null;
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_PRINT) {
-            if (is_null($options) || is_int($options)) {
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_PRINT ) {
+		
+            if ( is_null($options) || is_int($options ) ) {
+			
                 $format = "%s";
             } else {
+			
                 $format = $options;
             }
+			
             printf($format, $this->raindrops_getMessage());
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_TRIGGER) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_TRIGGER ) {
             trigger_error($this->raindrops_getMessage(), $this->level);
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_DIE) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_DIE ) {
+		
             $msg = $this->raindrops_getMessage();
-            if (is_null($options) || is_int($options)) {
+			
+            if ( is_null($options) || is_int($options ) ) {
+			
                 $format = "%s";
-                if (substr($msg, -1) != "\n") {
+				
+                if ( substr($msg, -1) != "\n" ) {
+				
                     $msg .= "\n";
                 }
             } else {
+			
                 $format = $options;
             }
+			
             die(sprintf($format, $msg));
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_CALLBACK) {
-            if (is_callable($this->callback)) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_CALLBACK ) {
+		
+            if ( is_callable($this->callback ) ) {
+			
                 call_user_func($this->callback, $this);
             }
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_EXCEPTION) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_EXCEPTION ) {
+		
             trigger_error("RAINDROPS_PEAR_ERROR_EXCEPTION is obsolete, use class PEAR_Exception for exceptions", E_USER_WARNING);
-            //eval('$e = new Exception($this->message, $this->code);throw($e);');
         }
     }
-
-    // }}}
-    // {{{ raindrops_getMode()
-
     /**
      * Get the error mode from an error object.
      *
@@ -851,12 +870,9 @@ class raindrops_PEAR_Error
      * @access public
      */
     function raindrops_getMode() {
+	
         return $this->mode;
     }
-
-    // }}}
-    // {{{ raindrops_getCallback()
-
     /**
      * Get the callback function/method from an error object.
      *
@@ -864,84 +880,58 @@ class raindrops_PEAR_Error
      * @access public
      */
     function raindrops_getCallback() {
+	
         return $this->callback;
     }
-
-    // }}}
-    // {{{ raindrops_getMessage()
-
-
     /**
      * Get the error message from an error object.
      *
      * @return  string  full error message
      * @access public
      */
-    function raindrops_getMessage()
-    {
+    function raindrops_getMessage() {
+	
         return ($this->error_message_prefix . $this->message);
     }
-
-
-    // }}}
-    // {{{ raindrops_getCode()
-
     /**
      * Get error code from an error object
      *
      * @return int error code
      * @access public
      */
-     function raindrops_getCode()
-     {
+     function raindrops_getCode() {
+	 
         return $this->code;
      }
-
-    // }}}
-    // {{{ raindrops_getType()
-
     /**
      * Get the name of this error/exception.
      *
      * @return string error/exception name (type)
      * @access public
      */
-    function raindrops_getType()
-    {
+    function raindrops_getType() {
+	
         return get_class($this);
     }
-
-    // }}}
-    // {{{ raindrops_getUserInfo()
-
     /**
      * Get additional user-supplied information.
      *
      * @return string user-supplied information
      * @access public
      */
-    function raindrops_getUserInfo()
-    {
+    function raindrops_getUserInfo() {
+	
         return $this->userinfo;
     }
-
-    // }}}
-    // {{{ raindrops_getDebugInfo()
-
     /**
      * Get additional debug information supplied by the application.
      *
      * @return string debug information
      * @access public
      */
-    function raindrops_getDebugInfo()
-    {
+    function raindrops_getDebugInfo() {
         return $this->raindrops_getUserInfo();
     }
-
-    // }}}
-    // {{{ raindrops_getBacktrace()
-
     /**
      * Get the call backtrace from where the error was generated.
      * Supported with PHP 4.3.0 or newer.
@@ -950,38 +940,35 @@ class raindrops_PEAR_Error
      * @return array Backtrace, or NULL if not available.
      * @access public
      */
-    function raindrops_getBacktrace($frame = null)
-    {
+    function raindrops_getBacktrace( $frame = null ) {
+	
         if (defined('RAINDROPS_PEAR_IGNORE_BACKTRACE')) {
+		
             return null;
         }
-        if ($frame === null) {
+		
+        if ( null === $frame ) {
+		
             return $this->backtrace;
         }
-        return $this->backtrace[$frame];
+        return $this->backtrace[ $frame ];
     }
 
-    // }}}
-    // {{{ raindrops_addUserInfo()
-
-    function raindrops_addUserInfo($info)
-    {
-        if (empty($this->userinfo)) {
+    function raindrops_addUserInfo( $info ) {
+	
+        if ( empty( $this->userinfo ) ) {
+		
             $this->userinfo = $info;
         } else {
+		
             $this->userinfo .= " ** $info";
         }
     }
 
-    // }}}
-    // {{{ raindrops_toString()
-    function __raindrops_toString()
-    {
+    function __raindrops_toString() {
+	
         return $this->raindrops_getMessage();
     }
-    // }}}
-    // {{{ raindrops_toString()
-
     /**
      * Make a string representation of this object.
      *
@@ -989,37 +976,52 @@ class raindrops_PEAR_Error
      * @access public
      */
     function raindrops_toString() {
+	
         $modes = array();
         $levels = array(E_USER_NOTICE  => 'notice',
                         E_USER_WARNING => 'warning',
                         E_USER_ERROR   => 'error');
-        if ($this->mode & RAINDROPS_PEAR_ERROR_CALLBACK) {
-            if (is_array($this->callback)) {
+						
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_CALLBACK ) {
+		
+            if ( is_array( $this->callback ) ) {
+			
                 $callback = (is_object($this->callback[0]) ?
                     strtolower(get_class($this->callback[0])) :
                     $this->callback[0]) . '::' .
                     $this->callback[1];
             } else {
+			
                 $callback = $this->callback;
             }
+			
             return sprintf('[%s: message="%s" code=%d mode=callback '.
                            'callback=%s prefix="%s" info="%s"]',
                            strtolower(get_class($this)), $this->message, $this->code,
                            $callback, $this->error_message_prefix,
                            $this->userinfo);
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_PRINT) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_PRINT ) {
+		
             $modes[] = 'print';
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_TRIGGER) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_TRIGGER ) {
+		
             $modes[] = 'trigger';
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_DIE) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_DIE ) {
+		
             $modes[] = 'die';
         }
-        if ($this->mode & RAINDROPS_PEAR_ERROR_RETURN) {
+		
+        if ( $this->mode & RAINDROPS_PEAR_ERROR_RETURN ) {
+		
             $modes[] = 'return';
         }
+		
         return sprintf('[%s: message="%s" code=%d mode=%s level=%s '.
                        'prefix="%s" info="%s"]',
                        strtolower(get_class($this)), $this->message, $this->code,
@@ -1027,8 +1029,6 @@ class raindrops_PEAR_Error
                        $this->error_message_prefix,
                        $this->userinfo);
     }
-
-    // }}}
 }
 
 /*
@@ -1076,8 +1076,7 @@ define('RAINDROPS_CSS_COLOR_ERROR', 100);
  *
  * @package CSS_Color
  */
-class raindrops_CSS_Color extends raindrops_PEAR
-{
+class raindrops_CSS_Color extends raindrops_PEAR{
   //==================================================
   //==PARAMETERS======================================
   //==================================================
@@ -1108,8 +1107,7 @@ class raindrops_CSS_Color extends raindrops_PEAR
   //==CONSTRUCTOR=====================================
   //==================================================
 
-  function raindrops_CSS_Color($bgHex, $fgHex='')
-  {
+  function raindrops_CSS_Color($bgHex, $fgHex='') {
     // This is the constructor method for the class,
     // which is called when a new object is created.
 
@@ -1126,8 +1124,7 @@ class raindrops_CSS_Color extends raindrops_PEAR
   //==================================================
 
   //--------------------------------------------------
-  function raindrops_setPalette($bgHex, $fgHex = '')
-  {
+  function raindrops_setPalette($bgHex, $fgHex = '') {
     // Initialize the color palettes
 
     // If a foreground color was not specified,
@@ -1141,10 +1138,11 @@ class raindrops_CSS_Color extends raindrops_PEAR
     $this->fg = array();
 
     // Make sure we got a valid hex value
-    if (!$this->raindrops_isHex($bgHex)) {
-      $this->raindrops_raiseError("background color '$bgHex' is not a hex color value",
-            __FUNCTION__, __LINE__);
-      return false;
+    if (!$this->raindrops_isHex( $bgHex ) ) {
+	
+		$this->raindrops_raiseError("background color '$bgHex' is not a hex color value",
+			__FUNCTION__, __LINE__);
+		return false;
     }
 
     // Set the bg color
@@ -1163,10 +1161,11 @@ class raindrops_CSS_Color extends raindrops_PEAR
     $this->bg['-5'] = $this->raindrops_darken($bgHex, .1);
 
     // Make sure we got a valid hex value
-    if (!$this->raindrops_isHex($fgHex)) {
-      $this->raindrops_raiseError("background color '$bgHex' is not a hex color value",
-            __FUNCTION__, __LINE__);
-      return false;
+    if ( ! $this->raindrops_isHex( $fgHex ) ) {
+	
+		$this->raindrops_raiseError("background color '$bgHex' is not a hex color value",
+			__FUNCTION__, __LINE__);
+		return false;
     }
 
     // Set up the foreground colors
@@ -1184,55 +1183,58 @@ class raindrops_CSS_Color extends raindrops_PEAR
   }
 
   //--------------------------------------------------
-  function raindrops_lighten($hex, $percent)
-  {
+  function raindrops_lighten($hex, $percent) {
+  
     return $this->raindrops_mix($hex, $percent, 255);
   }
 
   //--------------------------------------------------
-  function raindrops_darken($hex, $percent)
-  {
+  function raindrops_darken($hex, $percent) {
+  
     return $this->raindrops_mix($hex, $percent, 0);
   }
 
   //--------------------------------------------------
-  function raindrops_mix($hex, $percent, $mask)
-  {
+  function raindrops_mix($hex, $percent, $mask) {
 
     // Make sure inputs are valid
-    if (!is_numeric($percent) || $percent < 0 || $percent > 1) {
+    if ( ! is_numeric( $percent ) || $percent < 0 || $percent > 1 ) {
+	
       $this->raindrops_raiseError("percent=$percent is not valid",
             __FUNCTION__, __LINE__);
       return false;
     }
 
-    if (!is_int($mask) || $mask < 0 || $mask > 255) {
+    if ( ! is_int( $mask ) || $mask < 0 || $mask > 255) {
+	
       $this->raindrops_raiseError("mask=$mask is not valid",
             __FUNCTION__, __LINE__);
       return false;
     }
 
     $rgb = $this->raindrops_hex2RGB($hex);
-    if (!is_array($rgb)) {
+    if ( ! is_array( $rgb ) ) {
+	
       // hex2RGB will raise an error
       return false;
     }
 
-    for ($i=0; $i<3; $i++) {
-      $rgb[$i] = round($rgb[$i] * $percent) + round($mask * (1-$percent));
+    for ( $i=0; $i<3; $i++ ) {
+	
+		$rgb[$i] = round($rgb[$i] * $percent) + round($mask * (1-$percent));
 
       // In case rounding up causes us to go to 256
-      if ($rgb[$i] > 255) {
-    $rgb[$i] = 255;
-      }
+		if ($rgb[$i] > 255) {
+			$rgb[$i] = 255;
+		}
 
     }
+	
     return $this->raindrops_RGB2Hex($rgb);
   }
 
   //--------------------------------------------------
-  function raindrops_hex2RGB($hex)
-  {
+  function raindrops_hex2RGB($hex) {
     //
     // Given a hex color (rrggbb or rgb),
     // returns an array (r, g, b) with decimal values
@@ -1247,7 +1249,7 @@ class raindrops_CSS_Color extends raindrops_PEAR
     $d = '[a-fA-F0-9]';
 
     // Make sure $hex is valid
-    if (preg_match("/^($d$d)($d$d)($d$d)\$/", $hex, $rgb)) {
+    if ( preg_match( "/^($d$d)($d$d)($d$d)\$/", $hex, $rgb ) ) {
 
       return array(
            hexdec($rgb[1]),
@@ -1255,7 +1257,8 @@ class raindrops_CSS_Color extends raindrops_PEAR
            hexdec($rgb[3])
            );
     }
-    if (preg_match("/^($d)($d)($d)$/", $hex, $rgb)) {
+	
+    if ( preg_match("/^($d)($d)($d)$/", $hex, $rgb ) ) {
 
       return array(
            hexdec($rgb[1] . $rgb[1]),
@@ -1269,8 +1272,7 @@ class raindrops_CSS_Color extends raindrops_PEAR
   }
 
   //--------------------------------------------------
-  function raindrops_RGB2Hex($rgb)
-  {
+  function raindrops_RGB2Hex($rgb) {
     // Given an array(rval,gval,bval) consisting of
     // decimal color values (0-255), returns a hex string
     // suitable for use with CSS.
@@ -1280,33 +1282,33 @@ class raindrops_CSS_Color extends raindrops_PEAR
     // if (!$h) { error };
 
     // Make sure the input is valid
-    if(!$this->raindrops_isRGB($rgb)) {
+    if (!$this->raindrops_isRGB($rgb)) {
+	
       $this->raindrops_raiseError("RGB value is not valid", __FUNCTION__, __LINE__);
       return false;
     }
 
     $hex = "";
-    for($i=0; $i < 3; $i++) {
+	for ( $i=0; $i < 3; $i++ ) {
 
       // Convert the decimal digit to hex
-      $hexDigit = dechex($rgb[$i]);
+		$hexDigit = dechex($rgb[$i]);
 
       // Add a leading zero if necessary
-      if(strlen($hexDigit) == 1) {
-    $hexDigit = "0" . $hexDigit;
-      }
+		if (strlen($hexDigit) == 1) {
+			$hexDigit = "0" . $hexDigit;
+		}
 
       // Append to the hex string
-      $hex .= $hexDigit;
-    }
+		$hex .= $hexDigit;
+	}
 
     // Return the complete hex string
-    return $hex;
+	return $hex;
   }
 
   //--------------------------------------------------
-  function raindrops_isHex($hex)
-  {
+  function raindrops_isHex($hex) {
     // Returns true if $hex is a valid CSS hex color.
     // The "#" character at the start is optional.
 
@@ -1314,20 +1316,21 @@ class raindrops_CSS_Color extends raindrops_PEAR
     $d = '[a-fA-F0-9]';
 
     // Make sure $hex is valid
-    if (preg_match("/^#?$d$d$d$d$d$d\$/", $hex) ||
-    preg_match("/^#?$d$d$d\$/", $hex)) {
+    if ( preg_match("/^#?$d$d$d$d$d$d\$/", $hex) ||
+    preg_match( "/^#?$d$d$d\$/", $hex ) ) {
+	
       return true;
     }
     return false;
   }
 
   //--------------------------------------------------
-  function raindrops_isRGB($rgb)
-  {
+  function raindrops_isRGB($rgb) {
     // Returns true if $rgb is an array with three valid
     // decimal color digits.
 
     if (!is_array($rgb) || count($rgb) != 3) {
+	
       return false;
     }
 
@@ -1338,7 +1341,8 @@ class raindrops_CSS_Color extends raindrops_PEAR
 
       // Make sure the decimal digit is between 0 and 255
       if (!is_int($dec) || $dec < 0 || $dec > 255) {
-    return false;
+	  
+		return false;
       }
     }
 
@@ -1346,8 +1350,7 @@ class raindrops_CSS_Color extends raindrops_PEAR
   }
 
   //--------------------------------------------------
-  function raindrops_calcFG($bgHex, $fgHex)
-  {
+  function raindrops_calcFG($bgHex, $fgHex) {
     // Given a background color $bgHex and a foreground color $fgHex,
     // modifies the foreground color so it will have enough contrast
     // to be seen against the background color.
@@ -1360,69 +1363,77 @@ class raindrops_CSS_Color extends raindrops_PEAR
     // of the foreground color.
     // The numbers here represent the amount of
     // foreground color to mix with black and white.
-    foreach (array(1, 0.75, 0.5, 0.25, 0) as $percent) {
+    foreach ( array(1, 0.75, 0.5, 0.25, 0) as $percent ) {
 
-      $darker = $this->raindrops_darken($fgHex, $percent);
-      $lighter = $this->raindrops_lighten($fgHex, $percent);
-
-      $darkerBrightDiff  = $this->raindrops_brightnessDiff($bgHex, $darker);
-      $lighterBrightDiff = $this->raindrops_brightnessDiff($bgHex, $lighter);
-
-      if ($lighterBrightDiff > $darkerBrightDiff) {
-    $newFG = $lighter;
-    $newFGBrightDiff = $lighterBrightDiff;
-      } else {
-    $newFG = $darker;
-    $newFGBrightDiff = $darkerBrightDiff;
-      }
-      $newFGColorDiff = $this->raindrops_colorDiff($bgHex, $newFG);
-
-      if ($newFGBrightDiff >= $this->minBrightDiff &&
-      $newFGColorDiff >= $this->minColorDiff) {
-    break;
-      }
+		$darker = $this->raindrops_darken($fgHex, $percent);
+		$lighter = $this->raindrops_lighten($fgHex, $percent);
+		
+		$darkerBrightDiff  = $this->raindrops_brightnessDiff($bgHex, $darker);
+		$lighterBrightDiff = $this->raindrops_brightnessDiff($bgHex, $lighter);
+		
+		if ($lighterBrightDiff > $darkerBrightDiff) {
+	  
+			$newFG = $lighter;
+			$newFGBrightDiff = $lighterBrightDiff;
+			  } else {
+			$newFG = $darker;
+			$newFGBrightDiff = $darkerBrightDiff;
+      	}
+		
+		$newFGColorDiff = $this->raindrops_colorDiff($bgHex, $newFG);
+		
+		if ($newFGBrightDiff >= $this->minBrightDiff &&
+		$newFGColorDiff >= $this->minColorDiff) {
+			break;
+		}
     }
 
     return $newFG;
   }
 
   //--------------------------------------------------
-  function raindrops_getMinBrightDiff()
-  {
+  function raindrops_getMinBrightDiff() {
+  
     return $this->minBrightDiff;
   }
-  function raindrops_setMinBrightDiff($b, $resetPalette = true)
-  {
-    $this->minBrightDiff = $b;
-    if ($resetPalette) {
-      $this->raindrops_setPalette($this->bg[0],$this->fg[0]);
-    }
+  
+  function raindrops_setMinBrightDiff( $b, $resetPalette = true ) {
+  
+	$this->minBrightDiff = $b;
+	
+	if ($resetPalette) {
+		$this->raindrops_setPalette($this->bg[0],$this->fg[0]);
+	}
   }
 
   //--------------------------------------------------
-  function raindrops_getMinColorDiff()
-  {
+  function raindrops_getMinColorDiff() {
+  
     return $this->minColorDiff;
   }
-  function raindrops_setMinColorDiff($d, $resetPalette = true)
-  {
+  
+  function raindrops_setMinColorDiff( $d, $resetPalette = true ) {
+  
     $this->minColorDiff = $d;
-    if ($resetPalette) {
+	
+    if ( $resetPalette ) {
+	
       $this->raindrops_setPalette($this->bg[0],$this->fg[0]);
     }
   }
 
   //--------------------------------------------------
-  function raindrops_brightness($hex)
-  {
+  function raindrops_brightness( $hex ) {
     // Returns the brightness value for a color,
     // a number between zero and 178.
     // To allow for maximum readability, the difference between
     // the background brightness and the foreground brightness
     // should be greater than 125.
 
-    $rgb = $this->raindrops_hex2RGB($hex);
-    if (!is_array($rgb)) {
+    $rgb = $this->raindrops_hex2RGB( $hex );
+	
+    if ( ! is_array( $rgb ) ) {
+	
       // hex2RGB will raise an error
       return false;
     }
@@ -1431,34 +1442,34 @@ class raindrops_CSS_Color extends raindrops_PEAR
   }
 
   //--------------------------------------------------
-  function raindrops_brightnessDiff($hex1, $hex2)
-  {
+  function raindrops_brightnessDiff($hex1, $hex2) {
     // Returns the brightness value for a color,
     // a number between zero and 178.
     // To allow for maximum readability, the difference between
     // the background brightness and the foreground brightness
     // should be greater than 125.
 
-    $b1 = $this->raindrops_brightness($hex1);
-    $b2 = $this->raindrops_brightness($hex2);
-    if (is_bool($b1) || is_bool($b2)) {
+    $b1 = $this->raindrops_brightness( $hex1 );
+    $b2 = $this->raindrops_brightness( $hex2 );
+	
+    if ( is_bool( $b1 ) || is_bool( $b2 ) ) {
+	
       return false;
     }
     return abs($b1 - $b2);
   }
 
   //--------------------------------------------------
-  function raindrops_colorDiff($hex1, $hex2)
-  {
+  function raindrops_colorDiff( $hex1, $hex2 ) {
     // Returns the contrast between two colors,
     // an integer between 0 and 675.
     // To allow for maximum readability, the difference between
     // the background and the foreground color should be > 500.
 
-    $rgb1 = $this->raindrops_hex2RGB($hex1);
-    $rgb2 = $this->raindrops_hex2RGB($hex2);
+    $rgb1 = $this->raindrops_hex2RGB( $hex1 );
+    $rgb2 = $this->raindrops_hex2RGB( $hex2 );
 
-    if (!is_array($rgb1) || !is_array($rgb2)) {
+    if ( ! is_array( $rgb1 ) || !is_array( $rgb2 ) ) {
       // hex2RGB will raise an error
       return -1;
     }
@@ -1475,8 +1486,8 @@ class raindrops_CSS_Color extends raindrops_PEAR
   }
 
   //--------------------------------------------------
-  function &raindrops_raiseError($message, $method, $line)
-  {
+  function &raindrops_raiseError($message, $method, $line) {
+  
     $error = raindrops_PEAR::raindrops_raiseError(sprintf("%s.%s() line %d: %s",
                       get_class($this), $method, $line, $message),
                   RAINDROPS_CSS_COLOR_ERROR);

@@ -22,7 +22,8 @@
  *  Widget only home
  *
  */
-        if ( is_front_page( ) and  is_active_sidebar( 'sidebar-3' ) ) {
+        if ( is_front_page( ) && is_active_sidebar( 'sidebar-3' ) ) {
+		
             echo '<div class="topsidebar">'."\n".'<ul>';
             dynamic_sidebar( 'sidebar-3' );
             echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
@@ -37,7 +38,7 @@
 ?>
 	<div class="stickies">
 <?php
-		foreach( $raindrops_posts as $post ){
+		foreach( $raindrops_posts as $post ) {
 		
             setup_postdata( $post );
 			
@@ -69,7 +70,7 @@
  */
 		if ( have_posts( ) ) {
 		
-			while( have_posts( ) ){
+			while( have_posts( ) ) {
 			
 				the_post( );
 				
@@ -90,7 +91,7 @@
 		$raindrops_offset				= 0;
 		$raindrops_portfolio_page		= get_query_var('page');
 	
-		if ( $raindrops_portfolio_page > 0 ){
+		if ( $raindrops_portfolio_page > 0 ) {
 		
 			$raindrops_offset 			= $raindrops_portfolio_page * $raindrops_posts_per_page;
 			//$raindrops_offset_b			= $raindrops_portfolio_page * ( $raindrops_posts_per_page - 1 );
@@ -119,7 +120,7 @@
 		
 		global $query_string;
 		
-		if ( ! empty( $query_string ) and preg_match( '!(pagename|page_id)!',$query_string ,$regs) ) {
+		if ( ! empty( $query_string ) && preg_match( '!(pagename|page_id)!',$query_string ,$regs) ) {
 		
 			$raindrops_q = strstr( $query_string, $regs[1].'=' );
 			
@@ -132,7 +133,7 @@
 			$url = home_url();
 		}
 	
-    	if ( ! empty( $raindrops_posts ) ){
+    	if ( ! empty( $raindrops_posts ) ) {
 ?>  
 	<div id="yui-main" class="portfolio">
 <?php
@@ -143,7 +144,7 @@
 			
 			$raindrops_loop_number = 1;
 	
-			foreach( $raindrops_posts as $post ){
+			foreach( $raindrops_posts as $post ) {
 			
 				setup_postdata( $post );
 				
@@ -183,9 +184,9 @@
 			
 
 					
-			if ( $raindrops_portfolio_page == 0 ) {
+			if ( 0 == $raindrops_portfolio_page ) {
 			
-				if ( is_front_page() ){
+				if ( is_front_page() ) {
 				
 					$html	= '<li><a href="'.home_url().'?page=2" title="page 2" class="portfolio-page2">'.esc_html__( 'Page' , 'Raindrops' ).'2</a></li>';
 				} else {
@@ -223,7 +224,7 @@
 								);
 			}
 	
-			if ( $raindrops_portfolio_page == 2 ) {
+			if ( 2 == $raindrops_portfolio_page ) {
 			
 					$url = remove_query_arg( 'page', $url );
 				
@@ -234,7 +235,7 @@
 									__('Portfolio Home', 'Raindrops') 
 								);		
 			
-			}elseif( $raindrops_portfolio_page > 2 ) {
+			}elseif ( $raindrops_portfolio_page > 2 ) {
 		
 				$page = $raindrops_portfolio_page;
 				$page = $page -1;
@@ -249,7 +250,7 @@
 			
 			printf( '<div class="portfolio-nav"><ul>%1$s</ul></div>', $html );
 
-		}else{ //! empty( $raindrops_posts )
+		} else { //! empty( $raindrops_posts )
 		
 ?>
 			  <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( 'no-portfolio' ); ?> >
@@ -258,7 +259,7 @@
 					$url = remove_query_arg( 'page', $url );
 					$raindrops_html_page = '<p style="text-align:center;"><a href="%1$s" class="%2$s" ><span class="%3$st">%4$s</span></a></p>';
 
-			if( preg_match( '!page=!', $query_string ) ) {	
+			if ( preg_match( '!page=!', $query_string ) ) {	
 ?>		
 		<h3 style="text-align:center" class="h1">End</h3>
 				

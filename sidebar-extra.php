@@ -7,7 +7,6 @@
  * @since Raindrops 0.1
  */
 		global $template;
-		
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 ?>
 <<?php raindrops_doctype_elements( 'div', 'aside' );?> class="rsidebar">

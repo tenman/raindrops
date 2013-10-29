@@ -32,7 +32,6 @@
  * @uses the_post_thumbnail( )
  */
 		do_action( 'raindrops_'. basename(__FILE__) );
-
 		$raindrops_current_column = raindrops_show_one_column( );
 		
 		if ( $raindrops_current_column !== false ) {
@@ -41,7 +40,6 @@
  
 		get_header( $raindrops_document_type );
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-		 
 		raindrops_debug_navitation( __FILE__ );
 ?>
 	<div id="yui-main">
@@ -107,7 +105,7 @@
 ?>
       				</div>
 <?php 
-		if ( raindrops_show_one_column( ) == 3 ) {
+		if ( 3 == raindrops_show_one_column( ) ) {
 ?>
 					<div class="yui-u">
 <?php 
@@ -119,7 +117,7 @@
 ?>
 					</div>
 <?php
-		} elseif ( $rsidebar_show and $raindrops_current_column == false ) {
+		} elseif ( $rsidebar_show && false == $raindrops_current_column ) {
 ?>
 					<div class="yui-u">
 <?php 
@@ -137,7 +135,7 @@
 			</div>
 		</div>
 <?php 
-		if ( raindrops_show_one_column( ) !== '1' or $raindrops_current_column == false ) {
+		if ( raindrops_show_one_column( ) !== '1' || false == $raindrops_current_column ) {
 ?>
 		<div class="yui-b">
 <?php //lsidebar start 

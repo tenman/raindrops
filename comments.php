@@ -46,7 +46,7 @@
 ?>
 		</h2>
 <?php
-		if ( get_comment_pages_count( ) > 1 && get_option( 'page_comments' ) ){ // Are there comments to navigate through? 
+		if ( get_comment_pages_count( ) > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through? 
 ?>
 		<div id="nav-above-comments" class="clearfix">
     		<span class="nav-previous">
@@ -70,7 +70,7 @@
 ?>
 		</ol>
 <?php
-		if ( get_comment_pages_count( ) > 1 && get_option( 'page_comments' ) ){ // Are there comments to navigate through? 
+		if ( get_comment_pages_count( ) > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through? 
 ?>
 		<div id="nav-below-comments" class="clearfix">
 			<span class="nav-previous">
@@ -93,7 +93,7 @@
     /* If there are no comments and comments are closed,
      * let's leave a little note, shall we?
      */
-            if ( ! comments_open( ) ){
+            if ( ! comments_open( ) ) {
 ?>
 		<p class="nocomments">
 <?php 

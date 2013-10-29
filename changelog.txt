@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.143
+	Coding style change
+		syntax change
+			from and to &&
+			from or to ||
+		use Yoda Conditions
+		Remove Trailing Spaces
+----------------------------------------------
+Changelog -----------------------------------
 version:1.142
 	Fixed function name improperly, not prefixed
 		Change 

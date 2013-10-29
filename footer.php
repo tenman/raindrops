@@ -19,9 +19,7 @@
  */
  
 		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template;
-		
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-		
 ?>
 	<<?php raindrops_doctype_elements( 'div','footer' );?> id="ft" class="clear">
 <?php 
@@ -60,11 +58,11 @@
 				esc_html__( 'Comments RSS', "Raindrops" )
 		);
 		
-		if( is_child_theme( ) ){
+		if ( is_child_theme( ) ) {
 			
 			$raindrops_theme_name = 'Child theme '.esc_html( ucwords($raindrops_current_theme_name ) ).' of '. esc_html__( "Raindrops Theme","Raindrops" );
 			
-		}else{
+		} else {
 			$raindrops_theme_name = esc_html__( "Raindrops Theme", "Raindrops" );
 		}
 		

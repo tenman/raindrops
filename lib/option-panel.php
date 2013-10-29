@@ -193,11 +193,12 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-	function raindrops_doc_type_settings_validate( $output ){
+	function raindrops_doc_type_settings_validate( $output ) {
 	
 		$output = (string) $output;
 	
-		if( $output == 'html5' or $output == 'xhtml' ){
+		if ( 'html5' == $output || 'xhtml' == $output ) {
+		
 			return $output;
 		}
 		
@@ -210,11 +211,12 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-	function raindrops_accessibility_settings_validate( $output ){
+	function raindrops_accessibility_settings_validate( $output ) {
 	
 		$output = (string) $output;
 	
-		if( $output == 'yes' or $output == 'no' ){
+		if ( 'yes' == $output || 'no' == $output ) {
+		
 			return $output;
 		}
 		
@@ -227,11 +229,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_use_automatic_color_validate($input){
+    function raindrops_use_automatic_color_validate($input) {
         $input = str_replace("#","",$input);
-        if(ctype_xdigit($input)){
+        if (ctype_xdigit($input)) {
             return '#'.$input;
-        }else{
+        } else {
             $raindrops_options = get_option("raindrops_theme_settings");
             return $raindrops_options["raindrops_use_automatic_color"];
         }
@@ -244,14 +246,18 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_right_sidebar_width_percent_validate($input){
+    function raindrops_right_sidebar_width_percent_validate($input) {
         $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_right_sidebar_width_percent;
-        foreach($vals as $val){
-            if($input == $val){
-            return $input;
+		
+        foreach ( $vals as $val ) {
+		
+            if ( $input == $val ) {
+			
+				return $input;
             }
         }
+		
         $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_right_sidebar_width_percent"];
     }
@@ -262,11 +268,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_show_right_sidebar_validate($input){
+    function raindrops_show_right_sidebar_validate($input) {
         $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_show_right_sidebar;
-        foreach($vals as $val){
-            if($input == $val){
+        foreach($vals as $val) {
+            if ($input == $val) {
             return $input;
             }
         }
@@ -280,9 +286,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_footer_color_validate($input){
-    if($input == ''){return $input;}
-        if(preg_match("!#([0-9a-f]{6}|[0-9a-f]{3})!si",$input)){
+    function raindrops_footer_color_validate($input) {
+    if ($input == '') {return $input;}
+        if (preg_match("!#([0-9a-f]{6}|[0-9a-f]{3})!si",$input)) {
             return $input;
         }
         $raindrops_options = get_option("raindrops_theme_settings");
@@ -295,9 +301,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_default_fonts_color_validate($input){
-        if($input == ''){return $input;}
-        if(preg_match("!#([0-9a-f]{6}|[0-9a-f]{3})!si",$input)){
+    function raindrops_default_fonts_color_validate($input) {
+        if ($input == '') {return $input;}
+        if (preg_match("!#([0-9a-f]{6}|[0-9a-f]{3})!si",$input)) {
             return $input;
         }
         $raindrops_options = get_option("raindrops_theme_settings");
@@ -310,14 +316,19 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_col_width_validate($input){
+    function raindrops_col_width_validate($input) {
+	
         $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_col_width;
-        foreach($vals as $val){
-            if($input == $val){
-            return $input;
+		
+        foreach ( $vals as $val ) {
+		
+            if ( $input == $val ) {
+			
+				return $input;
             }
         }
+		
         $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_col_width"];
     }
@@ -328,14 +339,19 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_page_width_validate($input){
+    function raindrops_page_width_validate($input) {
+	
         $obj = new raindrops_menu_create();
         $vals = $obj->col_settings_raindrops_page_width;
-        foreach($vals as $val){
-            if($input == $val){
-            return $input;
+		
+        foreach ( $vals as $val ) {
+		
+            if ( $input == $val ) {
+			
+				return $input;
             }
         }
+		
         $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_page_width"];
     }
@@ -346,8 +362,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_heading_image_validate($input){
-        if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+    function raindrops_heading_image_validate($input) {
+        if (preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)) {
         $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_heading_image"];
         }
@@ -360,11 +376,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_heading_image_position_validate($input){
-        if(is_numeric($input) and $input < 8 and -1 < $input ){
-        return $input;
+    function raindrops_heading_image_position_validate($input) {
+	
+        if ( is_numeric( $input ) && $input < 8 && -1 < $input ) {
+		
+        	return $input;
         }
+		
         $raindrops_options = get_option("raindrops_theme_settings");
+		
         return $raindrops_options["raindrops_heading_image_position"];
     }
 /**
@@ -374,9 +394,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_footer_image_validate($input){
+    function raindrops_footer_image_validate($input) {
         global $raindrops_options;
-       if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+       if (preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)) {
         $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_footer_image"];
         }
@@ -389,8 +409,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_header_image_validate($input){
-        if(preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)){
+    function raindrops_header_image_validate($input) {
+        if (preg_match('/[^(a-z|0-9|_|-|\.)]+/si',$input)) {
             $raindrops_options = get_option("raindrops_theme_settings");
             return $raindrops_options["raindrops_header_image"];
         }
@@ -403,11 +423,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_style_type_validate($input){
+    function raindrops_style_type_validate($input) {
         $array = raindrops_register_styles($input);
-        if(array_search($input,$array) ){
+        if (array_search($input,$array) ) {
             return esc_html($input);
-        }else{
+        } else {
             return "w3standard";
         }
     }
@@ -418,9 +438,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_base_color_validate($input){
-        if($input == ''){return $input;}
-        if(preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",$input)){
+    function raindrops_base_color_validate($input) {
+        if ($input == '') {return $input;}
+        if (preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",$input)) {
             return $input;
         }
         $raindrops_options = get_option("raindrops_theme_settings");
@@ -433,8 +453,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_color_scheme_validate($input){
-        if($input == ''){return $input;}
+    function raindrops_color_scheme_validate($input) {
+        if ($input == '') {return $input;}
             return esc_html($input);
     }
 /**
@@ -444,7 +464,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function _raindrops_indv_css_validate($input){
+    function _raindrops_indv_css_validate($input) {
         // if needs core support style only
         //return safecss_filter_attr($input);
         return  ' '.strip_tags($input) ;
@@ -456,10 +476,13 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_show_menu_primary_validate($input){
-        if( $input == "show" ){
+    function raindrops_show_menu_primary_validate($input) {
+	
+        if ( "show" == $input ) {
+		
             return 'show';
         }
+		
         return 'hide';
     }
 /**
@@ -469,11 +492,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-    function raindrops_hyperlink_color_validate( $input ){
-        if($input == ''){return 'auto';}
-        if(preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",$input)){
+    function raindrops_hyperlink_color_validate( $input ) {
+	
+        if ( '' == $input ) {return 'auto';}
+		
+        if ( preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si", $input ) ) {
+		
             return $input;
         }
+		
         $raindrops_options = get_option("raindrops_theme_settings");
         return $raindrops_options["raindrops_hyperlink_color"];
     }
@@ -536,12 +563,17 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  */
         function raindrops_SubMenu_GUI() {
+		
             global $wpdb, $raindrops_base_setting,$raindrops_wp_version, $raindrops_current_theme_name;
-            if(RAINDROPS_USE_AUTO_COLOR == true){
+			
+            if ( true == RAINDROPS_USE_AUTO_COLOR ) {
+			
                 $this->col_settings_raindrops_style_type = raindrops_register_styles("w3standard");
-            }else{
+            } else {
+			
                 $this->col_settings_raindrops_style_type = array("w3standard" => "w3standard");
             }
+			
             $ok     = false;
             $result = "";
             /**
@@ -549,24 +581,28 @@ One is a method of up-loading the image from the below up-loading form. Another 
              *
              *
              */
-            if(isset($_POST['raindrops_option_values']) and !empty($_POST['raindrops_option_values'])){
+            if ( isset( $_POST['raindrops_option_values'] ) && !empty( $_POST['raindrops_option_values'] ) ) {
 			
-				if( ! wp_verify_nonce($_POST['_wpnonce'],'update-options') ) {  
+				if ( ! wp_verify_nonce($_POST['_wpnonce'],'update-options') ) {
+				 
 					wp_die ( esc_html__('Post Errors 14', 'Raindrops') );
-	
 				}
-				if( ! check_admin_referer('update-options','_wpnonce') ) {
-					wp_die ( esc_html__('Post Errors 18', 'Raindrops' ) );
 				
+				if ( ! check_admin_referer('update-options','_wpnonce') ) {
+				
+					wp_die ( esc_html__('Post Errors 18', 'Raindrops' ) );
 				}
 
                 $option_id                  = intval($_POST['option_id']);
                 $raindrops_updates          = "";
-                foreach($_POST["raindrops_option_values"] as $key=>$val){
+				
+                foreach ( $_POST["raindrops_option_values"] as $key=>$val ) {
+				
                     $valid_function         = $key.'_validate';
                     $new_settings           = get_option('raindrops_theme_settings');
                     $new_settings[$key]     = $valid_function( $val );
-                    if(update_option('raindrops_theme_settings',$new_settings)){
+					
+                    if ( update_option('raindrops_theme_settings',$new_settings ) ) {
                         $ok                 = true;
                         $raindrops_updates .= ','.$key;
                     }
@@ -583,25 +619,32 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-            if(isset($_POST['reset'])){
-               foreach($raindrops_base_setting as $add){
-                    $option_name = $add['option_name'];
-                        $raindrops_theme_settings[$option_name] = $add['option_value'];
-                }
+			if ( isset($_POST['reset'] ) ) {
+			
+				foreach ( $raindrops_base_setting as $add ) {
+				
+					$option_name = $add['option_name'];
+					$raindrops_theme_settings[$option_name] = $add['option_value'];
+				}
+				
                 $style_type                                         = raindrops_warehouse("raindrops_style_type");
                 $raindrops_indv_css                                 = raindrops_design_output($style_type).raindrops_color_base();
                 $raindrops_theme_settings['_raindrops_indv_css']    = $raindrops_indv_css;
                 update_option('raindrops_theme_settings',$raindrops_theme_settings,"",$add['autoload']);
                 remove_theme_mods();
-        if(file_exists(get_stylesheet_directory().'/images/headers/wp3.jpg')){
-            $raindrops_site_image = get_stylesheet_directory_uri().'/images/headers/wp3.jpg';
-            $raindrops_site_thumbnail_image = get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg';
-        }else{
-            $raindrops_site_image = get_template_directory_uri().'/images/headers/wp3.jpg';
-            $raindrops_site_thumbnail_image = get_template_directory_uri().'/images/headers/wp3-thumbnail.jpg';
-        }
-            set_theme_mod('default-image', $raindrops_site_image);
-        }
+				
+				if ( file_exists( get_stylesheet_directory().'/images/headers/wp3.jpg' ) ) {
+				
+					$raindrops_site_image = get_stylesheet_directory_uri().'/images/headers/wp3.jpg';
+					$raindrops_site_thumbnail_image = get_stylesheet_directory_uri().'/images/headers/wp3-thumbnail.jpg';
+				} else {
+				
+					$raindrops_site_image = get_template_directory_uri().'/images/headers/wp3.jpg';
+					$raindrops_site_thumbnail_image = get_template_directory_uri().'/images/headers/wp3-thumbnail.jpg';
+				}
+		
+            	set_theme_mod('default-image', $raindrops_site_image);
+			}
 /**
  *
  *
@@ -609,16 +652,20 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-            if(isset($_POST['raindrops_option_values']) and !empty($_POST['raindrops_option_values'])){
-                    $scheme = raindrops_warehouse("raindrops_color_scheme");
-                    global $$scheme;
-                if($ok == true){
-                $result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), $raindrops_updates);
+            if ( isset( $_POST['raindrops_option_values'] ) && !empty( $_POST['raindrops_option_values'] ) ) {
+			
+				$scheme = raindrops_warehouse("raindrops_color_scheme");
+				global $$scheme;
+				
+                if ( $ok == true ) {
+				
+                	$result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), $raindrops_updates);
+					
                     if ( is_multisite() ) {
                         $result .= sprintf('<a href="%s">%s</a></p></div>',
                                             'themes.php?page=raindrops_settings',
                                             esc_html__(" MultiSite User must Click here !!","Raindrops"));
-                    }else{
+                    } else {
                         $result .= '</p></div>';
                     }
                 }
@@ -630,15 +677,22 @@ One is a method of up-loading the image from the below up-loading form. Another 
  *
  *
  */
-            if(isset($_POST['raindrops_upload'])){
-                    global $raindrops_max_upload_size,$raindrops_max_width,$raindrops_allow_file_type;
-$upload_result = raindrops_upload_image($raindrops_max_upload_size, $raindrops_max_width,$raindrops_allow_file_type);
-if($upload_result[0] == true){
-    $result .= '<div id="message" class="updated fade" title="'.esc_attr(basename($upload_result[1])).'"><img src="'.$upload_result[2].'" width="100" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;&nbsp;'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), basename($upload_result[2]));
-}else{
-    $result .= '<div id="message" class="updated fade" title="'.esc_attr(basename($upload_result[1])).'">'.sprintf(__('updated %s  fail.', 'Raindrops'), $upload_result[1]);
-}
+            if (isset($_POST['raindrops_upload'])) {
+			
+				global $raindrops_max_upload_size,$raindrops_max_width,$raindrops_allow_file_type;
+					
+				$upload_result = raindrops_upload_image($raindrops_max_upload_size, $raindrops_max_width,$raindrops_allow_file_type);
+				
+				if ( true == $upload_result[0] ) {
+				
+					$result .= '<div id="message" class="updated fade" title="'.esc_attr(basename($upload_result[1])).'"><img src="'.$upload_result[2].'" width="100" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;&nbsp;'.sprintf(__('updated %1$s  successfully.', 'Raindrops'), basename($upload_result[2]));
+				} else {
+				
+					$result .= '<div id="message" class="updated fade" title="'.esc_attr(basename($upload_result[1])).'">'.sprintf(__('updated %s  fail.', 'Raindrops'), $upload_result[1]);
+				}
+				
             }
+			
             $result .= '</div>';
             $result .= '<div id="reset2"></div>';
             $result .= '<div>'.$this->raindrops_form_user_input().'</div>';
@@ -653,7 +707,7 @@ if($upload_result[0] == true){
  */
         function raindrops_add_menus() {
         global $raindrops_wp_version, $raindrops_current_theme_name;
-            if(function_exists('add_theme_page')) {
+            if (function_exists('add_theme_page')) {
                 $option_name   = ucwords( $raindrops_current_theme_name ). ' Options';
                 $hook_suffix = add_theme_page(
                         RAINDROPS_TABLE_TITLE,
@@ -662,7 +716,7 @@ if($upload_result[0] == true){
                         'raindrops_settings',
                         array($this, 'raindrops_SubMenu_GUI')
                 );
-                if ( $hook_suffix ){
+                if ( $hook_suffix ) {
                     add_action( 'admin_print_styles-' . $hook_suffix, array($this,'raindrops_admin_print_styles'));
                     add_action( 'load-' . $hook_suffix, 'raindrops_settings_page_contextual_help' );
                 }
@@ -675,11 +729,11 @@ if($upload_result[0] == true){
  *
  *
  */
-    function raindrops_admin_print_styles(){
+    function raindrops_admin_print_styles() {
         global $raindrops_wp_version;
-        if(file_exists(get_stylesheet_directory().'/admin-options.css')){
+        if (file_exists(get_stylesheet_directory().'/admin-options.css')) {
             echo '<style type="text/css">@import url("'.get_stylesheet_directory_uri().'/admin-options.css?ver='.$raindrops_wp_version.'");</style>';
-        }else{
+        } else {
             echo '<style type="text/css">@import url("'.get_template_directory_uri().'/admin-options.css?ver='.$raindrops_wp_version.'");</style>';
         }
     }
@@ -690,7 +744,7 @@ if($upload_result[0] == true){
  *
  *
  */
-        function raindrops_form_user_input(){
+        function raindrops_form_user_input() {
             global $raindrops_base_setting;
             global $wpdb;
             global $raindrops_wp_version;
@@ -700,96 +754,128 @@ if($upload_result[0] == true){
             $i              = 0;
             $deliv          = htmlspecialchars($_SERVER['REQUEST_URI']);
             $results        = get_option('raindrops_theme_settings');
-            foreach($raindrops_base_setting as $key => $row){
+			
+            foreach ( $raindrops_base_setting as $key => $row ) {
+			
                 $raindrops_option_name = $raindrops_base_setting[$key]['option_name'];
                 $raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
             }
+			
             $results                    = $raindrops_sort;
             $current_heading_image      = raindrops_warehouse("raindrops_heading_image");
             $raindrops_navigation_add   = '';
-$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
-if( $raindrops_wp_version >= '3.4' ){
-$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'customize.php' ).'">'.__( 'Theme customizer','Raindrops').'</a></li>';
-}
-$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'themes.php?page=custom-header' ).'">'.__( 'Custom Header','Raindrops').'</a></li>';
-$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'themes.php?page=custom-background' ).'">'.__( 'Custom Background','Raindrops').'</a></li>';
-$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'widgets.php' ).'">'.__( 'Widget','Raindrops').'</a></li>';
-$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'nav-menus.php' ).'">'.__( 'Menus','Raindrops').'</a></li>';
-$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'theme-editor.php' ).'">'.__( 'Theme Editor','Raindrops').'</a></li>';
-$raindrops_navigation_list  .= '</ul>';
-            if(RAINDROPS_USE_AUTO_COLOR == true){
-            $raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raindrops').'</h3><ul id="raindrops_navigation_list" class="raindrops-options-menu">';
-            }else{
-            $raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper">';
+			$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
+			
+			if ( $raindrops_wp_version >= '3.4' ) {
+				$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'customize.php' ).'">'.__( 'Theme customizer','Raindrops').'</a></li>';
+			}
+			
+			$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'themes.php?page=custom-header' ).'">'.__( 'Custom Header','Raindrops').'</a></li>';
+			$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'themes.php?page=custom-background' ).'">'.__( 'Custom Background','Raindrops').'</a></li>';
+			$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'widgets.php' ).'">'.__( 'Widget','Raindrops').'</a></li>';
+			$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'nav-menus.php' ).'">'.__( 'Menus','Raindrops').'</a></li>';
+			$raindrops_navigation_list  .= '<li><a href="'.admin_url( 'theme-editor.php' ).'">'.__( 'Theme Editor','Raindrops').'</a></li>';
+			$raindrops_navigation_list  .= '</ul>';
+			
+            if ( true == RAINDROPS_USE_AUTO_COLOR ) {
+			
+            	$raindrops_navigation_list  .= '<h3 class="raindrops-navigation-title">'.__('Raindrops Extend Theme Options','Raindrops').'</h3><ul id="raindrops_navigation_list" class="raindrops-options-menu">';
+            } else {
+			
+            	$raindrops_navigation_list  = '<div class="raindrops-navigation-wrapper">';
             }
+			
             $raindrops_navigation_add   = '';
             unset($results['_raindrops_indv_css']);
             unset($results['install']);
             $lines .= "<form action=\"$deliv\" method=\"post\">".wp_nonce_field('update-options');
-            foreach( $results as $key => $val ){
+			
+            foreach ( $results as $key => $val ) {
+			
                 $add_box = '';
-                if(RAINDROPS_USE_AUTO_COLOR == true){
+				
+                if ( true == RAINDROPS_USE_AUTO_COLOR ) {
+				
                     $raindrops_navigation_list .= '<li><a href="#'.str_replace("_","-",$key).'">'.raindrops_admin_meta($key,'title').'</a></li>';
-                    if($key == 'raindrops_base_color'){
+                    if ( 'raindrops_base_color' == $key ) {
+					
                         $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">'.__('go to Color Type','Raindrops').'</a></li></ul>';
-                    }elseif($key == 'raindrops_header_image' or $key == 'raindrops_footer_image'){
+                    } elseif ( 'raindrops_header_image' == $key || 'raindrops_footer_image' == $key ) {
+					
                         $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">'.__('Go to upload form','Raindrops').'</a></li></ul>';
-                    }elseif($key == 'raindrops_style_type'){
+                    } elseif ( 'raindrops_style_type' == $key ) {
+					
                         $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">'.__('Go to Base Color','Raindrops').'</a></li></ul>';
-                    }else{
+                    } else {
+					
                         $raindrops_navigation_add = '';
                     }
                 }
+				
                 $excerpt    = "";
                 $table      = sprintf($this->table_template,str_replace("_","-",$key));
                 $excerpt    = sprintf($this->title_template,str_replace("_","-",$key),str_replace("_"," ",$key),raindrops_admin_meta($key,'title'));
                 $excerpt    .= sprintf($this->excerpt_template,raindrops_admin_meta($key,'excerpt2'));
-                if(!empty($excerpt)){
+				
+                if ( ! empty( $excerpt ) ) {
+				
                     $excerpt = '<div class="postbox" style="margin:1em;color:#339999">'.$excerpt;
-                }else{
+                } else {
                     $excerpt = "";
                 }
-                if(preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si",$val)){
+				
+                if ( preg_match("!([0-9a-f]{6}|[0-9a-f]{3})!si", $val ) ) {
+				
                     $style  = "background:".$val.';';
-                }else{
+                } else {
+				
                     $style  = "";
                 }
-                if(preg_match("!\.(png|gif|jpeg|jpg)$!i",$val) and $key !== "raindrops_footer_image" and $key !== "raindrops_header_image"){
-                    if(file_exists(get_stylesheet_directory()."/images/".$val)){
+				
+                if ( preg_match( "!\.(png|gif|jpeg|jpg)$!i", $val ) && $key !== "raindrops_footer_image" && $key !== "raindrops_header_image" ) {
+				
+                    if ( file_exists( get_stylesheet_directory()."/images/". $val ) ) {
+					
                         $style .="background:url(".get_stylesheet_directory_uri()."/images/".$val.');';
-                    }else{
+                    } else {
+					
                         $style .="background:url(".get_template_directory_uri()."/images/".$val.');';
                     }
-                }else{
+                } else {
                         $style .='';
                 }
-                if(empty($style)){
+				
+                if ( empty( $style ) ) {
+				
                     $style .='visibility:hidden';
                     $table_header =  '<thead><tr><th>&nbsp;</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit",'Raindrops').'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
-                }else{
+                } else {
+				
                     $table_header =  '<thead><tr><th >'.__("Color", 'Raindrops').'</th><th>'.__("Value", 'Raindrops').'</th><th>'.__("Edit", 'Raindrops').'</th><th style="width:6em;">&nbsp;</th></tr></thead>';
                 }
-                if (RAINDROPS_USE_AUTO_COLOR == false and (   $key == "raindrops_footer_color" or
-                                                        $key == "raindrops_default_fonts_color" or
-                                                        $key == "raindrops_base_color" or
-                                                        $key == "raindrops_header_image" or
-                                                        $key == "raindrops_footer_image" or
-                                                        $key == "raindrops_heading_image_position" or
-                                                        $key == "raindrops_heading_image" or
-                                                        $key == "raindrops_style_type" or
-                                                        $key == "raindrops_hyperlink_color" or
-                                                        $key == "raindrops_color_scheme") ){
+				
+                if ( false == RAINDROPS_USE_AUTO_COLOR && ( "raindrops_footer_color" == $key or
+                                                        "raindrops_default_fonts_color" == $key or
+                                                        "raindrops_base_color" == $key or
+                                                        "raindrops_header_image" == $key or
+                                                        "raindrops_footer_image" == $key or
+                                                        "raindrops_heading_image_position" == $key or
+                                                        "raindrops_heading_image" == $key or
+                                                        "raindrops_style_type" == $key or
+                                                        "raindrops_hyperlink_color" == $key or
+                                                        "raindrops_color_scheme" == $key ) ) {
                     continue;
                 }
-                if(raindrops_warehouse("raindrops_style_type") == $raindrops_current_theme_name
-                                                and (   $key == "raindrops_footer_color" or
-                                                        $key == "raindrops_default_fonts_color" or
-                                                        $key == "raindrops_header_image" or
-                                                        $key == "raindrops_footer_image" or
-                                                        $key == "raindrops_heading_image_position" or
-                                                        $key == "raindrops_heading_image" or
-                                                        $key == "raindrops_hyperlink_color"
-                                                        ) ){
+				
+                if ( raindrops_warehouse( "raindrops_style_type" ) == $raindrops_current_theme_name
+                                                && (   "raindrops_footer_color" == $key or
+                                                        "raindrops_default_fonts_color" == $key or
+                                                        "raindrops_header_image" == $key or
+                                                        "raindrops_footer_image" == $key or
+                                                        "raindrops_heading_image_position" == $key or
+                                                        "raindrops_heading_image" == $key or
+                                                        "raindrops_hyperlink_color" == $key
+                                                        ) ) {
                      continue;
                 }
 
@@ -801,115 +887,152 @@ $raindrops_navigation_list  .= '</ul>';
                 $lines .= '<td style="display:none;">';
                 $lines .= '<input type="text" name="option_id" value="'.$i.'" />'.$i.'</td>';
 //background setting
-                if($key == "raindrops_heading_image_position"){
-                    if(file_exists(get_stylesheet_directory().'/images/'.$current_heading_image)){
+
+                if ( "raindrops_heading_image_position" == $key ) {
+				
+                    if ( file_exists( get_stylesheet_directory(). '/images/'. $current_heading_image ) ) {
+					
                         $lines .= '<td style="background:url('.get_stylesheet_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_stylesheet_directory_uri().'/images/number.png" />';
-                    }else{
+                    } else {
+					
                         $lines .= '<td style="background:url('.get_template_directory_uri().'/images/'.$current_heading_image.');"><img src="'.get_template_directory_uri().'/images/number.png" />';
                     }
-                }elseif($key == "raindrops_header_image"){
+					
+                } elseif ( $key == "raindrops_header_image" ) {
+				
                     $uploads = wp_upload_dir();
                     $header_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_header_image');
                     $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($header_image_uri,'inline','#hd').'"></td></tr><tr><td>&nbsp;</td>';
-                }elseif($key == "raindrops_footer_image"){
+					 
+                } elseif ( $key == "raindrops_footer_image" ) {
+				
                     $uploads = wp_upload_dir();
                     $footer_image_uri = $uploads['url'].'/'.raindrops_warehouse('raindrops_footer_image');
                     $lines .= '<td colspan="4" style="height:150px;'.raindrops_upload_image_parser($footer_image_uri,'inline','#ft').'" ></td></tr><tr><td>&nbsp;</td>';
-                }else{
+                } else {
+				
                     $lines .= '<td style="'.$style.'">';
                 }
+				
                 $lines .= '<input type="hidden" name="option_name" value="'.esc_attr($key).'" read-only="read-only" /></td>';
                 $lines .= '<td>'.esc_html($val).'</td>';
-                if( $key == "raindrops_hyperlink_color" or
+                if ( $key == "raindrops_hyperlink_color" or
                     $key == "raindrops_base_color" or
                     $key == "raindrops_footer_color" or
-                    $key == "raindrops_default_fonts_color" ){
+                    $key == "raindrops_default_fonts_color" ) {
                     $lines .= "<td>".$this->raindrops_color_selector($key,esc_attr( $val ),$i)."</td>";
-                }elseif($key == "raindrops_col_width"){
+                }elseif ($key == "raindrops_col_width") {
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',6,120);
-                    foreach($this->col_settings_raindrops_col_width as $key=>$current){
+					
+                    foreach ( $this->col_settings_raindrops_col_width as $key=>$current ) {
+					
                         $lines .= '<option value="'.esc_attr( $current ).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
+					
                     $lines .='</select></td>';
-                }elseif($key == "raindrops_page_width"){
+                } elseif ($key == "raindrops_page_width") {
+				
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',4,80);
-                    foreach($this->col_settings_raindrops_page_width as $key=>$current){
+                    foreach($this->col_settings_raindrops_page_width as $key=>$current) {
                         $lines .= '<option value="'.esc_attr($current).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-                }elseif($key == "raindrops_show_right_sidebar"){
+                } elseif ( $key == "raindrops_show_right_sidebar" ) {
+				
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',2,40);
-                    foreach($this->col_settings_raindrops_show_right_sidebar as $key=>$current){
+                    foreach ( $this->col_settings_raindrops_show_right_sidebar as $key=>$current ) {
+					
                         $lines .= '<option value="'.esc_attr($current).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
+					
                     $lines .='</select></td>';
-                }elseif($key == "raindrops_right_sidebar_width_percent"){
+                } elseif ($key == "raindrops_right_sidebar_width_percent" ) {
+				
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,esc_attr($this->accesskey[$i]),'raindrops_option_values['.$key.']',5,100);
-                    foreach($this->col_settings_raindrops_right_sidebar_width_percent as $key=>$current){
+                    foreach($this->col_settings_raindrops_right_sidebar_width_percent as $key=>$current) {
                         $lines .= '<option value="'.esc_attr($current).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-                }elseif($key == "raindrops_style_type"){
+                } elseif ( $key == "raindrops_style_type" ) {
+				
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',3,60);
-                    foreach($this->col_settings_raindrops_style_type as $key=>$current){
+					
+                    foreach ( $this->col_settings_raindrops_style_type as $key=>$current ) {
                         $lines .= '<option value="'.esc_attr($current).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
                     $lines .='</select></td>';
-                }elseif($key == "raindrops_heading_image"){
+                } elseif ( $key == "raindrops_heading_image" ) {
+				
                     $lines .= '<td style="height:225px">';
                     $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr( $val ).'"';
                     $lines .= ' /></td>';
-                }elseif($key == "raindrops_color_scheme"){
+                } elseif ( $key == "raindrops_color_scheme" ) {
+				
                     $lines .= '<td>';
                     $lines .= sprintf($this->line_select_element,$this->accesskey[$i],'raindrops_option_values['.$key.']',3,60);
-                    foreach($this->col_settings_raindrops_color_scheme as $key=>$current){
+					
+                    foreach ( $this->col_settings_raindrops_color_scheme as $key=>$current ) {
+					
                         $lines .= '<option value="'.esc_attr($current).'" '.selected(strcmp($val,$current),0,false).'>'.esc_html($key).'</option>';
                     }
-                }else{
+                } else {
+				
                     $lines .= '<td>';
                     $lines .= '<input  accesskey="'.esc_attr($this->accesskey[$i]).'" type="text" name="raindrops_option_values['.$key.']" value="'.esc_attr($val).'"';
                     $lines .= ' /></td>';
                 }
+				
                 $i++;
                 $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr__('Save', 'Raindrops').'" /></td>';
                 $lines .= '</tr>';
                 $send_key_name = "";
                 $lines .= "</tbody></table><br />{$add_box}{$raindrops_navigation_add}</div>";
             }
+			
             $lines .= "<div style=\"margin:0 50px;\"><input type=\"submit\" class=\"button-primary\" value=\"".esc_attr('Save Changes').'" />&nbsp;&nbsp;&nbsp;';
             $lines .= "<input type=\"submit\" name=\"reset\" class=\"button-primary\" value=\"".esc_attr('Reset All Settings').'" /></form><br style="clear:both;</div>"';
             $lines .= "</div>";
-            if(!preg_match('|<tbody>|',$lines)){
+			
+            if ( ! preg_match( '|<tbody>|', $lines ) ) {
+			
                 $lines .= "<tbody><tr><td colspan=\"4\">".__("Please reload this page ex. windows F5",'Raindrops').'</td></tr></tbody>';
             }
+			
             $lines .= raindrops_upload_form();
-            if( is_child_theme() ){
-				if( $raindrops_wp_version >= '3.4' ){ // WordPress 3.4 check
+			
+            if ( is_child_theme() ) {
+			
+				if ( $raindrops_wp_version >= '3.4' ) { // WordPress 3.4 check
 				
 					$raindrops_theme_name = 'Child theme '.ucwords( wp_get_theme() ).' of '.__("Raindrops Theme","Raindrops");
 				}
-            }else{
+            } else {
+			
                 $raindrops_theme_name = esc_html__("Raindrops Theme","Raindrops");
             }
-            if(RAINDROPS_USE_AUTO_COLOR == true){
-            $add_infomation = sprintf(
-            '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a></div>',
-            'http://www.tenman.info/wp3/raindrops',
-            $raindrops_theme_name
-            );
-            }else{
-            $add_infomation = sprintf(
-            '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>',
-            'http://www.tenman.info/wp3/raindrops',
-            $raindrops_theme_name,
-            '&nbsp;&nbsp;<span>'.__("Now constant RAINDROPS_USE_AUTO_COLOR is false").'</span>'
-            );
+			
+            if ( true == RAINDROPS_USE_AUTO_COLOR ) {
+			
+				$add_infomation = sprintf(
+				'<div class="raindrops-option-footer-infomation"><a href="%s">%s</a></div>',
+				'http://www.tenman.info/wp3/raindrops',
+				$raindrops_theme_name
+				);
+            } else {
+			
+				$add_infomation = sprintf(
+				'<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>',
+				'http://www.tenman.info/wp3/raindrops',
+				$raindrops_theme_name,
+				'&nbsp;&nbsp;<span>'.__("Now constant RAINDROPS_USE_AUTO_COLOR is false").'</span>'
+				);
             }
+			
             return $raindrops_navigation_list. '</ul>'.$add_infomation.'</div>'. $lines.'<br style="clear:both" />';
         }
 /**
@@ -919,7 +1042,7 @@ $raindrops_navigation_list  .= '</ul>';
  *
  *
  */
-         function raindrops_color_selector($name,$current_val,$i){
+         function raindrops_color_selector($name,$current_val,$i) {
 		 
             global $raindrops_color_ja,$raindrops_color_en_140,$raindrops_color_en,$raindrops_color_anime;
 		 
@@ -928,38 +1051,51 @@ $raindrops_navigation_list  .= '</ul>';
 			$scheme = $$scheme;
 			
 		//1.122
-			if( isset(  $scheme ) and is_array( $scheme ) ) {            
+			if ( isset(  $scheme ) && is_array( $scheme ) ) {            
 			
-			$current_color = array_search($current_val,$scheme);
+				$current_color = array_search($current_val,$scheme);
 			
-			$result .= '<option value="'.$current_val.'" style="background:'.$current_val.'" '.selected(1,1,false).'>'.$current_color.'</option>';
+				$result .= '<option value="'.$current_val.'" style="background:'.$current_val.'" '.selected(1,1,false).'>'.$current_color.'</option>';
 			
-					foreach($scheme as $key=>$val){
-						$cr = hexdec(substr($val,1,2))*0.5;
-						$cg = hexdec(substr($val,3,2))*0.5;
-						$cb = hexdec(substr($val,5,2))*0.5;
-						if($cr+$cg+$cb < 128 and !empty($val)){
-							$color = "#ccc";
-						}else{
-							if($cr > $cg and $cg > $cb){
+				foreach ( $scheme as $key=>$val ) {
+				
+					$cr = hexdec(substr($val,1,2))*0.5;
+					$cg = hexdec(substr($val,3,2))*0.5;
+					$cb = hexdec(substr($val,5,2))*0.5;
+					
+					if ( $cr+$cg+$cb < 128 && !empty( $val ) ) {
+					
+						$color = "#ccc";
+					} else {
+					
+						if ( $cr > $cg && $cg > $cb ) {
+						
 							$color = "#".dechex($cb).dechex($cg).dechex($cr);
-							}elseif($cr > $cb and $cb > $cg){
-								$color = "#".dechex($cg).dechex($cb).dechex($cr);
-							}elseif( $cg > $cr and $cr > $cb){
-								$color = "#".dechex($cb).dechex($cg).dechex($cg);
-							}elseif( $cg > $cb and $cb > $cr ){
-								$color = "#".dechex($cr).dechex($cb).dechex($cg);
-							}elseif( $cb > $cg and $cg > $cr ){
-								$color = "#".dechex($cr).dechex($cg).dechex($cb);
-							}elseif( $cb > $cr and $cr > $cg ){
-								$color = "#".dechex($cg).dechex($cr).dechex($cb);
-							}else{
-								$color = "#000";
-							}
+						} elseif ( $cr > $cb && $cb > $cg ) {
+						
+							$color = "#".dechex($cg).dechex($cb).dechex($cr);
+						} elseif ( $cg > $cr && $cr > $cb ) {
+						
+							$color = "#".dechex($cb).dechex($cg).dechex($cg);
+						} elseif ( $cg > $cb && $cb > $cr ) {
+						
+							$color = "#".dechex($cr).dechex($cb).dechex($cg);
+						} elseif ( $cb > $cg && $cg > $cr ) {
+						
+							$color = "#".dechex($cr).dechex($cg).dechex($cb);
+						} elseif ( $cb > $cr && $cr > $cg ) {
+						
+							$color = "#".dechex($cg).dechex($cr).dechex($cb);
+						} else {
+						
+							$color = "#000";
 						}
-						$result .= '<option value="'.esc_attr( $val ).'" style="background:'.esc_attr( $val ).';color:'.esc_attr( $color ).'">'. esc_html( $key ) .'</option>';
-					}			
-			}else{
+					}
+					
+					$result .= '<option value="'.esc_attr( $val ).'" style="background:'.esc_attr( $val ).';color:'.esc_attr( $color ).'">'. esc_html( $key ) .'</option>';
+				}			
+			} else {
+			
 					$result .= '<option disabled>'.esc_html( 'Not selectable', 'Raindrops' ).'</option>';
 			}
 
@@ -974,11 +1110,12 @@ $raindrops_navigation_list  .= '</ul>';
  *
  *
  */
-	function raindrops_upload_form(){
-		global $max_upload_size;
-		global $dirlist;
+	function raindrops_upload_form() {
+	
+		global $max_upload_size, $dirlist;
+
 		$deliv = htmlspecialchars($_SERVER['REQUEST_URI']);
-	$result= '<div class="postbox raindrops"  id="raindrops_upload_form">
+		$result= '<div class="postbox raindrops"  id="raindrops_upload_form">
 		<h3 id="raindrops-style-type" title="raindrops style type">
 		<div id="icon-upload" class="icon32"></div>
 		<span style="position:relative;top:10px;">'.
@@ -1032,7 +1169,8 @@ $raindrops_navigation_list  .= '</ul>';
  *
  *
  */
-    function raindrops_upload_image($raindrops_max_upload_size, $raindrops_max_width,$raindrops_allow_file_type){
+    function raindrops_upload_image($raindrops_max_upload_size, $raindrops_max_width,$raindrops_allow_file_type) {
+	
         global $raindrops_max_upload_size,$raindrops_max_width,$raindrops_allow_file_type;
         $upload_info    = wp_upload_dir();
         $propaty        = '';
@@ -1040,71 +1178,91 @@ $raindrops_navigation_list  .= '</ul>';
         $height         = '';
         $type           = '';
         $attr           = '';
-        if(isset($_POST['raindrops_upload'])){
+		
+        if ( isset($_POST['raindrops_upload'] ) ) {
 			
-			if( ! isset( $_REQUEST['_wpnonce'] ) ) {
+			if ( ! isset( $_REQUEST['_wpnonce'] ) ) {
+			
 				$result = esc_html__("Cannot be trusted data","Raindrops");
                 return array(false,$result);
 			} else {
+			
 				if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'update-options2' ) ) {
 					$result = esc_html__("Can not Upload Security issue","Raindrops");
 					return array(false,$result);
 				} 			
 			}
 		
-            if(isset($_POST['purpose']) and ($_POST['purpose'] == 'header' or $_POST['purpose'] == 'footer')){
+            if ( isset( $_POST['purpose']) && ( 'header' == $_POST['purpose'] || 'footer' == $_POST['purpose'] ) ) {
+			
                 $save_dir = $upload_info['path'].'/raindrops-item';
                 $propaty = $propaty.'-'. $_POST['purpose'];
-            }else{
+            } else {
+			
                 $result = esc_html__("purpose no data","Raindrops");
                 return array(false,$result);
             }
-            if(isset($_POST['style']) and ($_POST['style'] == 'norepeat' or $_POST['style'] == 'repeatx')){
+			
+            if ( isset( $_POST['style'] ) && ( 'norepeat' == $_POST['style'] || 'repeatx' == $_POST['style'] ) ) {
+			
                 $style = $_POST['style'];
                 $propaty = $propaty.'-style-'. $_POST['style'];
-            }else{
+            } else {
+			
                 $result = esc_html__("style no data","Raindrops");
                 return array(false,$result);
             }
-            if(isset($_POST['position-top']) and is_numeric($_POST['position-top'])){
+			
+            if ( isset( $_POST['position-top'] ) && is_numeric( $_POST['position-top'] ) ) {
+			
                 $top = $_POST['position-top'];
                 $propaty = $propaty.'-top-'. $_POST['position-top'];
-            }else{
+            } else {
+			
                 $result = esc_html__("position top no data","Raindrops");
                 return array(false,$result.'c');
             }
-            if(isset($_POST['position-left']) and is_numeric($_POST['position-left'])){
+			
+            if ( isset( $_POST['position-left'] ) && is_numeric( $_POST['position-left'] ) ) {
+			
                 $left = $_POST['position-left'];
                 $propaty = $propaty.'-left-'. $_POST['position-left'].'-';
-            }else{
+            } else {
+			
                 $result = esc_html__("position no data","Raindrops");
                 return array(false,$result);
             }
-            if(isset($_POST['height']) and is_numeric($_POST['height'])){
+			
+            if ( isset( $_POST['height'] ) && is_numeric( $_POST['height'] ) ) {
+			
                 $height = $_POST['height'];
                 $propaty = $propaty.'x-height-'. $_POST['height'].'-';
-            }else{
+            } else {
+			
                 $result = esc_html__("box height no data","Raindrops");
                 return array(false,$result);
             }
 			
-            if($_FILES['uploadfile']['size'] > $raindrops_max_upload_size){
-              $result = "file size over".$_FILES['uploadfile']['size'].'upload-image-size'.$raindrops_max_upload_size;
-              return array(false,$result);
+            if ( $_FILES['uploadfile']['size'] > $raindrops_max_upload_size ) {
+			
+				$result = "file size over".$_FILES['uploadfile']['size'].'upload-image-size'.$raindrops_max_upload_size;
+				return array(false,$result);
             }
-            if(in_array($_FILES['uploadfile']['type'],$raindrops_allow_file_type ) == false){
-              $result = sprintf(__('%s is not permitted filetype.',"Raindrops"),$_FILES['uploadfile']['type']).implode(',',$raindrops_allow_file_type);
-              return array(false,$result);
+			
+            if ( false == in_array( $_FILES['uploadfile']['type'], $raindrops_allow_file_type ) ) {
+			
+				$result = sprintf(__('%s is not permitted filetype.',"Raindrops"),$_FILES['uploadfile']['type']).implode(',',$raindrops_allow_file_type);
+				return array(false,$result);
             }
 
-			if( ! function_exists( 'wp_handle_upload' ) ){ 
-						$result = sprintf(__('%s function is not exists',"Raindrops"), 'wp_handle_upload' );
-						  return array(false,$result);
+			if ( ! function_exists( 'wp_handle_upload' ) ) {
+			
+				$result = sprintf(__('%s function is not exists',"Raindrops"), 'wp_handle_upload' );
+				return array(false,$result);
 			}		
 
 			$uploadedfile = $_FILES['uploadfile'];
 			$upload_overrides = array( 'test_form' => false,);
-										/*"name" => $propaty.$_FILES['uploadfile']['name'],'unique_filename_callback' => 'raindrops_upload_image_filename_cb'*/	
 										
 			function raindrops_theme_upload_filename($filename) {
 			
@@ -1114,22 +1272,31 @@ $raindrops_navigation_list  .= '</ul>';
 				
 				$propaty = 'raindrops-item';
 				
-				if(isset($_POST['purpose']) and ($_POST['purpose'] == 'header' or $_POST['purpose'] == 'footer')){
+				if ( isset( $_POST['purpose'] ) && ( 'header' == $_POST['purpose'] || 'footer' == $_POST['purpose'] ) ) {
+				
 					$propaty = $propaty.'-'. $_POST['purpose'];
 				}
-				if(isset($_POST['style']) and ($_POST['style'] == 'norepeat' or $_POST['style'] == 'repeatx')){
+				
+				if ( isset( $_POST['style'] ) && ( 'norepeat' == $_POST['style'] || 'repeatx' == $_POST['style'] ) ) {
+				
 					$style = $_POST['style'];
 					$propaty = $propaty.'-style-'. $_POST['style'];
 				}
-				if(isset($_POST['position-top']) and is_numeric($_POST['position-top'])){
+				
+				if ( isset( $_POST['position-top'] ) && is_numeric( $_POST['position-top'] ) ) {
+				
 					$top = $_POST['position-top'];
 					$propaty = $propaty.'-top-'. $_POST['position-top'];
 				}
-				if(isset($_POST['position-left']) and is_numeric($_POST['position-left'])){
+				
+				if ( isset( $_POST['position-left'] ) && is_numeric( $_POST['position-left'] ) ) {
+				
 					$left = $_POST['position-left'];
 					$propaty = $propaty.'-left-'. $_POST['position-left'].'-';
 				}
-				if(isset($_POST['height']) and is_numeric($_POST['height'])){
+				
+				if ( isset( $_POST['height'] ) && is_numeric( $_POST['height'] ) ) {
+				
 					$height = $_POST['height'];
 					$propaty = $propaty.'x-height-'. $_POST['height'].'-';
 				}
@@ -1143,17 +1310,20 @@ $raindrops_navigation_list  .= '</ul>';
 												
 			if ( ( $test = wp_handle_upload( $uploadedfile, $upload_overrides ) ) ) {
 			
-				if( isset( $test['error'] ) ) {
+				if ( isset( $test['error'] ) ) {
 				
 							$result = $test['error'];
 							  return array(false,$result);
 	
 				}
 
-				if( file_exists( $save_dir. $_FILES['uploadfile']['name'] ) ){
+				if ( file_exists( $save_dir. $_FILES['uploadfile']['name'] ) ) {
+				
 					chmod($save_dir. $_FILES['uploadfile']['name'], 0644);
 					list($width, $height, $type, $attr) = getimagesize($save_dir. $_FILES['uploadfile']['name']);
-					if($raindrops_max_width < $width or $height > $raindrops_max_width * 1.5){
+					
+					if ( $raindrops_max_width < $width || $height > $raindrops_max_width * 1.5 ) {
+					
 						unlink($save_dir. $_FILES['uploadfile']['name']);
 						$result = sprintf(__("%d px * %d width too big. limit %d px","Raindrops"),$width,$height,$raindrops_max_width);
 						return array(false,$result.'g');
@@ -1163,20 +1333,21 @@ $raindrops_navigation_list  .= '</ul>';
                 $uploaded_url = $upload_info['url'].'/raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
                 $new_settings = get_option('raindrops_theme_settings');
 				
-                if($_POST['purpose'] == 'header'){
+                if ( 'header' == $_POST['purpose'] ) {
 				
                     $new_settings['raindrops_header_image'] = 'raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
-                }elseif($_POST['purpose'] == 'footer'){
+                } elseif ( 'footer' == $_POST['purpose'] ) {
 				
                     $new_settings['raindrops_footer_image'] = 'raindrops-item'.$propaty.$_FILES['uploadfile']['name'];
                 }
 				
             	update_option('raindrops_theme_settings',$new_settings);
                 return array(true,'success',$uploaded_url,$width,$height,true);
-          }else{
+          } else {
 		  
                 $result = esc_html__("It failed in up-loading.","Raindrops");
-                foreach($_FILES['userfile']['error'] as $error){
+				
+                foreach ( $_FILES['userfile']['error'] as $error ) {
 				
                     $result .= $error;
                 }

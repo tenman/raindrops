@@ -38,9 +38,9 @@ Released under the terms of the GNU GPL version 2
 
 		global $wp_query, $wp_rewrite;
 
-		if( $wp_query->query_vars['paged'] > 1 ){ 
+		if ( $wp_query->query_vars['paged'] > 1 ) { 
 			$current 			= $wp_query->query_vars['paged'];
-		}else{
+		} else {
 			$current 			= 1;
 		}
 		
@@ -56,7 +56,7 @@ Released under the terms of the GNU GPL version 2
 		$post_per_page_pre		= get_option( 'posts_per_page' );
 		$post_per_page			= apply_filters( 'raindrops_month_list_post_count', $post_per_page_pre );
 		
-		if( isset( $ye ) and ! empty( $ye ) and isset( $mo ) and ! empty( $mo ) ){
+		if ( isset( $ye ) && ! empty( $ye ) && isset( $mo ) && ! empty( $mo ) ) {
 					
 			$raindrops_page_total = ( int )  ceil( $wp_query->max_num_pages * $post_per_page_pre / $post_per_page );
 		
@@ -64,7 +64,6 @@ Released under the terms of the GNU GPL version 2
 		
 			$raindrops_page_total = $wp_query->max_num_pages;
 		}		
-
 	
 		$pagination 			= array(
 									'base' => @add_query_arg( 'paged', '%#%' ),
@@ -75,11 +74,13 @@ Released under the terms of the GNU GPL version 2
 									'type' => 'plain'
 									);
 
-		if( $wp_rewrite->using_permalinks( ) ){
+		if ( $wp_rewrite->using_permalinks( ) ) {
+		
 			$pagination['base']     = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
 		}
 	
-		if($calendar_page_number == 0 ){
+		if ( 0 == $calendar_page_number ) {
+		
 			$calendar_page_number = 1;
 		}
 
@@ -97,7 +98,6 @@ Released under the terms of the GNU GPL version 2
 		
 		get_header( $raindrops_document_type );
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-		
 		raindrops_debug_navitation( __FILE__ );
 ?>
 	<div id="yui-main">
@@ -135,7 +135,7 @@ Released under the terms of the GNU GPL version 2
 ?>
 					</div>
 <?php 
-		if( is_month( ) ) {
+		if ( is_month( ) ) {
 ?>
 					<div class="monthly-archives-pagenate">
 <?php
@@ -150,7 +150,7 @@ Released under the terms of the GNU GPL version 2
 <?php 
 		raindrops_prepend_extra_sidebar( );
 		
-		if( $rsidebar_show ){
+		if ( $rsidebar_show ) {
 		
 			get_sidebar( 'extra' );
 		}

@@ -32,7 +32,6 @@
 				$raindrops_loop_number++;
 ?>				
 	<<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php the_ID( ); ?>" <?php raindrops_post_class( ); ?>>		
-			
 <?php
 				$format= get_post_format();
 /**
@@ -42,7 +41,7 @@
  *
  *
  */
-				if ( in_category( "gallery" ) or has_post_format( "gallery" ) ) {
+				if ( in_category( "gallery" ) || has_post_format( "gallery" ) ) {
 				     
 					get_template_part( 'part', 'gallery' );
 /**
@@ -52,7 +51,7 @@
  *
  *
  */
-				} elseif (in_category( "blog" ) or has_post_format( "status" ) ) {
+				} elseif (in_category( "blog" ) || has_post_format( "status" ) ) {
 					
 					get_template_part( 'part', 'blog' );
 					
@@ -60,7 +59,7 @@
 					
 					
 					
-				} elseif ( $format !== false ){
+				} elseif ( $format !== false ) {
 				
 				
 					get_template_part( 'part', $format );

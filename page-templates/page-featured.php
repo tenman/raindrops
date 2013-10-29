@@ -16,7 +16,7 @@ do_action( 'raindrops_'. basename(__FILE__) );
 */
 //Demo settings
 
-	if( ! isset( $page_lists ) ) {
+	if ( ! isset( $page_lists ) ) {
 		$page_args 	= array( 'posts_per_page' => 1, 'orderby' => 'rand', 'post_type' => 'page');
 		$rand_pages = get_posts( $page_args );
 		$page_args 	= array( 'posts_per_page' => 1, 'orderby' => 'rand', 'post_type' => 'post');
@@ -121,7 +121,7 @@ do_action( 'raindrops_'. basename(__FILE__) );
  *  Widget only home
  *
  */
-		if ( is_front_page( ) and  is_active_sidebar( 'sidebar-3' ) ) {
+		if ( is_front_page( ) && is_active_sidebar( 'sidebar-3' ) ) {
 		
 			echo '<div class="topsidebar">'."\n".'<ul>';
 			

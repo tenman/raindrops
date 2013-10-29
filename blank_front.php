@@ -184,31 +184,30 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 
 ////////////////////////////////Functions and filters//////////////////////////////////////////////
 
-		if ( $raindrops_display_title !== 'y' ) {
+		if ( 'y' !== $raindrops_display_title ) {
 		
 			add_filter( 'raindrops_site_title', '__return_null' );
 		}
 		
-		if ( $raindrops_display_description !== 'y' ) {
+		if ( 'y' !== $raindrops_display_description ) {
 		
 			add_filter( 'raindrops_site_description', '__return_null' );
 			
 			add_filter( 'raindrops_header_image_elements' , 'raindrops_remove_header_text' );
 		}
 	
-		function raindrops_remove_header_text( $content ){
+		function raindrops_remove_header_text( $content ) {
 		
 			return preg_replace( '!<p[^>]*>(.*)</p>!siu', '', $content );
 		}
 		
-		if ( $raindrops_display_header_image !== 'y' ) {
+		if ( 'y' !== $raindrops_display_header_image ) {
 		
 			add_filter( 'raindrops_header_image_elements', '__return_null' );
 			add_filter( 'raindrops_header_image_home_url', '__return_null' );
-
 		}
 		
-		if ( $raindrops_display_nav_menus !== 'y' ) {
+		if ( 'y' !== $raindrops_display_nav_menus ) {
 		
 			if ( has_nav_menu( 'primary' ) ) {
 			
@@ -219,7 +218,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 			}
 		}
 		
-		if( $raindrops_display_page_content !== 'y' ){
+		if ( 'y' !== $raindrops_display_page_content ) {
 		
 				add_filter( 'raindrops_entry_content', '__return_null' );
 		}
@@ -241,55 +240,55 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 			return $args;
 		}
 		
-		if( $raindrops_display_widget          !== 'y' ){
+		if ( 'y' !== $raindrops_display_widget ) {
 		
 			add_filter( 'dynamic_sidebar', '__return_empty_array' );
 			
 			add_filter( 'raindrops_sidebar_menus', '__return_null' );
 		}
 		
-		if( $raindrops_add_custom_text_default_sidebar   == 'y' ){
+		if ( 'y' == $raindrops_add_custom_text_default_sidebar ) {
 		
 			add_action( 'raindrops_prepend_default_sidebar', 'raindrops_prepend_default_sidebar_filter' );
 		}
 
-		if( $raindrops_add_custom_text_extra_sidebar   == 'y' ){
+		if ( 'y' == $raindrops_add_custom_text_extra_sidebar ) {
 		
 			add_action( 'raindrops_prepend_extra_sidebar', 'raindrops_prepend_default_sidebar_filter' );
 		}
 
-		function raindrops_prepend_default_sidebar_filter( ){
+		function raindrops_prepend_default_sidebar_filter( ) {
 		
 			global $custom_text_default_sidebar;
 			
 			echo $custom_text_default_sidebar;
 		}
 		
-		function raindrops_prepend_extra_sidebar_filter( ){
+		function raindrops_prepend_extra_sidebar_filter( ) {
 		
 			global $custom_text_extra_sidebar;
 			
 			echo $custom_text_extra_sidebar;
 		}
 
-		if( $raindrops_display_page_title !== 'y' ){
+		if ( 'y' !== $raindrops_display_page_title ) {
 		
 			add_filter( 'raindrops_entry_title',  '__return_null' );
 		
 		}
 
-		if( $raindrops_remove_left_margin !== 'y' or $raindrops_add_custom_text_default_sidebar == 'y' ){
+		if ( 'y' !== $raindrops_remove_left_margin || 'y' == $raindrops_add_custom_text_default_sidebar ) {
 		
 			$raindrops_devide_column_class= 'yui-b';
-		}else{
+		} else {
 		
 			$raindrops_devide_column_class= '';
 		}
 
-		if( $raindrops_remove_left_margin !== 'y' or $raindrops_add_custom_text_extra_sidebar == 'y' ){
+		if ( 'y' !== $raindrops_remove_left_margin || 'y' == $raindrops_add_custom_text_extra_sidebar ) {
 		
 			$raindrops_devide_column_extra_class= 'yui-u';
-		}else{
+		} else {
 		
 			$raindrops_devide_column_extra_class= '';
 		}
@@ -308,7 +307,8 @@ SUBSTITUTION_EXTRA_SIDEBAR;
  *  Widget only home
  *
  */
-		if ( is_home( ) and  is_active_sidebar( 'sidebar-3' ) ) {
+		if ( is_home( ) && is_active_sidebar( 'sidebar-3' ) ) {
+		
 			echo '<div class="topsidebar">'."\n".'<ul>';
 			dynamic_sidebar( 'sidebar-3' );
 			echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
@@ -319,12 +319,12 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 				
 				is_2col_raindrops( 'style="width:99%;"' );
 				
-				if( $raindrops_devide_column_extra_class !== 'yui-u' ){
+				if ( $raindrops_devide_column_extra_class !== 'yui-u' ) {
 					echo 'style="width:99%;"';
 				}?> >
 				
 <?php 
-		if( $show_sticky_post == true ){ 
+		if ( true == $show_sticky_post ) { 
 ?>
       				<div>
 						<ul class="raindrops-sticky-posts">
@@ -335,7 +335,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
  */
 			$the_query = new WP_Query( $raindrops_sticky_post_args );
 	
-			while ( $the_query->have_posts( ) ){ $the_query->the_post( );
+			while ( $the_query->have_posts( ) ) { $the_query->the_post( );
 	
 					$html = '<div id="post-%1$s" class="%2$s">';
 	
@@ -358,8 +358,10 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 					$raindrops_excerpt_condition = raindrops_detect_excerpt_condition();
 					
 					if ( $raindrops_excerpt_condition == true ) {
+					
 						the_excerpt( );
 					} else {
+					
 						the_content( esc_html__( 'Continue&nbsp;reading', 'Raindrops' ). ' <span class="meta-nav">&rarr;</span>' );
 					}
 	
@@ -378,7 +380,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
         			<br style="clear:both" />
       			</div>
 <?php 
-		if( $raindrops_devide_column_extra_class == 'yui-u' ){
+		if ( $raindrops_devide_column_extra_class == 'yui-u' ) {
 ?>
       			<div class="yui-u">
 <?php 
@@ -394,7 +396,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 ?>
       			</div>
 <?php 
-	 	}//if( $raindrops_devide_column_class == 'yui-u' )
+	 	}//if ( $raindrops_devide_column_class == 'yui-u' )
 	
 	 //add nest grid here 
 ?>
@@ -402,7 +404,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 		</div>
 	</div>
 <?php 
-		if( $raindrops_devide_column_class == 'yui-b' ){
+		if ( 'yui-b' == $raindrops_devide_column_class ) {
 ?>
 	<div class="yui-b">
 <?php
@@ -414,7 +416,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
 ?>
 	</div>
 <?php
-		}//if( $raindrops_devide_column_class == 'yui-b' ) 
+		}//if ( $raindrops_devide_column_class == 'yui-b' ) 
 ?>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

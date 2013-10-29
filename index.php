@@ -17,12 +17,9 @@
  * @uses get_footer( $raindrops_document_type ) 
  */
 		global $rsidebar_show, $raindrops_document_type;
- 
 		get_header( $raindrops_document_type );
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-		
 		raindrops_debug_navitation( __FILE__ );
-		
 ?>
 	<div id="yui-main">
 		<div class="yui-b">
@@ -31,7 +28,7 @@
  *  Widget only home
  *
  */
-		if ( is_home( ) and  is_active_sidebar( 'sidebar-3' ) ) {
+		if ( is_home( ) &&  is_active_sidebar( 'sidebar-3' ) ) {
 		
 			echo '<div class="topsidebar">'."\n".'<ul>';
 			

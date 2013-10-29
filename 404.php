@@ -11,9 +11,7 @@
  */
 		get_header( $raindrops_document_type ); 
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-		
 		raindrops_debug_navitation( __FILE__ );
-		
 ?>
 	<div id="yui-main">
 		<div class="yui-b">

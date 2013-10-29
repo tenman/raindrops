@@ -7,11 +7,8 @@
  *
  */
 		global $template;
-		
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-
 		raindrops_entry_title( );
-		
 ?>
 	<div class="entry-meta-gallery">
 <?php 
@@ -33,7 +30,7 @@
 				
 		$raindrops_images 		= get_children( $raindrops_attachment_args );
 		
-		if( isset( $raindrops_images ) and !empty( $raindrops_images ) ){
+		if ( isset( $raindrops_images ) && !empty( $raindrops_images ) ) {
 		
 			$raindrops_format		= true;
 				
@@ -41,7 +38,7 @@
 			
 			$raindrops_image_result	= array_shift( $raindrops_images );
 			
-		}else{
+		} else {
 		
 			$raindrops_format 		= false;
 			
@@ -50,7 +47,7 @@
 			$raindrops_image_result = '';
 		}
 		
-		if ( ! preg_match( '!\[gallery!', get_the_content( ) ) and $raindrops_format == true ){
+		if ( ! preg_match( '!\[gallery!', get_the_content( ) ) && true == $raindrops_format ) {
 ?>
 	<div class="gallery-thumb">
 <?php 
@@ -69,7 +66,7 @@
 ?>
 	</div>
 <?php 
-		if( $raindrops_format == true ){
+		if ( true == $raindrops_format ) {
 ?>
 	<p style="margin:1em;"><em>
 <?php 

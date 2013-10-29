@@ -31,10 +31,8 @@ Template Name: Auther
  * @uses raindrops_append_default_sidebar( )
  */
 		$curauth = get_userdata( intval( $author ) );
-		
 		get_header( $raindrops_document_type );
 		do_action( 'raindrops_pre_'.basename( __FILE__) );
-		
 		raindrops_debug_navitation( __FILE__ ); 
 ?>
 	<div id="yui-main">
@@ -120,9 +118,9 @@ Template Name: Auther
 					<dl class="author">
 		  <!-- The Loop -->
 <?php
-		if ( have_posts( ) ){
+		if ( have_posts( ) ) {
 		
-			while ( have_posts( ) ){
+			while ( have_posts( ) ) {
 			
 			 the_post( );
 ?>
@@ -162,7 +160,7 @@ Template Name: Auther
 <?php
 				$format = get_post_format( );
 				
-				if( $format !== false ){
+				if ( $format !== false ) {
 ?>
 							<dd>
 <?php

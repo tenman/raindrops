@@ -9,12 +9,10 @@
  *
  */
 		global $template;
-		
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-
 		global $raindrops_document_type;
 		
-		switch( $raindrops_document_type ){
+		switch( $raindrops_document_type ) {
 /**
  *
  *
@@ -107,7 +105,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 <?php
 		$raindrops_header_image = raindrops_header_image( 'elements' );
 		
-		if( ! empty( $raindrops_header_image ) or has_post_thumbnail( ) ){
+		if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) ) {
 ?>
 			<span id="container"></span>
 			<div class="yui-g fron-page-top-container">
@@ -127,7 +125,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 			<div class="yui-u">
 				<div class="static-front-media">
 <?php
-			if ( has_post_thumbnail( ) ){
+			if ( has_post_thumbnail( ) ) {
 				the_post_thumbnail( 'large', 'style=max-width:100%;height:auto;' );
 			} else {
 				echo $raindrops_header_image;

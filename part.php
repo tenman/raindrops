@@ -7,21 +7,17 @@
  *
  */
 	global $template;
-		
 	do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-	
  	$format = get_post_format( );
 	
-	if ( $format === false ) {
+	if ( false === $format ) {
 	
 		$raindrops_entry_meta_class = 'entry-meta-default';
-	}else{
+	} else {
 	
 		$raindrops_entry_meta_class = 'entry-meta-'. $format;
 	}
-	
-?>
-<?php 
+	 
 		raindrops_entry_title( );
 ?>
 		<div class="<?php echo $raindrops_entry_meta_class; ?>">
@@ -55,7 +51,7 @@
 ?>
 		</div>
 <?php 
-	if( is_single( ) ) {
+	if ( is_single( ) ) {
 	
 		raindrops_prev_next_post( 'nav-below' );
 		

@@ -6,13 +6,10 @@
  * @package Raindrops
  * @since Raindrops 0.1
  */
-?>
-<?php
 		global $raindrops_document_type, $template;
-		
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-	
-		if( $raindrops_document_type == 'html5' ) {
+		
+		if ( 'html5' == $raindrops_document_type ) {
 ?>
 <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php raindrops_doctype_elements( '','role="search"' );?>>
   <div class="searchform">

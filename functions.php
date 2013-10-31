@@ -5141,8 +5141,7 @@ if ( ! function_exists( 'raindrops_chat_author_id' ) ) {
  */
 if ( ! function_exists( 'raindrops_link_unique' ) ) {
 
-	function raindrops_link_unique( $text = '', $id = 0, $class = 'raindrops_unique_ident
-ifier' ) {
+	function raindrops_link_unique( $text = '', $id = 0, $class = 'raindrops_unique_identifier' ) {
 
 		global $raindrops_link_unique_text;
 

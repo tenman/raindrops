@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:1.146
+	Fixed
+		Fixed broken function
+			raindrops_link_unique()
+				functions.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.145
 	Coding style change
 		Fine correction , needs minimam

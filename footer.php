@@ -22,7 +22,7 @@
 		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 ?>
 	<<?php raindrops_doctype_elements( 'div','footer' );?> id="ft" class="clear">
-<?php 
+<?php
 		raindrops_prepend_footer( );
 ?>
 	<!--footer-widget start-->
@@ -30,12 +30,12 @@
 <?php
 		if ( is_active_sidebar( 'sidebar-4' ) ) {
 ?>
-    		<ul>
+		<ul>
 <?php
 			dynamic_sidebar( 'sidebar-4' );
 ?>
 			</ul>
-<?php 
+<?php
 		}
 ?>
 			<br class="clear" />
@@ -72,15 +72,15 @@
 			);
 ?>
 		</address>
-<?php 
+<?php
 		raindrops_append_footer( );
 ?>
-  </<?php raindrops_doctype_elements( 'div','footer' );?>>
+	</<?php raindrops_doctype_elements( 'div','footer' );?>>
 <?php 
 		raindrops_append_doc( );
 ?>
-	</div>
+</div>
 <?php wp_footer( ); ?>
 </body>
 </html>
-<?php 		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>
+<?php		do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

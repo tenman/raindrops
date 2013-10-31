@@ -19,10 +19,10 @@
 		global $raindrops_document_type;
 ?>
 	<div id="comments">
-<?php 
+<?php
 		if ( post_password_required( ) ) {
 ?>
-    	<p class="nopassword">
+		<p class="nopassword">
 <?php
 			 esc_html_e( 'This post is password protected.', 'Raindrops' );
 			 echo "&nbsp;";
@@ -30,7 +30,7 @@
 ?>
 		</p>
 		</div>
-<?php 
+<?php
 			return;
 		}
 		
@@ -49,20 +49,20 @@
 		if ( get_comment_pages_count( ) > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through? 
 ?>
 		<div id="nav-above-comments" class="clearfix">
-    		<span class="nav-previous">
+			<span class="nav-previous">
 <?php
 			previous_comments_link(  '<span class="meta-nav">&larr;</span>'. esc_html__( 'Older Comments', 'Raindrops' ) );
 ?>
 			</span>
-    		<span class="nav-next">
+			<span class="nav-next">
 <?php
 			next_comments_link(  esc_html__( 'Newer Comments', 'Raindrops' ). '<span class="meta-nav">&rarr;</span>' );
 ?>
 			</span>
 		</div>
 <?php
-       } // check for comment navigation 
-	   
+	} // check for comment navigation 
+
 ?>
 		<ol <?php raindrops_comment_class(); ?>>
 <?php
@@ -78,22 +78,22 @@
 			previous_comments_link(  '<span class="meta-nav">&larr;</span> '. esc_html__( 'Older Comments', 'Raindrops' ) ); 
 ?>
 			</span>
-    		<span class="nav-next">
+			<span class="nav-next">
 <?php 
 			next_comments_link( esc_html__( 'Newer Comments ', 'Raindrops' ). '<span class="meta-nav">&rarr;</span>' );
 ?>
 			</span>
 		</div>
 <?php
-       } // check for comment navigation 
+	} // check for comment navigation 
 ?>
 <?php 
 		} else { // or, if we don't have comments:
 
-    /* If there are no comments and comments are closed,
-     * let's leave a little note, shall we?
-     */
-            if ( ! comments_open( ) ) {
+	/* If there are no comments and comments are closed,
+	* let's leave a little note, shall we?
+	*/
+		if ( ! comments_open( ) ) {
 ?>
 		<p class="nocomments">
 <?php 
@@ -106,7 +106,7 @@
 ?>
 		<br class="clear" />
 	<div class="social">
-<?php 
+<?php
 		comment_form( ); 
 ?>
 	</div>

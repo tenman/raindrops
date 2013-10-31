@@ -32,7 +32,7 @@
 date.php - calendar based archive navigation
 copyright ( c ) 2005 Scott Merrill ( skippy@skippy.net )
 Released under the terms of the GNU GPL version 2
-   http://www.gnu.org/licenses/gpl.html
+http://www.gnu.org/licenses/gpl.html
 */
 		do_action( 'raindrops_'. basename(__FILE__) );
 
@@ -103,7 +103,7 @@ Released under the terms of the GNU GPL version 2
 	<div id="yui-main">
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-     			<!-- content -->
+			<!-- content -->
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 					<h2 class="page-title">
 <?php
@@ -129,12 +129,12 @@ Released under the terms of the GNU GPL version 2
 <?php
 		raindrops_monthly_archive_prev_next_navigation( );
 ?>
-       				<div class="datetable">
+				<div class="datetable">
 <?php
 		echo $output;
 ?>
 					</div>
-<?php 
+<?php
 		if ( is_month( ) ) {
 ?>
 					<div class="monthly-archives-pagenate">
@@ -145,9 +145,9 @@ Released under the terms of the GNU GPL version 2
 <?php
 		}
 ?>
-      			</div>
-      			<div class="yui-u">
-<?php 
+			</div>
+			<div class="yui-u">
+<?php
 		raindrops_prepend_extra_sidebar( );
 		
 		if ( $rsidebar_show ) {
@@ -158,8 +158,8 @@ Released under the terms of the GNU GPL version 2
 		raindrops_append_extra_sidebar( );
 ?>
 				</div>
-    		</div>
-  		</div>
+		</div>
+		</div>
 	</div>
 	<div class="yui-b">
 <?php 

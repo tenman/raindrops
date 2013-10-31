@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: Auther
-*/
 /**
  * The template for displaying Auther.
  *
@@ -51,7 +48,7 @@ Template Name: Auther
 					<table <?php raindrops_doctype_elements( 'summary="author infomation"', '');?> class="author-meta left auto">
 						<tr>
 							<td class="avatar-col" style="width:60px;vertical-align:top;">
-<?php 
+<?php
 		echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ) ,'', 
 		esc_attr__('Author Avatar Image','Raindrops') );
 ?>
@@ -62,12 +59,12 @@ Template Name: Auther
 		if ( esc_html( $curauth->description ) ) {
 ?>
 									<dt>
-<?php 
+<?php
 			esc_html_e( 'Profile', 'Raindrops' );
 ?>
 									</dt>
 										<dd>
-<?php 
+<?php
 			echo wpautop( esc_html( $curauth->description ) );
 ?>
 										</dd>
@@ -78,25 +75,26 @@ Template Name: Auther
 		if ( ! empty( $curauth->user_url ) ) {
 ?>
 									<dt>
-<?php 
+<?php
 			esc_html_e( 'Website', 'Raindrops' );
 ?>
 									</dt>
 										<dd>
 <?php	
 			$raindrops_html_author_url = '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>';
+
 			printf( $raindrops_html_author_url,
-                    esc_url( $curauth->user_url ),
-					sprintf( 'link to author %1$s', esc_attr( $curauth->display_name ) ),
-                    esc_url( $curauth->user_url )
-					);
+				esc_url( $curauth->user_url ),
+				sprintf( 'link to author %1$s', esc_attr( $curauth->display_name ) ),
+				esc_url( $curauth->user_url )
+			);
 ?>
 										</dd>
 <?php
 		}
 ?>
 									<dt>
-<?php 
+<?php
 			esc_html_e( 'registered','Raindrops' );
 ?>
 									</dt>
@@ -105,18 +103,18 @@ Template Name: Auther
 			echo esc_html( $curauth->user_registered );
 ?>
 										</dd>
-		  						</dl>
-		  					</td>
-	  					</tr>
+								</dl>
+							</td>
+						</tr>
 					</table>
-        			<br class="clear" />
+					<br class="clear" />
 					<h2 class="h2">
 <?php
 			esc_html_e( "Recent post",'Raindrops' );
 ?>
 					</h2>
 					<dl class="author">
-		  <!-- The Loop -->
+		<!-- The Loop -->
 <?php
 		if ( have_posts( ) ) {
 		
@@ -125,7 +123,7 @@ Template Name: Auther
 			 the_post( );
 ?>
 						<dt>
-<?php 
+<?php
 				$raindrops_date_format = get_option( 'date_format' ); 
 				$raindrops_year           = get_the_time( 'Y' );
 				$raindrops_month          = get_the_time( 'm' );
@@ -133,30 +131,29 @@ Template Name: Auther
 				$day_link               = esc_url( get_day_link( $raindrops_year, $raindrops_month, $raindrops_day).'#post-'.$post->ID  );
 		
 				printf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>',
-                    $day_link,
-                    esc_attr( 'archives daily '. get_the_time( $raindrops_date_format ) ),
-                    get_the_date( $raindrops_date_format ),
-                    raindrops_doctype_elements( 'span','time',false ),
-                    raindrops_doctype_elements( '', 'datetime="'.esc_attr( get_the_date( 'c' ) ).'"', false )
-                );
+					$day_link,
+					esc_attr( 'archives daily '. get_the_time( $raindrops_date_format ) ),
+					get_the_date( $raindrops_date_format ),
+					raindrops_doctype_elements( 'span','time',false ),
+					raindrops_doctype_elements( '', 'datetime="'.esc_attr( get_the_date( 'c' ) ).'"', false )
+				);
 				
 				raindrops_entry_title( array( 'raindrops_title_element' => 'span') );
 ?>
 						</dt>
-		  					<dd>
+							<dd>
 <?php 
 				esc_html_e( 'Categories :', 'Raindrops' );
 				
 				the_category( ', ' );
 ?>
-		  					</dd>
-		  					<dd>
+							</dd>
+							<dd>
 <?php
 				esc_html_e( 'Tag :', 'Raindrops' );
 				echo get_the_tag_list( '', ', ' );
 ?>
 							</dd>
-		  					
 <?php
 				$format = get_post_format( );
 				
@@ -177,7 +174,7 @@ Template Name: Auther
 			<?php esc_html_e( 'No posts by this author.', 'Raindrops' ); ?>
 					</p>
 <?php
-		} 
+		}
 ?>
 		  <!-- End Loop -->
 					</dl>
@@ -188,11 +185,11 @@ Template Name: Auther
 				</div>
 				</<?php raindrops_doctype_elements( 'div', 'article' );?>>
 					<div class="yui-u">
-<?php 
+<?php
 		raindrops_prepend_extra_sidebar( );
-	  
+	
 		if ( $rsidebar_show ) {
-	   
+	
 			get_sidebar( 'extra' );
 		
 		}
@@ -200,11 +197,11 @@ Template Name: Auther
 		raindrops_append_extra_sidebar( );
 ?>
 					</div>
-    			</div>
-  			</div>
+			</div>
+			</div>
 		</div>
 	<div class="yui-b">
-<?php 
+<?php
 		raindrops_prepend_default_sidebar( );
 		
 		get_sidebar( 'default' );

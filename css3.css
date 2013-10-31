@@ -100,27 +100,6 @@ border:1px solid rgba(200,200,200,0.3);
 	-o-columns: 20em auto;
 	-ms-columns: 20em auto;
 }
-
-/*
- * ver 1.100 comment out 
- * next version remove.
-h1,
-h2,
-h3,
-.h1,
-.h2,
-.h3,
-h4,
-h5,
-h6,
-.h4,
-.h5,
-.h6,
-.lsidebar li a,
-.rsidebar li a{
-	word-break:break-all;
-	word-wrap:break-word;
-}*/
 .entry-title a{
 	word-break:normal;
 	word-wrap:normal;/* Internet Explorer */
@@ -142,7 +121,6 @@ h6,
 	z-index: 99;
 	text-align: center;
 }
-
 .raindrops-lightbox-overlay a.lb-close{
 	background: #fff;
 	z-index: 1001;

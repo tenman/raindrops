@@ -1,6 +1,6 @@
 <?php
 /**
- *  The template for displaying 404 pages ( Not Found ).
+ * The template for displaying 404 pages ( Not Found ).
  *
  *
  * @package Raindrops
@@ -17,16 +17,16 @@
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
-        			<h1 class="entry-title">
-<?php 
+					<h1 class="entry-title">
+<?php
 		 esc_html_e( 'Error 404 - Not Found', 'Raindrops' );
 ?>
 					</h1>
-        			<div id="post-0" class="post error404 not-found">
-          				<div class="entry-content">
-          					<p>
+					<div id="post-0" class="post error404 not-found">
+						<div class="entry-content">
+							<p>
 <?php
-		 esc_html_e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'Raindrops' ); 
+		 esc_html_e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'Raindrops' );
 ?>
 							</p>
 <?php 
@@ -35,7 +35,7 @@
 						</div>
 					</div>
 				</div>
-      			<div class="yui-u">
+			<div class="yui-u">
 <?php 
 		raindrops_prepend_extra_sidebar( );
 		
@@ -46,12 +46,12 @@
 		
 		raindrops_append_extra_sidebar( );
 ?>
-	  			</div>
-    		</div>
-  		</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="yui-b">
-<?php 
+<?php
 		raindrops_prepend_default_sidebar( );
 		
 		get_sidebar( 'default' );
@@ -60,7 +60,7 @@
 ?>	
 	</div>
 </div>
-<?php 		
+<?php		
 		do_action( 'raindrops_after_'.basename( __FILE__) );
 
 		get_footer( $raindrops_document_type );

@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.144
+	Coding style change
+		indent from space to tab
+	Fixed
+		Post data sanitize
+			lib/option-panel.php
+				raindrops_upload_image()
+----------------------------------------------
+Changelog -----------------------------------
 version:1.143
 	Coding style change
 		syntax change

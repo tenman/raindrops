@@ -1,5 +1,21 @@
 Changelog -----------------------------------
 version:1.147
+	Add file
+		images/headers/index.php
+		images/index.php
+		images/options/index.php
+		languages/css/index.php
+		languages/index.php
+		lib/csscolor/index.php
+		lib/index.php
+		page-templates/index.php
+	Add deny direct access code each templates
+		if ( ! defined( 'ABSPATH' ) ) { exit; }
+	Add action hook
+		raindrops_customize_register
+		raindrops_customize_register
+	Add filter hook
+		raindrops_chat_filter
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.146

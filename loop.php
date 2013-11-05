@@ -5,6 +5,7 @@
  * @package Raindrops
  * @since Raindrops 0.1
  */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
  ?>
 <?php
 /**

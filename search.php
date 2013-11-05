@@ -9,9 +9,10 @@
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  */
-		do_action( 'raindrops_'. basename(__FILE__) );
-		get_header( $raindrops_document_type );
-		do_action( 'raindrops_pre_'.basename( __FILE__) );
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+do_action( 'raindrops_'. basename(__FILE__) );
+get_header( $raindrops_document_type );
+do_action( 'raindrops_pre_'.basename( __FILE__) );
 ?>
 <div id="yui-main">
   <?php raindrops_debug_navitation( __FILE__ ); ?>

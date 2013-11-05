@@ -4002,6 +4002,8 @@ if ( ! function_exists( 'raindrops_customize_register' ) ) {
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'raindrops_default_fonts_color', array( 'label' => esc_html__( 'Font Color', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_default_fonts_color]' ) ) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'raindrops_hyperlink_color', array( 'label' => esc_html__( 'Link Color', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_hyperlink_color]' ) ) );
 		$wp_customize->add_control( new Raindrops_Customize_Navigation_Control( $wp_customize, 'navigation_setting', array( 'label' => 'Navigation_Setting', 'section' => 'raindrops_navigation_setting', 'settings' => 'navigation_setting' ) ) );
+		
+		do_action( 'raindrops_customize_register' );
 	}
 }
 add_filter( 'raindrops_prev_next_post', 'raindrops_remove_element' );
@@ -5092,8 +5094,7 @@ if ( ! function_exists( 'raindrops_chat_filter' ) ) {
 		}
 		$result = '';
 		$prev_author_id = '';
-		$html = '<dt class="raindrops-chat raindrops-chat-author-%1$s">%2$s</dt>
-                <dd class="raindrops-chat-text raindrops-chat-author-text-%1$s">%3$s</dd>';
+		$html = '<dt class="raindrops-chat raindrops-chat-author-%1$s">%2$s</dt><dd class="raindrops-chat-text raindrops-chat-author-text-%1$s">%3$s</dd>';
 				
 		foreach ( $new_contents as $key => $new ) {
 		
@@ -5112,7 +5113,7 @@ if ( ! function_exists( 'raindrops_chat_filter' ) ) {
 				$result .= '<dd>' . $new . '</dd>';
 			}
 		}
-		return sprintf( '<dl class="raindrops-post-format-chat">%1$s</dl>', $result );
+		return apply_filters( 'raindrops_chat_filter', sprintf( '<dl class="raindrops-post-format-chat">%1$s</dl>', $result ) );
 	}
 }
 /**

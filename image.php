@@ -23,21 +23,18 @@
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  */
-		do_action( 'raindrops_'. basename(__FILE__) );
-		get_header( $raindrops_document_type );
-		do_action( 'raindrops_pre_'.basename( __FILE__) );
+do_action( 'raindrops_'. basename(__FILE__) );
+get_header( $raindrops_document_type );
+do_action( 'raindrops_pre_'.basename( __FILE__) );
 ?>
 	<div id="yui-main">
-<?php 
-		raindrops_debug_navitation( __FILE__ ); 
-?>
+<?php raindrops_debug_navitation( __FILE__ );?>
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 <?php 
-		switch(	$raindrops_document_type ) {
-		
-			case( 'html5' ):
-			
+switch(	$raindrops_document_type ) {
+
+	case( 'html5' ):
 ?>
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
 <?php 
@@ -123,7 +120,7 @@
 ?>
         		</div>
 <?php 
-			} 
+			} // while ( have_posts( ) )
 		} else { 
 ?>
         	<p>
@@ -234,7 +231,7 @@
 ?>
 				</div>
 <?php 
-			}
+			}// endwhile ( have_posts( ) )
 			
 		} else { 
 ?>

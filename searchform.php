@@ -6,8 +6,9 @@
  * @package Raindrops
  * @since Raindrops 0.1
  */
-		global $raindrops_document_type, $template;
-		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+global $raindrops_document_type, $template;
+do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 		
 		if ( 'html5' == $raindrops_document_type ) {
 ?>

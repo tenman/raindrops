@@ -6,9 +6,10 @@
  * @since Raindrops 0.940
  *
  */
-	global $template;
-	do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
- 	$format = get_post_format( );
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+global $template;
+do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+$format = get_post_format( );
 	
 	if ( false === $format ) {
 	

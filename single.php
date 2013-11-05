@@ -31,8 +31,9 @@
  * @uses raindrops_append_default_sidebar( )
  *
  */
-		$raindrops_home_url = trailingslashit( home_url() );
-        $raindrops_current_column = raindrops_show_one_column( );
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+$raindrops_home_url = trailingslashit( home_url() );
+$raindrops_current_column = raindrops_show_one_column( );
 
         if ( $raindrops_current_column !== false ) {
             add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );

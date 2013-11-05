@@ -8,19 +8,18 @@
  * @since Raindrops 0.997
  *
  */
-		global $template;
-		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-		global $raindrops_document_type;
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+global $template, $raindrops_document_type;
+do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 		
-		switch( $raindrops_document_type ) {
+switch( $raindrops_document_type ) {
 /**
  *
  *
  *
  *
  */
-			case( 'html5' ):
-			
+	case( 'html5' ):
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes( ); ?>>
@@ -33,16 +32,14 @@
 <?php wp_head( );?>
 	</head>
 <?php
-
-			break;
+	break;
 /**
  *
  *
  *
  *
  */
-			default:
-			
+	default:
 echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,19 +50,13 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 	<meta http-equiv="content-style-type" content="text/css" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-<?php 
-		wp_head( );
-?>
+<?php wp_head( );?>
 	</head>
-<?php
-			break;
-		}
-?>
+<?php break;
+} //end switch( $raindrops_document_type )?>
 	<body <?php body_class( ); ?>>
 		<div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-'.raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
-<?php
-		raindrops_prepend_doc( );
-?>
+<?php raindrops_prepend_doc( );?>
 			<<?php raindrops_doctype_elements( 'div', 'header' );?> id="top">
 				<div id="hd">
 <?php
@@ -76,7 +67,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
  *  raindrops_site_title( " add some text" );
  *
  */
-		echo raindrops_site_title( );
+echo raindrops_site_title( );
 /**
  * Site description diaplay at header bar when if header text Display Text value is no.
  *
@@ -85,7 +76,7 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
  *
  *
  */
-		echo raindrops_site_description( );
+echo raindrops_site_description( );
 ?>
 				</div>
 <?php
@@ -96,28 +87,30 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
  *
  *
  */
-		raindrops_nav_menu_primary( );
-
-		raindrops_after_nav_menu( );
+raindrops_nav_menu_primary( );
+raindrops_after_nav_menu( );
 ?>
 			</<?php raindrops_doctype_elements( 'div', 'header' );?>>
 
-<?php
-		$raindrops_header_image = raindrops_header_image( 'elements' );
+<?php $raindrops_header_image = raindrops_header_image( 'elements' );?>
 		
-		if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) ) {
-?>
+<?php if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) ) {?>
 			<span id="container"></span>
 			<div class="yui-g fron-page-top-container">
 				<div class="yui-u first">
 					<div class="static-front-content">
-<?php	
-			if ( have_posts( ) ) {
-                while (have_posts( ) ) {
-                        the_post( );
-                        the_content( );
-                }
-            }
+<?php
+			if( is_page() ){
+			
+				if ( have_posts( ) ) {
+				
+					while ( have_posts( ) ) {
+					
+							the_post( );
+							the_content( );
+					}
+				}
+			}
 ?>
             			<br style="clear:both" />
         			</div>
@@ -134,18 +127,21 @@ echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>
 ?>  
 					<div class="static-front-content">
 <?php
-			if ( have_posts( ) ) {
-				while (have_posts( ) ) {
-						the_post( );
-						the_content( );
+			if( is_page() ){
+			
+				if ( have_posts( ) ) {
+				
+					while (have_posts( ) ) {
+					
+							the_post( );
+							the_content( );
+					}
 				}
-        	}
+			}
 ?>
         				<br style="clear:both" />
     				</div>
-<?php
-		}
-?>
+<?php } // end if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) )?>
 				</div>
 			</div>
 		</div>

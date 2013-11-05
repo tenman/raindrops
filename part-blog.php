@@ -28,18 +28,19 @@
  * @uses comment_template( )
  * @uses get_day_link( )
  */
-		global $template;
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+global $template;
 		
-		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-		$raindrops_date_html_module = '<a href="%1$s">%2$s</a>';
-		$raindrops_date_format  = get_option( 'date_format' ). ' '. get_option( 'time_format' );		 		$raindrops_archive_year		= get_the_time( 'Y' );
-		$raindrops_archive_month	= get_the_time( 'm' );
-		$raindrops_archive_day		= get_the_time( 'd' );
-		$raindrops_day_link			= esc_url( get_day_link( $raindrops_archive_year,
-															 $raindrops_archive_month, 
-															 $raindrops_archive_day ).'#post-'.$post->ID  
-											);
-		$raindrops_status_date		= get_the_time( $raindrops_date_format );
+do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+$raindrops_date_html_module = '<a href="%1$s">%2$s</a>';
+$raindrops_date_format  = get_option( 'date_format' ). ' '. get_option( 'time_format' );		 		$raindrops_archive_year		= get_the_time( 'Y' );
+$raindrops_archive_month	= get_the_time( 'm' );
+$raindrops_archive_day		= get_the_time( 'd' );
+$raindrops_day_link			= esc_url( get_day_link( $raindrops_archive_year,
+													 $raindrops_archive_month, 
+													 $raindrops_archive_day ).'#post-'.$post->ID  
+									);
+$raindrops_status_date		= get_the_time( $raindrops_date_format );
 
 	if ( is_single() ) {
 	

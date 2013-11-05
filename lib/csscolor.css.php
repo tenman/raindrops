@@ -1585,87 +1585,96 @@ return $style;
  *
  *
  */
-	if (!defined('ABSPATH')){
-		exit;
-	}
-	global $raindrops_wp_version, $raindrops_current_theme_name;
-		
-	$alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
+if (!defined('ABSPATH')){
+	exit;
+}
+global $raindrops_wp_version, $raindrops_current_theme_name;
 	
-	if (!file_exists($alias_functions)) {
-	
-		get_template_directory().'/lib/alias_functions.php';
-	}
-	
-	$raindrops_included_files = get_included_files();
+$alias_functions = get_stylesheet_directory().'/lib/alias_functions.php';
 
-	if (!in_array($alias_functions,$raindrops_included_files)) {
-	
-		 locate_template(array('lib/alias_functions.php'),true,true);
-	}
+if ( ! file_exists( $alias_functions ) ) {
 
-	$embed_common_style = $raindrops_current_theme_name;
-	
-	raindrops_register_styles($embed_common_style);
+	get_template_directory().'/lib/alias_functions.php';
+}
 
-	$raindrops_images_path		= get_stylesheet_directory_uri().'/images/';
-	
-	if (!file_exists($raindrops_images_path)) {
-	
-		get_template_directory().'/images/';
-	}
-	
-	$raindrops_base_color = raindrops_warehouse_clone('raindrops_base_color');
-	$style_type			 = raindrops_warehouse_clone('raindrops_style_type');
-	$navigation_title_img = raindrops_warehouse_clone('raindrops_heading_image');
-	$position_y			 = raindrops_warehouse_clone('raindrops_heading_image_position');
-	$raindrops_header_image	 = raindrops_warehouse_clone('raindrops_header_image');
-	$raindrops_header_color	 = raindrops_warehouse_clone('raindrops_default_fonts_color');
-	$raindrops_footer_image	 = raindrops_warehouse_clone('raindrops_footer_image');
-	$raindrops_footer_color	 = raindrops_warehouse_clone('raindrops_footer_color');
+$raindrops_included_files = get_included_files();
+
+if ( ! in_array( $alias_functions, $raindrops_included_files ) ) {
+
+	 locate_template(array('lib/alias_functions.php'),true,true);
+}
+
+$embed_common_style = $raindrops_current_theme_name;
+
+raindrops_register_styles($embed_common_style);
+
+$raindrops_images_path		= get_stylesheet_directory_uri().'/images/';
+
+if ( ! file_exists( $raindrops_images_path ) ) {
+
+	get_template_directory().'/images/';
+}
+
+$raindrops_base_color	= raindrops_warehouse_clone('raindrops_base_color');
+$style_type				= raindrops_warehouse_clone('raindrops_style_type');
+$navigation_title_img	= raindrops_warehouse_clone('raindrops_heading_image');
+$position_y				= raindrops_warehouse_clone('raindrops_heading_image_position');
+$raindrops_header_image	= raindrops_warehouse_clone('raindrops_header_image');
+$raindrops_header_color	= raindrops_warehouse_clone('raindrops_default_fonts_color');
+$raindrops_footer_image	= raindrops_warehouse_clone('raindrops_footer_image');
+$raindrops_footer_color	= raindrops_warehouse_clone('raindrops_footer_color');
 //define("BASE_COLOR1",$raindrops_base_color);
 /**
- * save stylesheet
- *
- */
-	$raindrops_indv_css	 = raindrops_design_output($style_type).raindrops_color_base();
-	$raindrops_options	= get_option("raindrops_theme_settings");
-		// if not handmade css. theme name style type is handmade
+* save stylesheet
+*
+*/
+$raindrops_indv_css	= raindrops_design_output($style_type).raindrops_color_base();
+$raindrops_options	= get_option("raindrops_theme_settings");
+	// if not handmade css. theme name style type is handmade
 
-	if ( $raindrops_wp_version >= '3.4' ) {
-		if (raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
-			if ( is_array( $raindrops_options ) ) {
+if ( $raindrops_wp_version >= '3.4' ) {
+
+	if (raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
+	
+		if ( is_array( $raindrops_options ) ) {
+	
+				if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
+				
+					$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+				} else {
+				
+					$add_array			= array( '_raindrops_indv_css'=> $raindrops_indv_css );
+					$raindrops_options	= array_merge( $raindrops_options, $add_array );
+				}
+				update_option( "raindrops_theme_settings", $raindrops_options );
+		} else {
 		
-					if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
-						$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-					} else {
-						$add_array			= array( '_raindrops_indv_css'=> $raindrops_indv_css );
-						$raindrops_options	= array_merge( $raindrops_options, $add_array );
-					}
-					update_option( "raindrops_theme_settings", $raindrops_options );
-			} else {
-				$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-				add_option( "raindrops_theme_settings", $raindrops_options );
-			}
-		}
-	} else {
-		if (raindrops_warehouse_clone("raindrops_style_type") !== $raindrops_current_theme_name ) {
-			if (is_array($raindrops_options)) {
-		
-					if (array_key_exists('_raindrops_indv_css',$raindrops_options)) {
-						$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-					} else {
-						$add_array			= array('_raindrops_indv_css'=> $raindrops_indv_css );
-						$raindrops_options	= array_merge($raindrops_options,$add_array);
-					}
-					update_option("raindrops_theme_settings",$raindrops_options);
-		
-			} else {
-				$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-				add_option("raindrops_theme_settings",$raindrops_options );
-			}
+			$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+			add_option( "raindrops_theme_settings", $raindrops_options );
 		}
 	}
+} else {
+	if (raindrops_warehouse_clone("raindrops_style_type") !== $raindrops_current_theme_name ) {
+	
+		if (is_array($raindrops_options)) {
+	
+				if (array_key_exists('_raindrops_indv_css',$raindrops_options)) {
+				
+					$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+				} else {
+				
+					$add_array			= array('_raindrops_indv_css'=> $raindrops_indv_css );
+					$raindrops_options	= array_merge($raindrops_options,$add_array);
+				}
+				update_option("raindrops_theme_settings",$raindrops_options);
+	
+		} else {
+		
+			$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+			add_option("raindrops_theme_settings",$raindrops_options );
+		}
+	}
+}
 /**
  * Create CSS Color Declaration
  *
@@ -1673,96 +1682,95 @@ return $style;
  *
  *
  */
-	function raindrops_colors($num = 0, $select = 'set',$color1 = null) {
-	
-		global $raindrops_images_path;
-		
-		if (null == $color1) {
-		
-			$color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
-		} else {
-		
-			$color1 = str_replace('#',"",$color1);
-		}
-		
-		$base = new raindrops_CSS_Color( $color1 );
-		
-		switch($num) {
-		case(0):
-			$bg		 = $base->bg['0'];
-			$fg		 = $base->fg['0'];
-			$color = "color:#$fg;background-color:#$bg;";
-			break;
-			case(-1):
-			$bg		 = $base->bg['-1'];
-			$fg		 = $base->fg['-1'];
-			$color = "color:#$fg;background-color:#$bg;";
-			break;
-			case(-2):
-			$bg		 = $base->bg['-2'];
-			$fg		 = $base->fg['-2'];
-			$color = "color:#$fg;background-color:#$bg;";
-			break;
-			case(-3):
-			$bg		 = $base->bg['-3'];
-			$fg		 = $base->fg['-3'];
-			$color = "color:#$fg;background-color:#$bg;";
-			break;
-			case(-4):
-			$bg		 = $base->bg['-4'];
-			$fg		 = $base->fg['-4'];
-			$color = "color:#$fg;background-color:#$bg;";
-			break;
-			case(-5):
-			$bg		 = $base->bg['-5'];
-			$fg		 = $base->fg['-5'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-			case(1):
-			$bg		 = $base->bg['+1'];
-			$fg		 = $base->fg['+1'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-			case(2):
-			$bg		 = $base->bg['+2'];
-			$fg		 = $base->fg['+2'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-			case(3):
-			$bg		 = $base->bg['+3'];
-			$fg		 = $base->fg['+3'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-			case(4):
-			$bg		 = $base->bg['+4'];
-			$fg		 = $base->fg['+4'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-			case(5):
-			$bg		 = $base->bg['+5'];
-			$fg		 = $base->fg['+5'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-			default:
-			$bg		 = $base->bg['0'];
-			$fg		 = $base->fg['0'];
-			$color = "color:#$fg;\n\tbackground-color:#$bg;";
-			break;
-		}
-		
-		switch ( $select ) {
-			case('set'):
-			return $color;
-			break;
-			case('background'):
-			return '#'.$bg;
-			break;
-			case('color'):
-			return '#'.$fg;
-			break;
-		}
-	}
+function raindrops_colors($num = 0, $select = 'set',$color1 = null) {
 
+	global $raindrops_images_path;
+	
+	if (null == $color1) {
+	
+		$color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
+	} else {
+	
+		$color1 = str_replace('#',"",$color1);
+	}
+	
+	$base = new raindrops_CSS_Color( $color1 );
+	
+	switch( $num ) {
+	case(0):
+		$bg		 = $base->bg['0'];
+		$fg		 = $base->fg['0'];
+		$color = "color:#$fg;background-color:#$bg;";
+		break;
+		case(-1):
+		$bg		= $base->bg['-1'];
+		$fg		= $base->fg['-1'];
+		$color	= "color:#$fg;background-color:#$bg;";
+		break;
+		case(-2):
+		$bg		= $base->bg['-2'];
+		$fg		= $base->fg['-2'];
+		$color	= "color:#$fg;background-color:#$bg;";
+		break;
+		case(-3):
+		$bg		= $base->bg['-3'];
+		$fg		= $base->fg['-3'];
+		$color	= "color:#$fg;background-color:#$bg;";
+		break;
+		case(-4):
+		$bg		= $base->bg['-4'];
+		$fg		= $base->fg['-4'];
+		$color	= "color:#$fg;background-color:#$bg;";
+		break;
+		case(-5):
+		$bg		= $base->bg['-5'];
+		$fg		= $base->fg['-5'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+		case(1):
+		$bg		= $base->bg['+1'];
+		$fg		= $base->fg['+1'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+		case(2):
+		$bg		= $base->bg['+2'];
+		$fg		= $base->fg['+2'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+		case(3):
+		$bg		= $base->bg['+3'];
+		$fg		= $base->fg['+3'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+		case(4):
+		$bg		= $base->bg['+4'];
+		$fg		= $base->fg['+4'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+		case(5):
+		$bg		= $base->bg['+5'];
+		$fg		= $base->fg['+5'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+		default:
+		$bg		= $base->bg['0'];
+		$fg		= $base->fg['0'];
+		$color	= "color:#$fg;\n\tbackground-color:#$bg;";
+		break;
+	}
+	
+	switch ( $select ) {
+		case('set'):
+			return $color;
+		break;
+		case('background'):
+			return '#'. $bg;
+		break;
+		case('color'):
+		return '#'. $fg;
+		break;
+	}
+}
 /**
  * Create gradient style
  *
@@ -1770,17 +1778,16 @@ return $style;
  *
  *
  */
-
-function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc') {
+function raindrops_gradient_css( $color = null, $num = 0, $diff = 1, $order = 'asc' ) {
 
 		global $raindrops_images_path;
 		
 		if ( null == $color ) {
 		
-			$color = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
+			$color = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
 		} else {
 		
-			$color = str_replace('#',"",$color);
+			$color = str_replace( '#', "", $color );
 		}
 
 		$base = new raindrops_CSS_Color( $color );
@@ -1791,36 +1798,36 @@ function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc')
 		
 		if ( "asc" == $order ) {
 		
-			$custom_dark_bg1 = raindrops_colors($num, 'background',$color);
-
-			$num2 = (int)$num + $diff;
-
-			$custom_light_bg1 = raindrops_colors($num2, 'background',$color);
+			$custom_dark_bg1	= raindrops_colors( $num, 'background', $color );
+			$num2				= ( int ) $num + $diff;
+			$custom_light_bg1	= raindrops_colors($num2, 'background',$color);
 			
 			if (isset($base->fg[$num])) {
-				$fg		 = $base->fg[$num];
+			
+				$fg		 = $base->fg[ $num ];
 			} else {
+			
 				$fg		 = "";
 			}
-
 		} elseif ( "desc" == $order ) {
 		
-			$custom_dark_bg1 = $base->bg[$num + $diff];
-			$custom_light_bg1 = $base->bg[$num];
+			$custom_dark_bg1	= $base->bg[$num + $diff];
+			$custom_light_bg1	= $base->bg[$num];
 			
-			if (isset($base->fg[$num])) {
+			if ( isset($base->fg[ $num ] ) ) {
+			
 				$fg		 = $base->fg[$num];
 			} else {
+			
 				$fg		 = "";
 			}
 		}
-		
 		$g = 'color:#'.$fg.';';
-		$g .= 'background: -webkit-gradient(linear, left top, left bottom, from('.$custom_dark_bg1.'), to('.$custom_light_bg1.'));';
-		$g .= 'background: -moz-linear-gradient(top, '.$custom_dark_bg1.', '.$custom_light_bg1.');';
-		$g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''.$custom_dark_bg1.'\', endColorstr=\''.$custom_light_bg1.'\');';
+		$g .= 'background: -webkit-gradient(linear, left top, left bottom, from('. $custom_dark_bg1. '), to('. $custom_light_bg1. '));';
+		$g .= 'background: -moz-linear-gradient(top, '. $custom_dark_bg1. ', '. $custom_light_bg1.');';
+		$g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\''. $custom_dark_bg1. '\', endColorstr=\''. $custom_light_bg1. '\');';
 		return $g;
-	}
+}
 /**
  * Base Color Class Create
  *
@@ -1828,44 +1835,38 @@ function raindrops_gradient_css($color = null,$num = 0,$diff = 1,$order = 'asc')
  *
  *
  */
-	function raindrops_color_base($color1=null,$color2=null) {
+function raindrops_color_base( $color1=null, $color2=null ) {
+
+	global $raindrops_images_path;
 	
-		global $raindrops_images_path;
-		
-		if ( $color1 == null ) {
-		
-			$color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
-		} else {
-		
-			$color1 = str_replace('#',"",$color1);
-		}
-		
-		$base = new raindrops_CSS_Color($color1);
-		$bg_1 = $base->bg['-1'];
-		$fg_1 = $base->fg['-1'];
-		$bg_2 = $base->bg['-2'];
-		$fg_2 = $base->fg['-2'];
-		$bg_3 = $base->bg['-3'];
-		$fg_3 = $base->fg['-3'];
-		$bg_4 = $base->bg['-4'];
-		$fg_4 = $base->fg['-4'];
-		$bg_5 = $base->bg['-5'];
-		$fg_5 = $base->fg['-5'];
-		$bg1 = $base->bg['+1'];
-		$fg1 = $base->fg['+1'];
-		$bg2 = $base->bg['+2'];
-		$fg2 = $base->fg['+2'];
-		$bg3 = $base->bg['+3'];
-		$fg3 = $base->fg['+3'];
-		$bg4 = $base->bg['+4'];
-		$fg4 = $base->fg['+4'];
-		$bg5 = $base->bg['+5'];
-		$fg5 = $base->fg['+5'];
-
-
-
-
-
+	if ( $color1 == null ) {
+	
+		$color1 = str_replace('#',"", raindrops_warehouse_clone('raindrops_base_color') );
+	} else {
+	
+		$color1 = str_replace('#',"",$color1);
+	}
+	$base	= new raindrops_CSS_Color($color1);
+	$bg_1	= $base->bg['-1'];
+	$fg_1	= $base->fg['-1'];
+	$bg_2	= $base->bg['-2'];
+	$fg_2	= $base->fg['-2'];
+	$bg_3	= $base->bg['-3'];
+	$fg_3	= $base->fg['-3'];
+	$bg_4	= $base->bg['-4'];
+	$fg_4	= $base->fg['-4'];
+	$bg_5	= $base->bg['-5'];
+	$fg_5	= $base->fg['-5'];
+	$bg1	= $base->bg['+1'];
+	$fg1	= $base->fg['+1'];
+	$bg2	= $base->bg['+2'];
+	$fg2	= $base->fg['+2'];
+	$bg3	= $base->bg['+3'];
+	$fg3	= $base->fg['+3'];
+	$bg4	= $base->bg['+4'];
+	$fg4	= $base->fg['+4'];
+	$bg5	= $base->bg['+5'];
+	$fg5	= $base->fg['+5'];
 
 		$result=<<<CSS
 .color-1 a,
@@ -1954,7 +1955,7 @@ color:#{$fg5};
 }
 CSS;
 	return $result;
-	}
+}
 /**
  * from hex color #000000 to rgba color
  *
@@ -1962,28 +1963,29 @@ CSS;
  *
  *
  */
-	function raindrops_hex2rgba($color,$opecity) {
+function raindrops_hex2rgba( $color, $opecity ) {
+
+	if ( '#' == $color[0] ) {
 	
-		if ( '#' == $color[0] ) {
-		
-			$color = substr($color, 1);
-		}
-		
-		if ( 6 == strlen( $color ) ) {
-		
-			list($r, $g, $b) = array($color[0].$color[1],
-									 $color[2].$color[3],
-									 $color[4].$color[5]);
-		} elseif ( 3 == strlen( $color )) {
-		
-			list($r, $g, $b) = array($color[0].$color[0], $color[1].$color[1], $color[2].$color[2]);
-		} else {
-			return false;
-		}
-		
-		$r = hexdec($r); $g = hexdec($g); $b = hexdec($b);
-		return "rgba({$r}, {$g}, {$b},{$opecity})";
+		$color = substr( $color, 1 );
 	}
+	
+	if ( 6 == strlen( $color ) ) {
+	
+		list($r, $g, $b) = array( $color[0].$color[1], $color[2].$color[3], $color[4].$color[5]);
+	} elseif ( 3 == strlen( $color ) ) {
+	
+		list($r, $g, $b) = array($color[0].$color[0], $color[1].$color[1], $color[2].$color[2]);
+	} else {
+	
+		return false;
+	}
+	
+	$r = hexdec( $r ); 
+	$g = hexdec( $g );
+	$b = hexdec( $b );
+	return "rgba({$r}, {$g}, {$b},{$opecity})";
+}
 /**
  * Declaration Calculator
  *
@@ -1991,237 +1993,247 @@ CSS;
  *
  *
  */
-	function raindrops_design_output($name = 'dark') {
+function raindrops_design_output( $name = 'dark' ) {
+
+	$uploads						= wp_upload_dir();
+	$raindrops_header_image			= raindrops_warehouse_clone('raindrops_header_image');
+	$raindrops_hd_image_path		= $uploads['path'].'/'.$raindrops_header_image;
+
+	if (file_exists($raindrops_hd_image_path)) {
 	
-		$uploads 						= wp_upload_dir();
-		$raindrops_header_image	 	= raindrops_warehouse_clone('raindrops_header_image');
-		$raindrops_hd_image_path 		= $uploads['path'].'/'.$raindrops_header_image;
-		
-		
-		
-		if (file_exists($raindrops_hd_image_path)) {
-			$raindrops_hd_images_path = $uploads['url'].'/';
-		} else {
-			$raindrops_hd_images_path = get_stylesheet_directory_uri().'/images/';	
-		}
-
-	if ( ! file_exists( get_stylesheet_directory().'/images/' ) ) { $raindrops_hd_images_path = get_template_directory_uri().'/images/';}
+		$raindrops_hd_images_path	= $uploads['url'].'/';
+	} else {
 	
-		$raindrops_hd_image_path 		= apply_filters( 'raindrops_hd_image_path', $raindrops_hd_images_path );
+		$raindrops_hd_images_path	= get_stylesheet_directory_uri().'/images/';	
+	}
 
-		$raindrops_images_path			= get_stylesheet_directory_uri().'/images/';
-		
-	if ( ! file_exists( get_stylesheet_directory().'/images/' ) ) { $raindrops_images_path = get_template_directory_uri().'/images/';}
+	if ( ! file_exists( get_stylesheet_directory().'/images/' ) ) {
+	 
+		$raindrops_hd_images_path	= get_template_directory_uri().'/images/';
+	}
 
-		$raindrops_images_path 			= apply_filters( 'raindrops_images_path', $raindrops_images_path );
-		
-		$navigation_title_img 		= raindrops_warehouse_clone('raindrops_heading_image');
+	$raindrops_hd_image_path		= apply_filters( 'raindrops_hd_image_path', $raindrops_hd_images_path );
+	$raindrops_images_path			= get_stylesheet_directory_uri().'/images/';
+	
+	if ( ! file_exists( get_stylesheet_directory().'/images/' ) ) { 
+	
+		$raindrops_images_path		= get_template_directory_uri().'/images/';
+	}
+	$raindrops_images_path			= apply_filters( 'raindrops_images_path', $raindrops_images_path );
+	$navigation_title_img			= raindrops_warehouse_clone( 'raindrops_heading_image' );
+	$raindrops_header_color			= raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
+	$raindrops_footer_image			= raindrops_warehouse_clone( 'raindrops_footer_image' );
+	$raindrops_footer_color			= raindrops_warehouse_clone( 'raindrops_footer_color' );
 
-		$raindrops_header_color	 = raindrops_warehouse_clone('raindrops_default_fonts_color');
+	if (empty($name)) { $name = 'dark';}
 
-		$raindrops_footer_image	 = raindrops_warehouse_clone('raindrops_footer_image');
-		$raindrops_footer_color	 = raindrops_warehouse_clone('raindrops_footer_color');
-
-		if (empty($name)) { $name = 'dark';}
-
-		$c_border = raindrops_colors(0,'background');
-		
+	$c_border						= raindrops_colors(0,'background');
+	
+	if ( '#' == $c_border ) {
+	
+		$rgba_border = 'rgba(203,203,203, 0.8)';
+	} else {
+	
+		$rgba_border = raindrops_hex2rgba( $c_border, 0.5 );
+	}
+	
+	if ( 'light' == $name ) {
+	
 		if ( '#' == $c_border ) {
 		
-			$rgba_border = 'rgba(203,203,203, 0.8)';
+			$rgba_border = 'rgba(203,203,203, 0.4)';
 		} else {
 		
-			$rgba_border = raindrops_hex2rgba($c_border,0.5);
-		}
-		
-		if ( 'light' == $name ) {
-		
-			if ( '#' == $c_border ) {
-			
-				$rgba_border = 'rgba(203,203,203, 0.4)';
-			} else {
-			
-				$rgba_border = raindrops_hex2rgba($c_border,0.2);
-			}
-		}
-		
-		$c1 = raindrops_colors(0);
-		$c1 = raindrops_colors(1);
-		$c2 = raindrops_colors(2);
-		$c3 = raindrops_colors(3);
-		$c4 = raindrops_colors(4);
-		$c5 = raindrops_colors(5);
-		$c_1 = raindrops_colors(-1);
-		$c_2 = raindrops_colors(-2);
-		$c_3 = raindrops_colors(-3);
-		$c_4 = raindrops_colors(-4);
-		$c_5 = raindrops_colors(-5);
-
-		$position_y = raindrops_warehouse_clone('raindrops_heading_image_position');
-		$y = $position_y * 26;
-		$y = '-'.$y.'px';
-		switch( $position_y ) {
-			case(0):
-				$h_position_rsidebar_h2 = "background-position:0 0;";
-			break;
-			case(1):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			case(2):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			case(3):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			case(4):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			case(5):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			case(6):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			case(7):
-				$h_position_rsidebar_h2 = "background-position:0 $y;";
-			break;
-			default:
-				$h_position_rsidebar_h2 = "background-position:0 208px;";
-			break;
-		}
-			$h2_w3standard_background = "background:".raindrops_colors(5,'background').' ';
-			$h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
-			$h2_w3standard_background .= "color:".raindrops_colors(4,'color').';';
-			$h2_dark_background = "background:".raindrops_colors(-3,'background').' ';
-			$h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
-			$h2_dark_background .= "color:".raindrops_colors(-3,'color').';';
-			$h2_light_background = "background:".raindrops_colors(5,'background').' ';
-			$h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
-			$h2_light_background .= "color:".raindrops_colors(4,'color').';';
-
-
-
-
-
-		switch($name) {
-			case("w3standard"):
-				$custom_dark_bg = raindrops_colors(3,'background');
-				$custom_light_bg = raindrops_colors( 1, 'background' );
-				$custom_color = raindrops_colors('1','color');
-				if (!empty($raindrops_footer_color)) {
-					$raindrops_footer_color = $raindrops_footer_color;
-				} else {
-					$raindrops_footer_color = '#000';
-				}
-				if (!empty($raindrops_header_color)) {
-					$raindrops_header_color = $raindrops_header_color;
-				} else {
-					$raindrops_header_color = '#000';
-				}
-				$gradient = raindrops_gradient_clone();
-			break;
-			case("dark"):
-			/**
-			 *dark
-			 */
-				$custom_dark_bg = apply_filters( 'raindrops_dark_dark_bg', -1 );
-				$custom_dark_bg = raindrops_colors( $custom_dark_bg, 'background' );
-
-				$custom_light_bg = apply_filters( 'raindrops_dark_light_bg', -4 ); 	
-				$custom_light_bg = raindrops_colors( $custom_light_bg , 'background' );
-				
-				$custom_color = apply_filters( 'raindrops_dark_color', -3 ); 
-				$custom_color = raindrops_colors($custom_color,'color');
-				if (!empty($raindrops_footer_color)) {
-					$raindrops_footer_color = $raindrops_footer_color;
-				} else {
-					$raindrops_footer_color = '#fff';
-				}
-				if (!empty($raindrops_header_color)) {
-					$raindrops_header_color = $raindrops_header_color;
-				} else {
-					$raindrops_header_color = '#fff';
-				}
-				$gradient = raindrops_gradient_clone();
-			break;
-			case("light"):
-			/**
-			 * light
-			 */
-			 
-				$custom_dark_bg = apply_filters( 'raindrops_light_dark_bg', 5 );
-				$custom_dark_bg = raindrops_colors( $custom_dark_bg, 'background' );
-				
-				$custom_light_bg = apply_filters( 'raindrops_light_light_bg', 4 ); 
-				$custom_light_bg = raindrops_colors( $custom_light_bg, 'background' );
-				
-				$custom_color = apply_filters( 'raindrops_light_color', 3 ); 
-				$custom_color = raindrops_colors($custom_color,'color');
-
-				$base_gradient = raindrops_gradient_single_clone(3,"asc");
-				
-				if (!empty($raindrops_footer_color)) {
-					$raindrops_footer_color = $raindrops_footer_color;
-				} else {
-					$raindrops_footer_color = '#333';
-				}
-				if (!empty($raindrops_header_color)) {
-					$raindrops_header_color = $raindrops_header_color;
-				} else {
-					$raindrops_header_color = '#333';
-				}
-				$gradient = raindrops_gradient_clone();
-			break;
-			default:
-				$custom_dark_bg = apply_filters( 'raindrops_default_dark_bg', 3 );
-				$custom_dark_bg = raindrops_colors($custom_dark_bg, 'background' );
-				
-				$custom_light_bg = apply_filters( 'raindrops_default_light_bg', 1 ); 
-				$custom_light_bg = raindrops_colors($custom_light_bg, 'background' );
-				
-				$custom_color = apply_filters( 'raindrops_default_color', 1 ); 
-				$custom_color = raindrops_colors($custom_color,'color');
-				
-				if (!empty($raindrops_footer_color)) {
-					$raindrops_footer_color = $raindrops_footer_color;
-				} else {
-					$raindrops_footer_color = '#000';
-				}
-				if (!empty($raindrops_header_color)) {
-					$raindrops_header_color = $raindrops_header_color;
-				} else {
-					$raindrops_header_color = '#000';
-				}
-				$gradient = raindrops_gradient_clone();
-			break;
-		}
-
-
-		$function_name = 'raindrops_indv_css_'.$name;
-
-		if (function_exists($function_name)) {
-
-			$content = $function_name();
-
-			foreach ( explode(' ',$content,-1) as $line ) {
-
-				preg_match_all('|%([a-z0-9_-]+)?%|si',$line,$regs,PREG_SET_ORDER);
-
-				foreach ( $regs as $reg ) {
-				
-					if ( isset($$reg[1] ) ) {
-					
-						$content = str_replace($reg[0],$$reg[1],$content);
-					} else {
-					
-						$content = str_replace($reg[0],'/*cannot bind data [%'.$reg[1].'%]*/',$content);
-					}
-				}
-			}
-			return $content;
-
+			$rgba_border = raindrops_hex2rgba( $c_border, 0.2 );
 		}
 	}
+	
+	$c1			= raindrops_colors( 0 );
+	$c1			= raindrops_colors( 1 );
+	$c2			= raindrops_colors( 2 );
+	$c3			= raindrops_colors( 3 );
+	$c4			= raindrops_colors( 4 );
+	$c5			= raindrops_colors( 5 );
+	$c_1		= raindrops_colors( -1 );
+	$c_2		= raindrops_colors( -2 );
+	$c_3		= raindrops_colors( -3 );
+	$c_4		= raindrops_colors( -4 );
+	$c_5		= raindrops_colors( -5 );
+	$position_y	= raindrops_warehouse_clone('raindrops_heading_image_position');
+	$y			= $position_y * 26;
+	$y			= '-'.$y.'px';
+	
+	switch( $position_y ) {
+		case(0):
+			$h_position_rsidebar_h2 = "background-position:0 0;";
+		break;
+		case(1):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		case(2):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		case(3):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		case(4):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		case(5):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		case(6):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		case(7):
+			$h_position_rsidebar_h2 = "background-position:0 $y;";
+		break;
+		default:
+			$h_position_rsidebar_h2 = "background-position:0 208px;";
+		break;
+	}
+	$h2_w3standard_background	= "background:".raindrops_colors( 5, 'background' ). ' ';
+	$h2_w3standard_background	.= "url({$raindrops_images_path}{$navigation_title_img});";
+	$h2_w3standard_background	.= "color:".raindrops_colors( 4, 'color' ).';';
+	
+	$h2_dark_background			= "background:".raindrops_colors( -3, 'background' ). ' ';
+	$h2_dark_background			.= "url({$raindrops_images_path}{$navigation_title_img});";
+	$h2_dark_background			.= "color:".raindrops_colors( -3, 'color' ). ';';
+	
+	$h2_light_background		= "background:".raindrops_colors(5,'background').' ';
+	$h2_light_background		.= "url({$raindrops_images_path}{$navigation_title_img});";
+	$h2_light_background		.= "color:".raindrops_colors( 4, 'color' ). ';';
+
+	switch($name) {
+		case("w3standard"):
+			$custom_dark_bg		= raindrops_colors(3,'background');
+			$custom_light_bg	= raindrops_colors( 1, 'background' );
+			$custom_color		= raindrops_colors('1','color');
+			
+			if (!empty($raindrops_footer_color)) {
+			
+				$raindrops_footer_color = $raindrops_footer_color;
+			} else {
+			
+				$raindrops_footer_color = '#000';
+			}
+			if (!empty($raindrops_header_color)) {
+			
+				$raindrops_header_color = $raindrops_header_color;
+			} else {
+			
+				$raindrops_header_color = '#000';
+			}
+			$gradient = raindrops_gradient_clone();
+		break;
+		case("dark"):
+		/**
+		 *dark
+		 */
+			$custom_dark_bg		= apply_filters( 'raindrops_dark_dark_bg', -1 );
+			$custom_dark_bg		= raindrops_colors( $custom_dark_bg, 'background' );
+			$custom_light_bg	= apply_filters( 'raindrops_dark_light_bg', -4 ); 	
+			$custom_light_bg	= raindrops_colors( $custom_light_bg , 'background' );
+			$custom_color		= apply_filters( 'raindrops_dark_color', -3 ); 
+			$custom_color		= raindrops_colors($custom_color,'color');
+			
+			if ( ! empty( $raindrops_footer_color ) ) {
+			
+				$raindrops_footer_color = $raindrops_footer_color;
+			} else {
+			
+				$raindrops_footer_color = '#fff';
+			}
+			
+			if ( ! empty( $raindrops_header_color ) ) {
+			
+				$raindrops_header_color = $raindrops_header_color;
+			} else {
+			
+				$raindrops_header_color = '#fff';
+			}
+			$gradient = raindrops_gradient_clone();
+		break;
+		case("light"):
+		/**
+		 * light
+		 */
+			$custom_dark_bg		= apply_filters( 'raindrops_light_dark_bg', 5 );
+			$custom_dark_bg		= raindrops_colors( $custom_dark_bg, 'background' );
+			$custom_light_bg	= apply_filters( 'raindrops_light_light_bg', 4 ); 
+			$custom_light_bg	= raindrops_colors( $custom_light_bg, 'background' );
+			$custom_color		= apply_filters( 'raindrops_light_color', 3 ); 
+			$custom_color		= raindrops_colors( $custom_color, 'color' );
+			$base_gradient		= raindrops_gradient_single_clone( 3, "asc" );
+			
+			if ( ! empty( $raindrops_footer_color ) ) {
+			
+				$raindrops_footer_color = $raindrops_footer_color;
+			} else {
+			
+				$raindrops_footer_color = '#333';
+			}
+			
+			if ( ! empty( $raindrops_header_color ) ) {
+			
+				$raindrops_header_color = $raindrops_header_color;
+			} else {
+				$raindrops_header_color = '#333';
+			}
+			$gradient = raindrops_gradient_clone();
+		break;
+		default:
+			$custom_dark_bg		= apply_filters( 'raindrops_default_dark_bg', 3 );
+			$custom_dark_bg		= raindrops_colors( $custom_dark_bg, 'background' );
+			$custom_light_bg	= apply_filters( 'raindrops_default_light_bg', 1 ); 
+			$custom_light_bg	= raindrops_colors($custom_light_bg, 'background' );
+			$custom_color		= apply_filters( 'raindrops_default_color', 1 ); 
+			$custom_color		= raindrops_colors($custom_color,'color');
+			
+			if ( ! empty( $raindrops_footer_color ) ) {
+			
+				$raindrops_footer_color = $raindrops_footer_color;
+			} else {
+			
+				$raindrops_footer_color = '#000';
+			}
+			
+			if ( ! empty( $raindrops_header_color ) ) {
+			
+				$raindrops_header_color = $raindrops_header_color;
+			} else {
+			
+				$raindrops_header_color = '#000';
+			}
+			$gradient = raindrops_gradient_clone();
+		break;
+	}
+
+
+	$function_name = 'raindrops_indv_css_'.$name;
+
+	if ( function_exists( $function_name ) ) {
+
+		$content = $function_name();
+
+		foreach ( explode( ' ', $content, -1) as $line ) {
+
+			preg_match_all('|%([a-z0-9_-]+)?%|si', $line, $regs, PREG_SET_ORDER );
+
+			foreach ( $regs as $reg ) {
+			
+				if ( isset($$reg[1] ) ) {
+				
+					$content = str_replace( $reg[0], $$reg[1], $content );
+				} else {
+				
+					$content = str_replace( $reg[0], '/*cannot bind data [%'.$reg[1].'%]*/', $content );
+				}
+			}
+		}
+		return $content;
+	}
+}
 /**
  * register style name
  *
@@ -2229,15 +2241,14 @@ CSS;
  *
  *
  */
-function raindrops_register_styles($style_name) {
+function raindrops_register_styles( $style_name ) {
+
 	if ( ! is_string( $style_name ) ) {
+	
 		return false;
 	}
 	static $vals;
-	
 	$vals[$style_name] = $style_name;
-
 	return $vals;
-
 }
 ?>

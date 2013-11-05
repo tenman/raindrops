@@ -6,8 +6,9 @@
 *
 * @package Raindrops
 */
-		global $template;
-		do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+global $template;
+do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 ?>
 <div class="sidebar">
 <ul>

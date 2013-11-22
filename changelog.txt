@@ -1,6 +1,26 @@
 Changelog -----------------------------------
 version:1.148
-
+	Fixed
+		Fixed Warning: Missing argument 2 for add_action()
+			lib/option-panel.php
+			Change from add_action ( 'raindrops_SubMenu_GUI_pre' )
+					to do_action ( 'raindrops_SubMenu_GUI_pre' )
+			Typo.
+		Fixed Not shows placemarks width Basic Google Maps Placemarks
+			style rules issue.
+			Change from .hfeed div to .hfeed > div
+	Modify
+		function raindrops_loop_class()
+	Add filter
+		add_filter( 'esc_html', 'remove_wbr' ,999);
+			Remove wbr element when Plugins used esc_html for title
+	Add function
+		function raindrops_list_of_posts()
+			For static page template list-of-post.php
+		function raindrops_tile()
+			For front-portfolio.php
+	Add file
+		Static page template list-of-post.php
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.147

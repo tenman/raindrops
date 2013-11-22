@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.147
+Version: 1.148
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar ,fixed-width ,flexible-width, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -281,7 +281,7 @@ td {
 	max-width:100%;
 }
 pre,
-.hfeed div,
+.hfeed > div,
 input,
 textarea{
 	max-width:100%;
@@ -289,8 +289,7 @@ textarea{
 
 pre{
 	overflow:auto;
-	padding-bottom:1em;	
-}
+	padding-bottom:1em;	}
 
 s, strike,del{
 	text-decoration:line-through;
@@ -3031,10 +3030,51 @@ sup {
 	-moz-box-sizing: border-box; 
 	-ms-box-sizing: border-box; 
 	box-sizing: border-box;
+	background-size:cover;
+	border:1px solid rgba( 104, 104, 104, 0.5 );
 }
+.column-4 ul.index > li{ /* 4columns */
+	width:25%;
+}
+.column-2 ul.index > li{
+	width:50%;
+	height:260px;
+}
+
+
 .portfolio .index .raindrops-sticky{
 	display:block;
 }
+.portfolio ul.index > li article{
+	visibility:hidden;
+	position:relative;
+	height:180px;
+	background-size:cover;
+	text-align:center;
+
+}
+.portfolio.column-2 ul.index > li article{
+	height:240px;
+}
+
+.portfolio ul.index > li article .entry-meta{
+	position:absolute;
+	bottom:0;
+	
+}
+/*1.148*/
+.portfolio ul.index > .loop-item-show-allways article,
+.portfolio ul.index > li:hover article{
+	visibility:visible!important;
+}
+.portfolio ul.index > li:hover{
+	background:none!important;
+}
+.portfolio ul.index > .loop-item-show-allways article .entry-title{
+/*	display:block;
+	margin-top:.5em;*/
+}
+
 .portfolio .index ul,
 .portfolio ul.index > li.loop-9:after, 
 .portfolio ul.index > li.loop-6:after,
@@ -3052,14 +3092,8 @@ sup {
 .portfolio-page-content{
 	padding:5px 10px;
 }
-.portfolio ul.index > li .post{
-	border:1px solid rgba( 104, 104, 104, 0.5 );
-	height:180px;
-	background-size:cover;
-	text-align:center;
-}
 .portfolio .index > li .entry-title a{
-	margin:0 10px;
+	margin:.5em 10px;
 }
 .portfolio .index > li .post .h2-thumb,
 .portfolio .index > li:not(.loop-item-show-allways) .post .entry-meta,
@@ -3284,7 +3318,8 @@ only screen and (min-resolution: 192dpi) {
 	margin:6px;
 }
 .no-portfolio{
-	height:320px;
+	/*height:320px;*/
+	margin:10px;
 }
 
 .rd-type-w3standard input[type="submit"]{
@@ -3331,4 +3366,57 @@ h2.page-featured-template{
 	color:red;
 	font-size:100%;
 	margin-right:.3em;
+}
+/* list-of-post.php settings */
+ol.list-of-post-list{
+	/*margin:0;*/
+	margin-left:1em;
+	list-style-position:inside;
+}
+ol.list-of-post-list .format-link .entry-title{
+	display:block;
+}
+ol.list-of-post-list li{
+	margin-left:3px;
+	list-style-position:inside;
+}
+ol.list-of-post-list .entry-title{
+	margin-left:1em;
+}
+.list-of-post-edit-link{
+	text-align:right;
+}
+.list-of-post-edit-link .delete-link{
+	display:inline-block;
+	width:100px;
+	text-align:center;
+	margin:1px;
+}
+.list-of-post-edit-link .edit-link{
+	display:inline-block;
+	width:100px;
+	text-align:center;
+	margin:1px;
+}
+.no-toggle-title{
+	list-style:none;
+	display:none;
+}
+
+#list-of-post .list-of-post-toggle .no-toggle-title,
+#list-of-post .list-of-post-toggle .raindrops-toggle-title{
+	font-weight:normal!important;
+	margin-left:10px!important;
+
+}
+.list-of-post-toggle .no-toggle-content,
+.list-of-post-toggle .raindrops-toggle:not(.raindrops-toggle-title){
+	/*list-style:none;*/
+	max-width:100%;
+	margin:1em 0 0 10px!important;
+	margin-top:2em;
+	list-style-type:none;
+}
+.list-of-post-next-prev{
+	margin-top:2em;
 }

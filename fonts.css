@@ -352,3 +352,7 @@ dt,
 .raindrops-comment-link em {
 	font-style: normal;
 }
+.portfolio ul.index > li article .entry-title,
+.portfolio ul.index > .loop-item-show-allways article .entry-title{
+		font-size:153.9%;
+}

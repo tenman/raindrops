@@ -80,6 +80,7 @@ do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $
 		 
 			echo raindrops_header_image( 'home_url' );
 		}
+	
 		
 /**
  * horizontal menubar

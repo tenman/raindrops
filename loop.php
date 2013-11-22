@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 			
 				the_post( );
 				
-				$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number );
+				$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number, get_the_ID() );
 				
 				printf( '<li class="loop-%1$s%2$s">',
 						esc_attr( trim( $raindrops_loop_class[0] ) ),

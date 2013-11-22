@@ -26,7 +26,7 @@ do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $
 	<!--footer-widget start-->
 		<div class="widget-wrapper clearfix">
 <?php if ( is_active_sidebar( 'sidebar-4' ) ) {?>
-		<ul>
+			<ul>
 <?php dynamic_sidebar( 'sidebar-4' );?>
 			</ul>
 <?php }//end if ( is_active_sidebar( 'sidebar-4' ) ) ?>
@@ -68,5 +68,4 @@ printf( '&nbsp;<small><a href="%s">%s</a></small>&nbsp;&nbsp;',
 </div>
 <?php wp_footer( ); ?>
 </body>
-</html>
-<?php do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>
+</html><?php do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>

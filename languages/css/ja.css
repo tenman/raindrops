@@ -114,10 +114,15 @@ body.ja,
 	font-size:108%;
 	font-weight:normal;
 	display:inline-block;
-	arial,helvetica,clean,sans-serif;
+	font-family:arial,helvetica,clean,sans-serif;
 	
 }
 .ja.date .entry-title{
 	font-weight:normal;
-	arial,helvetica,clean,sans-serif;
+	font-family:arial,helvetica,clean,sans-serif;
+}
+.ja #list-of-post ol .entry-title{
+	font-weight:normal!important;
+	font-size:197%;
+	font-family:arial,helvetica,clean,sans-serif;
 }

@@ -54,8 +54,7 @@ $format = get_post_format( );
 <?php 
 	if ( is_single( ) ) {
 	
-		raindrops_prev_next_post( 'nav-below' );
-		
+		raindrops_prev_next_post( 'nav-below' );		
 	}
 	
 	comments_template( '', true );

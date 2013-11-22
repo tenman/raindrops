@@ -584,7 +584,7 @@ class raindrops_menu_create {
  */
 	function raindrops_SubMenu_GUI() {
 	
-		add_action ( 'raindrops_SubMenu_GUI_pre' );
+		do_action ( 'raindrops_SubMenu_GUI_pre' );
 	
 		global $wpdb, $raindrops_base_setting,$raindrops_wp_version, $raindrops_current_theme_name;
 		

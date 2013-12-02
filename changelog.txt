@@ -1,5 +1,22 @@
 Changelog -----------------------------------
 version:1.149
+	Modify
+		Add Raindrops setting option var
+			$raindrops_show_theme_option
+				default true
+				false then theme option page hide.
+		Add filter hook raindrops_base_font_size
+			Raindrops base font size is 13px;
+			Set base font size when CSS body font size.
+				for example change from 13px to 16px
+
+				add_filter( 'raindrops_base_font_size', 'my_test' );
+
+				function my_test( $content ){
+					return 16;
+				}
+		Add action hook raindrops_remove_theme_mods
+			For child themes
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.148

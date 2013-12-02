@@ -10,6 +10,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
 }
+
+/** 
+ * Show theme options page
+ * If set false then hide customize.php Raindrops theme option and Raindrops options page 
+ *
+ * $raindrops_show_theme_option
+ * @since 1.149
+ */
+ $raindrops_show_theme_option = true;
+ 
+ if ( $raindrops_show_theme_option == false ) {
+ 
+ 	if ( ! defined ( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
+ 
+		define( 'RAINDROPS_USE_AUTO_COLOR', false );
+	}
+ }
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -22,7 +39,7 @@ load_theme_textdomain( 'Raindrops', get_template_directory( ) . '/languages' );
  * When WP_DEBUG value true and $raindrops_actions_hook_message value true
  * Show Raindrops action filter position and examples
  *
- *
+ * $raindrops_actions_hook_message
  * @since 0.980
  */
 if ( ! isset( $raindrops_actions_hook_message ) ) {
@@ -33,7 +50,8 @@ if ( ! isset( $raindrops_actions_hook_message ) ) {
  * Current version of WordPress
  *
  *
- *
+ * $raindrops_current_data_theme_uri
+ * $raindrops_current_data_author_uri
  * @since 0.965
  */
 $raindrops_check_wp_version			= explode( '-', $wp_version );
@@ -51,13 +69,17 @@ $raindrops_current_theme_name		= $raindrops_current_data->get( 'Name' );
  *
  *
  *
- */
+ */ 
 if ( ! class_exists( 'raindrops_menu_create' ) ) {
 
 	require_once ( get_template_directory( ) . '/lib/option-panel.php' );
-	$is_submenu = new raindrops_menu_create;
 }
-add_action( 'admin_menu', array( $is_submenu, 'raindrops_add_menus' ) );
+
+if ( $raindrops_show_theme_option == true ) {
+
+	$is_submenu = new raindrops_menu_create;
+	add_action( 'admin_menu', array( $is_submenu, 'raindrops_add_menus' ) );
+}
 /**
  * Include functions about colors ,backgrounds and borders
  *
@@ -136,7 +158,7 @@ register_nav_menus( array( 'primary' => esc_html__( 'Primary Navigation', 'Raind
  *
  *
  *
- *
+ * $raindrops_custom_header_args
  *
  */
 if ( $raindrops_wp_version >= '3.4' && ! isset( $raindrops_custom_header_args ) ) {
@@ -210,7 +232,7 @@ if ( ! isset( $raindrops_nav_menu_home_link ) ) {
  *
  * javascript browser ditection is At a target [ operate / even when cash plug-in is used / properly ]
  * value bool
- *
+ * $raindrops_browser_detection
  * ver 1.121
  */
 if ( ! isset( $raindrops_browser_detection ) ) {
@@ -238,7 +260,7 @@ if ( ! isset( $raindrops_document_type ) ) {
 /**
  *
  *
- *
+ * $raindrops_post_formats_args
  * add ver0.991 gallery,status
  */
 if ( ! isset( $raindrops_post_formats_args ) ) {
@@ -250,7 +272,7 @@ if ( ! isset( $raindrops_post_formats_args ) ) {
  *
  *
  *
- *
+ * $raindrops_custom_background_args
  *
  */
 if ( ! isset( $raindrops_custom_background_args ) ) {
@@ -266,7 +288,7 @@ if ( ! isset( $raindrops_custom_background_args ) ) {
  *
  *
  *
- *
+ * $raindrops_post_thumbnails_args
  *
  */
 if ( ! isset( $raindrops_post_thumbnails_args ) ) {
@@ -328,7 +350,7 @@ if ( ! isset( $raindrops_fluid_or_fixed ) ) {
  *
  *
  *
- *
+ * $raindrops_fluid_minimum_width
  *
  */
 if ( ! isset( $raindrops_fluid_minimum_width ) ) {
@@ -340,7 +362,7 @@ if ( ! isset( $raindrops_fluid_minimum_width ) ) {
  *
  * IE browser not support responsive
  *
- *
+ * $raindrops_fluid_minimum_width
  *
  */
 if ( $is_IE ) {
@@ -357,7 +379,7 @@ if ( $is_IE ) {
  *
  *
  *
- *
+ * $raindrops_fluid_maximum_width
  *
  */
 if ( ! isset( $raindrops_fluid_maximum_width ) ) {
@@ -369,7 +391,7 @@ if ( ! isset( $raindrops_fluid_maximum_width ) ) {
  * If it sets to true, a display simple compulsory always will be performed.
  *
  * default false
- *
+ * $raindrops_fallback_human_interface_show
  *
  */
 if ( ! isset( $raindrops_fallback_human_interface_show ) ) {
@@ -379,9 +401,9 @@ if ( ! isset( $raindrops_fallback_human_interface_show ) ) {
 /**
  * Raindrops header and footer image upload
  *
- *
- *
- *
+ * $raindrops_max_width
+ * $raindrops_max_upload_size
+ * $raindrops_allow_file_type
  *
  */
 // Allow image type Raindrops footer and header.
@@ -407,6 +429,7 @@ if ( ! isset( $raindrops_max_width ) ) {
  *
  * When false add to style single post and pages
  * When true add to style all list style posts and pages
+ * RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS
  * @since 0.992
  */
 if ( ! defined( 'RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS' ) ) {
@@ -417,7 +440,7 @@ if ( ! defined( 'RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS' ) ) {
  *
  *
  *
- *
+ * RAINDROPS_SHOW_DELETE_POST_LINK
  *
  */
 if ( ! defined( 'RAINDROPS_SHOW_DELETE_POST_LINK' ) ) {
@@ -430,6 +453,7 @@ if ( ! defined( 'RAINDROPS_SHOW_DELETE_POST_LINK' ) ) {
  * the_excerpt use where index,archive,other not single pages.
  * If RAINDROPS_USE_LIST_EXCERPT value false and use the_content .
  *
+ * RAINDROPS_USE_LIST_EXCERPT
  * add ver 1.127
  * When use excerpt please set $raindrops_where_excerpts
  */
@@ -478,7 +502,7 @@ if ( ! function_exists( 'raindrops_detect_excerpt_condition' ) ) {
  * If you want no Auto Color when set value false.
  *
  *
- *
+ * RAINDROPS_USE_AUTO_COLOR
  *
  */
 if ( ! defined( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
@@ -511,7 +535,8 @@ if ( ! isset( $raindrops_theme_settings ) ) {
  * single-post-thumbnail
  *
  *
- *
+ * RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH
+ * RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT
  *
  */
 if ( ! defined( 'RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH' ) ) {
@@ -527,7 +552,7 @@ add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, 
 /**
  *
  *
- *
+ * RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX
  * @since 1.002
  */
 if ( ! defined( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX' ) ) {
@@ -3886,32 +3911,34 @@ if ( ! function_exists( 'raindrops_is_fixed' ) ) {
 
 	function raindrops_is_fixed( ) {
 
-		global $is_IE, $raindrops_page_width;
+		global $is_IE, $raindrops_page_width, $raindrops_base_font_size;
 		$add_ie	= '';
 		$pw		= raindrops_warehouse_clone( "raindrops_page_width" );
+		
+		$raindrops_base_font_size = apply_filters( 'raindrops_base_font_size', 13 );//px size
 
 		if ( 'doc' == $pw ) {
 
 			$width = 750;
 			$px = 'width:' . $width . 'px;';
-			$width = $width / 13;
+			$width = $width / $raindrops_base_font_size;
 		}
 
 		if ( 'doc2' == $pw ) {
 
 			$width = 950;
 			$px = 'width:' . $width . 'px;';
-			$width = $width / 13;
+			$width = $width / $raindrops_base_font_size;
 		}
 
 		if ( 'custom-doc' == $pw ) {
 
 			$width = $raindrops_page_width;
 			$px = 'width:' . $width . 'px;';
-			$width = $width / 13;
+			$width = $width / $raindrops_base_font_size;
 		}
 		$raindrops_main_width = raindrops_main_width( );
-		$raindrops_main_width = $raindrops_main_width / 13;
+		$raindrops_main_width = $raindrops_main_width / $raindrops_base_font_size;
 
 		if ( $is_IE ) {
 
@@ -3965,9 +3992,12 @@ if ( ! function_exists( 'raindrops_gallerys' ) ) {
  *
  * @since 0.965
  */
-if ( $raindrops_wp_version >= '3.4' ) {
+if ( $raindrops_show_theme_option == true ) {
 
-	add_action( 'customize_register', 'raindrops_customize_register' );
+	if ( $raindrops_wp_version >= '3.4' ) {
+	
+		add_action( 'customize_register', 'raindrops_customize_register' );
+	}
 }
 /**
  *

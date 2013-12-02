@@ -654,6 +654,7 @@ class raindrops_menu_create {
 			
 			update_option( 'raindrops_theme_settings', $raindrops_theme_settings, "", $add['autoload'] );
 			remove_theme_mods();
+			do_action( 'raindrops_remove_theme_mods' );
 			
 			if ( file_exists( get_stylesheet_directory().'/images/headers/wp3.jpg' ) ) {
 			

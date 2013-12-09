@@ -530,12 +530,22 @@ function raindrops_design_output_clone( $name = 'dark' ) {
  *
  *
  */
-function raindrops_color_base_clone( $color1 = null, $color2 = null ) {
+function raindrops_color_base_clone( $color1 = null, $class = null ) {
 	global $raindrops_images_path;
 	if ( null == $color1 ) {
 		$color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
 	} else {
 		$color1 = str_replace( '#', "", $color1 );
+	}
+	
+	if ( $class == null ) {
+	
+		$class	= 'color';
+		$face	= 'face';
+	} else {
+	
+		$class	= sanitize_key( $class );
+		$face	= 'face-'.$class;
 	}
 	$base = new raindrops_CSS_Color( $color1 );
 	$bg_1 = $base->bg['-1'];
@@ -559,78 +569,78 @@ function raindrops_color_base_clone( $color1 = null, $color2 = null ) {
 	$bg5 = $base->bg['+5'];
 	$fg5 = $base->fg['+5'];
 	$result = <<<CSS
-.color-1{
+.{$class}-1{
   background:#{$bg_1};
   color:#{$fg_1};
 }
-.color-2 {
+.{$class}-2 {
   background:#{$bg_2};
   color:#{$fg_2};
 }
-.color-3 {
+.{$class}-3 {
   background:#{$bg_3};
   color:#{$fg_3};
 }
-.color-4 {
-  /** Use the base color, two shades darker */
+.{$class}-4 {
+  /** Use the base {$class}, two shades darker */
   background:#{$bg_4};
-  /** Use the corresponding foreground color */
+  /** Use the corresponding foreground {$class} */
   color:#{$fg_4};
 }
-.color-5 {
+.{$class}-5 {
   background:#{$bg_5};
   color:#{$fg_5};
 }
-.color1{
+.{$class}1{
   background:#{$bg1};
   color:#{$fg1};
 }
-.color2 {
+.{$class}2 {
   background:#{$bg2};
   color:#{$fg2};
 }
-.color3 {
+.{$class}3 {
   background:#{$bg3};
   color:#{$fg3};
 }
-.color4 {
+.{$class}4 {
   /** Use the base color, two shades darker */
   background:#{$bg4};
   /** Use the corresponding foreground color */
   color:#{$fg4};
 }
-.color5 {
+.{$class}5 {
   background:#{$bg5};
   color:#{$fg5};
 }
-.face-1{
+.{$face}-1{
   color:#{$fg_1};
 }
-.face-2 {
+.{$face}-2 {
   color:#{$fg_2};
 }
-.face-3 {
+.{$face}-3 {
   color:#{$fg_3};
 }
-.face-4 {
+.{$face}-4 {
   color:#{$fg_4};
 }
-.face-5 {
+.{$face}-5 {
   color:#{$fg_5};
 }
-.face1{
+.{$face}1{
   color:#{$fg1};
 }
-.face2 {
+.{$face}2 {
   color:#{$fg2};
 }
-.face3 {
+.{$face}3 {
   color:#{$fg3};
 }
-.face4 {
+.{$face}4 {
   color:#{$fg4};
 }
-.face5 {
+.{$face}5 {
   color:#{$fg5};
 }
 CSS;

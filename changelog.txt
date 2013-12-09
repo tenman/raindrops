@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.150
+	Modyfy
+		
+----------------------------------------------
+Changelog -----------------------------------
 version:1.149
 	Modify
 		Add Raindrops setting option var

@@ -33,8 +33,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  *
  * @since 0.988
+ *
+ * When child theme has languages/raindrops_[lang].mo
+ * Raindrops Theme read this language file.
+ * You can override parent themes language file from child theme.
  */
-load_theme_textdomain( 'Raindrops', get_template_directory( ) . '/languages' );
+	load_theme_textdomain( 'Raindrops', apply_filters( 'raindrops_load_text_domain', get_template_directory( ) . '/languages' ) );
+
 /** NEW
  * When WP_DEBUG value true and $raindrops_actions_hook_message value true
  * Show Raindrops action filter position and examples
@@ -5328,11 +5333,13 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 		$args_count = count( $args );
 		$html = '<a href="%1$s" title="link to %2$s" class="page-featured-template">%3$s</a>';
 		for ( $i = 0; $i < $args_count; $i++ ) {
-			echo '<div class="line">';
+			echo '<div class="line poster-row-'. ($i + 1) .'">';
 			
 			foreach ( $args[$i] as $key => $page_item ) {
 
-				echo '<div class="' . $page_item['class'] . '">';
+				echo '<div class="' . $page_item['class'] . ' poster-col-'. ( $key + 1 ).' '. esc_attr( $page_item['type'][0] ).' ">';
+				
+				do_action( 'raindrops_poster_before_'. ($i + 1). '_'. ( $key + 1 ) );
 
 				if ( 'include' == $page_item['type'][0] ) {
 
@@ -5351,6 +5358,10 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 				}
 
 				if ( 'page' == $page_item['type'][0] || 'post' == $page_item['type'][0] ) {
+				
+?>
+ <<?php raindrops_doctype_elements( 'div', 'article' );?> id="post-<?php echo esc_attr( $page_item['type'][1] ); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?>>
+<?php				
 
 					if ( is_numeric( $page_item['type'][1] ) ) {
 
@@ -5366,7 +5377,8 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 							if ( empty( $thumnail_exists ) ) {
 
 								printf( '<h2 class="entry-title page-featured-template">' . $html . '</h2>', $link, esc_attr( strip_tags( $title ) ), $title );
-								echo apply_filters( 'the_content', $content->post_content );
+									
+								echo apply_filters( 'the_content', raindrops_add_more( $page_item['type'][1], $content->post_content ) );
 							} else {
 
 								$image = get_the_post_thumbnail( $page_item['type'][1] );
@@ -5377,7 +5389,7 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 
 						foreach ( $page_item['type'][1] as $id ) {
 
-							$content = get_post( $id );
+							$post = $content = get_post( $id );
 
 							if ( ! is_null( $content ) ) {
 
@@ -5388,7 +5400,9 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 								if ( empty( $thumnail_exists ) ) {
 
 									printf( '<h2 class="entry-title page-featured-template">' . $html . '</h2>', $link, esc_attr( strip_tags( $title ) ), $title );
-									echo apply_filters( 'the_content', $content->post_content );
+									
+							
+									echo apply_filters( 'the_content', raindrops_add_more( $id, $content->post_content ) );
 								} else {
 
 									$image = get_the_post_thumbnail( $id );
@@ -5397,7 +5411,11 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 							}
 						}
 					}
+?>
+</<?php raindrops_doctype_elements( 'div', 'article' );?>>
+<?php
 				}
+				do_action( 'raindrops_poster_after_'. ($i + 1). '_'. ( $key + 1 ) );
 				echo '</div>';
 			}
 			echo '</div>';
@@ -5766,6 +5784,74 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
     	</div>
 <?php 
 	} 
+}
+/**
+ *
+ *
+ *
+ * @since 1.150
+ */
+if ( ! function_exists( 'raindrops_add_more' ) ) {
+
+	function raindrops_add_more( $id, $content, $more_link_text = null ) {
+	
+		global $multipage,$page;
+		
+		
+		$pre				= apply_filters( 'raindrops_add_more_before', '' );
+		$after				= apply_filters( 'raindrops_add_more_after', '' );
+		$html				= ' <div class="raindrops-more-wrapper">'. $pre. '<a href="%1$s%2$s" class="poster-more-link">%3$s</a>'. $after. '</div>';
+		if ( empty( $more_link_text ) ) {
+
+				$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . $id . '</span>';
+		}
+		$output				= '';
+		$strip_teaser		= false;
+		$more 				= false;
+		
+		if ( preg_match( '/<!--noteaser-->/', $content, $matches ) ) {
+		
+			$fragment_identifier = '';
+		}else{
+		
+			$fragment_identifier = '#more-'. $id;
+		}
+									
+		if ( preg_match( '/<!--more(.*?)?-->/', $content, $matches ) ) {
+	
+			$content = explode( $matches[0], $content, 2 );
+	
+			if( ! empty(  $matches[1] ) ) {
+			
+				$more_link_text = esc_html( $matches[1] );
+			}
+			
+			if ( ! empty( $matches[1] ) && ! empty( $more_link_text ) ) {
+				$more_link_text = strip_tags( wp_kses_no_null( trim( $matches[1] ) ) );
+			}
+			$more = true;
+		}
+	 
+		if( is_array( $content ) ) {
+		
+			$content = $content[0];
+			$content .= apply_filters( 'the_content_more_link', 
+												sprintf( $html, 
+														get_permalink( $id ),
+														$fragment_identifier,
+														$more_link_text
+												), 
+												$more_link_text
+						);
+												
+			$content = force_balance_tags( $content );
+				
+			return apply_filters( 'raindrops_add_more', $content, $more );
+		} else {
+		
+			return apply_filters( 'raindrops_add_more', $content, $more );
+		}
+	}
 }
 /**
  *

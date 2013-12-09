@@ -1,7 +1,12 @@
 Changelog -----------------------------------
 version:1.150
 	Modyfy
-		
+		Add filter hooks
+			raindrops_load_text_domain
+		Add function
+			raindrops_add_more()
+		Modyfy function
+			raindrops_color_base_clone()
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.149

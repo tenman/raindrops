@@ -5389,7 +5389,7 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 
 						foreach ( $page_item['type'][1] as $id ) {
 
-							$post = $content = get_post( $id );
+							$content = get_post( $id );
 
 							if ( ! is_null( $content ) ) {
 

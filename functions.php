@@ -10,7 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	exit;
 }
+/**
+ * include raindrops custom settings
+ *
+ *
+ *
+ */
+if ( file_exists( get_template_directory().'/raindrops-config.php' ) ) {
 
+	require_once( get_template_directory().'/raindrops-config.php' );
+}
 /** 
  * Show theme options page
  * If set false then hide customize.php Raindrops theme option and Raindrops options page 
@@ -92,6 +101,7 @@ if ( $raindrops_show_theme_option == true ) {
  *
  *
  */
+
 $raindrops_included_files = get_included_files( );
 
 foreach ( $raindrops_included_files as $key => $val ) {
@@ -3285,6 +3295,11 @@ if ( ! function_exists( 'raindrops_header_image' ) && $wp_version >= 3.4 ) {
 
 			$html = '<div id="%1$s" style="background-image:url( %2$s );%8$s;height:%3$s;color:#%4$s;%5$s"><p %6$s>%7$s</p></div>';
 			$html = sprintf( $html, 'header-image', esc_url( $img ), esc_html( $height ), esc_html( $color ), esc_html( $style ), htmlspecialchars( $text_attr, ENT_NOQUOTES ), esc_html( $text ), $width );
+			
+			if( $color == 'blank' ) {
+			
+				$html = str_replace( 'color:#blank;', '', $html );
+			}
 			return apply_filters( "raindrops_header_image", $html );
 		} elseif ( 'css' == $type ) {
 
@@ -3293,6 +3308,11 @@ if ( ! function_exists( 'raindrops_header_image' ) && $wp_version >= 3.4 ) {
 			$css = sprintf( $css, 'header-image', apply_filters( 'raindrops_header_image_background_image', 'background-image:url( ' . esc_url( $img ) . ' );' ), esc_html( $height ), esc_html( $color ), apply_filters( 'raindrops_header_image_background_style', esc_html( $style ) ), // css needs > but this style is inline
 			htmlspecialchars( $text_attr, ENT_NOQUOTES ), // css needs > but this style is inline
 			esc_html( $text ), $width );
+			
+			if( $color == 'blank' ) {
+			
+				$css = str_replace( 'color:#blank;', '', $css );
+			}
 			return apply_filters( "raindrops_header_image_css", $css );
 		} elseif ( 'elements' == $type ) {
 
@@ -3683,7 +3703,7 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 
 	function raindrops_small_device_helper( ) {
 
-		global $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post;
+		global $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template;
 		$raindrops_header_image = get_custom_header( );
 		$raindrops_header_image_uri = $raindrops_header_image->url;
 
@@ -3721,10 +3741,41 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
                 var raindrops_ratio = <?php echo apply_filters( 'raindrops_header_image_ratio', $ratio ); ?>;
                 var raindrops_height = raindrops_width * raindrops_ratio;
                 	jQuery('#header-image').removeAttr('style').css( {'height': raindrops_height} );
-
+					
 <?php //remove header
 			
 		}
+?>		
+		// equal height for design ver 1.150
+<?php
+		$raindrops_currrent_template = basename( $template ,'.php' );
+				
+		if( $raindrops_currrent_template == 'list_of_post' ){
+?>
+			var raindrops_ignore_template = true;
+<?php
+		} else {
+?>		
+			var raindrops_ignore_template = false;
+<?php
+		}
+?>		
+		if( raindrops_window_width > 640 && raindrops_ignore_template == false ) {
+			var raindrops_main_sidebar_height = jQuery(  '.lsidebar'  ).height();
+			var raindrops_extra_sidebar_height = jQuery(  '.rsidebar'  ).height();
+			var raindrops_container_height = jQuery(  '#container'  ).height();
+			
+			if( raindrops_main_sidebar_height > raindrops_container_height ){
+			
+				jQuery( '#container' ).css({'min-height': raindrops_main_sidebar_height + 'px'});
+				jQuery( '.rsidebar' ).css({'min-height': raindrops_main_sidebar_height + 'px'});
+			}else{
+			
+				jQuery( '.lsidebar' ).css({'min-height': raindrops_container_height + 'px'});
+				jQuery( '.rsidebar' ).css({'min-height': raindrops_container_height + 'px'});
+			}
+		}
+<?php
 		//detect lang  add ver 1.120
 
 		if ( $raindrops_browser_detection !== true ) {
@@ -3833,6 +3884,12 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 
                                 jQuery( '#access ul ul ul' ).removeClass( 'left' );
                             }
+							
+							
+							
+							
+							
+							
                         });
                         if ( raindrops_window_width > <?php echo $raindrops_fluid_maximum_width; ?>){
                             //centering page when browser width > $raindrops_fluid_maximun_width
@@ -4425,14 +4482,22 @@ if ( ! function_exists( 'raindrops_sidebar_menus' ) ) {
  */
 if ( ! function_exists( 'raindrops_recent_posts' ) ) {
 
-	function raindrops_recent_posts( ) {
+	function raindrops_recent_posts( $args = array() ) {
 
 		global $raindrops_recent_posts_setting, $post;
 
-		if ( ! isset( $raindrops_recent_posts_setting ) ) {
+		
+		if( empty( $args ) ) {
 
-			return;
+			if ( ! isset( $raindrops_recent_posts_setting ) ) {
+	
+				return;
+			}
+		} else {
+		
+			$raindrops_recent_posts_setting = $args;
 		}
+
 		$default = array( 'title' => esc_html__( 'Recent Post', 'Raindrops' ), 'numberposts' => 10, 'offset' => 0, 'category' => 0, 'orderby' => 'post_date', 'order' => 'DESC', 'include' => '', 'exclude' => '', 'meta_key' => '', 'meta_value' => '', 'post_type' => 'post', 'post_status' => 'publish', 'suppress_filters' => true );
 		$args = wp_parse_args( $raindrops_recent_posts_setting, $default );
 		$title = $args['title'];
@@ -4460,13 +4525,19 @@ if ( ! function_exists( 'raindrops_recent_posts' ) ) {
  */
 if ( ! function_exists( 'raindrops_category_posts' ) ) {
 
-	function raindrops_category_posts( ) {
+	function raindrops_category_posts( $args = array() ) {
 
 		global $post, $raindrops_category_posts_setting;
+		
+		if( empty( $args ) ) {
 
-		if ( ! isset( $raindrops_category_posts_setting ) ) {
-
-			return;
+			if ( ! isset( $raindrops_category_posts_setting ) ) {
+	
+				return;
+			}
+		} else {
+		
+			$raindrops_category_posts_setting = $args;
 		}
 		$settings = array( 'title' => esc_html__( 'Categories', 'Raindrops' ), 'numberposts' => 0, 'offset' => 0, 'category' => 0, 'orderby' => 'post_date', 'order' => 'DESC', 'include' => '', 'exclude' => '', 'meta_key' => '', 'meta_value' => '', 'post_type' => 'post', 'post_mime_type' => '', 'post_parent' => '', 'post_status' => 'publish' );
 		$settings = wp_parse_args( $raindrops_category_posts_setting, $settings );
@@ -4486,7 +4557,7 @@ if ( ! function_exists( 'raindrops_category_posts' ) ) {
 			}
 			$result .= sprintf( '</ul>' );
 		}
-		$result = sprintf( '<div class="%1$s">%2$s</div>', 'raindrops-category-posts pad-m clearfix', $result );
+		$result = sprintf( '<div class="%1$s">%2$s</div>', 'raindrops-category-posts pad-m widget clearfix', $result );
 		echo apply_filters( 'raindrops_category_posts', $result );
 		wp_reset_postdata( );
 	}
@@ -4504,10 +4575,17 @@ if ( ! function_exists( 'raindrops_tag_posts' ) ) {
 
 		global $post, $raindrops_tag_posts_setting;
 
-		if ( ! isset( $raindrops_tag_posts_setting ) ) {
+		if( empty( $args ) ) {
 
-			return;
+			if ( ! isset( $raindrops_tag_posts_setting ) ) {
+	
+				return;
+			}
+		} else {
+		
+			$raindrops_tag_posts_setting = $args;
 		}
+
 		$settings = array( 'title' => esc_html__( 'Tags', 'Raindrops' ), 'numberposts' => 0, 'offset' => 0, 'category' => 0, 'orderby' => 'post_date', 'order' => 'DESC', 'include' => '', 'exclude' => '', 'meta_key' => '', 'meta_value' => '', 'post_type' => 'post', 'post_mime_type' => '', 'post_parent' => '', 'post_status' => 'publish', );
 		$settings = wp_parse_args( $raindrops_tag_posts_setting, $settings );
 		$title = $settings['title'];
@@ -4933,7 +5011,7 @@ if ( ! function_exists( 'raindrops_featured_image' ) ) {
  */
 if ( ! function_exists( 'raindrops_loop_class' ) ) {
 
-	function raindrops_loop_class( $raindrops_loop_number, $raindrops_tile_post_id, $add_class = '' ) {
+	function raindrops_loop_class( $raindrops_loop_number, $raindrops_tile_post_id = '' , $add_class = '' ) {
 
 		if ( is_front_page( ) || is_home( ) ) {
 
@@ -4980,11 +5058,18 @@ if ( ! function_exists( 'raindrops_loop_class' ) ) {
 
 				$raindrops_loop_five .= ' loop-five';
 			}
+			
+			if ( ! empty( $raindrops_tile_post_id ) ) {
 
-			$post_thumbnail_id = get_post_thumbnail_id( $raindrops_tile_post_id );
-			$raindrops_background = wp_get_attachment_image_src( $post_thumbnail_id, 'none' );
+				$post_thumbnail_id = get_post_thumbnail_id( $raindrops_tile_post_id );
+				$raindrops_background = wp_get_attachment_image_src( $post_thumbnail_id, 'none' );
+	
+				list( $raindrops_background, $width, $height ) = $raindrops_background;
+				
 
-			list( $raindrops_background, $width, $height ) = $raindrops_background;
+			} else {
+				$raindrops_background = false;
+			}
 
 			if ( ! $raindrops_background ) {
 
@@ -5680,6 +5765,9 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 											
 					echo raindrops_fallback_title( $title , $post->ID );
 ?></a></span>
+	<div class="posted-on">
+		<?php raindrops_posted_on( );?>
+	</div>
 	<div class="entry-content clearfix">
 		<a href="<?php echo get_comments_link( $post->ID );?>" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em><?php esc_html_e( 'Comment', 'Raindrops' );?></em></a>
 	</div>

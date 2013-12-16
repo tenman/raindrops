@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.150
+version:1.151
 	Modyfy
 		Add filter hooks
 			raindrops_load_text_domain
@@ -7,6 +7,13 @@ version:1.150
 			raindrops_add_more()
 		Modyfy function
 			raindrops_color_base_clone()
+
+		Add raindrops-config-example.php
+			When If you need more customize
+			Rename from raindrops-config-example.php 
+					to raindrops-config.php 
+			and set your value.
+
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.149

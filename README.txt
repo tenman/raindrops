@@ -23,6 +23,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 1.151
+	Add raindrops-config-example.php
+	When If you need more customize
+		Rename from raindrops-config-example.php to raindrops-config.php and set your value.
+
 ver 1.116
     This version trying theme accessibility.
 

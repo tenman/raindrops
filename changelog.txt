@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.151
+version:1.152
 	Modyfy
 		Add filter hooks
 			raindrops_load_text_domain
@@ -26,6 +26,13 @@ version:1.151
 			fluid-layout,
 			responsive-layout, 
 			accessibility-ready
+
+	Note: How to enable accessibility settings
+
+		1. Open Raindrops theme settings page.
+			( Dashboard / Appearance / Raindrops theme settings )
+		2. Accessibility Settings edit value set yes. and save.
+
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.149

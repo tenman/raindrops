@@ -23,10 +23,23 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
-ver 1.151
+ver 1.152
+
 	Add raindrops-config-example.php
-	When If you need more customize
-		Rename from raindrops-config-example.php to raindrops-config.php and set your value.
+
+		When If you need more customize
+			Rename 	from raindrops-config-example.php 
+					to raindrops-config.php 
+			and set your value.
+
+	Raindrops 1.152 Add tag 'accessibility-ready'
+
+	Note: How to enable accessibility settings
+
+		1. Open Raindrops theme settings page.
+			( Dashboard / Appearance / Raindrops theme settings )
+		2. Accessibility Settings edit value set yes. and save.
+
 
 ver 1.116
     This version trying theme accessibility.

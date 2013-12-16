@@ -4427,12 +4427,18 @@ if ( ! function_exists( 'raindrops_next_prev_links' ) ) {
 
 	function raindrops_next_prev_links( $position = 'nav-above' ) {
 
-		global $wp_query;
+		global $wp_query, $paged;
+		
+		$raindrops_old = $paged + 1;
+		$raindrops_new = $paged - 1;
+		
+		$raindrops_old = raindrops_link_unique( $text = 'Next Page', $raindrops_old );
+		$raindrops_new = raindrops_link_unique( $text = 'Next Page', $raindrops_new );
 
 		if ( $wp_query->max_num_pages > 1 ) {
 
 			$html = '<div id="%3$s" class="clearfix"><span class="nav-previous">%1$s</span><span class="nav-next">%2$s</span></div>';
-			$html = sprintf( $html, get_next_posts_link( '<span class="meta-nav">&larr;</span>' . esc_html__( ' Older posts', 'Raindrops' ) ), get_previous_posts_link( '<span>' . esc_html__( 'Newer posts', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span></span>' ), $position );
+			$html = sprintf( $html, get_next_posts_link( '<span class="meta-nav">&larr;</span>' . $raindrops_old. esc_html__( ' Older posts', 'Raindrops' ) ), get_previous_posts_link( '<span>' . $raindrops_new. esc_html__( 'Newer posts', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span></span>' ), $position );
 			echo apply_filters( 'raindrops_next_prev_links', $html );
 		}
 	}

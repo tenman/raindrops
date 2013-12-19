@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:1.153
+	Modyfy
+		Remove tag fixed-width ,flexible-width
+		Change screenshot.png size from 600x450 to 880x660
+	Fix
+		Fixed raindrops_tile() navigation link improperly.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.152
 	Modyfy
 		Add filter hooks

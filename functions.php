@@ -5743,7 +5743,7 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 		
     	if ( ! empty( $raindrops_posts ) ) {
 		
-?><div class="portfolio column-<?php echo $args['raindrops_tile_col'];?>"><?php
+?><div id="portfolio" class="portfolio column-<?php echo $args['raindrops_tile_col'];?>"><?php
 		do_action( 'raindrops_tile_pre' );
 
 			raindrops_loop_title( );
@@ -5793,17 +5793,17 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 			
 				if ( is_front_page() ) {
 				
-					$url	= add_query_arg( 'page', 2 );
-					$html	= '<li><a href="'.esc_url( $url ).'?page=2" title="page 2" class="portfolio-page2">'.esc_html__( 'Page' , 'Raindrops' ).'2</a></li>';
+					$url	= add_query_arg( 'page', 2 ). '#portfolio';
+					$html	= '<li><a href="'.esc_url( $url ).'" title="page 2" class="portfolio-page2">'.esc_html__( 'Page' , 'Raindrops' ).'2</a></li>';
 				} else {
 
-					$url	= add_query_arg( 'page', 2 );
+					$url	= add_query_arg( 'page', 2 ). '#portfolio';
 					$html	= '<li><a href="'.esc_url( $url ).'" title="page 2" class="portfolio-page2">'.esc_html__( 'Page' , 'Raindrops' ).'2</a></li>';
 				}
 			} elseif ( $args['paged'] > 0 ) {
 		
 					$page = $args['paged'] + 1;
-					$url = add_query_arg( 'page', $page );
+					$url = add_query_arg( 'page', $page ). '#portfolio';
 					$html = sprintf( $raindrops_html_page,
 									esc_url( $url),
 									'portfolio-next portfolio-'.$page,
@@ -5814,7 +5814,7 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 
 			if ( $args['paged'] > 0 ) {
 			
-					$url = add_query_arg( 'page', $args['paged'] );
+					$url = add_query_arg( 'page', $args['paged'] ). '#portfolio';
 					$html .= sprintf( $raindrops_html_page,
 									esc_url( $url),
 									'portfolio-current current-'. $args['paged'],
@@ -5825,7 +5825,8 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 	
 			if ( 2 == $args['paged'] ) {
 			
-					$url = remove_query_arg( 'page' );
+					$page = $args['paged'] - 1;
+					$url = add_query_arg( 'page', $page ). '#portfolio';
 					$html .= sprintf( $raindrops_html_page,
 									esc_url( $url ),
 									'portfolio-prev portfolio-home',
@@ -5837,7 +5838,7 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 		
 				$page = $args['paged'];
 				$page = $page -1;
-				$url = add_query_arg( 'page', $page );
+				$url = add_query_arg( 'page', $page ). '#portfolio';
 				$html .= sprintf( $raindrops_html_page,
 								esc_url( $url ),
 								'portfolio-prev portfolio-'.$page,

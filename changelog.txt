@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.154
+	Fixed functions.php line: 3172
+        Typo Change from return 'test' . $header_image->height;
+        			to   return $header_image->height;
+----------------------------------------------
+Changelog -----------------------------------
 version:1.153
 	Modyfy
 		Remove tag fixed-width ,flexible-width

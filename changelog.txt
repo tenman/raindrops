@@ -1,4 +1,12 @@
 Changelog -----------------------------------
+version:1.155
+	Modify 
+		CSS class color-5,color-4,color-3,color-2,color-1,color1,color2,color3,color4,color5.
+		Child a elements color set automaticaly.
+	Modify 
+		Remove entry title permalink from singular post and page
+----------------------------------------------
+Changelog -----------------------------------
 version:1.154
 	Fixed functions.php line: 3172
         Typo Change from return 'test' . $header_image->height;

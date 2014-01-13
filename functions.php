@@ -27,15 +27,15 @@ if ( file_exists( get_template_directory().'/raindrops-config.php' ) ) {
  * $raindrops_show_theme_option
  * @since 1.149
  */
- $raindrops_show_theme_option = true;
- 
- if ( $raindrops_show_theme_option == false ) {
- 
- 	if ( ! defined ( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
- 
+$raindrops_show_theme_option = true;
+
+if ( $raindrops_show_theme_option == false ) {
+
+	if ( ! defined ( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
+	
 		define( 'RAINDROPS_USE_AUTO_COLOR', false );
 	}
- }
+}
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -128,7 +128,55 @@ if ( ! in_array( 'csscolor.css.php', $raindrops_included_files ) && file_exists(
 
 	require_once ( get_template_directory( ) . '/lib/csscolor.css.php' );
 }
-add_filter( 'contextual_help', 'raindrops_edit_help' );
+
+//add_filter( 'contextual_help', 'raindrops_edit_help' );
+
+add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
+
+class RaindropsPostHelp{
+	public $tabs = array(
+		 'raindrops-post' => array(
+		 	 'title'   => 'Raindrops Help'
+		 	,'content' => 'help'
+		 )
+	);
+
+	static public function init() {
+		$class = __CLASS__ ;
+		new $class;
+	}
+
+	public function __construct() {
+	
+		add_action( "load-{$GLOBALS['pagenow']}", array( $this, 'add_tabs' ), 20 );
+	}
+
+	public function add_tabs() {
+	
+		foreach ( $this->tabs as $id => $data ) {
+		
+			get_current_screen()->add_help_tab( array(
+				 'id'       => $id
+				,'title'    => __( 'Raindrops Help', 'Raindrops' )
+				,'content'  => '<h1>'.__( 'About Base Color related Class', 'Raindrops' ).'</h1>'
+				,'callback' => array( $this, 'prepare' )
+			) );
+		}
+	}
+
+	public function prepare( $screen, $tab ) {
+	
+		if( RAINDROPS_USE_AUTO_COLOR !== false ) {
+		
+			echo raindrops_edit_help( '' );
+		} else {
+		
+			printf( '<p class="disable-color-gradient">%1$s</p>', __( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'Raindrops' ) );
+		}
+	}
+}
+
 /**
  * It has alias functions.
  *
@@ -4370,9 +4418,22 @@ if ( ! function_exists( 'raindrops_entry_title' ) ) {
 			$thumbnail .= get_the_post_thumbnail( $post->ID, array( 48, 48 ), array( "style" => "vertical-align:text-bottom;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
 			$thumbnail .= '</span>';
 		}
-		$html = '<' . $raindrops_title_element . ' class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></' . $raindrops_title_element . '>';
-		$html = sprintf( $html, 'h2 entry-title', get_permalink( ), the_title_attribute( array( 'before' => '', 'after' => '', 'echo' => false ) ), the_title( '', '', false ), $thumbnail );
-		echo apply_filters( 'raindrops_entry_title', $html );
+		
+		if( ! is_singular( ) ) {
+		
+			$html = '<' . $raindrops_title_element . ' class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></' . $raindrops_title_element . '>';
+		
+			$html = sprintf( $html, 'h2 entry-title', get_permalink( ), the_title_attribute( array( 'before' => '', 'after' => '', 'echo' => false ) ), the_title( '', '', false ), $thumbnail );
+		
+			echo apply_filters( 'raindrops_entry_title', $html );
+		} else {
+		
+			$html = '<' . $raindrops_title_element . ' class="%1$s">%2$s</' . $raindrops_title_element . '>';
+		
+			$html = sprintf( $html, 'h2 entry-title', the_title( '', '', false ) );
+		
+			echo apply_filters( 'raindrops_entry_title', $html );
+		}		
 	}
 }
 /**

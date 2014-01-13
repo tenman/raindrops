@@ -569,46 +569,56 @@ function raindrops_color_base_clone( $color1 = null, $class = null ) {
 	$bg5 = $base->bg['+5'];
 	$fg5 = $base->fg['+5'];
 	$result = <<<CSS
+.{$class}-1 a,
 .{$class}-1{
   background:#{$bg_1};
   color:#{$fg_1};
 }
+.{$class}-2 a,
 .{$class}-2 {
   background:#{$bg_2};
   color:#{$fg_2};
 }
+.{$class}-3 a,
 .{$class}-3 {
   background:#{$bg_3};
   color:#{$fg_3};
 }
+.{$class}-4 a,
 .{$class}-4 {
   /** Use the base {$class}, two shades darker */
   background:#{$bg_4};
   /** Use the corresponding foreground {$class} */
   color:#{$fg_4};
 }
+.{$class}-5 a,
 .{$class}-5 {
   background:#{$bg_5};
   color:#{$fg_5};
 }
+.{$class}1 a,
 .{$class}1{
   background:#{$bg1};
   color:#{$fg1};
 }
+.{$class}2 a,
 .{$class}2 {
   background:#{$bg2};
   color:#{$fg2};
 }
+.{$class}3 a,
 .{$class}3 {
   background:#{$bg3};
   color:#{$fg3};
 }
+.{$class}4 a,
 .{$class}4 {
   /** Use the base color, two shades darker */
   background:#{$bg4};
   /** Use the corresponding foreground color */
   color:#{$fg4};
 }
+.{$class}5 a,
 .{$class}5 {
   background:#{$bg5};
   color:#{$fg5};

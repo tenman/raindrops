@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.154
+Version: 1.155
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -335,7 +335,50 @@ radio{
 .ie7 radio{
 	float:left;
 }
-
+.gradient-5 p,
+.gradient-4 p,
+.gradient-3 p,
+.gradient-2 p,
+.gradient-1 p,
+.gradient1 p,
+.gradient2 p,
+.gradient3 p,
+.gradient4 p,
+.gradient5 p,
+.color-5 p,
+.color-4 p,
+.color-3 p,
+.color-2 p,
+.color-1 p,
+.color1 p,
+.color2 p,
+.color3 p,
+.color4 p,
+.color5 p{
+	margin:0;
+}
+.entry-content .gradient-5,
+.entry-content .gradient-4,
+.entry-content .gradient-3,
+.entry-content .gradient-2,
+.entry-content .gradient-1,
+.entry-content .gradient1,
+.entry-content .gradient2,
+.entry-content .gradient3,
+.entry-content .gradient4,
+.entry-content .gradient5,
+.entry-content .color-5,
+.entry-content .color-4,
+.entry-content .color-3,
+.entry-content .color-2,
+.entry-content .color-1,
+.entry-content .color1,
+.entry-content .color2,
+.entry-content .color3,
+.entry-content .color4,
+.entry-content .color5{
+	display:inline-block;
+}
 .gallery-columns-1 dl dd,
 .gallery-columns-1 dl dt,
 .gallery-columns-1 dl{

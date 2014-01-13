@@ -5,6 +5,9 @@ version:1.155
 		Child a elements color set automaticaly.
 	Modify 
 		Remove entry title permalink from singular post and page
+	Fixed 
+		Not display Raindrops help.
+		filter change from contextual_help to load-post.php,load-post-new.php.
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.154

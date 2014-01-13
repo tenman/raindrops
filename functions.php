@@ -129,8 +129,12 @@ if ( ! in_array( 'csscolor.css.php', $raindrops_included_files ) && file_exists(
 	require_once ( get_template_directory( ) . '/lib/csscolor.css.php' );
 }
 
-//add_filter( 'contextual_help', 'raindrops_edit_help' );
-
+/** Raindrops help
+ *
+ *
+ *
+ * @since 1.155
+ */
 add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
 add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
 

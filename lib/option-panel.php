@@ -174,9 +174,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name' => "raindrops_doc_type_settings",
 	'option_value' => "html5",
 	'autoload' => 'yes',
-	'title' => esc_html__('Document Type Settings','Raindrops'),
+	'title' => esc_html__( "Document Type Settings" , 'Raindrops' ),
 	'excerpt1' => '',
-	'excerpt2' => esc_html__('Default Document type html5. Set to xhtml or html5.','Raindrops'),
+	'excerpt2' => esc_html__( "Default Document type html5. Set to xhtml or html5." , 'Raindrops' ),
 	 'validate'=>'raindrops_doc_type_settings_validate','list' => 16
 	 ),
 	);
@@ -740,7 +740,6 @@ class raindrops_menu_create {
 			if ( $hook_suffix ) {
 			
 				add_action( 'admin_print_styles-' . $hook_suffix, array($this,'raindrops_admin_print_styles'));
-				add_action( 'load-' . $hook_suffix, 'raindrops_settings_page_contextual_help' );
 			}
 		}
 	}

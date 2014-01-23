@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.156
+modified
+	Add CSS class detect IE11 
+----------------------------------------------
+Changelog -----------------------------------
 version:1.155
 	Modify 
 		CSS class color-5,color-4,color-3,color-2,color-1,color1,color2,color3,color4,color5.

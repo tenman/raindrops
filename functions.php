@@ -137,13 +137,15 @@ if ( ! in_array( 'csscolor.css.php', $raindrops_included_files ) && file_exists(
  */
 add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
 add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-themes.php', array( 'RaindropsPostHelp', 'init' ) );
+
 
 class RaindropsPostHelp{
 	public $tabs = array(
 		 'raindrops-post' => array(
 		 	 'title'   => 'Raindrops Help'
 		 	,'content' => 'help'
-		 )
+		 ),
 	);
 
 	static public function init() {
@@ -153,7 +155,19 @@ class RaindropsPostHelp{
 
 	public function __construct() {
 	
-		add_action( "load-{$GLOBALS['pagenow']}", array( $this, 'add_tabs' ), 20 );
+		switch ( $GLOBALS['pagenow'] ){
+		
+			case( 'themes.php' ):
+			
+				$this->tabs = array( 'raindrops-settings-help' =>array( 'title' => 'Raindrops Infomation','content'=> 'help') );
+				
+				add_action( "load-{$GLOBALS['pagenow']}", array( $this, 'add_tabs_theme' ), 20 );
+			break;
+			
+			default:
+				add_action( "load-{$GLOBALS['pagenow']}", array( $this, 'add_tabs' ), 20 );
+			break;
+		}
 	}
 
 	public function add_tabs() {
@@ -168,6 +182,20 @@ class RaindropsPostHelp{
 			) );
 		}
 	}
+	
+	public function add_tabs_theme() {
+	
+		foreach ( $this->tabs as $id => $data ) {
+		
+			get_current_screen()->add_help_tab( array(
+				 'id'       => $id
+				,'title'    => __( 'Raindrops Theme Help', 'Raindrops' )
+				,'content'  => '<h1>'.__( 'About Raindrops Theme', 'Raindrops' ).'</h1>'
+				,'callback' => array( $this, 'prepare_theme' )
+			) );
+		}
+	}
+
 
 	public function prepare( $screen, $tab ) {
 	
@@ -179,6 +207,14 @@ class RaindropsPostHelp{
 			printf( '<p class="disable-color-gradient">%1$s</p>', __( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'Raindrops' ) );
 		}
 	}
+	
+	public function prepare_theme( $screen, $tab ) {
+	
+		echo raindrops_settings_page_contextual_help();
+		
+	}
+	
+	
 }
 
 /**
@@ -832,7 +868,14 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 					break;
 
 				case ( $is_gecko ):
-					$classes[] = 'gecko';
+				
+					if ( preg_match( '!Trident/.*rv:([0-9]{1,}\.[\.0-9]{0,})!', $_SERVER['HTTP_USER_AGENT'], $regs ) ) {
+					
+						$classes[] = 'ie'. (int) $regs[1];
+					} else {				
+				
+						$classes[] = 'gecko';
+					}
 					break;
 
 				case ( $is_IE ):
@@ -861,10 +904,15 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 					break;
 
 				default:
-					$classes[] = 'unknown';
+				
+					$classes[] = 'unknown2';
 					break;
 			}
+			
+
+
 		}
+
 
 		if ( isset( $current_blog ) ) {
 
@@ -1146,16 +1194,15 @@ if ( ! function_exists( 'raindrops_settings_page_contextual_help' ) ) {
 	function raindrops_settings_page_contextual_help( ) {
 
 		global $raindrops_current_data;
-		$screen		= get_current_screen( );
 		$html		= '<dt>%1$s</dt><dd>%2$s</dd>';
 		$link		= '<a href="%1$s" %3$s>%2$s</a>';
 		$content	= '';
-		/* theme description*/
-		$content .= sprintf( $html, esc_html__( 'Description', 'Raindrops' ), $raindrops_current_data->get( 'Description' ) );
 		/* theme URI*/
 		$content .= sprintf( $html, esc_html__( 'Theme URI', 'Raindrops' ), sprintf( $link, $raindrops_current_data->get( 'ThemeURI' ), $raindrops_current_data->get( 'ThemeURI' ), 'target="_self"' ) );
 		/*AuthorURI*/
 		$content .= sprintf( $html, esc_html__( 'Author', 'Raindrops' ), sprintf( $link, $raindrops_current_data->get( 'AuthorURI' ), $raindrops_current_data->get( 'Author' ), 'target="_self"' ) );
+		/*Support*/
+		$content .= sprintf( $html, esc_html__( 'Support', 'Raindrops' ), sprintf( $link,'http://wordpress.org/support/theme/raindrops', esc_html__( 'http://wordpress.org/support/theme/raindrops', 'Raindrops'), 'target="_blank"' ). '<br />'. sprintf( $link,'http://ja.forums.wordpress.org/', esc_html__( 'http://ja.forums.wordpress.org/ lang:Japanese', 'Raindrops'), 'target="_blank"' )  );
 		/*Version*/
 		$content .= sprintf( $html, esc_html__( 'Version', 'Raindrops' ), $raindrops_current_data->get( 'Version' ) );
 		/*Changelog.txt*/
@@ -1163,7 +1210,8 @@ if ( ! function_exists( 'raindrops_settings_page_contextual_help' ) ) {
 		/*readme.txt*/
 		$content .= sprintf( $html, esc_html__( 'Readme text', 'Raindrops' ), sprintf( $link, get_template_directory_uri( ) . '/README.txt', esc_html__( 'Readme , display new window', 'Raindrops' ), 'target="_blank"' ) );
 		$content = '<dl id="raindrops-help">' . $content . '</dl>';
-		$screen->add_help_tab( array( 'id' => 'raindrops-settings-help', 'title' => esc_html__( 'raindrops infomation', 'Raindrops' ), 'content' => $content ) );
+		
+		return $content;		
 	}
 }
 /**
@@ -3755,6 +3803,7 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 	function raindrops_small_device_helper( ) {
 
 		global $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template;
+		
 		$raindrops_header_image = get_custom_header( );
 		$raindrops_header_image_uri = $raindrops_header_image->url;
 
@@ -3863,54 +3912,57 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 			}
 ?>
 
-				if (navigator.userLanguage){
+			if (navigator.userLanguage){
 
-					baseLang = navigator.userLanguage.substring(0,2).toLowerCase();
+				baseLang = navigator.userLanguage.substring(0,2).toLowerCase();
+			} else {
+
+				baseLang = navigator.language.substring(0,2).toLowerCase();
+			}
+			
+			jQuery( 'body' ).addClass('accept-lang-' +  baseLang);
+			
+
+			var userAgent = window.navigator.userAgent.toLowerCase();
+			
+			if (userAgent.match(/msie/i)){
+
+				var ie_num = userAgent.match( /MSIE (\d+\.\d+);/i );
+				var ieversion = parseInt(ie_num[1], 10);
+				jQuery( 'body' ).addClass('ie' +  ieversion);
+			} else if (userAgent.indexOf('opera') != -1){
+
+				 jQuery( 'body' ).addClass( 'opera' );
+			} else if ( userAgent.indexOf( 'chrome' ) != -1){
+
+				 jQuery( 'body' ).addClass( 'chrome' );
+			} else if ( userAgent.indexOf( 'safari' ) != -1 ){
+
+				 jQuery( 'body' ).addClass( 'safari' );
+			} else if ( userAgent.indexOf( 'gecko' ) != -1 ){
+			
+				var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
+				var version = parseInt(match[2], 10);
+				
+				if ( version == 11 ) {
+					 jQuery( 'body' ).addClass( 'ie11' );
 				} else {
-
-					baseLang = navigator.language.substring(0,2).toLowerCase();
-				}
-				
-				jQuery('body').addClass('accept-lang-' +  baseLang);
-				
-
-				if (/MSIE ( \d+\.\d+ );/.test(navigator.userAgent)){
-
-				 
-					 var ieversion = new Number(RegExp.$1);
-					 
-					 ieversion = Math.floor(ieversion);
-					 jQuery( 'body' ).addClass('ie' +  ieversion);
-				}
-				
-				var userAgent = window.navigator.userAgent.toLowerCase();
-				
-
-				if (userAgent.indexOf('opera') != -1){
-
-					 jQuery( 'body' ).addClass( 'opera' );
-				} else if ( userAgent.indexOf( 'chrome' ) != -1){
-
-					 jQuery( 'body' ).addClass( 'chrome' );
-				} else if ( userAgent.indexOf( 'safari' ) != -1 ){
-
-					 jQuery( 'body' ).addClass( 'safari' );
-				} else if ( userAgent.indexOf( 'gecko' ) != -1 ){
-
 					 jQuery( 'body' ).addClass(  'gecko'  );
-				} else if ( userAgent.indexOf( 'iphone' ) != -1 ){
-
-					 jQuery( 'body' ).addClass( 'iphone' );
-				} else if ( userAgent.indexOf( 'Netscape' ) != -1 ){
-
-					 jQuery( 'body' ).addClass( 'netscape' );
-				} else {
-
-					 jQuery( 'body' ).addClass( 'unknown' );
 				}
+			} else if ( userAgent.indexOf( 'iphone' ) != -1 ){
+
+				 jQuery( 'body' ).addClass( 'iphone' );
+			} else if ( userAgent.indexOf( 'Netscape' ) != -1 ){
+
+				 jQuery( 'body' ).addClass( 'netscape' );
+			} else {
+
+				 jQuery( 'body' ).addClass( 'unknown' );
+			}
+			
 
 <?php
-		} //end if (  true == $raindrops_browser_detection  )
+		} //end if (  true !== $raindrops_browser_detection  )
 		
 		/**
 		 * Check window size and mouse position
@@ -3920,31 +3972,30 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 		 *
 		 */
 ?>
-                 
-				if ( jQuery( 'body > div' ).is( '#doc3' ) ){
+		if ( jQuery( 'body > div' ).is( '#doc3' ) ){
 
-                        jQuery( "#access" ).mousemove( function( e ){
+				jQuery( "#access" ).mousemove( function( e ){
 
-                            var raindrops_menu_item_position = e.pageX ;
-                        
-							if ( raindrops_window_width - 200 < raindrops_menu_item_position ){
+					var raindrops_menu_item_position = e.pageX ;
+				
+					if ( raindrops_window_width - 200 < raindrops_menu_item_position ){
 
-                                jQuery(  '#access ul ul ul'  ).addClass( 'left' );
-                            } else if ( raindrops_window_width / 2 >  raindrops_menu_item_position ){
+						jQuery(  '#access ul ul ul'  ).addClass( 'left' );
+					} else if ( raindrops_window_width / 2 >  raindrops_menu_item_position ){
 
-                                jQuery( '#access ul ul ul' ).removeClass( 'left' );
-                            }
-							
-                        });
-                        if ( raindrops_window_width > <?php echo $raindrops_fluid_maximum_width; ?>){
-                            //centering page when browser width > $raindrops_fluid_maximun_width
-                            jQuery( '#doc3' ).css({'margin':'auto'});
-                        }
-                    }
-                }
-                raindrops_resizes();
-                jQuery(window).resize( function (){ raindrops_resizes()});
-		} );
+						jQuery( '#access ul ul ul' ).removeClass( 'left' );
+					}
+					
+				});
+				if ( raindrops_window_width > <?php echo $raindrops_fluid_maximum_width; ?>){
+					//centering page when browser width > $raindrops_fluid_maximun_width
+					jQuery( '#doc3' ).css({'margin':'auto'});
+				}
+			}
+		}
+		raindrops_resizes();
+		jQuery(window).resize( function (){ raindrops_resizes()});
+	} );
 } )( jQuery );
             </script>
 <?php
@@ -4553,7 +4604,7 @@ if ( ! function_exists( 'raindrops_recent_posts' ) ) {
 		
 		if( empty( $args ) ) {
 
-			if ( ! isset( $raindrops_recent_posts_setting ) ) {
+			if ( ! isset( $raindrops_recent_posts_setting ) && basename( $template ) == 'blank-front.php' ) {
 	
 				return;
 			}
@@ -4589,19 +4640,13 @@ if ( ! function_exists( 'raindrops_recent_posts' ) ) {
  */
 if ( ! function_exists( 'raindrops_category_posts' ) ) {
 
-	function raindrops_category_posts( $args = array() ) {
+	function raindrops_category_posts( ) {
 
-		global $post, $raindrops_category_posts_setting;
-		
-		if( empty( $args ) ) {
+		global $post, $raindrops_category_posts_setting,$template;
 
-			if ( ! isset( $raindrops_category_posts_setting ) ) {
-	
-				return;
-			}
-		} else {
-		
-			$raindrops_category_posts_setting = $args;
+		if ( ! isset( $raindrops_category_posts_setting ) && basename( $template ) == 'blank-front.php' ) {
+			
+			return;
 		}
 		$settings = array( 'title' => esc_html__( 'Categories', 'Raindrops' ), 'numberposts' => 0, 'offset' => 0, 'category' => 0, 'orderby' => 'post_date', 'order' => 'DESC', 'include' => '', 'exclude' => '', 'meta_key' => '', 'meta_value' => '', 'post_type' => 'post', 'post_mime_type' => '', 'post_parent' => '', 'post_status' => 'publish' );
 		$settings = wp_parse_args( $raindrops_category_posts_setting, $settings );
@@ -4621,7 +4666,8 @@ if ( ! function_exists( 'raindrops_category_posts' ) ) {
 			}
 			$result .= sprintf( '</ul>' );
 		}
-		$result = sprintf( '<div class="%1$s">%2$s</div>', 'raindrops-category-posts pad-m widget clearfix', $result );
+
+		$result = sprintf( '<div class="%1$s">%2$s</div>', 'raindrops-category-posts pad-m clearfix', $result );
 		echo apply_filters( 'raindrops_category_posts', $result );
 		wp_reset_postdata( );
 	}
@@ -4641,7 +4687,7 @@ if ( ! function_exists( 'raindrops_tag_posts' ) ) {
 
 		if( empty( $args ) ) {
 
-			if ( ! isset( $raindrops_tag_posts_setting ) ) {
+			if ( ! isset( $raindrops_tag_posts_setting )  && basename( $template ) == 'blank-front.php' ) {
 	
 				return;
 			}
@@ -5175,19 +5221,44 @@ if ( ! function_exists( 'raindrops_postmeta_cap' ) ) {
  */
 if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 
-	function raindrops_nav_menu_primary( ) {
+	function raindrops_nav_menu_primary( $args = array() ) {
+	
+		$defaults = array(
+			'theme_location'  => '',
+			'menu'            => '',
+			'container'       => 'div',
+			'container_class' => '',
+			'container_id'    => '',
+			'menu_class'      => 'menu',
+			'menu_id'         => '',
+			'echo'            => true,
+			'fallback_cb'     => 'wp_page_menu',
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '',
+			'link_after'      => '',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'depth'           => 0,
+			'walker'          => '',
+			'wrap_element_id'  => 'access',
+			'wrap_mobile_class' => 'raindrops-mobile-menu',
+		);
+		
+		$args = wp_parse_args( $args, $defaults );
+		$args = apply_filters( 'wp_nav_menu_args', $args );
 
 		if ( "show" == raindrops_warehouse( 'raindrops_show_menu_primary' ) ) {
 
 			$raindrops_nav_menu_primary = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'echo' => false ) );
-			$template = '<p class="raindrops-mobile-menu">
+			$template = '<p class="'. $args['wrap_mobile_class']. '">
                             <a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
                             <a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
                              </p>
-                            <%3$s id="access">
+                            <%3$s id="'. esc_attr( $args['wrap_element_id'] ). '">
                             %2$s
                             </%3$s>
                             <br class="clear" />';
+							
 			do_action( 'raindrops_nav_menu_primary' );
 			$html = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ) );
 			echo apply_filters( 'raindrops_nav_menu_primary_html', $html );

@@ -508,15 +508,20 @@ border-top:1px solid rgba(100,100,100,1);
 .entry-content input[type="submit"]{
 	border: solid 1px %rgba_border%;
 }
-
 .raindrops-tab-list li,
 #access .children li,
 #access a {
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
 background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');*/
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 color:%custom_color%;
 
+}
+.ie11 #access .sub-menu a,
+.ie11 #access .children a {
+color:%custom_color%;
+	background: %custom_light_bg%!important;
+	
 }
 .ie10 #access{
 	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
@@ -525,6 +530,7 @@ color:%custom_color%;
 .ie10 #access a {
 	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 }
+
 .ie10 #access .children li:active >a,
 .ie10 #access li:active >a ,
 .ie10 #access ul ul :active >a{
@@ -539,7 +545,7 @@ color:%custom_color%;
 top:0;
 background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
 background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
-/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');*/
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
 color:%custom_color%;
 }
 .wp-caption {

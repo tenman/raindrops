@@ -202,14 +202,8 @@ if ( 'y' !== $raindrops_display_header_image ) {
 }
 		
 if ( 'y' !== $raindrops_display_nav_menus ) {
-
-	if ( has_nav_menu( 'primary' ) ) {
 	
-		add_filter( 'wp_nav_menu', '__return_null' );
-	} else {
-	
-		add_filter( 'wp_page_menu_args', '__return_empty_array' );
-	}
+	add_filter( 'raindrops_nav_menu_primary_html', '__return_null' );
 }
 
 if ( 'y' !== $raindrops_display_page_content ) {
@@ -373,7 +367,7 @@ if ( is_home( ) && is_active_sidebar( 'sidebar-3' ) ) {
 <?php if ( $raindrops_devide_column_extra_class == 'yui-u' ) {?>
 			<div class="yui-u">
 <?php raindrops_prepend_extra_sidebar( );?>
-<?php if ( $rsidebar_show ) { get_sidebar( 'extra' ); }?>
+<?php if ( $rsidebar_show && $raindrops_display_widget == 'y') { get_sidebar( 'extra' ); }?>
 <?php raindrops_append_extra_sidebar( );?>
 			</div>
 <?php }//if ( $raindrops_devide_column_class == 'yui-u' )?>
@@ -382,8 +376,8 @@ if ( is_home( ) && is_active_sidebar( 'sidebar-3' ) ) {
 	</div>
 <?php if ( 'yui-b' == $raindrops_devide_column_class ) {?>
 	<div class="yui-b">
-<?php raindrops_prepend_default_sidebar( );?>
-<?php get_sidebar( 'default' );?>
+<?php raindrops_prepend_default_sidebar( ); ?>
+<?php if( $raindrops_display_widget == 'y') {get_sidebar( 'default' );}?>
 <?php raindrops_append_default_sidebar( );?>
 	</div>
 <?php }//if ( $raindrops_devide_column_class == 'yui-b' ) ?>

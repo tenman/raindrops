@@ -1,7 +1,12 @@
 Changelog -----------------------------------
 version:1.156
 modified
-	Add CSS class detect IE11 
+	Add CSS class detect IE11 and modified CSS
+	modified raindrops_nav_menu_primary()
+	modified ja.po , ja.mo
+	Fixed 
+		Fixed Not display theme infomation help
+
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.155

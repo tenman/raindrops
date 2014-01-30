@@ -1497,7 +1497,7 @@ if ( ! function_exists( "add_raindrops_stylesheet" ) && $wp_version >= 3.4 ) {
 
 			$raindrops_js = $template_uri . '/raindrops.js';
 		}
-		wp_register_script( 'raindrops', $raindrops_js, array( 'jquery-migrate' ), $raindrops_current_data_version, false );
+		wp_register_script( 'raindrops', $raindrops_js, array('jquery', 'jquery-migrate' ), $raindrops_current_data_version, false );
 		wp_enqueue_script( 'raindrops' );
 	}
 }

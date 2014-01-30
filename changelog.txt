@@ -1,4 +1,19 @@
 Changelog -----------------------------------
+version:1.157
+	Fixed 
+		Fixed raindrops.js not work at Firefox26.0
+
+			functions.php line:1500
+				Change from:
+				wp_register_script( 'raindrops', $raindrops_js, array( 'jquery' ), $raindrops_current_data_version, true );
+				to:
+				wp_register_script( 'raindrops', $raindrops_js, array( 'jquery-migrate' ), $raindrops_current_data_version, false );
+
+       Fixed Untranslated string $raindrops_comment_string
+				contribute: lrosa 
+					Thank you.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.156
 modified
 	Add CSS class detect IE11 and modified CSS

@@ -1090,7 +1090,7 @@ if ( ! function_exists( 'raindrops_posted_on' ) ) {
 				$raindrops_comment_number = get_comments_number( );
 			} else {
 
-				$raindrops_comment_string = 'Comment ' . raindrops_link_unique( 'Post', get_the_ID( ) );
+				$raindrops_comment_string = __( 'Comment ', 'Raindrops' ) . raindrops_link_unique( 'Post', get_the_ID( ) );
 				$raindrops_comment_number = '';
 			}
 		} else {
@@ -1497,7 +1497,7 @@ if ( ! function_exists( "add_raindrops_stylesheet" ) && $wp_version >= 3.4 ) {
 
 			$raindrops_js = $template_uri . '/raindrops.js';
 		}
-		wp_register_script( 'raindrops', $raindrops_js, array( 'jquery' ), $raindrops_current_data_version, true );
+		wp_register_script( 'raindrops', $raindrops_js, array( 'jquery-migrate' ), $raindrops_current_data_version, false );
 		wp_enqueue_script( 'raindrops' );
 	}
 }
@@ -5986,7 +5986,7 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 			$raindrops_html_page = '<p style="text-align:center;"><a href="%1$s" class="%2$s" ><span class="%3$st">%4$s</span></a></p>';
 			if ( preg_match( '!page=!', $query_string ) ) {
 			
-?>	<h3 style="text-align:center" class="h1">End</h3><?php					
+?><h3 style="text-align:center" class="h1 portfolio-navigation-last">End</h3><?php					
 					printf( $raindrops_html_page,
 									esc_url( $url ),
 									'portfolio-home',
@@ -5998,7 +5998,7 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 									home_url(),
 									'portfolio blog-home-link',
 									'portfolio-nav',
-									get_bloginfo() 
+									esc_html__('Home', 'Raindrops') 
 								);		
 ?></<?php raindrops_doctype_elements( 'div', 'article' );?>><?php
 		}

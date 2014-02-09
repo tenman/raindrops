@@ -4282,10 +4282,6 @@ if ( $raindrops_show_theme_option == true ) {
  *
  *
  */
-function my_test_function( $data ) {
-
-return $data;
-}
 if ( ! function_exists( 'raindrops_customize_register' ) ) {
 
 	function raindrops_customize_register( $wp_customize ) {

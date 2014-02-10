@@ -2235,6 +2235,9 @@ if ( ! function_exists( "raindrops_get_day" ) ) {
 				foreach ( $today[$i] as $mytime ) {
 
 					$mytime->post_title = raindrops_fallback_title( $mytime->post_title );
+					$mytime->post_title	= preg_replace( '|>.+</|', '>[Article '. $mytime->ID. ']</' , $mytime->post_title );
+					
+					
 					$output .= "<a href=\"" . get_permalink( $mytime->ID ) . "\"
 id=\"post-" . $mytime->ID . "\">$mytime->post_title</a><br />";
 				}
@@ -2269,10 +2272,11 @@ if ( ! function_exists( "raindrops_year_list" ) ) {
 
 			list( $y, $m, $d ) = sscanf( $month->post_date, "%d-%d-%d $d:$d:$d" );
 			$month->post_title = raindrops_fallback_title( $month->post_title );
+			$month->post_title	= preg_replace( '|>.+</|', '>[link to '. $month->ID. ']</' , $month->post_title );
 
 			if ( $m == $mo && $ye == $y ) {
 
-				$links .= "<li class=\"$mo\"><a href=\"" . get_permalink( $month->ID ) . "\" title=\"" . esc_attr( $month->post_title ) . "\">" . $month->post_title . "</a></li>";
+				$links .= "<li class=\"$mo\"><a href=\"" . get_permalink( $month->ID ) . "\" title=\"" . esc_attr( strip_tags( $month->post_title) ) . "\">" . $month->post_title . "</a></li>";
 			}
 		}
 
@@ -2326,21 +2330,35 @@ if ( ! function_exists( "raindrops_month_list" ) ) {
 			
 			foreach ( $one_month as $key => $month ) {
 
-				$month->post_title = raindrops_fallback_title( $month->post_title );
 				list( $y, $m, $d, $h, $m, $s ) = sscanf( $month->post_date, "%d-%d-%d %d:%d:%d" );
 
 				if ( $key < $calendar_page_last && $key >= $calendar_page_start ) {
 
 					if ( $d == $i && $m == $mo && $y == $ye ) {
 
-						$first_data = true;
-						$month->post_title = raindrops_fallback_title( $month->post_title );
+						$first_data			= true;
+						$month->post_title	= raindrops_fallback_title( $month->post_title );
+						$month->post_title	= preg_replace( '|>.+</|', '>[link to '. $month->ID. ']</' , $month->post_title );
+						
 						$html = '<li id="post-%5$s" %6$s>
 						<span class="%1$s"><a href="%2$s" rel="bookmark" title="%3$s">%4$s</a></span>
 						<%7$s class="entry-date updated" %8$s>%9$s</%7$s>
 						<span class="author vcard"><a class="url fn n" href="%10$s" title="%11$s" rel="vcard:url">%12$s</a></span> 					</li>';
+						
 						$display_name = get_the_author_meta( 'display_name', $month->post_author );
-						$links .= sprintf( $html, 'h2 entry-title', esc_url( get_permalink( $month->ID ) ), 'link to content: ' . esc_attr( $month->post_title ), $month->post_title, $month->ID, ' ' . raindrops_post_class( array( 'clearfix' ), null, false ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ), $month->post_date, get_author_posts_url( get_the_author_meta( 'ID' ) ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $display_name ), $display_name );
+						$links .= sprintf( $html, 
+											'h2 entry-title', 
+											esc_url( get_permalink( $month->ID ) ), 
+											'link to content: ' . esc_attr( strip_tags( $month->post_title ) ), 
+											$month->post_title, 
+											$month->ID, 
+											' ' . raindrops_post_class( array( 'clearfix' ), $month->ID, false ),
+											raindrops_doctype_elements( 'span', 'time', false ), 
+											raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ), 
+											$month->post_date, get_author_posts_url( get_the_author_meta( 'ID' ) ), 
+											sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $display_name ), 
+											$display_name 
+										);
 						$c++;
 					}
 				}
@@ -3182,7 +3200,7 @@ if ( ! function_exists( 'raindrops_fallback_title' ) ) {
 
 	function raindrops_fallback_title( $title, $id = 0 ) {
 
-		global $post;
+		global $post, $raindrops_link_unique_text;
 		$format_label = '';
 
 		if ( 0 == $id ) {
@@ -3221,11 +3239,12 @@ if ( ! function_exists( 'raindrops_fallback_title' ) ) {
 			}
 		}
 
-		if ( isset( $post->ID ) ) {
- // for example search result fail
+		if ( isset( $post->ID ) and $raindrops_link_unique_text == true ) {
+
 			$title = raindrops_link_unique( $format_label, $post->ID ) . $title;
 		}
-		return $title;
+		
+		return apply_filters( 'raindrops_fallback_title', $title );
 	}
 }
 /**
@@ -5360,9 +5379,50 @@ if ( ! function_exists( 'raindrops_postmeta_cap' ) ) {
  *
  * @since 1.111
  */
+class raindrops_unique_identifier_walker_nav_menu extends Walker_Nav_Menu {
+  
+	 function start_el( &$output, $item, $depth, $args ) {
+		global $wp_query;
+		
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+    	$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+	  
+		// build html
+		$output .= '<li id="nav-menu-item-'. $item->ID . '" class="' . $class_names . '">';
+	  
+		// link attributes
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		
+		$item_id = url_to_postid( $item->url  );
+		
+		if ( $item_id == 0 ) {
+		
+		} else {
+		
+			$item->title	= $item->title;
+			$item->title = sprintf('<span class="raindrops_unique_identifier">[Link to %1$s]</span>%2$s', $item_id, $item->title );
+		}
+	  
+		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+			$args->before,
+			$attributes,
+			$args->link_before,
+			apply_filters( 'raindrops_nav_menu_title', $item->title, $item->ID ),
+			$args->link_after,
+			$args->after
+			);
+	  
+		// build html
+		$output .= apply_filters( 'raindrops_unique_identifier_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+}
 if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 
 	function raindrops_nav_menu_primary( $args = array() ) {
+		global $raindrops_link_unique_text;
 	
 		$defaults = array(
 			'theme_location'  => '',
@@ -5390,7 +5450,15 @@ if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 
 		if ( "show" == raindrops_warehouse( 'raindrops_show_menu_primary' ) ) {
 
-			$raindrops_nav_menu_primary = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'echo' => false ) );
+			if ( $raindrops_link_unique_text == true ) {
+			
+				$walker = new raindrops_unique_identifier_walker_nav_menu();
+				$raindrops_nav_menu_primary = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'echo' => false , 'walker' => $walker ) );
+			} else {
+			
+				$raindrops_nav_menu_primary = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'echo' => false , ) );			
+			}
+
 			$template = '<p class="'. $args['wrap_mobile_class']. '">
                             <a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
                             <a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>

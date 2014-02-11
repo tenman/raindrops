@@ -5380,8 +5380,8 @@ if ( ! function_exists( 'raindrops_postmeta_cap' ) ) {
  * @since 1.111
  */
 class raindrops_unique_identifier_walker_nav_menu extends Walker_Nav_Menu {
-  
-	 function start_el( &$output, $item, $depth, $args ) {
+
+	 function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		global $wp_query;
 		
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;

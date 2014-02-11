@@ -1,6 +1,11 @@
 Changelog -----------------------------------
 version:1.160
-
+	Modify 
+		raindrops_year_list()
+		raindrops_month_list()
+		raindrops_fallback_title()
+		raindrops_nav_menu_primary()
+	Add Class raindrops_unique_identifier_walker_nav_menu extends Walker_Nav_Menu
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.159

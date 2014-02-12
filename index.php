@@ -35,7 +35,7 @@ raindrops_debug_navitation( __FILE__ );
 } // end if ( is_home( ) &&  is_active_sidebar( 'sidebar-3' ) )
 ?>
     		<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 				<?php get_template_part( 'loop', $raindrops_document_type ); ?>
 				<br style="clear:both" />			
 			</div>

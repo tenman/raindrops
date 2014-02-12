@@ -18,7 +18,7 @@ do_action( 'raindrops_pre_'.basename( __FILE__) );
   <?php raindrops_debug_navitation( __FILE__ ); ?>
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-		<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+		<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 		
 <?php if ( have_posts( ) ) { ?>
 		

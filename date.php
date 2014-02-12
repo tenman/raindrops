@@ -106,7 +106,7 @@ raindrops_debug_navitation( __FILE__ );
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 			<!-- content -->
-				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 					<h2 class="page-title">
 <?php
 		if ( is_year( ) ) {

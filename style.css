@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.161
+Version: 1.162
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -48,7 +48,7 @@ a:visited{
 }
 .raindrops-accessible-mode .hfeed a:focus{
   
-  border-bottom:1px solid #FFCC33!important;
+  border:1px solid #FFCC33!important;
   margin-bottom:-1px;
 }
 
@@ -222,6 +222,12 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 .entry-content .more-link-post-unique{
 	visibility:hidden;
 }
+
+.raindrops-accessible-mode .poster-more-link .more-link-post-unique,
+.raindrops-accessible-mode .entry-content .more-link-post-unique{
+	visibility:visible;
+}
+
 .comment-body blockquote blockquote blockquote{
 	/*background:#fff;*/
 	margin:0.2em;
@@ -1299,7 +1305,7 @@ div.menu li a{
 	box-sizing: border-box;
 }
 #access ul ul {
-	display: none;
+	/*display: none;*/
 	position: absolute;
 	top: 3em; /* If set linktext font-size, example #access a {font-size:123.1%} then this value 3em * 1.231 */
 	left: 0;
@@ -1307,11 +1313,18 @@ div.menu li a{
 	width: 10em;
 	z-index: 99;
 	text-align:center;
+	left:-9000px;
 }
 #access ul ul li {
 	min-width: 10em;
 	margin:0;
 }
+#access .focus,
+#access ul > li > a:focus + ul,
+#access ul > li:hover > ul{
+	left:auto;
+}
+#access .sub-menu .sub-menu,
 #access ul ul ul {
 	left: 100%;
 	top: -1px;
@@ -1395,16 +1408,15 @@ div.menu li {
 .ie6 #access ul li a:hover {
 }
 /* Text meant only for screen readers */
-.screen-reader-text {
+.screen-reader-text{
 	position: absolute;
-	left: -9000px;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 .screen-reader-text a:active, 
-.screen-reader-text a:focus
-{
-position:static;
-width:auto;
-height:auto;
+.screen-reader-text a:focus{
+	position:static;
+	width:auto;
+	height:auto;
 } 
 table#wp-caledar td a{
 	text-align:right;

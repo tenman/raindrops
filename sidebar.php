@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 global $template;
 do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
 ?>
-<div class="sidebar">
+<div class="sidebar" <?php raindrops_doctype_elements( '', 'role="complementary"' );?>>
 <ul>
 <?php 
 	if ( ! dynamic_sidebar('sidebar-1' ) ) {

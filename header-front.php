@@ -97,7 +97,7 @@ raindrops_after_nav_menu( );
 <?php if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) ) {?>
 			<span id="container"></span>
 			<div class="yui-g fron-page-top-container">
-				<div class="yui-u first">
+				<div class="yui-u first" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 					<div class="static-front-content">
 <?php
 			if( is_page() ){

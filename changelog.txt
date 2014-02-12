@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.162
+	Modify 
+		Link text: The Continue Reading link, when theme option accessibility settings true
+		Keyboard navigation support at primary menu
+		Comment form add add aria-required="true" when theme option Document type settings html5
+		Add ARIA Roles:role="complementary",role="contentinfo", role="main"
+		CSS class screen-reader-text change left to crip
+----------------------------------------------
+Changelog -----------------------------------
 version:1.161
 	Modify 
 		raindrops_year_list()

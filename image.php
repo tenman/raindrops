@@ -36,7 +36,7 @@ switch(	$raindrops_document_type ) {
 
 	case( 'html5' ):
 ?>
-				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 <?php 
 		if ( have_posts( ) ) { 
 		
@@ -139,7 +139,7 @@ switch(	$raindrops_document_type ) {
 		
 		printf( '<!--%$1s-->', $raindrops_document_type );
 ?>
-			<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+			<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 		
 <?php
 			if (have_posts( ) ) {

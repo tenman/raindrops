@@ -1524,40 +1524,19 @@ if ( ! function_exists( "raindrops_comment_form" ) ) {
  *
  *
  */
-if ( ! function_exists( "raindrops_custom_remove_aria_required1" ) ) {
+if ( ! function_exists( "raindrops_custom_remove_aria_required" ) ) {
 
-	function raindrops_custom_remove_aria_required1( $arg ) {
-
-		global $raindrops_document_type;
-		$change	= array( "aria-required=\"true\"", "aria-required='true'" );
-		$arg	= str_replace( $change, '', $arg );
-		return $arg;
-	}
-}
-/**
- * filter function remove area required
- *
- *
- *
- *
- */
-if ( ! function_exists( "raindrops_custom_remove_aria_required2" ) ) {
-
-	function raindrops_custom_remove_aria_required2( $args ) {
+	function raindrops_custom_remove_aria_required( $arg ) {
 
 		global $raindrops_document_type;
-		$change = array( "aria-required=\"true\"", "aria-required='true'" );
-
-		if ( isset( $args['author'] ) ) {
-
-			$args['author'] = str_replace( $change, '', $args['author'] );
+		
+		if( $raindrops_document_type == 'xhtml' ) {
+			$change	= array( "aria-required=\"true\"", "aria-required='true'" );
+			$arg	= str_replace( $change, '', $arg );
+			return $arg;
+		} else {
+			return $arg;
 		}
-
-		if ( isset( $args['email'] ) ) {
-
-			$args['email'] = str_replace( $change, '', $args['email'] );
-		}
-		return $args;
 	}
 }
 /**
@@ -4134,6 +4113,10 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 		raindrops_resizes();
 		jQuery(window).resize( function (){ raindrops_resizes()});
 	} );
+
+		jQuery( '#access' ).find( 'a' ).on( 'focus.raindrops blur.raindrops', function() {
+			jQuery( this ).parents().toggleClass( 'focus' );
+		} );
 } )( jQuery );
             </script>
 <?php

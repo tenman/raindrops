@@ -46,7 +46,7 @@ $raindrops_current_column = raindrops_show_one_column( );
 	<div id="yui-main">
   		<div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
     		<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-        		<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+        		<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 <?php 
 		if ( have_posts( ) ) {
 		 

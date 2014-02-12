@@ -76,15 +76,7 @@ if ( ! function_exists(  'raindrops_theme_setup' ) ) {
 		 *
 		 *
 		 */
-		add_filter( 'comment_form_field_comment', 'raindrops_custom_remove_aria_required1' );
-		/**
-		 *
-		 *
-		 *
-		 *
-		 *
-		 */
-		add_filter( 'comment_form_default_fields', 'raindrops_custom_remove_aria_required2' );
+		add_filter( 'comment_form_field_comment', 'raindrops_custom_remove_aria_required' );
 		/**
 		 *
 		 *

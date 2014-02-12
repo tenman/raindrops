@@ -20,7 +20,7 @@ raindrops_debug_navitation( __FILE__ );
 	<div id="yui-main">
 		<div class="yui-b">
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
-				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>">
+				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 					<h1 class="entry-title">
 <?php esc_html_e( 'Error 404 - Not Found', 'Raindrops' );?>
 					</h1>

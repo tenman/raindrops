@@ -1,6 +1,11 @@
 Changelog -----------------------------------
 version:1.163
-	Modify 
+	Add
+		raindrops_comments_link()
+			separate from raindrops_posted_on()
+		filter hook raindrops_portfolio_nav
+	Modify
+		sidebar-default.php WAI-AREA role value change from complementary to navigation
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.162

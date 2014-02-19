@@ -88,7 +88,7 @@
  *
  */
  		$raindrops_portfolio_page		= get_query_var('page');
-		$raindrops_posts_per_page		= 3;
+		$raindrops_posts_per_page		= 9;
 		$raindrops_offset				= 0;
 		$args = array(
 			'posts_per_page'  => $raindrops_posts_per_page,

@@ -1061,25 +1061,17 @@ if ( ! function_exists( 'raindrops_posted_in' ) ) {
 	}
 }
 /**
- * Template function posted_on
+ * Template function raindrops_comments_link
  *
  *
  *
  * loop.php
- *
+ * @since 1.163
  */
-if ( ! function_exists( 'raindrops_posted_on' ) ) {
-
-	function raindrops_posted_on( ) {
-
-		global $post;
-		$raindrops_date_format	= get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
-		$author					= raindrops_blank_fallback( get_the_author( ), 'Somebody' );
-		$archive_year			= get_the_time( 'Y' );
-		$archive_month			= get_the_time( 'm' );
-		$archive_day			= get_the_time( 'd' );
-		$day_link				= esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
-
+if ( ! function_exists( 'raindrops_comments_link' ) ) {
+ 
+	function raindrops_comments_link() {
+	
 		if ( comments_open( ) ) {
 
 			$raindrops_comment_html = '<a href="%1$s" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em>%2$s %3$s</em></a>';
@@ -1099,7 +1091,45 @@ if ( ! function_exists( 'raindrops_posted_on' ) ) {
 			$raindrops_comment_string = '';
 			$raindrops_comment_number = '';
 		}
-		$result = sprintf( esc_html__( '%1$s %5$s %2$s %6$s %3$s %4$s', 'Raindrops' ), '<span class="meta-prep meta-prep-author">', '</span>' . sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>', $day_link, esc_attr( 'archives daily ' . get_the_time( $raindrops_date_format ) ), get_the_date( $raindrops_date_format ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ) ) . '<span class="meta-sep">', '</span>' . sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ', get_author_posts_url( get_the_author_meta( 'ID' ) ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ), $author ), sprintf( $raindrops_comment_html, get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string ), '<span class="posted-on-string">' . __( 'Posted on', 'Raindrops' ) . '</span>', '<span class="posted-by-string">' . __( 'by', 'Raindrops' ) . '</span>' );
+	
+		$result = sprintf( $raindrops_comment_html, get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string );
+	
+		return apply_filters( 'raindrops_comments_link', $result, get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string );
+	}
+
+}
+/**
+ * Template function posted_on
+ *
+ *
+ *
+ * loop.php
+ *
+ */
+if ( ! function_exists( 'raindrops_posted_on' ) ) {
+
+	function raindrops_posted_on( ) {
+
+		global $post;
+		$raindrops_date_format	= get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+		$author					= raindrops_blank_fallback( get_the_author( ), 'Somebody' );
+		$archive_year			= get_the_time( 'Y' );
+		$archive_month			= get_the_time( 'm' );
+		$archive_day			= get_the_time( 'd' );
+		$day_link				= esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
+
+		$result = sprintf( esc_html__( '%1$s %5$s %2$s %6$s %3$s %4$s', 'Raindrops' ), 
+		'<span class="meta-prep meta-prep-author">', 
+		'</span>' . sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>',
+		$day_link, esc_attr( 'archives daily ' . get_the_time( $raindrops_date_format ) ),
+		get_the_date( $raindrops_date_format ), 
+		raindrops_doctype_elements( 'span', 'time', false ),
+		raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ) ) . '<span class="meta-sep">', '</span>' . sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ', get_author_posts_url( get_the_author_meta( 'ID' ) ),
+		sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ), $author ),
+		apply_filters( 'raindrops_posted_on_comment_link', raindrops_comments_link() ), 
+		'<span class="posted-on-string">' . __( 'Posted on', 'Raindrops' ) . '</span>', 
+		'<span class="posted-by-string">' . __( 'by', 'Raindrops' ) . '</span>' );
+		
 		$format = get_post_format( );
 		$content_empty_check = trim( get_the_content( ) );
 
@@ -1108,7 +1138,7 @@ if ( ! function_exists( 'raindrops_posted_on' ) ) {
 			echo apply_filters( "raindrops_posted_on", $result );
 		} elseif ( empty( $content_empty_check ) ) {
 
-			printf( $raindrops_comment_html, get_comments_link( ), $raindrops_comment_number, $raindrops_comment_string );
+			echo raindrops_comments_link();
 		} else {
 
 			echo apply_filters( "raindrops_posted_on", $result );
@@ -6168,7 +6198,7 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 							);
 			}
 			
-			printf( '<div class="portfolio-nav"><ul>%1$s</ul></div>', $html );
+			echo apply_filters( 'raindrops_portfolio_nav', sprintf( '<div class="portfolio-nav"><ul>%1$s</ul></div>', $html ) );
 
 		} else { //! empty( $raindrops_posts )
 		
@@ -6179,19 +6209,19 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 			if ( preg_match( '!page=!', $query_string ) ) {
 			
 ?><h3 style="text-align:center" class="h1 portfolio-navigation-last">End</h3><?php					
-					printf( $raindrops_html_page,
+					echo apply_filters( 'raindrops_portfolio_nav', sprintf( $raindrops_html_page,
 									esc_url( $url ),
 									'portfolio-home',
 									'portfolio-home-text',
 									esc_html__('Portfolio Home', 'Raindrops') 
-								);
+								) );
 			}		
-					printf( $raindrops_html_page,
+					echo apply_filters( 'raindrops_portfolio_nav', sprintf( $raindrops_html_page,
 									home_url(),
 									'portfolio blog-home-link',
 									'portfolio-nav',
 									esc_html__('Home', 'Raindrops') 
-								);		
+								) );		
 ?></<?php raindrops_doctype_elements( 'div', 'article' );?>><?php
 		}
 		wp_reset_postdata( );

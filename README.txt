@@ -23,6 +23,32 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 1.200
+
+	IMPORTANT CHANGES
+		out-of-the-box support
+			Raindrops not save default settings to the database without explicit user action
+			You can check as follows: Raindrops theme is whether you are using a database table
+
+			Raindrops options page title after message.
+				Now, Raindrops Not Using Database Table
+				or
+				Saved Database table name: Saved Table Name
+
+		Note: For child theme developers
+			About Child Theme UNINSTALL.
+
+			add_action( 'switch_theme', 'child_theme_uninstall' );
+
+			function child_theme_uninstall(){
+
+				delete_option( "child_theme_settings" );
+				// Do not foget remove raindrops theme settings.
+				delete_option("raindrops_theme_settings");
+			}
+
+If you do not perform this setting, it was uninstalled the child theme, If you then install the Raindrops, will be read as the theme settings to change the child theme. In this case, it may be different from the default display, it is to be displayed, such as w3standard.
+
 ver 1.152
 
 	Add raindrops-config-example.php

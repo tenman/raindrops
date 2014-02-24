@@ -790,7 +790,7 @@ $install_once = get_option( 'raindrops_theme_settings' );
 
 if ( false == $install_once || ! array_key_exists( 'install', $install_once ) ) {
 
-	add_action( 'admin_init', 'setup_raindrops' );
+	//add_action( 'admin_init', 'setup_raindrops' );
 }
 add_action( 'widgets_init', 'raindrops_widgets_init' );
 /**
@@ -1690,11 +1690,13 @@ if ( ! function_exists( "raindrops_install_navigation" ) ) {
 		$upload_dir = wp_upload_dir( );
 
 		if ( false == $install || ! array_key_exists( 'install', $install ) ) {
-
+/*
 			$install['current_stylesheet_dir_url'] = get_stylesheet_directory_uri( );
 			$install['current_upload_base_url'] = $upload_dir['baseurl'];
 			$install['install'] = true;
 			update_option( 'raindrops_theme_settings', $install );
+*/
+
 		} else {
 
 			if ( isset( $install['current_stylesheet_dir_url'] ) && get_stylesheet_directory_uri( ) !== $install['current_stylesheet_dir_url'] ) {
@@ -1754,7 +1756,6 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		} elseif ( isset( $raindrops_fluid_minimum_width ) && ! empty( $raindrops_fluid_minimum_width ) ) {
 
 			$css .= raindrops_is_fluid( );
-			add_action( "wp_head", 'raindrops_fluid_layout_helper' );
 		}
 		//#hd
 		$uploads = wp_upload_dir( );
@@ -3844,7 +3845,7 @@ if ( ! function_exists( 'raindrops_helper_for_no_fluid_page_width' ) ) {
 
 	function raindrops_helper_for_no_fluid_page_width(){
 	
-			global $raindrops_browser_detection;
+			global $raindrops_browser_detection, $post;
 			
 			if ( $raindrops_browser_detection !== true ) {
 			

@@ -575,6 +575,7 @@ class raindrops_menu_create {
 														"WWW"=>"raindrops_color_en_140",
 														"Animation Color" =>"raindrops_color_anime"
 														);
+	var $first_save_to_database = 'no';
 /**
  *
  *
@@ -596,6 +597,14 @@ class raindrops_menu_create {
 			$this->col_settings_raindrops_style_type = array("w3standard" => "w3standard");
 		}
 		
+		$settings_check		= get_option('raindrops_theme_settings');
+		
+		if( $settings_check == false ) {
+		
+			$this->first_save_to_database = 'yes';
+		}
+		
+		
 		$ok		= false;
 		$result	= "";
 		/**
@@ -614,26 +623,49 @@ class raindrops_menu_create {
 			
 				wp_die ( esc_html__('Post Errors 18', 'Raindrops' ) );
 			}
-
+			
+			
 			$option_id				= intval($_POST['option_id']);
 			$raindrops_updates		= "";
 			
 			foreach ( $_POST["raindrops_option_values"] as $key=>$val ) {
 			
 				$valid_function		 = $key.'_validate';
-				$new_settings		= get_option('raindrops_theme_settings');
+				$new_settings		 = get_option('raindrops_theme_settings');
 				$new_settings[$key]	 = $valid_function( $val );
+				
+				$upload_dir = wp_upload_dir( );
+				$new_settings['current_stylesheet_dir_url'] = get_stylesheet_directory_uri( );
+				$new_settings['current_upload_base_url'] = $upload_dir['baseurl'];
+				$new_settings['install'] = true;
+				if ( $key == "raindrops_style_type" ) {
+				$style_type								= raindrops_warehouse( "raindrops_style_type" );
+				$raindrops_indv_css						= raindrops_design_output($style_type).raindrops_color_base();
+				$new_settings['_raindrops_indv_css']	= $raindrops_indv_css;
+				
+				
+				}
 				
 				if ( update_option('raindrops_theme_settings',$new_settings ) ) {
 					$ok				 = true;
-					$raindrops_updates .= ','.$key;
+					$raindrops_updates .= ',<span class="'. esc_attr( $key ).'">'.$key.'</span>';
 				}
-			}
+			}		
 		}
 		$result .= '<div class="wrap"><div id="title-raindrops-header" >';
 		$result .= screen_icon();
 		$result .= "<h2>" . ucfirst( $raindrops_current_theme_name ) . esc_html__( ' Theme Settings', 'Raindrops' ) . "</h2>";
-		$result .= "<p>".__('Saved Database table name:','Raindrops')."<strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
+		
+		
+		$install_condition = get_option('raindrops_theme_settings');
+		
+		if ( $install_condition !== false ) {
+		
+			$result .= "<p>".__('Saved Database table name:','Raindrops')." <strong>".RAINDROPS_PLUGIN_TABLE."</strong></p></div>";
+		} else {
+		
+			$result .= "<p>".__('Now, Raindrops Not Using Database Table','Raindrops'). "</p></div>";
+		}
 /**
  *
  *
@@ -651,6 +683,13 @@ class raindrops_menu_create {
 			$style_type											= raindrops_warehouse( "raindrops_style_type" );
 			$raindrops_indv_css									= raindrops_design_output($style_type).raindrops_color_base();
 			$raindrops_theme_settings['_raindrops_indv_css']	= $raindrops_indv_css;
+			$upload_dir = wp_upload_dir( );
+			$raindrops_theme_settings['current_stylesheet_dir_url'] = get_stylesheet_directory_uri( );
+			$raindrops_theme_settings['current_upload_base_url'] = $upload_dir['baseurl'];
+			$raindrops_theme_settings['install'] = true;
+
+
+
 			
 			update_option( 'raindrops_theme_settings', $raindrops_theme_settings, "", $add['autoload'] );
 			remove_theme_mods();
@@ -681,8 +720,14 @@ class raindrops_menu_create {
 			global $$scheme;
 			
 			if ( $ok == true ) {
+
+				if ( $this->first_save_to_database == 'yes') {
+				
+					$result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.__('updated saved database successfully.', 'Raindrops');				
+				} else {
 			
-				$result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s successfully.', 'Raindrops'), $raindrops_updates);
+					$result .= '<div id="message" class="updated fade" title="'.esc_attr($raindrops_updates).'"><p>'.sprintf(__('updated %1$s successfully.', 'Raindrops'), $raindrops_updates  );
+				}
 				
 				if ( is_multisite() ) {
 				
@@ -783,12 +828,39 @@ class raindrops_menu_create {
 		$deliv			= htmlspecialchars($_SERVER['REQUEST_URI']);
 		$results		= get_option('raindrops_theme_settings');
 		
+		if ( $results == false ) {
+			$this->first_save_to_database = 'yes';
+			$results = array();
+		
+			foreach ( $raindrops_base_setting as $key => $row ) {
+			
+				$raindrops_option_name  = $raindrops_base_setting[$key]['option_name'];
+				$raindrops_option_value = $raindrops_base_setting[$key]['option_value'];
+				$results[ $raindrops_option_name ] =  $raindrops_base_setting[$key]['option_value'];
+				
+			}
+		}
+		
 		foreach ( $raindrops_base_setting as $key => $row ) {
 		
 			$raindrops_option_name = $raindrops_base_setting[$key]['option_name'];
-			$raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
+			$raindrops_option_value = $raindrops_base_setting[$key]['option_value'];
+			
+			if ( ! empty( $results[$raindrops_option_name] ) ) {
+			
+				$raindrops_sort[$raindrops_option_name] = $results[$raindrops_option_name];
+			} else {
+			
+				$raindrops_sort[$raindrops_option_name] = $raindrops_option_value;
+			}
 		}
 		$results					= $raindrops_sort;
+		
+		
+		
+		
+		
+		
 		$current_heading_image		= raindrops_warehouse("raindrops_heading_image");
 		$raindrops_navigation_add	= '';
 		$raindrops_navigation_list	= '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';

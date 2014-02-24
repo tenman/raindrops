@@ -1483,7 +1483,6 @@ return $style.$css3;
 
 ?>
 <?php
-/////////////////////////////////////////////////
 /**
  * Color type minimal
  *
@@ -1637,8 +1636,8 @@ $raindrops_footer_color	= raindrops_warehouse_clone('raindrops_footer_color');
 $raindrops_indv_css	= raindrops_design_output($style_type).raindrops_color_base();
 $raindrops_options	= get_option("raindrops_theme_settings");
 	// if not handmade css. theme name style type is handmade
-
-if ( $raindrops_wp_version >= '3.4' ) {
+	
+if( $raindrops_options !== false ) {
 
 	if (raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
 	
@@ -1657,27 +1656,6 @@ if ( $raindrops_wp_version >= '3.4' ) {
 		
 			$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
 			add_option( "raindrops_theme_settings", $raindrops_options );
-		}
-	}
-} else {
-	if (raindrops_warehouse_clone("raindrops_style_type") !== $raindrops_current_theme_name ) {
-	
-		if (is_array($raindrops_options)) {
-	
-				if (array_key_exists('_raindrops_indv_css',$raindrops_options)) {
-				
-					$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-				} else {
-				
-					$add_array			= array('_raindrops_indv_css'=> $raindrops_indv_css );
-					$raindrops_options	= array_merge($raindrops_options,$add_array);
-				}
-				update_option("raindrops_theme_settings",$raindrops_options);
-	
-		} else {
-		
-			$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-			add_option("raindrops_theme_settings",$raindrops_options );
 		}
 	}
 }

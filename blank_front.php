@@ -293,18 +293,7 @@ raindrops_debug_navitation( __FILE__ );
 ?>
 	<div id="yui-main">
 		<div class="<?php echo $raindrops_devide_column_class;?>">
-<?php
-/**
- * Widget only home
- *
- */
-if ( is_home( ) && is_active_sidebar( 'sidebar-3' ) ) {
-
-	echo '<div class="topsidebar">'."\n".'<ul>';
-	dynamic_sidebar( 'sidebar-3' );
-	echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
-}
-?>
+<?php get_template_part( 'widget', 'sticky' );?>
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 				<div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php 
 				

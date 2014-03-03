@@ -150,3 +150,32 @@ define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT', 200 );
  */
  
 define( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX', false );
+
+/** Add CSS from Custom field
+ *
+ *
+ * field name: css
+ * default: true
+ * @since 1.201
+ */
+define( 'RAINDROPS_CUSTOM_FIELD_CSS' , true );
+
+/** Add javascript element from Custom field
+ *
+ *
+ * field name: javascript
+ * default: true
+ * @since 1.201
+ */
+define( 'RAINDROPS_CUSTOM_FIELD_META' , true );
+
+/** Add meta element from Custom field
+ *
+ *
+ * field name: meta
+ * default: false
+ * possible elements <base><link><meta>
+ * @since 1.201
+ */
+define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' , false );
+

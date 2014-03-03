@@ -36,6 +36,33 @@ if ( $raindrops_show_theme_option == false ) {
 		define( 'RAINDROPS_USE_AUTO_COLOR', false );
 	}
 }
+/** 
+ * Add to style for each post, page
+ *
+ * need role edit page.
+ * @since 1.201
+ */
+if( ! defined('RAINDROPS_CUSTOM_FIELD_CSS') ) {
+
+	define( 'RAINDROPS_CUSTOM_FIELD_CSS' , true );
+}
+/** 
+ * Add to script or metatag singlure page from custom field
+ * 
+ *
+ * javascript custom field key name: javascript
+ * metatag name : meta
+ * need role edit page.
+ * @since 1.201
+ */
+if( ! defined('RAINDROPS_CUSTOM_FIELD_META') ) {
+
+	define( 'RAINDROPS_CUSTOM_FIELD_META' , true );
+}
+if( ! defined('RAINDROPS_CUSTOM_FIELD_SCRIPT') ) {
+
+	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' , false );
+}
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -1771,7 +1798,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 
 		if ( 'raindrops' !== $raindrops_current_theme_name && 'footer.png' == raindrops_warehouse( 'raindrops_footer_image' ) ) {
 
-			$header_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $header_image_uri );
+			$footer_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $footer_image_uri );
 		}
 		$css .= "\n#ft{" . raindrops_upload_image_parser( $footer_image_uri, 'inline', '#ft' ) . '}';
 		// 2col 3col change style helper
@@ -1999,30 +2026,33 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 				$css .= $css_single;
 			}
 
-			if ( ! empty( $css ) ) {
+			if ( ! empty( $css ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
 
 				$result .= '<style type="text/css" id="raindrops-embed-css">';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
-				$result .= $css;
+				$result .= strip_tags( $css );
 				$result .= "\n/*]]>*/-->\n";
 				$result .= "</style>";
 			}
+			
+			$meta = get_post_meta( $post->ID, 'meta', true );
+			
+			if ( ! empty( $meta ) && RAINDROPS_CUSTOM_FIELD_META == true ) {
+
+				$result .= raindrops_esc_custom_field_meta( $meta );
+			}
+			
 			$javascript = get_post_meta( $post->ID, 'javascript', true );
 
-			if ( ! empty( $javascript ) ) {
+			if ( ! empty( $javascript ) && RAINDROPS_CUSTOM_FIELD_SCRIPT == true ) {
 
 				$result .= '<script type="text/javascript">';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
-				$result .= $javascript;
+				$result .=  raindrops_esc_custom_field_javascript( $javascript );
 				$result .= "\n/*]]>*/-->\n";
 				$result .= "</script>";
 			}
-			$meta = get_post_meta( $post->ID, 'meta', true );
 
-			if ( ! empty( $meta ) ) {
-
-				$result .= $meta;
-			}
 		} else {
 
 			$result .= '<style type="text/css">';
@@ -2059,6 +2089,47 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 		return $content;
 	}
 }
+
+if( ! function_exists( 'raindrops_esc_custom_field_meta' ) ) {
+
+	function raindrops_esc_custom_field_meta( $meta_input ){
+		
+		if( RAINDROPS_CUSTOM_FIELD_META !== true ) {
+			return;
+		}
+		
+		if ( is_singular() && !empty( $meta_input ) ) {
+		
+			$meta = preg_replace( '!>[^<]+<!',">\n<", $meta_input );
+			$meta = "\n{$meta}\n";
+			$meta = preg_replace( '!style\s*=\s*("|\')[^"\']+("|\')!','', $meta );
+			$meta = preg_replace( '!onmouseover\s*=\s*("|\')[^"\']+("|\')!','', $meta );
+			$meta = strip_tags( $meta, '<base><link><meta>' );
+			
+			return apply_filters( 'raindrops_esc_custom_field_meta', $meta, $meta_input );
+		}
+		
+		return;
+	}
+}
+
+if( ! function_exists( 'raindrops_esc_custom_field_javascript' ) ) {
+
+	function raindrops_esc_custom_field_javascript( $script ){
+	
+		if( RAINDROPS_CUSTOM_FIELD_SCRIPT !== true ) {
+			return;
+		}
+		if ( is_singular() && !empty( $script) ) {
+	
+			$javascript = str_replace( array( "\n", "\t","\r",) ,' ', $script );
+	
+			return apply_filters( 'raindrops_esc_custom_field_javascript', $javascript, $script );
+		}
+		return;
+	}
+}
+
 /**
  *
  *
@@ -5372,17 +5443,34 @@ if ( ! function_exists( 'raindrops_loop_class' ) ) {
  *
  * @since 1.103
  */
+
 add_action( 'set_current_user', 'raindrops_postmeta_cap' );
 
 if ( ! function_exists( 'raindrops_postmeta_cap' ) ) {
 
 	function raindrops_postmeta_cap( ) {
+	
+		if ( current_user_can( 'edit_pages' ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
 
-		if ( ! current_user_can( 'edit_pages' ) ) {
-
-			add_filter( 'auth_post_meta_css', '__return_false' );
-			add_filter( 'auth_post_meta_javascript', '__return_false' );
-			add_filter( 'auth_post_meta_meta', '__return_false' );
+			add_filter( 'auth_post_meta_css', '__return_true',5 );
+		} else {
+		
+			add_filter( 'auth_post_meta_css', '__return_false',5 );
+		}
+					
+		if ( current_user_can( 'edit_pages' ) && RAINDROPS_CUSTOM_FIELD_SCRIPT == true ) {
+			
+			add_filter( 'auth_post_meta_javascript', '__return_true', 5 );
+		} else {
+		
+			add_filter( 'auth_post_meta_javascript', '__return_false', 5 );
+		}
+		if ( current_user_can( 'edit_pages' ) && RAINDROPS_CUSTOM_FIELD_META == true ) {
+		
+			add_filter( 'auth_post_meta_meta', '__return_true', 5 );
+		} else {
+		
+			add_filter( 'auth_post_meta_meta', '__return_false', 5 );
 		}
 	}
 }

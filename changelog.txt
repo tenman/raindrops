@@ -1,4 +1,42 @@
 Changelog -----------------------------------
+version:1.201
+modified
+	Arbitrary Header/Footer Scripts:	Stop default
+
+		Deactivate default functionality, add to header embed script from custom field.
+			functions.php
+				define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' , false );
+					Anyone can not use custom field name 'javascript'.
+
+	Arbitrary Header CSS:	Same as the conventional
+
+			functions.php
+				define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' , true );
+					Need editor role.
+	Arbitrary Header Elements:	It is available, but limit has been added
+
+		Use the custom field name meta, there was no limit to the element 
+		that can be inserted, but it was decided to limit. 
+		Can be inserted element, 
+		it was decided to limit base, link, meta element.
+				Need editor role. only singular page, post.
+
+			Purpose of Arbitrary.
+				Add OGP(Open Graph Protocol) handmade
+					<meta property="og:title" content="test">
+					<meta property="og:type" content="article">
+					<meta property="og:description" content="test">
+					<meta property="og:url" content="test">
+					<meta property="og:image" content="test">
+					<meta property="og:site_name" content="test">
+					<meta property="og:email" content="test@test.com">
+			
+				When post content has relative links,define base URL and target.
+					<base href="http://www.tenman.info/images/" target="_blank">
+	Added
+		Template widget-sticky.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.200
 	Modify IMPORTANT CHANGES
 		out-of-the-box support

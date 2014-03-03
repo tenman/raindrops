@@ -19,19 +19,8 @@
 	<div id="yui-main">
 		<div id="container">
 <?php
-/**
- *  Widget only home
- *
- */
-		if ( is_front_page( ) && is_active_sidebar( 'sidebar-3' ) ) {
-		
-			echo '<div class="topsidebar">'."\n".'<ul>';
-			
-			dynamic_sidebar( 'sidebar-3' );
-			
-			echo '</ul>'."\n".'</div>'."\n".'<br class="clear" />';
-		}
-		
+		get_template_part( 'widget', 'sticky' );
+				
 		if ( have_posts( ) ) {
 		 
 			while ( have_posts( ) ) { 

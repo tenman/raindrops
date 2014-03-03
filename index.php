@@ -24,16 +24,7 @@ raindrops_debug_navitation( __FILE__ );
 ?>
 	<div id="yui-main">
 		<div class="yui-b">
-<?php if ( is_home( ) &&  is_active_sidebar( 'sidebar-3' ) ) { // Widget only home ?>
-			<div class="topsidebar">
-				<ul>
-					<?php dynamic_sidebar( 'sidebar-3' );?>
-				</ul>
-			</div>
-			<br class="clear" />
-<?php
-} // end if ( is_home( ) &&  is_active_sidebar( 'sidebar-3' ) )
-?>
+<?php get_template_part( 'widget', 'sticky' );?>
     		<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
 				<?php get_template_part( 'loop', $raindrops_document_type ); ?>

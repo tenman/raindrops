@@ -4,6 +4,8 @@ version:1.202
 		Header image not shows when wp-content dir rename.
 	Added
 		function raindrops_custom_field_meta_helper()
+		file preparation.php
+			 blank template for NO FTP ( Theme Editor ) users
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.201

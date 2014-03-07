@@ -1,7 +1,9 @@
 Changelog -----------------------------------
 version:1.202
+	Fixed
+		Header image not shows when wp-content dir rename.
 	Added
-		
+		function raindrops_custom_field_meta_helper()
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.201

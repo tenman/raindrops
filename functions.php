@@ -299,7 +299,6 @@ if ( $raindrops_wp_version >= '3.4' && ! isset( $raindrops_custom_header_args ) 
 											'height' => apply_filters( 'raindrops_header_image_height', '198' ),
 											'flex-height' => true,
 											'header-text' => true,
-											//'default-image' => get_template_directory_uri() . '/images/headers/wp3.jpg',
 											'default-image' => '%1$s/images/headers/wp3.jpg',
 											'wp-head-callback' => apply_filters( 'raindrops_wp-head-callback', 'raindrops_embed_meta' ),
 											'admin-preview-callback' => 'raindrops_admin_header_image', 'admin-head-callback' => 'raindrops_admin_header_style' );
@@ -2121,27 +2120,30 @@ if( ! function_exists( 'raindrops_esc_custom_field_meta' ) ) {
 
 add_filter( 'the_content','raindrops_custom_field_meta_helper' );
 
-function raindrops_custom_field_meta_helper( $content ) {
+if( ! function_exists( 'raindrops_custom_field_meta_helper' ) ) {
 
-		global $post;
-		
-		$meta_values = get_post_meta($post->ID, 'meta', true ) ;
-		
-		if( !empty( $meta_values ) && strstr( $meta_values, '<base') !== false && !is_singular() ) {
-		
-			preg_match( '!<base.+href\s*=\s*("|\')([^"\']+)("|\')!', $meta_values, $regs );
+	function raindrops_custom_field_meta_helper( $content ) {
 
-			/* NOTE: This preg_replace has Notice:Undefined offset: 2,  add patturn exists check */
-		
-			if ( preg_match( '!(href\s*=\s*|src\s*=\s*)("|\')([^//]*)?("|\')!', $content ) ) {
+			global $post;
 			
-				$content = preg_replace( '!(href\s*=\s*|src\s*=\s*)("|\')([^//]*)?("|\')!','$1"'.esc_url($regs[2]).'$3"' , $content);
-		
-				return apply_filters( 'raindrops_esc_custom_field_meta_helper', $content );
+			$meta_values = get_post_meta($post->ID, 'meta', true ) ;
+			
+			if( !empty( $meta_values ) && strstr( $meta_values, '<base') !== false && !is_singular() ) {
+			
+				preg_match( '!<base.+href\s*=\s*("|\')([^"\']+)("|\')!', $meta_values, $regs );
+
+				/* NOTE: This preg_replace has Notice:Undefined offset: 2,  add patturn exists check */
+			
+				if ( preg_match( '!(href\s*=\s*|src\s*=\s*)("|\')([^//]*)?("|\')!', $content ) ) {
+				
+					$content = preg_replace( '!(href\s*=\s*|src\s*=\s*)("|\')([^//]*)?("|\')!','$1"'.esc_url($regs[2]).'$3"' , $content);
+			
+					return apply_filters( 'raindrops_esc_custom_field_meta_helper', $content );
+				}
 			}
-		}
-		
-		return $content;
+			
+			return $content;
+	}
 }
 
 if( ! function_exists( 'raindrops_esc_custom_field_javascript' ) ) {

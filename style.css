@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.202
+Version: 1.203
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,10 @@ http://developer.yahoo.com/yui/fonts/
 .hfeed a{
 	text-decoration:none;
 }
-a:active {
+#ft a:active,
+.lsidebar a:active,
+.rsidebar a:active,
+#access a:active {
 	position:relative;
 	top:1px;
 }
@@ -233,14 +236,13 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 	margin:0.2em;
 }
 ol,ul{
-/* comment out 1.150*/
-	/*margin-left:2.5em;*/
+
 }
 ol li{
-	list-style:decimal;
+
 }
 ul li{
-	list-style:circle;
+
 }
 dl {
 	clear:both;
@@ -270,6 +272,11 @@ table {
 }
 table.auto {
 	table-layout:auto;
+}
+table.left,
+td.right,
+td.left{
+	float:none!important;
 }
 table.center .left,
 table.left td,
@@ -303,12 +310,6 @@ pre{
 s, strike,del{
 	text-decoration:line-through;
 }
-/*ins{
-	text-decoration:underline;
-}
-	ins:before{
-	content:"+ ";
-	}*/
 q{
 }
 	q:before{
@@ -580,8 +581,6 @@ ul.archive ul li {
 	margin:0 2%;
 }
 #bd {
-/* comment out 1.150
-	min-height:480px;*/
 }
 .page-template-page-templatesfront-page-php #bd{
 	min-height:0;
@@ -909,11 +908,9 @@ ul.index > li {
 }
 ul.archive > li .entry-content ul li,
 ul.index > li .entry-content ul li{
-	list-style:disc;
 }
 ul.archive > li .entry-content ol li,
 ul.index > li .entry-content ol li{
-	list-style:decimal;
 }
 
 ul.archive li .date,
@@ -927,7 +924,6 @@ ul.index li .edit {
 	margin:0 2em;
 }
 .entry-content ul li{
-	list-style-type:disc;
 }
 .page .hentry .entry-content {
 	margin-top:2em;
@@ -1201,12 +1197,12 @@ br.clearfix {
 }
 #nav-above .nav-previous,
 #nav-below .nav-previous,
-.left {
+.list-of-post-next-prev .left {
 	float:left!important;
 }
 #nav-above .nav-next,
 #nav-below .nav-next,
-.right {
+.list-of-post-next-prev .right  {
 	float:right;
 }
 .attachment .caption dd,
@@ -3502,4 +3498,16 @@ ol.list-of-post-list .entry-title{
 .page-template-blank_front-php div.entry-content,
 .page-template-blank_front-php .index .hentry{
 	margin:0;
+}
+/* plugins issue */
+/* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
+.entry-content .crayon-table{
+	table-layout:auto;
+}
+/* https://gist.github.com/ */
+.entry-content .gist{
+	table-layout:auto;
+}
+.entry-content .gist td{
+	text-align:left;
 }

@@ -1,4 +1,85 @@
 Changelog -----------------------------------
+version:1.203
+	Modify
+		Modify html list element basic style remove for plugin compatibility 
+	Fixed
+		Fixed raindrops bug with prettyPhoto
+
+			@see https://wordpress.org/support/topic/raindrops-bug-with-prettyphoto?replies=8
+			
+			Thank you @0soYoung
+
+		Fixed Gist embed script display improperly.
+
+		Fixed Creyon syntax highlighter improperly.
+			http://wordpress.org/plugins/crayon-syntax-highlighter/
+
+		Fixed Raindrops CSS table class works improperly.
+
+		table element example ( indivisual styles for each post )
+
+    <table class="auto left">
+        <col class="left-column">
+        <col class="right-column">
+        <tbody>
+            <tr>
+                <th colspan="2">Example table element</th>
+            </tr>
+             <tr>
+                <td class="center"><img src="http://www.tenman.info/images/pen.jpg" width="100" alt="test image" /></td>
+                <td class="left">text align left use CLASS left</td>
+            </tr>
+            <tr>
+                <td class="right">text align right use CLASS right</td>
+                <td class="left">text align left use CLASS left</td>
+            </tr>
+            <tr>
+                <td class="center">text align center use CLASS center</td>
+                <td class="center">text align center use CLASS center</td>
+            </tr>
+          <tr>
+                <td class="left">text align center use CLASS center</td>
+                <td class="right">text align right use CLASS right</td>
+            </tr>
+        </tbody>
+    </table>
+
+	CSS
+		create a customfield 
+			name:css
+			value:
+			/* columns width.( need table css class auto )*/
+			.left-column{
+			width:100px;
+			}
+			.right-column{
+			width:auto;
+			background:#eee;
+			}
+			/* cell color and background */
+			td:first-child{
+			background:#ccc;
+			color:#000;
+			border:1px dotted #999;
+			}
+			td:last-child{
+			background:#eee;
+			color:#000;
+			border:1px solid #aaa;
+			}
+			th{
+			background:#aaa;
+			color:#fff;
+			font-size:138.5%;
+			}
+			/* width of table */
+			table{
+			width:100%;
+			margin:3em auto;
+			}
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.202
 	Fixed
 		Header image not shows when wp-content dir rename.

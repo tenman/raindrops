@@ -4245,7 +4245,7 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 				}
 			}
 		}
-		raindrops_resizes();
+		jQuery(window).load( function (){ raindrops_resizes()});
 		jQuery(window).resize( function (){ raindrops_resizes()});
 	} );
 
@@ -4730,11 +4730,13 @@ if ( ! function_exists( 'raindrops_append_footer' ) ) {
  *
  * @since 0.980
  */
+
+
 if ( ! function_exists( 'raindrops_entry_title' ) ) {
 
 	function raindrops_entry_title( $args = array( ) ) {
 
-		global $post;
+		global $post, $templates;
 		$default	= array( 'raindrops_title_element' => 'h2', );
 		$args		= wp_parse_args( $args, $default );
 		$thumbnail	= '';
@@ -4746,8 +4748,8 @@ if ( ! function_exists( 'raindrops_entry_title' ) ) {
 			$thumbnail .= get_the_post_thumbnail( $post->ID, array( 48, 48 ), array( "style" => "vertical-align:text-bottom;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
 			$thumbnail .= '</span>';
 		}
-		
-		if( ! is_singular( ) ) {
+				
+		if( ! is_singular( ) or is_page_template('page-templates/list-of-post.php') ) {
 		
 			$html = '<' . $raindrops_title_element . ' class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s"><span>%4$s</span></a></' . $raindrops_title_element . '>';
 		
@@ -5514,46 +5516,55 @@ if ( ! function_exists( 'raindrops_postmeta_cap' ) ) {
  *
  * @since 1.111
  */
-class raindrops_unique_identifier_walker_nav_menu extends Walker_Nav_Menu {
-
-	 function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		global $wp_query;
-		
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-    	$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
-	  
-		// build html
-		$output .= '<li id="nav-menu-item-'. $item->ID . '" class="' . $class_names . '">';
-	  
-		// link attributes
-		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-		
-		$item_id = url_to_postid( $item->url  );
-		
-		if ( $item_id == 0 ) {
-		
-		} else {
-		
-			$item->title	= $item->title;
-			$item->title = sprintf('<span class="raindrops_unique_identifier">[Link to %1$s]</span>%2$s', $item_id, $item->title );
+if ( ! class_exists( 'raindrops_unique_identifier_walker_nav_menu' ) ) {
+	class raindrops_unique_identifier_walker_nav_menu extends Walker_Nav_Menu {
+	
+		 function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+			global $wp_query;
+			
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+		  
+			// build html
+			$output .= '<li id="nav-menu-item-'. $item->ID . '" class="' . $class_names . '">';
+		  
+			// link attributes
+			$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+			$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+			$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+			$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+			
+			$item_id = url_to_postid( $item->url  );
+			
+			if ( $item_id == 0 ) {
+			
+			} else {
+			
+				$item->title	= $item->title;
+				$item->title = sprintf('<span class="raindrops_unique_identifier">[Link to %1$s]</span>%2$s', $item_id, $item->title );
+			}
+		  
+			$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+				! empty( $args->before ) ? $args->before: '',
+				$attributes,
+				! empty( $args->link_before ) ? $args->link_before: '',
+				apply_filters( 'raindrops_nav_menu_title', $item->title, $item->ID ),
+				! empty( $args->link_after ) ? $args->link_after: '',
+				! empty( $args->after ) ? $args->after: ''
+				);
+		  
+			// build html
+			$output .= apply_filters( 'raindrops_unique_identifier_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
-	  
-		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
-			$args->before,
-			$attributes,
-			$args->link_before,
-			apply_filters( 'raindrops_nav_menu_title', $item->title, $item->ID ),
-			$args->link_after,
-			$args->after
-			);
-	  
-		// build html
-		$output .= apply_filters( 'raindrops_unique_identifier_walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 }
+/**
+ *
+ *
+ *
+ *
+ * 
+ */
 if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 
 	function raindrops_nav_menu_primary( $args = array() ) {
@@ -5610,6 +5621,7 @@ if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 		
 	}
 }
+
 /**
  *
  *
@@ -5900,7 +5912,7 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 			echo '<div class="line poster-row-'. ($i + 1) .'">';
 			
 			foreach ( $args[$i] as $key => $page_item ) {
-
+			
 				echo '<div class="' . $page_item['class'] . ' poster-col-'. ( $key + 1 ).' '. esc_attr( $page_item['type'][0] ).' ">';
 				
 				do_action( 'raindrops_poster_before_'. ($i + 1). '_'. ( $key + 1 ) );

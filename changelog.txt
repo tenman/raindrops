@@ -3,6 +3,9 @@ version:1.203
 	Modify
 		Modify html list element basic style remove for plugin compatibility 
 	Fixed
+		Fixed class raindrops_unique_identifier_walker_nav_menu
+				has error ( empty object notice )
+
 		Fixed raindrops bug with prettyPhoto
 
 			@see https://wordpress.org/support/topic/raindrops-bug-with-prettyphoto?replies=8

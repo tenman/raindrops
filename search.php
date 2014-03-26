@@ -19,7 +19,7 @@ do_action( 'raindrops_pre_'.basename( __FILE__) );
   <div class="yui-b">
     <div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 		<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
-		
+<?php  		raindrops_prepend_loop();?>
 <?php if ( have_posts( ) ) { ?>
 		
 		<h1 class="pagetitle h1">Search Results : <?php the_search_query( ); ?></h1>
@@ -83,12 +83,13 @@ do_action( 'raindrops_pre_'.basename( __FILE__) );
         <div class="fail-search">
           <h2 class="center h2">
 <?php 
-			 esc_html_e( "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.","Raindrops" );
+			esc_html_e( "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.","Raindrops" );
 ?>
           </h2>
-          <?php get_search_form( ); ?>
+<?php		get_search_form( ); ?>
         </div>
 <?php } ?>
+<?php		raindrops_append_loop();?>
       </div>
       <div class="yui-u">
 <?php 

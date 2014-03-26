@@ -7,9 +7,6 @@ do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $
 	<head>
 		<meta http-equiv="content-type" content="<?php bloginfo( 'html_type' );?>; charset=<?php bloginfo( 'charset' ); ?>" />
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]--> 
 <?php
 		global $raindrops_link_unique_text;
 		wp_head( );

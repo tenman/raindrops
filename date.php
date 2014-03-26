@@ -107,6 +107,8 @@ raindrops_debug_navitation( __FILE__ );
 			<div class="<?php echo raindrops_yui_class_modify( );?>" id="container">
 			<!-- content -->
 				<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true );?>" <?php raindrops_doctype_elements( '', 'role="main"' );?>>
+<?php  		raindrops_prepend_loop();?>
+
 					<h2 class="page-title">
 <?php
 		if ( is_year( ) ) {
@@ -137,6 +139,8 @@ raindrops_debug_navitation( __FILE__ );
 <?php echo paginate_links( $pagination ).'';?>
 					</div>
 <?php }// end if ( is_month( ) )?>
+<?php  		raindrops_append_loop();?>
+
 				</div>
 				<div class="yui-u">
 <?php 

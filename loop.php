@@ -11,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Display navigation to next/previous pages when applicable
  */
+ 		raindrops_prepend_loop();
+
 		raindrops_next_prev_links( );
 		
 		if ( have_posts( ) ) {
@@ -56,12 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 					
 					get_template_part( 'part', 'blog' );
 					
-					
-					
-					
-					
 				} elseif ( $format !== false ) {
-				
 				
 					get_template_part( 'part', $format );
 /**
@@ -116,6 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
 	</ul>
 <?php 
-					raindrops_next_prev_links( "nav-below" );
+				raindrops_next_prev_links( "nav-below" );
 		}//if have_posts
+				raindrops_append_loop();
 ?>

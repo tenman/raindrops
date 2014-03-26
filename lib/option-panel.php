@@ -865,10 +865,8 @@ class raindrops_menu_create {
 		$raindrops_navigation_add	= '';
 		$raindrops_navigation_list	= '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">'.__('WordPress Native Theme Options','Raindrops').'</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
 		
-		if ( $raindrops_wp_version >= '3.4' ) {
 		
 			$raindrops_navigation_list .= '<li><a href="'.admin_url( 'customize.php' ).'">'. esc_html__( 'Theme customizer','Raindrops').'</a></li>';
-		}
 		
 		$raindrops_navigation_list .= '<li><a href="'.admin_url( 'themes.php?page=custom-header' ).'">'. esc_html__( 'Custom Header','Raindrops').'</a></li>';
 		$raindrops_navigation_list .= '<li><a href="'.admin_url( 'themes.php?page=custom-background' ).'">'. esc_html__( 'Custom Background','Raindrops').'</a></li>';
@@ -1118,10 +1116,7 @@ class raindrops_menu_create {
 			
 			if ( is_child_theme() ) {
 			
-				if ( $raindrops_wp_version >= '3.4' ) { // WordPress 3.4 check
-				
 					$raindrops_theme_name = 'Child theme '.ucwords( wp_get_theme() ).' of '.__("Raindrops Theme","Raindrops");
-				}
 			} else {
 			
 				$raindrops_theme_name = esc_html__("Raindrops Theme","Raindrops");

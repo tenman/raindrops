@@ -291,7 +291,7 @@ register_nav_menus( array( 'primary' => esc_html__( 'Primary Navigation', 'Raind
  * $raindrops_custom_header_args
  *
  */
-if ( $raindrops_wp_version >= '3.4' && ! isset( $raindrops_custom_header_args ) ) {
+if ( ! isset( $raindrops_custom_header_args ) ) {
 
 	$raindrops_custom_header_args = array(	'default-text-color' => 'bbb',
 											'width' => apply_filters( 'raindrops_header_image_width', '950' ),
@@ -385,6 +385,29 @@ if ( ! isset( $raindrops_document_type ) ) {
 	} else {
 
 		$raindrops_document_type = 'html5';
+	}
+}
+/**
+ * Force Document type for lt IE9 Old Browser
+ * Note: This setting is SERVER_SIDE Setting, I recommend that the browser is set when the cache of less than IE9 as not performed
+ *
+ * Raindrops 1.204 remove from header.php 
+ *		<!--[if IE]>
+ *		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ *		<![endif]--> 
+ *
+ *
+ * ver 1.204 
+ */
+if ( $is_IE  ) {
+
+	preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $_SERVER['HTTP_USER_AGENT'], $raindrops_regs );
+	
+	 $raindrops_regs = ( int ) $raindrops_regs[2];
+	
+	if ( $raindrops_regs < 9 ) {
+	
+		$raindrops_document_type = 'xhtml';
 	}
 }
 /**
@@ -1478,7 +1501,7 @@ if ( ! function_exists( 'raindrops_gradient' ) ) {
  *
  *
  */
-if ( ! function_exists( "add_raindrops_stylesheet" ) && $wp_version >= 3.4 ) {
+if ( ! function_exists( "add_raindrops_stylesheet" ) ) {
 
 	function add_raindrops_stylesheet( ) {
 
@@ -3419,7 +3442,7 @@ if ( ! function_exists( 'raindrops_detect_header_image_size' ) ) {
  * @param array(  'img'=> 'image uri' , 'height' => 'image height' , 'color' => 'text color', 'style' => '( default  ) background-size:cover;' , 'description' => 'replace text from bloginfo(  description  ) to your text','description_style' => 'Your description style rule'  )
  * @return string htmlblock <div id="['header-image']" style="background-image:url( [img] );height:[height];color:#[color]][style]"><p [description_style]>[WordPress site description]</p></div>
  */
-if ( ! function_exists( 'raindrops_header_image' ) && $wp_version >= 3.4 ) {
+if ( ! function_exists( 'raindrops_header_image' ) ) {
 
 	function raindrops_header_image( $type = 'default', $args = array( ) ) {
 
@@ -4408,10 +4431,7 @@ if ( ! function_exists( 'raindrops_gallerys' ) ) {
  */
 if ( $raindrops_show_theme_option == true ) {
 
-	if ( $raindrops_wp_version >= '3.4' ) {
-	
 		add_action( 'customize_register', 'raindrops_customize_register' );
-	}
 }
 /**
  *
@@ -4521,12 +4541,46 @@ if ( ! function_exists( 'insert_message_action_hook_position' ) ) {
 		add_action( 'raindrops_prepend_footer', 'raindrops_action_hook_messages' );
 		add_action( 'raindrops_append_footer', 'raindrops_action_hook_messages' );
 		add_action( 'raindrops_prepend_entry_content', 'raindrops_action_hook_messages' );
+		add_action( 'raindrops_prepend_loop', 'raindrops_action_hook_messages' );
+		add_action( 'raindrops_append_loop', 'raindrops_action_hook_messages' );
 	}
 }
 
 if ( true == WP_DEBUG && true == $raindrops_actions_hook_message ) {
 
 	insert_message_action_hook_position( );
+}
+/**
+ *
+ *
+ *
+ *
+ * @since 1.204
+ */
+if ( ! function_exists( 'raindrops_prepend_loop' ) ) {
+
+	function raindrops_prepend_loop( ) {
+		$args = array( 'hook_name' => 'raindrops_prepend_loop', 'template_part_name' => 'hook-prepend-loop.php' );
+
+		get_template_part( 'hook', 'prepend-loop' );
+		do_action( 'raindrops_prepend_loop', $args );
+	}
+}
+/**
+ *
+ *
+ *
+ *
+ * @since 1.204
+ */
+if ( ! function_exists( 'raindrops_append_loop' ) ) {
+
+	function raindrops_append_loop( ) {
+		$args = array( 'hook_name' => 'raindrops_append_loop', 'template_part_name' => 'hook-append-loop.php' );
+
+		get_template_part( 'hook', 'append-loop' );
+		do_action( 'raindrops_append_loop', $args );
+	}
 }
 /**
  *
@@ -4823,7 +4877,7 @@ if ( ! function_exists( 'raindrops_next_prev_links' ) ) {
 
 			$html = '<div id="%3$s" class="clearfix"><span class="nav-previous">%1$s</span><span class="nav-next">%2$s</span></div>';
 			$html = sprintf( $html, get_next_posts_link( '<span class="meta-nav">&larr;</span>' . $raindrops_old. esc_html__( ' Older posts', 'Raindrops' ) ), get_previous_posts_link( '<span>' . $raindrops_new. esc_html__( 'Newer posts', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span></span>' ), $position );
-			echo apply_filters( 'raindrops_next_prev_links', $html );
+			echo apply_filters( 'raindrops_next_prev_links', $html, $position );
 		}
 	}
 }

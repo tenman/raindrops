@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.204
+
+moved
+
+	Removed from header.php( html5 header template part file ) blow
+
+		http://html5shiv.googlecode.com/svn/trunk/html5.js
+
+		Raindrops html5 stop support for OLD Browser( IE8,IE7 )
+
+		IE old browser shows allways xhtml document type.
+
+		Note: This change is SERVER_SIDE settings, 
+		I recommend that the browser is set 
+		when the cache of less than IE9 as not performed
+added
+
+	function raindrops_prepend_loop()
+
+		You can add loop before content with
+		action hook raindrops_prepend_loop or template part file(
+		hook-prepend-loop.php )
+
+	function raindrops_append_loop()
+
+		You can add loop before content with
+		action hook raindrops_append_loop or template part file(
+		hook-append-loop.php )
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.203
 	Modify
 		Modify html list element basic style remove for plugin compatibility 

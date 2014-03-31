@@ -1,4 +1,11 @@
 Changelog -----------------------------------
+version:1.205
+
+modified
+		 Support Admin Color Scheme theme option page
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.204
 
 moved

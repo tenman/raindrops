@@ -140,3 +140,355 @@ h3,
 table{
 	border:none!important;
 }
+
+/*
+ * CSS CLASS admin-color-ocean
+ */
+.admin-color-ocean .go-top{
+	background: #627c83 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%; 
+
+}
+.admin-color-ocean .#raindrops_upload_form,
+.admin-color-ocean .raindrops-excerpt{
+	color:#627c83;
+}
+.admin-color-ocean .postbox th,
+.admin-color-ocean .raindrops-option-footer-infomation a,
+.admin-color-ocean .raindrops-option-footer-infomation,
+.admin-color-ocean .raindrops-navigation-title{
+	background:#627c83;
+	color:#fff;
+}
+.admin-color-ocean .postbox{
+	background:rgba( 158,186,160,.1);
+
+}
+.admin-color-ocean .raindrops-options-menu,
+.admin-color-ocean .raindrops-native-menu{
+	background:rgba( 158,186,160,.3);
+	color:#fff;
+}
+.admin-color-ocean .raindrops-options-menu a,
+.admin-color-ocean .raindrops-native-menu a{
+	coolor:#627c83;
+}
+
+/*
+ * CSS CLASS admin-color-light
+ */
+
+.admin-color-light .go-top{
+	background: #e5e5e5 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%;
+	border:2px solid #666; 
+
+}
+.admin-color-light #raindrops_upload_form .raindrops_navigation_list a,
+.admin-color-light #raindrops_upload_form,
+.admin-color-light .raindrops-excerpt{
+	color:#666;
+}
+.admin-color-light .raindrops-native-menu a,
+.admin-color-light #title-raindrops-header h2 a,
+.admin-color-light #title-raindrops-header h2,
+.admin-color-light #raindrops_navigation_list a{
+	color:#666;
+
+}
+.admin-color-light .postbox th{
+	background:#e5e5e5;
+	color:#666;
+}
+.admin-color-light .raindrops-option-footer-infomation a,
+.admin-color-light .raindrops-option-footer-infomation,
+.admin-color-light .raindrops-navigation-title{
+	background:#e5e5e5;
+	color:#666;
+}
+.admin-color-light .postbox{
+	background:rgba( 222,222,222,.1);
+
+}
+.admin-color-light .raindrops-options-menu,
+.admin-color-light .raindrops-native-menu{
+	background:rgba( 222,222,222,.3);
+	color:#666;
+}
+.admin-color-light .raindrops-options-menu a,
+.admin-color-light .raindrops-native-menu a{
+	coolor:#666;
+}
+
+/*
+ * CSS CLASS admin-color-blue
+ */
+
+.admin-color-blue .go-top{
+	background: #096484 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%;
+	border:2px solid #fff; 
+
+}
+.admin-color-blue #raindrops_upload_form .raindrops_navigation_list a,
+.admin-color-blue #raindrops_upload_form,
+.admin-color-blue .raindrops-excerpt{
+	color:#666;
+}
+.admin-color-blue .raindrops-native-menu a,
+.admin-color-blue #title-raindrops-header h2 a,
+.admin-color-blue #title-raindrops-header h2,
+.admin-color-blue #raindrops_navigation_list a{
+	color:#666;
+
+}
+.admin-color-blue .postbox th{
+	background:#4796b3;
+	color:#fff;
+}
+.admin-color-blue .raindrops-option-footer-infomation a,
+.admin-color-blue .raindrops-option-footer-infomation,
+.admin-color-blue .raindrops-navigation-title{
+	background:#4796b3;
+	color:#fff;
+}
+.admin-color-blue .postbox{
+	background:rgba( 82,172,204,.1);
+
+}
+.admin-color-blue .raindrops-options-menu,
+.admin-color-blue .raindrops-native-menu{
+	background:rgba( 82,172,204,.3);
+	color:#666;
+}
+.admin-color-blue .raindrops-options-menu a,
+.admin-color-blue .raindrops-native-menu a{
+	coolor:#666;
+}
+
+/*
+ * CSS CLASS admin-color-coffee
+ */
+
+.admin-color-coffee .go-top{
+	background: #46403c url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%;
+	border:2px solid #fff; 
+
+}
+.admin-color-coffee #raindrops_upload_form .raindrops_navigation_list a,
+.admin-color-coffee #raindrops_upload_form,
+.admin-color-coffee .raindrops-excerpt{
+	color:#666;
+}
+.admin-color-coffee .raindrops-native-menu a,
+.admin-color-coffee #title-raindrops-header h2 a,
+.admin-color-coffee #title-raindrops-header h2,
+.admin-color-coffee #raindrops_navigation_list a{
+	color:#666;
+
+}
+.admin-color-coffee .postbox th{
+	background:#46403c;
+	color:#fff;
+}
+.admin-color-coffee .raindrops-option-footer-infomation a,
+.admin-color-coffee .raindrops-option-footer-infomation,
+.admin-color-coffee .raindrops-navigation-title{
+	background:#46403c;
+	color:#fff;
+}
+.admin-color-coffee .postbox{
+	background:rgba( 199,165,137,.1);
+
+}
+.admin-color-coffee .raindrops-options-menu,
+.admin-color-coffee .raindrops-native-menu{
+	background:rgba( 199,165,137,.3);
+	color:#666;
+}
+.admin-color-coffee .raindrops-options-menu a,
+.admin-color-coffee .raindrops-native-menu a{
+	coolor:#666;
+}
+
+<tr>
+<td style="background-color: #413256">&nbsp;</td>
+	<td style="background-color: #523f6d">&nbsp;</td>
+	<td style="background-color: #a3b745">&nbsp;</td>
+	<td style="background-color: #d46f15">&nbsp;</td>
+</tr>
+/*
+ * CSS CLASS admin-color-ectoplasm
+ */
+
+.admin-color-ectoplasm .go-top{
+	background: #413256 url(images/options/arrows-vs.png) no-repeat 0 -36px;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%;
+	border:1px solid #fff; 
+
+}
+.admin-color-ectoplasm #raindrops_upload_form .raindrops_navigation_list a,
+.admin-color-ectoplasm #raindrops_upload_form,
+.admin-color-ectoplasm .raindrops-excerpt{
+	color:#666;
+}
+.admin-color-ectoplasm .raindrops-native-menu a,
+.admin-color-ectoplasm #title-raindrops-header h2 a,
+.admin-color-ectoplasm #title-raindrops-header h2,
+.admin-color-ectoplasm #raindrops_navigation_list a{
+	color:#666;
+
+}
+.admin-color-ectoplasm .postbox th{
+	background:#413256;
+	color:#fff;
+}
+.admin-color-ectoplasm .raindrops-option-footer-infomation a,
+.admin-color-ectoplasm .raindrops-option-footer-infomation,
+.admin-color-ectoplasm .raindrops-navigation-title{
+	background:#413256;
+	color:#fff;
+}
+.admin-color-ectoplasm .postbox{
+	background:rgba( 163,183,69,.1);
+
+}
+.admin-color-ectoplasm .raindrops-options-menu,
+.admin-color-ectoplasm .raindrops-native-menu{
+	background:rgba( 163,183,69,.3);
+	color:#666;
+}
+.admin-color-ectoplasm .raindrops-options-menu a,
+.admin-color-ectoplasm .raindrops-native-menu a{
+	coolor:#666;
+}
+
+/*
+ * CSS CLASS admin-color-midnight
+ */
+.admin-color-midnight #raindrops_upload_form h3,
+.admin-color-midnight .raindrops-options-title{
+	color:#fff;
+	text-shadow:none!important;
+	box-shadow:none!important;
+}
+.admin-color-midnight #raindrops-style-type.go-top,
+.admin-color-midnight .go-top{
+	background: #fff url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%;
+	border:1px solid #fff; 
+}
+
+.admin-color-midnight a[href="#raindrops_upload_form"],
+.admin-color-midnight a[href="#raindrops-base-color"],
+.admin-color-midnight a[href="#raindrops-style-type"],
+.admin-color-midnight #raindrops_upload_form .raindrops_navigation_list a,
+.admin-color-midnight #raindrops_upload_form,
+.admin-color-midnight .raindrops-excerpt{
+	color:#fff;
+}
+.admin-color-midnight #title-raindrops-header h2 a,
+.admin-color-midnight #title-raindrops-header h2{
+	color:#000;
+}
+.admin-color-midnight .raindrops-native-menu a,
+.admin-color-midnight #raindrops_navigation_list a{
+	color:#fff;
+
+}
+.admin-color-midnight .postbox th{
+	background:#25282b;
+	color:#fff;
+}
+.admin-color-midnight .raindrops-option-footer-infomation a,
+.admin-color-midnight .raindrops-option-footer-infomation,
+.admin-color-midnight .raindrops-navigation-title{
+	background:#25282b;
+	color:#fff;
+}
+.admin-color-midnight .postbox{
+	background:rgba( 54,59,63,.9);
+
+}
+.admin-color-midnight .raindrops-options-menu,
+.admin-color-midnight .raindrops-native-menu{
+	background:rgba( 54,59,63,.7);
+	color:#fff;
+}
+.admin-color-midnight .raindrops-options-menu a,
+.admin-color-midnight .raindrops-native-menu a{
+	coolor:#fff;
+}
+/*
+ * CSS CLASS admin-color-sunrise
+ */
+.admin-color-sunrise #raindrops_upload_form h3,
+.admin-color-sunrise .raindrops-options-title{
+	color:#fff;
+	text-shadow:none!important;
+	box-shadow:none!important;
+}
+.admin-color-sunrise #raindrops-style-type.go-top,
+.admin-color-sunrise .go-top{
+	background: #b43c38 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+	border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	-webkit-border-radius: 50%;
+	border:2px solid #fff; 
+}
+
+.admin-color-sunrise a[href="#raindrops_upload_form"],
+.admin-color-sunrise a[href="#raindrops-base-color"],
+.admin-color-sunrise a[href="#raindrops-style-type"],
+.admin-color-sunrise #raindrops_upload_form .raindrops_navigation_list a,
+.admin-color-sunrise #raindrops_upload_form,
+.admin-color-sunrise .raindrops-excerpt{
+	color:#fff;
+}
+.admin-color-sunrise #title-raindrops-header h2 a,
+.admin-color-sunrise #title-raindrops-header h2{
+	color:#000;
+}
+.admin-color-sunrise .raindrops-native-menu a,
+.admin-color-sunrise #raindrops_navigation_list a{
+	color:#fff;
+}
+.admin-color-sunrise .postbox th{
+	background:#b43c38;
+	color:#fff;
+}
+.admin-color-sunrise .raindrops-option-footer-infomation a,
+.admin-color-sunrise .raindrops-option-footer-infomation,
+.admin-color-sunrise .raindrops-navigation-title{
+	background:#b43c38;
+	color:#fff;
+}
+.admin-color-sunrise .postbox{
+	background:rgba( 221,130,59,1);
+
+}
+.admin-color-sunrise .raindrops-options-menu,
+.admin-color-sunrise .raindrops-native-menu{
+	background:rgba( 221,130,59,.9);
+	color:#fff;
+}
+.admin-color-sunrise .raindrops-options-menu a,
+.admin-color-sunrise .raindrops-native-menu a{
+	coolor:#fff;
+}
+.go-top{
+	margin:3px;
+}

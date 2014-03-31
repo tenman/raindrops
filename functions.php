@@ -3490,7 +3490,7 @@ if ( ! function_exists( 'raindrops_header_image' ) ) {
 				break;
 
 			case 'doc3' == $raindrops_width:
-				$raindrops_document_width = 500; //this value is fake following javascript
+				$raindrops_document_width = 950; //this value is fake following javascript
 				break;
 		}
 
@@ -4114,8 +4114,8 @@ if ( ! function_exists( 'raindrops_small_device_helper' ) ) {
 			}
 ?>
                 var raindrops_ratio = <?php echo apply_filters( 'raindrops_header_image_ratio', $ratio ); ?>;
-                var raindrops_height = raindrops_width * raindrops_ratio;
-                	jQuery('#header-image').removeAttr('style').css( {'height': raindrops_height} );
+                var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
+                jQuery('#header-image').removeAttr('style').css( {'height': raindrops_height} );
 					
 <?php //remove header
 			

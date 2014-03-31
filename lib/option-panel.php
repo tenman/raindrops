@@ -1219,7 +1219,7 @@ class raindrops_menu_create {
 			$result= '<div class="postbox raindrops" id="raindrops_upload_form">
 			<h3 id="raindrops-style-type" title="raindrops style type">
 			<div id="icon-upload" class="icon32"></div>
-			<span style="position:relative;top:10px;">'.
+			<span>'.
 			esc_html__( 'Image Upload', 'Raindrops' ).
 			'</span></h3>
 			<fieldset ><legend>'. esc_html__( 'Upload', 'Raindrops' ).'</legend>

@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.206
+
+modified
+		 Modified Static Page Template blank-front.php
+			It is now be able to view the featured image in the list of each of the specified list of recent post, 
+			list that specifies the tag, the category. and can also specify the excerpt length
+
+			Live Preview below
+			http://www.tenman.info/wp3/previewraindrops/blank-front-template/
+----------------------------------------------
+Changelog -----------------------------------
 version:1.205
 
 modified

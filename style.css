@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.205
+Version: 1.206
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -385,6 +385,9 @@ radio{
 .entry-content .color4,
 .entry-content .color5{
 	display:inline-block;
+}
+#raindrops-recent-posts .entry-content{
+	margin-top:.5em;
 }
 .gallery-columns-1 dl dd,
 .gallery-columns-1 dl dt,
@@ -897,6 +900,9 @@ ul.index {
 
 	margin:.5em 0;
 	max-width:99%;
+}
+ul.blank-front{
+	margin-left:1em;
 }
 ul.archive > li,
 ul.index > li {
@@ -2549,11 +2555,27 @@ sup {
 .raindrops-tag-posts{
 	clear:both;	
 }
-.raindrops-recent-posts .title,
+.raindrops-recent-posts .entry-title,
 .raindrops-category-posts .title,
+.raindrops-category-posts,
 .raindrops-tag-posts .title{
-	
+	text-overflow: ellipsis;	
 }
+.raindrops-category-posts a,
+.raindrops-tag-posts,
+.raindrops-recent-posts{
+	max-width:100%;
+}
+.raindrops-tag-posts ul,
+.raindrops-category-posts ul{
+	overflow:hidden;
+}
+.raindrops-recent-posts li, 
+.raindrops-tag-posts li,
+.raindrops-category-posts li{
+	list-style:none;
+}
+
 .raindrops-recent-posts .list,
 .raindrops-category-posts .list,
 .raindrops-tag-posts .list{
@@ -3423,7 +3445,7 @@ h2.page-featured-template{
 	float:right;
 	width:48%;
 }
-
+#raindrops-recent-posts .raindrops-pub-new .entry-date:before,
 .raindrops-pub-new .posted-on-string:before{
 	content:"new";
 	color:red;
@@ -3510,4 +3532,24 @@ ol.list-of-post-list .entry-title{
 }
 .entry-content .gist td{
 	text-align:left;
+}
+/* bbpress */
+#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums div, #bbpress-forums ul,#bbpress-forums li.bbp-header,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results,#bbpress-forums #bbp-your-profile fieldset span.description,
+#bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea,#bbp-user-navigation *,#bbpress-forums .bbp-topics *,#bbpress-forums .forums *{
+	background:none!important;
+}
+li[class^="bbp_widget_"] fieldset div{
+	max-width:100%;
+}
+li[class^="bbp_widget_"] fieldset{
+	display:inline-block;
+	max-width:100%;
+	margin:0!important;
+	padding:5px;
+}
+div.bbp-template-notice, div.indicator-hint{
+	color:inherit;
+}
+#bbpress-forums fieldset.bbp-form,#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results{
+	border:1px solid rgba(222,222,222,.5);
 }

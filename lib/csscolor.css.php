@@ -699,7 +699,7 @@ select{
 
 }
 .entry-content ul li{
-	list-style-type:square;
+	/*list-style-type:square;*/
 
 }
 .entry-content input[type="email"],

@@ -3347,7 +3347,7 @@ if ( ! function_exists( 'raindrops_fallback_title' ) ) {
 		global $post, $raindrops_link_unique_text;
 		$format_label = '';
 
-		if ( 0 == $id ) {
+		if ( 0 == $id && is_object( $post ) ) {
 
 			$id = $post->ID;
 		}

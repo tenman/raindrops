@@ -1735,19 +1735,14 @@ if ( ! function_exists( "raindrops_first_only_msg" ) ) {
 if ( ! function_exists( "raindrops_install_navigation" ) ) {
 
 	function raindrops_install_navigation( ) {
+	
 
 		$install	= get_option( 'raindrops_theme_settings' );
 		$upload_dir = wp_upload_dir( );
-
-		if ( false == $install || ! array_key_exists( 'install', $install ) ) {
-/*
-			$install['current_stylesheet_dir_url'] = get_stylesheet_directory_uri( );
-			$install['current_upload_base_url'] = $upload_dir['baseurl'];
-			$install['install'] = true;
-			update_option( 'raindrops_theme_settings', $install );
-*/
+		if ( false == $install ) {
 
 		} else {
+
 
 			if ( isset( $install['current_stylesheet_dir_url'] ) && get_stylesheet_directory_uri( ) !== $install['current_stylesheet_dir_url'] ) {
 

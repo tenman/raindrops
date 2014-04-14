@@ -447,26 +447,12 @@ raindrops_debug_navitation( __FILE__ );
 							join( ' ', get_post_class( ) )
 							);
 								
-					$html = '<h2 class="%1$s"><a href="%2$s">%3$s</a></h2>';
-					printf( $html,
-							'entry-title h2',
-							get_permalink( ),
-							the_title( '', '', false )
-							);
+					raindrops_entry_title();
 	
 					$html = '<div class="%1$s">';
 					printf( $html, 'entry-content clearfix' );
 	
-					$raindrops_excerpt_condition = raindrops_detect_excerpt_condition();
-					
-					if ( $raindrops_excerpt_condition == true ) {
-					
-						the_excerpt( );
-					} else {
-					
-						the_content( esc_html__( 'Continue&nbsp;reading', 'Raindrops' ). ' <span class="meta-nav">&rarr;</span>' );
-					}
-	
+					raindrops_entry_content();	
 					print( '</div>' );
 	
 			} //end while

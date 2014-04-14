@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.207
+
+Fixed 
+	Fixed out-of-the-box 
+	 Save data without user action.
+
+Modified
+	blank-front.php template 
+		Main column shows 2column when page width fluid (responsive) and browser width > 1280px;
+
+	Change Raindrops Default setting 
+		Accessibility Setting default value from no to yes.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.206
 
 modified

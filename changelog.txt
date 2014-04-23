@@ -1,15 +1,26 @@
 Changelog -----------------------------------
+version:1.209
+
+Fixed
+	Fixed	blank-front.php template
+		Notwork Main column shows 2column when page width fluid (responsive) and browser width > 1280px;
+
+Modified
+	Customize.php Label change from 'Display Header Text' to 'Move Tagline from header image to top right'
+	accessibility  style change raindrops-accessible-mode .hfeed a:focus style
+----------------------------------------------
+Changelog -----------------------------------
 version:1.208
 
-Fixed 
-	Fixed out-of-the-box 
+Fixed
+	Fixed out-of-the-box
 	 Save data without user action.
 
 Modified
-	blank-front.php template 
+	blank-front.php template
 		Main column shows 2column when page width fluid (responsive) and browser width > 1280px;
 
-	Change Raindrops Default setting 
+	Change Raindrops Default setting
 		Accessibility Setting default value from no to yes.
 ----------------------------------------------
 Changelog -----------------------------------
@@ -17,7 +28,7 @@ version:1.206
 
 modified
 		 Modified Static Page Template blank-front.php
-			It is now be able to view the featured image in the list of each of the specified list of recent post, 
+			It is now be able to view the featured image in the list of each of the specified list of recent post,
 			list that specifies the tag, the category. and can also specify the excerpt length
 
 			Live Preview below
@@ -43,8 +54,8 @@ moved
 
 		IE old browser shows allways xhtml document type.
 
-		Note: This change is SERVER_SIDE settings, 
-		I recommend that the browser is set 
+		Note: This change is SERVER_SIDE settings,
+		I recommend that the browser is set
 		when the cache of less than IE9 as not performed
 added
 
@@ -64,7 +75,7 @@ added
 Changelog -----------------------------------
 version:1.203
 	Modify
-		Modify html list element basic style remove for plugin compatibility 
+		Modify html list element basic style remove for plugin compatibility
 	Fixed
 		Fixed class raindrops_unique_identifier_walker_nav_menu
 				has error ( empty object notice )
@@ -72,7 +83,7 @@ version:1.203
 		Fixed raindrops bug with prettyPhoto
 
 			@see https://wordpress.org/support/topic/raindrops-bug-with-prettyphoto?replies=8
-			
+
 			Thank you @0soYoung
 
 		Fixed Gist embed script display improperly.
@@ -111,7 +122,7 @@ version:1.203
     </table>
 
 	CSS
-		create a customfield 
+		create a customfield
 			name:css
 			value:
 			/* columns width.( need table css class auto )*/
@@ -171,9 +182,9 @@ modified
 					Need editor role.
 	Arbitrary Header Elements:	It is available, but limit has been added
 
-		Use the custom field name meta, there was no limit to the element 
-		that can be inserted, but it was decided to limit. 
-		Can be inserted element, 
+		Use the custom field name meta, there was no limit to the element
+		that can be inserted, but it was decided to limit.
+		Can be inserted element,
 		it was decided to limit base, link, meta element.
 				Need editor role. only singular page, post.
 
@@ -186,7 +197,7 @@ modified
 					<meta property="og:image" content="test">
 					<meta property="og:site_name" content="test">
 					<meta property="og:email" content="test@test.com">
-			
+
 				When post content has relative links,define base URL and target.
 					<base href="http://www.tenman.info/images/" target="_blank">
 	Added
@@ -233,7 +244,7 @@ version:1.163
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.162
-	Modify 
+	Modify
 		Link text: The Continue Reading link, when theme option accessibility settings true
 		Keyboard navigation support at primary menu
 		Comment form add add aria-required="true" when theme option Document type settings html5
@@ -242,7 +253,7 @@ version:1.162
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.161
-	Modify 
+	Modify
 		raindrops_year_list()
 		raindrops_month_list()
 		raindrops_fallback_title()
@@ -257,7 +268,7 @@ version:1.159
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.158
-	Fixed 
+	Fixed
 		Fixed raindrops.js not work at Firefox26.0
 
 			functions.php line:1500
@@ -267,7 +278,7 @@ version:1.158
 				wp_register_script( 'raindrops', $raindrops_js, array( 'jquery', 'jquery-migrate' ), $raindrops_current_data_version, false );
 
        Fixed Untranslated string $raindrops_comment_string
-				contribute: lrosa 
+				contribute: lrosa
 					Thank you.
 ----------------------------------------------
 Changelog -----------------------------------
@@ -276,18 +287,18 @@ modified
 	Add CSS class detect IE11 and modified CSS
 	modified raindrops_nav_menu_primary()
 	modified ja.po , ja.mo
-	Fixed 
+	Fixed
 		Fixed Not display theme infomation help
 
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.155
-	Modify 
+	Modify
 		CSS class color-5,color-4,color-3,color-2,color-1,color1,color2,color3,color4,color5.
 		Child a elements color set automaticaly.
-	Modify 
+	Modify
 		Remove entry title permalink from singular post and page
-	Fixed 
+	Fixed
 		Not display Raindrops help.
 		filter change from contextual_help to load-post.php,load-post-new.php.
 ----------------------------------------------
@@ -317,8 +328,8 @@ version:1.152
 
 		Add raindrops-config-example.php
 			When If you need more customize
-			Rename from raindrops-config-example.php 
-					to raindrops-config.php 
+			Rename from raindrops-config-example.php
+					to raindrops-config.php
 			and set your value.
 
 		Add Sidebar and contents equal height support.
@@ -329,9 +340,9 @@ version:1.152
 			raindrops_category_posts()
 
 		Add tags
-			fixed-layout, 
+			fixed-layout,
 			fluid-layout,
-			responsive-layout, 
+			responsive-layout,
 			accessibility-ready
 
 	Note: How to enable accessibility settings
@@ -439,10 +450,10 @@ version:1.143
 Changelog -----------------------------------
 version:1.142
 	Fixed function name improperly, not prefixed
-		Change 
+		Change
 		from custom_remove_aria_required1()
 		to raindrops_custom_remove_aria_required1
-		Change 
+		Change
 		from custom_remove_aria_required1()
 		to raindrops_custom_remove_aria_required1
 ----------------------------------------------
@@ -485,12 +496,12 @@ version:1.139
 	Add new dynamic CSS class raindrops-pub-new,raindrops-mod-new
 		raindrops_post_class() functions.php
 		description: raindrops-pub-new and raindrops-mod-new
-			From the present, it is contributed 
-			within three days or 
-			the above-mentioned class is 
+			From the present, it is contributed
+			within three days or
+			the above-mentioned class is
 			automatically added to the updated contribution.
-		
-		3day change 7day 
+
+		3day change 7day
 
 			add_filter( 'raindrops_new_period', 'my_new_period' );
 			function my_new_period( $day ) {
@@ -517,7 +528,7 @@ Changelog -----------------------------------
 version:1.137
 Fixed
 	Fixed custom-doc display improperly.
-		when functions.php $raindrops_page_width value set 
+		when functions.php $raindrops_page_width value set
 		then page width display improperly and header image hide.----------------------------------------------
 Changelog -----------------------------------
 version:1.136

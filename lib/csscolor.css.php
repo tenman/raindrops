@@ -37,6 +37,7 @@ function raindrops_indv_css_dark() {
 $font_color_5 = raindrops_colors(-5,"color");
 
 $style =<<<DOC
+
 body{
 %c1%
 }
@@ -616,6 +617,12 @@ function raindrops_indv_css_w3standard() {
 
 $style =<<<DOC
 
+.raindrops-accessible-mode .hfeed a:focus{
+
+  border:1px solid #000!important;
+}
+
+
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 %c5%
 %h2_w3standard_background%
@@ -884,6 +891,12 @@ function raindrops_indv_css_light() {
 	$font_color5 = raindrops_colors(5,"color");
 
 	$style =<<<DOC
+	
+.raindrops-accessible-mode .hfeed a:focus{
+
+  border:1px solid #000!important;
+}
+
 
 a:link,
 a:active,
@@ -897,7 +910,6 @@ background:none;
 h2 a{
 background:inherit;
 }
-
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
 	%h2_light_background%;
 	%h_position_rsidebar_h2%
@@ -1497,6 +1509,12 @@ global $raindrops_base_color;
 	$font_color = raindrops_colors(5,"color");
 
 $style=<<<CSS
+
+.raindrops-accessible-mode .hfeed a:focus{
+
+  border:1px solid #000!important;
+}
+
 #hd{
 /*background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
 min-height:80px;

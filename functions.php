@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * functions and constants for Raindrops theme
  *
@@ -876,6 +876,7 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 
 		global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection;
 		$classes[] = get_locale( );
+                $regs = array();
 
 		if ( is_single( ) || is_page( ) ) {
 
@@ -1175,7 +1176,7 @@ if ( ! function_exists( 'raindrops_posted_on' ) ) {
 		get_the_date( $raindrops_date_format ), 
 		raindrops_doctype_elements( 'span', 'time', false ),
 		raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ) ) . '<span class="meta-sep">', '</span>' . sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ', get_author_posts_url( get_the_author_meta( 'ID' ) ),
-		sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ), $author ),
+		sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), wp_kses( $author, array() ) ), $author ),
 		apply_filters( 'raindrops_posted_on_comment_link', raindrops_comments_link() ), 
 		'<span class="posted-on-string">' . __( 'Posted on', 'Raindrops' ) . '</span>', 
 		'<span class="posted-by-string">' . __( 'by', 'Raindrops' ) . '</span>' );
@@ -4491,6 +4492,14 @@ if ( ! function_exists( 'raindrops_customize_register' ) ) {
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'raindrops_hyperlink_color', array( 'label' => esc_html__( 'Link Color', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_hyperlink_color]' ) ) );
 		$wp_customize->add_control( new Raindrops_Customize_Navigation_Control( $wp_customize, 'navigation_setting', array( 'label' => 'Navigation_Setting', 'section' => 'raindrops_navigation_setting', 'settings' => 'navigation_setting' ) ) );
 		
+/* Label change 'Display Header Text' */		
+		$wp_customize->add_control( 'display_header_text', array(
+					'settings' => 'header_textcolor',
+					'label'    => __( 'Move Tagline from header image to top right', 'Raindrops' ),
+					'section'  => 'title_tagline',
+					'type'     => 'checkbox',
+				) );
+
 		do_action( 'raindrops_customize_register' );
 	}
 }
@@ -6890,6 +6899,7 @@ if ( ! function_exists( 'raindrops_add_more' ) ) {
 		}
 	}
 }
+
 /**
  *
  *

@@ -1,5 +1,5 @@
 #wpwrap>#wpcontent>#wpbody>#wpbody-content{
-	font-size:14px;
+    font-size:14px;
 }
 #wpwrap>#wpcontent>#wpbody>#wpbody-content a,
 #wpwrap>#wpcontent>#wpbody>#wpbody-content #adminmenu a,
@@ -8,172 +8,172 @@
 #wpwrap>#wpcontent>#wpbody>#wpbody-content #media-items a.delete,
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .plugins a.delete,
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .ui-tabs-nav a {
-	text-decoration:none;
+    text-decoration:none;
 }
 #raindrops_upload_form{
-	margin:1em 1em 1em -40px;
-	color:#339999;
-	padding:20px;
+    margin:1em 1em 1em -40px;
+    color:#339999;
+    padding:20px;
 }
 #raindrops-style-type{
-	padding:0.6em;
-	text-indent:1em;cursor:auto;
-	background:none;
-	height:32px;
+    padding:0.6em;
+    text-indent:1em;cursor:auto;
+    background:none;
+    height:32px;
 }
 .raindrops-excerpt{
-	line-height:2;
-	padding:.5em 3em;
+    line-height:2;
+    padding:.5em 3em;
 }
 #title-raindrops-header{
-	padding:.5em;
+    padding:.5em;
 }
 #title-raindrops-header h2{
-	font-size:32px;
-	color:#21759B;
+    font-size:32px;
+    color:#21759B;
 }
 #title-raindrops-header #message p{
-	text-align:left;
+    text-align:left;
 }
 
 #title-raindrops-header p{
-	text-align:right;
-	color:#21759B;
-	margin-right:10%;
+    text-align:right;
+    color:#21759B;
+    margin-right:10%;
 }
 
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .postbox h3,
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .sidebar-name:hover h3,
 .raindrops-options-title{
-	cursor:default;
-	text-indent:1em;
-	background:none;
-	margin:0;
-	padding:0;
-	font-size:23px;
+    cursor:default;
+    text-indent:1em;
+    background:none;
+    margin:0;
+    padding:0;
+    font-size:23px;
 }
 .raindrops-navigation-title{
-	margin:0;
-	margin-left:-30px;
-	font-size:23px;
-	background:rgba(200,200,200,0.5);
-	height:35px;
-	padding:20px 20px 7px 20px;
-	border-radius: 5px 5px 0px 0px;
-	-moz-border-radius: 5px 5px 0px 0px;
-	-webkit-border-radius: 5px 5px 0px 0px;
+    margin:0;
+    margin-left:-30px;
+    font-size:23px;
+    background:rgba(200,200,200,0.5);
+    height:35px;
+    padding:20px 20px 7px 20px;
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
 }
 .raindrops-option-footer-infomation{
-	margin:0;
-	color:#FF6600;
-	padding:10px;
-	background:rgba(200,200,200,0.5);
-	text-align:center;
-	margin-left:-30px;
-	border-radius: 0px 0px 5px 5px;
-	-moz-border-radius: 0px 0px 5px 5px;
-	-webkit-border-radius: 0px 0px 5px 5px;
+    margin:0;
+    color:#FF6600;
+    padding:10px;
+    background:rgba(200,200,200,0.5);
+    text-align:center;
+    margin-left:-30px;
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
 }
 .raindrops-option-footer-infomation a{
-	color:#555;
+    color:#555;
 }
 
 .raindrops-navigation-wrapper{
-	padding:0px 60px 20px;
-	margin:1em;
+    padding:0px 60px 20px;
+    margin:1em;
 }
 .raindrops-navigation-wrapper ul{
-	margin:0;
-	padding:10px 0;
-	margin-left:-30px;
-	background:rgba(200,200,200,0.2);
+    margin:0;
+    padding:10px 0;
+    margin-left:-30px;
+    background:rgba(200,200,200,0.2);
 }
 .raindrops-navigation-wrapper li{
-	padding:.4em;
-	font-weight:bold;
-	margin-left:30px;
+    padding:.4em;
+    font-weight:bold;
+    margin-left:30px;
 }
 
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .postbox h3{
-	border-bottom-color: #D1E5EE;
-	text-shadow: white 0 1px 0;
-	-moz-box-shadow: 0 1px 0 #fff;
-	-webkit-box-shadow: 0 1px 0 #fff;
-	box-shadow: 0 1px 0 #fff;
+    border-bottom-color: #D1E5EE;
+    text-shadow: white 0 1px 0;
+    -moz-box-shadow: 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 0 #fff;
+    box-shadow: 0 1px 0 #fff;
 }
 .raindrops-value-set-tables{
-	min-width:320px;
+    min-width:320px;
 }
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .widefat table td{
-	margin:1em;
+    margin:1em;
 }
 
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .widefat table td{
 }
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .widefat tr td select{
-	min-width:130px;
-	vertical-align:bottom;
-	margin-bottom:0px;
+    min-width:130px;
+    vertical-align:bottom;
+    margin-bottom:0px;
 }
 #wpwrap>#wpcontent>#wpbody>#wpbody-content .go-top span{
-	visibility:hidden;
-	margin:0;
+    visibility:hidden;
+    margin:0;
 }
 #wpwrap>#wpcontent>#wpbody>#wpbody-content a.go-top {
-	display:block;
-	width:16px;
-	height:16px;
-	padding:0;
-	background: #000 url(images/options/arrows-vs.png) no-repeat 0 -36px;
-	margin-bottom:20px;
+    display:block;
+    width:16px;
+    height:16px;
+    padding:0;
+    background: #000 url(images/options/arrows-vs.png) no-repeat 0 -36px;
+    margin-bottom:20px;
 }
 #wpwrap>#wpcontent>#wpbody>#wpbody-content #icon-themes,
 #wpwrap>#wpcontent>#wpbody>#wpbody-content #icon-raindrops_settings{
-	position:relative;
-	top:5px;
-	left:5px;
-	width:48px;
-	height:40px;
-	background: url(images/options/icons32-vs.png) no-repeat 0 0;
+    position:relative;
+    top:5px;
+    left:5px;
+    width:48px;
+    height:40px;
+    background: url(images/options/icons32-vs.png) no-repeat 0 0;
 }
 h3,
 table{
-	border:none!important;
+    border:none!important;
 }
 
 /*
  * CSS CLASS admin-color-ocean
  */
 .admin-color-ocean .go-top{
-	background: #627c83 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%; 
+    background: #627c83 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
 
 }
-.admin-color-ocean .#raindrops_upload_form,
+.admin-color-ocean #raindrops_upload_form,
 .admin-color-ocean .raindrops-excerpt{
-	color:#627c83;
+    color:#627c83;
 }
 .admin-color-ocean .postbox th,
 .admin-color-ocean .raindrops-option-footer-infomation a,
 .admin-color-ocean .raindrops-option-footer-infomation,
 .admin-color-ocean .raindrops-navigation-title{
-	background:#627c83;
-	color:#fff;
+    background:#627c83;
+    color:#fff;
 }
 .admin-color-ocean .postbox{
-	background:rgba( 158,186,160,.1);
+    background:rgba( 158,186,160,.1);
 
 }
 .admin-color-ocean .raindrops-options-menu,
 .admin-color-ocean .raindrops-native-menu{
-	background:rgba( 158,186,160,.3);
-	color:#fff;
+    background:rgba( 158,186,160,.3);
+    color:#fff;
 }
 .admin-color-ocean .raindrops-options-menu a,
 .admin-color-ocean .raindrops-native-menu a{
-	coolor:#627c83;
+    color:#627c83;
 }
 
 /*
@@ -181,47 +181,47 @@ table{
  */
 
 .admin-color-light .go-top{
-	background: #e5e5e5 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%;
-	border:2px solid #666; 
+    background: #e5e5e5 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%;
+    border:2px solid #666; 
 
 }
 .admin-color-light #raindrops_upload_form .raindrops_navigation_list a,
 .admin-color-light #raindrops_upload_form,
 .admin-color-light .raindrops-excerpt{
-	color:#666;
+    color:#666;
 }
 .admin-color-light .raindrops-native-menu a,
 .admin-color-light #title-raindrops-header h2 a,
 .admin-color-light #title-raindrops-header h2,
 .admin-color-light #raindrops_navigation_list a{
-	color:#666;
+    color:#666;
 
 }
 .admin-color-light .postbox th{
-	background:#e5e5e5;
-	color:#666;
+    background:#e5e5e5;
+    color:#666;
 }
 .admin-color-light .raindrops-option-footer-infomation a,
 .admin-color-light .raindrops-option-footer-infomation,
 .admin-color-light .raindrops-navigation-title{
-	background:#e5e5e5;
-	color:#666;
+    background:#e5e5e5;
+    color:#666;
 }
 .admin-color-light .postbox{
-	background:rgba( 222,222,222,.1);
+    background:rgba( 222,222,222,.1);
 
 }
 .admin-color-light .raindrops-options-menu,
 .admin-color-light .raindrops-native-menu{
-	background:rgba( 222,222,222,.3);
-	color:#666;
+    background:rgba( 222,222,222,.3);
+    color:#666;
 }
 .admin-color-light .raindrops-options-menu a,
 .admin-color-light .raindrops-native-menu a{
-	coolor:#666;
+    color:#666;
 }
 
 /*
@@ -229,47 +229,47 @@ table{
  */
 
 .admin-color-blue .go-top{
-	background: #096484 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%;
-	border:2px solid #fff; 
+    background: #096484 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%;
+    border:2px solid #fff; 
 
 }
 .admin-color-blue #raindrops_upload_form .raindrops_navigation_list a,
 .admin-color-blue #raindrops_upload_form,
 .admin-color-blue .raindrops-excerpt{
-	color:#666;
+    color:#666;
 }
 .admin-color-blue .raindrops-native-menu a,
 .admin-color-blue #title-raindrops-header h2 a,
 .admin-color-blue #title-raindrops-header h2,
 .admin-color-blue #raindrops_navigation_list a{
-	color:#666;
+    color:#666;
 
 }
 .admin-color-blue .postbox th{
-	background:#4796b3;
-	color:#fff;
+    background:#4796b3;
+    color:#fff;
 }
 .admin-color-blue .raindrops-option-footer-infomation a,
 .admin-color-blue .raindrops-option-footer-infomation,
 .admin-color-blue .raindrops-navigation-title{
-	background:#4796b3;
-	color:#fff;
+    background:#4796b3;
+    color:#fff;
 }
 .admin-color-blue .postbox{
-	background:rgba( 82,172,204,.1);
+    background:rgba( 82,172,204,.1);
 
 }
 .admin-color-blue .raindrops-options-menu,
 .admin-color-blue .raindrops-native-menu{
-	background:rgba( 82,172,204,.3);
-	color:#666;
+    background:rgba( 82,172,204,.3);
+    color:#666;
 }
 .admin-color-blue .raindrops-options-menu a,
 .admin-color-blue .raindrops-native-menu a{
-	coolor:#666;
+    color:#666;
 }
 
 /*
@@ -277,101 +277,96 @@ table{
  */
 
 .admin-color-coffee .go-top{
-	background: #46403c url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%;
-	border:2px solid #fff; 
+    background: #46403c url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%;
+    border:2px solid #fff; 
 
 }
 .admin-color-coffee #raindrops_upload_form .raindrops_navigation_list a,
 .admin-color-coffee #raindrops_upload_form,
 .admin-color-coffee .raindrops-excerpt{
-	color:#666;
+    color:#666;
 }
 .admin-color-coffee .raindrops-native-menu a,
 .admin-color-coffee #title-raindrops-header h2 a,
 .admin-color-coffee #title-raindrops-header h2,
 .admin-color-coffee #raindrops_navigation_list a{
-	color:#666;
+    color:#666;
 
 }
 .admin-color-coffee .postbox th{
-	background:#46403c;
-	color:#fff;
+    background:#46403c;
+    color:#fff;
 }
 .admin-color-coffee .raindrops-option-footer-infomation a,
 .admin-color-coffee .raindrops-option-footer-infomation,
 .admin-color-coffee .raindrops-navigation-title{
-	background:#46403c;
-	color:#fff;
+    background:#46403c;
+    color:#fff;
 }
 .admin-color-coffee .postbox{
-	background:rgba( 199,165,137,.1);
+    background:rgba( 199,165,137,.1);
 
 }
 .admin-color-coffee .raindrops-options-menu,
 .admin-color-coffee .raindrops-native-menu{
-	background:rgba( 199,165,137,.3);
-	color:#666;
+    background:rgba( 199,165,137,.3);
+    color:#666;
 }
 .admin-color-coffee .raindrops-options-menu a,
 .admin-color-coffee .raindrops-native-menu a{
-	coolor:#666;
+    color:#666;
 }
 
-<tr>
-<td style="background-color: #413256">&nbsp;</td>
-	<td style="background-color: #523f6d">&nbsp;</td>
-	<td style="background-color: #a3b745">&nbsp;</td>
-	<td style="background-color: #d46f15">&nbsp;</td>
-</tr>
+
 /*
  * CSS CLASS admin-color-ectoplasm
  */
 
 .admin-color-ectoplasm .go-top{
-	background: #413256 url(images/options/arrows-vs.png) no-repeat 0 -36px;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%;
-	border:1px solid #fff; 
+    background: #413256 url(images/options/arrows-vs.png) no-repeat 0 -36px;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%;
+    border:1px solid #fff; 
 
 }
 .admin-color-ectoplasm #raindrops_upload_form .raindrops_navigation_list a,
 .admin-color-ectoplasm #raindrops_upload_form,
 .admin-color-ectoplasm .raindrops-excerpt{
-	color:#666;
+    color:#666;
 }
 .admin-color-ectoplasm .raindrops-native-menu a,
 .admin-color-ectoplasm #title-raindrops-header h2 a,
 .admin-color-ectoplasm #title-raindrops-header h2,
 .admin-color-ectoplasm #raindrops_navigation_list a{
-	color:#666;
+    color:#666;
 
 }
 .admin-color-ectoplasm .postbox th{
-	background:#413256;
-	color:#fff;
+    background:#413256;
+    color:#fff;
 }
 .admin-color-ectoplasm .raindrops-option-footer-infomation a,
 .admin-color-ectoplasm .raindrops-option-footer-infomation,
 .admin-color-ectoplasm .raindrops-navigation-title{
-	background:#413256;
-	color:#fff;
+    background:#413256;
+    color:#fff;
 }
 .admin-color-ectoplasm .postbox{
-	background:rgba( 163,183,69,.1);
+    background:rgba( 163,183,69,.1);
 
 }
 .admin-color-ectoplasm .raindrops-options-menu,
 .admin-color-ectoplasm .raindrops-native-menu{
-	background:rgba( 163,183,69,.3);
-	color:#666;
+    background:rgba( 163,183,69,.3);
+    color:#666;
 }
 .admin-color-ectoplasm .raindrops-options-menu a,
 .admin-color-ectoplasm .raindrops-native-menu a{
-	coolor:#666;
+    coolor:#666;
 }
 
 /*
@@ -379,17 +374,17 @@ table{
  */
 .admin-color-midnight #raindrops_upload_form h3,
 .admin-color-midnight .raindrops-options-title{
-	color:#fff;
-	text-shadow:none!important;
-	box-shadow:none!important;
+    color:#fff;
+    text-shadow:none!important;
+    box-shadow:none!important;
 }
 .admin-color-midnight #raindrops-style-type.go-top,
 .admin-color-midnight .go-top{
-	background: #fff url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%;
-	border:1px solid #fff; 
+    background: #fff url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%;
+    border:1px solid #fff; 
 }
 
 .admin-color-midnight a[href="#raindrops_upload_form"],
@@ -398,56 +393,56 @@ table{
 .admin-color-midnight #raindrops_upload_form .raindrops_navigation_list a,
 .admin-color-midnight #raindrops_upload_form,
 .admin-color-midnight .raindrops-excerpt{
-	color:#fff;
+    color:#fff;
 }
 .admin-color-midnight #title-raindrops-header h2 a,
 .admin-color-midnight #title-raindrops-header h2{
-	color:#000;
+    color:#000;
 }
 .admin-color-midnight .raindrops-native-menu a,
 .admin-color-midnight #raindrops_navigation_list a{
-	color:#fff;
+    color:#fff;
 
 }
 .admin-color-midnight .postbox th{
-	background:#25282b;
-	color:#fff;
+    background:#25282b;
+    color:#fff;
 }
 .admin-color-midnight .raindrops-option-footer-infomation a,
 .admin-color-midnight .raindrops-option-footer-infomation,
 .admin-color-midnight .raindrops-navigation-title{
-	background:#25282b;
-	color:#fff;
+    background:#25282b;
+    color:#fff;
 }
 .admin-color-midnight .postbox{
-	background:rgba( 54,59,63,.9);
+    background:rgba( 54,59,63,.9);
 
 }
 .admin-color-midnight .raindrops-options-menu,
 .admin-color-midnight .raindrops-native-menu{
-	background:rgba( 54,59,63,.7);
-	color:#fff;
+    background:rgba( 54,59,63,.7);
+    color:#fff;
 }
 .admin-color-midnight .raindrops-options-menu a,
 .admin-color-midnight .raindrops-native-menu a{
-	coolor:#fff;
+    color:#fff;
 }
 /*
  * CSS CLASS admin-color-sunrise
  */
 .admin-color-sunrise #raindrops_upload_form h3,
 .admin-color-sunrise .raindrops-options-title{
-	color:#fff;
-	text-shadow:none!important;
-	box-shadow:none!important;
+    color:#fff;
+    text-shadow:none!important;
+    box-shadow:none!important;
 }
 .admin-color-sunrise #raindrops-style-type.go-top,
 .admin-color-sunrise .go-top{
-	background: #b43c38 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
-	border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	-webkit-border-radius: 50%;
-	border:2px solid #fff; 
+    background: #b43c38 url(images/options/arrows-vs.png) no-repeat 0 -36px!important;
+    border-radius: 50%; 
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%;
+    border:2px solid #fff; 
 }
 
 .admin-color-sunrise a[href="#raindrops_upload_form"],
@@ -456,39 +451,39 @@ table{
 .admin-color-sunrise #raindrops_upload_form .raindrops_navigation_list a,
 .admin-color-sunrise #raindrops_upload_form,
 .admin-color-sunrise .raindrops-excerpt{
-	color:#fff;
+    color:#fff;
 }
 .admin-color-sunrise #title-raindrops-header h2 a,
 .admin-color-sunrise #title-raindrops-header h2{
-	color:#000;
+    color:#000;
 }
 .admin-color-sunrise .raindrops-native-menu a,
 .admin-color-sunrise #raindrops_navigation_list a{
-	color:#fff;
+    color:#fff;
 }
 .admin-color-sunrise .postbox th{
-	background:#b43c38;
-	color:#fff;
+    background:#b43c38;
+    color:#fff;
 }
 .admin-color-sunrise .raindrops-option-footer-infomation a,
 .admin-color-sunrise .raindrops-option-footer-infomation,
 .admin-color-sunrise .raindrops-navigation-title{
-	background:#b43c38;
-	color:#fff;
+    background:#b43c38;
+    color:#fff;
 }
 .admin-color-sunrise .postbox{
-	background:rgba( 221,130,59,1);
+    background:rgba( 221,130,59,1);
 
 }
 .admin-color-sunrise .raindrops-options-menu,
 .admin-color-sunrise .raindrops-native-menu{
-	background:rgba( 221,130,59,.9);
-	color:#fff;
+    background:rgba( 221,130,59,.9);
+    color:#fff;
 }
 .admin-color-sunrise .raindrops-options-menu a,
 .admin-color-sunrise .raindrops-native-menu a{
-	coolor:#fff;
+    color:#fff;
 }
 .go-top{
-	margin:3px;
+    margin:3px;
 }

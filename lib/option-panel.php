@@ -1153,7 +1153,7 @@ class raindrops_menu_create {
             $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a></div>', $raindrops_current_data_theme_uri, $raindrops_theme_name );
         } else {
 
-            $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false" ) . '</span>' );
+            $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false", 'Raindrops' ) . '</span>' );
         }
 
         return apply_filters( 'raindrops_form_user_input', $raindrops_navigation_list . '</ul>' . $add_infomation . '</div>' . $lines . '<br style="clear:both" />' );

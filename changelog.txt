@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.211
+
+Added
+	Raindrops Status bar at browser bottom ( It shows when scroll-y 200px )
+		for sub navigation.
+Fixed
+	Fixed shows scrollbar-x when 600px > Browser width.
+Modified
+	Code cleaning
+----------------------------------------------
+Changelog -----------------------------------
 version:1.210
 
 Fixed

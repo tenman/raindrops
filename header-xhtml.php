@@ -34,78 +34,81 @@
  * 
  * 
  */
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 global $template;
-do_action( 'raindrops_pre_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) );
-		
-echo '<'.'?'.'xml version="1.0" encoding="'.get_bloginfo( 'charset' ).'"'.'?'.'>'."\n";?>
+do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
+
+echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"' . '?' . '>' . "\n";
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes( 'xhtml' ); ?>>
-	<head profile="http://gmpg.org/xfn/11">
-		<meta http-equiv="content-type" content="<?php bloginfo( 'html_type' );?>; charset=<?php bloginfo( 'charset' ); ?>" />
-		<meta http-equiv="content-script-type" content="text/javascript" />
-		<meta http-equiv="content-style-type" content="text/css" />
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+    <head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
+        <meta http-equiv="content-script-type" content="text/javascript" />
+        <meta http-equiv="content-style-type" content="text/css" />
+        <title><?php wp_title( '|', true, 'right' ); ?></title>
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+        <?php
+        global $raindrops_link_unique_text;
+        wp_head();
+        ?>
+    </head>
+    <body <?php body_class(); ?> >
+        <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 <?php
-		global $raindrops_link_unique_text;
-		wp_head( );
+raindrops_prepend_doc();
 ?>
-	</head>
-<body <?php body_class( ); ?> >
-	<div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-'.raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
-<?php
-		raindrops_prepend_doc( );
-?>
-		<div id="top">
-			<div id="hd">
-<?php
-/**
- * Conditional Switch html headding element
- *
- * example
- *  raindrops_site_title( " add some text" );
- *
- */
-		echo raindrops_site_title( );
-/**
- * Site description diaplay at header bar when if header text Display Text value is no.
- *
- * example
- *  raindrops_site_description(array("text"=>"replace text","switch" => 'style="display:none;"' );
- *
- *
- */
-		echo raindrops_site_description( );
-?>
-			</div>
-<?php
-/**
- * header image
- *
- * if no link home_url( ) then use 'elements'
- *
- */
-		if ( true == $raindrops_link_unique_text ) {
-		 
-			echo raindrops_header_image( 'elements' );
-		} else {
-		 
-			echo raindrops_header_image( 'home_url' );
-		}
+            <div id="top">
+                <div id="hd">
+                    <?php
+                    /**
+                     * Conditional Switch html headding element
+                     *
+                     * example
+                     *  raindrops_site_title( " add some text" );
+                     *
+                     */
+                    echo raindrops_site_title();
+                    /**
+                     * Site description diaplay at header bar when if header text Display Text value is no.
+                     *
+                     * example
+                     *  raindrops_site_description(array("text"=>"replace text","switch" => 'style="display:none;"' );
+                     *
+                     *
+                     */
+                    echo raindrops_site_description();
+                    ?>
+                </div>
+                <?php
+                /**
+                 * header image
+                 *
+                 * if no link home_url( ) then use 'elements'
+                 *
+                 */
+                if ( true == $raindrops_link_unique_text ) {
 
-/**
- * horizontal menubar
- *
- *
- *
- *
- */
- 		raindrops_nav_menu_primary( );
+                    echo raindrops_header_image( 'elements' );
+                } else {
 
-		raindrops_after_nav_menu( );
-?>
+                    echo raindrops_header_image( 'home_url' );
+                }
 
-		</div>
-		<div id="bd" class="clearfix">
-<?php do_action( 'raindrops_after_part_'. basename( __FILE__, '.php' ). '_'. basename( $template ) ); ?>
+                /**
+                 * horizontal menubar
+                 *
+                 *
+                 *
+                 *
+                 */
+                raindrops_nav_menu_primary();
+
+                raindrops_after_nav_menu();
+                ?>
+
+            </div>
+            <div id="bd" class="clearfix">
+<?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

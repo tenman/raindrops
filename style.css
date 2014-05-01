@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.210
+Version: 1.211
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2777,14 +2777,14 @@ sup {
 }
 /* optional responsive grid  end */
 
-@media screen and (min-width : 640px){
+@media screen and (min-width : 641px){
     #doc3 .nav-menu-toggle{
         display:none!important;
     }
     #doc3 #access{display:block!important;}
 }
 @media screen and (max-width : 640px){
-
+    html,
     html .gecko{
         max-width:100%;
         margin:0;
@@ -3574,3 +3574,34 @@ div.bbp-template-notice, div.indicator-hint{
 #bbpress-forums fieldset.bbp-form,#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results{
     border:1px solid rgba(222,222,222,.5);
 }
+
+.raindrops-status-bar-active footer{
+    margin-bottom:70px;
+}
+#raindrops_status_bar{
+    background:rgba(0,0,0,1);
+    color:#fff;
+    max-height:80px;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    margin:0;
+    padding:.2em 0;
+    z-index:9999;
+
+}
+#raindrops_status_bar .raindrops-next-prev-links .nav-previous,
+#raindrops_status_bar .raindrops_prev_next_post .nav-previous{
+    text-align:left;
+}
+#raindrops_status_bar .move-to-top{
+    text-align:right;
+    margin-right:1em
+}
+#raindrops_status_bar a{
+    text-decoration:none;
+    color:#fff;
+}
+
+
+

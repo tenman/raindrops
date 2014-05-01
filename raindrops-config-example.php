@@ -1,12 +1,12 @@
 <?php
+
 /** Raindrops Cofig file
  *
  *
  * Please Rename from raindrops-config-example.php
- *				 to   raindrops-config.php
+ * 				 to   raindrops-config.php
  *
  */
-
 /** Theme Option Page
  *
  *
@@ -14,9 +14,8 @@
  * false Hide Theme option page
  * default true
  */
-
 $raindrops_show_theme_option = true;
- 
+
 /** Shows Place holder for insert contents
  *
  * When WP_DEBUG value true and $raindrops_actions_hook_message value true
@@ -25,7 +24,6 @@ $raindrops_show_theme_option = true;
  * default false
  * @since 0.980
  */
-
 $raindrops_actions_hook_message = false;
 
 /** Browser Detection Server Side or Cliant Side
@@ -37,7 +35,6 @@ $raindrops_actions_hook_message = false;
  * default false ( cliant side javascript )
  * ver 1.121
  */
- 
 $raindrops_browser_detection = false;
 
 /** Custom Page width for Fixed Width
@@ -49,7 +46,6 @@ $raindrops_browser_detection = false;
  *
  * default ''
  */
-
 $raindrops_page_width = '';
 
 /** Custom Page width for fluid ( responsive )
@@ -62,7 +58,6 @@ $raindrops_page_width = '';
  * default 1280
  *
  */
- 
 $raindrops_fluid_maximum_width = '1280';
 
 /** UPLOAD IMAGE
@@ -80,6 +75,14 @@ $raindrops_max_upload_size = 2000000;
 $raindrops_max_width = 1300;
 
 /**
+ * 
+ * Show Raindrops status bar at browser bottom
+ *
+ * shows true hide false
+ * @since 1.211
+ */
+$raindrops_status_bar = true;
+/**
  * Custom fields name css is add to post style rules.
  *
  * When false add to style single post and pages
@@ -87,7 +90,6 @@ $raindrops_max_width = 1300;
  * RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS
  * @since 0.992
  */
- 
 define( "RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS", true );
 
 /** Show Post Delete link 
@@ -97,7 +99,6 @@ define( "RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS", true );
  * RAINDROPS_SHOW_DELETE_POST_LINK
  *
  */
-
 define( "RAINDROPS_SHOW_DELETE_POST_LINK", false );
 
 /** Excerpt Settings
@@ -111,7 +112,6 @@ define( "RAINDROPS_SHOW_DELETE_POST_LINK", false );
  * add ver 1.127
  * When use excerpt please set $raindrops_where_excerpts
  */
-
 define( "RAINDROPS_USE_LIST_EXCERPT", false );
 
 // values 'is_search', 'is_archive', 'is_category' ,'is_tax', 'is_tag' any conditional function name
@@ -126,7 +126,6 @@ $raindrops_where_excerpts = array( 'is_search' );
  * RAINDROPS_USE_AUTO_COLOR
  *
  */
- 
 define( "RAINDROPS_USE_AUTO_COLOR", true );
 
 /** Featured Image Size
@@ -137,7 +136,6 @@ define( "RAINDROPS_USE_AUTO_COLOR", true );
  * RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT
  *
  */
- 
 define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH', 600 );
 
 define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT', 200 );
@@ -148,7 +146,6 @@ define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT', 200 );
  * RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX
  * @since 1.002
  */
- 
 define( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX', false );
 
 /** Add CSS from Custom field
@@ -158,7 +155,7 @@ define( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX', false );
  * default: true
  * @since 1.201
  */
-define( 'RAINDROPS_CUSTOM_FIELD_CSS' , true );
+define( 'RAINDROPS_CUSTOM_FIELD_CSS', true );
 
 /** Add javascript element from Custom field
  *
@@ -167,7 +164,7 @@ define( 'RAINDROPS_CUSTOM_FIELD_CSS' , true );
  * default: true
  * @since 1.201
  */
-define( 'RAINDROPS_CUSTOM_FIELD_META' , true );
+define( 'RAINDROPS_CUSTOM_FIELD_META', true );
 
 /** Add meta element from Custom field
  *
@@ -177,5 +174,5 @@ define( 'RAINDROPS_CUSTOM_FIELD_META' , true );
  * possible elements <base><link><meta>
  * @since 1.201
  */
-define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' , false );
+define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
 

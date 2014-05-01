@@ -19,22 +19,22 @@ version: 2.8.1
 /**
  * The example of use Google WEB Fonts
  
-	@import url(http://fonts.googleapis.com/css?family=Parisienne);
+        @import url(http://fonts.googleapis.com/css?family=Parisienne);
 
-	#site-title span{
-		font-family: 'Parisienne', cursive;
-	}
- */
+        #site-title span{
+                font-family: 'Parisienne', cursive;
+        }
+*/
 
 body {
-	font:13px arial,helvetica,clean,sans-serif;
-	line-height:1.231;
+    font:13px arial,helvetica,clean,sans-serif;
+    line-height:1.231;
 }
 body.ie7{
-	/* for IE6/7 */ 
-	font-size:small; 
-	/* for IE Quirks Mode */
-	font:x-small sans-serif; 
+    /* for IE6/7 */ 
+    font-size:small; 
+    /* for IE Quirks Mode */
+    font:x-small sans-serif; 
 }
 
 /**
@@ -45,15 +45,15 @@ input,
 button,
 textarea,
 button {
-	font:99% arial,helvetica,clean,sans-serif;
+    font:99% arial,helvetica,clean,sans-serif;
 }
 
 /**
  * To help tables remember to inherit
  */
 table {
-	font-size:inherit;
-	font:100% sans-serif;
+    font-size:inherit;
+    font:100% sans-serif;
 }
 /**
  * Bump up IE to get to 13px equivalent for these fixed-width elements
@@ -63,19 +63,19 @@ code,
 kbd,
 samp,
 tt {
-	font-family:monospace;
-	line-height:100%;
+    font-family:monospace;
+    line-height:100%;
 }
 .ie7 pre,
 .ie7 code,
 .ie7 kbd,
 .ie7 samp,
 .ie7 tt {
-	font-size:108%;
+    font-size:108%;
 }
 
 /*			Raindrops Fonts settings
-			@see style.css Responsive fonts settings			*/
+                        @see style.css Responsive fonts settings			*/
 /**
  * Font family
  *
@@ -84,7 +84,7 @@ tt {
  */
 #access .menu,
 #access div.menu ul{
-	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
 .commentlist .pingback p,
 .commentlist .comment-body,
@@ -107,7 +107,7 @@ h6,
 .h4,
 .h5,
 .h6{
-	font-family:Geneva, Arial, Helvetica, sans-serif;
+    font-family:Geneva, Arial, Helvetica, sans-serif;
 }
 
 var,
@@ -117,11 +117,11 @@ h3,
 .h1,
 .h2,
 .h3{
-	font-family:"Times New Roman", Times, serif;
+    font-family:"Times New Roman", Times, serif;
 }
 .form-allowed-tags code,
 tt,code,kbd{
-	font-family:"Courier New", Courier, monospace;
+    font-family:"Courier New", Courier, monospace;
 }
 
 /**
@@ -136,7 +136,7 @@ tt,code,kbd{
 h1,
 .h2:not(h2),
 h2{
-	letter-spacing: 0.07em;	
+    letter-spacing: 0.07em;	
 
 }
 .h6:not(h6),
@@ -145,14 +145,14 @@ h6,
 h3,
 .h4:not(h4),
 h4{
-	letter-spacing: 0.1em;	
+    letter-spacing: 0.1em;	
 }
 .h5:not(h5),
 h5{
-	letter-spacing: 0.05em;	
+    letter-spacing: 0.05em;	
 }
 #site-title{
-	letter-spacing: 0.04em;	
+    letter-spacing: 0.04em;	
 }
 /**
  * Font Size
@@ -164,7 +164,7 @@ h2 a.rsswidget,
 .h6:not(h6),
 h6,
 .f10{
-	font-size:77%;
+    font-size:77%;
 }
 .portfolio .index > li .entry-title a,
 sub, sup,
@@ -173,11 +173,11 @@ small,
 .h5:not(h5),
 h5,
 .f11 {
-	font-size:85%;
+    font-size:85%;
 }
 .gallery .gallery-caption,
 .f12 {
-	font-size:93%;
+    font-size:93%;
 }
 .wp-caption p.wp-caption-text,
 #access .menu-header,
@@ -186,16 +186,16 @@ p,
 .h4:not(h4),
 h4,
 .f13 {
-	font-size:100%;
+    font-size:100%;
 }
 .px14,
 big,
 .f14 {
-	font-size:108%;
+    font-size:108%;
 }
 .px15,
 .f15 {
-	font-size:116%;
+    font-size:116%;
 }
 .date table .entry-title,
 .px16,
@@ -204,84 +204,84 @@ h3,
 .lsidebar h2,
 .rsidebar h2,
 .f16 {
-	font-size:123.1%;
+    font-size:123.1%;
 }
 .px17,
 .f17 {
-	font-size:131%;
+    font-size:131%;
 }
 .author .entry-title,
 .px18,
 .f18 {
-	font-size:138.5%;
+    font-size:138.5%;
 }
 .px19,
 .f19 {
-	font-size:146.5%;
+    font-size:146.5%;
 }
 #archives-title,
 .h2:not(h2),
 h2,
 .f20 {
-	font-size:153.9%;
+    font-size:153.9%;
 }
 h2.year-month-date .day-name,
 .year .year-name,
 h2.year-month .month-name,
 .f21 {
-	font-size:161.6%;
+    font-size:161.6%;
 }
 .f22 {
-	font-size:167%;
+    font-size:167%;
 }
 .f23 {
-	font-size:174%;
+    font-size:174%;
 }
 .f24 {
-	font-size:182%;
+    font-size:182%;
 }
 .f25 {
-	font-size:189%;
+    font-size:189%;
 }
 .h1:not(h1),
 h1,
 .f26 {
-	font-size:197%;
+    font-size:197%;
 }
 #header-image p{
-	font-size:200%;
+    font-size:200%;
 }
 .sticky-single-follow-text{
-	font-size:230.7%;
+    font-size:230.7%;
 }
 
 #site-title{
-	font-size:296%;
-	letter-spacing: 0.04em;	
+    font-size:296%;
+    letter-spacing: 0.04em;	
 }
 .ie8 #site-title{
-	font-size:236.8%;
+    font-size:236.8%;
 }
 .pagetitle{
-	font-size:230.7%;
+    font-size:230.7%;
 }
 .entry-title{
-	font-size:230.7%;
+    font-size:230.7%;
 }
 
 
 .yui-t1 #wp-calendar caption,
 .yui-t1 #wp-calendar td{
-	font-size:8px;
+    font-size:8px;
 }
 .yui-t4 #wp-calendar td,
 .yui-t4 #wp-calendar caption,
 .yui-t2 #wp-calendar td{
-	font-size:11px;
+    font-size:11px;
 }
 .yui-t5 #wp-calendar caption,
 .yui-t5 #wp-calendar td{
-	font-size:14px;
+    font-size:14px;
 }
 .yui-t3 #wp-calendar caption,
 .yui-t6 #wp-calendar caption,
@@ -292,7 +292,7 @@ h1,
 .datetable .month-name,
 .datetable .year-name,
 .datetable .day-name{
-	font-size:16px;
+    font-size:16px;
 
 }
 .datetable .time,
@@ -303,10 +303,10 @@ h1,
 var,
 em,
 .entry-content cite {
-	font-style:italic;
+    font-style:italic;
 }
 .ja em{
-	font-style:normal;
+    font-style:normal;
 }
 /**
  * Font Weight
@@ -320,9 +320,9 @@ h3,
 .h1,
 .h2,
 .h3{
-	/*font-weight:bold;
-	raindrops 1.132 change font-weight*/
-	font-weight:normal;
+    /*font-weight:bold;
+    raindrops 1.132 change font-weight*/
+    font-weight:normal;
 }
 h4,
 h5,
@@ -330,7 +330,7 @@ h6,
 .h4,
 .h5,
 .h6{
-	font-weight:400;
+    font-weight:400;
 }
 
 .attachment .title,
@@ -347,12 +347,12 @@ dt,
 .current-post > a,
 .current_page_item > a,
 .current-menu-item > a{
-	font-weight:bold;
+    font-weight:bold;
 }
 .raindrops-comment-link em {
-	font-style: normal;
+    font-style: normal;
 }
 .portfolio ul.index > li article .entry-title,
 .portfolio ul.index > .loop-item-show-allways article .entry-title{
-		font-size:153.9%;
+    font-size:153.9%;
 }

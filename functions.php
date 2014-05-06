@@ -4154,18 +4154,6 @@ DOC;
             <?php
             //remove header
         }
-        ?>
-                            jQuery('#raindrops_status_bar').hide();
-
-                            jQuery(this).scroll(function() {
-                                if (jQuery(this).scrollTop() > 200) {
-                                    jQuery('#raindrops_status_bar').show();
-                                } else {
-                                    jQuery('#raindrops_status_bar').hide();
-
-                                }
-                            });
-        <?php
 // equal height for design ver 1.150
         $raindrops_currrent_template = basename( $template, '.php' );
 

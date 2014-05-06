@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.211
+Version: 1.212
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,6 +49,7 @@ a:visited{
     text-decoration:none!important;
     border-bottom:solid 1px;
 }
+
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -57,6 +58,10 @@ a:visited{
     color:#000!important;
     border:1px solid #FFCC33!important;
     margin-bottom:-1px;
+}
+.raindrops-accessible-mode .entry-title a:focus span,
+.raindrops-accessible-mode #site-title a:focus span{
+    visibility:visible!important;
 }
 .gecko td img.size-full{
     width:100%;
@@ -3602,6 +3607,111 @@ div.bbp-template-notice, div.indicator-hint{
     text-decoration:none;
     color:#fff;
 }
+/* Print Styles for Single post, page */
+@media print {
+    @page {
+        margin: 1.5cm;
+    }
+    .single   a{
+        color:#000!important;
+    }
+
+    body.page,
+    body.single{
+        font-size:10.5pt;
+        color:#000;
+    }
+    .page #hd,
+    .single #hd{
+        height:2em;
+    }
+    .page #header-image,
+    .single #header-image{
+        height:3cm!important;
+    }
+    .page .entry-title,
+    .single .entry-title{
+        font-size:13pt;
+    }
+    .entry-content a:after,
+    #site-title a:after,
+    .page .entry-title a:after,
+    .single .entry-title a:after{
+        content: ' ( ' attr(href) ' ) ';
+        font-size:9pt;
+        display:block;
+        color:#000;
+    }
+    .entry-content a:after,
+    #site-title a:after{
+        display:inline;
+    }
+    .page  #container > .first
+    .single #container > .first{
+        width:100%!important;
+        float:none;
+    }
+
+    .page .yui-t1 article,
+    .single .yui-t1 article{
+        margin-left:-160px!important;
+    }
+    .page .yui-t2 article,
+    .single .yui-t2 article{
+        margin-left:-180px!important;
+    }
+
+    .page .yui-t3 article,
+    .single .yui-t3 article{
+        margin-left:-300px!important;
+    }
+
+    .page .yui-t4 article,
+    .single .yui-t4 article{
+        margin-right:-180px!important;
+    }
+
+    .page .yui-t5 article,
+    .single .yui-t5 article{
+        margin-right:-240px!important;
+    }
+    .page .yui-t6 article,
+    .single .yui-t6 article{
+        margin-right:-300px!important;
+    }
+    .page #bd > .yui-b,
+    .page .lsidebar,
+    .page  aside.rsidebar,
+    .page  .rsidebar,
+    .page .entry-meta
+    .single #bd > .yui-b,
+    .single .lsidebar,
+    .single  aside.rsidebar,
+    .single  .rsidebar,
+    .single .entry-meta{
+        display:none;
+        width:0;
+    }
+    .page #ft,
+    .page #footer,
+    .page #access,
+    .single #ft,
+    .single #footer,
+    .single #access{
+        display:none!important;
+    }
+    .single div.post,
+    .page div.page,
+    .single article{
+        width:19cm!important;
+        color:#000;
+        height:auto;
+    }
+    .single #yui-main #container{
+        min-height:0!important;
+    }
+}
+
 
 
 

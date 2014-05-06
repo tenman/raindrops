@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.212
+
+Fixed
+	Raindrops Status bar works improperly at 750px 950px 974px static page width.
+Modified
+	Add Print style
+
+	Optimising Images
+		Luigi Rosa
+			Thank you for contribute
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.211
 
 Added

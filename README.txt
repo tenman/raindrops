@@ -20,6 +20,12 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
+Special Thanks for Contribution
+
+	@ Luigi Rosa  Optimising Images
+
+
+
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
@@ -54,8 +60,8 @@ ver 1.152
 	Add raindrops-config-example.php
 
 		When If you need more customize
-			Rename 	from raindrops-config-example.php 
-					to raindrops-config.php 
+			Rename 	from raindrops-config-example.php
+					to raindrops-config.php
 			and set your value.
 
 	Raindrops 1.152 Add tag 'accessibility-ready'

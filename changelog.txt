@@ -9,6 +9,72 @@ Modified
 	Optimising Images
 		Luigi Rosa
 			Thank you for contribute
+				modified:   images/bg.png
+				modified:   images/dummy.png
+				modified:   images/footer.png
+				modified:   images/footerbck.png
+				modified:   images/h2.png
+				modified:   images/h2b.png
+				modified:   images/h2c.png
+				modified:   images/header.png
+				modified:   images/info.png
+				modified:   images/ja-em.png
+				modified:   images/link.png
+				modified:   images/next.png
+				modified:   images/number.png
+				modified:   images/options/arrows-vs.png
+				modified:   images/options/icons32-vs.png
+				modified:   images/please_upload.png
+				modified:   images/post-format-aside.png
+				modified:   images/post-format-audio.png
+				modified:   images/post-format-chat.png
+				modified:   images/post-format-gallery.png
+				modified:   images/post-format-image.png
+				modified:   images/post-format-link.png
+				modified:   images/post-format-quote.png
+				modified:   images/post-format-status.png
+				modified:   images/post-format-video.png
+				modified:   images/previous.png
+				modified:   images/raindrops-chat-author-0.png
+				modified:   images/raindrops-chat-author-1.png
+				modified:   images/raindrops-chat-author-2.png
+				modified:   images/raindrops-chat-author-3.png
+				modified:   images/raindrops-chat-author-4.png
+				modified:   images/raindrops-chat-author-5.png
+				modified:   images/raindrops-nav-menu-expand.png
+				modified:   images/raindrops-nav-menu-shrunk.png
+				modified:   images/require.png
+				modified:   images/retina/info.png
+				modified:   images/retina/link.png
+				modified:   images/retina/next.png
+				modified:   images/retina/post-format-aside.png
+				modified:   images/retina/post-format-audio.png
+				modified:   images/retina/post-format-chat.png
+				modified:   images/retina/post-format-gallery.png
+				modified:   images/retina/post-format-image.png
+				modified:   images/retina/post-format-link.png
+				modified:   images/retina/post-format-quote.png
+				modified:   images/retina/post-format-status.png
+				modified:   images/retina/post-format-video.png
+				modified:   images/retina/previous.png
+				modified:   images/retina/raindrops-chat-author-0.png
+				modified:   images/retina/raindrops-chat-author-1.png
+				modified:   images/retina/raindrops-chat-author-2.png
+				modified:   images/retina/raindrops-chat-author-3.png
+				modified:   images/retina/raindrops-chat-author-4.png
+				modified:   images/retina/raindrops-chat-author-5.png
+				modified:   images/retina/require.png
+				modified:   images/retina/rss.png
+				modified:   images/retina/stop.png
+				modified:   images/rss.png
+				modified:   images/screen-shot-dark.png
+				modified:   images/screen-shot-light.png
+				modified:   images/screen-shot-minimal.png
+				modified:   images/screen-shot-w3standard.png
+				modified:   images/sidebar.png
+				modified:   images/sticky.png
+				modified:   images/stop.png
+				modified:   images/topbck.png
 
 ----------------------------------------------
 Changelog -----------------------------------

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.212
+Version: 1.213
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,15 +49,17 @@ a:visited{
     text-decoration:none!important;
     border-bottom:solid 1px;
 }
-
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
     position:relative;
-    background:#fff!important;
-    color:#000!important;
-    border:1px solid #FFCC33!important;
-    margin-bottom:-1px;
+    margin:-1px;
+}
+
+
+.raindrops-accessible-mode #access .menu-item-has-children .sub-menu:hover,
+.raindrops-accessible-mode #access .menu-item-has-children a:hover + ul{
+    z-index:1000;
 }
 .raindrops-accessible-mode .entry-title a:focus span,
 .raindrops-accessible-mode #site-title a:focus span{
@@ -231,12 +233,12 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 }
 .poster-more-link .more-link-post-unique,
 .entry-content .more-link-post-unique{
-    visibility:hidden;
+    display:none;
 }
 
 .raindrops-accessible-mode .poster-more-link .more-link-post-unique,
 .raindrops-accessible-mode .entry-content .more-link-post-unique{
-    visibility:visible;
+    /*visibility:visible;*/
 }
 
 .comment-body blockquote blockquote blockquote{
@@ -3531,6 +3533,13 @@ ol.list-of-post-list .entry-title{
 }
 
 @media screen and (min-width : 1280px){
+   .page-template-blank_front-php  .raindrops-category-posts li,
+    .page-template-blank_front-php  .raindrops-tag-posts li,
+    .page-template-blank_front-php  .raindrops-recent-posts li{
+        display:block;
+        width:auto;
+        vertical-align:top;
+    }
     .page-template-blank_front-php #doc3 .raindrops-category-posts li,
     .page-template-blank_front-php #doc3 .raindrops-tag-posts li,
     .page-template-blank_front-php #doc3 .raindrops-recent-posts li{
@@ -3538,13 +3547,7 @@ ol.list-of-post-list .entry-title{
         width:45%;
         vertical-align:top;
     }
-    .page-template-blank_front-php div:not(#doc3) .raindrops-category-posts li,
-    .page-template-blank_front-php div:not(#doc3) .raindrops-tag-posts li,
-    .page-template-blank_front-php div:not(#doc3) .raindrops-recent-posts li{
-        display:block;
-        width:auto;
-        vertical-align:top;
-    }
+
 }
 
 /* plugins issue */
@@ -3710,6 +3713,14 @@ div.bbp-template-notice, div.indicator-hint{
     .single #yui-main #container{
         min-height:0!important;
     }
+}
+
+.rd-type-minimal #hd,
+.rd-type-minimal #ft{
+    background:none;
+}
+.rd-type-minimal #hd{
+    min-height:80px;
 }
 
 

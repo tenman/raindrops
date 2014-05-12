@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Create individual stylesheet
  *
@@ -30,6 +29,7 @@
  *
  *
  */
+
 raindrops_register_styles( "dark" );
 
 function raindrops_indv_css_dark() {
@@ -38,8 +38,15 @@ function raindrops_indv_css_dark() {
 
     $style = <<<DOC
 
+.ie11.raindrops-accessible-mode.rd-type-dark #access .sub-menu a:focus,
+.ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus,
+.raindrops-accessible-mode.rd-type-dark .hfeed a:focus{
+    color:orange!important; 
+    border-bottom:1px rgba(255, 255, 255,.6) solid;
+}
+
 body{
-%c1%
+    %c1%
 }
 
 legend,
@@ -49,7 +56,7 @@ div[id^="doc"],
 h1,
 div[id="yui-main"],
 .entry ol ol ,.entry ul{
-%c_5%
+    %c_5%
 }
 
 a:link,
@@ -58,17 +65,17 @@ a:visited,
 a:hover,
 #site-title,
 .h1 a{
-color:$font_color_5;
-background:none;
+    color:$font_color_5;
+    background:none;
 }
 h2 a{
-background:inherit;
+    background:inherit;
 }
 
 .lsidebar,
 #sidebar,
 .rsidebar{
-%c_4%
+    %c_4%
 }
 .rsidebar option.level-0,
 .lsidebar option.level-0,
@@ -82,15 +89,15 @@ ul.nav li a:hover,ul.nav li a:active,
 .entry-meta,
 .home .sticky,
 #top{
-%c_4%
+    %c_4%
 }
 .rsidebar option.level-1,
 .lsidebar option.level-1{
-%c_3%
+    %c_3%
 }
 .rsidebar option.level-2,
 .lsidebar option.level-2{
-%c_2%
+    %c_2%
 }
 .widget select,
 input[type="file"],
@@ -102,7 +109,6 @@ input[type="submit"],
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a,
-/*#access ul ul a,*/
 .searchform input[type="text"],
 .social textarea#comment,
 .social input[type="text"],
@@ -114,72 +120,54 @@ td.month-date,td.month-name,td.time,
 #ft,
 #nav,
 ul.nav{
-%c_3%
+    %c_3%
 }
-
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
 .ie6 #access ul li.current-menu-parent a,
 .ie6 #access ul li a:hover {
-/* border:1px solid %rgba_border%;*/
-%c_2%
+    %c_2%
 }
 
 input[type="file"],
 input[type="reset"],
 .social input[type="submit"],
 input[type="submit"]{
-%c_3%
+    %c_3%
 }
-.entry div h2,.entry div h3{
-}
-
-#hd{
-/*background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
-}
-
 #header-image{
-background-color:%custom_light_bg%!important;
+    background-color:%custom_light_bg%!important;
 }
-
-
 .home .sticky,
 .entry-meta{
-border-top:solid 2px %c_border%;
-border-bottom:solid 2px %c_border%;
+    border-top:solid 2px %c_border%;
+    border-bottom:solid 2px %c_border%;
 }
 .home .sticky{
-border-top:solid 6px %c_border%;
+    border-top:solid 6px %c_border%;
 }
 .attachment .caption dt{
-border-bottom:double 3px %c_border%;
-
+    border-bottom:double 3px %c_border%;
 }
-
 #yui-main{
-color:%raindrops_header_color%;
+    color:%raindrops_header_color%;
 }
-/*
-ol.commentlist :hover{
-background:url(%raindrops_images_path%latestbck.gif) repeat-x;
-}*/
+
 ol.tblist li{
-background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;
+    background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;
 }
 #ft{
-border-top: medium solid %c_border%;
-/*background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;*/
-background-repeat:repeat-x;
-color:%raindrops_footer_color%;
+    border-top: medium solid %c_border%;
+    background-repeat:repeat-x;
+    color:%raindrops_footer_color%;
 }
 #ft #wp-calendar{
-border:1px solid %c_border%!important;
+    border:1px solid %c_border%!important;
 }
-
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-%h2_dark_background%
-%h_position_rsidebar_h2%
+    %h2_dark_background%
+    %h_position_rsidebar_h2%
 
 }
 .datetable td li,
@@ -200,19 +188,19 @@ ul.all_entry h2,
 ul.archive,ul.index,
 .sitemap.new li,
 #items li{
-border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 
 .ie6 .datetable td li,
 .ie7 .datetable td li,
 .ie8 .datetable td li{
-border-bottom:none;
-border-bottom:none;
+    border-bottom:none;
+    border-bottom:none;
 }
 
 hr{
-border:none;
-border-top:1px solid %c_border%;
+    border:none;
+    border-top:1px solid %c_border%;
 }
 
 
@@ -250,11 +238,11 @@ fieldset,
 .entry-content textarea,
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
-	border:1px solid %c_border%;
+    border:1px solid %c_border%;
 }
 
 .entry-content blockquote {
-border-left:solid 6px %c_border%;
+    border-left:solid 6px %c_border%;
 }
 
 li.byuser,
@@ -264,18 +252,15 @@ li.bypostauthor,
 .social textarea#comment:focus,
 .social input:focus,
 .entry-content th{
-%c_3%
+    %c_3%
 }
 .raindrops-comment-author-meta cite.fn,
 li.byuser div.comment-body *,
 li.byuser span.says{
-%c_3%
-background:none;
+    %c_3%
+    background:none;
 }
-.wp-caption,
-.entry-content td,
-.entry-content th{
-}
+
 #respond input[type="text"],
 #respond textarea#comment,
 .searchform input[type="submit"],
@@ -294,40 +279,33 @@ background:none;
 .entry-content input[type=number],
 .entry-content input[type=color],
 .entry-content select{
-%c_4%
+    %c_4%
 }
 #access .children li ,
 #access .children a {
-background:%custom_light_bg%;
-color:%custom_color%;
-z-index:999;
+    background:%custom_light_bg%;
+    color:%custom_color%;
+    z-index:999;
 }
 .raindrops-tab-content,
 .raindrops-tab-page,
 .raindrops-tab-list li{
-background:%custom_light_bg%;
-color:%custom_color%;
+    background:%custom_light_bg%;
+    color:%custom_color%;
 }
 
 .fail-search,
 #not-found{
-border:1px solid;
+    border:1px solid;
 }
-.children:hover,
-.children{
-}
-
-
 .reply,
 #ft a,
 .page .hentry .entry-title a,
-/*.archive.category h2 a,*/
 cite.fn,
 cite a:link,
 cite a:active,
 cite a:visited,
 cite a:hover,
-/*ol.commentlist li :hover,*/
 div.comment-body blockquote,
 div.comment-body *,
 div.comment-author,
@@ -335,26 +313,22 @@ div.comment-author-meta,
 #site-description,
 .home .sticky a,
 .home .entry-meta a{
-color:$font_color_5;
-background:none;
+    color:$font_color_5;
+    background:none;
 }
 .comment-author div.comment-meta a{
-color:$font_color_5;
-background:none;
-
+    color:$font_color_5;
+    background:none;
 }
-
-/*h1{color:#fff!important;}*/
-
 .rd-page-navigation li{
 border-left:solid 1px %c_border%;
-%c_4%
+    %c_4%
 }
 .rd-page-navigation .current_page_item{
-%c_4%
+    %c_4%
 }
 .current_page_item{
-%c_2%
+    %c_2%
 }
 DOC;
 
@@ -363,41 +337,34 @@ DOC;
 %gradient%
 
 body{
-background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 }
 hr{
-border:none;
-border-top:1px solid %rgba_border%;
+    border:none;
+    border-top:1px solid %rgba_border%;
 }
 
 .home .sticky,
 .entry-meta{
-border-top:solid 2px %rgba_border%;
-border-bottom:solid 2px %rgba_border%;
+    border-top:solid 2px %rgba_border%;
+    border-bottom:solid 2px %rgba_border%;
 }
 .home .sticky{
-border-top:solid 6px %rgba_border%;
+    border-top:solid 6px %rgba_border%;
 }
 .comment-body th,
 .comment-body td,
 .wp-caption,
 .entry-content td,
 .entry-content th{
-border:solid 1px %rgba_border%;
+    border:solid 1px %rgba_border%;
 }
 
 .attachment .caption dt{
-border-bottom:3px double %rgba_border%;
+    border-bottom:3px double %rgba_border%;
 }
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
-/*-webkit-border-top-right-radius: 1em;
--moz-border-radius-topright: 1em;
-border-top-right-radius: 1em;
--webkit-border-top-left-radius: 1em;
--moz-border-radius-topleft: 1em;
-border-top-left-radius: 1em;*/
-}
+
 .datetable td li,
 .rsidebar ul li ul li,
 .lsidebar ul li ul li,
@@ -416,7 +383,7 @@ ul.all_entry h2,
 ul.archive,ul.index,
 .sitemap.new li,
 #items li{
-border-bottom:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 }
 .widget select,
 .rsidebar option,
@@ -454,7 +421,7 @@ fieldset,
 .entry-content input[type=color],
 .entry-content blockquote,
 td.month-date,td.month-name,td.time{
-border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 .searchform input:focus,
 .searchform input:focus,
@@ -463,9 +430,9 @@ border:1px solid %rgba_border%;
 .social textarea:focus,
 .hentry input:focus,
 .social input:focus{
-box-shadow: 0 0 5px %rgba_border%;
--webkit-box-shadow: 0 0 5px %rgba_border%;
--moz-box-shadow: 0 0 5px %rgba_border%;
+    box-shadow: 0 0 5px %rgba_border%;
+    -webkit-box-shadow: 0 0 5px %rgba_border%;
+    -moz-box-shadow: 0 0 5px %rgba_border%;
 }
 
 .searchform input[type="text"],
@@ -474,18 +441,18 @@ box-shadow: 0 0 5px %rgba_border%;
 .social textarea#comment,
 .hentry input[type="password"],
 .social input[type="text"] {
-outline:none;
-transition: all 0.25s ease-in-out;
--webkit-transition: all 0.25s ease-in-out;
--moz-transition: all 0.25s ease-in-out;
-border-radius:3px;
--webkit-border-radius:3px;
--moz-border-radius:3px;
-border:1px solid rgba(203,203,203, 0.5);
+    outline:none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border:1px solid rgba(203,203,203, 0.5);
 }
 
 .entry-content textarea{
-background: %rgba_border%
+    background: %rgba_border%
 }
 .fail-search,
 input[type="file"],
@@ -493,48 +460,46 @@ input[type="reset"],
 .searchform input[type="submit"],
 input[type="submit"], 
 #access{
-background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-border-radius:3px 3px 3px 3px;
--moz-border-radius:3px 3px 3px 3px;
--webkit-border-radius:3px 3px 3px 3px!important;
-/*border-top:1px solid rgba(255, 255, 255, 0.3);*/
--moz-box-shadow: 1px 1px 3px #000;
--webkit-box-shadow: 1px 1px 3px #000;
-border-top:1px solid rgba(100,100,100,1);
-
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px!important;
+    /*border-top:1px solid rgba(255, 255, 255, 0.3);*/
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    border-top:1px solid rgba(100,100,100,1);
 }
 .entry-content input[type="submit"]{
-	border: solid 1px %rgba_border%;
+    border: solid 1px %rgba_border%;
 }
 .raindrops-tab-list li,
 #access .children li,
 #access a {
-background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-color:%custom_color%;
-
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+    color:%custom_color%;
 }
 .ie11 #access .sub-menu a,
 .ie11 #access .children a {
 color:%custom_color%;
-	background: %custom_light_bg%!important;
+    background: %custom_light_bg%!important;
 	
 }
 .ie10 #access{
-	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
+    background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
 
 }
 .ie10 #access a {
-	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 }
 
 .ie10 #access .children li:active >a,
 .ie10 #access li:active >a ,
 .ie10 #access ul ul :active >a{
-	background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
+    background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
 
 .fail-search,
@@ -542,61 +507,55 @@ color:%custom_color%;
 #access .children li:active,
 #access li:active,
 #access ul ul :active {
-top:0;
-background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
-background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
-color:%custom_color%;
+    top:0;
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
+    background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
+    color:%custom_color%;
 }
 .wp-caption {
--moz-border-radius: 3px;
--khtml-border-radius: 3px;
--webkit-border-radius: 3px;
-border-radius: 3px;
-background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 .entry-content blockquote {
-border-left:solid 6px %rgba_border%;
+    border-left:solid 6px %rgba_border%;
 }
 #header-image p{
-text-shadow: 2px 2px 2px #000;
+    text-shadow: 2px 2px 2px #000;
 }
 .fail-search,
 #slides .slides_container,
 .raindrops-tab-content,
 .raindrops-tab-list li{
-border:1px solid rgba(200,200,200,0.3);
-
+    border:1px solid rgba(200,200,200,0.3);
 }
 /*comment bubble*/
 a.raindrops-comment-link {
 }
 .raindrops-comment-link em {
-%c_2%
--moz-border-radius: 0.25em;
--webkit-border-radius: 0.25em;
-border-radius: 0.25em;
-position: relative;
+    %c_2%
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
+    position: relative;
 }
 .raindrops-comment-link .point {
-border-left: 0.45em solid %rgba_border%;
-border-bottom: 0.45em solid #FFF; /* IE fix */
-border-bottom: 0.45em solid rgba(0,0,0,0);
-overflow: hidden; /* IE fix */
-}
-a.raindrops-comment-link:hover {
+    border-left: 0.45em solid %rgba_border%;
+    border-bottom: 0.45em solid #FFF; /* IE fix */
+    border-bottom: 0.45em solid rgba(0,0,0,0);
+    overflow: hidden; /* IE fix */
 }
 a.raindrops-comment-link:hover em {
-%c2%
+    %c2%
 }
 a.raindrops-comment-link:hover .point {
-border-left:1px solid %rgba_border%;
+    border-left:1px solid %rgba_border%;
 }
-
-
-
 CSS3;
     return $style . $css3;
 }
@@ -616,66 +575,63 @@ raindrops_register_styles( "w3standard" );
 function raindrops_indv_css_w3standard() {
 
     $style = <<<DOC
-
+            
+.ie11.raindrops-accessible-mode #access .sub-menu a:focus,
+.ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-
-  border:1px solid #000!important;
+      font-weight:bold!important;
+      border-bottom:1px solid #000;
 }
-
-
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-%c5%
-%h2_w3standard_background%
-%h_position_rsidebar_h2%
+    %c5%
+    %h2_w3standard_background%
+    %h_position_rsidebar_h2%
 }
 
 body {
 %c4%
-	margin:0!important;padding:0;
-	background-repeat:repeat-x;
+    margin:0!important;padding:0;
+    background-repeat:repeat-x;
 }
 #yui-main{
-	color:%raindrops_header_color%;
+    color:%raindrops_header_color%;
 }
 #hd{
-	background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
 }
 .hfeed{
-	background:#fff;
+    background:#fff;
 }
 #ft {
-	background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
-	color:%raindrops_footer_color%;
+    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
+    color:%raindrops_footer_color%;
 }
 
 .footer-widget h2,
 .rsidebar h2,
 .lsidebar h2 {
-/*%h2_w3standard_background%*/
-%h_position_rsidebar_h2%
+    %h_position_rsidebar_h2%
 }
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
-list-style-type:square;
-list-style-position:inside;
+    list-style-type:square;
+    list-style-position:inside;
 }
 
 .ie8 .lsidebar .widget ul li a {
-	list-style:none;
+    list-style:none;
 
 }
 
 .home .sticky {
-%c5%
-border-top:solid 6px %c_border%;
-border-bottom:solid 2px %c_border%;
-
+    %c5%
+    border-top:solid 6px %c_border%;
+    border-bottom:solid 2px %c_border%;
 }
 .entry-meta{
-%c5%
-border-top:dashed 1px %c_border%;
-border-bottom:dashed 1px %c_border%;
-
+    %c5%
+    border-top:dashed 1px %c_border%;
+    border-bottom:dashed 1px %c_border%;
 }
 textarea,
 input[type="password"],
@@ -683,48 +639,45 @@ input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
-	%c5%
+    %c5%
 }
 input[type="checkbox"],
 input[type="radio"],
 select{
-	%c4%
+    %c4%
 }
 #respond input[type="text"],
 #respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"] {
-	outline:none;
-	%c3%
+    outline:none;
+    %c3%
 
 }
 #respond input[type="text"]:focus,
 #respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input:focus{
-	%c4%
+    %c4%
 
 }
-.entry-content ul li{
-	/*list-style-type:square;*/
 
-}
 .entry-content input[type="email"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
 .entry-content input[type=tel],
 .entry-content input[type=number],
 .entry-content input[type=color]{
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-	%c5%
+    %c5%
 }
 
 .entry-content input[type="radio"]{
-	%c3%
+    %c3%
 }
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -733,143 +686,131 @@ select{
 .entry-content input[type="number"],
 .entry-content input[type="color"],
 .entry-content select{
-	%c5%
+    %c5%
 }
 
 .entry-content blockquote{
-	%c4%
-	border-left:solid 6px %c_border%;
+    %c4%
+    border-left:solid 6px %c_border%;
 }
 cite{
-	%c4%
+    %c4%
 }
-cite a:link,cite a:active,cite a:visited,cite a:hover{
-	%c4%
+cite a:link,
+cite a:active,
+cite a:visited,
+cite a:hover{
+    %c4%
 }
 .entry-content fieldset {
-	border:solid 1px %c_border%;
+    border:solid 1px %c_border%;
 }
 .entry-content legend{
-	%c5%
+    %c5%
 }
 .comment-body td,
 .entry-content td{
-	%c4%
-	border:solid 1px %c_border%;
+    %c4%
+    border:solid 1px %c_border%;
 }
 .entry-content th{
-	%c3%
-	border:solid 1px %c_border%;
+    %c3%
+    border:solid 1px %c_border%;
 }
 
 hr{
-border-top:1px dashed %c_border%;
+    border-top:1px dashed %c_border%;
 }
-
 /*--------------------------------*/
 
-#access{ %c5%
+#access{
+    %c5%
 }
-#access a {
 
-
-}
 #access ul ul a {
-	%c4%
+    %c4%
 }
 #access li:active > a,
 #access ul ul :active > a {
-	top:0;
-	%c2%
-	color:%custom_color%
-
+    top:0;
+    %c2%
+    color:%custom_color%
 }
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-	%c4%
+    %c4%
 }
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
 .ie6 #access ul li.current-menu-parent a,
 .ie6 #access ul li a:hover {
-	%c3%
+    %c3%
 }
 
 table,
 table td,
 #access > li{
-	border:1px solid #ccc;
+    border:1px solid #ccc;
 
 }
 tfoot td{
-	border:none;
+    border:none;
 }
 .lsidebar li,
 .rsidebar li{
-	border:none!important;
+    border:none!important;
 }
 
 td.month-date,td.month-name,td.time{
-	%c4%
+    %c4%
 
 }
-.datetable td li{
-}
-address{margin:10px auto;}
-.wp-caption {
-}
 
+address{
+    margin:10px auto;
+}
 li.byuser,
 li.bypostauthor {
-%c5%
+    %c5%
 }
 .comment-meta a,
 cite.fn{
-	background:none;
+    background:none;
 }
-.datetable td li{
-}
+
 .fail-search,
 #not-found {
-%c3%
-border:3px double;
+    %c3%
+    border:3px double;
 }
 .rd-page-navigation li{
-border-left:solid 1px %c_border%;
-%c5%
+    border-left:solid 1px %c_border%;
+    %c5%
 }
 .rd-page-navigation a{
-%c5%
+    %c5%
 }
 .rd-page-navigation .current_page_item{
-%c4%
+    %c4%
 }
 .raindrops-tab-content,
 .raindrops-tab-list li{
-border:1px solid %c_border%;
-
-}
-a.raindrops-comment-link {
+    border:1px solid %c_border%;
 }
 .raindrops-comment-link em {
-%c4%
-position: relative;
+    %c4%
+    position: relative;
 }
-.raindrops-comment-link .point {
-}
-a.raindrops-comment-link:hover {
-}
+
 a.raindrops-comment-link:hover em {
-%c_1%
+    %c_1%
 }
 a.raindrops-comment-link:hover .point {
-border-left:1px solid %c_border%;
+    border-left:1px solid %c_border%;
 }
-
-
 DOC;
     return $style;
 }
@@ -891,12 +832,13 @@ function raindrops_indv_css_light() {
     $font_color5 = raindrops_colors( 5, "color" );
 
     $style = <<<DOC
-	
+            
+.ie11.raindrops-accessible-mode #access .sub-menu a:focus,
+.ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-
-  border:1px solid #000!important;
-}
-
+      font-weight:bold!important;
+      border-bottom:1px solid #000;
+}	
 
 a:link,
 a:active,
@@ -904,237 +846,189 @@ a:visited,
 a:hover,
 #site-title,
 .h1 a{
-color:$font_color5;
-background:none;
+    color:$font_color5;
+    background:none;
 }
 h2 a{
-background:inherit;
+    background:inherit;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
-	%h2_light_background%;
-	%h_position_rsidebar_h2%
+    %h2_light_background%;
+    %h_position_rsidebar_h2%
 }
 
 body{
-	margin:0!important;
-	%c4%
+    margin:0!important;
+    %c4%
 }
-#top{
-	%c5%
-}
-
-
+#top,
 .hfeed{
-	%c5%
+    %c5%
 }
-
 .home .sticky {
-	%c4%
+    %c4%
 }
-
 .entry-meta{
-	%c5%
+    %c5%
 }
-
 .home .sticky a{
-	background-color: none;
+    background-color: none;
 
 }
 #yui-main{
-
-	/*%c5%*/
- color:%raindrops_header_color%;
+    color:%raindrops_header_color%;
 }
 
 .entry div h2,.entry div h3{
-	%c5%
+    %c5%
 }
 .entry ol ol ,.entry ul {
-	%c5%
+    %c5%
 }
 .entry ul *{
-	%c5%
+    %c5%
 }
 
 #hd{
-/* change 1.125 next version remove
-%c2%
-*/
-%c5%
-	border-top: 6px solid %c_border%;
-
-	background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
-	background-position:0 -5px;
+    %c5%
+    border-top: 6px solid %c_border%;
+    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+    background-position:0 -5px;
 
 }
 #hd h1,.h1,#site-title{
-	%c4%
-	background:none;
-
+    %c4%
+    background:none;
 }
 #site-description{
-	%c4%
-	background:none;
-
-}
-#header-image{
-	/*background-color:%custom_light_bg%!important;*/
+    %c4%
+    background:none;
 }
 #doc,#doc2,#doc3,#doc4{
-	%c5%
+    %c5%
 }
-
 #nav{
-	%c3%
+    %c3%
 }
 ul.nav{
-	%c3%
+    %c3%
 }
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited{
-	%c4%
+    %c4%
 }
 ul.nav li a:hover,ul.nav li a:active{
-	%c4%
+    %c4%
 }
-
-.rsidebar{
-}
-
 .postmetadata{
-	%c5%
+    %c5%
 }
-/*
-ol.commentlist :hover{background:url(%raindrops_images_path%latestbck.gif) repeat-x;}
-ol.commentlist li :hover{background:none;}*/
-ol.tblist li{background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;}
+ol.tblist li{
+    background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;
+}
 
 #ft{
-	%c3%
-	border-top: medium solid %c_border%;
-	background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
-	color:%raindrops_footer_color%;
+    %c3%
+    border-top: medium solid %c_border%;
+    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
+    color:%raindrops_footer_color%;
 }
 
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 
 }
 .lsidebar h2.widgettitle,
 .rsidebar h2.widgettitle{
-	text-indent:0;
+    text-indent:0;
 }
 dl.author dd,
 dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt{
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 
 #items li{
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 .attachment .caption dd{
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 .attachment .caption dt{
-	border-bottom:double 3px %c_border%;
+    border-bottom:double 3px %c_border%;
 }
 ul.archive,
 ul.index{
-	margin:2em 0;
-	border-bottom:1px solid %c_border%;
-
+    margin:2em 0;
+    border-bottom:1px solid %c_border%;
 }
 .sitemap.new li{
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
-.social{
-
-}
-
 ul.all_entry h2{
-	border-bottom:3px double %c_border%;
+    border-bottom:3px double %c_border%;
 }
 ul.category li{
-	border-bottom:1px solid %c_border%;
-
+    border-bottom:1px solid %c_border%;
 }
 ul.sitemap ul li,
 ul.archive ul li {
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 .blog .entry-utility li{
-	border-bottom:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 .mycomment{
-	border-bottom:1px dashed %c_border%;
+    border-bottom:1px dashed %c_border%;
 }
 .blog .entry-utility li{
-	border-bottom:1px solid %c_border%;
-}
-
-ul.archive li,
-ul.index li{
-
+    border-bottom:1px solid %c_border%;
 }
 table,
 table td{
-	border:1px solid %c_border%;
+    border:1px solid %c_border%;
 }
 
 td.month-date,td.month-name,td.time{
- %c4%
-	border-bottom:1px solid %c_border%;
+    %c4%
+    border-bottom:1px solid %c_border%;
 }
-
-
 .entry-content blockquote{
-	border-left:solid 3px %c_border%;
-
-	background:#fefefe;
+    border-left:solid 3px %c_border%;
+    background:#fefefe;
 }
 cite{
-	background:#fefefe;
+    background:#fefefe;
 }
-
 cite a:link,cite a:active,cite a:visited,cite a:hover{
-
-
-}
-
-cite a:link,cite a:active,cite a:visited,cite a:hover{
-
-	%c4%
-	background:none!important;
+    %c4%
+    background:none!important;
 }
 legend{
-	%c5%
+    %c5%
 }
 hr{
-border-top:1px dashed %c_border%;
+    border-top:1px dashed %c_border%;
 }
-
-
 textarea,
 input[type="password"],
 input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
-	%c4%
+    %c4%
 }
 input[type="checkbox"],
 input[type="radio"],
 select{
-	%c4%
+    %c4%
 }
 #respond input[type="text"]:focus,
 #respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input[type="text"]:focus{
-
-	border:1px solid %c_border%;
+    border:1px solid %c_border%;
 }
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -1143,24 +1037,23 @@ select{
 .entry-content input[type=number],
 .entry-content input[type=color],
 .social input[type="submit"] {
-	border:solid 1px %c_border%;
-	%c4%
+    border:solid 1px %c_border%;
+    %c4%
 }
-
 .entry-content th{
-	%c3%
-	border:solid 1px %c_border%;
+    %c3%
+    border:solid 1px %c_border%;
 }
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-	border:double 3px %c_border%;
-	%c4%
+    border:double 3px %c_border%;
+    %c4%
 }
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"]{
-	%c4%
-	border:double 3px %c_border%;
+    %c4%
+    border:double 3px %c_border%;
 }
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -1169,90 +1062,68 @@ select{
 .entry-content input[type="number"],
 .entry-content input[type="color"],
 .entry-content select{
-	%c4%
-	border:double 3px %c_border%;
+    %c4%
+    border:double 3px %c_border%;
 }
 
 .entry-content textarea{
-	border:double 3px %c_border%;
+    border:double 3px %c_border%;
 }
 
 /*--------------------------------*/
-#access{
 
-
-
-
-}
-#access a {
-}
-#access ul ul a {
-/* change 1.125 next version remove
-	%c3%
-	*/
-	/*%c5%*/
-}
 #access .children li:active >a,
 #access li:active >a ,
 #access ul ul :active >a{
-	top:0;
+    top:0;
 }
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-/* change 1.125 next version remove
-	%c3%
-	*/
-	%c5%
+    %c5%
 }
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
 .ie6 #access ul li.current-menu-parent a,
 .ie6 #access ul li a:hover {
-	%c2%
+    %c2%
 }
 address{
-	margin:10px auto;
+    margin:10px auto;
 }
 
 
 #bd article:not(.format-link) a,
 .postmetadata{
-background:none!important;
+    background:none!important;
 }
 
 .wp-caption {
- border:solid 1px #999;
-}
-li.byuser,
-li.bypostauthor {
+    border:solid 1px #999;
 }
 cite.fn{
-	background:none;
-}
-
-.datetable td li{
+    background:none;
 }
 .fail-search,
 #not-found {
-%c4%
-border:3px double %c_border%;
+    %c4%
+    border:3px double %c_border%;
 }
 .rd-page-navigation li{
-border-left:solid 1px %c_border%;
-%c4%
+    border-left:solid 1px %c_border%;
+    %c4%
 }
 .rd-page-navigation a{
-%c4%
+    %c4%
 }
 .rd-page-navigation .current_page_item{
-%c5%
+    %c5%
 }
 .raindrops-tab-content,
 .raindrops-tab-list li{
-border:1px solid %c_border%;
+    border:1px solid %c_border%;
 }
 DOC;
 
@@ -1261,95 +1132,72 @@ DOC;
 
 %gradient%
 
-body{
-/*
-	background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-	background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-*/	
-/* 1.100 comment out
- * this style rule remove horizontal scrollbar IE 
- * 1.101 will remove.
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
- */
-}
-
 .hfeed{
-	box-shadow: 0 0 5px %rgba_border%;
-	-webkit-box-shadow: 0 0 5px %rgba_border%;
-	-moz-box-shadow: 0 0 5px %rgba_border%;
+    box-shadow: 0 0 5px %rgba_border%;
+    -webkit-box-shadow: 0 0 5px %rgba_border%;
+    -moz-box-shadow: 0 0 5px %rgba_border%;
 
 }
-
 .home .sticky {
-	border-top:solid 6px %rgba_border%;
-	border-bottom:solid 2px %rgba_border%;
-
+    border-top:solid 6px %rgba_border%;
+    border-bottom:solid 2px %rgba_border%;
 }
-
 .entry-meta{
+    border-top:solid 1px %rgba_border%;
+    border-bottom:solid 1px %rgba_border%;
+}
 
-	border-top:solid 1px %rgba_border%;
-	border-bottom:solid 1px %rgba_border%;
-}
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
- /* -webkit-border-top-left-radius: 1em;
-	-moz-border-radius-topleft: 1em;
-	border-top-left-radius: 1em;
-	-webkit-border-top-right-radius: 1em;
-	-moz-border-radius-topright: 1em;
-	border-top-right-radius: 1em;*/
-}
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
-	border-bottom:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 }
 dl.author dd,
 dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt{
-	border-bottom:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 
 }
 ul.index{
-	border-bottom:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 
 }
 ul.category li{
-	border-bottom:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 
 }
 table td{
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 td.month-date,td.month-name,td.time{
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 
 }
 fieldset {
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 hr{
-border-top:1px dashed %rgba_border%;
+    border-top:1px dashed %rgba_border%;
 }
 #respond input[type="text"],
 #respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"]{
-	outline:none;
-	transition: all 0.25s ease-in-out;
-	-webkit-transition: all 0.25s ease-in-out;
-	-moz-transition: all 0.25s ease-in-out;
-	border-radius:3px;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
-	border:1px solid rgba(0,0,0, 0.2);
+    outline:none;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border:1px solid rgba(0,0,0, 0.2);
 }
 .social textarea#comment:focus,
 .social input[type="text"]:focus{
-	box-shadow: 0 0 5px %rgba_border%;
-	-webkit-box-shadow: 0 0 5px %rgba_border%;
-	-moz-box-shadow: 0 0 5px %rgba_border%;
-	border:1px solid %rgba_border%;
+    box-shadow: 0 0 5px %rgba_border%;
+    -webkit-box-shadow: 0 0 5px %rgba_border%;
+    -moz-box-shadow: 0 0 5px %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -1358,137 +1206,120 @@ border-top:1px dashed %rgba_border%;
 .entry-content input[type=number],
 .entry-content input[type=color],
 .social input[type="submit"]{
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 
 .entry-content th{
-	border:solid 1px %rgba_border%;
+    border:solid 1px %rgba_border%;
 }
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-	border:double 3px %rgba_border%;
-
+    border:double 3px %rgba_border%;
 }
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"]{
-	border:double 3px %rgba_border%;
+    border:double 3px %rgba_border%;
 }
 
 .entry-content select{
-	border:double 3px %rgba_border%;
+    border:double 3px %rgba_border%;
 }
 
 .entry-content textarea{
-	background: %rgba_border%
-	border:double 3px %rgba_border%;
+    background: %rgba_border%
+    border:double 3px %rgba_border%;
 }
 #access{
-
-
-	background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-	background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-	border-radius:3px 3px 3px 3px;
-	-moz-border-radius:3px 3px 3px 3px;
-	-webkit-border-radius:3px 3px 3px 3px!important;
-	border-top:1px solid rgba(255, 255, 255, 0.3);
-	-moz-box-shadow: 0 1px 3px #333;
-	-webkit-box-shadow: 0 1px 3px #333;
-
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+    border-radius:3px 3px 3px 3px;
+    -moz-border-radius:3px 3px 3px 3px;
+    -webkit-border-radius:3px 3px 3px 3px!important;
+    border-top:1px solid rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 0 1px 3px #333;
+    -webkit-box-shadow: 0 1px 3px #333;
 }
 #access a {
-	background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%))!important;
-	background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
-	color:%custom_color%;
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%))!important;
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
+    color:%custom_color%;
 }
 #access .children li:active >a,
 #access li:active >a ,
 #access ul ul :active >a{
-	background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
-	background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%)!important;
-	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');*/
-	color:%custom_color%;
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
+    background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%)!important;
+    color:%custom_color%;
 }
 .ie10 #access{
-	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
+    background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
 
 }
 .ie10 #access a {
-	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 }
 .ie10 #access .children li:active >a,
 .ie10 #access li:active >a ,
 .ie10 #access ul ul :active >a{
-	background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
+    background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
 
 .wp-caption {
- border:solid 1px %rgba_border%;
- -moz-border-radius: 3px;
- -khtml-border-radius: 3px;
- -webkit-border-radius: 3px;
- border-radius:0 0 3px 3px;
-/*background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
-	background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');*/
+    border:solid 1px %rgba_border%;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:0 0 3px 3px;
 }
 .wp-caption{
-	padding:0;
+    padding:0;
 }
-li.byuser,
-li.bypostauthor {
-}
-
 .datetable td li{
-	border-bottom:solid 1px %rgba_border%;
+    border-bottom:solid 1px %rgba_border%;
 }
 #sidebar{
-	border-color:%rgba_border%;
+    border-color:%rgba_border%;
 }
 table,
 table td{
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
 .raindrops-tab-content,
 .raindrops-tab-list li{
 border:1px solid %c_border%;
-	border:1px solid %rgba_border%;
+    border:1px solid %rgba_border%;
 }
-a.raindrops-comment-link {
-}
+
 .raindrops-comment-link em {
-%c4%
--moz-border-radius: 0.25em;
--webkit-border-radius: 0.25em;
-border-radius: 0.25em;
-position: relative;
+    %c4%
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
+    position: relative;
 }
 .raindrops-comment-link .point {
-border-left: 0.45em solid %rgba_border%;
-border-bottom: 0.45em solid #FFF; /* IE fix */
-border-bottom: 0.45em solid rgba(0,0,0,0);
-overflow: hidden; /* IE fix */
+    border-left: 0.45em solid %rgba_border%;
+    border-bottom: 0.45em solid #FFF; /* IE fix */
+    border-bottom: 0.45em solid rgba(0,0,0,0);
+    overflow: hidden; /* IE fix */
 }
-a.raindrops-comment-link:hover {
-}
+
 a.raindrops-comment-link:hover em {
-%c_1%
+    %c_1%
 }
 a.raindrops-comment-link:hover .point {
-border-left:1px solid %rgba_border%;
+    border-left:1px solid %rgba_border%;
 }
 #bd .raindrops-lightbox-overlay a{
-background:#fff!important;
+    background:#fff!important;
 }
-#bd a {
-}
+
 .footer-widget>ul>li{
-	border-bottom:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 }
-
-
 CSS3;
     return $style . $css3;
 }
@@ -1511,79 +1342,78 @@ function raindrops_indv_css_minimal() {
 
     $style = <<<CSS
 
+.ie11.raindrops-accessible-mode #access .sub-menu a:focus,
+.ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-
-  border:1px solid #000!important;
+      font-weight:bold!important;
+      border-bottom:1px solid #000;
 }
 
-#hd{
-/*background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
-min-height:80px;
+body{
+    border-top:6px solid $raindrops_base_color!important;
 }
-#hd,#ft{background:none!important;}
-body{border-top:6px solid $raindrops_base_color!important;}
-a{color:$font_color;}
-a:hover{color:#777;}
+a{
+    color:$font_color;
+}
+a:hover{
+    color:#777;
+}
 #yui-main{
-color:%raindrops_header_color%;
+    color:%raindrops_header_color%;
 }
-
-.footer-widget h2, .rsidebar h2, .lsidebar h2, .widgettitle h2, h2.footer-content {
-text-indent:0;}
+.footer-widget h2, 
+.rsidebar h2, 
+.lsidebar h2,
+.widgettitle h2,
+h2.footer-content {
+    text-indent:0;
+}
+          
 /*comment bubble*/
-a.raindrops-comment-link {
-}
 .raindrops-comment-link em {
-%c4%
--moz-border-radius: 0.25em;
--webkit-border-radius: 0.25em;
-border-radius: 0.25em;
-position: relative;
+    %c4%
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    border-radius: 0.25em;
+    position: relative;
 }
 .raindrops-comment-link .point {
-border-left: 0.45em solid %rgba_border%;
-border-bottom: 0.45em solid #FFF; /* IE fix */
-border-bottom: 0.45em solid rgba(0,0,0,0);
-overflow: hidden; /* IE fix */
+    border-left: 0.45em solid %rgba_border%;
+    border-bottom: 0.45em solid #FFF; /* IE fix */
+    border-bottom: 0.45em solid rgba(0,0,0,0);
+    overflow: hidden; /* IE fix */
 }
-a.raindrops-comment-link:hover {
-}
+
 a.raindrops-comment-link:hover em {
-%c_1%
+    %c_1%
 }
 a.raindrops-comment-link:hover .point {
-border-left:1px solid %rgba_border%;
+    border-left:1px solid %rgba_border%;
 }
-
 input[type="text"],
 textarea#comment{
-		border:1px solid #ddd;
-		border-top-color:%rgba_border%;
-		border-left-color:%rgba_border%;
-		padding:3px;
-		-moz-border-radius: 3px;
-	 -khtml-border-radius: 3px;
-	 -webkit-border-radius: 3px;
-
+    border:1px solid #ddd;
+    border-top-color:%rgba_border%;
+    border-left-color:%rgba_border%;
+    padding:3px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
-
 #access .children,
 #access .children li{
-	border-top:none;
+    border-top:none;
 }
-
-
-
 #access .children li:nth-child(1){
 	border-top:1px solid #ccc;
 }
 #access .sub-menu a,
 #access .children a,
 #access .children .current_page_item a{
-	text-align:left;
-	padding:10px;
-	background:#fff;
-	border-left-color:%rgba_border%;
+    text-align:left;
+    padding:10px;
+    background:#fff;
+    border-left-color:%rgba_border%;
 }
 #access .sub-menu a:hover,
 #access .children a:hover,
@@ -1591,26 +1421,28 @@ textarea#comment{
 	%c4%
 }
 blockquote{
-	border-left:6px solid;
-	border-left-color:%rgba_border%;
-	padding:10px;
-	%c4%
+    border-left:6px solid;
+    border-left-color:%rgba_border%;
+    padding:10px;
+    %c4%
 }
 
 CSS;
-
+    
+    
+    
     return $style;
 }
 
 ?>
 <?php
-
 /**
  *
  *
  *
  *
  */
+
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -1649,38 +1481,53 @@ $raindrops_header_image = raindrops_warehouse_clone( 'raindrops_header_image' );
 $raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 $raindrops_footer_image = raindrops_warehouse_clone( 'raindrops_footer_image' );
 $raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
+
+
 //define("BASE_COLOR1",$raindrops_base_color);
 /**
  * save stylesheet
  *
  */
-$raindrops_indv_css     = raindrops_design_output( $style_type ) . raindrops_color_base();
+///////////////////////////////////////////////////////////////////////////////////
 $raindrops_options      = get_option( "raindrops_theme_settings" );
 // if not handmade css. theme name style type is handmade
+
+$time_start = microtime(true);
+if ( is_admin()){
+    $raindrops_indv_css     = raindrops_design_output( $style_type ) . raindrops_color_base();
+}
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+//var_dump($time);
+//var_dump( is_admin());
+
+
 
 if ( $raindrops_options !== false ) {
 
     if ( raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
 
         if ( is_array( $raindrops_options ) ) {
+            if( is_admin()){
+                if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
 
-            if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
+                    $raindrops_options[ '_raindrops_indv_css' ] = $raindrops_indv_css;
+                } else {
 
-                $raindrops_options[ '_raindrops_indv_css' ] = $raindrops_indv_css;
-            } else {
+                    $add_array         = array( '_raindrops_indv_css' => $raindrops_indv_css );
+                    $raindrops_options = array_merge( $raindrops_options, $add_array );
 
-                $add_array         = array( '_raindrops_indv_css' => $raindrops_indv_css );
-                $raindrops_options = array_merge( $raindrops_options, $add_array );
-            }
-            update_option( "raindrops_theme_settings", $raindrops_options );
+                }
+                update_option( "raindrops_theme_settings", $raindrops_options );
+                }
         } else {
-
+/*
             $raindrops_options[ '_raindrops_indv_css' ] = $raindrops_indv_css;
-            add_option( "raindrops_theme_settings", $raindrops_options );
+            add_option( "raindrops_theme_settings", $raindrops_options );*/
         }
     }
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * Create CSS Color Declaration
  *
@@ -1777,7 +1624,6 @@ function raindrops_colors( $num = 0, $select = 'set', $color1 = null ) {
             break;
     }
 }
-
 /**
  * Create gradient style
  *
@@ -1839,7 +1685,6 @@ function raindrops_gradient_css( $color = null, $num = 0, $diff = 1, $order = 'a
     $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\');';
     return $g;
 }
-
 /**
  * Base Color Class Create
  *
@@ -2088,7 +1933,7 @@ function raindrops_design_output( $name = 'dark' ) {
             $custom_light_bg = raindrops_colors( $custom_light_bg, 'background' );
             $custom_color    = apply_filters( 'raindrops_default_color', 1 );
             $custom_color    = raindrops_colors( $custom_color, 'color' );
-
+            
             if ( !empty( $raindrops_footer_color ) ) {
 
                 $raindrops_footer_color = $raindrops_footer_color;
@@ -2133,7 +1978,6 @@ function raindrops_design_output( $name = 'dark' ) {
         return $content;
     }
 }
-
 /**
  * register style name
  *
@@ -2151,5 +1995,4 @@ function raindrops_register_styles( $style_name ) {
     $vals[ $style_name ] = $style_name;
     return $vals;
 }
-
 ?>

@@ -37,7 +37,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $template;
+global $template, $raindrops_link_unique_text;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 
 echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"' . '?' . '>' . "\n";
@@ -50,10 +50,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
         <meta http-equiv="content-style-type" content="text/css" />
         <title><?php wp_title( '|', true, 'right' ); ?></title>
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-        <?php
-        global $raindrops_link_unique_text;
-        wp_head();
-        ?>
+        <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?> >
         <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">

@@ -39,19 +39,18 @@
                 jQuery(this).html("+" + jQuery(this).html().substring(1));
             }
         });
-        
-          jQuery('#raindrops_status_bar').hide();
 
-                            jQuery(this).scroll(function() {
-                                if (jQuery(this).scrollTop() > 200) {
-                                    jQuery('#raindrops_status_bar').show();
-                                } else {
-                                    jQuery('#raindrops_status_bar').hide();
+        jQuery('#raindrops_status_bar').hide();
 
-                                }
-                            });
+        jQuery(this).scroll(function() {
+            if (jQuery(this).scrollTop() > 200) {
+                jQuery('#raindrops_status_bar').show();
+            } else {
+                jQuery('#raindrops_status_bar').hide();
 
+            }
         });
+    });
 
 })(jQuery);
 

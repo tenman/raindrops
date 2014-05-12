@@ -41,7 +41,7 @@ function raindrops_indv_css_dark() {
 .ie11.raindrops-accessible-mode.rd-type-dark #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus,
 .raindrops-accessible-mode.rd-type-dark .hfeed a:focus{
-    color:orange!important; 
+    color:orange!important;
     border-bottom:1px rgba(255, 255, 255,.6) solid;
 }
 
@@ -458,7 +458,7 @@ td.month-date,td.month-name,td.time{
 input[type="file"],
 input[type="reset"],
 .searchform input[type="submit"],
-input[type="submit"], 
+input[type="submit"],
 #access{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
@@ -486,7 +486,7 @@ input[type="submit"],
 .ie11 #access .children a {
 color:%custom_color%;
     background: %custom_light_bg%!important;
-	
+
 }
 .ie10 #access{
     background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
@@ -575,7 +575,7 @@ raindrops_register_styles( "w3standard" );
 function raindrops_indv_css_w3standard() {
 
     $style = <<<DOC
-            
+
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -832,13 +832,13 @@ function raindrops_indv_css_light() {
     $font_color5 = raindrops_colors( 5, "color" );
 
     $style = <<<DOC
-            
+
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
       font-weight:bold!important;
       border-bottom:1px solid #000;
-}	
+}
 
 a:link,
 a:active,
@@ -1361,14 +1361,14 @@ a:hover{
 #yui-main{
     color:%raindrops_header_color%;
 }
-.footer-widget h2, 
-.rsidebar h2, 
+.footer-widget h2,
+.rsidebar h2,
 .lsidebar h2,
 .widgettitle h2,
 h2.footer-content {
     text-indent:0;
 }
-          
+
 /*comment bubble*/
 .raindrops-comment-link em {
     %c4%
@@ -1428,9 +1428,9 @@ blockquote{
 }
 
 CSS;
-    
-    
-    
+
+
+
     return $style;
 }
 
@@ -1488,20 +1488,14 @@ $raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
  * save stylesheet
  *
  */
-///////////////////////////////////////////////////////////////////////////////////
+
 $raindrops_options      = get_option( "raindrops_theme_settings" );
 // if not handmade css. theme name style type is handmade
 
-$time_start = microtime(true);
+
 if ( is_admin()){
     $raindrops_indv_css     = raindrops_design_output( $style_type ) . raindrops_color_base();
 }
-$time_end = microtime(true);
-$time = $time_end - $time_start;
-//var_dump($time);
-//var_dump( is_admin());
-
-
 
 if ( $raindrops_options !== false ) {
 
@@ -1520,14 +1514,10 @@ if ( $raindrops_options !== false ) {
                 }
                 update_option( "raindrops_theme_settings", $raindrops_options );
                 }
-        } else {
-/*
-            $raindrops_options[ '_raindrops_indv_css' ] = $raindrops_indv_css;
-            add_option( "raindrops_theme_settings", $raindrops_options );*/
         }
     }
 }
-////////////////////////////////////////////////////////////////////////////////////////////
+
 /**
  * Create CSS Color Declaration
  *
@@ -1933,7 +1923,7 @@ function raindrops_design_output( $name = 'dark' ) {
             $custom_light_bg = raindrops_colors( $custom_light_bg, 'background' );
             $custom_color    = apply_filters( 'raindrops_default_color', 1 );
             $custom_color    = raindrops_colors( $custom_color, 'color' );
-            
+
             if ( !empty( $raindrops_footer_color ) ) {
 
                 $raindrops_footer_color = $raindrops_footer_color;

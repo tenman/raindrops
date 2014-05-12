@@ -1,8 +1,7 @@
 <?php
 /**
  * The template for displaying Auther.
- *
- *
+ * *
  * @package Raindrops
  * @since Raindrop 0.1
  *

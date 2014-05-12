@@ -6048,14 +6048,14 @@ DOC;
             global $raindrops_link_unique_text;
 
             $defaults = array(
-                'theme_location'    => '',
+                'theme_location'    => 'primary',
                 'menu'              => '',
                 'container'         => 'div',
-                'container_class'   => '',
+                'container_class'   => 'menu-header',
                 'container_id'      => '',
                 'menu_class'        => 'menu',
                 'menu_id'           => '',
-                'echo'              => true,
+                'echo'              => false,
                 'fallback_cb'       => 'wp_page_menu',
                 'before'            => '',
                 'after'             => '',
@@ -6074,12 +6074,12 @@ DOC;
             if ( "show" == raindrops_warehouse( 'raindrops_show_menu_primary' ) ) {
 
                 if ( $raindrops_link_unique_text == true ) {
-
-                    $walker                     = new raindrops_unique_identifier_walker_nav_menu();
-                    $raindrops_nav_menu_primary = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'echo' => false, 'walker' => $walker ) );
+                    
+                    $args['walker'] = new raindrops_unique_identifier_walker_nav_menu();
+                    $raindrops_nav_menu_primary = wp_nav_menu( $args );
                 } else {
 
-                    $raindrops_nav_menu_primary = wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary', 'echo' => false, ) );
+                    $raindrops_nav_menu_primary = wp_nav_menu( $args );
                 }
 
                 $template = '<p class="' . $args[ 'wrap_mobile_class' ] . '">

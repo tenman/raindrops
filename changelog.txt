@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.214
+removed
+	Removed remove_theme_mods();
+		lib/option-panel.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.213
 Modified
 	modify theme peformance

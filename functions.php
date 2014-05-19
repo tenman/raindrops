@@ -698,6 +698,11 @@ if ( !isset( $raindrops_theme_settings ) ) {
  * RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT
  *
  */
+if ( ! isset( $raindrops_featured_image_full_size ) ) {
+    
+    $raindrops_featured_image_full_size = true;
+}
+
 if ( !defined( 'RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH' ) ) {
 
     define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH', 600 );
@@ -708,6 +713,7 @@ if ( !defined( 'RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT' ) ) {
     define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT', 200 );
 }
 add_image_size( 'single-post-thumbnail', RAINDROPS_SINGLE_POST_THUMBNAIL_WIDTH, RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT, true );
+
 /**
  *
  *
@@ -902,6 +908,10 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 
                 $color_type .= ' ';
                 $color_type .= "rd-col-" . $regs[ 3 ];
+            }
+            if ( !isset( $color_type) ) { // When not using database
+                
+               $color_type =  "rd-type-" . raindrops_warehouse( 'raindrops_style_type' );
             }
             $classes[] = $color_type;
         } else {
@@ -5617,7 +5627,7 @@ DOC;
                 ?>
                 <meta name="viewport" content="width=device-width" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
-                <meta name="apple-mobile-web-app-status-bar-style"      content="default">
+                <meta name="apple-mobile-web-app-status-bar-style" content="default" />
                 <?php
             }
         }
@@ -5779,7 +5789,7 @@ DOC;
 
         function raindrops_featured_image() {
 
-            global $post, $is_IE;
+            global $post, $is_IE, $raindrops_featured_image_full_size;
 
             if ( post_password_required() || !has_post_thumbnail() ) {
 
@@ -5792,7 +5802,11 @@ DOC;
              *
              *
              */
-            $thumb = get_the_post_thumbnail( $post->ID, 'single-post-thumbnail' );
+            if ( true == $raindrops_featured_image_full_size ) {
+                $thumb = get_the_post_thumbnail( $post->ID, 'full' );
+            }else{
+                $thumb = get_the_post_thumbnail( $post->ID, 'single-post-thumbnail' );
+            }
 
             if ( has_post_thumbnail() && isset( $thumb ) && $is_IE ) {
 
@@ -5810,7 +5824,7 @@ DOC;
                     $thumbnail_title = esc_attr( $thumbnail_title );
                     $size_attribute  = image_hwstring( $content_width, $ie_height );
                     echo '<div class="single-post-thumbnail">';
-                    echo '<img src="' . $thumbnailuri . '" ' . $size_attribute . '" alt="' . $thumbnail_title . '" style="max-width:100%;" />';
+                    echo '<img src="' . $thumbnailuri . '" ' . $size_attribute . '" alt="' . $thumbnail_title . '" />';
                     echo '</div>';
                 } else {
 
@@ -6918,12 +6932,12 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
             raindrops_monthly_archive_prev_next_navigation();
             ?> 
             <div class="raindrops-next-prev-links">
-                <?php raindrops_next_prev_links( 'nav-below' ); ?>
+                <?php raindrops_next_prev_links( 'nav-status-bar' ); ?>
             </div>   
             <div class="raindrops_prev_next_post">
                 <?php
                 if ( is_single() ) {
-                    raindrops_prev_next_post( 'nav-below' );
+                    raindrops_prev_next_post( 'nav-status-bar' );
                 }
                 ?>
             </div>
@@ -6976,6 +6990,4 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
  * @since 1.138
  */
 do_action( 'raindrops_last' );
-
-
 ?>

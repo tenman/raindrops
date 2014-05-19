@@ -75,13 +75,19 @@ $raindrops_max_upload_size = 2000000;
 $raindrops_max_width = 1300;
 
 /**
- * 
  * Show Raindrops status bar at browser bottom
  *
  * shows true hide false
  * @since 1.211
  */
 $raindrops_status_bar = true;
+/**
+ * Featured image size
+ * 
+ * full size or single-post-thumbnail 600x200 size
+ * since 1.215
+ */
+ $raindrops_featured_image_full_size = true;
 /**
  * Custom fields name css is add to post style rules.
  *
@@ -175,4 +181,6 @@ define( 'RAINDROPS_CUSTOM_FIELD_META', true );
  * @since 1.201
  */
 define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
+
+
 

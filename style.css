@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.214
+Version: 1.215
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -396,6 +396,10 @@ radio{
 .entry-content .color5{
     display:inline-block;
 }
+div .entry-content .block,
+article .entry-content .block{
+    display:block;
+}
 #raindrops-recent-posts .entry-content{
     margin-top:.5em;
 }
@@ -724,6 +728,7 @@ footer a{
     max-width:100%;
     margin:0;
 }
+.rd-col-1 #nav-status-bar,
 .rd-col-1 #nav-above,
 .rd-col-1 #nav-below {
     max-width:100%;
@@ -1211,11 +1216,13 @@ li.category_report{
 br.clearfix {
     display:none;
 }
+#nav-status-bar  .nav-previous,
 #nav-above .nav-previous,
 #nav-below .nav-previous,
 .list-of-post-next-prev .left {
     float:left!important;
 }
+#nav-status-bar .nav-next,
 #nav-above .nav-next,
 #nav-below .nav-next,
 .list-of-post-next-prev .right  {
@@ -1644,10 +1651,6 @@ li.byuser > div a{
     width:99%;
     overflow:hidden;
     text-align:center;
-    margin-top:.5em;
-}
-
-.single-post-thumnail{
     margin-top:1em;
 }
 .single-post-thumbnail img{
@@ -3038,7 +3041,7 @@ sup {
     #doc3 #site-description{
         font-size:108%;
     }
-
+    #nav-status-bar,
     #nav-above,
     #nav-below{
         margin:0 10px;
@@ -3549,40 +3552,6 @@ ol.list-of-post-list .entry-title{
     }
 
 }
-
-/* plugins issue */
-/* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
-.entry-content .crayon-table{
-    table-layout:auto;
-}
-/* https://gist.github.com/ */
-.entry-content .gist{
-    table-layout:auto;
-}
-.entry-content .gist td{
-    text-align:left;
-}
-/* bbpress */
-#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums div, #bbpress-forums ul,#bbpress-forums li.bbp-header,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results,#bbpress-forums #bbp-your-profile fieldset span.description,
-#bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea,#bbp-user-navigation *,#bbpress-forums .bbp-topics *,#bbpress-forums .forums *{
-    background:none!important;
-}
-li[class^="bbp_widget_"] fieldset div{
-    max-width:100%;
-}
-li[class^="bbp_widget_"] fieldset{
-    display:inline-block;
-    max-width:100%;
-    margin:0!important;
-    padding:5px;
-}
-div.bbp-template-notice, div.indicator-hint{
-    color:inherit;
-}
-#bbpress-forums fieldset.bbp-form,#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results{
-    border:1px solid rgba(222,222,222,.5);
-}
-
 .raindrops-status-bar-active footer{
     margin-bottom:70px;
 }
@@ -3722,6 +3691,50 @@ div.bbp-template-notice, div.indicator-hint{
 .rd-type-minimal #hd{
     min-height:80px;
 }
+/* plugins issue */
+/* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
+.entry-content .crayon-table{
+    table-layout:auto;
+}
+/* https://gist.github.com/ */
+.entry-content .gist{
+    table-layout:auto;
+}
+.entry-content .gist td{
+    text-align:left;
+}
+/* bbpress */
+#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums div, #bbpress-forums ul,#bbpress-forums li.bbp-header,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results,#bbpress-forums #bbp-your-profile fieldset span.description,
+#bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea,#bbp-user-navigation *,#bbpress-forums .bbp-topics *,#bbpress-forums .forums *{
+    background:none!important;
+}
+li[class^="bbp_widget_"] fieldset div{
+    max-width:100%;
+}
+li[class^="bbp_widget_"] fieldset{
+    display:inline-block;
+    max-width:100%;
+    margin:0!important;
+    padding:5px;
+}
+div.bbp-template-notice, div.indicator-hint{
+    color:inherit;
+}
+#bbpress-forums fieldset.bbp-form,#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results{
+    border:1px solid rgba(222,222,222,.5);
+}
+/**
+ * The Events Calendar
+ * https://wordpress.org/plugins/the-events-calendar/
+ */
+#tribe-events,
+#tribe-events-content-wrapper{
+    margin:1em;
+    padding:1em;
+    background:#fff;
+    color:#000;
+}
+
 
 
 

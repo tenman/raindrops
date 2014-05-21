@@ -1,6 +1,7 @@
 Changelog -----------------------------------
 version:1.216
 	Fixed
+		Fixed post_class() wrong setting at raindrops_tile()
 Changelog -----------------------------------
 version:1.215
 	Modified Featured image size change from 600 x 200 to fullsize

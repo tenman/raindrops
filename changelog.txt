@@ -1,4 +1,7 @@
 Changelog -----------------------------------
+version:1.216
+	Fixed
+Changelog -----------------------------------
 version:1.215
 	Modified Featured image size change from 600 x 200 to fullsize
 		if you no need change , Please change functions.php line703 $raindrops_featured_image_full_size = false;

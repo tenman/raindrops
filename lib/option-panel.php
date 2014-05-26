@@ -12,6 +12,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
     exit;
 }
+if ( ! isset( $raindrops_base_setting_args ) ) {
 $raindrops_base_setting_args = array(
     array( 'option_id'    => 1,
         'blog_id'      => 0,
@@ -163,7 +164,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     array( 'option_id'    => 16,
         'blog_id'      => 0,
         'option_name'  => "raindrops_accessibility_settings",
-        'option_value' => "yes",
+        'option_value' => "no",
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Accessibility Settings', 'Raindrops' ),
         'excerpt1'     => '',
@@ -181,7 +182,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'validate'     => 'raindrops_doc_type_settings_validate', 'list'         => 16
     ),
 );
-
+}
 if ( !isset( $raindrops_base_setting ) ) {
 
     $raindrops_base_setting = $raindrops_base_setting_args;

@@ -1,4 +1,14 @@
 Changelog -----------------------------------
+version:1.217
+	Modified Raindrops Statusbar User Interface
+		Change from Statusbar shows Scroll Y to Statusbar shows mouse position browser bottom.
+	Modified Raindrops Page shows with Accessibility
+		Even if the accessibility setting is disabled in the Rain Drops theme,
+		in the theme options page and added a link to be displayed by enabling accessibility temporarily
+		This change will be unset by a $ raindrops_accessibility_link = false
+		In this change, the default value of the accessibility setting has been changed to no.
+Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.216
 	Fixed
 		Fixed post_class() wrong setting at raindrops_tile()

@@ -42,14 +42,15 @@
 
         jQuery('#raindrops_status_bar').hide();
 
-        jQuery(this).scroll(function() {
-            if (jQuery(this).scrollTop() > 200) {
-                jQuery('#raindrops_status_bar').show();
-            } else {
-                jQuery('#raindrops_status_bar').hide();
-
-            }
-        });
+         jQuery(window).mousemove(function(e){
+              
+                var status_bar_window_height =  jQuery(window).innerHeight();
+                if ( status_bar_window_height - 100 < e.pageY - jQuery(this).scrollTop() ) {
+                    jQuery('#raindrops_status_bar').show();
+                } else {
+                    jQuery('#raindrops_status_bar').hide();
+                }
+         });
     });
 
 })(jQuery);

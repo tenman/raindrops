@@ -20,18 +20,18 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template;
+global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template, $raindrops_accessibility_link;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?>
 <<?php raindrops_doctype_elements( 'div', 'footer' ); ?> id="ft" class="clear" <?php raindrops_doctype_elements( '', 'role="contentinfo"' ); ?>>
-    <?php raindrops_prepend_footer(); ?>
+<?php raindrops_prepend_footer(); ?>
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">
-        <?php if ( is_active_sidebar( 'sidebar-4' ) ) { ?>
+    <?php if ( is_active_sidebar( 'sidebar-4' ) ) { ?>
         <ul>
-        <?php dynamic_sidebar( 'sidebar-4' ); ?>
+            <?php dynamic_sidebar( 'sidebar-4' ); ?>
         </ul>
-<?php }//end if ( is_active_sidebar( 'sidebar-4' ) )  ?>
+    <?php }//end if ( is_active_sidebar( 'sidebar-4' ) )  ?>
     <br class="clear" />
 </div>
 <!--footer-widget end-->
@@ -39,8 +39,17 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
     <?php
     $raindrops_address_html = '<small>&copy;%s &nbsp; %s &nbsp;
 								<a href="%s" class="entry-rss">%s</a> <span>' . esc_html__( 'and', 'Raindrops' ) . '</span> 
-								<a href="%s" class="comments-rss">%s</a>
-							</small>&nbsp;';
+								<a href="%s" class="comments-rss">%s</a>';
+    if ( $raindrops_accessibility_link == true ) {
+
+        $accessible_url = raindrops_current_url();
+
+        $accessible_url = add_query_arg( 'friendly', 'true', $accessible_url );
+
+        $raindrops_address_html .= '<a href="' . $accessible_url . '" class="raindrops-accessibility-link">'. esc_html__( 'Accessible', 'Raindrops' ). '</a>';
+    }
+
+    $raindrops_address_html .= '</small>&nbsp;';
 
     printf( $raindrops_address_html, date( "Y" ), $raindrops_current_theme_name, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
     );
@@ -56,10 +65,10 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
     );
     ?>
 </address>
-    <?php raindrops_append_footer(); ?>
+<?php raindrops_append_footer(); ?>
 </<?php raindrops_doctype_elements( 'div', 'footer' ); ?>>
-    <?php raindrops_append_doc(); ?>
+<?php raindrops_append_doc(); ?>
 </div>
-    <?php wp_footer(); ?>
+<?php wp_footer(); ?>
 </body>
 </html><?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

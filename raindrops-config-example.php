@@ -181,6 +181,16 @@ define( 'RAINDROPS_CUSTOM_FIELD_META', true );
  * @since 1.201
  */
 define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
+/**
+ * Enabling accessibility links when Setting value no at Raindrops options page Accessibility Settings
+ * 
+ * 
+ * @since1.217
+ */
+if ( !isset( $raindrops_accessibility_link )  ) {
+
+    $raindrops_accessibility_link = true;
+}
 
 
 

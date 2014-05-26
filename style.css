@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.216
+Version: 1.217
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2105,6 +2105,16 @@ li.comment {
     background: url("images/stop.png");
 
 }
+address .raindrops-accessibility-link:after{
+    margin:0 .5em;
+    content:" ";
+    display:inline-block;
+    width:16px;
+    height:16px;
+    background-size:cover;
+    vertical-align:text-bottom;
+    background: url("images/accessibility.png");
+}
 address .comments-rss:after,
 address .entry-rss:after{
     margin:0 .5em;
@@ -3281,6 +3291,10 @@ only screen and (min-resolution: 192dpi) {
     }
     .error404 .entry-title:before{
         background: url("images/retina/stop.png");
+        background-size:16px 16px;
+    }
+    address .raindrops-accessibility-link:after{
+        background: url("images/retina/accessibility.png");
         background-size:16px 16px;
     }
     address .comments-rss:after,

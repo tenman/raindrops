@@ -1,6 +1,8 @@
 Changelog -----------------------------------
 version:1.218
 	Modified
+		Customizer add validate callback
+			Change default value from hard coded to $raindrops_base_setting_args related
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.217

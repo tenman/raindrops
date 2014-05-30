@@ -892,7 +892,7 @@ body{
 #hd{
     %c5%
     border-top: 6px solid %c_border%;
-    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+/*    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
     background-position:0 -5px;
 
 }
@@ -929,7 +929,7 @@ ol.tblist li{
 #ft{
     %c3%
     border-top: medium solid %c_border%;
-    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
+ /*   background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;*/
     color:%raindrops_footer_color%;
 }
 
@@ -1350,7 +1350,7 @@ function raindrops_indv_css_minimal() {
 }
 
 body{
-    border-top:6px solid $raindrops_base_color!important;
+    border-top:6px solid $raindrops_base_color;
 }
 a{
     color:$font_color;

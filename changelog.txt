@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.218
+version:1.219
 	Modified
 		Customizer add validate callback
 			Change default value from hard coded to $raindrops_base_setting_args related

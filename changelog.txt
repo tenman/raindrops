@@ -3,6 +3,11 @@ version:1.219
 	Modified
 		Customizer add validate callback
 			Change default value from hard coded to $raindrops_base_setting_args related
+    Fixed
+		function raindrops_upload_image_parser()
+			Add preg_match $regs not set check
+		function raindrops_poster()
+			Add value check so that they will not that the sequence is applied to the parameters of esc_attr ()
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.217

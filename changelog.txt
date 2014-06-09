@@ -1,12 +1,23 @@
 Changelog -----------------------------------
 version:1.220
-	Fixed raindrops_status_bar() $post->ID non object error
-		is_page() conditional tag
+	Fixed
+		raindrops_status_bar() $post->ID non object error
+			is_page() conditional tag
+		blank_front.php
+			category list, tag list cannot customize
+		Customizer add validate callback
+			Raindrops 1.219 zend_mm_heap corrupted at child theme
+				remove validate callback
 	Modified footer.php
 		printf change from %s to %[num]$s
 	Add variable
+		NOW TEST  recommend 10 -16 (px)
 		$raindrops_base_font_size
 		You can now be made to change the font size by changing the value of $raindrops_base_font_size
+			add function raindrops_base_font_size()
+				functions.php
+			add add_filter( 'raindrops_base_font_size', 'raindrops_base_font_size' );
+				lib/hooks.php
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.219

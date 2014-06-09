@@ -545,7 +545,7 @@ function raindrops_design_output_clone( $name = 'dark' ) {
 function raindrops_color_base_clone( $color1 = null, $class = null ) {
     global $raindrops_images_path;
     if ( null == $color1 ) {
-        $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
+        $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );       
     } else {
         $color1 = str_replace( '#', "", $color1 );
     }

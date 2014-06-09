@@ -37,9 +37,9 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 <!--footer-widget end-->
 <address>
     <?php
-    $raindrops_address_html = '<small>&copy;%s &nbsp; %s &nbsp;
-								<a href="%s" class="entry-rss">%s</a> <span>' . esc_html__( 'and', 'Raindrops' ) . '</span> 
-								<a href="%s" class="comments-rss">%s</a>';
+    $raindrops_address_html = '<small>&copy;%1$s &nbsp; %2$s &nbsp;
+								<a href="%3$s" class="entry-rss">%4$s</a> <span>' . esc_html__( 'and', 'Raindrops' ) . '</span> 
+								<a href="%5$s" class="comments-rss">%6$s</a>';
     if ( $raindrops_accessibility_link == true ) {
 
         $accessible_url = raindrops_current_url();
@@ -51,7 +51,13 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 
     $raindrops_address_html .= '</small>&nbsp;';
 
-    printf( $raindrops_address_html, date( "Y" ), $raindrops_current_theme_name, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
+    printf( $raindrops_address_html, 
+            date( "Y" ), 
+            $raindrops_current_theme_name,
+            get_bloginfo( 'rss2_url' ), 
+            esc_html__( "Entries RSS", "Raindrops" ),
+            get_bloginfo( 'comments_rss2_url' ), 
+            esc_html__( 'Comments RSS', "Raindrops" )
     );
 
     if ( is_child_theme() ) {

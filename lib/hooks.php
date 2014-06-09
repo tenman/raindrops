@@ -210,6 +210,14 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          * @since 1.217
          */
         add_filter('query_vars','raindrops_extend_query');
+        /**
+         * 
+         * 
+         * 
+         * 
+         * @since 1.220
+         */
+        add_filter( 'raindrops_base_font_size', 'raindrops_base_font_size' );
     }
 
 }

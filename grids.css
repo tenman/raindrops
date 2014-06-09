@@ -53,9 +53,11 @@ body {
 /* 950 Centered (doc2) */
 #doc2 {
     width: 73.076em;
+    max-width:950px;
 }
 .ie7 #doc2 {
     width: 71.25em;
+    max-width:750px;
 }
 
 
@@ -74,9 +76,11 @@ body {
 /* 974 Centered (doc4) */
 #doc4 {
     width: 74.923em;
+    max-width:974px
 }
 .ie7 #doc4 {
     width: 73.05em;
+    max-width:974px;
 }
 
 

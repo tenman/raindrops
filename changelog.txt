@@ -1,4 +1,14 @@
 Changelog -----------------------------------
+version:1.220
+	Fixed raindrops_status_bar() $post->ID non object error
+		is_page() conditional tag
+	Modified footer.php
+		printf change from %s to %[num]$s
+	Add variable
+		$raindrops_base_font_size
+		You can now be made to change the font size by changing the value of $raindrops_base_font_size
+----------------------------------------------
+Changelog -----------------------------------
 version:1.219
 	Modified
 		Customizer add validate callback

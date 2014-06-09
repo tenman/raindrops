@@ -27,7 +27,7 @@ $raindrops_show_theme_option = true;
 $raindrops_actions_hook_message = false;
 
 /** Browser Detection Server Side or Cliant Side
- * 
+ *
  * use server side browser detection or javascript browser ditection
  *
  * javascript browser ditection is At a target [ operate / even when cash plug-in is used / properly ]
@@ -83,7 +83,7 @@ $raindrops_max_width = 1300;
 $raindrops_status_bar = true;
 /**
  * Featured image size
- * 
+ *
  * full size or single-post-thumbnail 600x200 size
  * since 1.215
  */
@@ -98,7 +98,7 @@ $raindrops_status_bar = true;
  */
 define( "RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS", true );
 
-/** Show Post Delete link 
+/** Show Post Delete link
  *
  *
  *
@@ -183,13 +183,21 @@ define( 'RAINDROPS_CUSTOM_FIELD_META', true );
 define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
 /**
  * Enabling accessibility links when Setting value no at Raindrops options page Accessibility Settings
- * 
- * 
+ *
+ *
  * @since1.217
  */
-if ( !isset( $raindrops_accessibility_link )  ) {
+if ( !isset( $raindrops_accessibility_link ) ) {
 
     $raindrops_accessibility_link = true;
+}
+/**
+ * Base Font Size
+ * Test
+ *
+ */
+if ( !isset( $raindrops_base_font_size ) ) {
+    $raindrops_base_font_size = 13;
 }
 
 

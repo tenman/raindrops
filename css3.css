@@ -1,7 +1,7 @@
-/** 
+/**
  * Common CSS3 rule
- * 
- * This rule set is applied to all the color type types excluding the W3C standard  a color type.   
+ *
+ * This rule set is applied to all the color type types excluding the W3C standard  a color type.
  *
  * @package Raindrops
  * @since Raindrops 0.320
@@ -27,7 +27,6 @@ strong{
 	-ms-filter: "alpha(opacity=0.9)"; /* IE8 */
 }
 
-input[type="reset"],
 input[type="file"],
 input[type="reset"],
 input[type="submit"],
@@ -36,7 +35,8 @@ submit{
     -moz-border-radius:1em;
 	-webkit-border-radius:1em;
 	padding:.2em .6em;
-	font-size:86%;
+	/*font-size:86%;*/
+	font-size:13px;
 }
 .nav-next span{
 	display:-moz-inline-box;
@@ -108,7 +108,7 @@ border:1px solid rgba(200,200,200,0.3);
 .raindrops-light-box{
 	position: relative;
 	background: #f1d2c2;
-	cursor:pointer;	
+	cursor:pointer;
 }
 .raindrops-lightbox-overlay{
 	width: 0px;
@@ -162,13 +162,13 @@ border:1px solid rgba(200,200,200,0.3);
 	padding: 90px 30px 30px 20px;
 	background:rgba(52,52,52,.5);
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box; 
-	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
 .gecko .raindrops-lightbox-overlay:target {
 	padding: 90px auto 20px;
-	
+
 }
 .raindrops-lightbox-overlay:target a.lb-close,
 .raindrops-lightbox-overlay:target > div{

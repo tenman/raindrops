@@ -574,34 +574,40 @@ class raindrops_menu_create {
     var $title_template                                     = '<a id="%s" href="#wpwrap" class="go-top"><span>page top</span></a><h3 title="%s" class="raindrops-options-title">%s</h3>';
     var $excerpt_template                                   = '<div class="raindrops-excerpt">%s</div>';
     var $line_select_element                                = '<select accesskey="%s" name="%s" size="%d" style="height:%spx;">';
-    var $col_settings_raindrops_col_width                   = array( "left 160px"  => "t1",
+    var $col_settings_raindrops_col_width                   = array( 
+        "left 160px"  => "t1",
         "left 180px"  => "t2",
         "left 300px"  => "t3",
         "right 180px" => "t4",
         "right 240px" => "t5",
         "right 300px" => "t6"
     );
-    var $col_settings_raindrops_page_width                  = array( "750px centered" => "doc",
+    var $col_settings_raindrops_page_width                  = array( 
+        "750px centered" => "doc",
         "950px centered" => "doc2",
         "fluid"          => "doc3",
         "974px"          => "doc4"
     );
-    var $col_settings_raindrops_right_sidebar_width_percent = array( "25%" => "25",
+    var $col_settings_raindrops_right_sidebar_width_percent = array( 
+        "25%" => "25",
         "33%" => "33",
         "50%" => "50",
         "66%" => "66",
         "75%" => "75"
     );
-    var $col_settings_raindrops_show_right_sidebar          = array( "show" => "show",
+    var $col_settings_raindrops_show_right_sidebar          = array( 
+        "show" => "show",
         "hide" => "hide"
     );
-    var $col_settings_raindrops_style_type                  = array( "light"      => "light",
+    var $col_settings_raindrops_style_type                  = array( 
+        "light"      => "light",
         "dark"       => "dark",
         "w3standard" => "w3standard",
         "minimal"    => "minimal",
         "helloworld" => "helloworld",
     );
-    var $col_settings_raindrops_color_scheme                = array( "Japan"           => "raindrops_color_ja",
+    var $col_settings_raindrops_color_scheme                = array( 
+        "Japan"           => "raindrops_color_ja",
         "USA"             => "raindrops_color_en",
         "WWW"             => "raindrops_color_en_140",
         "Animation Color" => "raindrops_color_anime"

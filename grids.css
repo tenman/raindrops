@@ -561,12 +561,14 @@ body {
 
 .yui-t1 .yui-b{
     max-width:162px;
+
 }
 .yui-t1 #yui-main .yui-b{
     margin-left:173px;
 }
 .yui-t2 .yui-b{
     max-width:182px;
+
 }
 .yui-t2 #yui-main .yui-b{
     margin-left:193px;
@@ -579,12 +581,14 @@ body {
 }
 .yui-t4 .yui-b{
     max-width:182px;
+
 }
 .yui-t4 #yui-main .yui-b{
     margin-right:193px;
 }
 .yui-t5 .yui-b{
     max-width:242px;
+
 }
 .yui-t5 #yui-main .yui-b{
     margin-right:253px;
@@ -592,7 +596,6 @@ body {
 
 .yui-t6 .yui-b{
     max-width:302px;
-
 }
 .yui-t6 #yui-main .yui-b{
     max-width:100%;

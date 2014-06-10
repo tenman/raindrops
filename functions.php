@@ -931,6 +931,8 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 
         global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection, $raindrops_status_bar;
         $classes[] = get_locale();
+        
+        
 
         if ( is_single() || is_page() ) {
 
@@ -963,6 +965,9 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
             if ( isset( $raindrops_options["raindrops_style_type"] ) && !empty( $raindrops_options["raindrops_style_type"] ) ) {
 
                 $classes[] = "rd-type-" . $raindrops_options["raindrops_style_type"];
+            } else {
+                
+                $classes[] = "rd-type-" . raindrops_warehouse( 'raindrops_style_type' );              
             }
         }
 
@@ -4616,22 +4621,7 @@ DOC;
 
         function raindrops_gallerys() {
 
-            $raindrops_gallerys = ".gallery { margin: auto; overflow: hidden; width: 100%; }\n
-            .gallery dl { margin: 0px; }\n
-            .gallery .gallery-item { float: left; margin-top: 10px; text-align: center; }\n
-            .gallery img { border: 2px solid #cfcfcf;max-width:100%; }\n
-            .gallery .gallery-caption { margin-left: 0; }\n
-            .gallery br { clear: both }\n
-            .gallery-columns-1 dl{ width: 100% }\n
-            .gallery-columns-2 dl{ width: 50% }\n
-            .gallery-columns-3 dl{ width: 33.3% }\n
-            .gallery-columns-4 dl{ width: 25% }\n
-            .gallery-columns-5 dl{ width: 20% }\n
-            .gallery-columns-6 dl{ width: 16.6% }\n
-            .gallery-columns-7 dl{ width: 14.28% }\n
-            .gallery-columns-8 dl{ width: 12.5% }\n
-            .gallery-columns-9 dl{ width: 11.1% }\n
-            .gallery-columns-10 dl{ width: 9.9% }\n";
+            $raindrops_gallerys = raindrops_gallerys_clone();
             return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
         }
 

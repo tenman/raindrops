@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.220
+Version: 1.221
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1219,6 +1219,9 @@ li.category_report{
 #nav li ul,
 br.clearfix {
     display:none;
+}
+.left{
+    float:left;
 }
 #nav-status-bar  .nav-previous,
 #nav-above .nav-previous,
@@ -3096,7 +3099,11 @@ sup {
     #doc3 .raindrops-image-page .attachment-navigation .next a{
         background-position:top right;
     }
-
+    /* remove equal height inline style  */
+    #yui-main .yui-u .rsidebar,
+    #yui-main .yui-u .lsidebar{
+        min-height:0!important;
+    }
 
 }
 @media screen and (max-width : 480px){
@@ -3699,6 +3706,7 @@ ol.list-of-post-list .entry-title{
 .rd-type-minimal #hd{
     min-height:80px;
 }
+
 /* plugins issue */
 /* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
 .entry-content .crayon-table{

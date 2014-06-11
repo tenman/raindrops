@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.222
+	Modified
+		@media responsive style move to external media.css
+		This change was made because there is a setting that is responsive, interfere with the freedom of customization in child theme
+----------------------------------------------
+Changelog -----------------------------------
 version:1.221
 ----------------------------------------------
 Changelog -----------------------------------

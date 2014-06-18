@@ -1,0 +1,348 @@
+/* optional responsive grid  end */
+
+@media screen and (min-width : 641px){
+    #doc3 .nav-menu-toggle{
+        display:none!important;
+    }
+    #access{display:block!important;}
+}
+@media screen and (max-width : 640px){
+    html,
+    html .gecko{
+        max-width:100%;
+        margin:0;
+        padding:0;
+        overflow-x:hidden;
+    }
+
+    #access ul li > ul {
+        display:block!important;
+    }   
+    .raindrops-mobile-menu{
+        display:block!important;
+    }
+    #access{display:none!important;}
+    #access:target{
+        display:block!important;
+        /* target link position ajust */
+        padding-top:100px;
+        margin-top:-100px;
+    }
+
+    .ie6 #access:target{display:block!important;}
+    .ie7 #access:target{display:block!important;}
+    .ie8 #access:target{display:block!important;}
+    .raindrops-mobile-menu{
+        position:relative;margin:0 10px;
+    }
+    .raindrops-mobile-menu .open{
+        position:absolute;top:4px;left:0;
+        font-size:153.9%;
+        width:10%;
+        background: url(images/raindrops-nav-menu-expand.png);
+        background-repeat:no-repeat;
+        background-position:center;
+
+    }
+    .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
+        visibility:hidden;
+        width:20px;
+        height:20px;
+        display:inline-block;
+        text-indent:-100px;
+    }
+    .raindrops-mobile-menu .close{
+        position:absolute;top:2px;right:5%;
+        font-size:153.9%;
+        width:10%;
+        background: url(images/raindrops-nav-menu-shrunk.png);
+        background-repeat:no-repeat;
+        background-position:center;
+
+
+    }
+    .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
+        visibility:hidden;
+        width:20px;
+        height:20px;
+        display:inline-block;
+
+    }
+
+    .page-title,
+    #archives-title{
+        display:block;
+        font-size:153.0%;
+        text-align:center;
+
+    }
+    div#doc3 .entry-meta-gallery,
+    div#doc3 .entry-meta-aside,
+    div#doc3 .entry-meta-status,
+    div#doc3 .entry-meta-quote,
+    div#doc3 .entry-meta-image,
+    div#doc3 .entry-meta-link,
+    div#doc3 .entry-meta-video,
+    div#doc3 .entry-meta-chat,
+    div#doc3 .entry-meta-audio,
+    div#doc3 .posted-on{
+        text-align:right;
+        /*	line-height:2;*/
+    }
+    #doc3 .mejs-horizontal-volume-total{
+        max-width:100%;
+    }
+    #doc3 .raindrops-comment-link{
+        display:inline-block;
+    }
+    #doc3 .entry-title{
+        margin:.5em 0;
+        font-family:sans-serif;
+    }
+    .raindrops-mobile-menu .menu-text{
+        position:absolute;top:10px;left:44%;
+    }
+    #doc3 .entry-content blockquote{
+        margin:1em 0;
+        max-width:100%;
+    }
+    #doc3 .size1of1,
+    #doc3 .size1of2,
+    #doc3 .size1of3,
+    #doc3 .size2of3,
+    #doc3 .size1of4,
+    #doc3 .size3of4,
+    #doc3 .size1of5,
+    #doc3 .size2of5,
+    #doc3 .size3of5,
+    #doc3 .size4of5,
+    #access ul ul,
+    #access ul,
+    #access ul li,
+    #doc3.yui-t6 #container > div.first,
+    #doc3.yui-t5 #container > div.first,
+    #doc3.yui-t4 #container > div.first,
+    #doc3.yui-t3 #container > div.first,
+    #doc3.yui-t1 #container > div.first,
+    #doc3.yui-t2 #bd > div.yui-b,
+    #doc3.yui-t2 #yui-main div.yui-b,
+    #doc3 #container > div.first,
+    #doc3 #container > .yui-u,
+    .ahthor #doc3 #container div.first,
+    .author #doc3 #container .yui-u,
+    #doc3 .footer-widget,
+    #doc3 #ft div.widget-wrapper>ul>li,
+    #doc3 #ft .widget-wrapper ul,
+    #doc3 #bd .yui-b,
+    #doc3 #yui-main {
+        float:none;
+        margin:0;
+        margin-left:0;
+        margin-right:0;
+        display:block;
+        max-width:100%;
+        width:100%;
+        box-sizing: border-box;
+        clear:both;
+        background-repeat:no-repeat;
+        position:static;
+    }
+    #doc3 .datetable{
+        margin:0 5px 10px 0!important;
+        box-sizing: border-box;
+    }
+    #doc3 .this-posted-in,
+    #doc3 .bookmark-the{
+        font-weight:bold;
+        font-size:131%;
+    }
+    #doc3 .rsidebar,
+    #doc3 .lsidebar,
+    #doc3 div.post,
+    #doc3 article{
+        margin:0 8px!important;
+        box-sizing: border-box;
+    }
+
+    #doc3 .reply, #ft a,
+    #doc3 .page .hentry .entry-title a,
+    #doc3 #site-description,
+    .home #doc3 .sticky a,
+    .home #doc3 .entry-meta a,
+    .archive #doc3 .entry-meta a,
+    .single #doc3 .entry-meta a,
+    #doc3 .topsidebar ul li ul li a,
+    #doc3 #bigbanner ul li ul li a,
+    #doc3 .lsidebar ul li ul li a,
+    #doc3 .rsidebar ul li ul li a,
+    #doc3 .lsidebar li.page_item a,
+    #doc3 .lsidebar li.category_report a,
+    #doc3 .lsidebar .widget ul li a{
+        display:block;
+        background-repeat:no-repeat;
+        width:100%;
+        height:100%;
+        margin:0;
+        padding:0.5em;
+        box-sizing: border-box;
+        font-size:123%;
+
+    }
+    #doc3 .page .hentry .entry-title a{
+        padding:0;
+    }
+    #doc3 #ft .widget_categories ul li a,
+    #doc3 #ft .widget_categories ul li a,
+    #doc3 .rsidebar .widget_categories ul li a,
+    #doc3 .lsidebar .widget_categories ul li a
+    #doc3 #ft .widget_archive ul li a,
+    #doc3 #ft .widget_archive ul li a,
+    #doc3 .rsidebar .widget_archive ul li a,
+    #doc3 .lsidebar .widget_archive ul li a,
+    #doc3 #ft .categories ul li a,
+    #doc3 #ft .categories ul li a,
+    #doc3 .rsidebar .categories ul li a,
+    #doc3 .lsidebar .categories ul li a{
+        display:inline-block;
+        width:85%;
+        padding:.5em;
+    }
+    #doc3 #ft .widget_tag_cloud .tagcloud a,
+    #doc3 #ft .widget_tag_cloud .tagcloud a,
+    #doc3 .rsidebar .widget_tag_cloud .tagcloud a,
+    #doc3 .lsidebar .widget_tag_cloud .tagcloud a{
+        display:inline-block!important;
+        width:23%;
+        padding:.5em 0;
+
+    }
+    #doc3 .footer-widget h2,
+    #doc3 .rsidebar h2,
+    #doc3 .lsidebar h2,
+    #doc3 .widgettitle h2,
+    #doc3 h2.footer-content{
+        background-repeat:no-repeat;
+        height:2em;
+        background:none;
+    }
+    #access ul ul{
+        text-align:left;
+        text-indent:1em;
+    }
+    #access ul ul ul{
+        text-align:left!important;
+        text-indent:2em;
+    }
+
+    .raindrops-mobile-menu{
+        display:inline-block;
+        height:1em;
+        text-align:right;
+        padding:1em;
+        font-size:138.5%;
+    }
+    #access .sub-menu li,
+    #access .children li{
+        border:none;
+    }
+    #doc3 #site-title{
+        font-size:167%;
+    }
+    #doc3 .entry-title{
+        font-size:153.5%;
+    }
+    #doc3 #site-description{
+        font-size:108%;
+    }
+    #nav-status-bar,
+    #nav-above,
+    #nav-below{
+        margin:0 10px;
+    }
+    #doc3 #header-image p{
+        font-size:123.1%;
+        font-weight:bold;
+    }
+
+    .home #doc3 .format-status .entry-meta-list{
+
+    }
+
+    .home #doc3 .format-status .post-format-status-main{
+
+    }
+    .home #doc3 .format-status .post-format-status-main:before{
+        content: 'STATUS';
+        display:block;
+        font-weight:bold;
+        font-family:sans-serif;
+        margin-top:1em;
+    }
+    #doc3 .post-format-status-publish-date,
+    #doc3 .category-blog-publish-date{
+        margin:.3em 0 1em!important;
+        margin:.3rem 0 1rem!important;
+    }
+    .widget select{
+        margin:5px 3%;
+        width:94%;
+    }
+    /* for front-page.php */
+    #doc3 .fron-page-top-container{
+        position:relative;
+    }
+    #doc3 .fron-page-top-container .first{
+        width:98%;
+
+    }
+    #doc3 .fron-page-top-container .first + .yui-u{
+        width:98%;
+
+    }
+    #doc3 .raindrops-image-page .attachment-navigation .prev a,
+    #doc3 .raindrops-image-page .attachment-navigation .next a{
+        background-repeat:no-repeat;
+    }
+    #doc3 .raindrops-image-page .attachment-navigation .next a{
+        background-position:top right;
+    }
+    /* remove equal height inline style  */
+    #yui-main .yui-u .rsidebar,
+    #yui-main .yui-u .lsidebar{
+        min-height:0!important;
+    }
+
+}
+@media screen and (max-width : 480px){
+    html .gecko{
+        max-width:98.4%;
+        margin:0;
+        padding:0;
+    }
+
+}
+@media screen and (max-width : 640px){
+    .portfolio > ul{
+        margin-left:0;
+    }
+    .portfolio ul.index > li{
+        width:100%;
+        display:block;
+        padding:10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        margin:auto;
+        float:none;
+    }
+    .portfolio ul.index > li .post{
+        background-repeat:no-repeat;
+        background-position:center center!important;
+    }
+}
+@media screen and (min-width : 1280px){
+    #doc3{
+        margin:0 auto;
+    }
+}

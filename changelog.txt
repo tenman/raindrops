@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.224
+	Fixed
+		Display improperly full-width.php
+----------------------------------------------
+Changelog -----------------------------------
 version:1.223
 	Modified
 		Responsive CSS settings move from style.css to responsiveness.css.

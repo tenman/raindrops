@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.222
+Version: 1.223
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -55,7 +55,13 @@ a:visited{
     position:relative;
     margin:-1px;
 }
-
+.ie8 #doc #header-image,
+.ie8 #doc4 #header-image,
+.ie9 #doc4 #header-image,
+.ie10 #doc4 #header-image,
+.ie11 #doc4 #header-image{
+    width:auto;
+}
 
 .raindrops-accessible-mode #access .menu-item-has-children .sub-menu:hover,
 .raindrops-accessible-mode #access .menu-item-has-children a:hover + ul{
@@ -667,7 +673,18 @@ ul.archive ul li {
 .footer-widget{
     width:33.3%;
     display:inline-block;
-
+}
+.ie8 .footer-widget{
+    float:left;
+}
+.ie8 .footer-widget ul{
+   list-style:none;
+   margin:4%;
+   width:92%;
+}
+.ie8 .footer-widget .widgettitle{
+   margin:4%;
+   width:92%;
 }
 .footer-widget ul{
     margin:0 10px;
@@ -2696,7 +2713,7 @@ sup {
     margin-top:-50px;
 }
 .raindrops-mobile-menu{
-    display:none!important;
+    display:none;
 }
 
 .edit-link{

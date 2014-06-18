@@ -8,4 +8,3 @@
     <?php
 } // end if ( is_home( ) &&  is_active_sidebar( 'sidebar-3' ) )
 ?>
-

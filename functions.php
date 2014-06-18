@@ -1665,20 +1665,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
             }
             $child = $template_uri . '/style.css';
             wp_register_style( 'style', $child, array( 'raindrops_fonts' ), $raindrops_current_data_version, 'all' );
-            wp_enqueue_style( 'style' );
-
-            if ( raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc3' ) {
-
-                if ( file_exists( get_stylesheet_directory() . '/media.css' ) ) {
-
-                    $raindrops_css3 = $stylesheet_uri . '/media.css';
-                } else {
-
-                    $raindrops_css3 = $template_uri . '/media.css';
-                }
-                wp_register_style( 'raindrops_media', $raindrops_css3, array( 'style' ), $raindrops_current_data_version, 'all' );
-                wp_enqueue_style( 'raindrops_media' );
-            }
+            wp_enqueue_style( 'style' );        
 
             if ( is_child_theme() ) {
 
@@ -1686,6 +1673,25 @@ if ( !function_exists( 'raindrops_comment' ) ) {
                 wp_register_style( 'child', $child, array( 'style' ), $raindrops_current_data_version, 'all' );
                 wp_enqueue_style( 'child' );
             }
+            if ( is_child_theme() ) {
+                $depending_on_style = 'child';
+            } else{
+                $depending_on_style = 'style';    
+            }
+            
+            if ( raindrops_warehouse_clone( "raindrops_page_width" ) == 'doc3' ) {
+
+                if ( file_exists( get_stylesheet_directory() . '/responsiveness.css' ) ) {
+
+                    $raindrops_responsiveness = $stylesheet_uri . '/responsiveness.css';
+                } else {
+
+                    $raindrops_responsiveness = $template_uri . '/responsiveness.css';
+                }
+                wp_register_style( 'raindrops_responsiveness', $raindrops_responsiveness, array( $depending_on_style ), $raindrops_current_data_version, 'all' );
+                wp_enqueue_style( 'raindrops_responsiveness' );
+            }
+            
             /* add small js */
             $raindrops_js = $stylesheet_uri . '/raindrops.js';
 
@@ -2416,13 +2422,7 @@ LINK_COLOR_CSS;
         }
 
     }
-    /**
-     *
-     *
-     *
-     *
-     *
-     */
+    
     /**
      * for date.php
      *

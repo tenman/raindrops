@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.223
+	Modified
+		Responsive CSS settings move from style.css to responsiveness.css.
+	Add directory childs for For child themes to be released.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.222
 	Modified
 		@media responsive style move to external media.css

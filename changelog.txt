@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.225
+	Modified
+		Add child directory for child theme boots
+----------------------------------------------
+Changelog -----------------------------------
 version:1.224
 	Fixed
 		Display improperly full-width.php

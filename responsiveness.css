@@ -14,7 +14,10 @@
         padding:0;
         overflow-x:hidden;
     }
-
+    
+    body{
+        box-sizing:border-box!important;
+    }
     #access ul li > ul {
         display:block!important;
     }   
@@ -345,4 +348,18 @@
     #doc3{
         margin:0 auto;
     }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
 }

@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.226
+	Fixed
+		Mobile Retina Browser ( chrome ) display improperly.
+			Modification of the right margin does not need
+----------------------------------------------
+Changelog -----------------------------------
 version:1.225
 	Modified
 		Add child directory for child theme boots

@@ -4273,7 +4273,7 @@ DOC;
      */
     if ( !function_exists( 'raindrops_small_device_helper' ) ) {
 
-        function raindrops_small_device_helper() {
+        function raindrops_small_device_helper() {         
 
             global $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text;
 
@@ -5805,7 +5805,7 @@ DOC;
             /* 1.213 remove wp_is_mobile() && works improperly ? */
             if ( 'doc3' == raindrops_warehouse( 'raindrops_page_width' ) ) {
                 ?>
-                <meta name="viewport" content="width=device-width" />
+                <meta name="viewport" content="width=device-width" id="raindrops-viewport" />
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
                 <?php

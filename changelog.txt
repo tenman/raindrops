@@ -14,6 +14,10 @@ version:1.228
 
 			default: true;
 
+ 		Add $raindrops_base_font_size
+            default $raindrops_base_font_size is 13 (pixel value)
+            You can set above ver functions.php first line (<?php before) or Child Themes functions.php
+
 	Fixed
 		Primary Menu display improperly when Accessibility Mode
 			sub-menu What (level2) overlap, so there was trouble in the display,

@@ -29,16 +29,9 @@ Special Thanks for Contribution
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
-ver 1.227
+ver 1.228
         $raindrops_accessibility_link is not support Statick Front Page
             Custom template file, because it is not yet supported accessibility
-        Note: About Accessibility Settings and Primary Nav Menus
-            When Theme options Accesibility Settings value yes,
-            Or $raindrops_accessibility_link value true
-            Primary Nav Menu Support deps 2.
-            Please note in the menu level 3 or more, 
-            if you want to change these settings, display of the menu is no longer successful
-
         Add $raindrops_base_font_size
             default $raindrops_base_font_size is 13 (pixel value)
             You can set above ver functions.php first line (<?php before) or Child Themes functions.php

@@ -1,4 +1,26 @@
 Changelog -----------------------------------
+version:1.228
+	Modified
+		$raindrops_accessibility_link is not support Statick Front Page
+			Custom template file, because it is not yet supported accessibility
+
+		Replace Screenshot.png
+
+		It was possible to select whether to use the WBR element to the post title
+			For Example: IF No Need wbr elements
+			Set Child Themes functions.php
+
+			$raindrops_use_wbr_for_title = false;
+
+			default: true;
+
+	Fixed
+		Primary Menu display improperly when Accessibility Mode
+			sub-menu What (level2) overlap, so there was trouble in the display,
+
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.226
 	Fixed
 		Mobile Retina Browser ( chrome ) display improperly.

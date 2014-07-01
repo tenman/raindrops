@@ -44,20 +44,23 @@ if ( !function_exists( 'raindrops_child_init' ) ) {
  *
  *
  */
+ 
+/*
 if ( !function_exists( 'boots_extend_styles' ) ) {
 
     function boots_extend_styles() {
-        $theme_name = wp_get_theme()->get('Name');
-        raindrops_register_styles( $theme_name );
+        $boots_child_theme_name = wp_get_theme()->get('Name');
+        raindrops_register_styles(  $boots_child_theme_name );
     }
 
 }
-
+*/
 /**
  *
  * @return string style rules
  */
-if ( !function_exists( 'raindrops_indv_css_broad' ) ) {
+/*
+if ( !function_exists( 'raindrops_indv_css_'. $boots_child_theme_name ) ) {
 
     function raindrops_indv_css_broad() {
 
@@ -71,7 +74,7 @@ if ( !function_exists( 'raindrops_indv_css_broad' ) ) {
     }
 
 }
-
+*/
 /**
  *
  * @param type $content

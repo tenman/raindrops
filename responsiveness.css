@@ -290,6 +290,9 @@
         margin:5px 3%;
         width:94%;
     }
+    img.aligncenter, .aligncenter, div.aligncenter{
+        box-sizing:border-box;
+    }
     /* for front-page.php */
     #doc3 .fron-page-top-container{
         position:relative;

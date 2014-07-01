@@ -197,8 +197,17 @@ if ( !isset( $raindrops_accessibility_link ) ) {
  *
  */
 if ( !isset( $raindrops_base_font_size ) ) {
+    
     $raindrops_base_font_size = 13;
 }
-
-
-
+/**
+ *
+ * Add <wbr> element for entry title.
+ *
+ * uses true no use false
+ * @since 1.228
+ */
+if ( !isset( $raindrops_use_wbr_for_title ) ) {
+    
+    $raindrops_use_wbr_for_title = true;
+}

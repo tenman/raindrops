@@ -42,7 +42,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
     $raindrops_address_html = sprintf( $raindrops_address_html, date( "Y" ), $raindrops_current_theme_name, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
     );
 
-    if ( $raindrops_accessibility_link == true ) {
+    if ( $raindrops_accessibility_link == true &&  ('posts' == get_option( 'show_on_front' ) || ! is_front_page() ) ) {
 
         $accessible_url = raindrops_current_url();
 

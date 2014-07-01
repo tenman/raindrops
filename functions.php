@@ -99,6 +99,16 @@ if ( !isset( $raindrops_status_bar ) ) {
     $raindrops_status_bar = true;
 }
 /**
+ *
+ * Add <wbr> element for entry title.
+ *
+ * uses true no use false
+ * @since 1.228
+ */
+if ( !isset( $raindrops_use_wbr_for_title ) ) {
+    $raindrops_use_wbr_for_title = true;
+}
+/**
  * Current version of WordPress
  *
  *
@@ -1927,7 +1937,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
             }
             //page type
 
-            if ( isset( $raindrops_fluid_or_fixed ) && !empty( $raindrops_fluid_or_fixed ) && ( 'doc' == Raindrops_warehouse_clone( "raindrops_page_width" ) || 'doc2' == raindrops_warehouse_clone( "raindrops_page_width" ) || 'custom-doc' == raindrops_warehouse_clone( "raindrops_page_width" ) || 'doc4' == raindrops_warehouse_clone( "raindrops_page_width" ) ) ) {
+            if ( isset( $raindrops_fluid_or_fixed ) && !empty( $raindrops_fluid_or_fixed ) && ( 'doc' == raindrops_warehouse_clone( "raindrops_page_width" ) || 'doc2' == raindrops_warehouse_clone( "raindrops_page_width" ) || 'custom-doc' == raindrops_warehouse_clone( "raindrops_page_width" ) || 'doc4' == raindrops_warehouse_clone( "raindrops_page_width" ) ) ) {
 
                 $css .= raindrops_is_fixed();
             } elseif ( isset( $raindrops_fluid_minimum_width ) && !empty( $raindrops_fluid_minimum_width ) ) {
@@ -4493,7 +4503,7 @@ DOC;
 
                     jQuery('#access').find('a').on('focus.raindrops blur.raindrops', function() {
                         jQuery(this).parents().toggleClass('focus');
-                    });
+                    });                    
                 })(jQuery);
             </script>
             <?php
@@ -6520,7 +6530,10 @@ DOC;
      * test filter.
      * @since 1.119
      */
-    add_filter( 'the_title', 'raindrops_non_breaking_title' );
+    if ( isset( $raindrops_use_wbr_for_title ) && true == $raindrops_use_wbr_for_title ) {
+        
+        add_filter( 'the_title', 'raindrops_non_breaking_title' );
+    }
 
     if ( !function_exists( 'raindrops_non_breaking_title' ) ) {
 
@@ -7120,8 +7133,11 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
             do_action( 'raindrops_status_bar_before' );
             $link_to_top = '<p class="move-to-top"><a href="#">top</a></p>';
             echo apply_filters( 'raindrops_status_bar_top', $link_to_top );
-
-            raindrops_monthly_archive_prev_next_navigation();
+            
+            if ( 'posts' == get_option( 'show_on_front' ) ) {
+                
+                raindrops_monthly_archive_prev_next_navigation();
+            }
             ?>
             <div class="raindrops-next-prev-links">
                 <?php raindrops_next_prev_links( 'nav-status-bar' ); ?>

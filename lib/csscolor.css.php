@@ -476,7 +476,7 @@ input[type="submit"],
 }
 .raindrops-tab-list li,
 #access .children li,
-#access a {
+#access a{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');

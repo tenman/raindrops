@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.226
+Version: 1.228
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -225,6 +225,9 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 }
 .entry-content table caption{
     margin:0 0 .5em 0;
+}
+.entry-content  figure{
+    clear:both;
 }
 .entry-content  figure.wp-caption,
 .entry-content  div.wp-caption{
@@ -1350,6 +1353,7 @@ div.menu li a{
 body:not(.raindrops-accessible-mode) #access ul ul{
     display:none;
 }
+
 #access ul ul {
     /*display: none;*/
     position: absolute;
@@ -1365,11 +1369,43 @@ body:not(.raindrops-accessible-mode) #access ul ul{
     min-width: 10em;
     margin:0;
 }
-#access .focus,
-#access ul > li > a:focus + ul,
+.raindrops-accessible-mode #access li.focus > a + ul{
+    left:auto;
+    z-index:9999;
+}
+
+.raindrops-accessible-mode #access li:not(.focus)  a + ul{
+    text-indent:-9999px;
+}
+.raindrops-accessible-mode #access li:not(.focus) li{
+    border:none!important;
+    background:none!important;
+    margin-left:1px;
+}
+.raindrops-accessible-mode #access li:not(.focus) li a{
+    opacity: 0;
+}
+.raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
+    opacity: 1.0;
+}
+/* for mobile responsive settings */
+#access:target li a{
+     opacity: 1.0!important;
+     display:block;
+     text-indent:1em;
+}
 #access ul > li:hover > ul{
     left:auto;
+    text-indent:0!important;
 }
+.raindrops-accessible-mode #access .children .children,
+.raindrops-accessible-mode #access .sub-menu .sub-menu,
+.raindrops-accessible-mode #access ul ul ul {
+    left: 100%;
+    top: -1px;
+    text-align:center;
+}
+#access .children .children,
 #access .sub-menu .sub-menu,
 #access ul ul ul {
     left: 100%;
@@ -3424,4 +3460,3 @@ div.bbp-template-notice, div.indicator-hint{
 .page-template-page-templatesfull-width-php #container{
     width:100%;
 }
-

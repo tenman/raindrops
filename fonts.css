@@ -206,6 +206,12 @@ h3,
 .f16 {
     font-size:123.1%;
 }
+.lsidebar h2,
+.rsidebar h2{
+    font-size:16px;/* if( $raindrops_base_font_size customized ) { over flow list area }*/
+}
+
+
 .px17,
 .f17 {
     font-size:131%;
@@ -224,6 +230,9 @@ h3,
 h2,
 .f20 {
     font-size:153.9%;
+}
+#ft .widgettitle{
+    font-size:20px;/* if( $raindrops_base_font_size customized ) { overflow list area }*/
 }
 h2.year-month-date .day-name,
 .year .year-name,

@@ -4,19 +4,20 @@
  *
  *
  */
-
 if ( !function_exists( 'raindrops_child_customizer_relate' ) ) {
-add_filter( 'raindrops_embed_meta_echo', 'raindrops_child_customizer_relate' );
+    add_filter( 'raindrops_embed_meta_echo', 'raindrops_child_customizer_relate' );
+
     function raindrops_child_customizer_relate( $content ) {
 
         $style_type = raindrops_warehouse_clone( "raindrops_style_type" );
-        $theme_name = wp_get_theme()->get('Name');
+        $theme_name = wp_get_theme()->get( 'Name' );
         if ( $style_type == $theme_name ) {
             return raindrops_child_live_change_customizer();
         } else {
             return $content;
         }
     }
+
 }
 
 /**
@@ -125,7 +126,7 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
         }
         if ( function_exists( 'raindrops_color_base_clone' ) ) {
 
-            $css .= raindrops_color_base_clone( $raindrops_base_color );
+            // $css .= raindrops_color_base_clone( $raindrops_base_color );
         }
 
         if ( is_single() || is_page() ) {
@@ -270,8 +271,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
  *
  */
 if ( !function_exists( 'raindrops_child_uninstall' ) ) {
-add_action( 'switch_theme', 'raindrops_child_uninstall' );
-
+    add_action( 'switch_theme', 'raindrops_child_uninstall' );
 
     function raindrops_child_uninstall() {
 

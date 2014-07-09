@@ -26,6 +26,7 @@ if ( 'html5' == $raindrops_document_type ) {
     ?>
     <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
         <div class="searchform">
+            <label class="screen-reader-text" for="s">Search for:</label>
             <input type="text" value="<?php the_search_query(); ?>" name="s" id="s" accesskey="s" tabindex="1" />
             &nbsp;
             <input type="submit" id="searchsubmit" value="<?php esc_html_e( 'Search', 'Raindrops' ); ?>" accesskey="b" tabindex="2" />

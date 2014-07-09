@@ -209,7 +209,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          * 
          * @since 1.217
          */
-        add_filter('query_vars','raindrops_extend_query');
+        add_filter( 'query_vars', 'raindrops_extend_query' );
         /**
          * 
          * 
@@ -218,6 +218,14 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          * @since 1.220
          */
         add_filter( 'raindrops_base_font_size', 'raindrops_base_font_size' );
+        /**
+         * 
+         * 
+         * 
+         * 
+         * @since 1.229
+         */
+        add_filter( 'widget_tag_cloud_args', 'raindrops_widget_tag_cloud_args' );
     }
 
 }

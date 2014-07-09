@@ -37,7 +37,9 @@ function raindrops_indv_css_dark() {
     $font_color_5 = raindrops_colors( -5, "color" );
 
     $style = <<<DOC
-
+.ie11.enable-keyboard.rd-type-dark #access .sub-menu a:focus,
+.ie11.enable-keyboard.rd-type-dark #access .children a:focus,
+.enable-keyboard.rd-type-dark .hfeed a:focus,
 .ie11.raindrops-accessible-mode.rd-type-dark #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus,
 .raindrops-accessible-mode.rd-type-dark .hfeed a:focus{
@@ -575,7 +577,9 @@ raindrops_register_styles( "w3standard" );
 function raindrops_indv_css_w3standard() {
 
     $style = <<<DOC
-
+.ie11.enable-keyboard #access .sub-menu a:focus,
+.ie11.enable-keyboard #access .children a:focus,
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -832,7 +836,9 @@ function raindrops_indv_css_light() {
     $font_color5 = raindrops_colors( 5, "color" );
 
     $style = <<<DOC
-
+.ie11.enable-keyboard #access .sub-menu a:focus,
+.ie11.enable-keyboard #access .children a:focus,
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -1241,6 +1247,7 @@ hr{
     -moz-box-shadow: 0 1px 3px #333;
     -webkit-box-shadow: 0 1px 3px #333;
 }
+
 #access a {
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%))!important;
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
@@ -1341,7 +1348,9 @@ function raindrops_indv_css_minimal() {
     $font_color = raindrops_colors( 5, "color" );
 
     $style = <<<CSS
-
+.ie11.enable-keyboard #access .sub-menu a:focus,
+.ie11.enable-keyboard #access .children a:focus,
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{

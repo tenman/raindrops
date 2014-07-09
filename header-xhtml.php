@@ -40,7 +40,7 @@ if ( !defined( 'ABSPATH' ) ) {
 global $template, $raindrops_link_unique_text;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 
-echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"' . '?' . '>' . "\n";
+//echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"' . '?' . '>' . "\n";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes( 'xhtml' ); ?>>
@@ -86,14 +86,7 @@ raindrops_prepend_doc();
                  * if no link home_url( ) then use 'elements'
                  *
                  */
-                if ( true == $raindrops_link_unique_text ) {
-
                     echo raindrops_header_image( 'elements' );
-                } else {
-
-                    echo raindrops_header_image( 'home_url' );
-                }
-
                 /**
                  * horizontal menubar
                  *

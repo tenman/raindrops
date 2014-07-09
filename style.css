@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.228
+Version: 1.229
 Tags:black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow,dark,light,one-column,two-columns,three-columns,four-columns,left-sidebar,right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, accessibility-ready
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -49,11 +49,20 @@ a:visited{
     text-decoration:none!important;
     border-bottom:solid 1px;
 }
+.ie11.enable-keyboard #access .sub-menu a:focus,
+.ie11.enable-keyboard #access .children a:focus,
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
     position:relative;
     margin:-1px;
+}
+.enable-keyboard #hd + a{
+    margin:0;  
+}
+.enable-keyboard .entry-content a:focus img{
+    outline:thin dotted;
 }
 .ie8 #doc #header-image,
 .ie8 #doc4 #header-image,
@@ -62,11 +71,14 @@ a:visited{
 .ie11 #doc4 #header-image{
     width:auto;
 }
-
+.enable-keyboard #access .menu-item-has-children .sub-menu:hover,
+.enable-keyboard #access .menu-item-has-children a:hover + ul,
 .raindrops-accessible-mode #access .menu-item-has-children .sub-menu:hover,
 .raindrops-accessible-mode #access .menu-item-has-children a:hover + ul{
     z-index:1000;
 }
+.enable-keyboard .entry-title a:focus span,
+.enable-keyboard #site-title a:focus span,
 .raindrops-accessible-mode .entry-title a:focus span,
 .raindrops-accessible-mode #site-title a:focus span{
     visibility:visible!important;
@@ -244,7 +256,8 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 .entry-content .more-link-post-unique{
     display:none;
 }
-
+.enable-keyboard .poster-more-link .more-link-post-unique,
+.enable-keyboard .entry-content .more-link-post-unique,
 .raindrops-accessible-mode .poster-more-link .more-link-post-unique,
 .raindrops-accessible-mode .entry-content .more-link-post-unique{
     /*visibility:visible;*/
@@ -681,13 +694,13 @@ ul.archive ul li {
     float:left;
 }
 .ie8 .footer-widget ul{
-   list-style:none;
-   margin:4%;
-   width:92%;
+    list-style:none;
+    margin:4%;
+    width:92%;
 }
 .ie8 .footer-widget .widgettitle{
-   margin:4%;
-   width:92%;
+    margin:4%;
+    width:92%;
 }
 .footer-widget ul{
     margin:0 10px;
@@ -1350,6 +1363,7 @@ div.menu li a{
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
+body:not(.enable-keyboard) #access ul ul,
 body:not(.raindrops-accessible-mode) #access ul ul{
     display:none;
 }
@@ -1369,35 +1383,41 @@ body:not(.raindrops-accessible-mode) #access ul ul{
     min-width: 10em;
     margin:0;
 }
+.enable-keyboard #access li.focus > a + ul,
 .raindrops-accessible-mode #access li.focus > a + ul{
     left:auto;
     z-index:9999;
 }
-
+.enable-keyboard #access li:not(.focus)  a + ul,
 .raindrops-accessible-mode #access li:not(.focus)  a + ul{
     text-indent:-9999px;
 }
+.enable-keyboard #access li:not(.focus) li,
 .raindrops-accessible-mode #access li:not(.focus) li{
     border:none!important;
     background:none!important;
-    margin-left:1px;
 }
+.enable-keyboard #access li:not(.focus) li a,
 .raindrops-accessible-mode #access li:not(.focus) li a{
-    opacity: 0;
+    opacity: 0;  
 }
+.enable-keyboard #access .menu-item-has-children:hover  > ul > li > a,
 .raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
     opacity: 1.0;
 }
 /* for mobile responsive settings */
 #access:target li a{
-     opacity: 1.0!important;
-     display:block;
-     text-indent:1em;
+    opacity: 1.0!important;
+    display:block;
+    text-indent:1em;
 }
 #access ul > li:hover > ul{
     left:auto;
     text-indent:0!important;
 }
+.enable-keyboard #access .children .children,
+.enable-keyboard #access .sub-menu .sub-menu,
+.enable-keyboard #access ul ul ul,
 .raindrops-accessible-mode #access .children .children,
 .raindrops-accessible-mode #access .sub-menu .sub-menu,
 .raindrops-accessible-mode #access ul ul ul {
@@ -1432,7 +1452,6 @@ body:not(.raindrops-accessible-mode) #access ul ul{
     margin:0;
     width:100%;
     height:100%;
-
 }
 #access .menu-header,
 div.menu{
@@ -1452,15 +1471,16 @@ div.menu li {
     float: left;
     position: relative;
 }
+.enable-keyboard #access li:not(.focus) li a,
+.raindrops-accessible-mode #access li:not(.focus) li a,
 #access .sub-menu li,
 #access .children li{
     border:1px solid #ccc;
-    background:#fff;
-    color:#000;
+    /*  background:#fff;
+      color:#000;  */  
 }
 #access .current_page_item{
 }
-
 .ie8 #access {
     margin-left:0;
     width:100%;
@@ -1494,11 +1514,25 @@ div.menu li {
     position: absolute;
     clip: rect(1px, 1px, 1px, 1px);
 }
-.screen-reader-text a:active,
-.screen-reader-text a:focus{
-    position:static;
-    width:auto;
-    height:auto;
+.screen-reader-text:active,
+.screen-reader-text:focus {
+    background-color: #f1f1f1;
+    box-shadow: 0 0 2px 2px rgba( 0, 0, 0, .6 );
+    clip: auto;
+    color: #21759b;
+    display: block;
+    font-size: 108%;
+    font-weight: bold;
+    height: auto;
+    line-height: normal;
+    padding: 1.15384615385em 1.76923076923em 1.15384615385em;
+    position: absolute;
+    left: 0.38461538461em;
+    top: 0.38461538461em;
+    text-decoration: none;
+    text-transform: none;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar */
 }
 table#wp-caledar td a{
     text-align:right;
@@ -1725,9 +1759,9 @@ li.byuser > div a{
     border:none!important;
 }
 .home .sticky .entry-title a{
-    pointer-events: none;
-    cursor: default;
-    text-decoration:none;
+    /*  pointer-events: none;
+      cursor: default;
+      text-decoration:none;*/
 }
 .home .sticky .posted-on{
     display:none;
@@ -2670,7 +2704,7 @@ sup {
     display:none;
 }
 
-.sticky-single-follow-text #nva-below{
+.sticky-single-follow-text #nav-below{
     display:block;
 }
 .page-template-page-templatesfront-portfolio-php .raindrops-sticky{
@@ -2679,6 +2713,7 @@ sup {
 .sticky-single-follow-text{
     margin-top:45px;
     text-align:left;
+    font-size:153.9%
 }
 .sticky.raindrops-sticky{
     display:block;
@@ -2975,131 +3010,7 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
     background:none!important;
 }
 
-
-@media
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-resolution: 192dpi) {
-
-    #comments .form-allowed-tags:before,
-    #comments .nopassword:before,
-    #comments .nocomments:before,
-    .comment-notes:before,
-    .logged-in-as:before{
-        background: url("images/retina/info.png");
-        background-size:16px 16px;
-    }
-    #respond .required,
-    .comment-form-email .required,
-    .comment-form-author .required,
-    .comment-notes .required{
-        background:url("images/retina/require.png");
-        background-size:16px 16px;
-        background-repeat:no-repeat;
-    }
-    .error404 .entry-title:before{
-        background: url("images/retina/stop.png");
-        background-size:16px 16px;
-    }
-    address .raindrops-accessibility-link:after{
-        background: url("images/retina/accessibility.png");
-        background-size:16px 16px;
-    }
-    address .comments-rss:after,
-    address .entry-rss:after{
-        background: url("images/retina/rss.png");
-        background-size:16px 16px;
-    }
-    .raindrops-chat-author-0:before{
-        background-image: url('images/retina/raindrops-chat-author-0.png');
-        background-size:13px 13px;
-    }
-    .raindrops-chat-author-1:before{
-        background-image: url('images/retina/raindrops-chat-author-1.png');
-        background-size:13px 13px;
-    }
-    .raindrops-chat-author-2:before{
-        background-image: url('images/retina/raindrops-chat-author-2.png');
-        background-size:13px 13px;
-
-    }
-    .raindrops-chat-author-3:before{
-        background-image: url('images/retina/raindrops-chat-author-3.png');
-        background-size:13px 13px;
-
-    }
-    .raindrops-chat-author-4:before{
-        background-image: url('images/retina/raindrops-chat-author-4.png');
-        background-size:13px 13px;
-
-    }
-    .raindrops-chat-author-5:before{
-        background-image: url('images/retina/raindrops-chat-author-5.png');
-        background-size:13px 13px;
-
-    }
-    .attachment-navigation .prev a{
-        background:url("images/retina/previous.png");
-        background-size:16px 16px;
-    }
-    .nav-previous a:before{
-        background: url("images/retina/previous.png");
-        background-size:16px 16px;
-    }
-    .nav-next a:after{
-        background: url("images/retina/next.png");
-        background-size:16px 16px;
-
-    }
-    .attachment-navigation .next a{
-        background:url("images/retina/next.png");
-        background-size:16px 16px;
-    }
-
-    .icon-link-no-title{
-        background: url("images/retina/link.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-aside{
-        background: url("images/retina/post-format-aside.png");
-        background-size:24px 24px;
-    }
-
-    .icon-post-format-audio{
-        background: url("images/retina/post-format-audio.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-chat{
-        background: url("images/retina/post-format-chat.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-gallery{
-        background: url("images/retina/post-format-gallery.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-image{
-        background: url("images/retina/post-format-image.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-link{
-        background: url("images/retina/post-format-link.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-quote{
-        background: url("images/retina/post-format-quote.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-status{
-        background: url("images/retina/post-format-status.png");
-        background-size:24px 24px;
-    }
-    .icon-post-format-video{
-        background: url("images/retina/post-format-video.png");
-        background-size:24px 24px;
-    }
-}
-
-
-
+/* retina settings move to responsiveness.css */
 
 /* portfolio template */
 .portfolio-nav{
@@ -3258,7 +3169,7 @@ ol.list-of-post-list .entry-title{
 }
 
 @media screen and (min-width : 1280px){
-   .page-template-blank_front-php  .raindrops-category-posts li,
+    .page-template-blank_front-php  .raindrops-category-posts li,
     .page-template-blank_front-php  .raindrops-tag-posts li,
     .page-template-blank_front-php  .raindrops-recent-posts li{
         display:block;
@@ -3274,6 +3185,7 @@ ol.list-of-post-list .entry-title{
     }
 
 }
+.raindrops-status-bar-active #ft,
 .raindrops-status-bar-active footer{
     margin-bottom:70px;
 }
@@ -3302,10 +3214,11 @@ ol.list-of-post-list .entry-title{
     color:#fff;
 }
 /* Print Styles for Single post, page */
+@page {
+    margin: 1.5cm;
+}
 @media print {
-    @page {
-        margin: 1.5cm;
-    }
+
     .single   a{
         color:#000!important;
     }

@@ -7,173 +7,179 @@
  * @since Raindrops 0.320
  */
 strong{
- 	text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
 }
 .corner{
     border-radius:5px;
     -moz-border-radius:5px;
-	padding:5px;
+    padding:5px;
 }
 .hentry table.opacity tr:nth-child(odd){
-	opacity: 0.7;
-	-moz-opacity: 0.7; /* Firefox */
-	filter: alpha(opacity=0.7); /* IE6/7 */
-	-ms-filter: "alpha(opacity=0.7)"; /* IE8 */
+    opacity: 0.7;
+    -moz-opacity: 0.7; /* Firefox */
+    filter: alpha(opacity=0.7); /* IE6/7 */
+    -ms-filter: "alpha(opacity=0.7)"; /* IE8 */
 }
 .hentry table.opacity tr:nth-child(even){
-	opacity: 0.9;
-	-moz-opacity: 0.9; /* Firefox */
-	filter: alpha(opacity=0.9); /* IE6/7 */
-	-ms-filter: "alpha(opacity=0.9)"; /* IE8 */
+    opacity: 0.9;
+    -moz-opacity: 0.9; /* Firefox */
+    filter: alpha(opacity=0.9); /* IE6/7 */
+    -ms-filter: "alpha(opacity=0.9)"; /* IE8 */
 }
 
 input[type="file"],
 input[type="reset"],
 input[type="submit"],
 submit{
-	 border-radius:1em;
+    border-radius:1em;
     -moz-border-radius:1em;
-	-webkit-border-radius:1em;
-	padding:.2em .6em;
-	/*font-size:86%;*/
-	font-size:11px;
+    -webkit-border-radius:1em;
+    padding:.2em .6em;
+    /*font-size:86%;*/
+    font-size:11px;
 }
 .nav-next span{
-	display:-moz-inline-box;
-	display:inline-block;
-	text-align:left;
+    display:-moz-inline-box;
+    display:inline-block;
+    text-align:left;
 }
 .lsidebar .children li:nth-last-child(1),
 .rsidebar .children li:nth-last-child(1){
-	border:none;
+    border:none;
 }
 .lsidebar li.page_item a:hover,
 .lsidebar li.category_report a:hover,
 .lsidebar .widget ul li a:hover {
-	-moz-opacity:0.75;
-	filter:alpha(opacity=75);
-	opacity:0.75;
+    -moz-opacity:0.75;
+    filter:alpha(opacity=75);
+    opacity:0.75;
 }
 #access ul ul {
-	box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-	-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+.enable-keyboard #access ul ul,
+.raindrops-accessible-mode #access ul ul{
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
 }
 .wp-caption {
-   /* optional rounded corners for browsers that support it */
-   -moz-border-radius: 3px;
-   -khtml-border-radius: 3px;
-   -webkit-border-radius: 3px;
-   border-radius: 3px;
+    /* optional rounded corners for browsers that support it */
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
 .shadow{
-	box-shadow: 7px 7px 8px #cccccc;
-	-webkit-box-shadow: 7px 7px 8px #cccccc;
-	-moz-box-shadow: 7px 7px 8px #cccccc;
+    box-shadow: 7px 7px 8px #cccccc;
+    -webkit-box-shadow: 7px 7px 8px #cccccc;
+    -moz-box-shadow: 7px 7px 8px #cccccc;
 }
 #access{
-	-webkit-text-size-adjust: 120%;
+    -webkit-text-size-adjust: 120%;
 }
 #header-image p{
-	position:relative;
-	top:35%;
-	text-align:center;
-	text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3);
+    position:relative;
+    top:35%;
+    text-align:center;
+    text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3);
 }
 
 .datetable td li:nth-last-child(1){
-	border-bottom:none;
+    border-bottom:none;
 }
 
 .raindrops-tab-content,
 .raindrops-tab-list li{
 
-border:1px solid rgba(200,200,200,0.3);
+    border:1px solid rgba(200,200,200,0.3);
 
 }
 #doc .entry-content .columns,
 #doc2 .entry-content .columns,
 #doc4 .entry-content .columns,
 #doc3 .entry-content .columns{
-	-moz-columns: 20em auto;
-	-webkit-columns:20em auto;
-	-o-columns: 20em auto;
-	-ms-columns: 20em auto;
+    -moz-columns: 20em auto;
+    -webkit-columns:20em auto;
+    -o-columns: 20em auto;
+    -ms-columns: 20em auto;
 }
 .entry-title a{
-	word-break:normal;
-	word-wrap:normal;/* Internet Explorer */
+    word-break:normal;
+    word-wrap:normal;/* Internet Explorer */
 }
 
 .raindrops-light-box{
-	position: relative;
-	background: #f1d2c2;
-	cursor:pointer;
+    position: relative;
+    background: #f1d2c2;
+    cursor:pointer;
 }
 .raindrops-lightbox-overlay{
-	width: 0px;
-	height: 0px;
-	position: fixed;
-	overflow: hidden;
-	left: 0px;
-	top: 0px;
-	padding: 0px;
-	z-index: 99;
-	text-align: center;
+    width: 0px;
+    height: 0px;
+    position: fixed;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    padding: 0px;
+    z-index: 99;
+    text-align: center;
 }
 .raindrops-lightbox-overlay a.lb-close{
-	background: #fff;
-	z-index: 1001;
-	color: #000;
-	position: absolute;
-	top: 30px;
-	left: 60%;
-	font-size: 15px;
-	line-height: 26px;
-	text-align: center;
-	width: 50px;
-	height: 37px;
-	overflow: hidden;
-	margin-left: -25px;
-	opacity: 0;
-	-webkit-border-radius: 25px;
-	-moz-border-radius: 25px;
-	border-radius: 25px;
-	padding-top:13px;
+    background: #fff;
+    z-index: 1001;
+    color: #000;
+    position: absolute;
+    top: 30px;
+    left: 60%;
+    font-size: 15px;
+    line-height: 26px;
+    text-align: center;
+    width: 50px;
+    height: 37px;
+    overflow: hidden;
+    margin-left: -25px;
+    opacity: 0;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    padding-top:13px;
 }
 .raindrops-lightbox-overlay img{
-	/*For Opera*/
-	max-height: 100%;
-	position: relative;
-	padding:10px;
-	background:#fff;
+    /*For Opera*/
+    max-height: 100%;
+    position: relative;
+    padding:10px;
+    background:#fff;
 }
 .chrome .raindrops-lightbox-overlay img{
-	max-height: 70%;
+    max-height: 70%;
 }
 .gecko .raindrops-lightbox-overlay img{
-	max-height: 50%;
+    max-height: 50%;
 }
 .raindrops-lightbox-overlay:target {
-	width: auto;
-	height: auto;
-	bottom: 0px;
-	right: 0px;
-	padding: 90px 30px 30px 20px;
-	background:rgba(52,52,52,.5);
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
+    width: auto;
+    height: auto;
+    bottom: 0px;
+    right: 0px;
+    padding: 90px 30px 30px 20px;
+    background:rgba(52,52,52,.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .gecko .raindrops-lightbox-overlay:target {
-	padding: 90px auto 20px;
+    padding: 90px auto 20px;
 
 }
 .raindrops-lightbox-overlay:target a.lb-close,
 .raindrops-lightbox-overlay:target > div{
-	opacity: 1;
+    opacity: 1;
 }
 x:-o-prefocus, .raindrops-lightbox-overlay img {
-	height: 100%;
+    height: 100%;
 }

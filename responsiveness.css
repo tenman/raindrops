@@ -354,15 +354,135 @@
 }
 
 @media
-only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (-o-min-device-pixel-ratio: 3/2),
-only screen and (min--moz-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio: 1.5){
-
+(-webkit-min-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3/2),
+(min--moz-device-pixel-ratio: 1.5),
+(min-device-pixel-ratio: 1.5){
   html,
   body{
     width:100%;
     overflow-x:hidden;
   }
+}
 
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+    #comments .form-allowed-tags:before,
+    #comments .nopassword:before,
+    #comments .nocomments:before,
+    .comment-notes:before,
+    .logged-in-as:before{
+        background: url("images/retina/info.png");
+        background-size:16px 16px;
+    }
+    #respond .required,
+    .comment-form-email .required,
+    .comment-form-author .required,
+    .comment-notes .required{
+        background:url("images/retina/require.png");
+        background-size:16px 16px;
+        background-repeat:no-repeat;
+    }
+    .error404 .entry-title:before{
+        background: url("images/retina/stop.png");
+        background-size:16px 16px;
+    }
+    address .raindrops-accessibility-link:after{
+        background: url("images/retina/accessibility.png");
+        background-size:16px 16px;
+    }
+    address .comments-rss:after,
+    address .entry-rss:after{
+        background: url("images/retina/rss.png");
+        background-size:16px 16px;
+    }
+    .raindrops-chat-author-0:before{
+        background-image: url('images/retina/raindrops-chat-author-0.png');
+        background-size:13px 13px;
+    }
+    .raindrops-chat-author-1:before{
+        background-image: url('images/retina/raindrops-chat-author-1.png');
+        background-size:13px 13px;
+    }
+    .raindrops-chat-author-2:before{
+        background-image: url('images/retina/raindrops-chat-author-2.png');
+        background-size:13px 13px;
+
+    }
+    .raindrops-chat-author-3:before{
+        background-image: url('images/retina/raindrops-chat-author-3.png');
+        background-size:13px 13px;
+
+    }
+    .raindrops-chat-author-4:before{
+        background-image: url('images/retina/raindrops-chat-author-4.png');
+        background-size:13px 13px;
+
+    }
+    .raindrops-chat-author-5:before{
+        background-image: url('images/retina/raindrops-chat-author-5.png');
+        background-size:13px 13px;
+
+    }
+    .attachment-navigation .prev a{
+        background:url("images/retina/previous.png");
+        background-size:16px 16px;
+    }
+    .nav-previous a:before{
+        background: url("images/retina/previous.png");
+        background-size:16px 16px;
+    }
+    .nav-next a:after{
+        background: url("images/retina/next.png");
+        background-size:16px 16px;
+
+    }
+    .attachment-navigation .next a{
+        background:url("images/retina/next.png");
+        background-size:16px 16px;
+    }
+
+    .icon-link-no-title{
+        background: url("images/retina/link.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-aside{
+        background: url("images/retina/post-format-aside.png");
+        background-size:24px 24px;
+    }
+
+    .icon-post-format-audio{
+        background: url("images/retina/post-format-audio.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-chat{
+        background: url("images/retina/post-format-chat.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-gallery{
+        background: url("images/retina/post-format-gallery.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-image{
+        background: url("images/retina/post-format-image.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-link{
+        background: url("images/retina/post-format-link.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-quote{
+        background: url("images/retina/post-format-quote.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-status{
+        background: url("images/retina/post-format-status.png");
+        background-size:24px 24px;
+    }
+    .icon-post-format-video{
+        background: url("images/retina/post-format-video.png");
+        background-size:24px 24px;
+    }
 }

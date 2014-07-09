@@ -211,3 +211,14 @@ if ( !isset( $raindrops_use_wbr_for_title ) ) {
     
     $raindrops_use_wbr_for_title = true;
 }
+/**
+ *
+ * Add enable keyboard focus
+ *
+ * uses true no use false
+ * @since 1.229
+ */
+if ( !isset( $raindrops_enable_keyboard ) ) {
+    
+    $raindrops_enable_keyboard = true;
+}

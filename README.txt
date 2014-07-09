@@ -24,7 +24,9 @@ Special Thanks for Contribution
 
 	@ Luigi Rosa  Optimising Images
 
+Special Thanks for Translation files provided
 
+	@ kml1960 http://kml1960.pl pl_PL.po pl_PL.mo
 
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/

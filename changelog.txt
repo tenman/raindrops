@@ -1,11 +1,11 @@
 Changelog -----------------------------------
-version:1.229
+version:1.230
 	Modified
             WP_Widget_Tag_Cloud inline style rule change
                 from font-size pt to font-size %
                 add filter function raindrops_widget_tag_cloud_args()
-            
-            Keyboard Access 
+
+            Keyboard Access
                 add ver $raindrops_enable_keyboard
                     default true
                     enable keyboard access at default setting

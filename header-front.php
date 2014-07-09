@@ -31,7 +31,7 @@ switch ( $raindrops_document_type ) {
                 <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
                 <![endif]--> 
-            <?php wp_head(); ?>
+                <?php wp_head(); ?>
             </head>
             <?php
             break;
@@ -52,14 +52,18 @@ switch ( $raindrops_document_type ) {
                     <meta http-equiv="content-style-type" content="text/css" />
                     <title><?php wp_title( '|', true, 'right' ); ?></title>
                     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-                <?php wp_head(); ?>
+                    <?php wp_head(); ?>
                 </head>
-        <?php break;
-} //end switch( $raindrops_document_type )
-?>
+                <?php
+                break;
+        } //end switch( $raindrops_document_type )
+        ?>
         <body <?php body_class(); ?>>
+            <div class="skip-link">
+                <a href="#container"class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
+            </div> 
             <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
-                    <?php raindrops_prepend_doc(); ?>
+<?php raindrops_prepend_doc(); ?>
                 <<?php raindrops_doctype_elements( 'div', 'header' ); ?> id="top">
                 <div id="hd">
                     <?php
@@ -95,7 +99,7 @@ switch ( $raindrops_document_type ) {
                 ?>
                 </<?php raindrops_doctype_elements( 'div', 'header' ); ?>>
 
-<?php $raindrops_header_image = raindrops_header_image( 'elements' ); ?>
+                <?php $raindrops_header_image = raindrops_header_image( 'elements' ); ?>
 
 <?php if ( !empty( $raindrops_header_image ) || has_post_thumbnail() ) { ?>
                     <span id="container"></span>
@@ -144,7 +148,7 @@ switch ( $raindrops_document_type ) {
                                     ?>
                                     <br style="clear:both" />
                                 </div>
-<?php } // end if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) ) ?>
+<?php } // end if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) )  ?>
                         </div>
                     </div>
                 </div>

@@ -51,8 +51,11 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
         <title><?php wp_title( '|', true, 'right' ); ?></title>
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
         <?php wp_head(); ?>
-    </head>
+    </head>     
     <body <?php body_class(); ?> >
+        <div class="skip-link">
+            <a href="#container"class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
+        </div> 
         <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 <?php
 raindrops_prepend_doc();

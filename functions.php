@@ -963,7 +963,7 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
         global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection, $raindrops_status_bar, $raindrops_enable_keyboard;
         $classes[] = get_locale();
         
-        if( $raindrops_enable_keyboard == true ) {
+        if( $raindrops_enable_keyboard == true && true !== $raindrops_link_unique_text ) {
             
             $classes[] = 'enable-keyboard';
         }

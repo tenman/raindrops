@@ -37,6 +37,8 @@ function raindrops_indv_css_dark() {
     $font_color_5 = raindrops_colors( -5, "color" );
 
     $style = <<<DOC
+.raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
+.enable-keyboard.rd-type-dark .raindrops-comment-link:focus em,
 .ie11.enable-keyboard.rd-type-dark #access .sub-menu a:focus,
 .ie11.enable-keyboard.rd-type-dark #access .children a:focus,
 .enable-keyboard.rd-type-dark .hfeed a:focus,
@@ -577,6 +579,8 @@ raindrops_register_styles( "w3standard" );
 function raindrops_indv_css_w3standard() {
 
     $style = <<<DOC
+.raindrops-accessible-mode .raindrops-comment-link:focus em,
+.enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
 .enable-keyboard .hfeed a:focus,
@@ -836,6 +840,8 @@ function raindrops_indv_css_light() {
     $font_color5 = raindrops_colors( 5, "color" );
 
     $style = <<<DOC
+.raindrops-accessible-mode .raindrops-comment-link:focus em,
+.enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
 .enable-keyboard .hfeed a:focus,
@@ -1348,6 +1354,8 @@ function raindrops_indv_css_minimal() {
     $font_color = raindrops_colors( 5, "color" );
 
     $style = <<<CSS
+.raindrops-accessible-mode .raindrops-comment-link:focus em,
+.enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
 .enable-keyboard .hfeed a:focus,

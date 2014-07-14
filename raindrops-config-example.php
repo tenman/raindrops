@@ -189,7 +189,7 @@ define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
  */
 if ( !isset( $raindrops_accessibility_link ) ) {
 
-    $raindrops_accessibility_link = true;
+    $raindrops_accessibility_link = false;
 }
 /**
  * Base Font Size

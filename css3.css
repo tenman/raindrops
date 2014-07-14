@@ -10,9 +10,9 @@ strong{
     text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;
 }
 .corner{
-    border-radius:5px;
-    -moz-border-radius:5px;
-    padding:5px;
+    border-radius:0.38461538461em;
+    -moz-border-radius:0.38461538461em;
+    padding:0.38461538461em;
 }
 .hentry table.opacity tr:nth-child(odd){
     opacity: 0.7;
@@ -55,9 +55,9 @@ submit{
     opacity:0.75;
 }
 #access ul ul {
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 0.23076923076em 0.23076923076em rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0.23076923076em 0.23076923076em rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 0.23076923076em 0.23076923076em rgba(0,0,0,0.2);
 }
 .enable-keyboard #access ul ul,
 .raindrops-accessible-mode #access ul ul{
@@ -67,15 +67,15 @@ submit{
 }
 .wp-caption {
     /* optional rounded corners for browsers that support it */
-    -moz-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+    -moz-border-radius: 0.23076923076em;
+    -khtml-border-radius: 0.23076923076em;
+    -webkit-border-radius: 0.23076923076em;
+    border-radius: 0.23076923076em;
 }
 .shadow{
-    box-shadow: 7px 7px 8px #cccccc;
-    -webkit-box-shadow: 7px 7px 8px #cccccc;
-    -moz-box-shadow: 7px 7px 8px #cccccc;
+    box-shadow: 0.53846153846em 0.53846153846em 0.61538461538em #cccccc;
+    -webkit-box-shadow: 0.53846153846em 0.53846153846em 0.61538461538em #cccccc;
+    -moz-box-shadow: 0.53846153846em 0.53846153846em 0.61538461538em #cccccc;
 }
 #access{
     -webkit-text-size-adjust: 120%;
@@ -132,26 +132,26 @@ submit{
     z-index: 1001;
     color: #000;
     position: absolute;
-    top: 30px;
+    top: 2.30769230769em;
     left: 60%;
     font-size: 15px;
     line-height: 26px;
     text-align: center;
-    width: 50px;
-    height: 37px;
+    width: 3.84615384615em;
+    height: 2.84615384615em;
     overflow: hidden;
-    margin-left: -25px;
+    margin-left: -1.92307692308em;
     opacity: 0;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    padding-top:13px;
+    -webkit-border-radius: 1.92307692308em;
+    -moz-border-radius: 1.92307692308em;
+    border-radius: 1.92307692308em;
+    padding-top:1em;
 }
 .raindrops-lightbox-overlay img{
     /*For Opera*/
     max-height: 100%;
     position: relative;
-    padding:10px;
+    padding:0.76923076923em;
     background:#fff;
 }
 .chrome .raindrops-lightbox-overlay img{
@@ -165,7 +165,7 @@ submit{
     height: auto;
     bottom: 0px;
     right: 0px;
-    padding: 90px 30px 30px 20px;
+    padding: 6.92307692308em 2.30769230769em 2.30769230769em 1.53846153846em;
     background:rgba(52,52,52,.5);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -173,7 +173,7 @@ submit{
     box-sizing: border-box;
 }
 .gecko .raindrops-lightbox-overlay:target {
-    padding: 90px auto 20px;
+    padding: 6.92307692308em auto 1.53846153846em;
 
 }
 .raindrops-lightbox-overlay:target a.lb-close,

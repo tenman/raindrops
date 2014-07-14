@@ -164,7 +164,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     array( 'option_id'    => 16,
         'blog_id'      => 0,
         'option_name'  => "raindrops_accessibility_settings",
-        'option_value' => "no",
+        'option_value' => "yes",
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Accessibility Settings', 'Raindrops' ),
         'excerpt1'     => '',

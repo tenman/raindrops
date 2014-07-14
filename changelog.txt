@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.231
+	Modified
+            Accessibility setting default change from no to yes
+             $raindrops_accessibility_link default value change from true to false
+                $raindrops_accessibility_link = false
+            Raindrops status bar default change from true to false;
+                $raindrops_status_bar = false;
+            Add wbr element for long title 
+                $raindrops_use_wbr_for_title = false;
+        Added
+            functions raindrops_skip_links
+            If widget set then add skip link for all default widget.       
+----------------------------------------------
+Changelog -----------------------------------
 version:1.230
 	Modified
             WP_Widget_Tag_Cloud inline style rule change

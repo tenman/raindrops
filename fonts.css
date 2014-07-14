@@ -281,16 +281,16 @@ h1,
 
 .yui-t1 #wp-calendar caption,
 .yui-t1 #wp-calendar td{
-    font-size:8px;
+    font-size:0.61538461538em;
 }
 .yui-t4 #wp-calendar td,
 .yui-t4 #wp-calendar caption,
 .yui-t2 #wp-calendar td{
-    font-size:11px;
+    font-size:0.84615384615em;
 }
 .yui-t5 #wp-calendar caption,
 .yui-t5 #wp-calendar td{
-    font-size:14px;
+    font-size:1.07692307692em;
 }
 .yui-t3 #wp-calendar caption,
 .yui-t6 #wp-calendar caption,
@@ -301,7 +301,7 @@ h1,
 .datetable .month-name,
 .datetable .year-name,
 .datetable .day-name{
-    font-size:16px;
+    font-size:1.23076923077em;
 
 }
 .datetable .time,

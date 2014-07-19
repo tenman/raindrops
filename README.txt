@@ -31,6 +31,55 @@ Special Thanks for Translation files provided
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+ver 1.231
+
+Note: About Raindrops Accessible Mode.
+
+What is changed when Accessibility mode yes
+
+Add body element CSS class raindrops-accessible-mode more link text
+Raindrops add html below
+
+	<span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . get_the_ID() . '</span>'
+
+next prev links
+
+	<span class="raindrops_unique_identifier">[Next Page ($paged + 1 |$paged -1) ]</span>
+
+wp nav menu
+
+	<span class="raindrops_unique_identifier">[Link to %1$s]</span>
+
+edit post link
+
+	<span class="raindrops_unique_identifier">[Post $post->ID]</span>
+
+Custom Header Image
+
+	remove link to home element
+
+entry title
+
+	<span class="raindrops_unique_identifier">[Article $post->ID]</span>
+
+conditional work at responsive layout
+	jQuery('body').addClass('raindrops-accessible-mode');
+
+For the same URL, for different URL link label of the same, to realize without forcing a complicated process for the user, the link label different, the above changes, if it is set to yes Accessibility Setting This is done automatically.
+
+This feature, so you may want to display the results may differ from those entered by the user, is this setting in order to function on the basis of the consent of the user.
+
+If, in the case where you have to enable this feature, and it is to be able from accessibility links in the footer, visitors, to enable for each page at any time.
+
+Even if you do not have to enable the Accessibility Settig, keyboard accessibility by the tab key, you have been taken into account in order to be able to operate.
+
+TAB KEY
+If you add the sidebar widget, the Raindrops, you, since automatically generates Skip Link for the default widget is added, by using the tab, without having to scroll to move the Widget instantly .
+
+Widget you want to support is as follows.
+	WP_Widget_Categories , WP_Widget_Archives , WP_Widget_Calendar , WP_Widget_Pages , WP_Widget_Recent_Comments , WP_Widget_RSS , WP_Widget_Text , WP_Widget_Tag_Cloud , WP_Nav_Menu_Widget , WP_Widget_Search
+
+
 ver 1.228
         $raindrops_accessibility_link is not support Statick Front Page
             Custom template file, because it is not yet supported accessibility

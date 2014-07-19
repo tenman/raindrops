@@ -44,7 +44,6 @@ a:visited{
 #bd a:hover{
     text-decoration:underline!important;
 }
-
 .gecko #bd h2 a:hover{
     text-decoration:none!important;
     border-bottom:solid 0.07692307692em;
@@ -188,8 +187,11 @@ input[type="radio"],
 select{
     margin:0 0.23076923076em;
 }
+.entry-content label{
+     margin:0 0.23076923076em;
+}
 .entry-content input{
-    display:block;
+    display:inline-block;
 }
 .entry-content input[name="post_password"],
 .entry-content input[type="checkbox"],
@@ -969,7 +971,7 @@ ul.archive,
 ul.index {
 
     margin:.5em 0;
-    max-width:99%;
+    max-width:100%;
 }
 ul.blank-front{
     margin-left:1em;
@@ -1319,6 +1321,12 @@ br.clearfix {
 #wp-calendar a{
     text-decoration:underline;
     white-space:nowrap;
+}
+#wp-calendar tfoot td{
+    border:none;
+}
+#wp-calendar tfoot #prev{
+    text-align:left;
 }
 .widget form{
     text-align:center;
@@ -2594,7 +2602,9 @@ div.raindrops-tab-page{
     color:inherit;
 }
 div.raindrops-tab-page h3{
+    display:none;
 }
+
 
 /** preset padding dlass
  *
@@ -2804,12 +2814,15 @@ sup {
     padding-top:50px;
     margin-top:-50px;
 }
-
+.rsidebar li:target form div.searchform,
+.lsidebar li:target form div.searchform,
 .rsidebar li:target h2,
 .lsidebar li:target{
     padding-top:25px;
     margin-top:-25px;
 }
+.rsidebar li:target form div.searchform,
+.lsidebar li:target form div.searchform,
 .rsidebar li:target h2,
 .lsidebar li:target h2{
     outline:thin dotted;

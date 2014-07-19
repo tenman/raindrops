@@ -226,6 +226,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          * @since 1.229
          */
         add_filter( 'widget_tag_cloud_args', 'raindrops_widget_tag_cloud_args' );
+        
+        
+        add_filter( 'sidebars_widgets', 'raindrops_widget_ids' );        
+        add_filter( 'the_content', 'raindrops_remove_wrong_p_before', 9 );
+        add_filter( 'the_content', 'raindrops_remove_wrong_p', 11 );
     }
 
 }

@@ -71,7 +71,7 @@
         jQuery(element).each(function(i) {
             var fragment = prefix + i;
 
-            var title = "<li><a href=\"#" + fragment + "\">" + jQuery(element).eq(i).html() + "</a></li>";
+            var title = "<li role=\"tab\"><a href=\"#" + fragment + "\">" + jQuery(element).eq(i).html() + "</a></li>";
             jQuery(this).parents(':eq(1)').prev().append(title);
             jQuery(this).parent().attr("id", fragment);
 

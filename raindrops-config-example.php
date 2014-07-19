@@ -189,7 +189,7 @@ define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
  */
 if ( !isset( $raindrops_accessibility_link ) ) {
 
-    $raindrops_accessibility_link = false;
+    $raindrops_accessibility_link = true;
 }
 /**
  * Base Font Size
@@ -197,7 +197,7 @@ if ( !isset( $raindrops_accessibility_link ) ) {
  *
  */
 if ( !isset( $raindrops_base_font_size ) ) {
-    
+
     $raindrops_base_font_size = 13;
 }
 /**
@@ -208,8 +208,8 @@ if ( !isset( $raindrops_base_font_size ) ) {
  * @since 1.228
  */
 if ( !isset( $raindrops_use_wbr_for_title ) ) {
-    
-    $raindrops_use_wbr_for_title = true;
+
+    $raindrops_use_wbr_for_title = false;
 }
 /**
  *
@@ -219,6 +219,6 @@ if ( !isset( $raindrops_use_wbr_for_title ) ) {
  * @since 1.229
  */
 if ( !isset( $raindrops_enable_keyboard ) ) {
-    
+
     $raindrops_enable_keyboard = true;
 }

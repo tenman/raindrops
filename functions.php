@@ -96,7 +96,7 @@ if ( !isset( $raindrops_actions_hook_message ) ) {
  */
 if ( !isset( $raindrops_status_bar ) ) {
 
-    $raindrops_status_bar = false;
+    $raindrops_status_bar = true;
 }
 /**
  *
@@ -1902,7 +1902,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
             $install    = get_option( 'raindrops_theme_settings' );
             $upload_dir = wp_upload_dir();
             if ( false == $install ) {
-                
+
             } else {
 
                 if ( isset( $install['current_stylesheet_dir_url'] ) && get_stylesheet_directory_uri() !== $install['current_stylesheet_dir_url'] ) {
@@ -2245,7 +2245,7 @@ LINK_COLOR_CSS;
                     if ( have_posts() ) {
 
                         if ( false == RAINDROPS_USE_AUTO_COLOR ) {
-                            
+
                         }
                         $result .= "\n/*start custom fields style for loop pages*/\n";
                         while ( have_posts() ) {
@@ -4572,7 +4572,7 @@ DOC;
 
             if ( '25' == $extra_sidebar_width ) {
 
-                $main_column_width_fluid = 74;
+                $main_column_width_fluid = 74.2;
             } elseif ( '75' == $extra_sidebar_width ) {
 
                 $main_column_width_fluid = 24;
@@ -6271,11 +6271,11 @@ DOC;
                 $item_id = url_to_postid( $item->url );
 
                 if ( $item_id == 0 ) {
-                    
+
                 } else {
 
                     $item->title = $item->title;
-                    $item->title = sprintf( '<span class="raindrops_unique_identifier">[Link to %1$s]</span>%2$s', $item_id, $item->title );
+                    $item->title = sprintf( '<span class="raindrops_unique_identifier" aria-hidden="true">[Link to %1$s]</span>%2$s', $item_id, $item->title );
                 }
 
                 $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s', !empty( $args->before ) ? $args->before : '', $attributes, !empty( $args->link_before ) ? $args->link_before : '', apply_filters( 'raindrops_nav_menu_title', $item->title, $item->ID ), !empty( $args->link_after ) ? $args->link_after : '', !empty( $args->after ) ? $args->after : ''
@@ -6454,7 +6454,9 @@ DOC;
                     $result .= sprintf( $html, esc_attr( raindrops_chat_author_id( $regs[1] ) ), esc_html( $regs[1] ), $regs[3] );
                 } else {
 
-                    $result .= '<dd>' . $new . '</dd>';
+                    if ( !empty( $new ) ) {
+                        $result .= '<dd>' . $new . '</dd>';
+                    }
                 }
             }
             return apply_filters( 'raindrops_chat_filter', sprintf( '<dl class="raindrops-post-format-chat">%1$s</dl>', $result ) );
@@ -6502,7 +6504,7 @@ DOC;
 
             if ( true == $raindrops_link_unique_text && !is_admin() ) {
 
-                $html = '<span class="%1$s">[%2$s %3$s]</span>';
+                $html = '<span class="%1$s" aria-hidden="true">[%2$s %3$s]</span>';
                 $html = sprintf( $html, esc_attr( $class ), esc_attr( $text ), ( int ) $id );
                 return apply_filters( 'raindrops_link_unique', $html, $text, $id, $class );
             }
@@ -7029,7 +7031,7 @@ if ( !function_exists( 'raindrops_tile' ) ) {
                     <br class="clear" />
                     </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
                 </li>
-            <?php }//foreach( $raindrops_posts as $post )                 ?>
+            <?php }//foreach( $raindrops_posts as $post )                  ?>
             </ul>
             <br class="clear" />
             <?php
@@ -7116,7 +7118,7 @@ if ( !function_exists( 'raindrops_add_more' ) ) {
         $html  = ' <div class="raindrops-more-wrapper">' . $pre . '<a href="%1$s%2$s" class="poster-more-link">%3$s</a>' . $after . '</div>';
         if ( empty( $more_link_text ) ) {
 
-            $more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . $id . '</span>';
+            $more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav" aria-hidden="true">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . $id . '</span>';
         }
         $output       = '';
         $strip_teaser = false;
@@ -7237,7 +7239,7 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
                     wp_reset_query();
                     ?>
                 </div>
-            <?php } //is_page()  ?>
+            <?php } //is_page()   ?>
             <?php do_action( 'raindrops_status_bar_after' ); ?>
         </div>
         <?php
@@ -7277,38 +7279,111 @@ if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
     }
 
 }
+
+function raindrops_widget_ids( $sidebars_widgets ) {
+    global $raindrops_theme_settings;
+
+    if ( $raindrops_theme_settings !== 'no' ) {
+        $copy                                   = $sidebars_widgets;
+        unset( $copy["wp_inactive_widgets"] );
+        $raindrops_theme_settings['widget_ids'] = $copy;
+        update_option( 'raindrops_theme_settings', $raindrops_theme_settings );
+    }
+    return $sidebars_widgets;
+}
+
 /**
- * 
- * 
+ *
+ *
  * @since 1.231
  */
 if ( !function_exists( 'raindrops_skip_links' ) ) {
 
     function raindrops_skip_links() {
-        global $wp_widget_factory;
-        $result             = '';
-        $raindrops_id_bases = array(
-            'WP_Widget_Categories'      => 'categories',
-            'WP_Widget_Archives'        => 'archives',
-            'WP_Widget_Calendar'        => 'calendar',
-            'WP_Widget_Pages'           => 'pages',
-            'WP_Widget_Recent_Comments' => 'recent-comments',
-            'WP_Widget_RSS'             => 'rss',
-            'WP_Widget_Text'            => 'text',
-            'WP_Widget_Tag_Cloud'       => 'tag_cloud',
-            'WP_Nav_Menu_Widget'        => 'nav_menu',
-            'WP_Widget_Search'          => 'search'
-        );
-        foreach ( $raindrops_id_bases as $key => $val ) {
 
-            if ( is_active_widget( '', '', $val ) ) {
+        global $raindrops_theme_settings, $wp_widget_factory, $rsidebar_show;
 
-                $html = '<div class="skip-link"><a href="#%1$s" class="screen-reader-text" title="Skip to %2$s">Skip to %3$s</a></div>';
-                $result .= sprintf( $html,  wp_kses($wp_widget_factory->widgets[$key]->id,array()) , esc_attr( $wp_widget_factory->widgets[$key]->name ), esc_html( $wp_widget_factory->widgets[$key]->name ) );
+        $copy   = $raindrops_theme_settings['widget_ids'];
+        $result = '';
+        $html   = '<div class="skip-link"><a href="#%1$s" class="screen-reader-text" title="Skip to %2$s">Skip to %3$s</a></div>';
+        if ( $raindrops_theme_settings !== 'no' ) {
+
+            if ( $rsidebar_show == false ) {
+
+                unset( $copy['sidebar-2'] );
             }
+
+            if ( is_singular() ) {
+
+                return;
+            }
+            foreach ( $copy as $key => $array_val ) {
+
+                foreach ( $array_val as $val ) {
+
+                    $result .= sprintf( $html, wp_kses( $val, array() ), esc_attr( $val ), esc_html( strtoupper( $val ) ) );
+                }
+            }
+            return $result;
+        } else {
+
+            $raindrops_id_bases = array(
+                'WP_Widget_Categories'      => 'categories',
+                'WP_Widget_Archives'        => 'archives',
+                'WP_Widget_Calendar'        => 'calendar',
+                'WP_Widget_Pages'           => 'pages',
+                'WP_Widget_Recent_Comments' => 'recent-comments',
+                'WP_Widget_RSS'             => 'rss',
+                'WP_Widget_Text'            => 'text',
+                'WP_Widget_Tag_Cloud'       => 'tag_cloud',
+                'WP_Nav_Menu_Widget'        => 'nav_menu',
+                'WP_Widget_Search'          => 'search'
+            );
+            foreach ( $raindrops_id_bases as $key => $val ) {
+
+                if ( is_active_widget( '', '', $val ) ) {
+
+                    $result .= sprintf( $html, wp_kses( $wp_widget_factory->widgets[$key]->id, array() ), esc_attr( $wp_widget_factory->widgets[$key]->name ), esc_html( $wp_widget_factory->widgets[$key]->name ) );
+                }
+            }
+            return $result;
         }
-        return $result;
     }
+
+}
+/**
+ * Filter of paragraph correction
+ *
+ *
+ * @param type $content
+ * @return type
+ * @sincd 1.231
+ */
+if ( !function_exists( 'raindrops_remove_wrong_p_before' ) ) {
+
+    function raindrops_remove_wrong_p_before( $content ) {
+        return str_replace( array( '<div>', '</div>' ), array( "<div>\n\n", "\n\n</div>" ), $content );
+    }
+
+}
+if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
+
+    function raindrops_remove_wrong_p( $content ) {
+
+        $allblocks = '(?:table|thead|tfoot|caption|col|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|form|map|area|blockquote|address|math|style|p|h[1-6]|hr|fieldset|noscript|legend|section|article|aside|hgroup|header|footer|nav|figure|details|menu|summary)';
+
+        $content = preg_replace( '!([^(<p>)]*)</p>(</' . $allblocks . '>)!', "$1$2", $content );
+        $content = preg_replace( '!(<(select|del|option|canvas|mrow|svg|rect|optgroup) [^>]*>)(<br />|</p>)!', "$1", $content );
+        $content = preg_replace( '!(</option>|</svg>|</figcaption>|<mrow>|<msup>|</msup>|</mi>|</mn>|</mrow>|</mo>|</rect>|</button>|</optgroup>|</select>)<br />!', "$1", $content );
+        $content = preg_replace( '!<p>\s*(</?(ins|del|msup)[^>]*>)\s*</p>!', "$1", $content );
+        $content = preg_replace( '!(</?(svg|msup|keygen|command|canvas|datalist|script)[^>]*>)\s*</p>!', "$1", $content );
+        $content = preg_replace( '!(<p>)(</?(svg|msup|keygen|command|canvas|datalist)[^>]*>)!', "$2", $content );
+        $content = preg_replace( '!(<p>[^<]*)(</' . $allblocks . '>)!', "$1</p>$2", $content );
+        $content = preg_replace( '!(<' . $allblocks . '[^>]*>[^<]*)</p>!', "$1", $content );
+        $content = preg_replace( '!(<' . $allblocks . '[^>]*>)([^(<|\s)]+)<p>!', "$1<p>$2</p>", $content );
+        return $content;
+    }
+
 }
 /**
  *

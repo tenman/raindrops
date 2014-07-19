@@ -852,15 +852,16 @@ function raindrops_indv_css_light() {
       border-bottom:1px solid #000;
 }
 
-a:link,
-a:active,
-a:visited,
-a:hover,
+ a:link,
+ a:active,
+ a:visited,
+ a:hover,
 #site-title,
 .h1 a{
-    color:$font_color5;
-    background:none;
+      color:$font_color5;
+ background:none;
 }
+         
 h2 a{
     background:inherit;
 }

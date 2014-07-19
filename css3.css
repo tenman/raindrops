@@ -14,6 +14,49 @@ strong{
     -moz-border-radius:0.38461538461em;
     padding:0.38461538461em;
 }
+.corner-s{
+    border-radius:0.38461538461em;
+    -moz-border-radius:0.38461538461em;
+    padding:0.38461538461em;
+}
+.corner-m{
+    border-radius:0.76923076923em;
+    -moz-border-radius:0.76923076923em;
+    padding:0.38461538461em;
+}
+.corner-l{
+    border-radius:1.5em;
+    -moz-border-radius:1.5em;
+    padding:0.38461538461em;
+}
+.pad-s.corner-l{
+    border-radius:1.5em;
+    -moz-border-radius:1.5em;
+
+}
+.pad-m.corner-l{
+    border-radius:2em;
+    -moz-border-radius:2em;
+
+}
+.pad-s.corner-s{
+    border-radius:0.38461538461em;
+    -moz-border-radius:0.38461538461em;
+
+}
+.pad-s.corner-m{
+    border-radius:0.76923076923em;
+    -moz-border-radius:0.76923076923em;
+}
+.pad-m.corner-s{
+    border-radius:0.38461538461em;
+    -moz-border-radius:0.38461538461em;
+
+}
+.pad-m.corner-m{
+    border-radius:0.76923076923em;
+    -moz-border-radius:0.76923076923em;
+}
 .hentry table.opacity tr:nth-child(odd){
     opacity: 0.7;
     -moz-opacity: 0.7; /* Firefox */

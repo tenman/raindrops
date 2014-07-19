@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.231
+version:1.232
 	Modified
         Added functions raindrops_skip_links
             If widget set then add skip link for all default widget.

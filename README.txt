@@ -31,7 +31,7 @@ Special Thanks for Translation files provided
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
-ver 1.231
+ver 1.232
 
 Note: About Raindrops Accessible Mode.
 

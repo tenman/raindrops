@@ -1,4 +1,9 @@
 Changelog -----------------------------------
+version:1.233
+    Fixed fixed Warning Error at raindrops_skip_links()
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.232
 	Modified
         Added functions raindrops_skip_links

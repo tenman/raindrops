@@ -1902,7 +1902,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
             $install    = get_option( 'raindrops_theme_settings' );
             $upload_dir = wp_upload_dir();
             if ( false == $install ) {
-
+                
             } else {
 
                 if ( isset( $install['current_stylesheet_dir_url'] ) && get_stylesheet_directory_uri() !== $install['current_stylesheet_dir_url'] ) {
@@ -2245,7 +2245,7 @@ LINK_COLOR_CSS;
                     if ( have_posts() ) {
 
                         if ( false == RAINDROPS_USE_AUTO_COLOR ) {
-
+                            
                         }
                         $result .= "\n/*start custom fields style for loop pages*/\n";
                         while ( have_posts() ) {
@@ -6271,7 +6271,7 @@ DOC;
                 $item_id = url_to_postid( $item->url );
 
                 if ( $item_id == 0 ) {
-
+                    
                 } else {
 
                     $item->title = $item->title;
@@ -7303,28 +7303,33 @@ if ( !function_exists( 'raindrops_skip_links' ) ) {
 
         global $raindrops_theme_settings, $wp_widget_factory, $rsidebar_show;
 
-        $copy   = $raindrops_theme_settings['widget_ids'];
+
         $result = '';
         $html   = '<div class="skip-link"><a href="#%1$s" class="screen-reader-text" title="Skip to %2$s">Skip to %3$s</a></div>';
         if ( $raindrops_theme_settings !== 'no' ) {
 
-            if ( $rsidebar_show == false ) {
+            if ( isset( $raindrops_theme_settings['widget_ids'] ) ) {
+                
+                $copy = $raindrops_theme_settings['widget_ids'];
 
-                unset( $copy['sidebar-2'] );
-            }
+                if ( $rsidebar_show == false ) {
 
-            if ( is_singular() ) {
-
-                return;
-            }
-            foreach ( $copy as $key => $array_val ) {
-
-                foreach ( $array_val as $val ) {
-
-                    $result .= sprintf( $html, wp_kses( $val, array() ), esc_attr( $val ), esc_html( strtoupper( $val ) ) );
+                    unset( $copy['sidebar-2'] );
                 }
+
+                if ( is_singular() ) {
+
+                    return;
+                }
+                foreach ( $copy as $key => $array_val ) {
+
+                    foreach ( $array_val as $val ) {
+
+                        $result .= sprintf( $html, wp_kses( $val, array() ), esc_attr( $val ), esc_html( strtoupper( $val ) ) );
+                    }
+                }
+                return $result;
             }
-            return $result;
         } else {
 
             $raindrops_id_bases = array(

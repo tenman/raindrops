@@ -1238,6 +1238,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
     if ( !function_exists( 'raindrops_comments_link' ) ) {
 
         function raindrops_comments_link() {
+           
 
             if ( comments_open() ) {
 

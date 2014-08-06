@@ -49,9 +49,16 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
                 $title = $instance['title'];
             } else {
 
-                $title = __( 'New title', 'text_domain' );
+                $title = __( "Category What's New", 'Raindrops' );
             }
-            $count      = $instance['count'];
+            if ( isset( $instance['count'] ) && is_numeric( $instance['count'] ) ) {
+
+                $count = $instance['count'];
+            } else {
+
+                $count = 3;
+            }
+            
             ?>
 
             <p>
@@ -59,10 +66,11 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
                 <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
             </p>
             <p>
-                <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php esc_html_e( 'Post Show Items', 'Raindrops' ); ?></label> 
-                <input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>">
+                <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php esc_html_e( 'Show Items Counts', 'Raindrops' ); ?></label> 
+                <input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo absint( $count ); ?>">
             </p>
-            <h4>Select Categories</h4>
+            <h4><?php esc_html_e( 'Select Categories','Raindrops');?></h4>
+            <div style="border:1px solid #ddd;margin-bottom:1em;padding:1em;">
             <?php
             $categories = get_terms( 'category' );
 
@@ -74,6 +82,7 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
                 printf( $check_list, $this->get_field_name( 'category' ) . '[]', $category->term_id, $this->get_field_id( $category->name ) . '[]', $category->name, $this->raindrops_checked( $instance['category'], $category->term_id )
                 );
             }
+            echo '</div>';
         }
 
         function raindrops_checked( $haystack, $current ) {
@@ -85,10 +94,13 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
         }
 
         public function update( $new_instance, $old_instance ) {
+                    $category_default = get_option( 'default_category' );
+                    $category_default = array( $category_default );
+                       
             $instance             = array();
             $instance['title']    = (!empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-            $instance['count']    = (!empty( $new_instance['count'] ) ) ? strip_tags( $new_instance['count'] ) : '';
-            $instance['category'] = (!empty( $new_instance['category'] ) ) ? $new_instance['category'] : '';
+            $instance['count']    = (!empty( $new_instance['count'] ) ) ? absint( $new_instance['count'] ) : 3 ;
+            $instance['category'] = (!empty( $new_instance['category'] ) ) ? $new_instance['category'] : $category_default ;
             return $instance;
         }
 
@@ -115,8 +127,6 @@ if ( !function_exists( 'register_recent_post_group_by_category' ) ) {
  * 
  * @since 1.234
  */
-
-
 if ( !function_exists( 'raindrops_category_id2name' ) ) {
 
     function raindrops_category_id2name( $str ) {

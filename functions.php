@@ -193,6 +193,16 @@ if ( !in_array( 'csscolor.css.php', $raindrops_included_files ) && file_exists( 
 
     require_once ( get_template_directory() . '/lib/csscolor.css.php' );
 }
+
+$raindrops_widget_path = get_stylesheet_directory() . '/lib/widgets.php';
+
+if ( !in_array( 'widgets.php', $raindrops_included_files ) && file_exists( $raindrops_widget_path ) ) {
+
+    require_once ( $raindrops_widget_path );
+} elseif ( !in_array( 'widgets.php', $raindrops_included_files ) ) {
+
+    require_once ( get_template_directory() . '/lib/widgets.php' );
+}
 /** Raindrops help
  *
  *
@@ -810,9 +820,10 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 
     function raindrops_widgets_init() {
 
-        register_sidebar( array( 'name'          => esc_html__( 'Default Sidebar', 'Raindrops' ),
+        register_sidebar( array( 
+            'name'          => esc_html__( 'Default Sidebar', 'Raindrops' ),
             'id'            => 'sidebar-1',
-            'before_widget' => '<li id="%1$s" class="%2$s widget default" >',
+            'before_widget' => '<li id="%1$s" class="%2$s widget default" tabindex="-1">',
             'after_widget'  => '</li>',
             'before_title'  => '<h2 class="widgettitle default h2"><span>',
             'after_title'   => '</span></h2>',
@@ -820,36 +831,40 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
             'widget_name'   => 'default',
             'text'          => "1" ) );
 
-        register_sidebar( array( 'name'          => esc_html__( 'Extra Sidebar', 'Raindrops' ),
+        register_sidebar( array( 
+            'name'          => esc_html__( 'Extra Sidebar', 'Raindrops' ),
             'id'            => 'sidebar-2',
-            'before_widget' => '<li id="%1$s" class="%2$s widget extra">',
+            'before_widget' => '<li id="%1$s" class="%2$s widget extra" tabindex="-1">',
             'after_widget'  => '</li>',
             'before_title'  => '<h2 class="widgettitle extra h2"><span>',
             'after_title'   => '</span></h2>',
             'widget_id'     => 'extra',
             'widget_name'   => 'extra',
             'text'          => "2" ) );
-        register_sidebar( array( 'name'          => esc_html__( 'Sticky Widget', 'Raindrops' ),
+        register_sidebar( array( 
+            'name'          => esc_html__( 'Sticky Widget', 'Raindrops' ),
             'id'            => 'sidebar-3',
-            'before_widget' => '<li id="%1$s" class="%2$s widget sticky-widget">',
+            'before_widget' => '<li id="%1$s" class="%2$s widget sticky-widget"  tabindex="-1">',
             'after_widget'  => '</li>',
             'before_title'  => '<h2 class="widgettitle home-top-content h2"><span>',
             'after_title'   => '</span></h2>',
             'widget_id'     => 'toppage2',
             'widget_name'   => 'toppage2',
             'text'          => "3" ) );
-        register_sidebar( array( 'name'          => esc_html__( 'Footer Widget', 'Raindrops' ),
+        register_sidebar( array( 
+            'name'          => esc_html__( 'Footer Widget', 'Raindrops' ),
             'id'            => 'sidebar-4',
-            'before_widget' => '<li id="%1$s" class="%2$s widget footer-widget">',
+            'before_widget' => '<li id="%1$s" class="%2$s widget footer-widget"  tabindex="-1">',
             'after_widget'  => '</li>',
             'before_title'  => '<h2 class="widgettitle footer-widget h2"><span>',
             'after_title'   => '</span></h2>',
             'widget_id'     => 'footer',
             'widget_name'   => 'footer',
             'text'          => "4" ) );
-        register_sidebar( array( 'name'          => esc_html__( 'Post Format Status Sidebar', 'Raindrops' ),
+        register_sidebar( array( 
+            'name'          => esc_html__( 'Post Format Status Sidebar', 'Raindrops' ),
             'id'            => 'sidebar-5',
-            'before_widget' => '<li  id="%1$s" class="%2$s widget category-blog-widget status-side-bar">',
+            'before_widget' => '<li  id="%1$s" class="%2$s widget category-blog-widget status-side-bar"  tabindex="-1">',
             'after_widget'  => '</li>',
             'before_title'  => '<h2 class="widgettitle category-blog-widget h2 status-side-bar">',
             'after_title'   => '</h2>',
@@ -1450,8 +1465,16 @@ if ( !function_exists( 'raindrops_comment' ) ) {
         ' . esc_html__( 'code example:please HTML editor mode', 'Raindrops' ) . '
         <div  style="' . raindrops_gradient_single( 3, "asc" ) . 'padding:1em;">&lt;div class="gradient3"&gt;
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/div&gt;</div></td></tr></table></dd>';
-                $result .= "<dl><dt><h3>" . esc_html__( 'About Featured Image', 'Raindrops' ) . '</strong></h3>';
-                $result .= "<dl><dd><p>" . esc_html__( 'image width and height aspect ratio is 3:1. another aspect ratio will be trimming center', 'Raindrops' ) . '</p></dd>';
+                $result .= "<dl><dt><h3>" . esc_html__( 'Example of Custom CSS Meta Box Style Rules', 'Raindrops' ) . '</strong></h3>';
+                $result .= "<dt><p>" . esc_html__( 'Styling Entry Title', 'Raindrops' ) . '</p></dt>';
+                $result .= "<dd><p>Change entry title color</p><pre><code>.entry-title span{ color:red; }</code></pre>";
+                $result .= "<dt><p>" . esc_html__( 'Styling Posted on', 'Raindrops' ) . '</p></dt>';
+                $result .= "<dd><p>hide posted on from all post</p><pre><code> .posted-on, .entry-meta-default{ display:none;}</code></pre></dd>";
+                $result .= "<dt><p>" . esc_html__( 'Styling Posted in', 'Raindrops' ) . '</p></dt>';
+                $result .= "<dd><p>hide posted in </p><pre><code> .entry-meta{ display:none;}</code></pre></dd>";
+                $result .= "<dt><p>" . esc_html__( 'Styling Article', 'Raindrops' ) . '</p></dt>';
+                $result .= "<dd><p>add border and padding </p><pre><code> {border:1px solid red;padding:1em;}</code></pre>"
+                        . "<p>note:Needs  space { before or /*article*/ { style rules }</p></dd>";
                 $result .= "</dl>";
                 $result .= $text;
                 return $result;
@@ -2199,6 +2222,10 @@ LINK_COLOR_CSS;
             if ( is_single() || is_page() ) {
 
                 $css_single = get_post_meta( $post->ID, 'css', true );
+                /* 1.234 metabox support */
+               
+                $css_single .= get_post_meta( $post->ID, '_css', true );
+                
 
                 if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
@@ -2251,6 +2278,7 @@ LINK_COLOR_CSS;
                         while ( have_posts() ) {
                             the_post();
                             $collections = get_post_meta( $post->ID, 'css', true );
+                            $collections .= get_post_meta( $post->ID, '_css', true );
                             $result_indv .= preg_replace_callback( '![^}]+{[^}]+}!siu', 'raindrops_css_add_id', $collections );
                         }
                         rewind_posts();
@@ -3630,14 +3658,35 @@ DOC;
 
         function raindrops_header_image( $type = 'default', $args = array() ) {
 
-            global $raindrops_page_width;
+
+
+            global $raindrops_page_width, $post;
+
             $raindrops_document_width      = $raindrops_page_width;
             $raindrops_header_image        = get_custom_header();
             $raindrops_header_image_uri    = $raindrops_header_image->url;
             $raindrops_header_image_width  = raindrops_detect_header_image_size( 'width' );
             $raindrops_header_image_height = raindrops_detect_header_image_size( 'height' );
             $raindrops_restore_check       = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
+            $raindrops_field_exists_check  = get_post_custom_values( '_raindrops_this_header_image' );
 
+            if ( $raindrops_field_exists_check !== null ) {
+                $display_header_image_file = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
+
+                if ( $display_header_image_file == 'hide' ) {
+
+                    return;
+                }
+
+                if ( !empty( $display_header_image_file ) && $display_header_image_file !== 'default' ) {
+
+                    $display_header_image_attr = wp_get_attachment_image_src( $display_header_image_file, 'full' );
+
+                    $raindrops_header_image_uri    = $display_header_image_attr[0];
+                    $raindrops_header_image_width  = $display_header_image_attr[1];
+                    $raindrops_header_image_height = $display_header_image_attr[2];
+                }
+            }
             if ( 'remove-header' == $raindrops_restore_check ) {
 
                 return;
@@ -3772,6 +3821,8 @@ DOC;
         }
 
     }
+
+
     /**
      * Print site description html
      *
@@ -4168,9 +4219,9 @@ DOC;
 
             if ( $raindrops_browser_detection !== true ) {
                 ?><script type="text/javascript">
-                                (function() {
+                    (function() {
 
-                                    jQuery(function() {
+                        jQuery(function() {
             <?php
             if ( is_single() || is_page() ) {
 
@@ -4189,7 +4240,7 @@ DOC;
                     $color_type .= "rd-col-" . $regs[3];
                 }
                 ?>
-                                            jQuery('body').addClass('<?php echo $color_type; ?>');
+                                jQuery('body').addClass('<?php echo $color_type; ?>');
                 <?php
             } else {
 
@@ -4197,7 +4248,7 @@ DOC;
 
                 if ( isset( $raindrops_options["raindrops_style_type"] ) && !empty( $raindrops_options["raindrops_style_type"] ) ) {
                     ?>
-                                                jQuery('body').addClass('<?php echo "rd-type-" . $raindrops_options["raindrops_style_type"]; ?>');
+                                    jQuery('body').addClass('<?php echo "rd-type-" . $raindrops_options["raindrops_style_type"]; ?>');
                     <?php
                 }
             }
@@ -4211,88 +4262,88 @@ DOC;
 
             if ( $raindrops_currrent_template == 'list_of_post' ) {
                 ?>
-                                            var raindrops_ignore_template = true;
+                                var raindrops_ignore_template = true;
                 <?php
             } else {
                 ?>
-                                            var raindrops_ignore_template = false;
+                                var raindrops_ignore_template = false;
                 <?php
             }
             ?>
-                                        if (raindrops_ignore_template == false) {
-                                            var raindrops_main_sidebar_height = jQuery('.lsidebar').height();
-                                            var raindrops_extra_sidebar_height = jQuery('.rsidebar').height();
-                                            var raindrops_container_height = jQuery('#container').height();
-                                            var raindrops_sticky_widget_height = jQuery('.topsidebar').height();
+                            if (raindrops_ignore_template == false) {
+                                var raindrops_main_sidebar_height = jQuery('.lsidebar').height();
+                                var raindrops_extra_sidebar_height = jQuery('.rsidebar').height();
+                                var raindrops_container_height = jQuery('#container').height();
+                                var raindrops_sticky_widget_height = jQuery('.topsidebar').height();
 
-                                            if (raindrops_main_sidebar_height > raindrops_container_height) {
+                                if (raindrops_main_sidebar_height > raindrops_container_height) {
 
-                                                jQuery('#container').css({'min-height': raindrops_main_sidebar_height + 'px'});
-                                                jQuery('.rsidebar').css({'min-height': raindrops_main_sidebar_height + 'px'});
-                                            } else {
+                                    jQuery('#container').css({'min-height': raindrops_main_sidebar_height + 'px'});
+                                    jQuery('.rsidebar').css({'min-height': raindrops_main_sidebar_height + 'px'});
+                                } else {
 
-                                                if (raindrops_sticky_widget_height > 0) {
+                                    if (raindrops_sticky_widget_height > 0) {
 
-                                                    raindrops_left_sidebar_height = raindrops_container_height + raindrops_sticky_widget_height + 13;
-                                                    jQuery('.lsidebar').css({'min-height': raindrops_left_sidebar_height + 'px'});
-                                                } else {
+                                        raindrops_left_sidebar_height = raindrops_container_height + raindrops_sticky_widget_height + 13;
+                                        jQuery('.lsidebar').css({'min-height': raindrops_left_sidebar_height + 'px'});
+                                    } else {
 
-                                                    jQuery('.lsidebar').css({'min-height': raindrops_container_height + 'px'});
-                                                }
-                                                jQuery('.rsidebar').css({'min-height': raindrops_container_height + 'px'});
-                                            }
-                                        }
+                                        jQuery('.lsidebar').css({'min-height': raindrops_container_height + 'px'});
+                                    }
+                                    jQuery('.rsidebar').css({'min-height': raindrops_container_height + 'px'});
+                                }
+                            }
 
-                                        if (navigator.userLanguage) {
+                            if (navigator.userLanguage) {
 
-                                            baseLang = navigator.userLanguage.substring(0, 2).toLowerCase();
-                                        } else {
+                                baseLang = navigator.userLanguage.substring(0, 2).toLowerCase();
+                            } else {
 
-                                            baseLang = navigator.language.substring(0, 2).toLowerCase();
-                                        }
+                                baseLang = navigator.language.substring(0, 2).toLowerCase();
+                            }
 
-                                        jQuery('body').addClass('accept-lang-' + baseLang);
+                            jQuery('body').addClass('accept-lang-' + baseLang);
 
 
-                                        var userAgent = window.navigator.userAgent.toLowerCase();
+                            var userAgent = window.navigator.userAgent.toLowerCase();
 
-                                        if (userAgent.match(/msie/i)) {
+                            if (userAgent.match(/msie/i)) {
 
-                                            var ie_num = userAgent.match(/MSIE (\d+\.\d+);/i);
-                                            var ieversion = parseInt(ie_num[1], 10);
-                                            jQuery('body').addClass('ie' + ieversion);
-                                        } else if (userAgent.indexOf('opera') != -1) {
+                                var ie_num = userAgent.match(/MSIE (\d+\.\d+);/i);
+                                var ieversion = parseInt(ie_num[1], 10);
+                                jQuery('body').addClass('ie' + ieversion);
+                            } else if (userAgent.indexOf('opera') != -1) {
 
-                                            jQuery('body').addClass('opera');
-                                        } else if (userAgent.indexOf('chrome') != -1) {
+                                jQuery('body').addClass('opera');
+                            } else if (userAgent.indexOf('chrome') != -1) {
 
-                                            jQuery('body').addClass('chrome');
-                                        } else if (userAgent.indexOf('safari') != -1) {
+                                jQuery('body').addClass('chrome');
+                            } else if (userAgent.indexOf('safari') != -1) {
 
-                                            jQuery('body').addClass('safari');
-                                        } else if (userAgent.indexOf('gecko') != -1) {
+                                jQuery('body').addClass('safari');
+                            } else if (userAgent.indexOf('gecko') != -1) {
 
-                                            var match = userAgent.match(/(trident)(?:.*rv:([\w.]+))?/);
-                                            var version = parseInt(match[2], 10);
+                                var match = userAgent.match(/(trident)(?:.*rv:([\w.]+))?/);
+                                var version = parseInt(match[2], 10);
 
-                                            if (version == 11) {
-                                                jQuery('body').addClass('ie11');
-                                            } else {
-                                                jQuery('body').addClass('gecko');
-                                            }
-                                        } else if (userAgent.indexOf('iphone') != -1) {
+                                if (version == 11) {
+                                    jQuery('body').addClass('ie11');
+                                } else {
+                                    jQuery('body').addClass('gecko');
+                                }
+                            } else if (userAgent.indexOf('iphone') != -1) {
 
-                                            jQuery('body').addClass('iphone');
-                                        } else if (userAgent.indexOf('Netscape') != -1) {
+                                jQuery('body').addClass('iphone');
+                            } else if (userAgent.indexOf('Netscape') != -1) {
 
-                                            jQuery('body').addClass('netscape');
-                                        } else {
+                                jQuery('body').addClass('netscape');
+                            } else {
 
-                                            jQuery('body').addClass('unknown');
-                                        }
+                                jQuery('body').addClass('unknown');
+                            }
 
-                                    });
-                                })(jQuery);
+                        });
+                    })(jQuery);
                 </script>
                 <?php
             } //end if (  true !== $raindrops_browser_detection  )
@@ -4320,6 +4371,20 @@ DOC;
             }
             $raindrops_header_image_width  = raindrops_detect_header_image_size( 'width' );
             $raindrops_header_image_height = raindrops_detect_header_image_size( 'height' );
+            $raindrops_field_exists_check  = get_post_custom_values( '_raindrops_this_header_image' );
+
+            if ( $raindrops_field_exists_check !== null ) {
+                $display_header_image_file = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
+
+                if ( !empty( $display_header_image_file ) && $display_header_image_file !== 'default' ) {
+
+                    $display_header_image_attr = wp_get_attachment_image_src( $display_header_image_file, 'full' );
+
+                    $raindrops_header_image_uri    = $display_header_image_attr[0];
+                    $raindrops_header_image_width  = $display_header_image_attr[1];
+                    $raindrops_header_image_height = $display_header_image_attr[2];
+                }
+            }
             ?>
             <script type="text/javascript">
                 (function() {
@@ -4333,7 +4398,7 @@ DOC;
                             var raindrops_width = jQuery('div#header-image').width();
                             var raindrops_window_width = jQuery(window).width();
         <?php
-        $raindrops_restore_check       = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
+        $raindrops_restore_check = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
 
         if ( $raindrops_restore_check !== 'remove-header' ) {
 
@@ -7031,7 +7096,7 @@ if ( !function_exists( 'raindrops_tile' ) ) {
                     <br class="clear" />
                     </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
                 </li>
-            <?php }//foreach( $raindrops_posts as $post )                  ?>
+            <?php }//foreach( $raindrops_posts as $post )                      ?>
             </ul>
             <br class="clear" />
             <?php
@@ -7239,7 +7304,7 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
                     wp_reset_query();
                     ?>
                 </div>
-            <?php } //is_page()   ?>
+            <?php } //is_page()     ?>
             <?php do_action( 'raindrops_status_bar_after' ); ?>
         </div>
         <?php
@@ -7309,7 +7374,7 @@ if ( !function_exists( 'raindrops_skip_links' ) ) {
         if ( $raindrops_theme_settings !== 'no' ) {
 
             if ( isset( $raindrops_theme_settings['widget_ids'] ) ) {
-                
+
                 $copy = $raindrops_theme_settings['widget_ids'];
 
                 if ( $rsidebar_show == false ) {
@@ -7389,6 +7454,144 @@ if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
         return $content;
     }
 
+}
+
+/**
+ * 
+ * 
+ * @since 1.234
+ */
+if ( !function_exists( 'call_raindrops_custom_css' ) ) {
+
+    function call_raindrops_custom_css() {
+        
+        new raindrops_custom_css();
+    }
+
+}
+
+/**
+ * 
+ * 
+ * Raindrops indivisual CSS
+ */
+if ( !class_exists( 'raindrops_custom_css' ) ) {
+
+    class raindrops_custom_css {
+
+        public function __construct() {
+            add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
+            add_action( 'save_post', array( $this, 'save' ) );
+        }
+
+        public function add_meta_box( $post_type ) {
+
+            $post_types = array( 'post', 'page' );
+
+            if ( in_array( $post_type, $post_types ) ) {
+
+                add_meta_box(
+                        'raindrops_custom_css'
+                        , __( 'Custom CSS for this entry', 'raindrops' )
+                        , array( $this, 'render_meta_box_content' )
+                        , $post_type
+                        , 'advanced'
+                        , 'high'
+                );
+            }
+        }
+
+        public function save( $post_id ) {
+
+            if ( !isset( $_POST['raindrops_inner_custom_box_nonce'] ) ) {
+                return $post_id;
+            }
+            $nonce = $_POST['raindrops_inner_custom_box_nonce'];
+
+
+            if ( !wp_verify_nonce( $nonce, 'raindrops_inner_custom_box' ) ) {
+                return $post_id;
+            }
+            if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+                return $post_id;
+            }
+            if ( 'page' == $_POST['post_type'] ) {
+
+                if ( !current_user_can( 'edit_page', $post_id ) )
+                    return $post_id;
+            } else {
+
+                if ( !current_user_can( 'edit_post', $post_id ) )
+                    return $post_id;
+            }
+
+            $data = sanitize_text_field( $_POST['raindrops_custom_css_field'] );
+            $data = str_replace( array( "\n", "\r" ), '', $data );
+            update_post_meta( $post_id, '_css', $data );
+
+
+            if ( $_POST['header-image-show'] ) {
+                $data = sanitize_text_field( $_POST['header-image-show'] );
+
+                update_post_meta( $post_id, '_raindrops_header_image_show', $data );
+            }
+
+            if ( $_POST['header-image-file'] ) {
+                $data = sanitize_text_field( $_POST['header-image-file'] );
+
+                update_post_meta( $post_id, '_raindrops_this_header_image', $data );
+            }
+        }
+
+        public function render_meta_box_content( $post ) {
+
+            do_action( ' raindrops_custom_css_pre' );
+
+            wp_nonce_field( 'raindrops_inner_custom_box', 'raindrops_inner_custom_box_nonce' );
+
+            $value                   = get_post_meta( $post->ID, '_css', true );
+            $value                   = str_replace( array( '{', '}', ), array( "{\n", "\n}\n", ), $value );
+            $value                   = str_replace( '![^(\"|\')];!', ";\n", $value );
+            $raindrops_restore_check = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
+
+
+            if ( 'remove-header' !== $raindrops_restore_check ) {
+                $current_value = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
+
+                $form = '<label for="%1$s">%2$s</label>'
+                        . '<textarea id="%1$s" name="%1$s" %4$s>%3$s</textarea>';
+                
+                $form .= '<div id="contextual-help-link-wrap-2" class="hide-if-no-js screen-meta-toggle button button-large">
+			<a href="#contextual-help-wrap" id="contextual-help-link-2" class="show-settings" aria-controls="contextual-help-wrap" aria-expanded="false" style="text-decoration:none;">Help</a>
+			</div>';
+
+                $form .= '<h4>Override header Image</h4>';
+
+                $images = get_uploaded_header_images();
+
+                $form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="hide" ' . checked( 'hide', $current_value, false ) . ' />' . __( 'Hide Header Image', 'Raindrops' ) . '</p>';
+                $form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="default" ' . checked( '', $current_value, false ) . checked( 'default', $current_value, false ) . '  />' . __( 'Default Image', 'Raindrops' ) . '</p>';
+                $form .= '<div class="header-image-wrapper" style="max-height:320px;overflow-y:scroll;overflow-x:hidden;">';
+
+                $header_image_html = '<p %1$s>'
+                        . '<input %2$s type="radio" name="header-image-file" id="header-image-file-%3$s" value="%3$s"  %4$s />'
+                        . '<label for="header-image-file-%3$s"><img src="%5$s" width="160" alt="header image %3$s"  /></label>'
+                        . '</p>';
+                foreach ( $images as $image ) {
+                    $form .= sprintf(
+                            $header_image_html, 'style="display:inline-block;"', 'style="position:relative;top:-1em;"', $image['attachment_id'], checked( $image['attachment_id'], $current_value, false ), $image['url']
+                    );
+                }
+                $form .= '</div>';
+
+                $form .= '<p><a class="button button-large" href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . esc_html__( 'Add Custom Header', 'Raindrops' ) . '</a></p>';
+            }
+            printf( $form, 'raindrops_custom_css_field', __( 'The Custom CSS Field only for the current post', 'Raindrops' ), esc_textarea( $value ), 'style="width:100%;height:13em;font-size:1.3em;"'
+            );
+
+            do_action( ' raindrops_custom_css_after' );
+        }
+    }
 }
 /**
  *

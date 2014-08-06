@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.233
+Version: 1.234
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2817,15 +2817,17 @@ sup {
 .rsidebar li:target form div.searchform,
 .lsidebar li:target form div.searchform,
 .rsidebar li:target h2,
+.lsidebar li:target h2,
 .lsidebar li:target{
-    padding-top:25px;
-    margin-top:-25px;
+    padding-top:27px;
+    margin-top:-27px;
 }
 .rsidebar li:target form div.searchform,
 .lsidebar li:target form div.searchform,
 .rsidebar li:target h2,
+.lsidebar li:target h2,
 .lsidebar li:target h2{
-    outline:thin dotted;
+   /* outline:thin dotted;*/
 }
 .raindrops-mobile-menu{
     display:none;
@@ -3370,6 +3372,33 @@ ol.list-of-post-list .entry-title{
 .rd-type-minimal #hd{
     min-height:80px;
 }
+/* Raindrops Widget Category New */
+.lsidebar .xoxo li,
+.rsidebar .xoxo li{
+    margin-left:0;
+}
+
+.widget .post-group_by-category-author,
+.widget .post-group-by-category-time{
+    display:inline-block;
+    margin:0 .5em;
+    display:none;
+}
+.widget .post-group_by-category-title a{
+    font-weight:700;
+    margin:1em 0;
+    font-family:sans-serif;
+}
+.widget .post-group_by-category-entry-title{
+    margin:.7em 0 .3em;
+    display:block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
 
 /* plugins issue */
 /* http://wordpress.org/plugins/crayon-syntax-highlighter/ */

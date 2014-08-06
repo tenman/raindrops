@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.234
+   Fixed keyboard accessibility.
+		Fixed when using the skip link at the keyboard, an error in the tabbing order
+	Modified New functionality.
+		Add Metabox
+			custom CSS editor scoped current page or post.
+			Custom Header Image selectable for each page or post.
+----------------------------------------------
+Changelog -----------------------------------
 version:1.233
     Fixed fixed Warning Error at raindrops_skip_links()
 

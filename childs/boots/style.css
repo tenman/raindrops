@@ -3,5 +3,12 @@
  *
  * Purpose update style from parent theme
  */
-
+.children,
+.sub-menu{
+    background:#fff;
+}
+#access .children a,
+#access .sub-menu a{
+    padding:10px;
+}
 

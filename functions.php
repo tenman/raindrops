@@ -7507,13 +7507,15 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
             if ( !isset( $_POST['raindrops_inner_custom_box_nonce'] ) ) {
                 return $post_id;
             }
+            
             $nonce = $_POST['raindrops_inner_custom_box_nonce'];
 
-
             if ( !wp_verify_nonce( $nonce, 'raindrops_inner_custom_box' ) ) {
+                
                 return $post_id;
             }
             if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+                
                 return $post_id;
             }
             if ( 'page' == $_POST['post_type'] ) {
@@ -7531,13 +7533,15 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
             update_post_meta( $post_id, '_css', $data );
 
 
-            if ( $_POST['header-image-show'] ) {
+            if ( isset( $_POST['header-image-show'] ) && !empty(  $_POST['header-image-show'] ) ) {
+                
                 $data = sanitize_text_field( $_POST['header-image-show'] );
 
                 update_post_meta( $post_id, '_raindrops_header_image_show', $data );
             }
 
-            if ( $_POST['header-image-file'] ) {
+            if ( isset( $_POST['header-image-file'] ) && !empty( $_POST['header-image-file'] ) ) {
+                
                 $data = sanitize_text_field( $_POST['header-image-file'] );
 
                 update_post_meta( $post_id, '_raindrops_this_header_image', $data );

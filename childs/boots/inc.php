@@ -133,6 +133,8 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
 
 
             $css_single = get_post_meta( $post->ID, 'css', true );
+            
+             $css_single .= get_post_meta( $post->ID, '_css', true );
 
             if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
@@ -184,6 +186,7 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
                     while ( have_posts() ) {
                         the_post();
                         $collections = get_post_meta( $post->ID, 'css', true );
+                        $collections .= get_post_meta( $post->ID, '_css', true );
                         $result_indv .= preg_replace_callback( '![^}]+{[^}]+}!siu', 'raindrops_css_add_id', $collections );
                     }
                     rewind_posts();

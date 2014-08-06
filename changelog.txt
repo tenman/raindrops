@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.236
+version:1.237
    Fixed keyboard accessibility.
 		Fixed when using the skip link at the keyboard, an error in the tabbing order
 	Modified New functionality.

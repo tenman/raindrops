@@ -820,7 +820,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 
     function raindrops_widgets_init() {
 
-        register_sidebar( array( 
+        register_sidebar( array(
             'name'          => esc_html__( 'Default Sidebar', 'Raindrops' ),
             'id'            => 'sidebar-1',
             'before_widget' => '<li id="%1$s" class="%2$s widget default" tabindex="-1">',
@@ -831,7 +831,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
             'widget_name'   => 'default',
             'text'          => "1" ) );
 
-        register_sidebar( array( 
+        register_sidebar( array(
             'name'          => esc_html__( 'Extra Sidebar', 'Raindrops' ),
             'id'            => 'sidebar-2',
             'before_widget' => '<li id="%1$s" class="%2$s widget extra" tabindex="-1">',
@@ -841,7 +841,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
             'widget_id'     => 'extra',
             'widget_name'   => 'extra',
             'text'          => "2" ) );
-        register_sidebar( array( 
+        register_sidebar( array(
             'name'          => esc_html__( 'Sticky Widget', 'Raindrops' ),
             'id'            => 'sidebar-3',
             'before_widget' => '<li id="%1$s" class="%2$s widget sticky-widget"  tabindex="-1">',
@@ -851,7 +851,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
             'widget_id'     => 'toppage2',
             'widget_name'   => 'toppage2',
             'text'          => "3" ) );
-        register_sidebar( array( 
+        register_sidebar( array(
             'name'          => esc_html__( 'Footer Widget', 'Raindrops' ),
             'id'            => 'sidebar-4',
             'before_widget' => '<li id="%1$s" class="%2$s widget footer-widget"  tabindex="-1">',
@@ -861,7 +861,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
             'widget_id'     => 'footer',
             'widget_name'   => 'footer',
             'text'          => "4" ) );
-        register_sidebar( array( 
+        register_sidebar( array(
             'name'          => esc_html__( 'Post Format Status Sidebar', 'Raindrops' ),
             'id'            => 'sidebar-5',
             'before_widget' => '<li  id="%1$s" class="%2$s widget category-blog-widget status-side-bar"  tabindex="-1">',
@@ -1925,7 +1925,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
             $install    = get_option( 'raindrops_theme_settings' );
             $upload_dir = wp_upload_dir();
             if ( false == $install ) {
-                
+
             } else {
 
                 if ( isset( $install['current_stylesheet_dir_url'] ) && get_stylesheet_directory_uri() !== $install['current_stylesheet_dir_url'] ) {
@@ -2223,9 +2223,9 @@ LINK_COLOR_CSS;
 
                 $css_single = get_post_meta( $post->ID, 'css', true );
                 /* 1.234 metabox support */
-               
+
                 $css_single .= get_post_meta( $post->ID, '_css', true );
-                
+
 
                 if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
@@ -2272,7 +2272,7 @@ LINK_COLOR_CSS;
                     if ( have_posts() ) {
 
                         if ( false == RAINDROPS_USE_AUTO_COLOR ) {
-                            
+
                         }
                         $result .= "\n/*start custom fields style for loop pages*/\n";
                         while ( have_posts() ) {
@@ -6336,7 +6336,7 @@ DOC;
                 $item_id = url_to_postid( $item->url );
 
                 if ( $item_id == 0 ) {
-                    
+
                 } else {
 
                     $item->title = $item->title;
@@ -7457,22 +7457,22 @@ if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
 }
 
 /**
- * 
- * 
+ *
+ *
  * @since 1.234
  */
-if ( !function_exists( 'call_raindrops_custom_css' ) ) {
+if ( !function_exists( 'raindrops_call_custom_css' ) ) {
 
-    function call_raindrops_custom_css() {
-        
+    function raindrops_call_custom_css() {
+
         new raindrops_custom_css();
     }
 
 }
 
 /**
- * 
- * 
+ *
+ *
  * Raindrops indivisual CSS
  */
 if ( !class_exists( 'raindrops_custom_css' ) ) {
@@ -7560,7 +7560,7 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 
                 $form = '<label for="%1$s">%2$s</label>'
                         . '<textarea id="%1$s" name="%1$s" %4$s>%3$s</textarea>';
-                
+
                 $form .= '<div id="contextual-help-link-wrap-2" class="hide-if-no-js screen-meta-toggle button button-large">
 			<a href="#contextual-help-wrap" id="contextual-help-link-2" class="show-settings" aria-controls="contextual-help-wrap" aria-expanded="false" style="text-decoration:none;">Help</a>
 			</div>';

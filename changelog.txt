@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.238
+version:1.239
 
 NEXT VERSION INFO
 
@@ -22,11 +22,12 @@ NEXT VERSION INFO
 
 CURRENT VERSION CHANGES
 
-    Theme Customizer menu change.
+        Theme Customizer menu change.
         Raindrops options can change from this page.
-	Add Theme Editor Help
-	Language Japanese Translation Update.
-	Edit post help Update
+		Add Theme Editor Help
+		Language Japanese Translation Update.
+		Edit post help Update
+        Add widget pinup entries
 
 ----------------------------------------------
 Changelog -----------------------------------

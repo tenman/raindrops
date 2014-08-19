@@ -325,9 +325,9 @@ class raindrops_pinup_entry_Widget extends WP_Widget {
 
         $widget_ops = array(
             'classname'   => 'raindrops-pinup-entries',
-            'description' => __( 'Display Pinup entries', 'Raindrops' )
+            'description' => esc_html__( 'Display Pinup entries', 'Raindrops' )
         );
-        parent::WP_Widget( false, esc_html( 'Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
+        parent::WP_Widget( false, esc_html__( 'Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
         wp_reset_query();
     }
 
@@ -482,7 +482,7 @@ class raindrops_pinup_entry_Widget extends WP_Widget {
 
         $raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
 
-        printf( $raindrops_html, esc_html__( 'Post ID', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'comma separated IDs[Randum Displayed]', 'raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )
+        printf( $raindrops_html, esc_html__( 'Post ID', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'Comma separated IDs[Randum Displayed]', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )
         );
 
         $raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
@@ -492,7 +492,7 @@ class raindrops_pinup_entry_Widget extends WP_Widget {
 
         $raindrops_html = '<li><label ><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
 
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page:', 'Raindrops' ), 'page'
+        printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page', 'Raindrops' ), 'page'
         );
 
         $raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
@@ -506,12 +506,12 @@ class raindrops_pinup_entry_Widget extends WP_Widget {
 
         $raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
 
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "attachment", false ), esc_html__( 'Attachment IMG:', 'raindrops' ), 'attachment'
+        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "attachment", false ), esc_html__( 'Attachment IMG:', 'Raindrops' ), 'attachment'
         );
 
         $raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
 
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), __( 'Featured IMG:', 'raindrops' ), 'featured'
+        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), esc_html__( 'Featured IMG', 'Raindrops' ), 'featured'
         );
 
         $raindrops_html = '<label><h4>Style</h4><textarea id="%1$s" name="%2$s" style="width:320px;max-widht:100%;margin-bottom:2em;display:block;" rows="8">%3$s</textarea></label><br />';

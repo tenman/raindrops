@@ -1584,14 +1584,14 @@ if ( !function_exists( 'raindrops_comment' ) ) {
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>&lt;/div&gt;</div></td></tr></table></dd>';
                 $result .= "<dl><dt><h3>" . esc_html__( 'Example of Custom CSS Meta Box Style Rules', 'Raindrops' ) . '</strong></h3>';
                 $result .= "<dt><p>" . esc_html__( 'Styling Entry Title', 'Raindrops' ) . '</p></dt>';
-                $result .= "<dd><p>Change entry title color</p><pre><code>.entry-title span{ color:red; }</code></pre>";
+                $result .= "<dd><p>".esc_html__('Change entry title color','Raindrops'). "</p><pre><code>.entry-title span{ color:red; }</code></pre>";
                 $result .= "<dt><p>" . esc_html__( 'Styling Posted on', 'Raindrops' ) . '</p></dt>';
-                $result .= "<dd><p>hide posted on from all post</p><pre><code> .posted-on, .entry-meta-default{ display:none;}</code></pre></dd>";
+                $result .= "<dd><p>".esc_html__('hide posted on from all post', 'Raindrops'). "</p><pre><code> .posted-on, .entry-meta-default{ display:none;}</code></pre></dd>";
                 $result .= "<dt><p>" . esc_html__( 'Styling Posted in', 'Raindrops' ) . '</p></dt>';
-                $result .= "<dd><p>hide posted in </p><pre><code> .entry-meta{ display:none;}</code></pre></dd>";
+                $result .= "<dd><p>". esc_html__('hide posted in', 'Raindrops'). "</p><pre><code> .entry-meta{ display:none;}</code></pre></dd>";
                 $result .= "<dt><p>" . esc_html__( 'Styling Article', 'Raindrops' ) . '</p></dt>';
-                $result .= "<dd><p>add border and padding </p><pre><code> {border:1px solid red;padding:1em;}</code></pre>"
-                        . "<p>note:Needs  space { before or /*article*/ { style rules }</p></dd>";
+                $result .= "<dd><p>". esc_html__('add border and padding', 'Raindrops'). "</p><pre><code> {border:1px solid red;padding:1em;}</code></pre>"
+                        . "<p>".esc_html__( 'note:Needs  space { before or /*article*/ { style rules }','Raindrops' ). "</p></dd>";
                 $result .= "</dl>";
                 $result .= $text;
                 return $result;

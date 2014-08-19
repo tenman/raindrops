@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 10:33+0900\n"
-"PO-Revision-Date: 2014-08-19 10:35+0900\n"
+"POT-Creation-Date: 2014-08-19 12:08+0900\n"
+"PO-Revision-Date: 2014-08-19 12:10+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "Language: ja_JP\n"
@@ -512,17 +512,41 @@ msgstr "投稿のカスタムCSSメタボックスのスタイル指定例"
 msgid "Styling Entry Title"
 msgstr "投稿タイトルへのスタイル適用"
 
+#: raindrops/functions.php:1587
+msgid "Change entry title color"
+msgstr "投稿タイトルの色を変更"
+
 #: raindrops/functions.php:1588
 msgid "Styling Posted on"
 msgstr " タイトル下の、投稿者や日付のブロック"
+
+#: raindrops/functions.php:1589
+msgid "hide posted on from all post"
+msgstr "投稿から、投稿日　著者　ブロックを非表示にする"
 
 #: raindrops/functions.php:1590
 msgid "Styling Posted in"
 msgstr " 投稿の下部にある、カテゴリやタグを表示するブロック"
 
+# @ Raindrops
+#: raindrops/functions.php:1591
+#, fuzzy
+msgid "hide posted in"
+msgstr " "
+
 #: raindrops/functions.php:1592
 msgid "Styling Article"
 msgstr "投稿全体へのスタイルの適用"
+
+#: raindrops/functions.php:1593
+msgid "add border and padding"
+msgstr "現在の投稿全体に、ボーダーやパディングを設定する"
+
+#: raindrops/functions.php:1594
+msgid "note:Needs  space { before or /*article*/ { style rules }"
+msgstr ""
+"備考：現在の投稿全体にスタイルを設定する場合は、{　の前にスペースまたは　/"
+"*article*/ {のようにコメントをつける必要があります。"
 
 # @ Raindrops
 #: raindrops/functions.php:1893
@@ -964,6 +988,7 @@ msgstr "新しい投稿 &raquo;"
 # @ Raindrops
 #: raindrops/functions.php:7326 raindrops/functions.php:7330
 #: raindrops/functions.php:7336 raindrops/functions.php:7358
+#: raindrops/lib/widgets.php:495
 #, fuzzy
 msgid "Page"
 msgstr "ページ"
@@ -2327,7 +2352,7 @@ msgstr "鉄黒"
 
 #: raindrops/lib/widgets.php:14
 msgid "Category New Post [Raindrops]"
-msgstr "カテゴリ毎の最近の投稿"
+msgstr "カテゴリ毎の最近の投稿 [Raindrops]"
 
 #: raindrops/lib/widgets.php:14
 msgid "Show latest posts that were grouped for each category"
@@ -2356,13 +2381,18 @@ msgstr "カテゴリーを選択してください"
 msgid "Display Pinup entries"
 msgstr "ピンナップ投稿の表示"
 
+#: raindrops/lib/widgets.php:330
+msgid "Pinup entries [Raindrops]"
+msgstr "ピンナップ投稿ウィジェット[Raindrops]"
+
 #: raindrops/lib/widgets.php:485
 msgid "Post ID"
 msgstr " 投稿ID"
 
 #: raindrops/lib/widgets.php:485
-msgid "comma separated IDs[Randum Displayed]"
-msgstr "カンマ区切りで、投稿IDを記述してください"
+msgid "Comma separated IDs[Randum Displayed]"
+msgstr ""
+"1つの投稿ID　または、カンマ区切りで投稿IDを記述してください[ランダム表示]"
 
 # @ Raindrops
 #: raindrops/lib/widgets.php:490
@@ -2374,12 +2404,6 @@ msgstr "配色タイプ"
 msgid "Post:"
 msgstr "投稿："
 
-# @ Raindrops
-#: raindrops/lib/widgets.php:495
-#, fuzzy
-msgid "Page:"
-msgstr "ページ"
-
 #: raindrops/lib/widgets.php:500
 msgid "Content:"
 msgstr "本文:"
@@ -2390,15 +2414,18 @@ msgstr "概要文"
 
 # @ Raindrops
 #: raindrops/lib/widgets.php:509
-#, fuzzy
 msgid "Attachment IMG:"
-msgstr "添付ファイルへ"
+msgstr "添付ファイル"
 
 # @ Raindrops
 #: raindrops/lib/widgets.php:514
+msgid "Featured IMG"
+msgstr "アイキャッチ 画像"
+
+# @ Raindrops
 #, fuzzy
-msgid "Featured IMG:"
-msgstr "アイキャッチ画像"
+#~ msgid "Page:"
+#~ msgstr "ページ"
 
 # @ Raindrops
 #~ msgid "Raindrops theme settings"

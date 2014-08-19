@@ -30,17 +30,26 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
 
     function raindrops_child_live_change_customizer() {
 
-        global $post, $raindrops_current_theme_name;
+        global $post, $raindrops_current_theme_name, $raindrops_base_font_size;
         $result                    = '';
         $css                       = '';
         $result_indv               = '';
         $raindrops_base_color      = raindrops_warehouse_clone( 'raindrops_base_color' );
         $raindrops_style_type      = raindrops_warehouse_clone( "raindrops_style_type" );
-        $css .= raindrops_design_output( $raindrops_style_type ) /* . raindrops_color_base() */;
+       // $css .= raindrops_design_output( $raindrops_style_type ) /* . raindrops_color_base() */;
         //when this code exists [raindrops color_type="minimal" col="1"] in the post
         $raindrops_hyperlink_color = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-        $raindrops_indv_css        = raindrops_design_output( $raindrops_style_type ) . raindrops_color_base( $raindrops_base_color );
+        $raindrops_indv_css        = raindrops_design_output( $raindrops_style_type ) . raindrops_color_base( $raindrops_base_color, array('color'=>'rd-type-boots .color','face'=>'rd-type-boots .face') );        
         $raindrops_indv_css        = raindrops_color_type_custom( $raindrops_indv_css );
+
+
+     
+
+        $raindrops_fluid_maximum_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+        
+        $css .= "\n.rd-type-boots #access .menu-header,.rd-type-boots #access .menu,";
+        $css .= "\nbody #doc3{max-width:" . $raindrops_fluid_maximum_width . 'px;}';
+
         $css .= apply_filters( "raindrops_indv_css", $raindrops_indv_css );
 
         if ( $raindrops_hyperlink_color !== '' ) {
@@ -54,7 +63,13 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
 
             $css = preg_replace( "|body[^{]*{[^}]+}|", "", $css );
         }
-
+        if ( raindrops_warehouse_clone( 'raindrops_basefont_settings' ) > 13 ) {
+            
+            $css .= 'body{font-size:' . raindrops_warehouse_clone( 'raindrops_basefont_settings' ) . 'px;}';
+        } elseif ( isset( $raindrops_base_font_size ) ) {
+            
+            $css .= 'body{font-size:' . $raindrops_base_font_size . 'px;}';
+        }
         $css .= raindrops_embed_css();
         $css = str_replace( "raindrops_color_ja", '', $css );
 
@@ -64,7 +79,7 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
 
         if ( $raindrops_text_color !== 'blank' && !empty( $header_image ) ) {
 
-            $css .= " \n#site-title a{color:#" . $raindrops_text_color . ';}';
+            $css .= " \n#site-title a,#site-title span{color:#" . $raindrops_text_color . ';}';
             $css .= " \n.description{color:#" . $raindrops_text_color . ';}';
         }
         $raindrops_options         = get_option( 'raindrops_theme_settings' );
@@ -79,6 +94,13 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
         if ( $raindrops_fonts_color !== '' ) {
             $css .= "article {color:" . $raindrops_fonts_color . "!important;}";
         }
+
+        $raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
+
+        if ( $raindrops_fonts_color !== '' ) {
+            $css .= "#ft {color:" . $raindrops_fonts_color . "!important;}";
+        }
+
 
         $background = get_background_image();
         $color      = get_background_color();
@@ -122,7 +144,7 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
         }
         if ( function_exists( 'raindrops_gradient_clone' ) ) {
 
-            $css .= raindrops_gradient_clone();
+            $css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content' );
         }
         if ( function_exists( 'raindrops_color_base_clone' ) ) {
 
@@ -133,8 +155,8 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
 
 
             $css_single = get_post_meta( $post->ID, 'css', true );
-            
-             $css_single .= get_post_meta( $post->ID, '_css', true );
+
+            $css_single .= get_post_meta( $post->ID, '_css', true );
 
             if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
@@ -218,6 +240,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
     function raindrops_customize_controls_print_styles() {
         ?>
         <style type="text/css">
+
             #customize-control-raindrops_style_type .customize-control-title + label{
 
                 background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-dark.png'; ?> );
@@ -453,6 +476,28 @@ One is a method of up-loading the image from the below up-loading form. Another 
             'excerpt1'     => '',
             'excerpt2'     => esc_html__( "Default Document type html5. Set to xhtml or html5.", 'Raindrops' ),
             'validate'     => 'raindrops_doc_type_settings_validate', 'list'         => 16
+        ),
+        array( 'option_id'    => 18,
+            'blog_id'      => 0,
+            'option_name'  => "raindrops_basefont_settings",
+            'option_value' => "13",
+            'autoload'     => 'yes',
+            'title'        => esc_html__( "Base Font Size Setting", 'Raindrops' ),
+            'excerpt1'     => '',
+            'excerpt2'     => esc_html__( "Base Font Size Value Recommend 13-20 (px size)", 'Raindrops' ),
+            'validate'     => 'raindrops_basefont_settings_validate',
+            'list'         => 17
+        ),
+        array( 'option_id'    => 19,
+            'blog_id'      => 0,
+            'option_name'  => "raindrops_fluid_max_width",
+            'option_value' => "1280",
+            'autoload'     => 'yes',
+            'title'        => esc_html__( "Fluid ( Responsive ) Max Page Width", 'Raindrops' ),
+            'excerpt1'     => '',
+            'excerpt2'     => esc_html__( "Default 1280 (px size)", 'Raindrops' ),
+            'validate'     => 'raindrops_fluid_max_width_validate',
+            'list'         => 18
         ),
     );
 }

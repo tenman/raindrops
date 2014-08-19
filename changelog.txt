@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.238
+
+NEXT VERSION INFO
+
+    Raindrops Theme option page default hide.
+
+    If you need Raindrops Theme Option Page.
+
+        Add functions.php below variable
+
+        $raindrops_show_theme_option = true;
+
+        Raindrops header image ( site title background image ) and footer background image is removed
+
+        if you need header , footer images
+
+        Add functions.php
+            $raindrops_show_theme_option = true;
+            header image value change from no to header.png
+            footer image value change from no to footer.png
+
+CURRENT VERSION CHANGES
+
+    Theme Customizer menu change.
+        Raindrops options can change from this page.
+	Add Theme Editor Help
+	Language Japanese Translation Update.
+	Edit post help Update
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.237
    Fixed keyboard accessibility.
 		Fixed when using the skip link at the keyboard, an error in the tabbing order

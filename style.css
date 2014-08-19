@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.237
+Version: 1.238
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -188,7 +188,7 @@ select{
     margin:0 0.23076923076em;
 }
 .entry-content label{
-     margin:0 0.23076923076em;
+    margin:0 0.23076923076em;
 }
 .entry-content input{
     display:inline-block;
@@ -256,6 +256,14 @@ input[type="text"],input[type="submit"],input[type="reset"],input[type="file"]{
 }
 .entry-content  figure{
     clear:both;
+}
+.entry-content  figure.aligncenter img{
+    margin:.5em auto;
+}
+.entry-content  figure img{
+    margin:auto;
+    width:auto;
+    max-width:calc(100% - 1em) ;
 }
 .entry-content  figure.wp-caption,
 .entry-content  div.wp-caption{
@@ -1237,6 +1245,7 @@ iframe{
 }
 #yui-main .twitter-tweet-rendered{
     max-width:100%!important;/* For auto embed tweet width controll */
+    margin:auto;
 }
 hr,
 div.attachment {
@@ -1595,6 +1604,9 @@ img.alignright,
 }
 .size-thumbnail{
     padding:.5em;
+}
+figure .size-thumbnail{
+    padding:0;
 }
 .wp-caption {
     border: 0.07692307692em solid #ddd;
@@ -2577,6 +2589,27 @@ input[type="file"]{
 .raindrops-tab-list li{
     border-bottom:none;
 }
+
+.raindrops-tab-content figure{
+
+    margin-bottom:2em!important;
+}
+.raindrops-tab-content{
+    padding-bottom:.5em;
+}
+.raindrops-tab-content figure.aligncenter img{
+    width:auto;
+    max-width:95%;
+    max-width:calc(100% - 2em) ;
+    margin-top:1em;
+}
+.raindrops-tab-content figcaption{
+    width:auto;
+    max-width:95%;
+    max-width:calc(100% - 2em) ;
+    margin:0 auto;
+    padding:0;
+}
 /* tiny mce br issue*/
 .yui-g > br,
 .yui-gb > br,
@@ -2827,7 +2860,7 @@ sup {
 .rsidebar li:target h2,
 .lsidebar li:target h2,
 .lsidebar li:target h2{
-   /* outline:thin dotted;*/
+    /* outline:thin dotted;*/
 }
 .raindrops-mobile-menu{
     display:none;
@@ -3404,6 +3437,26 @@ ol.list-of-post-list .entry-title{
 .rsidebar .widget:focus,
 .lsidebar .widget:focus {
     outline:none;
+}
+/* Raindrops widget raindrops-pinup-entries */
+.raindrops-pinup-entries{
+    position:relative;
+
+}
+.raindrops-pinup-entries .entry-title{
+    position:absolute;
+    top:0;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.raindrops-pinup-entries img{
+    max-width:100%;
+    height:auto;
+    margin-top:2.6em;
 }
 
 /* plugins issue */

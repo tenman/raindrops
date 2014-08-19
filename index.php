@@ -19,6 +19,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
+
 global $rsidebar_show, $raindrops_document_type;
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );

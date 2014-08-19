@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Raindrops default settings and display the admin option panel.
  *
@@ -169,7 +168,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( 'Accessibility Settings', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Accessibility Settings is create a unique link text. set to yes or no.', 'Raindrops' ),
-        'validate'     => 'raindrops_accessibility_settings_validate', 'list'         => 15
+        'validate'     => 'raindrops_accessibility_settings_validate', 
+        'list'         => 15
     ),
     array( 'option_id'    => 17,
         'blog_id'      => 0,
@@ -179,385 +179,70 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Document Type Settings", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "Default Document type html5. Set to xhtml or html5.", 'Raindrops' ),
-        'validate'     => 'raindrops_doc_type_settings_validate', 'list'         => 16
+        'validate'     => 'raindrops_doc_type_settings_validate', 
+        'list'         => 16
+    ),  
+     array( 'option_id'    => 18,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_basefont_settings",
+        'option_value' => "13",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( "Base Font Size Setting", 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( "Base Font Size Value Recommend 13-20 (px size)", 'Raindrops' ),
+        'validate'     => 'raindrops_basefont_settings_validate', 
+         'list'         => 17
+    ),
+      array( 'option_id'    => 19,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_fluid_max_width",
+        'option_value' => "1280",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( "Fluid ( Responsive ) Max Page Width", 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( "Default 1280 (px size)", 'Raindrops' ),
+        'validate'     => 'raindrops_fluid_max_width_validate', 
+         'list'         => 18
+    ),
+    array( 'option_id'    => 20,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_entry_content_is_home",
+        'option_value' => "content",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( "Category Archive Content Type", 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+        'validate'     => 'raindrops_entry_content_is_home_validate', 
+         'list'         => 19
+    ),
+    array( 'option_id'    => 21,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_entry_content_is_category",
+        'option_value' => "content",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( "Category Archive Content Type", 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+        'validate'     => 'raindrops_entry_content_is_category_validate', 
+         'list'         => 20
+    ),
+   
+       array( 'option_id'    => 22,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_entry_content_is_search",
+        'option_value' => "content",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( "Search Result Content Type", 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+        'validate'     => 'raindrops_entry_content_is_tag_validate', 
+         'list'         => 21
     ),
 );
 }
 if ( !isset( $raindrops_base_setting ) ) {
 
     $raindrops_base_setting = $raindrops_base_setting_args;
-}
-
-/**
- * Validate admin panel form value.
- *
- *
- *
- *
- */
-function raindrops_doc_type_settings_validate( $output ) {
-
-    $output = ( string ) $output;
-
-    if ( 'html5' == $output || 'xhtml' == $output ) {
-
-        return $output;
-    }
-
-    return 'html5';
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_accessibility_settings_validate( $output ) {
-
-    $output = ( string ) $output;
-
-    if ( 'yes' == $output || 'no' == $output ) {
-
-        return $output;
-    }
-    return 'no';
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_use_automatic_color_validate( $input ) {
-
-    $input = str_replace( "#", "", $input );
-
-    if ( ctype_xdigit( $input ) ) {
-
-        return '#' . $input;
-    } else {
-
-        $raindrops_options = get_option( "raindrops_theme_settings" );
-        return $raindrops_options[ "raindrops_use_automatic_color" ];
-    }
-    return $input;
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_right_sidebar_width_percent_validate( $input ) {
-
-    $obj  = new raindrops_menu_create();
-    $vals = $obj->col_settings_raindrops_right_sidebar_width_percent;
-
-    foreach ( $vals as $val ) {
-
-        if ( $input == $val ) {
-
-            return $input;
-        }
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_right_sidebar_width_percent" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_show_right_sidebar_validate( $input ) {
-
-    $obj  = new raindrops_menu_create();
-    $vals = $obj->col_settings_raindrops_show_right_sidebar;
-
-    foreach ( $vals as $val ) {
-
-        if ( $input == $val ) {
-
-            return $input;
-        }
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "col_settings_raindrops_show_right_sidebar" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_footer_color_validate( $input ) {
-
-    if ( $input == '' ) {
-        return $input;
-    }
-
-    if ( preg_match( "!#([0-9a-f]{6}|[0-9a-f]{3})!si", $input ) ) {
-
-        return $input;
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_default_fonts_color" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_default_fonts_color_validate( $input ) {
-
-    if ( $input == '' ) {
-        return $input;
-    }
-
-    if ( preg_match( "!#([0-9a-f]{6}|[0-9a-f]{3})!si", $input ) ) {
-
-        return $input;
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_default_fonts_color" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_col_width_validate( $input ) {
-
-    $obj  = new raindrops_menu_create();
-    $vals = $obj->col_settings_raindrops_col_width;
-
-    foreach ( $vals as $val ) {
-
-        if ( $input == $val ) {
-
-            return $input;
-        }
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_col_width" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_page_width_validate( $input ) {
-
-    $obj  = new raindrops_menu_create();
-    $vals = $obj->col_settings_raindrops_page_width;
-
-    foreach ( $vals as $val ) {
-
-        if ( $input == $val ) {
-
-            return $input;
-        }
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_page_width" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_heading_image_validate( $input ) {
-
-    if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
-
-        $raindrops_options = get_option( "raindrops_theme_settings" );
-        return $raindrops_options[ "raindrops_heading_image" ];
-    }
-    return $input;
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_heading_image_position_validate( $input ) {
-
-    if ( is_numeric( $input ) && $input < 8 && -1 < $input ) {
-
-        return $input;
-    }
-
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_heading_image_position" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_footer_image_validate( $input ) {
-
-    global $raindrops_options;
-
-    if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
-
-        $raindrops_options = get_option( "raindrops_theme_settings" );
-        return $raindrops_options[ "raindrops_footer_image" ];
-    }
-    return $input;
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_header_image_validate( $input ) {
-
-    if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
-
-        $raindrops_options = get_option( "raindrops_theme_settings" );
-        return $raindrops_options[ "raindrops_header_image" ];
-    }
-    return $input;
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_style_type_validate( $input ) {
-
-    $array = raindrops_register_styles( $input );
-
-    if ( array_search( $input, $array ) ) {
-
-        return esc_html( $input );
-    } else {
-
-        return "w3standard";
-    }
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_base_color_validate( $input ) {
-
-    if ( $input == '' ) {
-        return $input;
-    }
-
-    if ( preg_match( "!([0-9a-f]{6}|[0-9a-f]{3})!si", $input ) ) {
-
-        return $input;
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_base_color" ];
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_color_scheme_validate( $input ) {
-
-    if ( $input == '' ) {
-        return $input;
-    }
-    return esc_html( $input );
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function _raindrops_indv_css_validate( $input ) {
-
-    // if needs core support style only
-    //return safecss_filter_attr($input);
-    return ' ' . strip_tags( $input );
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_show_menu_primary_validate( $input ) {
-
-    if ( "show" == $input ) {
-
-        return 'show';
-    }
-
-    return 'hide';
-}
-
-/**
- *
- *
- *
- *
- *
- */
-function raindrops_hyperlink_color_validate( $input ) {
-
-    if ( '' == $input ) {
-        return 'auto';
-    }
-
-    if ( preg_match( "!([0-9a-f]{6}|[0-9a-f]{3})!si", $input ) ) {
-
-        return $input;
-    }
-    $raindrops_options = get_option( "raindrops_theme_settings" );
-    return $raindrops_options[ "raindrops_hyperlink_color" ];
 }
 
 /**
@@ -622,6 +307,8 @@ class raindrops_menu_create {
      *
      */
     function raindrops_SubMenu_GUI() {
+        
+
 
         do_action( 'raindrops_SubMenu_GUI_pre' );
 

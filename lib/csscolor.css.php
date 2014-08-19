@@ -1744,7 +1744,9 @@ function raindrops_hex2rgba( $color, $opecity ) {
  *
  */
 function raindrops_design_output( $name = 'dark' ) {
-
+    
+    global $raindrops_show_theme_option;
+    
     $uploads                 = wp_upload_dir();
     $raindrops_header_image  = raindrops_warehouse_clone( 'raindrops_header_image' );
     $raindrops_hd_image_path = $uploads[ 'path' ] . '/' . $raindrops_header_image;
@@ -1844,18 +1846,21 @@ function raindrops_design_output( $name = 'dark' ) {
             $h_position_rsidebar_h2 = "background-position:0 208px;";
             break;
     }
-    $h2_w3standard_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
-    $h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
-    $h2_w3standard_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
+    
+    if ( $raindrops_show_theme_option == true ) {
+        
+        $h2_w3standard_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
+        $h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        $h2_w3standard_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
 
-    $h2_dark_background = "background:" . raindrops_colors( -3, 'background' ) . ' ';
-    $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
-    $h2_dark_background .= "color:" . raindrops_colors( -3, 'color' ) . ';';
+        $h2_dark_background = "background:" . raindrops_colors( -3, 'background' ) . ' ';
+        $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        $h2_dark_background .= "color:" . raindrops_colors( -3, 'color' ) . ';';
 
-    $h2_light_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
-    $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
-    $h2_light_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
-
+        $h2_light_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
+        $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        $h2_light_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
+    }
     switch ( $name ) {
         case("w3standard"):
             $custom_dark_bg  = raindrops_colors( 3, 'background' );

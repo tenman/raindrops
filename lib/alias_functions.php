@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This functions has alias function
  *
@@ -162,7 +161,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
         if ( isset( $raindrops_base_setting ) ) {
             foreach ( $raindrops_base_setting as $key => $val ) {
                 if ( !is_null( $raindrops_base_setting ) ) {
-                    $vertical[] = $val[ 'option_name' ];
+                    $vertical[] = $val['option_name'];
                 }
             }
             $row = array_search( $name, $vertical );
@@ -170,10 +169,10 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
                 return 'custom-doc';
             }
             $result = get_option( 'raindrops_theme_settings' );
-            if ( isset( $result[ $name ] ) && !empty( $result[ $name ] ) ) {
-                return apply_filters( 'raindrops_theme_settings_' . $name, $result[ $name ] );
-            } elseif ( isset( $raindrops_base_setting[ $row ][ 'option_value' ] ) && !empty( $raindrops_base_setting[ $row ][ 'option_value' ] ) ) {
-                return apply_filters( 'raindrops_theme_settings_' . $row, $raindrops_base_setting[ $row ][ 'option_value' ] );
+            if ( isset( $result[$name] ) && !empty( $result[$name] ) ) {
+                return apply_filters( 'raindrops_theme_settings_' . $name, $result[$name] );
+            } elseif ( isset( $raindrops_base_setting[$row]['option_value'] ) && !empty( $raindrops_base_setting[$row]['option_value'] ) ) {
+                return apply_filters( 'raindrops_theme_settings_' . $row, $raindrops_base_setting[$row]['option_value'] );
             } else {
                 return false;
             }
@@ -202,8 +201,10 @@ if ( !function_exists( 'raindrops_gradient_single_clone' ) ) {
             $custom_dark_bg1  = raindrops_colors_clone( $i + 1, 'background' );
             $custom_light_bg1 = raindrops_colors_clone( $i, 'background' );
         }
+        $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
         $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
         $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
+        $g.= 'background: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
         $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
         return $g;
     }
@@ -218,29 +219,53 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
      * @see raindrops_gradient( )
      *
      */
-    function raindrops_gradient_clone() {
+    function raindrops_gradient_clone( $selector = '', $color1 = null ) {
+        
+        if ( !empty( $selector ) ) {
+            
+            $selector = strip_tags( $selector ) ;
+        } else {
+            
+            $selector = '.gradient' ;
+        }
+       
+         if ( !empty( $color1 ) ) {
+        
+            $color1_check = str_replace( '#', "", $color1 );
+            
+            if ( ctype_xdigit( $color1_check ) ) {
+
+              $color1 = $color1_check;
+            }else{
+                
+               $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
+            }
+        } else {
+            
+            $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
+        }
         $g = "";
         for ( $i = 1; $i < 5; $i++ ) {
-            $custom_dark_bg1  = raindrops_colors_clone( $i, 'background' );
-            $custom_light_bg1 = raindrops_colors_clone( $i + 1, 'background' );
-            $custom_dark_bg2  = raindrops_colors_clone( $i, 'background' );
-            $custom_light_bg2 = raindrops_colors_clone( $i - 1, 'background' );
-            $g.= '.gradient' . $i . '{';
+            $custom_dark_bg1  = raindrops_colors_clone( $i, 'background', $color1 );
+            $custom_light_bg1 = raindrops_colors_clone( $i + 1, 'background', $color1 );
+            $custom_dark_bg2  = raindrops_colors_clone( $i, 'background', $color1 );
+            $custom_light_bg2 = raindrops_colors_clone( $i - 1, 'background', $color1 );
+            $g.= $selector . $i . '{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
             $g.= "}\n";
-            $g.= '.gradient' . $i . ' a{';
+            $g.= $selector . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= "}\n";
-            $g.= '.gradient-' . $i . '{';
+            $g.= $selector . '-' . $i . '{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg2 . ' ), to( ' . $custom_light_bg2 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg2 . '\', endColorstr=\'' . $custom_light_bg2 . '\' );';
             $g.= "}\n";
-            $g.= '.gradient-' . $i . ' a{';
+            $g.= $selector . '-' . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= "}\n";
         }
@@ -266,74 +291,74 @@ function raindrops_colors_clone( $num = 0, $select = 'set', $color1 = null ) {
     $base = new raindrops_CSS_Color( $color1 );
     switch ( $num ) {
         case ( 0 ):
-            $bg    = $base->bg[ '0' ];
-            $fg    = $base->fg[ '0' ];
+            $bg    = $base->bg['0'];
+            $fg    = $base->fg['0'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
         case ( -1 ):
-            $bg    = $base->bg[ '-1' ];
-            $fg    = $base->fg[ '-1' ];
+            $bg    = $base->bg['-1'];
+            $fg    = $base->fg['-1'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
         case ( -2 ):
-            $bg    = $base->bg[ '-2' ];
-            $fg    = $base->fg[ '-2' ];
+            $bg    = $base->bg['-2'];
+            $fg    = $base->fg['-2'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
         case ( -3 ):
-            $bg    = $base->bg[ '-3' ];
-            $fg    = $base->fg[ '-3' ];
+            $bg    = $base->bg['-3'];
+            $fg    = $base->fg['-3'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
         case ( -4 ):
-            $bg    = $base->bg[ '-4' ];
-            $fg    = $base->fg[ '-4' ];
+            $bg    = $base->bg['-4'];
+            $fg    = $base->fg['-4'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
         case ( -5 ):
-            $bg    = $base->bg[ '-5' ];
-            $fg    = $base->fg[ '-5' ];
+            $bg    = $base->bg['-5'];
+            $fg    = $base->fg['-5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
         case ( 1 ):
-            $bg    = $base->bg[ '+1' ];
-            $fg    = $base->fg[ '+1' ];
+            $bg    = $base->bg['+1'];
+            $fg    = $base->fg['+1'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
         case ( 2 ):
-            $bg    = $base->bg[ '+2' ];
-            $fg    = $base->fg[ '+2' ];
+            $bg    = $base->bg['+2'];
+            $fg    = $base->fg['+2'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
         case ( 3 ):
-            $bg    = $base->bg[ '+3' ];
-            $fg    = $base->fg[ '+3' ];
+            $bg    = $base->bg['+3'];
+            $fg    = $base->fg['+3'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
         case ( 4 ):
-            $bg    = $base->bg[ '+4' ];
-            $fg    = $base->fg[ '+4' ];
+            $bg    = $base->bg['+4'];
+            $fg    = $base->fg['+4'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
         case ( 5 ):
-            $bg    = $base->bg[ '+5' ];
-            $fg    = $base->fg[ '+5' ];
+            $bg    = $base->bg['+5'];
+            $fg    = $base->fg['+5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
         default:
-            $bg    = $base->bg[ '0' ];
-            $fg    = $base->fg[ '0' ];
+            $bg    = $base->bg['0'];
+            $fg    = $base->fg['0'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
     }
@@ -523,11 +548,11 @@ function raindrops_design_output_clone( $name = 'dark' ) {
 
             foreach ( $regs as $reg ) {
 
-                if ( isset( $$reg[ 1 ] ) ) {
+                if ( isset( $$reg[1] ) ) {
 
-                    $content = str_replace( $reg[ 0 ], $$reg[ 1 ], $content );
+                    $content = str_replace( $reg[0], $$reg[1], $content );
                 } else {
-                    $content = str_replace( $reg[ 0 ], '/*cannot bind data [%' . $reg[ 1 ] . '%]*/', $content );
+                    $content = str_replace( $reg[0], '/*cannot bind data [%' . $reg[1] . '%]*/', $content );
                 }
             }
         }
@@ -542,44 +567,43 @@ function raindrops_design_output_clone( $name = 'dark' ) {
  *
  *
  */
-function raindrops_color_base_clone( $color1 = null, $class = null ) {
+function raindrops_color_base_clone( $color1 = null, $selector = null ) {
     global $raindrops_images_path;
     if ( null == $color1 ) {
-        $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );       
+        $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
     } else {
         $color1 = str_replace( '#', "", $color1 );
     }
 
-    if ( $class == null ) {
+    $class = 'color';
+    $face  = 'face';
+    if ( !empty( $selector ) && array_key_exists( 'color', $selector ) && array_key_exists( 'face', $selector ) ) {
 
-        $class = 'color';
-        $face  = 'face';
-    } else {
-
-        $class = sanitize_key( $class );
-        $face  = 'face-' . $class;
+        $face  = strip_tags( $selector['face'] );
+        $class = strip_tags( $selector['color'] );
     }
+
     $base   = new raindrops_CSS_Color( $color1 );
-    $bg_1   = $base->bg[ '-1' ];
-    $fg_1   = $base->fg[ '-1' ];
-    $bg_2   = $base->bg[ '-2' ];
-    $fg_2   = $base->fg[ '-2' ];
-    $bg_3   = $base->bg[ '-3' ];
-    $fg_3   = $base->fg[ '-3' ];
-    $bg_4   = $base->bg[ '-4' ];
-    $fg_4   = $base->fg[ '-4' ];
-    $bg_5   = $base->bg[ '-5' ];
-    $fg_5   = $base->fg[ '-5' ];
-    $bg1    = $base->bg[ '+1' ];
-    $fg1    = $base->fg[ '+1' ];
-    $bg2    = $base->bg[ '+2' ];
-    $fg2    = $base->fg[ '+2' ];
-    $bg3    = $base->bg[ '+3' ];
-    $fg3    = $base->fg[ '+3' ];
-    $bg4    = $base->bg[ '+4' ];
-    $fg4    = $base->fg[ '+4' ];
-    $bg5    = $base->bg[ '+5' ];
-    $fg5    = $base->fg[ '+5' ];
+    $bg_1   = $base->bg['-1'];
+    $fg_1   = $base->fg['-1'];
+    $bg_2   = $base->bg['-2'];
+    $fg_2   = $base->fg['-2'];
+    $bg_3   = $base->bg['-3'];
+    $fg_3   = $base->fg['-3'];
+    $bg_4   = $base->bg['-4'];
+    $fg_4   = $base->fg['-4'];
+    $bg_5   = $base->bg['-5'];
+    $fg_5   = $base->fg['-5'];
+    $bg1    = $base->bg['+1'];
+    $fg1    = $base->fg['+1'];
+    $bg2    = $base->bg['+2'];
+    $fg2    = $base->fg['+2'];
+    $bg3    = $base->bg['+3'];
+    $fg3    = $base->fg['+3'];
+    $bg4    = $base->bg['+4'];
+    $fg4    = $base->fg['+4'];
+    $bg5    = $base->bg['+5'];
+    $fg5    = $base->fg['+5'];
     $result = <<<CSS
 .{$class}-1 a,
 .{$class}-1{
@@ -678,18 +702,19 @@ CSS;
  */
 function raindrops_register_styles_clone( $style_name ) {
     static $vals;
-    $vals[ $style_name ] = $style_name;
+    $vals[$style_name] = $style_name;
     return $vals;
 }
+
 /**
  * 
  * @return string
  * 
  * 
  */
-        function raindrops_gallerys_clone() {
+function raindrops_gallerys_clone() {
 
-            $raindrops_gallerys = ".gallery { margin: auto; overflow: hidden; width: 100%; }\n
+    $raindrops_gallerys = ".gallery { margin: auto; overflow: hidden; width: 100%; }\n
             .gallery dl { margin: 0px; }\n
             .gallery .gallery-item { float: left; margin-top: 10px; text-align: center; }\n
             .gallery img { border: 2px solid #cfcfcf;max-width:100%; }\n
@@ -705,7 +730,7 @@ function raindrops_register_styles_clone( $style_name ) {
             .gallery-columns-8 dl{ width: 12.5% }\n
             .gallery-columns-9 dl{ width: 11.1% }\n
             .gallery-columns-10 dl{ width: 9.9% }\n";
-           return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
-        }
+    return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
+}
 
 ?>

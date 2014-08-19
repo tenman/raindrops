@@ -41,8 +41,9 @@ raindrops_debug_navitation( __FILE__ );
 <div id="yui-main">
     <div class="yui-b">
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-            <<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>>		
-            <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+            	
+            <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" >
+                <<?php raindrops_doctype_elements( 'div', 'main' ); ?> <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>	
                 <h2 class="h2">
 <?php printf( esc_html__( 'Author Archives: %s', 'Raindrops' ), $curauth->nickname ); ?>
                 </h2>
@@ -148,8 +149,9 @@ if ( have_posts() ) {
                     ?>
                 </dl>
                 <?php raindrops_next_prev_links( "nav-below" ); ?>
+            </<?php raindrops_doctype_elements( 'div', 'main' ); ?>>                
             </div>
-            </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+
             <div class="yui-u">
                 <?php
                 raindrops_prepend_extra_sidebar();

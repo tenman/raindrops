@@ -249,7 +249,15 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
             add_action( 'load-post.php', 'raindrops_call_custom_css' );
             add_action( 'load-post-new.php', 'raindrops_call_custom_css' );
         }
-        add_action( 'widgets_init', 'register_recent_post_group_by_category' );
+        /**
+         *
+         *
+         *
+         *
+         * @since 1.238
+         */       
+         add_action( 'widgets_init', 'register_recent_post_group_by_category' );
+         add_action( 'widgets_init', 'register_raindrops_pinup_entry_Widget' );
     }
 
 }

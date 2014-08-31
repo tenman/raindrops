@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.239
+Version: 1.240
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1117,11 +1117,12 @@ ul.index li .edit {
     width:100%;
     margin:0 auto;
 }
-.social .required,.social .option{
+.social .required{
     display:inline-block;
     margin:0 1em;
 }
-.comment-form-url label,
+
+
 .comment-form-email label,
 .comment-form-author label{
     min-width:7.69230769231em;
@@ -1129,7 +1130,15 @@ ul.index li .edit {
 .comment-form-url span,
 .comment-form-email span,
 .comment-form-author span{
-    width:5.38461538462em;min-width:5.38461538462em;
+    width:5.38461538462em;
+    min-width:5.38461538462em;
+}
+.comment-form-url label,
+.social .option{
+    display:inline-block;
+    margin:0;
+    width:4em;
+    min-width:0;
 }
 .comment-form-url input,
 .comment-form-email input,
@@ -1242,11 +1251,15 @@ table#month-list a {
 }
 iframe{
     max-width:100%;/* For auto embed media width controll*/
+    display:block;
+    margin:auto;
 }
 #yui-main .twitter-tweet-rendered{
     max-width:100%!important;/* For auto embed tweet width controll */
-    margin:auto;
+    margin:auto!important;
+    display:block!important;
 }
+
 hr,
 div.attachment {
     border:none;
@@ -1425,6 +1438,7 @@ body:not(.raindrops-accessible-mode) #access ul ul{
 .raindrops-accessible-mode #access li.focus > a + ul{
     left:auto;
     z-index:9999;
+    opacity:1;
 }
 .enable-keyboard #access li:not(.focus)  a + ul,
 .raindrops-accessible-mode #access li:not(.focus)  a + ul{
@@ -1509,14 +1523,22 @@ div.menu li {
     float: left;
     position: relative;
 }
-.enable-keyboard #access li:not(.focus) li a,
-.raindrops-accessible-mode #access li:not(.focus) li a,
+.enable-keyboard #access li:not(.focus)  li a,
+.raindrops-accessible-mode #access li:not(.focus)  li a,
+#access .sub-menu li,
+#access .children li{
+   /* pendding 1.240
+    * when mouse hover, improperly border
+    *border:0.07692307692em solid #ccc;
+    */
+}
+.enable-keyboard #access li:hover >ul > li> a,
+.raindrops-accessible-mode #access li:hover> ul>  li a,
 #access .sub-menu li,
 #access .children li{
     border:0.07692307692em solid #ccc;
-    /*  background:#fff;
-      color:#000;  */
 }
+
 #access .current_page_item{
 }
 .ie8 #access {
@@ -3454,6 +3476,7 @@ ol.list-of-post-list .entry-title{
 }
 
 .raindrops-pinup-entries img{
+    width:auto;
     max-width:100%;
     height:auto;
     margin-top:2.6em;
@@ -3505,3 +3528,4 @@ div.bbp-template-notice, div.indicator-hint{
 .page-template-page-templatesfull-width-php #container{
     width:100%;
 }
+

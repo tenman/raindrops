@@ -256,8 +256,8 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          *
          * @since 1.238
          */       
-         add_action( 'widgets_init', 'register_recent_post_group_by_category' );
-         add_action( 'widgets_init', 'register_raindrops_pinup_entry_Widget' );
+         add_action( 'widgets_init', 'raindrops_register_recent_post_group_by_category' );
+         add_action( 'widgets_init', 'raindrops_register_pinup_entry_Widget' );
     }
 
 }

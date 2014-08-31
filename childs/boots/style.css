@@ -3,12 +3,14 @@
  *
  * Purpose update style from parent theme
  */
-.children,
-.sub-menu{
-    background:#fff;
+.rd-type-boots #access .children,
+.rd-type-boots #access .sub-menu{
+    
 }
-#access .children a,
-#access .sub-menu a{
+.rd-type-boots #access .children a,
+.rd-type-boots #access .sub-menu a{
     padding:10px;
+    background:#fff;
+    color:#555;
 }
 

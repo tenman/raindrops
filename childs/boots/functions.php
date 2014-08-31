@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  Custom Header for boots Theme
  *
@@ -35,11 +36,10 @@ if ( !function_exists( 'raindrops_child_init' ) ) {
         add_filter( 'raindrops_header_image_contents', 'boots_custom_header_image_content' );
         /* broad color type setting */
         add_action( 'raindrops_include_after', 'boots_extend_styles' );
-
     }
 
 }
- 
+
 /**
  *
  * @param type $content
@@ -48,23 +48,23 @@ if ( !function_exists( 'raindrops_child_init' ) ) {
 if ( !function_exists( 'boots_custom_header_image_content' ) ) {
 
     function boots_custom_header_image_content( $content ) {
-        global $raindrops_link_unique_text,$raindrops_fluid_maximum_width;
-        
+        global $raindrops_link_unique_text, $raindrops_fluid_maximum_width;
+
         $boots_site_title = raindrops_site_title();
-        
+
         if ( true !== $raindrops_link_unique_text ) {
-            
-            /* remove nested a elements */         
-            $boots_site_title = strip_tags( raindrops_site_title(),'<span><h1><div>');
+
+            /* remove nested a elements */
+            $boots_site_title = strip_tags( raindrops_site_title(), '<span><h1><div>' );
         }
-        
-        $boots_content_max_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width');
-        
-        if ( empty( $boots_content_max_width ) ){
-            
-           $boots_content_max_width = 1280; 
-        } 
-         
+
+        $boots_content_max_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+
+        if ( empty( $boots_content_max_width ) ) {
+
+            $boots_content_max_width = 1280;
+        }
+
 
         $html = '<div class="tagline-wrapper"><div id="header-inner" style="%3$s">'
                 . '%1$s%2$s'
@@ -72,9 +72,10 @@ if ( !function_exists( 'boots_custom_header_image_content' ) ) {
 
         $page_width = boots_page_width();
 
-        return sprintf( $html, $boots_site_title , '<div class="description">' . get_bloginfo( 'description' ) . '</div>', 'max-width:'. $boots_content_max_width. 'px;display:block;margin:auto; width:' . $page_width . ';'
+        return sprintf( $html, $boots_site_title, '<div class="description">' . get_bloginfo( 'description' ) . '</div>', 'max-width:' . $boots_content_max_width . 'px;display:block;margin:auto; width:' . $page_width . ';'
         );
     }
+
 }
 
 /**
@@ -99,7 +100,13 @@ if ( !function_exists( 'boots_page_width' ) ) {
                 return '974px';
                 break;
             default:
-                return '100%';
+                $boots_content_max_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+ 
+                if ( ! empty( $boots_content_max_width )  && $id == 'doc3') {
+                    return '100%; max-width:' . $boots_content_max_width . 'px;';
+                } else {
+                    return '100%';
+                }
                 break;
         }
     }

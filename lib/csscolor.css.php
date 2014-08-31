@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Create individual stylesheet
  *
@@ -29,7 +30,6 @@
  *
  *
  */
-
 raindrops_register_styles( "dark" );
 
 function raindrops_indv_css_dark() {
@@ -165,6 +165,10 @@ ol.tblist li{
     border-top: medium solid %c_border%;
     background-repeat:repeat-x;
     color:%raindrops_footer_color%;
+}
+#ft a{
+     color:%raindrops_footer_link_color%; 
+         background:none;
 }
 #ft #wp-calendar{
     border:1px solid %c_border%!important;
@@ -303,7 +307,6 @@ li.byuser span.says{
     border:1px solid;
 }
 .reply,
-#ft a,
 .page .hentry .entry-title a,
 cite.fn,
 cite a:link,
@@ -614,6 +617,9 @@ body {
     background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
     color:%raindrops_footer_color%;
 }
+#ft a{
+     color:%raindrops_footer_link_color%;           
+}
 
 .footer-widget h2,
 .rsidebar h2,
@@ -891,10 +897,10 @@ body{
 #yui-main{
     color:%raindrops_header_color%;
 }
-
+/* dialog header color issue 1.239
 .entry div h2,.entry div h3{
     %c5%
-}
+}*/
 .entry ol ol ,.entry ul {
     %c5%
 }
@@ -944,6 +950,9 @@ ol.tblist li{
     border-top: medium solid %c_border%;
  /*   background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;*/
     color:%raindrops_footer_color%;
+}
+#ft a{
+     color:%raindrops_footer_link_color%;           
 }
 
 .rsidebar ul li ul li,
@@ -1379,6 +1388,9 @@ a:hover{
 #yui-main{
     color:%raindrops_header_color%;
 }
+#ft a{
+     color:%raindrops_footer_link_color%;           
+}
 .footer-widget h2,
 .rsidebar h2,
 .lsidebar h2,
@@ -1454,13 +1466,13 @@ CSS;
 
 ?>
 <?php
+
 /**
  *
  *
  *
  *
  */
-
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -1499,20 +1511,19 @@ $raindrops_header_image = raindrops_warehouse_clone( 'raindrops_header_image' );
 $raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 $raindrops_footer_image = raindrops_warehouse_clone( 'raindrops_footer_image' );
 $raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
-
+$raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_link_color' );
 
 //define("BASE_COLOR1",$raindrops_base_color);
 /**
  * save stylesheet
  *
  */
-
-$raindrops_options      = get_option( "raindrops_theme_settings" );
+$raindrops_options = get_option( "raindrops_theme_settings" );
 // if not handmade css. theme name style type is handmade
 
 
-if ( is_admin()){
-    $raindrops_indv_css     = raindrops_design_output( $style_type ) . raindrops_color_base();
+if ( is_admin() ) {
+    $raindrops_indv_css = raindrops_design_output( $style_type ) . raindrops_color_base();
 }
 
 if ( $raindrops_options !== false ) {
@@ -1520,18 +1531,17 @@ if ( $raindrops_options !== false ) {
     if ( raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
 
         if ( is_array( $raindrops_options ) ) {
-            if( is_admin()){
+            if ( is_admin() ) {
                 if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
 
-                    $raindrops_options[ '_raindrops_indv_css' ] = $raindrops_indv_css;
+                    $raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
                 } else {
 
                     $add_array         = array( '_raindrops_indv_css' => $raindrops_indv_css );
                     $raindrops_options = array_merge( $raindrops_options, $add_array );
-
                 }
                 update_option( "raindrops_theme_settings", $raindrops_options );
-                }
+            }
         }
     }
 }
@@ -1559,63 +1569,63 @@ function raindrops_colors( $num = 0, $select = 'set', $color1 = null ) {
 
     switch ( $num ) {
         case(0):
-            $bg    = $base->bg[ '0' ];
-            $fg    = $base->fg[ '0' ];
+            $bg    = $base->bg['0'];
+            $fg    = $base->fg['0'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
         case(-1):
-            $bg    = $base->bg[ '-1' ];
-            $fg    = $base->fg[ '-1' ];
+            $bg    = $base->bg['-1'];
+            $fg    = $base->fg['-1'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
         case(-2):
-            $bg    = $base->bg[ '-2' ];
-            $fg    = $base->fg[ '-2' ];
+            $bg    = $base->bg['-2'];
+            $fg    = $base->fg['-2'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
         case(-3):
-            $bg    = $base->bg[ '-3' ];
-            $fg    = $base->fg[ '-3' ];
+            $bg    = $base->bg['-3'];
+            $fg    = $base->fg['-3'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
         case(-4):
-            $bg    = $base->bg[ '-4' ];
-            $fg    = $base->fg[ '-4' ];
+            $bg    = $base->bg['-4'];
+            $fg    = $base->fg['-4'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
         case(-5):
-            $bg    = $base->bg[ '-5' ];
-            $fg    = $base->fg[ '-5' ];
+            $bg    = $base->bg['-5'];
+            $fg    = $base->fg['-5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
         case(1):
-            $bg    = $base->bg[ '+1' ];
-            $fg    = $base->fg[ '+1' ];
+            $bg    = $base->bg['+1'];
+            $fg    = $base->fg['+1'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
         case(2):
-            $bg    = $base->bg[ '+2' ];
-            $fg    = $base->fg[ '+2' ];
+            $bg    = $base->bg['+2'];
+            $fg    = $base->fg['+2'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
         case(3):
-            $bg    = $base->bg[ '+3' ];
-            $fg    = $base->fg[ '+3' ];
+            $bg    = $base->bg['+3'];
+            $fg    = $base->fg['+3'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
         case(4):
-            $bg    = $base->bg[ '+4' ];
-            $fg    = $base->fg[ '+4' ];
+            $bg    = $base->bg['+4'];
+            $fg    = $base->fg['+4'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
         case(5):
-            $bg    = $base->bg[ '+5' ];
-            $fg    = $base->fg[ '+5' ];
+            $bg    = $base->bg['+5'];
+            $fg    = $base->fg['+5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
         default:
-            $bg    = $base->bg[ '0' ];
-            $fg    = $base->fg[ '0' ];
+            $bg    = $base->bg['0'];
+            $fg    = $base->fg['0'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
     }
@@ -1632,6 +1642,7 @@ function raindrops_colors( $num = 0, $select = 'set', $color1 = null ) {
             break;
     }
 }
+
 /**
  * Create gradient style
  *
@@ -1667,21 +1678,21 @@ function raindrops_gradient_css( $color = null, $num = 0, $diff = 1, $order = 'a
         $num2             = ( int ) $num + $diff;
         $custom_light_bg1 = raindrops_colors( $num2, 'background', $color );
 
-        if ( isset( $base->fg[ $num ] ) ) {
+        if ( isset( $base->fg[$num] ) ) {
 
-            $fg = $base->fg[ $num ];
+            $fg = $base->fg[$num];
         } else {
 
             $fg = "";
         }
     } elseif ( "desc" == $order ) {
 
-        $custom_dark_bg1  = $base->bg[ $num + $diff ];
-        $custom_light_bg1 = $base->bg[ $num ];
+        $custom_dark_bg1  = $base->bg[$num + $diff];
+        $custom_light_bg1 = $base->bg[$num];
 
-        if ( isset( $base->fg[ $num ] ) ) {
+        if ( isset( $base->fg[$num] ) ) {
 
-            $fg = $base->fg[ $num ];
+            $fg = $base->fg[$num];
         } else {
 
             $fg = "";
@@ -1693,6 +1704,7 @@ function raindrops_gradient_css( $color = null, $num = 0, $diff = 1, $order = 'a
     $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\');';
     return $g;
 }
+
 /**
  * Base Color Class Create
  *
@@ -1714,17 +1726,17 @@ function raindrops_color_base( $color1 = null, $color2 = null ) {
  */
 function raindrops_hex2rgba( $color, $opecity ) {
 
-    if ( '#' == $color[ 0 ] ) {
+    if ( '#' == $color[0] ) {
 
         $color = substr( $color, 1 );
     }
 
     if ( 6 == strlen( $color ) ) {
 
-        list($r, $g, $b) = array( $color[ 0 ] . $color[ 1 ], $color[ 2 ] . $color[ 3 ], $color[ 4 ] . $color[ 5 ] );
+        list($r, $g, $b) = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
     } elseif ( 3 == strlen( $color ) ) {
 
-        list($r, $g, $b) = array( $color[ 0 ] . $color[ 0 ], $color[ 1 ] . $color[ 1 ], $color[ 2 ] . $color[ 2 ] );
+        list($r, $g, $b) = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
     } else {
 
         return false;
@@ -1744,16 +1756,16 @@ function raindrops_hex2rgba( $color, $opecity ) {
  *
  */
 function raindrops_design_output( $name = 'dark' ) {
-    
+
     global $raindrops_show_theme_option;
-    
+
     $uploads                 = wp_upload_dir();
     $raindrops_header_image  = raindrops_warehouse_clone( 'raindrops_header_image' );
-    $raindrops_hd_image_path = $uploads[ 'path' ] . '/' . $raindrops_header_image;
+    $raindrops_hd_image_path = $uploads['path'] . '/' . $raindrops_header_image;
 
     if ( file_exists( $raindrops_hd_image_path ) ) {
 
-        $raindrops_hd_images_path = $uploads[ 'url' ] . '/';
+        $raindrops_hd_images_path = $uploads['url'] . '/';
     } else {
 
         $raindrops_hd_images_path = get_stylesheet_directory_uri() . '/images/';
@@ -1771,12 +1783,14 @@ function raindrops_design_output( $name = 'dark' ) {
 
         $raindrops_images_path = get_template_directory_uri() . '/images/';
     }
-    $raindrops_images_path  = apply_filters( 'raindrops_images_path', $raindrops_images_path );
-    $navigation_title_img   = raindrops_warehouse_clone( 'raindrops_heading_image' );
-    $raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
-    $raindrops_footer_image = raindrops_warehouse_clone( 'raindrops_footer_image' );
-    $raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
-
+    $raindrops_images_path       = apply_filters( 'raindrops_images_path', $raindrops_images_path );
+    $navigation_title_img        = raindrops_warehouse_clone( 'raindrops_heading_image' );
+    $raindrops_header_color      = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
+    $raindrops_footer_image      = raindrops_warehouse_clone( 'raindrops_footer_image' );
+    $raindrops_footer_color      = raindrops_warehouse_clone( 'raindrops_footer_color' );
+    $raindrops_footer_link_color = raindrops_warehouse_clone( 'raindrops_footer_link_color' );
+    
+   
     if ( empty( $name ) ) {
         $name = 'dark';
     }
@@ -1846,19 +1860,37 @@ function raindrops_design_output( $name = 'dark' ) {
             $h_position_rsidebar_h2 = "background-position:0 208px;";
             break;
     }
-    
+
     if ( $raindrops_show_theme_option == true ) {
-        
+        if ( file_exists( get_template_directory() . '/images/' . $navigation_title_img ) || file_exists( get_stylesheet_directory() . '/images/' . $navigation_title_img ) ) {
+            $image_exists = true;
+        } else {
+            $image_exists = false;
+        }
+
         $h2_w3standard_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
-        $h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        if ( true == $image_exists ) {
+            $h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        }else{
+            $h2_w3standard_background .= ";";
+        }
+
         $h2_w3standard_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
 
         $h2_dark_background = "background:" . raindrops_colors( -3, 'background' ) . ' ';
-        $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        if ( true == $image_exists ) {
+            $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        }else{
+            $h2_dark_background .= ";";
+        }
         $h2_dark_background .= "color:" . raindrops_colors( -3, 'color' ) . ';';
 
         $h2_light_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
-        $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        if ( true == $image_exists ) {
+            $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+        }else{
+            $h2_light_background .= ";";
+        }
         $h2_light_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
     }
     switch ( $name ) {
@@ -1873,6 +1905,13 @@ function raindrops_design_output( $name = 'dark' ) {
             } else {
 
                 $raindrops_footer_color = '#000';
+            }
+            if ( !empty( $raindrops_footer_link_color ) ) {
+
+                $raindrops_footer_link_color = $raindrops_footer_link_color;
+            } else {
+
+                $raindrops_footer_link_color = '#000';
             }
             if ( !empty( $raindrops_header_color ) ) {
 
@@ -1900,6 +1939,13 @@ function raindrops_design_output( $name = 'dark' ) {
             } else {
 
                 $raindrops_footer_color = '#fff';
+            }
+            if ( !empty( $raindrops_footer_link_color ) ) {
+
+                $raindrops_footer_link_color = $raindrops_footer_link_color;
+            } else {
+
+                $raindrops_footer_link_color = '#fff';
             }
 
             if ( !empty( $raindrops_header_color ) ) {
@@ -1930,7 +1976,13 @@ function raindrops_design_output( $name = 'dark' ) {
 
                 $raindrops_footer_color = '#333';
             }
+            if ( !empty( $raindrops_footer_link_color ) ) {
 
+                $raindrops_footer_link_color = $raindrops_footer_link_color;
+            } else {
+
+                $raindrops_footer_link_color = '#fff';
+            }
             if ( !empty( $raindrops_header_color ) ) {
 
                 $raindrops_header_color = $raindrops_header_color;
@@ -1954,7 +2006,13 @@ function raindrops_design_output( $name = 'dark' ) {
 
                 $raindrops_footer_color = '#000';
             }
+            if ( !empty( $raindrops_footer_link_color ) ) {
 
+                $raindrops_footer_link_color = $raindrops_footer_link_color;
+            } else {
+
+                $raindrops_footer_link_color = '#000';
+            }
             if ( !empty( $raindrops_header_color ) ) {
 
                 $raindrops_header_color = $raindrops_header_color;
@@ -1979,18 +2037,28 @@ function raindrops_design_output( $name = 'dark' ) {
 
             foreach ( $regs as $reg ) {
 
-                if ( isset( $$reg[ 1 ] ) ) {
+                if ( isset( $$reg[1] ) ) {
 
-                    $content = str_replace( $reg[ 0 ], $$reg[ 1 ], $content );
+                    $content = str_replace( $reg[0], $$reg[1], $content );
                 } else {
 
-                    $content = str_replace( $reg[ 0 ], '/*cannot bind data [%' . $reg[ 1 ] . '%]*/', $content );
+                    $content = str_replace( $reg[0], '/*cannot bind data [%' . $reg[1] . '%]*/', $content );
                 }
             }
+        }
+        
+        if ( $navigation_title_img == 'none'){
+            
+            $content = str_replace( $raindrops_images_path. $navigation_title_img, '', $content );
+        }
+        if ($raindrops_footer_image == 'none'){
+            
+            $content = str_replace( $raindrops_images_path. $navigation_title_img, '', $content );
         }
         return $content;
     }
 }
+
 /**
  * register style name
  *
@@ -2005,7 +2073,8 @@ function raindrops_register_styles( $style_name ) {
         return false;
     }
     static $vals;
-    $vals[ $style_name ] = $style_name;
+    $vals[$style_name] = $style_name;
     return $vals;
 }
+
 ?>

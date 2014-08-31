@@ -1,17 +1,17 @@
 <?php
 /**
- * recent_post_group_by_category_widget
+ * raindrops_recent_post_group_by_category_widget
  * 
  * 
  * 
  */
-if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
+if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
-    class recent_post_group_by_category_widget extends WP_Widget {
+    class raindrops_recent_post_group_by_category_widget extends WP_Widget {
 
         function __construct() {
             parent::__construct(
-                    'recent-post-groupby-cat', __( 'Category New Post [Raindrops]', 'Raindrops' ), array( 'description' => __( 'Show latest posts that were grouped for each category', 'Raindrops' ), )
+                    'recent-post-groupby-cat', esc_html__( 'Category New Post [Raindrops]', 'Raindrops' ), array( 'description' => esc_html__( 'Show latest posts that were grouped for each category', 'Raindrops' ), )
             );
         }
 
@@ -64,7 +64,7 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
             } else {
 
                 $category_default = get_option( 'default_category' );
-                $checked_array = array( $category_default );
+                $checked_array    = array( $category_default );
             }
             ?>
 
@@ -84,17 +84,12 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
                 $check_list = '<div style="display:inline-block;padding:.5em;">'
                         . '<input type="checkbox" name="%1$s" id="%3$s" value="%2$d" %5$s>'
                         . '<label for="%3$s">%4$s</label></div>';
-                
-                if ( isset(  $categories ) && is_array( $categories ) ) {
+
+                if ( isset( $categories ) && is_array( $categories ) ) {
                     foreach ( $categories as $category ) {
                         if ( is_object( $category ) && isset( $category->term_id ) && isset( $category->name ) ) {
-                            
-                            printf( $check_list, 
-                                    $this->get_field_name( 'category' ) . '[]', 
-                                    $category->term_id, 
-                                    $this->get_field_id( $category->name ) . '[]', 
-                                    $category->name, 
-                                    $this->raindrops_checked( $checked_array, $category->term_id )
+
+                            printf( $check_list, $this->get_field_name( 'category' ) . '[]', $category->term_id, $this->get_field_id( $category->name ) . '[]', $category->name, $this->raindrops_checked( $checked_array, $category->term_id )
                             );
                         }
                     }
@@ -130,11 +125,11 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
      * 
      * @since 1.234
      */
-    if ( !function_exists( 'register_recent_post_group_by_category' ) ) {
+    if ( !function_exists( 'raindrops_register_recent_post_group_by_category' ) ) {
 
-        function register_recent_post_group_by_category() {
+        function raindrops_register_recent_post_group_by_category() {
 
-            register_widget( 'recent_post_group_by_category_widget' );
+            register_widget( 'raindrops_recent_post_group_by_category_widget' );
         }
 
     }
@@ -304,221 +299,279 @@ if ( !class_exists( 'recent_post_group_by_category_widget' ) ) {
         }
 
     }
- /**
-  * 
-  * 
-  * 
-  * @since 1.238
-  */
-if ( !function_exists( 'register_raindrops_pinup_entry_Widget' ) ) {
+    /**
+     * 
+     * 
+     * 
+     * @since 1.238
+     */
+    if ( !function_exists( 'raindrops_register_pinup_entry_Widget' ) ) {
 
-    function register_raindrops_pinup_entry_Widget() {
+        function raindrops_register_pinup_entry_Widget() {
 
-        register_widget( 'raindrops_pinup_entry_Widget' );
+            register_widget( 'raindrops_pinup_entry_Widget' );
+        }
+
     }
 
-}
+    class raindrops_pinup_entry_Widget extends WP_Widget {
 
-class raindrops_pinup_entry_Widget extends WP_Widget {
+        function __construct() {
 
-    function __construct() {
-
-        $widget_ops = array(
-            'classname'   => 'raindrops-pinup-entries',
-            'description' => esc_html__( 'Display Pinup entries', 'Raindrops' )
-        );
-        parent::WP_Widget( false, esc_html__( 'Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
-        wp_reset_query();
-    }
-
-    function widget( $args, $instance ) {
-
-        extract( $args );
-        echo $before_widget;
-
-        if ( preg_match( '!,!', $instance['id'] ) ) {
-
-            $instance['id'] = explode( ',', $instance['id'] );
-            $count          = count( $instance['id'] );
-            $num            = rand( 0, $count - 1 );
-            $instance['id'] = $instance['id'][$num];
-        }
-        if ( isset( $instance['inline_style'] ) ) {
-
-            $style = str_replace( PHP_EOL, '', $instance['inline_style'] );
-            echo '<div style="' . $style . '">';
-        } else {
-
-            echo '<div>';
-        }
-        if ( $instance['content'] == 'content' || $instance['content'] == 'excerpt' ) {
-
-            $posts = get_posts( array( 'include' => absint( $instance['id'] ), 'post_type' => sanitize_key( $instance['type'] ) ) );
-
-            $html_title = '<h2 class="title" id="approach-%1$s"><a href="%2$s">%3$s</a></h2>';
-
-            foreach ( $posts as $post ) {
-                setup_postdata( $post );
-
-                printf( $html_title, absint( $post->ID ), esc_url( get_permalink( $post->ID ) ), get_the_title( $post->ID ) );
-
-                if ( isset( $instance['content'] ) and $instance['content'] == 'excerpt' ) {
-
-                    the_excerpt();
-                } else {
-
-                    $more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . get_the_ID() . '</span>';
-                    the_content( $more_link_text );
-                }
-            }
-
-            wp_reset_postdata();
-        }
-
-        if ( $instance['content'] == 'attachment' ) {
-
-            $args            = array(
-                'post_type'   => 'attachment',
-                'numberposts' => -1,
-                'post_status' => 'public',
-                'post_parent' => $instance['id']
+            $widget_ops = array(
+                'classname'   => 'raindrops-pinup-entries',
+                'description' => esc_html__( 'Display Pinup entries', 'Raindrops' )
             );
-            $attachments     = get_posts( $args );
-            $attachments_num = count( $attachments );
-            if ( $attachments_num > 1 ) {
-                $attachment_key = rand( 0, $attachments_num - 1 );
+            parent::WP_Widget( false, esc_html__( 'Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
+            wp_reset_query();
+        }
 
-                $post = $attachments[$attachment_key];
-            } elseif ( $attachments_num == 1 ) {
-                $post = $attachments[0];
-            } else {
-                
+        function widget( $args, $instance ) {
+            
+            global $attachment;
+
+            extract( $args );
+            echo $before_widget;
+
+            if ( preg_match( '!,!', $instance['id'] ) ) {
+
+                $instance['id'] = explode( ',', $instance['id'] );
+                $count          = count( $instance['id'] );
+                $num            = rand( 0, $count - 1 );
+                $instance['id'] = $instance['id'][$num];
             }
-            if ( $attachments_num > 0 ) {
-                setup_postdata( $post );
+            if ( isset( $instance['inline_style'] ) ) {
+
+                $style = str_replace( PHP_EOL, '', $instance['inline_style'] );
+                echo '<div style="' . $style . '">';
+            } else {
+
+                echo '<div>';
+            }
+            if ( ( $instance['content'] == 'content' || $instance['content'] == 'excerpt' ) && !is_single( $instance['id'] ) ) {
+
+                $posts = get_posts( array( 'include' => absint( $instance['id'] ), 'post_type' => sanitize_key( $instance['type'] ) ) );
+
+                $html_title = '<h2 class="title" id="approach-%1$s"><a href="%2$s">%3$s</a></h2>';
+
+                foreach ( $posts as $post ) {
+                    setup_postdata( $post );
+
+                    printf( $html_title, absint( $post->ID ), esc_url( get_permalink( $post->ID ) ), get_the_title( $post->ID ) );
+
+                    if ( isset( $instance['content'] ) and $instance['content'] == 'excerpt' ) {
+
+                        the_excerpt();
+                    } else {
 
 
-                $html = '<a href="%1$s" class="approach-image">%2$s</a>';
+                        $raindrops_pinup_content = $post->post_content;
 
-                printf( $html, get_permalink( $instance['id'] ), wp_get_attachment_image( $post->ID, apply_filters('raindrops_pinup_image_size', 'medium', get_the_ID() ) ) );
 
-                $html = '<h2 class="entry-title raindrops-entrywidget-attachment-title" id="approach-%2$s">%1$s</h2>';
 
-                printf( $html, get_the_title( $instance['id'] ), absint( $instance['id'] ) );
+                        if ( preg_match( '/<!--more[^-]*-->/u', $raindrops_pinup_content, $matches ) ) {
+
+                            list( $raindrops_pinup_content, $raindrops_pinup_sub_content ) = explode( $matches[0], $raindrops_pinup_content, 2 );
+
+                            $raindrops_pinup_content = apply_filters( 'the_content', $raindrops_pinup_content );
+                            $raindrops_pinup_content = apply_filters( 'raindrops_entry_content', $raindrops_pinup_content );
+                            $raindrops_pinup_content = str_replace( ']]>', ']]&gt;', $raindrops_pinup_content );
+
+                            echo $raindrops_pinup_content;
+                        } elseif ( preg_match( '/<!--nextpage-->/u', $raindrops_pinup_content, $matches ) ) {
+
+                            list( $raindrops_pinup_content, $raindrops_pinup_sub_content ) = explode( $matches[0], $raindrops_pinup_content, 2 );
+
+                            $raindrops_pinup_content = apply_filters( 'the_content', $raindrops_pinup_content );
+                            $raindrops_pinup_content = apply_filters( 'raindrops_entry_content', $raindrops_pinup_content );
+                            $raindrops_pinup_content = str_replace( ']]>', ']]&gt;', $raindrops_pinup_content );
+
+                            echo $raindrops_pinup_content;
+                        } else {
+                            the_content();
+                        }
+                    }
+                }
 
                 wp_reset_postdata();
             }
+
+            if ( $instance['content'] == 'attachment' && !is_single( $instance['id'] ) ) {
+
+                $args            = array(
+                    'post_type'   => 'attachment',
+                    'numberposts' => -1,
+                    'post_status' => 'public',
+                    'post_parent' => $instance['id']
+                );
+                $attachments     = get_posts( $args );
+                
+              
+                $attachments_num = count( $attachments );
+                if ( $attachments_num > 1 ) {
+                    $attachment_key = rand( 0, $attachments_num - 1 );
+
+                    $post = $attachments[$attachment_key];
+                } elseif ( $attachments_num == 1 ) {
+                    $post = $attachments[0];
+                } else {
+                    
+                } 
+
+                if ( $attachments_num > 0 ) {
+                    setup_postdata( $post );
+
+                    $raindrops_image_size = 'midium';
+
+                    if ( raindrops_warehouse_clone( 'raindrops_right_sidebar_width_percent' ) > 25 ) {
+                        $raindrops_image_size = 'large';
+                    }
+
+                    $html = '<a href="%1$s" class="approach-image">%2$s</a>';
+                    
+                    $check_alt_exists = get_post_meta($post->ID, '_wp_attachment_image_alt', true);
+                    
+                    if ( ! empty( $check_alt_exists ) ) {
+
+                        $alt_attribute = esc_attr( $check_alt_exists );
+                    } else {
+
+                        $alt_attribute = wp_kses( get_the_title( $instance['id'] ), array() );
+                    }
+                    $attr = array(
+                        'alt' => trim( $alt_attribute ),
+                    );
+
+                    printf( $html, get_permalink( $instance['id'] ), wp_get_attachment_image( $post->ID, apply_filters( 'raindrops_pinup_image_size', $raindrops_image_size, get_the_ID() ), false, $attr ) );
+
+                    $html = '<h2 class="entry-title raindrops-entrywidget-attachment-title" id="approach-%2$s">%1$s</h2>';
+
+                    printf( $html, get_the_title( $instance['id'] ), absint( $instance['id'] ) );
+
+                    wp_reset_postdata();
+                }
+            }
+
+            if ( $instance['content'] == 'featured' && !is_single( $instance['id'] ) ) {
+
+
+                if ( has_post_thumbnail( $instance['id'] ) ) {
+
+                    $html = '<a href="%1$s" class="approach-image">%2$s</a>';
+
+                    $raindrops_image_size = 'midium';
+
+                    if ( raindrops_warehouse_clone( 'raindrops_right_sidebar_width_percent' ) > 25 ) {
+
+                        $raindrops_image_size = 'large';
+                    }
+                    $alt_attribute = wp_kses( get_the_title( $instance['id'] ), array() );
+                    
+                    $attr = array(
+                        'alt' => trim( $alt_attribute ),
+                    );
+
+                    printf( $html, esc_url( get_permalink( $instance['id'] ) ), get_the_post_thumbnail( $instance['id'], apply_filters( 'raindrops_pinup_image_size', $raindrops_image_size, get_the_ID() ) ), $attr );
+
+                    $html = '<h2 class="entry-title raindrops-entrywidget-attachment-title" id="approach-%2$s">%1$s</h2>';
+
+                    printf( $html, get_the_title( $instance['id'] ), absint( $instance['id'] ) );
+                } else {
+
+                    $html = '<h2 class="entry-title raindrops-entrywidget-attachment-title" id="approach-%2$s"><a href="%3$s" class="approach-image">%1$s</a></h2>';
+
+                    printf( $html, get_the_title( $instance['id'] ), absint( $instance['id'] ), esc_url( get_permalink( $instance['id'] ) ) );
+                }
+            }
+
+            echo '</div>';
+            echo $after_widget;
         }
 
-        if ( $instance['content'] == 'featured' ) {
+        function update( $new_instance, $old_instance ) {
 
+            $instance['id']           = strip_tags( stripslashes( $new_instance['id'] ) );
+            $instance['content']      = strip_tags( stripslashes( $new_instance['content'] ) );
+            $instance['type']         = strip_tags( stripslashes( $new_instance['type'] ) );
+            $instance['inline_style'] = strip_tags( stripslashes( $new_instance['inline_style'] ) );
 
-            if ( has_post_thumbnail( $instance['id'] ) ) {
+            return $instance;
+        }
 
-                $html = '<a href="%1$s" class="approach-image">%2$s</a>';
+        function form( $instance ) {
+            $id      = get_theme_mod( 'id' );
+            $content = get_theme_mod( 'content' );
+            $type    = get_theme_mod( 'type' );
 
-                printf( $html, esc_url( get_permalink( $instance['id'] ) ), get_the_post_thumbnail( $instance['id'], apply_filters('raindrops_pinup_image_size', 'medium', get_the_ID() ) ) );
+            if ( isset( $instance['id'] ) ) {
 
-                $html = '<h2 class="entry-title raindrops-entrywidget-attachment-title" id="approach-%2$s">%1$s</h2>';
+                $id = esc_attr( $instance['id'] );
+            }
+            if ( isset( $instance['content'] ) ) {
 
-                printf( $html, get_the_title( $instance['id'] ), absint( $instance['id'] ) );
+                $content = esc_attr( $instance['content'] );
+
+                $raindrops_content_checked = checked( $instance['content'], "content", false );
+                $puddele_excerpt_checked   = checked( $instance['content'], "excerpt", false );
+            }
+            if ( isset( $instance['type'] ) ) {
+
+                $type = esc_attr( $instance['type'] );
+            }
+
+            if ( isset( $instance['inline_style'] ) ) {
+
+                $style = esc_textarea( $instance['inline_style'] );
+            } else {
+                $style = '';
+            }
+
+            if ( empty( $raindrops_content_checked ) && empty( $puddele_excerpt_checked ) ) {
+
+                $checked_default = "checked='checked'";
             } else {
 
-                $html = '<h2 class="entry-title raindrops-entrywidget-attachment-title" id="approach-%2$s"><a href="%3$s" class="approach-image">%1$s</a></h2>';
-
-                printf( $html, get_the_title( $instance['id'] ), absint( $instance['id'] ), escurl( get_permalink( $instance['id'] ) ) );
+                $checked_default = "";
             }
+
+            $raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
+
+            printf( $raindrops_html, esc_html__( 'Post ID', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'Comma separated IDs[Randum Displayed]', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )
+            );
+
+            $raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
+
+            printf( $raindrops_html, esc_html__( 'Post Type', 'Raindrops' ), esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "post", false ), $checked_default, esc_html__( 'Post:', 'Raindrops' ), 'post'
+            );
+
+            $raindrops_html = '<li><label ><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
+
+            printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page', 'Raindrops' ), 'page'
+            );
+
+            $raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
+
+            printf( $raindrops_html, esc_html( 'Content Type', 'Raindrops' ), esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "content", false ), $checked_default, esc_html__( 'Content:', 'Raindrops' ), 'content' );
+
+            $raindrops_html = '<li><label"><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
+
+            printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "excerpt", false ), esc_html__( 'Excerpt:', 'Raindrops' ), 'excerpt'
+            );
+
+            $raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
+
+            printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "attachment", false ), esc_html__( 'Attachment IMG:', 'Raindrops' ), 'attachment'
+            );
+
+            $raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
+
+            printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), esc_html__( 'Featured IMG', 'Raindrops' ), 'featured'
+            );
+
+            $raindrops_html = '<label><h4>Style</h4><textarea id="%1$s" name="%2$s" style="width:320px;max-widht:100%;margin-bottom:2em;display:block;" rows="8">%3$s</textarea></label><br />';
+
+            printf( $raindrops_html, esc_attr( $this->get_field_id( 'inline_style' ) ), esc_attr( $this->get_field_name( 'inline_style' ) ), $style );
         }
 
-        echo '</div>';
-        echo $after_widget;
     }
-
-    function update( $new_instance, $old_instance ) {
-
-        $instance['id']           = strip_tags( stripslashes( $new_instance['id'] ) );
-        $instance['content']      = strip_tags( stripslashes( $new_instance['content'] ) );
-        $instance['type']         = strip_tags( stripslashes( $new_instance['type'] ) );
-        $instance['inline_style'] = strip_tags( stripslashes( $new_instance['inline_style'] ) );
-
-        return $instance;
-    }
-
-    function form( $instance ) {
-        $id      = get_theme_mod( 'id' );
-        $content = get_theme_mod( 'content' );
-        $type    = get_theme_mod( 'type' );
-
-        if ( isset( $instance['id'] ) ) {
-
-            $id = esc_attr( $instance['id'] );
-        }
-        if ( isset( $instance['content'] ) ) {
-
-            $content = esc_attr( $instance['content'] );
-
-            $raindrops_content_checked = checked( $instance['content'], "content", false );
-            $puddele_excerpt_checked   = checked( $instance['content'], "excerpt", false );
-        }
-        if ( isset( $instance['type'] ) ) {
-
-            $type = esc_attr( $instance['type'] );
-        }
-
-        if ( isset( $instance['inline_style'] ) ) {
-
-            $style = esc_textarea( $instance['inline_style'] );
-        } else {
-            $style = '';
-        }
-
-        if ( empty( $raindrops_content_checked ) && empty( $puddele_excerpt_checked ) ) {
-
-            $checked_default = "checked='checked'";
-        } else {
-
-            $checked_default = "";
-        }
-
-        $raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
-
-        printf( $raindrops_html, esc_html__( 'Post ID', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'Comma separated IDs[Randum Displayed]', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )
-        );
-
-        $raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
-
-        printf( $raindrops_html, esc_html__( 'Post Type', 'Raindrops' ), esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "post", false ), $checked_default, esc_html__( 'Post:', 'Raindrops' ), 'post'
-        );
-
-        $raindrops_html = '<li><label ><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
-
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page', 'Raindrops' ), 'page'
-        );
-
-        $raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
-
-        printf( $raindrops_html, esc_html('Content Type', 'Raindrops'), esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "content", false ), $checked_default, esc_html__( 'Content:', 'Raindrops' ), 'content');
-
-        $raindrops_html = '<li><label"><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
-
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "excerpt", false ), esc_html__( 'Excerpt:', 'Raindrops' ), 'excerpt'
-        );
-
-        $raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
-
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "attachment", false ), esc_html__( 'Attachment IMG:', 'Raindrops' ), 'attachment'
-        );
-
-        $raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
-
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), esc_html__( 'Featured IMG', 'Raindrops' ), 'featured'
-        );
-
-        $raindrops_html = '<label><h4>Style</h4><textarea id="%1$s" name="%2$s" style="width:320px;max-widht:100%;margin-bottom:2em;display:block;" rows="8">%3$s</textarea></label><br />';
-
-        printf( $raindrops_html, esc_attr( $this->get_field_id( 'inline_style' ) ), esc_attr( $this->get_field_name( 'inline_style' ) ), $style );
-    }
-
-}
-
-?>
+    ?>

@@ -2,18 +2,38 @@
 /**
  * 
  * @param type $input
+ * @return type
+ */
+function raindrops_footer_link_color_validate( $input ) {
+
+    $input = str_replace( "#", "", $input );
+
+    if ( ctype_xdigit( $input ) ) {
+
+        return '#' . $input;
+    } else {
+
+        return raindrops_options_default_value( __FUNCTION__ );
+    }
+    return $input;
+}
+
+/**
+ * 
+ * @param type $input
  * @return string
  * @since 1.238
  */
 function raindrops_entry_content_is_search_validate( $input ) {
-    
-    if( $input == 'yes') {
-        
+
+    if ( $input == 'yes' ) {
+
         return 'yes';
     }
-    
+
     return 'no';
 }
+
 /**
  * 
  * @param type $input
@@ -21,14 +41,15 @@ function raindrops_entry_content_is_search_validate( $input ) {
  * @since 1.238
  */
 function raindrops_entry_content_is_tag_validate( $input ) {
-    
-    if( $input == 'yes') {
-        
+
+    if ( $input == 'yes' ) {
+
         return 'yes';
     }
-    
+
     return 'no';
 }
+
 /**
  * 
  * @param type $input
@@ -36,14 +57,15 @@ function raindrops_entry_content_is_tag_validate( $input ) {
  * @since 1.238
  */
 function raindrops_entry_content_is_category_validate( $input ) {
-    
-    if( $input == 'yes') {
-        
+
+    if ( $input == 'yes' ) {
+
         return 'yes';
     }
-    
+
     return 'no';
 }
+
 /**
  * 
  * @param type $input
@@ -51,14 +73,15 @@ function raindrops_entry_content_is_category_validate( $input ) {
  * @since 1.238
  */
 function raindrops_entry_content_is_home_validate( $input ) {
-    
-    if( $input == 'yes') {
-        
+
+    if ( $input == 'yes' ) {
+
         return 'yes';
     }
-    
+
     return 'no';
 }
+
 /**
  * Validate admin panel form value.
  *
@@ -504,11 +527,11 @@ if ( !function_exists( 'raindrops_update_theme_option' ) ) {
         $result = false;
 
         if ( !isset( $option ) or empty( $option ) ) {
-            
+
             return $result;
         }
         if ( !isset( $new_value ) or empty( $new_value ) ) {
-            
+
             return $result;
         }
 
@@ -516,7 +539,7 @@ if ( !function_exists( 'raindrops_update_theme_option' ) ) {
 
             $old_val = $options[$option];
 
-            if ( $old_val !==  $new_value ) {
+            if ( $old_val !== $new_value ) {
 
                 if ( !function_exists( $validate_function_name ) ) {
 

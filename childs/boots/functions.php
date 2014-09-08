@@ -1,5 +1,4 @@
 <?php
-
 /**
  *  Custom Header for boots Theme
  *
@@ -122,4 +121,3 @@ if ( !function_exists( 'boots_link_change' ) ) {
     }
 
 }
-    

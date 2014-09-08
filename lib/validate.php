@@ -31,7 +31,7 @@ function raindrops_entry_content_is_search_validate( $input ) {
         return 'yes';
     }
 
-    return 'no';
+    return 'none';
 }
 
 /**
@@ -47,7 +47,7 @@ function raindrops_entry_content_is_tag_validate( $input ) {
         return 'yes';
     }
 
-    return 'no';
+    return 'none';
 }
 
 /**
@@ -63,7 +63,7 @@ function raindrops_entry_content_is_category_validate( $input ) {
         return 'yes';
     }
 
-    return 'no';
+    return 'none';
 }
 
 /**
@@ -79,7 +79,7 @@ function raindrops_entry_content_is_home_validate( $input ) {
         return 'yes';
     }
 
-    return 'no';
+    return 'none';
 }
 
 /**

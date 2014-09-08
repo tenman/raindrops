@@ -1,20 +1,18 @@
-﻿msgid ""
+msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 16:18+0900\n"
-"PO-Revision-Date: Thu Jul 10 2014 23:54:05 GMT+0200\n"
-"Last-Translator: Kornel <kml1960@tlen.pl>\n"
+"PO-Revision-Date: 2014-09-02 15:33+0900\n"
+"Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "Language: Polish\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
-"&&(n%100<10||n%100 >= 20)? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 &&(n"
+"%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Japanese\n"
-"X-Poedit-Country: JAPAN\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
 "__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
@@ -22,9 +20,9 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Poedit-Basepath: e:/apache2.2/htdocs/\n"
 "X-Textdomain-Support: yes\n"
-"X-Poedit-SearchPath-0: raindrops\n"
 "X-Loco-Target-Locale: pl_PL\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: raindrops\n"
 
 #. @ Raindrops
 #: raindrops/404.php:25
@@ -57,8 +55,7 @@ msgid "Profile"
 msgstr "Profil"
 
 #. @ Raindrops
-#: raindrops/author.php:68
-#: raindrops/functions.php:1516
+#: raindrops/author.php:68 raindrops/functions.php:1516
 msgid "Website"
 msgstr "Strona Internetowa"
 
@@ -97,15 +94,13 @@ msgid "Recent posts"
 msgstr "Ostatnie posty"
 
 #. @ Raindrops
-#: raindrops/blank_front.php:45
-#: raindrops/functions.php:4585
+#: raindrops/blank_front.php:45 raindrops/functions.php:4585
 #: raindrops/functions.php:4651
 msgid "Categories"
 msgstr "Kategorie"
 
 #. @ Raindrops
-#: raindrops/blank_front.php:61
-#: raindrops/functions.php:4699
+#: raindrops/blank_front.php:61 raindrops/functions.php:4699
 msgid "Tags"
 msgstr "Tagi"
 
@@ -130,10 +125,10 @@ msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
 msgstr[0] "Jedna odpowiedź na %2$s"
 msgstr[1] "%1$s odpowiedzi na to %2$s"
+msgstr[2] "%1$s odpowiedzi na to %2$s"
 
 #. @ Raindrops
-#: raindrops/comments.php:46
-#: raindrops/comments.php:59
+#: raindrops/comments.php:46 raindrops/comments.php:59
 msgid "Older Comments"
 msgstr "Starsze komentarze"
 
@@ -188,27 +183,24 @@ msgid "Saturday"
 msgstr "Sobota"
 
 #. @ Raindrops
-#: raindrops/date.php:116
-#: raindrops/functions.php:2425
+#: raindrops/date.php:116 raindrops/functions.php:2425
 msgid "Yearly Archives"
 msgstr "Wcześniejsze archiwa"
 
 #. @ Raindrops
-#: raindrops/date.php:122
-#: raindrops/functions.php:2413
+#: raindrops/date.php:122 raindrops/functions.php:2413
 msgid "Monthly Archives"
 msgstr "Archiwum miesiąca"
 
 #. @ Raindrops
-#: raindrops/date.php:127
-#: raindrops/functions.php:2408
+#: raindrops/date.php:127 raindrops/functions.php:2408
 msgid "Daily Archives"
 msgstr "Archiwum dnia"
 
 #. @ Raindrops
 #: raindrops/footer.php:39
 msgid "and"
-msgstr "&\n"
+msgstr "&"
 
 #: raindrops/footer.php:47
 msgid "Entries RSS"
@@ -220,8 +212,7 @@ msgid "Comments RSS"
 msgstr "Komentarze RSS"
 
 #. @ Raindrops
-#: raindrops/footer.php:54
-#: raindrops/footer.php:57
+#: raindrops/footer.php:54 raindrops/footer.php:57
 msgid "Raindrops Theme"
 msgstr "Motyw Raindrops"
 
@@ -257,14 +248,12 @@ msgid "Primary Navigation"
 msgstr "Podstawowa nawigacja"
 
 #. @ Raindrops
-#: raindrops/functions.php:677
-#: raindrops/functions.php:4188
+#: raindrops/functions.php:677 raindrops/functions.php:4188
 msgid "Default Sidebar"
 msgstr "Główny panel boczny"
 
 #. @ Raindrops
-#: raindrops/functions.php:687
-#: raindrops/functions.php:4186
+#: raindrops/functions.php:687 raindrops/functions.php:4186
 msgid "Extra Sidebar"
 msgstr "Dodatkowy panel boczny"
 
@@ -304,8 +293,7 @@ msgid "%1$s at %2$s"
 msgstr "%1$s w %2$s"
 
 #. @ Raindrops
-#: raindrops/functions.php:963
-#: raindrops/functions.php:1004
+#: raindrops/functions.php:963 raindrops/functions.php:1004
 msgid " Edit "
 msgstr "Edytuj"
 
@@ -324,29 +312,26 @@ msgid "Pingback:"
 msgstr "Pingback:"
 
 #. @ Raindrops
-#: raindrops/functions.php:1036
-#: raindrops/functions.php:1039
-#: raindrops/functions.php:1050
-#: raindrops/functions.php:1053
+#: raindrops/functions.php:1036 raindrops/functions.php:1039
+#: raindrops/functions.php:1050 raindrops/functions.php:1053
 msgid "This entry was posted in"
 msgstr "Ten wpis był dodany w kategorii"
 
-#: raindrops/functions.php:1036
-#: raindrops/functions.php:1050
+#: raindrops/functions.php:1036 raindrops/functions.php:1050
 msgid "and tagged"
 msgstr "i oznaczony"
 
 #: raindrops/functions.php:1036
 msgid "Bookmark the"
-msgstr "Bookmark"
+msgstr "Zakładki"
 
 #. @ Raindrops
-#: raindrops/functions.php:1089
-#: raindrops/functions.php:5907
+#: raindrops/functions.php:1089 raindrops/functions.php:5907
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Komentarz"
 msgstr[1] "Komentarze"
+msgstr[2] "Komentarze"
 
 #. @ Raindrops
 #: raindrops/functions.php:1093
@@ -358,8 +343,7 @@ msgstr "Komentarz"
 msgid "%1$s %5$s %2$s %6$s %3$s %4$s"
 msgstr "%1$s %5$s %2$s %6$s %3$s %4$s"
 
-#: raindrops/functions.php:1102
-#: raindrops/functions.php:2338
+#: raindrops/functions.php:1102 raindrops/functions.php:2338
 #, php-format
 msgid "View all posts by %s"
 msgstr "Pokaż wszystkie posty od %s"
@@ -439,14 +423,9 @@ msgid "Dinamic Color Class"
 msgstr "Dynamiczna Clasa koloru"
 
 #. @ Raindrops
-#: raindrops/functions.php:1254
-#: raindrops/functions.php:1273
+#: raindrops/functions.php:1254 raindrops/functions.php:1273
 msgid "code example:please HTML editor mode"
-msgstr ""
-"@ Raindrops\n"
-"\n"
-"przykład kodu: Proszę przejdź do modułu edytora HTML\n"
-"\n"
+msgstr "@ Raindropsprzykład kodu: Proszę przejdź do modułu edytora HTML"
 
 #. @ Raindrops
 #: raindrops/functions.php:1260
@@ -521,14 +500,10 @@ msgstr "Archiwum kategorii"
 msgid "Author Archives"
 msgstr "Archiwum autora"
 
-#: raindrops/functions.php:2441
-#: raindrops/functions.php:2447
-#: raindrops/functions.php:2453
-#: raindrops/functions.php:2459
-#: raindrops/functions.php:2465
-#: raindrops/functions.php:2471
-#: raindrops/functions.php:2477
-#: raindrops/functions.php:2483
+#: raindrops/functions.php:2441 raindrops/functions.php:2447
+#: raindrops/functions.php:2453 raindrops/functions.php:2459
+#: raindrops/functions.php:2465 raindrops/functions.php:2471
+#: raindrops/functions.php:2477 raindrops/functions.php:2483
 #: raindrops/functions.php:2489
 msgid "Post Format"
 msgstr "Format postu"
@@ -560,11 +535,8 @@ msgid " Page %s"
 msgstr " Strona %s"
 
 #. @ Raindrops
-#: raindrops/functions.php:3630
-#: raindrops/functions.php:5806
-#: raindrops/image.php:119
-#: raindrops/image.php:230
-#: raindrops/loop.php:104
+#: raindrops/functions.php:3630 raindrops/functions.php:5806
+#: raindrops/image.php:119 raindrops/image.php:230 raindrops/loop.php:104
 msgid "Trash"
 msgstr "Śmietnik"
 
@@ -652,13 +624,11 @@ msgstr ""
 msgid "Featured Image"
 msgstr "Polecane obrazy"
 
-#: raindrops/functions.php:4518
-#: raindrops/functions.php:6030
+#: raindrops/functions.php:4518 raindrops/functions.php:6030
 msgid "Continue&nbsp;reading "
 msgstr "Czytaj&nbsp;dalej!! "
 
-#: raindrops/functions.php:4518
-#: raindrops/functions.php:6030
+#: raindrops/functions.php:4518 raindrops/functions.php:6030
 msgid "&nbsp;Post ID&nbsp;"
 msgstr "&nbsp;Post ID&nbsp;"
 
@@ -708,11 +678,8 @@ msgid "Empty content"
 msgstr "Wyczyść zawartość"
 
 #. @ Raindrops
-#: raindrops/functions.php:5808
-#: raindrops/functions.php:5910
-#: raindrops/image.php:117
-#: raindrops/image.php:228
-#: raindrops/loop.php:102
+#: raindrops/functions.php:5808 raindrops/functions.php:5910
+#: raindrops/image.php:117 raindrops/image.php:228 raindrops/loop.php:102
 msgid "Edit"
 msgstr "Edycja "
 
@@ -725,10 +692,8 @@ msgid "Newer Entries &raquo;"
 msgstr "Nowsze wpisy &raquo;"
 
 #. @ Raindrops
-#: raindrops/functions.php:5926
-#: raindrops/functions.php:5930
-#: raindrops/functions.php:5940
-#: raindrops/functions.php:5975
+#: raindrops/functions.php:5926 raindrops/functions.php:5930
+#: raindrops/functions.php:5940 raindrops/functions.php:5975
 msgid "Page"
 msgstr "Strona"
 
@@ -737,8 +702,7 @@ msgstr "Strona"
 msgid "Now Page"
 msgstr "Obecna strona"
 
-#: raindrops/functions.php:5963
-#: raindrops/functions.php:5994
+#: raindrops/functions.php:5963 raindrops/functions.php:5994
 msgid "Portfolio Home"
 msgstr "Strona zdjęć"
 
@@ -752,14 +716,12 @@ msgid "Skip to content"
 msgstr "Przejdź do zawartości"
 
 #. @ Raindrops
-#: raindrops/image.php:55
-#: raindrops/image.php:164
+#: raindrops/image.php:55 raindrops/image.php:164
 msgid "Entry : "
 msgstr "Wpis :"
 
 #. @ Raindrops
-#: raindrops/image.php:128
-#: raindrops/image.php:240
+#: raindrops/image.php:128 raindrops/image.php:240
 msgid "Sorry, no attachments matched your criteria."
 msgstr "Przepraszam ale nie ma dodatków o podanych kryteriach."
 
@@ -779,20 +741,17 @@ msgid "Author:"
 msgstr "Autor:"
 
 #. @ Raindrops
-#: raindrops/part-blog.php:97
-#: raindrops/part-gallery.php:97
+#: raindrops/part-blog.php:97 raindrops/part-gallery.php:97
 msgid "Leave a comment"
 msgstr "Napisz komentarz "
 
 #. @ Raindrops
-#: raindrops/part-blog.php:98
-#: raindrops/part-gallery.php:97
+#: raindrops/part-blog.php:98 raindrops/part-gallery.php:97
 msgid "1 Comment"
 msgstr "1 komentarz"
 
 #. @ Raindrops
-#: raindrops/part-blog.php:99
-#: raindrops/part-gallery.php:97
+#: raindrops/part-blog.php:99 raindrops/part-gallery.php:97
 msgid "% Comments"
 msgstr "% Komentarzy"
 
@@ -832,8 +791,7 @@ msgid "must not contain html tags"
 msgstr "nie może zawierać html tags"
 
 #. @ Raindrops
-#: raindrops/searchform.php:18
-#: raindrops/searchform.php:19
+#: raindrops/searchform.php:18 raindrops/searchform.php:19
 #: raindrops/searchform.php:29
 msgid "Search"
 msgstr "Wyszukiwanie"
@@ -933,7 +891,8 @@ msgstr "Obraz tła tytułu Widget"
 msgid ""
 "The header image can be chosen from among three kinds [h2.png,h2b.png,h2c."
 "png]."
-msgstr "Obraz nagłówka może być wybrany z trzech typów [h2.png,h2b.png,h2c.png]."
+msgstr ""
+"Obraz nagłówka może być wybrany z trzech typów [h2.png,h2b.png,h2c.png]."
 
 #. @ Raindrops
 #: raindrops/lib/option-panel.php:81
@@ -1027,7 +986,8 @@ msgstr "to określenie jest wymagane."
 
 #: raindrops/lib/option-panel.php:141
 msgid "It can decide to divide the width of which place of extra sidebar"
-msgstr "To może określić podział szerokości miejsca dodatkowego panelu bocznego"
+msgstr ""
+"To może określić podział szerokości miejsca dodatkowego panelu bocznego"
 
 #: raindrops/lib/option-panel.php:142
 msgid "and to give it. Please select it from among 25% 33% 50% 66% 75%. "
@@ -1090,8 +1050,7 @@ msgid "Saved Database table name:"
 msgstr "Zapisz nazwę tabeli bazy danych jako:"
 
 #. @ Raindrops
-#: raindrops/lib/option-panel.php:685
-#: raindrops/lib/option-panel.php:713
+#: raindrops/lib/option-panel.php:685 raindrops/lib/option-panel.php:713
 #, php-format
 msgid "updated %1$s successfully."
 msgstr "uaktualnienie %1$s zakończone powodzeniem."
@@ -1153,8 +1112,7 @@ msgid "Go to Base Color"
 msgstr "Przejdź do podstawowego koloru"
 
 #. @ Raindrops
-#: raindrops/lib/option-panel.php:881
-#: raindrops/lib/option-panel.php:884
+#: raindrops/lib/option-panel.php:881 raindrops/lib/option-panel.php:884
 msgid "Value"
 msgstr "Wartość"
 
@@ -1228,8 +1186,7 @@ msgid "top:"
 msgstr "góra:"
 
 #. @ Raindrops
-#: raindrops/lib/option-panel.php:1178
-#: raindrops/lib/option-panel.php:1181
+#: raindrops/lib/option-panel.php:1178 raindrops/lib/option-panel.php:1181
 #: raindrops/lib/option-panel.php:1184
 msgid "px"
 msgstr "px"

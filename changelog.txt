@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:1.241
+	Modify
+		duplicated function change from get_all_category_ids() to get_terms( 'category', 'fields=ids' )
+	Fixed
+		Header Image display improperly.
+			when using child theme with loop pages.
+		Theme customizer and theme option.
+			post excerpt setting works improperly.
+			when show excerpt shows the content.
+		Playlist dark works improperly.
+			It is core CSS bug. add theme patch style.
+	Modified
+		When theme option color type dark apply[playlist style="dark"]
+		Another color type [playlist style="light"]
+		attribute change automaticaly.( using shortcode_atts_playlist filter )
+----------------------------------------------
+Changelog -----------------------------------
 version:1.240
 ----------------------------------------------
 Changelog -----------------------------------

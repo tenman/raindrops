@@ -188,7 +188,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
             global $post;
 
-            $category_ids = array_map( 'raindrops_category_id2name', get_all_category_ids() );
+            $category_ids = array_map( 'raindrops_category_id2name', get_terms( 'category', 'fields=ids' ) );
             $category_ids = array_flip( $category_ids );
             $category_ids = array_map( 'raindrops_reset_val', $category_ids );
 

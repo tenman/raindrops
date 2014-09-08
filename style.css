@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.240
+Version: 1.241
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2898,7 +2898,14 @@ sup {
     margin:48px auto;
     max-width:100%;
     width:320px!important;
+
 }
+.rsidebar .mejs-container,
+.lsidebar .mejs-container{
+    margin:24px auto;
+    max-width:100%;
+}
+
 
 /* optional responsive grid  width < 640px then 100%
         example
@@ -3481,7 +3488,21 @@ ol.list-of-post-list .entry-title{
     height:auto;
     margin-top:2.6em;
 }
+.raindrops-pinup-entries iframe{
+    max-width:100%;
+   max-height:100%;
+}
+/* playlist shortcode*/
 
+.widget .wp-playlist-dark,
+.entry-content .wp-playlist-dark{
+
+    border:1px solid rgba(222,222,222,.4);
+}
+.wp-playlist-dark .wp-playlist-item .wp-playlist-caption{
+
+    color: #ccc;
+}
 /* plugins issue */
 /* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
 .entry-content .crayon-table{
@@ -3528,4 +3549,5 @@ div.bbp-template-notice, div.indicator-hint{
 .page-template-page-templatesfull-width-php #container{
     width:100%;
 }
+
 

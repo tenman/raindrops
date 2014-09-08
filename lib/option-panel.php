@@ -209,7 +209,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_entry_content_is_home",
         'option_value' => "content",
         'autoload'     => 'yes',
-        'title'        => esc_html__( "Category Archive Content Type", 'Raindrops' ),
+        'title'        => esc_html__( "Home Entry Content Type", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
         'validate'     => 'raindrops_entry_content_is_home_validate', 
@@ -255,7 +255,6 @@ if ( !isset( $raindrops_base_setting ) ) {
 
     $raindrops_base_setting = $raindrops_base_setting_args;
 }
-
 /**
  * Raindrops option panel
  *
@@ -702,7 +701,7 @@ class raindrops_menu_create {
                     "raindrops_color_scheme" == $key ) ) {
                 continue;
             }
-
+/* commentout @1.241
             if ( raindrops_warehouse( "raindrops_style_type" ) == $raindrops_current_theme_name && ( "raindrops_footer_color" == $key or
                     "raindrops_default_fonts_color" == $key or
                     "raindrops_header_image" == $key or
@@ -713,7 +712,7 @@ class raindrops_menu_create {
                     ) ) {
                 continue;
             }
-
+*/
             $lines .= $excerpt;
             $lines .= $table;
             $lines .= $table_header;

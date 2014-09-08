@@ -1,5 +1,11 @@
 Changelog -----------------------------------
 version:1.241
+	Note
+		Polish Language file not works, Now waiting langage contributers update.
+		Please use English version
+		WordPress 4.0 language settiongs is
+		Dashboard / Settings / Genelral /
+			select Site Language at page bottom
 	Modify
 		duplicated function change from get_all_category_ids() to get_terms( 'category', 'fields=ids' )
 	Fixed

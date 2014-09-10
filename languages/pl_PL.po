@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-09 16:18+0900\n"
-"PO-Revision-Date: 2014-09-02 15:33+0900\n"
-"Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
+"PO-Revision-Date: 2014-09-03 08:22+0100\n"
+"Last-Translator: Kornel <kml1960@tlen.pl>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
-"Language: Polish\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 &&(n"
 "%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-Basepath: e:/apache2.2/htdocs/\n"
 "X-Textdomain-Support: yes\n"
 "X-Loco-Target-Locale: pl_PL\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-SearchPath-0: raindrops\n"
 
 #. @ Raindrops
@@ -124,8 +124,8 @@ msgstr "Wpisz hasło aby zobaczyć komentarze."
 msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
 msgstr[0] "Jedna odpowiedź na %2$s"
-msgstr[1] "%1$s odpowiedzi na to %2$s"
-msgstr[2] "%1$s odpowiedzi na to %2$s"
+msgstr[1] "%1$s odpowiedzi na %2$s"
+msgstr[2] "%1$s odpowiedzi na %2$s"
 
 #. @ Raindrops
 #: raindrops/comments.php:46 raindrops/comments.php:59
@@ -331,7 +331,7 @@ msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "Komentarz"
 msgstr[1] "Komentarze"
-msgstr[2] "Komentarze"
+msgstr[2] "Komentarzy"
 
 #. @ Raindrops
 #: raindrops/functions.php:1093
@@ -425,7 +425,7 @@ msgstr "Dynamiczna Clasa koloru"
 #. @ Raindrops
 #: raindrops/functions.php:1254 raindrops/functions.php:1273
 msgid "code example:please HTML editor mode"
-msgstr "@ Raindropsprzykład kodu: Proszę przejdź do modułu edytora HTML"
+msgstr "przykład kodu:proszę przejdź do trybu edytora HTML"
 
 #. @ Raindrops
 #: raindrops/functions.php:1260

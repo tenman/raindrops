@@ -1,9 +1,14 @@
 Changelog -----------------------------------
 version:1.242
 
-
-
-
+Files Modified
+	childs/boots/style.css
+		line 16 add style selector rd-type-boots #ft
+			Fixed Raindrops theme, so no longer use the footer.png by default,
+			eliminating the problem of font color and background color of the child theme is the same
+	style.css
+		line 3296-3332
+			modify style add for template blank-front.php
 
 modify version:1.241 changelog below
 
@@ -66,36 +71,36 @@ Description of Code Changes
                                     to 'option_value' => "none",
                     line 514 change from 'title'  => esc_html__( "Category Archive Content Type", 'Raindrops' )
                                     to 'title'        => esc_html__( "Home Entry Content Type", 'Raindrops' )
-                
+
                     This Change Raindrops 1.239 NEXT VERSION INFO
                     Raindrops header image ( site title background image ) and footer background image is removed
                     This change was to work properly with child theme ( boots )
                     line 514 is Modify the title wrong
         functions.php
             line 753 Change value $raindrops_excerpt_pages
-                
+
                     This variable is used to define for any page, you can either display a summary
                     Change from is_front_page() to is_home() for The detection of the top page
 
             line 785 Change value $raindrops_display_none_pages
-               
+
                     This variable is used to define for any page, you can either entry_content display none
                     Change from is_front_page() to is_home() for The detection of the top page
 
-            line 3834 raindrops_header_image() conditional if add && is_sigular()   
+            line 3834 raindrops_header_image() conditional if add && is_sigular()
             [Header Image display improperly]
-               
+
                     issue a possible header image display improperly when child theme
 
             line 4956 raindrops_customize_register() add conditional if ( RAINDROPS_USE_LIST_EXCERPT !== false ) and
-            line 5018 raindrops_customize_register() add conditional if ( RAINDROPS_USE_LIST_EXCERPT !== false ) 
+            line 5018 raindrops_customize_register() add conditional if ( RAINDROPS_USE_LIST_EXCERPT !== false )
             [Theme customizer and theme option]
-              
+
                     RAINDROPS_USE_LIST_EXCERPT is false then Not showing Post Content Types.
 
             line 7846 add filter add_filter( 'shortcode_atts_playlist', 'raindrops_play_list_add_atts', 10, 3 );
-            line 7847 add new function raindrops_play_list_add_atts( $out, $pairs, $atts )       
-                
+            line 7847 add new function raindrops_play_list_add_atts( $out, $pairs, $atts )
+
         languages/pl_PL.po  [language]
             This file is language contributer donated (GPL)
             Now waiting update
@@ -167,15 +172,15 @@ Description of Code Changes
                 msgstr "@ Raindropsprzykład kodu: Proszę przejdź do modułu edytora HTML"
                 ///////////////////////////////////////////////////////////////
 
-                po file changes and create mo with Poedit 
-               
+                po file changes and create mo with Poedit
+
         lib/option-panel.php
             line212 Change value $raindrops_base_setting_args
-                Change from sc_html__( "Category Archive Content Type", 'Raindrops' ) to esc_html__( "Home Entry Content Type", 'Raindrops' )                           
-                
+                Change from sc_html__( "Category Archive Content Type", 'Raindrops' ) to esc_html__( "Home Entry Content Type", 'Raindrops' )
+
                     wrong text
-            line 704-715 conditional code commentout 
-                
+            line 704-715 conditional code commentout
+
                     fixed child theme menu not shown
                     For the old code, side effects has not occurred in other parts, commented for examination is continuously
 
@@ -184,27 +189,27 @@ Description of Code Changes
             line 50 raindrops_entry_content_is_tag_validate() return value change from no to none
             line 66 raindrops_entry_content_is_category_validate() return value change from no to none
             line 82 raindrops_entry_content_is_home_validate()  return value change from no to none
-                 
+
                     bug fixed
         lib/widget.php [deprecated]
             line 191 change function from get_all_category_ids() to get_terms( 'category', 'fields=ids' )
         lib/style.css  Playlist dark works improperly
             line 2908 selector .rsidebar .mejs-container, .lsidebar .mejs-container
             [Playlist dark works improperly]
-                 
+
                     playlist apply style
 
             line 3496 selector .raindrops-pinup-entries iframe
-                 
+
                     for pinup widget style
 
             line 3502 selector .widget .wp-playlist-dark,.entry-content .wp-playlist-dark
             [Playlist dark works improperly]
-                 
+
                     playlist apply style
             line 3507 selector .wp-playlist-dark .wp-playlist-item .wp-playlist-caption
             [Playlist dark works improperly]
-                
+
                     patch style
                     @see https://core.trac.wordpress.org/ticket/29530
 ----------------------------------------------

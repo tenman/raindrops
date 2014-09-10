@@ -1527,10 +1527,10 @@ div.menu li {
 .raindrops-accessible-mode #access li:not(.focus)  li a,
 #access .sub-menu li,
 #access .children li{
-   /* pendding 1.240
-    * when mouse hover, improperly border
-    *border:0.07692307692em solid #ccc;
-    */
+    /* pendding 1.240
+     * when mouse hover, improperly border
+     *border:0.07692307692em solid #ccc;
+     */
 }
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
@@ -3293,6 +3293,43 @@ ol.list-of-post-list .entry-title{
     }
 
 }
+@media screen and (max-width : 640px){
+    .page-template-blank_front-php  .raindrops-category-posts li,
+    .page-template-blank_front-php  .raindrops-tag-posts li,
+    .page-template-blank_front-php  .raindrops-recent-posts li{
+        display:block;
+        width:auto;
+        vertical-align:top;
+    }
+    .page-template-blank_front-php #doc3 .raindrops-category-posts li,
+    .page-template-blank_front-php #doc3 .raindrops-tag-posts li,
+    .page-template-blank_front-php #doc3 .raindrops-recent-posts li{
+        display:inline-block;
+        width:100%;
+        vertical-align:top;
+    }
+    .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li,
+    .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li,
+    .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li{
+        margin:1em 0;
+    }
+    .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li .thumb img,
+    .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li .thumb img ,
+
+    .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li .thumb img{
+        width:64px!important;
+    }
+    .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li article,
+    .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li article,
+    .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li article{
+        margin-left:72px!important;
+    }
+    .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li .posted-on,
+    .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li .posted-on,
+    .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li .posted-on{
+        text-align:left;
+    }
+}
 .raindrops-status-bar-active #ft,
 .raindrops-status-bar-active footer{
     margin-bottom:70px;
@@ -3490,7 +3527,7 @@ ol.list-of-post-list .entry-title{
 }
 .raindrops-pinup-entries iframe{
     max-width:100%;
-   max-height:100%;
+    max-height:100%;
 }
 /* playlist shortcode*/
 

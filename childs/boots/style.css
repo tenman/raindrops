@@ -13,4 +13,11 @@
     background:#fff;
     color:#555;
 }
+.rd-type-boots #ft{
+    background:#777;
+}
+.rd-type-light #site-title,
+.rd-type-minimal #ft a{
+    color:#fff;
+}
 

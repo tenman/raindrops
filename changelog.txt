@@ -8,14 +8,22 @@ Overview of Changes
 		Child Theme boots display improperly
 
 Files Modified
+	modified:   languages/pl_PL.mo
+	modified:   languages/pl_PL.po
+	modified:   style.css
+	modified:	childs/boots/style.css
+
+Description of Code Changes
 	childs/boots/style.css
-		line 16 add style selector rd-type-boots #ft
+		line 16 	add style selector rd-type-boots #ft
 			Fixed Raindrops theme, so no longer use the footer.png by default,
 			eliminating the problem of font color and background color of the child theme is the same
+
 	style.css
-		line 7 Change version from 1.241 to 1.242
+		line 7		Change version from 1.241 to 1.242
 		line 3296-3332
 			modify style add for template blank-front.php
+
 	languages/pl_PL.po
 		line 6		Change PO-Revision-Date from 2014-09-02 15:33+0900 to 2014-09-03 08:22+0100
 		line 7		Change Last-Translator from Akio Tenman to Kornel

@@ -732,5 +732,34 @@ function raindrops_gallerys_clone() {
             .gallery-columns-10 dl{ width: 9.9% }\n";
     return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
 }
+/**
+ * 
+ * @since 1.243
+ * @param type $hex color value
+ * @return array rgb value
+ */
+ function raindrops_hex2rgb_array_clone( $hex ) {
 
+	$hex	= str_replace( '#', '', $hex);
+    $d		= '[a-fA-F0-9]';
+
+    if ( preg_match( "/^($d$d)($d$d)($d$d)\$/", $hex, $rgb ) ) {
+
+      return array(
+           hexdec($rgb[1]),
+           hexdec($rgb[2]),
+           hexdec($rgb[3])
+           );
+    }
+	
+    if ( preg_match("/^($d)($d)($d)$/", $hex, $rgb ) ) {
+
+      return array(
+           hexdec($rgb[1] . $rgb[1]),
+           hexdec($rgb[2] . $rgb[2]),
+           hexdec($rgb[3] . $rgb[3])
+           );
+    }
+    return false;
+  }
 ?>

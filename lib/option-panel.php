@@ -241,13 +241,24 @@ One is a method of up-loading the image from the below up-loading form. Another 
     array( 'option_id'    => 23,
         'blog_id'      => 0,
         'option_name'  => "raindrops_footer_link_color",
-        'option_value' => "",
+        'option_value' => "none",
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Link color in footer ', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'If you need to set footer Special link color.', 'Raindrops' ),
         'validate'     => 'raindrops_footer_link_color_validate',
-        'list'         => 10 
+        'list'         => 22 
+    ),
+	array( 'option_id'    => 24,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_complementary_color_for_title_link",
+        'option_value' => "none",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Complementary Color For Entry Title Link ', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'If you need to set footer Special link color.', 'Raindrops' ),
+        'validate'     => 'raindrops_complementary_color_for_title_link_validate',
+        'list'         => 23 
     ),
 );
 }

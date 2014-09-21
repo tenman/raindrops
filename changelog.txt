@@ -1,4 +1,117 @@
 Changelog -----------------------------------
+version:1.243
+Overview of Changes
+	Playlist Presentation Override
+		@see Section Description of Code Changes 'Playlist'
+	Complementary Color
+		If specify a link to the chromatic color,
+		entry title link to add features that use the complementary color
+			@see Section Description of Code Changes 'Complementary Color'
+	Fixed
+		header header image height issue
+			@see Section Description of Code Changes 'header image height'
+		customizer priveiw
+			does not reflect changes in the preview
+			@see Section Description of Code Changes 'customizer priveiw'
+	Testing Code add
+		Add sanitize_callback at $wp_customize->add_setting
+			@see Section Description of Code Changes 'Testing Code'
+
+Files Modified
+	changelog.txt
+	style.css
+	functions.php
+	lib/alias_functions.php
+	lib/validate.php
+	child/inc.php
+
+Description of Code Changes
+
+style.css	[Playlist]
+	default: wp-mediaelement.css border-bottom: 1px solid #ccc;
+	override:
+	line:3543
+		.wp-playlist-tracks .wp-playlist-item {
+    		border-bottom: 1px solid rgba(255,255,255,.5);
+	}
+
+	.raindrops-pinup-entries img is override ( raindrops stylerule )
+
+	.raindrops-pinup-entries .wp-playlist img{
+		margin-top:0;
+	}
+lib/alias_functions.php line:741	[Complementary Color]
+	Add function raindrops_hex2rgb_array_clone
+		input hex color #369, #336699
+		return array(51,102,153)
+
+functions.php line:7885	[Complementary Color]
+	Add function raindrops_complementary_color( $hex_color = '#444' )
+		input hex color
+		return hex complementary_color;
+functions.php line:7973	[Complementary Color]
+	Add action add_action( 'wp_enqueue_scripts', 'raindrops_add_complementary_color' );
+
+functions.php line:7977	[Complementary Color]
+	Add function raindrops_add_complementary_color()
+
+lib/validate.php line:8	[Complementary Color]
+	Add function raindrops_complementary_color_for_title_link_validate()
+
+child/inc.php line553 lib/option-panel line252
+	array( 'option_id'    => 21,
+       'blog_id'      => 0,
+       'option_name'  => "raindrops_entry_content_is_category",
+       'option_value' => "content",
+       'autoload'     => 'yes',
+       'title'        => esc_html__( "Category Archive Content Type", 'Raindrops' ),
+       'excerpt1'     => '',
+       'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+       'validate'     => 'raindrops_entry_content_is_category_validate',
+        'list'         => 20
+   ),
+
+	 array( 'option_id'    => 23,....list=>10 typo
+		change from list=>10 to change list=>22
+functions.php line4952
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_complementary_color_for_title_link]'...);
+functions.php line5034
+	$wp_customize->add_control( 'raindrops_complementary_color_for_title_link2'...);
+functions line5045
+	$wp_customize->add_control( 'raindrops_complementary_linkcolor_for_title_link'...);
+functions.php line:751	[customizer priveiw]
+	if ( !isset( $raindrops_where_excerpts ) ) {...}
+		move to function raindrops_detect_excerpt_condition()
+		line809 - 828
+functions.php line:780-799	[customizer priveiw]
+	if ( !isset( $raindrops_where_display_none ) ) {...}
+		move to line 761 raindrops_detect_display_none_condition() line 765-784
+
+functions.php [Testing Code]
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_style_type]', 'sanitize_callback' => 'raindrops_style_type_validate' ) );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_page_width]', 'sanitize_callback' => 'raindrops_page_width_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_base_color]', 'sanitize_callback' => 'raindrops_base_color_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_show_right_sidebar]', 'sanitize_callback' => 'raindrops_show_right_sidebar_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_col_width]', 'sanitize_callback' => 'raindrops_col_width_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_show_menu_primary]', 'sanitize_callback' => 'raindrops_show_menu_primary') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_default_fonts_color]', 'sanitize_callback' => 'raindrops_default_fonts_color_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_hyperlink_color]', 'sanitize_callback' => 'raindrops_hyperlink_color_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_complementary_color_for_title_link]', 'sanitize_callback' => 'raindrops_complementary_color_for_title_link_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_doc_type_settings]', 'sanitize_callback' => 'raindrops_doc_type_settings_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_footer_color]', 'sanitize_callback' => 'raindrops_footer_color_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_accessibility_settings]', 'capability' => 'edit_theme_options', 'sanitize_callback' => 'raindrops_accessibility_settings_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_entry_content_is_home]', 'sanitize_callback' => 'raindrops_entry_content_is_home_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_entry_content_is_category]', 'sanitize_callback' => 'raindrops_entry_content_is_category_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_entry_content_is_search]', 'sanitize_callback' => 'raindrops_entry_content_is_search_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_footer_link_color]', 'sanitize_callback' => 'raindrops_footer_link_color_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_basefont_settings]', 'sanitize_callback' => 'raindrops_basefont_settings_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_right_sidebar_width_percent]', 'sanitize_callback' => 'raindrops_right_sidebar_width_percent_validate') );
+	$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_fluid_max_width]', 'sanitize_callback' => 'raindrops_fluid_max_width_validate') );
+functions.php line:4531 Add is_singular() conditional tag	[header image height]
+	if ( !empty( $display_header_image_file ) && $display_header_image_file !== 'default' && is_singular() ) {
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.242
 Overview of Changes
 	Added

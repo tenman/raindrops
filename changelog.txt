@@ -3,17 +3,110 @@ version:1.245
 Overview of Changes
 
 	the license for the images used in the screenshot
-
+		@see Section Description of Code Changes 'screenshot'
 	Theme Check Plugin ( Stable tag: 20140929.1 ) required issues.
-
+		@see Section Description of Code Changes 'Fixed'
 	Firefox mobile menu works improperly.
-
+		@see Section Description of Code Changes 'Another Fixed'
 	Theme option Footer color not works
-
+		@see Section Description of Code Changes 'Another Fixed'
 	Header Image issue
-
+		@see Section Description of Code Changes 'Another Fixed'
 	Add bundle images
-images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg
+		@see Section Description of Code Changes 'screenshot'
+
+Files Modified
+
+	changelog.txt
+	fonts.css
+	functions.php
+	header-front.php
+	lib/option-panel.php
+	lib/validate.php
+	responsiveness.css
+	screenshot.png
+	style.css
+
+New files
+
+	images/dummy.jpg
+	images/screenshot-image1.jpg
+	images/screenshot-image2.jpg
+
+Description of Code Changes
+
+	Screenshot.png [screenshot]
+		Require the license for the images used in the screenshot
+		Renewal screenshot
+			readme.txt line:18 added
+				ver1.245 add image
+				images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg
+			readme.txt line:99 added
+				ver 1.245
+			    Note:Information on how to set the layout of the screen shot...
+			images/ add new bundle images
+	Theme Check [Fixed]
+		lib/option-panel.php line:400 removed duplicated function screen_icon()
+		functions.php Customizer Add sanitize_callback
+			$wp_customize->add_setting( 'raindrops_theme_settings[...]',
+			array(    'sanitize_callback' => 'raindrops_fluid_max_width_validate',... ) );
+		functions.php remove $wp_customize->add_control( new Raindrops_Customize_Navigation_Control(...
+		functions.php remove add_section
+			$wp_customize->add_section( 'raindrops_navigation_setting',
+			array( 'title' => esc_html__( 'Another Settings link', 'Raindrops' ), 'priority' => 120, ) );
+		functions.php remove function
+			function raindrops_options_default_value(...
+
+		header-front.php remove ie conditional tag
+			Raindrops IE8 or older browser is shows Document Type XHTML
+			<!--[if IE]>
+               <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+		ver 1.244 Testing Code add is removed.
+
+		lib/option-panel.php $raindrops_base_setting_args value change
+				'option_name'  => "raindrops_default_fonts_color",
+					-        'option_value' => "",
+					+        'option_value' => "none",
+				'option_name'  => "raindrops_footer_color",
+					-        'option_value' => "",
+					+        'option_value' => "none",
+				'option_name'  => "raindrops_hyperlink_color",
+					-        'option_value' => "",
+					+        'option_value' => "none",
+		 lib/validate.php	change validate simple
+			line:518 remove functions raindrops_options_default_value( __FUNCTION__ )
+			all validate functions change from raindrops_options_default_value( __FUNCTION__ )  to string value
+
+	[Another Fixed ] Firefox mobile menu works improperly.
+		style.css line:60 Fixed Firefox mobile menu works improperly.
+
+			.enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
+	   			position:absolute;
+			}
+			.enable-keyboard #access:target li:hover > ul > li > a{
+	   			border:none;
+			}
+		functions.php code change function raindrops_small_device_helper() line:4673
+
+			} else if ( userAgent.indexOf( 'firefox' ) != -1 ) {
+
+     			jQuery( 'body' ).addClass( 'firefox' );
+			}...
+	[Another Fixed ] Theme option Footer color not works
+		functions.php line:2136 add dynamic style
+			$css .= "\n#ft{color:". raindrops_warehouse( 'raindrops_footer_color' ). ';}';
+	[Another Fixed ] Header Image issue
+		functions.php line:3830  function raindrops_header_image() add conditional
+			if ( $display_header_image_file == 'hide' && is_singular() ) {...
+
+	style.css line:3534 add style for pinup entry widget
+			+.raindrops-pinup-entries p img{
+			+    width:auto;
+			+    max-width:100%;
+			+    height:auto;
+			+    margin-top:-.75em;
+			+}
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.244

@@ -1,7 +1,18 @@
 Changelog -----------------------------------
 version:1.245
+Overview of Changes
 
-Add bundle images
+	the license for the images used in the screenshot
+
+	Theme Check Plugin ( Stable tag: 20140929.1 ) required issues.
+
+	Firefox mobile menu works improperly.
+
+	Theme option Footer color not works
+
+	Header Image issue
+
+	Add bundle images
 images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg
 ----------------------------------------------
 Changelog -----------------------------------

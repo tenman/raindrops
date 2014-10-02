@@ -36,17 +36,21 @@
     .ie7 #access:target{display:block!important;}
     .ie8 #access:target{display:block!important;}
     .raindrops-mobile-menu{
-        position:relative;margin:0 10px;
+        position:relative;
+        margin:0 10px;
     }
+
     .raindrops-mobile-menu .open{
-        position:absolute;top:4px;left:0;
+        position:absolute;
+        top:4px;
+        left:0;
         font-size:153.9%;
         width:10%;
         background: url(images/raindrops-nav-menu-expand.png);
         background-repeat:no-repeat;
         background-position:center;
-
     }
+
     .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
         visibility:hidden;
         width:20px;
@@ -54,16 +58,18 @@
         display:inline-block;
         text-indent:-100px;
     }
+
     .raindrops-mobile-menu .close{
-        position:absolute;top:2px;right:5%;
+        position:absolute;
+        top:2px;
+        right:5%;
         font-size:153.9%;
         width:10%;
         background: url(images/raindrops-nav-menu-shrunk.png);
         background-repeat:no-repeat;
         background-position:center;
-
-
     }
+
     .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
         visibility:hidden;
         width:20px;
@@ -244,6 +250,7 @@
         padding:1em;
         font-size:138.5%;
     }
+
     #access .sub-menu li,
     #access .children li{
         border:none;

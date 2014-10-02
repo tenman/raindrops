@@ -4,7 +4,8 @@ http://www.tenman.info/wp3/raindrops/
 wp3.jpg wp3-thumbnail.jpg,arrows-vs.png, icons32-vs.png,bg.png,c.gif,footer.png,footer,png,footerbck.gif,footerbck.png,h2.gif,h2,png,h2b.png,h2c.png,header.png,info.png,ja-em.png,link.png,next.png,number.png,previus.png,requre.png,rss.png,sidebar.png,sticky.png,stop.png,topbck.png,y.gif
 ver1.111 add image
 images/please_upload.png , images/post-format-aside.png , images/post-format-audio.png , images/post-format-chat.png , images/post-format-gallery.png , images/post-format-image.png , images/post-format-link.png , images/post-format-quote.png , images/post-format-status.png , images/post-format-video.png , images/raindrops-chat-author-0.png , images/raindrops-chat-author-1.png , images/raindrops-chat-author-2.png , images/raindrops-chat-author-3.png , images/raindrops-chat-author-4.png , images/raindrops-chat-author-5.png , images/retina/info.png , images/retina/link.png , images/retina/next.png , images/retina/post-format-aside.png , images/retina/post-format-audio.png , images/retina/post-format-chat.png , images/retina/post-format-gallery.png , images/retina/post-format-image.png , images/retina/post-format-link.png , images/retina/post-format-quote.png , images/retina/post-format-status.png , images/retina/post-format-video.png , images/retina/previous.png , images/retina/raindrops-chat-author-0.png , images/retina/raindrops-chat-author-1.png , images/retina/raindrops-chat-author-2.png , images/retina/raindrops-chat-author-3.png , images/retina/raindrops-chat-author-4.png , images/retina/raindrops-chat-author-5.png , images/retina/require.png , images/retina/rss.png , images/retina/stop.png , images/wp3.jpg , images/raindrops-nav-menu-expand.png , images/raindrops-nav-menu-shrunk.png, images/dummy.png
-
+ver1.245 add image
+images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg
 
 Above images License
 
@@ -79,6 +80,59 @@ If you add the sidebar widget, the Raindrops, you, since automatically generates
 Widget you want to support is as follows.
 	WP_Widget_Categories , WP_Widget_Archives , WP_Widget_Calendar , WP_Widget_Pages , WP_Widget_Recent_Comments , WP_Widget_RSS , WP_Widget_Text , WP_Widget_Tag_Cloud , WP_Nav_Menu_Widget , WP_Widget_Search
 
+ver 1.245
+    Note:Information on how to set the layout of the screen shot
+    Plese open Dashboard / Customize
+    1. Change the Sidebars.
+        Default Sidebar Change from left 180px to right 240px
+        Extra Sidebar Change from 25% to 33%
+        layount done
+    2. Change the Colors
+        Link Color Set #8d91bc
+        Complementary Link Color For Entry Title set yes
+        link color done
+    3. Set Pinup Widget 
+        Creat a new post.
+            Set your entry title
+            Click Add Media Button
+            Select a image and button ( insert into post ) click
+            It will insert image to your post.
+            ( When you want to do something other than described in the image,
+            <!--more--> Please describe after the symbol that )
+
+            Click Update button
+
+            See Browser URL field like below
+
+            wp-admin/post.php?post=26028&action=edit&message=6
+
+            Copy post id ( 26028 )
+
+            Sidebar Menu Appearance /  widget  open
+
+            Pinup entries dragg and drop Extra Sidebar
+
+            Past the copied Post ID  to Post ID field
+        
+            Save 
+
+            Pinup widget done.
+    4. Set Category New Post
+            Sidebar Menu Appearance /  widget  open
+            Category New Post dragg and drop Default Sidebar
+
+            Set Title
+            Set Show count
+            Checked categoris
+            Save
+
+            Category New Post done.
+
+    Once successful this work, you are RainDrops Expert !
+
+    Screenshot images bundle below
+        images/screenshot-image1.png
+        images/screenshot-image2.png
 
 ver 1.228
         $raindrops_accessibility_link is not support Statick Front Page

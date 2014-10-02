@@ -27,10 +27,9 @@ function raindrops_footer_link_color_validate( $input ) {
 
 		return '#' . $input;
 	} else {
-return 'none';
-		return raindrops_options_default_value( __FUNCTION__ );
+		
+		return 'none';
 	}
-
 }
 
 /**
@@ -41,12 +40,12 @@ return 'none';
  */
 function raindrops_entry_content_is_search_validate( $input ) {
 
-	if ( $input == 'yes' ) {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
 
-		return 'yes';
+		return $input;
 	}
 
-	return 'none';
+	return 'content';
 }
 
 /**
@@ -57,12 +56,12 @@ function raindrops_entry_content_is_search_validate( $input ) {
  */
 function raindrops_entry_content_is_tag_validate( $input ) {
 
-	if ( $input == 'yes' ) {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
 
-		return 'yes';
+		return $input;
 	}
 
-	return 'none';
+	return 'content';
 }
 
 /**
@@ -73,12 +72,12 @@ function raindrops_entry_content_is_tag_validate( $input ) {
  */
 function raindrops_entry_content_is_category_validate( $input ) {
 
-	if ( $input == 'yes' ) {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
 
-		return 'yes';
+		return $input;
 	}
 
-	return 'none';
+	return 'content';
 }
 
 /**
@@ -89,12 +88,12 @@ function raindrops_entry_content_is_category_validate( $input ) {
  */
 function raindrops_entry_content_is_home_validate( $input ) {
 
-	if ( $input == 'yes' ) {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
 
-		return 'yes';
+		return $input;
 	}
 
-	return 'none';
+	return 'content';
 }
 
 /**
@@ -111,7 +110,7 @@ if ( !function_exists( 'raindrops_basefont_settings_validate' ) ) {
 		if ( is_numeric( $output ) ) {
 			return absint( $output );
 		} else {
-			return raindrops_options_default_value( __FUNCTION__ );
+			return 13;
 		}
 	}
 
@@ -129,7 +128,7 @@ if ( !function_exists( 'raindrops_fluid_max_width_validate' ) ) {
 		if ( is_numeric( $output ) ) {
 			return absint( $output );
 		} else {
-			return raindrops_options_default_value( __FUNCTION__ );
+			return 1280;
 		}
 	}
 
@@ -190,9 +189,9 @@ if ( !function_exists( 'raindrops_use_automatic_color_validate' ) ) {
 			return '#' . $input;
 		} else {
 
-			return raindrops_options_default_value( __FUNCTION__ );
+			return "#444444";
 		}
-		return $input;
+
 	}
 
 }
@@ -215,7 +214,7 @@ if ( !function_exists( 'raindrops_right_sidebar_width_percent_validate' ) ) {
 				return $input;
 			}
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 25;
 	}
 
 }
@@ -238,7 +237,7 @@ if ( !function_exists( 'raindrops_show_right_sidebar_validate' ) ) {
 				return $input;
 			}
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 'show';
 	}
 
 }
@@ -259,7 +258,7 @@ if ( !function_exists( 'raindrops_footer_color_validate' ) ) {
 
 			return $input;
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 'none';
 	}
 
 }
@@ -280,7 +279,7 @@ if ( !function_exists( 'raindrops_default_fonts_color_validate' ) ) {
 
 			return $input;
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 'none';
 	}
 
 }
@@ -303,7 +302,7 @@ if ( !function_exists( 'raindrops_col_width_validate' ) ) {
 				return $input;
 			}
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 't2';
 	}
 
 }
@@ -326,7 +325,7 @@ if ( !function_exists( 'raindrops_page_width_validate' ) ) {
 				return $input;
 			}
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 'doc3';
 	}
 
 }
@@ -341,7 +340,7 @@ if ( !function_exists( 'raindrops_heading_image_validate' ) ) {
 
 		if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
 
-			return raindrops_options_default_value( __FUNCTION__ );
+			return 'none';
 		}
 		return $input;
 	}
@@ -361,7 +360,7 @@ if ( !function_exists( 'raindrops_heading_image_position_validate' ) ) {
 			return $input;
 		}
 
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 0;
 	}
 
 }
@@ -380,7 +379,7 @@ if ( !function_exists( 'raindrops_footer_image_validate' ) ) {
 
 		if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
 
-			return raindrops_options_default_value( __FUNCTION__ );
+			return 'none';
 		}
 		return $input;
 	}
@@ -397,7 +396,7 @@ if ( !function_exists( 'raindrops_header_image_validate' ) ) {
 
 		if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
 
-			return raindrops_options_default_value( __FUNCTION__ );
+			return "none";
 		}
 		return $input;
 	}
@@ -441,7 +440,7 @@ if ( !function_exists( 'raindrops_base_color_validate' ) ) {
 
 			return $input;
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return '#444444';
 	}
 
 }
@@ -511,18 +510,11 @@ if ( !function_exists( 'raindrops_hyperlink_color_validate' ) ) {
 
 			return $input;
 		}
-		return raindrops_options_default_value( __FUNCTION__ );
+		return 'none';
 	}
 
 }
-if ( !function_exists( 'raindrops_options_default_value' ) ) {
 
-	function raindrops_options_default_value( $function_validate ) {
-
-		$option_name		 = str_replace( '_validate', '', $function_validate );
-		return raindrops_warehouse_clone( $option_name );
-	}
-}
 /**
  * 
  * @param type $option

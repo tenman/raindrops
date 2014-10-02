@@ -28,9 +28,6 @@ switch ( $raindrops_document_type ) {
             <head>
                 <meta charset="<?php bloginfo( 'charset' ); ?>" />
                 <title><?php wp_title( '|', true, 'right' ); ?></title>
-                <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-                <![endif]--> 
                 <?php wp_head(); ?>
             </head>
             <?php

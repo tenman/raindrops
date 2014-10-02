@@ -106,7 +106,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     array( 'option_id'    => 10,
         'blog_id'      => 0,
         'option_name'  => "raindrops_default_fonts_color",
-        'option_value' => "",
+        'option_value' => "none",
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Text color in content ', 'Raindrops' ),
         'excerpt1'     => '',
@@ -115,7 +115,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     array( 'option_id'    => 11,
         'blog_id'      => 0,
         'option_name'  => "raindrops_footer_color",
-        'option_value' => "",
+        'option_value' => "none",
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Text color in footer ', 'Raindrops' ),
         'excerpt1'     => '',
@@ -154,7 +154,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     array( 'option_id'    => 15,
         'blog_id'      => 0,
         'option_name'  => "raindrops_hyperlink_color",
-        'option_value' => "",
+        'option_value' => "none",
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Link color', 'Raindrops' ),
         'excerpt1'     => '',
@@ -397,7 +397,6 @@ class raindrops_menu_create {
             }
         }
         $result .= '<div class="wrap"><div id="title-raindrops-header" >';
-        $result .= screen_icon();
         $result .= "<h2>" . ucfirst( $raindrops_current_theme_name ) . esc_html__( ' Theme Settings', 'Raindrops' ) . "</h2>";
 
 

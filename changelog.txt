@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.245
+
+Add bundle images
+images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg
+----------------------------------------------
+Changelog -----------------------------------
 version:1.244
 Overview of Changes
 	Playlist Presentation Override

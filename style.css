@@ -57,6 +57,12 @@ a:visited{
     position:relative;
     margin:-0.07692307692em;
 }
+.enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
+    position:absolute;
+}
+.enable-keyboard #access:target li:hover > ul > li > a{
+    border:none;
+}
 .raindrops-accessible-mode #hd + a,
 .enable-keyboard #hd + a{
     margin:0;
@@ -3524,6 +3530,12 @@ ol.list-of-post-list .entry-title{
     max-width:100%;
     height:auto;
     margin-top:2.6em;
+}
+.raindrops-pinup-entries p img{
+    width:auto;
+    max-width:100%;
+    height:auto;
+    margin-top:-.75em;
 }
 .raindrops-pinup-entries iframe{
     max-width:100%;

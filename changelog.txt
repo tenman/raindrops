@@ -5,18 +5,66 @@ Overview of Changes
 		Responsiveness Support where Oembed media
 		tested Animote-YouTube,mixcloud,isuu,YouTube,TED,collegehumor,Slideshare,Twitter card
 		Change Oembed Media width from content width to full width
+			@see Section Description of Code Changes 'Oembed'
 	Fixed
 		blank-front.php template shows oembed url
 			replace oembed urls to string cloud
 			html code:<span class="oembed-content-icon youtu-be">Cloud</span>
 			You can use CSS classes for customize.
+			@see Section Description of Code Changes 'brnank-front'
 		Entry content, the adjustment of the margin in the case of inserting the full-sized image
+			@see Section Description of Code Changes 'Attachment'
+		Add callback function for Customizer (typo)
+			@see Section Description of Code Changes 'Customizer'
 	Modify
 		blank-front.php add Transient API
+			@see Section Description of Code Changes 'Transient'
 		Child Theme boots setting for Customize
-			Shows Raindrops same header style when remove a boots/header.php
+			@see Section Description of Code Changes 'Child Theme'
+		Shows Raindrops same header style when remove a boots/header.php
 
+Files Modified
+	childs/boots/functions.php
+	childs/boots/inc.php
+	functions.php
+	lib/hooks.php
+	style.css
 
+Description of Code Changes
+
+	childs/boots/functions.php line:35 [Child Theme]
+		if ( file_exists( get_stylesheet_directory().'/header.php' ) ) {
++		// if not exists child themes header.php then display raindrops same. (boxed header)
++			add_filter( 'raindrops_header_image_contents', 'boots_custom_header_image_content' );
++		}
+	childs/boots/inc.php line:319-356 $raindrops_child_base_setting_args
+		relate parent theme updete
+
+	functions.php line:4958 [Customizer]
++		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_entry_content_is_category]',
+			'sanitize_callback' => 'raindrops_entry_content_is_category_validate' ) );
++		$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_entry_content_is_search]',
+			'sanitize_callback' => 'raindrops_entry_content_is_search_validate' ) );
+
+	functions.php line:5555 Add function raindrops_link_get() [brnank-front]
+	functions.php line:5572 Add function raindrops_replace_oembed_link_to_icon() [brnank-front]
+	functions.php line:5615 Add function raindrops_transient_update() [brnank-front][Transient]
+	functions.php line:5630 Add function raindrops_recent_posts() [brnank-front][Transient]
+		old raindrops_recent_posts was renamed raindrops_get_recent_posts line:5723
+	functions.php line:5660 Add function raindrops_category_posts() [brnank-front][Transient]
+		old raindrops_category_posts was renamed raindrops_get_category_posts line:5892[brnank-front][Transient]
+	functions.php line:5692 Add function raindrops_tag_posts() [brnank-front][Transient]
+		old raindrops_tag_posts was renamed raindrops_get_tag_posts line:6083[brnank-front][Transient]
+	functions.php line:8143 Add function raindrops_oembed_filter() [Oembed]
+	lib/hooks.php line:268 Add filter add_filter( 'embed_oembed_html', 'raindrops_oembed_filter', 99, 4 ); [Oembed]
+	lib/hooks.php line:269 Add action add_action( 'save_post', 'raindrops__transient_update' );[Transient]
+	lib/hooks.php line:270 Add action add_action( 'edit_term', 'raindrops__transient_update' );[Transient]
+	style.css 	  line:245-285 Add style rules [Oembed]
+	style.css 	  line:993 Add style rules [Attachment]
+	style.css     line:1302 Add style rules[Oembed]
+	style.css     line:2342 Add style rules format-link style For PressThis
+	style.css     line:2712 Add style rules for margin-top ajast
+    style.css	  line:3651-3659 Add style rules [Oembed]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.245

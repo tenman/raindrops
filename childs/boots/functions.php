@@ -32,7 +32,10 @@ if ( !function_exists( 'raindrops_child_init' ) ) {
 
     function raindrops_child_init() {
         /* Insert Site Title and Description to Header Image */
-        add_filter( 'raindrops_header_image_contents', 'boots_custom_header_image_content' );
+		if ( file_exists( get_stylesheet_directory().'/header.php' ) ) {
+		// if not exists child themes header.php then display raindrops same. (boxed header)	
+			add_filter( 'raindrops_header_image_contents', 'boots_custom_header_image_content' );
+		}
         /* broad color type setting */
         add_action( 'raindrops_include_after', 'boots_extend_styles' );
     }

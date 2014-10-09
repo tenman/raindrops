@@ -1,4 +1,24 @@
 Changelog -----------------------------------
+version:1.246
+Overview of Changes
+	Added
+		Responsiveness Support where Oembed media
+		tested Animote-YouTube,mixcloud,isuu,YouTube,TED,collegehumor,Slideshare,Twitter card
+		Change Oembed Media width from content width to full width
+	Fixed
+		blank-front.php template shows oembed url
+			replace oembed urls to string cloud
+			html code:<span class="oembed-content-icon youtu-be">Cloud</span>
+			You can use CSS classes for customize.
+		Entry content, the adjustment of the margin in the case of inserting the full-sized image
+	Modify
+		blank-front.php add Transient API
+		Child Theme boots setting for Customize
+			Shows Raindrops same header style when remove a boots/header.php
+
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.245
 Overview of Changes
 

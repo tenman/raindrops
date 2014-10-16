@@ -288,14 +288,14 @@
         width:94%;
     }
     /* for front-page.php */
-    #doc3 .fron-page-top-container{
+    #doc3 .front-page-top-container{
         position:relative;
     }
-    #doc3 .fron-page-top-container .first{
+    #doc3 .front-page-top-container .first{
         width:98%;
 
     }
-    #doc3 .fron-page-top-container .first + .yui-u{
+    #doc3 .front-page-top-container .first + .yui-u{
         width:98%;
 
     }

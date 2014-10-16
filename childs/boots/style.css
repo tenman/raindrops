@@ -20,4 +20,14 @@
 .rd-type-minimal #ft a{
     color:#fff;
 }
+/* for template front-page.php */
+.page-template-page-templatesfront-page-php.rd-type-boots #top #site-description,
+.page-template-page-templatesfront-page-php.rd-type-boots #hd{
+    display:block!important;
+    color:#000!important;
+}
+.page-template-page-templatesfront-page-php.rd-type-boots #site-title span{
+    color:#000;
+}
+/* for template front-page.php end */
 

@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.247
+Overview of Changes
+	Added
+		front-page.php, full-width.php add new prezentation.
+		If you set the front page template the template above, you can from the post meta box, to be added to the page top posts
+	Fixed
+		If you use the widget of jet pack plug-in, solve problems that do not fit in the block on which the image is placed
+Files Modified
+
+Description of Code Changes
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.246
 Overview of Changes
 	Added

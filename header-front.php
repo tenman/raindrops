@@ -23,15 +23,15 @@ switch ( $raindrops_document_type ) {
      */
     case( 'html5' ):
         ?>
-        <!DOCTYPE html>
-        <html <?php language_attributes(); ?>>
-            <head>
-                <meta charset="<?php bloginfo( 'charset' ); ?>" />
-                <title><?php wp_title( '|', true, 'right' ); ?></title>
-                <?php wp_head(); ?>
-            </head>
-            <?php
-            break;
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>" />
+		<title><?php wp_title( '|', true, 'right' ); ?></title>
+		<?php wp_head(); ?>
+	</head>
+	<?php
+	break;
         /**
          *
          *
@@ -57,7 +57,7 @@ switch ( $raindrops_document_type ) {
         ?>
         <body <?php body_class(); ?>>
             <div class="skip-link">
-                <a href="#container"class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
+                <a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
             </div> 
             <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 <?php raindrops_prepend_doc(); ?>
@@ -100,7 +100,7 @@ switch ( $raindrops_document_type ) {
 
 <?php if ( !empty( $raindrops_header_image ) || has_post_thumbnail() ) { ?>
                     <span id="container"></span>
-                    <div class="yui-g fron-page-top-container">
+                    <div class="yui-g front-page-top-container">
                         <div class="yui-u first" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
                             <div class="static-front-content">
                                 <?php
@@ -123,7 +123,7 @@ switch ( $raindrops_document_type ) {
                             <div class="static-front-media">
                                 <?php
                                 if ( has_post_thumbnail() ) {
-                                    the_post_thumbnail( 'large', 'style=max-width:100%;height:auto;' );
+                                    the_post_thumbnail( 'large', 'style=max-width:100%;width:100%;height:auto;' );
                                 } else {
                                     echo $raindrops_header_image;
                                 }

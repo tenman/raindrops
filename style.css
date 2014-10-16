@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.246
+Version: 1.247
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -695,10 +695,6 @@ ul.archive ul li {
     margin:0 2%;
 }
 #bd {
-}
-.page-template-page-templatesfront-page-php #bd{
-    min-height:0;
-
 }
 
 #bigbanner {
@@ -1658,6 +1654,9 @@ div.aligncenter {
     margin-left: auto;
     margin-right: auto;
     padding:0.76923076923em;
+}
+.page-featured-image{
+    padding:0;
 }
 div.alignleft,
 img.alignleft,
@@ -2908,12 +2907,66 @@ sup {
     margin-right:0;
     margin-left:0;
 }
+/* front-page.php */
+.page-template-page-templatesfront-page-php #bd{
+    min-height:0;
+}
 .page-template-page-templatesfront-page-php #ft .widget{
     text-align:left;
 }
 .page-template-page-templatesfront-page-php #ft .widget h2{
     /*text-align:left;*/
 }
+
+#front-page-template-pages{
+    padding:0 10%;
+}
+
+#front-page-template-pages .page{
+    margin:10% 0;
+}
+.page-template-page-templatesfront-page-php .portfolio-nav > ul > li{
+    width:33%;
+}
+#front-page-template-pages .entry-meta-default,
+body#front-page-template-pages:not(.logged-in) .entry-meta{
+    display:none;
+}
+.page-template-page-templatesfull-width-php .oembed-container,
+.page-template-page-templatesfront-page-php .oembed-container{
+    margin-bottom:2em;
+}
+.page-template-page-templatesfull-width-php  .size1of4 img,
+.page-template-page-templatesfront-page-php .size1of4 img{
+    margin-top:5px;
+}
+/* raindrops-toc  for front-page.php ,full-width.php */
+.raindrops-toc-front{
+  margin:1em 10%;
+}
+.raindrops-toc-front li{
+    list-style:none;
+    width:31%;
+    text-align:center;
+    display:inline-block;
+    box-sizing:border-box;
+    margin:1%;
+    border:1px solid rgba(222,222,222,.8);
+}
+.raindrops-toc-front a{
+    display:block;
+    width:100%;
+    height:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding:1em;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+/* front-page.php end */
 #date_list a:target{
     /* target link position ajust */
     padding-top:50px;
@@ -2937,7 +2990,12 @@ sup {
 .raindrops-mobile-menu{
     display:none;
 }
-
+.blog .entry-content .loop-hide,
+.search .entry-content .loop-hide,
+.archive .entry-content .loop-hide,
+.home .entry-content .loop-hide{
+    display:none;
+}
 .edit-link{
     margin-left:0.76923076923em;
 }
@@ -3047,19 +3105,20 @@ sup {
     margin:2em 1em;
     border-bottom:none;
 }
-.portfolio ul.index > li{
+#portfolio ul.index > li{
     width:33.3%;
     clear: none;
     display:inline-block;
     float:left!important;
-    height:200px;
+    height:0;
     overflow:hidden;
-    padding:0.76923076923em;
+    padding-bottom:18.75%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     background-size:cover;
+    background-position:center!important;
     border:0.07692307692em solid rgba( 104, 104, 104, 0.5 );
 }
 .column-4 ul.index > li{ /* 4columns */
@@ -3334,9 +3393,12 @@ ol.list-of-post-list .entry-title{
         width:auto;
         vertical-align:top;
     }
-    .page-template-blank_front-php #doc3 .raindrops-category-posts li,
-    .page-template-blank_front-php #doc3 .raindrops-tag-posts li,
-    .page-template-blank_front-php #doc3 .raindrops-recent-posts li{
+    .page-template-blank_front-php #doc3 .yui-ge .raindrops-category-posts li,
+    .page-template-blank_front-php #doc3 .yui-gc .raindrops-category-posts li,
+    .page-template-blank_front-php #doc3 .yui-ge .raindrops-tag-posts li,
+    .page-template-blank_front-php #doc3 .yui-gc .raindrops-tag-posts li,
+    .page-template-blank_front-php #doc3 .yui-ge .raindrops-recent-posts li, /* 25% */
+    .page-template-blank_front-php #doc3 .yui-gc .raindrops-recent-posts li{ /* 33% */
         display:inline-block;
         width:45%;
         vertical-align:top;
@@ -3599,6 +3661,7 @@ ol.list-of-post-list .entry-title{
 .wp-playlist-tracks .wp-playlist-item{
     border-bottom: 1px solid rgba(222,222,222,.5);
 }
+
 /* plugins issue */
 /* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
 .entry-content .crayon-table{
@@ -3656,4 +3719,7 @@ div.bbp-template-notice, div.indicator-hint{
     display:table-cell;
     vertical-align:middle;
     padding:3px;
+}
+.wp-smiley{
+    vertical-align:middle;
 }

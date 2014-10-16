@@ -392,6 +392,7 @@ ul.archive,ul.index,
 #items li{
     border-bottom:1px solid %rgba_border%;
 }
+.raindrops-toc-front li,
 .widget select,
 .rsidebar option,
 .lsidebar option,
@@ -461,6 +462,7 @@ td.month-date,td.month-name,td.time{
 .entry-content textarea{
     background: %rgba_border%
 }
+.raindrops-toc-front li,
 .fail-search,
 input[type="file"],
 input[type="reset"],
@@ -675,7 +677,7 @@ select{
     %c4%
 
 }
-
+.raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
@@ -693,6 +695,7 @@ select{
 .entry-content input[type="radio"]{
     %c3%
 }
+.raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
 .entry-content input[type="url"],
@@ -1052,6 +1055,7 @@ select{
 .social input[type="text"]:focus{
     border:1px solid %c_border%;
 }
+
 .entry-content input[type="email"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
@@ -1221,6 +1225,7 @@ hr{
     -moz-box-shadow: 0 0 5px %rgba_border%;
     border:1px solid %rgba_border%;
 }
+.raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
@@ -1252,7 +1257,9 @@ hr{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
+.raindrops-toc-front li,
 #access{
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
@@ -1262,9 +1269,11 @@ hr{
     border-top:1px solid rgba(255, 255, 255, 0.3);
     -moz-box-shadow: 0 1px 3px #333;
     -webkit-box-shadow: 0 1px 3px #333;
+	box-shadow: 0 1px 3px #333;
 }
 
 #access a {
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%))!important;
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
@@ -1420,6 +1429,7 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
+.raindrops-toc-front li,
 input[type="text"],
 textarea#comment{
     border:1px solid #ddd;
@@ -1445,11 +1455,13 @@ textarea#comment{
     background:#fff;
     border-left-color:%rgba_border%;
 }
+.raindrops-toc-front li,
 #access .sub-menu a:hover,
 #access .children a:hover,
 #access .children .current_page_item a:hover{
 	%c4%
 }
+
 blockquote{
     border-left:6px solid;
     border-left-color:%rgba_border%;

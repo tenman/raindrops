@@ -63,13 +63,15 @@ raindrops_debug_navitation( __FILE__ );
                             <<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>>
 
                             <?php
+                            the_post_thumbnail( 'full', 'class=page-featured-image' );							
+							
                             raindrops_entry_title();
                             ?>
                             <div class="entry-content">
                                 <?php
                                 raindrops_prepend_entry_content();
 
-                                the_post_thumbnail( 'full', 'class=page-featured-image' );
+
 
                                 raindrops_entry_content();
                                 ?>

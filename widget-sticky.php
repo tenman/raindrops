@@ -1,4 +1,4 @@
-<?php if ( is_home() && is_active_sidebar( 'sidebar-3' ) ) { // Widget only home  ?>
+<?php if ( is_front_page() && is_active_sidebar( 'sidebar-3' ) ) { // Widget only home  ?>
     <div class="topsidebar">
         <ul>
             <?php dynamic_sidebar( 'sidebar-3' ); ?>

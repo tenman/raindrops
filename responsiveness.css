@@ -300,17 +300,15 @@
     img.aligncenter, .aligncenter, div.aligncenter{
         box-sizing:border-box;
     }
-    /* for front-page.php */
-    #doc3 .fron-page-top-container{
+    /* front-page.php */
+    #doc3 .front-page-top-container{
         position:relative;
     }
-    #doc3 .fron-page-top-container .first{
+    #doc3 .front-page-top-container .first{
         width:98%;
-
     }
-    #doc3 .fron-page-top-container .first + .yui-u{
+    #doc3 .front-page-top-container .first + .yui-u{
         width:98%;
-
     }
     #doc3 .raindrops-image-page .attachment-navigation .prev a,
     #doc3 .raindrops-image-page .attachment-navigation .next a{
@@ -319,6 +317,13 @@
     #doc3 .raindrops-image-page .attachment-navigation .next a{
         background-position:top right;
     }
+    #front-page-template-pages{
+        padding:0;
+    }
+    #front-page-template-pages .entry-title{
+        text-align:center;
+    }
+    /* front-page.php end */
     /* remove equal height inline style  */
     #yui-main .yui-u .rsidebar,
     #yui-main .yui-u .lsidebar{
@@ -334,6 +339,18 @@
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
     }
+    .raindrops-toc-front{
+        margin:1em 0;  
+    }
+    .raindrops-toc-front li{
+    list-style:none;
+    width:100%;
+    text-align:center;
+    display:block;
+    box-sizing:border-box;
+    margin:1%; 
+    border:1px solid rgba(222,222,222,.8);
+}
 }
 @media screen and (max-width : 480px){
     html .gecko{

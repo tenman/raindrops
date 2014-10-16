@@ -4,12 +4,65 @@ Overview of Changes
 	Added
 		front-page.php, full-width.php add new prezentation.
 		If you set the front page template the template above, you can from the post meta box, to be added to the page top posts
+			@see Section Description of Code Changes 'Template'
 	Fixed
 		If you use the widget of jet pack plug-in, solve problems that do not fit in the block on which the image is placed
+
+			@see Section Description of Code Changes 'jetpack'
+	Modified
+		Change position post thumbnail image
+				@see Section Description of Code Changes 'post thumbnail'
 Files Modified
-
+	childs/boots/style.css
+	functions.php
+	header-front.php
+	header-xhtml.php
+	lib/csscolor.css.php
+	media.css
+	page-templates/front-page.php
+	page-templates/full-width.php
+	page.php
+	responsiveness.css
+	style.css
+	widget-sticky.php
+Files Added
+	lib/jetpack.php
+	part-additional.php
 Description of Code Changes
+	childs/boots/style.css line:23-32 [Template]
+		Child theme support
+	functions.php line:224-237[jetpack]
+		lib/jetpacck.php include script
+	functions.php line:5443[Template]
+	+	if ( !is_singular() || is_page_template( 'page-templates/list-of-post.php' ) || ( is_page_template( 'page-templates/full-width.php' ) && is_front_page()  ) || ( is_page_template( 'page-templates/front-page.php' ) && is_front_page()  ) ) {
+	functions.php line:6715
+		Change Image size wp_get_attachment_image_src() from none to medium
+	functions.php line:7541 change element for title from span to h2
+		For correct html structure
+	functions.php line:7586-7599 modify funtion raindrops_tile() [Template]
+	header-xhtml.php line:57,
+	header-front.php line:60 bugfix
+		add class before space
+	header-front.php line:103 bugfix
+	media.css line:291 line:294 line:298
+		typo classname
+	header-front.php line:126 modify[Template]
+		add inline style width:100%
+	lib/csscolor.css.php line:395, line:465, line:680, line:1228, line:1260, add .raindrops-toc-front li[Template]
 
+	line:1262,1276 add IE gradient for color_type light background bugfix
+	page-templates/front-page.php line:20-87 [Template]
+	page-templates/full-width.php line:21-115[Template]
+	page.php line:66 Change post thumbnail position[post thumbnail]
+	responsiveness.css line:304, line:307,line:310,line:320-326,line:342-353 [Template]
+	style.css line:1658 [post thumbnail]
+	style.css line:2910-2913,line:2920-2969 [Template]
+	style.css line:2993-2998 add class
+	style.css line:3108 change class to id
+	style.css line:3114 change em to %
+	style.css line:3396-3401 modify display blank-front.php
+	style.css line:3771-3725 modify smaily
+	widget-sticky.php line:1 modify is_home() to is_front_page()[Template]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.246

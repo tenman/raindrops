@@ -150,7 +150,7 @@ $raindrops_current_theme_name		 = $raindrops_current_data->get( 'Name' );
  *
  * @since 1.248
  */
-if ( isset( $raindrops_recommend_plugins ) ) {
+if ( ! isset( $raindrops_recommend_plugins ) ) {
 
 	$raindrops_recommend_plugins = true;
 }

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.248
+version:1.249
 Overview of Changes
 	Created
 		Add New Plugin installer

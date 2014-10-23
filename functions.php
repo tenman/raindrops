@@ -147,7 +147,7 @@ $raindrops_current_theme_name		 = $raindrops_current_data->get( 'Name' );
 
 /**
  * Include the TGM_Plugin_Activation class.
- * 
+ *
  * @since 1.248
  */
 if ( isset( $raindrops_recommend_plugins ) ) {
@@ -5074,7 +5074,7 @@ DOC;
 				'choices'	 => array_flip( $raindrops_extra_col_width ), ) );
 			$wp_customize->add_control( 'raindrops_show_menu_primary', array( 'label' => esc_html__( 'Display hide', 'Raindrops' ), 'section' => 'nav', 'settings' => 'raindrops_theme_settings[raindrops_show_menu_primary]', 'type' => 'radio', 'choices' => array( 'show' => 'Show', 'hide' => 'Hide', ), ) );
 			$wp_customize->add_control( 'raindrops_fluid_max_width', array( 'label' => esc_html__( 'Fluid  Max Width (px)', 'Raindrops' ), 'section' => 'raindrops_theme_settings_document', 'settings' => 'raindrops_theme_settings[raindrops_fluid_max_width]', 'type' => 'text', ) );
-			
+
 			if ( RAINDROPS_USE_LIST_EXCERPT !== false ) {
 				$wp_customize->add_control( 'raindrops_entry_content_is_home', array( 'label' => esc_html__( 'Home Listed Entry Contents', 'Raindrops' ), 'section' => 'raindrops_theme_settings_content', 'settings' => 'raindrops_theme_settings[raindrops_entry_content_is_home]', 'type' => 'radio', 'choices' => array( 'content' => esc_html__( 'Show Content', 'Raindrops' ), 'excerpt' => esc_html__( 'Show Excerpt', 'Raindrops' ), 'none' => esc_html__( 'Hide', 'Raindrops' ), ) ) );
 				$wp_customize->add_control( 'raindrops_entry_content_is_category', array( 'label' => esc_html__( 'Category Archives Entry Contents', 'Raindrops' ), 'section' => 'raindrops_theme_settings_content', 'settings' => 'raindrops_theme_settings[raindrops_entry_content_is_category]', 'type' => 'radio', 'choices' => array( 'content' => esc_html__( 'Show Content', 'Raindrops' ), 'excerpt' => esc_html__( 'Show Excerpt', 'Raindrops' ), 'none' => esc_html__( 'Hide', 'Raindrops' ), ) ) );
@@ -5456,7 +5456,7 @@ DOC;
 				$thumbnail .= '</span>';
 			}
 			if ( ! has_post_thumbnail( $post->ID ) && !is_singular() && !post_password_required() ) {
-				
+
 				$thumbnail =  apply_filters('raindrops_title_thumbnail', $thumbnail ,'<span class="h2-thumb">', '</span>');
 			}
 
@@ -7628,12 +7628,12 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 
 			if ( $args['post_type'] == 'post' && $raindrops_page_for_posts ){
 
-				$html .= sprintf( 
-							$raindrops_html_page, 
+				$html .= sprintf(
+							$raindrops_html_page,
 							esc_url( get_permalink( $raindrops_page_for_posts ) ),
 							'portfolio-link-to-page-for-posts',
 							'link-to-page-title',
-							get_the_title( $raindrops_page_for_posts ) 
+							get_the_title( $raindrops_page_for_posts )
 							);
 			}
 
@@ -7655,7 +7655,7 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 			echo apply_filters( 'raindrops_portfolio_nav', sprintf( '<div class="portfolio-nav"><ul>%1$s</ul></div>', $html ) );
 		} else { //! empty( $raindrops_posts )
 			?><div><<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class( 'no-portfolio' ); ?> ><?php
-		
+
 				$url = remove_query_arg( 'page' , get_permalink() );
 
 				$raindrops_html_page = '<p style="text-align:center;"><a href="%1$s" class="%2$s" ><span class="%3$st">%4$s</span></a></p>';
@@ -8046,9 +8046,9 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 			if ( isset( $_POST[ 'add-to-front' ] ) && !empty( $_POST[ 'add-to-front' ] ) ) {
 
 				$data = sanitize_text_field( $_POST[ 'add-to-front' ] );
-				
+
 					update_post_meta( $post_id, '_add-to-front', $data );
-				
+
 			}
 //////////////////////////////////////////////////////////////
 			if ( isset( $_POST[ 'header-image-show' ] ) && !empty( $_POST[ 'header-image-show' ] ) ) {
@@ -8096,7 +8096,7 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="add" ' . checked( 'add', $current_value, false ) . ' />' . __( 'Add Front Page This Content', 'Raindrops' ) . '</p>';
 				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="default" ' . checked( '', $current_value, false ) . checked( 'default', $current_value, false ) . '  />' . __( 'No Need', 'Raindrops' ) . '</p>';
 			}
-/////////////////////////////////////////////////////////////				
+/////////////////////////////////////////////////////////////
 			if ( 'remove-header' !== $raindrops_restore_check ) {
 
 				$form .= '<h4>' . esc_html__( 'Override header Image', 'Raindrops' ) . '</h4>';
@@ -8241,7 +8241,7 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 
 if ( class_exists( 'scbLoad4' ) ) {
 	/*
-	 * 
+	 *
 	 * @since 1.248
 	 */
 	add_action( 'after_setup_theme', 'raindrops_pagenav_setup' );
@@ -8257,13 +8257,13 @@ if ( class_exists( 'scbLoad4' ) ) {
 	}
 
 	/**
-	 * 
+	 *
 	 * @since 1.248
 	 */
 	if ( !function_exists( 'raindrops_use_wp_pagenav' ) ) {
 
 		function raindrops_use_wp_pagenav( $link, $position ) {
-			
+
 			if ( function_exists( 'wp_pagenavi' ) and $position == 'nav-below' ) {
 				return wp_pagenavi( array( 'echo' => false, 'options' => array( 'prev_text' => esc_html__( 'Prev', 'Raindrops' ), 'next_text' => esc_html__( 'Next', 'Raindrops' ) ) ) );
 			} else {
@@ -8277,7 +8277,7 @@ if ( class_exists( 'scbLoad4' ) ) {
 	if ( !function_exists( 'raindrops_pagenav_filter' ) ) {
 
 		/**
-		 * 
+		 *
 		 * @param type $nav_html
 		 * @return type
 		 * @since 1.248
@@ -8294,7 +8294,7 @@ if ( class_exists( 'scbLoad4' ) ) {
 	if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 
 		/**
-		 * 
+		 *
 		 * @since 1.248
 		 */
 		function raindrops_pagenav_css() {
@@ -8354,7 +8354,7 @@ if ( function_exists( 'bcn_display_list' ) ) {
 
 		if ( get_locale() == 'ja' ) {
 
-			add_filter( 'bcn_template_tags', 'my_template_tags_change_date', 10, 3 );
+			add_filter( 'bcn_template_tags', 'raindrops_template_tags_change_date', 10, 3 );
 		}
 	}
 
@@ -8447,7 +8447,7 @@ if ( function_exists( 'bcn_display_list' ) ) {
 		wp_add_inline_style( 'style', $raindrops_bcn_css );
 	}
 
-	function my_template_tags_change_date( $replacements, $type, $id ) {
+	function raindrops_template_tags_change_date( $replacements, $type, $id ) {
 
 		$this_type = implode( ',', $type );
 

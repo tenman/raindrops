@@ -13,34 +13,7 @@ body.ja,
 .ja .h3{
 		font-family:'Meiryo',Arial,sans-serif
 }
-/* 
-.ja h1,
-.ja .h1:not(h1),
-.ja #site-title{
-	font-size:174%;
-	}
-.ja h2,
-.ja .h2:not(h2),
-.ja .page-title,
-.ja .entry-title{
-	font-size:138.5%;
-	}
-.ja h3,
-.ja .h3:not(h3){
-	font-size:116%;
-	}
-.ja h4,
-.ja .h4:not(h4){
-	font-size:108%;
-	}
-.ja h5,
-.ja .h5:not(H5){
-	font-size:100%;
-	}
-.ja h6,
-.ja .h6:not(h6){
-	font-size:93%;
-	}*/
+
 /* Raindrops new h1-h6 font size from ver 0.996 start */
 
 .ja #site-title{
@@ -125,4 +98,11 @@ body.ja,
 	font-weight:normal!important;
 	font-size:197%;
 	font-family:arial,helvetica,clean,sans-serif;
+}
+
+.ja em{
+        font-weight:bold;
+}
+.ja i{
+        font-style: italic;
 }

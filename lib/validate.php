@@ -340,7 +340,7 @@ if ( !function_exists( 'raindrops_heading_image_validate' ) ) {
 
 		if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
 
-			return 'none';
+			return raindrops_warehouse_clone( 'raindrops_heading_image' );
 		}
 		return $input;
 	}
@@ -376,10 +376,10 @@ if ( !function_exists( 'raindrops_footer_image_validate' ) ) {
 	function raindrops_footer_image_validate( $input ) {
 
 		global $raindrops_options;
-
+		
 		if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
 
-			return 'none';
+			return raindrops_warehouse_clone( 'raindrops_footer_image' );
 		}
 		return $input;
 	}
@@ -396,7 +396,7 @@ if ( !function_exists( 'raindrops_header_image_validate' ) ) {
 
 		if ( preg_match( '/[^(a-z|0-9|_|-|\.)]+/si', $input ) ) {
 
-			return "none";
+			return raindrops_warehouse_clone( 'raindrops_header_image' );
 		}
 		return $input;
 	}

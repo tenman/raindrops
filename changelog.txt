@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.248
+Overview of Changes
+
+Files Modified
+
+Files Added
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.247
 Overview of Changes
 	Added

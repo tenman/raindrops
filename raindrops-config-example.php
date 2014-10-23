@@ -222,3 +222,14 @@ if ( !isset( $raindrops_enable_keyboard ) ) {
 
     $raindrops_enable_keyboard = true;
 }
+/**
+ *
+ * Use or Not Raindrops recommend plugin installer
+ *
+ * uses true no use false
+ * @since 1.229
+ */
+if( isset( $raindrops_recommend_plugins )){
+	
+	$raindrops_recommend_plugins = true;
+}

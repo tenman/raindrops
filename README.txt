@@ -20,6 +20,14 @@ copyright   Copyright (c) 2010-2012, Tenman
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+This theme using  TGM-Plugin-Activation license below
+
+    version   2.4.0
+    author    Thomas Griffin <thomasgriffinmedia.com>
+    author    Gary Jones <gamajo.com>
+    copyright Copyright (c) 2012, Thomas Griffin
+    license   http://opensource.org/licenses/gpl-2.0.php GPL v2
+    link      https://github.com/thomasgriffin/TGM-Plugin-Activation
 
 Special Thanks for Contribution
 

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.247
+Version: 1.248
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -175,9 +175,15 @@ a:active,a:focus {
     border:none;
     outline:none;
 }
+strong,
 b{
+    font-weight:bold;
     border-bottom:none;
     text-decoration:none;
+}
+em,
+i{
+    font-style: italic;
 }
 p{
     line-height:1.5;
@@ -279,9 +285,7 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     height: 100%;
     min-width:160px;
 }
-.oembed-container[data-twttr-id^="twttr-sandbox"]{
-    margin-bottom:2em;
-}
+
 /* oembed end */
 .entry-content blockquote blockquote{
     clear:both;
@@ -1479,6 +1483,7 @@ body:not(.raindrops-accessible-mode) #access ul ul{
     min-width: 10em;
     margin:0;
 }
+/*----------------------------------------------------------*/
 .enable-keyboard #access li.focus > a + ul,
 .raindrops-accessible-mode #access li.focus > a + ul{
     left:auto;
@@ -1488,20 +1493,49 @@ body:not(.raindrops-accessible-mode) #access ul ul{
 .enable-keyboard #access li:not(.focus)  a + ul,
 .raindrops-accessible-mode #access li:not(.focus)  a + ul{
     text-indent:-9999px;
+
 }
+
 .enable-keyboard #access li:not(.focus) li,
 .raindrops-accessible-mode #access li:not(.focus) li{
     border:none!important;
     background:none!important;
 }
+/* change opacity 0 to 1 ver 1.248 */
 .enable-keyboard #access li:not(.focus) li a,
 .raindrops-accessible-mode #access li:not(.focus) li a{
-    opacity: 0;
+    opacity: 1;
+       
 }
+/* add ver 1.248 */
+.enable-keyboard #access li:not(.focus) li{
+        clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
+        position:absolute;
+        }
+ .enable-keyboard #access li:hover li{
+        clip:auto;
+        position:static;
+}
+
+.enable-keyboard #access  .menu.focus a + .sub-menu,
+.enable-keyboard #access  .menu.focus a + .children {
+    background:none;
+}
+.enable-keyboard #access  .sub-menu a:not(.focus),
+.enable-keyboard #access  .children a:not(.focus),
+.enable-keyboard #access li:not(.focus) li a a,
+.enable-keyboard #access li:not(.focus) li a li,
+.raindrops-accessible-mode #access li:not(.focus) li a li{
+    opacity:0;
+}
+.enable-keyboard #access  .menu.focus li:first-child a,
+.enable-keyboard #access  .sub-menu.focus a,
+.enable-keyboard #access  .children.focus a,
 .enable-keyboard #access .menu-item-has-children:hover  > ul > li > a,
 .raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
     opacity: 1.0;
 }
+/* 1.248 */
 /* for mobile responsive settings */
 #access:target li a{
     opacity: 1.0!important;

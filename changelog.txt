@@ -71,7 +71,13 @@ Description of Code Changes
 	lib/jetpack.php line:11,14-31	[misc]
 	raindrops-config-example.php line:224-234	[TGM_Plugin_Activation]
 	style.css line:178-187 [element styling]
-	style.css lline:1504-1538	[nav menu bug]
+	style.css line:1504-1538	[nav menu bug]
+	childs/boots/inc.php line:565-586 [TGM_Plugin_Activation]
+	functions.php line:157-166 [TGM_Plugin_Activation]
+	functions.php line:4988,5015-5026,5136-5156,8285-8316, 8420 [TGM_Plugin_Activation]
+	language/ja.po line:1411-1425,2863-2875,and etc
+	lib/option-panel.php line:263-284 	[TGM_Plugin_Activation]
+	lib/validate.php line:2-17		[TGM_Plugin_Activation]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.247

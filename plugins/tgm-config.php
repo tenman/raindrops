@@ -37,11 +37,6 @@ function raindrops_theme_register_required_plugins() {
             'slug'               => 'quick-cache',
             'required'           => false,
         ),
-		 array(
-            'name'               => 'Contact Form 7',
-            'slug'               => 'contact-form-7',
-            'required'           => false,
-        ),
     );
 
     /**
@@ -53,8 +48,9 @@ function raindrops_theme_register_required_plugins() {
      */
 	
 
-	$message_strings = '<div class="wrap raindrops-tgm-message"><p>'. esc_html__('When activated, the following plugins are applied to the theme automatically, you will begin to function automatically by simply setting the options of each plug-in, even without such as editing the template.', 'Raindrops'). '</p>';
+	$message_strings = '<div class="wrap raindrops-tgm-message"><p>'. esc_html__('Once you activate Breadcrumb NavXT, the WP-PageNavi, Next Setting is the Plugin Presentation at customizer page.If Set to yes then reflect automatically, even without and editing of the template to reflect automatically.', 'Raindrops'). '</p>';
 	$message_strings .= '<p>'. esc_html__('Of course, even if you do not use these plugins, it will work without the function of the Raindrops is lost, please decide freely whether or not to use or use in your favorite','Raindrops').'</p></div>';
+	$message_strings .= '<p><a href="'. esc_url( admin_url('customize.php' ) ).'">'.esc_html__('Link to Customizer', 'Raindrops' ).'</a></p>';
 	
 	
     $config = array(

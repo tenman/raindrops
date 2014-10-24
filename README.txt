@@ -33,9 +33,6 @@ This theme using  TGM-Plugin-Activation license below
 		Breadcrumb NavXT
 			Contributors: mtekk, hakre
 			License: GPLv2 or later
-		Contact Form 7
-			Contributors: takayukister
-			License: GPLv2 or later
 		WP-PageNavi
 			Contributors: GamerZ, scribu
 			License: GPLv2 or later

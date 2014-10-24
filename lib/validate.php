@@ -1,4 +1,20 @@
 <?php
+function raindrops_plugin_presentation_wp_pagenav_validate( $input ) {
+	
+	if ( $input == 'yes' ) {
+
+		return 'yes';
+	}
+	return 'none';	
+}
+function raindrops_plugin_presentation_bcn_nav_menu_validate( $input ) {
+	
+	if ( $input == 'yes' ) {
+
+		return 'yes';
+	}
+	return 'none';	
+}
 /**
  * 
  * @param type $input

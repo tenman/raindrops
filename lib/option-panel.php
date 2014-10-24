@@ -260,6 +260,28 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'validate'     => 'raindrops_complementary_color_for_title_link_validate',
         'list'         => 23 
     ),
+	array( 'option_id'    => 25,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_plugin_presentation_bcn_nav_menu",
+        'option_value' => "none",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Breadcrumb NavXT Automatic Presentation ', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'validate'     => 'raindrops_plugin_presentation_bcn_nav_menu_validate',
+        'list'         => 24 
+    ),
+	array( 'option_id'    => 26,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_plugin_presentation_wp_pagenav",
+        'option_value' => "none",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'WP-PageNavi Automatic Presentation ', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
+        'list'         => 25 
+    ),
 );
 }
 if ( !isset( $raindrops_base_setting ) ) {

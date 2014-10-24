@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.249
+version:1.250
 Overview of Changes
 	Created
 		Add New Plugin installer
@@ -13,6 +13,9 @@ Overview of Changes
 			translation
 				language/ja.po
 			 new ver $raindrops_recommend_plugins
+
+			Note:This functionality for only single site.
+
 	Modified
 		front-page.php template
 

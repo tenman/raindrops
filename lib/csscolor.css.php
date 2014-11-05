@@ -47,6 +47,8 @@ function raindrops_indv_css_dark() {
 .raindrops-accessible-mode.rd-type-dark .hfeed a:focus{
     color:orange!important;
     border-bottom:1px rgba(255, 255, 255,.6) solid;
+	margin-bottom:-1px!important;
+
 }
 
 body{
@@ -592,8 +594,10 @@ function raindrops_indv_css_w3standard() {
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-      font-weight:bold!important;
-      border-bottom:1px solid #000;
+    font-weight:bold!important;
+    border-bottom:1px solid #000;
+	margin-bottom:-1px!important;
+
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
     %c5%
@@ -857,8 +861,9 @@ function raindrops_indv_css_light() {
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-      font-weight:bold!important;
-      border-bottom:1px solid #000;
+	font-weight:bold!important;
+	border-bottom:1px solid #000;
+	margin-bottom:-1px!important;
 }
 
  a:link,
@@ -1381,8 +1386,9 @@ function raindrops_indv_css_minimal() {
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-      font-weight:bold!important;
-      border-bottom:1px solid #000;
+	font-weight:bold!important;
+	border-bottom:1px solid #000;
+	margin-bottom:-1px!important;
 }
 
 body{

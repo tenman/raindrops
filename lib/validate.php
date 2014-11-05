@@ -1,4 +1,34 @@
 <?php
+function raindrops_disable_keyboard_focus_validate( $input ) {
+	
+	if ( $input == 'disable' ) {
+
+		return 'disable';
+	}
+	return 'enable';	
+}
+function raindrops_plugin_presentation_the_events_calendar_validate( $input ) {
+	
+	if ( $input == 'yes' ) {
+
+		return 'yes';
+	}
+	return 'none';		
+	
+}
+function raindrops_plugin_presentation_meta_slider_validate( $input ) {
+	
+
+	if ( preg_match( '/[^(0-9)]+/si', $input ) ) {
+		
+		return 'none';
+		
+	} else {
+		
+		return absint( $input );
+	}
+	
+}
 function raindrops_plugin_presentation_wp_pagenav_validate( $input ) {
 	
 	if ( $input == 'yes' ) {

@@ -584,5 +584,38 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
         'list'         => 25 
     ),
+	array( 'option_id'    => 27,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_plugin_presentation_meta_slider",
+        'option_value' => "none",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Meta Slider Automatic Presentation ', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'validate'     => 'raindrops_plugin_presentation_meta_slider_validate',
+        'list'         => 26 
+    ),
+	array( 'option_id'    => 28,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_plugin_presentation_the_events_calendar",
+        'option_value' => "none",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'The Events Calendar Automatic Presentation ', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'validate'     => 'raindrops_plugin_presentation_the_events_calendar_validate',
+        'list'         => 27 
+    ),
+	array( 'option_id'    => 29,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_disable_keyboard_focus",
+        'option_value' => "enable",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Disable Keyboard Focus ', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Fallback Setting when Nav Menu displayed improperly', 'Raindrops' ),
+        'validate'     => 'raindrops_disable_keyboard_focus_validate',
+        'list'         => 28 
+    ),
     );
 }

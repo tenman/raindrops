@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Filter and actions for Raindrops theme
  *

@@ -1464,7 +1464,13 @@ div.menu li a{
 body.enable-keyboard #access ul ul{
     display:block!important;
 }
-body:not(.raindrops-accessible-mode) #access ul ul{
+/**
+ * raincrops 1.251 test
+ * raindrops-accessible-mode display improperly
+ * shows border and background
+ * from body:not(.raindrops-accessible-mode) #access ul ul{ to below
+ */
+body #access ul ul{
     display:none;
 }
 
@@ -1512,11 +1518,11 @@ body:not(.raindrops-accessible-mode) #access ul ul{
         clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
         position:absolute;
         }
- .enable-keyboard #access li:hover li{
+.enable-keyboard #access li:hover li{
         clip:auto;
-        position:static;
-}
+        position:relative;/* 1.251 static to relative */
 
+}
 .enable-keyboard #access  .menu.focus a + .sub-menu,
 .enable-keyboard #access  .menu.focus a + .children {
     background:none;
@@ -3712,24 +3718,73 @@ ol.list-of-post-list .entry-title{
     margin-top:0;
 }
 /* bbpress */
-#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums div, #bbpress-forums ul,#bbpress-forums li.bbp-header,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results,#bbpress-forums #bbp-your-profile fieldset span.description,
-#bbpress-forums #bbp-your-profile fieldset input, #bbpress-forums #bbp-your-profile fieldset textarea,#bbp-user-navigation *,#bbpress-forums .bbp-topics *,#bbpress-forums .forums *{
-    background:none!important;
-}
-li[class^="bbp_widget_"] fieldset div{
-    max-width:100%;
-}
-li[class^="bbp_widget_"] fieldset{
+
+#bbpress-forums .subscription-toggle{
     display:inline-block;
-    max-width:100%;
-    margin:0!important;
-    padding:0.38461538461em;
+    margin-top:2px;
+    margin-left:1em;
 }
-div.bbp-template-notice, div.indicator-hint{
-    color:inherit;
+#bbpress-forums p.bbp-topic-meta img.avatar, 
+#bbpress-forums ul.bbp-reply-revision-log img.avatar, 
+#bbpress-forums ul.bbp-topic-revision-log img.avatar, 
+#bbpress-forums div.bbp-template-notice img.avatar, 
+#bbpress-forums .widget_display_topics img.avatar, 
+#bbpress-forums .widget_display_replies img.avatar{
+    margin-bottom:-3px;
 }
-#bbpress-forums fieldset.bbp-form,#bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer,#bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results{
-    border:0.07692307692em solid rgba(222,222,222,.5);
+#bbpress-forums .subscription-toggle{
+    display:inline-block;
+    margin-top:2px;
+    margin-left:1em;
+}
+#bbpress-forums .bbp-topic-reply-count,
+#bbpress-forums .bbp-topic-voice-count,
+#bbpress-forums .bbp-topic-started-by,
+#bbpress-forums .bbp-forum-content,
+#bbpress-forums .bbp-forum-reply-count,
+#bbpress-forums .bbp-forum-topic-count,
+#bbpress-forums #bbp_topic_title,
+#bbpress-forums #bbp_topic_tags,
+#bbpress-forums #bbp_topic_content,
+#bbpress-forums #bbp_reply_content,
+#bbpress-forums .bbp-pagination,
+#bbpress-forums .bbp-body,
+#bbpress-forums .bbp-reply-content,
+#bbpress-forums .bbp-meta,
+#bbpress-forums .bbp-header,
+#bbpress-forums .forum-titles,
+#bbpress-forums .bbp-footer,
+#bbpress-forums legend,
+#bbpress-forums .bbp-reply-form,
+#bbpress-forums .bbp-topic-form{
+    background:#fff;
+    color:#000;
+    font-size:100%;
+}
+#bbpress-forums .bbp-forum-info .bbp-forum-content, #bbpress-forums p.bbp-topic-meta{
+    font-size:100%;
+}
+#bbpress-forums .bbp-topic-reply-count,
+#bbpress-forums .bbp-topic-voice-count,
+#bbpress-forums .bbp-forum-reply-count,
+#bbpress-forums .bbp-forum-topic-count,
+#bbpress-forums .forum-titles{
+    background:transparent;
+}
+#bbpress-forums .bbp-pagination{
+    padding:.5em;
+    margin-bottom:1px;
+}
+#bbpress-forums  #bbp_reply_submit,
+#bbpress-forums  #bbp_topic_submit{
+    padding:6px;
+}
+#bbpress-forums .bbp-reply-form,
+#bbpress-forums .bbp-topic-form{
+    padding-bottom:.5em;
+}
+#bbpress-forums a{
+    color:#666;
 }
 /**
  * The Events Calendar

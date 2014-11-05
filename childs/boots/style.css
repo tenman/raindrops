@@ -30,4 +30,8 @@
     color:#000;
 }
 /* for template front-page.php end */
+/* the events calendar plugin */
+.events-archive .entry-title, .events-single .entry-title, .icon-link-no-title{
+    display:none;
+}
 

@@ -37,6 +37,16 @@ function raindrops_theme_register_required_plugins() {
             'slug'               => 'quick-cache',
             'required'           => false,
         ),
+		 array(
+            'name'               => 'Meta Slider',
+            'slug'               => 'ml-slider',
+            'required'           => false,
+        ),
+		array(
+            'name'               => 'The Events Calendar',
+            'slug'               => 'the-events-calendar',
+            'required'           => false,
+        ),
     );
 
     /**

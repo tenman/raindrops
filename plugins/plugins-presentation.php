@@ -318,11 +318,14 @@ if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
  * @param type $id
  * @return string
  */
+
 	function raindrops_template_tags_change_date( $replacements, $type, $id ) {
+				
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
+			
 			$this_type = implode( ',', $type );
-
+			
 			if ( preg_match( '!date-year!', $this_type ) ) {
 
 				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'year_name', 'Raindrops' );
@@ -331,6 +334,7 @@ if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
 
 				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'day_name', 'Raindrops' );
 			}
+
 
 			return $replacements;
 		}
@@ -516,8 +520,7 @@ if ( !function_exists( 'raindrops_tribe_events_event_classes' ) ) {
 
 }
 
-/* Note: filter now test when filter active then view list and day displayed improperly */
-//add_filter( 'load_textdomain_mofile', 'raindrops_override_mo', 10, 2 );
+	add_filter( 'load_textdomain_mofile', 'raindrops_override_mo', 10, 2 );
 
 if ( !function_exists( 'raindrops_override_mo' ) ) {
 /**

@@ -1,4 +1,14 @@
 Changelog -----------------------------------
+version:1.252
+Overview of Changes
+	enable japanese translation
+
+Description of Code Changes
+	lib/pluins-presentation.php
+	line:523 enable filter load_textdomain_mofile
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.251
 Overview of Changes
 	Created

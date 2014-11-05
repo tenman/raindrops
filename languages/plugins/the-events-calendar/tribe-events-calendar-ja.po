@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: The Events Calendar 3.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 14:28+0900\n"
-"PO-Revision-Date: 2014-10-31 16:38+0900\n"
+"PO-Revision-Date: 2014-11-05 16:26+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: Modern Tribe, Inc. <pro@tri.be>\n"
 "Language: en_US\n"
@@ -46,7 +46,7 @@ msgstr "評価してください"
 
 #: ../admin-views/admin-update-message.php:37
 msgid "PSST... Want a Discount?"
-msgstr ""
+msgstr "PSST... Want a Discount?"
 
 #: ../admin-views/admin-update-message.php:38
 msgid "We send out discounts to our core users via our newsletter."
@@ -1329,11 +1329,11 @@ msgstr "主催者"
 
 #: ../lib/the-events-calendar.class.php:590
 msgid "month"
-msgstr "月"
+msgstr "month"
 
 #: ../lib/the-events-calendar.class.php:591
 msgid "list"
-msgstr "リスト"
+msgstr "list"
 
 #: ../lib/the-events-calendar.class.php:592
 msgid "upcoming"
@@ -1349,7 +1349,7 @@ msgstr "日"
 
 #: ../lib/the-events-calendar.class.php:595
 msgid "today"
-msgstr "本日"
+msgstr "today"
 
 #: ../lib/the-events-calendar.class.php:614
 #, php-format

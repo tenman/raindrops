@@ -1,4 +1,75 @@
 Changelog -----------------------------------
+version:1.251
+Overview of Changes
+	Created
+		Theme adapted for implementation of design and configuration, the automatic display function in place of the Template Editing
+
+		Note:Important
+			Theme, for the active plug-ins before that will be installed, and does nothing.
+			If the functionality is required, activating at once, please reactivate
+
+		Meta Slider Plugin
+			https://wordpress.org/plugins/ml-slider/
+			@see Section Description of Code Changes 'Meta Slider'
+		The Events Calendar
+			https://wordpress.org/plugins/the-events-calendar/
+			@see Section Description of Code Changes 'The Events Calendar'
+		bbPress
+			https://wordpress.org/plugins/bbpress/
+			@see Section Description of Code Changes 'bbPress'
+		Theme Customizer option
+			raindrops_disable_keyboard_focus
+			@see Section Description of Code Changes 'keyboard_focus'
+	Modified
+			@see Section Description of Code Changes 'Misc'
+
+	Fixed
+		wp_nav_menu() displayed improperly.
+			and fallback option add keyboard_focus
+		404.php error
+			add global $rsidebar_show, $raindrops_document_type;
+
+Files Modified
+	modified:   childs/boots/inc.php
+	modified:   childs/boots/style.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   plugins/tgm-config.php
+	modified:   style.css
+Files Added
+	new file:   languages/plugins/the-events-calendar/tribe-events-calendar-ja.mo
+	new file:   languages/plugins/the-events-calendar/tribe-events-calendar-ja.po
+	new file:   plugins/plugins-presentation.php
+Description of Code Changes
+	childs/boots/style.css line:33-36 add style[The Events Calendar]
+	functions.php move code from line:158-191 to line:366-408 [Misc]
+	functions.php line:416-432 [keyboard_focus]
+	functions.php line:1460-1470 [Misc]
+	functions.php line:2565-2569 [Misc]
+	functions.php line:5049-5058 [Meta Slider][The Events Calendar]
+	functions.php line:5107-5112 [keyboard_focus]
+	functions.php line:5133-5142 [keyboard_focus]
+	functions.php line:5211-5228 [Meta Slider][The Events Calendar]
+	functions.php line:5645-5649 [Misc]
+	functions.php line:6204-6207 [Misc]
+	functions.php line:6389-6392 [Misc]
+	functions.php line:7061-7064 [Misc]
+	functions.php line:8286-8543 move to plugins/plugins-presentation.php
+	header-front.php cleaning [Misc]
+	lib/csscolor.css.php Add margin-bottom:-1px!important;[Misc]
+	lib/option-panel line:285-317 [Meta Slider][The Events Calendar][keyboard_focus]
+	lib/validate.php line:2-31 [Meta Slider][The Events Calendar][keyboard_focus]
+	lib/widgets.php cleaning [Misc]
+	plugins/tgm-config.php line:40-49 [Meta Slider][The Events Calendar]
+	style.css line:3712-3725,3727-3733,3735-3787 [bbPress]
+----------------------------------------------
+
+Changelog -----------------------------------
 version:1.250
 Overview of Changes
 	Created

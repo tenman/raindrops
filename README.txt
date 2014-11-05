@@ -29,7 +29,7 @@ This theme using  TGM-Plugin-Activation license below
     license   http://opensource.org/licenses/gpl-2.0.php GPL v2
     link      https://github.com/thomasgriffin/TGM-Plugin-Activation
 
-	Plugins license
+	Plugins licenses
 		Breadcrumb NavXT
 			Contributors: mtekk, hakre
 			License: GPLv2 or later
@@ -38,6 +38,15 @@ This theme using  TGM-Plugin-Activation license below
 			License: GPLv2 or later
 		Quick Cache (Speed Without Compromise)
 			Contributors: WebSharks, JasWSInc, raamdev, anguz
+			License: GPLv2 or later
+		Meta Slider Plugin
+			Contributors: Matcha Labs
+			License: GPLv2 or later
+		The Events Calendar
+			Contributors: Modern Tribe, Inc.Rob La Gatta faction23 azbek
+			License: GPLv2 or later
+		bbPress
+			Contributors: Matt Mullenweg , John James Jacoby , Jennifer M. Dodd , Stephen Edgar
 			License: GPLv2 or later
 
 Special Thanks for Contribution

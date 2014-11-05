@@ -3,10 +3,18 @@ version:1.252
 Overview of Changes
 	enable japanese translation
 
+Files Modified
+	modified:   languages/plugins/the-events-calendar/tribe-events-calendar-ja.mo
+	modified:   languages/plugins/the-events-calendar/tribe-events-calendar-ja.po
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+
 Description of Code Changes
 	lib/pluins-presentation.php
 	line:523 enable filter load_textdomain_mofile
 
+	languages/plugins/the-events-calendar/tribe-events-calendar-ja.po
+	line:1332,1336,1352,49
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.251

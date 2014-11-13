@@ -429,7 +429,13 @@ if( raindrops_warehouse_clone( 'raindrops_disable_keyboard_focus' ) !== 'disable
 	
 	$raindrops_enable_keyboard = false;	
 }
+/* when wp_nav_menu using fallback_cb keyboard accessibility desable why menu structure issue */
+$raindrops_nav_menu_nothing_check = wp_get_nav_menus();
 
+if( empty( $raindrops_nav_menu_nothing_check ) ) {
+	
+	$raindrops_enable_keyboard = false;	
+}
 /**
  *
  *
@@ -5567,7 +5573,7 @@ DOC;
 			if ( has_post_thumbnail( $post->ID ) && !is_singular() && !post_password_required() ) {
 
 				$thumbnail .= '<span class="h2-thumb">';
-				$thumbnail .= get_the_post_thumbnail( $post->ID, array( 48, 48 ), array( "style" => "vertical-align:text-bottom;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
+				$thumbnail .= get_the_post_thumbnail( $post->ID, array( 48, 48 ), array( "style" => "vertical-align:middle;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
 				$thumbnail .= '</span>';
 			}
 			if ( ! has_post_thumbnail( $post->ID ) && !is_singular() && !post_password_required() ) {

@@ -387,7 +387,7 @@ if ( !function_exists( 'raindrops_insert_metaslider' ) ) {
 		global $raindrops_slider_action;
 		if ( is_int( $raindrops_slider_action ) && !empty( $raindrops_slider_action ) ) {
 
-			$html = '<div id="raindrops_metaslider">%1$s</div>';
+			$html = '<div id="raindrops_metaslider" class="clearfix">%1$s</div>';
 
 			if ( is_home() || is_front_page() ) {
 
@@ -570,7 +570,10 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 				$custom_color		 = '#000';
 				$custom_background	 = '#fff';
 			}
-			$raindrops_pagenav_css = '.tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
+			$raindrops_pagenav_css = '@media screen and (max-width : 920px){
+					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '} 
+				}	
+.tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
 			.tribe-events-list-widget li{padding:0 10px 20px}
 			.tribe-events-list-widget li{}
 			.events-archive .entry-title,.icon-link-no-title,
@@ -585,7 +588,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-list .tribe-events-event-cost span,
 			.tribe-events-list-separator-month span,
 			.single-tribe_events .tribe-events-event-meta{color:' . $custom_color . '; background:' . $custom_background . '}
-			
+
 			.tribe-events-list-widget-events,
 			.events-archive .tribe-events-calendar td.tribe-events-future div[id*="tribe-events-daynum-"],
 			.events-archive .tribe-events-calendar td.tribe-events-future div[id*="tribe-events-daynum-"] > a,
@@ -607,13 +610,33 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-photo #tribe-events-footer{border-top:1px solid rgba(' . $border_rgba . ');}
 			#tribe-events .tribe-events-notices li{background:#d9edf7; color:#000;}
 			#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover{background:#fff;color:#000;}
-			.ja .tribe-events-list-widget-events  .entry-title{font-size:108%;}
-			.tribe-events-list-widget-events  .entry-title{font-size:108%;}
+			.tribe-events-list-widget .tribe-events-widget-link a,
+			.tribe-events-list-widget .tribe-events-list-widget-events .entry-title{font-size:108%;}
 			.tribe-events-list-widget ol li{margin-bottom:10px;}
 			#tribe-events-content .tribe-events-calendar td:hover{background:' . $custom_background . '}';
 
 			wp_add_inline_style( 'tribe-events-calendar-style', $raindrops_pagenav_css );
 		}
+	}
+
+}
+
+
+add_filter( 'load_textdomain_mofile', 'raindrops_override_quick_cache_mo', 10, 2 );
+
+if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
+/**
+ * 
+ * @param type $mofile
+ * @param type $domain
+ * @return type
+ */
+	function raindrops_override_quick_cache_mo( $mofile, $domain ) {
+		$raindrops_locale = get_locale();
+		if ( $domain == 'quick-cache' && 'ja' == $raindrops_locale ) {
+			return get_template_directory() . '/languages/plugins/quick-cache/quick-cache-' . $raindrops_locale . '.mo';
+		}
+		return $mofile;
 	}
 
 }

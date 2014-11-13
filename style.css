@@ -57,12 +57,16 @@ a:visited{
     position:relative;
     margin:-0.07692307692em;
 }
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.raindrops-accessible-mode .hfeed .raindrops-mobile-menu a:focus,
 .enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
     position:absolute;
 }
+.raindrops-accessible-mode #access:target li:hover > ul > li > a,
 .enable-keyboard #access:target li:hover > ul > li > a{
     border:none;
 }
+/*:::::::::::::::::::::::::::::::::::::::::::::::ver 1.253 */
 .raindrops-accessible-mode #hd + a,
 .enable-keyboard #hd + a{
     margin:0;
@@ -1460,10 +1464,12 @@ div.menu li a{
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+body.raindrops-accessible-mode  #access ul ul,
 body.enable-keyboard #access ul ul{
     display:block!important;
 }
+/*:::::::::::::::::::::::::::::::::::::::::::::::ver 1.253 */
 /**
  * raincrops 1.251 test
  * raindrops-accessible-mode display improperly
@@ -1514,19 +1520,27 @@ body #access ul ul{
 
 }
 /* add ver 1.248 */
+/*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.raindrops-accessible-mode  #access li:not(.focus) li,
 .enable-keyboard #access li:not(.focus) li{
         clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
         position:absolute;
         }
+.raindrops-accessible-mode  #access li:hover li,
 .enable-keyboard #access li:hover li{
         clip:auto;
         position:relative;/* 1.251 static to relative */
 
 }
+.raindrops-accessible-mode  #access  .menu.focus a + .sub-menu,
+.raindrops-accessible-mode #access  .menu.focus a + .children,
 .enable-keyboard #access  .menu.focus a + .sub-menu,
 .enable-keyboard #access  .menu.focus a + .children {
     background:none;
 }
+.raindrops-accessible-mode #access  .sub-menu a:not(.focus),
+.raindrops-accessible-mode #access  .children a:not(.focus),
+.raindrops-accessible-mode #access li:not(.focus) li a a,
 .enable-keyboard #access  .sub-menu a:not(.focus),
 .enable-keyboard #access  .children a:not(.focus),
 .enable-keyboard #access li:not(.focus) li a a,
@@ -1534,6 +1548,9 @@ body #access ul ul{
 .raindrops-accessible-mode #access li:not(.focus) li a li{
     opacity:0;
 }
+.raindrops-accessible-mode  #access .menu.focus li:first-child a,
+.raindrops-accessible-mode  #access .sub-menu.focus a,
+.raindrops-accessible-mode  #access .children.focus a,
 .enable-keyboard #access  .menu.focus li:first-child a,
 .enable-keyboard #access  .sub-menu.focus a,
 .enable-keyboard #access  .children.focus a,
@@ -1541,6 +1558,7 @@ body #access ul ul{
 .raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
     opacity: 1.0;
 }
+/*:::::::::::::::::::::::::::::::::::::::::::::::ver 1.253 */
 /* 1.248 */
 /* for mobile responsive settings */
 #access:target li a{
@@ -2047,7 +2065,7 @@ br.clear{
     height:100%;
 }
 .h2-thumb{
-    margin-right:0.6em;
+    margin-right:0.3em;
 }
 body.page .nocomments{
     display:none;

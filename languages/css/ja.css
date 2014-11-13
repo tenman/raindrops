@@ -11,9 +11,22 @@ body.ja,
 .ja .h1,
 .ja .h2, 
 .ja .h3{
-		font-family:'Meiryo',Arial,sans-serif
+	font-family:'Meiryo',Arial,sans-serif;
 }
-
+.ja .entry-content h4,
+.ja .entry-content h5,
+.ja .entry-content h6,
+.ja .entry-content h1,
+.ja .entry-content h2,
+.ja .entry-content h3,
+.ja .entry-content .h4,
+.ja .entry-content .h5,
+.ja .entry-content .h6,
+.ja .entry-content .h1,
+.ja .entry-content .h2, 
+.ja .entry-content .h3{
+       margin:1.6em 0;   
+}
 /* Raindrops new h1-h6 font size from ver 0.996 start */
 
 .ja #site-title{
@@ -22,8 +35,9 @@ body.ja,
 
 }
 .ja .entry-title{
-	font-size:197%;
-	letter-spacing: 0.07em;	
+	font-size:146.5%;
+	letter-spacing: 0.07em;
+        font-weight:bold;
 }
 .ja .lsidebar h2,
 .ja .rsidebar h2{
@@ -105,4 +119,7 @@ body.ja,
 }
 .ja i{
         font-style: italic;
+}
+.ja p{
+    line-height:1.6;
 }

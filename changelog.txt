@@ -1,4 +1,44 @@
 Changelog -----------------------------------
+version:1.253
+Overview of Changes
+
+	Quick Cache Plugin add translation file for ja
+		@see Section Description of Code Changes 'Quick Cache'
+
+	keyboard accessibility desable why menu structure issue when wp_nav_menu using fallback_cb
+		@see Section Description of Code Changes 'wp_nav_menu'
+
+	Loop pages post-thumbnail style change vartical align value from text-bottom to middle
+		@see Section Description of Code Changes 'post-thumbnail'
+
+	style modify when language Japanese
+		@see Section Description of Code Changes 'lang ja'
+
+	style modify for slider plugin wrapper elements add class cleafix
+		@see Section Description of Code Changes 'Meta Slider'
+
+Files Modified
+	modified:   languages/css/ja.css
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+	modified:   functions.php
+	new file:   languages/plugins/quick-cache/quick-cache-ja.po
+	new file:   languages/plugins/quick-cache/quick-cache-ja.mo
+Description of Code Changes
+	functions.php line:432-438[wp_nav_menu]
+	functions.php line:5576[post-thumbnail]
+	languages/css/ja.css line:14-28[lang ja]
+	languages/css/ja.css line:38-40[lang ja]
+	languages/css/ja.css line:122-124[lang ja]
+	plugins/pluins-presentation.php line:390[Meta Slider]
+	plugins/pluins-presentation.php line:573-576[Meta Slider]
+	plugins/pluins-presentation.php line:613-614[Meta Slider]
+	plugins/pluins-presentation.php line:613-614[Meta Slider]
+	plugins/pluins-presentation.php line:623-642[Quick Cache]
+	style.css line:61,65,1468,1524,1529,1535-1536,1541-1543,1551-1553[wp_nav_menu]
+	style.css line:2068[Misc]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.252
 Overview of Changes
 	enable japanese translation

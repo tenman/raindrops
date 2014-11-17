@@ -1,18 +1,99 @@
+
+#hd{
+    text-align:center;
+    font-size:200%;
+}
+#doc{
+    width:750px;
+    margin:auto;
+}
+#doc2{
+    width:950px;
+    margin:auto;
+}
+#doc3{
+    width:974px;
+    max-width:100%;
+    min-width:640px;
+    margin:auto;
+}
+#doc4{
+    width:974px;
+    margin:auto;
+}
+#nav-below,
+#nav-above{
+    margin:1em 0;
+    border:1px solid #ccc;
+    text-align:center;
+}
+.nav-next,
+.nav-previous{
+    box-sizing:border-box;
+    display:inline-block;
+    width:50%;
+    border:1px solid red;
+    margin:-1px;
+    padding:1em;
+    
+}
+.nav-next:empty,
+.nav-previous:empty{
+    display:none;
+}
+article h2{
+    font-size:200%;
+}
+
+/* oembed */
+embed[src^="http://www.youtube.com/"],
+embed[src^="http://v.wordpress.com/"],
+embed[src^="//v.wordpress.com/"],
+a[href^="https://www.flickr.com/"] img,
+iframe[src^="https://embed-ssl.ted.com/"]{
+    margin:auto;
+    display:block;
+    max-width:100%;
+    max-height:100%;
+    min-width:160px;
+}
+.oembed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+}
+.oembed-container{
+    margin:0;
+}
+.oembed-container iframe,
+.oembed-container object,
+.oembed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-width:160px;
+}
+
+/* oembed end */
 a{
 }
+/*
 body{
     padding:0;
     margin:0;
     background:none;
-}
+}*/
 
 html body.custom-background { background-color: #fff; }
 #header-image{max-width:96%;}
-#doc2,
+/*#doc2,
 #doc3,
 #doc4{
     margin-left:40px;
-}
+}*/
 .wp-caption,
 .wp-caption-text,
 .sticky,
@@ -83,6 +164,7 @@ ul.index li{
 .wp-caption img{
     text-align:center;
 }
+/*
 .single-post-thumbnail img,
 textarea,
 iframe,
@@ -91,7 +173,8 @@ embed,
 .entry-content img{
     max-width:100%;
     height:auto;
-}
+}*/
+
 div.h1{
     font-size:2em;
 }
@@ -116,9 +199,7 @@ a{
 #comments,
 .entry-meta-default,
 .entry-utility,
-.posted-in,
-#nav-above,
-#nav-below{
+.posted-in{
     margin:1em 0;
 }
 .prev,

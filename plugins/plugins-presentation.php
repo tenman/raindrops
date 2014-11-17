@@ -75,11 +75,10 @@ if ( !function_exists( 'raindrops_pagenav_setup' ) ) {
 			add_filter( 'raindrops_next_prev_links', 'raindrops_use_wp_pagenav', 10, 2 );
 			add_filter( 'wp_pagenavi', 'raindrops_pagenav_filter' );
 			add_action( 'wp_enqueue_scripts', 'raindrops_pagenav_css' );
+
 		}
 	}
-
 }
-
 /**
  *
  * @since 1.248
@@ -140,12 +139,15 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 			switch ( $color_type ) {
 				case 'dark':
 					$color_type_value	 = -3;
+					$border_rgba		 = '191, 156, 118, 0.8';
 					break;
 				case 'light':
 					$color_type_value	 = 3;
+					$border_rgba		 = '118, 156, 191, 1';
 					break;
 				default:
 					$color_type_value	 = false;
+					$border_rgba		 = '118, 156, 191, 1';
 					break;
 			}
 			if ( $color_type_value !== false ) {
@@ -153,7 +155,14 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 			} else {
 				$raindrops_gradient = '';
 			}
+			
 			$raindrops_pagenav_css = '
+			.wp-pagenavi a:hover, 
+			.wp-pagenavi span.current{
+
+				border:2px solid rgba('. $border_rgba. ');
+				margin:1px;
+			}
 			.wp-pagenavi{line-height:2.4;}
 			.wp-pagenavi a, .wp-pagenavi span{
 				padding:0 5px;}
@@ -172,8 +181,14 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 			@media screen and (max-width : 640px){
 			.wp-pagenavi{margin:auto;max-width:98%;box-sizing:border-box;text-align:center;font-size:123.2%}
 			.wp-pagenavi span{display:inline-block;line-height:2}.wp-pagenavi .extend{border:none;}
-			.wp-pagenavi .previouspostslink,.wp-pagenavi .last,.wp-pagenavi .pages{display:block;text-align:center;} }';
+			.wp-pagenavi .previouspostslink,.wp-pagenavi .first,.wp-pagenavi .last,.wp-pagenavi .pages{display:block;text-align:center;} }';
+				
+			if ( WP_DEBUG !== true ) {
 
+				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
+													  array( "", "", "", '"', '', '"' ), 
+													  $raindrops_pagenav_css );
+			}
 			wp_add_inline_style( 'wp-pagenavi', $raindrops_pagenav_css );
 		}
 	}
@@ -233,78 +248,84 @@ if ( !function_exists( 'raindrops_bcn_css' ) ) {
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
 
 			$raindrops_bcn_css = 'ol.breadcrumbs{
-    margin:1em;
+	margin:1em;
 }
 .breadcrumbs li{
-    list-style:none;
-    display:inline-block;
-    margin:0;
-    padding:0;
+list-style:none;
+	display:inline-block;
+	margin:0;
+	padding:0;
 }
 .breadcrumbs li:after{
-    content: ">";
-    display:inline-block;
-    width:2em;
-    text-align:center;
+	content: ">";
+	display:inline-block;
+	width:2em;
+	text-align:center;
 }
 .breadcrumbs li:last-child:after{
 	content: "";
 }
 .breadcrumbs .current{
-    font-weight:bold;
+	font-weight:bold;
 }
 .entry-content li ul{
-    margin-top:1em;
+	margin-top:1em;
 }
 .entry-content ul .raindrops-toggle{
-    list-style:none;
+	list-style:none;
 }
 .raindrops-toggle + .raindrops-toggle{
-    margin-top:1em;
+	margin-top:1em;
 }
 
 @media screen and (max-width : 640px){
-    ol.breadcrumbs{
-        margin:2em 0;
-        border-top:1px solid rgba(222,222,222,.5);
+	ol.breadcrumbs{
+		margin:2em 0;
+		border-top:1px solid rgba(222,222,222,.5);
 
-    }
-    .breadcrumbs li{
-        list-style:none;
-        display:block;
-        margin:0;
-        padding:1em;
-        border-bottom:1px solid rgba(222,222,222,.5);
-    }
-    .breadcrumbs li:nth-child(2) a{
-        margin:0 0 0 10px;
-    }
+	}
+	.breadcrumbs li{
+		list-style:none;
+		display:block;
+		margin:0;
+		padding:1em;
+		border-bottom:1px solid rgba(222,222,222,.5);
+	}
+	.breadcrumbs li:nth-child(2) a{
+		margin:0 0 0 10px;
+	}
 
-    .breadcrumbs li:nth-child(3) a{
-        margin:0 0 0 20px;
-    }
-    .breadcrumbs li:nth-child(4) a{
-        margin:0 0 0 30px;
-    }
-    .breadcrumbs li:nth-child(5) a,
-    .breadcrumbs li:nth-child(6) a,
-    .breadcrumbs li:nth-child(7) a,
-    .breadcrumbs li:nth-child(8) a,
-    .breadcrumbs li:nth-child(9) a,
-    .breadcrumbs li:nth-child(10) a{
-        margin:0 0 0 40px;
-    }
+	.breadcrumbs li:nth-child(3) a{
+		margin:0 0 0 20px;
+	}
+	.breadcrumbs li:nth-child(4) a{
+		margin:0 0 0 30px;
+	}
+	.breadcrumbs li:nth-child(5) a,
+	.breadcrumbs li:nth-child(6) a,
+	.breadcrumbs li:nth-child(7) a,
+	.breadcrumbs li:nth-child(8) a,
+	.breadcrumbs li:nth-child(9) a,
+	.breadcrumbs li:nth-child(10) a{
+		margin:0 0 0 40px;
+	}
 
-    .breadcrumbs li:after{
-        content: "";
-        display:inline-block;
-        width:2em;
-        text-align:center;
-    }
-    .current_item{
-        text-align:center;
-    }
+	.breadcrumbs li:after{
+		content: "";
+		display:inline-block;
+		width:2em;
+		text-align:center;
+	}
+	.current_item{
+		text-align:center;
+	}
 }';
+			if ( WP_DEBUG !== true ) {
+
+				$raindrops_bcn_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
+													  array( "", "", "", '"', '', '"' ), 
+													  $raindrops_bcn_css );
+			}
 			wp_add_inline_style( 'style', $raindrops_bcn_css );
 		}
 	}
@@ -460,6 +481,13 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 				.rslides_tabs li a{' . $raindrops_gradient . '}/*r slider*/
 				.rslides_tabs li.rslides_here a{ color:green;}/*r slider*//*nivo ok*/
 				.metaslider-coin{margin:auto;}';
+			
+			if ( WP_DEBUG !== true ) {
+
+				$metaslider = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
+													  array( "", "", "", '"', '', '"' ), 
+													  $metaslider );
+			}
 			wp_add_inline_style( 'style', $metaslider );
 		}
 	}
@@ -474,13 +502,10 @@ if ( !function_exists( 'raindrops_metaslider_shortcode_custom' ) ) {
 		global $raindrops_slider_action;
 
 		if ( ( is_home() || is_front_page() ) && is_int( $raindrops_slider_action ) && !empty( $raindrops_slider_action ) ) {
+
 			?>
-			<script type="text/javascript">
-			    jQuery( function ( $ ) {
-			        $( '#raindrops_metaslider' ).show();
-			    } );
-			</script> 
-			<?php
+<script type="text/javascript"> jQuery( function ( $ ) { $( '#raindrops_metaslider' ).show(); } );</script>
+<?php
 
 		}
 	}
@@ -614,7 +639,13 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-list-widget .tribe-events-list-widget-events .entry-title{font-size:108%;}
 			.tribe-events-list-widget ol li{margin-bottom:10px;}
 			#tribe-events-content .tribe-events-calendar td:hover{background:' . $custom_background . '}';
+			
+			if ( WP_DEBUG !== true ) {
 
+				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
+													  array( "", "", "", '"', '', '"' ), 
+													  $raindrops_pagenav_css );
+			}
 			wp_add_inline_style( 'tribe-events-calendar-style', $raindrops_pagenav_css );
 		}
 	}

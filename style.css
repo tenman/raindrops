@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.253
+Version: 1.254
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -289,7 +289,9 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     height: 100%;
     min-width:160px;
 }
-
+.oembed-container + *{
+    margin-top:1em;
+}
 /* oembed end */
 .entry-content blockquote blockquote{
     clear:both;
@@ -1149,9 +1151,10 @@ ul.index li .edit {
 }
 #doc4 #container.yui-gc > .yui-u:not(.first),
 #doc3 #container.yui-gc > .yui-u:not(.first){
-    width:35%;
+    width:33%;/* 1.254 change from 35% to 33% */
     margin:0;
 }
+
 .lsidebar > ul{
     margin:0 0.38461538461em;
 }
@@ -2946,8 +2949,8 @@ sup {
 .yui-t6 #container > .first,
 .yui-t5 #container > .first,
 .yui-t4 #container > .first{
-    margin-left:0.76923076923em;
-    margin-right:-0.76923076923em;
+    margin-left:10px;
+    margin-right:-10px;
 }
 .yui-t2 #container > .first,
 .yui-t1 #container > .first{

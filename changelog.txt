@@ -50,6 +50,18 @@ Overview of Changes
 		Layout display improperly when default sidebar right 300px + extra sidebar 33%
 			@see Section Description of Code Changes 'Layout issue'
 
+		get_post($post->ID) has non object error
+			@see Section Description of Code Changes 'Misc'
+
+		Theme option page has error
+			A non-existent image file I was using in-line style
+				wp-content/themes/raindrops/images/none
+			remove inline style.
+			@see Section Description of Code Changes 'no exits image'
+
+		Add the processing in the case that the value of the access key does not exist
+			When prepared access key does not exist, it does not display the access key attribute
+			@see Section Description of Code Changes 'Accesskey'
 
 Files Modified
 	modified:   fallback.css
@@ -79,6 +91,9 @@ Description of Code Changes
 	plugins/plugins-presentation.php line:323-328,484-490,507,643-648[Misc]
 	style.css line:292-294[Misc]
 	style.css line:1154,2952-2953[Layout issue]
+	functions.php line:4712-4716[Misc]
+	lib/option-panel.php line:795-800[no exits image]
+	lib/option-panel.php line:894-899[Accesskey]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.253

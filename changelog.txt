@@ -2,10 +2,82 @@ Changelog -----------------------------------
 version:1.254
 Overview of Changes
 
+	javascript and CSS move from embed inline style, inline script to external link
+		add new function raindrops_load_small_device_helper() functions.php line:4627
+		add new file raindrops-helper.js
+		@see Section Description of Code Changes 'Change External'
+
+	$raindrops_fallback_human_interface_show relate changes
+		In internal changes towards the future, it does not affect the theme of behavior
+		@see Section Description of Code Changes 'fallback_human_interface'
+
+	Fixed
+		paragraph element apply improperly
+				editor text mode source
+				<div class="line">
+				<div class="unit size1of2 gradient3">1/2</div>
+				<div class="unit size1of2 gradient2">1/2</div>
+				</div>
+			bad result
+				<div class="line">
+				<div class="unit size1of2 gradient3">
+				<p>1/2</p>
+				<br />
+				</p>
+				</div>
+				<div class="unit size1of2 gradient2">
+				<p>1/2</p>
+				<br />
+				</p>
+				</div>
+				</div>
+			fixed
+				<div class="line">
+				<div class="unit size1of2 gradient3">
+				<p>1/2</p>
+				</div>
+				<div class="unit size1of2 gradient2">
+				<p>1/2</p>
+				</div>
+				</div>
+			@see Section Description of Code Changes 'p element issue'
+
+		class oembed-container  add class clearfix
+			I allows adjustment of subsequent text margin,
+			CSS modify
+			@see Section Description of Code Changes 'Misc'
+
+		Layout display improperly when default sidebar right 300px + extra sidebar 33%
+			@see Section Description of Code Changes 'Layout issue'
+
 Files Modified
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+	new file:	raindrops-helper.js
 
 Description of Code Changes
-
+	fallback.css all changes[fallback_human_interface]
+	functions.php line:14-24[Change External]
+	functions.php line:523[Change External]
+	functions.php line:2447[Change External]
+	functions.php line:2449-2459[Change External]
+	functions.php line:2523,2542,2544[Change External]
+	functions.php line:4327-4328[fallback_human_interface]
+	functions.php line:4460-4461,4463,4465-4475,4481[Change External]
+	functions.php line:4627-4787[Change External]
+	functions.php line:5165-5175[Change External]
+	functions.php line:5181-5187[Change External]
+	functions.php line:6765-6768[Change External]
+	functions.php line:8283[p element issue]
+	functions.php line:8572[MIsc]
+	functions.php line:8580-8637[Change External]
+	plugins/plugins-presentation.php line:142,146,150,160-165[Misc]
+	plugins/plugins-presentation.php line:184-191[Misc]
+	plugins/plugins-presentation.php line:323-328,484-490,507,643-648[Misc]
+	style.css line:292-294[Misc]
+	style.css line:1154,2952-2953[Layout issue]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.253

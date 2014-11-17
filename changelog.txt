@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.255
+version:1.256
 Overview of Changes
 
 	javascript and CSS move from embed inline style, inline script to external link
@@ -94,6 +94,10 @@ Description of Code Changes
 	functions.php line:4712-4716[Misc]
 	lib/option-panel.php line:795-800[no exits image]
 	lib/option-panel.php line:894-899[Accesskey]
+	functions.php line:4267-4282[Change External]
+	functions.php line:8606[Change External]
+	functions.php line:8637-8647[Change External]
+	functions.php line:8658-8659,8662-8663,8666[Change External]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.253

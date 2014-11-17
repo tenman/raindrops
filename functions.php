@@ -16,6 +16,7 @@ if ( !defined( 'ABSPATH' ) ) {
  * set false then old script load
  */
 if ( ! isset( $raindrops_new_style_load ) ) {
+	global $raindrops_new_style_load;
 	$raindrops_new_style_load = true;
 }
 if ( ! isset( $raindrops_new_script_load ) ) {
@@ -1168,6 +1169,7 @@ foreach ( $raindrops_base_setting as $setting ) {
  *
  *
  */
+
 if ( !function_exists( 'raindrops_add_body_class' ) ) {
 
 	function raindrops_add_body_class( $classes ) {
@@ -1187,13 +1189,16 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 			if ( isset( $raindrops_options[ "raindrops_style_type" ] ) && !empty( $raindrops_options[ "raindrops_style_type" ] ) ) {
 
 				$color_type = "rd-type-" . $raindrops_options[ "raindrops_style_type" ];
+
 			}
 
 			$raindrops_content_check = get_post( $post->ID );
 			$raindrops_content_check = $raindrops_content_check->post_content;
 
 			if ( preg_match( "!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|' )*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+				
 				$color_type = "rd-type-" . trim( $regs[ 3 ] );
+
 			}
 			if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
 
@@ -2457,7 +2462,7 @@ LINK_COLOR_CSS;
 			if ( isset( $wp_customize ) || $raindrops_new_style_load == false ) {
 				$css .= raindrops_embed_css();
 			}
-
+			
 			$result_indv = '';
 
 			if ( RAINDROPS_USE_AUTO_COLOR !== true ) {
@@ -4197,7 +4202,6 @@ DOC;
 			}
 			return $title;
 		}
-
 	}
 	/**
 	 *
@@ -4242,12 +4246,11 @@ DOC;
 	 *
 	 */
 	if ( !function_exists( "raindrops_color_type_custom" ) ) {
-
 		function raindrops_color_type_custom( $css ) {
 
 			global $post;
-
-			if ( isset( $post ) && is_singular() ) {
+//|| intval( get_query_var( 'raindrops_color_type' ) ) == 1
+			if ( isset( $post ) && is_singular()  ) {
 
 				$raindrops_content_check = get_post( $post->ID );
 				$raindrops_content_check = $raindrops_content_check->post_content;
@@ -4255,18 +4258,33 @@ DOC;
 				if ( preg_match( "!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
 
 					$color_type = trim( $regs[ 3 ] );
+
 					return raindrops_design_output( $color_type ) . raindrops_color_base();
 				} else {
 
 					return $css;
 				}
-			} else {
+			}elseif( intval( get_query_var( 'raindrops_color_type' ) ) == 1 && $post_id = get_query_var( 'p' ) && $raindrops_new_style_load == true )  {
 
+				$raindrops_content_check = get_post( $post_id );
+				$raindrops_content_check = $raindrops_content_check->post_content;
+
+				if ( preg_match( "!\[raindrops[^\]]+(color_type)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+
+					$color_type = trim( $regs[ 3 ] );
+
+					return raindrops_design_output( $color_type ) . raindrops_color_base();
+				} else {
+
+					return $css;
+				}
+				
+			}else{
 				return $css;
-			}
+			}		
 		}
-
 	}
+	
 	/**
 	 *
 	 *
@@ -8585,7 +8603,11 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
  * 
  * @since 1.254
  */
-global $wp_customize;
+global $wp_customize,$raindrops_new_style_load;
+
+
+
+
 if ( ! isset( $wp_customize ) && $raindrops_new_style_load == true ) {
 	/**
 	 * @1.254
@@ -8599,6 +8621,7 @@ if ( !function_exists( 'raindrops_setup_style_loader' ) ) {
 	 * @1.254
 	 */
     function raindrops_setup_style_loader(){
+	
 		//@ see line:501 query var     
         add_action( 'wp_enqueue_scripts', 'raindrops_register_color_type_style' ,99 );
         add_action( 'template_redirect', 'raindrops_color_type_style_buffer');
@@ -8611,9 +8634,17 @@ if ( !function_exists( 'raindrops_register_color_type_style' ) ) {
 	 * @1.254
 	 */
     function raindrops_register_color_type_style() {
-		global $raindrops_current_data_version;
+		
+		global $raindrops_current_data_version,$post,$posts;
+		$query = '';
+		$count = count( $posts );		
+		if( isset($post) && $count == 1 ) {
+			
+			$query = sprintf( '&amp;p=%1$s', $post->ID);		
+		}
 			$version     = md5( raindrops_embed_css() );
-            wp_register_style( 'raindrops_color_type', sprintf('/?%1$s=1', 'raindrops_color_type' ),array(), $version );
+			
+            wp_register_style( 'raindrops_color_type', sprintf('/?%1$s=1%2$s', 'raindrops_color_type', $query ),array(), $version );
             wp_enqueue_style( 'raindrops_color_type' );
 
     }
@@ -8624,13 +8655,15 @@ if ( !function_exists( 'raindrops_color_type_style_buffer' ) ) {
 	 * @1.254
 	 */
     function raindrops_color_type_style_buffer( ) {
-		global $raindrops_fallback_human_interface_show;
+		global $raindrops_fallback_human_interface_show,$post;
+
         if( intval( get_query_var( 'raindrops_color_type' ) ) == 1 ) {
 			if( $raindrops_fallback_human_interface_show == true ) { exit;}
-          
+			
+			$style = apply_filters('raindrops_color_type_style_buffer',raindrops_embed_css()); 
 			ob_start();
 			header( 'Content-type: text/css' );
-			$css     = raindrops_embed_css();
+			$css     = $style;
 			$css     = wp_kses( $css, array() );
 			echo $css; 
 			exit;

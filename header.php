@@ -2,7 +2,6 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-
 global $template, $raindrops_link_unique_text;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?><!DOCTYPE html>

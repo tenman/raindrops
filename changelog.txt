@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.254
+version:1.255
 Overview of Changes
 
 	javascript and CSS move from embed inline style, inline script to external link
@@ -49,6 +49,7 @@ Overview of Changes
 
 		Layout display improperly when default sidebar right 300px + extra sidebar 33%
 			@see Section Description of Code Changes 'Layout issue'
+
 
 Files Modified
 	modified:   fallback.css

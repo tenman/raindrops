@@ -4709,7 +4709,11 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			}
 		}
 		$color_type				 = '';
-		$raindrops_content_check = get_post( $post->ID );
+		
+		if ( isset( $post->ID ) ) {
+			
+			$raindrops_content_check = get_post( $post->ID );
+		}
 
 		if ( isset( $raindrops_content_check ) ) {
 

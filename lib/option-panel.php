@@ -792,10 +792,12 @@ class raindrops_menu_create {
                 if ( file_exists( get_stylesheet_directory() . '/images/' . $current_heading_image ) ) {
 
                     $lines .= '<td style="background:url( ' . get_stylesheet_directory_uri() . '/images/' . $current_heading_image . ' );"><img src="' . get_stylesheet_directory_uri() . '/images/number.png" />';
-                } else {
+                } elseif ( file_exists( get_template_directory() . '/images/' . $current_heading_image ) ) {
 
                     $lines .= '<td style="background:url( ' . get_template_directory_uri() . '/images/' . $current_heading_image . ' );"><img src="' . get_template_directory_uri() . '/images/number.png" />';
-                }
+                } else {
+					$lines .= '<td><img src="' . get_template_directory_uri() . '/images/number.png" />';	
+				}
             } elseif ( $key == "raindrops_header_image" ) {
 
                 $uploads          = wp_upload_dir();
@@ -889,8 +891,12 @@ class raindrops_menu_create {
             } else {
 
                 $lines .= '<td>';
-                $lines .= '<input accesskey="' . esc_attr( $this->accesskey[ $i ] ) . '" type="text" name="raindrops_option_values[' . $key . ']" value="' . esc_attr( $val ) . '"';
-                $lines .= ' /></td>';
+				if ( isset( $this->accesskey[ $i ] ) ) {
+					$lines .= '<input accesskey="' . esc_attr( $this->accesskey[ $i ] ) . '" type="text" name="raindrops_option_values[' . $key . ']" value="' . esc_attr( $val ) . '"';
+				} else {
+					$lines .= '<input type="text" name="raindrops_option_values[' . $key . ']" value="' . esc_attr( $val ) . '"';	
+				}
+				$lines .= ' /></td>';
             }
 
             $i++;

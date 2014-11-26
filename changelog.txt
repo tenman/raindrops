@@ -2,6 +2,11 @@ Changelog -----------------------------------
 version:1.257
 Overview of Changes
 
+	Fixed dinamic CSS
+		> changed &lt;
+		Style Broken
+		add $css = str_replace( array("&gt;",'raindrops_color_ja'),array('>',''),$css);
+			functions.php line:8675
 	Change for Child Theme relation
 		@see Section Description of Code Changes 'Child Theme'
 	Customizeable for Footer Text

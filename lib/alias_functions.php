@@ -228,7 +228,7 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             
             $selector = '.gradient' ;
         }
-       
+
          if ( !empty( $color1 ) ) {
         
             $color1_check = str_replace( '#', "", $color1 );

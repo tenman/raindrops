@@ -4,20 +4,24 @@
  *
  *
  */
-if ( !function_exists( 'raindrops_child_customizer_relate' ) ) {
-    add_filter( 'raindrops_embed_meta_echo', 'raindrops_child_customizer_relate' );
+$raindrops_current_data			 = wp_get_theme( 'raindrops' );
+$raindrops_current_data_version	 = $raindrops_current_data->get( 'Version' );
+$raindrops_version_compare		 = version_compare(  '1.255', $raindrops_current_data_version);
 
-    function raindrops_child_customizer_relate( $content ) {
+if ( ! function_exists( 'raindrops_child_customizer_relate' ) && $raindrops_version_compare !== 1 ) {
+	
+	add_filter( 'raindrops_embed_meta_echo', 'raindrops_child_customizer_relate' );
 
-        $style_type = raindrops_warehouse_clone( "raindrops_style_type" );
-        $theme_name = wp_get_theme()->get( 'Name' );
-        if ( $style_type == $theme_name ) {
-            return raindrops_child_live_change_customizer();
-        } else {
-            return $content;
-        }
-    }
+	function raindrops_child_customizer_relate( $content ) {
 
+		$style_type	 = raindrops_warehouse_clone( "raindrops_style_type" );
+		$theme_name	 = wp_get_theme()->get( 'Name' );
+		if ( $style_type == $theme_name ) {
+			return raindrops_child_embed_css();
+		} else {
+			return $content;
+		}
+	}
 }
 
 /**
@@ -26,9 +30,10 @@ if ( !function_exists( 'raindrops_child_customizer_relate' ) ) {
  *
  *
  */
-if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
 
-    function raindrops_child_live_change_customizer() {
+if ( !function_exists( 'raindrops_child_embed_css' ) ) {
+
+    function raindrops_child_embed_css() {
 
         global $post, $raindrops_current_theme_name, $raindrops_base_font_size;
         $result                    = '';
@@ -42,14 +47,10 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
         $raindrops_indv_css        = raindrops_design_output( $raindrops_style_type ) . raindrops_color_base( $raindrops_base_color, array( 'color' => 'rd-type-boots .color', 'face' => 'rd-type-boots .face' ) );
         $raindrops_indv_css        = raindrops_color_type_custom( $raindrops_indv_css );
 
-
-
-
         $raindrops_fluid_maximum_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
 
         $css .= "\n.rd-type-boots #access .menu-header,.rd-type-boots #access .menu,";
         $css .= "\nbody #doc3{max-width:" . $raindrops_fluid_maximum_width . 'px;}';
-
         $css .= apply_filters( "raindrops_indv_css", $raindrops_indv_css );
 
         if ( $raindrops_hyperlink_color !== '' ) {
@@ -151,7 +152,7 @@ if ( !function_exists( 'raindrops_child_live_change_customizer' ) ) {
         }
         if ( function_exists( 'raindrops_gradient_clone' ) ) {
 
-            $css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content' );
+            $css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content .gradient' );
         }
         if ( function_exists( 'raindrops_color_base_clone' ) ) {
 

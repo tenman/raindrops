@@ -25,29 +25,33 @@ get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main">
-    <div class="yui-b">
+
+			<div id="yui-main">
+				<div class="yui-b">
                 <?php get_template_part( 'widget', 'sticky' ); ?>
-        <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-            <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
-<?php get_template_part( 'loop', $raindrops_document_type ); ?>
-                <br style="clear:both" />			
-            </div>
-            <div class="yui-u">
-                <?php raindrops_prepend_extra_sidebar(); ?>
-            <?php if ( $rsidebar_show ) {
-                get_sidebar( 'extra' );
-            } ?>
-<?php raindrops_append_extra_sidebar(); ?>
-            </div>
+					
+					<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
+						<div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+							
+							<?php get_template_part( 'loop', $raindrops_document_type ); ?>
+							<br style="clear:both" />			
+					</div>
+					<div class="yui-u">
+					<?php raindrops_prepend_extra_sidebar(); ?>
+					
+					<?php if ( $rsidebar_show ) {
+						get_sidebar( 'extra' );
+					} ?>
+					<?php raindrops_append_extra_sidebar(); ?>
+				</div>
     <?php //add nest grid here  ?>
-        </div>
-    </div>
-</div>
-<div class="yui-b">
-<?php raindrops_prepend_default_sidebar(); ?>
-<?php get_sidebar( 'default' ); ?>
-<?php raindrops_append_default_sidebar(); ?>	
-</div>
+			</div>
+		</div>
+	</div>
+	<div class="yui-b">
+	<?php raindrops_prepend_default_sidebar(); ?>
+	<?php get_sidebar( 'default' ); ?>
+	<?php raindrops_append_default_sidebar(); ?>	
+	</div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

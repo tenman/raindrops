@@ -74,12 +74,9 @@ tt {
 }
 
 /*			Raindrops Fonts settings
-                        @see style.css Responsive fonts settings			*/
+                        @see style.css Responsive fonts settings	*/
 /**
  * Font family
- *
- *
- *
  */
 #access .menu,
 #access div.menu ul{
@@ -209,8 +206,6 @@ h3,
 .rsidebar h2{
     font-size:16px;/* if( $raindrops_base_font_size customized ) { over flow list area }*/
 }
-
-
 .px17,
 .f17 {
     font-size:131%;
@@ -277,7 +272,6 @@ h1,
     font-size:230.7%;
 }
 
-
 .yui-t1 #wp-calendar caption,
 .yui-t1 #wp-calendar td{
     font-size:0.61538461538em;
@@ -301,7 +295,6 @@ h1,
 .datetable .year-name,
 .datetable .day-name{
     font-size:1.23076923077em;
-
 }
 .datetable .time,
 .datetable .month-name,
@@ -340,7 +333,6 @@ h6,
 .h6{
     font-weight:400;
 }
-
 .attachment .title,
 strong,
 th,

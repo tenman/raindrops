@@ -1028,7 +1028,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'			 => esc_html__( 'Default Sidebar', 'Raindrops' ),
 			'id'			 => 'sidebar-1',
-			'before_widget'	 => '<li id="%1$s" class="%2$s widget default" tabindex="-1">',
+			'before_widget'	 => '<li id="%1$s" class="%2$s widget default" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
 			'before_title'	 => '<h2 class="widgettitle default h2"><span>',
 			'after_title'	 => '</span></h2>',
@@ -1039,7 +1039,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'			 => esc_html__( 'Extra Sidebar', 'Raindrops' ),
 			'id'			 => 'sidebar-2',
-			'before_widget'	 => '<li id="%1$s" class="%2$s widget extra" tabindex="-1">',
+			'before_widget'	 => '<li id="%1$s" class="%2$s widget extra" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
 			'before_title'	 => '<h2 class="widgettitle extra h2"><span>',
 			'after_title'	 => '</span></h2>',
@@ -1049,7 +1049,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'			 => esc_html__( 'Sticky Widget', 'Raindrops' ),
 			'id'			 => 'sidebar-3',
-			'before_widget'	 => '<li id="%1$s" class="%2$s widget sticky-widget"  tabindex="-1">',
+			'before_widget'	 => '<li id="%1$s" class="%2$s widget sticky-widget" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
 			'before_title'	 => '<h2 class="widgettitle home-top-content h2"><span>',
 			'after_title'	 => '</span></h2>',
@@ -1059,7 +1059,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'			 => esc_html__( 'Footer Widget', 'Raindrops' ),
 			'id'			 => 'sidebar-4',
-			'before_widget'	 => '<li id="%1$s" class="%2$s widget footer-widget"  tabindex="-1">',
+			'before_widget'	 => '<li id="%1$s" class="%2$s widget footer-widget" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
 			'before_title'	 => '<h2 class="widgettitle footer-widget h2"><span>',
 			'after_title'	 => '</span></h2>',
@@ -1069,7 +1069,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'			 => esc_html__( 'Post Format Status Sidebar', 'Raindrops' ),
 			'id'			 => 'sidebar-5',
-			'before_widget'	 => '<li  id="%1$s" class="%2$s widget category-blog-widget status-side-bar"  tabindex="-1">',
+			'before_widget'	 => '<li  id="%1$s" class="%2$s widget category-blog-widget status-side-bar" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
 			'before_title'	 => '<h2 class="widgettitle category-blog-widget h2 status-side-bar">',
 			'after_title'	 => '</h2>',
@@ -3106,10 +3106,10 @@ id=\"post-" . $mytime->ID . "\"><span>$mytime->post_title</span></a><br />";
 
 			if ( !empty( $Raindrops_class_name ) ) {
 
-				echo '<ul class="index ' . esc_attr( $Raindrops_class_name ) . '">';
+				echo "\n". str_repeat("\t", 7 ). '<ul class="index ' . esc_attr( $Raindrops_class_name ) . '">';
 			} else {
 
-				echo '<ul class="index">';
+				echo "\n". str_repeat("\t", 7 ). '<ul class="index">';
 			}
 
 			if ( !empty( $page_title ) ) {
@@ -3855,6 +3855,9 @@ DOC;
 			  $title = raindrops_link_unique( $format_label, $post->ID ) . $title;
 			  }
 			 */
+			if ( isset( $post->ID ) && $raindrops_link_unique_text == true ) {
+				 $title = $title. raindrops_unique_entry_title(  $post->ID );
+			}
 			return apply_filters( 'raindrops_fallback_title', $title );
 		}
 
@@ -4659,6 +4662,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 		global $raindrops_current_data_version, $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text;
 		$raindrops_header_image		 = get_custom_header();
 		$raindrops_header_image_uri	 = $raindrops_header_image->url;
+		$ratio						 = 0;
 		if ( empty( $raindrops_header_image_uri ) ) {
 
 			$raindrops_header_image_uri = get_header_image();
@@ -5115,7 +5119,8 @@ if ( !function_exists( 'raindrops_small_device_helper' ) ) {
 				$main_column_width_fluid = 100;
 			}
 
-			$fluid_width = '/* raindrops is fluid start  */' . "\n#doc3{min-width:" . $raindrops_fluid_minimum_width . 'px;max-width:' . $raindrops_fluid_maximum_width . 'px;}' . "\n#container > .first{width:" . $main_column_width_fluid . "%;}" . "\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}/* raindrops is fluid end */';
+			$fluid_width = '/* raindrops is fluid start  */' .
+			"\n#doc3{min-width:" . $raindrops_fluid_minimum_width . 'px;max-width:' . $raindrops_fluid_maximum_width . 'px;}' . "\n#container > .first{width:" . $main_column_width_fluid . "%;}" . "\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}'."\n".'/* raindrops is fluid end */';
 			return apply_filters( "raindrops_is_fluid", $fluid_width );
 		}
 
@@ -5799,9 +5804,9 @@ if ( !function_exists( 'raindrops_small_device_helper' ) ) {
 
 			if ( has_post_thumbnail( $post->ID ) && !is_singular() && !post_password_required() ) {
 
-				$thumbnail .= '<span class="h2-thumb">';
+				$thumbnail .= "\n". str_repeat("\t", 11 ). '<span class="h2-thumb">';
 				$thumbnail .= get_the_post_thumbnail( $post->ID, array( 48, 48 ), array( "style" => "vertical-align:middle;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
-				$thumbnail .= '</span>';
+				$thumbnail .= "\n". str_repeat("\t", 11 ). '</span>';
 			}
 			if ( ! has_post_thumbnail( $post->ID ) && !is_singular() && !post_password_required() ) {
 
@@ -5809,6 +5814,7 @@ if ( !function_exists( 'raindrops_small_device_helper' ) ) {
 			}
 
 			if ( !is_admin() && true == $raindrops_link_unique_text ) {
+			/*remove unique
 				$add_label	 = '';
 				$format		 = get_post_format( $post->ID );
 
@@ -5822,13 +5828,13 @@ if ( !function_exists( 'raindrops_small_device_helper' ) ) {
 
 					$format_label = 'Post Format ' . esc_attr( $format ) . $add_label;
 				}
-
-				$raindrops_unique_label = raindrops_link_unique( $format_label, $post->ID );
+			*/
+			//	$raindrops_unique_label = raindrops_link_unique( $format_label, $post->ID );
 			}
 
 			if ( !is_singular() || is_page_template( 'page-templates/list-of-post.php' ) || ( is_page_template( 'page-templates/full-width.php' ) && is_front_page()  ) || ( is_page_template( 'page-templates/front-page.php' ) && is_front_page()  ) ) {
 
-				$html = '<' . $raindrops_title_element . ' class="%1$s">%5$s<a href="%2$s" rel="bookmark" title="%3$s"><span>%6$s %4$s</span></a></' . $raindrops_title_element . '>';
+				$html = '<' . $raindrops_title_element . ' class="%1$s">%5$s'. "\n". str_repeat("\t", 11 ).'<a href="%2$s" rel="bookmark" title="%3$s"><span>%6$s %4$s</span></a>'. "\n". str_repeat("\t", 10 ). '</' . $raindrops_title_element . '>';
 
 				$html = sprintf( $html, 'h2 entry-title', get_permalink(), the_title_attribute( array( 'before' => '', 'after' => '', 'echo' => false ) ), the_title( '', '', false ), $thumbnail, $raindrops_unique_label );
 
@@ -5908,7 +5914,7 @@ if ( !function_exists( 'raindrops_small_device_helper' ) ) {
 
 			if ( $wp_query->max_num_pages > 1 ) {
 
-				$html	 = '<div id="%3$s" class="clearfix"><span class="nav-previous">%1$s</span><span class="nav-next">%2$s</span></div>';
+				$html	 = '<div id="%3$s" class="clearfix">'."\n". str_repeat("\t", 8). '<span class="nav-previous">%1$s</span><span class="nav-next">%2$s</span>'."\n". str_repeat("\t", 7).'</div>'. "\n";
 				$html	 = sprintf( $html, get_next_posts_link( '<span class="meta-nav">&larr;</span>' . $raindrops_old . esc_html__( ' Older posts', 'Raindrops' ) ), get_previous_posts_link( '<span>' . $raindrops_new . esc_html__( 'Newer posts', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span></span>' ), $position );
 				echo apply_filters( 'raindrops_next_prev_links', $html, $position );
 			}
@@ -8240,7 +8246,7 @@ if ( !function_exists( 'raindrops_skip_links' ) ) {
 
 
 		$result	 = '';
-		$html	 = '<div class="skip-link"><a href="#%1$s" class="screen-reader-text" title="Skip to %2$s">Skip to %3$s</a></div>';
+		$html	 = "\n". str_repeat("\t", 1 ). '<div class="skip-link"><a href="#%1$s" class="screen-reader-text" title="Skip to %2$s">Skip to %3$s</a></div>';
 		if ( $raindrops_theme_settings !== 'no' ) {
 
 			if ( isset( $raindrops_theme_settings[ 'widget_ids' ] ) ) {
@@ -8661,15 +8667,91 @@ if ( !function_exists( 'raindrops_color_type_style_buffer' ) ) {
 			if( $raindrops_fallback_human_interface_show == true ) { exit;}
 
 			$style = apply_filters('raindrops_color_type_style_buffer',raindrops_embed_css());
+			
 			ob_start();
 			header( 'Content-type: text/css' );
 			$css     = $style;
 			$css     = wp_kses( $css, array() );
+			$css = str_replace( array("&gt;",'raindrops_color_ja'),array('>',''),$css);
 			echo $css;
 			exit;
 			ob_clean();
         }
     }
+}
+if ( !function_exists( 'raindrops_unique_entry_title' ) ) {
+
+	function raindrops_unique_entry_title( $postid = '', $echo = false ) {
+
+		global $post;
+
+		if ( isset( $post ) && empty( $postid ) ) {
+			$postid = $post->ID;
+		} elseif ( empty( $post ) ) {
+			return;
+		}
+
+		$post_object	 = get_post( $postid );
+		$post_name		 = $post_object->post_name;
+		$unique_title	 = urldecode( wp_unique_post_slug( $post_name, $post->ID, 'publish', 'post', 0 ) );
+
+		preg_match( '!(.+)(-[0-9]+)$!', $unique_title, $regs );
+
+		if ( isset( $regs[ 2 ] ) ) {
+
+			if ( true == $echo ) {
+
+				echo esc_html( $regs[ 2 ] );
+			} else {
+
+				return esc_html( $regs[ 2 ] );
+			}
+		}
+	}
+}
+if ( !function_exists( 'raindrops_footer_text' ) ) {
+
+	function raindrops_footer_text() {
+		
+		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template, $raindrops_accessibility_link;
+		
+		$raindrops_address_html = '<address>';
+
+		$raindrops_address_html .= apply_filters( 'raindrops_prepend_footer_address', '' );
+
+		$raindrops_address_rss = '<small>&copy;%1$s &nbsp; %2$s &nbsp;<a href="%3$s" class="entry-rss">%4$s</a> <span>' . esc_html__( 'and', 'Raindrops' ) . '</span><a href="%5$s" class="comments-rss">%6$s</a>';
+		$raindrops_address_html .= sprintf( $raindrops_address_rss, date( "Y" ), $raindrops_current_theme_name, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
+		);
+
+		if ( $raindrops_accessibility_link == true && ('posts' == get_option( 'show_on_front' ) || !is_front_page() ) ) {
+
+			$accessible_url = raindrops_current_url();
+
+			$accessible_url = add_query_arg( 'friendly', 'true', $accessible_url );
+
+			$raindrops_address_html .= '<a href="' . $accessible_url . '" class="raindrops-accessibility-link">' . esc_html__( 'Accessible', 'Raindrops' ) . '</a>';
+		}
+
+		$raindrops_address_html .= '</small>&nbsp;';
+
+		if ( is_child_theme() ) {
+
+			$raindrops_theme_name = 'Child theme ' . esc_html( ucwords( $raindrops_current_theme_name ) ) . ' of ' . esc_html__( "Raindrops Theme", "Raindrops" );
+		} else {
+			
+			$raindrops_theme_name = esc_html__( "Raindrops Theme", "Raindrops" );
+		}
+
+		$raindrops_address_html .= sprintf( '&nbsp;<small><a href="%s">%s</a></small>&nbsp;&nbsp;', $raindrops_current_data_theme_uri, $raindrops_theme_name
+		);
+
+		$raindrops_address_html .= apply_filters( 'raindrops_append_footer_address', '' );
+
+		$raindrops_address_html .= '</address>';
+
+		echo apply_filters( 'raindrops_footer_text', $raindrops_address_html );
+	}
+
 }
 /**
  *

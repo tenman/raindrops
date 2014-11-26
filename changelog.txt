@@ -1,4 +1,58 @@
 Changelog -----------------------------------
+version:1.257
+Overview of Changes
+
+	Change for Child Theme relation
+		@see Section Description of Code Changes 'Child Theme'
+	Customizeable for Footer Text
+		@see Section Description of Code Changes 'Footer Text'
+			new function raindrops_footer_text() functions.php line:8712-8755
+	Tabindex for xhml 1.0
+		When using xhtml1.0 remove tabindex=-1
+		@see Section Description of Code Changes 'Tabindex'
+	Modified fot HTML source
+		@see Section Description of Code Changes 'HTML Source'
+	Unique Entry Title
+		@see Section Description of Code Changes 'Accessibility'
+			new function raindrops_unique_entry_title() functions.php line:8692-8711
+	Modification of the translation
+		@see Section Description of Code Changes 'I18n'
+	Other fixes
+		@see Section Description of Code Changes 'Misc'
+Files Modified
+	modified:   childs/boots/inc.php
+	modified:   childs/boots/style.css
+	modified:   fonts.css
+	modified:   footer.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   index.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/widgets.php
+	modified:   loop.php
+	modified:   style.css
+
+Description of Code Changes
+	childs/boots/functions.php line:37,53,64,73,78-115,117-140[Child Theme]
+	childs/boots/inc.php line:7-24,34-36,155[Child Theme]
+	footer.php [Footer Text]
+	functions.php line:1031,1042,1052,1062,1072[Tabindex]
+	functions.php line3109,3112,5807,5809,5817,5831,58375917,8249[HTML Source]
+	functions.php line:3858-3860,5122-5123,5817-5831[Misc]
+	header-front.php line:26-34,42,44-55,58-68,70-114,[HTML Source]
+	header-xhtml.php line-56-75[HTML Source]
+	header.php line:15-47[HTML Source]
+	index.php line:28-55[HTML Source]
+	languages/ja.po line:2700[I18n]
+	lib/widgets.php line:268-269[Misc]
+	loop.php line:32,36-38,73-89,95-96,100-107[HTML Source]
+	style.css line:3529-3531[Misc]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.256
 Overview of Changes
 

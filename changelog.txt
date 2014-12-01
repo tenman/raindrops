@@ -2,10 +2,22 @@ Changelog -----------------------------------
 version:1.258
 Overview of Changes
 
+	Fixed No prefixed function
+		Change from add_raindrops_stylesheet to raindrops_add_stylesheet
+		Change from fallback_user_interface_view to raindrops_fallback_user_interface_view
+	Modify CSS
+
 Files Modified
+
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   style.css
 
 Description of Code Changes
 
+	functions.php line:460, 1885, 1887, 4428, 4430, 4467 [Fix function name]
+	lib/csscolor.css.php line:593,860,1385,[Modify CSS]
+	style.css line:53[Modify CSS]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.257

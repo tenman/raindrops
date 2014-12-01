@@ -590,7 +590,7 @@ function raindrops_indv_css_w3standard() {
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-.enable-keyboard .hfeed a:focus,
+/*.enable-keyboard .hfeed a:focus,*/
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -857,7 +857,7 @@ function raindrops_indv_css_light() {
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-.enable-keyboard .hfeed a:focus,
+/*.enable-keyboard .hfeed a:focus,*/
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -1382,7 +1382,7 @@ function raindrops_indv_css_minimal() {
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-.enable-keyboard .hfeed a:focus,
+/*.enable-keyboard .hfeed a:focus,*/
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{

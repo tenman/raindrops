@@ -267,6 +267,8 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 add_filter( 'embed_oembed_html', 'raindrops_oembed_filter', 99, 4 );
 		 add_action( 'save_post', 'raindrops_transient_update' );
 		 add_action( 'edit_term', 'raindrops_transient_update' );
+		 
+		 add_action( 'wp_enqueue_scripts', 'raindrops_load_small_device_helper' );
     }
 
 }

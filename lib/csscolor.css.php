@@ -1435,6 +1435,7 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
+input[type="email"],
 .raindrops-toc-front li,
 input[type="text"],
 textarea#comment{

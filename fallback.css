@@ -1,4 +1,7 @@
-
+body{font-size:18px;}
+img{max-width:100%;
+    height:auto;
+}
 #hd{
     text-align:center;
     font-size:200%;

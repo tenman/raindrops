@@ -1,4 +1,36 @@
 Changelog -----------------------------------
+version:1.260
+
+Overview of Changes
+
+	Updates for the preparation of WordPress 4.1
+		Add register_default_headers()
+		@see Section Description of Code Changes 'Next Version'
+	Change Custom Header Image Size from 950x198 to 1280x266
+		@see Section Description of Code Changes 'Header Image'
+	Modify
+		Remove old functions and relate modify
+		@see Section Description of Code Changes 'Removed'
+	Misc
+		@see Section Description of Code Changes 'Misc'
+
+Files Modified
+
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+
+Description of Code Changes
+
+	functions.php line:14-25,4486-4656,4829-5068,8626[Removed]
+	functions.php line:469,471[Header Image]
+	functions.php line:476-484 493-497[Next Version]
+	functions.php line:3608,3611,3745,5258,5308-5309,5359-5360,5824-5842,6467,5483-6486,8418,8460,8472,[Misc]
+	fallback.css line:1-4,[Misc]
+	lib/csscolor.css.php line:1438[Misc]
+    lib/hooks.php line:271[Removed]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.259
 Overview of Changes
 

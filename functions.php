@@ -7080,7 +7080,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			global $raindrops_link_unique_text;
 
 			if ( true == $raindrops_link_unique_text && !is_admin() ) {
-				$raindrops_aria_hidden = raindrops_doctype_elements( '', 'aria-hidden="true"', $echo = true );
+				$raindrops_aria_hidden = raindrops_doctype_elements( '', 'aria-hidden="true"', false );
 				$html	 = '<span class="%1$s" %4$s>[%2$s %3$s]</span>';
 				$html	 = sprintf( $html, esc_attr( $class ), esc_attr( $text ), (int) $id , $raindrops_aria_hidden );
 				return apply_filters( 'raindrops_link_unique', $html, $text, $id, $class );
@@ -7706,7 +7706,7 @@ if ( !function_exists( 'raindrops_add_more' ) ) {
 		$html	 = ' <div class="raindrops-more-wrapper">' . $pre . '<a href="%1$s%2$s" class="poster-more-link">%3$s</a>' . $after . '</div>';
 		if ( empty( $more_link_text ) ) {
 
-			$raindrops_aria_hidden = raindrops_doctype_elements( '', 'aria-hidden="true"', $echo = true );
+			$raindrops_aria_hidden = raindrops_doctype_elements( '', 'aria-hidden="true"', false );
 			$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav" '. $raindrops_aria_hidden. '>&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . $id . '</span>';
 		}
 		$output			 = '';

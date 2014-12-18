@@ -269,6 +269,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 add_action( 'edit_term', 'raindrops_transient_update' );
 		 
 		 add_action( 'wp_enqueue_scripts', 'raindrops_load_small_device_helper' );
+		 /**
+         *
+         * @since 1.261
+         */
+		 add_filter( 'wp_headers', 'raindrops_wp_headers', 10, 2 );
     }
 
 }

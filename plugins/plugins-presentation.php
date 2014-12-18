@@ -72,7 +72,7 @@ if ( !function_exists( 'raindrops_pagenav_setup' ) ) {
 	function raindrops_pagenav_setup() {
 		if ( 'yes' == get_theme_mod( 'raindrops_wp_pagenavi_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_wp_pagenav' ) ) {
-			add_filter( 'raindrops_next_prev_links', 'raindrops_use_wp_pagenav', 10, 2 );
+			add_filter( 'raindrops_next_prev_links', 'raindrops_use_wp_pagenav', 11, 2 );
 			add_filter( 'wp_pagenavi', 'raindrops_pagenav_filter' );
 			add_action( 'wp_enqueue_scripts', 'raindrops_pagenav_css' );
 
@@ -257,7 +257,7 @@ list-style:none;
 	padding:0;
 }
 .breadcrumbs li:after{
-	content: ">";
+	content: "\bb";
 	display:inline-block;
 	width:2em;
 	text-align:center;

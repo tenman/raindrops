@@ -37,19 +37,21 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $template, $raindrops_link_unique_text;
+global $template, $raindrops_link_unique_text, $raindrops_xhtml_media_type;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 
-//echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"' . '?' . '>' . "\n";
+if ( $raindrops_xhtml_media_type == 'application/xhtml+xml' ) {
+
+	echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"' . '?' . '>' . "\n";
+	do_action( 'raindrops_xhtml_media_xml' );
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes( 'xhtml' ); ?>>
     <head profile="http://gmpg.org/xfn/11">
-        <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
-        <meta http-equiv="content-script-type" content="text/javascript" />
-        <meta http-equiv="content-style-type" content="text/css" />
-        <title><?php wp_title( '|', true, 'right' ); ?></title>
-        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php raindrops_xhtml_http_equiv();?>
+		<title><?php wp_title( '|', true, 'right' ); ?></title>
+		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head(); ?>
     </head>     
     <body <?php body_class(); ?> >

@@ -317,6 +317,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
     ),
 );
 }
+
 if ( !isset( $raindrops_base_setting ) ) {
 
     $raindrops_base_setting = $raindrops_base_setting_args;

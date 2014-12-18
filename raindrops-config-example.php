@@ -187,7 +187,7 @@ define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
  *
  * @since1.217
  */
-if ( !isset( $raindrops_accessibility_link ) ) {
+if ( ! isset( $raindrops_accessibility_link ) ) {
 
     $raindrops_accessibility_link = true;
 }
@@ -196,7 +196,7 @@ if ( !isset( $raindrops_accessibility_link ) ) {
  * Test
  *
  */
-if ( !isset( $raindrops_base_font_size ) ) {
+if ( ! isset( $raindrops_base_font_size ) ) {
 
     $raindrops_base_font_size = 13;
 }
@@ -207,7 +207,7 @@ if ( !isset( $raindrops_base_font_size ) ) {
  * uses true no use false
  * @since 1.228
  */
-if ( !isset( $raindrops_use_wbr_for_title ) ) {
+if ( ! isset( $raindrops_use_wbr_for_title ) ) {
 
     $raindrops_use_wbr_for_title = false;
 }
@@ -218,7 +218,7 @@ if ( !isset( $raindrops_use_wbr_for_title ) ) {
  * uses true no use false
  * @since 1.229
  */
-if ( !isset( $raindrops_enable_keyboard ) ) {
+if ( ! isset( $raindrops_enable_keyboard ) ) {
 
     $raindrops_enable_keyboard = true;
 }
@@ -229,7 +229,15 @@ if ( !isset( $raindrops_enable_keyboard ) ) {
  * uses true no use false
  * @since 1.229
  */
-if( isset( $raindrops_recommend_plugins )){
+if( ! isset( $raindrops_recommend_plugins )){
 	
 	$raindrops_recommend_plugins = true;
+}
+/**
+ * xhtml media type
+ * value 'application/xhtml+xml' or 'text/html'
+ */
+if ( ! isset( $raindrops_xhtml_media_type ) ) {
+	
+	$raindrops_xhtml_media_type = 'text/html';
 }

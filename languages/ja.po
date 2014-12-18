@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: raindrops v1.248\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-24 15:54+0900\n"
-"PO-Revision-Date: 2014-11-18 20:00+0900\n"
+"PO-Revision-Date: 2014-12-15 16:16+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "Language: ja_JP\n"
@@ -378,7 +378,7 @@ msgstr " %sのすべての投稿"
 
 #: raindrops/functions.php:1447
 msgid "Posted on"
-msgstr " "
+msgstr " 投稿日"
 
 #: raindrops/functions.php:1447
 msgid "by"

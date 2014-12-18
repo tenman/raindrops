@@ -3529,3 +3529,12 @@ ol.list-of-post-list .entry-title{
 .entry-content .button a:focus{
     margin:0;
 }
+
+@media screen and (max-width : 640px){
+    
+    #portfolio ul.index > li{
+        width:100%;
+        padding-bottom:57.5%;
+        margin-bottom:1em;
+    }  
+}

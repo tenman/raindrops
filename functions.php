@@ -8542,7 +8542,13 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 
 					$include_fonts .= sprintf( $link_html, $font_url ,'google-font-'. sanitize_html_class( $id ). '-css'  );
 
-					unset( $primary, $secondary, $separator, $weight_and_italic_values, $font_name, $font_url, $regs );
+					unset( $regs );
+					$primary					 = '';
+					$secondary					 = '';
+					$separator					 = '';
+					$weight_and_italic_values	 = '';
+					$font_name					 = '';
+					$font_url					 = '';
 				}
 
 				update_post_meta( $post_ID, '_web_fonts_link_element', $include_fonts );

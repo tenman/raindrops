@@ -1,4 +1,91 @@
 Changelog -----------------------------------
+version:1.261
+
+Overview of Changes
+
+	Support Google Fonts at Entry Content.
+		@see Section Description of Code Changes 'Google Fonts'
+
+		Note:
+
+			Raindrops meybe support approximately 92% of the current Google fonts
+
+			How to use google font
+
+				Write the name of the class to the element, that there is no need to do anything else
+
+				Entry Content ( Text Mode )
+
+					<h2 class="google-font-open-sans">Font Family Open Sand Text</h2>
+
+					Font Name: Open Sans
+					Class Name:google-font-(prefix) + open-sans( chenge space from ' ' to '-', Font Name change to lower case )
+
+				Support font weight and italic
+
+					For example Lato
+					<h2 class="google-font-lato700i">Font Family Lato Font Weight 700</h2>
+
+				Supoort font effect
+
+					<h2 class="google-font-oswald font-effect-brick-sign">Font Family Oswald and Effect</h2>
+
+					@see:https://developers.google.com/fonts/docs/getting_started
+
+		One Important Notice
+
+			And since when use too will affect the performance, please note
+
+			The unsupported fonts
+
+				Not Support Fonts( 49items ) [Not Support:font name has 2 space and more]
+				Source Sans Pro,PT Sans Narrow,The Girl Next Door,Cherry Cream Soda,Black Ops One,Just Me Again Down Here,Covered By Your Grace
+				Shadows Into Light Two,Waiting for the Sunrise,Goudy Bookletter 1911,Gentium Book Basic,Nothing You Could Do,Sorts Mill Goudy
+				PT Serif Caption,Love Ya Like A Sister,Mountains of Christmas,Loved by the King,Fredericka the Great,Give You Glory,
+				Annie Use Your Telescope,Sue Ellen Francisco,Petit Formal Script,Racing Sans One,La Belle Aurore,IM Fell English SC,
+				IM Fell DW Pica SC,Dawning of a New Day,Delius Swash Caps,Swanky and Moo Moo,Over the Rainbow,IM Fell French Canon SC,
+				Press Start 2P,IM Fell Double Pica,Oleo Script Swash Caps,Patrick Hand SC,IM Fell Double Pica SC,Averia Sans Libre
+				Text Me One,Elsie Swash Caps,Averia Serif Libre,Jacques Francois Shadow,Monsieur La Doulaise,Share Tech Mono,Mrs Saint Delafield,
+				Stint Ultra Expanded,Macondo Swash Caps,Odor Mean Chey,Averia Gruesa Libre,Herr Von Muellerhoff
+
+	Support XHTML1.0 media type 'application/xhtml+xml'
+		default 'text/html'
+		if you need 'application/xhtml+xml' then need config at functions.php line:16 $raindrops_xhtml_media_type
+		@see Section Description of Code Changes 'Media Type'
+
+	Misc
+		Customizer label name change from Accessibility Setting to Force Unique Link Text
+		Modify function raindrops_the_pagenation ( add get_the_posts_pagenation() for WordPress 4.1 )
+		Add id at body_element
+			@see Section Description of Code Changes 'Misc'
+
+Files Modified
+
+	modified:   functions.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-config-example.php
+	modified:   style.css
+
+Description of Code Changes
+
+functions.php line:2491-2509,2565-2588,2598-2603,8457-8557[Google Fonts]
+functions.php line:5002,5550-5572,6847-6849,7080-7082,7705-7707,7771,7964,8366-8369,8379,8382,8392,8397[Misc]
+functions.php line:8403-8452[Media Type]
+header-xhtml.php line:40,43-47,52-54[Media Type]
+header.php line:line:5,15[Misc]
+languages/ja.po line:6 emty translation modify
+lib/hooks.php line:272-276[Media Type]
+plugins/plugins-presentation.php line:75,260[Misc]
+raindrops-config-example.php line:235-242[Media Type]
+style.css line:3533-3539[Misc]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.260
 
 Overview of Changes

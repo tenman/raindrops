@@ -1,4 +1,20 @@
 Changelog -----------------------------------
+version:1.263
+
+Overview of Changes
+
+	Bug Fixed
+		area-hidden="true" attribute shows display
+
+Files Modified
+
+	functions.php
+
+Description of Code Changes
+
+functions.php line:7083,7709
+----------------------------------------------
+Changelog -----------------------------------
 version:1.262
 
 Overview of Changes

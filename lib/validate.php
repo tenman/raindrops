@@ -1,4 +1,12 @@
 <?php
+function raindrops_sync_style_for_tinymce_validate( $input ) {
+	
+	if ( $input == 'yes' ) {
+
+		return 'yes';
+	}
+	return 'none';		
+}
 function raindrops_disable_keyboard_focus_validate( $input ) {
 	
 	if ( $input == 'disable' ) {

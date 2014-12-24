@@ -339,6 +339,10 @@ border-left:solid 1px %c_border%;
 .current_page_item{
     %c_2%
 }
+/* tinyMCE */
+html .mceContentBody{
+ %c_5%
+}
 DOC;
 
     $css3 = <<<CSS3
@@ -616,6 +620,8 @@ body {
 #hd{
     background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
 }
+/* tinyMCE */
+html .mceContentBody,
 .hfeed{
     background:#fff;
 }
@@ -931,6 +937,8 @@ body{
     %c4%
     background:none;
 }
+/* tinyMCE */
+html .mceContentBody,	
 #doc,#doc2,#doc3,#doc4{
     %c5%
 }
@@ -1390,7 +1398,8 @@ function raindrops_indv_css_minimal() {
 	border-bottom:1px solid #000;
 	margin-bottom:-1px!important;
 }
-
+/* tinyMCE */
+html .mceContentBody,
 body{
     border-top:6px solid $raindrops_base_color;
 }

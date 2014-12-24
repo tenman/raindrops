@@ -4998,6 +4998,15 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 						'capability' => 'edit_theme_options',
 						'sanitize_callback' => 'raindrops_disable_keyboard_focus_validate' ) );
 
+			$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_sync_style_for_tinymce]', 
+							array( 'default' => raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' ), 
+									'type' => 'option', 
+									'capability' => 'edit_theme_options', 'sanitize_callback' => 'raindrops_sync_style_for_tinymce_validate' 
+								) 
+						);
+			
+			
+			
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'raindrops_base_color', array( 'label' => esc_html__( 'Base color', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_base_color]' ) ) );
 			$wp_customize->add_control( 'raindrops_style_type', array( 'label' => esc_html__( 'Color Type', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_style_type]', 'type' => 'radio', 'choices' => $raindrops_style_type_choices, ) );
 
@@ -5111,6 +5120,15 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 					'type'		 => 'radio',
 					'choices'	 => array( 'yes' => 'Yes', 'none' => 'no' ), ) );
 			}
+			$wp_customize->add_control( 'raindrops_sync_style_for_tinymce', 
+							array( 
+								'label'		 => esc_html__( 'Synchronize Style for Visual Editor', 'Raindrops' ),
+								'section'	 => 'raindrops_theme_settings',
+								'settings'	 => 'raindrops_theme_settings[raindrops_sync_style_for_tinymce]',
+								'type'		 => 'radio',
+								'choices'	 => array( 'yes' => 'Yes', 'none' => 'No' ), 
+								) 
+						);			
 			//raindrops_plugin_presentation_the_events_calendar
 			/* Label change 'Display Header Text' */
 			$wp_customize->add_control( 'display_header_text', array(
@@ -8240,6 +8258,11 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 	 * @since 1.246
 	 */
 	function raindrops_oembed_filter( $html, $url, $attr, $post_ID ) {
+		global $is_IE;
+		if ( ! $is_IE ) {
+			
+			$html = str_replace( 'frameborder="0"', '', $html );
+		}
 
 		$element = raindrops_doctype_elements( 'div', 'figure', false );
 		if ( !preg_match( '!twitter.com!', $url ) ) {
@@ -8314,7 +8337,11 @@ if ( !function_exists( 'raindrops_color_type_style_buffer' ) ) {
 			if( $raindrops_fallback_human_interface_show == true ) { exit;}
 
 			$style = apply_filters('raindrops_color_type_style_buffer',raindrops_embed_css());
-
+			
+			if( ! defined( 'WP_DEBUG') || WP_DEBUG == false ) {
+				
+				$style = preg_replace('!('. wp_spaces_regexp() .'){2,}!', ' ', $style );
+			}
 			ob_start();
 			header( 'Content-type: text/css' );
 			$css     = $style;
@@ -8517,7 +8544,7 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 								}
 							}
 						}
-						$web_font_styles .= '.google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '" sans-serif;'.
+						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;'.
 																			 $font_for_style_italic.
 																			 $font_for_style_weight.
 																			'}' . "\n";
@@ -8539,7 +8566,7 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 					if( ! empty( $effect[ 2 ] )) {
 						$id = $id. '-'. $effect[ 2 ];
 					}
-
+					
 					$include_fonts .= sprintf( $link_html, $font_url ,'google-font-'. sanitize_html_class( $id ). '-css'  );
 
 					unset( $regs );
@@ -8549,6 +8576,8 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 					$weight_and_italic_values	 = '';
 					$font_name					 = '';
 					$font_url					 = '';
+					$font_for_style_italic       = '';
+					$font_for_style_weight       = '';
 				}
 
 				update_post_meta( $post_ID, '_web_fonts_link_element', $include_fonts );
@@ -8565,6 +8594,82 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 
 }
 
+
+function raindrops_tiny_mce_before_init( $init_array ) {
+	
+	$separator = '';
+	if( !empty( $init_array ) ) {
+		$separator = ',';
+	}
+	$init_array['content_css'] = trim( $init_array['content_css'],',') . $separator. raindrops_google_fonts_for_tinymce();
+
+return $init_array;
+}
+add_filter( 'tiny_mce_before_init', 'raindrops_tiny_mce_before_init' );
+
+function raindrops_google_fonts_for_tinymce(){
+	
+	if ( raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' ) !== 'yes' ) { return;}
+	global $post;
+	$google_font_link_elements = get_post_meta( $post->ID,'_web_fonts_link_element', true );
+	$comma_separated_urls = '';
+	if( preg_match_all( '!href="([^"]+)"!', $google_font_link_elements, $regs, PREG_SET_ORDER ) ){
+		foreach ( $regs as $reg ) {
+			
+			$comma_separated_urls .= ', '. $reg[1];	
+		}
+	} 	
+	return trim( $comma_separated_urls,',');	
+}
+
+add_action( 'wp_ajax_raindrops_editor_styles', 'raindrops_editor_styles_callback' );
+add_action( 'wp_ajax_nopriv_raindrops_editor_styles', 'raindrops_editor_styles_callback' );
+
+if ( !function_exists( 'raindrops_editor_styles_callback' ) ) {
+
+	function raindrops_editor_styles_callback() {
+		global $content_width;
+		if ( raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' ) !== 'yes' ) {
+			return;
+		}
+
+		$metabox_style	 = '';
+		$result			 = '';
+		if ( isset( $_REQUEST[ 'id' ] ) && !empty( $_REQUEST[ 'id' ] ) ) {
+			$post_id = absint( $_REQUEST[ 'id' ] );
+
+			$metabox_style	 = get_post_meta( $post_id, '_css', true );
+			//$metabox_style	 = preg_replace_callback( '![^}]+{[^}]+}!siu', 'raindrops_css_add_id', $metabox_style );
+			//$metabox_style	 = str_replace( '#post-','#post-'. $post_id, $metabox_style );
+			$style			 = get_post_meta( $post_id, '_web_fonts_styles', true );
+			$result			 = str_replace( $style, '', $result );
+			$result .= $result . $style;
+		}
+
+		$defined_colors			 = raindrops_embed_css();
+		$defined_colors			 = str_replace( array( 'body', '.entry-content' ), array( 'no-body', 'html .mceContentBody' ), $defined_colors );
+		$font_size				 = raindrops_warehouse_clone( 'raindrops_basefont_settings' );
+		$font_color				 = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
+		$link_color				 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
+		
+		$editor_custom_styles	 = 'html .mceContentBody{max-width:' . $content_width . 'px;}' . "\n";
+		$editor_custom_styles	 .= 'html .mceContentBody{font-size:' . $font_size . 'px;}' . "\n";
+		if( isset( $font_color ) && !empty( $font_color )) {
+			$editor_custom_styles	 .= 'html .mceContentBody.mce-content-body{color:' . $font_color . ';}' . "\n";
+		}
+		if( isset( $link_color ) && !empty( $link_color )) {
+			$editor_custom_styles	 .= 'html .mceContentBody a{color:' . $link_color . ';}' . "\n";
+		}
+		
+		header( 'Content-type: text/css' );
+		echo $editor_custom_styles;
+		echo apply_filters( 'raindrops_editor_styles_callback', $result );
+		echo $defined_colors;
+		echo $metabox_style;
+		die();
+	}
+
+}
 /**
  *
  *

@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.264
+
+Raindrops Theme Yeaｒs last update !
+
+All users of everyone who adopted the Raindrops theme,
+and thank you everyone of reviewers who have contributed to maintaining the quality of the theme
+
+Overview of Changes
+
+	TinyMCE visual editor focus update.
+		In visual mode, I have to improve the display performance of content
+
+		Dinamic Content Width
+			Customizer page width set in (theme options), change the display width of the side bar, I will reflect on the visual editor.
+		Dinamic Color Type
+			Dark, light, color type, such as minimal, I will reflect automatically in the visual editor.
+		Google Fonts at Entry Content
+			Google font that you specified in the CSS class, to reflect the visual editor
+
+		Style setting of many other Rain Drops is now reflected in the visual editor.
+
+
+Files Modified
+
+	functions.php
+
+Description of Code Changes
+
+functions.php line:
+----------------------------------------------
+Changelog -----------------------------------
 version:1.263
 
 Overview of Changes

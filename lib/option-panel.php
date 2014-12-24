@@ -315,6 +315,17 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'validate'     => 'raindrops_disable_keyboard_focus_validate',
         'list'         => 28 
     ),
+	array( 'option_id'    => 30,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_sync_style_for_tinymce",
+        'option_value' => "yes",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Synchronize Style for Visual Editor', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Reflect on Dynamically Editor Style Settings', 'Raindrops' ),
+        'validate'     => 'raindrops_sync_style_for_tinymce_validate',
+        'list'         => 29 
+    ),
 );
 }
 

@@ -189,6 +189,7 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 													  array( "", "", "", '"', '', '"' ), 
 													  $raindrops_pagenav_css );
 			}
+			
 			wp_add_inline_style( 'wp-pagenavi', $raindrops_pagenav_css );
 		}
 	}

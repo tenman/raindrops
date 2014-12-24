@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.263
+Version: 1.264
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -261,12 +261,20 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     max-width:100%;
     max-height:100%;
     min-width:160px;
+
 }
 .oembed-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
+}
+.oembed-container .issuuembed{
+   clear:both;
+   max-height:100%;
+}
+.oembed-container iframe {
+    border:none;
 }
 .oembed-container{
     margin:0;

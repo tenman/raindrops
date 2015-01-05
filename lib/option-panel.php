@@ -245,7 +245,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Link color in footer ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'If you need to set footer Special link color.', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'If you need to set footer Special link color.hex color ex.#ff0000 or none', 'Raindrops' ),
         'validate'     => 'raindrops_footer_link_color_validate',
         'list'         => 22 
     ),
@@ -256,7 +256,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Complementary Color For Entry Title Link ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'If you need to set footer Special link color.', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) value yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_complementary_color_for_title_link_validate',
         'list'         => 23 
     ),
@@ -267,7 +267,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Breadcrumb NavXT Automatic Presentation ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_bcn_nav_menu_validate',
         'list'         => 24 
     ),
@@ -278,7 +278,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'WP-PageNavi Automatic Presentation ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
         'list'         => 25 
     ),
@@ -289,7 +289,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Meta Slider Automatic Presentation ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Please Set Meta Slider ID or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
         'list'         => 26 
     ),
@@ -300,7 +300,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'The Events Calendar Automatic Presentation ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_the_events_calendarr_validate',
         'list'         => 27 
     ),
@@ -311,7 +311,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Disable Keyboard Focus ', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Fallback Setting when Nav Menu displayed improperly', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Fallback Setting when Nav Menu displayed improperly, value set enable( defalt ) or disable', 'Raindrops' ),
         'validate'     => 'raindrops_disable_keyboard_focus_validate',
         'list'         => 28 
     ),
@@ -322,9 +322,20 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Synchronize Style for Visual Editor', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Reflect on Dynamically Editor Style Settings', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Reflect on Dynamically Editor Style Settings, value set yes ( default ) or none', 'Raindrops' ),
         'validate'     => 'raindrops_sync_style_for_tinymce_validate',
         'list'         => 29 
+    ),
+	array( 'option_id'    => 31,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_uninstall_option",
+        'option_value' => "keep",
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Uninstall Option', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Delete all Theme Settings when switch theme. default keep ( or delete )', 'Raindrops' ),
+        'validate'     => 'raindrops_uninstall_option_validate',
+        'list'         => 30 
     ),
 );
 }

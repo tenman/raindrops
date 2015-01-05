@@ -618,7 +618,7 @@ body {
     color:%raindrops_header_color%;
 }
 #hd{
-    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+  /*  background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
 }
 /* tinyMCE */
 html .mceContentBody,
@@ -925,8 +925,8 @@ body{
 #hd{
     %c5%
     border-top: 6px solid %c_border%;
-/*    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
-    background-position:0 -5px;
+/*    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
+    background-position:0 -5px;*/
 
 }
 #hd h1,.h1,#site-title{
@@ -1164,6 +1164,7 @@ cite.fn{
 .raindrops-tab-list li{
     border:1px solid %c_border%;
 }
+
 DOC;
 
 
@@ -1364,6 +1365,9 @@ a.raindrops-comment-link:hover .point {
 
 .footer-widget>ul>li{
     border-bottom:1px solid %rgba_border%;
+}
+#header-image p{
+    text-shadow: 2px 2px 2px #fff;
 }
 CSS3;
     return $style . $css3;

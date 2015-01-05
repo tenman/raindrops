@@ -340,19 +340,21 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$num			 = rand( 0, $count - 1 );
 				$instance[ 'id' ]	 = $instance[ 'id' ][ $num ];
 			}
-			if ( isset( $instance[ 'inline_style' ] ) ) {
+			if ( isset( $instance[ 'inline_style' ] ) && ! empty( $instance[ 'inline_style' ] )) {
 
 				$style = str_replace( PHP_EOL, '', $instance[ 'inline_style' ] );
-				echo '<div style="' . $style . '">';
+				
+				echo '<div id="pinup-'.absint( $instance[ 'id' ] ) . '" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). '>';
 			} else {
 
-				echo '<div>';
+				echo '<div id="pinup-'. absint( $instance[ 'id' ] ).'" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). ' >';
 			}
+
 			if ( ( $instance[ 'content' ] == 'content' || $instance[ 'content' ] == 'excerpt' ) && !is_single( $instance[ 'id' ] ) ) {
 
 				$posts = get_posts( array( 'include' => absint( $instance[ 'id' ] ), 'post_type' => sanitize_key( $instance[ 'type' ] ) ) );
 
-				$html_title = '<h2 class="title" id="approach-%1$s"><a href="%2$s">%3$s</a></h2>';
+				$html_title = '<h2 class="title pinup-entry-title" id="approach-%1$s"><a href="%2$s"><span>%3$s</span></a></h2>';
 
 				foreach ( $posts as $post ) {
 					setup_postdata( $post );
@@ -539,7 +541,43 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 				$checked_default = "";
 			}
+			$alert = '<strong style="color:red">'.esc_html__( 'Please check, incorrect value in post ID might have been set,', 'Raindrops' ). '</strong>';
+			
+			$entry_title_names = $id;		
+			if( ! empty(  $entry_title_names ) ) {
 
+				if ( strpos( $entry_title_names, ',' ) ) {
+					
+					$entry_title_names	= explode( ',',$entry_title_names );
+					$has_been_set_title = '';
+					
+					foreach( $entry_title_names as $entry_title_name ) {
+						
+						$title_val = get_the_title( $entry_title_name );
+						if ( !empty($title_val) ) {
+							
+							$has_been_set_title .= $title_val. '<br />';
+						}else{
+							
+							$has_been_set_title .= $alert. '<br />';
+						}
+						
+					}
+					$entry_title_names = $has_been_set_title;
+				}else{
+					
+					$entry_title_names = get_the_title( $entry_title_names );
+					
+					if ( empty( $entry_title_names ) ) {
+						
+						$entry_title_names = $alert;
+					}
+				}
+
+				$raindrops_html = '<h4>%1$s</h4><p>%2$s</p>';
+
+				printf( $raindrops_html, esc_html__( 'Posted title that has been set', 'Raindrops' ), $entry_title_names );
+			}
 			$raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
 
 			printf( $raindrops_html, esc_html__( 'Post ID', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'Comma separated IDs[Randum Displayed]', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )

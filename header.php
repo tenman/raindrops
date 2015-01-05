@@ -9,7 +9,6 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 <html <?php language_attributes(); ?>>
     <head>
         <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
-        <title><?php wp_title( '|', true, 'right' ); ?></title>
 <?php wp_head(); ?>
     </head>
     <body id="<?php echo $raindrops_current_theme_slug; ?>" <?php body_class(); ?>>

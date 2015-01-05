@@ -1,4 +1,11 @@
 <?php
+function raindrops_uninstall_option_validate( $input ) {
+	
+	if( $input == 'delete' ) {
+		return 'delete';
+	}
+	return 'keep';
+}
 function raindrops_sync_style_for_tinymce_validate( $input ) {
 	
 	if ( $input == 'yes' ) {

@@ -1,13 +1,14 @@
 /*
 Theme Name: raindrops
 Theme URI: http://www.tenman.info/wp3/raindrops/
-Description: This theme file has the automatic arrangement of color function in specifying the layout customizing function and the reference color by Yahoo User Interface. The color can specify the tradition color and the American tradition color of Japan by the name. An automatic arrangement of color and the layout can be changed to the expression who you further seem by your instruction. ver1.111 Retina support and support Post Formats  all types.
+Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.264
+Version: 1.265
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Raindrops
 */
 /**
  * Raindrops Base Style Rules
@@ -85,6 +86,14 @@ a:visited{
 #doc #header-image{
     max-width:100%;
 }
+/* Screen Shot Example Style
+.rd-type-light #header-image p{
+    background:rgba(255,255,255,.5);
+}
+.rd-type-dark #header-image p{
+    background:rgba(0,0,0,.5);
+}
+*/
 .page-template-page-templatespage-featured-php #container{
     width:100%;
 }
@@ -364,6 +373,7 @@ table {
 }
 .gist-syntax table{
     table-layout:auto;
+
 }
 table.auto {
     table-layout:auto;
@@ -980,7 +990,6 @@ div.entry-content{
     line-height:1.6;
     margin:1em 0;
     text-align:center;
-    width:100%;
 }
 .fail-search,
 #not-found {
@@ -3384,6 +3393,10 @@ ol.list-of-post-list .entry-title{
     outline:none;
 }
 /* Raindrops widget raindrops-pinup-entries */
+.lsidebar .raindrops-pinup-entries > div,
+.rsidebar .raindrops-pinup-entries > div{
+    margin:0;
+}
 .raindrops-pinup-entries{
     position:relative;
 
@@ -3433,13 +3446,30 @@ ol.list-of-post-list .entry-title{
 /* https://gist.github.com/ */
 .entry-content .gist{
     table-layout:auto;
+
+}
+.entry-content .gist .line-data{
+    background:#fff;
+    max-width:100%;
+}
+.entry-content .gist .line-numbers{
+    background:#555;
+    color:#fff;
 }
 .entry-content .gist td{
     text-align:left;
 }
+.entry-content .gist .pl-vo{
+    color:#999988;
+}
+.entry-content .gist .pl-s2{
+  color:green;
+}
+
 .raindrops-pinup-entries .wp-playlist img{
     margin-top:0;
 }
+
 /* bbpress */
 #bbpress-forums .subscription-toggle{
     display:inline-block;
@@ -3545,4 +3575,7 @@ ol.list-of-post-list .entry-title{
         padding-bottom:57.5%;
         margin-bottom:1em;
     }
+}
+#raindrops_pinup_entry_widget-29{
+    display:none;
 }

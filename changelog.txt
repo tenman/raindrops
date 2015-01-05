@@ -3,16 +3,74 @@ version:1.265
 
 
 Overview of Changes
+	raindrops pinup widget can use google web font.
+		add pinup widget entry title.
+			@see Section Description of Code Changes 'Pinup Widget'
+	Add delete or keep theme option value when theme switch.
+		delete theme widget setting, theme options, theme mods, custom field value( theme automate setting values ) When delete select
+		child theme delete_option( "raindrops_theme_settings" ); when switch theme was deleted.
+			@see Section Description of Code Changes 'theme options delete'
+	Modify $raindrops_child_base_setting_args description
+			@see Section Description of Code Changes 'description'
+	Backward compatibility
+			@see Section Description of Code Changes 'Backward compatibility'
 
+	Fixed header image bug
+			@see Section Description of Code Changes 'Bug'
+	Add hooks
+		raindrops_site_title_class,
+			@see Section Description of Code Changes 'hook'
+	Remove wp_title() and add add_theme_support( 'title-tag' );
+			@see Section Description of Code Changes 'title'
+	Change default header-image
+	Change screenshot.png
+
+	Modify Language file ja.po
+
+	Add Text Domain: Raindrops at style.css
 
 Files Modified
 
-
-
+	modified:   childs/boots/inc.php
+	modified:   childs/boots/style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   images/headers/wp3-thumbnail.jpg
+	modified:   images/headers/wp3.jpg
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   screenshot.png
+	modified:   style.css
 
 Description of Code Changes
-
-
+	childs/boots/inc.php line:165-210,251-281,
+	lib/option-panel.php line:248,259,270,281,292,303,314,325,
+	functions.php 		line:2544-2581,2591,2595-2596,2461-2672
+	childs/boots/inc.php line:407,421,612-613,631,642,653,662,664,675-676,686-687,697,708[description]
+	childs/boots/inc.php line:711-723[theme options delete]
+	lib/option-panel.php line:329-339[theme options delete]
+	functions.php line:2218-2222,2227-2275,[theme options delete]
+	functions.php line:3712,3903,[Backward compatibility]
+	functions.php line:4131-4135,97-101[Bug]
+	functions.php line:43-51[hook]
+	functions.php line number lost ( github ) sorry.
+	header-front.php line:30 [title]
+	header-xhtml.php line:53 [title]
+	header.php       line:12 [title]
+	ja.po
+	lib/csscolor.css.php line line:621,928-929,1369-1371{Misc]
+	lib/hooks.php line:143-147[Backward compatibility]
+	lib/validate.php line:2-8[theme options delete]
+	lib/widgets.php line:343,346-347,350,357,544-580[Pinup Widget]
+	style.css line:11,89-96,3396-3399,3449-3457,3462-3468
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.264

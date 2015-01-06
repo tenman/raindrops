@@ -478,7 +478,7 @@ if ( !isset( $raindrops_custom_header_args ) ) {
 	$raindrops_custom_header_args = array( 'default-text-color'	 => 'bbbbbb',
 		'width'					 => apply_filters( 'raindrops_header_image_width', '1280' ),
 		'flex-width'			 => true,
-		'height'				 => apply_filters( 'raindrops_header_image_height', '266' ),
+		'height'				 => apply_filters( 'raindrops_header_image_height', '573' ),
 		'flex-height'			 => true,
 		'header-text'			 => true,
 		'default-image'			 => '%1$s/images/headers/wp3.jpg',

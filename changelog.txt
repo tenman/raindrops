@@ -1,6 +1,18 @@
 Changelog -----------------------------------
-version:1.265
+version:1.266
 
+Overview of Changes
+        Fixed default header image height issue
+            $raindrops_custom_header_args height value change from 266 to 573
+
+Files Modified
+	modified:   functions.php
+
+Description of Code Changes
+        functions.php line:481
+----------------------------------------------
+Changelog -----------------------------------
+version:1.265
 
 Overview of Changes
 	raindrops pinup widget can use google web font.

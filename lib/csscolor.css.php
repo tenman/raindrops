@@ -42,15 +42,43 @@ function raindrops_indv_css_dark() {
 .ie11.enable-keyboard.rd-type-dark #access .sub-menu a:focus,
 .ie11.enable-keyboard.rd-type-dark #access .children a:focus,
 .enable-keyboard.rd-type-dark .hfeed a:focus,
+/*	.enable-keyboard.rd-type-dark #site-title a:focus,*/
+.raindrops-accessible-mode.rd-type-dark .hfeed a:focus,
+/*	.raindrops-accessible-mode.rd-type-dark #site-title a:focus,*/
 .ie11.raindrops-accessible-mode.rd-type-dark #access .sub-menu a:focus,
-.ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus,
-.raindrops-accessible-mode.rd-type-dark .hfeed a:focus{
+.ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus{
     color:orange!important;
     border-bottom:1px rgba(255, 255, 255,.6) solid;
 	margin-bottom:-1px!important;
 
 }
+.enable-keyboard #access li:hover >ul > li> a,
+.raindrops-accessible-mode #access li:hover> ul>  li a,
+#access .sub-menu li a,
+#access .children li a{
+    border:1px solid #ccc;
+	border:1px solid rgba(222,222,222,.5);
+	border-top:none;
+}
 
+.enable-keyboard #access li:hover >ul,
+.raindrops-accessible-mode #access li:hover> ul,
+#access .sub-menu:hover,
+#access .children:hover{
+    border-top:1px solid #ccc;
+	border-top:1px solid rgba(222,222,222,.5);
+}
+	
+#access li:hover > ul > ul{
+
+	border:none!important;
+}
+#access a:last-child {
+     border-right:1px solid #000;
+}
+#access li:nth-last-child(1) a {
+     border-right:2px solid rgba( 222,222,222,.2);
+}
 body{
     %c1%
 }
@@ -490,12 +518,17 @@ input[type="submit"],
     border: solid 1px %rgba_border%;
 }
 .raindrops-tab-list li,
-#access .children li,
-#access a{
+/*#access .children li,*/
+#access .focus a,
+#access li:hover > ul{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
+}
+#access li:hover > ul > ul{
+    background:none;
+	border:none;
 }
 .ie11 #access .sub-menu a,
 .ie11 #access .children a {
@@ -521,13 +554,15 @@ color:%custom_color%;
 .raindrops-tab-list li:active,
 #access .children li:active,
 #access li:active,
-#access ul ul :active {
-    top:0;
+#access ul ul :active{
+   top:0;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
     background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
     color:%custom_color%;
 }
+
+
 .wp-caption {
     -moz-border-radius: 3px;
     -khtml-border-radius: 3px;
@@ -594,21 +629,40 @@ function raindrops_indv_css_w3standard() {
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-/*.enable-keyboard .hfeed a:focus,*/
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-    font-weight:bold!important;
+    background:orange!important;
     border-bottom:1px solid #000;
 	margin-bottom:-1px!important;
 
+
+}
+.enable-keyboard #access li:hover >ul > li> a,
+.raindrops-accessible-mode #access li:hover> ul>  li a,
+#access .sub-menu li a,
+#access .children li a{
+    border:1px solid #696969;
+	border-top:none;
+}
+.enable-keyboard #access li:hover >ul,
+.raindrops-accessible-mode #access li:hover> ul,
+#access .sub-menu:hover,
+#access .children:hover{
+    border-top:1px solid #696969;
 }
 .footer-widget h2,.rsidebar h2,.lsidebar h2 {
     %c5%
     %h2_w3standard_background%
     %h_position_rsidebar_h2%
 }
-
+#access a:last-child {
+     border-right:1px solid rgba( 52,52,52,.2);
+}
+#access li:nth-last-child(1) a {
+     border-right:1px solid rgba( 52,52,52,.2);
+}
 body {
 %c4%
     margin:0!important;padding:0;
@@ -863,15 +917,36 @@ function raindrops_indv_css_light() {
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-/*.enable-keyboard .hfeed a:focus,*/
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-	font-weight:bold!important;
+	color:red!important;
 	border-bottom:1px solid #000;
 	margin-bottom:-1px!important;
 }
+.enable-keyboard #access li:hover >ul > li> a,
+.raindrops-accessible-mode #access li:hover> ul>  li a,
+#access .sub-menu li a,
+#access .children li a{
+    border:1px solid #696969;
+	border:1px solid rgba(105,105,105,.5);
+	border-top:none;
+}
+.enable-keyboard #access li:hover >ul,
+.raindrops-accessible-mode #access li:hover> ul,
+#access .sub-menu:hover,
+#access .children:hover{
+    border-top:1px solid #696969;
+	border-top:1px solid rgba(105,105,105,.5);
 
+}
+#access a:last-child {
+     border-right:1px solid rgba( 255,255,255,.7);
+}
+#access li:nth-last-child(1) a {
+     border-right:1px solid rgba( 255,255,255,.7);
+}
  a:link,
  a:active,
  a:visited,
@@ -1295,7 +1370,7 @@ hr{
 }
 #access .children li:active >a,
 #access li:active >a ,
-#access ul ul :active >a{
+#access ul ul :active >a {
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
     background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%)!important;
     color:%custom_color%;
@@ -1394,13 +1469,35 @@ function raindrops_indv_css_minimal() {
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-/*.enable-keyboard .hfeed a:focus,*/
+.enable-keyboard .hfeed a:focus,
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-	font-weight:bold!important;
+	background:#efefef!important;
 	border-bottom:1px solid #000;
 	margin-bottom:-1px!important;
+}
+.enable-keyboard #access li:hover >ul > li> a,
+.raindrops-accessible-mode #access li:hover> ul>  li a,
+#access .sub-menu li a,
+#access .children li a{
+    border:1px solid #696969;
+	border:1px solid rgba(105,105,105,.5);
+	border-top:none;
+}
+.enable-keyboard #access li:hover >ul,
+.raindrops-accessible-mode #access li:hover> ul,
+#access .sub-menu:hover,
+#access .children:hover{
+    border-top:1px solid #696969;
+	border-top:1px solid rgba(105,105,105,.5);
+
+}
+#access a:last-child {
+     border-right:1px solid rgba( 156,156,156,.7);
+}
+#access li:nth-last-child(1) a {
+     border-right:1px solid rgba( 156,156,156,.7);
 }
 /* tinyMCE */
 html .mceContentBody,

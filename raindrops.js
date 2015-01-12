@@ -51,6 +51,7 @@
                     jQuery('#raindrops_status_bar').hide();
                 }
          });
+                 
     });
 
 })(jQuery);
@@ -98,3 +99,4 @@
         jQuery(".raindrops-tab-list li a").css({"display": "block", "padding": "10px", "text-decoration": "none", "margin-right": "1px"});
     });
 })(jQuery);
+

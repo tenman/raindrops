@@ -157,10 +157,19 @@
             jQuery( window ).resize( function ( ) {
                 raindrops_resizes( )
             } );
-
+ 
+            
             jQuery( '#access' ).find( 'a' ).on( 'focus.raindrops blur.raindrops', function ( ) {
+                //jQuery( this ).parents( '.menu-header .menu, .menu-item, .page_item, .skip-link' ).toggleClass( 'focus' );
                 jQuery( this ).parents( ).toggleClass( 'focus' );
             } );
+           
+           /*
+            * While using the keyboard interface, if you use a mouse, they affect the display of menu If you do not remove the focus class
+            */
+            jQuery( '#access' ).on('mousemove','a', function(){
+               jQuery( this ).toggleClass('focus').parents( ).children().removeClass('focus'); 
+            });
 
         } else {
 

@@ -532,8 +532,7 @@ if ( !in_array( 'hooks.php', $raindrops_included_files ) && file_exists( $raindr
  * @since 1.116
  */
 function raindrops_extend_query( $vars ) {
-
-	$vars[] = 'friendly';
+	
 	$vars[] = 'raindrops_color_type';
 
 	return $vars;
@@ -565,29 +564,24 @@ if ( 'yes' == raindrops_warehouse_clone( 'raindrops_accessibility_settings' ) ) 
 
 	$raindrops_accessibility_link = false;
 }
+if ( ! function_exists( 'raindrops_current_url' ) ) {
+	function raindrops_current_url() {
 
-if ( isset( $_REQUEST[ 'friendly' ] ) && !empty( $_REQUEST[ 'friendly' ] ) && true == $raindrops_accessibility_link ) {
+		$url = 'http';
+		if ( isset( $_SERVER[ "HTTPS" ] ) && $_SERVER[ "HTTPS" ] == "on" ) {
+			$url .= "s";
+		}
+		$url .= "://";
+		if ( isset( $_SERVER[ "SERVER_PORT" ] ) && $_SERVER[ "SERVER_PORT" ] != "80" ) {
+			$url .= $_SERVER[ "SERVER_NAME" ] . ":" . $_SERVER[ "SERVER_PORT" ] . $_SERVER[ "REQUEST_URI" ];
+		} else {
+			$url .= $_SERVER[ "SERVER_NAME" ] . $_SERVER[ "REQUEST_URI" ];
+		}
+		$url = esc_url( $url );
 
-	$raindrops_link_unique_text = true;
-}
-
-function raindrops_current_url() {
-
-	$url = 'http';
-	if ( isset( $_SERVER[ "HTTPS" ] ) && $_SERVER[ "HTTPS" ] == "on" ) {
-		$url .= "s";
+		return apply_filters( 'raindrops_current_url', $url );
 	}
-	$url .= "://";
-	if ( isset( $_SERVER[ "SERVER_PORT" ] ) && $_SERVER[ "SERVER_PORT" ] != "80" ) {
-		$url .= $_SERVER[ "SERVER_NAME" ] . ":" . $_SERVER[ "SERVER_PORT" ] . $_SERVER[ "REQUEST_URI" ];
-	} else {
-		$url .= $_SERVER[ "SERVER_NAME" ] . $_SERVER[ "REQUEST_URI" ];
-	}
-	$url = esc_url( $url );
-
-	return apply_filters( 'raindrops_current_url', $url );
 }
-
 /**
  * home link
  *
@@ -1712,6 +1706,21 @@ if ( !function_exists( 'raindrops_comment' ) ) {
         ' . esc_html__( 'code example:please HTML editor mode', 'Raindrops' ) . '
         <div  style="' . raindrops_gradient_single( 4, "asc" ) . 'padding:1em;">&lt;div class="gradient3"&gt;<p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>&lt;/div&gt;</div></td></tr></table></dd>';
+				$result .= "<dl><dt><h3>" . esc_html__( 'Font Size CSS Class', 'Raindrops' ) . '</strong></h3>';
+				$result .= "<dt><p>" . esc_html__( 'Classes', 'Raindrops' ) . '</p></dt>';
+				$result .= "<dd><p>" . esc_html__( 'f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26', 'Raindrops' ) . "</p><pre><code>&lt;p class=\"f16\"&gt;Font Size 16px&lt;/p&gt;</code></pre>";	
+				$result .= "</dl>";
+				$result .= "<dl><dt><h3>" . esc_html__( 'Google Fonts Family CSS Class', 'Raindrops' ) . '</strong></h3>';
+				$result .= "<dt><p>" . esc_html__( 'Classes', 'Raindrops' ) . '</p></dt>';
+				$result .= "<dd><p>" . esc_html__( 'Note: More than 90% of the Google font can be used, but there are some limitations.', 'Raindrops' ) . "</p></dd>";	
+				$result .= "<dd><p>" . esc_html__( 'Examples of the no corresponding font', 'Raindrops' ) . "</p><pre><code>Open Sans Condensed ( font name has 2 or more spaces ) </code></pre></dd>";					
+				$result .= "<dd><p>" . esc_html__( 'Examples of the corresponding font', 'Raindrops' ) . "</p><pre><code>Open Sans Condensed ( font name has 1 or no spaces ) </code></pre></dd>";				
+				$result .= "<dd><p>" . esc_html__( 'How to specify the font', 'Raindrops' ) . "</p><pre><code>Open Sans: &lt;p class=\"google-font-open-sans\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
+				$result .= "<dd><p>" . esc_html__( 'Add prefix google-font- + Font name lowercase and change to - the space', 'Raindrops' ) . "</p></dd>";
+				$result .= "<dd><p>" . esc_html__( 'How to specify the font weight', 'Raindrops' ) . "</p><pre><code>Open Sans EXTRA-BOLD800: &lt;p class=\"google-font-open-sans800\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
+				$result .= "<dd><p>" . esc_html__( 'How to specify the font style', 'Raindrops' ) . "</p><pre><code>Open Sans EXTRA-BOLD800 Italic: &lt;p class=\"google-font-open-sans800i\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";				
+				$result .= "</dl>";
+				
 				$result .= "<dl><dt><h3>" . esc_html__( 'Example of Custom CSS Meta Box Style Rules', 'Raindrops' ) . '</strong></h3>';
 				$result .= "<dt><p>" . esc_html__( 'Styling Entry Title', 'Raindrops' ) . '</p></dt>';
 				$result .= "<dd><p>" . esc_html__( 'Change entry title color', 'Raindrops' ) . "</p><pre><code>.entry-title span{ color:red; }</code></pre>";
@@ -1723,6 +1732,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 				$result .= "<dd><p>" . esc_html__( 'add border and padding', 'Raindrops' ) . "</p><pre><code> {border:1px solid red;padding:1em;}</code></pre>"
 				. "<p>" . esc_html__( 'note:Needs  space { before or /*article*/ { style rules }', 'Raindrops' ) . "</p></dd>";
 				$result .= "</dl>";
+
 				$result .= $text;
 				return $result;
 			} else {
@@ -8506,15 +8516,6 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 
 		$raindrops_address_html .= sprintf( $raindrops_address_rss, date( "Y" ), $raindrops_current_theme_name, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
 		);
-
-		if ( $raindrops_accessibility_link == true && ('posts' == get_option( 'show_on_front' ) || !is_front_page() ) ) {
-
-			$accessible_url = raindrops_current_url();
-
-			$accessible_url = add_query_arg( 'friendly', 'true', $accessible_url );
-
-			$raindrops_address_html .= "\n". str_repeat("\t", 2 ). '<a href="' . $accessible_url . '" class="raindrops-accessibility-link">' . esc_html__( 'Accessible', 'Raindrops' ) . '</a>';
-		}
 
 		$raindrops_address_html .= '</small> ';
 

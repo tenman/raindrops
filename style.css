@@ -49,9 +49,10 @@ a:visited{
     text-decoration:none!important;
     border-bottom:solid 0.07692307692em;
 }
+
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-/*.enable-keyboard .hfeed a:focus,*/
+
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -74,6 +75,7 @@ a:visited{
 .enable-keyboard .entry-content a:focus img{
     outline:thin dotted;
 }
+
 .ie8 #doc #header-image,
 .ie8 #doc4 #header-image,
 .ie9 #doc4 #header-image,
@@ -1394,24 +1396,71 @@ br.clearfix {
 }
 div.menu ul,
 #access li{
-    margin:0;
+    margin:1px 0;
     list-style-type:none;
+    
     /* each link width here example width:12em; or display:inline-block; and percent width, example width:16%; */
     /* text-align:center here example text-align:center; */
 }
+
+#access ul ul li,
+#access ul ul,
+#access a{
+       min-width:12em;
+}
+
 #access a {
     display: block;
     line-height: 3em;
     padding: 0 0.4em;
     text-decoration: none;
+    border-left:1px solid rgba( 222,222,222,.2);
+
+    text-align:center;
+    position:relative;
     /* link text font size here */
 }
+
+#access .page_item_has_children > a:after,
+#access .menu-item-has-children > a:after{
+    content:'\bb';
+    transform: rotate( 90deg );
+    margin:1em;
+    right:0;
+    top:-1em;
+    position:absolute;
+}
+
+.ie8 #access .page_item_has_children > a:after,
+.ie8 #access .menu-item-has-children > a:after{
+    content :'x';
+    color:red;
+}
+
+#access .children .page_item_has_children > a:after,
+#access .sub-menu .page_item_has_children > a:after,
+#access .children .menu-item-has-children > a:after,
+#access .sub-menu .menu-item-has-children > a:after{
+    content:'\bb';
+    transform: none;
+    top:-.3em;
+}
+
+.ie9 #access .children .page_item_has_children > a:after,
+.ie9 #access .sub-menu .page_item_has_children > a:after,
+.ie9 #access .children .menu-item-has-children > a:after,
+.ie9 #access .sub-menu .menu-item-has-children > a:after{
+    content :'x';
+    color:red;
+}
+
 #access .menu-header li,
 div.menu li {
     float: left;
     position: relative;
     padding:0;
 }
+
 #access .menu-header li a,
 div.menu li a{
     margin:0;
@@ -1429,19 +1478,24 @@ body.enable-keyboard #access ul ul{
 body #access ul ul{
     display:none;
 }
+
 #access ul ul {
-    /*display: none;*/
+    display: none;
     position: absolute;
     top: 3em; /* If set linktext font-size, example #access a {font-size:123.1%} then this value 3em * 1.231 */
     left: 0;
     float: left;
-    width: 10em;
+
     z-index: 99;
     text-align:center;
     left:-9000px;
 }
+.ie8 #access ul ul{
+    display:block;
+}
+
 #access ul ul li {
-    min-width: 10em;
+
     margin:0;
 }
 .enable-keyboard #access li.focus > a + ul,
@@ -1522,6 +1576,7 @@ body #access ul ul{
     top: -0.07692307692em;
     text-align:center;
 }
+
 #access .children .children,
 #access .sub-menu .sub-menu,
 #access ul ul ul {
@@ -1569,23 +1624,18 @@ div.menu li {
     position: relative;
 }
 
-.enable-keyboard #access li:hover >ul > li> a,
-.raindrops-accessible-mode #access li:hover> ul>  li a,
-#access .sub-menu li,
-#access .children li{
-    border:0.07692307692em solid #ccc;
-}
-
 #access .current_page_item{
 }
+
+/*
 .ie8 #access {
     margin-left:0;
     width:100%;
     margin-top:0;
 }
 
-.ie6 #access,/*ie6*/
-.ie7 #access{/*1e7*/
+.ie6 #access,
+.ie7 #access{
     width:100%;
     margin-top:0;
 }
@@ -1605,6 +1655,52 @@ div.menu li {
 .ie6 #access ul li.current-menu-item a,
 .ie6 #access ul li.current-menu-parent a,
 .ie6 #access ul li a:hover {
+}
+
+.ie8 #access li a,
+.ie8 #access li,
+.ie8 #access ul{
+    display:block!important;
+
+    text-indent:0;
+    opacity:1!important;
+    clip:auto!important;
+    position:static!important;
+    text-align:left;
+    border:none!important;
+}
+.ie8 #access ul{
+    margin:1em;
+}
+.ie8 .menu-item-has-children,
+.ie8 .page_item_has_children{
+    font-weight:bold;
+}
+*/
+
+.ie8 #access .menu-header li,
+.ie8 div.menu li {
+
+  display:block!important;
+
+    text-indent:0;
+    opacity:1!important;
+    clip:auto!important;
+    position:static!important;
+    text-align:left;
+    border:none!important;
+}
+.ie8 div.menu li:hover + ul > li,
+.ie8 div.menu li:hover + ul{
+    display:block!important;
+    opacity:1;
+    filter: alpha(opacity=100); 
+    text-indent:0;
+}
+.ie8 #access .menu-header li a,
+.ie8 div.menu li a{
+   display:block;
+   height:auto!important;
 }
 /* Text meant only for screen readers */
 .screen-reader-text{
@@ -2087,13 +2183,15 @@ li.comment {
 .comment a{
     background:none!important;
 }
+/*
 .sub-menu,
 .children{
     margin-left:0;
 }
 .children li{
     padding-top:2px;
-}
+}*/
+
 .commentlist .pingback p,
 .commentlist .comment-body,
 .commentlist .reply,

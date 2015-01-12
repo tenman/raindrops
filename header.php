@@ -31,10 +31,11 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 			<?php  echo raindrops_header_image( 'elements' );
 				} else { ?>
 
-			<?php  echo raindrops_header_image( 'home_url' );
+			<?php  echo raindrops_header_image( 'home_url');
                 }
                 
                 raindrops_nav_menu_primary();
+				
 				/**
                  * horizontal menubar
                  */

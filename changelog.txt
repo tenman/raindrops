@@ -1,4 +1,53 @@
 Changelog -----------------------------------
+version:1.267
+
+Overview of Changes
+
+		Footer accessibility link removed
+
+			Do not need a query, have implemented the basic functions related to accessibility
+
+			Extend query keyword ( friendly ) removed
+			@see Section Description of Code Changes 'Query'
+
+		Add Edit Help
+			Add help at helptab where post-new.php and post.php
+
+			Example	Font Size CSS Class
+					<p class="f16">Font Size 16px</p>
+			Example	Google Fonts Family CSS Class
+
+			@see Section Description of Code Changes 'Help'
+
+		Modify Primary navigation
+
+        	Important Note
+
+				IE8 Custom Menu shows level 0 only.
+					Not Support keyboard accessibility.
+				IE9 Custom Menu shows level 0 and 1 only.( when hover action )
+					When the non-printable child menu exists, it will be displayed in X is red color to the menu
+				IE9 Custom Menu shows multiple.( keyboard action )
+					it will be displayed in X is red color to the menu, but works
+
+				Another Modern Browser shows multi level.
+					Primary menu support keyboard accessibility.
+Files Modified
+
+	modified:   lib/csscolor.css.php
+	modified:   raindrops-helper.js
+	modified:   style.css
+
+Description of Code Changes
+
+    functions.php line:536,569-574,8510-8518[Query]
+	functions.php line:1709-1723,[Help]
+	functions.php line:567-580 [Misc]
+	lib/csscolor.css.php line:55-81,522-532,557-565,632,640-653,660-665,920,924,928-949,1373,1472,1476,1480-1501
+	raindrops-helper.js	line:160-172,
+	style.css line:1399,1405-1411,1423-1456,1438,1444,1572-1578,1637-1638,1659-1704,2186,2193
+----------------------------------------------
+Changelog -----------------------------------
 version:1.266
 
 Overview of Changes

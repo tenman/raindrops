@@ -2,16 +2,43 @@ Changelog -----------------------------------
 version:1.268
 
 Overview of Changes
+
 		Google Fonts ( contain two spaces ) Support
 		Google Fonts Early Access Support
 			http://www.google.com/fonts/earlyaccess
+			@see Section Description of Code Changes 'Google Fonts'
 		Add Primary Menu Fonts Size Option at theme options and customizer
+			@see Section Description of Code Changes 'Primary Menu Fonts Size'
+		Fixed Primary Menu for mobile device display improperly.
+			@see Section Description of Code Changes 'Primary Menu Mobile'
 
 Files Modified
+
+	modified:   childs/boots/inc.php
+	modified:   fonts.css
 	modified:   functions.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   plugins/plugins-presentation.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
-        functions.php line:
+
+	childs/boots/inc.php line:154-162,732-741	[Primary Menu Fonts Size]
+	fonts.css line:179							[Primary Menu Fonts Size]
+	functions.php 2407-2415,5136-5141,5275-5283,[Primary Menu Fonts Size]
+	functions.php 8534							[Misc]
+	functions.php line8628-8630,8636-8637, 8648-8654,8671-8681,
+	8704,8731-8740,8751-8753					[Google Fonts]
+	lib/option-panel.php line:340-349			[Primary Menu Fonts Size]
+	lib/validate.php line:2-9					[Primary Menu Fonts Size]
+	plugins/plugins-presentation.php line:282,285,
+	289-295										[Misc]
+	responsiveness.css line:127-129,158-233		[Primary Menu Mobile]
+	style.css line:1408, 1484					[Primary Menu Fonts Size]
+	style.css line:1652-1661,1663-1664			[Misc]
+
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.267

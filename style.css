@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.267
+Version: 1.268
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -52,7 +52,6 @@ a:visited{
 
 .ie11.enable-keyboard #access .sub-menu a:focus,
 .ie11.enable-keyboard #access .children a:focus,
-
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
@@ -1406,7 +1405,7 @@ div.menu ul,
 #access ul ul li,
 #access ul ul,
 #access a{
-       min-width:12em;
+       min-width:10em;
 }
 
 #access a {
@@ -1482,7 +1481,7 @@ body #access ul ul{
 #access ul ul {
     display: none;
     position: absolute;
-    top: 3em; /* If set linktext font-size, example #access a {font-size:123.1%} then this value 3em * 1.231 */
+    /*top: 3em; *//* If set linktext font-size, example #access a {font-size:123.1%} then this value 3em * 1.231 */
     left: 0;
     float: left;
 
@@ -1627,57 +1626,6 @@ div.menu li {
 #access .current_page_item{
 }
 
-/*
-.ie8 #access {
-    margin-left:0;
-    width:100%;
-    margin-top:0;
-}
-
-.ie6 #access,
-.ie7 #access{
-    width:100%;
-    margin-top:0;
-}
-.debug #access{
-    border:0.07692307692em solid red;
-}
-.ie8 #access .menu-header > ul > li > a,
-.ie8 div.menu > ul > li > a,
-.ie9 #access .menu-header > ul > li > a,
-.ie9 div.menu > ul > li > a{
-    margin:0;
-    width:auto;
-    display:inline-block;
-}
-.ie6 #access ul li.current_page_item a,
-.ie6 #access ul li.current-menu-ancestor a,
-.ie6 #access ul li.current-menu-item a,
-.ie6 #access ul li.current-menu-parent a,
-.ie6 #access ul li a:hover {
-}
-
-.ie8 #access li a,
-.ie8 #access li,
-.ie8 #access ul{
-    display:block!important;
-
-    text-indent:0;
-    opacity:1!important;
-    clip:auto!important;
-    position:static!important;
-    text-align:left;
-    border:none!important;
-}
-.ie8 #access ul{
-    margin:1em;
-}
-.ie8 .menu-item-has-children,
-.ie8 .page_item_has_children{
-    font-weight:bold;
-}
-*/
-
 .ie8 #access .menu-header li,
 .ie8 div.menu li {
 
@@ -1703,12 +1651,17 @@ div.menu li {
    height:auto!important;
 }
 /* Text meant only for screen readers */
-.screen-reader-text{
+.screen-reader-text,
+a:link.screen-reader-text,
+a:visited.screen-reader-text,
+a:hover.screen-reader-text{
     position: absolute;
     clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
+    color:#000;
+    background:#fff;
 }
-.screen-reader-text:active,
-.screen-reader-text:focus {
+a.screen-reader-text:active,
+a.screen-reader-text:focus {
     background-color: #f1f1f1;
     box-shadow: 0 0 2px 2px rgba( 0, 0, 0, .6 );
     clip: auto;

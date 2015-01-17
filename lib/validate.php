@@ -1,7 +1,16 @@
 <?php
+function raindrops_menu_primary_font_size_validate( $input ) {
+	
+	if( is_numeric( $input ) && 76 < $input && 183 > $input ) {
+		
+		return $input;
+	}
+	return 100;
+}
 function raindrops_uninstall_option_validate( $input ) {
 	
 	if( $input == 'delete' ) {
+		
 		return 'delete';
 	}
 	return 'keep';

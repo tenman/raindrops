@@ -151,6 +151,15 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
             $css .= "\nbody{background-attachment: " . $body_background_attachment . ';}';
         }
+		/* Primary Menu Font Size */
+		$primary_menu_font_size = raindrops_warehouse_clone( 'raindrops_menu_primary_font_size' );
+
+		if ( isset( $primary_menu_font_size ) && !empty( $primary_menu_font_size ) ) {
+
+			$css .= '#access a{font-size:' . $primary_menu_font_size. '%;}';
+		} else {
+			$css .= '#access a{font-size:100%;}';
+		}
         if ( function_exists( 'raindrops_gradient_clone' ) ) {
 
             $css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content .gradient' );
@@ -720,7 +729,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'validate'     => 'raindrops_uninstall_option_validate',
         'list'         => 30
     ),
-
+	 array( 'option_id'    => 32,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_menu_primary_font_size",
+        'option_value' => 100,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Menu Primary Font Size', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182', 'Raindrops' ),
+        'validate'     => 'raindrops_menu_primary_font_size_validate', 
+		'list'         => 31 ),
 	);
 }
 

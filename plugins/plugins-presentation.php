@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Active or not raindrops_plugin_presentation_meta_slider
  */
@@ -280,17 +279,20 @@ list-style:none;
 }
 
 @media screen and (max-width : 640px){
-	ol.breadcrumbs{
+	#doc3 ol.breadcrumbs{
 		margin:2em 0;
-		border-top:1px solid rgba(222,222,222,.5);
-
 	}
-	.breadcrumbs li{
+	#doc3 .breadcrumbs li{
 		list-style:none;
-		display:block;
 		margin:0;
 		padding:1em;
-		border-bottom:1px solid rgba(222,222,222,.5);
+		font-size:123%;		
+	}
+	#doc3 .breadcrumbs li:after{
+	content: "\bb";
+	display:inline-block;
+	width:1em;
+	text-align:center;
 	}
 	.breadcrumbs li:nth-child(2) a{
 		margin:0 0 0 10px;

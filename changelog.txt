@@ -1,4 +1,19 @@
 Changelog -----------------------------------
+version:1.268
+
+Overview of Changes
+		Google Fonts ( contain two spaces ) Support
+		Google Fonts Early Access Support
+			http://www.google.com/fonts/earlyaccess
+		Add Primary Menu Fonts Size Option at theme options and customizer
+
+Files Modified
+	modified:   functions.php
+
+Description of Code Changes
+        functions.php line:
+----------------------------------------------
+Changelog -----------------------------------
 version:1.267
 
 Overview of Changes

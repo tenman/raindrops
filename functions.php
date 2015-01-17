@@ -1985,8 +1985,6 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 
 			if ( is_child_theme() ) {
 
-
-
 				$child = $stylesheet_uri . '/style.css';
 				wp_register_style( 'child', $child, array( 'style' ), $raindrops_current_data_version, 'all' );
 				wp_enqueue_style( 'child' );
@@ -2405,6 +2403,15 @@ if ( !function_exists( "raindrops_delete_all_options" ) ) {
 			if ( isset( $body_background_attachment ) && !empty( $body_background_attachment ) ) {
 
 				$css .= "\nbody{background-attachment: " . $body_background_attachment . ';}';
+			}
+			/* Primary Menu Font Size */
+			$primary_menu_font_size = raindrops_warehouse_clone( 'raindrops_menu_primary_font_size' );
+
+			if ( isset( $primary_menu_font_size ) && !empty( $primary_menu_font_size ) ) {
+
+				$css .= '#access a{font-size:' . $primary_menu_font_size. '%;}';
+			} else {
+				$css .= '#access a{font-size:100%;}';
 			}
 
 			if ( empty( $css ) ) {
@@ -5126,7 +5133,12 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 									'capability' => 'edit_theme_options', 'sanitize_callback' => 'raindrops_uninstall_option_validate'
 								)
 						);
-
+			$wp_customize->add_setting( 'raindrops_theme_settings[raindrops_menu_primary_font_size]',
+							array( 'default' => raindrops_warehouse_clone( 'raindrops_menu_primary_font_size' ),
+									'type' => 'option',
+									'capability' => 'edit_theme_options', 'sanitize_callback' => 'raindrops_menu_primary_font_size_validate'
+								)
+						);
 
 			$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'raindrops_base_color', array( 'label' => esc_html__( 'Base color', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_base_color]' ) ) );
 			$wp_customize->add_control( 'raindrops_style_type', array( 'label' => esc_html__( 'Color Type', 'Raindrops' ), 'section' => 'raindrops_theme_settings', 'settings' => 'raindrops_theme_settings[raindrops_style_type]', 'type' => 'radio', 'choices' => $raindrops_style_type_choices, ) );
@@ -5258,6 +5270,15 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 								'type'		 => 'radio',
 								'choices'	 => array( 'keep' => 'Keep', 'delete' => 'Delete All' ),
 								'description' => '<strong style="color:red">'. esc_html__( 'The deleted data can not be restored', 'Raindrops' ). '</strong>',
+								)
+						);
+			$wp_customize->add_control( 'raindrops_menu_primary_font_size',
+							array(
+								'label'		 => esc_html__( 'Menu Primary Font Size', 'Raindrops' ),
+								'section'	 => 'nav',
+								'settings'	 => 'raindrops_theme_settings[raindrops_menu_primary_font_size]',
+								'type'		 => 'text',
+								'description' => '<p>'. esc_html__( 'Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182', 'Raindrops' ). '</p>',
 								)
 						);
 			//raindrops_plugin_presentation_the_events_calendar
@@ -8510,7 +8531,7 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 
 		$raindrops_address_html .= apply_filters( 'raindrops_prepend_footer_address', '' );
 
-		$raindrops_address_rss =  "\n". str_repeat("\t", 2 ). '<small>&#38;copy;%1$s   %2$s  <a href="%3$s" class="entry-rss">%4$s</a>' .
+		$raindrops_address_rss =  "\n". str_repeat("\t", 2 ). '<small>&amp;copy;%1$s   %2$s  <a href="%3$s" class="entry-rss">%4$s</a>' .
 								  "\n". str_repeat("\t", 3 ). '<span>'. esc_html__( 'and', 'Raindrops' ) . '</span>' .
 								  "\n". str_repeat("\t", 2 ). '<a href="%5$s" class="comments-rss">%6$s</a>';
 
@@ -8604,12 +8625,16 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 	function raindrops_register_webfonts( $post_ID, $post, $update ) {
 
 		if ( !current_user_can('edit_posts') ) { return false; }
-
+		
+		$early_access	 = array('alefhebrew' , 'amiri' , 'dhurjati' , 'dhyana' , 'droidarabickufi' , 'droidarabicnaskh' , 'droidsansethiopic' , 'droidsanstamil' , 'droidsansthai' , 'droidserifthai' , 'gidugu' , 'gurajada' , 'hanna' , 'jejugothic' , 'jejuhallasan' , 'jejumyeongjo' , 'karlatamilinclined' , 'karlatamilupright' , 'kopubbatang' , 'lakkireddy' , 'laomuangdon' , 'laomuangkhong' , 'laosanspro' , 'lateef' , 'lohitbengali' , 'lohitdevanagari' , 'lohittamil' , 'mallanna' , 'mandali' , 'myanmarsanspro' , 'nats' , 'ntr' , 'nanumbrushscript' , 'nanumgothic' , 'nanumgothiccoding' , 'nanummyeongjo' , 'nanumpenscript' , 'notokufiarabic' , 'notonaskharabic' , 'notonastaliqurdudraft' , 'notosansarmenian' , 'notosansbengali' , 'notosanscherokee' , 'notosansdevanagari' , 'notosansdevanagariui' , 'notosansethiopic' , 'notosansgeorgian' , 'notosansgujarati' , 'notosansgurmukhi' , 'notosanshebrew' , 'notosansjapanese' , 'notosanskannada' , 'notosanskhmer' , 'notosanskufiarabic' , 'notosanslao' , 'notosanslaoui' , 'notosansmalayalam' , 'notosansmyanmar' , 'notosansosmanya' , 'notosanssinhala' , 'notosanstamil' , 'notosanstamilui' , 'notosanstelugu' , 'notosansthai' , 'notosansthaiui' , 'notoserifarmenian' , 'notoserifgeorgian' , 'notoserifkhmer' , 'notoseriflao' , 'notoserifthai' , 'opensanshebrew' , 'opensanshebrewcondensed' , 'padauk' , 'peddana' , 'phetsarath' , 'ponnala' , 'ramabhadra' , 'raviprakash' , 'scheherazade' , 'souliyo' , 'sreekrushnadevaraya' , 'suranna' , 'suravaram' , 'tenaliramakrishna' , 'thabit' , 'tharlon' , 'cwtexfangsong' , 'cwtexhei' , 'cwtexkai' , 'cwtexming' );
+		$flag_early_access = false;
 		$include_fonts	 = '';
 		$link_html		 = '<link rel="stylesheet" id="%2$s" href="%1$s" type="text/css" media="all" />' . "\n";
 		$url			 = apply_filters( 'google_fonts_endpoint_url', '//fonts.googleapis.com/css' );
 		$secondary		 = '';
 		$separator		 = '';
+		$mid_name		 = '';
+		$has_mid_name    = array();
 		$web_font_styles = '';
 		$font_for_style_italic = '';
 		$font_for_style_weight = '';
@@ -8620,7 +8645,13 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 				foreach ( $regs as $reg ) {
 
 					if ( strstr( $reg[ 3 ], '-' ) ) {
-						list( $primary, $secondary) = explode( '-', $reg[ 3 ] );
+						if(  count( $has_mid_name = explode( '-', $reg[ 3 ] ) ) == 3 ) {
+							
+							list( $primary, $mid_name, $secondary ) = $has_mid_name;
+							
+						} else {
+							list( $primary, $secondary) = explode( '-', $reg[ 3 ] );
+						}
 					} else {
 						$primary = $reg[ 3 ];
 					}
@@ -8637,14 +8668,25 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 					}
 					$primary	 = preg_replace( '![0-9]00(i)?!', '', $primary );
 					$secondary	 = preg_replace( '![0-9]00(i)?!', '', $secondary );
-
-					if ( !empty( $secondary ) ) {
+					$mid_name    = preg_replace( '![0-9]00(i)?!', '', $mid_name );
+					
+					if( true == array_search( $primary. $mid_name. $secondary ,  $early_access ) ) {
+						
+						$flag_early_access = true;
+					}
+					
+					if( ! empty($has_mid_name) ) {
+						$font_name		 = ucfirst( $primary ) . ' ' . ucfirst( $mid_name ) . ' ' . ucfirst( $secondary ) . $separator . $weight_and_italic_values;
+						$font_for_style	 = ucfirst( $primary ) . ' ' . ucfirst( $mid_name ). ' ' . ucfirst( $secondary );;					
+					} elseif ( !empty( $secondary ) && empty( $has_mid_name ) ) {
 						$font_name		 = ucfirst( $primary ) . ' ' . ucfirst( $secondary ) . $separator . $weight_and_italic_values;
 						$font_for_style	 = ucfirst( $primary ) . ' ' . ucfirst( $secondary );
 					} else {
 						$font_name		 = ucfirst( $primary );
 						$font_for_style	 = ucfirst( $primary );
 					}
+					
+					
 					if ( isset( $reg[ 3 ] ) ) {
 						if ( strstr( $weight_and_italic_values, ',' ) ) {
 
@@ -8659,6 +8701,10 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 								}
 							}
 						}
+						$web_font_styles = str_replace('.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;'.
+																			 $font_for_style_italic.
+																			 $font_for_style_weight.
+																			'}' . "\n",'',$web_font_styles );
 						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;'.
 																			 $font_for_style_italic.
 																			 $font_for_style_weight.
@@ -8677,12 +8723,21 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 					$font_url = str_replace( '&', '&amp;', $font_url );
 
 					$id = $reg[ 3 ];
+					
 
 					if( ! empty( $effect[ 2 ] )) {
 						$id = $id. '-'. $effect[ 2 ];
 					}
-
-					$include_fonts .= sprintf( $link_html, $font_url ,'google-font-'. sanitize_html_class( $id ). '-css'  );
+					if( true == $flag_early_access  ) {
+						
+						$font_url		= 'http://fonts.googleapis.com/earlyaccess/';
+						$font_url		.= str_replace( ' ','', strtolower( $font_name.'.css' ) );
+						$include_fonts = str_replace( sprintf( $link_html, $font_url ,'google-font-early-'. sanitize_html_class( $id ). '-css'  ),'',  $include_fonts );
+						$include_fonts .= sprintf( $link_html, $font_url ,'google-font-early-'. sanitize_html_class( $id ). '-css'  );
+					} else {
+						$include_fonts = str_replace( sprintf( $link_html, $font_url ,'google-font-'. sanitize_html_class( $id ). '-css'  ) ,'',  $include_fonts );
+						$include_fonts .= sprintf( $link_html, $font_url ,'google-font-'. sanitize_html_class( $id ). '-css'  );
+					}
 
 					unset( $regs );
 					$primary					 = '';
@@ -8693,6 +8748,9 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 					$font_url					 = '';
 					$font_for_style_italic       = '';
 					$font_for_style_weight       = '';
+					$mid_name					= '';
+					$has_mid_name				= array();
+					$flag_early_access			= false;
 				}
 
 				update_post_meta( $post_ID, '_web_fonts_link_element', $include_fonts );

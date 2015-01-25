@@ -347,6 +347,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'     => esc_html__( 'Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182', 'Raindrops' ),
         'validate'     => 'raindrops_menu_primary_font_size_validate', 
 		'list'         => 31 ),
+	array( 'option_id'    => 33,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_menu_primary_min_width",
+        'option_value' => 10,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Menu Primary Menu Width', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999', 'Raindrops' ),
+        'validate'     => 'raindrops_menu_primary_min_width_validate', 
+		'list'         => 32 ),
 );
 }
 

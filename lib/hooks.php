@@ -7,11 +7,19 @@
  * @since Raindrops 0.948
  */
 add_action( 'after_setup_theme', 'raindrops_theme_setup' );
+
 if ( !function_exists( 'raindrops_theme_setup' ) ) {
 
     function raindrops_theme_setup() {
-        global $raindrops_wp_version;
-        add_filter( 'use_default_gallery_style', '__return_false' );
+        global $raindrops_wp_version, $raindrops_extend_galleries;
+	
+		if ( $raindrops_extend_galleries == true ){
+			
+			add_filter( 'use_default_gallery_style', '__return_false' );
+		}else{
+			
+			add_filter( 'use_default_gallery_style', '__return_true' );			
+		}
         /**
          *
          *

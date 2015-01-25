@@ -1139,7 +1139,7 @@ class raindrops_CSS_Color extends raindrops_PEAR{
 
     // Make sure we got a valid hex value
     if (!$this->raindrops_isHex( $bgHex ) ) {
-	
+	var_dump( $bgHex );
 		$this->raindrops_raiseError("background color '$bgHex' is not a hex color value",
 			__FUNCTION__, __LINE__);
 		return false;
@@ -1486,8 +1486,8 @@ class raindrops_CSS_Color extends raindrops_PEAR{
   }
 
   //--------------------------------------------------
-  function &raindrops_raiseError($message, $method, $line) {
-  
+  function raindrops_raiseError($message, $method, $line) {
+  var_dump( $message );
     $error = raindrops_PEAR::raindrops_raiseError(sprintf("%s.%s() line %d: %s",
                       get_class($this), $method, $line, $message),
                   RAINDROPS_CSS_COLOR_ERROR);

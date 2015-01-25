@@ -1,4 +1,13 @@
 <?php
+
+function raindrops_menu_primary_min_width_validate( $input ) {
+	
+	if( is_numeric( $input ) && 0 < $input && 96 > $input ) {
+		
+		return $input;
+	}
+	return 10;
+}
 function raindrops_menu_primary_font_size_validate( $input ) {
 	
 	if( is_numeric( $input ) && 76 < $input && 183 > $input ) {

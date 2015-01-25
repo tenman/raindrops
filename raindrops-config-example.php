@@ -241,3 +241,12 @@ if ( ! isset( $raindrops_xhtml_media_type ) ) {
 	
 	$raindrops_xhtml_media_type = 'text/html';
 }
+/**
+ * Raindrops Gallery Presentation
+ * value false shows WordPress Standard Gallery Style.
+ * @since 1.269
+ */
+if( ! isset( $raindrops_extend_galleries ) ) {
+	
+	$raindrops_extend_galleries = true;
+}

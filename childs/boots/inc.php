@@ -160,6 +160,22 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 		} else {
 			$css .= '#access a{font-size:100%;}';
 		}
+		
+		$primary_menu_min_width = raindrops_warehouse_clone( 'raindrops_menu_primary_min_width' );
+			
+		if ( isset( $primary_menu_min_width ) && !empty( $primary_menu_min_width ) ) {
+
+			if ( $primary_menu_min_width < 10 ) { $child_width = 10; }else{ $child_width = floatval( $primary_menu_min_width );}
+
+			$adding_style = '#access ul ul li,#access ul ul,#access a{ min-width:%1$dem;}
+							.ie8 #access .page_item_has_children > a:after,
+							.ie8 #access .menu-item-has-children > a:after{ content :"";}
+							#access .children li,#access .sub-menu li,#access .children ul,#access .sub-menu ul,#access .children a,#access .sub-menu a{
+							 width:%2$dem;
+							}';
+			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width );				
+		} 
+		
         if ( function_exists( 'raindrops_gradient_clone' ) ) {
 
             $css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content .gradient' );
@@ -739,6 +755,17 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'     => esc_html__( 'Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182', 'Raindrops' ),
         'validate'     => 'raindrops_menu_primary_font_size_validate', 
 		'list'         => 31 ),
+
+		array( 'option_id'    => 33,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_menu_primary_min_width",
+        'option_value' => 10,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Menu Primary Menu Width', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999', 'Raindrops' ),
+        'validate'     => 'raindrops_menu_primary_min_width_validate', 
+		'list'         => 32 ),
 	);
 }
 

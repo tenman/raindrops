@@ -23,6 +23,8 @@
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  */
+global $raindrops_document_type;
+
 do_action( 'raindrops_' . basename( __FILE__ ) );
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
@@ -135,7 +137,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 
                     default:
 
-                        printf( '<!--%$1s-->', $raindrops_document_type );
+                        printf( '<!--%1$s-->', $raindrops_document_type );
                         ?>
                     <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 

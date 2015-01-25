@@ -713,23 +713,91 @@ function raindrops_register_styles_clone( $style_name ) {
  * 
  */
 function raindrops_gallerys_clone() {
+	
+	global $raindrops_extend_galleries;
+	
+		$clear_float = ".gallery,
+			.gallery-columns-1 .gallery-item:nth-child(2),\n
+			.gallery-columns-2 .gallery-item:nth-child(3),\n
+			.gallery-columns-3 .gallery-item:nth-child(4),\n
+			.gallery-columns-4 .gallery-item:nth-child(5),\n
+			.gallery-columns-5 .gallery-item:nth-child(6),\n
+			.gallery-columns-6 .gallery-item:nth-child(7),\n
+			.gallery-columns-7 .gallery-item:nth-child(8),\n
+			.gallery-columns-8 .gallery-item:nth-child(9),\n
+			.gallery-columns-9 .gallery-item:nth-child(10),\n
+			.gallery-columns-10 .gallery-item:nth-child(11){clear:both;}";
+	
+		if ( $raindrops_extend_galleries !== true ){
+			
+			return apply_filters( "raindrops_gallerys_css", $clear_float, $raindrops_extend_galleries );
+		}
+	
+	$doc_type = 'html5';	
+	
+	$doc_type = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
 
-    $raindrops_gallerys = ".gallery { margin: auto; overflow: hidden; width: 100%; }\n
-            .gallery dl { margin: 0px; }\n
-            .gallery .gallery-item { float: left; margin-top: 10px; text-align: center; }\n
-            .gallery img { border: 2px solid #cfcfcf;max-width:100%; }\n
+	if( $doc_type == 'xhtml' ){
+		$display_property = 'float:left;';
+	} else {
+		$display_property = 'display:inline-block;';
+	}
+
+    $raindrops_gallerys = ".gallery { margin: auto; width: 100%; }\n
+            .gallery .gallery-item { margin: 0px; }\n
+            .gallery .gallery-item {". $display_property. " margin-top: 10px; text-align: center; }\n
+            .gallery img { max-width:100%; }\n
             .gallery .gallery-caption { margin-left: 0; }\n
             .gallery br { clear: both }\n
-            .gallery-columns-1 dl{ width: 100% }\n
-            .gallery-columns-2 dl{ width: 50% }\n
-            .gallery-columns-3 dl{ width: 33.3% }\n
-            .gallery-columns-4 dl{ width: 25% }\n
-            .gallery-columns-5 dl{ width: 20% }\n
-            .gallery-columns-6 dl{ width: 16.6% }\n
-            .gallery-columns-7 dl{ width: 14.28% }\n
-            .gallery-columns-8 dl{ width: 12.5% }\n
-            .gallery-columns-9 dl{ width: 11.1% }\n
-            .gallery-columns-10 dl{ width: 9.9% }\n";
+            .gallery-columns-1 .gallery-item{ width: 100% }\n
+            .gallery-columns-2 .gallery-item{ width: 50% }\n
+            .gallery-columns-3 .gallery-item{ width: 33.3% }\n
+            .gallery-columns-4 .gallery-item{ width: 25% }\n
+            .gallery-columns-5 .gallery-item{ width: 20% }\n
+            .gallery-columns-6 .gallery-item{ width: 16.6% }\n
+            .gallery-columns-7 .gallery-item{ width: 14.28% }\n
+            .gallery-columns-8 .gallery-item{ width: 12.5% }\n
+            .gallery-columns-9 .gallery-item{ width: 11.1% }\n
+            .gallery-columns-10 .gallery-item{ width: 9.9% }\n";
+	
+	$raindrops_gallerys .= $clear_float;
+	
+	/* caption text presentation */
+    $raindrops_gallerys .= ".gallery:after{content:'';clear:both;display:block;}.gallery-item{position:relative;}
+			.gallery figcaption{
+            box-sizing:border-box;
+            position:absolute;
+            top:-60%;
+            left:30%;
+            width:160px;
+			height:auto;
+            bottom:20px;
+            padding:1em;
+            text-align:left;
+            margin:auto;
+            background:#000;
+            color:#fff;
+	    opacity:0;
+	    transition:opacity .7s;
+           border-radius: 10% 0 10% 0; 
+            -moz-border-radius:10% 0 10% 0; 
+            -webkit-border-radius: 10% 0 10% 0; 
+            border: 1px solid #fff;
+            visibility:hidden;
+            transition:visibility .7s, opacity .7s;
+			-webkit-transition:visibility .7s,opacity .7s;
+            z-index:99999;
+        }
+        
+        .gallery .gallery-item:hover figcaption{
+            visibility:visible;
+            opacity:.7;
+			transition:visibility 1s, opacity 1s;
+			-webkit-transition:visibility .7s,opacity .7s;
+            overflow:hidden;
+            margin:4px;
+            
+        }";
     return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
 }
 /**

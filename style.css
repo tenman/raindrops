@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.268
+Version: 1.269
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -177,7 +177,7 @@ div.error404{
 body{
     color:#000;
     background:#fff;
-    
+
 }
 
 a:active,a:focus {
@@ -506,7 +506,7 @@ article .entry-content .block{
    /* box-shadow */
     box-shadow:rgba(0, 0, 0, 0.4) 0px 0px 6px 3px;
     -webkit-box-shadow:rgba(0, 0, 0, 0.4) 0px 0px 6px 3px;
-    -moz-box-shadow:rgba(0, 0, 0, 0.4) 0px 0px 6px 3px;  
+    -moz-box-shadow:rgba(0, 0, 0, 0.4) 0px 0px 6px 3px;
 }
 .rd-type-light .gallery img{
    border:1px solid #555;
@@ -519,7 +519,7 @@ article .entry-content .block{
     border:none;
     box-shadow:none;
     -webkit-box-shadow:none;
-    -moz-box-shadow:none;    
+    -moz-box-shadow:none;
 }
 .gallery-columns-1 .gallery-item .gallery-icon,
 .gallery-columns-1 .gallery-item .gallery-icon,

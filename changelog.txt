@@ -1,4 +1,62 @@
 Changelog -----------------------------------
+version:1.269
+
+Overview of Changes
+
+	Galley Focused Update
+
+		Overall goal is, and grant of practicality, beauty
+
+		Support HTML5 gallery
+			type html5 or xhtml is apply automatic switch when theme documenttype change.
+
+		Gallery Short Code columns 1 - 3
+			default Thumbnail Image Size too small for Raindrops Theme.
+			Change column 1-3 Change Thumbnail Image to medium
+
+		HTML5 figcaption popup when hover.
+		XHTML .wp-caption-text allways showing.
+		@see Section Description of Code Changes 'Gallery'
+
+	Add Option Menu Primary Min Width ( theme option and customizer )
+
+		Raindrops 1.268 Menu has many Revert Request.
+		Apply functionality Easy Revert and Easy Customize.
+		@see Section Description of Code Changes 'Menu'
+
+	Modyfied
+		Code Simpler raindrops_add_stylesheet()
+				@see Section Description of Code Changes 'Misc'
+
+Files Modified
+
+	modified:   functions.php
+	modified:   image.php
+	modified:   lib/alias_functions.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   raindrops-config-example.php
+	modified:   style.css
+	modified:   childs/boots/inc.php
+
+Description of Code Changes
+
+	functions.php line:36-38,640-642,645-673,693,5033,5047-5051,[Gallery]
+	functions.php line:1953-1978,1953-1955,1957-1990, 1993-2066,2460,8821-8824[Misc]
+	functions.php line:2464-2480,5210-5217,5359-5369[Menu]
+	image.php	  line:26,140[Misc]
+	lib/alias_functions.php line716-800[Gallery]
+	lib/hooks.php line:14-22[Gallery]
+	lib/option-panel.php line:350-259[Menu]
+	lib/validate.php line:2-10[Menu]
+	raindrops-config-example.php line:243-251[Gallery]
+	style.css line:326,500-546,[Gallery]
+	style.css line:1919-1921,3128[Misc]
+	childs/boots/inc.php line:759-769[Menu]
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.268
 
 Overview of Changes

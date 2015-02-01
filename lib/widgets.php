@@ -819,10 +819,9 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			public function form( $instance ) {
 				
-				/*$archives_start_year = get_theme_mod( 'archives_start_year' );
-				$group_year_month    = get_theme_mod( 'group_year_month' );
-				$show_post_count	 = get_theme_mod( 'show_post_count' );
-				$archive_title		 = get_theme_mod( 'archive_title' );*/
+				$archives_start_year = '';
+				$group_year_month    = '';
+				$show_post_count     = '';
 
 				if ( isset( $instance[ 'title' ] ) ) {
 

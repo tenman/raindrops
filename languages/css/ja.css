@@ -123,3 +123,9 @@ body.ja,
 .ja p{
     line-height:1.6;
 }
+.ja .datetable .time,
+.ja .datetable .month-name, 
+.ja .datetable .year-name, 
+.ja .datetable .day-name{
+    font-style:normal;
+}

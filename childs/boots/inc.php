@@ -152,14 +152,20 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
             $css .= "\nbody{background-attachment: " . $body_background_attachment . ';}';
         }
 		/* Primary Menu Font Size */
-		$primary_menu_font_size = raindrops_warehouse_clone( 'raindrops_menu_primary_font_size' );
+			$primary_menu_font_size = raindrops_warehouse_clone( 'raindrops_menu_primary_font_size' );
 
-		if ( isset( $primary_menu_font_size ) && !empty( $primary_menu_font_size ) ) {
-
-			$css .= '#access a{font-size:' . $primary_menu_font_size. '%;}';
-		} else {
-			$css .= '#access a{font-size:100%;}';
-		}
+			if ( isset( $primary_menu_font_size ) && !empty( $primary_menu_font_size ) ) {
+				/* Add check value why some web site font-size:0% using child theme */
+				if ( $primary_menu_font_size > 76 && $primary_menu_font_size < 183 ) {
+					
+					$css .= '#access a{font-size:' . floatval( $primary_menu_font_size ) . '%;}';
+				} else {
+					
+					$css .= '#access a{font-size:100%;}';	
+				}
+			} else {
+				$css .= '#access a{font-size:100%;}';
+			}
 		
 		$primary_menu_min_width = raindrops_warehouse_clone( 'raindrops_menu_primary_min_width' );
 			

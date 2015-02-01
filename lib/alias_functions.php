@@ -767,19 +767,19 @@ function raindrops_gallerys_clone() {
 			.gallery figcaption{
             box-sizing:border-box;
             position:absolute;
-            top:-60%;
+            top:-10%;
             left:30%;
             width:160px;
 			height:auto;
-            bottom:20px;
+            bottom:30%;
             padding:1em;
             text-align:left;
             margin:auto;
             background:#000;
             color:#fff;
-	    opacity:0;
-	    transition:opacity .7s;
-           border-radius: 10% 0 10% 0; 
+			opacity:0;
+			transition:opacity .7s;
+			border-radius: 10% 0 10% 0; 
             -moz-border-radius:10% 0 10% 0; 
             -webkit-border-radius: 10% 0 10% 0; 
             border: 1px solid #fff;
@@ -788,7 +788,15 @@ function raindrops_gallerys_clone() {
 			-webkit-transition:visibility .7s,opacity .7s;
             z-index:99999;
         }
-        
+		.gallery figure:focus figcaption{
+			visibility:visible;
+            opacity:.7;
+			transition:visibility 1s, opacity 1s;
+			-webkit-transition:visibility .7s,opacity .7s;
+            overflow:hidden;
+            margin:4px;
+			outline:0;
+		}
         .gallery .gallery-item:hover figcaption{
             visibility:visible;
             opacity:.7;

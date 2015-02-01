@@ -100,3 +100,9 @@
     });
 })(jQuery);
 
+(function() {
+    jQuery(function() {
+         jQuery("figure").each(function (i) { jQuery(this).attr('tabindex', 0); });
+        jQuery("figcaption").each(function (i) { jQuery(this).attr('tabindex', 0); });
+    });
+})(jQuery);

@@ -11,7 +11,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 		function __construct() {
 			parent::__construct(
-			'recent-post-groupby-cat', esc_html__( 'Category New Post [Raindrops]', 'Raindrops' ), array( 'description' => esc_html__( 'Show latest posts that were grouped for each category', 'Raindrops' ), )
+			'recent-post-groupby-cat', esc_html__( '2.Category New Post [Raindrops]', 'Raindrops' ), array( 'description' => esc_html__( 'Show latest posts that were grouped for each category', 'Raindrops' ), )
 			);
 		}
 
@@ -281,7 +281,20 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				foreach ( $vals as $val ) {
 					$permalink		 = esc_url( get_permalink( $val ) );
 					$date			 = get_the_time( $raindrops_date_format, $val );
-					$title			 = get_the_title( $val );
+					$thumbnail       = '';
+					if (  has_post_thumbnail( $val )  && !post_password_required() ) {
+
+						$thumbnail .= "\n". str_repeat("\t", 11 ). '<span class="h2-thumb">';
+						$thumbnail .= get_the_post_thumbnail( $val, array( 48, 48 ), array( "style" => "vertical-align:middle;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
+						$thumbnail .= "\n". str_repeat("\t", 11 ). '</span>';
+						
+					}
+					if ( ! has_post_thumbnail( $val ) && !is_singular() && !post_password_required() ) {
+
+						$thumbnail =  apply_filters('raindrops_title_thumbnail', $thumbnail ,'<span class="h2-thumb">', '</span>');
+					}
+					
+					$title			 = apply_filters('raindrops_display_recent_post_group_by_category_post_thumb', $thumbnail ) . get_the_title( $val );
 					$time_element	 = raindrops_doctype_elements( 'span', 'time', false );
 					$attribute_time	 = raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false );
 					$author			 = raindrops_blank_fallback( get_the_author(), 'Somebody' );
@@ -322,7 +335,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				'classname'		 => 'raindrops-pinup-entries',
 				'description'	 => esc_html__( 'Display Pinup entries', 'Raindrops' )
 			);
-			parent::WP_Widget( false, esc_html__( 'Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
+			parent::WP_Widget( false, esc_html__( '1.Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
 			wp_reset_query();
 		}
 
@@ -618,4 +631,308 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 	}
-	?>
+	
+	/**
+	 * Raindrops Extend Archive Widget
+	 * 
+	 * @since 1.270
+	 */
+
+		if ( !function_exists( 'raindrops_register_extend_archive_Widget' ) ) {
+
+			function raindrops_register_extend_archive_Widget() {
+
+				register_widget( 'raindrops_extend_archive_Widget' );
+			}
+		}
+
+		class raindrops_extend_archive_Widget extends WP_Widget {
+
+			public function __construct() {
+				
+			$widget_ops = array(
+				'classname'		 => 'raindrops-extend-archive',
+				'description'	 => esc_html__( 'Archives Extended', 'Raindrops' )
+			);
+			parent::WP_Widget( false, esc_html__( '3.Archives Extended [Raindrops]', 'Raindrops' ), $widget_ops );
+			wp_reset_query();
+			}
+
+			public function widget( $args, $instance ) {
+		
+				global $wp_locale;
+				
+				extract( $args );
+				echo $before_widget;
+				
+				if ( isset( $instance[ 'title' ] ) ) {
+
+					$title = $instance[ 'title' ];
+				} else {
+
+					$title = esc_html__( "Archives", 'Raindrops' );
+				}
+				if ( ! empty( $title ) ) {
+					$result_html  = $before_title;
+
+					$result_html  .= apply_filters( 'widget_title', $title );
+
+					$result_html  .= $after_title;
+				}
+				if ( isset( $instance[ 'archives_start_year' ] ) && is_numeric( $instance[ 'archives_start_year' ] )) {
+
+					$archives_start_year = absint( $instance[ 'archives_start_year' ] );
+				} else {
+					/* year of WordPress born */
+					$archives_start_year = 2003;
+				} 
+	
+				if ( isset( $instance[ 'group_year_month' ] ) && ( $instance[ 'group_year_month' ]  == 'year'|| $instance[ 'group_year_month' ]  == 'month') ) {
+
+					$group_year_month = esc_attr( $instance[ 'group_year_month' ] );
+
+				} else {
+					$group_year_month = 'year';
+				}
+
+				if ( isset( $instance[ 'show_post_count' ] ) && ( $instance[ 'show_post_count' ]  == 'yes'|| $instance[ 'show_post_count' ]  == 'no') ) {
+					
+					if( $instance[ 'show_post_count' ] == 'yes') {
+
+						$show_post_count = true;
+					} 
+					if( $instance[ 'show_post_count' ] == 'no') {
+
+						$show_post_count = false;
+					} 
+				} else {
+					
+					$show_post_count = false;
+				}
+
+				$archive_strings = wp_get_archives( apply_filters( 'widget_archives_args', array(
+					'type'            => 'monthly',
+					'show_post_count' => $show_post_count,
+					'echo' => false,
+					'format' => 'custom',
+					'before' => ','	) ) );
+
+				$archives_array		= explode( ',', $archive_strings );
+	
+				foreach( $archives_array as $key =>$each_links ) {
+					
+					if( preg_match( '!([0-9]{4})!', $each_links,$regs) && $regs[1] < $archives_start_year ) {								
+								unset( $archives_array[ $key ] );								
+					}					
+				}
+			
+				$result				= array();
+				$groups				= $group_year_month;
+				$display_start_year = $archives_start_year;
+
+				if ( $groups == 'year') {
+					for( $i = $display_start_year;$i < date('Y') + 1;$i++ ) {
+
+						foreach( $archives_array as $key=>$val ) {
+
+							if( preg_match( '!([0-9]{4})!', $val,$regs) && $regs[1] == $i ) {
+								
+								$result[ $i ][ $key ] = $val;
+								
+							}
+							
+						}
+					}
+					krsort( $result );
+				}
+
+				if ( $groups == 'month' ) {
+					for( $i = 1;$i < 13;$i++ ) {
+
+						foreach( $archives_array as $key=>$val ) {
+
+							$month_name = $wp_locale->get_month( $i );
+
+							if( preg_match( '![^0-9]'.$month_name.'!', $val) ) {	
+								$result[ $i ][ $key ] = $val;
+							}
+						}
+					}
+				}
+				
+
+				$result_html  .= '<div class="eco-archive extent-archives">';
+				$result_html  .= raindrops_monthly_archive_prev_next_navigation( false, true );
+
+				if ( $groups == 'year') {
+
+					foreach( $result as $key=>$val ) {
+
+						$year_link = get_year_link( absint( $key ) );
+
+						$result_html .= sprintf( '<h3 class="year year-%2$s"><a href="%1$s">%2$s</a></h3><ul class="item year-%2$s">', $year_link, absint( $key ) );
+
+						foreach( $val as $k=>$v ){
+
+							preg_match('!>.*[^0-9]([0-9]{1,2})[^0-9].*<!',$v,$regs );
+
+							if( isset($regs[1]) ) {
+
+								$class = 'month-'.$regs[1];
+								$v = str_replace( $regs[0],'>'.$wp_locale->get_month( $regs[1] ).'<',$v);
+							} else {
+								
+								$class = trim( strtolower( wp_kses( $v , array() ) ) );
+								$class = trim( str_replace(array( 0,1,2,3,4,5,6,7,8,9, ' '), array( '','','','','','','','','','', '-') , $class ), '-' );
+								$class = esc_attr( 'month month-'. $class );
+								$v = preg_replace( '![^/=][0-9]{4}!','',$v);
+							}
+
+							$result_html .= sprintf('<li class="%2$s">%1$s</li>',$v,$class);
+						}
+						$result_html .= '</ul>';	
+					}
+
+					$result_html .= '</div>';
+
+					echo $result_html;
+				}
+
+				if ( $groups == 'month' ) {
+
+					foreach( $result as $key=>$val ) {
+
+						$month_name = $wp_locale->get_month( $key );
+						$result_html  .= sprintf( '<h3 class="month month-%2$s">%1$s</h3><ul>', $month_name, esc_attr( $key ) );
+						foreach( $val as $v ){
+
+							$result_html  .= sprintf('<li class="item item-%2$s">%1$s</li>', str_replace($month_name,'',$v) , esc_attr( $key ) );
+						}
+						$result_html  .= '</ul>';	
+					}
+					
+					echo $result_html;
+				}
+				
+				echo $after_widget;
+			}
+
+			public function form( $instance ) {
+				
+				/*$archives_start_year = get_theme_mod( 'archives_start_year' );
+				$group_year_month    = get_theme_mod( 'group_year_month' );
+				$show_post_count	 = get_theme_mod( 'show_post_count' );
+				$archive_title		 = get_theme_mod( 'archive_title' );*/
+
+				if ( isset( $instance[ 'title' ] ) ) {
+
+					$title = $instance[ 'title' ];
+				} else {
+
+					$title = esc_html__( "Archives", 'Raindrops' );
+				}
+
+				if ( isset( $instance[ 'archives_start_year' ] ) ) {
+
+					$archives_start_year = esc_attr( $instance[ 'archives_start_year' ] );
+				} 
+	
+				if ( isset( $instance[ 'group_year_month' ] ) ) {
+
+					$group_year_month = esc_attr( $instance[ 'group_year_month' ] );
+
+				}
+
+				if ( isset( $instance[ 'show_post_count' ] ) ) {
+
+					$show_post_count = esc_attr( $instance[ 'show_post_count' ] );
+				}
+
+				if ( empty( $instance[ 'group_year_month' ] ) && empty( $group_year_month ) ) {
+
+					$raindrops_year_checked_default = "checked='checked'";
+				} else {
+
+					$raindrops_year_checked_default = "";
+				}
+				
+				if ( empty( $instance[ 'show_post_count' ] ) && empty( $show_post_count ) ) {
+
+					$show_post_count_checked_default = "checked='checked'";
+				} else {
+
+					$show_post_count_checked_default = "";
+				}
+				?>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'Raindrops' ); ?></label> 
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+			</p>
+			<?php
+			$raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
+
+			printf( $raindrops_html, 
+					esc_html__( 'Display Archives Start Year', 'Raindrops' ), 
+					esc_attr( $this->get_field_id( 'archives_start_year' ) ), 
+					esc_html__( 'Please use the 4-digit number or blank ex. 2010', 'Raindrops' ), 
+					esc_attr( $this->get_field_id( 'archives_start_year' ) ), 
+					esc_attr( $this->get_field_name( 'archives_start_year' ) ),
+					esc_html( $archives_start_year )
+				);
+
+			$raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
+
+
+			printf( $raindrops_html, 
+					esc_html__( 'Groop by Year, by Month', 'Raindrops' ), 
+					esc_attr( $this->get_field_id( 'group_year_month' ) ), 
+					esc_attr( $this->get_field_name( 'group_year_month' ) ), 
+					checked( $group_year_month, "year", false ), 
+					$raindrops_year_checked_default, 
+					esc_html__( 'Year', 'Raindrops' ),
+					'year'
+				);
+			
+					$raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
+
+			printf( $raindrops_html, 
+					esc_attr( $this->get_field_id( 'group_year_month' ) ), 
+					esc_attr( $this->get_field_name( 'group_year_month' ) ), 
+					checked( $group_year_month, "month", false ), 
+					esc_html__( 'Month', 'Raindrops' ), 
+					'month'
+			);	
+				
+			$raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
+
+			printf( $raindrops_html, 
+					esc_html__( 'Show Post Count', 'Raindrops' ), 
+					esc_attr( $this->get_field_id( 'show_post_count' ) ), 
+					esc_attr( $this->get_field_name( 'show_post_count' ) ), 
+					checked( $show_post_count, "no", false ), 
+					$show_post_count_checked_default, 
+					esc_html__( 'No', 'Raindrops' ),
+					'no'
+				);			
+						$raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
+
+			printf( $raindrops_html, 
+					esc_attr( $this->get_field_id( 'show_post_count' ) ), 
+					esc_attr( $this->get_field_name( 'show_post_count' ) ), 
+					checked( $show_post_count, "yes", false ),
+					esc_html__( 'Yes', 'Raindrops' ), 
+					'yes'
+			);
+				
+			}
+
+			public function update( $new_instance, $old_instance ) {
+
+				$instance[ 'archives_start_year' ] = strip_tags( stripslashes( $new_instance[ 'archives_start_year' ] ) );
+				$instance[ 'group_year_month' ]    = strip_tags( stripslashes( $new_instance[ 'group_year_month' ] ) );
+				$instance[ 'show_post_count' ]     = strip_tags( stripslashes( $new_instance[ 'show_post_count' ] ) );
+				$instance[ 'title' ]     = strip_tags( stripslashes( $new_instance[ 'title' ] ) );
+				return $instance;
+			}
+		}			
+?>

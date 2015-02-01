@@ -3,12 +3,76 @@ version:1.270
 
 Overview of Changes
 
+	Fixed
 
+		Error of Menu Primary Min Width default value at Customizer
+				@see Section Description of Code Changes 'Min Width default value'
+		Override header Image at post-new.php(post.php?action=edit) MetaBox
+			The current value does not reflect the radio button of the form
+				@see Section Description of Code Changes 'Meta Box'
+		Fixed function raindrops_get_pinup_widget_ids()
+				warning error in a particular environment
+				@see Section Description of Code Changes 'raindrops_get_pinup_widget_ids'
+	Modyfied
+
+		Improvement of post title fallback link
+
+		before: if( no title ) then ( Show fallback image link )
+		after:  if( no title ) has post thumbnail then ( Show Post Thumbnail link )
+							   has not postthumbnail then ( Show fallback image link )
+				@see Section Description of Code Changes 'Title link fallback'
+
+		Widget Category New Post
+			Add postthumbnail image
+				@see Section Description of Code Changes 'post thumbnail'
+
+
+
+		Theme All Widgets
+			Add number for grouping theme widget.
+
+		Gallery support keyboard accessibility.
+			focus figure then show fixcaption.
+			@see Section Description of Code Changes 'A11y'
+	Added
+		Widget Archives Extended
+				Display Archive Group by month , or year.
+				Add settings Archive start year.
+						@see Section Description of Code Changes 'Archive Extended'
+	Misc
+		change child theme relative
+						@see Section Description of Code Changes 'Misc'
 Files Modified
 
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/alias_functions.php
+	modified:   lib/hooks.php
+	modified:   lib/widgets.php
+	modified:   raindrops.js
+	modified:   style.css
 
 Description of Code Changes
 
+	childs/boots/inc.php line:155-168[Misc]
+	functions.php line:2460-2467,3161,3221-3226,3373,3381[Misc]
+	functions.php line:4110-4123[post thumbnail]
+	functions.php line:5238[Min Width default value]
+	functions.php line:5734-5745[Title link fallback]
+	functions.php line:5752-5756,5762-5766,6605,[Misc]
+	functions.php line:6609,6633-6634,6636,6639-6643,6652-6660,8069-8073[Archive Extended]
+	functions.php line:8385,8408,8414-8415,8425,8432-8438[Meta Box]
+	functions.php line:9042[raindrops_get_pinup_widget_ids]
+	functions.php line:9178-9192[Archive Extended]
+	languages/css/ja.css	line:126-130[Misc]
+	lib/alias_functions.php	line:770,774,792-799[A11y]
+	lib/hooks.php line:297[[Archive Extended]
+	lib/widgets.php line:14,284-297,338[post thumbnail]
+	lib/widgets.php line:634-938[Archive Extended]
+	raindrops.js line:103-108[A11y]
+	style.css	line:1130,1141,1931,
+	style.css	line:2823-2866,3710-3731[Archive Extended]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.269

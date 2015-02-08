@@ -268,8 +268,27 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= $selector . '-' . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= "}\n";
+			/* nav menu gradient class support @since 1.272 */
+			$g.= '#access '. $selector . $i . ' a{';
+            $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
+            $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
+            $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
+            $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
+            $g.= "}\n";
+            $g.= $selector . $i . ' a{';
+            $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
+            $g.= "}\n";
+            $g.= '#access '. $selector . '-' . $i . ' a{';
+            $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
+            $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg2 . ' ), to( ' . $custom_light_bg2 . ' ) );';
+            $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';
+            $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg2 . '\', endColorstr=\'' . $custom_light_bg2 . '\' );';
+            $g.= "}\n";
+            $g.= $selector . '-' . $i . ' a{';
+            $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
+            $g.= "}\n";
         }
-        return $g;
+        return apply_filters( 'raindrops_gradient', $g );
     }
 
 }

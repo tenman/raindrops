@@ -12,7 +12,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-$raindrops_current_column = raindrops_show_one_column();
+$raindrops_current_column = raindrops_column_controller();
 
 if ( $raindrops_current_column !== false ) {
 
@@ -22,11 +22,11 @@ get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main">
-    <div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
+    <div class="<?php raindrops_dinamic_class( 'yui-b', true ); ?>">
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
                     <?php get_template_part( 'widget', 'sticky' ); ?>
-            <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+            <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
                 <div class="entry page list-of-post-entry">
                     <?php
                     $query = get_query_var( 'paged' );
@@ -76,7 +76,7 @@ raindrops_debug_navitation( __FILE__ );
                 </div>
             </div>
             <?php
-            if ( 3 == raindrops_show_one_column() ) {
+            if ( 3 == $raindrops_current_column ) {
                 ?>
                 <div class="yui-u">
                     <?php
@@ -100,13 +100,13 @@ raindrops_debug_navitation( __FILE__ );
                     ?>
                 </div>
                 <?php
-            } // end if ( 3 == raindrops_show_one_column( ) ) 
+            } 
             ?>
         </div>
     </div>
 </div>
 <?php
-if ( raindrops_show_one_column() !== '1' || false == $raindrops_current_column ) {
+if ( raindrops_column_controller() !== 1 || false == $raindrops_current_column ) {
     ?>
     <div class="yui-b">
         <?php
@@ -119,7 +119,5 @@ if ( raindrops_show_one_column() !== '1' || false == $raindrops_current_column )
         ?>
     </div>
     <?php
-} //end if ( raindrops_show_one_column( ) !== '1' || false == $raindrops_current_column ) 
-?>
-</div>
-<?php get_footer( $raindrops_document_type ); ?>
+} 
+get_footer( $raindrops_document_type ); ?>

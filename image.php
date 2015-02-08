@@ -1,270 +1,166 @@
 <?php
 /**
- * Template for display image.
- *
+ * Template file Image
  *
  * @package Raindrops
- * @since Raindrops 0.1
- *
- * @uses get_header( )
- * @uses raindrops_yui_class_modify( )
- * @uses is_2col_raindrops( 'style="width:99%;"' )
- * @uses have_posts( )
- * @uses have_posts( )
- * @uses the_post( )
- * @uses the_ID( )
- * @uses post_class( )
- * @uses raindrops_entry_title( )
- * @uses get_permalink( $post->post_parent )
- * @uses get_the_title( $post->post_parent )
- * @uses get_post_meta( $post->ID, 'image', true ) 
- * @uses wp_get_attachment_image_src( $image, 'full' )
- * @uses the_title_attribute( )
- * @uses raindrops_prepend_default_sidebar( )
- * @uses raindrops_append_default_sidebar( )
+ * @since Raindrops 1.272
  */
-global $raindrops_document_type;
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}	
+global $rsidebar_show, $raindrops_document_type, $content_width;
+$raindrops_current_column = raindrops_column_controller();
 
-do_action( 'raindrops_' . basename( __FILE__ ) );
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
+raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main">
-    <?php raindrops_debug_navitation( __FILE__ ); ?>
-    <div class="yui-b">
-        <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-            <?php
-            switch ( $raindrops_document_type ) {
 
-                case( 'html5' ):
-                    ?>
-                    <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
-                        <?php
-                        if ( have_posts() ) {
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main', true ); ?>">
+	<div class="<?php raindrops_dinamic_class( 'yui-b', true ); ?>">
+		<?php get_template_part( 'widget', 'sticky' ); ?>
 
-                            while ( have_posts() ) {
+		<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
+			<div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+<?php
+				if ( have_posts() ) {
 
-                                the_post();
-                                ?>
-                                <div id="post-<?php the_ID(); ?>"  <?php raindrops_post_class(); ?>>
-                                    <div class="entry attachment raindrops-image-page">
-                                        <h2 class="image-title h2"><?php the_title(); ?></h2>
-                                        <?php
-                                        if ( $post->post_parent !== 0 ) {
-                                            ?>
-                                            <p class="parent-entry">
-                                                <?php
-                                                esc_html_e( "Entry : ", 'Raindrops' );
-                                                ?>
-                                                <a href="<?php echo get_permalink( $post->post_parent ); ?>" rev="attachment">
-                                                    <?php
-                                                    echo get_the_title( $post->post_parent );
-                                                    ?>
-                                                </a>
-                                            </p>
-                                            <?php
-                                        }
+					while ( have_posts() ) {
 
-                                        $image = get_post_meta( $post->ID, 'image', true );
+					the_post();
+					?>
+					<div id="post-<?php the_ID(); ?>"  <?php raindrops_post_class(); ?>>
+						<div class="entry attachment raindrops-image-page">
+							<h2 class="image-title h2"><?php the_title(); ?></h2>
+							<?php
+							if ( $post->post_parent !== 0 ) {
+								?>
+								<p class="parent-entry">
+									<?php
+									esc_html_e( "Entry : ", 'Raindrops' );
+									?>
+									<a href="<?php echo get_permalink( $post->post_parent ); ?>" rev="attachment">
+										<?php
+										echo get_the_title( $post->post_parent );
+										?>
+									</a>
+								</p>
+								<?php
+							}
 
-                                        $image = wp_get_attachment_image_src( $image, 'full' );
-                                        ?>
-                                        <p class="image">
-                                            <a href="<?php echo $image[ 0 ]; ?>" >
-                                                <img src="<?php echo $image[ 0 ]; ?>" width="<?php echo $image[ 1 ]; ?>" height="<?php echo $image[ 2 ]; ?>" alt="<?php the_title_attribute(); ?>" />
-                                            </a>
-                                        </p>
-                                        <div class="caption">
-                                            <dl>
-                                                <dd class="caption">
-                                                    <?php
-                                                    if ( !empty( $post->post_excerpt ) ) {
-                                                        the_excerpt(); // this is the "caption" 
-                                                    }
-                                                    ?>
-                                                </dd>
-                                                <dd class="serif">
-                                                    <?php
-                                                    raindrops_prepend_entry_content();
+							$image = get_post_meta( $post->ID, 'image', true );
 
-                                                    raindrops_entry_content();
-                                                    ?>
-                                                    <br class="clear" />
-                                                    <?php
-                                                    raindrops_append_entry_content();
-                                                    ?>  
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                        <br class="clear" />
-                                        <hr />
-                                        <div class="attachment-navigation">
-                                            <div class="prev">
-                <?php
-                previous_image_link( 0 );
-                ?>
-                                            </div>
-                                            <div class="next">
-                <?php
-                next_image_link( 0 );
-                ?>
-                                            </div>
-                                            <br class="clear" />
-                                        </div>
-                                    </div>
-                                    <br class="clear" />
-                <?php
-                edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+							$image = wp_get_attachment_image_src( $image, 'full' );
+							?>
+							<p class="image">
+								<a href="<?php echo $image[ 0 ]; ?>" >
+									<img src="<?php echo $image[ 0 ]; ?>" width="<?php echo $image[ 1 ]; ?>" height="<?php echo $image[ 2 ]; ?>" alt="<?php the_title_attribute(); ?>" />
+								</a>
+							</p>
+							<div class="caption">
+								<dl>
+									<dd class="caption">
+										<?php
+										if ( !empty( $post->post_excerpt ) ) {
+											the_excerpt(); // this is the "caption" 
+										}
+										?>
+									</dd>
+									<dd class="serif">
+										<?php
+										raindrops_prepend_entry_content();
 
-                raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-                ?>
-                                </div>
-                                    <?php
-                                } // while ( have_posts( ) )
-                            } else {
-                                ?>
-                            <p>
-                            <?php
-                            esc_html_e( "Sorry, no attachments matched your criteria.", "Raindrops" );
-                            ?>
-                            </p>
-                                <?php
-                            }
-                            ?>
-                    </div>
-                        <?php
-                        break;
+										raindrops_entry_content();
+										?>
+										<br class="clear" />
+										<?php
+										raindrops_append_entry_content();
+										?>  
+									</dd>
+								</dl>
+							</div>
+							<br class="clear" />
+							<hr />
+							<div class="attachment-navigation">
+								<div class="prev">
+									<?php
+									previous_image_link( 0 );
+									?>
+								</div>
+								<div class="next">
+									<?php
+									next_image_link( 0 );
+									?>
+								</div>
+								<br class="clear" />
+							</div>
+						</div>
+						<br class="clear" />
+						<?php
+						edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-                    default:
+						raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+						?>
+					</div>
+					<?php
+					} // while ( have_posts( ) )
+				} else {
+					?>
+					<p>
+						<?php
+						esc_html_e( "Sorry, no attachments matched your criteria.", "Raindrops" );
+						?>
+					</p>
+					<?php
+				}
+				?>							
 
-                        printf( '<!--%1$s-->', $raindrops_document_type );
-                        ?>
-                    <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+				<br style="clear:both" />			
+			</div>
+			<?php
+			if ( 3 == $raindrops_current_column ) {
+				?>
+				<div class="yui-u">
+					<?php
+					raindrops_prepend_extra_sidebar();
 
-        <?php
-        if ( have_posts() ) {
+					get_sidebar( 'extra' );
 
-            while ( have_posts() ) {
+					raindrops_append_extra_sidebar();
+					?>
+				</div>
+				<?php
+			} elseif ( $rsidebar_show && false == $raindrops_current_column ) {
+				?>
+				<div class="yui-u">
+					<?php
+					raindrops_prepend_extra_sidebar();
 
-                the_post();
-                ?>
-                                <div id="post-<?php the_ID(); ?>"  <?php raindrops_post_class(); ?>>
-                                    <div class="entry attachment raindrops-image-page">
-                                        <h2 class="image-title h2">
-                <?php
-                the_title();
-                ?>
-                                        </h2>
-                                            <?php
-                                            if ( $post->post_parent !== 0 ) {
-                                                ?>
-                                            <p class="parent-entry">
-                                            <?php
-                                            esc_html_e( "Entry : ", 'Raindrops' );
-                                            ?>
-                                                <a href="<?php echo get_permalink( $post->post_parent ); ?>" rev="attachment">
-                                                <?php
-                                                echo get_the_title( $post->post_parent );
-                                                ?>
-                                                </a>
-                                            </p>
-                                                    <?php
-                                                }
+					get_sidebar( 'extra' );
 
-                                                $image = get_post_meta( $post->ID, 'image', true );
-
-                                                $image = wp_get_attachment_image_src( $image, 'full' );
-                                                ?>
-                                        <p class="image">
-                                            <a href="<?php echo $image[ 0 ]; ?>" >
-                                                <img src="<?php echo $image[ 0 ]; ?>" width="100%"  alt="<?php the_title_attribute(); ?>" />
-                                            </a>
-                                        </p>
-                                        <div class="caption">
-                                            <dl>
-                                                <dd class="caption">
-                <?php
-                if ( !empty( $post->post_excerpt ) ) {
-
-                    the_excerpt(); // this is the "caption"
-                }
-                ?>
-                                                </dd>
-                                                <dd class="serif">
-                                                    <?php
-                                                    raindrops_prepend_entry_content();
-
-                                                    raindrops_entry_content();
-                                                    ?>
-                                                    <br class="clear" />
-                                                    <?php
-                                                    raindrops_append_entry_content();
-                                                    ?>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                        <br class="clear" />
-                                        <hr />
-                                        <div class="attachment-navigation">
-                                            <div class="prev">
-                <?php
-                previous_image_link( 0 );
-                ?>
-                                            </div>
-                                            <div class="next">
-                                                <?php
-                                                next_image_link( 0 );
-                                                ?>
-                                            </div>
-                                            <br class="clear" />
-                                        </div>
-                                    </div>
-                                    <br class="clear" />
-                                                <?php
-                                                edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-
-                                                raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-                                                ?>
-                                </div>
-                                    <?php
-                                }// endwhile ( have_posts( ) )
-                            } else {
-                                ?>
-                            <p>
-                            <?php
-                            esc_html_e( "Sorry, no attachments matched your criteria.", "Raindrops" );
-                            ?>
-                            </p>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                            <?php
-                            break;
-                    }
-                    ?>	
-            <div class="yui-u">
-                <?php
-                raindrops_prepend_extra_sidebar();
-
-                if ( $rsidebar_show ) {
-                    get_sidebar( 'extra' );
-                }
-
-                raindrops_append_extra_sidebar();
-                ?>
-            </div>
-        </div>
-    </div>
+					raindrops_append_extra_sidebar();
+					?>
+				</div>
+				<?php
+			}
+			?>
+		</div>
+	</div>
 </div>
-<div class="yui-b">
-                <?php
-                raindrops_prepend_default_sidebar();
+<?php
+if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
+	?>
+	<div class="yui-b">
+		<?php
+		//lsidebar start 
+		raindrops_prepend_default_sidebar();
 
-                get_sidebar( 'default' );
+		get_sidebar( 'default' );
 
-                raindrops_append_default_sidebar();
-                ?>	
-</div>
-</div>
-    <?php get_footer( $raindrops_document_type ); ?>
+		raindrops_append_default_sidebar();
+		?>
+	</div>
+	<?php
+}
+?>
+<?php get_footer( $raindrops_document_type ); ?>

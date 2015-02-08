@@ -8,7 +8,7 @@ do_action( 'raindrops_' . basename( __FILE__ ) );
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 
-$raindrops_current_column = raindrops_show_one_column();
+$raindrops_current_column = raindrops_column_controller();
 
 if ( $raindrops_current_column !== false ) {
 	add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
@@ -16,7 +16,7 @@ if ( $raindrops_current_column !== false ) {
 
 raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main">
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
     <div id="container">
 		<?php
 		get_template_part( 'widget', 'sticky' );
@@ -114,6 +114,5 @@ raindrops_debug_navitation( __FILE__ );
 		}
 		?>
     </div>
-</div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

@@ -4,7 +4,9 @@
         if ( raindrops_script_vars.page_width == 'doc3' ) {
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
+         
             function raindrops_resizes( ) {
+
                 if ( raindrops_script_vars.restore_check !== 'remove-header' ) {
 
                     var image_exists = raindrops_script_vars.header_image_uri;
@@ -13,6 +15,8 @@
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
                     jQuery( '#header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height } );
+                     jQuery( '#header-image' ).show();
+                     
                 }
             }
 

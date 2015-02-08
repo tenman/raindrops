@@ -160,20 +160,20 @@
     #doc3 #access ul,
     #doc3 #access ul li{
         border:none;
-        
+
     }
     #doc3 #access a{
         text-align:left;
         font-size:150%;
     }
-     #doc3 #access .menu > li > ul,
-     #doc3 #access .menu > li > ul{
-         box-sizing:border-box;
-         overflow:hidden;
-     }  
+    #doc3 #access .menu > li > ul,
+    #doc3 #access .menu > li > ul{
+        box-sizing:border-box;
+        overflow:hidden;
+    }  
     #doc3 #access .menu > .page_item_has_children,
     #doc3 #access .menu > .menu-item-has-children{
-      /*  border-left:red 6px solid;*/
+        /*  border-left:red 6px solid;*/
 
 
     }
@@ -182,15 +182,15 @@
     #doc3 #access .page_item_has_children .page_item_has_children > ul,
     #doc3 #access .menu-item-has-children .menu-item-has-children > ul{
         /* border-left:green 6px solid;*/
-              margin-left:15px;
-              
+        margin-left:15px;
+
     }
     #doc3 #access .page_item_has_children .page_item_has_children .page_item_has_children > a,
     #doc3 #access .menu-item-has-children .menu-item-has-children .menu-item-has-children > a,
     #doc3 #access .page_item_has_children .page_item_has_children .page_item_has_children > ul,
     #doc3 #access .menu-item-has-children .menu-item-has-children .menu-item-has-children > ul{
-         /*border-left:yellow 6px solid;*/
-        
+        /*border-left:yellow 6px solid;*/
+
     }
     #doc3 #access .menu > li > a,
     #doc3 #access .menu > .page_item_has_children > a,
@@ -198,39 +198,39 @@
         font-size:200%;
         border-left:6px green solid;
     }
-     #doc3  #access .page_item_has_children .page_item_has_children > a,
-     #doc3 #access .menu-item-has-children .menu-item-has-children > a{
-         font-size:150%;
-       border-left:6px green solid;
-     }
+    #doc3  #access .page_item_has_children .page_item_has_children > a,
+    #doc3 #access .menu-item-has-children .menu-item-has-children > a{
+        font-size:150%;
+        border-left:6px green solid;
+    }
     #doc3  #access .page_item_has_children > a:after,
     #doc3 #access .menu-item-has-children > a:after,
     #doc3 #access .children .page_item_has_children > a:after,
     #doc3 #access .sub-menu .page_item_has_children > a:after,
     #doc3 #access .children .menu-item-has-children > a:after,
     #doc3 #access .sub-menu .menu-item-has-children > a:after,
-.ie8 #doc3 #access .page_item_has_children > a:after,
-.ie8 #doc3  #access .menu-item-has-children > a:after,
-.ie9 #doc3 #access .children .page_item_has_children > a:after,
-.ie9 #doc3 #access .sub-menu .page_item_has_children > a:after,
-.ie9 #doc3 #access .children .menu-item-has-children > a:after,
-.ie9 #doc3 #access .sub-menu .menu-item-has-children > a:after{
-    content :'';
-}
-#access .menu li,
-#access .children,
-#access .sub-menu,
-#access .sub-menu a,
-#access .children a{
-    display:block!important;
-    float:none!important;
-    opacity:1!important;
-}
+    .ie8 #doc3 #access .page_item_has_children > a:after,
+    .ie8 #doc3  #access .menu-item-has-children > a:after,
+    .ie9 #doc3 #access .children .page_item_has_children > a:after,
+    .ie9 #doc3 #access .sub-menu .page_item_has_children > a:after,
+    .ie9 #doc3 #access .children .menu-item-has-children > a:after,
+    .ie9 #doc3 #access .sub-menu .menu-item-has-children > a:after{
+        content :'';
+    }
+    #access .menu li,
+    #access .children,
+    #access .sub-menu,
+    #access .sub-menu a,
+    #access .children a{
+        display:block!important;
+        float:none!important;
+        opacity:1!important;
+    }
 
 
-    
-    
-    
+
+
+
     #doc3 .datetable{
         margin:0 5px 10px 0!important;
         box-sizing: border-box;
@@ -418,14 +418,22 @@
         margin:1em 0;  
     }
     .raindrops-toc-front li{
-    list-style:none;
-    width:100%;
-    text-align:center;
-    display:block;
-    box-sizing:border-box;
-    margin:1%; 
-    border:1px solid rgba(222,222,222,.8);
-}
+        list-style:none;
+        width:100%;
+        text-align:center;
+        display:block;
+        box-sizing:border-box;
+        margin:1%; 
+        border:1px solid rgba(222,222,222,.8);
+    }
+    .yui-t3 .raindrops-expand-width .datetable,
+    .yui-t2 .raindrops-expand-width .datetable,
+    .yui-t1 .raindrops-expand-width .datetable,
+    .yui-t3 .raindrops-expand-width,
+    .yui-t2 .raindrops-expand-width,
+    .yui-t1 .raindrops-expand-width{
+        padding-right:0;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

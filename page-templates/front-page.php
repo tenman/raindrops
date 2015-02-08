@@ -86,5 +86,4 @@ raindrops_debug_navitation( __FILE__ );
 	}
 	?>
 </div>
-</div>
 <?php get_footer( $raindrops_document_type ); ?>

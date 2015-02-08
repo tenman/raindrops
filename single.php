@@ -20,7 +20,7 @@
  * @uses image_hwstring( )
  * @uses switch( )
  * @uses get_template_part( )
- * @uses raindrops_show_one_column( )
+ * @uses raindrops_column_controller( )
  * @uses next_posts_link( )
  * @uses previous_posts_link( )
  * @uses get_sidebar( )
@@ -35,7 +35,8 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 $raindrops_home_url       = trailingslashit( home_url() );
-$raindrops_current_column = raindrops_show_one_column();
+$raindrops_current_column = raindrops_column_controller();
+
 
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
@@ -45,10 +46,10 @@ get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main">
-    <div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
+    <div class="<?php raindrops_dinamic_class( 'yui-b',true ); ?>">
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-            <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+            <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
                 <?php
                 /**
                  * Display navigation to next/previous pages when applicable
@@ -137,7 +138,7 @@ raindrops_debug_navitation( __FILE__ );
                  *
                  *
                  */
-                if ( 3 == raindrops_show_one_column() ) {
+                if ( 3 == raindrops_column_controller() ) {
                     ?>
                 <div class="yui-u">
                 <?php
@@ -175,9 +176,9 @@ raindrops_debug_navitation( __FILE__ );
              *
              *
              */
-            if ( '1' !== raindrops_show_one_column() || false == $raindrops_current_column ) {
+            if ( 1 !== $raindrops_current_column || false == $raindrops_current_column ) {
                 ?>
-    <div class="yui-b">
+<div class="yui-b">
     <?php
     raindrops_prepend_default_sidebar();
 
@@ -185,9 +186,7 @@ raindrops_debug_navitation( __FILE__ );
 
     raindrops_append_default_sidebar();
     ?>
-    </div>
+</div>
         <?php
     }
-    ?>
-</div>
-    <?php get_footer( $raindrops_document_type ); ?>
+get_footer( $raindrops_document_type ); ?>

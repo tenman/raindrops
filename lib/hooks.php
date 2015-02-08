@@ -289,12 +289,26 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          *
          * @since 1.261
          */
-		 add_filter( 'wp_headers', 'raindrops_wp_headers', 10, 2 );
+		add_filter( 'wp_headers', 'raindrops_wp_headers', 10, 2 );
 		/**
          *
          * @since 1.270
          */		 
-		 add_action( 'widgets_init', 'raindrops_register_extend_archive_Widget' );					
+		add_action( 'widgets_init', 'raindrops_register_extend_archive_Widget' );	 
+		add_filter( 'shortcode_atts_playlist', 'raindrops_play_list_add_atts', 10, 3 );
+		add_action( 'wp_enqueue_scripts', 'raindrops_add_complementary_color' );
+		add_filter( 'tiny_mce_before_init', 'raindrops_tiny_mce_before_init' );
+		add_action( 'wp_ajax_raindrops_editor_styles', 'raindrops_editor_styles_callback' );
+		add_action( 'wp_ajax_nopriv_raindrops_editor_styles', 'raindrops_editor_styles_callback' );
+		add_filter( 'raindrops_color_type_style_buffer', 'raindrops_pinup_entry_style' );
+		add_filter( 'raindrops_month_list_year_name', 'raindrops_month_list_year_name_add' );
+		add_filter( 'raindrops_month_list_post_count','raindrops_month_list_count');
+		
+		/**
+		 * @since 1.272
+		 */
+		add_action( 'wp_head', 'raindrops_add_header_archive_description' );
+
     }
 }
 ?>

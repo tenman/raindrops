@@ -251,6 +251,8 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 	if ( !function_exists( 'raindrops_display_recent_post_group_by_category' ) ) {
 
 		function raindrops_display_recent_post_group_by_category( $limit_posts = 5, $args = array() ) {
+			
+			global $raindrops_group_by_category_icon;
 
 			$raindrops_get_post_array_group_by_category = raindrops_get_post_array_group_by_category( $limit_posts, $args );
 
@@ -268,6 +270,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			. '</span></li>';
 			$loop_end_html	 = '</ul></li>';
 
+			$raindrops_group_by_category_icon = apply_filters( 'raindrops_group_by_category_icon', true );
 
 			foreach ( $raindrops_get_post_array_group_by_category as $key => $vals ) {
 
@@ -282,14 +285,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$permalink		 = esc_url( get_permalink( $val ) );
 					$date			 = get_the_time( $raindrops_date_format, $val );
 					$thumbnail       = '';
-					if (  has_post_thumbnail( $val )  && !post_password_required() ) {
+					if (  has_post_thumbnail( $val )  && !post_password_required() && true == $raindrops_group_by_category_icon) {
 
 						$thumbnail .= "\n". str_repeat("\t", 11 ). '<span class="h2-thumb">';
 						$thumbnail .= get_the_post_thumbnail( $val, array( 48, 48 ), array( "style" => "vertical-align:middle;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
 						$thumbnail .= "\n". str_repeat("\t", 11 ). '</span>';
 						
 					}
-					if ( ! has_post_thumbnail( $val ) && !is_singular() && !post_password_required() ) {
+					if ( ! has_post_thumbnail( $val ) && !is_singular() && !post_password_required() && true == $raindrops_group_by_category_icon ) {
 
 						$thumbnail =  apply_filters('raindrops_title_thumbnail', $thumbnail ,'<span class="h2-thumb">', '</span>');
 					}
@@ -729,9 +732,9 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$result				= array();
 				$groups				= $group_year_month;
 				$display_start_year = $archives_start_year;
-
+				$display_end_year   = apply_filters( 'raindrops_extend_archive_widget_end_year', date('Y') );
 				if ( $groups == 'year') {
-					for( $i = $display_start_year;$i < date('Y') + 1;$i++ ) {
+					for( $i = $display_start_year;$i < $display_end_year + 1;$i++ ) {
 
 						foreach( $archives_array as $key=>$val ) {
 

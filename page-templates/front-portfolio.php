@@ -11,7 +11,7 @@ do_action( 'raindrops_' . basename( __FILE__ ) );
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 
-$raindrops_current_column = raindrops_show_one_column();
+$raindrops_current_column = raindrops_column_controller();
 
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
@@ -95,6 +95,4 @@ $args                     = array(
     'post__not_in'   => get_option( 'sticky_posts' ) );
 
 raindrops_tile( $args );
-?>	
-</div>			
-<?php get_footer( $raindrops_document_type ); ?>
+get_footer( $raindrops_document_type ); ?>

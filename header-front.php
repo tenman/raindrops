@@ -83,7 +83,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 				?>
 				<span id="container"></span>
 				<div class="yui-g front-page-top-container">
-					<div class="yui-u first" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+					<div class="" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 						<div class="static-front-content">
 							<?php
 							if ( is_page() ) {

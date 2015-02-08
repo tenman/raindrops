@@ -6,7 +6,7 @@
  * @package Raindrops
  * @since Raindrops 0.1
  *
- * @uses raindrops_show_one_column( )
+ * @uses raindrops_column_controller( )
  * @uses add_filter( )
  * @uses get_header( )
  * @uses raindrops_yui_class_modify( )
@@ -35,7 +35,7 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_' . basename( __FILE__ ) );
-$raindrops_current_column = raindrops_show_one_column();
+$raindrops_current_column = raindrops_column_controller();
 
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
@@ -45,11 +45,11 @@ get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main">
-    <div class="yui-b <?php raindrops_add_class( 'yui-b' ); ?>">
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
+    <div class="<?php raindrops_dinamic_class( 'yui-b', true ); ?>">
                 <?php get_template_part( 'widget', 'sticky' ); ?>
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-            <div class="yui-u first<?php raindrops_add_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+            <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
                 <?php
                 if ( have_posts() ) {
 
@@ -110,7 +110,7 @@ raindrops_debug_navitation( __FILE__ );
                 ?>
             </div>
             <?php
-            if ( 3 == raindrops_show_one_column() ) {
+            if ( 3 == $raindrops_current_column ) {
                 ?>
                 <div class="yui-u">
                     <?php
@@ -140,7 +140,7 @@ raindrops_debug_navitation( __FILE__ );
     </div>
 </div>
 <?php
-if ( raindrops_show_one_column() !== '1' || false == $raindrops_current_column ) {
+if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
     ?>
     <div class="yui-b">
         <?php
@@ -154,6 +154,4 @@ if ( raindrops_show_one_column() !== '1' || false == $raindrops_current_column )
     </div>
     <?php
 }
-?>
-</div>
-<?php get_footer( $raindrops_document_type ); ?>
+get_footer( $raindrops_document_type ); ?>

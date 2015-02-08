@@ -487,6 +487,5 @@ raindrops_debug_navitation( __FILE__ );
         ?>
         <?php raindrops_append_default_sidebar(); ?>
     </div>
-<?php }//if ( $raindrops_devide_column_class == 'yui-b' )   ?>
-</div>
-<?php get_footer( $raindrops_document_type ); ?>
+<?php }//if ( $raindrops_devide_column_class == 'yui-b' )   
+get_footer( $raindrops_document_type ); ?>

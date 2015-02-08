@@ -89,7 +89,7 @@ if ( !isset( $page_lists ) ) {
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 
-$raindrops_current_column = raindrops_show_one_column();
+$raindrops_current_column = raindrops_column_controller();
 
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
@@ -162,5 +162,4 @@ if ( have_posts() ) {
                     ?>
     </div>
 </div>
-</div>
-                    <?php get_footer( $raindrops_document_type ); ?>
+<?php get_footer( $raindrops_document_type ); ?>

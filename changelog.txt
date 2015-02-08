@@ -3,11 +3,64 @@ version:1.272
 
 Overview of Changes
 
+	Focus Archives update
 
+		Customizable Layout on Archives page
+			Loop page can use Argument
+			or
+			Filter work
+			@see http://www.tenman.info/wp3/manualraindrops/archives/1428
+			@see http://www.tenman.info/wp3/manualraindrops/archives/1439
+
+		Change Function Name
+			from raindrops_show_one_column() raindrops_column_controller()
+			from raindrops_add_class() to raindrops_dinamic_class()
+		Template update
+			404.php,author.php,date.php,header-front.php,image.php,index.php
+			page-templates/front-portfolio.php,page-templates/full-width.php,
+			 page-templates/list-of-post.php,page-templates/page-featured.php,
+			page.php,search.php,single.php
+
+
+	main menu( wp_nav_menu ) raindrops gradient class support
+
+	function raindrops_display_recent_post_group_by_category
+			add filter raindrops_extend_archive_widget_end_year
+
+Misc
+	Tiny MCE editor-style.css
+		Add gallery-caption display:none;
+			Raindrops gallery use html5 but tiny mce use html4
 
 Files Modified
 
-
+	modified:   author.php
+	modified:   bbpress.php
+	modified:   blank_front.php
+	modified:   changelog.txt
+	modified:   date.php
+	modified:   editor-style.css
+	modified:   footer.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   image.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   lib/alias_functions.php
+	modified:   lib/hooks.php
+	modified:   lib/widgets.php
+	modified:   page-templates/front-page.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   page-templates/page-featured.php
+	modified:   page.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 

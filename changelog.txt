@@ -1,4 +1,24 @@
 Changelog -----------------------------------
+version:1.273
+
+Overview of Changes
+    Fixed 
+        Not Showing Help, 
+            edit.php, post-new.php, themes.php
+        function rename follow
+            add deplicated function for child theme and theme customize user
+            escape from fatal error,
+            raindrops_show_one_column()
+            raindrops_show_one_column()
+
+Files Modified
+	modified:   functions.php
+
+Description of Code Changes
+        functions.php line:284,388[help issue]
+        functions.php line:9334-9349[rename follow]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.272
 
 Overview of Changes
@@ -14,7 +34,7 @@ Overview of Changes
 
 		Change Function Name
 			from raindrops_show_one_column() raindrops_column_controller()
-			from raindrops_add_class() to raindrops_dinamic_class()
+			from raindrops_show_one_column() to raindrops_dinamic_class()
 		Template update
 			404.php,author.php,date.php,header-front.php,image.php,index.php
 			page-templates/front-portfolio.php,page-templates/full-width.php,
@@ -64,6 +84,8 @@ Files Modified
 
 Description of Code Changes
 
+        Sorry I lost a detailed changes
+            fogot commit and overwrite
 
 ----------------------------------------------
 Changelog -----------------------------------

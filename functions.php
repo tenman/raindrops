@@ -281,111 +281,111 @@ if ( class_exists( 'Jetpack', false ) && $jetpack_active_modules ) {
  *
  * @since 1.155
  */
-if ( class_exists( 'RaindropsPostHelp' ) ) {
+
 	
-	add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
-	add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
-	add_action( 'load-themes.php', array( 'RaindropsPostHelp', 'init' ) );
-	add_action( 'load-theme-editor.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-themes.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-theme-editor.php', array( 'RaindropsPostHelp', 'init' ) );
 
-	class RaindropsPostHelp {
+class RaindropsPostHelp {
 
-		public $tabs = array(
-			'raindrops-post' => array(
-				'title'		 => 'Raindrops Help'
-				, 'content'	 => 'help'
-			),
-		);
+	public $tabs = array(
+		'raindrops-post' => array(
+			'title'		 => 'Raindrops Help'
+			, 'content'	 => 'help'
+		),
+	);
 
-		static public function init() {
-			$class = __CLASS__;
-			new $class;
-		}
+	static public function init() {
+		$class = __CLASS__;
+		new $class;
+	}
 
-		public function __construct() {
+	public function __construct() {
 
-			switch ( $GLOBALS[ 'pagenow' ] ) {
-				case( 'theme-editor.php' ):
+		switch ( $GLOBALS[ 'pagenow' ] ) {
+			case( 'theme-editor.php' ):
 
-					$this->tabs = array( 'raindrops-settings-help' => array( 'title' => 'Raindrops Infomation', 'content' => 'help' ) );
+				$this->tabs = array( 'raindrops-settings-help' => array( 'title' => 'Raindrops Infomation', 'content' => 'help' ) );
 
-					add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme_editor' ), 20 );
-					break;
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme_editor' ), 20 );
+				break;
 
-				case( 'themes.php' ):
+			case( 'themes.php' ):
 
-					$this->tabs = array( 'raindrops-settings-help' => array( 'title' => 'Raindrops Infomation', 'content' => 'help' ) );
+				$this->tabs = array( 'raindrops-settings-help' => array( 'title' => 'Raindrops Infomation', 'content' => 'help' ) );
 
-					add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme' ), 20 );
-					break;
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme' ), 20 );
+				break;
 
-				default:
-					add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs' ), 20 );
-					break;
-			}
-		}
-
-		public function add_tabs() {
-
-			foreach ( $this->tabs as $id => $data ) {
-
-				get_current_screen()->add_help_tab( array(
-					'id'		 => $id
-					, 'title'		 => __( 'Raindrops Help', 'Raindrops' )
-					, 'content'	 => '<h1>' . __( 'About Base Color related Class', 'Raindrops' ) . '</h1>'
-					, 'callback'	 => array( $this, 'prepare' )
-				) );
-			}
-		}
-
-		public function add_tabs_theme() {
-
-			foreach ( $this->tabs as $id => $data ) {
-
-				get_current_screen()->add_help_tab( array(
-					'id'		 => $id
-					, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
-					, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
-					, 'callback'	 => array( $this, 'prepare_theme' )
-				) );
-			}
-		}
-
-		public function add_tabs_theme_editor() {
-
-			foreach ( $this->tabs as $id => $data ) {
-
-				get_current_screen()->add_help_tab( array(
-					'id'		 => $id
-					, 'title'		 => __( 'Raindrops CSS Help', 'Raindrops' )
-					, 'content'	 => '<h1>' . __( 'About Raindrops CSS', 'Raindrops' ) . '</h1>'
-					, 'callback'	 => array( $this, 'prepare_theme_editor' )
-				) );
-			}
-		}
-
-		public function prepare( $screen, $tab ) {
-
-			if ( RAINDROPS_USE_AUTO_COLOR !== false ) {
-
-				echo raindrops_edit_help( '' );
-			} else {
-
-				printf( '<p class="disable-color-gradient">%1$s</p>', esc_html__( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'Raindrops' ) );
-			}
-		}
-
-		public function prepare_theme( $screen, $tab ) {
-
-			echo raindrops_settings_page_contextual_help();
-		}
-
-		public function prepare_theme_editor( $screen, $tab ) {
-
-			echo raindrops_editor_page_contextual_help();
+			default:
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs' ), 20 );
+				break;
 		}
 	}
+
+	public function add_tabs() {
+
+		foreach ( $this->tabs as $id => $data ) {
+
+			get_current_screen()->add_help_tab( array(
+				'id'		 => $id
+				, 'title'		 => __( 'Raindrops Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Base Color related Class', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare' )
+			) );
+		}
+	}
+
+	public function add_tabs_theme() {
+
+		foreach ( $this->tabs as $id => $data ) {
+
+			get_current_screen()->add_help_tab( array(
+				'id'		 => $id
+				, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare_theme' )
+			) );
+		}
+	}
+
+	public function add_tabs_theme_editor() {
+
+		foreach ( $this->tabs as $id => $data ) {
+
+			get_current_screen()->add_help_tab( array(
+				'id'		 => $id
+				, 'title'		 => __( 'Raindrops CSS Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops CSS', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare_theme_editor' )
+			) );
+		}
+	}
+
+	public function prepare( $screen, $tab ) {
+
+		if ( RAINDROPS_USE_AUTO_COLOR !== false ) {
+
+			echo raindrops_edit_help( '' );
+		} else {
+
+			printf( '<p class="disable-color-gradient">%1$s</p>', esc_html__( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'Raindrops' ) );
+		}
+	}
+
+	public function prepare_theme( $screen, $tab ) {
+
+		echo raindrops_settings_page_contextual_help();
+	}
+
+	public function prepare_theme_editor( $screen, $tab ) {
+
+		echo raindrops_editor_page_contextual_help();
+	}
 }
+
 /**
  * It has alias functions.
  *
@@ -9324,6 +9324,27 @@ if ( ! function_exists( 'raindrops_add_header_archive_description' ) && function
 				echo apply_filters( 'raindrops_add_header_archive_description', $result );
 			}
 		}
+	}
+}
+/**
+ * fallback function renema but child theme or custom user
+ * 
+ * @return type
+ */
+function raindrops_show_one_column(){
+	
+	_deprecated_function( __FUNCTION__, '1.272', 'raindrops_column_controller()' );
+	
+	return raindrops_column_controller();
+}
+function raindrops_add_class($id = 'yui-u first', $echo = false) {
+	
+	_deprecated_function( __FUNCTION__, '1.272', 'raindrops_dinamic_class()' );
+	
+	if( false == $echo){
+		return raindrops_dinamic_class($id = 'yui-u first', $echo = false);
+	}else{
+		echo raindrops_dinamic_class($id = 'yui-u first', $echo = false);	
 	}
 }
 /**

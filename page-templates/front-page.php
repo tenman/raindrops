@@ -74,10 +74,10 @@ raindrops_debug_navitation( __FILE__ );
 			raindrops_prepend_loop();
 
 			foreach ( $raindrops_add_front_pages as $post ) {
-				?><<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>><?php
+				?><div id="post-<?php the_ID(); ?>"><<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>><?php
 				setup_postdata( $post );
 				get_template_part( 'part', 'additional' );
-				?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>><?php
+				?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div><?php
 			}
 			wp_reset_postdata();
 			?>

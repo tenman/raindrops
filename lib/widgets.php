@@ -16,10 +16,31 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 		public function widget( $args, $instance ) {
+			
+			if ( isset( $instance[ 'title' ] ) ) {
 
-			$title				 = apply_filters( 'widget_title', $instance[ 'title' ] );
-			$count				 = $instance[ 'count' ];
-			$raindrops_cat_items = $instance[ 'category' ];
+				$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+			} else {
+
+				$title = __( "Category What's New", 'Raindrops' );
+			}
+			if ( isset( $instance[ 'count' ] ) && is_numeric( $instance[ 'count' ] ) ) {
+
+				$count = $instance[ 'count' ];
+			} else {
+
+				$count = 3;
+			}
+			if ( isset( $instance[ 'category' ] ) && is_array( $instance[ 'category' ] ) ) {
+
+				$checked_array = $instance[ 'category' ];
+				$raindrops_cat_items = $checked_array;
+			} else {
+
+				$category_default	 = get_option( 'default_category' );
+				$raindrops_cat_items = array( $category_default );
+			}
+
 
 			echo $args[ 'before_widget' ];
 
@@ -345,28 +366,31 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		function widget( $args, $instance ) {
 
 			global $attachment;
-
+			
 			extract( $args );
+			
 			echo $before_widget;
 
-			if ( preg_match( '!,!', $instance[ 'id' ] ) ) {
+			if ( isset( $instance[ 'id' ] ) && preg_match( '!,!', $instance[ 'id' ] ) ) {
 
 				$instance[ 'id' ]	 = explode( ',', $instance[ 'id' ] );
 				$count			 = count( $instance[ 'id' ] );
 				$num			 = rand( 0, $count - 1 );
 				$instance[ 'id' ]	 = $instance[ 'id' ][ $num ];
 			}
-			if ( isset( $instance[ 'inline_style' ] ) && ! empty( $instance[ 'inline_style' ] )) {
+			if ( isset( $instance[ 'id' ] ) && isset( $instance[ 'inline_style' ] ) && ! empty( $instance[ 'inline_style' ] )) {
 
 				$style = str_replace( PHP_EOL, '', $instance[ 'inline_style' ] );
 				
 				echo '<div id="pinup-'.absint( $instance[ 'id' ] ) . '" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). '>';
 			} else {
-
-				echo '<div id="pinup-'. absint( $instance[ 'id' ] ).'" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). ' >';
+				if ( isset( $instance[ 'id' ] ) && isset( $instance[ 'inline_style' ] ) ) {
+					
+					echo '<div id="pinup-'. absint( $instance[ 'id' ] ).'" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). ' >';
+				}
 			}
 
-			if ( ( $instance[ 'content' ] == 'content' || $instance[ 'content' ] == 'excerpt' ) && !is_single( $instance[ 'id' ] ) ) {
+			if (  isset( $instance[ 'inline_style' ] ) && ( $instance[ 'content' ] == 'content' || $instance[ 'content' ] == 'excerpt' ) && !is_single( $instance[ 'id' ] ) ) {
 
 				$posts = get_posts( array( 'include' => absint( $instance[ 'id' ] ), 'post_type' => sanitize_key( $instance[ 'type' ] ) ) );
 
@@ -419,7 +443,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				wp_reset_postdata();
 			}
 
-			if ( $instance[ 'content' ] == 'attachment' && !is_single( $instance[ 'id' ] ) ) {
+			if (  isset( $instance[ 'inline_style' ] ) && $instance[ 'content' ] == 'attachment' && !is_single( $instance[ 'id' ] ) ) {
 
 				$args		 = array(
 					'post_type'		 => 'attachment',
@@ -476,7 +500,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				}
 			}
 
-			if ( $instance[ 'content' ] == 'featured' && !is_single( $instance[ 'id' ] ) ) {
+			if ( isset( $instance[ 'inline_style' ] ) && $instance[ 'content' ] == 'featured' && !is_single( $instance[ 'id' ] ) ) {
 
 
 				if ( has_post_thumbnail( $instance[ 'id' ] ) ) {
@@ -507,8 +531,9 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					printf( $html, get_the_title( $instance[ 'id' ] ), absint( $instance[ 'id' ] ), esc_url( get_permalink( $instance[ 'id' ] ) ) );
 				}
 			}
-
-			echo '</div>';
+			if( isset( $instance[ 'id' ] ) ) {
+				echo '</div>';
+			}
 			echo $after_widget;
 		}
 

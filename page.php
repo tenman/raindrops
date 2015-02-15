@@ -40,7 +40,6 @@ $raindrops_current_column = raindrops_column_controller();
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
 }
-
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
@@ -59,8 +58,8 @@ raindrops_debug_navitation( __FILE__ );
 
                         printf( '<!--%1$s-->', $raindrops_document_type );
                         ?>
-                        <div class="entry page">
-                            <<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>>
+                        <div class="entry page"><div  id="post-<?php the_ID(); ?>">
+                            <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
 
                             <?php
                             the_post_thumbnail( 'full', 'class=page-featured-image' );							
@@ -100,7 +99,7 @@ raindrops_debug_navitation( __FILE__ );
                             <?php
                             comments_template( '', true );
                             ?>
-                            </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+                            </<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
                         </div>
                         <?php
                     } //endwhile 

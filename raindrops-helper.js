@@ -15,8 +15,7 @@
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
                     jQuery( '#header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height } );
-                     jQuery( '#header-image' ).show();
-                     
+                      
                 }
             }
 
@@ -178,6 +177,7 @@
         } else {
 
 
+            
             if ( raindrops_script_vars.browser_detection !== 1 ) {
 
 

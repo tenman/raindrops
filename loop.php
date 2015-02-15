@@ -34,8 +34,8 @@ if ( have_posts() ) {
 
         $raindrops_loop_number++;
         ?>
-
-									<<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>>		
+		<div id="post-<?php the_ID(); ?>">
+									<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>		
         <?php
         $format = get_post_format();
         /**
@@ -99,6 +99,7 @@ if ( have_posts() ) {
             ?>
 								<br class="clear" />
 									</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+		</div>
 								</li>
         <?php
     } //end while

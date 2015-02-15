@@ -5,7 +5,6 @@
  */
 (function() {
     jQuery(function() {
-        jQuery( '#header-image' ).hide(); /*1.272*/
         jQuery("blockquote").each(function() {
             var cite = jQuery(this).attr("cite");
             if (cite) {

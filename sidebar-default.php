@@ -14,11 +14,12 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 ?>
 <<?php raindrops_doctype_elements( 'div', 'nav' ); ?> class="lsidebar" <?php raindrops_doctype_elements( '', 'role="navigation"' ); ?>>
 <ul>
-    <?php
+    <?php	
     if ( !dynamic_sidebar( 'sidebar-1' ) ) {
-        raindrops_sidebar_menus( 'default' );
+
+		raindrops_sidebar_menus( 'default' );
     }
     ?>
 </ul>
-</<?php raindrops_doctype_elements( 'div', 'nav' ); ?>>
+</<?php raindrops_doctype_elements( 'div', 'nav' ); ?>>		
 <?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

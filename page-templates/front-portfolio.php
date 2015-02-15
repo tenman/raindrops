@@ -36,8 +36,8 @@ $raindrops_posts = get_posts( $raindrops_get_posts_args );
         setup_postdata( $post );
 
         if ( is_sticky() ) {
-            ?>
-            <<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?> >
+            ?><div id="post-<?php the_ID(); ?>">
+            <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?> >
             <?php
             the_title( '<h2 class="h2 entry-title">', '</h2>' );
             ?>
@@ -46,7 +46,7 @@ $raindrops_posts = get_posts( $raindrops_get_posts_args );
                 the_content();
                 ?>
             </div>
-            </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+            </<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
             <?php
         }// is_sticky( )
     } // foreach 

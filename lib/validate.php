@@ -1,4 +1,48 @@
 <?php
+function raindrops_use_featured_image_emphasis_validate( $input ) {
+	
+	if( $input == 'yes' || $input == 'no' ) {
+		return $input;
+	}
+	return 'no';
+}
+
+function raindrops_featured_image_singular_validate( $input ) {
+
+	if ( $input == 'show' || $input == 'hide' || $input == 'lightbox' ) {
+		
+		return $input;
+	}
+	return 'show';
+}
+function raindrops_featured_image_recent_post_count_validate( $input ) {
+// todo post per page
+	$max_num_post = get_option('posts_per_page');
+
+	if( is_numeric( $input ) && $input < $max_num_post + 1 ) {
+		
+		return absint( $input ) ;
+	}
+	return 3;
+}
+function raindrops_featured_image_size_validate( $input ) {
+// todo get_intermadiate_image_sizes
+	$raindrops_featured_image_size_array = get_intermediate_image_sizes();
+			
+	if ( false !== array_search ( $input , $raindrops_featured_image_size_array ) ) {
+		
+		return $input;
+	}	
+	return 'thumbnail';
+}
+function raindrops_featured_image_position_validate( $input ) {
+	
+	if ( $input == 'left' || $input == 'front' ) {
+		
+		return $input;
+	}
+	return 'left';
+}
 
 function raindrops_menu_primary_min_width_validate( $input ) {
 	

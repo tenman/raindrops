@@ -37,8 +37,8 @@ raindrops_debug_navitation( __FILE__ );
 
                             the_post();
                             ?>
-                            <div class="entry page"> 				 
-                                <<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>>
+                            <div class="entry page"><div  id="post-<?php the_ID(); ?>"> 				 
+                                <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
                                 <?php
                                 raindrops_entry_title();
                                 ?>
@@ -55,7 +55,7 @@ raindrops_debug_navitation( __FILE__ );
                                     raindrops_append_entry_content();
                                     ?>
                                 </div>					
-                                </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+                                </<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
                             </div>
                             <?php
                         } //end while

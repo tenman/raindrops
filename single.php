@@ -81,8 +81,8 @@ raindrops_debug_navitation( __FILE__ );
 
                             echo '<!--Single Post Format or 2 Category ' . $cat . ' start-->';
                         }
-                        ?>
-                        <<?php raindrops_doctype_elements( 'div', 'article' ); ?> id="post-<?php the_ID(); ?>" <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
+                        ?><div id="post-<?php the_ID(); ?>">
+                        <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                         <?php
                         if ( is_sticky() ) {
                             ?>
@@ -128,7 +128,7 @@ raindrops_debug_navitation( __FILE__ );
 }           // if ( have_posts( ) )
 ?>
 
-                </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+						</<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
             </div>
                 <?php
                 /**

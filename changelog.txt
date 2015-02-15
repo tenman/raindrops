@@ -1,9 +1,21 @@
 Changelog -----------------------------------
+version:1.274
+
+Overview of Changes
+    Focus Post Featured Image update
+
+Files Modified
+
+
+Description of Code Changes
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.273
 
 Overview of Changes
-    Fixed 
-        Not Showing Help, 
+    Fixed
+        Not Showing Help,
             edit.php, post-new.php, themes.php
         function rename follow
             add deplicated function for child theme and theme customize user

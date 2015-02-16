@@ -27,6 +27,7 @@ Overview of Changes
 			Misc[Misc]
 
 Files Modified
+	new file:	lib/featured-image.php
 	modified:   changelog.txt
 	modified:   functions.php
 	modified:   lib/hooks.php
@@ -43,6 +44,8 @@ Files Modified
 	modified:   raindrops.js
 	modified:   single.php
 	modified:   style.css
+	modified:   childs/boots/inc.php
+	modified:   childs/boots/style.css
 
 Description of Code Changes
 	bbpress.php line:104,107,
@@ -64,6 +67,7 @@ Description of Code Changes
 	style.css line:3761-3780[Featured Image]
 	childs/boots/inc.php line:776-825[Featured Image]
 	functions.php line:5382-5384[Featured Image]
+	childs/boots/style.css line:38[Featured Image]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.273

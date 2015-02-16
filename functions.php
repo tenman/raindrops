@@ -5379,7 +5379,9 @@ if ( !function_exists( 'raindrops_customize_register' ) ) {
 		$raindrops_featured_image_post_max = get_option('posts_per_page');
 		$wp_customize->add_control( 'raindrops_featured_image_recent_post_count', 
 									array( 'label' => esc_html__( 'Featured Image Special Layout Apply Post Count', 'Raindrops' ),
-										'description' => esc_html__( sprintf( 'Input Possible values are 1 - %1$s , default value 3', $raindrops_featured_image_post_max), 'Raindrops' ),
+										'description' => esc_html__( 'Input Possible values are 1 - ', 'Raindrops' ).
+														$raindrops_featured_image_post_max. 
+														esc_html__(' default value 3', 'Raindrops' ),
 											'section' => 'raindrops_theme_settings_featured', 
 											'settings' => 'raindrops_theme_settings[raindrops_featured_image_recent_post_count]',
 											'type' => 'text', 

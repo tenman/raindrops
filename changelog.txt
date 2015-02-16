@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.274
+version:1.275
 
 Overview of Changes
     Focus Post Featured Image update
@@ -61,7 +61,9 @@ Description of Code Changes
 	raindrops-helper.js line:18[Misc]
 	raindrops.js line:8[Misc]
 	single.php line:84[IDs]
-	style.css line:3747-3776[Featured Image]
+	style.css line:3761-3780[Featured Image]
+	childs/boots/inc.php line:776-825[Featured Image]
+	functions.php line:5382-5384[Featured Image]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.273

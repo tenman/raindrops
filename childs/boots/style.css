@@ -34,3 +34,7 @@
 .events-archive .entry-title, .events-single .entry-title, .icon-link-no-title{
     display:none;
 }
+
+.rd-type-boots #yui-main article .raindrops-lightbox-overlay .lb-close{
+    background:#fff;
+}

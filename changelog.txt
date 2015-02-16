@@ -3,12 +3,65 @@ version:1.274
 
 Overview of Changes
     Focus Post Featured Image update
+		@see Section Description of Code Changes 'Featured Image'
+
+	Change HTML Structure
+		Change
+		from <article id="post-xxx" class="...>
+		to	<div id="post-xxx"><article class="...>
+		This Change
+			This change, in the post screen, of METABOX Custom CSS for this entry,
+			is meant to be more flexible style specified.
+
+			Example
+				display the border, and highlights posts
+					new posts, only until the 3 day passes,
+
+			<code>
+			.raindrops-pub-new{
+ 				border-left:6px solid red;
+				 padding-left:1em;
+			}
+			</code>
+			@see Section Description of Code Changes 'IDs'
+			Misc[Misc]
 
 Files Modified
-
+	modified:   changelog.txt
+	modified:   functions.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   loop.php
+	modified:   page-templates/front-page.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   page.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
-
+	bbpress.php line:104,107,
+	functions.php line:408-422,2688-2709,4214-4220, 4226 4233-4239,4243,5288-5408,6034-6058,6993,7033,7050,7245,7247,7264,[Featured Image]
+	functions.php 7918,7922-7923,7974,8230,8248,8307,8319,[IDs]
+	functions.php line:9372-9379[Misc]
+	lib/option-panel.php line:360-409[Featured Image]
+	validate.php line:2-45[Featured Image]
+	lib/widgets.php line:19-42,374,381,387-390,393,446,503,534-536[Misc]
+	loop.php line:37,102[IDs]
+	page-templates/front-page.php line:77,80[IDs]
+	page-templates/front-portfolio.php line:39-40,49[IDs]
+	page-templates/full-width.php line:104,107[IDs]
+	page-templates/list-of-post.php line:40-41,58[IDs]
+	page.php	line:61-62,102
+	raindrops-helper.js line:18[Misc]
+	raindrops.js line:8[Misc]
+	single.php line:84[IDs]
+	style.css line:3747-3776[Featured Image]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.273

@@ -7,10 +7,17 @@ Overview of Changes
 
 		Entry Title Not Display at Monthly Archives
 
-			relate changes
+
+	Fixed All-in-One Event Calendar by Time.ly
+
+		Shows escaped title.
+
+		relate changes
 				Add	filter function raindrops_strip_escaped_title()
 				Add function raindrops_strip_escaped_title()
+
 	Misc Mdified
+
 		raindrops_posted_in()
 
 	Added

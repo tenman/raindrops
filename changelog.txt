@@ -1,4 +1,44 @@
 Changelog -----------------------------------
+version:1.276
+
+Overview of Changes
+
+	Fixed Serious Bug
+
+		Entry Title Not Display at Monthly Archives
+
+			relate changes
+				Add	filter function raindrops_strip_escaped_title()
+				Add function raindrops_strip_escaped_title()
+	Misc Mdified
+		raindrops_posted_in()
+
+	Added
+
+		Article More Customizable CSS Class
+			add post_class() class rd-tpl-{template}
+
+		Category Archive Focus Update.
+			category archive add navigation
+			raindrops_category_navigation()
+			raindrops_post_category_relation()
+			add filter raindrops_loop_title_page_title
+
+Files Modified
+	modified:   functions.php
+	modified:   lib/hooks.php
+	modified:   loop.php
+	modified:   style.css
+
+Description of Code Changes
+	functions.php line:1469-1555[raindrops_posted_in]
+	functions.php line:3520[filter raindrops_loop_title_page_title]
+	functions.php line:3534-3437[category archive add navigation]
+	functions.php line:4285,4287-4295,4316-4326[Serious Bug]
+	functions.php line:9656-9723[Category Archive Focus Update]
+	lib/hooks.php line:311-314[Serious Bug relate]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.275
 
 Overview of Changes

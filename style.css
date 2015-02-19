@@ -3766,3 +3766,12 @@ ol.list-of-post-list .entry-title{
 	-o-filter: brightness(80%);
 	-ms-filter: brightness(80%);
 }
+
+.raindrops-category-navigation{
+    padding:1em;
+    text-align:center;
+}
+.raindrops-category-navigation .current{
+    font-weight:bold;
+}
+

@@ -173,6 +173,7 @@ $raindrops_current_theme_name		 = $raindrops_current_data->get( 'Name' );
 $raindrops_current_theme_slug		 = str_replace( ' ', '-', $raindrops_current_theme_name );
 $raindrops_current_theme_slug		 = sanitize_html_class( $raindrops_current_theme_slug );
 $raindrops_description_for_translation = __( 'This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit', 'Raindrops' );
+$raindrops_text_domain				 = $raindrops_current_data->get( 'TextDomain' );
 /**
  * Include the TGM_Plugin_Activation class.
  *
@@ -1464,24 +1465,67 @@ if ( !function_exists( 'raindrops_comment' ) ) {
  * loop.php
  *
  */
+
 if ( !function_exists( 'raindrops_posted_in' ) ) {
 
-	function raindrops_posted_in() {
-
+	function raindrops_posted_in( ) {
+		
+		$exclude_category_conditionals = apply_filters( 'raindrops_posted_in_category',array( 'is_category'=> 'raindrops_post_category_relation' ) );
+		$exclude_tag_conditional       = apply_filters( 'raindrops_posted_in_tag',array( 'is_tag' => '' ) );
+		
 		global $post;
 
 		if ( is_sticky() ) {
 
 			return;
 		}
-		$format		 = get_post_format( $post->ID );
-		$tag_list	 = get_the_tag_list( '', ' ' );
+		$format		     = get_post_format( $post->ID );
+		$tag_list		 = get_the_tag_list( '', ' ' );
+		$categories_list = get_the_category_list( ' ' );
+		
+		if ( ! empty($exclude_category_conditionals) && is_array( $exclude_category_conditionals ) ) {
+			
+			foreach( $exclude_category_conditionals as  $key => $conditional ) {
+				
+				if( function_exists( $key ) && true == $key() ) {
+					
+					if ( empty( $conditional ) ) {
+						
+						$categories_list = '';
+					} elseif ( function_exists( $conditional ) ) {
+						
+						$categories_list = $conditional();
+					}					
+				}						
+			}			
+		}
+		
+		if ( ! empty($exclude_tag_conditionals) && is_array( $exclude_tag_conditionals ) ) {
+			
+			foreach( $exclude_tag_conditionals as  $key => $conditional ) {
+				
+				if( function_exists( $key ) && true == $key() ) {
+					
+					if ( empty( $conditional ) ) {
+						
+						$tag_list = '';
+					} elseif ( function_exists( $conditional ) ) {
+						
+						$tag_list = $conditional();
+					}					
+				}						
+			}			
+		}
 
 		if ( false === $format ) {
 
 			if ( $tag_list ) {
 
-				$posted_in = '<span class="this-posted-in">' . esc_html__( 'This entry was posted in', 'Raindrops' ) . '</span> %1$s <span class="tagged">' . esc_html__( 'and tagged', 'Raindrops' ) . '</span> %2$s';
+				$posted_in = '<span class="this-posted-in">' . 
+								esc_html__( 'This entry was posted in', 'Raindrops' ) . 
+							'</span> %1$s <span class="tagged">' . 
+								esc_html__( 'and tagged', 'Raindrops' ) . 
+							'</span> %2$s';
 			} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
 
 				$posted_in = '<span class="this-posted-in">' . esc_html__( 'This entry was posted in', 'Raindrops' ) . '</span> %1$s ';
@@ -1489,7 +1533,7 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 
 				$posted_in = '';
 			}
-			$result = $format . sprintf( $posted_in, get_the_category_list( ' ' ), $tag_list );
+			$result = $format . sprintf( $posted_in, $categories_list, $tag_list );
 			echo apply_filters( "raindrops_posted_in", $result );
 		} else {
 
@@ -1506,6 +1550,7 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 			$result = sprintf( $posted_in, get_the_category_list( ' ' ), $tag_list, esc_url( get_post_format_link( $format ) ), esc_html( 'Format', 'Raindrops' ), get_post_format_string( $format ) );
 			echo apply_filters( "raindrops_posted_in", $result );
 		}
+	
 	}
 }
 	/**
@@ -3461,7 +3506,9 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 				$page_title				 = esc_html__( "Blog Archives", 'Raindrops' );
 			}
 		}
-
+		
+		$page_title = apply_filters( 'raindrops_loop_title_page_title', $page_title );
+		
 		if ( empty( $Raindrops_class_name ) ) {
 
 			if ( is_front_page() ) {
@@ -3483,6 +3530,11 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 		if ( !empty( $page_title ) ) {
 
 			printf( '<li class="title-wrapper %3$s-wrapper"><strong class="f16" id="archives-title"><span class="label">%1$s</span> <span class="title">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
+			
+			if ( is_category() ) {
+				printf('<li class="list-category-navigation">%1$s</li>', raindrops_category_navigation() );
+				
+			}
 		}
 	}
 
@@ -4230,9 +4282,17 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 
 				$thumbnail =  apply_filters('raindrops_title_thumbnail', $thumbnail ,'<span class="h2-thumb">', '</span>');
 			}
-			if ( ! is_singular() ) {
+			if ( ! is_singular() && in_the_loop() ) {
 				
-				$title =  $thumbnail. '<span class="entry-title-text">'.$title.'</span>';
+				$raindrops_entry_title_text_allow = apply_filters( 'raindrops_entry_title_text_elements_allow', true );
+				
+				if ( true == $raindrops_entry_title_text_allow ) {
+					
+					$title =  $thumbnail. '<span class="entry-title-text">'.$title.'</span>';
+				} else {
+					
+					$title =  $thumbnail. $title ;
+				}
 			} else {
 				
 				$title =  $thumbnail. $title;
@@ -4248,9 +4308,21 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 		if ( isset( $post->ID ) && $raindrops_link_unique_text == true ) {
 			 $title = $title. raindrops_unique_entry_title(  $post->ID );
 		}
+
 		return apply_filters( 'raindrops_fallback_title', $title );
 	}
 
+}
+
+/**
+ * for remove title html escaped from plug-ins
+ * @param type $title
+ * @return type
+ * @since 1.276
+ */
+function raindrops_strip_escaped_title( $title ) {
+
+	return preg_replace('!&lt;.*?&gt;!', '', $title );
 }
 /**
  *
@@ -7580,7 +7652,7 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
 
 	function raindrops_post_class( $class = '', $post_id = null, $echo = true ) {
 
-		global $post;
+		global $post, $template;
 		$classes = get_post_class( $class, $post_id );
 		
 
@@ -7592,7 +7664,12 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
 		if ( isset( $post ) ) {
 			$raindrops_content_empty_class = trim( get_the_content() );
 		}
-
+		if ( isset( $template ) ) {
+			
+			$template_class = basename( $template, '.php' );
+			$classes[] = 'rd-tpl-'. esc_attr( $template_class );
+		}
+		
 		if ( empty( $raindrops_content_empty_class ) ) {
 
 			$classes[] = 'raindrops-empty-content';
@@ -9574,6 +9651,74 @@ function raindrops_add_class($id = 'yui-u first', $echo = false) {
 		return raindrops_dinamic_class($id = 'yui-u first', $echo = false);
 	}else{
 		echo raindrops_dinamic_class($id = 'yui-u first', $echo = false);	
+	}
+}
+
+
+if ( ! function_exists( 'raindrops_category_navigation' ) ) {
+	
+	function raindrops_category_navigation(){
+		$result = '';
+		$tmp_id = get_query_var( 'cat');
+		$tmp_parent =  get_category_parents( $tmp_id, true, ' &raquo; ' );
+
+		if( strip_tags( $tmp_parent ) !== get_the_category_by_ID( $tmp_id ). ' &raquo; ' ) {
+		$tmp_parent = trim( $tmp_parent ,' &raquo; ');
+		$result  = str_replace(get_the_category_by_ID( $tmp_id ),'', $tmp_parent );
+
+			$result .= sprintf( '<span class="current">%1$s</span> &raquo; ',  get_the_category_by_ID( $tmp_id ) );
+		}
+			$tmp_child_ids = get_term_children( $tmp_id, 'category' ); 
+		foreach( $tmp_child_ids as $tmp_id ) {
+			$term = get_term_by( 'id', $tmp_id, 'category' );
+			$result .= '<a href="' . get_term_link( $tmp_id, 'category' ) . '">' . $term->name . "</a> &raquo; ";
+		}
+
+		return apply_filters( 'raindrops_category_navigation', '<div class="raindrops-category-navigation">'. rtrim( $result,' &raquo; '). '</div>' );
+	}
+}
+
+if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
+	
+	function raindrops_post_category_relation() {
+		global $post;
+
+		$result			 = array();
+		$tmp_id			 = get_query_var( 'cat' );
+		$categories	     = get_the_category( $post->ID );
+
+		foreach ( $categories as $category ) {
+
+			$parents = get_category_parents( $category->term_id, true, '&raquo;' );
+			$parents_item = str_replace( '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . "</a>&raquo;", '', $parents );
+			$parents = explode( '&raquo;', $parents_item );
+			if ( ! empty( $parents_item ) ) {		
+				$result[] = '<span class="label title parent">'.esc_html__('Parent Category:','Raindrops' ).'</span>';
+			}
+			foreach ( $parents as $links ) {
+
+				$result[] = $links;
+			}
+
+			$replace_check	 = get_the_category_by_ID( $category->term_id );
+			$replace_check	 = get_category_link( $category->term_id );
+			$tmp_child_ids	 = get_term_children( $category->term_id, 'category' );
+			$child_result	 = '';
+			$child_ready	 = array();
+			if ( ! empty( $tmp_child_ids ) ) {
+				$result[] = '<span class="label title child">'.esc_html__('Child Category:','Raindrops' ).'</span>';
+			}
+			foreach ( $tmp_child_ids as $tmp_id ) {
+
+				$term		 = get_term_by( 'id', $tmp_id, 'category' );
+				$result[]	 = '<a href="' . get_term_link( $tmp_id, 'category' ) . '">' . $term->name . "</a>";
+			}
+		}
+
+		$result	 = array_unique( $result );
+		$result	 = implode( ' ', $result );
+
+		return apply_filters( 'raindrops_post_category_relation', rtrim( $result, ' &raquo; ' ) );
 	}
 }
 /**

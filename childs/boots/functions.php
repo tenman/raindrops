@@ -24,7 +24,7 @@ if ( !isset( $boots_custom_header_args ) ) {
 
 
 /**
- * Setup Broad
+ * Setup
  *
  */
 if ( !function_exists( 'raindrops_child_init' ) ) {
@@ -178,10 +178,10 @@ if ( !function_exists( 'boots_page_width' ) ) {
 
 }
 
-if ( !function_exists( 'boots_link_change' ) ) {
-    add_filter( 'raindrops_nav_menu_primary_html', 'broad_hash_link_change' );
+if ( !function_exists( 'boots_hash_link_change' ) ) {
+    add_filter( 'raindrops_nav_menu_primary_html', 'boots_hash_link_change' );
 
-    function broad_hash_link_change( $html ) {
+    function boots_hash_link_change( $html ) {
 
         return str_replace( 'href="#doc3"', 'href="#"', $html );
     }

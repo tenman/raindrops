@@ -90,9 +90,12 @@
 
                     jQuery( 'body' ).addClass( 'firefox' );
                 } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
-
                     var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
-                    var version = parseInt( match[2], 10 );
+                    try{
+                        var version = parseInt( match[2], 10 );
+                    }catch(error){
+                        var version = -1; //match == null for no match
+                    }
                     if ( version == 11 ) {
                         jQuery( 'body' ).addClass( 'ie11' );
                     } else {
@@ -249,7 +252,11 @@
                     } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
 
                         var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
-                        var version = parseInt( match[2], 10 );
+                        try{
+                            var version = parseInt( match[2], 10 );
+                        }catch(error){
+                            var version = -1;
+                        }
 
                         if ( version == 11 ) {
                             jQuery( 'body' ).addClass( 'ie11' );

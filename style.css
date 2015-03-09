@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.276
+Version: 1.277
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1799,8 +1799,8 @@ figure .size-thumbnail{
     max-width: calc(100% - 1em);
     display:block;
     margin:auto;
-    text-align:left; 
-       
+    text-align:left;
+
 }
 .wp-caption p.wp-caption-text {
     line-height: 1.5;
@@ -2251,7 +2251,7 @@ li.comment {
     position:relative;
     overflow:hidden;
 }
-/* 1.277 style change 
+/* 1.277 style change
 #header-image p{
     position:relative;
     top:45%;
@@ -3812,8 +3812,8 @@ ol.list-of-post-list .entry-title{
 .raindrops-category-navigation .current{
     font-weight:bold;
 }
-/* Simple language settings 
- * Support for only japanese language 
+/* Simple language settings
+ * Support for only japanese language
  *
  * entry content wrapping english message width div and lang attribute like below
  * <div class="lang-not-ja>English</div><div class="lang-ja">Japanese</div>
@@ -3829,7 +3829,7 @@ body.ja:not(.firefox) :not(.rd-l-en_US) .lang-not-ja,
 body.ja div:not(.rd-l-ja) .lang-ja,
 body.ja div:not(.rd-l-ja-JP) .lang-ja,
 body.ja div.rd-l-ja .post .lang-not-ja{
-    display:none;  
+    display:none;
 }
 body.ja .rd-l-en .hentry .lang-not-ja,
 body.ja .rd-l-en_US .hentry .lang-not-ja,
@@ -3842,12 +3842,12 @@ body.ja :not(.rd-l-ja) .hentry .lang-not-ja{
 html body.ja .widget-wrapper .lang-not-ja,
 html body.ja .lsidebar .lang-not-ja,
 html body.ja .rsidebar .lang-not-ja{
-    display:none;   
+    display:none;
 }
 html body.ja .widget-wrapper .lang-ja,
 html body.ja .lsidebar .lang-ja,
 html body.ja .rsidebar .lang-ja{
-    display:block;   
+    display:block;
 }
 
 #doc3 #header-image{

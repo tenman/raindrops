@@ -3,6 +3,109 @@ version:1.276
 
 Overview of Changes
 
+	New Prezentation for language ja
+		Display Japanese date (Works Only language setting ja )
+			@see Section Description of Code Changes 'Japanese date'
+
+		japanese lang class and another language CSS Class(Works Only language setting ja )
+			Add CSS class lang-ja , lang-not-ja
+			@see Section Description of Code Changes 'lang-css'
+
+	Support rtl Languages
+			@see Section Description of Code Changes 'RTL'
+	Layout
+		var $raindrops_keep_content_width ( filter hook raindrops_keep_content_width )
+
+			This value default true
+			article content width keep and automate centered when display 1column
+			This value false
+			article content width full width and no margin when display 1column
+				@see Section Description of Code Changes 'keep_content_width'
+	StyleSheet
+		color_type stylesheet link change from external link to header embed
+
+
+		var $raindrops_stylesheet_type
+			This value default embed
+
+			This value can set 'external', stylesheet external link width
+
+			<link rel='stylesheet' id='raindrops_color_type-css'  href='' type='text/css' media='all' />
+			@see Section Description of Code Changes 'stylesheet_type'
+	Header Image
+		Fixed Bug
+			Wherever possible, header image dimensions to accurately get, aimed at small display of flickering
+			However, in the responsive display not perfect, I will a combination of javascript
+			@see Section Description of Code Changes 'header-image'
+	Keyboard Accessibility
+		When Keyboard Accessibility is set false then remove Skip Link
+		Default true.
+			@see Section Description of Code Changes 'Keyboard Accessibility'
+	Misc BUG
+			@see Section Description of Code Changes 'BUG'
+	Misc Add filter
+			@see Section Description of Code Changes 'Filter'
+
+Files Modified
+
+	new file:   rtl.css
+	new file:   languages/scripts/ja.php
+	modified:   childs/boots/style.css
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   loop.php
+	modified:   page.php
+	modified:   raindrops-helper.js
+	modified:   search.php
+	modified:   single.php
+	modified:   style.css
+
+Description of Code Changes
+
+	childs/boots/inc.php line:826-835	[Japanese date]
+	lib/option-panel.php line:410-419	[Japanese date]
+	lib/validate.php line:2-9			[Japanese date]
+	functions.php line:3263,3290-3293,5566-5570,5841-5852,7108,7200-7213,	[Japanese date]
+	editor-style.css line:440-458	[RTL]
+	functions.php line:2241-2254	[RTL]
+	functions.php line:28-30	[keep_content_width]
+	functions.php line:36-39,649,2825,2856,4869,9095-9131,9145,9149,	[stylesheet_type]
+	functions.php line:273-286	[Japanese date]
+	functions.php line:539-607,2540-2550,4460-4461,4575,4598-4603,5098-5100,	[header-image]
+	functions.php line:633,1953-1955,1970-1971,8789,8830		[BUG]
+	functions.php line:808,820,837,914	[Filter]
+	functions.php line:9630-9861		[lang-css]
+	header-front.php line:58,62			[Keyboard Accessibility]
+	header-xhtml.php line:57,59			[Keyboard Accessibility]
+	header.php line:15,17				[Keyboard Accessibility]
+	languages/ja.po,ja.mo configure
+	lib/alias_functions.php line:872-957	[header-image]
+	lib/csscolor.css.php add -ms-linear-gradient();
+ 	lib/widgets.php	line:800			[Filter]
+	loop.php line:37					[lang-css]
+	page.php line:61					[lang-css]
+	raindrops-helper.js line:94-98, 279-283,try and catch conditional
+	raindrops-helper.js line:158-181	[lang-css]
+	style.css line:31-34,500-501,1798-1804	[RTL]
+	style.css line:2259-2282			[header-image]
+		style.css line:3815-3855		[lang-css]
+----------------------------------------------
+Changelog -----------------------------------
+version:1.276
+
+Overview of Changes
+
 	Fixed Serious Bug
 
 		Entry Title Not Display at Monthly Archives

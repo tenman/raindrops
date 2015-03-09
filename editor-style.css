@@ -438,3 +438,22 @@ html .mce-content-body .wp-caption{
     border:1px solid #777;
     padding:3px;
 }
+.mce-content-body.rtl .wp-caption-dd{
+    text-align:right;
+}
+.mce-content-body:not(.rtl) .wp-caption-dd{
+    text-align:left;
+}
+.mce-content-body script{
+    border:1px dotted orange;
+    display:block;
+    height:3em;
+}
+.mce-content-body script:after{
+    content:attr(src);
+    margin:1em;
+}
+.mce-content-body script:before{
+    content:'Element Script';
+    margin:1em;
+}

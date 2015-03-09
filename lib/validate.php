@@ -1,4 +1,12 @@
 <?php
+function raindrops_japanese_date_validate( $input ) {
+	
+	if( $input == 'yes' || $input == 'no' ) {
+		return $input;
+	}
+	return 'no';	
+}
+
 function raindrops_use_featured_image_emphasis_validate( $input ) {
 	
 	if( $input == 'yes' || $input == 'no' ) {

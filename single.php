@@ -81,7 +81,7 @@ raindrops_debug_navitation( __FILE__ );
 
                             echo '<!--Single Post Format or 2 Category ' . $cat . ' start-->';
                         }
-                        ?><div id="post-<?php the_ID(); ?>">
+                        ?><div id="post-<?php the_ID(); ?>"  class="<?php echo raindrops_article_wrapper_class();?>">
                         <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                         <?php
                         if ( is_sticky() ) {

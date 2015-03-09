@@ -55,9 +55,11 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 		} //end switch( $raindrops_document_type )
 		?>
 	<body <?php body_class(); ?>>
+		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
 		<div class="skip-link">
 			<a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a>
-		</div> 
+		</div>
+		<?php } // raindrops_disable_keyboard_focus ?>
 		<div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 			<?php raindrops_prepend_doc(); ?>
 			<<?php raindrops_doctype_elements( 'div', 'header' ); ?> id="top">

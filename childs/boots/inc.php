@@ -823,6 +823,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
         'validate'     => 'raindrops_use_featured_image_emphasis_validate', 
 		'list'         => 37 ),
+		array( 'option_id'    => 39,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_japanese_date",
+        'option_value' => 'no',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'USE or Not Japanese Date', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
+        'validate'     => 'raindrops_japanese_date_validate', 
+		'list'         => 38 ),	
 );
 }
 

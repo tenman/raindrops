@@ -5,7 +5,7 @@ Description: This theme can change freely fonts,layout,color scheme and header i
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
 Version: 1.276
-Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout
+Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: Raindrops
@@ -28,6 +28,10 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
+body{
+    max-width:100%;
+   overflow-x: hidden;
+}
 .hfeed a{
     text-decoration:none;
 }
@@ -493,6 +497,8 @@ radio{
 .entry-content .color5{
     display:inline-block;
 }
+html body.ja .hentry .entry-content .block,
+html body.ja .hentry .entry-content .block,
 div .entry-content .block,
 article .entry-content .block{
     display:block;
@@ -1789,10 +1795,18 @@ figure .size-thumbnail{
 .wp-caption.aligncenter a[rel~="attachment"] img{
     margin:0.38461538461em 0 0 0;
 }
+.wp-caption-text{
+    max-width: calc(100% - 1em);
+    display:block;
+    margin:auto;
+    text-align:left; 
+       
+}
 .wp-caption p.wp-caption-text {
     line-height: 1.5;
     padding: 0 0.30769230769px 0.38461538461em;
     margin: 0;
+
 }
 li.byuser,
 .bypostauthor{
@@ -2237,11 +2251,35 @@ li.comment {
     position:relative;
     overflow:hidden;
 }
+/* 1.277 style change 
 #header-image p{
     position:relative;
     top:45%;
     text-align:center;
+}*/
+#header-image p{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display:block;
+        height:1.6em;
+        margin: auto;
+        width:80%;
+
 }
+/* for test
+.rd-type-dark #header-image p{
+        background: -webkit-gradient(linear, left top, right top, from( rgba(0,0,0,0) ), color-stop(50%, rgba(0,0,0,.8)),to(rgba(0,0,0,0)));
+}
+.rd-type-light #header-image p{
+        background: -webkit-gradient(linear, left top, right top, from( rgba(0,0,0,0) ), color-stop(50%, rgba(255,255,255,.8)),to(rgba(0,0,0,0)));
+        box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 0;
+        -webkit-box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 0;
+        -moz-box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 0;
+}
+*/
 .datetable{
     margin-bottom:1em;
 }
@@ -3774,4 +3812,44 @@ ol.list-of-post-list .entry-title{
 .raindrops-category-navigation .current{
     font-weight:bold;
 }
+/* Simple language settings 
+ * Support for only japanese language 
+ *
+ * entry content wrapping english message width div and lang attribute like below
+ * <div class="lang-not-ja>English</div><div class="lang-ja">Japanese</div>
+ *
+ * entry title wrapping english message width span and lang attribute like below
+ *  <span lang="lang-not-ja">English Title</span><span class="lang-ja">Japanese Title</span>
+ */
+.lang-not-ja,
+.lang-ja{
+    max-width:100%;
+}
+body.ja:not(.firefox) :not(.rd-l-en_US) .lang-not-ja,
+body.ja div:not(.rd-l-ja) .lang-ja,
+body.ja div:not(.rd-l-ja-JP) .lang-ja,
+body.ja div.rd-l-ja .post .lang-not-ja{
+    display:none;  
+}
+body.ja .rd-l-en .hentry .lang-not-ja,
+body.ja .rd-l-en_US .hentry .lang-not-ja,
+body.ja .rd-l-ja .hentry .lang-ja,
+body.ja .rd-l-ja-JP .hentry .lang-ja,
+body.ja :not(.rd-l-ja-JP) .hentry .lang-not-ja
+body.ja :not(.rd-l-ja) .hentry .lang-not-ja{
+    display:inline-block;
+}
+html body.ja .widget-wrapper .lang-not-ja,
+html body.ja .lsidebar .lang-not-ja,
+html body.ja .rsidebar .lang-not-ja{
+    display:none;   
+}
+html body.ja .widget-wrapper .lang-ja,
+html body.ja .lsidebar .lang-ja,
+html body.ja .rsidebar .lang-ja{
+    display:block;   
+}
 
+#doc3 #header-image{
+   display:none;
+}

@@ -14,7 +14,7 @@
                     var raindrops_window_width = jQuery( window ).width();
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
-                    jQuery( '#header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height } );
+                    jQuery( '#header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block' } );
                       
                 }
             }
@@ -90,9 +90,12 @@
 
                     jQuery( 'body' ).addClass( 'firefox' );
                 } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
-
                     var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
-                    var version = parseInt( match[2], 10 );
+                    try{
+                        var version = parseInt( match[2], 10 );
+                    }catch(error){
+                        var version = -1; //match == null for no match
+                    }
                     if ( version == 11 ) {
                         jQuery( 'body' ).addClass( 'ie11' );
                     } else {
@@ -151,6 +154,30 @@
                     if ( raindrops_window_width > raindrops_script_vars.fluid_maximum_width ) {
                         //centering page when browser width > $raindrops_fluid_maximun_width
                         jQuery( '#doc3' ).css( { 'margin': 'auto' } );
+                    }
+                    // Only Japanese Languages
+                    if( jQuery('div[class^=rd-l-]') ) {
+                        
+                        function raindrops_language_detect() {
+                            try {
+                                return (navigator.browserLanguage || navigator.language || navigator.userLanguage);
+                            }
+                            catch(e) {
+                                 return -1;
+                            }
+                        }
+                        
+                        if ( raindrops_language_detect() ) {                    
+                            var accept_language_class = 'rd-l-' + raindrops_language_detect();                                  
+                            jQuery('div[class^=rd-l-]').removeClass().addClass( accept_language_class );
+                        }
+                        
+                        jQuery( '.single div[class^=rd-l-] .entry-content,.page div[class^=rd-l-] .entry-content').prepend( '<button id="show_all_lang" class="pad-s">Show All Languages</button>' );
+                        
+                        jQuery('#show_all_lang').click(function(){
+                            jQuery('article div,article span').removeClass('lang-ja lang-not-ja');
+                            jQuery( '#show_all_lang').remove();
+                        });
                     }
                 }
             }
@@ -249,7 +276,11 @@
                     } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
 
                         var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
-                        var version = parseInt( match[2], 10 );
+                        try{
+                            var version = parseInt( match[2], 10 );
+                        }catch(error){
+                            var version = -1;
+                        }
 
                         if ( version == 11 ) {
                             jQuery( 'body' ).addClass( 'ie11' );

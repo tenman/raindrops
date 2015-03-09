@@ -245,6 +245,7 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $color1 = str_replace( '#', "", raindrops_warehouse_clone( 'raindrops_base_color' ) );
         }
         $g = "";
+
         for ( $i = 1; $i < 5; $i++ ) {
             $custom_dark_bg1  = raindrops_colors_clone( $i, 'background', $color1 );
             $custom_light_bg1 = raindrops_colors_clone( $i + 1, 'background', $color1 );
@@ -255,6 +256,7 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
+            $g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';		
             $g.= "}\n";
             $g.= $selector . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
@@ -263,6 +265,7 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg2 . ' ), to( ' . $custom_light_bg2 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';
+            $g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';			
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg2 . '\', endColorstr=\'' . $custom_light_bg2 . '\' );';
             $g.= "}\n";
             $g.= $selector . '-' . $i . ' a{';
@@ -274,6 +277,14 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
+			$g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';	
+            $g.= "}\n";
+			$g.= '#access '. $selector . '-' . $i . ' a{';
+            $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
+            $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
+            $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
+            $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
+			$g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';	
             $g.= "}\n";
             $g.= $selector . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
@@ -282,6 +293,7 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg2 . ' ), to( ' . $custom_light_bg2 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';
+			$g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';		
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg2 . '\', endColorstr=\'' . $custom_light_bg2 . '\' );';
             $g.= "}\n";
             $g.= $selector . '-' . $i . ' a{';
@@ -857,4 +869,90 @@ function raindrops_gallerys_clone() {
     }
     return false;
   }
+  
+ 
+	function raindrops_detect_header_image_size_clone( $xy = 'width' ) {
+
+		global $raindrops_custom_header_args;
+		$all_header_images		 = array();
+		$header_image			 = get_custom_header();
+		$header_image_uri		 = $header_image->url;
+		$header_image_basename	 = basename( $header_image_uri );
+		$page_width			     = raindrops_warehouse_clone( 'raindrops_page_width' );
+
+		if ( $raindrops_custom_header_args[ "default-image" ] == $header_image_uri ) {
+
+			if ( 'width' == $xy ) {
+				if ( false !== $raindrops_custom_header_args[ "width" ] ) {
+				return $raindrops_custom_header_args[ "width" ];
+				}
+			} elseif ( 'height' == $xy ) {
+				if ( false !== $raindrops_custom_header_args[ "height" ] ) {
+				return $raindrops_custom_header_args[ "height" ];
+				}
+			}
+		}
+		
+		$all_header_images = get_uploaded_header_images();
+
+		if ( 'width' == $xy ) {
+
+			if ( isset( $all_header_images[ $header_image_basename ][ 'width' ] ) ) {
+				if( false !== $all_header_images[ $header_image_basename ][ 'width' ]){
+				return $all_header_images[ $header_image_basename ][ 'width' ];
+				}
+			} else {
+				if ( false !== $header_image->width ) {
+				return $header_image->width;
+				}
+			}
+		} elseif ( 'height' == $xy ) {
+
+			if ( isset( $all_header_images[ $header_image_basename ][ 'height' ] ) ) {
+				if( false !== $all_header_images[ $header_image_basename ][ 'height' ]){
+				return $all_header_images[ $header_image_basename ][ 'height' ];
+				}
+			} else {
+				if ( false !== $header_image->height ) {
+					
+					return $header_image->height;
+				}
+			}
+		}
+		
+
+		switch ( $page_width ) {
+			case ( "doc" ):
+				$custom_header_width = 750;
+				$custom_header_height = 335;
+				break;
+
+			case ( "doc2" ):
+				$custom_header_width = 950;
+				$custom_header_height = 425;
+				break;
+
+			case ( "doc3" ):
+
+				$custom_header_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+				$custom_header_height = round( $custom_header_width * 0.40859375 );
+        		break;
+
+			case ( "doc4" ):
+
+				$custom_header_width = 974;
+				$custom_header_height = 436;
+				break;
+		}
+	
+		if( $xy == 'width' ) {
+			return $custom_header_width;
+		}
+		if( $xy == 'height' ) {
+			return  $custom_header_height;
+		}
+		return false;
+	}
+
+
 ?>

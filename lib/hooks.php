@@ -301,7 +301,6 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_action( 'wp_ajax_raindrops_editor_styles', 'raindrops_editor_styles_callback' );
 		add_action( 'wp_ajax_nopriv_raindrops_editor_styles', 'raindrops_editor_styles_callback' );
 		add_filter( 'raindrops_color_type_style_buffer', 'raindrops_pinup_entry_style' );
-		add_filter( 'raindrops_month_list_year_name', 'raindrops_month_list_year_name_add' );
 		add_filter( 'raindrops_month_list_post_count','raindrops_month_list_count');
 		
 		/**
@@ -312,6 +311,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.276
 		 */
 		add_filter( 'raindrops_fallback_title', 'raindrops_strip_escaped_title',99 );
+		
     }
 }
 ?>

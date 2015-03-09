@@ -505,6 +505,7 @@ input[type="submit"],
 #access{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     border-radius:3px 3px 3px 3px;
     -moz-border-radius:3px 3px 3px 3px;
@@ -523,6 +524,7 @@ input[type="submit"],
 #access li:hover > ul{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
@@ -558,6 +560,7 @@ color:%custom_color%;
    top:0;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
     background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
+	background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
     color:%custom_color%;
 }
@@ -570,6 +573,7 @@ color:%custom_color%;
     border-radius: 3px;
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
 .entry-content blockquote {
@@ -1830,6 +1834,7 @@ function raindrops_gradient_css( $color = null, $num = 0, $diff = 1, $order = 'a
     $g = 'color:#' . $fg . ';';
     $g .= 'background: -webkit-gradient(linear, left top, left bottom, from(' . $custom_dark_bg1 . '), to(' . $custom_light_bg1 . '));';
     $g .= 'background: -moz-linear-gradient(top, ' . $custom_dark_bg1 . ', ' . $custom_light_bg1 . ');';
+    $g .= 'background-image: -ms-linear-gradient(top, ' . $custom_dark_bg1 . ', ' . $custom_light_bg1 . ');';
     $g .= 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\');';
     return $g;
 }

@@ -1,0 +1,66 @@
+body{
+    direction: rtl;
+    unicode-bidi: embed;
+    max-width:100%;
+    overflow-x: hidden;
+}
+#hd{
+    text-align:right;
+}
+html #hd #site-description{
+    position:static;
+}
+#yui-main .raindrops-tab-list li{
+    float:right!important;
+}
+#access .menu-header li, div.menu li,
+#access{
+    float:right;
+}
+.commentlist .reply,
+#respond,
+.comment-body,
+.pingback,
+.raindrops-comment-author-meta,
+.gallery .gallery-caption,
+.entry-meta-gallery,
+.entry-meta-video,
+.entry-meta-chat,
+.entry-meta-aside,
+.entry-meta-quote,
+.entry-meta-audio,
+.widget-wrapper,
+article .entry-content,
+article .entry-meta-default,
+article .posted-on,
+.entry-title,
+.lsidebar,
+.rsidebar{
+    text-align:right;
+}
+.h2-thumb{
+    margin-left:.5em;
+}
+article .more-link .meta-nav{
+    display:none;
+}
+article .gist{
+    direction:ltr;
+}
+.entry-content form,
+ul,
+ol,
+.raindrops-chat-text{
+    margin-right:4.4em;
+}
+#wp-calendar caption{
+    display: table-caption;
+    text-align:right;
+}
+.raindrops-comment-avatar,
+.comment-author img{
+    float:right;
+}
+.wp-caption-text{
+    text-align:right;
+}

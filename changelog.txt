@@ -69,7 +69,6 @@ Files Modified
 	modified:   raindrops-helper.js
 	modified:   search.php
 	modified:   single.php
-	modified:   style.css
 
 Description of Code Changes
 
@@ -84,7 +83,7 @@ Description of Code Changes
 	functions.php line:273-286	[Japanese date]
 	functions.php line:539-607,2540-2550,4460-4461,4575,4598-4603,5098-5100,	[header-image]
 	functions.php line:633,1953-1955,1970-1971,8789,8830		[BUG]
-	functions.php line:808,820,837,914	[Filter]
+	functions.php line:808,820,837,914,	9216-9218,9227[Filter]
 	functions.php line:9630-9861		[lang-css]
 	header-front.php line:58,62			[Keyboard Accessibility]
 	header-xhtml.php line:57,59			[Keyboard Accessibility]

@@ -9213,16 +9213,18 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 	function raindrops_footer_text() {
 
 		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template, $raindrops_accessibility_link;
-
+		
+		$raindrops_copyright_text = sprintf( apply_filters( 'raindrops_copyright_text' , '&copy;%1$s '. $raindrops_current_theme_name. ' ') ,  date( "Y" ) );
+		
 		$raindrops_address_html = '<address>';
 
 		$raindrops_address_html .= apply_filters( 'raindrops_prepend_footer_address', '' );
 
-		$raindrops_address_rss =  "\n". str_repeat("\t", 2 ). '<small>%1$s   %2$s  <a href="%3$s" class="entry-rss">%4$s</a>' .
+		$raindrops_address_rss =  "\n". str_repeat("\t", 2 ). '<small>%1$s<a href="%2$s" class="entry-rss">%3$s</a>' .
 								  "\n". str_repeat("\t", 3 ). '<span>'. esc_html__( 'and', 'Raindrops' ) . '</span>' .
-								  "\n". str_repeat("\t", 2 ). '<a href="%5$s" class="comments-rss">%6$s</a>';
+								  "\n". str_repeat("\t", 2 ). '<a href="%4$s" class="comments-rss">%5$s</a>';
 
-		$raindrops_address_html .= sprintf( $raindrops_address_rss, "&copy;". date( "Y" ), $raindrops_current_theme_name, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
+		$raindrops_address_html .= sprintf( $raindrops_address_rss, $raindrops_copyright_text, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
 		);
 
 		$raindrops_address_html .= '</small> ';

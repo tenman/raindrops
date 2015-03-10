@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.276
+version:1.277
 
 Overview of Changes
 
@@ -98,8 +98,8 @@ Description of Code Changes
 	raindrops-helper.js line:94-98, 279-283,try and catch conditional
 	raindrops-helper.js line:158-181	[lang-css]
 	style.css line:31-34,500-501,1798-1804	[RTL]
-	style.css line:2259-2282			[header-image]
-		style.css line:3815-3855		[lang-css]
+	style.css line:2259-2282		[header-image]
+	style.css line:3815-3855		[lang-css]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.276

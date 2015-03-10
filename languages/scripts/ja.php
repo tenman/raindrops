@@ -7,6 +7,7 @@ add_filter( 'get_the_date', 'raindrops_japan_date', 11 );
 add_filter( 'get_comment_date','raindrops_japan_date', 11 );
 add_filter( 'get_archives_link', 'raindrops_category_widget_wareki' );
 add_filter( 'get_calendar','raindrops_category_widget_wareki' );
+
 if ( class_exists( 'breadcrumb_navxt') ) {
 	add_filter( 'bcn_template_tags', 'raindrops_bcn_template_tags_filter', 11, 3 );
 	add_filter( 'bcn_breadcrumb_title', 'raindrops_bcn_breadcrumb_title',11,3);
@@ -169,7 +170,9 @@ if ( ! function_exists( 'raindrops_category_widget_wareki' ) ) {
 			
 			return $html;
 		}
-
+		// archives dropdown has space
+		$html = str_replace( '> ','>', $html);
+		
 		if ( preg_match( '!>([0-9]{4})!', $html, $regs ) && isset( $regs[ 1 ] ) && 2002 < $regs[ 1 ] ) {
 
 			$before	 = $regs[ 1 ];

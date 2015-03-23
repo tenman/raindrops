@@ -496,6 +496,7 @@ td.month-date,td.month-name,td.time{
 .entry-content textarea{
     background: %rgba_border%
 }
+.raindrops-excerpt-more,
 .raindrops-toc-front li,
 .fail-search,
 input[type="file"],
@@ -1350,6 +1351,7 @@ hr{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
+.raindrops-excerpt-more,
 .raindrops-toc-front li,
 #access{
 	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
@@ -1366,21 +1368,21 @@ hr{
 }
 
 #access a {
-	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%))!important;
-    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
+    background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
 #access .children li:active >a,
 #access li:active >a ,
 #access ul ul :active >a {
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%))!important;
-    background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%)!important;
+    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
+    background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
     color:%custom_color%;
 }
 .ie10 #access{
-    background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
+    background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 
 }
 .ie10 #access a {

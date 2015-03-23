@@ -33,8 +33,8 @@ function raindrops_theme_register_required_plugins() {
             'required'           => false,
         ),
 		 array(
-            'name'               => 'Quick Cache (Speed Without Compromise)',
-            'slug'               => 'quick-cache',
+            'name'               => 'ZenCache',
+            'slug'               => 'zencache',
             'required'           => false,
         ),
 		 array(

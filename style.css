@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.277
+Version: 1.278
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2979,6 +2979,12 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     text-overflow: ellipsis;
 }
 
+.single .entry-content span#read:target{
+    /*excerpt read more link target link position ajust */
+    display:inline-block;
+    padding-top:100px;
+    margin-top:-100px;
+}
 /* front-page.php end */
 #date_list a:target{
     /* target link position ajust */
@@ -3006,7 +3012,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     margin-left:0.76923076923em;
 }
 /* post format */
-.mejs-container{
+.mejs-audio{
     margin:48px auto;
     max-width:100%;
     width:320px!important;
@@ -3852,4 +3858,20 @@ html body.ja .rsidebar .lang-ja{
 
 #doc3 #header-image{
    display:none;
+}
+.oembed-container:empty{
+   padding-bottom:8%;
+   margin-bottom:6em;
+}
+.oembed-container:empty:after{
+    content:'MEDIA';
+    display:table-cell;
+    text-align:center;
+    height:120px;
+    vertical-align:middle;
+    width:800px;
+    max-width:100%;
+    background: url("images/sticky.png");
+    visibility:visible;
+
 }

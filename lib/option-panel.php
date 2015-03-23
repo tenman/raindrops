@@ -416,7 +416,97 @@ array( 'option_id'    => 39,
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
         'validate'     => 'raindrops_japanese_date_validate', 
-		'list'         => 38 ),	
+		'list'         => 38 ),
+array( 'option_id'    => 40,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_read_more_after_excerpt",
+        'option_value' => 'no',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Add Read More Link', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Add read more link after excerpt. values yes or no default no', 'Raindrops' ),
+        'validate'     => 'raindrops_read_more_after_excerpt_validate', 
+		'list'         => 39 ),	
+array( 'option_id'    => 41,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_excerpt_enable",
+        'option_value' => 'no',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Use Raindrops Extend Excerpt', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'HTML in Excerpt. values yes or no default no', 'Raindrops' ),
+        'validate'     => 'raindrops_excerpt_enable_validate', 
+		'list'         => 40 ),	
+array( 'option_id'    => 42,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_allow_oembed_excerpt_view",
+        'option_value' => 'yes',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Allow Oembed Media at Raindrops Extend Excerpt', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Overview display, if you set no, you can reduce the load time of the page. values yes or no default yes', 'Raindrops' ),
+        'validate'     => 'raindrops_allow_oembed_excerpt_view_validate', 
+		'list'         => 41 ),	
+array( 'option_id'    => 43,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_place_of_site_title",
+        'option_value' => 'above',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Place of Title', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value default above or header_image', 'Raindrops' ),
+        'validate'     => 'raindrops_place_of_site_title_validate', 
+		'list'         => 42 ),	
+array( 'option_id'    => 44,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_site_title_left_margin",
+        'option_value' => 1,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Left Margin of Site Title', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'Raindrops' ),
+        'validate'     => 'raindrops_site_title_left_margin_validate', 
+		'list'         => 43 ),	
+array( 'option_id'    => 45,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_site_title_top_margin",
+        'option_value' => 1,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Top Margin of Site Title', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'Raindrops' ),
+        'validate'     => 'raindrops_site_title_top_margin_validate', 
+		'list'         => 44 ),	
+array( 'option_id'    => 46,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_site_title_font_size",
+        'option_value' => 'none',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Font Size of Site Title', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'default value none, or 1-10( percent of viewport width )', 'Raindrops' ),
+        'validate'     => 'raindrops_site_title_font_size_validate', 
+		'list'         => 45 ),	
+array( 'option_id'    => 47,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_site_title_css_class",
+        'option_value' => 'none',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Site Title CSS', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'for example google-font-lobster default value none', 'Raindrops' ),
+        'validate'     => 'raindrops_site_title_css_class_validate', 
+		'list'         => 46 ),
+array( 'option_id'    => 47,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_tagline_in_the_header_image",
+        'option_value' => 'show',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Site Title CSS', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'for example google-font-lobster default value none', 'Raindrops' ),
+        'validate'     => 'raindrops_tagline_in_the_header_image_validate', 
+		'list'         => 46 ),		
 );
 }
 
@@ -665,6 +755,7 @@ class raindrops_menu_create {
         $result .= '</div>';
         $result .= '<div id="reset2"></div>';
         $result .= '<div>' . $this->raindrops_form_user_input() . '</div>';
+		
         echo $result;
     }
 
@@ -762,8 +853,6 @@ class raindrops_menu_create {
 
 
 
-
-
         $current_heading_image     = raindrops_warehouse( "raindrops_heading_image" );
         $raindrops_navigation_add  = '';
         $raindrops_navigation_list = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">' . __( 'WordPress Native Theme Options', 'Raindrops' ) . '</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
@@ -777,6 +866,7 @@ class raindrops_menu_create {
         $raindrops_navigation_list .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">' . esc_html__( 'Menus', 'Raindrops' ) . '</a></li>';
         $raindrops_navigation_list .= '<li><a href="' . admin_url( 'theme-editor.php' ) . '">' . esc_html__( 'Theme Editor', 'Raindrops' ) . '</a></li>';
         $raindrops_navigation_list .= '</ul>';
+		$raindrops_navigation_list = '<div class="raindrops-navigation-wrapper">';
 
         if ( true == RAINDROPS_USE_AUTO_COLOR ) {
 
@@ -789,6 +879,7 @@ class raindrops_menu_create {
         $raindrops_navigation_add = '';
         unset( $results[ '_raindrops_indv_css' ] );
         unset( $results[ 'install' ] );
+
         $lines .= "<form action=\"$deliv\" method=\"post\">" . wp_nonce_field( 'update-options' );
 
         foreach ( $results as $key => $val ) {
@@ -1035,8 +1126,10 @@ class raindrops_menu_create {
 
             $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false", 'Raindrops' ) . '</span>' );
         }
+		
 
-        return apply_filters( 'raindrops_form_user_input', $raindrops_navigation_list . '</ul>' . $add_infomation . '</div>' . $lines . '<br style="clear:both" />' );
+
+        return apply_filters( 'raindrops_form_user_input',  $raindrops_navigation_list . '</ul>' . $add_infomation . '</div>' . $lines . '<br style="clear:both" />' );
     }
 
     /**
@@ -1359,7 +1452,6 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
         }
     }
 }
-
 /**
  * RAINDROPS_COLOR_SCHEME
  *

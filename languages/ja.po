@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v1.248\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-03 13:32+0900\n"
-"PO-Revision-Date: 2015-03-03 13:39+0900\n"
+"POT-Creation-Date: 2015-03-20 17:25+0900\n"
+"PO-Revision-Date: 2015-03-20 17:47+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "Language: ja_JP\n"
@@ -54,7 +54,7 @@ msgid "Profile"
 msgstr "プロフィール"
 
 # @ Raindrops
-#: raindrops/author.php:71 raindrops/functions.php:2271
+#: raindrops/author.php:71 raindrops/functions.php:2301
 #, fuzzy
 msgid "Website"
 msgstr "ウェブサイト"
@@ -92,21 +92,21 @@ msgid "No posts by this author."
 msgstr "この著者の投稿はありません"
 
 # @ Raindrops
-#: raindrops/bbpress.php:58 raindrops/functions.php:8295
-#: raindrops/functions.php:8390 raindrops/image.php:100 raindrops/loop.php:92
+#: raindrops/bbpress.php:58 raindrops/functions.php:8696
+#: raindrops/functions.php:8791 raindrops/image.php:100 raindrops/loop.php:92
 #: raindrops/page.php:94 raindrops/part-additional.php:73
 #: raindrops/part-blog.php:103 raindrops/part-blog.php:196
 #: raindrops/part-blog.php:208 raindrops/part-gallery.php:96
 #: raindrops/part.php:50 raindrops/search.php:68
-#: raindrops/lib/option-panel.php:854 raindrops/lib/option-panel.php:857
+#: raindrops/lib/option-panel.php:945 raindrops/lib/option-panel.php:948
 #: raindrops/page-templates/full-width.php:58
 #: raindrops/page-templates/page-featured.php:151
 msgid "Edit"
 msgstr "編集"
 
 # @ Raindrops
-#: raindrops/bbpress.php:60 raindrops/functions.php:4895
-#: raindrops/functions.php:8293 raindrops/image.php:102 raindrops/loop.php:94
+#: raindrops/bbpress.php:60 raindrops/functions.php:4937
+#: raindrops/functions.php:8694 raindrops/image.php:102 raindrops/loop.php:94
 #: raindrops/page.php:96 raindrops/part-additional.php:75
 #: raindrops/part-blog.php:106 raindrops/part-blog.php:198
 #: raindrops/part-blog.php:210 raindrops/part-gallery.php:98
@@ -123,14 +123,14 @@ msgid "Recent Posts"
 msgstr "最近の投稿"
 
 # @ Raindrops
-#: raindrops/blank_front.php:104 raindrops/functions.php:6321
-#: raindrops/functions.php:6712 raindrops/sidebar.php:31
+#: raindrops/blank_front.php:104 raindrops/functions.php:6722
+#: raindrops/functions.php:7113 raindrops/sidebar.php:31
 #, fuzzy
 msgid "Categories"
 msgstr "カテゴリー"
 
 # @ Raindrops
-#: raindrops/blank_front.php:127 raindrops/functions.php:6896
+#: raindrops/blank_front.php:127 raindrops/functions.php:7297
 #, fuzzy
 msgid "Tags"
 msgstr "タグ"
@@ -216,21 +216,21 @@ msgid "Saturday"
 msgstr "土曜日"
 
 # @ Raindrops
-#: raindrops/date.php:120 raindrops/functions.php:3512
+#: raindrops/date.php:120 raindrops/functions.php:3544
 msgid "Yearly Archives"
 msgstr "年別アーカイブ: "
 
 # @ Raindrops
-#: raindrops/date.php:125 raindrops/functions.php:3500
+#: raindrops/date.php:125 raindrops/functions.php:3532
 msgid "Monthly Archives"
 msgstr "月別アーカイブ"
 
 # @ Raindrops
-#: raindrops/date.php:130 raindrops/functions.php:3495
+#: raindrops/date.php:130 raindrops/functions.php:3527
 msgid "Daily Archives"
 msgstr "日別アーカイブ: "
 
-#: raindrops/functions.php:175
+#: raindrops/functions.php:183
 msgid ""
 "This theme can change freely fonts,layout,color scheme and header image for "
 "each post,page. The google fonts, you can use freely in the post more than "
@@ -248,237 +248,237 @@ msgstr ""
 "い方に関するコツも記述されていますので、是非ご覧ください。"
 
 # @ Raindrops
-#: raindrops/functions.php:350
+#: raindrops/functions.php:358
 msgid "Raindrops Help"
 msgstr "Raindrops ヘルプ"
 
-#: raindrops/functions.php:351
+#: raindrops/functions.php:359
 msgid "About Base Color related Class"
 msgstr "ベースカラー連携クラスについて"
 
 # @ Raindrops
-#: raindrops/functions.php:363
+#: raindrops/functions.php:371
 msgid "Raindrops Theme Help"
 msgstr "Raindrops テーマヘルプ"
 
 # @ Raindrops
-#: raindrops/functions.php:364
+#: raindrops/functions.php:372
 msgid "About Raindrops Theme"
 msgstr "Raindropsテーマについて"
 
 # @ Raindrops
-#: raindrops/functions.php:376
+#: raindrops/functions.php:384
 #, fuzzy
 msgid "Raindrops CSS Help"
 msgstr "Raindrops ヘルプ"
 
 # @ Raindrops
-#: raindrops/functions.php:377
+#: raindrops/functions.php:385
 #, fuzzy
 msgid "About Raindrops CSS"
 msgstr "Raindropsテーマについて"
 
 # @ default
-#: raindrops/functions.php:390
+#: raindrops/functions.php:398
 #, fuzzy
 msgid "Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help"
 msgstr "定数　TMN_USE_AUTO_COLOR　が　false　に設定されています"
 
 # @ Raindrops
-#: raindrops/functions.php:524
+#: raindrops/functions.php:532
 msgid "Primary Navigation"
 msgstr "主ナビゲーション"
 
 # @ Raindrops
-#: raindrops/functions.php:1165 raindrops/functions.php:5677
+#: raindrops/functions.php:1191 raindrops/functions.php:5746
 msgid "Default Sidebar"
 msgstr "デフォルトサイドバー"
 
 # @ Raindrops
-#: raindrops/functions.php:1176 raindrops/childs/boots/inc.php:543
+#: raindrops/functions.php:1202 raindrops/childs/boots/inc.php:543
 #: raindrops/lib/option-panel.php:129
 msgid "Extra Sidebar"
 msgstr "エキストラサイドバー"
 
 # @ Raindrops
-#: raindrops/functions.php:1186
+#: raindrops/functions.php:1212
 msgid "Sticky Widget"
 msgstr "スティッキーウィジェット"
 
 # @ Raindrops
-#: raindrops/functions.php:1196
+#: raindrops/functions.php:1222
 msgid "Footer Widget"
 msgstr "フッターウィジェット"
 
-#: raindrops/functions.php:1206
+#: raindrops/functions.php:1232
 msgid "Post Format Status Sidebar"
 msgstr "投稿フォーマット　ステータス　サイドバー"
 
 # @ Raindrops
-#: raindrops/functions.php:1293
+#: raindrops/functions.php:1323
 #, php-format
 msgid "If you add  %s when you must create function %s for data validation"
 msgstr ""
 "フォームに新しい項目(%s)を追加したら、その項目のバリデーション関数（%s）も書"
 "かなければなりませんよ"
 
-#: raindrops/functions.php:1457
+#: raindrops/functions.php:1487
 msgid "Avatar"
 msgstr "アバター"
 
 # @ Raindrops
-#: raindrops/functions.php:1460
+#: raindrops/functions.php:1490
 #, fuzzy
 msgid "says:"
 msgstr "%s <span class=\"says\">より:</span>"
 
 # @ Raindrops
-#: raindrops/functions.php:1464
+#: raindrops/functions.php:1494
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s at %2$s"
 
 # @ Raindrops
-#: raindrops/functions.php:1466 raindrops/functions.php:1504
+#: raindrops/functions.php:1496 raindrops/functions.php:1534
 msgid " Edit "
 msgstr "編集"
 
 # @ Raindrops
-#: raindrops/functions.php:1474
+#: raindrops/functions.php:1504
 #, fuzzy
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは管理者の承認待ちです。"
 
-#: raindrops/functions.php:1488
+#: raindrops/functions.php:1518
 msgid "Reply"
 msgstr "返信"
 
 # @ Raindrops
-#: raindrops/functions.php:1501
+#: raindrops/functions.php:1531
 #, fuzzy
 msgid "Pingback:"
 msgstr "ピンバック:"
 
 # @ Raindrops
-#: raindrops/functions.php:1576 raindrops/functions.php:1582
-#: raindrops/functions.php:1593 raindrops/functions.php:1596
+#: raindrops/functions.php:1606 raindrops/functions.php:1612
+#: raindrops/functions.php:1623 raindrops/functions.php:1626
 msgid "This entry was posted in"
 msgstr " "
 
-#: raindrops/functions.php:1578 raindrops/functions.php:1593
+#: raindrops/functions.php:1608 raindrops/functions.php:1623
 msgid "and tagged"
 msgstr "タグ"
 
 # @ Raindrops
-#: raindrops/functions.php:1625 raindrops/functions.php:8387
+#: raindrops/functions.php:1655 raindrops/functions.php:8788
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] "コメント"
 msgstr[1] "コメント"
 
 # @ Raindrops
-#: raindrops/functions.php:1629
+#: raindrops/functions.php:1659
 #, fuzzy
 msgid "Comment "
 msgstr "コメント"
 
-#: raindrops/functions.php:1657 raindrops/functions.php:3415
-#: raindrops/functions.php:6663 raindrops/functions.php:6846
-#: raindrops/functions.php:7029
+#: raindrops/functions.php:1687 raindrops/functions.php:3447
+#: raindrops/functions.php:7064 raindrops/functions.php:7247
+#: raindrops/functions.php:7430
 #, php-format
 msgid "View all posts by %s"
 msgstr " %sのすべての投稿"
 
-#: raindrops/functions.php:1720
+#: raindrops/functions.php:1750
 msgid "Posted on"
 msgstr " 投稿日"
 
-#: raindrops/functions.php:1720
+#: raindrops/functions.php:1750
 msgid "by"
 msgstr "&nbsp; "
 
 # @ Raindrops
-#: raindrops/functions.php:1826
+#: raindrops/functions.php:1856
 msgid "Theme URI"
 msgstr "テーマ　URI"
 
 # @ Raindrops
-#: raindrops/functions.php:1828 raindrops/part-blog.php:63
+#: raindrops/functions.php:1858 raindrops/part-blog.php:63
 #, fuzzy
 msgid "Author"
 msgstr "作成者"
 
-#: raindrops/functions.php:1830 raindrops/functions.php:1852
+#: raindrops/functions.php:1860 raindrops/functions.php:1882
 msgid "Support"
 msgstr "Support"
 
-#: raindrops/functions.php:1830
+#: raindrops/functions.php:1860
 msgid "http://wordpress.org/support/theme/raindrops"
 msgstr "http://wordpress.org/support/theme/raindrops"
 
-#: raindrops/functions.php:1830
+#: raindrops/functions.php:1860
 msgid "http://ja.forums.wordpress.org/ lang:Japanese"
 msgstr "http://ja.forums.wordpress.org/ lang:Japanese"
 
 # @ Raindrops
-#: raindrops/functions.php:1832
+#: raindrops/functions.php:1862
 msgid "Version"
 msgstr "バージョン"
 
 # @ Raindrops
-#: raindrops/functions.php:1834
+#: raindrops/functions.php:1864
 msgid "Change log text"
 msgstr "変更履歴"
 
 # @ Raindrops
-#: raindrops/functions.php:1834
+#: raindrops/functions.php:1864
 msgid "Changelog , display new window"
 msgstr "変更履歴の表示（新しい画面）"
 
 # @ Raindrops
-#: raindrops/functions.php:1836
+#: raindrops/functions.php:1866
 msgid "Readme text"
 msgstr "説明書き"
 
 # @ Raindrops
-#: raindrops/functions.php:1836
+#: raindrops/functions.php:1866
 msgid "Readme , display new window"
 msgstr "説明の表示（新しい画面)"
 
-#: raindrops/functions.php:1852
+#: raindrops/functions.php:1882
 msgid "English"
 msgstr "英語"
 
-#: raindrops/functions.php:1852
+#: raindrops/functions.php:1882
 msgid "Japanese"
 msgstr "日本語"
 
-#: raindrops/functions.php:1854
+#: raindrops/functions.php:1884
 msgid "How to remove Site Title Block"
 msgstr "サイトタイトルのバナーブロックを非表示にする"
 
-#: raindrops/functions.php:1855
+#: raindrops/functions.php:1885
 msgid "How to remove Post Author Name"
 msgstr "投稿者名を非表示にする"
 
-#: raindrops/functions.php:1856
+#: raindrops/functions.php:1886
 msgid "How to remove Entry Date"
 msgstr "投稿の投稿日を非表示にする"
 
-#: raindrops/functions.php:1857
+#: raindrops/functions.php:1887
 msgid "How to remove Entry Meta"
 msgstr "投稿のカテゴリなどのメタフィールドを非表示にする"
 
-#: raindrops/functions.php:1858
+#: raindrops/functions.php:1888
 msgid "How to remove Archive Title Label[ like Category Archives ]"
 msgstr ""
 "アーカイブタイトルの　「カテゴリアーカイブ」のようなラベルを非表示にする"
 
-#: raindrops/functions.php:1859
+#: raindrops/functions.php:1889
 msgid "How to remove Home list above next prev navigation link"
 msgstr "トップページの、上部にある次のページへのリンクを非表示にする"
 
-#: raindrops/functions.php:1860
+#: raindrops/functions.php:1890
 msgid ""
 "above codes paste style.css last. If not change when  Version value change "
 "( line:9 )"
@@ -488,12 +488,12 @@ msgstr ""
 "みてください"
 
 # @ Raindrops
-#: raindrops/functions.php:1890
+#: raindrops/functions.php:1920
 msgid "Tips"
 msgstr "Tips"
 
 # @ Raindrops
-#: raindrops/functions.php:1891
+#: raindrops/functions.php:1921
 msgid ""
 "If Raindrops Options panel is opened, and the reference color is set, this "
 "arrangement of color is changed at once."
@@ -502,29 +502,29 @@ msgstr ""
 "自動生成します"
 
 # @ Raindrops
-#: raindrops/functions.php:1892
+#: raindrops/functions.php:1922
 msgid "Dinamic Color Class"
 msgstr "動的な色クラス"
 
 # @ Raindrops
-#: raindrops/functions.php:1905 raindrops/functions.php:1924
+#: raindrops/functions.php:1935 raindrops/functions.php:1954
 msgid "code example:please HTML editor mode"
 msgstr "HTMLモードを使ってくださいね"
 
 # @ Raindrops
-#: raindrops/functions.php:1911
+#: raindrops/functions.php:1941
 msgid "Dinamic Gradient Class"
 msgstr "動的なグラデーションクラス"
 
-#: raindrops/functions.php:1927
+#: raindrops/functions.php:1957
 msgid "Font Size CSS Class"
 msgstr "フォントサイズ　CSSクラス"
 
-#: raindrops/functions.php:1928 raindrops/functions.php:1932
+#: raindrops/functions.php:1958 raindrops/functions.php:1962
 msgid "Classes"
 msgstr "クラス"
 
-#: raindrops/functions.php:1929
+#: raindrops/functions.php:1959
 msgid ""
 "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , "
 "f22 , f23 , f24 , f25 , f26"
@@ -532,81 +532,81 @@ msgstr ""
 "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , "
 "f22 , f23 , f24 , f25 , f26"
 
-#: raindrops/functions.php:1931
+#: raindrops/functions.php:1961
 msgid "Google Fonts Family CSS Class"
 msgstr "グーグルフォント　CSS　Class"
 
-#: raindrops/functions.php:1933
+#: raindrops/functions.php:1963
 msgid ""
 "Note, More than 90 percent of the Google font can be used, but there are "
 "some limitations."
 msgstr ""
 "備考　グーグルフォントの90%以上をカバーしますが、いくつかの制限があります。"
 
-#: raindrops/functions.php:1934
+#: raindrops/functions.php:1964
 msgid "Examples of the no corresponding font"
 msgstr "対応しないフォントの例"
 
-#: raindrops/functions.php:1935
+#: raindrops/functions.php:1965
 msgid "Examples of the corresponding font"
 msgstr "対応するフォントの例"
 
-#: raindrops/functions.php:1936
+#: raindrops/functions.php:1966
 msgid "How to specify the font"
 msgstr "フォントの指定方法"
 
-#: raindrops/functions.php:1937
+#: raindrops/functions.php:1967
 msgid "Add prefix google-font- + Font name lowercase and change to - the space"
 msgstr ""
 "プレフィックス　google-font- に続けて、フォント名を小文字に変更し、スペースを"
 "　-　に変更してください。"
 
-#: raindrops/functions.php:1938
+#: raindrops/functions.php:1968
 msgid "How to specify the font weight"
 msgstr "フォントウェイトの指定方法"
 
-#: raindrops/functions.php:1939
+#: raindrops/functions.php:1969
 msgid "How to specify the font style"
 msgstr "フォントスタイルの指定方法"
 
-#: raindrops/functions.php:1942
+#: raindrops/functions.php:1972
 msgid "Example of Custom CSS Meta Box Style Rules"
 msgstr "投稿のカスタムCSSメタボックスのスタイル指定例"
 
-#: raindrops/functions.php:1943
+#: raindrops/functions.php:1973
 msgid "Styling Entry Title"
 msgstr "投稿タイトルへのスタイル適用"
 
-#: raindrops/functions.php:1944
+#: raindrops/functions.php:1974
 msgid "Change entry title color"
 msgstr "投稿タイトルの色を変更"
 
-#: raindrops/functions.php:1945
+#: raindrops/functions.php:1975
 msgid "Styling Posted on"
 msgstr " タイトル下の、投稿者や日付のブロック"
 
-#: raindrops/functions.php:1946
+#: raindrops/functions.php:1976
 msgid "hide posted on from all post"
 msgstr "投稿から、投稿日　著者　ブロックを非表示にする"
 
-#: raindrops/functions.php:1947
+#: raindrops/functions.php:1977
 msgid "Styling Posted in"
 msgstr " 投稿の下部にある、カテゴリやタグを表示するブロック"
 
 # @ Raindrops
-#: raindrops/functions.php:1948
+#: raindrops/functions.php:1978
 msgid "hide posted in"
 msgstr " posted in（カテゴリ、タグの表示ブロック）の非表示"
 
-#: raindrops/functions.php:1949
+#: raindrops/functions.php:1979
 msgid "Styling Article"
 msgstr "投稿全体へのスタイルの適用"
 
-#: raindrops/functions.php:1950
+#: raindrops/functions.php:1980
 msgid "add border and padding"
 msgstr "現在の投稿全体に、ボーダーやパディングを設定する"
 
-#: raindrops/functions.php:1951
+#: raindrops/functions.php:1981
 msgid ""
 "note:article elements and post_class () You can use all of the elements to "
 "be output."
@@ -614,13 +614,13 @@ msgstr ""
 "備考、スタイルは、artile要素　post_class()が出力するすべてのクラスを利用する"
 "ことが出来ます。"
 
-#: raindrops/functions.php:2271
+#: raindrops/functions.php:2301
 #, fuzzy
 msgid "(&nbsp;optional&nbsp;)"
 msgstr "&nbsp;投稿 ID&nbsp;"
 
 # @ Raindrops
-#: raindrops/functions.php:2398
+#: raindrops/functions.php:2428
 #, php-format
 msgid "Sorry Your PHP version is %s Please use PHP version 5 || later."
 msgstr ""
@@ -628,7 +628,7 @@ msgstr ""
 "いないので、PHP５以降を使ってください。"
 
 # @ Raindrops
-#: raindrops/functions.php:2401
+#: raindrops/functions.php:2431
 #, fuzzy, php-format
 msgid ""
 "Thank you for adopting the %1$s theme. It is necessary to set it to this "
@@ -639,408 +639,434 @@ msgstr ""
 "ページを表示させてください"
 
 # @ Raindrops
-#: raindrops/functions.php:2401
+#: raindrops/functions.php:2431
 msgid "Raindrops settings view"
 msgstr "Raindrops 設定"
 
 # @ Raindrops
-#: raindrops/functions.php:3247
+#: raindrops/functions.php:3279
 #, php-format
 msgid "%s Articles archived"
 msgstr "%s 件のアーカイブがあります"
 
 # @ Raindrops
-#: raindrops/functions.php:3476
+#: raindrops/functions.php:3508
 #, fuzzy
 msgid "Search Results"
 msgstr "検索結果"
 
 # @ Raindrops
-#: raindrops/functions.php:3481
+#: raindrops/functions.php:3513
 msgid "Tag Archives"
 msgstr "タグ別アーカイブ: "
 
 # @ Raindrops
-#: raindrops/functions.php:3486
+#: raindrops/functions.php:3518
 #, fuzzy
 msgid "Category Archives"
 msgstr "カテゴリー別アーカイブ: %s"
 
 # @ Raindrops
-#: raindrops/functions.php:3517
+#: raindrops/functions.php:3549
 msgid "Author Archives"
 msgstr "作成者別アーカイブ: "
 
-#: raindrops/functions.php:3528 raindrops/functions.php:3534
-#: raindrops/functions.php:3540 raindrops/functions.php:3546
-#: raindrops/functions.php:3552 raindrops/functions.php:3558
-#: raindrops/functions.php:3564 raindrops/functions.php:3570
-#: raindrops/functions.php:3576
+#: raindrops/functions.php:3560 raindrops/functions.php:3566
+#: raindrops/functions.php:3572 raindrops/functions.php:3578
+#: raindrops/functions.php:3584 raindrops/functions.php:3590
+#: raindrops/functions.php:3596 raindrops/functions.php:3602
+#: raindrops/functions.php:3608
 msgid "Post Format"
 msgstr "投稿フォーマット"
 
 # @ Raindrops
-#: raindrops/functions.php:3581
+#: raindrops/functions.php:3613
 msgid "Blog Archives"
 msgstr "ブログ　アーカイブ"
 
 # @ Raindrops
-#: raindrops/functions.php:4232
+#: raindrops/functions.php:4264
 msgid "Current theme is fluid settings"
 msgstr "現在のテーマは、ページ幅がブラウザにフィットします"
 
 # @ Raindrops
-#: raindrops/functions.php:4232
+#: raindrops/functions.php:4264
 msgid "image size will be shrink to fit page"
 msgstr "画像サイズは、ページサイズにフィットします"
 
 # @ Raindrops
-#: raindrops/functions.php:4233
+#: raindrops/functions.php:4265
 msgid "Theme Settings"
 msgstr "テーマ設定"
 
 # @ Raindrops
-#: raindrops/functions.php:4353 raindrops/functions.php:5413
-#: raindrops/functions.php:5426 raindrops/lib/widgets.php:312
+#: raindrops/functions.php:4385 raindrops/functions.php:5455
+#: raindrops/functions.php:5468 raindrops/lib/widgets.php:312
 msgid "Featured Image"
 msgstr "アイキャッチ 画像"
 
 # @ Raindrops
-#: raindrops/functions.php:4714
+#: raindrops/functions.php:4756
 #, fuzzy, php-format
 msgid " Page %s"
 msgstr "ページ"
 
 # @ Raindrops
-#: raindrops/functions.php:5410 raindrops/childs/boots/inc.php:435
+#: raindrops/functions.php:5452 raindrops/childs/boots/inc.php:435
 #: raindrops/lib/option-panel.php:21
 msgid "Color Scheme"
 msgstr "カラースキーム"
 
 # @ Raindrops
-#: raindrops/functions.php:5417
+#: raindrops/functions.php:5459
 msgid "Featured Image Settings"
 msgstr "アイキャッチ画像設定"
 
 # @ Raindrops
-#: raindrops/functions.php:5418 raindrops/functions.php:5427
+#: raindrops/functions.php:5460 raindrops/functions.php:5469
 msgid "Emphasis of new content using the Featured Image"
 msgstr "アイキャッチ画像を使った、新しい投稿の強調"
 
-#: raindrops/functions.php:5438 raindrops/functions.php:5825
+#: raindrops/functions.php:5480 raindrops/functions.php:5788
+#: raindrops/functions.php:5802 raindrops/functions.php:5917
 #: raindrops/lib/widgets.php:950
 msgid "Yes"
 msgstr "はい"
 
-#: raindrops/functions.php:5439 raindrops/functions.php:5826
+#: raindrops/functions.php:5481 raindrops/functions.php:5787
+#: raindrops/functions.php:5801 raindrops/functions.php:5918
 #: raindrops/lib/widgets.php:941
 msgid "No"
 msgstr "いいえ"
 
-#: raindrops/functions.php:5442 raindrops/childs/boots/inc.php:821
+#: raindrops/functions.php:5484 raindrops/childs/boots/inc.php:821
 #: raindrops/lib/option-panel.php:405
 msgid "USE or Not Emphasis of new content using the Featured Image"
 msgstr "投稿のアイキャッチ画像の強調設定利用の可否"
 
-#: raindrops/functions.php:5443
+#: raindrops/functions.php:5485
 msgid "values yes or no default No"
 msgstr "値は　yes または no　です。　デフォルト設定はnoです"
 
-#: raindrops/functions.php:5458
+#: raindrops/functions.php:5500
 msgid "In front of Title"
 msgstr "投稿タイトルの上部"
 
-#: raindrops/functions.php:5459
+#: raindrops/functions.php:5501
 msgid "Left of Article"
 msgstr "投稿の左側"
 
 # @ Raindrops
-#: raindrops/functions.php:5462 raindrops/childs/boots/inc.php:781
+#: raindrops/functions.php:5504 raindrops/childs/boots/inc.php:781
 #: raindrops/lib/option-panel.php:365
 msgid "Featured Image Position"
 msgstr "アイキャッチ画像の位置"
 
 # @ Raindrops
-#: raindrops/functions.php:5463
+#: raindrops/functions.php:5505
 msgid "Loop Pages Layout of Featured Image"
 msgstr "一覧ページでのアイキャッチ画像のレイアウト"
 
 # @ Raindrops
-#: raindrops/functions.php:5488 raindrops/childs/boots/inc.php:791
+#: raindrops/functions.php:5530 raindrops/childs/boots/inc.php:791
 #: raindrops/lib/option-panel.php:375
 msgid "Featured Image Size"
 msgstr "アイキャッチ画像　サイズ"
 
-#: raindrops/functions.php:5489
+#: raindrops/functions.php:5531
 msgid "values thumbnail, medium, large etc"
 msgstr "値は、values thumbnail, medium, large または、テーマで設定されたサイズ"
 
-#: raindrops/functions.php:5505 raindrops/childs/boots/inc.php:801
+#: raindrops/functions.php:5547 raindrops/childs/boots/inc.php:801
 #: raindrops/lib/option-panel.php:385
 msgid "Featured Image Special Layout Apply Post Count"
 msgstr "アイキャッチ画像の特別な表示を行う件数"
 
-#: raindrops/functions.php:5506
+#: raindrops/functions.php:5548
 msgid "Input Possible values are 1 - "
 msgstr "入力可能な値は、1 -"
 
 # @ Raindrops
-#: raindrops/functions.php:5508
+#: raindrops/functions.php:5550
 #, fuzzy
 msgid " default value 3"
 msgstr "既定のヘッダー画像を使う"
 
-#: raindrops/functions.php:5522 raindrops/functions.php:5698
+#: raindrops/functions.php:5564 raindrops/functions.php:5768
+#: raindrops/functions.php:6043
 msgid "Show"
 msgstr "表示"
 
-#: raindrops/functions.php:5523 raindrops/functions.php:5698
-#: raindrops/functions.php:5708 raindrops/functions.php:5709
-#: raindrops/functions.php:5710
+#: raindrops/functions.php:5565 raindrops/functions.php:5768
+#: raindrops/functions.php:5779 raindrops/functions.php:5780
+#: raindrops/functions.php:5781 raindrops/functions.php:6044
 msgid "Hide"
 msgstr "非表示"
 
-#: raindrops/functions.php:5524
+#: raindrops/functions.php:5566
 msgid "Light Box"
 msgstr "ライトボックス"
 
-#: raindrops/functions.php:5527
+#: raindrops/functions.php:5569
 msgid "Singular ( post, page )"
 msgstr "シングル（投稿、ページ）"
 
-#: raindrops/functions.php:5528
+#: raindrops/functions.php:5570
 msgid ""
 "Featured Image Show, Hide or Lightbox on Singular Post,Page. default Show"
 msgstr "アイキャッチ画像のシングルページ、シングル投稿での表示設定"
 
 # @ Raindrops
-#: raindrops/functions.php:5535
+#: raindrops/functions.php:5577
 msgid "Sidebars"
 msgstr "サイドバー"
 
-#: raindrops/functions.php:5536
+#: raindrops/functions.php:5578
 msgid "Fonts"
 msgstr "フォント"
 
-#: raindrops/functions.php:5537
+#: raindrops/functions.php:5579
 msgid "Document"
 msgstr "ドキュメント"
 
 # @ Raindrops
-#: raindrops/functions.php:5538
+#: raindrops/functions.php:5580
 msgid "Post Content Types"
 msgstr "投稿本文"
 
-#: raindrops/functions.php:5539
+#: raindrops/functions.php:5581
 msgid "Recommend Plugins Presentation"
 msgstr "おすすめプラグイン自動表示"
 
-#: raindrops/functions.php:5540 raindrops/childs/boots/inc.php:748
+#: raindrops/functions.php:5582 raindrops/childs/boots/inc.php:748
 #: raindrops/lib/option-panel.php:334
 msgid "Uninstall Option"
 msgstr "アンインストール設定"
 
-#: raindrops/functions.php:5630
+#: raindrops/functions.php:5672
 msgid "left 160px"
 msgstr "左側　160　ピクセル"
 
-#: raindrops/functions.php:5630
+#: raindrops/functions.php:5672
 msgid "left 180px"
 msgstr "左側　180 ピクセル"
 
-#: raindrops/functions.php:5630
+#: raindrops/functions.php:5672
 msgid "left 300px"
 msgstr "左側 300 ピクセル"
 
-#: raindrops/functions.php:5630
+#: raindrops/functions.php:5672
 msgid "right 180px"
 msgstr "右側 180 ピクセル"
 
-#: raindrops/functions.php:5630
+#: raindrops/functions.php:5672
 msgid "right 240px"
 msgstr "右側 240 ピクセル"
 
-#: raindrops/functions.php:5630
+#: raindrops/functions.php:5672
 msgid "right 300px"
 msgstr "右側 300 ピクセル"
 
-#: raindrops/functions.php:5631
+#: raindrops/functions.php:5673
 msgid "25%"
 msgstr "25パーセント"
 
-#: raindrops/functions.php:5631
+#: raindrops/functions.php:5673
 msgid "33%"
 msgstr "33パーセント"
 
-#: raindrops/functions.php:5631
+#: raindrops/functions.php:5673
 msgid "50%"
 msgstr "50パーセント"
 
-#: raindrops/functions.php:5631
+#: raindrops/functions.php:5673
 msgid "66%"
 msgstr "66パーセント"
 
-#: raindrops/functions.php:5631
+#: raindrops/functions.php:5673
 msgid "75%"
 msgstr "75パーセント"
 
 # @ Raindrops
-#: raindrops/functions.php:5667
+#: raindrops/functions.php:5736
 msgid "Base color"
 msgstr "ベースカラー"
 
 # @ Raindrops
-#: raindrops/functions.php:5668 raindrops/childs/boots/inc.php:454
+#: raindrops/functions.php:5737 raindrops/childs/boots/inc.php:454
 #: raindrops/lib/option-panel.php:40
 msgid "Color Type"
 msgstr "配色タイプ"
 
 # @ Raindrops
-#: raindrops/functions.php:5670
+#: raindrops/functions.php:5739
 #, fuzzy
 msgid "Document Type Definition"
 msgstr "HTML文書型設定"
 
-#: raindrops/functions.php:5671
+#: raindrops/functions.php:5740
 msgid "Force Unique Link Text"
 msgstr "リンクテキストのユニーク化"
 
-#: raindrops/functions.php:5672
+#: raindrops/functions.php:5741
 msgid "Document Width"
 msgstr "ページ幅"
 
-#: raindrops/functions.php:5672
+#: raindrops/functions.php:5741
 msgid "750px Fixed Layout"
 msgstr "750ピクセル固定幅レイアウト"
 
-#: raindrops/functions.php:5672
+#: raindrops/functions.php:5741
 msgid "950px Fixed Layout"
 msgstr "950ピクセル固定幅レイアウト"
 
-#: raindrops/functions.php:5672
+#: raindrops/functions.php:5741
 msgid "Fluid Responsive Layout"
 msgstr "フルード　レスポンシブ　レイアウト"
 
-#: raindrops/functions.php:5686
+#: raindrops/functions.php:5755
 msgid "Disable Keyboad Focus"
 msgstr "キーボードアクセシビリティ"
 
-#: raindrops/functions.php:5691
+#: raindrops/functions.php:5760
 msgid "Disable"
 msgstr "無効"
 
-#: raindrops/functions.php:5692
+#: raindrops/functions.php:5761
 msgid "Enable"
 msgstr "有効"
 
 # @ Raindrops
-#: raindrops/functions.php:5695
+#: raindrops/functions.php:5765
 msgid "Display Extra Sidebar"
 msgstr "エキストラサイドバー表示設定"
 
 # @ Raindrops
-#: raindrops/functions.php:5699 raindrops/childs/boots/inc.php:552
+#: raindrops/functions.php:5770 raindrops/childs/boots/inc.php:552
 #: raindrops/lib/option-panel.php:138
 msgid "Extra Sidebar Width"
 msgstr "エキストラサイドバー　幅"
 
-#: raindrops/functions.php:5704
+#: raindrops/functions.php:5775
 msgid "Display hide"
 msgstr "表示　非表示設定"
 
-#: raindrops/functions.php:5705
+#: raindrops/functions.php:5776
 msgid "Fluid  Max Width (px)"
 msgstr "フルードレスポンシブレイアウトの最大幅"
 
-#: raindrops/functions.php:5708
+#: raindrops/functions.php:5779
 msgid "Home Listed Entry Contents"
 msgstr "トップページの投稿本文"
 
-#: raindrops/functions.php:5708 raindrops/functions.php:5709
-#: raindrops/functions.php:5710
+#: raindrops/functions.php:5779 raindrops/functions.php:5780
+#: raindrops/functions.php:5781
 msgid "Show Content"
 msgstr "本文を表示"
 
-#: raindrops/functions.php:5708 raindrops/functions.php:5709
-#: raindrops/functions.php:5710
+#: raindrops/functions.php:5779 raindrops/functions.php:5780
+#: raindrops/functions.php:5781
 msgid "Show Excerpt"
 msgstr "概要文を表示"
 
 # @ Raindrops
-#: raindrops/functions.php:5709
+#: raindrops/functions.php:5780
 msgid "Category Archives Entry Contents"
 msgstr "カテゴリー別アーカイブの投稿本文"
 
 # @ Raindrops
-#: raindrops/functions.php:5710
+#: raindrops/functions.php:5781
 msgid "Search Result Entry Contents"
 msgstr "検索結果ページの投稿本文"
 
+#: raindrops/functions.php:5783
+msgid "Allow Oembed in Excerpt"
+msgstr "概要表示で、Oembedメディアを表示する"
+
+#: raindrops/functions.php:5790
+#, fuzzy
+msgid "Excerpt Type"
+msgstr "概要文"
+
+#: raindrops/functions.php:5794
+#, fuzzy
+msgid "WordPress Excerpt"
+msgstr "ワードプレス　公式リポジトリ"
+
+#: raindrops/functions.php:5795
+#, fuzzy
+msgid "HTML in Excerpt"
+msgstr "概要文"
+
+#: raindrops/functions.php:5797
+msgid "Add More Link After Excerpt"
+msgstr "概要表示の後に「続きを読む」リンクを追加"
+
 # @ Raindrops
-#: raindrops/functions.php:5715 raindrops/functions.php:5726
+#: raindrops/functions.php:5807 raindrops/functions.php:5818
 msgid "Font Color"
 msgstr "フォントカラー"
 
 # @ Raindrops
-#: raindrops/functions.php:5716 raindrops/functions.php:5728
+#: raindrops/functions.php:5808 raindrops/functions.php:5820
 msgid "Footer Font Color"
 msgstr "フッターテキスト色"
 
 # @ Raindrops
-#: raindrops/functions.php:5717 raindrops/functions.php:5729
+#: raindrops/functions.php:5809 raindrops/functions.php:5821
 #, fuzzy
 msgid "Footer Link Color"
 msgstr "フッターテキスト色"
 
 # @ Raindrops
-#: raindrops/functions.php:5718 raindrops/functions.php:5727
+#: raindrops/functions.php:5810 raindrops/functions.php:5819
 msgid "Link Color"
 msgstr "リンクカラー"
 
-#: raindrops/functions.php:5720 raindrops/functions.php:5731
+#: raindrops/functions.php:5812 raindrops/functions.php:5823
 msgid "Complementary Link Color For Entry Title"
 msgstr "リンク色の補色を投稿タイトルに適用"
 
-#: raindrops/functions.php:5737
+#: raindrops/functions.php:5829
 msgid "Base Font Size"
 msgstr "ベースフォントサイズ"
 
-#: raindrops/functions.php:5747
+#: raindrops/functions.php:5839
 msgid "Breadcrumb NavXT Automatic Presentation"
 msgstr "Breadcrumb NavXT 自動表示"
 
-#: raindrops/functions.php:5757
+#: raindrops/functions.php:5849
 msgid "WP PageNavi Automatic Presentation"
 msgstr "WP PageNavi　自動表示"
 
-#: raindrops/functions.php:5766
+#: raindrops/functions.php:5858
 msgid "Meta Slider ID for HomePage"
 msgstr "メタスライダープラグイン　ID"
 
-#: raindrops/functions.php:5774
+#: raindrops/functions.php:5866
 msgid "The Events Calendar Automatic Presentation"
 msgstr "The Events Calendar プラグイン　自動表示"
 
-#: raindrops/functions.php:5782 raindrops/childs/boots/inc.php:737
+#: raindrops/functions.php:5874 raindrops/childs/boots/inc.php:737
 #: raindrops/lib/option-panel.php:323
 msgid "Synchronize Style for Visual Editor"
 msgstr "ビジュアルエディタをテーマの設定に同期する"
 
-#: raindrops/functions.php:5791
+#: raindrops/functions.php:5883
 msgid "Delete all Theme Settings when Switch Theme"
 msgstr "テーマを切り替えるときにすべてのテーマ設定を削除"
 
-#: raindrops/functions.php:5796
+#: raindrops/functions.php:5888
 msgid "The deleted data can not be restored"
 msgstr "削除されたデータは、復元できません"
 
 # @ Raindrops
-#: raindrops/functions.php:5801 raindrops/childs/boots/inc.php:759
+#: raindrops/functions.php:5893 raindrops/childs/boots/inc.php:759
 #: raindrops/lib/option-panel.php:345
 msgid "Menu Primary Font Size"
 msgstr "主ナビゲーションのフォントサイズ"
 
-#: raindrops/functions.php:5805 raindrops/childs/boots/inc.php:761
+#: raindrops/functions.php:5897 raindrops/childs/boots/inc.php:761
 #: raindrops/lib/option-panel.php:347
 msgid ""
 "Menu Primary Font Size. default value is 100( % ). set font size between 77 "
@@ -1050,28 +1076,82 @@ msgstr ""
 "　182　までです"
 
 # @ Raindrops
-#: raindrops/functions.php:5811
+#: raindrops/functions.php:5903
 msgid "Menu Primary Min Width"
 msgstr "主ナビゲーションの最小幅"
 
-#: raindrops/functions.php:5815
+#: raindrops/functions.php:5907
 msgid "Menu Primary Width. default value is 10 ( em ). set 1 between 95.999"
 msgstr ""
 "プライマリメニューの幅設定　規定値　10( em ) 設定可能な値は、1　から　96　未"
 "満までの範囲です。"
 
-#: raindrops/functions.php:5820 raindrops/childs/boots/inc.php:831
+#: raindrops/functions.php:5912 raindrops/childs/boots/inc.php:831
 #: raindrops/lib/option-panel.php:415
 msgid "USE or Not Japanese Date"
 msgstr "日付の和暦表示"
 
-#: raindrops/functions.php:5835
-#, fuzzy
+#: raindrops/functions.php:5927
 msgid "Move Tagline Position from top right to header image"
-msgstr "タグラインを、ページ右上隅に移動"
+msgstr "タグラインを、ページ右上隅に移動します"
+
+#: raindrops/functions.php:5946
+msgid "Place of the Title"
+msgstr "タイトルの表示場所"
+
+# @ Raindrops
+#: raindrops/functions.php:5951
+msgid "Above the header image"
+msgstr "ヘッダー画像の上に表示"
+
+# @ Raindrops
+#: raindrops/functions.php:5952
+msgid "In the header image"
+msgstr "ヘッダー画像の中に表示"
+
+# @ Raindrops
+#: raindrops/functions.php:5963
+msgid "Left Margin in the header image"
+msgstr "サイトタイトルの左マージン"
+
+#: raindrops/functions.php:5967
+msgid " default value is 1. set 0 between 100 ( percent )"
+msgstr "初期設定では　1、設定可能な値は1-100（パーセント)"
+
+# @ Raindrops
+#: raindrops/functions.php:5978
+msgid "Top Margin in the header image"
+msgstr "サイトタイトルの上部マージン"
+
+#: raindrops/functions.php:5982
+msgid " default value is 1 . set 0 between 100 ( percent )"
+msgstr "初期設定では　1、設定可能な値は1-100（パーセント)"
+
+#: raindrops/functions.php:5993 raindrops/functions.php:6009
+#: raindrops/lib/option-panel.php:485
+msgid "Font Size of Site Title"
+msgstr "サイトタイトルのフォントサイズ"
+
+#: raindrops/functions.php:5997 raindrops/functions.php:6013
+#: raindrops/lib/option-panel.php:487
+msgid "default value none, or 1-10( percent of viewport width )"
+msgstr ""
+"初期設定ではnone,設定可能な値は1-10(ブラウザ幅に対するパーセントサイズ)"
+
+#: raindrops/functions.php:6024
+msgid "CSS Class of Site Title"
+msgstr "サイトタイトルのCSS クラス"
+
+#: raindrops/functions.php:6028
+msgid "add your own CSS class"
+msgstr "特別なCSSクラスの追加"
+
+#: raindrops/functions.php:6038
+msgid "Tagline in the header image"
+msgstr "ヘッダー画像内のタグライン"
 
 # @ default
-#: raindrops/functions.php:5958
+#: raindrops/functions.php:6168
 #, fuzzy, php-format
 msgid ""
 "add_action(  '%1$s', 'your_function'  ) or add template part file the name "
@@ -1080,146 +1160,146 @@ msgstr ""
 "add_action( '%1$s', 'your_function' ) あるいは'%2$s'.テンプレートを追加してい"
 "ただく事で、この場所にコンテンツを追加できます"
 
-#: raindrops/functions.php:6234 raindrops/functions.php:8491
-#: raindrops/part-additional.php:44
+#: raindrops/functions.php:6633 raindrops/functions.php:8892
+#: raindrops/functions.php:10272 raindrops/part-additional.php:44
 msgid "Continue&nbsp;reading "
 msgstr "続きを読む"
 
-#: raindrops/functions.php:6234 raindrops/functions.php:8491
-#: raindrops/part-additional.php:44
+#: raindrops/functions.php:6633 raindrops/functions.php:8892
+#: raindrops/functions.php:10274 raindrops/part-additional.php:44
 msgid "&nbsp;Post ID&nbsp;"
 msgstr "&nbsp;投稿 ID&nbsp;"
 
-#: raindrops/functions.php:6270
+#: raindrops/functions.php:6671
 msgid " Older posts"
 msgstr "過去の投稿"
 
 # @ Raindrops
-#: raindrops/functions.php:6270
+#: raindrops/functions.php:6671
 msgid "Newer posts"
 msgstr "新しい投稿"
 
 # @ Raindrops
-#: raindrops/functions.php:6316 raindrops/sidebar.php:23
+#: raindrops/functions.php:6717 raindrops/sidebar.php:23
 #: raindrops/lib/widgets.php:701 raindrops/lib/widgets.php:859
 #, fuzzy
 msgid "Archives"
 msgstr "アーカイブ"
 
 # @ Raindrops
-#: raindrops/functions.php:6524
+#: raindrops/functions.php:6925
 msgid "Recent Post"
 msgstr "最近の投稿"
 
 # @ Raindrops
-#: raindrops/functions.php:6615
+#: raindrops/functions.php:7016
 msgid "Recent Post Featured Image"
 msgstr "最近の投稿のアイキャッチ画像"
 
-#: raindrops/functions.php:6624 raindrops/functions.php:6809
-#: raindrops/functions.php:6990
+#: raindrops/functions.php:7025 raindrops/functions.php:7210
+#: raindrops/functions.php:7391
 msgid "Recent Post Fallback Image"
 msgstr "最近の投稿のフォールバック画像"
 
 # @ Raindrops
-#: raindrops/functions.php:6797
+#: raindrops/functions.php:7198
 msgid "Category Post Featured Image"
 msgstr "カテゴリ　アイキャッチ画像"
 
 # @ Raindrops
-#: raindrops/functions.php:6978
+#: raindrops/functions.php:7379
 msgid "tag Post Featured Image"
 msgstr "タグ　アイキャッチ画像"
 
-#: raindrops/functions.php:7080
+#: raindrops/functions.php:7481
 #, php-format
 msgid "&laquo; %s "
 msgstr "&laquo; %s "
 
-#: raindrops/functions.php:7092
+#: raindrops/functions.php:7493
 #, fuzzy, php-format
 msgid " %s &raquo;"
 msgstr "新しい投稿 &raquo;"
 
 # @ Raindrops
-#: raindrops/functions.php:7477
+#: raindrops/functions.php:7878
 msgid "Go to Attachment page"
 msgstr "添付ファイルへ"
 
 # @ Raindrops
-#: raindrops/functions.php:8257
+#: raindrops/functions.php:8658
 msgid "Empty content"
 msgstr "空白コンテンツ"
 
-#: raindrops/functions.php:8311
+#: raindrops/functions.php:8712
 msgid "&laquo; Older Entries"
 msgstr "&laquo; 古い投稿"
 
-#: raindrops/functions.php:8316
+#: raindrops/functions.php:8717
 msgid "Newer Entries &raquo;"
 msgstr "新しい投稿 &raquo;"
 
 # @ Raindrops
-#: raindrops/functions.php:8406 raindrops/functions.php:8410
-#: raindrops/functions.php:8416 raindrops/functions.php:8446
+#: raindrops/functions.php:8807 raindrops/functions.php:8811
+#: raindrops/functions.php:8817 raindrops/functions.php:8847
 #: raindrops/lib/widgets.php:634
 #, fuzzy
 msgid "Page"
 msgstr "ページ"
 
-#: raindrops/functions.php:8439 raindrops/functions.php:8459
+#: raindrops/functions.php:8840 raindrops/functions.php:8860
 msgid "Portfolio Home"
 msgstr "ポートフォリオ　ホーム"
 
-#: raindrops/functions.php:8462
+#: raindrops/functions.php:8863
 msgid "Home"
 msgstr "Home"
 
-#: raindrops/functions.php:8598
+#: raindrops/functions.php:8999
 msgctxt ""
 msgid "Child Page : "
 msgid_plural "Child Pages : "
 msgstr[0] "子ページ"
 msgstr[1] "子ページ"
 
-#: raindrops/functions.php:8807
+#: raindrops/functions.php:9208
 msgid "Custom CSS For This Entry"
 msgstr "この投稿のカスタムCSS"
 
-#: raindrops/functions.php:8895
+#: raindrops/functions.php:9296
 msgid "Add Front Page"
 msgstr "固定フロントページに追加"
 
-#: raindrops/functions.php:8896
+#: raindrops/functions.php:9297
 msgid "Add Front Page This Content"
 msgstr "このコンテンツを固定フロントページに追加"
 
-#: raindrops/functions.php:8897
+#: raindrops/functions.php:9298
 msgid "No Need"
 msgstr "必要ありません"
 
 # @ Raindrops
-#: raindrops/functions.php:8903 raindrops/functions.php:8927
+#: raindrops/functions.php:9304 raindrops/functions.php:9328
 msgid "Override header Image"
 msgstr "投稿のカスタムヘッダー画像"
 
 # @ Raindrops
-#: raindrops/functions.php:8907
+#: raindrops/functions.php:9308
 msgid "Hide Header Image"
 msgstr "この投稿ではヘッダー画像を表示しない"
 
 # @ Raindrops
-#: raindrops/functions.php:8908
+#: raindrops/functions.php:9309
 msgid "Default Image"
 msgstr "既定のヘッダー画像を使う"
 
 # @ Raindrops
-#: raindrops/functions.php:8923
+#: raindrops/functions.php:9324
 #, fuzzy
 msgid "Add Custom Header"
 msgstr "カスタムヘッダー"
 
-#: raindrops/functions.php:8928
+#: raindrops/functions.php:9329
 msgid ""
 "Now Selected Front Page template,You can use Featured Image for override "
 "header image"
@@ -1227,38 +1307,38 @@ msgstr ""
 "現在フロントページテンプレートが選択されています。アイキャッチ画像をセットす"
 "ると、ヘッダーイメージを上書きすることが出来ます。"
 
-#: raindrops/functions.php:8932
+#: raindrops/functions.php:9333
 msgid "The Custom CSS Field only for the current post"
 msgstr "カスタムCSSフィールドは、この投稿だけにしかスタイルが適用されません"
 
 # @ Raindrops
-#: raindrops/functions.php:9170
+#: raindrops/functions.php:9603
 msgid "and"
 msgstr "　"
 
-#: raindrops/functions.php:9173
+#: raindrops/functions.php:9606
 msgid "Entries RSS"
 msgstr "投稿フィード"
 
 # @ Raindrops
-#: raindrops/functions.php:9173
+#: raindrops/functions.php:9606
 msgid "Comments RSS"
 msgstr "コメントフィード"
 
 # @ Raindrops
-#: raindrops/functions.php:9180 raindrops/functions.php:9183
-#: raindrops/lib/option-panel.php:1025 raindrops/lib/option-panel.php:1028
+#: raindrops/functions.php:9613 raindrops/functions.php:9616
+#: raindrops/lib/option-panel.php:1116 raindrops/lib/option-panel.php:1119
 msgid "Raindrops Theme"
 msgstr "レインドロップス　テーマ"
 
 # @ Raindrops
-#: raindrops/functions.php:9749
+#: raindrops/functions.php:10182
 #, fuzzy
 msgid "Parent Category:"
 msgstr "カテゴリー："
 
 # @ Raindrops
-#: raindrops/functions.php:9762
+#: raindrops/functions.php:10195
 #, fuzzy
 msgid "Child Category:"
 msgstr "カテゴリー："
@@ -1335,7 +1415,7 @@ msgid "Link to Category"
 msgstr "カテゴリリンク"
 
 # @ Raindrops
-#: raindrops/search.php:90
+#: raindrops/search.php:91
 msgid ""
 "Nothing was found though it was regrettable. Please change the key word if "
 "it is good, and retrieve it."
@@ -1731,988 +1811,1049 @@ msgstr "値は、表示,非表示　またはライトボックス（縦方向�
 msgid "values yes or no default no"
 msgstr "設定可能な値は、yes または　no　です。規定値は no"
 
-#: raindrops/lib/option-panel.php:523
+#: raindrops/lib/option-panel.php:425
+msgid "Add Read More Link"
+msgstr "「続きを読む」リンクの追加"
+
+#: raindrops/lib/option-panel.php:427
+#, fuzzy
+msgid "Add read more link after excerpt. values yes or no default no"
+msgstr "設定可能な値は、yes または　no　です。規定値は no"
+
+# @ Raindrops
+#: raindrops/lib/option-panel.php:435
+#, fuzzy
+msgid "Use Raindrops Extend Excerpt"
+msgstr "テーマ、レインドロップスの拡張設定"
+
+#: raindrops/lib/option-panel.php:437
+#, fuzzy
+msgid "HTML in Excerpt. values yes or no default no"
+msgstr "設定可能な値は、yes または　no　です。規定値は no"
+
+#: raindrops/lib/option-panel.php:445
+msgid "Allow Oembed Media at Raindrops Extend Excerpt"
+msgstr "レインドロップス概要表示でOEmbedメディアの表示"
+
+#: raindrops/lib/option-panel.php:447
+msgid ""
+"Overview display, if you set no, you can reduce the load time of the page. "
+"values yes or no default yes"
+msgstr ""
+"概要表示、noをセットするとページのロード時間を節約できます。設定可能な値は"
+"yes またはno"
+
+#: raindrops/lib/option-panel.php:455
+msgid "Place of Title"
+msgstr "サイトタイトルの表示位置"
+
+#: raindrops/lib/option-panel.php:457
+msgid "value default above or header_image"
+msgstr "設定可能な値は、above または、header_image"
+
+#: raindrops/lib/option-panel.php:465
+#, fuzzy
+msgid "Left Margin of Site Title"
+msgstr "投稿の左側"
+
+#: raindrops/lib/option-panel.php:467 raindrops/lib/option-panel.php:477
+msgid "Works only Place of Title value set header_image, default value  1"
+msgstr "サイトタイトルをヘッダー画像内に設定した場合のみ、初期設定は 1"
+
+#: raindrops/lib/option-panel.php:475
+msgid "Top Margin of Site Title"
+msgstr "サイトタイトルの上部スペース"
+
+#: raindrops/lib/option-panel.php:495 raindrops/lib/option-panel.php:505
+msgid "Site Title CSS"
+msgstr "サイトタイトルのCSS"
+
+#: raindrops/lib/option-panel.php:497 raindrops/lib/option-panel.php:507
+msgid "for example google-font-lobster default value none"
+msgstr "例えば、google-font-lobster 初期設定値は　none"
+
+#: raindrops/lib/option-panel.php:613
 msgid "Post Errors 14"
 msgstr "投稿エラー14"
 
-#: raindrops/lib/option-panel.php:528
+#: raindrops/lib/option-panel.php:618
 msgid "Post Errors 18"
 msgstr "投稿エラー18"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:558
+#: raindrops/lib/option-panel.php:648
 msgid " Theme Settings"
 msgstr "テーマ設定"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:565
+#: raindrops/lib/option-panel.php:655
 msgid "Saved Database table name:"
 msgstr "この設定が保存されるデータベーステーブル"
 
-#: raindrops/lib/option-panel.php:568
+#: raindrops/lib/option-panel.php:658
 msgid "Now, Raindrops Not Using Database Table"
 msgstr "現在　テータベースのフィールドを使用していません"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:629
+#: raindrops/lib/option-panel.php:719
 #, fuzzy
 msgid "updated saved database successfully."
 msgstr "%1$s の更新に成功しました。"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:632 raindrops/lib/option-panel.php:659
+#: raindrops/lib/option-panel.php:722 raindrops/lib/option-panel.php:749
 #, fuzzy, php-format
 msgid "updated %1$s successfully."
 msgstr "%1$s の更新に成功しました。"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:637
+#: raindrops/lib/option-panel.php:727
 msgid " MultiSite User must Click here !!"
 msgstr "マルチサイトの方は、ここをクリックする必要があります"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:662
+#: raindrops/lib/option-panel.php:752
 #, php-format
 msgid "updated %s fail."
 msgstr " %sの更新に失敗しました"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:769
+#: raindrops/lib/option-panel.php:858
 msgid "WordPress Native Theme Options"
 msgstr "ワードプレスのデザイン設定"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:772
+#: raindrops/lib/option-panel.php:861
 msgid "Theme customizer"
 msgstr "テーマカスタマイザー"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:774
+#: raindrops/lib/option-panel.php:863
 msgid "Custom Header"
 msgstr "カスタムヘッダー"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:775
+#: raindrops/lib/option-panel.php:864
 msgid "Custom Background"
 msgstr "カスタム背景"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:776
+#: raindrops/lib/option-panel.php:865
 msgid "Widget"
 msgstr "ウィジェット"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:777
+#: raindrops/lib/option-panel.php:866
 msgid "Menus"
 msgstr "メニュー"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:778
+#: raindrops/lib/option-panel.php:867
 msgid "Theme Editor"
 msgstr "テーマファイルの編集"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:783
+#: raindrops/lib/option-panel.php:873
 msgid "Raindrops Extend Theme Options"
 msgstr "テーマ、レインドロップスの拡張設定"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:803
+#: raindrops/lib/option-panel.php:894
 msgid "go to Color Type"
 msgstr "配色タイプへ移動"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:806
+#: raindrops/lib/option-panel.php:897
 msgid "Go to upload form"
 msgstr "アップロードフォームへ移動"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:809
+#: raindrops/lib/option-panel.php:900
 msgid "Go to Base Color"
 msgstr "フォント色へ移動"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:854 raindrops/lib/option-panel.php:857
+#: raindrops/lib/option-panel.php:945 raindrops/lib/option-panel.php:948
 #, fuzzy
 msgid "Value"
 msgstr "値"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:857
+#: raindrops/lib/option-panel.php:948
 #, fuzzy
 msgid "Color"
 msgstr "色"
 
-#: raindrops/lib/option-panel.php:1006
+#: raindrops/lib/option-panel.php:1097
 msgid "Save"
 msgstr "保存"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1018
+#: raindrops/lib/option-panel.php:1109
 msgid "Please reload this page ex. windows F5"
 msgstr "恐縮ですが、このページをリロード(F5)してください。"
 
 # @ default
-#: raindrops/lib/option-panel.php:1036
+#: raindrops/lib/option-panel.php:1127
 msgid "Now constant RAINDROPS_USE_AUTO_COLOR is false"
 msgstr "定数　TMN_USE_AUTO_COLOR　が　false　に設定されています"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1128
+#: raindrops/lib/option-panel.php:1221
 msgid "Image Upload"
 msgstr "画像アップロード"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1130
+#: raindrops/lib/option-panel.php:1223
 #, fuzzy
 msgid "Upload"
 msgstr "アップロード"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1133
+#: raindrops/lib/option-panel.php:1226
 msgid "Purpose:"
 msgstr "用途"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1136
+#: raindrops/lib/option-panel.php:1229
 #, fuzzy
 msgid "Header Image"
 msgstr "ヘッダー画像"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1140
+#: raindrops/lib/option-panel.php:1233
 msgid "Footer Image"
 msgstr "フッター画像"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1142
+#: raindrops/lib/option-panel.php:1235
 msgid "Style:"
 msgstr "スタイル:"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1144
+#: raindrops/lib/option-panel.php:1237
 #, fuzzy
 msgid "no-repeat"
 msgstr "繰り返しなし"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1147
+#: raindrops/lib/option-panel.php:1240
 msgid "repeat-x"
 msgstr "横方向に繰り返し"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1148
+#: raindrops/lib/option-panel.php:1241
 msgid "position:"
 msgstr "位置"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1149
+#: raindrops/lib/option-panel.php:1242
 #, fuzzy
 msgid "top:"
 msgstr "上"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1150 raindrops/lib/option-panel.php:1153
-#: raindrops/lib/option-panel.php:1156
+#: raindrops/lib/option-panel.php:1243 raindrops/lib/option-panel.php:1246
+#: raindrops/lib/option-panel.php:1249
 msgid "px"
 msgstr "ピクセル"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1151
+#: raindrops/lib/option-panel.php:1244
 #, fuzzy
 msgid "left:"
 msgstr "左"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1154
+#: raindrops/lib/option-panel.php:1247
 #, fuzzy
 msgid "box height:"
 msgstr "高さの上限"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1163
+#: raindrops/lib/option-panel.php:1256
 msgid "Go to current header image"
 msgstr "ヘッダー画像の項目へ"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1166
+#: raindrops/lib/option-panel.php:1259
 msgid "Go to current footer image"
 msgstr "フッター画像の項目へ"
 
-#: raindrops/lib/option-panel.php:1193
+#: raindrops/lib/option-panel.php:1286
 msgid "Cannot be trusted data"
 msgstr "信頼できないデータ"
 
-#: raindrops/lib/option-panel.php:1198
+#: raindrops/lib/option-panel.php:1291
 msgid "Can not Upload Security issue"
 msgstr "安全性の問題で、アップロードできません"
 
-#: raindrops/lib/option-panel.php:1209
+#: raindrops/lib/option-panel.php:1302
 msgid "purpose no data"
 msgstr "purpose no data"
 
-#: raindrops/lib/option-panel.php:1219
+#: raindrops/lib/option-panel.php:1312
 msgid "style no data"
 msgstr "style no data"
 
-#: raindrops/lib/option-panel.php:1229
+#: raindrops/lib/option-panel.php:1322
 msgid "position top no data"
 msgstr "position top no data"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1239
+#: raindrops/lib/option-panel.php:1332
 msgid "position no data"
 msgstr "position データがありません"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1249
+#: raindrops/lib/option-panel.php:1342
 msgid "box height no data"
 msgstr "表示枠高さのデータがありません"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1261
+#: raindrops/lib/option-panel.php:1354
 #, php-format
 msgid "%s is not permitted filetype."
 msgstr "%sは許可されていないファイルタイプです"
 
-#: raindrops/lib/option-panel.php:1267
+#: raindrops/lib/option-panel.php:1360
 #, php-format
 msgid "%s function is not exists"
 msgstr "%s　関数がありません"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1332
+#: raindrops/lib/option-panel.php:1425
 #, php-format
 msgid "%d px * %d width too big. limit %d px"
 msgstr "%d px * %d は画像サイズが大きすぎます　最大 %d pxに制限しています"
 
-#: raindrops/lib/option-panel.php:1352
+#: raindrops/lib/option-panel.php:1445
 msgid "It failed in up-loading."
 msgstr "アップロード　失敗"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 #, fuzzy
 msgid "none"
 msgstr "なし"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "toki"
 msgstr "とき色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tutuji"
 msgstr "つつじ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sakura"
 msgstr "桜色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "bara"
 msgstr "ばら色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "karakurenai"
 msgstr "からくれない"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sango"
 msgstr "さんご色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "koubai"
 msgstr "紅梅（こうばい）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "momo"
 msgstr "桃色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "beni"
 msgstr "紅色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "beniaka"
 msgstr "紅赤"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "enji"
 msgstr "えんじ"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "suou"
 msgstr "蘇芳（すおう）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "akane"
 msgstr "茜（あかね）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "aka"
 msgstr "赤"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "syu"
 msgstr "朱色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "benikaba"
 msgstr "紅樺（べにかば）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "benihi"
 msgstr "紅緋（べにひ）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "entan"
 msgstr "鉛丹"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "beniebitya"
 msgstr "紅海老茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tobi"
 msgstr "とび色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "azuki"
 msgstr "小豆（あずき）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "bengara"
 msgstr "弁柄（べんがら）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ebitya"
 msgstr "海老茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kinaka"
 msgstr "金赤"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "akatya"
 msgstr "赤茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "akasabi"
 msgstr "赤錆色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ouni"
 msgstr "黄丹（おうに）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sekitou"
 msgstr "赤橙"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kaki"
 msgstr "柿色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "nikkei"
 msgstr "肉桂（にっけい）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kaba"
 msgstr "樺（かば）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "renga"
 msgstr "れんが色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sabi"
 msgstr "錆色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "hiwada"
 msgstr "檜皮（ひわだ）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kuri"
 msgstr "栗色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kiaka"
 msgstr "黄赤"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "taisya"
 msgstr "たいしゃ"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "rakuda"
 msgstr "らくだ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kitye"
 msgstr "黄茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "hadairo"
 msgstr "肌色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "daidai"
 msgstr "橙色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "haitya"
 msgstr "灰茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tya"
 msgstr "茶色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kogetya"
 msgstr "焦茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kouji"
 msgstr "こうじ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "anzu"
 msgstr "杏色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "mikan"
 msgstr "蜜柑色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kassyoku"
 msgstr "褐色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tutiiro"
 msgstr "土色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "komugi"
 msgstr "小麦色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kohaku"
 msgstr "こはく色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kintya"
 msgstr "金茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tamago"
 msgstr "卵色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "yamabuki"
 msgstr "山吹色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "oudo"
 msgstr "黄土色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kutiba"
 msgstr "朽葉（くちば）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "himawari"
 msgstr "ひまわり色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ukon"
 msgstr "うこん色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "suna"
 msgstr "砂色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "karasi"
 msgstr "芥子（からし）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ki"
 msgstr "黄色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tanpopo"
 msgstr "たんぽぽ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "uguisutya"
 msgstr "鶯茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tyuki"
 msgstr "中黄"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kariyasu"
 msgstr "刈安（かりやす）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kihada"
 msgstr "きはだ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "miru"
 msgstr "みる色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "biwa"
 msgstr "ひわ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "uguisu"
 msgstr "鶯（うぐいす）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "mattya"
 msgstr "抹茶色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kimidori"
 msgstr "黄緑"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "koke"
 msgstr "苔色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "wakakusa"
 msgstr "若草色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "moegi"
 msgstr "萌黄（もえぎ）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kusa"
 msgstr "草色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "wakaba"
 msgstr "若葉色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "matuba"
 msgstr "松葉色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "byakuroku"
 msgstr "白緑（びゃくろく）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "midori"
 msgstr "緑"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tokiwa"
 msgstr "常磐（ときわ）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "rokusyou"
 msgstr "緑青（ろくしょう）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "titosemidori"
 msgstr "千歳緑（ちとせみどり）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "fukamidori"
 msgstr "深緑"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "wakatake"
 msgstr "若竹色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "seiji"
 msgstr "青磁色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "aotake"
 msgstr "青竹色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tetu"
 msgstr "鉄色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "aomidori"
 msgstr "青緑"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sabiasagi"
 msgstr "錆浅葱"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "mizuasagi"
 msgstr "水浅葱"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sinbasi"
 msgstr "新橋色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "asagi"
 msgstr "浅葱（あさぎ）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "byakugun"
 msgstr "白群（びゃくぐん）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "nando"
 msgstr "納戸色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kamenozoki"
 msgstr "かめのぞき"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "mizu"
 msgstr "水色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ainezu"
 msgstr "藍鼠（あいねず）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sora"
 msgstr "空色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ao"
 msgstr "青"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ai"
 msgstr "藍色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "koiai"
 msgstr "濃藍（こいあい）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "wasurenagusa"
 msgstr "勿忘草（わすれなぐさ）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tuyukusa"
 msgstr "露草色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "hanada"
 msgstr "はなだ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "konjou"
 msgstr "紺青（こんじょう）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ruri"
 msgstr "るり色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "rurikon"
 msgstr "るり紺"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kon"
 msgstr "紺色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kakitubata"
 msgstr "かきつばた色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kati"
 msgstr "勝色（かちいろ）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "gunjou"
 msgstr "群青（ぐんじょう）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tetukon"
 msgstr "鉄紺"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "fujinando"
 msgstr "藤納戸"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kikyou"
 msgstr "ききょう色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "konai"
 msgstr "紺藍"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "fuji"
 msgstr "藤色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "fujimurasaki"
 msgstr "藤紫"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "aomurasaki"
 msgstr "青紫"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sumire"
 msgstr "菫（すみれ）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "hatoba"
 msgstr "鳩羽（はとば）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "syoubu"
 msgstr "しょうぶ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "edomurasaki"
 msgstr "江戸紫"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "murasaki"
 msgstr "紫"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kodaimurasaki"
 msgstr "古代紫"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "nasukon"
 msgstr "なす紺"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sikon"
 msgstr "紫紺"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ayame"
 msgstr "あやめ色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "botan"
 msgstr "牡丹（ぼたん）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "akamurasaki"
 msgstr "赤紫"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "siro"
 msgstr "白"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "gofun"
 msgstr "胡粉（ごふん）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kinari"
 msgstr "生成り（きなり）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "zouge"
 msgstr "象牙（ぞうげ）色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "ginnezu"
 msgstr "銀鼠（ぎんねず）"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tyanezumi"
 msgstr "茶鼠"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "nezumi"
 msgstr "鼠色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "rikyunezumi"
 msgstr "利休鼠"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "namari"
 msgstr "鉛色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "hai"
 msgstr "灰色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "susutake"
 msgstr "すす竹色"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kurotya"
 msgstr "黒茶"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "sumi"
 msgstr "墨"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "kuro"
 msgstr "黒"
 
 # @ Raindrops
-#: raindrops/lib/option-panel.php:1370
+#: raindrops/lib/option-panel.php:1462
 msgid "tetukuro"
 msgstr "鉄黒"
 

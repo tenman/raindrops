@@ -1,4 +1,67 @@
 <?php
+function raindrops_tagline_in_the_header_image_validate( $input ) {
+	
+	if( $input == 'show' || $input == 'hide' ) {
+		return $input;
+	}	
+	return 'show';	
+}
+function raindrops_site_title_css_class_validate( $input ) {
+	
+	$input = wp_kses( $input, array() );
+	
+	return $input;
+	
+}
+function raindrops_site_title_font_size_validate( $input ) {
+	
+	if( is_numeric( $input ) && $input < 11 ) {
+		return $input;
+	}
+	return 'none';
+}
+function raindrops_site_title_top_margin_validate( $input ) {
+	
+	if( is_numeric( $input ) && $input < 101 ) {
+		return $input;
+	}
+	return 0;	
+}
+function raindrops_site_title_left_margin_validate( $input ) {
+	
+	if( is_numeric( $input ) && $input < 101 ) {
+		return $input;
+	}
+	return 0;	
+}
+function raindrops_place_of_site_title_validate( $input ) {
+	
+	if( $input == 'above' || $input == 'header_image' ) {
+		return $input;
+	}	
+	return 'above';
+}
+function raindrops_allow_oembed_excerpt_view_validate( $input ) {
+
+	if( $input == 'yes' || $input == 'no' ) {
+		return $input;
+	}
+	return 'yes';	
+}
+function raindrops_excerpt_enable_validate( $input ) {
+
+	if( $input == 'yes' || $input == 'no' ) {
+		return $input;
+	}
+	return 'no';
+}
+function raindrops_read_more_after_excerpt_validate( $input ) {
+
+	if( $input == 'yes' || $input == 'no' ) {
+		return $input;
+	}
+	return 'no';	
+}
 function raindrops_japanese_date_validate( $input ) {
 	
 	if( $input == 'yes' || $input == 'no' ) {
@@ -677,7 +740,7 @@ if ( !function_exists( 'raindrops_update_theme_option' ) ) {
 
 			if ( $old_val !== $new_value ) {
 
-				if ( !function_exists( $validate_function_name ) ) {
+				if ( function_exists( $validate_function_name ) ) {
 
 					$options[ $option ] = $validate_function_name( $new_value );
 

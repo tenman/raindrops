@@ -85,12 +85,14 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
                     </ul>
                 <?php } else { ?>
                     <div class="fail-search">
+						<?php do_action( 'raindrops_prepend_fail_search');?>
                         <h2 class="center h2">
                             <?php
                             esc_html_e( "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.", "Raindrops" );
                             ?>
                         </h2>
                         <?php get_search_form(); ?>
+						<?php do_action( 'raindrops_append_fail_search');?>
                     </div>
                 <?php } ?>
                 <?php raindrops_append_loop(); ?>

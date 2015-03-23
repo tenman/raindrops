@@ -870,7 +870,8 @@ function raindrops_gallerys_clone() {
     return false;
   }
   
- 
+ if ( !function_exists( 'raindrops_detect_header_image_size_clone' ) ) {
+	 
 	function raindrops_detect_header_image_size_clone( $xy = 'width' ) {
 
 		global $raindrops_custom_header_args;
@@ -953,6 +954,6 @@ function raindrops_gallerys_clone() {
 		}
 		return false;
 	}
-
+ }
 
 ?>

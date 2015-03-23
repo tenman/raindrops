@@ -18,7 +18,7 @@ function raindrops_the_events_calendar_deactivate_check() {
 
 register_activation_hook( WP_CONTENT_DIR . '/plugins/ml-slider/ml-slider.php', 'raindrops_ml_slider_activate_check' );
 
-function raindrops_ml_slider_activate_check() {
+function raindrops_ml_rr_activate_check() {
 
 	set_theme_mod( 'raindrops_ml_slider_status', 'yes' );
 }
@@ -141,7 +141,7 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 					$border_rgba		 = '191, 156, 118, 0.8';
 					break;
 				case 'light':
-					$color_type_value	 = 3;
+					$color_type_value	 = 4;
 					$border_rgba		 = '118, 156, 191, 1';
 					break;
 				default:
@@ -411,11 +411,11 @@ if ( !function_exists( 'raindrops_insert_metaslider' ) ) {
 		global $raindrops_slider_action;
 		if ( is_int( $raindrops_slider_action ) && !empty( $raindrops_slider_action ) ) {
 
-			$html = '<div id="raindrops_metaslider" class="clearfix">%1$s</div>';
-
+			$html = '<div id="raindrops_metaslider" class="clearfix">%2$s%1$s</div>';
+			$raindrops_insert_metaslider = apply_filters( 'raindrops_insert_metaslider', '');
 			if ( is_home() || is_front_page() ) {
 
-				return sprintf( $html, do_shortcode( "[metaslider id=" . $raindrops_slider_action . "]" ) );
+				return sprintf( $html, do_shortcode( "[metaslider id=" . $raindrops_slider_action . "]" ), $raindrops_insert_metaslider );
 			}
 		}
 
@@ -437,10 +437,26 @@ if ( !function_exists( 'raindrops_metaslider_setup' ) ) {
 			add_action( 'wp_enqueue_scripts', 'raindrops_metaslider_css' );
 			add_action( 'wp_head', 'raindrops_metaslider_shortcode_custom' );
 			add_filter( 'raindrops_header_image_home_url', 'raindrops_insert_metaslider' );
+			
+			$setting_value = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
+	
+			If( $setting_value == 'header_image' ) {
+				add_filter( 'raindrops_insert_metaslider', 'raindrops_custom_header_image_home_url' );
+			}
+	
 		}
 	}
 
 }
+
+
+if ( !function_exists( 'raindrops_custom_header_image_home_url' ) ) {
+	function raindrops_custom_header_image_home_url( $slider ) {
+
+		return $slider.raindrops_site_title();
+	}
+}
+
 if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 /**
  * 
@@ -484,6 +500,32 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 				.rslides_tabs li a{' . $raindrops_gradient . '}/*r slider*/
 				.rslides_tabs li.rslides_here a{ color:green;}/*r slider*//*nivo ok*/
 				.metaslider-coin{margin:auto;}';
+			$setting_value = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
+	
+			If( $setting_value == 'header_image' && is_front_page() ) {
+				$metaslider .= '
+					#raindrops_metaslider{position:relative;}
+					#raindrops_metaslider #site-title{position:absolute;z-index:9999;}';
+			
+				$metaslider .= apply_filters( 'raindrops_site_title_in_header_image_css', '' , '#raindrops_metaslider #site-title' );
+				
+				$setting_value = raindrops_warehouse_clone( 'raindrops_site_title_font_size' );
+
+				If( is_numeric( $setting_value )  && $setting_value < 11 ) {
+
+					$metaslider .= '#raindrops_metaslider #site-title{font-size:'. $setting_value. 'vw;}';
+
+				}
+				$setting_value_top = raindrops_warehouse_clone( 'raindrops_site_title_top_margin' );
+				$setting_value_left = raindrops_warehouse_clone( 'raindrops_site_title_left_margin' );
+
+				if ( is_numeric( $setting_value_top ) && is_numeric( $setting_value_top ) ) {
+
+					$metaslider .='#raindrops_metaslider #site-title{position:absolute;left:'. $setting_value_left.'%; top:'. $setting_value_top.'%}';	
+				}
+			}
+			
+			$metaslider = apply_filters( 'raindrops_metaslider_css', $metaslider);
 			
 			if ( WP_DEBUG !== true ) {
 
@@ -667,8 +709,8 @@ if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
  */
 	function raindrops_override_quick_cache_mo( $mofile, $domain ) {
 		$raindrops_locale = get_locale();
-		if ( $domain == 'quick-cache' && 'ja' == $raindrops_locale ) {
-			return get_template_directory() . '/languages/plugins/quick-cache/quick-cache-' . $raindrops_locale . '.mo';
+		if ( $domain == 'zencache' && 'ja' == $raindrops_locale ) {
+			return get_template_directory() . '/languages/plugins/zencache/zencache-' . $raindrops_locale . '.mo';
 		}
 		return $mofile;
 	}

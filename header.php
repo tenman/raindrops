@@ -18,7 +18,11 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
         <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 		<?php raindrops_prepend_doc(); ?><header id="top">
 			<div id="hd" <?php raindrops_doctype_elements( '', 'role="banner"' ); ?>>
-				<?php	echo raindrops_site_title(); ?>
+				<?php	
+				if( raindrops_is_place_of_site_title() == true ) {
+					echo raindrops_site_title();
+				}
+				?>
 				
 				<?php  echo raindrops_site_description(); ?>
                 
@@ -26,8 +30,10 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
             <?php 
 				/**
                  * Custom Header
-                 */			
-				if ( true == $raindrops_link_unique_text ) { ?>
+                 */
+				 $raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
+				 
+				if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) { ?>
 			
 			<?php  echo raindrops_header_image( 'elements' );
 				} else { ?>

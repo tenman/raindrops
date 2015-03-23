@@ -73,8 +73,10 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 				<?php raindrops_after_nav_menu();?>
 			</<?php raindrops_doctype_elements( 'div', 'header' ); ?>>
 			<?php
-			if ( true == $raindrops_link_unique_text ) {
-
+			$raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
+				 
+			if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) {
+			
 				$raindrops_header_image = raindrops_header_image( 'elements' );
 			} else {
 

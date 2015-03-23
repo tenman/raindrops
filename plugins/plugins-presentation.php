@@ -18,7 +18,7 @@ function raindrops_the_events_calendar_deactivate_check() {
 
 register_activation_hook( WP_CONTENT_DIR . '/plugins/ml-slider/ml-slider.php', 'raindrops_ml_slider_activate_check' );
 
-function raindrops_ml_rr_activate_check() {
+function raindrops_ml_slider_activate_check() {
 
 	set_theme_mod( 'raindrops_ml_slider_status', 'yes' );
 }
@@ -65,8 +65,8 @@ function raindrops_wp_pagenavi_deactivate_check() {
 add_action( 'after_setup_theme', 'raindrops_pagenav_setup' );
 if ( !function_exists( 'raindrops_pagenav_setup' ) ) {
 /**
- * 
- * 
+ *
+ *
  */
 	function raindrops_pagenav_setup() {
 		if ( 'yes' == get_theme_mod( 'raindrops_wp_pagenavi_status' ) &&
@@ -84,7 +84,7 @@ if ( !function_exists( 'raindrops_pagenav_setup' ) ) {
  */
 if ( !function_exists( 'raindrops_use_wp_pagenav' ) ) {
 /**
- * 
+ *
  * @param type $link
  * @param type $position
  * @return type
@@ -154,9 +154,9 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 			} else {
 				$raindrops_gradient = '';
 			}
-			
+
 			$raindrops_pagenav_css = '
-			.wp-pagenavi a:hover, 
+			.wp-pagenavi a:hover,
 			.wp-pagenavi span.current{
 
 				border:2px solid rgba('. $border_rgba. ');
@@ -181,14 +181,14 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 			.wp-pagenavi{margin:auto;max-width:98%;box-sizing:border-box;text-align:center;font-size:123.2%}
 			.wp-pagenavi span{display:inline-block;line-height:2}.wp-pagenavi .extend{border:none;}
 			.wp-pagenavi .previouspostslink,.wp-pagenavi .first,.wp-pagenavi .last,.wp-pagenavi .pages{display:block;text-align:center;} }';
-				
+
 			if ( WP_DEBUG !== true ) {
 
-				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
-													  array( "", "", "", '"', '', '"' ), 
+				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
+													  array( "", "", "", '"', '', '"' ),
 													  $raindrops_pagenav_css );
 			}
-			
+
 			wp_add_inline_style( 'wp-pagenavi', $raindrops_pagenav_css );
 		}
 	}
@@ -199,8 +199,8 @@ add_action( 'after_setup_theme', 'raindrops_bcn_setup' );
 
 if ( !function_exists( 'raindrops_bcn_setup' ) ) {
 /**
- * 
- * 
+ *
+ *
  */
 	function raindrops_bcn_setup() {
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
@@ -219,7 +219,7 @@ if ( !function_exists( 'raindrops_bcn_setup' ) ) {
 }
 if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
 /**
- * 
+ *
  * @global type $post
  */
 	function raindrops_bcn_nav_menu() {
@@ -240,8 +240,8 @@ if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
 }
 if ( !function_exists( 'raindrops_bcn_css' ) ) {
 /**
- * 
- * 
+ *
+ *
  */
 	function raindrops_bcn_css() {
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
@@ -286,7 +286,7 @@ list-style:none;
 		list-style:none;
 		margin:0;
 		padding:1em;
-		font-size:123%;		
+		font-size:123%;
 	}
 	#doc3 .breadcrumbs li:after{
 	content: "\bb";
@@ -325,8 +325,8 @@ list-style:none;
 }';
 			if ( WP_DEBUG !== true ) {
 
-				$raindrops_bcn_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
-													  array( "", "", "", '"', '', '"' ), 
+				$raindrops_bcn_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
+													  array( "", "", "", '"', '', '"' ),
 													  $raindrops_bcn_css );
 			}
 			wp_add_inline_style( 'style', $raindrops_bcn_css );
@@ -336,7 +336,7 @@ list-style:none;
 }
 if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
 /**
- * 
+ *
  * @param type $replacements
  * @param type $type
  * @param type $id
@@ -344,12 +344,12 @@ if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
  */
 
 	function raindrops_template_tags_change_date( $replacements, $type, $id ) {
-				
+
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
-			
+
 			$this_type = implode( ',', $type );
-			
+
 			if ( preg_match( '!date-year!', $this_type ) ) {
 
 				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'year_name', 'Raindrops' );
@@ -369,7 +369,7 @@ if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
 $raindrops_slider_action = raindrops_warehouse_clone( "raindrops_plugin_presentation_meta_slider" );
 if ( !function_exists( 'raindrops_metaslider_basic_settings' ) ) {
 /**
- * 
+ *
  * @global type $raindrops_slider_action
  * @param type $aFields
  * @return type
@@ -402,7 +402,7 @@ if ( !function_exists( 'raindrops_metaslider_basic_settings' ) ) {
 }
 if ( !function_exists( 'raindrops_insert_metaslider' ) ) {
 /**
- * 
+ *
  * @global type $raindrops_slider_action
  * @param type $return_value
  * @return type
@@ -427,7 +427,7 @@ add_action( 'after_setup_theme', 'raindrops_metaslider_setup' );
 
 if ( !function_exists( 'raindrops_metaslider_setup' ) ) {
 /**
- * 
+ *
  * @global type $raindrops_slider_action
  */
 	function raindrops_metaslider_setup() {
@@ -437,13 +437,13 @@ if ( !function_exists( 'raindrops_metaslider_setup' ) ) {
 			add_action( 'wp_enqueue_scripts', 'raindrops_metaslider_css' );
 			add_action( 'wp_head', 'raindrops_metaslider_shortcode_custom' );
 			add_filter( 'raindrops_header_image_home_url', 'raindrops_insert_metaslider' );
-			
+
 			$setting_value = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
-	
+
 			If( $setting_value == 'header_image' ) {
 				add_filter( 'raindrops_insert_metaslider', 'raindrops_custom_header_image_home_url' );
 			}
-	
+
 		}
 	}
 
@@ -459,7 +459,7 @@ if ( !function_exists( 'raindrops_custom_header_image_home_url' ) ) {
 
 if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 /**
- * 
+ *
  * @global type $raindrops_slider_action
  */
 	function raindrops_metaslider_css() {
@@ -501,14 +501,14 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 				.rslides_tabs li.rslides_here a{ color:green;}/*r slider*//*nivo ok*/
 				.metaslider-coin{margin:auto;}';
 			$setting_value = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
-	
+
 			If( $setting_value == 'header_image' && is_front_page() ) {
 				$metaslider .= '
 					#raindrops_metaslider{position:relative;}
 					#raindrops_metaslider #site-title{position:absolute;z-index:9999;}';
-			
+
 				$metaslider .= apply_filters( 'raindrops_site_title_in_header_image_css', '' , '#raindrops_metaslider #site-title' );
-				
+
 				$setting_value = raindrops_warehouse_clone( 'raindrops_site_title_font_size' );
 
 				If( is_numeric( $setting_value )  && $setting_value < 11 ) {
@@ -521,16 +521,16 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 
 				if ( is_numeric( $setting_value_top ) && is_numeric( $setting_value_top ) ) {
 
-					$metaslider .='#raindrops_metaslider #site-title{position:absolute;left:'. $setting_value_left.'%; top:'. $setting_value_top.'%}';	
+					$metaslider .='#raindrops_metaslider #site-title{position:absolute;left:'. $setting_value_left.'%; top:'. $setting_value_top.'%}';
 				}
 			}
-			
+
 			$metaslider = apply_filters( 'raindrops_metaslider_css', $metaslider);
-			
+
 			if ( WP_DEBUG !== true ) {
 
-				$metaslider = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
-													  array( "", "", "", '"', '', '"' ), 
+				$metaslider = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
+													  array( "", "", "", '"', '', '"' ),
 													  $metaslider );
 			}
 			wp_add_inline_style( 'style', $metaslider );
@@ -540,8 +540,8 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 }
 if ( !function_exists( 'raindrops_metaslider_shortcode_custom' ) ) {
 /*
- * 
- * 
+ *
+ *
  */
 	function raindrops_metaslider_shortcode_custom( $return_value ) {
 		global $raindrops_slider_action;
@@ -563,8 +563,8 @@ add_action( 'init', 'raindrops_the_event_calendar_setup' );
 
 if ( !function_exists( 'raindrops_the_event_calendar_setup' ) ) {
 /**
- * 
- * 
+ *
+ *
  */
 	function raindrops_the_event_calendar_setup() {
 		add_filter( 'tribe_events_event_classes', 'raindrops_tribe_events_event_classes', 999 );
@@ -574,7 +574,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_setup' ) ) {
 }
 if ( !function_exists( 'raindrops_tribe_events_event_classes' ) ) {
 /**
- * 
+ *
  * @param type $return_value
  * @return type
  */
@@ -594,7 +594,7 @@ if ( !function_exists( 'raindrops_tribe_events_event_classes' ) ) {
 
 if ( !function_exists( 'raindrops_override_mo' ) ) {
 /**
- * 
+ *
  * @param type $mofile
  * @param type $domain
  * @return type
@@ -610,8 +610,8 @@ if ( !function_exists( 'raindrops_override_mo' ) ) {
 }
 if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 /**
- * 
- * 
+ *
+ *
  */
 	function raindrops_the_event_calendar_css() {
 		if ( 'yes' == get_theme_mod( 'raindrops_the_events_calendar_status' ) &&
@@ -641,8 +641,8 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 				$custom_background	 = '#fff';
 			}
 			$raindrops_pagenav_css = '@media screen and (max-width : 920px){
-					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '} 
-				}	
+					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '}
+				}
 .tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
 			.tribe-events-list-widget li{padding:0 10px 20px}
 			.tribe-events-list-widget li{}
@@ -663,20 +663,20 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.events-archive .tribe-events-calendar td.tribe-events-future div[id*="tribe-events-daynum-"],
 			.events-archive .tribe-events-calendar td.tribe-events-future div[id*="tribe-events-daynum-"] > a,
 			.events-archive .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"],
-			.events-archive .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a,				
-			.events-archive #tribe-events, .events-archive #tribe-events-content-wrapper,		
+			.events-archive .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a,
+			.events-archive #tribe-events, .events-archive #tribe-events-content-wrapper,
 			.single-tribe_events #tribe-events, .single-tribe_events #tribe-events-content-wrapper{' . $raindrops_gradient . '}
-			.rd-type-minimal .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"], 
-			.rd-type-minimal .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a,			
-			.rd-type-w3standard .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"], 
+			.rd-type-minimal .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"],
+			.rd-type-minimal .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a,
+			.rd-type-w3standard .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"],
 			.rd-type-w3standard .tribe-events-calendar td.tribe-events-past div[id*="tribe-events-daynum-"] > a{
 				color:#000; background:#eee:}
 			.single-tribe_events .tribe-events-event-meta,
 			#tribe-events-content .tribe-events-calendar td{border:1px solid rgba(' . $border_rgba . ');}
-			.single-tribe_events #tribe-events-footer, 
-			.tribe-events-day #tribe-events-footer, 
-			.events-list #tribe-events-footer, 
-			.tribe-events-map #tribe-events-footer, 
+			.single-tribe_events #tribe-events-footer,
+			.tribe-events-day #tribe-events-footer,
+			.events-list #tribe-events-footer,
+			.tribe-events-map #tribe-events-footer,
 			.tribe-events-photo #tribe-events-footer{border-top:1px solid rgba(' . $border_rgba . ');}
 			#tribe-events .tribe-events-notices li{background:#d9edf7; color:#000;}
 			#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover{background:#fff;color:#000;}
@@ -684,11 +684,11 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-list-widget .tribe-events-list-widget-events .entry-title{font-size:108%;}
 			.tribe-events-list-widget ol li{margin-bottom:10px;}
 			#tribe-events-content .tribe-events-calendar td:hover{background:' . $custom_background . '}';
-			
+
 			if ( WP_DEBUG !== true ) {
 
-				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), 
-													  array( "", "", "", '"', '', '"' ), 
+				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
+													  array( "", "", "", '"', '', '"' ),
 													  $raindrops_pagenav_css );
 			}
 			wp_add_inline_style( 'tribe-events-calendar-style', $raindrops_pagenav_css );
@@ -702,7 +702,7 @@ add_filter( 'load_textdomain_mofile', 'raindrops_override_quick_cache_mo', 10, 2
 
 if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
 /**
- * 
+ *
  * @param type $mofile
  * @param type $domain
  * @return type

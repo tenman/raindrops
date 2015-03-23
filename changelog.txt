@@ -3,12 +3,85 @@ version:1.278
 
 Overview of Changes
 
+	Excerpt focus update.
+		Add Raindrops html in excerpt
+			 The summary display with html elements are implemented by the filter.
+			Add Raindrops excerpt more setting
+			Add Raindrops Show or hide control at loops page for Oembed Media
+		@see Section Description of Code Changes 'html in excerpt'
+	Custom menu CSS class
+		Google fonts auto implementation
+		@see Section Description of Code Changes 'Menu'
+	Site Title focus update
+		header image position selectable. above header image or header image in site title.
+		header image in site title position changeable top margin, left margin
+		header image in site title font size changeable 1-10 vw
+		header image in tagline show or hide control
+		site title can add CSS Class ( Google fonts auto implementation )
 
+		Fixed Custom Header Image size Calculation
+		@see Section Description of Code Changes 'Site Title'
+
+	Remove Menu
+
+	Fixed Microformats auther link class change from url fn n to url fn nickname
+		@see Section Description of Code Changes 'Microformats'
+	Theme filter
+		@see Section Description of Code Changes 'Filter'
+	MIsc
+		Fixed mp4 upload media display size improperly
+		Fixed  raindrops_update_theme_option()
+		Bundle plugin name change Quick Cache to ZenCache
+		@see Section Description of Code Changes 'Misc'
 Files Modified
 
+	new file:	languages/plugins/zencache/zencache-ja.mo
+	new file:	languages/plugins/zencache/zencache-ja.po
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   plugins/plugins-presentation.php
+	modified:   plugins/tgm-config.php
+	modified:   search.php
+	modified:   style.css
 
 Description of Code Changes
-
+	functions.php line:574,579-583
+	functions.php line:1678,3444,7064,7247,7430	[Microformats]
+	functions.php line:2549,2860[Filter]
+	functions.php line:4388,4629,4634,4706-4714,10126-10148,[Misc]
+	functions.php line:5709-5735,5781-5802,	6416-6912,6618,6619,6621[html in excerpt]
+	functions.php line:5934-6048,10564-10685,10510-10521,10584-10685[Site Title]
+	functions.php line:10253-10324[html in excerpt]
+	functions.php line10366-10479[html in excerpt][Menu]
+	functions.php line:10480-10502,10530-10542,10564-10583[Menu]
+	header-front.php line:76-79[Site Title]
+	header.php line:21-25,33-36[Site Title]
+	languages/ja.po edit[Misc]
+	lib/alias_functions.php	line:873[Misc]
+	lib/csscolor.css.php	line:499,1354,1371-1373,1380-1381,1385[Misc]
+	lib/hooks.php line:314-334[Misc]
+	lib/option-panel.php	line:419-509,869, 1132,[html in excerpt][Site Title]
+	lib/validate.php line:2-43[Site Title]
+	lib/validate.php line:44-64[html in excerpt]
+	lib/validate.php line:743[Misc]
+	plugins/plugins-presentation.php line:415[Filter]
+	plugins/plugins-presentation.php line:440-446[Filter]
+	plugins/plugins-presentation.php line:451-459[Site Title]
+	plugins/plugins-presentation.php line:503-528[Site Title]
+	plugins/plugins-presentation.php line:712-713[Misc]
+	plugins/tgm-config.php	line:36-37[Misc]
+	search.php	line:88,95[Filter]
+	style.css	line:2982-2987[html in excerpt]
+	style.css	line:3015[Misc]
+	style.css	line:3861-3876[html in excerpt]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.277

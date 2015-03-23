@@ -168,7 +168,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( 'Accessibility Settings', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Accessibility Settings is create a unique link text. set to yes or no.', 'Raindrops' ),
-        'validate'     => 'raindrops_accessibility_settings_validate', 
+        'validate'     => 'raindrops_accessibility_settings_validate',
         'list'         => 15
     ),
     array( 'option_id'    => 17,
@@ -179,9 +179,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Document Type Settings", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "Default Document type html5. Set to xhtml or html5.", 'Raindrops' ),
-        'validate'     => 'raindrops_doc_type_settings_validate', 
+        'validate'     => 'raindrops_doc_type_settings_validate',
         'list'         => 16
-    ),  
+    ),
      array( 'option_id'    => 18,
         'blog_id'      => 0,
         'option_name'  => "raindrops_basefont_settings",
@@ -190,7 +190,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Base Font Size Setting", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "Base Font Size Value Recommend 13-20 (px size)", 'Raindrops' ),
-        'validate'     => 'raindrops_basefont_settings_validate', 
+        'validate'     => 'raindrops_basefont_settings_validate',
          'list'         => 17
     ),
       array( 'option_id'    => 19,
@@ -201,7 +201,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Fluid ( Responsive ) Max Page Width", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "Default 1280 (px size)", 'Raindrops' ),
-        'validate'     => 'raindrops_fluid_max_width_validate', 
+        'validate'     => 'raindrops_fluid_max_width_validate',
          'list'         => 18
     ),
     array( 'option_id'    => 20,
@@ -212,7 +212,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Home Entry Content Type", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
-        'validate'     => 'raindrops_entry_content_is_home_validate', 
+        'validate'     => 'raindrops_entry_content_is_home_validate',
          'list'         => 19
     ),
     array( 'option_id'    => 21,
@@ -223,10 +223,10 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Category Archive Content Type", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
-        'validate'     => 'raindrops_entry_content_is_category_validate', 
+        'validate'     => 'raindrops_entry_content_is_category_validate',
          'list'         => 20
     ),
-   
+
        array( 'option_id'    => 22,
         'blog_id'      => 0,
         'option_name'  => "raindrops_entry_content_is_search",
@@ -235,7 +235,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( "Search Result Content Type", 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( "value content, excerpt, none", 'Raindrops' ),
-        'validate'     => 'raindrops_entry_content_is_tag_validate', 
+        'validate'     => 'raindrops_entry_content_is_tag_validate',
          'list'         => 21
     ),
     array( 'option_id'    => 23,
@@ -247,7 +247,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'If you need to set footer Special link color.hex color ex.#ff0000 or none', 'Raindrops' ),
         'validate'     => 'raindrops_footer_link_color_validate',
-        'list'         => 22 
+        'list'         => 22
     ),
 	array( 'option_id'    => 24,
         'blog_id'      => 0,
@@ -258,7 +258,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) value yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_complementary_color_for_title_link_validate',
-        'list'         => 23 
+        'list'         => 23
     ),
 	array( 'option_id'    => 25,
         'blog_id'      => 0,
@@ -269,7 +269,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_bcn_nav_menu_validate',
-        'list'         => 24 
+        'list'         => 24
     ),
 	array( 'option_id'    => 26,
         'blog_id'      => 0,
@@ -280,7 +280,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
-        'list'         => 25 
+        'list'         => 25
     ),
 	array( 'option_id'    => 27,
         'blog_id'      => 0,
@@ -291,7 +291,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Please Set Meta Slider ID or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
-        'list'         => 26 
+        'list'         => 26
     ),
 	array( 'option_id'    => 28,
         'blog_id'      => 0,
@@ -302,7 +302,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
         'validate'     => 'raindrops_plugin_presentation_the_events_calendarr_validate',
-        'list'         => 27 
+        'list'         => 27
     ),
 	array( 'option_id'    => 29,
         'blog_id'      => 0,
@@ -313,7 +313,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Fallback Setting when Nav Menu displayed improperly, value set enable( defalt ) or disable', 'Raindrops' ),
         'validate'     => 'raindrops_disable_keyboard_focus_validate',
-        'list'         => 28 
+        'list'         => 28
     ),
 	array( 'option_id'    => 30,
         'blog_id'      => 0,
@@ -324,7 +324,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Reflect on Dynamically Editor Style Settings, value set yes ( default ) or none', 'Raindrops' ),
         'validate'     => 'raindrops_sync_style_for_tinymce_validate',
-        'list'         => 29 
+        'list'         => 29
     ),
 	array( 'option_id'    => 31,
         'blog_id'      => 0,
@@ -335,7 +335,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Delete all Theme Settings when switch theme. default keep ( or delete )', 'Raindrops' ),
         'validate'     => 'raindrops_uninstall_option_validate',
-        'list'         => 30 
+        'list'         => 30
     ),
 	 array( 'option_id'    => 32,
         'blog_id'      => 0,
@@ -345,7 +345,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( 'Menu Primary Font Size', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182', 'Raindrops' ),
-        'validate'     => 'raindrops_menu_primary_font_size_validate', 
+        'validate'     => 'raindrops_menu_primary_font_size_validate',
 		'list'         => 31 ),
 	array( 'option_id'    => 33,
         'blog_id'      => 0,
@@ -355,7 +355,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'title'        => esc_html__( 'Menu Primary Menu Width', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999', 'Raindrops' ),
-        'validate'     => 'raindrops_menu_primary_min_width_validate', 
+        'validate'     => 'raindrops_menu_primary_min_width_validate',
 		'list'         => 32 ),
 array( 'option_id'    => 34,
         'blog_id'      => 0,
@@ -365,7 +365,7 @@ array( 'option_id'    => 34,
         'title'        => esc_html__( 'Featured Image Position', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Featured Image Position for Emphasis of new content using the Featured Image values default,left,front', 'Raindrops' ),
-        'validate'     => 'raindrops_featured_image_position_validate', 
+        'validate'     => 'raindrops_featured_image_position_validate',
 		'list'         => 33 ),
 array( 'option_id'    => 35,
         'blog_id'      => 0,
@@ -375,7 +375,7 @@ array( 'option_id'    => 35,
         'title'        => esc_html__( 'Featured Image Size', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values thumbnail, medium, large, default', 'Raindrops' ),
-        'validate'     => 'raindrops_featured_image_size_validate', 
+        'validate'     => 'raindrops_featured_image_size_validate',
 		'list'         => 34 ),
 array( 'option_id'    => 36,
         'blog_id'      => 0,
@@ -385,7 +385,7 @@ array( 'option_id'    => 36,
         'title'        => esc_html__( 'Featured Image Special Layout Apply Post Count', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values from 1 to Post Per Page count default value none', 'Raindrops' ),
-        'validate'     => 'raindrops_featured_image_recent_post_count_validate', 
+        'validate'     => 'raindrops_featured_image_recent_post_count_validate',
 		'list'         => 35 ),
 array( 'option_id'    => 37,
         'blog_id'      => 0,
@@ -395,7 +395,7 @@ array( 'option_id'    => 37,
         'title'        => esc_html__( 'Featured Image Show, lightbox or Hide on Singular Post,Page', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values show or hide or lightbox ( light box is crop height ,add lightbox )', 'Raindrops' ),
-        'validate'     => 'raindrops_featured_image_singular_validate', 
+        'validate'     => 'raindrops_featured_image_singular_validate',
 		'list'         => 36 ),
 array( 'option_id'    => 38,
         'blog_id'      => 0,
@@ -405,7 +405,7 @@ array( 'option_id'    => 38,
         'title'        => esc_html__( 'USE or Not Emphasis of new content using the Featured Image', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
-        'validate'     => 'raindrops_use_featured_image_emphasis_validate', 
+        'validate'     => 'raindrops_use_featured_image_emphasis_validate',
 		'list'         => 37 ),
 array( 'option_id'    => 39,
         'blog_id'      => 0,
@@ -415,7 +415,7 @@ array( 'option_id'    => 39,
         'title'        => esc_html__( 'USE or Not Japanese Date', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
-        'validate'     => 'raindrops_japanese_date_validate', 
+        'validate'     => 'raindrops_japanese_date_validate',
 		'list'         => 38 ),
 array( 'option_id'    => 40,
         'blog_id'      => 0,
@@ -425,8 +425,8 @@ array( 'option_id'    => 40,
         'title'        => esc_html__( 'Add Read More Link', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Add read more link after excerpt. values yes or no default no', 'Raindrops' ),
-        'validate'     => 'raindrops_read_more_after_excerpt_validate', 
-		'list'         => 39 ),	
+        'validate'     => 'raindrops_read_more_after_excerpt_validate',
+		'list'         => 39 ),
 array( 'option_id'    => 41,
         'blog_id'      => 0,
         'option_name'  => "raindrops_excerpt_enable",
@@ -435,8 +435,8 @@ array( 'option_id'    => 41,
         'title'        => esc_html__( 'Use Raindrops Extend Excerpt', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'HTML in Excerpt. values yes or no default no', 'Raindrops' ),
-        'validate'     => 'raindrops_excerpt_enable_validate', 
-		'list'         => 40 ),	
+        'validate'     => 'raindrops_excerpt_enable_validate',
+		'list'         => 40 ),
 array( 'option_id'    => 42,
         'blog_id'      => 0,
         'option_name'  => "raindrops_allow_oembed_excerpt_view",
@@ -445,8 +445,8 @@ array( 'option_id'    => 42,
         'title'        => esc_html__( 'Allow Oembed Media at Raindrops Extend Excerpt', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Overview display, if you set no, you can reduce the load time of the page. values yes or no default yes', 'Raindrops' ),
-        'validate'     => 'raindrops_allow_oembed_excerpt_view_validate', 
-		'list'         => 41 ),	
+        'validate'     => 'raindrops_allow_oembed_excerpt_view_validate',
+		'list'         => 41 ),
 array( 'option_id'    => 43,
         'blog_id'      => 0,
         'option_name'  => "raindrops_place_of_site_title",
@@ -455,8 +455,8 @@ array( 'option_id'    => 43,
         'title'        => esc_html__( 'Place of Title', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'value default above or header_image', 'Raindrops' ),
-        'validate'     => 'raindrops_place_of_site_title_validate', 
-		'list'         => 42 ),	
+        'validate'     => 'raindrops_place_of_site_title_validate',
+		'list'         => 42 ),
 array( 'option_id'    => 44,
         'blog_id'      => 0,
         'option_name'  => "raindrops_site_title_left_margin",
@@ -465,8 +465,8 @@ array( 'option_id'    => 44,
         'title'        => esc_html__( 'Left Margin of Site Title', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'Raindrops' ),
-        'validate'     => 'raindrops_site_title_left_margin_validate', 
-		'list'         => 43 ),	
+        'validate'     => 'raindrops_site_title_left_margin_validate',
+		'list'         => 43 ),
 array( 'option_id'    => 45,
         'blog_id'      => 0,
         'option_name'  => "raindrops_site_title_top_margin",
@@ -475,8 +475,8 @@ array( 'option_id'    => 45,
         'title'        => esc_html__( 'Top Margin of Site Title', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'Raindrops' ),
-        'validate'     => 'raindrops_site_title_top_margin_validate', 
-		'list'         => 44 ),	
+        'validate'     => 'raindrops_site_title_top_margin_validate',
+		'list'         => 44 ),
 array( 'option_id'    => 46,
         'blog_id'      => 0,
         'option_name'  => "raindrops_site_title_font_size",
@@ -485,8 +485,8 @@ array( 'option_id'    => 46,
         'title'        => esc_html__( 'Font Size of Site Title', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'default value none, or 1-10( percent of viewport width )', 'Raindrops' ),
-        'validate'     => 'raindrops_site_title_font_size_validate', 
-		'list'         => 45 ),	
+        'validate'     => 'raindrops_site_title_font_size_validate',
+		'list'         => 45 ),
 array( 'option_id'    => 47,
         'blog_id'      => 0,
         'option_name'  => "raindrops_site_title_css_class",
@@ -495,7 +495,7 @@ array( 'option_id'    => 47,
         'title'        => esc_html__( 'Site Title CSS', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'for example google-font-lobster default value none', 'Raindrops' ),
-        'validate'     => 'raindrops_site_title_css_class_validate', 
+        'validate'     => 'raindrops_site_title_css_class_validate',
 		'list'         => 46 ),
 array( 'option_id'    => 47,
         'blog_id'      => 0,
@@ -505,8 +505,8 @@ array( 'option_id'    => 47,
         'title'        => esc_html__( 'Site Title CSS', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'for example google-font-lobster default value none', 'Raindrops' ),
-        'validate'     => 'raindrops_tagline_in_the_header_image_validate', 
-		'list'         => 46 ),		
+        'validate'     => 'raindrops_tagline_in_the_header_image_validate',
+		'list'         => 46 ),
 );
 }
 
@@ -576,7 +576,7 @@ class raindrops_menu_create {
      *
      */
     function raindrops_SubMenu_GUI() {
-        
+
 
 
         do_action( 'raindrops_SubMenu_GUI_pre' );
@@ -755,7 +755,7 @@ class raindrops_menu_create {
         $result .= '</div>';
         $result .= '<div id="reset2"></div>';
         $result .= '<div>' . $this->raindrops_form_user_input() . '</div>';
-		
+
         echo $result;
     }
 
@@ -866,7 +866,6 @@ class raindrops_menu_create {
         $raindrops_navigation_list .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">' . esc_html__( 'Menus', 'Raindrops' ) . '</a></li>';
         $raindrops_navigation_list .= '<li><a href="' . admin_url( 'theme-editor.php' ) . '">' . esc_html__( 'Theme Editor', 'Raindrops' ) . '</a></li>';
         $raindrops_navigation_list .= '</ul>';
-		$raindrops_navigation_list = '<div class="raindrops-navigation-wrapper">';
 
         if ( true == RAINDROPS_USE_AUTO_COLOR ) {
 
@@ -990,7 +989,7 @@ class raindrops_menu_create {
 
                     $lines .= '<td style="background:url( ' . get_template_directory_uri() . '/images/' . $current_heading_image . ' );"><img src="' . get_template_directory_uri() . '/images/number.png" />';
                 } else {
-					$lines .= '<td><img src="' . get_template_directory_uri() . '/images/number.png" />';	
+					$lines .= '<td><img src="' . get_template_directory_uri() . '/images/number.png" />';
 				}
             } elseif ( $key == "raindrops_header_image" ) {
 
@@ -1088,7 +1087,7 @@ class raindrops_menu_create {
 				if ( isset( $this->accesskey[ $i ] ) ) {
 					$lines .= '<input accesskey="' . esc_attr( $this->accesskey[ $i ] ) . '" type="text" name="raindrops_option_values[' . $key . ']" value="' . esc_attr( $val ) . '"';
 				} else {
-					$lines .= '<input type="text" name="raindrops_option_values[' . $key . ']" value="' . esc_attr( $val ) . '"';	
+					$lines .= '<input type="text" name="raindrops_option_values[' . $key . ']" value="' . esc_attr( $val ) . '"';
 				}
 				$lines .= ' /></td>';
             }
@@ -1126,7 +1125,7 @@ class raindrops_menu_create {
 
             $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false", 'Raindrops' ) . '</span>' );
         }
-		
+
 
 
         return apply_filters( 'raindrops_form_user_input',  $raindrops_navigation_list . '</ul>' . $add_infomation . '</div>' . $lines . '<br style="clear:both" />' );

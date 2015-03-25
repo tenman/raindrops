@@ -105,7 +105,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_block_style' ) ) {
 
 		$raindrops_post_image_size		 = raindrops_warehouse_clone( 'raindrops_featured_image_size' );
 		$raindrops_thumb_apply_count = raindrops_warehouse_clone( 'raindrops_featured_image_recent_post_count' );
-		$raindrops_thumb_apply_count = $raindrops_thumb_apply_count + 1;
+		$raindrops_thumb_apply_count = $raindrops_thumb_apply_count;
 		$raindrops_use_featured_image_emphasis = raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis' );		
 		if ( $raindrops_use_featured_image_emphasis !== 'yes' ) {
 
@@ -119,7 +119,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_block_style' ) ) {
 		}
 
 		$custom_css				 = '';
-		$recent_posts			 = wp_get_recent_posts( array( 'numberposts' => $raindrops_thumb_apply_count ) );
+		$recent_posts			 = wp_get_recent_posts( array( 'numberposts' => $raindrops_thumb_apply_count, 'post_status' => 'publish' ) );
 		$post_image_background	 = apply_filters( 'raindrops_post_image_background_style', 'rgba(123,123,123,.1);' );
 		$post_image_background	 = str_replace( array( '{', '}' ), '', $post_image_background );
 
@@ -167,7 +167,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 
 		$raindrops_post_image_size		 = raindrops_warehouse_clone( 'raindrops_featured_image_size' );
 		$raindrops_thumb_apply_count = raindrops_warehouse_clone( 'raindrops_featured_image_recent_post_count' );
-		$raindrops_thumb_apply_count = $raindrops_thumb_apply_count + 1;
+		$raindrops_thumb_apply_count = $raindrops_thumb_apply_count;
 		$raindrops_use_featured_image_emphasis = raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis' );
 		
 		if( $raindrops_use_featured_image_emphasis !== 'yes' ){
@@ -202,7 +202,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 		$custom_css				 = '';
 		$article_column_width	 = str_replace( '%', '', $featured_image_column_width ) * 1.1;
 		$article_column_width	 = $article_column_width . '%';
-		$recent_posts			 = wp_get_recent_posts( array( 'numberposts' => $raindrops_thumb_apply_count ) );
+		$recent_posts			 = wp_get_recent_posts( array( 'numberposts' => $raindrops_thumb_apply_count, 'post_status' => 'publish' ) );
 		$post_image_background	 = apply_filters( 'raindrops_post_image_background_style', 'rgba(123,123,123,.1);' );
 		$post_image_background	 = str_replace( array( '{', '}' ), '', $post_image_background );
 

@@ -502,7 +502,7 @@ array( 'option_id'    => 47,
         'option_name'  => "raindrops_tagline_in_the_header_image",
         'option_value' => 'show',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Site Title CSS', 'Raindrops' ),
+        'title'        => esc_html__( 'Tagline in the header image', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'for example google-font-lobster default value none', 'Raindrops' ),
         'validate'     => 'raindrops_tagline_in_the_header_image_validate',
@@ -576,8 +576,6 @@ class raindrops_menu_create {
      *
      */
     function raindrops_SubMenu_GUI() {
-
-
 
         do_action( 'raindrops_SubMenu_GUI_pre' );
 
@@ -678,9 +676,6 @@ class raindrops_menu_create {
             $raindrops_theme_settings[ 'current_stylesheet_dir_url' ] = get_stylesheet_directory_uri();
             $raindrops_theme_settings[ 'current_upload_base_url' ]    = $upload_dir[ 'baseurl' ];
             $raindrops_theme_settings[ 'install' ]                    = true;
-
-
-
 
             update_option( 'raindrops_theme_settings', $raindrops_theme_settings, "", $add[ 'autoload' ] );
             //1.213 nav_menu hide issue
@@ -850,9 +845,6 @@ class raindrops_menu_create {
         }
         $results = $raindrops_sort;
 
-
-
-
         $current_heading_image     = raindrops_warehouse( "raindrops_heading_image" );
         $raindrops_navigation_add  = '';
         $raindrops_navigation_list = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">' . __( 'WordPress Native Theme Options', 'Raindrops' ) . '</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
@@ -959,18 +951,7 @@ class raindrops_menu_create {
                     "raindrops_color_scheme" == $key ) ) {
                 continue;
             }
-/* commentout @1.241
-            if ( raindrops_warehouse( "raindrops_style_type" ) == $raindrops_current_theme_name && ( "raindrops_footer_color" == $key or
-                    "raindrops_default_fonts_color" == $key or
-                    "raindrops_header_image" == $key or
-                    "raindrops_footer_image" == $key or
-                    "raindrops_heading_image_position" == $key or
-                    "raindrops_heading_image" == $key or
-                    "raindrops_hyperlink_color" == $key
-                    ) ) {
-                continue;
-            }
-*/
+
             $lines .= $excerpt;
             $lines .= $table;
             $lines .= $table_header;
@@ -1125,9 +1106,6 @@ class raindrops_menu_create {
 
             $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false", 'Raindrops' ) . '</span>' );
         }
-
-
-
         return apply_filters( 'raindrops_form_user_input',  $raindrops_navigation_list . '</ul>' . $add_infomation . '</div>' . $lines . '<br style="clear:both" />' );
     }
 

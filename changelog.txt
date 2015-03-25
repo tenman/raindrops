@@ -2,13 +2,27 @@ Changelog -----------------------------------
 version:1.279
 
 Overview of Changes
+	Bugfix update
+		Fixed excerpt content count wrong
+			lib/featured-image.php
+				line:108,121,170,205
+		Theme wrong option page title
+			lib/option-panel.php
+				line:505
+		Style issue at Excerpt more button
+			style.css
+				line:354,1565,3880-3882
 
+	Screenshot update
+		licence.txt add image licence
+			images/screenshot-example-header.jpg
 
 Files Modified
-
-
-Description of Code Changes
-
+	modified:   changelog.txt
+	modified:   lib/featured-image.php
+	modified:   lib/option-panel.php
+	modified:   screenshot.png
+	modified:   style.css
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.278

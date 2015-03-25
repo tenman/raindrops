@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.279
+version:1.280
 
 Overview of Changes
 	Bugfix update

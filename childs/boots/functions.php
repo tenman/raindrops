@@ -8,9 +8,9 @@
 if ( !isset( $boots_custom_header_args ) ) {
     $boots_custom_header_args = array(
         'default-text-color'     => 'ffffff'
-        , 'width'                  => apply_filters( 'raindrops_header_image_width' )
+        , 'width'                  => apply_filters( 'raindrops_header_image_width', 1280 )
         , 'flex-width'             => true
-        , 'height'                 => apply_filters( 'raindrops_header_image_height' )
+        , 'height'                 => apply_filters( 'raindrops_header_image_height', 521 )
         , 'flex-height'            => true
         , 'header-text'            => true
         , 'default-image'          => get_stylesheet_directory_uri() . '/images/headers/wp3.jpg'
@@ -33,7 +33,7 @@ if ( !function_exists( 'raindrops_child_init' ) ) {
     function raindrops_child_init() {
         /* Insert Site Title and Description to Header Image */
 		if ( file_exists( get_stylesheet_directory().'/header.php' ) ) {
-				
+
 		}
         /* broad color type setting */
         add_action( 'raindrops_include_after', 'boots_extend_styles' );
@@ -52,7 +52,7 @@ if ( !function_exists( 'raindrops_child_custom_header_image_content' ) ) {
 
     function raindrops_child_custom_header_image_content( $content ) {
         global $raindrops_link_unique_text, $raindrops_fluid_maximum_width, $post;
-		
+
         $boots_site_title = raindrops_site_title();
 
         if ( true !== $raindrops_link_unique_text ) {
@@ -60,7 +60,7 @@ if ( !function_exists( 'raindrops_child_custom_header_image_content' ) ) {
             /* remove nested a elements */
             $boots_site_title = strip_tags( raindrops_site_title(), '<span><h1><div>' );
         }
-		
+
 		$boots_site_title = '<a href="'. esc_url( home_url() ). '" rel="home">'. $boots_site_title.'</a>';
 
         $boots_content_max_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
@@ -76,25 +76,25 @@ if ( !function_exists( 'raindrops_child_custom_header_image_content' ) ) {
                 . '</div></div>';
 
         $page_width = boots_page_width();
-		
+
 		$image = get_header_image();
-		
+
 		if ( empty( $image ) ) {
 
-			return sprintf( $html, 
-						$boots_site_title, 
-						'<p class="tagline">' . get_bloginfo( 'description' ) . '</p>', 
+			return sprintf( $html,
+						$boots_site_title,
+						'<p class="tagline">' . get_bloginfo( 'description' ) . '</p>',
 						apply_filters('boots_header_no_image_tagline_style', 'max-width:' . $boots_content_max_width . 'px;display:block;margin:auto; width:' . $page_width . ';')
 					);
 		}
-		
-		$post_meta = get_post_custom_values('_raindrops_this_header_image', $post->ID);		
+
+		$post_meta = get_post_custom_values('_raindrops_this_header_image', $post->ID);
 
 		if ( is_singular() && isset( $post_meta ) && $post_meta[0] == 'hide' ) {
-			
-			return sprintf( $html, 
-						$boots_site_title, 
-						'<p class="tagline">' . get_bloginfo( 'description' ) . '</p>', 
+
+			return sprintf( $html,
+						$boots_site_title,
+						'<p class="tagline">' . get_bloginfo( 'description' ) . '</p>',
 						apply_filters('boots_header_no_image_tagline_style', 'max-width:' . $boots_content_max_width . 'px;display:block;margin:auto; width:' . $page_width . ';')
 					);
 		}
@@ -124,7 +124,7 @@ if ( !function_exists( 'boots_page_width' ) ) {
                 break;
             default:
                 $boots_content_max_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
- 
+
                 if ( ! empty( $boots_content_max_width )  && $id == 'doc3') {
                     return '100%; max-width:' . $boots_content_max_width . 'px;';
                 } else {

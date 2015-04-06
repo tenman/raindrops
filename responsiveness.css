@@ -434,6 +434,28 @@
     .yui-t1 .raindrops-expand-width{
         padding-right:0;
     }
+    
+    #doc3 .widget a.post-group_by-category-title:not(.no-thumb),
+    #doc3 .widget a.post-group_by-category-entry-title:not(.no-thumb){
+        position:relative;
+        display:block;
+        margin-left:60px;
+        width:80%;
+        width: calc(100% - 60px);
+        min-height:4.5em;
+        max-width:100%;
+        box-sizing:border-box;
+    }
+    #doc3 .widget a.post-group_by-category-title.no-thumb,
+    #doc3 .widget a.post-group_by-category-entry-title.no-thumb{
+        position:static;
+    }
+
+    #doc3 .widget .post-group_by-category-title .h2-thumb,
+    #doc3 .widget .post-group_by-category-entry-title .h2-thumb{
+        position:absolute;
+        left:-60px;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

@@ -16,7 +16,7 @@ if ( $raindrops_current_column !== false ) {
 
 raindrops_debug_navitation( __FILE__ );
 ?>
-<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main', true ); ?>">
     <div id="container">
 		<?php
 		get_template_part( 'widget', 'sticky' );
@@ -27,43 +27,46 @@ raindrops_debug_navitation( __FILE__ );
 
 				the_post();
 				?>
+				
 				<div class="entry page">
-					<div id="post-<?php the_ID(); ?>" <?php raindrops_post_class(); ?>>
-						<?php
-						raindrops_entry_title();
-						?>
-						<div class="entry-content">
+					<div id="post-<?php the_ID(); ?>">
+						<<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
 							<?php
-							raindrops_prepend_entry_content();
-
-							raindrops_entry_content();
+							raindrops_entry_title();
 							?>
+							<div class="entry-content">
+								<?php
+								raindrops_prepend_entry_content();
+
+								raindrops_entry_content();
+								?>
+								<br class="clear" />
+								<?php
+								raindrops_append_entry_content();
+								?>
+							</div>
+							<div class="linkpage clearfix">
+								<?php
+								wp_link_pages( 'before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+								?>
+							</div>
 							<br class="clear" />
+							<div class="postmetadata">
+								<?php
+								the_category( ', ' );
+
+								echo '&nbsp;';
+
+								edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+
+								raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+								?>
+							</div>
 							<?php
-							raindrops_append_entry_content();
+							comments_template( '', true );
 							?>
 						</div>
-						<div class="linkpage clearfix">
-							<?php
-							wp_link_pages( 'before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
-							?>
-						</div>
-						<br class="clear" />
-						<div class="postmetadata">
-							<?php
-							the_category( ', ' );
-
-							echo '&nbsp;';
-
-							edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-
-							raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-							?>
-						</div>
-						<?php
-						comments_template( '', true );
-						?>
-					</div>
+					</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
 				</div>
 				<?php
 			} //endwhile 
@@ -102,9 +105,9 @@ raindrops_debug_navitation( __FILE__ );
 
 					foreach ( $raindrops_add_front_pages as $post ) {
 						?><div  id="post-<?php the_ID(); ?>"><<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>><?php
-						setup_postdata( $post );
-						get_template_part( 'part', 'additional' );
-						?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div><?php
+							setup_postdata( $post );
+							get_template_part( 'part', 'additional' );
+							?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div><?php
 					}
 					wp_reset_postdata();
 					?>

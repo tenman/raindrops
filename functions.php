@@ -26,6 +26,7 @@ if ( file_exists( get_template_directory() . '/raindrops-config.php' ) ) {
  * value true or false
  */
 if ( ! isset( $raindrops_keep_content_width ) ) {
+	
 	$raindrops_keep_content_width = apply_filters( 'raindrops_keep_content_width', true );
 }
 /**
@@ -34,6 +35,7 @@ if ( ! isset( $raindrops_keep_content_width ) ) {
  * @since 1.277
  */
 if ( ! isset( $raindrops_stylesheet_type ) ) {
+	
 	$raindrops_stylesheet_type = 'embed';
 }
 /**
@@ -41,6 +43,7 @@ if ( ! isset( $raindrops_stylesheet_type ) ) {
  * value true or false
  */
 if ( ! isset( $raindrops_use_transient ) ) {
+	
 	$raindrops_use_transient = true;
 }
 /**
@@ -590,6 +593,7 @@ if ( ! function_exists( 'raindrops_responsive_height_ajust') ) {
 
 
 if ( !isset( $raindrops_custom_header_args ) ) {
+	
 
 	$raindrops_custom_header_width  = apply_filters( 'raindrops_header_image_width', absint( raindrops_detect_header_image_size_clone(  'width' ) )	);
 	$raindrops_custom_header_height = apply_filters( 'raindrops_header_image_height', absint( raindrops_detect_header_image_size_clone( 'height' ) ) );
@@ -2603,8 +2607,10 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		} else {
 
 			$css .= ' .rsidebar{display:none;} ';
+			$css .= '.yui-t6 .index.archives,.yui-t5 .index.archives,.yui-t4 .index.archives{
+					 margin-right:1em;	}';
 		}
-
+		
 		//when manual style rule mode
 
 		if ( raindrops_warehouse_clone( "raindrops_style_type" ) == $raindrops_current_theme_name ) {
@@ -5143,6 +5149,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 				$ratio = 0;
 			}
 		}
+
 		$raindrops_current_template = basename( $template, '.php' );
 
 
@@ -6486,6 +6493,10 @@ if( ! function_exists( 'raindrops_html_excerpt_with_elements') ) {
 		}
 
 		if ( $allow_html ) {
+			
+			if( preg_match( '!\[raindrops skip-excerpt\]!', $content ) ) {				
+				return $content;
+			}
 
 			$striped_shortcode_content = strip_shortcodes( $content );
 			$striped_content = wp_kses( $striped_shortcode_content, array() );
@@ -10412,11 +10423,11 @@ if ( !function_exists( 'raindrops_parse_webfonts' ) ) {
 								}
 							}
 						}
-						$web_font_styles = str_replace('.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;'.
+						$web_font_styles = str_replace('.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', h1.google-font-' . sanitize_html_class( $reg[ 3 ] ) . ' span{ font-family:"' . $font_for_style . '", sans-serif;'.
 																			 $font_for_style_italic.
 																			 $font_for_style_weight.
 																			'}' . "\n",'',$web_font_styles );
-						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;'.
+						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', h1.google-font-' . sanitize_html_class( $reg[ 3 ] ) .' span{ font-family:"' . $font_for_style . '", sans-serif;'.
 																			 $font_for_style_italic.
 																			 $font_for_style_weight.
 																			'}' . "\n";
@@ -10492,10 +10503,16 @@ if ( ! function_exists('raindrops_get_classes_from_primary_menu') ) {
 			$menu_id = $locations[$menu_slug];
 			$items = wp_get_nav_menu_items( $menu_id ) ;
 			$class_strings = '';
-			foreach( $items as $val){
-					$class_strings .= ' '. implode( ',', $val->classes ).' ';
+			if( isset( $items ) && ! empty( $items ) ) {
+			
+				foreach( $items as $val){
+						$class_strings .= ' '. implode( ',', $val->classes ).' ';
+				}
+
+				return esc_attr( $class_strings );
+			} else {
+				return false;
 			}
-			return esc_attr( $class_strings );
 		}
 		return false;
 	}

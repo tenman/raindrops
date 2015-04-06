@@ -281,10 +281,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			$result			 = apply_filters( 'raindrops_display_recent_post_group_by_category_before', '' );
 			$wrap_html		 = '<ul class="xoxo">%1$s</ul>';
-			$category_title	 = '<li><h3 class="post-group_by-category-title"><a href="%1$s">%2$s</a></h3><ul>';
+			$category_title	 = '<li><h3 class="post-group_by-category-title category-title"><a href="%1$s">%2$s</a></h3><ul>';
 			$entry_item		 = '<li><a href="%1$s">%3$s</a><p><span title="%4$s">%2$s</span> </p>';
 			$entry_item		 = '<li>'
-			. '<a href="%1$s" class="post-group_by-category-entry-title">%3$s</a>'
+			. '<a href="%1$s" class="post-group_by-category-entry-title %8$s">%3$s</a>'
 			. '<%4$s class="entry-date updated post-group-by-category-time" %5$s>%2$s</%4$s>'
 			. '<span class="author vcard">'
 			. ' <a class="url fn n post-group_by-category-author" href="%6$s" rel="vcard:url">%7$s</a>'
@@ -317,8 +317,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 						$thumbnail =  apply_filters('raindrops_title_thumbnail', $thumbnail ,'<span class="h2-thumb">', '</span>');
 					}
-					
-					$title			 = apply_filters('raindrops_display_recent_post_group_by_category_post_thumb', $thumbnail ) . get_the_title( $val );
+					$entry_title_text = sprintf( '<span class="entry-title-text">%1$s</span>', get_the_title( $val ) );
+					$title			 = apply_filters('raindrops_display_recent_post_group_by_category_post_thumb', $thumbnail ) . $entry_title_text;
+					if( empty( $thumbnail ) ) {
+						$thumbnail_class = 'no-thumb';
+					} else {
+						$thumbnail_class = 'has-thumb';
+					}
+
 					$time_element	 = raindrops_doctype_elements( 'span', 'time', false );
 					$attribute_time	 = raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false );
 					$author			 = raindrops_blank_fallback( get_the_author(), 'Somebody' );
@@ -326,7 +332,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$author_link	 = get_author_posts_url( get_the_author_meta( 'ID' ) );
 					$author_link	 = esc_url( $author_link );
 
-					$result .= sprintf( $entry_item, $permalink, $date, $title, $time_element, $attribute_time, $author_link, $author );
+					$result .= sprintf( $entry_item, $permalink, $date, $title, $time_element, $attribute_time, $author_link, $author, $thumbnail_class );
 				}
 				$result .= $loop_end_html;
 			}

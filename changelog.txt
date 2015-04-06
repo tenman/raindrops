@@ -3,9 +3,61 @@ version:1.281
 
 Overview of Changes
 
+	Child Theme boots relate changes
+		@see Section Description of Code Changes 'boots'
+	Misc
+		Rename file change childs/boots/style.css to childs/boots/base.css
+
+			theme check plugin, tags erros.
+			Subject check plug, when checking the tag, just because the base name is checked only style.css,
+			the style.css exists other than the regular location, to become the examined error doubly
+
+		Change Screenshot Size
+			880x660 to 1200x900
+		Category what's new widget title
+			remove text-overflow: ellipsis;
+		etc,
+		@see Section Description of Code Changes 'Misc'
+
+	Fixed
+		wp_get_nav_menu_items() return false conditional check
+		@see Section Description of Code Changes 'Bug'
 
 Files Modified
 
+	modified:   childs/boots/functions.php
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   lib/option-panel.php
+	modified:   lib/widgets.php
+	modified:   page-templates/full-width.php
+	modified:   responsiveness.css
+	modified:   screenshot.png
+	modified:   style.css
+
+Description of Code Changes
+
+	childs/boots/functions.php
+		line: 11,13,86,97	[boots]
+		line: 51,872-961	[Misc]
+	childs/boots/inc.php
+		line: 87-93,333-357,370-372,381	[boots]
+	functions.php
+		line: 10426,10430	[boots]
+		line: 10505-10514	[Bug]
+	header-front.php
+		line: 91			[Misc]
+	lib/option-panel.php
+		line:16-509			[Misc]
+	lib/widgets.php
+		line:284,287,320-327,335 [Misc]
+	page-templates/full-width.php
+	line: 32,33,35-52,54-5662-66,69,108-110	[Misc]
+	responsiveness.css
+		line: 437-458	[Misc]
+	style.css
+		line:3573-3582,3584-3592	[Misc]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.280

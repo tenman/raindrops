@@ -1,4 +1,10 @@
 Changelog -----------------------------------
+version:1.284
+Overview of Changes
+	Fixed
+		Recommend Plugin meta slider not work when using child theme boots.
+			plugins/plugins-presentation.php line:440
+Changelog -----------------------------------
 version:1.283
 
 Overview of Changes

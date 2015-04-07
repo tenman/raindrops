@@ -437,6 +437,7 @@ if ( !function_exists( 'raindrops_metaslider_setup' ) ) {
 			add_action( 'wp_enqueue_scripts', 'raindrops_metaslider_css' );
 			add_action( 'wp_head', 'raindrops_metaslider_shortcode_custom' );
 			add_filter( 'raindrops_header_image_home_url', 'raindrops_insert_metaslider' );
+			add_filter( 'raindrops_header_image_elements', 'raindrops_insert_metaslider' );
 
 			$setting_value = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
 

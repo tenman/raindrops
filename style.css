@@ -1075,6 +1075,10 @@ ul.index li .edit {
 }
 .entry-content ul li{
 }
+.entry-content li > ol,
+.entry-content li > ul{
+    margin-top:1em!important;
+}
 .page .hentry .entry-content {
     margin-top:2em;
 }

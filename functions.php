@@ -312,8 +312,8 @@ if ( class_exists( 'Jetpack', false ) && $jetpack_active_modules ) {
 
 add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
 add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
-add_action( 'load-themes.php', array( 'RaindropsPostHelp', 'init' ) );
-add_action( 'load-theme-editor.php', array( 'RaindropsPostHelp', 'init' ) );
+add_action( 'load-themes.php', array( 'RaindropsPostHelp', 'init' ) );//
+add_action( 'load-theme-editor.php', array( 'RaindropsPostHelp', 'init' ) );//
 
 class RaindropsPostHelp {
 
@@ -346,10 +346,17 @@ class RaindropsPostHelp {
 				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme' ), 20 );
 				break;
 
-			default:
+			case( 'post-new.php' ):
+						
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs' ), 20 );
+				break;
+			case( 'post.php' ):
+				
 				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs' ), 20 );
 				break;
 		}
+
+		
 	}
 
 	public function add_tabs() {
@@ -384,9 +391,9 @@ class RaindropsPostHelp {
 
 			get_current_screen()->add_help_tab( array(
 				'id'		 => $id
-				, 'title'		 => __( 'Raindrops CSS Help', 'Raindrops' )
-				, 'content'	 => '<h1>' . __( 'About Raindrops CSS', 'Raindrops' ) . '</h1>'
-				, 'callback'	 => array( $this, 'prepare_theme_editor' )
+				, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare_theme' )
 			) );
 		}
 	}
@@ -2932,14 +2939,16 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 			/* 1.234 metabox support */
 
 			$css_single .= get_post_meta( $post->ID, '_css', true );
-
-
+			
+			
 			if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
 				$css .= preg_replace_callback( '![^}]+{[^}]+}!siu', 'raindrops_css_add_id', $css_single );
+				
 			} else {
 
-				$css .= $css_single;
+				$css_single = $css_single;
+				
 			}
 
 			if ( !empty( $css ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
@@ -3160,16 +3169,40 @@ if ( !function_exists( "raindrops_css_add_id" ) ) {
 
 		global $post;
 		$result = '';
-
+		$exclude_lists = '@keyframes|transform|from\s*{|to\s*{|@raindrops'; // separate | 
 		foreach ( $matches as $k => $match ) {
+			
+			if(preg_match('!([^{]+){([^{]+{)(.+)!',$match, $regs) ) {
+				$result .= $regs[1]. '{'. "\n";
+				$match = $regs[2]. $regs[3];
+			}
+	
+			if(  preg_match('!('. $exclude_lists .')!', $result. $match ) || preg_match( '!^[0-9]{1,3}%!', trim( $match ) ) ) {
+				
+				if( preg_match( '!@raindrops!', $match) ) {
+					
+					// @raindrops is force keyword, Not adding ID
+					// Although not recommended, please use only if absolutely necessary
+					// Please include the CSS body class that specifies a particular page(.postid-xxxx). This is not the case when the layout is likely to collapse.
+					$match = str_replace( '@raindrops', '', $match );
+				}
 
-			if ( preg_match( '|^(.+){(.+)|siu', $match, $regs ) ) {
+				$result .= ' ' . trim( $match ) . "\n";
+
+				return $result;
+			}
+			if ( preg_match( '|^([^@]+){(.+)|siu', $match, $regs ) ) {
 
 				$match_1 = str_replace( ',', ', #post-' . $post->ID . ' ', $regs[ 1 ] );
 				$match	 = $match_1 . '{' . $regs[ 2 ];
-			}
+				
+				$result .= '#post-' . $post->ID . ' ' . trim( $match ) . "\n";
+			} else {
 
-			$result .= '#post-' . $post->ID . ' ' . trim( $match ) . "\n";
+				$result .= ' ' . trim( $match ) . "\n";
+			}
+			
+			
 		}
 		return $result;
 	}
@@ -5452,7 +5485,11 @@ if ( !function_exists( 'raindrops_customize_register' ) ) {
 
 	function raindrops_customize_register( $wp_customize ) {
 
-		global $raindrops_current_theme_name, $raindrops_base_setting_args, $raindrops_base_font_size;
+		global $raindrops_current_theme_name, $raindrops_base_setting_args, $raindrops_base_font_size, $raindrops_show_theme_option;
+		
+		if( true !== $raindrops_show_theme_option ) {
+			return;
+		}
 
 		$raindrops_theme_name = wp_get_theme();
 

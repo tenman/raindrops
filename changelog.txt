@@ -1,4 +1,42 @@
 Changelog -----------------------------------
+version:1.285
+Overview of Changes
+	Fixed Google Fonts not apply when logged out
+
+		@see Section Description of Code Changes 'Font'
+
+	Custom CSS for this Entry ( post metabox css editor )
+
+		Support @media rules
+		Support @font-face
+		Support @keyframes
+		Not support @import
+		Add @raindrops private keyword for force handmade style rule( raindrops not adding post ID )
+		 for example
+
+			@raindrops body.postid-xxxx #site-title span{
+				color:red;
+			}
+			This feature, so as to act is limited to a particular post,
+			carefully, please use only when absolutely necessary.
+			This is not a recommended feature
+		@see Section Description of Code Changes 'CSS Editor'
+
+	Modify class RaindropsPostHelp
+
+		@see Section Description of Code Changes 'Help'
+
+Files Modified
+		modified:   style.css
+		modified:   functions.php
+Description of Code Changes
+		functions.php line: 349-354,394-396,
+		functions.php line: 2950, 3172-3194,3198-3205,[CSS Editor]
+		functions.php line:5488-5492 [Misc]//when $raindrops_show_theme_option false , Not showing customizer option
+		style.css line:1078-1081 [misc]// list style modify
+		functions.php line:10386 [Font]
+Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.284
 Overview of Changes
 	Fixed

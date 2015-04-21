@@ -2,10 +2,46 @@ Changelog -----------------------------------
 version:1.286
 Overview of Changes
 
+	Fixed for Security issue.
+
+		https://make.wordpress.org/plugins/2015/04/20/fixing-add_query_arg-and-remove_query_arg-usage/
+
+		Add esc_url() for add_query_arg() and remove_query_arg()
+			@see Section Description of Code Changes 'Query Args'
+
+	About[Misc]
+		Allmost child theme relation changes.
+
 Files Modified
+	modified:   date.php
+	modified:   functions.php
+	modified:   header.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/widgets.php
+	modified:   page-templates/list-of-post.php
+	modified:   plugins/class-tgm-plugin-activation.php
+	modified:   search.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 
+	date.php line: 74,84-85,[Query Args]
+	functions.php line:4448[Misc]
+	functions.php line:8857,8861,8867,8872,8890,8897,9820,9823,10469,10472[Query Args]
+	functions.php line:9378,9438-9454[Misc]
+	lib/alias_functions.php line:958-976[Misc]
+	lib/csscolor.css.php line:85,124,614,901,1455,1599,1633,2199-2204[Misc]
+	lib/hooks.php line:40,42,[Query Args]
+	lib/widget.php line:390,395-397[Misc]
+	page-templates/list-of-post.php[Misc]
+	plugins/class-tgm-plugin-activation.php	line:441,458,486,488,513,525,562,703,712,
+			732-733,741,1149,1158,1297,1306,1318,1328,1528,1537,1579,2150[Query Args]
+	search.php line:33,39-49,87,[Misc]
+	single.php line:142[Misc]
+	style.css line:2942,2945,2964-2968[Misc]
 Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.285

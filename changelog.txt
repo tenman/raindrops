@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.286
+Overview of Changes
+
+Files Modified
+
+Description of Code Changes
+
+Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.285
 Overview of Changes
 	Fixed Google Fonts not apply when logged out

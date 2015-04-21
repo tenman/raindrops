@@ -8,7 +8,6 @@
   $raindrops_list_of_posts_more		= '[...]';
   $raindrops_list_of_posts_use_toggle	= true;
  */
-
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -106,7 +105,8 @@ raindrops_debug_navitation( __FILE__ );
     </div>
 </div>
 <?php
-if ( raindrops_column_controller() !== 1 || false == $raindrops_current_column ) {
+
+if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
     ?>
     <div class="yui-b">
         <?php

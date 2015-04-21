@@ -27,18 +27,26 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 <?php if ( have_posts() ) { ?>
 
                     <h1 class="pagetitle h1">Search Results : <?php the_search_query(); ?></h1>
-                    <ul class="search-results">
-                        <li>
                             <?php
                             raindrops_next_prev_links();
-                            ?>
-                        </li>
+                            ?>					
+                    <ul class="search-results">
                         <?php
+						    $raindrops_loop_number = 1;
                         while ( have_posts() ) {
 
                             the_post();
-                            ?>
-                            <li>
+
+							$raindrops_loop_class = raindrops_loop_class( $raindrops_loop_number, get_the_ID() );
+
+								printf( "\n". str_repeat("\t", 8 ). '<li class="loop-%1$s%2$s">', 
+										esc_attr( trim( $raindrops_loop_class[ 0 ] ) ), 
+										esc_attr( rtrim( $raindrops_loop_class[ 1 ] ) )
+									);
+
+							$raindrops_loop_number++;
+						?>
+						
                                 <div id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
 									 <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                                     <?php
@@ -76,13 +84,13 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
                             </li>
 
                         <?php }//while ( have_posts( ) )	?>
+                    </ul>
 
-                        <li>
                             <?php
                             raindrops_next_prev_links( "nav-below" );
                             ?>
-                        </li>
-                    </ul>
+
+
                 <?php } else { ?>
                     <div class="fail-search">
 						<?php do_action( 'raindrops_prepend_fail_search');?>

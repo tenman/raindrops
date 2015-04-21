@@ -955,5 +955,23 @@ function raindrops_gallerys_clone() {
 		return false;
 	}
  }
+function raindrops_complementary_color_clone( $hex_color = '#444' ) {
 
+		$rgb_array = raindrops_hex2rgb_array_clone( $hex_color );
+
+		if ( false !== $rgb_array ) {
+
+			$rgb_max_value	 = max( $rgb_array );
+			$rgb_min_value	 = min( $rgb_array );
+			$rgb_total		 = $rgb_max_value + $rgb_min_value;
+
+
+			$r_value = sprintf( '%02s', dechex( $rgb_total - $rgb_array[ 0 ] ) );
+			$g_value = sprintf( '%02s', dechex( $rgb_total - $rgb_array[ 1 ] ) );
+			$b_value = sprintf( '%02s', dechex( $rgb_total - $rgb_array[ 2 ] ) );
+
+			return '#' . $r_value . $g_value . $b_value;
+		}
+		return false;
+	}
 ?>

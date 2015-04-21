@@ -71,7 +71,7 @@ if ( isset( $ye ) && !empty( $ye ) && isset( $mo ) && !empty( $mo ) ) {
     $raindrops_page_total = $wp_query->max_num_pages;
 }
 
-$pagination = array( 'base'     => @add_query_arg( 'paged', '%#%' ),
+$pagination = array( 'base'     => esc_url( add_query_arg( 'paged', '%#%' ) ),
     'format'   => '',
     'total'    => $raindrops_page_total,
     'current'  => $current,
@@ -81,7 +81,8 @@ $pagination = array( 'base'     => @add_query_arg( 'paged', '%#%' ),
 
 if ( $wp_rewrite->using_permalinks() ) {
 
-    $pagination[ 'base' ] = user_trailingslashit( trailingslashit( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) . 'page/%#%/', 'paged' );
+    $pagination[ 'base' ] = user_trailingslashit( trailingslashit( esc_url( remove_query_arg( 's', get_pagenum_link( 1 ) ) ) ) . 'page/%#%/', 'paged' );
+	$pagination[ 'base' ] = esc_url( $pagination[ 'base' ] );
 }
 
 if ( 0 == $calendar_page_number ) {

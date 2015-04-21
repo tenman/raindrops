@@ -82,7 +82,7 @@ function raindrops_indv_css_dark() {
 body{
     %c1%
 }
-
+#top,
 legend,
 #sidebar,
 div[id^="doc"],
@@ -121,8 +121,7 @@ cite,
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited,
 ul.nav li a:hover,ul.nav li a:active,
 .entry-meta,
-.home .sticky,
-#top{
+.home .sticky{
     %c_4%
 }
 .rsidebar option.level-1,
@@ -612,7 +611,7 @@ a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
 CSS3;
-    return $style . $css3;
+    return apply_filters( __FUNCTION__ , $style . $css3 );
 }
 
 ?>
@@ -898,7 +897,8 @@ a.raindrops-comment-link:hover .point {
     border-left:1px solid %c_border%;
 }
 DOC;
-    return $style;
+    
+	 return apply_filters( __FUNCTION__ , $style );
 }
 
 ?>
@@ -1451,7 +1451,8 @@ a.raindrops-comment-link:hover .point {
     text-shadow: 2px 2px 2px #fff;
 }
 CSS3;
-    return $style . $css3;
+
+	 return apply_filters( __FUNCTION__ , $style . $css3 );
 }
 
 ?>
@@ -1595,8 +1596,8 @@ blockquote{
 CSS;
 
 
+ return apply_filters( __FUNCTION__ , $style  );
 
-    return $style;
 }
 
 ?>
@@ -1629,7 +1630,7 @@ if ( !in_array( $alias_functions, $raindrops_included_files ) ) {
 
 $embed_common_style = $raindrops_current_theme_name;
 
-raindrops_register_styles( $embed_common_style );
+//raindrops_register_styles( $embed_common_style );
 
 $raindrops_images_path = get_stylesheet_directory_uri() . '/images/';
 
@@ -2164,6 +2165,8 @@ function raindrops_design_output( $name = 'dark' ) {
     $function_name = 'raindrops_indv_css_' . $name;
 
     if ( function_exists( $function_name ) ) {
+		
+		
 
         $content = $function_name();
 
@@ -2191,8 +2194,14 @@ function raindrops_design_output( $name = 'dark' ) {
             
             $content = str_replace( $raindrops_images_path. $navigation_title_img, '', $content );
         }
-        return $content;
+	
     }
+	if( isset( $content ) ) {
+		
+		return $content;
+	}else{
+		return false;
+	}
 }
 
 /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -4444,7 +4445,7 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 				$title =  $thumbnail. $title;
 			}
 
-			if ( empty( $title ) ) {
+			if ( empty( $title ) || preg_match('!><!', $title ) ) {
 
 				$html = $thumbnail. '<span class="' . esc_attr( $class ) . '" title="' . $format_label . '" ></span>';
 				return $html;
@@ -4841,6 +4842,8 @@ if ( !function_exists( "raindrops_column_controller" ) ) {
 
 			$raindrops_content_check = get_post( $post->ID );
 			$raindrops_content_check = $raindrops_content_check->post_content;
+			
+
 
 			if ( is_singular() && preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
 
@@ -8851,22 +8854,22 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 
 				if ( is_front_page() ) {
 
-					$url	 = add_query_arg( 'page', 2 ) . '#portfolio';
+					$url	 = esc_url( add_query_arg( 'page', 2 ) ) . '#portfolio';
 					$html	 = '<li><a href="' . esc_url( $url ) . '" title="page 2" class="portfolio-page2">' . esc_html__( 'Page', 'Raindrops' ) . '2</a></li>';
 				} else {
 
-					$url	 = add_query_arg( 'page', 2 ) . '#portfolio';
+					$url	 = esc_url( add_query_arg( 'page', 2 ) ) . '#portfolio';
 					$html	 = '<li><a href="' . esc_url( $url ) . '" title="page 2" class="portfolio-page2">' . esc_html__( 'Page', 'Raindrops' ) . '2</a></li>';
 				}
 			} elseif ( $args[ 'paged' ] > 0 ) {
 
 				$page	 = $args[ 'paged' ] + 1;
-				$url	 = add_query_arg( 'page', $page ) . '#portfolio';
+				$url	 = esc_url( add_query_arg( 'page', $page ) ). '#portfolio';
 				$html	 = sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-next portfolio-' . $page, 'portfolio-nav-next', esc_html__( 'Page', 'Raindrops' ) . ' ' . $page
 				);
 			}
 
-			$url = add_query_arg( 'page', $args[ 'paged' ] ) . '#portfolio';
+			$url = esc_url( add_query_arg( 'page', $args[ 'paged' ] ) ). '#portfolio';
 			$raindrops_page_for_posts		 = get_option( 'page_for_posts' );
 			$raindrops_html_page = '<li><a href="%1$s" class="%2$s"><span class="%3$st">%4$s</span></a></li>';
 
@@ -8884,14 +8887,14 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 			if ( 2 == $args[ 'paged' ] ) {
 
 				$page	 = $args[ 'paged' ] - 1;
-				$url	 = add_query_arg( 'page', $page ) . '#portfolio';
+				$url	 = esc_url( add_query_arg( 'page', $page ) ) . '#portfolio';
 				$html .= sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-prev portfolio-home', 'portfolio-nav-prev', __( 'Portfolio Home', 'Raindrops' )
 				);
 			} elseif ( $args[ 'paged' ] > 2 ) {
 
 				$page	 = $args[ 'paged' ];
 				$page	 = $page - 1;
-				$url	 = add_query_arg( 'page', $page ) . '#portfolio';
+				$url	 = esc_url( add_query_arg( 'page', $page ) ). '#portfolio';
 				$html .= sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-prev portfolio-' . $page, 'portfolio-nav-prev', esc_html__( 'Page', 'Raindrops' ) . ' ' . $page
 				);
 			}
@@ -9236,6 +9239,7 @@ if ( !function_exists( 'raindrops_call_custom_css' ) ) {
  *
  * Raindrops indivisual CSS
  */
+
 if ( !class_exists( 'raindrops_custom_css' ) ) {
 
 	class raindrops_custom_css {
@@ -9371,7 +9375,7 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 
 				$form .= '<p><a class="button button-large" href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . esc_html__( 'Add Custom Header', 'Raindrops' ) . '</a></p>';
 			}
-			if ( $raindrops_static_front_page_template_slug == 'front-page.php' ) {
+			if ( $raindrops_static_front_page_template_slug == 'front-page.php' && 'page' == get_option('show_on_front') ) {
 
 				$form .= '<h4>' . esc_html__( 'Override header Image', 'Raindrops' ) . '</h4>';
 				$form .= '<p>'. esc_html__( 'Now Selected Front Page template,You can use Featured Image for override header image', 'Raindrops' ). '</p>';
@@ -9435,23 +9439,8 @@ if ( !function_exists( 'raindrops_play_list_add_atts' ) ) {
 if ( !function_exists( 'raindrops_complementary_color' ) ) {
 
 	function raindrops_complementary_color( $hex_color = '#444' ) {
-
-		$rgb_array = raindrops_hex2rgb_array_clone( $hex_color );
-
-		if ( false !== $rgb_array ) {
-
-			$rgb_max_value	 = max( $rgb_array );
-			$rgb_min_value	 = min( $rgb_array );
-			$rgb_total		 = $rgb_max_value + $rgb_min_value;
-
-
-			$r_value = sprintf( '%02s', dechex( $rgb_total - $rgb_array[ 0 ] ) );
-			$g_value = sprintf( '%02s', dechex( $rgb_total - $rgb_array[ 1 ] ) );
-			$b_value = sprintf( '%02s', dechex( $rgb_total - $rgb_array[ 2 ] ) );
-
-			return '#' . $r_value . $g_value . $b_value;
-		}
-		return false;
+	
+		return raindrops_complementary_color_clone( $hex_color );
 	}
 
 }
@@ -9828,10 +9817,10 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 
 					if ( preg_match( '!(font-effect-)([a-z-)]+)!', $reg[ 0 ], $effect ) ) {
 
-						$font_url = add_query_arg( array( 'family' => $query_val, 'effect' => urlencode( $effect[ 2 ] ) ), $url );
+						$font_url = esc_url( add_query_arg( array( 'family' => $query_val, 'effect' => urlencode( $effect[ 2 ] ) ) , $url ) );
 					} else {
 
-						$font_url = add_query_arg( 'family', $query_val, $url );
+						$font_url = esc_url( add_query_arg( 'family', $query_val, $url ) );
 					}
 					$font_url = str_replace( '&', '&amp;', $font_url );
 
@@ -10046,9 +10035,12 @@ if ( !function_exists( 'raindrops_pinup_widget_ids_to_post_ids' ) ) {
 
 		$widget_array				= get_option( 'widget_raindrops_pinup_entry_widget' );
 		$raindrops_pinup_post_id	= array();
+		
 		if( is_array( $ids ) ) {
 			foreach( $ids as $id ) {
+				if( isset( $widget_array[ $id ][ "id" ] ) ) {
 					$raindrops_pinup_post_id[]		 = $widget_array[ $id ][ "id" ];
+				}
 			}
 			return $raindrops_pinup_post_id;
 		}
@@ -10138,7 +10130,7 @@ if ( ! function_exists( 'raindrops_month_list_count' ) ) {
 	 * @since 1.271
 	 */
 	function raindrops_month_list_count( $count ) {
-
+		
 		return 50;
 	}
 }
@@ -10474,10 +10466,10 @@ if ( !function_exists( 'raindrops_parse_webfonts' ) ) {
 
 					if ( preg_match( '!(font-effect-)([a-z-)]+)!', $reg[ 0 ], $effect ) ) {
 
-						$font_url = add_query_arg( array( 'family' => $query_val, 'effect' => urlencode( $effect[ 2 ] ) ), $url );
+						$font_url = esc_url( add_query_arg( array( 'family' => $query_val, 'effect' => urlencode( $effect[ 2 ] ) ), $url ) );
 					} else {
 
-						$font_url = add_query_arg( 'family', $query_val, $url );
+						$font_url = esc_url( add_query_arg( 'family', $query_val, $url ) );
 					}
 					$font_url = str_replace( '&', '&amp;', $font_url );
 

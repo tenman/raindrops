@@ -387,12 +387,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			if ( isset( $instance[ 'id' ] ) && isset( $instance[ 'inline_style' ] ) && ! empty( $instance[ 'inline_style' ] )) {
 
 				$style = str_replace( PHP_EOL, '', $instance[ 'inline_style' ] );
+				$style = wp_strip_all_tags( $style );
 				
-				echo '<div id="pinup-'.absint( $instance[ 'id' ] ) . '" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). '>';
+				echo '<div id="pinup-'.absint( $instance[ 'id' ] ) . '" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). ' style="'. $style. '">';
 			} else {
 				if ( isset( $instance[ 'id' ] ) && isset( $instance[ 'inline_style' ] ) ) {
-					
-					echo '<div id="pinup-'. absint( $instance[ 'id' ] ).'" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). ' >';
+					$style = str_replace( PHP_EOL, '', $instance[ 'inline_style' ] );
+					$style = wp_strip_all_tags( $style );
+					echo '<div id="pinup-'. absint( $instance[ 'id' ] ).'" '. raindrops_post_class( '', absint( $instance[ 'id' ] ), false ). ' style="'. $style. '">';
 				}
 			}
 

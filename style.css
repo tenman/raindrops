@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.285
+Version: 1.286
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2939,10 +2939,10 @@ sup {
     text-align:left;
 }
 #front-page-template-pages{
-    padding:0 10%;
+   /*padding:0 10%;*/
 }
 #front-page-template-pages .page{
-    margin:10% 0;
+   /* margin:10% 0;*/
 }
 .page-template-page-templatesfront-page-php .portfolio-nav > ul > li{
     width:33%;
@@ -2961,7 +2961,11 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 }
 /* raindrops-toc  for front-page.php ,full-width.php */
 .raindrops-toc-front{
-  margin:1em 10%;
+ /* margin:1em 10%;*/
+}
+#front-page-template-pages  .page{
+     margin:0 10%;
+     padding:1em;
 }
 .raindrops-toc-front li{
     list-style:none;

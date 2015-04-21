@@ -26,7 +26,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 				
 				<?php  echo raindrops_site_description(); ?>
                 
-			</div>	
+			</div>
             <?php 
 				/**
                  * Custom Header

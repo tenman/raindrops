@@ -1,5 +1,4 @@
 <?php
-
 /**
  * functions and constants for Raindrops theme
  *
@@ -75,6 +74,14 @@ if( ! isset( $raindrops_extend_galleries ) ) {
 if ( !isset( $raindrops_show_theme_option ) ) {
 
 	$raindrops_show_theme_option = true;
+}
+/*
+ * Using Customizer
+ * @since 1.287
+ */
+if ( !isset( $raindrops_enable_cutomizer ) ) {
+	
+	$raindrops_enable_cutomizer = true;
 }
 
 
@@ -4390,7 +4397,7 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 		if ( !is_admin() ) {
 
 			$format = get_post_format( $id );
-
+			
 			if ( false === $format ) {
 
 				$image_uri		 = get_template_directory_uri() . '/images/link.png';
@@ -4445,7 +4452,9 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 				$title =  $thumbnail. $title;
 			}
 
-			if ( empty( $title ) || preg_match('!><!', $title ) ) {
+			$striped_title = wp_kses( $title,array());
+			
+			if ( empty( $title )  || empty( $striped_title ) ) {
 
 				$html = $thumbnail. '<span class="' . esc_attr( $class ) . '" title="' . $format_label . '" ></span>';
 				return $html;
@@ -5488,9 +5497,9 @@ if ( !function_exists( 'raindrops_customize_register' ) ) {
 
 	function raindrops_customize_register( $wp_customize ) {
 
-		global $raindrops_current_theme_name, $raindrops_base_setting_args, $raindrops_base_font_size, $raindrops_show_theme_option;
+		global $raindrops_current_theme_name, $raindrops_base_setting_args, $raindrops_base_font_size, $raindrops_enable_cutomizer;
 
-		if( true !== $raindrops_show_theme_option ) {
+		if( true !== $raindrops_enable_cutomizer ) {
 			return;
 		}
 
@@ -9342,8 +9351,9 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 			$raindrops_static_front_page_template_slug	 = basename( get_page_template_slug( $raindrops_static_front_page_id ) );
 			$raindrops_current_screen					 = get_current_screen();
 			$current_value								 = get_post_meta( $post->ID, '_add-to-front', true );
-
-			if ( $raindrops_static_front_page_template_slug == 'front-page.php' && $raindrops_current_screen->post_type == 'page' ) {
+			$page_page_auto_include_template             = apply_filters( 'raindrops_page_auto_include_template', 'front-page.php' );
+			
+			if ( $raindrops_static_front_page_template_slug == $page_page_auto_include_template && $raindrops_current_screen->post_type == 'page' ) {
 
 				$form .= '<h4>' . esc_html__( 'Add Front Page', 'Raindrops' ) . '</h4>';
 				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="add" ' . checked( 'add', $current_value, false ) . ' />' . __( 'Add Front Page This Content', 'Raindrops' ) . '</p>';
@@ -9479,7 +9489,7 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 		}
 
 		$element = raindrops_doctype_elements( 'div', 'figure', false );
-		if ( !preg_match( '!twitter.com!', $url ) ) {
+		if ( !preg_match( '!(twitter.com|tumblr.com)!', $url ) ) {
 			return sprintf( '<%2$s class="oembed-container clearfix">%1$s</%2$s>', $html, $element );
 		}
 		return $html;
@@ -10729,6 +10739,7 @@ if ( ! function_exists( 'raindrops_custom_site_title_style' ) ) {
 		return wp_strip_all_tags( $return_value.$style );
 	}
 }
+
 /**
  *
  *

@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.287
+Overview of Changes
+
+
+
+Files Modified
+
+
+Description of Code Changes
+
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.286
 Overview of Changes
 
@@ -42,7 +55,7 @@ Description of Code Changes
 	search.php line:33,39-49,87,[Misc]
 	single.php line:142[Misc]
 	style.css line:2942,2945,2964-2968[Misc]
-Changelog -----------------------------------
+----------------------------------------------
 Changelog -----------------------------------
 version:1.285
 Overview of Changes
@@ -80,7 +93,7 @@ Description of Code Changes
 		functions.php line:5488-5492 [Misc]//when $raindrops_show_theme_option false , Not showing customizer option
 		style.css line:1078-1081 [misc]// list style modify
 		functions.php line:10386 [Font]
-Changelog -----------------------------------
+----------------------------------------------
 Changelog -----------------------------------
 version:1.284
 Overview of Changes

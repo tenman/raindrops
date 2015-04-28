@@ -230,7 +230,7 @@ if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
 			$html		 = '<ol class="breadcrumbs" itemprop="breadcrumbs">%1$s</ol>';
 			$breadcrumb	 = bcn_display_list( true );
 
-			if ( (!is_home() || !is_front_page() ) && ( isset( $post ) && 0 !== $post->ID ) ) { // $post->ID for check the events calendar
+			if ( !is_home() && !is_front_page() && ( isset( $post ) && 0 !== $post->ID ) ) { // $post->ID for check the events calendar
 				$breadcrumb = bcn_display_list( true );
 				printf( $html, $breadcrumb );
 			}

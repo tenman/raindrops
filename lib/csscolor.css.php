@@ -2211,13 +2211,20 @@ function raindrops_design_output( $name = 'dark' ) {
  *
  *
  */
-function raindrops_register_styles( $style_name ) {
+function raindrops_register_styles( $style_name = '' ) {
+    static $vals;
+	
+	if ( empty( $style_name ) ) {
 
+        return $vals;
+    }	
+	
     if ( !is_string( $style_name ) ) {
 
         return false;
     }
-    static $vals;
+	
+
     $vals[$style_name] = $style_name;
     return $vals;
 }

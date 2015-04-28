@@ -601,13 +601,12 @@ if ( !function_exists( 'raindrops_header_image_validate' ) ) {
  * @param type $input
  * @return string
  */
+
 if ( !function_exists( 'raindrops_style_type_validate' ) ) {
 
 	function raindrops_style_type_validate( $input ) {
-
-		$array = raindrops_register_styles( $input );
-
-		if ( array_search( $input, $array ) ) {
+		
+		if ( function_exists( 'raindrops_indv_css_'. $input ) ) {
 
 			return esc_html( $input );
 		} else {

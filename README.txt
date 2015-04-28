@@ -57,6 +57,7 @@ Special Thanks for Contribution
 
 Special Thanks for Translation files provided
 
+	@ oppofansfr http://fr.ofans.eu/ fr_FR.po fr_FR.mo
 	@ kml1960 http://kml1960.pl pl_PL.po pl_PL.mo
 
 QUICK START

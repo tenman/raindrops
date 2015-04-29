@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.287
+version:1.288
 Overview of Changes
 
 	Update README.txt

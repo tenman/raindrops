@@ -2,14 +2,55 @@ Changelog -----------------------------------
 version:1.287
 Overview of Changes
 
+	Update README.txt
 
+		Add French translation file
+			Thanks to oppofansfr that create of the translation files
+	Fixed
+
+		title in the specific conditions of use can not be displayed
+		When using featured image settings.
+		@see Section Description of Code Changes 'Title'
+	Modify
+
+		apply filter 'raindrops_page_auto_include_template'
+		@see Section Description of Code Changes 'Filter'
+
+		WordPress4.2
+			oembed kickstarter support
+			oembed tumblr support
+				http://xxxx.tumblr.com/post/xxxxxx/xxxxx
+		@see Section Description of Code Changes 'Oembed'
+
+	Note: WordPress4.2 adminbar theme link change from Theme Option Page to Customizer Page.
+
+			If the uninstall setting was to delete, in the theme change of Customizer,
+			you can see that the option value is not deleted.
+
+			This problem is going to solve future
+			In the following way as a transitional measure, it can be deleted
+
+			Open your-site/wp-admin/themes.php
+
+			when you switch to other themes, you can remove the option that has been used in theme
 
 Files Modified
 
+	modified:   changelog.txt
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/validate.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 
 Description of Code Changes
-
-
+	functions.php                    line:78-85,5502[Misc]
+	functions.php                    line:4455-4457[Title]
+	functions.php                    line:9354-9356[Misc]
+	functions.php                    line:9492[Oembed]
+	lib/csscolor.css.php             line:2214-2227[Misc]
+	lib/validate.php                 line:608-609[Misc]
+	plugins/plugins-presentation.php line:233[Misc]
 ----------------------------------------------
 Changelog -----------------------------------
 version:1.286

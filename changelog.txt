@@ -1,4 +1,86 @@
 Changelog -----------------------------------
+version:1.289
+Overview of Changes
+
+	This version Change Theme Admin User Interface
+
+		This is a transition version to the new user interface
+		Page of the customizer is completely rewritten, traditional theme options page has hidden
+		Since this is a transition version to the new user interface, you can also use previous theme options, the theme customizer.
+		If you use on the problem occurs, make the following changes. Please to speak in support forum
+
+		forums URL
+		English https://wordpress.org/support/theme/raindrops
+		Japanese http://ja.forums.wordpress.org/
+
+		Please write to the forum if it and is a desire to become something care
+
+		How to revert UI
+
+		Open functions.php add first line below code ( <?php before )
+
+		<?php
+		$raindrops_new_customizer = false;
+		?>
+
+		If you using Child Theme
+
+		This versions change is not apply
+
+		For example, the child theme boots of Raindrops, will problems with the operation.
+
+		Example Color Scheme boots not selectable.
+
+		If you have not done such as changing the color scheme, it works maybe normally.
+
+		To reflect this change in the child theme, please as follows
+
+		I, you come to make this change, we expect that it will speak on whether the forum issue comes out.
+
+		How to reflect of change for child themes
+
+		Add Child Theme / functions.php (if not exists,please add functions.php )
+
+		<?php
+		$raindrops_new_customizer_support_child = true;
+		?>
+
+		Please try above.
+
+		@see Section Description of Code Changes 'Customizer'
+
+
+
+Files Modified
+	new file:	lib/customize.js
+	new file:   lib/customize.php
+	new file:   lib/vars.php
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   raindrops-config-example.php
+	modified:   style.css
+
+Description of Code Changes
+	child/boots/inc.php	line:396,406,416,426,436[Customizer]
+	functions.php line:12[Misc]
+	functions.php	line:32,34,38-40,42-43,45-47,49-52,53-56,75-76,78-82,86-89,96-99,107-109,116-117,119-120,134,136,138-139,280-281,789-791,4607,4614,7273,7343,[Misc]
+	functions.php 	line:51-72,4643-4648,,4876,4878,6975-6986,6996,7006,7016,7026,7248,7251-7254[Customizer]
+	lib/alias_functions.php line:130-144,381,387,393,399,405,411,417,423,429,435,441,1034-1174[Misc]
+	lib/alias_functions.php line:159,182,184-236,1181-1241[Customizer]
+	lib/csscolor.css.php	line:1616,1659-1662,1665-1667,1680-1701[Customizer]
+	lib/csscolor.css.php	line:1726,1731,1736,1741,1746,1751,1756,1761,1766,1771,[Misc]
+	lib/featured-image.php line:29,37,[Misc]
+	lib/hooks.php	line:338-341{misc]
+	lib/option-panel.php $raindrops_base_setting_args,RAINDROPS_COLOR_SCHEME move to vars.php[Misc]
+	raindrops-config-example.php line:156[Misc]
+	style.css line:31,1423-1425[Misc]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.288
 Overview of Changes
 

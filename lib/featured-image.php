@@ -26,7 +26,7 @@ switch ( $raindrops_featured_image_singular ) {
 
 	case( 'lightbox' ):
 		$raindrops_featured_image_full_size = false;
-		define( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX', true );
+		$raindrops_use_featured_image_light_box = true;
 		break;
 	case( 'hide' ):
 		add_filter( 'raindrops_featured_image_enable', '__return_false' );
@@ -34,7 +34,7 @@ switch ( $raindrops_featured_image_singular ) {
 
 	default:
 		$raindrops_featured_image_full_size = true;
-		define( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX', false );
+		$raindrops_use_featured_image_light_box = false;
 }
 
 if ( ! function_exists( 'raindrops_post_thumbnail_size_in_the_loop' ) ) {

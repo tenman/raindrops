@@ -127,19 +127,21 @@ if ( !function_exists( 'raindrops_content_width_clone' ) ) {
         if ( raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ) !== 'show' ) {
             return $raindrops_content_width;
         } else {
-            if ( '25' == $extra_sidebar_width ) {
-                return round( $raindrops_content_width * 0.74 );
-            } elseif ( '75' == $extra_sidebar_width ) {
-                return round( $raindrops_content_width * 0.24 );
-            } elseif ( '33' == $extra_sidebar_width ) {
-                return round( $raindrops_content_width * 0.646 );
-            } elseif ( '66' == $extra_sidebar_width ) {
-                return round( $raindrops_content_width * 0.32 );
-            } elseif ( '50' == $extra_sidebar_width ) {
-                return round( $raindrops_content_width * 0.49 );
-            } else {
-                return round( $raindrops_content_width );
-            }
+			if( ! empty( $raindrops_content_width ) ) {
+				if ( '25' == $extra_sidebar_width ) {
+					return round( $raindrops_content_width * 0.74 );
+				} elseif ( '75' == $extra_sidebar_width ) {
+					return round( $raindrops_content_width * 0.24 );
+				} elseif ( '33' == $extra_sidebar_width ) {
+					return round( $raindrops_content_width * 0.646 );
+				} elseif ( '66' == $extra_sidebar_width ) {
+					return round( $raindrops_content_width * 0.32 );
+				} elseif ( '50' == $extra_sidebar_width ) {
+					return round( $raindrops_content_width * 0.49 );
+				} else {
+					return round( $raindrops_content_width );
+				}
+			}
         }
         return $raindrops_content_width;
     }
@@ -154,7 +156,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
      * @see raindrops_warehouse( )
      *
      */
-    function raindrops_warehouse_clone( $name ) {
+  /*  function raindrops_warehouse_clone( $name ) {
         global $raindrops_base_setting;
         global $raindrops_page_width;
         $vertical = array();
@@ -177,9 +179,64 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
                 return false;
             }
         }
-    }
+    }*/
+	
+	function raindrops_warehouse_clone( $name ) {
+        global $raindrops_base_setting, $raindrops_page_width, $raindrops_setting_type;
+		
+		if( 'option' == $raindrops_setting_type ) {
+			
+			$vertical = array();
+			if ( isset( $raindrops_base_setting ) ) {
+				foreach ( $raindrops_base_setting as $key => $val ) {
+					if ( !is_null( $raindrops_base_setting ) ) {
+						$vertical[] = $val['option_name'];
+					}
+				}
+				$row = array_search( $name, $vertical );
+				if ( isset( $raindrops_page_width ) && !empty( $raindrops_page_width ) && 'raindrops_page_width' == $name ) {
+					return 'custom-doc';
+				}
+				$result = get_option( 'raindrops_theme_settings' );
+				if ( isset( $result[$name] ) && !empty( $result[$name] ) ) {
+					return apply_filters( 'raindrops_theme_settings_' . $name, $result[$name] );
+				} elseif ( isset( $raindrops_base_setting[$row]['option_value'] ) && !empty( $raindrops_base_setting[$row]['option_value'] ) ) {
+					return apply_filters( 'raindrops_theme_settings_' . $row, $raindrops_base_setting[$row]['option_value'] );
+				} else {
+					return false;
+				}
+			}
+		}
+		
+		if( 'theme_mod' == $raindrops_setting_type ) {
+			
+				$vertical = array();
+			if ( isset( $raindrops_base_setting ) ) {
+				foreach ( $raindrops_base_setting as $key => $val ) {
+					if ( !is_null( $raindrops_base_setting ) ) {
+						$vertical[] = $val['option_name'];
+					}
+				}
+				$row = array_search( $name, $vertical );
+				if ( isset( $raindrops_page_width ) && !empty( $raindrops_page_width ) && 'raindrops_page_width' == $name ) {
+					return 'custom-doc';
+				}
+				$result = get_theme_mod( $name );
 
+				if ( isset( $result ) && !empty( $result ) ) {
+					return apply_filters( 'raindrops_theme_settings_' . $name, $result );
+				} elseif ( isset( $raindrops_base_setting[$row]['option_value'] ) && !empty( $raindrops_base_setting[$row]['option_value'] ) ) {
+					return apply_filters( 'raindrops_theme_settings_' . $row, $raindrops_base_setting[$row]['option_value'] );
+				} else {
+					return false;
+				}
+			}
+			
+		}
+		return false;
+    }
 }
+
 if ( !function_exists( 'raindrops_gradient_single_clone' ) ) {
 
     /**
@@ -321,67 +378,67 @@ function raindrops_colors_clone( $num = 0, $select = 'set', $color1 = null ) {
     }
     $base = new raindrops_CSS_Color( $color1 );
     switch ( $num ) {
-        case ( 0 ):
+        case  0:
             $bg    = $base->bg['0'];
             $fg    = $base->fg['0'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
-        case ( -1 ):
+        case -1:
             $bg    = $base->bg['-1'];
             $fg    = $base->fg['-1'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
-        case ( -2 ):
+        case -2:
             $bg    = $base->bg['-2'];
             $fg    = $base->fg['-2'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
-        case ( -3 ):
+        case -3:
             $bg    = $base->bg['-3'];
             $fg    = $base->fg['-3'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
-        case ( -4 ):
+        case -4:
             $bg    = $base->bg['-4'];
             $fg    = $base->fg['-4'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
 
-        case ( -5 ):
+        case -5:
             $bg    = $base->bg['-5'];
             $fg    = $base->fg['-5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
-        case ( 1 ):
+        case 1:
             $bg    = $base->bg['+1'];
             $fg    = $base->fg['+1'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
-        case ( 2 ):
+        case 2:
             $bg    = $base->bg['+2'];
             $fg    = $base->fg['+2'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
-        case ( 3 ):
+        case 3:
             $bg    = $base->bg['+3'];
             $fg    = $base->fg['+3'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
-        case ( 4 ):
+        case 4:
             $bg    = $base->bg['+4'];
             $fg    = $base->fg['+4'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
 
-        case ( 5 ):
+        case 5:
             $bg    = $base->bg['+5'];
             $fg    = $base->fg['+5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
@@ -974,4 +1031,212 @@ function raindrops_complementary_color_clone( $hex_color = '#444' ) {
 		}
 		return false;
 	}
+	
+	function raindrops_locate_url( $filename , $type = 'url' ) {
+
+		$template_uri	 = trailingslashit( get_template_directory_uri() );
+		$template_path	 = trailingslashit( get_template_directory() );
+
+		if ( is_child_theme() ) {
+
+				$stylesheet_uri	 = trailingslashit( get_stylesheet_directory_uri() );
+				$stylesheet_path = trailingslashit( get_stylesheet_directory() );
+
+				if ( file_exists( $stylesheet_path . $filename ) ) {
+
+						if ( $type == 'url' ) {
+							return $stylesheet_uri . $filename;
+						}
+						if ( $type == 'path' ) {
+							return $stylesheet_path . $filename;
+						}
+
+				}
+		}
+
+		if ( ! file_exists( $template_path . $filename ) ) {
+
+			return false;
+		}
+		if ( $type == 'url' ) {
+			return $template_uri . $filename;
+		}
+		if ( $type == 'path' ) {
+			return $template_path . $filename;
+		}
+		return false;
+
+	}
+	
+	class RaindropsPostHelp {
+
+	public $tabs = array(
+		'raindrops-post' => array(
+			'title'		 => 'Raindrops Help'
+			, 'content'	 => 'help'
+		),
+	);
+
+	static public function init() {
+		$class = __CLASS__;
+		new $class;
+	}
+
+	public function __construct() {
+
+		switch ( $GLOBALS[ 'pagenow' ] ) {
+			case( 'theme-editor.php' ):
+
+				$this->tabs = array( 'raindrops-settings-help' => array( 'title' => 'Raindrops Infomation', 'content' => 'help' ) );
+
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme_editor' ), 20 );
+				break;
+
+			case( 'themes.php' ):
+
+				$this->tabs = array( 'raindrops-settings-help' => array( 'title' => 'Raindrops Infomation', 'content' => 'help' ) );
+
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs_theme' ), 20 );
+				break;
+
+			case( 'post-new.php' ):
+
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs' ), 20 );
+				break;
+			case( 'post.php' ):
+
+				add_action( "load-{$GLOBALS[ 'pagenow' ]}", array( $this, 'add_tabs' ), 20 );
+				break;
+		}
+
+
+	}
+
+	public function add_tabs() {
+
+		foreach ( $this->tabs as $id => $data ) {
+
+			get_current_screen()->add_help_tab( array(
+				'id'		 => $id
+				, 'title'		 => __( 'Raindrops Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Base Color related Class', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare' )
+			) );
+		}
+	}
+
+	public function add_tabs_theme() {
+
+		foreach ( $this->tabs as $id => $data ) {
+
+			get_current_screen()->add_help_tab( array(
+				'id'		 => $id
+				, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare_theme' )
+			) );
+		}
+	}
+
+	public function add_tabs_theme_editor() {
+
+		foreach ( $this->tabs as $id => $data ) {
+
+			get_current_screen()->add_help_tab( array(
+				'id'		 => $id
+				, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
+				, 'callback'	 => array( $this, 'prepare_theme' )
+			) );
+		}
+	}
+
+	public function prepare( $screen, $tab ) {
+
+		if ( RAINDROPS_USE_AUTO_COLOR !== false ) {
+
+			echo raindrops_edit_help( '' );
+		} else {
+
+			printf( '<p class="disable-color-gradient">%1$s</p>', esc_html__( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'Raindrops' ) );
+		}
+	}
+
+	public function prepare_theme( $screen, $tab ) {
+
+		echo raindrops_settings_page_contextual_help();
+	}
+
+	public function prepare_theme_editor( $screen, $tab ) {
+
+		echo raindrops_editor_page_contextual_help();
+	}
+}
+
+/**
+ * for customizer functions
+ * @param type $args
+ * @return type
+ */
+function raindrops_theme_mod_default_normalize( $args ) {
+
+	$defaults = array(
+		'data_type'				 => 'theme_mod',
+		'capability'			 => 'edit_theme_options',
+		'theme_supports'		 => '',
+		'default'				 => '',
+		'transport'				 => 'refresh',
+		'sanitize_callback'		 => '',
+		'sanitize_js_callback'	 => '',
+		'dirty'					 => false,
+		'setting'				 => 'default',
+		'priority'				 => 10,
+		'section'				 => '',
+		'label'					 => '',
+		'description'			 => '',
+		'choices'				 => array(),
+		'input_attrs'			 => array(),
+		'json'					 => array(),
+		'type'					 => 'text',
+		'active_callback'		 => '',
+	);
+
+	$results = array();
+
+	foreach ( $args as $key => $val ) {
+
+		$result_val = wp_parse_args( $val, $defaults );
+
+		$results[ $key ] = apply_filters( 'default_settings_' . $key, $result_val );
+	}
+	return $results;
+}
+	
+function raindrops_data_store_relate_id( $id ) {
+
+	if ( 'option' == raindrops_theme_mod( $id, 'data_type' ) ) {
+
+		return THEME_OPTION_FIELD_NAME . '[' . $id . ']';
+	}
+	return $id;
+}
+
+function raindrops_theme_mod( $name = '', $property = 'default' ) {
+
+	global $raindrops_customize_args;
+
+	if ( !empty( $raindrops_customize_args[ $name ] ) && array_key_exists( $name, $raindrops_customize_args ) ) {
+
+		if ( $property == 'default_value' ) {
+			return get_theme_mod( $name, $raindrops_customize_args[ $name ][ 'default' ] );
+		} else {
+			return $raindrops_customize_args[ $name ][ $property ];
+		}
+	} else {
+
+		return false;
+	}
+}
+
+
 ?>

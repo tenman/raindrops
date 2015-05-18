@@ -332,7 +332,15 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'raindrops_embed_meta_pre', 'raindrops_apply_google_font_import_rule_for_primary_menu' );
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_apply_google_font_styles_for_site_title' );
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_apply_google_font_styles_for_primary_menu' );
-
+		/* move from functions.php 
+		 * @since 1,289
+		 */
+		add_action( 'load-post.php', array( 'RaindropsPostHelp', 'init' ) );
+		add_action( 'load-post-new.php', array( 'RaindropsPostHelp', 'init' ) );
+		add_action( 'load-themes.php', array( 'RaindropsPostHelp', 'init' ) );
+		add_action( 'load-theme-editor.php', array( 'RaindropsPostHelp', 'init' ) );
+		
+		
 
     }
 }

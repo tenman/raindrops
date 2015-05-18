@@ -149,11 +149,11 @@ define( 'RAINDROPS_SINGLE_POST_THUMBNAIL_HEIGHT', 200 );
 /** Add Light Box for Featured Image Size
  *
  *
- * RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX
- * @since 1.002
+ * Change const RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX to var $raindrops_use_featured_image_light_box
+ * @since 1.289
  */
-define( 'RAINDROPS_USE_FEATURED_IMAGE_LIGHT_BOX', false );
 
+$raindrops_use_featured_image_light_box = false;
 /** Add CSS from Custom field
  *
  *

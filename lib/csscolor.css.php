@@ -30,6 +30,7 @@
  *
  *
  */
+
 raindrops_register_styles( "dark" );
 
 function raindrops_indv_css_dark() {
@@ -1612,6 +1613,7 @@ CSS;
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
+do_action( 'raindrops_extend_style_type' );
 global $raindrops_wp_version, $raindrops_current_theme_name;
 
 $alias_functions = get_stylesheet_directory() . '/lib/alias_functions.php';
@@ -1654,34 +1656,50 @@ $raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_link_colo
  * save stylesheet
  *
  */
-$raindrops_options = get_option( "raindrops_theme_settings" );
-// if not handmade css. theme name style type is handmade
+if( 'option' == $raindrops_setting_type ) {
+	
+	$raindrops_options = get_option( "raindrops_theme_settings" );
+	// if not handmade css. theme name style type is handmade
 
 
-if ( is_admin() ) {
-    $raindrops_indv_css = raindrops_design_output( $style_type ) . raindrops_color_base();
+	if ( is_admin() ) {
+		$raindrops_indv_css = raindrops_design_output( $style_type ) . raindrops_color_base();
+	}
+
+	if ( $raindrops_options !== false ) {
+
+		if ( raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
+
+			if ( is_array( $raindrops_options ) ) {
+				if ( is_admin() ) {
+					if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
+
+						$raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
+					} else {
+
+						$add_array         = array( '_raindrops_indv_css' => $raindrops_indv_css );
+						$raindrops_options = array_merge( $raindrops_options, $add_array );
+					}
+					update_option( "raindrops_theme_settings", $raindrops_options );
+				}
+			}
+		}
+	}
 }
-
-if ( $raindrops_options !== false ) {
-
-    if ( raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
-
-        if ( is_array( $raindrops_options ) ) {
-            if ( is_admin() ) {
-                if ( array_key_exists( '_raindrops_indv_css', $raindrops_options ) ) {
-
-                    $raindrops_options['_raindrops_indv_css'] = $raindrops_indv_css;
-                } else {
-
-                    $add_array         = array( '_raindrops_indv_css' => $raindrops_indv_css );
-                    $raindrops_options = array_merge( $raindrops_options, $add_array );
-                }
-                update_option( "raindrops_theme_settings", $raindrops_options );
-            }
-        }
-    }
+if( 'theme_mod' == $raindrops_setting_type ) {
+	
+	$raindrops_options = get_theme_mod( "_raindrops_indv_css" );
+	
+	if ( is_admin() ) {
+		$raindrops_indv_css = raindrops_design_output( $style_type ) . raindrops_color_base();
+	}
+	
+	if ( $raindrops_options !== false ) {
+		if ( raindrops_warehouse_clone( "raindrops_style_type" ) !== wp_get_theme() ) {
+			set_theme_mod( "_raindrops_indv_css" );
+		}
+	}
 }
-
 /**
  * Create CSS Color Declaration
  *
@@ -1689,6 +1707,7 @@ if ( $raindrops_options !== false ) {
  *
  *
  */
+
 function raindrops_colors( $num = 0, $select = 'set', $color1 = null ) {
 
     global $raindrops_images_path;
@@ -1704,57 +1723,57 @@ function raindrops_colors( $num = 0, $select = 'set', $color1 = null ) {
     $base = new raindrops_CSS_Color( $color1 );
 
     switch ( $num ) {
-        case(0):
+		case 0:
             $bg    = $base->bg['0'];
             $fg    = $base->fg['0'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
-        case(-1):
+		case -1:
             $bg    = $base->bg['-1'];
             $fg    = $base->fg['-1'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
-        case(-2):
+		case -2:
             $bg    = $base->bg['-2'];
             $fg    = $base->fg['-2'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
-        case(-3):
+		case -3:
             $bg    = $base->bg['-3'];
             $fg    = $base->fg['-3'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
-        case(-4):
+		case -4:
             $bg    = $base->bg['-4'];
             $fg    = $base->fg['-4'];
             $color = "color:#$fg;background-color:#$bg;";
             break;
-        case(-5):
+		case -5:
             $bg    = $base->bg['-5'];
             $fg    = $base->fg['-5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
-        case(1):
+		case 1:
             $bg    = $base->bg['+1'];
             $fg    = $base->fg['+1'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
-        case(2):
+		case 2:
             $bg    = $base->bg['+2'];
             $fg    = $base->fg['+2'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
-        case(3):
+		case 3:
             $bg    = $base->bg['+3'];
             $fg    = $base->fg['+3'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
-        case(4):
+		case 4:
             $bg    = $base->bg['+4'];
             $fg    = $base->fg['+4'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
             break;
-        case(5):
+		case 5:
             $bg    = $base->bg['+5'];
             $fg    = $base->fg['+5'];
             $color = "color:#$fg;\n\tbackground-color:#$bg;";
@@ -2203,6 +2222,7 @@ function raindrops_design_output( $name = 'dark' ) {
 		return false;
 	}
 }
+
 
 /**
  * register style name

@@ -28,9 +28,9 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
-body{
+body.rd-pw-doc3{
     max-width:100%;
-   overflow-x: hidden;
+    overflow-x: hidden;
 }
 .hfeed a{
     text-decoration:none;
@@ -1419,6 +1419,9 @@ br.clearfix {
 #site-title{
     display:inline-block!important;
     max-width:74%;
+}
+#header-image #site-title{
+    max-width:100%;
 }
 #site-description {
     position:absolute;
@@ -3903,3 +3906,4 @@ html body.ja .rsidebar .lang-ja{
     background-size:contain;
 }
 */
+

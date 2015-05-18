@@ -605,7 +605,7 @@ if ( !function_exists( 'raindrops_header_image_validate' ) ) {
 if ( !function_exists( 'raindrops_style_type_validate' ) ) {
 
 	function raindrops_style_type_validate( $input ) {
-		
+
 		if ( function_exists( 'raindrops_indv_css_'. $input ) ) {
 
 			return esc_html( $input );

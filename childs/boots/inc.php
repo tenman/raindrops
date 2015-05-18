@@ -393,7 +393,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
     function raindrops_customize_controls_print_styles() {
         ?>
         <style type="text/css">
-
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label,/* new */
             #customize-control-raindrops_style_type .customize-control-title + label{
 
                 background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-dark.png'; ?> );
@@ -403,6 +403,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
                 background-repeat:no-repeat;
                 background-size:cover;
             }
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label,/* new */
             #customize-control-raindrops_style_type .customize-control-title  + label + label{
 
                 background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-w3standard.png'; ?> );
@@ -412,6 +413,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
                 background-repeat:no-repeat;
                 background-size:cover;
             }
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label + label,/* new */
             #customize-control-raindrops_style_type .customize-control-title  + label +label + label{
 
                 background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-light.png'; ?> );
@@ -421,6 +423,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
                 background-repeat:no-repeat;
                 background-size:cover;
             }
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label + label + label,/* new */
             #customize-control-raindrops_style_type .customize-control-title  + label +label + label + label{
 
                 background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-minimal.png'; ?> );
@@ -430,6 +433,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
                 background-repeat:no-repeat;
                 background-size:cover;
             }
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label + label + label + label,/* new */
             #customize-control-raindrops_style_type .customize-control-title  + label +label + label + label + label{
 
                 background:url( <?php echo get_stylesheet_directory_uri() . '/screenshot.png'; ?> );

@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.290
+Overview of Changes
+
+	Please read ver 1.289 changes
+	Customizer Settings Update
+
+	list pages ( index.php date.php page.php single.php search.php 404.php list-of-post.php )
+	columns is changeable from customizer at sidebar settings.
+
+
+Files Modified
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   404.php
+
+Description of Code Changes
+	404.php 				line:71
+	childs/boots/inc.php 	line:966-1045
+	functions.php 			line:782,793-796,819-821,
+	lib/alias_functions.php line:1241-1287
+	lib/customize.php		line:52-98,191-217,249,317,378-379,381-594,675,686,688-689,734,750-751,
+	lib/hooks.php 			line:343-351
+	lib/validate.php		line:2-58
+	lib/vars.php			line:904-983
+----------------------------------------------
+Changelog -----------------------------------
 version:1.289
 Overview of Changes
 

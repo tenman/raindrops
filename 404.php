@@ -68,8 +68,8 @@ raindrops_debug_navitation( __FILE__ );
     </div>
 </div>
 <?php
-if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
-    ?>
+if ( ( int ) $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
+ ?>
     <div class="yui-b">
         <?php
         //lsidebar start 

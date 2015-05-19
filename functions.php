@@ -1,4 +1,5 @@
 <?php
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -146,7 +147,6 @@ if( true == $raindrops_new_customizer &&  isset( $wp_customize ) ) {
  * @since 1.138
  */
 do_action( 'raindrops_include_after' );
-
 /**
  *
  * Add enable keyboard focus
@@ -779,7 +779,7 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 
 	function raindrops_add_body_class( $classes ) {
 
-		global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection, $raindrops_status_bar, $raindrops_enable_keyboard;
+		global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection, $raindrops_status_bar, $raindrops_enable_keyboard, $raindrops_current_column;
 		$classes[] = get_locale();
 
 		if ( $raindrops_enable_keyboard == true && true !== $raindrops_link_unique_text ) {
@@ -790,6 +790,10 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		 * @since 1.289
 		 */
 		$classes[] = esc_attr( "rd-pw-" . raindrops_warehouse( 'raindrops_page_width' ) );
+		
+		if( isset( $raindrops_current_column ) && !empty( $raindrops_current_column ) ) {
+			$classes[] = 'rd-col-'. $raindrops_current_column;
+		}
 
 		if ( is_single() || is_page() ) {
 
@@ -812,7 +816,9 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 			if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
 
 				$color_type .= ' ';
-				$color_type .= "rd-col-" . $regs[ 3 ];
+				/** escaped 1.290 see line:794
+				 * $color_type .= "rd-col-" . $regs[ 3 ];
+				 */
 			}
 			if ( !isset( $color_type ) ) { // When not using database
 				$color_type = "rd-type-" . raindrops_warehouse( 'raindrops_style_type' );

@@ -18,6 +18,7 @@ if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
 }
 get_header( $raindrops_document_type );
+
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>

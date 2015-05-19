@@ -1,4 +1,61 @@
 <?php
+function raindrops_sidebar_list_of_post_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+
+function raindrops_sidebar_404_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_sidebar_search_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_sidebar_single_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_sidebar_page_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_sidebar_date_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_sidebar_index_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_col_setting_type_validate( $input ) {
+	if( $input == 'simple' || $input == 'details' ) {
+		return $input;
+	} else {
+		return 'simple';
+	}	
+}
 function raindrops_tagline_in_the_header_image_validate( $input ) {
 	
 	if( $input == 'show' || $input == 'hide' ) {

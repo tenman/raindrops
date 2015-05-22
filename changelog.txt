@@ -1,4 +1,66 @@
 Changelog -----------------------------------
+version:1.292
+Overview of Changes
+
+	Please read ver 1.289 changes
+	Please read ver 1.291 changes
+
+	Customizer Settings Update
+		Misc
+		@see Section Description of Code Changes 'Customize'
+		list pages ( author, category )
+		columns is changeable from customizer at sidebar settings.
+		@see Section Description of Code Changes 'Columns'
+		Add Page Width full width
+		@see Section Description of Code Changes 'Full Width'
+	Languages ja update
+		@see Section Description of Code Changes 'Lang'
+
+Files Modified
+	new file: category.php
+	modified:   functions.php
+	modified:   grids.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	remove:   media.css
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	childs/boots/inc.php line:1046-1065[Full Width]
+	childs/boots/inc.php line:1066-1085[Columns]
+	functions.php line:1677,2268-2269,4746,4752,4778-4833,7137,7138[Full Width]
+	grid.css line:34,43,66-69[Full Width]
+	modified:   languages/ja.mo ...
+	modified:   languages/ja.po ...
+	lib/alias_functions.php	line:125-150[Full Width]
+	lib/alias_functions.php	line:1315-1322[Columns]
+	lib/customize.js	line:5-6 39-41 Customizer I18n
+ 	lib/customize.php   Fix IDsraindrops_complementary_color_for_title_link not shows
+	lib/customize.php line:85-86,104,226-256,341,415,417,638-675,767,769-799,813-816,
+			875-883,895-903,1065,1215,1501-1505,1511,1515-1529,1541-1545[Customize]
+	lib/hooks.php line:351-352[Columns]
+	lib/option-panel.php line:41-42[Columns]
+	lib/validate.php line:2-31[Columns][Full Width]
+	lib/validate.php line:312,542,563,793[Customize] fix default value
+	lib/vars.php line:503,512,551,638,642[Customize] fix default value
+	lib/vars.php line:984-1024[Columns][Full Width]
+	lib/widgets.php line:664[Customize]
+	responsiveness.css line:4,88-97,111,115,127,132-172,214-217,225,230-231,236-238,245-248,257-260,268-270,277-279,284-295,
+		319,324-325,331-334,342-355,380,384-395,412-415,425-429,460,464,468,477,490,491,505,509,513,517-518,523,539,569-570,
+		582-583,588-589,625,
+	style.css line:31,137,1169,3387-3392,3413-3415,3423-3425,3431-3433,3439-3441,3447-3449
+----------------------------------------------
+Changelog -----------------------------------
 version:1.291
 Overview of Changes
 

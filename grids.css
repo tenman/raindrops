@@ -31,7 +31,7 @@ body {
  * Section: Page Width Rules (#doc, #doc2, #doc3, #doc4)
  */
 
-#doc,#doc2,#doc3,#doc4,
+#doc,#doc2,#doc3,#doc4,#doc5,
 .yui-t1,.yui-t2,.yui-t3,.yui-t4,.yui-t5,.yui-t6,.yui-t7 {
     margin: auto;
     text-align: left;
@@ -40,6 +40,7 @@ body {
 .ie7 #doc2,
 .ie7 #doc3,
 .ie7 #doc4,
+.ie7 #doc5,
 .ie7 .yui-t1,
 .ie7 .yui-t2,
 .ie7 .yui-t3,
@@ -62,6 +63,10 @@ body {
 
 
 /* 100% (doc3) */
+#doc5 {
+    margin:0;
+    width: auto; 
+}
 #doc3 {
     /**
      * Left and Right margins are not a structural part of Grids. Without them 

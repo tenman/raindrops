@@ -4,6 +4,8 @@
         if ( raindrops_script_vars.page_width == 'doc3' ) {
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
+            
+
          
             function raindrops_resizes( ) {
 

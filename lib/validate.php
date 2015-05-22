@@ -1,4 +1,34 @@
 <?php
+function raindrops_sidebar_catetory_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_sidebar_author_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_full_width_limit_window_width_validate( $input ) {
+	if( is_mumeric( $input ) ) {
+		return $input;
+	} else {
+		return 1920;
+	}		
+	
+}
+function raindrops_full_width_max_width_validate( $input ) {
+	
+	if( is_numeric( $input ) ) {
+		return $input;
+	} else {
+		return 1280;
+	}	
+}
 function raindrops_sidebar_list_of_post_validate( $input ) {
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
@@ -279,7 +309,7 @@ function raindrops_footer_link_color_validate( $input ) {
 		return '#' . $input;
 	} else {
 		
-		return 'none';
+		return '';
 	}
 }
 
@@ -509,7 +539,7 @@ if ( !function_exists( 'raindrops_footer_color_validate' ) ) {
 
 			return $input;
 		}
-		return 'none';
+		return '';
 	}
 
 }
@@ -530,7 +560,7 @@ if ( !function_exists( 'raindrops_default_fonts_color_validate' ) ) {
 
 			return $input;
 		}
-		return 'none';
+		return '';
 	}
 
 }
@@ -760,7 +790,7 @@ if ( !function_exists( 'raindrops_hyperlink_color_validate' ) ) {
 
 			return $input;
 		}
-		return 'none';
+		return '';
 	}
 
 }

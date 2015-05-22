@@ -122,7 +122,32 @@ if ( !function_exists( 'raindrops_content_width_clone' ) ) {
                 } else {
                     $raindrops_content_width = $default;
                 }
-            }
+            } elseif ( $document_width == 'doc5' ) {
+                //$raindrops_content_width = 0;
+                $w = raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
+				
+                if ( 'yui-t1' == $sidebar_width ) {
+                    $raindrops_content_width = $w - 160 - $adjust;
+                } elseif ( 'yui-t2' == $sidebar_width ) {
+                    $raindrops_content_width = $w - 180 - $adjust;
+                } elseif ( 'yui-t3' == $sidebar_width ) {
+                    $raindrops_content_width = $w - 300 - $adjust;
+                } elseif ( 'yui-t4' == $sidebar_width ) {
+                    $raindrops_content_width = $w - 180 - $adjust;
+                } elseif ( 'yui-t5' == $sidebar_width ) {
+                    $raindrops_content_width = $w - 240 - $adjust;
+                } elseif ( 'yui-t6' == $sidebar_width ) {
+                    $raindrops_content_width = $w - 300 - $adjust;
+                } else {
+                    $raindrops_content_width = $default;
+                }
+                /*
+                  Fluid Responsive layout can not set correct value
+                  but needs fallback value.
+                  return 0 makes full size editor display improperly.
+                 */
+			}
+			
         }
         if ( raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ) !== 'show' ) {
             return $raindrops_content_width;
@@ -1285,6 +1310,14 @@ function raindrops_filter_page_column_control() {
 	}
 	if ( is_404() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_404' );
+		return;
+	}
+	if ( is_category() ) {
+		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_catetory' );
+		return;
+	}
+	if ( is_author() ) {
+		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_author' );
 		return;
 	}
 

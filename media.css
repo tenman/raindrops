@@ -1,9 +1,11 @@
 /* optional responsive grid  end */
 
 @media screen and (min-width : 641px){
+    #doc5 .nav-menu-toggle,  
     #doc3 .nav-menu-toggle{
         display:none!important;
     }
+    #doc3 #access,
     #doc3 #access{display:block!important;}
 }
 @media screen and (max-width : 640px){
@@ -15,26 +17,30 @@
         overflow-x:hidden;
     }
 
-
+    #doc5 .raindrops-mobile-menu,
     #doc3 .raindrops-mobile-menu{
         display:block!important;
     }
 
-
+    #doc5 #access,
     #doc3 #access{display:none!important;}
+    #doc5 #access:target,    
     #doc3 #access:target{
         display:block!important;
         /* target link position ajust */
         padding-top:100px;
         margin-top:-100px;
     }
-
+    .ie6 #doc5 #access:target,
     .ie6 #doc3 #access:target{display:block!important;}
+    .ie7 #doc5 #access:target,   
     .ie7 #doc3 #access:target{display:block!important;}
+    .ie8 #doc5 #access:target,   
     .ie8 #doc3 #access:target{display:block!important;}
     .raindrops-mobile-menu{
         position:relative;margin:0 10px;
     }
+    #doc5 .raindrops-mobile-menu .open,
     #doc3 .raindrops-mobile-menu .open{
         position:absolute;top:4px;left:0;
         font-size:153.9%;
@@ -44,6 +50,7 @@
         background-position:center;
 
     }
+    #doc5 .raindrops-mobile-menu .open .raindrops-nav-menu-expand,
     #doc3 .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
         visibility:hidden;
         width:20px;
@@ -51,6 +58,7 @@
         display:inline-block;
         text-indent:-100px;
     }
+    #doc5 .raindrops-mobile-menu .close,
     #doc3 .raindrops-mobile-menu .close{
         position:absolute;top:2px;right:5%;
         font-size:153.9%;
@@ -61,6 +69,7 @@
 
 
     }
+    #doc5 .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk,
     #doc3 .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
         visibility:hidden;
         width:20px;
@@ -68,7 +77,8 @@
         display:inline-block;
 
     }
-
+    #doc5 .page-title,
+    #doc5 #archives-title,
     #doc3 .page-title,
     #doc3 #archives-title{
         display:block;
@@ -76,6 +86,16 @@
         text-align:center;
 
     }
+    div#doc5 .entry-meta-gallery,
+    div#doc5 .entry-meta-aside,
+    div#doc5 .entry-meta-status,
+    div#doc5 .entry-meta-quote,
+    div#doc5 .entry-meta-image,
+    div#doc5 .entry-meta-link,
+    div#doc5 .entry-meta-video,
+    div#doc5 .entry-meta-chat,
+    div#doc5 .entry-meta-audio,
+    div#doc5 .posted-on,
     div#doc3 .entry-meta-gallery,
     div#doc3 .entry-meta-aside,
     div#doc3 .entry-meta-status,
@@ -89,23 +109,57 @@
         text-align:right;
         /*	line-height:2;*/
     }
+    #doc5 .mejs-horizontal-volume-total,
     #doc3 .mejs-horizontal-volume-total{
         max-width:100%;
     }
+    #doc5 .raindrops-comment-link,
     #doc3 .raindrops-comment-link{
         display:inline-block;
     }
+    #doc5 .entry-title,
     #doc3 .entry-title{
         margin:.5em 0;
         font-family:sans-serif;
     }
+    #doc5 .raindrops-mobile-menu .menu-text,
     #doc3 .raindrops-mobile-menu .menu-text{
         position:absolute;top:10px;left:44%;
     }
+    #doc5 .entry-content blockquote,
     #doc3 .entry-content blockquote{
         margin:1em 0;
         max-width:100%;
     }
+    #doc5 .size1of1,
+    #doc5 .size1of2,
+    #doc5 .size1of3,
+    #doc5 .size2of3,
+    #doc5 .size1of4,
+    #doc5 .size3of4,
+    #doc5 .size1of5,
+    #doc5 .size2of5,
+    #doc5 .size3of5,
+    #doc5 .size4of5,
+    #doc5 #access ul ul,
+    #doc5 #access ul,
+    #doc5 #access ul li,
+    #doc5.yui-t6 #container > div.first,
+    #doc5.yui-t5 #container > div.first,
+    #doc5.yui-t4 #container > div.first,
+    #doc5.yui-t3 #container > div.first,
+    #doc5.yui-t1 #container > div.first,
+    #doc5.yui-t2 #bd > div.yui-b,
+    #doc5.yui-t2 #yui-main div.yui-b,
+    #doc5 #container > div.first,
+    #doc5 #container > .yui-u,
+    .ahthor #doc5 #container div.first,
+    .author #doc5 #container .yui-u,
+    #doc5 .footer-widget,
+    #doc5 #ft div.widget-wrapper>ul>li,
+    #doc5 #ft .widget-wrapper ul,
+    #doc5 #bd .yui-b,
+    #doc5 #yui-main,
     #doc3 .size1of1,
     #doc3 .size1of2,
     #doc3 .size1of3,
@@ -147,15 +201,22 @@
         background-repeat:no-repeat;
         position:static;
     }
+    #doc5 .datetable,
     #doc3 .datetable{
         margin:0 5px 10px 0!important;
         box-sizing: border-box;
     }
+    #doc5 .this-posted-in,
+    #doc5 .bookmark-the,
     #doc3 .this-posted-in,
     #doc3 .bookmark-the{
         font-weight:bold;
         font-size:131%;
     }
+    #doc5 .rsidebar,
+    #doc5 .lsidebar,
+    #doc5 div.post,
+    #doc5 article,
     #doc3 .rsidebar,
     #doc3 .lsidebar,
     #doc3 div.post,
@@ -163,7 +224,20 @@
         margin:0 8px!important;
         box-sizing: border-box;
     }
-
+    #doc5 .reply, #ft a,
+    #doc5 .page .hentry .entry-title a,
+    #doc5 #site-description,
+    .home #doc5 .sticky a,
+    .home #doc5 .entry-meta a,
+    .archive #doc5 .entry-meta a,
+    .single #doc5 .entry-meta a,
+    #doc5 .topsidebar ul li ul li a,
+    #doc5 #bigbanner ul li ul li a,
+    #doc5 .lsidebar ul li ul li a,
+    #doc5 .rsidebar ul li ul li a,
+    #doc5 .lsidebar li.page_item a,
+    #doc5 .lsidebar li.category_report a,
+    #doc5 .lsidebar .widget ul li a,
     #doc3 .reply, #ft a,
     #doc3 .page .hentry .entry-title a,
     #doc3 #site-description,
@@ -188,9 +262,22 @@
         font-size:123%;
 
     }
+    #doc5 .page .hentry .entry-title a,
     #doc3 .page .hentry .entry-title a{
         padding:0;
     }
+    #doc5 #ft .widget_categories ul li a,
+    #doc5 #ft .widget_categories ul li a,
+    #doc5 .rsidebar .widget_categories ul li a,
+    #doc5 .lsidebar .widget_categories ul li a
+    #doc5 #ft .widget_archive ul li a,
+    #doc5 #ft .widget_archive ul li a,
+    #doc5 .rsidebar .widget_archive ul li a,
+    #doc5 .lsidebar .widget_archive ul li a,
+    #doc5 #ft .categories ul li a,
+    #doc5 #ft .categories ul li a,
+    #doc5 .rsidebar .categories ul li a,
+    #doc5 .lsidebar .categories ul li a,
     #doc3 #ft .widget_categories ul li a,
     #doc3 #ft .widget_categories ul li a,
     #doc3 .rsidebar .widget_categories ul li a,
@@ -207,6 +294,10 @@
         width:85%;
         padding:.5em;
     }
+    #doc5 #ft .widget_tag_cloud .tagcloud a,
+    #doc5 #ft .widget_tag_cloud .tagcloud a,
+    #doc5 .rsidebar .widget_tag_cloud .tagcloud a,
+    #doc5 .lsidebar .widget_tag_cloud .tagcloud a,
     #doc3 #ft .widget_tag_cloud .tagcloud a,
     #doc3 #ft .widget_tag_cloud .tagcloud a,
     #doc3 .rsidebar .widget_tag_cloud .tagcloud a,
@@ -216,6 +307,11 @@
         padding:.5em 0;
 
     }
+    #doc5 .footer-widget h2,
+    #doc5 .rsidebar h2,
+    #doc5 .lsidebar h2,
+    #doc5 .widgettitle h2,
+    #doc5 h2.footer-content,
     #doc3 .footer-widget h2,
     #doc3 .rsidebar h2,
     #doc3 .lsidebar h2,
@@ -225,15 +321,17 @@
         height:2em;
         background:none;
     }
+    #doc5 #access ul ul,
     #doc3 #access ul ul{
         text-align:left;
         text-indent:1em;
     }
+    #doc5 #access ul ul ul,
     #doc3 #access ul ul ul{
         text-align:left!important;
         text-indent:2em;
     }
-
+    #doc5 .raindrops-mobile-menu,
     #doc3 .raindrops-mobile-menu{
         display:inline-block;
         height:1em;
@@ -241,16 +339,21 @@
         padding:1em;
         font-size:138.5%;
     }
+    #doc5 #access .sub-menu li,
+    #doc5 #access .children li,
     #doc3 #access .sub-menu li,
     #doc3 #access .children li{
         border:none;
     }
+    #doc5 #site-title,
     #doc3 #site-title{
         font-size:167%;
     }
+    #doc5 .entry-title,
     #doc3 .entry-title{
         font-size:153.5%;
     }
+    #doc5 #site-description,
     #doc3 #site-description{
         font-size:108%;
     }
@@ -259,18 +362,13 @@
     #nav-below{
         margin:0 10px;
     }
+    #doc5 #header-image p,
     #doc3 #header-image p{
         font-size:123.1%;
         font-weight:bold;
     }
 
-    .home #doc3 .format-status .entry-meta-list{
-
-    }
-
-    .home #doc3 .format-status .post-format-status-main{
-
-    }
+    .home #doc5 .format-status .post-format-status-main:before,
     .home #doc3 .format-status .post-format-status-main:before{
         content: 'STATUS';
         display:block;
@@ -278,6 +376,8 @@
         font-family:sans-serif;
         margin-top:1em;
     }
+    #doc5 .post-format-status-publish-date,
+    #doc5 .category-blog-publish-date,
     #doc3 .post-format-status-publish-date,
     #doc3 .category-blog-publish-date{
         margin:.3em 0 1em!important;
@@ -288,21 +388,27 @@
         width:94%;
     }
     /* for front-page.php */
+    #doc5 .front-page-top-container,
     #doc3 .front-page-top-container{
         position:relative;
     }
+    #doc5 .front-page-top-container .first,
     #doc3 .front-page-top-container .first{
         width:98%;
 
     }
+    #doc5 .front-page-top-container .first + .yui-u,
     #doc3 .front-page-top-container .first + .yui-u{
         width:98%;
 
     }
+    #doc5 .raindrops-image-page .attachment-navigation .prev a,
+    #doc5 .raindrops-image-page .attachment-navigation .next a,
     #doc3 .raindrops-image-page .attachment-navigation .prev a,
     #doc3 .raindrops-image-page .attachment-navigation .next a{
         background-repeat:no-repeat;
     }
+    #doc5 .raindrops-image-page .attachment-navigation .next a,
     #doc3 .raindrops-image-page .attachment-navigation .next a{
         background-position:top right;
     }

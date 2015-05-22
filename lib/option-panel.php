@@ -38,7 +38,8 @@ class raindrops_menu_create {
         "750px centered" => "doc",
         "950px centered" => "doc2",
         "fluid"          => "doc3",
-        "974px"          => "doc4"
+        "974px"          => "doc4",
+		"full width" => "doc5",
     );
     var $col_settings_raindrops_right_sidebar_width_percent = array(
         "25%" => "25",

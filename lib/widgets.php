@@ -342,12 +342,12 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 	}
-	/**
-	 * 
-	 * 
-	 * 
-	 * @since 1.238
-	 */
+/**
+ * Pinup_entry_widget
+ * 
+ * 
+ * @since 1.238
+ */
 	if ( !function_exists( 'raindrops_register_pinup_entry_Widget' ) ) {
 
 		function raindrops_register_pinup_entry_Widget() {
@@ -661,7 +661,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), esc_html__( 'Featured IMG', 'Raindrops' ), 'featured'
 			);
 
-			$raindrops_html = '<label><h4>Style</h4><textarea id="%1$s" name="%2$s" style="width:320px;max-widht:100%;margin-bottom:2em;display:block;" rows="8">%3$s</textarea></label><br />';
+			$raindrops_html = '<label><h4>Style</h4><textarea id="%1$s" name="%2$s" class="raindrops-pinup-entry-style" rows="8">%3$s</textarea></label><br />';
 
 			printf( $raindrops_html, esc_attr( $this->get_field_id( 'inline_style' ) ), esc_attr( $this->get_field_name( 'inline_style' ) ), $style );
 		}

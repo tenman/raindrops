@@ -348,6 +348,8 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 			add_action( 'raindrops_pre_search.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_404.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_list-of-post.php', 'raindrops_filter_page_column_control' );
+			add_action( 'raindrops_pre_category.php', 'raindrops_filter_page_column_control' );
+			add_action( 'raindrops_pre_author.php', 'raindrops_filter_page_column_control' );
 		}
 
     }

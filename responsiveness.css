@@ -1,6 +1,7 @@
 /* optional responsive grid  end */
 
 @media screen and (min-width : 641px){
+    #doc5 .nav-menu-toggle,
     #doc3 .nav-menu-toggle{
         display:none!important;
     }
@@ -84,6 +85,16 @@
         text-align:center;
 
     }
+    div#doc5 .entry-meta-gallery,
+    div#doc5 .entry-meta-aside,
+    div#doc5 .entry-meta-status,
+    div#doc5 .entry-meta-quote,
+    div#doc5 .entry-meta-image,
+    div#doc5 .entry-meta-link,
+    div#doc5 .entry-meta-video,
+    div#doc5 .entry-meta-chat,
+    div#doc5 .entry-meta-audio,
+    div#doc5 .posted-on,
     div#doc3 .entry-meta-gallery,
     div#doc3 .entry-meta-aside,
     div#doc3 .entry-meta-status,
@@ -97,12 +108,15 @@
         text-align:right;
         /*	line-height:2;*/
     }
+    #doc5 .mejs-horizontal-volume-total,
     #doc3 .mejs-horizontal-volume-total{
         max-width:100%;
     }
+    #doc5 .raindrops-comment-link,
     #doc3 .raindrops-comment-link{
         display:inline-block;
     }
+    #doc5 .entry-title,
     #doc3 .entry-title{
         margin:.5em 0;
         font-family:sans-serif;
@@ -110,10 +124,52 @@
     .raindrops-mobile-menu .menu-text{
         position:absolute;top:10px;left:44%;
     }
+    #doc5 .entry-content blockquote,
     #doc3 .entry-content blockquote{
         margin:1em 0;
         max-width:100%;
     }
+    #doc5 .size1of1,
+    #doc5 .size1of2,
+    #doc5 .size1of3,
+    #doc5 .size2of3,
+    #doc5 .size1of4,
+    #doc5 .size3of4,
+    #doc5 .size1of5,
+    #doc5 .size2of5,
+    #doc5 .size3of5,
+    #doc5 .size4of5,
+    #doc5 #access ul ul,
+    #doc5 #access ul,
+    #doc5 #access ul li,
+    #doc5.yui-t6 #container > div.first,
+    #doc5.yui-t5 #container > div.first,
+    #doc5.yui-t4 #container > div.first,
+    #doc5.yui-t3 #container > div.first,
+    #doc5.yui-t1 #container > div.first,
+    #doc5.yui-t2 #bd > div.yui-b,
+    #doc5.yui-t2 #yui-main div.yui-b,
+    #doc5 #container > div.first,
+    #doc5 #container > .yui-u,
+    .ahthor #doc5 #container div.first,
+    .author #doc5 #container .yui-u,
+    #doc5 .footer-widget,
+    #doc5 #ft div.widget-wrapper>ul>li,
+    #doc5 #ft .widget-wrapper ul,
+    #doc5 #bd .yui-b,
+    #doc5 #yui-main{
+        float:none;
+        margin:0;
+        margin-left:0;
+        margin-right:0;
+        display:block;
+        max-width:100%;
+        width:100%;
+        box-sizing: border-box;
+        clear:both;
+        background-repeat:no-repeat;
+        position:static;       
+    } 
     #doc3 .size1of1,
     #doc3 .size1of2,
     #doc3 .size1of3,
@@ -155,6 +211,10 @@
         background-repeat:no-repeat;
         position:static;
     }
+    #doc5 #access a,
+    #doc5 #access ul ul,
+    #doc5 #access ul,
+    #doc5 #access ul li,
     #doc3 #access a,
     #doc3 #access ul ul,
     #doc3 #access ul,
@@ -162,21 +222,30 @@
         border:none;
 
     }
+    #doc5 #access a,
     #doc3 #access a{
         text-align:left;
         font-size:150%;
     }
+    #doc5 #access .menu > li > ul,
+    #doc5 #access .menu > li > ul,
     #doc3 #access .menu > li > ul,
     #doc3 #access .menu > li > ul{
         box-sizing:border-box;
         overflow:hidden;
-    }  
+    } 
+    #doc5 #access .menu > .page_item_has_children,
+    #doc5 #access .menu > .menu-item-has-children,
     #doc3 #access .menu > .page_item_has_children,
     #doc3 #access .menu > .menu-item-has-children{
         /*  border-left:red 6px solid;*/
 
 
     }
+    #doc5 #access .page_item_has_children .page_item_has_children > a,
+    #doc5 #access .menu-item-has-children .menu-item-has-children > a,
+    #doc5 #access .page_item_has_children .page_item_has_children > ul,
+    #doc5 #access .menu-item-has-children .menu-item-has-children > ul,
     #doc3 #access .page_item_has_children .page_item_has_children > a,
     #doc3 #access .menu-item-has-children .menu-item-has-children > a,
     #doc3 #access .page_item_has_children .page_item_has_children > ul,
@@ -185,6 +254,10 @@
         margin-left:15px;
 
     }
+    #doc5 #access .page_item_has_children .page_item_has_children .page_item_has_children > a,
+    #doc5 #access .menu-item-has-children .menu-item-has-children .menu-item-has-children > a,
+    #doc5 #access .page_item_has_children .page_item_has_children .page_item_has_children > ul,
+    #doc5 #access .menu-item-has-children .menu-item-has-children .menu-item-has-children > ul,
     #doc3 #access .page_item_has_children .page_item_has_children .page_item_has_children > a,
     #doc3 #access .menu-item-has-children .menu-item-has-children .menu-item-has-children > a,
     #doc3 #access .page_item_has_children .page_item_has_children .page_item_has_children > ul,
@@ -192,17 +265,34 @@
         /*border-left:yellow 6px solid;*/
 
     }
+    #doc5 #access .menu > li > a,
+    #doc5 #access .menu > .page_item_has_children > a,
+    #doc5 #access .menu > .menu-item-has-children > a,
     #doc3 #access .menu > li > a,
     #doc3 #access .menu > .page_item_has_children > a,
     #doc3 #access .menu > .menu-item-has-children > a{
         font-size:200%;
         border-left:6px green solid;
     }
-    #doc3  #access .page_item_has_children .page_item_has_children > a,
+    #doc5 #access .page_item_has_children .page_item_has_children > a,
+    #doc5 #access .menu-item-has-children .menu-item-has-children > a,
+    #doc3 #access .page_item_has_children .page_item_has_children > a,
     #doc3 #access .menu-item-has-children .menu-item-has-children > a{
         font-size:150%;
         border-left:6px green solid;
     }
+    #doc5  #access .page_item_has_children > a:after,
+    #doc5 #access .menu-item-has-children > a:after,
+    #doc5 #access .children .page_item_has_children > a:after,
+    #doc5 #access .sub-menu .page_item_has_children > a:after,
+    #doc5 #access .children .menu-item-has-children > a:after,
+    #doc5 #access .sub-menu .menu-item-has-children > a:after,
+    .ie8 #doc5 #access .page_item_has_children > a:after,
+    .ie8 #doc5  #access .menu-item-has-children > a:after,
+    .ie9 #doc5 #access .children .page_item_has_children > a:after,
+    .ie9 #doc5 #access .sub-menu .page_item_has_children > a:after,
+    .ie9 #doc5 #access .children .menu-item-has-children > a:after,
+    .ie9 #doc5 #access .sub-menu .menu-item-has-children > a:after,
     #doc3  #access .page_item_has_children > a:after,
     #doc3 #access .menu-item-has-children > a:after,
     #doc3 #access .children .page_item_has_children > a:after,
@@ -226,20 +316,22 @@
         float:none!important;
         opacity:1!important;
     }
-
-
-
-
-
+    #doc5 .datetable,
     #doc3 .datetable{
         margin:0 5px 10px 0!important;
         box-sizing: border-box;
     }
+    #doc5 .this-posted-in,
+    #doc5 .bookmark-the,
     #doc3 .this-posted-in,
     #doc3 .bookmark-the{
         font-weight:bold;
         font-size:131%;
     }
+    #doc5 .rsidebar,
+    #doc5 .lsidebar,
+    #doc5 div.post,
+    #doc5 article,
     #doc3 .rsidebar,
     #doc3 .lsidebar,
     #doc3 div.post,
@@ -247,7 +339,20 @@
         margin:0 8px!important;
         box-sizing: border-box;
     }
-
+    #doc5 .reply, #ft a,
+    #doc5 .page .hentry .entry-title a,
+    #doc5 #site-description,
+    .home #doc5 .sticky a,
+    .home #doc5 .entry-meta a,
+    .archive #doc5 .entry-meta a,
+    .single #doc5 .entry-meta a,
+    #doc5 .topsidebar ul li ul li a,
+    #doc5 #bigbanner ul li ul li a,
+    #doc5 .lsidebar ul li ul li a,
+    #doc5 .rsidebar ul li ul li a,
+    #doc5 .lsidebar li.page_item a,
+    #doc5 .lsidebar li.category_report a,
+    #doc5 .lsidebar .widget ul li a,
     #doc3 .reply, #ft a,
     #doc3 .page .hentry .entry-title a,
     #doc3 #site-description,
@@ -272,9 +377,22 @@
         font-size:123%;
 
     }
+    #doc5 .page .hentry .entry-title,
     #doc3 .page .hentry .entry-title a{
         padding:0;
     }
+    #doc5 #ft .widget_categories ul li a,
+    #doc5 #ft .widget_categories ul li a,
+    #doc5 .rsidebar .widget_categories ul li a,
+    #doc5 .lsidebar .widget_categories ul li a
+    #doc5 #ft .widget_archive ul li a,
+    #doc5 #ft .widget_archive ul li a,
+    #doc5 .rsidebar .widget_archive ul li a,
+    #doc5 .lsidebar .widget_archive ul li a,
+    #doc5 #ft .categories ul li a,
+    #doc5 #ft .categories ul li a,
+    #doc5 .rsidebar .categories ul li a,
+    #doc5 .lsidebar .categories ul li a,
     #doc3 #ft .widget_categories ul li a,
     #doc3 #ft .widget_categories ul li a,
     #doc3 .rsidebar .widget_categories ul li a,
@@ -291,6 +409,10 @@
         width:85%;
         padding:.5em;
     }
+    #doc5 #ft .widget_tag_cloud .tagcloud a,
+    #doc5 #ft .widget_tag_cloud .tagcloud a,
+    #doc5 .rsidebar .widget_tag_cloud .tagcloud a,
+    #doc5 .lsidebar .widget_tag_cloud .tagcloud a,
     #doc3 #ft .widget_tag_cloud .tagcloud a,
     #doc3 #ft .widget_tag_cloud .tagcloud a,
     #doc3 .rsidebar .widget_tag_cloud .tagcloud a,
@@ -300,6 +422,11 @@
         padding:.5em 0;
 
     }
+    #doc5 .footer-widget h2,
+    #doc5 .rsidebar h2,
+    #doc5 .lsidebar h2,
+    #doc5 .widgettitle h2,
+    #doc5 h2.footer-content,
     #doc3 .footer-widget h2,
     #doc3 .rsidebar h2,
     #doc3 .lsidebar h2,
@@ -330,12 +457,15 @@
     #access .children li{
         border:none;
     }
+    #doc5 #site-title,
     #doc3 #site-title{
         font-size:167%;
     }
+    #doc5 .entry-title,
     #doc3 .entry-title{
         font-size:153.5%;
     }
+    #doc5 #site-description,
     #doc3 #site-description{
         font-size:108%;
     }
@@ -344,18 +474,12 @@
     #nav-below{
         margin:0 10px;
     }
+    #doc5 #header-image p,
     #doc3 #header-image p{
         font-size:123.1%;
         font-weight:bold;
     }
-
-    .home #doc3 .format-status .entry-meta-list{
-
-    }
-
-    .home #doc3 .format-status .post-format-status-main{
-
-    }
+    .home #doc5 .format-status .post-format-status-main:before,
     .home #doc3 .format-status .post-format-status-main:before{
         content: 'STATUS';
         display:block;
@@ -363,6 +487,8 @@
         font-family:sans-serif;
         margin-top:1em;
     }
+    #doc5 .post-format-status-publish-date,
+    #doc5 .category-blog-publish-date,
     #doc3 .post-format-status-publish-date,
     #doc3 .category-blog-publish-date{
         margin:.3em 0 1em!important;
@@ -376,19 +502,25 @@
         box-sizing:border-box;
     }
     /* front-page.php */
+    #doc5 .front-page-top-container,
     #doc3 .front-page-top-container{
         position:relative;
     }
+    #doc5 .front-page-top-container .first,
     #doc3 .front-page-top-container .first{
         width:98%;
     }
+    #doc5 .front-page-top-container .first + .yui-u,
     #doc3 .front-page-top-container .first + .yui-u{
         width:98%;
     }
+    #doc5 .raindrops-image-page .attachment-navigation .prev a,
+    #doc5 .raindrops-image-page .attachment-navigation .next a,
     #doc3 .raindrops-image-page .attachment-navigation .prev a,
     #doc3 .raindrops-image-page .attachment-navigation .next a{
         background-repeat:no-repeat;
     }
+    #doc5 .raindrops-image-page .attachment-navigation .next a,
     #doc3 .raindrops-image-page .attachment-navigation .next a{
         background-position:top right;
     }
@@ -404,7 +536,7 @@
     #yui-main .yui-u .lsidebar{
         min-height:0!important;
     }
-
+    #doc5 .raindrops-pinup-entries .entry-title,
     #doc3 .raindrops-pinup-entries .entry-title {
         position: absolute;
         top: -10px;
@@ -434,7 +566,8 @@
     .yui-t1 .raindrops-expand-width{
         padding-right:0;
     }
-    
+    #doc5 .widget a.post-group_by-category-title:not(.no-thumb),
+    #doc5 .widget a.post-group_by-category-entry-title:not(.no-thumb),   
     #doc3 .widget a.post-group_by-category-title:not(.no-thumb),
     #doc3 .widget a.post-group_by-category-entry-title:not(.no-thumb){
         position:relative;
@@ -446,11 +579,14 @@
         max-width:100%;
         box-sizing:border-box;
     }
+    #doc5 .widget a.post-group_by-category-title.no-thumb,
+    #doc5 .widget a.post-group_by-category-entry-title.no-thumb,
     #doc3 .widget a.post-group_by-category-title.no-thumb,
     #doc3 .widget a.post-group_by-category-entry-title.no-thumb{
         position:static;
     }
-
+    #doc5 .widget .post-group_by-category-title .h2-thumb,
+    #doc5 .widget .post-group_by-category-entry-title .h2-thumb,
     #doc3 .widget .post-group_by-category-title .h2-thumb,
     #doc3 .widget .post-group_by-category-entry-title .h2-thumb{
         position:absolute;
@@ -486,6 +622,7 @@
     }
 }
 @media screen and (min-width : 1280px){
+    #doc5,
     #doc3{
         margin:0 auto;
     }

@@ -28,6 +28,7 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
+body.rd-pw-doc5,
 body.rd-pw-doc3{
     max-width:100%;
     overflow-x: hidden;
@@ -1133,7 +1134,9 @@ ul.index li .edit {
 }
 .topsidebar li{
     list-style:none;
+    margin-left:0;
 }
+
 .topsidebar ul li ul li a,
 #bigbanner ul li ul li a,
 .lsidebar ul li ul li a,
@@ -1163,6 +1166,7 @@ ul.index li .edit {
     margin:0;
     padding:0;
 }
+#doc5 #container.yui-gc > .yui-u:not(.first),
 #doc4 #container.yui-gc > .yui-u:not(.first),
 #doc3 #container.yui-gc > .yui-u:not(.first){
     width:33%;/* 1.254 change from 35% to 33% */
@@ -3380,6 +3384,12 @@ ol.list-of-post-list .entry-title{
         width:auto;
         vertical-align:top;
     }
+    .page-template-blank_front-php #doc5 .yui-ge .raindrops-category-posts li,
+    .page-template-blank_front-php #doc5 .yui-gc .raindrops-category-posts li,
+    .page-template-blank_front-php #doc5 .yui-ge .raindrops-tag-posts li,
+    .page-template-blank_front-php #doc5 .yui-gc .raindrops-tag-posts li,
+    .page-template-blank_front-php #doc5 .yui-ge .raindrops-recent-posts li, /* 25% */
+    .page-template-blank_front-php #doc5 .yui-gc .raindrops-recent-posts li,
     .page-template-blank_front-php #doc3 .yui-ge .raindrops-category-posts li,
     .page-template-blank_front-php #doc3 .yui-gc .raindrops-category-posts li,
     .page-template-blank_front-php #doc3 .yui-ge .raindrops-tag-posts li,
@@ -3400,6 +3410,9 @@ ol.list-of-post-list .entry-title{
         width:auto;
         vertical-align:top;
     }
+    .page-template-blank_front-php #doc5 .raindrops-category-posts li,
+    .page-template-blank_front-php #doc5 .raindrops-tag-posts li,
+    .page-template-blank_front-php #doc5 .raindrops-recent-posts li,
     .page-template-blank_front-php #doc3 .raindrops-category-posts li,
     .page-template-blank_front-php #doc3 .raindrops-tag-posts li,
     .page-template-blank_front-php #doc3 .raindrops-recent-posts li{
@@ -3407,22 +3420,33 @@ ol.list-of-post-list .entry-title{
         width:100%;
         vertical-align:top;
     }
+    .page-template-blank_front-php #doc5 .raindrops-category-posts ul > li,
+    .page-template-blank_front-php #doc5 .raindrops-tag-posts ul > li,
+    .page-template-blank_front-php #doc5 #raindrops-recent-posts > ul > li,
     .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li,
     .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li,
     .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li{
         margin:1em 0;
     }
+    .page-template-blank_front-php #doc5 .raindrops-category-posts ul > li .thumb img,
+    .page-template-blank_front-php #doc5 .raindrops-tag-posts ul > li .thumb img ,
+    .page-template-blank_front-php #doc5 #raindrops-recent-posts > ul > li .thumb img,
     .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li .thumb img,
     .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li .thumb img ,
-
     .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li .thumb img{
         width:64px!important;
     }
+    .page-template-blank_front-php #doc5 .raindrops-category-posts ul > li article,
+    .page-template-blank_front-php #doc5 .raindrops-tag-posts ul > li article,
+    .page-template-blank_front-php #doc5 #raindrops-recent-posts > ul > li article,
     .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li article,
     .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li article,
     .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li article{
         margin-left:72px!important;
     }
+    .page-template-blank_front-php #doc5 .raindrops-category-posts ul > li .posted-on,
+    .page-template-blank_front-php #doc5 .raindrops-tag-posts ul > li .posted-on,
+    .page-template-blank_front-php #doc5 #raindrops-recent-posts > ul > li .posted-on,
     .page-template-blank_front-php #doc3 .raindrops-category-posts ul > li .posted-on,
     .page-template-blank_front-php #doc3 .raindrops-tag-posts ul > li .posted-on,
     .page-template-blank_front-php #doc3 #raindrops-recent-posts > ul > li .posted-on{

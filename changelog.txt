@@ -1,4 +1,41 @@
 Changelog -----------------------------------
+version:1.293
+Overview of Changes
+
+	Please read ver 1.289 changes
+	Please read ver 1.291 changes
+	Please read ver 1.292 changes
+	Customizer Fix Update
+		Fix hard coded string to translatable,
+		Fix sanitize-callback function typo,
+		Modifies...
+	Languages pt_BR update
+		@see Section Description of Code Changes 'Lang'
+
+Files Modified
+	newfile:	languages/pt_BR.mo
+	newfile:	languages/pt_BR.po
+	modified:   functions.php
+	modified:   header.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+
+Description of Code Changes
+	childs/boots/inc.php	line:1086-1115[Customize]
+	functions.php line:4808, 5612-5614, 5634, 5679-5707,8505-8526,9204-9212,[Customize]
+	lib/customize.js line:41-48 [Customize]
+	lib/customize.php line:257-263,749-799,902,903,1167-1168,1186-1187,1202-1204,1220-1221,1504-1631,1652-1659,1668,1674,1677,1679-1682,[Customize]
+	lib/validate.php line:2-23[Customize]
+	lib/vars.php line:31-37,121,1008-1037[Customize]
+	plugins/plugins-presentation.php line:452-476[Customize]
+	style.css[Misc]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.292
 Overview of Changes
 

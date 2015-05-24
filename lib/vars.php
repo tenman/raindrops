@@ -25,7 +25,15 @@ if ( is_child_theme() && ( !isset( $raindrops_new_customizer_support_child ) || 
 	
 	$raindrops_new_customizer = false;
 }
+
 /////////////////////////////Don't Change end////////////////////////////
+/**
+ * @since 1.293
+ * value 'yes' or 'no'
+ */
+if ( ! isset( $raindrops_customizer_admin_color ) ) {
+	$raindrops_customizer_admin_color = 'yes';
+}
 /**
  * Current version of WordPress
  *
@@ -88,14 +96,9 @@ if ( ! isset( $raindrops_use_transient ) ) {
 
 	$raindrops_use_transient = true;
 }
-/**
- * xhtml media type
- * value 'application/xhtml+xml' or 'text/html'
- */
-if ( ! isset( $raindrops_xhtml_media_type ) ) {
 
-	$raindrops_xhtml_media_type = 'text/html';
-}
+
+
 /**
  * Raindrops Gallery Presentation
  * value false shows WordPress Standard Gallery Style.
@@ -111,10 +114,11 @@ if( ! isset( $raindrops_extend_galleries ) ) {
  *
  * $raindrops_show_theme_option
  * @since 1.149
+ * default value change 1.293
  */
 if ( !isset( $raindrops_show_theme_option ) ) {
 
-	$raindrops_show_theme_option = true;
+	$raindrops_show_theme_option = false;
 }
 /*
  * Using Customizer
@@ -158,28 +162,8 @@ if ( !defined( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' ) ) {
 
 	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
 }
-/**
- * When WP_DEBUG value true and $raindrops_actions_hook_message value true
- * Show Raindrops action filter position and examples
- *
- * $raindrops_actions_hook_message
- * @since 0.980
- */
-if ( !isset( $raindrops_actions_hook_message ) ) {
 
-	$raindrops_actions_hook_message = false;
-}
-/**
- *
- * Show Raindrops status bar at browser bottom
- *
- * shows true hide false
- * @since 1.211
- */
-if ( !isset( $raindrops_status_bar ) ) {
 
-	$raindrops_status_bar = true;
-}
 /**
  *
  * Add <wbr> element for entry title.
@@ -1021,10 +1005,39 @@ array( 'option_id'    => 60,
         'excerpt2'     => esc_html__( 'value 1-3. default 3', 'Raindrops' ),
         'validate'     => 'raindrops_sidebar_catetory_validate',
 		'list'         => 59 ),
-
+array( 'option_id'    => 61,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_xhtml_media_type",
+        'option_value' => 'text/html',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'xhtml media type', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value text/html or application/xhtml+xml, default text/html', 'Raindrops' ),
+        'validate'     => 'raindrops_xhtml_media_type_validate',
+		'list'         => 60 ),
+array( 'option_id'    => 62,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_actions_hook_message",
+        'option_value' => 'hide',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Insert Point hooks and auto include template name for Developer', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value show or hide, default hide', 'Raindrops' ),
+        'validate'     => 'raindrops_actions_hook_message_validate',
+		'list'         => 61 ),
+array( 'option_id'    => 63,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_status_bar",
+        'option_value' => 'show',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Bottom Status Bar', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value show or hide, default show', 'Raindrops' ),
+        'validate'     => 'raindrops_status_bar_validate',
+		'list'         => 62 ),
 );
 }
-
+//
 if ( !isset( $raindrops_base_setting ) ) {
 
     $raindrops_base_setting = $raindrops_base_setting_args;

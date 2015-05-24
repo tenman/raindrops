@@ -351,6 +351,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 			add_action( 'raindrops_pre_category.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_author.php', 'raindrops_filter_page_column_control' );
 		}
+		
 
     }
 }

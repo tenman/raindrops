@@ -1,4 +1,26 @@
 <?php
+function raindrops_status_bar_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'show';
+	}
+}
+function raindrops_actions_hook_message_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'hide';
+	}
+}
+function raindrops_xhtml_media_type_validate( $input ) {
+
+	if( $input == 'text/html' || $input == 'application/xhtml+xml'  ) {
+		return $input;
+	} else {
+		return 'text/html';
+	}
+}
 function raindrops_sidebar_catetory_validate( $input ) {
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
@@ -252,7 +274,6 @@ function raindrops_plugin_presentation_the_events_calendar_validate( $input ) {
 	
 }
 function raindrops_plugin_presentation_meta_slider_validate( $input ) {
-	
 
 	if ( preg_match( '/[^(0-9)]+/si', $input ) ) {
 		

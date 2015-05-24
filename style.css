@@ -3925,9 +3925,7 @@ html body.ja .rsidebar .lang-ja{
 .raindrops-excerpt-more{
     display:inline-block;
 }
-/*
-.page-template-page-templatesfront-page-php #doc3 #header-image{
-    background-size:contain;
+#top ol.breadcrumbs{
+    padding:1em 0 0;
+    box-sizing:border-box;
 }
-*/
-

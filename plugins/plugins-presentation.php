@@ -449,6 +449,31 @@ if ( !function_exists( 'raindrops_metaslider_setup' ) ) {
 	}
 
 }
+if ( !function_exists( 'raindrops_get_ml_slider_ids' ) ) {
+	
+	function raindrops_get_ml_slider_ids() {
+
+			$slider_posts = get_posts( array(
+					'post_type' => 'ml-slider',
+					'post_status' => 'publish',
+					'orderby' => 'date',
+					'order' => 'ASC',
+					'posts_per_page' => -1
+				) );
+			$result['none'] = esc_html__( 'Select', 'Raindrops' );
+
+			foreach( $slider_posts as $post ) {
+
+				$post->ID = absint( $post->ID );
+
+				$result[$post->ID] = wp_strip_all_tags( $post->post_title );
+
+			}
+			return $result;
+		}
+}
+
+
 
 
 if ( !function_exists( 'raindrops_custom_header_image_home_url' ) ) {

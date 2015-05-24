@@ -59,7 +59,7 @@ Special Thanks for Translation files provided
 
 	@ oppofansfr http://fr.ofans.eu/ fr_FR.po fr_FR.mo
 	@ kml1960 http://kml1960.pl pl_PL.po pl_PL.mo
-
+	@ Gladiston Santana hamacker.wordpress.com pt_BR.po pt_BR.mo
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 

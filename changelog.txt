@@ -13,9 +13,40 @@ Overview of Changes
 		Modifies...
 
 Files Modified
-
+	modified:   changelog.txt
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   index.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   style.css
 
 Description of Code Changes
+	blank_front.php line:6-11
+	childs/boots/inc.php line:1116-1156
+	functions.php line:783-786,1204-1212,4756-4757,4795-4797,4799-4800,4808-4810,4840-4911,8592,8594,8596-8599,10346-10422,
+	header-front.php line:15,
+	header-xhtml.php line:41
+	header.php line:6
+	languages/ja.po , languages/ja.mo translate update
+	lib/alias_functions.php line:1268,1277-1306,13,18,1326,1332,1337,1343,1348,1353,1358,1361-1379
+	lib/customize.js line:41,49-56,
+	lib/customize.php line:69,74-89,91,91,97,100-106,283-291,454-455,667,672,727,794,822,835-836,850-851,864-865,1056-1117,12334,1236,1253,1255,1272,1274,1314,1733-1769
+	lig/featured-image.php line:231
+	lib/hooks.php line:344-346,358-364
+	lib/validate.php line:2-28
+	lib/vars.php line:1038-1079
+	style.css line:1373-1375
 
 ----------------------------------------------
 Changelog -----------------------------------

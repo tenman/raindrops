@@ -22,7 +22,6 @@ if ( !defined( 'ABSPATH' ) ) {
 
 global $rsidebar_show, $raindrops_document_type,$content_width;
 $raindrops_current_column = raindrops_column_controller();
-
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );

@@ -1,4 +1,31 @@
 <?php
+
+function raindrops_display_default_category_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'show';
+	}
+}
+function raindrops_display_article_author_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'show';
+	}
+}
+function raindrops_display_article_publish_date_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'show';
+	}
+}
+function raindrops_article_title_css_class_validate( $input ) {
+	
+	$post_class = sanitize_html_class( $input );
+	return $post_class;
+}
 function raindrops_status_bar_validate( $input ) {
 	if( $input == 'show' || $input == 'hide'  ) {
 		return $input;

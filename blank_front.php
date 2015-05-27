@@ -2,6 +2,13 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
+
+global $rsidebar_show, $raindrops_document_type,$content_width;
+$raindrops_current_column = raindrops_column_controller();
+get_header( $raindrops_document_type );
+do_action( 'raindrops_pre_' . basename( __FILE__ ) );
+$raindrops_current_column = raindrops_column_controller();
+raindrops_debug_navitation( __FILE__ );
 /**
  * Template Name: brank front
  *
@@ -404,16 +411,6 @@ if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom
 
     $raindrops_devide_column_extra_class = '';
 }
-
-/** Template
- *
- *
- *
- *
- */
-get_header( $raindrops_document_type );
-do_action( 'raindrops_pre_' . basename( __FILE__ ) );
-raindrops_debug_navitation( __FILE__ );
 ?>
 <div id="yui-main">
     <div class="<?php echo $raindrops_devide_column_class; ?>">

@@ -1265,7 +1265,7 @@ function raindrops_theme_mod( $name = '', $property = 'default' ) {
 
 function raindrops_filter_page_column_control() {
 
-	global $raindrops_current_column, $post, $template;
+	global $raindrops_current_column, $post, $template, $raindrops_keep_content_width;
 	
 	if( isset( $template ) && !empty( $template ) ) {
 		$template = basename( $template,'.php' );
@@ -1274,6 +1274,36 @@ function raindrops_filter_page_column_control() {
 	}
 	if ( 'list-of-post' == $template ) {
 		$raindrops_current_column = ( int ) raindrops_warehouse_clone( 'raindrops_sidebar_list_of_post' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}
+	if ( 'front-page' == $template ) {
+		$raindrops_current_column = ( int ) 3;
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}
+	if ( 'blank-front' == $template ) {
+		/**
+		 * Feature implement		 
+		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_brank_front' );
+		*/
+		$raindrops_current_column = (int) 3;
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}
+	if ( 'full-width' == $template ) {
+		$raindrops_current_column = ( int ) 1;
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}
+	if ( 'page-featured' == $template ) {
+		$raindrops_current_column = ( int ) 3;
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}
+	if ( 'front-portfolio' == $template ) {
+		$raindrops_current_column = ( int ) 3;
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
 
@@ -1285,6 +1315,7 @@ function raindrops_filter_page_column_control() {
 		if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
 
 			$raindrops_current_column = absint( $regs[ 3 ] );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;
 		} else {
 			if( is_single() ) {
@@ -1292,34 +1323,59 @@ function raindrops_filter_page_column_control() {
 			} else {
 				$raindrops_current_column = ( int ) raindrops_warehouse_clone( 'raindrops_sidebar_page' );
 			}
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;
 		}
 	} 
 	if ( is_home() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_index' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
 	if ( is_date() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_date' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
 
 	if ( is_search() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_search' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
 	if ( is_404() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_404' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
 	if ( is_category() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_catetory' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
 	if ( is_author() ) {
 		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_author' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
+		
+}
 
+function raindrops_keep_content_width( $column ) {
+	global $raindrops_keep_content_width;
+	
+	$page_width	= raindrops_warehouse_clone( 'raindrops_page_width' );
+
+	if( 1 == $column && 'doc5' == $page_width ) {
+
+		return false;
+	} else {
+
+		if( isset( $raindrops_keep_content_width ) ) {
+
+			return $raindrops_keep_content_width;
+		}
+		return true;
+	}
 }
 ?>

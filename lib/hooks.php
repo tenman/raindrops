@@ -341,6 +341,9 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_action( 'load-theme-editor.php', array( 'RaindropsPostHelp', 'init' ) );
 		
 		if( 'details' == raindrops_warehouse_clone( 'raindrops_col_setting_type' ) ){
+			add_action( 'raindrops_pre_part_header-front', 'raindrops_filter_page_column_control' );
+			add_action( 'raindrops_pre_part_header-xhtml', 'raindrops_filter_page_column_control' );	
+			add_action( 'raindrops_pre_part_header', 'raindrops_filter_page_column_control' );			
 			add_action( 'raindrops_pre_index.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_date.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_page.php', 'raindrops_filter_page_column_control' );
@@ -352,7 +355,13 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 			add_action( 'raindrops_pre_author.php', 'raindrops_filter_page_column_control' );
 		}
 		
-
+		/*
+		 * @since 1.295
+		 */
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_post_author' );
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_post_date' );
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_default_category' );
+		add_filter( 'raindrops_entry_title_class', 'raindrops_customizer_add_article_title_css_class' );
     }
 }
 ?>

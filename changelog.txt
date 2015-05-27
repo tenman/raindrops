@@ -1,4 +1,24 @@
 Changelog -----------------------------------
+version:1.295
+Overview of Changes
+
+	Please read ver 1.289 changes
+	Please read ver 1.291 changes
+	Please read ver 1.292 changes
+	Please read ver 1.294 changes
+
+	Customizer Fix Update
+		Fix hard coded string to translatable,
+		Fix sanitize-callback function typo,
+		Modifies...
+
+Files Modified
+
+
+Description of Code Changes
+
+----------------------------------------------
+Changelog -----------------------------------
 version:1.294
 Overview of Changes
 

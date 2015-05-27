@@ -66,24 +66,43 @@ if ( !defined( 'ABSPATH' ) ) {
 		'raindrops_theme_settings'			 => array( 'title' => esc_html__( 'Color Scheme', 'Raindrops' ), 'priority' => 26, ),
 		'raindrops_theme_settings_featured'	 => array( 'title'			 => esc_html__( 'Featured Image', 'Raindrops' ),
 			'priority'		 => 40,
-			'panel'			 => 'raindrops_theme_settings_featured_panel',
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
 			'title'			 => esc_html__( 'Featured Image Settings', 'Raindrops' ),
 			'description'	 => __( 'Emphasis of new content using the Featured Image', 'Raindrops' ),
 			),
-		'raindrops_theme_settings_sidebar'	 => array( 'title' => esc_html__( 'Sidebars', 'Raindrops' ), 'priority' => 27, ),
-		'raindrops_theme_settings_fonts'	 => array( 'title' => esc_html__( 'Fonts', 'Raindrops' ), 'priority' => 28, ),
-		'raindrops_theme_settings_document'	 => array( 'title' => esc_html__( 'Document', 'Raindrops' ), 'priority' => 24, ),
+		'raindrops_theme_settings_sidebar'	 => array( 
+			'title' => esc_html__( 'Layout and Sidebars', 'Raindrops' ), 
+			'priority' => 27,
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			),
+		'raindrops_theme_settings_fonts'	 => array( 
+			'title' => esc_html__( 'Fonts', 'Raindrops' ), 
+			'priority' => 28, 
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			),
+		'raindrops_theme_page_width'	 => array( 
+			'title' => esc_html__( 'Page Width', 'Raindrops' ), 
+			'priority' => 28, 
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			),
+		'raindrops_theme_settings_document'	 => array( 'title' => esc_html__( 'Advanced', 'Raindrops' ), 'priority' => 24, ),
 		'raindrops_theme_settings_content'	 => array( 'title' => esc_html__( 'Excerpt', 'Raindrops' ), 'priority' => 29, ),
-		'raindrops_theme_settings_plugins'	 => array( 'title' => esc_html__( 'Recommend Plugins Presentation', 'Raindrops' ), 'priority' => 30, ),
+		'raindrops_theme_settings_plugins'	 => array( 'title' => esc_html__( 'Add-ons', 'Raindrops' ), 'priority' => 30, ),
 		'raindrops_theme_settings_uninstall' => array( 'title' => esc_html__( 'Uninstall Option', 'Raindrops' ), 'priority' => 99, ),
 		'raindrops_theme_settings_presentation' => array( 
-			'title' => esc_html__( 'Presentation', 'Raindrops' ), 
 			'priority' => 25, 
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
-			'title'			 => esc_html__( 'Page Width,Font,Color Type Settings', 'Raindrops' ),
+			'title'			 => esc_html__( 'Color Scheme', 'Raindrops' ),
 			'description'	 => '',
+			),
+		'raindrops_theme_settings_post' => array( 
+			'title' => esc_html__( 'Post Settings', 'Raindrops' ), 
+			'priority' => 100, 
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'theme_supports' => '',
+			'description'	 => esc_html__( 'The following changes are made using the CSS', 'Raindrops' ),
 			),
 	);
 /**
@@ -261,6 +280,15 @@ if ( !defined( 'ABSPATH' ) ) {
 			return false;
 		}		
 	}
+	function raindrops_permalink_is_default( $control ) {
+		
+		$permalink_structure = get_option( 'permalink_structure' );
+		if( !empty( $permalink_structure )){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	$raindrops_customize_args = array(
 		/* Pending
@@ -423,8 +451,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'doc3'	 => __( 'Box Layout Responsive', 'Raindrops' ),
 				'doc5'   => __( 'Full Width Resuponsive', 'Raindrops' ),
 			),
-			'section'			 => 'raindrops_theme_settings_presentation',
-			'priority'			=> 11,
+			'section'			 => 'raindrops_theme_settings_sidebar',
+			'priority'			=> 8,
 		),
 		"raindrops_col_setting_type"							 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_col_setting_type' ),
@@ -636,11 +664,12 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 20,
 			'sanitize_callback'	 => 'raindrops_sidebar_list_of_post_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
+		
 		"raindrops_sidebar_catetory"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_catetory' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -695,25 +724,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'nav',
 		),
-		/*
-		 * Pending
-		 *
-
-		  "raindrops_hyperlink_color2"							 => array(
-
-		  'default'	 => "",
-		  'data_type'		=> $raindrops_setting_type,
-		  'autoload'		 => 'yes',
-		  'capability' => $raindrops_customize_cap,
-		  'label' => esc_html__( 'Link Color', 'Raindrops' ),
-		  'excerpt1'		 => '',
-		  'description'		 => esc_html__( 'Hyper link color', 'Raindrops' ),
-		  'sanitize_callback'		 => 'raindrops_hyperlink_color_validate',
-		  'extend_customize_control'	 => 'WP_Customize_Color_Control',
-		  'section' => 'raindrops_theme_settings_fonts',
-		  ),
-		 *
-		 */
+		
 		"raindrops_accessibility_settings"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_accessibility_settings' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -780,7 +791,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-		///////////////////////////////////////////////////////////
+
 		"raindrops_status_bar"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_status_bar' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -808,7 +819,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_basefont_settings_validate',
 			'type'				 => 'radio',
 			'choices'			 => array_flip( $raindrops_basefont_size ),
-			'section'			 => 'raindrops_theme_settings_presentation',
+			'section'			 => 'raindrops_theme_settings_fonts',
 		),
 		"raindrops_fluid_max_width"						 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_fluid_max_width' ),
@@ -821,8 +832,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_fluid_max_width_validate',
 			'active_callback'	=> 'raindrops_page_width_is_fluid',
 			'type'				 => 'text',
-			'priority'			=> 11,			
-			'section'			 => 'raindrops_theme_settings_presentation',
+			'priority'			=> 9,			
+			'section'			 => 'raindrops_theme_settings_sidebar',
 
 		),
 		"raindrops_full_width_max_width"						 => array(
@@ -836,8 +847,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_full_width_max_width_validate',
 			'active_callback'	=> 'raindrops_page_width_is_full_size',
 			'type'				 => 'text',
-			'priority'			=> 15,			
-			'section'			 => 'raindrops_theme_settings_presentation',
+			'priority'			=> 9,			
+			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
 		"raindrops_full_width_limit_window_width"						 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' ),
@@ -850,8 +861,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_full_width_limit_window_width_validate',
 			'active_callback'	=> 'raindrops_page_width_is_full_size',
 			'type'				 => 'text',
-			'priority'			=> 15,			
-			'section'			 => 'raindrops_theme_settings_presentation',
+			'priority'			=> 9,			
+			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
 		
 		"raindrops_complementary_color_for_title_link"	 => array(
@@ -1042,6 +1053,68 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_use_featured_image_emphasis_callback',
 			'section'			 => 'raindrops_theme_settings_featured',
 		),
+		//////////////////////////////////////////
+		"raindrops_article_title_css_class"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_article_title_css_class' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Entry Title CSS Class', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'default empty', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_article_title_css_class_validate',
+			'type'				 => 'text',
+			'section'			 => 'raindrops_theme_settings_post',
+		),
+		"raindrops_display_article_publish_date"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_display_article_publish_date' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Display Publish Date', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'default Show', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_display_article_publish_date_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_post',
+		),
+		"raindrops_display_article_author"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_display_article_author' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Display Author', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'default Show', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_display_article_author_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_post',
+		),		
+		"raindrops_display_default_category"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_display_default_category' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Display Default Category', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'default show', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_display_default_category_validate',
+			'active_callback'	 => 'raindrops_permalink_is_default',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_post',
+		),
 	);
 
 	/**
@@ -1158,9 +1231,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Breadcrumb NavXT Automatic Presentation', 'Raindrops' ),
+			'label'				 => esc_html__( 'Breadcrumbs', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
+			'description'		 => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none. using Breadcrumb NavXT', 'Raindrops' ),
 			'sanitize_callback'	 => 'raindrops_plugin_presentation_bcn_nav_menu_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
@@ -1177,9 +1250,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'WP PageNavi Automatic Presentation', 'Raindrops' ),
+			'label'				 => esc_html__( 'Custom Page Navigation', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'Raindrops' ),
+			'description'		 => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none. using WP PageNavi', 'Raindrops' ),
 			'sanitize_callback'	 => 'raindrops_plugin_presentation_wp_pagenav_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
@@ -1196,9 +1269,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Meta Slider ID for HomePage', 'Raindrops' ),
+			'label'				 => esc_html__( 'Slider for HomePage', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Please Set Meta Slider ID or none', 'Raindrops' ),
+			'description'		 => esc_html__( 'Please Set Meta Slider ID or none. using Meta Slider', 'Raindrops' ),
 			'sanitize_callback'	 => 'raindrops_plugin_presentation_meta_slider_validate',
 			'type'				 => 'select',
 			'choices'			 => raindrops_get_ml_slider_ids(),
@@ -1238,7 +1311,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'yes'	 => esc_html__( 'Yes', 'Raindrops' ),
 				'no'	 => esc_html__( 'No', 'Raindrops' ),
 			),
-			'section'			 => 'raindrops_theme_settings_document',
+			'section'			 => 'raindrops_theme_settings_plugins',
 		),
 	);
 
@@ -1657,7 +1730,43 @@ function raindrops_customizer_style() {
 .raindrops-recent-changes{
 	background:#efefef;
 }
+	/*test*/
+.raindrops-active {
+    -webkit-animation-delay: 2s; 
+    animation-delay: 2s;
+    -webkit-animation: fadein 5s; 
+       -moz-animation: fadein 5s;
+        -ms-animation: fadein 5s;
+         -o-animation: fadein 5s;
+            animation: fadein 5s;
 
+}
+
+@keyframes fadein {
+    from { background: yellow; }
+    to   { background: white; }
+}
+
+
+@-moz-keyframes fadein {
+    from { background: yellow; }
+    to   { background: white; }
+}
+
+@-webkit-keyframes fadein {
+    from { background: yellow; }
+    to   { background: white; }
+}
+
+@-ms-keyframes fadein {
+     from { background: yellow; }
+    to   { background: white; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 CUSTOMIZER_CSS;
 	wp_add_inline_style( 'customize-controls', $css );
 }

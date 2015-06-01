@@ -1,5 +1,36 @@
 <?php
-
+function raindrops_excerpt_length_validate( $input ) {	
+	if( is_numeric( $input ) ) {
+		$input = absint( $input );
+		if( $input > 19 && $input < 401 ) {
+			
+			return $input;
+		}		
+	}
+	return 200;
+}
+function raindrops_sidebar_tag_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
+function raindrops_site_title_left_margin_type_validate( $input ) {
+	
+	if( $input == 'default' || $input == 'centered' || $input == 'manual' ) {
+		return $input;
+	} else {
+		return 'default';
+	}		
+}
+function raindrops_sidebar_image_archive_validate( $input ) {
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
 function raindrops_display_default_category_validate( $input ) {
 	if( $input == 'show' || $input == 'hide'  ) {
 		return $input;
@@ -533,15 +564,16 @@ if ( !function_exists( 'raindrops_right_sidebar_width_percent_validate' ) ) {
 
 	function raindrops_right_sidebar_width_percent_validate( $input ) {
 
-		$obj	 = new raindrops_menu_create();
-		$vals	 = $obj->col_settings_raindrops_right_sidebar_width_percent;
-
-		foreach ( $vals as $val ) {
-
-			if ( $input == $val ) {
-
-				return $input;
-			}
+		$value = array( 'choices'			 => array(
+				'25' => __( '25%', 'Raindrops' ),
+				'33' => __( '33%', 'Raindrops' ),
+				'50' => __( '50%', 'Raindrops' ),
+				'66' => __( '66%', 'Raindrops' ),
+				'75' => __( '75%', 'Raindrops' ),
+			),
+		);
+		if( array_key_exists ( $input, $value['choices'] ) ) {
+			return $input;
 		}
 		return 25;
 	}
@@ -556,15 +588,13 @@ if ( !function_exists( 'raindrops_show_right_sidebar_validate' ) ) {
 
 	function raindrops_show_right_sidebar_validate( $input ) {
 
-		$obj	 = new raindrops_menu_create();
-		$vals	 = $obj->col_settings_raindrops_show_right_sidebar;
-
-		foreach ( $vals as $val ) {
-
-			if ( $input == $val ) {
-
-				return $input;
-			}
+		$value = array( 'choices'			 => array(
+				'show'	 => __( 'Show', 'Raindrops' ),
+				'hide'	 => __( 'Hide', 'Raindrops' ),
+			),
+		);
+		if( array_key_exists ( $input, $value['choices'] ) ) {
+			return $input;
 		}
 		return 'show';
 	}
@@ -621,20 +651,24 @@ if ( !function_exists( 'raindrops_col_width_validate' ) ) {
 
 	function raindrops_col_width_validate( $input ) {
 
-		$obj	 = new raindrops_menu_create();
-		$vals	 = $obj->col_settings_raindrops_col_width;
-
-		foreach ( $vals as $val ) {
-
-			if ( $input == $val ) {
-
-				return $input;
-			}
+		$value = array( 'choices'			 => array(
+				't1' => __( 'left 160px', 'Raindrops' ),
+				't2' => __( 'left 180px', 'Raindrops' ),
+				't3' => __( 'left 300px', 'Raindrops' ),
+				't4' => __( 'right 180px', 'Raindrops' ),
+				't5' => __( 'right 240px', 'Raindrops' ),
+				't6' => __( 'right 300px', 'Raindrops' ),
+			),
+		);
+		if( array_key_exists ( $input, $value['choices'] ) ) {
+			return $input;
 		}
+		
 		return 't2';
 	}
 
 }
+
 /**
  *
  * @param type $input
@@ -644,15 +678,17 @@ if ( !function_exists( 'raindrops_page_width_validate' ) ) {
 
 	function raindrops_page_width_validate( $input ) {
 
-		$obj	 = new raindrops_menu_create();
-		$vals	 = $obj->col_settings_raindrops_page_width;
+		$value = array('choices'			 => array(
+				'doc'	 => __( '750px centered', 'Raindrops' ),
+				'doc2'	 => __( '950px centered', 'Raindrops' ),
+				'doc4'	 => __( '974px', 'Raindrops' ),			
+				'doc3'	 => __( 'Box Layout Responsive', 'Raindrops' ),
+				'doc5'   => __( 'Full Width Resuponsive', 'Raindrops' ),
+				),
+			);
 
-		foreach ( $vals as $val ) {
-
-			if ( $input == $val ) {
-
-				return $input;
-			}
+		if( array_key_exists ( $input, $value['choices'] ) ) {
+			return $input;
 		}
 		return 'doc3';
 	}
@@ -797,9 +833,8 @@ if ( !function_exists( '_raindrops_indv_css_validate' ) ) {
 
 	function _raindrops_indv_css_validate( $input ) {
 
-		// if needs core support style only
-		//return safecss_filter_attr($input);
-		return ' ' . strip_tags( $input );
+		return ' ' .wp_strip_all_tags( $input );
+		
 	}
 
 }
@@ -842,7 +877,6 @@ if ( !function_exists( 'raindrops_hyperlink_color_validate' ) ) {
 	}
 
 }
-
 /**
  * 
  * @param type $option

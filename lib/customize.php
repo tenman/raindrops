@@ -187,6 +187,16 @@ if ( !defined( 'ABSPATH' ) ) {
 		}
 	}
 
+	function raindrops_place_of_site_title_callback_b( $control ) {
+
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_site_title_left_margin_type' ) )->value() == 'manual' &&
+			 $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_place_of_site_title' ) )->value() == 'header_image'
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	function raindrops_show_right_sidebar_callback( $control ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_right_sidebar' ) )->value() == 'show' ) {
@@ -631,6 +641,26 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
+		
+		"raindrops_sidebar_image_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_image_archive' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Image Archive columns', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => __( '1 column', 'Raindrops' ),
+				2 => __( '2 columns', 'Raindrops' ),
+				3 => __( '3 columns', 'Raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_image_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
 		"raindrops_sidebar_404"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_404' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -689,6 +719,25 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
+		"raindrops_sidebar_tag"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_tag' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Tag Archive columns', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => __( '1 column', 'Raindrops' ),
+				2 => __( '2 columns', 'Raindrops' ),
+				3 => __( '3 columns', 'Raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_tag_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
 		"raindrops_sidebar_author"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_author' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -719,8 +768,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_show_menu_primary_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'show'	 => 'Show',
-				'hide'	 => 'Hide',
+				'show'	 => __( 'Show', 'Raindrops' ),
+				'hide'	 => __( 'Hide', 'Raindrops' ),
 			),
 			'section'			 => 'nav',
 		),
@@ -736,8 +785,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_accessibility_settings_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'no'	 => 'No',
-				'yes'	 => 'Yes',
+				'yes'	 => __( 'Yes', 'Raindrops' ),				
+				'no'	 => __( 'No', 'Raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
@@ -863,8 +912,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'text',
 			'priority'			=> 9,			
 			'section'			 => 'raindrops_theme_settings_sidebar',
-		),
-		
+		),		
 		"raindrops_complementary_color_for_title_link"	 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_complementary_color_for_title_link' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -881,7 +929,6 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'priority'			=> 11,			
 			'active_callback'   => 'raindrops_raindrops_hyperlink_color_is_chromatic',
 			'section'			=> 'colors',
-
 		),
 		"raindrops_disable_keyboard_focus"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_disable_keyboard_focus' ),
@@ -1128,7 +1175,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Home Listed Entry Contents', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+			'description'		 => '',
 			'sanitize_callback'	 => 'raindrops_entry_content_is_home_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
@@ -1145,7 +1192,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Category Archives Entry Contents', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+			'description'		 => '',
 			'sanitize_callback'	 => 'raindrops_entry_content_is_category_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
@@ -1162,7 +1209,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Search Result Entry Contents', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( "value content, excerpt, none", 'Raindrops' ),
+			'description'		 => '',
 			'sanitize_callback'	 => 'raindrops_entry_content_is_tag_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
@@ -1213,12 +1260,30 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Add More Link After Excerpt', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Add read more link after excerpt. values yes or no default no', 'Raindrops' ),
+			'description'		 => '',
 			'sanitize_callback'	 => 'raindrops_read_more_after_excerpt_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'yes'	 => esc_html__( 'Yes', 'Raindrops' ),
 				'no'	 => esc_html__( 'No', 'Raindrops' ), 
+			),
+			'active_callback'	 => 'raindrops_post_content_type_callback',
+			'section'			 => 'raindrops_theme_settings_content',
+		),
+		"raindrops_excerpt_length"		 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_excerpt_length' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Excerpt Length', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Value 20-400', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_excerpt_length_validate',
+			'type'				 => 'range',
+			'input_attrs'		 => array(
+				'min'	 => 20,
+				'max'	 => 400,
+				'step'	 => 1,
 			),
 			'active_callback'	 => 'raindrops_post_content_type_callback',
 			'section'			 => 'raindrops_theme_settings_content',
@@ -1286,7 +1351,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'The Events Calendar Automatic Presentation', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => '',
+			'description'		 => esc_html__( 'Theme, will make a presentation of applying the plugin automatically. using The Events Calendar Plugin', 'Raindrops' ),
 			'sanitize_callback'	 => 'raindrops_plugin_presentation_the_events_calendarr_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
@@ -1352,6 +1417,47 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_place_of_site_title_callback',
 			'section'			 => 'title_tagline',
 		),
+		"raindrops_site_title_top_margin"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_top_margin' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Top Margin in the header image', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '<p>' . esc_html__( ' default value is 1 . set 0 between 100 ( percent )', 'Raindrops' ) . '</p>',
+			'sanitize_callback'	 => 'raindrops_site_title_top_margin_validate',
+			/* 'type'				 => 'text', */
+			'type'				 => 'range',
+			'input_attrs'		 => array(
+				'min'	 => 1,
+				'max'	 => 100,
+				'step'	 => 1,
+				'class'	 => 'site-title-left_margin',
+				'style'	 => 'color: #0a0',
+			),
+			'active_callback'	 => 'raindrops_place_of_site_title_callback',
+			'section'			 => 'title_tagline',
+		),
+		
+		"raindrops_site_title_left_margin_type"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_left_margin_type' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'The choice of left margin how to set', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'sanitize_callback'	 => 'raindrops_site_title_left_margin_type_validate',
+			'type'				 => 'radio',
+			'choices'		 => array(
+				'default'	 => esc_html__('Default', 'Raindrops' ),
+				'centered'	 => esc_html__('Centered', 'Raindrops' ),
+				'manual'	 => esc_html__('Manual Settings', 'Raindrops' ),
+			),
+			'active_callback'	 => 'raindrops_place_of_site_title_callback',
+			'section'			 => 'title_tagline',
+		),
+		
 		"raindrops_site_title_left_margin"	 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_left_margin' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1369,30 +1475,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'class'	 => 'site_title_top_margin test',
 				'style'	 => 'color: #0a0',
 			),
-			'active_callback'	 => 'raindrops_place_of_site_title_callback',
+			'active_callback'	 => 'raindrops_place_of_site_title_callback_b',
 			'section'			 => 'title_tagline',
 		),
-		"raindrops_site_title_top_margin"	 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_top_margin' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Top Margin in the header image', 'Raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => '<p>' . esc_html__( ' default value is 1 . set 0 between 100 ( percent )', 'Raindrops' ) . '</p>',
-			'sanitize_callback'	 => 'raindrops_site_title_top_margin_validate',
-			/* 'type'				 => 'text', */
-			'type'				 => 'range',
-			'input_attrs'		 => array(
-				'min'	 => 1,
-				'max'	 => 100,
-				'step'	 => 1,
-				'class'	 => 'site_title_top_margin test',
-				'style'	 => 'color: #0a0',
-			),
-			'active_callback'	 => 'raindrops_place_of_site_title_callback',
-			'section'			 => 'title_tagline',
-		),
+		
+
 		"raindrops_site_title_css_class"		 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_css_class' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1729,6 +1816,7 @@ function raindrops_customizer_style() {
 }
 .raindrops-recent-changes{
 	background:#efefef;
+	color:#333;
 }
 	/*test*/
 .raindrops-active {
@@ -1768,6 +1856,14 @@ function raindrops_customizer_style() {
     to   { opacity: 1; }
 }
 CUSTOMIZER_CSS;
+/**
+ * Transitonal conditional current version WordPress 4.3 No need below
+ */
+	$current_admin_color = get_user_option( 'admin_color' );
+	
+	if( 'fresh' == $current_admin_color ) {
+		$css .= '#customize-info .accordion-section-title{ color:#333;}';	
+	}
 	wp_add_inline_style( 'customize-controls', $css );
 }
 
@@ -1783,10 +1879,5 @@ function raindrops_print_scripts() {
 		'admin_color' => $raindrops_customizer_admin_color,
 	) );
 }
-add_action('customize_render_section_raindrops_theme_settings_plugins', 'my_customize_rendar_section' );
 
-function my_customize_rendar_section(){
-	
-	//echo '<img src="http://www.tenman.info/wp-37/wp-content/uploads/public-domain-archive-10.jpg" />';
-}
 ?>

@@ -224,8 +224,7 @@ ul.archive ul li,
 ul.all_entry h2,
 .attachment .caption dd,
 ul.archive,ul.index,
-.sitemap.new li,
-#items li{
+.sitemap.new li{
     border-bottom:1px solid %c_border%;
 }
 
@@ -422,8 +421,7 @@ ul.archive ul li,
 ul.all_entry h2,
 .attachment .caption dd,
 ul.archive,ul.index,
-.sitemap.new li,
-#items li{
+.sitemap.new li{
     border-bottom:1px solid %rgba_border%;
 }
 .raindrops-toc-front li,
@@ -1067,10 +1065,6 @@ dl.my_tags dd,
 dl.my_tags dt{
     border-bottom:1px solid %c_border%;
 }
-
-#items li{
-    border-bottom:1px solid %c_border%;
-}
 .attachment .caption dd{
     border-bottom:1px solid %c_border%;
 }
@@ -1449,7 +1443,9 @@ a.raindrops-comment-link:hover .point {
     border-bottom:1px solid %rgba_border%;
 }
 #header-image p{
-    text-shadow: 2px 2px 2px #fff;
+   /* 
+	* 1.295 commentout
+	text-shadow: 2px 2px 2px #fff;*/
 }
 CSS3;
 

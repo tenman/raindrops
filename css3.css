@@ -91,7 +91,6 @@ submit{
     border:none;
 }
 .lsidebar li.page_item a:hover,
-.lsidebar li.category_report a:hover,
 .lsidebar .widget ul li a:hover {
     -moz-opacity:0.75;
     filter:alpha(opacity=75);

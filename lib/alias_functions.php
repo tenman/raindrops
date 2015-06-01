@@ -1306,6 +1306,11 @@ function raindrops_filter_page_column_control() {
 		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
+	if ( 'image' == $template ) {
+		$raindrops_current_column = ( int ) raindrops_warehouse_clone( 'raindrops_sidebar_image_archive' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}
 
 	if ( is_singular() && isset( $post ) ) {
 
@@ -1358,7 +1363,11 @@ function raindrops_filter_page_column_control() {
 		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 		return;
 	}
-		
+	if ( is_tag() ) {
+		$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_tag' );
+		$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+		return;
+	}	
 }
 
 function raindrops_keep_content_width( $column ) {

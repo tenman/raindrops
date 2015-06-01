@@ -52,7 +52,7 @@ $raindrops_current_data_version		 = $raindrops_current_data->get( 'Version' );
 $raindrops_current_theme_name		 = $raindrops_current_data->get( 'Name' );
 $raindrops_current_theme_slug		 = str_replace( ' ', '-', $raindrops_current_theme_name );
 $raindrops_current_theme_slug		 = sanitize_html_class( $raindrops_current_theme_slug );
-$raindrops_description_for_translation = __( 'This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit', 'Raindrops' );
+$raindrops_description_for_translation = __( 'This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)', 'Raindrops' );
 $raindrops_text_domain				 = $raindrops_current_data->get( 'TextDomain' );
 
 /** DON'T CHANGE NOW TEST
@@ -82,6 +82,7 @@ if ( ! isset( $raindrops_keep_content_width ) ) {
 /**
  * Style sheet setting html head embed inline-style or external link
  * value external ( default ) or embed
+ * 1.295 #doc5 external style yet suport.
  * @since 1.277
  */
 if ( ! isset( $raindrops_stylesheet_type ) ) {
@@ -96,9 +97,6 @@ if ( ! isset( $raindrops_use_transient ) ) {
 
 	$raindrops_use_transient = true;
 }
-
-
-
 /**
  * Raindrops Gallery Presentation
  * value false shows WordPress Standard Gallery Style.
@@ -1076,7 +1074,46 @@ array( 'option_id'    => 67,
         'excerpt2'     => esc_html__( 'default show', 'Raindrops' ),
         'validate'     => 'raindrops_display_default_category_validate',
 		'list'         => 66 ),
-
+array( 'option_id'    => 68,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_sidebar_image_archive",
+        'option_value' => '3',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Image Archive columns', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value 1-3. default 3', 'Raindrops' ),
+        'validate'     => 'raindrops_sidebar_image_archive_validate',
+		'list'         => 67 ),
+array( 'option_id'    => 69,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_site_title_left_margin_type",
+        'option_value' => 'default',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Left Margin of Site Title', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'Raindrops' ),
+        'validate'     => 'raindrops_site_title_left_margin_type_validate',
+		'list'         => 68 ),
+array( 'option_id'    => 70,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_sidebar_tag",
+        'option_value' => '3',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Tag Archive columns', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value 1-3. default 3', 'Raindrops' ),
+        'validate'     => 'raindrops_sidebar_tag_validate',
+		'list'         => 69 ),
+array( 'option_id'    => 71,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_excerpt_length",
+        'option_value' => '200',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Excerpt Length', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( '20-400', 'Raindrops' ),
+        'validate'     => 'raindrops_excerpt_length_validate',
+		'list'         => 69 ),
 );
 }
 //

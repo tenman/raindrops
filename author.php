@@ -51,13 +51,13 @@ raindrops_debug_navitation( __FILE__ );
 
                 <table <?php raindrops_doctype_elements( 'summary="author infomation"', '' ); ?> class="author-meta left auto">
                     <tr>
-                        <td class="avatar-col" style="width:60px;vertical-align:top;">
+                        <td class="avatar-col">
                             <?php
                             echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ), '', esc_attr__( 'Author Avatar Image', 'Raindrops' ) );
                             ?>
                         </td>
                         <td>
-                            <dl class="author raindrops" style="margin:0;padding:0;">
+                            <dl class="author raindrops">
                                 <?php if ( esc_html( $curauth->description ) ) { ?>
                                     <dt>
                                         <?php esc_html_e( 'Profile', 'Raindrops' ); ?>
@@ -78,21 +78,19 @@ raindrops_debug_navitation( __FILE__ );
                                         );
                                         ?>
                                     </dd>
-                                    <?php } //if ( ! empty( $curauth->user_url ) ) {?>
+                                <?php } //if ( ! empty( $curauth->user_url ) ) {?>
                                 <dt>
                                 <?php esc_html_e( 'registered', 'Raindrops' ); ?>
                                 </dt>
                                 <dd>
-<?php echo esc_html( $curauth->user_registered ); ?>
+								<?php	echo apply_filters( 'get_the_date', $curauth->user_registered ); ?>
                                 </dd>
                             </dl>
                         </td>
                     </tr>
                 </table>
                 <br class="clear" />
-                <h2 class="h2">
-<?php esc_html_e( "Recent post", 'Raindrops' ); ?>
-                </h2>
+                <h2 class="h2"><?php esc_html_e( "Recent post", 'Raindrops' ); ?></h2>
                 <dl class="author">
                     <!-- The Loop -->
 <?php

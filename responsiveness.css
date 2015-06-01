@@ -351,7 +351,6 @@
     #doc5 .lsidebar ul li ul li a,
     #doc5 .rsidebar ul li ul li a,
     #doc5 .lsidebar li.page_item a,
-    #doc5 .lsidebar li.category_report a,
     #doc5 .lsidebar .widget ul li a,
     #doc3 .reply, #ft a,
     #doc3 .page .hentry .entry-title a,
@@ -365,7 +364,6 @@
     #doc3 .lsidebar ul li ul li a,
     #doc3 .rsidebar ul li ul li a,
     #doc3 .lsidebar li.page_item a,
-    #doc3 .lsidebar li.category_report a,
     #doc3 .lsidebar .widget ul li a{
         display:block;
         background-repeat:no-repeat;

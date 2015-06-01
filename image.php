@@ -54,7 +54,7 @@ raindrops_debug_navitation( __FILE__ );
 							?>
 							<p class="image">
 								<a href="<?php echo $image[ 0 ]; ?>" >
-									<img src="<?php echo $image[ 0 ]; ?>" width="<?php echo $image[ 1 ]; ?>" height="<?php echo $image[ 2 ]; ?>" alt="<?php the_title_attribute(); ?>" />
+									<img src="<?php echo $image[ 0 ]; ?>" width="<?php echo $image[ 1 ]; ?>" height="<?php echo $image[ 2 ]; ?>" alt="<?php the_title_attribute(); ?>" class="aligncenter" />
 								</a>
 							</p>
 							<div class="caption">

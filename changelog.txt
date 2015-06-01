@@ -1,4 +1,66 @@
 Changelog -----------------------------------
+version:1.296
+Overview of Changes
+
+	Customizer Update[customize]
+
+		Modifies SkipLink not shows when customizer.
+		Add excerpt length control
+		Add header-image left margin setting type control
+		Add column control for tag archive
+		Add column control for image archive
+
+	Modify Translatable
+		featured image change to empty alt[a11y]
+			for accessibility.
+	Fixed
+		conditional change from page_on_front to show_on_front
+	Modify
+		header image left margin control[header-image]
+	Change Theme description[description]
+		Add support languages
+	Cleaning files[cleaning]
+
+Files Modified
+	modified:   childs/boots/inc.php
+	modified:   css3.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	author.php line:54,60,93
+	author.php line:86[I18n]
+	child/boots/inc.php line:1156-1175{Misc]
+	functions.php line:1963,1988,3829,4755,4857-4911,8946-8950,9172,10407-10408,10450[Misc]
+	functions.php line:6636,6645,6816,6830,6999,7011,[a11y]
+	functions.php line:8738-8743[customize]
+	functions.php line:10347-10372[header-image]
+	image.php line:57[Misc]
+	languages/css/ja.css[Misc]
+	languages/ja.po, languages/ja.mo update
+	lib/alias_functions.php line:1309-1313[Misc],1366-1370[customize]
+	lib/csscolor.css.php line:227,424,1446-1448[Misc]
+	lib/customize.php line:190-199,644,663,722-740,771-772-788-789,915,1178,1195,1212,1263,1273-1290,1354,1420,1421,1427-1429,1435,1441-1443,1447,1449-1469,1478,1481-1482,1829,1859-1866[customize]
+	lib/hooks.php line:365
+	lib/validate.php line:2-33,567-576,591-597,654-666,681-688,690-691,836[cuctomize]
+	lib/vars.php line:55,1077-1116[cuctomize]
+	responsiveness.css line:354,368[Misc]
+	style.css line:4[description],.etc[cleaning]
+----------------------------------------------
+Changelog -----------------------------------
 version:1.295
 Overview of Changes
 

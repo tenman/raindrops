@@ -1,4 +1,20 @@
 Changelog -----------------------------------
+version:1.297
+Overview of Changes
+
+	Fixed remove code
+		Warning: Creating default object from empty value in
+ 		\raindrops\lib\customize.php on line 1545
+
+Files Modified
+	modified:   functions.php
+	modified:   customize.php
+
+Description of Code Changes
+	functions.php line:5534
+	lib/customize.php line:1545
+----------------------------------------------
+Changelog -----------------------------------
 version:1.296
 Overview of Changes
 

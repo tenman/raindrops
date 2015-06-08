@@ -84,7 +84,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
             $css .= " \n#site-title a,#site-title span{color:#" . $raindrops_text_color . ';}';
             $css .= " \n.description{color:#" . $raindrops_text_color . ';}';
         }
-		
+
 		$setting_value = raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image' );
 
 		If( $setting_value !== 'show' ) {
@@ -115,8 +115,8 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
         if ( !empty( $raindrops_footer_link_color ) ) {
             $css .= "#ft a{color:" . $raindrops_footer_link_color . "!important;}";
         }
-		
-		
+
+
 
         $background = get_background_image();
         $color      = get_background_color();
@@ -164,18 +164,18 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 			if ( isset( $primary_menu_font_size ) && !empty( $primary_menu_font_size ) ) {
 				/* Add check value why some web site font-size:0% using child theme */
 				if ( $primary_menu_font_size > 76 && $primary_menu_font_size < 183 ) {
-					
+
 					$css .= '#access a{font-size:' . floatval( $primary_menu_font_size ) . '%;}';
 				} else {
-					
-					$css .= '#access a{font-size:100%;}';	
+
+					$css .= '#access a{font-size:100%;}';
 				}
 			} else {
 				$css .= '#access a{font-size:100%;}';
 			}
-		
+
 		$primary_menu_min_width = raindrops_warehouse_clone( 'raindrops_menu_primary_min_width' );
-			
+
 		if ( isset( $primary_menu_min_width ) && !empty( $primary_menu_min_width ) ) {
 
 			if ( $primary_menu_min_width < 10 ) { $child_width = 10; }else{ $child_width = floatval( $primary_menu_min_width );}
@@ -186,9 +186,9 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 							#access .children li,#access .sub-menu li,#access .children ul,#access .sub-menu ul,#access .children a,#access .sub-menu a{
 							 width:%2$dem;
 							}';
-			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width );				
-		} 
-		
+			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width );
+		}
+
         if ( function_exists( 'raindrops_gradient_clone' ) ) {
 
             $css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content .gradient' );
@@ -354,7 +354,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 								$result_indv .= $web_fonts_style_each ."\n";
 							}
 						}
-						
+
                         $collections = get_post_meta( $post->ID, 'css', true );
                         $collections .= get_post_meta( $post->ID, '_css', true );
                         $result_indv .= preg_replace_callback( '![^}]+{[^}]+}!siu', 'raindrops_css_add_id', $collections );
@@ -386,9 +386,9 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 /**
  * Add Broad Screenshot at Customizer
  *
- * 
+ *
  */
-if ( !function_exists( 'raindrops_customize_controls_print_styles' ) && 1 == 2 ) {
+if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 
     function raindrops_customize_controls_print_styles() {
         ?>
@@ -799,7 +799,7 @@ array( 'option_id'    => 32,
 	'title'        => esc_html__( 'Menu Primary Font Size', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182', 'Raindrops' ),
-	'validate'     => 'raindrops_menu_primary_font_size_validate', 
+	'validate'     => 'raindrops_menu_primary_font_size_validate',
 	'list'         => 31 ),
 
 array( 'option_id'    => 33,
@@ -810,7 +810,7 @@ array( 'option_id'    => 33,
 	'title'        => esc_html__( 'Menu Primary Menu Width', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999', 'Raindrops' ),
-	'validate'     => 'raindrops_menu_primary_min_width_validate', 
+	'validate'     => 'raindrops_menu_primary_min_width_validate',
 	'list'         => 32 ),
 
 array( 'option_id'    => 34,
@@ -821,7 +821,7 @@ array( 'option_id'    => 34,
 	'title'        => esc_html__( 'Featured Image Position', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Featured Image Position for Emphasis of new content using the Featured Image values default,left,front', 'Raindrops' ),
-	'validate'     => 'raindrops_featured_image_position_validate', 
+	'validate'     => 'raindrops_featured_image_position_validate',
 	'list'         => 33 ),
 array( 'option_id'    => 35,
 	'blog_id'      => 0,
@@ -831,7 +831,7 @@ array( 'option_id'    => 35,
 	'title'        => esc_html__( 'Featured Image Size', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'values thumbnail, medium, large, default', 'Raindrops' ),
-	'validate'     => 'raindrops_featured_image_size_validate', 
+	'validate'     => 'raindrops_featured_image_size_validate',
 	'list'         => 34 ),
 array( 'option_id'    => 36,
 	'blog_id'      => 0,
@@ -841,7 +841,7 @@ array( 'option_id'    => 36,
 	'title'        => esc_html__( 'Featured Image Special Layout Apply Post Count', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'values from 1 to Post Per Page count default value none', 'Raindrops' ),
-	'validate'     => 'raindrops_featured_image_recent_post_count_validate', 
+	'validate'     => 'raindrops_featured_image_recent_post_count_validate',
 	'list'         => 35 ),
 array( 'option_id'    => 37,
 	'blog_id'      => 0,
@@ -851,7 +851,7 @@ array( 'option_id'    => 37,
 	'title'        => esc_html__( 'Featured Image Show, lightbox or Hide on Singular Post,Page', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'values show or hide or lightbox ( light box is crop height ,add lightbox )', 'Raindrops' ),
-	'validate'     => 'raindrops_featured_image_singular_validate', 
+	'validate'     => 'raindrops_featured_image_singular_validate',
 	'list'         => 36 ),
 array( 'option_id'    => 38,
 	'blog_id'      => 0,
@@ -861,7 +861,7 @@ array( 'option_id'    => 38,
 	'title'        => esc_html__( 'USE or Not Emphasis of new content using the Featured Image', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
-	'validate'     => 'raindrops_use_featured_image_emphasis_validate', 
+	'validate'     => 'raindrops_use_featured_image_emphasis_validate',
 	'list'         => 37 ),
 	array( 'option_id'    => 39,
 	'blog_id'      => 0,
@@ -871,7 +871,7 @@ array( 'option_id'    => 38,
 	'title'        => esc_html__( 'USE or Not Japanese Date', 'Raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'values yes or no default no', 'Raindrops' ),
-	'validate'     => 'raindrops_japanese_date_validate', 
+	'validate'     => 'raindrops_japanese_date_validate',
 	'list'         => 38 ),
 array( 'option_id'    => 40,
 	'blog_id'      => 0,

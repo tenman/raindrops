@@ -1488,9 +1488,9 @@ class raindrops_CSS_Color extends raindrops_PEAR{
   //--------------------------------------------------
   function raindrops_raiseError($message, $method, $line) {
 
-  /*  $error = raindrops_PEAR::raindrops_raiseError(sprintf("%s.%s() line %d: %s",
+    $error = raindrops_PEAR::raindrops_raiseError(sprintf("%s.%s() line %d: %s",
                       get_class($this), $method, $line, $message),
-                  RAINDROPS_CSS_COLOR_ERROR);*/
+                  RAINDROPS_CSS_COLOR_ERROR);
 
   }
 

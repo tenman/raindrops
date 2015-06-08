@@ -1059,16 +1059,11 @@ class raindrops_PEAR_Error
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-/**
- * Include PEAR.php
- *
- *
- *
- *
- */
-
-
-define('RAINDROPS_CSS_COLOR_ERROR', 100);
+if (defined( WP_DEBUG ) && true == WP_DEBUG ) {
+	define('RAINDROPS_CSS_COLOR_ERROR', true );
+} else {
+	define('RAINDROPS_CSS_COLOR_ERROR', false );
+}
 /**
  * Class CSS_Color
  *
@@ -1487,13 +1482,15 @@ class raindrops_CSS_Color extends raindrops_PEAR{
 
   //--------------------------------------------------
   function raindrops_raiseError($message, $method, $line) {
-
-    $error = raindrops_PEAR::raindrops_raiseError(sprintf("%s.%s() line %d: %s",
-                      get_class($this), $method, $line, $message),
-                  RAINDROPS_CSS_COLOR_ERROR);
-
+	  
+		if( RAINDROPS_CSS_COLOR_ERROR == true ) {
+			
+			$error = sprintf("%s.%s() line %d: %s",
+					get_class($this), 
+					$method, 
+					$line, 
+					$message);
+		}
   }
-
 }
-
 ?>

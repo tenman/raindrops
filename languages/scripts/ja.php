@@ -227,7 +227,7 @@ if ( ! function_exists( 'raindrops_bcn_template_tags_filter' ) && class_exists( 
 	
 	function raindrops_bcn_template_tags_filter( $replacements, $type, $id ) {
 		
-		if ( WPLANG == 'ja' ) {
+		if ( 'ja' == get_locale() ) {
 
 			$this_type = implode( ',', $type );
 

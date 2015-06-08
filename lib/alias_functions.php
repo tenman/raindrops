@@ -1105,33 +1105,105 @@ function raindrops_color_base_clone( $color1 = null, $selector = null ) {
 
     $class = 'color';
     $face  = 'face';
-    if ( !empty( $selector ) && array_key_exists( 'color', $selector ) && array_key_exists( 'face', $selector ) ) {
+ /*   if ( !empty( $selector ) && array_key_exists( 'color', $selector ) && array_key_exists( 'face', $selector ) ) {
 
         $face  = strip_tags( $selector['face'] );
         $class = strip_tags( $selector['color'] );
-    }
+    }*/
 
-    $base   = new raindrops_CSS_Color( $color1 );
-    $bg_1   = $base->bg['-1'];
-    $fg_1   = $base->fg['-1'];
-    $bg_2   = $base->bg['-2'];
-    $fg_2   = $base->fg['-2'];
-    $bg_3   = $base->bg['-3'];
-    $fg_3   = $base->fg['-3'];
-    $bg_4   = $base->bg['-4'];
-    $fg_4   = $base->fg['-4'];
-    $bg_5   = $base->bg['-5'];
-    $fg_5   = $base->fg['-5'];
-    $bg1    = $base->bg['+1'];
-    $fg1    = $base->fg['+1'];
-    $bg2    = $base->bg['+2'];
-    $fg2    = $base->fg['+2'];
-    $bg3    = $base->bg['+3'];
-    $fg3    = $base->fg['+3'];
-    $bg4    = $base->bg['+4'];
-    $fg4    = $base->fg['+4'];
-    $bg5    = $base->bg['+5'];
-    $fg5    = $base->fg['+5'];
+   	
+	if( class_exists ( 'raindrops_CSS_Color' ) ) {
+		
+		$base = new raindrops_CSS_Color( $color1 );
+	} else {
+		
+		return;
+	}
+	
+	$colors_values = array( '-1', '-2', '-3', '-4', '-5', 0, '+1','+2','+3','+4', '+5' );
+	$bg_1 = '';
+	$fg_1 = '';
+	$bg_2 = '';
+	$fg_2 = '';
+	$bg_3 = '';
+	$fg_3 = '';
+	$bg_4 = '';
+	$fg_4 = '';	
+	$bg_5 = '';
+	$fg_5 = '';
+	$bg1 = '';
+	$fg1 = '';
+	$bg2 = '';
+	$fg2 = '';
+	$bg3 = '';
+	$fg3 = '';
+	$bg4 = '';
+	$fg4 = '';	
+	$bg5 = '';
+	$fg5 = '';
+	
+	if( isset( $base->bg['-1'] ) ) {
+		$bg_1   = $base->bg['-1'];
+	}
+	if( isset( $base->fg['-1'] ) ) {
+		$fg_1   = $base->fg['-1'];
+	}
+	if( isset( $base->bg['-2'] ) ) {
+		$bg_2   = $base->bg['-2'];
+	}
+	if( isset( $base->fg['-2'] ) ) {
+		$fg_2   = $base->fg['-2'];
+	}
+	if( isset( $base->bg['-3'] ) ) {
+		$bg_3   = $base->bg['-3'];
+	}
+	if( isset( $base->fg['-3'] ) ) {	
+		$fg_3   = $base->fg['-3'];
+	}
+	if( isset( $base->bg['-4'] ) ) {	
+		$bg_4   = $base->bg['-4'];
+	}
+	if( isset( $base->fg['-4'] ) ) {	
+		$fg_4   = $base->fg['-4'];
+	}
+	if( isset( $base->bg['-5'] ) ) {	
+		$bg_5   = $base->bg['-5'];
+	}
+	if( isset( $base->fg['-5'] ) ) {	
+		$fg_5   = $base->fg['-5'];
+	}
+	if( isset( $base->bg['+1'] ) ) {	
+		$bg1    = $base->bg['+1'];
+	}
+	if( isset( $base->fg['+1'] ) ) {	
+		$fg1    = $base->fg['+1'];
+	}
+	if( isset( $base->bg['+2'] ) ) {	
+		$bg2    = $base->bg['+2'];
+	}
+	if( isset( $base->fg['+2'] ) ) {	
+		$fg2    = $base->fg['+2'];
+	}
+	if( isset( $base->bg['+3'] ) ) {		
+		$bg3    = $base->bg['+3'];
+	}
+	if( isset( $base->fg['+3'] ) ) {	
+		$fg3    = $base->fg['+3'];
+	}
+	if( isset( $base->bg['+4'] ) ) {	
+		$bg4    = $base->bg['+4'];
+	}
+	if( isset( $base->fg['+4'] ) ) {	
+		$fg4    = $base->fg['+4'];
+	}
+	if( isset( $base->bg['+5'] ) ) {		
+		$bg5    = $base->bg['+5'];
+	}
+	if( isset( $base->fg['+5'] ) ) {
+		$fg5    = $base->fg['+5'];
+	}
+	
+	
     $result = <<<CSS
 .{$class}-1 a,
 .{$class}-1{

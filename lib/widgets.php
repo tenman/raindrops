@@ -243,7 +243,6 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					} else {
 
 						$categories = get_the_category();
-						//var_dump( $categories );      
 
 						foreach ( $categories as $key => $val ) {
 

@@ -457,3 +457,9 @@ html .mce-content-body .wp-caption{
     content:'Element Script';
     margin:1em;
 }
+
+#tinymce .wp-more-tag{
+    height: 1em;
+    display: block;
+    margin:1.5em 0;
+}

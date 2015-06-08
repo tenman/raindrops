@@ -115,7 +115,7 @@ raindrops_debug_navitation( __FILE__ );
         if ( true == WP_DEBUG ) {
             echo '<!-- #post-' . get_the_ID() . ' -->';
         }
-    }       //　endwhile
+    }       //　endwhiles
     /**
      * Next Previous post link
      *

@@ -1,4 +1,40 @@
 <?php
+function raindrops_enable_header_image_filter_validate( $input ) {
+	if ( 'enable' == $input) {
+		return $input;
+	}
+	return 'disable';
+}
+function raindrops_header_image_filter_apply_bottom_validate( $input ) {
+	
+	if( is_numeric( $input ) && ( $input == 0 || $input > 0 || $input < 1 || $input == 1) ) {
+		return $input;
+	}
+	return 0;
+}
+function raindrops_header_image_filter_apply_top_validate( $input ) {
+	
+	if( is_numeric( $input ) && ( $input == 0 || $input > 0 || $input < 1 || $input == 1) ) {
+		return $input;
+	}
+	return 0;
+}
+function raindrops_header_image_filter_color_validate( $input ) {
+	
+	return sanitize_hex_color( $input );
+}
+function raindrops_parent_theme_mods_validate( $input ) {
+	if( $input == 'import'  ) {
+		return $input;
+	} 
+	return 'no';
+}
+function raindrops_stylesheet_in_html_validate( $input ) {
+	if( $input == 'embed' || $input == 'external' ) {
+		return $input;
+	} 
+	return 'embed';
+}
 function raindrops_excerpt_length_validate( $input ) {	
 	if( is_numeric( $input ) ) {
 		$input = absint( $input );
@@ -94,7 +130,7 @@ function raindrops_sidebar_author_validate( $input ) {
 	}	
 }
 function raindrops_full_width_limit_window_width_validate( $input ) {
-	if( is_mumeric( $input ) ) {
+	if( is_numeric( $input ) ) {
 		return $input;
 	} else {
 		return 1920;

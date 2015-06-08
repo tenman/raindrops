@@ -474,7 +474,7 @@
     }
     #doc5 #header-image p,
     #doc3 #header-image p{
-        font-size:123.1%;
+        font-size:2vw;
         font-weight:bold;
     }
     .home #doc5 .format-status .post-format-status-main:before,

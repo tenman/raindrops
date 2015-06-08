@@ -2189,12 +2189,9 @@ li.comment {
     position:relative;
     overflow:hidden;
 }
-/* 1.277 style change
 #header-image p{
-    position:relative;
-    top:45%;
     text-align:center;
-}*/
+}
 #header-image p{
         position: absolute;
         top: 0;
@@ -2202,7 +2199,7 @@ li.comment {
         right: 0;
         bottom: 0;
         display:block;
-        height:1.6em;
+        height:2vw;
         margin: auto;
         width:80%;
 }
@@ -3250,6 +3247,9 @@ ol.list-of-post-list .entry-title{
     border:0.07692307692em solid rgba(222,222,222,.5);
     padding:1em;
 }
+.entry-content .raindrops-toggle{
+    margin-top:1em;
+}
 .list-of-post-next-prev{
     margin-top:2em;
 }
@@ -3788,3 +3788,5 @@ html body.ja .rsidebar .lang-ja{
     padding:1em 0 0;
     box-sizing:border-box;
 }
+
+

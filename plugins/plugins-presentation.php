@@ -211,7 +211,10 @@ if ( !function_exists( 'raindrops_bcn_setup' ) ) {
 
 			if ( get_locale() == 'ja' ) {
 
-				add_filter( 'bcn_template_tags', 'raindrops_template_tags_change_date', 10, 3 );
+				/**
+				 * Commentout Raindrops1.297				 
+				 * add_filter( 'bcn_template_tags', 'raindrops_template_tags_change_date', 10, 3 );
+				 */
 			}
 		}
 	}

@@ -353,6 +353,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 			add_action( 'raindrops_pre_list-of-post.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_category.php', 'raindrops_filter_page_column_control' );
 			add_action( 'raindrops_pre_author.php', 'raindrops_filter_page_column_control' );
+			/**
+			 * @since 1.297
+			 */
+			add_action( 'raindrops_external_css_pre', 'raindrops_filter_page_column_control' );
 		}
 		
 		/*
@@ -363,6 +367,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_default_category' );
 		add_filter( 'raindrops_entry_title_class', 'raindrops_customizer_add_article_title_css_class' );
 		add_filter( 'excerpt_length', 'raindrops_excerpt_length', 9 );
+
 
 		
     }

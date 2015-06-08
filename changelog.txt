@@ -1,5 +1,5 @@
  Changelog -----------------------------------
-version:1.299
+version:1.300
 Overview of Changes
 	Customizer
 		Tag archive column control

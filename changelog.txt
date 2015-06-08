@@ -19,7 +19,17 @@ Overview of Changes
 
 Files Modified
 	childs/boots/inc.php
-
+	editor-style.css
+	functions.php
+	lib/alias_functions.php
+	lib/csscolor.css.php
+	lib/csscolor/PEAR.php remove
+	lib/customize.php
+	lib/validate.php
+	lib/vars.php
+	responsiveness.css
+	plugins/plugins-presentation.php
+	style.css
 Description of Code Changes
 	childs/boots/inc.php line:1176-1245[Customizer]
 	editor-style.css line:459-464[tinymce]

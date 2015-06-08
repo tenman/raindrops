@@ -1,3 +1,65 @@
+ Changelog -----------------------------------
+version:1.299
+Overview of Changes
+	Customizer
+		Tag archive column control
+		Excerpt length control
+		Stylesheet embed control[stylesheet]
+			external link css or html embed css
+		Parent Theme Current theme_mods import control for child theme{parent theme mods]
+		Header-image filter control[header-image]
+		Customizer default value change to static default value;[default]
+		[Customizer]
+	Fixed
+		tinymce editor excerpt image repeat showing issue[tinymce]
+	Modified
+		Changing the order of the include files[include]
+		etc change [Misc]
+		General review of the color configuration script[color]
+
+Files Modified
+	childs/boots/inc.php
+
+Description of Code Changes
+	childs/boots/inc.php line:1176-1245[Customizer]
+	editor-style.css line:459-464[tinymce]
+	functions.php line:44-52,65-66,69-74[include]
+	functions.php line:134-143[stylesheet][Customizer]
+	functions.php line:243[default][Customizer]
+	functions.php line:706-713,1392-1401,1404,4833-4865,7211,7221,7231,7243-7263[Misc]
+	functions.php line:1273,1275
+	functions.php line:4063-4099,4104[header-image]
+	functions.php line:10540-10581[parent theme mods]
+	lib/alias_functions.php line:10-123,265-268,286-287,426-513,531-535,545-549,553-557,610-612,616-618,630-748,813-823,854-1090(old function commentout),1114-12061517-1521,1883-1891[color]
+	lib/csscolor.css.php modify[Misc]
+	lib/csscolor/PEAR.php Remove file
+	lib/csscolor/csscolor.php line:1062-1066,1485-1493 when WP_DEBUG, show color setting scripts errors.
+	lib/customize.php default value all changes[default][Customizer][stylesheet][header-image]
+	lib/hooks.php page line:359 column control[Customizer]
+	lib/validate.php line:2-37 new validate functions[Customizer]
+	lib/vars.php line:12 add action hook raindrops_var_before
+							$raindrops_base_setting_args all option_value change
+							line:1102-1165 add args
+	plugins/plugins-presentation.php line:214-217 remove filter for japanese date.
+	responsiveness.css line:477 change tagline font size
+	style.css a little change
+-----------------------------------------------
+ Changelog -----------------------------------
+version:1.297
+Overview of Changes
+
+	Fixed remove code
+		Warning: Creating default object from empty value in
+ 		\raindrops\lib\customize.php on line 1545
+
+Files Modified
+	modified:   functions.php
+	modified:   customize.php
+
+Description of Code Changes
+	functions.php line:5534
+	lib/customize.php line:1545
+-----------------------------------------------
 Changelog -----------------------------------
 version:1.296
 Overview of Changes

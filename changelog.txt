@@ -1,4 +1,39 @@
- Changelog -----------------------------------
+Changelog -----------------------------------
+version:1.301
+Overview of Changes
+	Focus Customizer Changes
+
+		Color Picker Default value Set
+
+			Color Type dark light w3standard minimal each color type has default colors
+
+				raindrops_footer_color,	raindrops_hyperlink_color, raindrops_default_fonts_color, raindrops_footer_link_color
+
+			Default values are automatically set according to the combination of color schemes and color type.
+
+		Style rules Add transient.
+
+Files Modified
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops-helper.js
+	modified:   style.css
+Description of Code Changes
+	functions.php 819 additions, 766 deletions not shown diff lost
+							this change for almost change settings API to Customizer API
+	lib/alias_functions.php line:1033-1037,1039,1044.1068,[Customizer]
+	lib/csscolor.css.php	line:1638,1676-1699[Customizer]
+	lib/customize.js line:40,49-84[Customizer]
+	lib/customize.php line:261,489,989-990,[Misc]
+	lib/customize.php line:2002-2023[Customizer]
+	style.css line:62-66
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.300
 Overview of Changes
 	Customizer

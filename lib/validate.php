@@ -667,6 +667,7 @@ if ( !function_exists( 'raindrops_default_fonts_color_validate' ) ) {
 	function raindrops_default_fonts_color_validate( $input ) {
 
 		if ( $input == '' ) {
+
 			return $input;
 		}
 
@@ -674,6 +675,7 @@ if ( !function_exists( 'raindrops_default_fonts_color_validate' ) ) {
 
 			return $input;
 		}
+
 		return '';
 	}
 

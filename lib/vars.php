@@ -13,6 +13,7 @@ do_action('raindrops_var_before');
 /**
  * TEST NEW Customizer UI
  */
+
 if ( ! isset( $raindrops_new_customizer ) ) {
 	
 	$raindrops_new_customizer = true;

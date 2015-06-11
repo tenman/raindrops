@@ -59,6 +59,11 @@ a:visited{
     position:relative;
     margin:-0.07692307692em;
 }
+/** 1.301 when Force Unique Link Text settings yes , :hover, display imploperly featured image */
+.raindrops-accessible-mode .hfeed .has-post-thumbnail  a:focus{
+    position:static;
+    margin:0;
+}
 .raindrops-accessible-mode .hfeed .raindrops-mobile-menu a:focus,
 .enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
     position:absolute;
@@ -2262,7 +2267,9 @@ dl.author dt > a{
     width:100%;
     background-repeat:no-repeat;
     background-position:top center;
+    
 }
+
 #comments .form-allowed-tags:before,
 #comments .nopassword:before,
 #comments .nocomments:before,

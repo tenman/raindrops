@@ -243,7 +243,6 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_col_setting_type' ) )->value() == 'details' ) {
 
-			raindrops_update_theme_option( 'raindrops_show_right_sidebar', 'show' );
 			return true;
 		} else {
 			return false;
@@ -2002,8 +2001,7 @@ function raindrops_print_scripts() {
 	wp_localize_script(
 	'raindrops-customize', 'raindrops_customizer_script_vars', array(
 		'preview_label'						 => __( 'Preview Width', 'Raindrops' ),
-		'basic_config_label'				 => __( 'Basic Config', 'Raindrops' ),
-		'home_url'							 => esc_url( home_url() ),
+		'basic_config_label'				 => __( '<span>Basic Config</span>', 'Raindrops' ),
 		'admin_color'						 => $raindrops_customizer_admin_color,
 		'dark_footer_color_default'			 => raindrops_default_color_clone( 'raindrops_footer_color', 'dark' ),
 		'dark_hyperlink_color_default'		 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'dark' ),

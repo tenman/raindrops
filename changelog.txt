@@ -1,4 +1,34 @@
 Changelog -----------------------------------
+version:1.302
+Overview of Changes
+	Please read 1.300 and 1.301 changes
+	Focus Customizer Script safety
+		additional verification of the variable of wp_localize_script, reduction of change possible
+
+Files Modified
+	customize.js
+	customize.php
+
+Description of Code Changes
+	customize.php line:2006
+	wp_localize_script(
+	...
+	'home_url' => esc_url( home_url() ), remove
+	)
+	customize.js line:42
+
+	sanitaize = {
+        hex : function ( str ) {
+
+            var hex_color  = /^#[0-9A-F]{6}$/i.test(str);
+            if(hex_color) {
+                return str;
+            }
+        }
+    };
+	sanitaize.hex( wrapping all hex value )
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.301
 Overview of Changes
 	Focus Customizer Changes

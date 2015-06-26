@@ -1,8 +1,97 @@
 Changelog -----------------------------------
 version:1.303
 Overview of Changes
-
+	child/boots/base.css
+		code cleaning
+	author.php
+		microformat change from url fn n to url fn nickname.
+		author nickname escaped
+	childs/boots/functions.php
+		remove inline style.
+	childs/boots/inc.php
+		code config for child theme relation
+		bug fix add fallback color for site title
+		remove !important
+		remove function raindrops_customize_controls_print_styles
+		theme option value change for new boots theme
+	fonts.css
+		add style rule
+	functions.php
+		Change from $_SERVER to filter_input()
+		raindrops_body_class
+			class name use sanitize_html_class()
+		commentout old customizer codes
+		add function raindrops_has_indivisual_notation()
+	header-front.php
+	header-xhtml.php
+	header.php
+		Change from global $raindrops_link_unique_text;
+				to $raindrops_link_unique_text = raindrops_link_unique_text();
+	lib/alias_functions.php
+		Filter Add raindrops_content_width
+		add wp_strip_all_tags() at gradient output
+		Filter Add raindrops_default_colors_clone()
+		Move from functions.php
+			raindrops_link_unique_text()
+			raindrops_enable_keyboard()
+			raindrops_responsive_width_ajust()
+			raindrops_responsive_height_ajust()
+	lib/csscolor.css.php
+		Filter add raindrops_forcus_style
+	lib/customize.js
+		Add default value set
+	lib/customize.php
+		small config
+		localize script
+			Add
+			'fallback_footer_color_default'
+			'fallback_hyperlink_color_default'
+			'fallback_fonts_color_default'
+			'fallback_footer_link_color'
+			'fallback_header_textcolor'
+	lib/option-panel.php
+	lib/featured-image.php
+		Change from $_SERVER to filter_input()
+	lib/validate.php
+		Add function  raindrops_options_owner_validate()
+	lib/vars.php
+		Add Default Setting vars
+			raindrops_options_owner
+	raindrops-config-example.php
+		Fixed
+			value correct. from true to enable
+	raindrops-helper.js
+		Fixed
+			fullwidth setting not work
+	responsiveness.css
+		modify small
+	style.css
+		Style rules for sticky widget area
+			Calendar style.
+			widget_recent-post-groupby-cat
 Files Modified
+	modified:   author.php
+	modified:   changelog.txt
+	modified:   childs/boots/base.css
+	modified:   childs/boots/functions.php
+	modified:   childs/boots/inc.php
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops-config-example.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 

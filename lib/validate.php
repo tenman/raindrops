@@ -1,4 +1,11 @@
 <?php
+function raindrops_options_owner_validate( $input ) {
+
+	if( $input == 'raindrops' || $input == 'boots' ) {
+		return $input;
+	}
+	return 'not valid';
+}
 function raindrops_enable_header_image_filter_validate( $input ) {
 	if ( 'enable' == $input) {
 		return $input;

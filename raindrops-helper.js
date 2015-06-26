@@ -1,11 +1,9 @@
 ( function ( ) {
 
     jQuery( function ( ) {
-        if ( raindrops_script_vars.page_width == 'doc3' ) {
+        if ( raindrops_script_vars.page_width == 'doc3' || raindrops_script_vars.page_width == 'doc5' ) {
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
-            
-
          
             function raindrops_resizes( ) {
 

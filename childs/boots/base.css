@@ -3,38 +3,5 @@
  *
  * Purpose update style from parent theme
  */
-.rd-type-boots #access .children,
-.rd-type-boots #access .sub-menu{
 
-}
-.rd-type-boots #access .children a,
-.rd-type-boots #access .sub-menu a{
-    padding:10px;
-    background:#fff;
-    color:#555;
-}
-.rd-type-boots #ft{
-    background:#777;
-}
-.rd-type-light #site-title,
-.rd-type-minimal #ft a{
-    color:#fff;
-}
-/* for template front-page.php */
-.page-template-page-templatesfront-page-php.rd-type-boots #top #site-description,
-.page-template-page-templatesfront-page-php.rd-type-boots #hd{
-    display:block!important;
-    color:#000!important;
-}
-.page-template-page-templatesfront-page-php.rd-type-boots #site-title span{
-    color:#000;
-}
-/* for template front-page.php end */
-/* the events calendar plugin */
-.events-archive .entry-title, .events-single .entry-title, .icon-link-no-title{
-    display:none;
-}
 
-.rd-type-boots #yui-main article .raindrops-lightbox-overlay .lb-close{
-    background:#fff;
-}

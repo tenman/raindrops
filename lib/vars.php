@@ -13,7 +13,6 @@ do_action('raindrops_var_before');
 /**
  * TEST NEW Customizer UI
  */
-
 if ( ! isset( $raindrops_new_customizer ) ) {
 	
 	$raindrops_new_customizer = true;
@@ -49,6 +48,7 @@ $raindrops_current_theme_slug		 = str_replace( ' ', '-', $raindrops_current_them
 $raindrops_current_theme_slug		 = sanitize_html_class( $raindrops_current_theme_slug );
 $raindrops_description_for_translation = __( 'This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)', 'Raindrops' );
 $raindrops_text_domain				 = $raindrops_current_data->get( 'TextDomain' );
+
 
 /** DON'T CHANGE NOW TEST
  * Data Store Type when $raindrops_new_customizer true
@@ -368,6 +368,7 @@ if ( !isset( $raindrops_page_width ) ) {
 
 	$raindrops_page_width = '';
 }
+
 /**
  * Default Setting vars
  */
@@ -1161,6 +1162,16 @@ array( 'option_id'    => 77,
         'excerpt2'     => '',
         'validate'     => 'raindrops_enalbe_header_image_filter_validate',
 		'list'         => 76 ),
+array( 'option_id'    => 78,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_options_owner',
+        'option_value' => 'raindrops',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Header Image Filter', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => '',
+        'validate'     => 'raindrops_options_owner_validate',
+		'list'         => 77 ),	
 );
 }
 

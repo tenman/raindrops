@@ -3,7 +3,8 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 
-global $template, $raindrops_link_unique_text, $raindrops_current_theme_slug;
+global $template, $raindrops_current_theme_slug;
+$raindrops_link_unique_text = raindrops_link_unique_text();
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) );
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?><!DOCTYPE html>
@@ -16,6 +17,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
         <div class="skip-link"><a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'Raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'Raindrops' ); ?></a></div><?php echo raindrops_skip_links(); ?>
 		<?php } // raindrops_disable_keyboard_focus ?>
+		
         <div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 		<?php raindrops_prepend_doc(); ?><header id="top">
 			<div id="hd" <?php raindrops_doctype_elements( '', 'role="banner"' ); ?>>
@@ -23,10 +25,8 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 				if( raindrops_is_place_of_site_title() == true ) {
 					echo raindrops_site_title();
 				}
-				?>
-				
-				<?php  echo raindrops_site_description(); ?>
-                
+				 echo raindrops_site_description(); 
+				?>               
 			</div>
             <?php 
 				/**

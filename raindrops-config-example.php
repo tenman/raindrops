@@ -220,7 +220,7 @@ if ( ! isset( $raindrops_use_wbr_for_title ) ) {
  */
 if ( ! isset( $raindrops_enable_keyboard ) ) {
 
-    $raindrops_enable_keyboard = true;
+    $raindrops_enable_keyboard = 'enable';
 }
 /**
  *

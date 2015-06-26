@@ -358,3 +358,11 @@ dt,
     font-size:153.9%;
 }
 
+.sticky-widget #wp-calendar caption{
+    font-size:123.6%;
+    font-weight:bold;
+}
+.sticky-widget #wp-calendar tbody td{
+    font-size:123.6%;
+}
+

@@ -1,4 +1,14 @@
 Changelog -----------------------------------
+version:1.303
+Overview of Changes
+
+Files Modified
+
+Description of Code Changes
+
+	please seee https://github.com/tenman/raindrops/compare/1.302...1.303
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.302
 Overview of Changes
 	Please read 1.300 and 1.301 changes

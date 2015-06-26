@@ -6,6 +6,13 @@
         display:none!important;
     }
     #access{display:block!important;}
+    /* move from style.css 1153 @1.303*/
+    #doc5 #container.yui-gc > .yui-u:not(.first),
+    #doc4 #container.yui-gc > .yui-u:not(.first),
+    #doc3 #container.yui-gc > .yui-u:not(.first){
+    width:33%;/* 1.254 change from 35% to 33% */
+    margin:0;
+}
 }
 @media screen and (max-width : 640px){
     html,
@@ -271,14 +278,14 @@
     #doc3 #access .menu > li > a,
     #doc3 #access .menu > .page_item_has_children > a,
     #doc3 #access .menu > .menu-item-has-children > a{
-        font-size:200%;
+        font-size:167%;
         border-left:6px green solid;
     }
     #doc5 #access .page_item_has_children .page_item_has_children > a,
     #doc5 #access .menu-item-has-children .menu-item-has-children > a,
     #doc3 #access .page_item_has_children .page_item_has_children > a,
     #doc3 #access .menu-item-has-children .menu-item-has-children > a{
-        font-size:150%;
+        font-size:146.5%;
         border-left:6px green solid;
     }
     #doc5  #access .page_item_has_children > a:after,

@@ -57,8 +57,10 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_in_the_loop' ) ) {
 		if( $raindrops_use_featured_image_emphasis !== 'yes' ){
 
 			return $size;
-		}	
-		preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $_SERVER[ 'HTTP_USER_AGENT' ], $regs );
+		}
+		$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+		
+		preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs );
 
 		if ( isset( $regs[ 2 ] ) && $regs[ 2 ] < 9 ) {
 
@@ -111,7 +113,9 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_block_style' ) ) {
 
 			return $css;
 		}
-		preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $_SERVER[ 'HTTP_USER_AGENT' ], $regs );
+		$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+		
+		preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs );
 
 		if ( isset( $regs[ 2 ] ) && $regs[ 2 ] < 9 ) {
 
@@ -174,8 +178,8 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 			
 			return $css;
 		}	
-
-		preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $_SERVER[ 'HTTP_USER_AGENT' ], $regs );
+		$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+		preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs );
 
 		if ( isset( $regs[ 2 ] ) && $regs[ 2 ] < 9 ) {
 

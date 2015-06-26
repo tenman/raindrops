@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.302
+Version: 1.303
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -427,6 +427,9 @@ ul.index,
 .lang-ja,
 .oembed-container:empty:after{
     max-width:100%;
+}
+.rd-col-1 .index article{
+    overflow:hidden;
 }
 pre{
     overflow:auto;
@@ -1147,12 +1150,7 @@ ul.index li .edit {
     margin:0;
     padding:0;
 }
-#doc5 #container.yui-gc > .yui-u:not(.first),
-#doc4 #container.yui-gc > .yui-u:not(.first),
-#doc3 #container.yui-gc > .yui-u:not(.first){
-    width:33%;/* 1.254 change from 35% to 33% */
-    margin:0;
-}
+
 .lsidebar > ul{
     margin:0 0.38461538461em;
 }
@@ -1379,6 +1377,66 @@ br.clearfix {
 #wp-calendar tfoot #prev{
     text-align:left;
 }
+.sticky-widget #wp-calendar{
+    width:90%;
+    margin:auto;
+    border:none;
+}
+.sticky-widget #wp-calendar caption{
+   margin:.5em 0;
+}
+.sticky-widget #wp-calendar tfoot td,
+.sticky-widget #wp-calendar th{
+    text-align:center;
+    width:14.2%;
+    padding-top:3%;
+    padding-bottom:3%;
+    height:0;
+    border:none!important;
+}
+.sticky-widget #wp-calendar tbody td{
+
+    text-align:center;
+    width:14.2%;
+    padding-top:5%;
+    padding-bottom:5%;
+    height:0;
+}
+
+.sticky-widget #wp-calendar #prev{
+
+    text-align:center;
+    padding-top:3%;
+    padding-bottom:3%;
+    height:0;
+}
+.sticky-widget #wp-calendar tfoot td{
+    border:none;
+}
+
+.sticky-widget.widget_recent-post-groupby-cat{
+    width:90%;
+    margin:auto;
+}
+.sticky-widget.widget_recent-post-groupby-cat .xoxo > li,
+.sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul{
+
+    margin-left:2.2em;
+}
+.sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li{
+
+    padding-top:3%;
+    padding-bottom:2%;
+}
+.sticky-widget.widget_recent-post-groupby-cat .xoxo img{
+
+}
+.sticky-widget .post-group_by-category-title a{
+
+}
+.sticky-widget.raindrops-pinup-entries .entry-title {
+    top: -1em;
+}
 .widget form{
     text-align:center;
 }
@@ -1504,6 +1562,7 @@ body #access ul ul{
     left:auto;
     z-index:9999;
     opacity:1;
+    text-indent:0;
 }
 .enable-keyboard #access li:not(.focus)  a + ul,
 .raindrops-accessible-mode #access li:not(.focus)  a + ul{
@@ -1535,6 +1594,7 @@ body #access ul ul{
 .enable-keyboard #access  .menu.focus a + .children {
     background:none;
 }
+
 .raindrops-accessible-mode #access  .sub-menu a:not(.focus),
 .raindrops-accessible-mode #access  .children a:not(.focus),
 .raindrops-accessible-mode #access li:not(.focus) li a a,
@@ -1545,6 +1605,10 @@ body #access ul ul{
 .raindrops-accessible-mode #access li:not(.focus) li a li{
     opacity:0;
 }
+.enable-keyboard #access  a:hover + .sub-menu a,
+.enable-keyboard #access  a:hover + .children a,
+.enable-keyboard #access  .sub-menu:hover a,
+.enable-keyboard #access  .children:hover a,
 .raindrops-accessible-mode  #access .menu.focus li:first-child a,
 .raindrops-accessible-mode  #access .sub-menu.focus a,
 .raindrops-accessible-mode  #access .children.focus a,
@@ -2003,8 +2067,9 @@ br.clear{
 #month_list,#raindrops_year_list,#date_list{
     width:100%;
 }
+#raindrops_year_list .month-excerpt,
 #raindrops_year_list td{
-    padding:1em 0;
+    padding:1em;
 }
 #date_list td{
     padding-left:1em;
@@ -3470,10 +3535,7 @@ ol.list-of-post-list .entry-title{
         min-height:0!important;
     }
 }
-.rd-type-minimal #hd,
-.rd-type-minimal #ft{
-    background:none;
-}
+
 .rd-type-minimal #hd{
     min-height:80px;
 }
@@ -3761,11 +3823,13 @@ body.ja :not(.rd-l-ja-JP) .hentry .lang-not-ja
 body.ja :not(.rd-l-ja) .hentry .lang-not-ja{
     display:inline-block;
 }
+html body.ja #access .lang-not-ja,
 html body.ja .widget-wrapper .lang-not-ja,
 html body.ja .lsidebar .lang-not-ja,
 html body.ja .rsidebar .lang-not-ja{
     display:none;
 }
+html body.ja #access .lang-ja,
 html body.ja .widget-wrapper .lang-ja,
 html body.ja .lsidebar .lang-ja,
 html body.ja .rsidebar .lang-ja{
@@ -3795,5 +3859,3 @@ html body.ja .rsidebar .lang-ja{
     padding:1em 0 0;
     box-sizing:border-box;
 }
-
-

@@ -40,20 +40,24 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
         $result                    = '';
         $css = '';
         $result_indv               = '';
-        $raindrops_base_color      = raindrops_warehouse_clone( 'raindrops_base_color' );
-        $raindrops_style_type      = raindrops_warehouse_clone( "raindrops_style_type" );
-        // $css .= raindrops_design_output( $raindrops_style_type ) /* . raindrops_color_base() */;
-        //when this code exists [raindrops color_type="minimal" col="1"] in the post
-        $raindrops_hyperlink_color = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-        $raindrops_indv_css        = raindrops_design_output( $raindrops_style_type ) . raindrops_color_base( $raindrops_base_color, array( 'color' => 'rd-type-boots .color', 'face' => 'rd-type-boots .face' ) );
-        $raindrops_indv_css        = raindrops_color_type_custom( $raindrops_indv_css );
+		$raindrops_page_width		= raindrops_warehouse_clone( 'raindrops_page_width' );
+		$raindrops_base_color		 = raindrops_warehouse_clone( 'raindrops_base_color' );
+		$raindrops_hyperlink_color	 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
+		$raindrops_style_type        = raindrops_warehouse_clone( 'raindrops_style_type' );
+		$raindrops_indv_css			 = raindrops_design_output( $raindrops_style_type ) . raindrops_color_base();
 
-        $raindrops_fluid_maximum_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+		//when this code exists [raindrops color_type="minimal" col="1"] in the post
+		$raindrops_indv_css = raindrops_color_type_custom( $raindrops_indv_css );
+		
+		$css .= apply_filters( "raindrops_indv_css", $raindrops_indv_css );
+	
+		if( 'doc3' == $raindrops_page_width ) {
+			$raindrops_fluid_maximum_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
 
-        $css .= "\n.rd-type-boots #access .menu-header,.rd-type-boots #access .menu,";
-        $css .= "\nbody #doc3{max-width:" . $raindrops_fluid_maximum_width . 'px;}';
-        $css .= apply_filters( "raindrops_indv_css", $raindrops_indv_css );
-
+			$css .= "\n.rd-type-boots #doc3 #access .menu-header,.rd-type-boots #doc3 #access .menu,";
+			$css .= "\nbody #doc3{max-width:" . $raindrops_fluid_maximum_width . 'px;}';
+			$css .= apply_filters( "raindrops_indv_css", $raindrops_indv_css );
+		}
         if ( $raindrops_hyperlink_color !== '' ) {
 
             $css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
@@ -84,6 +88,31 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
             $css .= " \n#site-title a,#site-title span{color:#" . $raindrops_text_color . ';}';
             $css .= " \n.description{color:#" . $raindrops_text_color . ';}';
         }
+		
+		$title_position_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
+		
+		if( 'above' == $title_position_check ) {
+			
+			if ( ( $raindrops_text_color == 'blank' ||  $raindrops_text_color == 'ffffff' ) ) {
+
+				$css .= " \n#site-title a,#site-title span{color:#000;}";
+				$css .= " \n.description{color:#000;}";
+			}
+			
+		} else {
+			
+			if ( ( $raindrops_text_color == 'blank' ||  $raindrops_text_color == 'ffffff' ) && empty( $header_image ) ) {
+
+				$css .= " \n#site-title a,#site-title span{color:#000;}";
+				$css .= " \n.description{color:#000;}";
+			}
+			
+			if (  $raindrops_text_color !== 'blank' &&  $raindrops_text_color !== 'ffffff' && empty( $header_image ) ) {
+
+            $css .= " \n#site-title a,#site-title span{color:#" . $raindrops_text_color . ';}';
+            $css .= " \n.description{color:#" . $raindrops_text_color . ';}';
+			}
+		}
 
 		$setting_value = raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image' );
 
@@ -95,13 +124,13 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
         $raindrops_hyperlink_color = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
 
         if ( $raindrops_hyperlink_color !== '' ) {
-            $css .= "#bd a{color:" . $raindrops_hyperlink_color . "!important;}";
+            $css .= ".yui-main a{color:" . $raindrops_hyperlink_color . ";}";
         }
 
         $raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 
         if ( $raindrops_fonts_color !== '' ) {
-            $css .= "article {color:" . $raindrops_fonts_color . "!important;}";
+            $css .= "article {color:" . $raindrops_fonts_color . ";}";
         }
 
         $raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
@@ -113,10 +142,8 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
         $raindrops_footer_link_color = raindrops_warehouse_clone( 'raindrops_footer_link_color' );
 
         if ( !empty( $raindrops_footer_link_color ) ) {
-            $css .= "#ft a{color:" . $raindrops_footer_link_color . "!important;}";
+            $css .= "#ft a{color:" . $raindrops_footer_link_color . ";}";
         }
-
-
 
         $background = get_background_image();
         $color      = get_background_color();
@@ -384,71 +411,6 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 }
 
 /**
- * Add Broad Screenshot at Customizer
- *
- *
- */
-if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
-
-    function raindrops_customize_controls_print_styles() {
-        ?>
-        <style type="text/css">
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label,/* new */
-            #customize-control-raindrops_style_type .customize-control-title + label{
-
-                background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-dark.png'; ?> );
-                height:200px;
-                display:block;
-                background-position:0px 40px;
-                background-repeat:no-repeat;
-                background-size:cover;
-            }
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label,/* new */
-            #customize-control-raindrops_style_type .customize-control-title  + label + label{
-
-                background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-w3standard.png'; ?> );
-                height:200px;
-                display:block;
-                background-position:0px 40px;
-                background-repeat:no-repeat;
-                background-size:cover;
-            }
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label + label,/* new */
-            #customize-control-raindrops_style_type .customize-control-title  + label +label + label{
-
-                background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-light.png'; ?> );
-                height:200px;
-                display:block;
-                background-position:0px 40px;
-                background-repeat:no-repeat;
-                background-size:cover;
-            }
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label + label + label,/* new */
-            #customize-control-raindrops_style_type .customize-control-title  + label +label + label + label{
-
-                background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-minimal.png'; ?> );
-                height:200px;
-                display:block;
-                background-position:0px 40px;
-                background-repeat:no-repeat;
-                background-size:cover;
-            }
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label +label + label + label + label,/* new */
-            #customize-control-raindrops_style_type .customize-control-title  + label +label + label + label + label{
-
-                background:url( <?php echo get_stylesheet_directory_uri() . '/screenshot.png'; ?> );
-                height:180px;
-                display:block;
-                background-position:0px 40px;
-                background-repeat:no-repeat;
-                background-size:cover;
-            }
-        </style>
-        <?php
-    }
-
-}
-/**
  * Remove table data when Uninstall Theme
  *
  *
@@ -479,7 +441,7 @@ array( 'option_id'    => 1,
 array( 'option_id'    => 2,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_base_color",
-	'option_value' => "#444444",
+	'option_value' => "#3399cc",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Base Color for Automatic Color Arrangement', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -540,7 +502,7 @@ array( 'option_id'    => 7,
 array( 'option_id'    => 8,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_page_width",
-	'option_value' => "doc3",
+	'option_value' => "doc5",
 	'autoload'     => 'yes',
 	'title'        => __( 'Page Width', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -560,7 +522,7 @@ array( 'option_id'    => 9,
 array( 'option_id'    => 10,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_default_fonts_color",
-	'option_value' => "none",
+	'option_value' => "#333",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Text color in content ', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -569,7 +531,7 @@ array( 'option_id'    => 10,
 array( 'option_id'    => 11,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_footer_color",
-	'option_value' => "none",
+	'option_value' => "#fff",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Text color in footer ', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -578,7 +540,7 @@ array( 'option_id'    => 11,
 array( 'option_id'    => 12,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_show_right_sidebar",
-	'option_value' => "hide",
+	'option_value' => "show",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Extra Sidebar', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -608,7 +570,7 @@ array( 'option_id'    => 14,
 array( 'option_id'    => 15,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_hyperlink_color",
-	'option_value' => "none",
+	'option_value' => "#137AD8",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Link color', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -639,7 +601,7 @@ array( 'option_id'    => 17,
  array( 'option_id'    => 18,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_basefont_settings",
-	'option_value' => "13",
+	'option_value' => "15",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( "Base Font Size Setting", 'Raindrops' ),
 	'excerpt1'     => '',
@@ -661,7 +623,7 @@ array( 'option_id'    => 17,
 array( 'option_id'    => 20,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_entry_content_is_home",
-	'option_value' => "content",
+	'option_value' => "excerpt",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( "Home Entry Content Type", 'Raindrops' ),
 	'excerpt1'     => '',
@@ -672,7 +634,7 @@ array( 'option_id'    => 20,
 array( 'option_id'    => 21,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_entry_content_is_category",
-	'option_value' => "content",
+	'option_value' => "excerpt",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( "Category Archive Content Type", 'Raindrops' ),
 	'excerpt1'     => '',
@@ -684,7 +646,7 @@ array( 'option_id'    => 21,
    array( 'option_id'    => 22,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_entry_content_is_search",
-	'option_value' => "content",
+	'option_value' => "excerpt",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( "Search Result Content Type", 'Raindrops' ),
 	'excerpt1'     => '',
@@ -695,7 +657,7 @@ array( 'option_id'    => 21,
 array( 'option_id'    => 23,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_footer_link_color",
-	'option_value' => "none",
+	'option_value' => "#fff",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Link color in footer ', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -706,7 +668,7 @@ array( 'option_id'    => 23,
 array( 'option_id'    => 24,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_complementary_color_for_title_link",
-	'option_value' => "none",
+	'option_value' => "yes",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Complementary Color For Entry Title Link ', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -761,7 +723,7 @@ array( 'option_id'    => 28,
 array( 'option_id'    => 29,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_disable_keyboard_focus",
-	'option_value' => "enable",
+	'option_value' => "disable",
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Disable Keyboard Focus ', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -836,7 +798,7 @@ array( 'option_id'    => 35,
 array( 'option_id'    => 36,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_featured_image_recent_post_count",
-	'option_value' => 3,
+	'option_value' => absint( get_option( 'posts_per_page' ) ),
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Featured Image Special Layout Apply Post Count', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -846,7 +808,7 @@ array( 'option_id'    => 36,
 array( 'option_id'    => 37,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_featured_image_singular",
-	'option_value' => 'show',
+	'option_value' => 'hide',
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Featured Image Show, lightbox or Hide on Singular Post,Page', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -856,7 +818,7 @@ array( 'option_id'    => 37,
 array( 'option_id'    => 38,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_use_featured_image_emphasis",
-	'option_value' => 'no',
+	'option_value' => 'yes',
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'USE or Not Emphasis of new content using the Featured Image', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -876,7 +838,7 @@ array( 'option_id'    => 38,
 array( 'option_id'    => 40,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_read_more_after_excerpt",
-	'option_value' => 'no',
+	'option_value' => 'yes',
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Add Read More Link', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -886,7 +848,7 @@ array( 'option_id'    => 40,
 array( 'option_id'    => 41,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_excerpt_enable",
-	'option_value' => 'no',
+	'option_value' => 'yes',
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Use Raindrops Extend Excerpt', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -926,7 +888,7 @@ array( 'option_id'    => 44,
 array( 'option_id'    => 45,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_site_title_top_margin",
-	'option_value' => 32,
+	'option_value' => 22,
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Top Margin of Site Title', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -946,7 +908,7 @@ array( 'option_id'    => 46,
 array( 'option_id'    => 47,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_site_title_css_class",
-	'option_value' => 'google-font-lobster',
+	'option_value' => 'google-font-open-sans-condensed300',
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Site Title CSS', 'Raindrops' ),
 	'excerpt1'     => '',
@@ -966,7 +928,7 @@ array( 'option_id'    => 47,
 array( 'option_id'    => 48,
         'blog_id'      => 0,
         'option_name'  => "raindrops_col_setting_type",
-        'option_value' => 'simple',
+        'option_value' => 'details',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Side bar setting method', 'Raindrops' ),
         'excerpt1'     => '',
@@ -996,7 +958,7 @@ array( 'option_id'    => 51,
 array( 'option_id'    => 52,
         'blog_id'      => 0,
         'option_name'  => "raindrops_sidebar_page",
-        'option_value' => '3',
+        'option_value' => '1',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Static Page columns', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1006,7 +968,7 @@ array( 'option_id'    => 52,
 array( 'option_id'    => 53,
         'blog_id'      => 0,
         'option_name'  => "raindrops_sidebar_single",
-        'option_value' => '3',
+        'option_value' => '1',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Single Post columns', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1046,7 +1008,7 @@ array( 'option_id'    => 56,
 array( 'option_id'    => 57,
         'blog_id'      => 0,
         'option_name'  => "raindrops_full_width_max_width",
-        'option_value' => 1280,
+        'option_value' => 980,
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Content Container Width', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1066,7 +1028,7 @@ array( 'option_id'    => 58,
 array( 'option_id'    => 59,
         'blog_id'      => 0,
         'option_name'  => "raindrops_sidebar_catetory",
-        'option_value' => '3',
+        'option_value' => '1',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Category Archive columns', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1076,7 +1038,7 @@ array( 'option_id'    => 59,
 array( 'option_id'    => 60,
         'blog_id'      => 0,
         'option_name'  => "raindrops_sidebar_author",
-        'option_value' => '3',
+        'option_value' => '1',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Category Archive columns', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1166,11 +1128,11 @@ array( 'option_id'    => 68,
 array( 'option_id'    => 69,
         'blog_id'      => 0,
         'option_name'  => "raindrops_site_title_left_margin_type",
-        'option_value' => 'default',
+        'option_value' => 'centered',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Left Margin of Site Title', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, centered, manual, default value default', 'Raindrops' ),
         'validate'     => 'raindrops_site_title_left_margin_type_validate',
 		'list'         => 68 ),
 array( 'option_id'    => 70,
@@ -1216,7 +1178,7 @@ array( 'option_id'    => 73,
 array( 'option_id'    => 74,
         'blog_id'      => 0,
         'option_name'  => "raindrops_header_image_filter_color",
-        'option_value' => 'no',
+        'option_value' => '#ffffff',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Header Image Filter Color', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1226,7 +1188,7 @@ array( 'option_id'    => 74,
 array( 'option_id'    => 75,
         'blog_id'      => 0,
         'option_name'  => "raindrops_header_image_filter_apply_top",
-        'option_value' => 'no',
+        'option_value' => 0.8,
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Filter Image Top', 'Raindrops' ),
         'excerpt1'     => '',
@@ -1234,15 +1196,34 @@ array( 'option_id'    => 75,
         'validate'     => 'raindrops_header_image_filter_apply_top_validate',
 		'list'         => 74 ),
 array( 'option_id'    => 76,
-        'blog_id'      => 0,
+        'blog_id'      => 0.1,
         'option_name'  => "raindrops_header_image_filter_apply_bottom",
-        'option_value' => 'no',
+        'option_value' => 0.1,
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Filter Image Bottom', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => '',
         'validate'     => 'raindrops_header_image_filter_apply_bottom_validate',
 		'list'         => 75 ),
+array( 'option_id'    => 77,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_enable_header_image_filter",
+        'option_value' => 'enable',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Header Image Filter', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => '',
+        'validate'     => 'raindrops_enalbe_header_image_filter_validate',
+		'list'         => 76 ),
+array( 'option_id'    => 78,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_options_owner',
+        'option_value' => 'boots',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Header Image Filter', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => '',
+        'validate'     => 'raindrops_options_owner_validate',
+		'list'         => 77 ),	
 );
 }
-

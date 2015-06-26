@@ -36,7 +36,9 @@ raindrops_register_styles( "dark" );
 function raindrops_indv_css_dark() {
 
     $font_color_5 = raindrops_colors( -5, "color" );
-
+	
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important; border-bottom:1px rgba(255, 255, 255,.6) solid; margin-bottom:-1px!important;');
+	
     $style = <<<DOC
 .raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
 .enable-keyboard.rd-type-dark .raindrops-comment-link:focus em,
@@ -48,10 +50,7 @@ function raindrops_indv_css_dark() {
 /*	.raindrops-accessible-mode.rd-type-dark #site-title a:focus,*/
 .ie11.raindrops-accessible-mode.rd-type-dark #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus{
-    color:orange!important;
-    border-bottom:1px rgba(255, 255, 255,.6) solid;
-	margin-bottom:-1px!important;
-
+	$raindrops_focus_style
 }
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
@@ -185,7 +184,9 @@ input[type="submit"]{
     border-bottom:double 3px %c_border%;
 }
 #yui-main{
-    color:%raindrops_header_color%;
+    /*1.303
+		color:%raindrops_header_color%;
+	*/
 }
 
 ol.tblist li{
@@ -208,6 +209,7 @@ ol.tblist li{
     %h_position_rsidebar_h2%
 
 }
+.sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li,
 .datetable td li,
 .rsidebar ul li ul li,
 .lsidebar ul li ul li,
@@ -424,6 +426,7 @@ ul.archive,ul.index,
 .sitemap.new li{
     border-bottom:1px solid %rgba_border%;
 }
+.sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .widget select,
 .rsidebar option,
@@ -494,6 +497,10 @@ td.month-date,td.month-name,td.time{
 .entry-content textarea{
     background: %rgba_border%
 }
+.sticky-widget #wp-calendar th,
+.sticky-widget #wp-calendar tbody #today,
+.sticky-widget #wp-calendar #prev,
+.sticky-widget #wp-calendar tbody td:hover,
 .raindrops-excerpt-more,
 .raindrops-toc-front li,
 .fail-search,
@@ -626,7 +633,7 @@ CSS3;
 raindrops_register_styles( "w3standard" );
 
 function raindrops_indv_css_w3standard() {
-
+		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important; border-bottom:1px solid #000; margin-bottom:-1px!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -636,11 +643,7 @@ function raindrops_indv_css_w3standard() {
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-    background:orange!important;
-    border-bottom:1px solid #000;
-	margin-bottom:-1px!important;
-
-
+	$raindrops_focus_style
 }
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
@@ -680,7 +683,9 @@ body {
     background-repeat:repeat-x;
 }
 #yui-main{
+	 /*1.303
     color:%raindrops_header_color%;
+	*/
 }
 #hd{
   /*  background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
@@ -752,6 +757,7 @@ select{
     %c4%
 
 }
+.sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -770,6 +776,10 @@ select{
 .entry-content input[type="radio"]{
     %c3%
 }
+.sticky-widget #wp-calendar th,
+.sticky-widget #wp-calendar tbody #today,
+.sticky-widget #wp-calendar #prev,
+.sticky-widget #wp-calendar tbody td:hover,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -923,7 +933,7 @@ raindrops_register_styles( "light" );
 function raindrops_indv_css_light() {
 
     $font_color5 = raindrops_colors( 5, "color" );
-
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important; border-bottom:1px solid #000; margin-bottom:-1px!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -933,9 +943,7 @@ function raindrops_indv_css_light() {
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-	color:red!important;
-	border-bottom:1px solid #000;
-	margin-bottom:-1px!important;
+	$raindrops_focus_style
 }
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
@@ -996,7 +1004,9 @@ body{
 
 }
 #yui-main{
-    color:%raindrops_header_color%;
+   /*1.303
+	   color:%raindrops_header_color%;
+		   */
 }
 /* dialog header color issue 1.239
 .entry div h2,.entry div h3{
@@ -1049,7 +1059,7 @@ ol.tblist li{
 }
 
 #ft{
-    %c3%
+    %c3%;
     border-top: medium solid %c_border%;
  /*   background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;*/
     color:%raindrops_footer_color%;
@@ -1274,6 +1284,7 @@ DOC;
 .lsidebar ul li ul li{
     border-bottom:1px solid %rgba_border%;
 }
+.sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li,
 dl.author dd,
 dl.author dt,
 dl.my_tags dd,
@@ -1322,6 +1333,10 @@ hr{
     -moz-box-shadow: 0 0 5px %rgba_border%;
     border:1px solid %rgba_border%;
 }
+.sticky-widget #wp-calendar th,
+.sticky-widget #wp-calendar tbody #today,
+.sticky-widget #wp-calendar #prev,
+.sticky-widget #wp-calendar tbody td:hover,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
@@ -1354,6 +1369,11 @@ hr{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
+	
+.sticky-widget #wp-calendar th,
+.sticky-widget #wp-calendar tbody #today,
+.sticky-widget #wp-calendar #prev,
+.sticky-widget #wp-calendar tbody td:hover,
 .raindrops-excerpt-more,
 .raindrops-toc-front li,
 #access{
@@ -1483,8 +1503,9 @@ raindrops_register_styles( "minimal" );
 function raindrops_indv_css_minimal() {
     global $raindrops_base_color;
     $font_color = raindrops_colors( 5, "color" );
-
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important; border-bottom:1px solid #000;	margin-bottom:-1px!important;');
     $style = <<<CSS
+.sticky-widget #wp-calendar tbody #today,
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
@@ -1493,9 +1514,14 @@ function raindrops_indv_css_minimal() {
 .ie11.raindrops-accessible-mode #access .sub-menu a:focus,
 .ie11.raindrops-accessible-mode #access .children a:focus,
 .raindrops-accessible-mode .hfeed a:focus{
-	background:#efefef!important;
-	border-bottom:1px solid #000;
-	margin-bottom:-1px!important;
+	$raindrops_focus_style
+}
+.sticky-widget #wp-calendar th,
+.sticky-widget #wp-calendar tbody #today,
+.sticky-widget #wp-calendar #prev,
+.sticky-widget #wp-calendar tbody td{
+   border:1px solid #696969;
+	border:1px solid rgba(105,105,105,.5);	
 }
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
@@ -1540,8 +1566,13 @@ a:hover{
     color:#777;
 }
 #yui-main{
-    color:%raindrops_header_color%;
+   /*1.303
+	   color:%raindrops_header_color%;
+		   */
 }
+#ft{
+	%c5%
+	}
 #ft a{
      color:%raindrops_footer_link_color%;           
 }
@@ -1635,6 +1666,7 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_extend_style_type' );
+
 global $raindrops_wp_version, $raindrops_current_theme_name,$raindrops_current_theme_slug,$raindrops_setting_type;
 
 $alias_functions = get_stylesheet_directory() . '/lib/alias_functions.php';
@@ -1645,10 +1677,17 @@ if ( !in_array( $alias_functions, $raindrops_included_files ) ) {
 
     locate_template( array( 'lib/alias_functions.php' ), true, true );
 }
-
-$embed_common_style = $raindrops_current_theme_name;
-
-//raindrops_register_styles( $embed_common_style );
+if ( isset( $raindrops_current_theme_name ) ) {
+	$raindrops_embed_common_style = $raindrops_current_theme_name;
+} else {
+	$boots_current_theme_data	  = wp_get_theme();
+	$raindrops_embed_common_style = $boots_current_theme_data->get( 'Name' );
+}
+/* 1.303 */
+if( function_exists( 'raindrops_indv_css_'.$raindrops_embed_common_style) ) {
+	
+	raindrops_register_styles( $raindrops_embed_common_style );
+}
 
 $raindrops_images_path = get_stylesheet_directory_uri() . '/images/';
 
@@ -2136,8 +2175,6 @@ function raindrops_design_output( $name = 'dark' ) {
     $function_name = 'raindrops_indv_css_' . $name;
 
     if ( function_exists( $function_name ) ) {
-		
-		
 
         $content = $function_name();
 
@@ -2156,7 +2193,7 @@ function raindrops_design_output( $name = 'dark' ) {
                 }
             }
         }
-        
+     
         if ( $navigation_title_img == 'none'){
             
             $content = str_replace( $raindrops_images_path. $navigation_title_img, '', $content );

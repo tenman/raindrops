@@ -303,6 +303,7 @@ class raindrops_menu_create {
      *
      *
      */
+
     function raindrops_form_user_input() {
 
         global $raindrops_base_setting;
@@ -314,7 +315,7 @@ class raindrops_menu_create {
         $option_value = "-";
         $lines        = "";
         $i            = 0;
-        $deliv        = htmlspecialchars( $_SERVER[ 'REQUEST_URI' ] );
+		$deliv		  = filter_input(INPUT_ENV,'REQUEST_URI');
         $results      = get_option( 'raindrops_theme_settings' );
 
         if ( $results == false ) {
@@ -688,9 +689,8 @@ class raindrops_menu_create {
 function raindrops_upload_form() {
 
     global $max_upload_size, $dirlist;
-
-    $deliv  = htmlspecialchars( $_SERVER[ 'REQUEST_URI' ] );
-    $result = '<div class="postbox raindrops" id="raindrops_upload_form">
+	$deliv = filter_input(INPUT_ENV,'REQUEST_URI');
+   $result = '<div class="postbox raindrops" id="raindrops_upload_form">
 			<h3 id="raindrops-style-type" title="raindrops style type">
 			<div id="icon-upload" class="icon32"></div>
 			<span>' .

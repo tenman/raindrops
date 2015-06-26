@@ -37,7 +37,9 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $template, $raindrops_link_unique_text, $raindrops_xhtml_media_type;
+global $template,  $raindrops_xhtml_media_type;
+
+$raindrops_link_unique_text = raindrops_link_unique_text();
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) );
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 

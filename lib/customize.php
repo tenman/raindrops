@@ -1,7 +1,9 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) {
-
 	exit;
+}
+if ( ! isset( $wp_customize ) ) {
+	return;
 }
 /**
  * IDsraindrops_complementary_color_for_title_link
@@ -386,7 +388,7 @@ if ( !defined( 'ABSPATH' ) ) {
 			'section'					 => 'colors',
 		),
 		"raindrops_hyperlink_color"						 => array(
-			'default'					 => raindrops_warehouse_clone( 'raindrops_footer_link_color','option_value' ),
+			'default'					 => raindrops_warehouse_clone( 'raindrops_hyperlink_color','option_value' ),
 			'data_type'					 => $raindrops_setting_type,
 			'autoload'					 => 'yes',
 			'capability'				 => $raindrops_customize_cap,
@@ -448,7 +450,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'The footer image can be set by two methods.
 One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image.', 'Raindrops' ),
-			'type'				 => 'text', // 仮
+			'type'				 => 'text', // todo
 			'sanitize_callback'	 => 'raindrops_footer_image_validate',
 		),
 		/**
@@ -525,7 +527,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				't5' => __( 'right 240px', 'Raindrops' ),
 				't6' => __( 'right 300px', 'Raindrops' ),
 			),
-			'priority'			=> 12,
+			'priority'			=> 22,
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
 		"raindrops_show_right_sidebar"					 => array(
@@ -542,7 +544,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'show'	 => __( 'Show', 'Raindrops' ),
 				'hide'	 => __( 'Hide', 'Raindrops' ),
 			),
-			'priority'			=> 13,
+			'priority'			=> 23,
 			'active_callback'   => 'raindrops_col_setting_type_is_simple',
 			'section'			 => 'raindrops_theme_settings_sidebar',
 
@@ -568,7 +570,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'75' => __( '75%', 'Raindrops' ),
 			),
 			'active_callback'	 => 'raindrops_show_right_sidebar_callback',
-			'priority'			=> 14,
+			'priority'			=> 24,
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
 		"raindrops_sidebar_index"			 => array(
@@ -585,7 +587,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_index_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -604,7 +606,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_date_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -623,7 +625,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_page_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -642,7 +644,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_search_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -662,7 +664,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_single_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -682,7 +684,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_image_archive_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -701,7 +703,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 15,
+			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_404_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -720,7 +722,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				2 => __( '2 columns', 'Raindrops' ),
 				3 => __( '3 columns', 'Raindrops' ),
 			),
-			'priority'			=> 20,
+			'priority'			=> 12,
 			'sanitize_callback'	 => 'raindrops_sidebar_list_of_post_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -1941,6 +1943,7 @@ function raindrops_customizer_style() {
 	color:#333;
 }
 	/*test*/
+#accordion-section-raindrops_theme_settings_sidebar,
 .raindrops-active {
     -webkit-animation-delay: 2s;
     animation-delay: 2s;
@@ -2007,19 +2010,28 @@ function raindrops_print_scripts() {
 		'dark_hyperlink_color_default'		 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'dark' ),
 		'dark_fonts_color_default'			 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'dark' ),
 		'dark_footer_link_color'			 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'dark' ),
+	'dark_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'dark' ),		
 		'w3standard_footer_color_default'	 => raindrops_default_color_clone( 'raindrops_footer_color', 'w3standard' ),
 		'w3standard_hyperlink_color_default' => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'w3standard' ),
 		'w3standard_fonts_color_default'	 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'w3standard' ),
 		'w3standard_footer_link_color'		 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'w3standard' ),
+	'w3standard_header_textcolor'		 => raindrops_default_color_clone( 'header_textcolor', 'w3standard' ),			
 		'light_footer_color_default'		 => raindrops_default_color_clone( 'raindrops_footer_color', 'light' ),
 		'light_hyperlink_color_default'		 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'light' ),
 		'light_fonts_color_default'			 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'light' ),
 		'light_footer_link_color'			 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'light' ),
+	'light_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'light' ),		
 		'minimal_footer_color_default'		 => raindrops_default_color_clone( 'raindrops_footer_color', 'minimal' ),
 		'minimal_hyperlink_color_default'	 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'minimal' ),
 		'minimal_fonts_color_default'		 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'minimal' ),
 		'minimal_footer_link_color'			 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'minimal' ),
-		
+	'minimal_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'minimal' ),
+		'fallback_footer_color_default'		 => apply_filters('raindrops_fallback_footer_color_default',raindrops_default_color_clone( 'raindrops_footer_color', 'fallback' ) ),
+		'fallback_hyperlink_color_default'	 => apply_filters( 'raindrops_fallback_hyperlink_color_default', raindrops_default_color_clone( 'raindrops_hyperlink_color', 'fallback' ) ),
+		'fallback_fonts_color_default'		 => apply_filters( 'raindrops_fallback_fonts_color_default', raindrops_default_color_clone( 'raindrops_default_fonts_color', 'fallback' ) ),
+		'fallback_footer_link_color'		=> apply_filters( 'raindrops_fallback_footer_link_color', raindrops_default_color_clone( 'raindrops_footer_link_color', 'fallback' ) ),
+	'fallback_header_textcolor'			 =>  apply_filters( 'raindrops_fallback_header_textcolor', raindrops_default_color_clone( 'header_textcolor', 'fallback' ) ),
+	
 	)
 	);
 }

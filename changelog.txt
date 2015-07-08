@@ -1,4 +1,73 @@
 Changelog -----------------------------------
+version:1.304
+Overview of Changes
+
+	Bug Fixed
+		Not Work at Customizer font color setting
+
+	Modify
+		Sticky Post default show allways
+			lib/validate.php
+			lib/customize.php
+			single.php
+
+	child theme relation modify
+		childs/boots/functions.php
+		childs/boots/inc.php
+
+	Add Raindrops CSS Class top,middle,bottom for table elemet
+		editor-style.css
+		style.css
+
+	CSS property letter-spacing remove.
+		fonts.css
+
+	CSS Modify raindrops widget style for japanese language
+		languages/css/ja.css
+
+	CSS dl element add responsive rules
+		responsiveness.css
+
+	CSS for nav-links
+		lib/csscolor.css.php
+
+	CSS for customizer
+		lib/customize.php
+
+	CSS etc changes a little.
+
+	Add function_exists check all function
+		lib/alias_functions.php
+
+	Remove do_shortcode from widget_text
+		Plug-in territory
+		lib/hooks.php
+
+Files Modified
+	modified:   childs/boots/inc.php
+	modified:   css3.css
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header.php
+	modified:   languages/css/ja.css
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   page.php
+	modified:   part.php
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
+Description of Code Changes
+
+	please seee https://github.com/tenman/raindrops/compare/1.303...1.304
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.303
 Overview of Changes
 	child/boots/base.css

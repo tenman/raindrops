@@ -85,16 +85,24 @@ raindrops_debug_navitation( __FILE__ );
                         ?><div id="post-<?php the_ID(); ?>"  class="<?php echo raindrops_article_wrapper_class();?>">
                         <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                         <?php
-                        if ( is_sticky() ) {
+						$raindrops_sticky_conditional = raindrops_warehouse_clone( 'raindrops_display_sticky_post' );
+						
+                        if ( is_sticky() && 'only_home' == $raindrops_sticky_conditional ) {
                             ?>
                             <div class="sticky-single-follow-text">
 
                                 <strong><a href="<?php echo $raindrops_home_url; ?>"><?php esc_html_e( 'Sticky Post Shows Only WEB Site Home.', 'Raindrops' ); ?></a></strong>
 
                             </div>
-            <?php
-        }
+            <?php		}
+						 if ( is_sticky() && 'anytime' == $raindrops_sticky_conditional ) {
+                            ?>
+                            <div class="sticky-single-follow-text anytime">
 
+                                <strong><a href="<?php echo $raindrops_home_url; ?>"><?php esc_html_e( 'Sticky Post', 'Raindrops' ); ?></a></strong>
+
+                            </div>
+            <?php		} 
         /**
          * Show featured image
          *

@@ -6,9 +6,7 @@
  * @package Raindrops
  * @since Raindrops 0.320
  */
-strong{
-   /* text-shadow: rgba(0, 0, 0, 0.2) 0 1px 0;*/
-}
+
 .corner{
     border-radius:0.38461538461em;
     -moz-border-radius:0.38461538461em;
@@ -126,7 +124,7 @@ submit{
     position:relative;
     top:35%;
     text-align:center;
-    text-shadow: 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3), 0 0 2px rgba(0,0,0,0.3);
+
 }
 
 .datetable td li:nth-last-child(1){

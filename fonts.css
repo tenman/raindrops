@@ -121,36 +121,6 @@ tt,code,kbd{
 }
 
 /**
- * letter-spacing
- *
- *
- *
- */
-.pagetitle,
-.entry-title,
-.h1:not(h1),
-h1,
-.h2:not(h2),
-h2{
-    letter-spacing: 0.07em;	
-
-}
-.h6:not(h6),
-h6,
-.h3:not(h3),
-h3,
-.h4:not(h4),
-h4{
-    letter-spacing: 0.1em;	
-}
-.h5:not(h5),
-h5{
-    letter-spacing: 0.05em;	
-}
-#site-title{
-    letter-spacing: 0.04em;	
-}
-/**
  * Font Size
  *
  *
@@ -261,7 +231,7 @@ h1,
 
 #site-title{
     font-size:296%;
-    letter-spacing: 0.04em;	
+	
 }
 .ie8 #site-title{
     font-size:236.8%;
@@ -365,4 +335,3 @@ dt,
 .sticky-widget #wp-calendar tbody td{
     font-size:123.6%;
 }
-

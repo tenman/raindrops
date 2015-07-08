@@ -170,13 +170,13 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          */
         add_action( 'customize_controls_print_styles', 'raindrops_customize_controls_print_styles' );
         /**
-         *
-         *
+         * @1.304 commentout add_shortcode
+         * This setting will removed ver 1.305
          *
          *
          * @since 0.964 ?
          */
-        add_filter( 'widget_text', 'do_shortcode' );
+        //add_filter( 'widget_text', 'do_shortcode' );
         /**
          *
          *
@@ -366,7 +366,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_post_date' );
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_default_category' );
 		add_filter( 'raindrops_entry_title_class', 'raindrops_customizer_add_article_title_css_class' );
-		add_filter( 'excerpt_length', 'raindrops_excerpt_length', 9 );
+		add_filter( 'excerpt_length', 'raindrops_excerpt_length',99 );
 
 
 		

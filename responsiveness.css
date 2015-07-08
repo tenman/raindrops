@@ -372,9 +372,9 @@
     #doc3 .rsidebar ul li ul li a,
     #doc3 .lsidebar li.page_item a,
     #doc3 .lsidebar .widget ul li a{
-        display:block;
+        display:inline-block;
         background-repeat:no-repeat;
-        width:100%;
+        width:85%;
         height:100%;
         margin:0;
         padding:0.5em;
@@ -597,6 +597,17 @@
         position:absolute;
         left:-60px;
     }
+    .entry-content > dl{
+        margin-left:0;
+        margin-right:0;
+    }
+    .entry-content dt{
+      
+    }
+    .entry-content dd{
+        margin:0;
+    }
+
 }
 @media screen and (max-width : 480px){
     html .gecko{

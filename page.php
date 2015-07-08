@@ -70,8 +70,6 @@ raindrops_debug_navitation( __FILE__ );
                                 <?php
                                 raindrops_prepend_entry_content();
 
-
-
                                 raindrops_entry_content();
                                 ?>
                                 <br class="clear" />

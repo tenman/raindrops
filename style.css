@@ -28,6 +28,22 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
+/**
+ * Add @1.304 
+ */
+.entry-content > div{
+    margin:1em 0;
+}
+.entry-content .raindrops-tab-content{
+    margin:0;
+}
+.entry-content > dl,
+.entry-content > table,
+.entry-content > ul,
+.entry-content > ol{
+    margin-bottom:2em;
+}
+/* Add @1.304 end */
 body.rd-pw-doc5,
 body.rd-pw-doc3{
     max-width:100%;
@@ -187,10 +203,26 @@ em,
 i{
     font-style: italic;
 }
+td{
+    line-height:1.35;
+}
+td p{
+    line-height:1.35;
+}
+td p:last-child{
+   margin-bottom:0;
+}
+dd,
 p{
-    line-height:1.5;
+    line-height:1.65;
     margin-bottom:1em;
 }
+/* html5 elements */
+mark{
+    padding:0 4px;
+}
+
+/* html5 elements */
 .rsidebar select,
 .lsidebar select{
     width:100%;
@@ -373,6 +405,20 @@ table td.center{
 table td.right{
     text-align:right;
 }
+/* vertical align */
+table.top .top,
+table.top td,
+table td.top{
+    vertical-align:top;
+}
+table.middle td,
+table td.middle{
+    vertical-align:middle;
+}
+table.bottom td,
+table td.bottom{
+     vertical-align:bottom;
+}
 fieldset,
 option,
 select,
@@ -383,15 +429,18 @@ th,
 td,
 pre,
 .hfeed > div,
-body.search-results .hentry img,
+.entry-content img,
+.hentry img,
+.raindrops-image-page .image img,
+.search-results img,
+.textwidget img,
 #nav-above,
 #nav-below,
 .rd-col-1 #nav-status-bar,
 .rd-col-1 #nav-above,
 .rd-col-1 #nav-below,
-.raindrops-image-page .image img,
-.entry-content img,.hentry img,
-.hentry object,.hentry embed,
+.hentry object,
+.hentry embed,
 ul.archive,
 ul.index,
 #calendar_wrap,
@@ -402,7 +451,6 @@ ul.index,
 #header-image #site-title,
 .widget select,
 .widget_archive select,
-.textwidget img,
 .textwidget iframe,
 .raindrops-category-posts a,
 .raindrops-tag-posts,
@@ -848,7 +896,7 @@ ul.archive ul li {
 .footer-widget ul li{
     line-height:2;
 }
-.debug .footer-widget{
+.wireframe .footer-widget{
     border:0.07692307692em solid #ccc;
 }
 .footer-widget h2{
@@ -1004,7 +1052,7 @@ h2.footer-content {
     clear:both;
     margin-bottom:0;
 }
-div.entry-content{
+.entry-content{
     margin:1.6em 0 0 0;
 }
 .entry-content img,.hentry img{
@@ -1255,21 +1303,46 @@ ol.commentlist >li{
 .ie6 .clearfix {
     height:1%;
 }
-.debug .rsidebar,
-.debug .lsidebar{
-    border:0.07692307692em solid #000;
+.wireframe .rsidebar,
+.wireframe .lsidebar{
+    border:0.07692307692em solid #777;
 }
-.debug .entry-title {
-    background:#ccc;
+.wireframe .entry-title {
+     border:1px solid #555;
 }
-.debug .entry-content {
-    background:orange;
+.wireframe .lsidebar ul li ul .widgettitle, 
+.wireframe .rsidebar ul li ul .widgettitle,
+.wireframe .entry-content {
+   border:1px solid #555;
+   
 }
-.debug h1 {
+.wireframe .lsidebar ul li .widgettitle, 
+.wireframe .rsidebar ul li .widgettitle,
+.wireframe .topsidebar ul li ul li, 
+.wireframe #bigbanner ul li ul li, 
+.wireframe .lsidebar ul li ul li, 
+.wireframe .rsidebar ul li ul li,
+.wireframe #ft .widget-wrapper .widgettitle *,
+.wireframe #ft .widget-wrapper > ul > li > ul > li,
+.wireframe #access .menu a,
+.wireframe .entry-title *,
+.wireframe .entry-content *{
+    visibility:hidden;
+}
+.wireframe h1 {
     border:0.07692307692em solid red;
 }
-.debug .h1 {
+.wireframe .h1 {
     border:0.07692307692em solid navy;
+}
+
+.wireframe #access .menu,
+.wireframe .entry-meta,
+.wireframe .blogrolls dd,
+.wireframe #site-description,
+.wireframe #site-title,
+.wireframe .entry-utility {
+    border:1px solid #555;
 }
 dl a,
 .category a,
@@ -1284,7 +1357,7 @@ table#month-list a {
 .social {
     margin:0.23076923076em;
 }
-.debug .hentry {
+.wireframe .hentry {
     border:0.07692307692em solid #ccc;
 }
 iframe{
@@ -1346,13 +1419,7 @@ br.clearfix {
 .vevent {
     padding:1em;
 }
-.debug .entry-meta,
-.blogrolls dd,
-.debug #site-description,
-.debug #site-title,
-.debug .entry-utility {
-    background:#acc;
-}
+
 #calendar_wrap{
     text-align:center;
     margin-left:0.15384615384em;
@@ -1431,12 +1498,22 @@ br.clearfix {
 .sticky-widget.widget_recent-post-groupby-cat .xoxo img{
 
 }
+.widget_recent-post-groupby-cat .widgettitle{
+    padding:.3em;
+    text-indent:1em;
+    display:block;
+}
+.widget_recent-post-groupby-cat .xoxo ul li{
+    margin-bottom:.5em;
+    border-bottom:none;
+}
 .sticky-widget .post-group_by-category-title a{
 
 }
 .sticky-widget.raindrops-pinup-entries .entry-title {
     top: -1em;
 }
+
 .widget form{
     text-align:center;
 }
@@ -1915,6 +1992,10 @@ li.byuser,
     display:block;
     text-decoration:none;
 }
+.format-status .entry-meta-list .edit-link,
+.category-blog .entry-meta-list .edit-link{
+    display:inline-block;
+}
 .format-status .entry-meta-list a,
 .category-blog .entry-meta-list a{
     display:inline;
@@ -1939,7 +2020,7 @@ li.byuser,
     height:auto;
 }
 .home .sticky {
-    padding: 0 1.53846153846em 0 1.53846153846em;
+    padding:0.76923076923em 1.53846153846em 0 1.53846153846em;
     background:url(images/sticky.png);
 }
 .rd-type-minimal .sticky .entry-title{
@@ -2044,20 +2125,20 @@ div.nest :after{
     clear:both!important;
     visibility:hidden;
 }
-.debug #nest.yui-g .yui-u,
-.debug #nest.yui-gb .yui-u,
-.debug #nest.yui-gc .yui-u,
-.debug #nest.yui-gd .yui-u,
-.debug #nest.yui-ge .yui-u,
-.debug #nest.yui-gf .yui-u{
+.wireframe #nest.yui-g .yui-u,
+.wireframe #nest.yui-gb .yui-u,
+.wireframe #nest.yui-gc .yui-u,
+.wireframe #nest.yui-gd .yui-u,
+.wireframe #nest.yui-ge .yui-u,
+.wireframe #nest.yui-gf .yui-u{
     background:#ccf;
 }
-.debug #nest.yui-g .first,
-.debug #nest.yui-gb .first,
-.debug #nest.yui-gc .first,
-.debug #nest.yui-gd .first,
-.debug #nest.yui-ge .first,
-.debug #nest.yui-gf .first{
+.wireframe #nest.yui-g .first,
+.wireframe #nest.yui-gb .first,
+.wireframe #nest.yui-gc .first,
+.wireframe #nest.yui-gd .first,
+.wireframe #nest.yui-ge .first,
+.wireframe #nest.yui-gf .first{
     background:#aaf;
 }
 /* nest*/
@@ -2203,7 +2284,7 @@ li.comment {
 }
 .entry-meta a,
 .comment a{
-    background:none!important;
+    background:none;
 }
 /*
 .sub-menu,
@@ -2757,6 +2838,9 @@ a.raindrops-comment-link:hover em {
     margin:0.38461538461em 0;
     width:100%;
 }
+.widget_categories li{
+    color:#888;
+}
 li.pingback p{
     padding:.7em 0;
 }
@@ -2804,11 +2888,17 @@ sup {
 #yui-main .raindrops-tag-posts .list li{
     list-style-type:none;
 }
+/*
+ * @1.304 customizer add display control
+ * This setting will be removed 1.305
+
 .single .raindrops-sticky .entry-content,
 .single .raindrops-sticky .entry-title{
-    /* add 1.120*/
+
     display:none;
 }
+*/
+
 .sticky-single-follow-text #nav-below{
     display:block;
 }
@@ -3751,6 +3841,7 @@ ol.list-of-post-list .entry-title{
         margin-bottom:1em;
     }
 }
+
 .rsidebar .eco-archive ul,
 .lsidebar .eco-archive ul{
    margin:1em 0;
@@ -3758,13 +3849,33 @@ ol.list-of-post-list .entry-title{
 .rsidebar .eco-archive li,
 .lsidebar .eco-archive li{
     display:inline-block;
-    margin:0 .5em 0;
     border:none;
+    min-width:30%;
+    margin:1%;
+    box-sizing:border-box;
 }
+.rsidebar .eco-archive .month,
+.lsidebar .eco-archive .month,
+.rsidebar .eco-archive .year,
+.lsidebar .eco-archive .year{
+    padding:.3em;
+    text-align:center;
+}
+.rsidebar .eco-archive .month,
+.lsidebar .eco-archive .month,
+.rsidebar .eco-archive .year,
+.lsidebar .eco-archive .year
 .lsidebar .eco-archive h4,
 .rsidebar .eco-archive h4{
-    font-size:123.1%;
-    border-bottom:1px solid rgba( 123,123,123,.5);
+    /*    font-size:123.1%;
+border-bottom:1px solid rgba( 123,123,123,.5);*/
+}
+#ft .eco-archive .item li{
+    display:inline-block;
+    margin:1%;
+    box-sizing:border-box;
+    padding:.3em .5em;
+    text-align:center;
 }
 @media screen and (max-width : 640px){
     .rsidebar .eco-archive li,
@@ -3858,4 +3969,45 @@ html body.ja .rsidebar .lang-ja{
 #top ol.breadcrumbs{
     padding:1em 0 0;
     box-sizing:border-box;
+}
+#access #menu-item-32677{
+    font-weight:bold;
+}
+#ft a:hover{
+    opacity:0.8;
+}
+.comment-author{
+    position:relative;
+    height:100px;
+
+}
+.comment .raindrops-comment-avatar img{
+    width:80px;
+    height:auto;
+    position:absolute;
+    top:10px;
+    left:10px;
+}
+.comment .raindrops-comment-author-meta{
+    position:absolute;
+    top:10px;
+    left:60px;
+    font-size:123.8%;
+}
+.comment-author .comment-meta{
+    position:absolute;
+    top:40px;
+    left:110px;
+}
+.entry-meta-list .edit-link{
+    display:inline-block;
+}
+.page.rd-col-1 #container,
+.single.rd-col-1 #container{
+    margin-bottom:0;
+}
+.pagination .nav-links .next,
+.pagination .nav-links .prev,
+.pagination .nav-links .dots{
+    border:none;
 }

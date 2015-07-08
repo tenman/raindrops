@@ -1,4 +1,11 @@
 <?php
+function raindrops_display_sticky_post_validate( $input ) {
+	
+	if( $input == 'anytime' || $input == 'only_home' ) {
+		return $input;
+	}
+	return 'anytime';
+}
 function raindrops_options_owner_validate( $input ) {
 
 	if( $input == 'raindrops' || $input == 'boots' ) {
@@ -7,6 +14,7 @@ function raindrops_options_owner_validate( $input ) {
 	return 'not valid';
 }
 function raindrops_enable_header_image_filter_validate( $input ) {
+	
 	if ( 'enable' == $input) {
 		return $input;
 	}
@@ -53,6 +61,7 @@ function raindrops_excerpt_length_validate( $input ) {
 	return 200;
 }
 function raindrops_sidebar_tag_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -68,6 +77,7 @@ function raindrops_site_title_left_margin_type_validate( $input ) {
 	}		
 }
 function raindrops_sidebar_image_archive_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -123,6 +133,7 @@ function raindrops_xhtml_media_type_validate( $input ) {
 	}
 }
 function raindrops_sidebar_catetory_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -130,6 +141,7 @@ function raindrops_sidebar_catetory_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_author_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -153,6 +165,7 @@ function raindrops_full_width_max_width_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_list_of_post_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -161,6 +174,7 @@ function raindrops_sidebar_list_of_post_validate( $input ) {
 }
 
 function raindrops_sidebar_404_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -168,6 +182,7 @@ function raindrops_sidebar_404_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_search_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -175,6 +190,7 @@ function raindrops_sidebar_search_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_single_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -182,6 +198,7 @@ function raindrops_sidebar_single_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_page_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -189,6 +206,7 @@ function raindrops_sidebar_page_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_date_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {
@@ -196,6 +214,7 @@ function raindrops_sidebar_date_validate( $input ) {
 	}	
 }
 function raindrops_sidebar_index_validate( $input ) {
+	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;
 	} else {

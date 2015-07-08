@@ -463,3 +463,29 @@ html .mce-content-body .wp-caption{
     display: block;
     margin:1.5em 0;
 }
+.mce-content-body > div{
+    margin:1em 0;
+}
+.mce-content-body .raindrops-tab-content{
+    margin:0;
+}
+.mce-content-body > dl,
+.mce-content-body > table,
+.mce-content-body > ul,
+.mce-content-body > ol{
+    margin-bottom:2em;
+}
+
+.mce-content-body table.top .top,
+.mce-content-body table.top td,
+.mce-content-body table td.top{
+    vertical-align:top;
+}
+.mce-content-body table.middle td,
+.mce-content-body table td.middle{
+    vertical-align:middle;
+}
+.mce-content-body table.bottom td,
+.mce-content-body table td.bottom{
+     vertical-align:bottom;
+}

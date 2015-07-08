@@ -31,12 +31,9 @@ body.ja,
 
 .ja #site-title{
 	font-size:197%;
-	letter-spacing: 0.04em;	
-
 }
 .ja .entry-title{
 	font-size:146.5%;
-	letter-spacing: 0.07em;
         font-weight:bold;
 }
 .ja .lsidebar h2,
@@ -46,37 +43,27 @@ body.ja,
 .ja .h1:not(h1),
 .ja h1{
 	font-size:161.6%;
-	letter-spacing: 0;	
-
-	}
+}
 .ja .h2:not(h2),
 .ja h2{
 	font-size:138.5%;
-	letter-spacing: 0;	
-
-	}
+}
 .ja .h3:not(h3),
 .ja h3{
 	font-size:116%;
-	letter-spacing: 0;	
-
-	}
+}
 .ja .h4:not(h4),
 .ja h4{
 	font-size:100%;
-	letter-spacing: 0;	
-
-	}
+}
 .ja .h5:not(h5),
 .ja h5{
 	font-size:85%;
-	letter-spacing: 0.2em;	
-	}
+}
 .ja .h6:not(h6),
 .ja h6{
 	font-size:xx-small;
-	letter-spacing: 0.2em;	
-	}
+}
 /* Raindrops new h1-h6 font size from ver 0.996 end */ 
 .ja .footer-widget h2,
 .ja .rsidebar h2,
@@ -127,4 +114,12 @@ body.ja,
 .ja .datetable .year-name, 
 .ja .datetable .day-name{
     font-style:normal;
+}
+.ja .rsidebar .eco-archive li,
+.ja .lsidebar .eco-archive li{
+    display:inline-block;
+    border:none;
+    min-width:13%;
+    margin:1%;
+    box-sizing:border-box;
 }

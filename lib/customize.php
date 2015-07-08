@@ -918,6 +918,23 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
+		/////////////////////////////////////////////////
+		"raindrops_display_sticky_post"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_display_sticky_post','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Sticky Post Show Single Post', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 =>  esc_html__( 'Sticky Post Show only Home Page or Always it displayed ( default Always it displayed )', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_display_sticky_post_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'anytime'	 => esc_html__( 'Always it displayed', 'Raindrops' ),
+				'only_home'	 => esc_html__( ' Show only Home Page', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),
 		"raindrops_basefont_settings"					 => array(
 			'default'			 => $raindrops_basefont_default_val,
 			'data_type'			 => $raindrops_setting_type,
@@ -1858,10 +1875,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 /**
  *  Sidebar CSS
  */
-
+$color_patturn_array = raindrops_wp_admin_css_colors( 'name' );
+//var_dump( $color_patturn_array );
 
 add_action( 'customize_controls_enqueue_scripts', 'raindrops_customizer_style' );
-
 
 function raindrops_customizer_style() {
 	global $wp_version;
@@ -1869,9 +1886,22 @@ function raindrops_customizer_style() {
 	$admin_color_relate_color = '#000';
 
 	/**
-	 * 4.3-alpha-32700
+	 * 4.3-alpha-33010
 	 */
 	$current_admin_color = get_user_option( 'admin_color' );
+	$property = 'name';
+	/* strange */
+	$color_patturn_array = raindrops_wp_admin_css_colors( 'colors' );
+		$admin_color1 = sanitize_hex_color( $color_patturn_array[0] );
+		$admin_color2 = sanitize_hex_color( $color_patturn_array[1] );
+		$admin_color3 = sanitize_hex_color( $color_patturn_array[2] );
+		$admin_color4 = sanitize_hex_color( $color_patturn_array[3] );
+	$color_patturn_array = raindrops_wp_admin_css_colors( 'name' );
+		$admin_color_base = sanitize_hex_color( $color_patturn_array['base'] );
+		$admin_color_focus = sanitize_hex_color( $color_patturn_array['focus'] );
+		$admin_color_current = sanitize_hex_color( $color_patturn_array['current'] );
+		
+
 
 	if ( version_compare( $wp_version, '4.2.2', '>' ) ) {
 
@@ -1884,8 +1914,41 @@ function raindrops_customizer_style() {
 		}
 	}
 
-	$css = <<<CUSTOMIZER_CSS
+	
+	if ( version_compare( $wp_version, '4.3', '<' ) ) {
+	/**
+	 * Transitonal conditional current version WordPress 4.3 No need below
+	 */
+		$admin_color_relate_color = $admin_color2;
+	}
 
+	$css = <<<CUSTOMIZER_CSS
+	
+/*test*/
+
+/* control area */
+	
+.accordion-section-content	li.customize-control{
+	border:1px solid rgba(52,52,52,.1);
+	padding-bottom:1em;
+	padding-left:5px;
+	background:rgba(222,222,222,.3);
+	background:$admin_color3;
+}
+	
+/* title */
+.accordion-section-content	li.customize-control .customize-control-title{
+	color:$admin_color_focus;
+}
+/* label */
+.accordion-section-content	li.customize-control label{
+	color:$admin_color_current;
+}
+/* description */
+#customize-controls .description{
+	color:$admin_color_base;
+	}
+/*test*/
 .customize-control-header .header-view{
 	display:inline-block;
 	max-width:285px;
@@ -1902,14 +1965,9 @@ function raindrops_customizer_style() {
 		border-color:rgba(152,152,152,.9)!important;
 	}
 
-#customize-theme-controls .accordion-section-content,
-#customize-controls .description,
-#customize-controls .accordion-section label{
-	color:$admin_color_relate_color;
-	}
 #customize-info .accordion-section-title{
 		background:transparent;
-		color:inherit;
+		color:inherit
 		border:none;
 	}
 #raindrops-customizer-preview-menu #raindrops-customizer-label,
@@ -1942,44 +2000,7 @@ function raindrops_customizer_style() {
 	background:#efefef;
 	color:#333;
 }
-	/*test*/
-#accordion-section-raindrops_theme_settings_sidebar,
-.raindrops-active {
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
-    -webkit-animation: fadein 5s;
-       -moz-animation: fadein 5s;
-        -ms-animation: fadein 5s;
-         -o-animation: fadein 5s;
-            animation: fadein 5s;
 
-}
-
-@keyframes fadein {
-    from { background: yellow; }
-    to   { background: white; }
-}
-
-
-@-moz-keyframes fadein {
-    from { background: yellow; }
-    to   { background: white; }
-}
-
-@-webkit-keyframes fadein {
-    from { background: yellow; }
-    to   { background: white; }
-}
-
-@-ms-keyframes fadein {
-     from { background: yellow; }
-    to   { background: white; }
-}
-
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
 CUSTOMIZER_CSS;
 
 		if ( version_compare( $wp_version, '4.3', '<' ) ) {

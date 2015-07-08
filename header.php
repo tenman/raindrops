@@ -23,6 +23,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 			<div id="hd" <?php raindrops_doctype_elements( '', 'role="banner"' ); ?>>
 				<?php	
 				if( raindrops_is_place_of_site_title() == true ) {
+					
 					echo raindrops_site_title();
 				}
 				 echo raindrops_site_description(); 
@@ -33,7 +34,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
                  * Custom Header
                  */
 				 $raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
-				 
+
 				if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) { ?>
 			
 			<?php  echo raindrops_header_image( 'elements' );

@@ -382,6 +382,15 @@ body{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 }
+.nav-links .page-numbers{
+     border:1px solid %rgba_border%;
+}
+.nav-links .page-numbers:hover{
+	%c4%;
+}
+.nav-links .current{
+    %c3%;
+}
 hr{
     border:none;
     border-top:1px solid %rgba_border%;
@@ -426,6 +435,7 @@ ul.archive,ul.index,
 .sitemap.new li{
     border-bottom:1px solid %rgba_border%;
 }
+
 .sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .widget select,
@@ -497,6 +507,14 @@ td.month-date,td.month-name,td.time{
 .entry-content textarea{
     background: %rgba_border%
 }
+
+
+
+
+
+
+
+
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -524,6 +542,7 @@ input[type="submit"],
 .entry-content input[type="submit"]{
     border: solid 1px %rgba_border%;
 }
+
 .raindrops-tab-list li,
 /*#access .children li,*/
 #access .focus a,
@@ -681,6 +700,15 @@ body {
 %c4%
     margin:0!important;padding:0;
     background-repeat:repeat-x;
+}
+.nav-links .page-numbers{
+     border:1px solid #ccc;
+}
+.nav-links .page-numbers:hover{
+	%c4%;
+}
+.nav-links .current{
+    %c5%;
 }
 #yui-main{
 	 /*1.303
@@ -913,6 +941,7 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %c_border%;
 }
+
 DOC;
     
 	 return apply_filters( __FUNCTION__ , $style );
@@ -988,6 +1017,15 @@ h2 a{
 body{
     margin:0!important;
     %c4%
+}
+.nav-links .page-numbers{
+    border:1px solid rgba(105,105,105,.5);
+}
+.nav-links .page-numbers:hover{
+	%c4%;
+}
+.nav-links .current{
+    %c_2%;
 }
 #top,
 .hfeed{
@@ -1369,7 +1407,6 @@ hr{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
-	
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1516,6 +1553,7 @@ function raindrops_indv_css_minimal() {
 .raindrops-accessible-mode .hfeed a:focus{
 	$raindrops_focus_style
 }
+
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1558,6 +1596,15 @@ function raindrops_indv_css_minimal() {
 html .mceContentBody,
 body{
     border-top:6px solid $raindrops_base_color;
+}
+.nav-links .page-numbers{
+    border:1px solid rgba(105,105,105,.7);
+}
+.nav-links .page-numbers:hover{
+	%c4%;
+}
+.nav-links .current{
+    %c_2%;
 }
 a{
     color:$font_color;
@@ -2235,7 +2282,7 @@ function raindrops_register_styles( $style_name = '' ) {
 	
 
     $vals[$style_name] = $style_name;
-    return $vals;
+    return apply_filters( 'raindrops_register_styles', $vals );
 }
 
 ?>

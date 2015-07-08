@@ -10,17 +10,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 do_action('raindrops_var_before');
-/**
- * TEST NEW Customizer UI
- */
-if ( ! isset( $raindrops_new_customizer ) ) {
-	
-	$raindrops_new_customizer = true;
-}
-if ( true == $raindrops_new_customizer ) {
 
-	$raindrops_show_theme_option = false;
-}
 /**
  * @since 1.293
  * value 'yes' or 'no'
@@ -49,15 +39,16 @@ $raindrops_current_theme_slug		 = sanitize_html_class( $raindrops_current_theme_
 $raindrops_description_for_translation = __( 'This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)', 'Raindrops' );
 $raindrops_text_domain				 = $raindrops_current_data->get( 'TextDomain' );
 
-
+/**
+ * Show or Hide Radindrops customize settings
+ * value true or false default true;
+ */
+$raindrops_extend_customizer = true;
 /** DON'T CHANGE NOW TEST
- * Data Store Type when $raindrops_new_customizer true
- * when $raindrops_new_customizer false using option with raindrops_theme_settings
  * value theme_mod or option
  */
 $raindrops_setting_type	= 'option';
 /** DON'T CHANGE NOW TEST
- * Data Store Option Field Name  when $raindrops_new_customizer true
  * Customizer Option Field Name
  */
 define( 'THEME_OPTION_FIELD_NAME', 'raindrops_theme_settings' );
@@ -81,7 +72,7 @@ if ( ! isset( $raindrops_keep_content_width ) ) {
  */
 if ( ! isset( $raindrops_use_transient ) ) {
 
-	$raindrops_use_transient = true;
+	$raindrops_use_transient = false;
 }
 /**
  * Raindrops Gallery Presentation
@@ -104,15 +95,6 @@ if ( !isset( $raindrops_show_theme_option ) ) {
 
 	$raindrops_show_theme_option = false;
 }
-/*
- * Using Customizer
- * @since 1.287
- */
-if ( !isset( $raindrops_enable_cutomizer ) ) {
-	
-	$raindrops_enable_cutomizer = true;
-}
-
 
 if ( !defined( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
 
@@ -1172,6 +1154,16 @@ array( 'option_id'    => 78,
         'excerpt2'     => '',
         'validate'     => 'raindrops_options_owner_validate',
 		'list'         => 77 ),	
+array( 'option_id'    => 79,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_display_sticky_post',
+        'option_value' => 'anytime',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Sticky Post Show Single Post', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Sticky Post Show only Home Page or Always it displayed ( default Always it displayed )', 'Raindrops' ),
+        'validate'     => 'raindrops_display_sticky_post_validate',
+		'list'         => 78 ),	
 );
 }
 

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.304
+Version: 1.305
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,8 +54,7 @@ body.rd-pw-doc3{
 }
 #ft a:active,
 .lsidebar a:active,
-.rsidebar a:active,
-#access a:active {
+.rsidebar a:active{
     position:relative;
     top:0.07692307692em;
 }
@@ -67,35 +66,9 @@ a:visited{
    text-decoration:none;
     border-bottom:solid 0.07692307692em;
 }
-.ie11.enable-keyboard #access .sub-menu a:focus,
-.ie11.enable-keyboard #access .children a:focus,
-.ie11.raindrops-accessible-mode #access .sub-menu a:focus,
-.ie11.raindrops-accessible-mode #access .children a:focus,
-.raindrops-accessible-mode .hfeed a:focus{
-    position:relative;
-    margin:-0.07692307692em;
-}
+
 /** 1.301 when Force Unique Link Text settings yes , :hover, display imploperly featured image */
-.raindrops-accessible-mode .hfeed .has-post-thumbnail  a:focus{
-    position:static;
-    margin:0;
-}
-.raindrops-accessible-mode .hfeed .raindrops-mobile-menu a:focus,
-.enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
-    position:absolute;
-}
-.raindrops-accessible-mode #access:target li:hover > ul > li > a,
-.enable-keyboard #access:target li:hover > ul > li > a{
-    border:none;
-}
-.raindrops-accessible-mode #hd + a,
-.enable-keyboard #hd + a{
-    margin:0;
-}
-.raindrops-accessible-mode .entry-content a:focus img,
-.enable-keyboard .entry-content a:focus img{
-    outline:thin dotted;
-}
+
 .ie8 #doc #header-image,
 .ie8 #doc4 #header-image,
 .ie9 #doc4 #header-image,
@@ -111,12 +84,7 @@ a:visited{
 .page-template-page-templatespage-featured-php #container{
     width:100%;
 }
-.enable-keyboard #access .menu-item-has-children .sub-menu:hover,
-.enable-keyboard #access .menu-item-has-children a:hover + ul,
-.raindrops-accessible-mode #access .menu-item-has-children .sub-menu:hover,
-.raindrops-accessible-mode #access .menu-item-has-children a:hover + ul{
-    z-index:1000;
-}
+
 .enable-keyboard .entry-title a:focus span,
 .enable-keyboard #site-title a:focus span,
 .raindrops-accessible-mode .entry-title a:focus span,
@@ -1532,259 +1500,13 @@ br.clearfix {
     right:0.76923076923em;
 }
 /* wp_nav_menu settings */
-#access {
-    display: block;
-    float: left;
-    width:99%;
-    margin-left:0.5%;
-    margin-top:0.38461538461em;
-}
-#access ul{
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-}
-div.menu ul,
-#access li{
-    margin:1px 0;
-    list-style-type:none;
-    /* each link width here example width:12em; or display:inline-block; and percent width, example width:16%; */
-    /* text-align:center here example text-align:center; */
-}
-#access ul ul li,
-#access ul ul,
-#access a{
-       min-width:10em;
-}
-#access a {
-    display: block;
-    line-height: 3em;
-    padding: 0 0.4em;
-    text-decoration: none;
-    border-left:1px solid rgba( 222,222,222,.2);
-    text-align:center;
-    position:relative;
-    /* link text font size here */
-}
-#access .page_item_has_children > a:after,
-#access .menu-item-has-children > a:after{
-    content:'\bb';
-    transform: rotate( 90deg );
-    margin:1em;
-    right:0;
-    top:-1em;
-    position:absolute;
-}
-.ie8 #access .page_item_has_children > a:after,
-.ie8 #access .menu-item-has-children > a:after{
-    content :'x';
-    color:red;
-}
-#access .children .page_item_has_children > a:after,
-#access .sub-menu .page_item_has_children > a:after,
-#access .children .menu-item-has-children > a:after,
-#access .sub-menu .menu-item-has-children > a:after{
-    content:'\bb';
-    transform: none;
-    top:-.3em;
-}
-.ie9 #access .children .page_item_has_children > a:after,
-.ie9 #access .sub-menu .page_item_has_children > a:after,
-.ie9 #access .children .menu-item-has-children > a:after,
-.ie9 #access .sub-menu .menu-item-has-children > a:after{
-    content :'x';
-    color:red;
-}
-#access .menu-header li,
-div.menu li {
-    float: left;
-    position: relative;
-    padding:0;
-}
-#access .menu-header li a,
-div.menu li a{
-    margin:0;
-    width:100%;
-    display:block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-body.raindrops-accessible-mode  #access ul ul,
-body.enable-keyboard #access ul ul{
-    display:block!important;
-}
-body #access ul ul{
-    display:none;
-}
-#access ul ul {
-    display: none;
-    position: absolute;
-    /*top: 3em; *//* If set linktext font-size, example #access a {font-size:123.1%} then this value 3em * 1.231 */
-    left: 0;
-    float: left;
-    z-index: 99;
-    text-align:center;
-    left:-9000px;
-}
-.ie8 #access ul ul{
-    display:block;
-}
-#access ul ul li {
-    margin:0;
-}
-.enable-keyboard #access li.focus > a + ul,
-.raindrops-accessible-mode #access li.focus > a + ul{
-    left:auto;
-    z-index:9999;
-    opacity:1;
-    text-indent:0;
-}
-.enable-keyboard #access li:not(.focus)  a + ul,
-.raindrops-accessible-mode #access li:not(.focus)  a + ul{
-    text-indent:-9999px;
-}
-.enable-keyboard #access li:not(.focus) li,
-.raindrops-accessible-mode #access li:not(.focus) li{
-    border:none!important;
-    background:none!important;
-}
-.enable-keyboard #access li:not(.focus) li a,
-.raindrops-accessible-mode #access li:not(.focus) li a{
-    opacity: 1;
-}
-.widget_categories .category-widget-select-box,
-.raindrops-accessible-mode  #access li:not(.focus) li,
-.enable-keyboard #access li:not(.focus) li{
+
+
+.widget_categories .category-widget-select-box{
         clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
         position:absolute;
         }
-.raindrops-accessible-mode  #access li:hover li,
-.enable-keyboard #access li:hover li{
-        clip:auto;
-        position:relative;/* 1.251 static to relative */
-}
-.raindrops-accessible-mode  #access  .menu.focus a + .sub-menu,
-.raindrops-accessible-mode #access  .menu.focus a + .children,
-.enable-keyboard #access  .menu.focus a + .sub-menu,
-.enable-keyboard #access  .menu.focus a + .children {
-    background:none;
-}
 
-.raindrops-accessible-mode #access  .sub-menu a:not(.focus),
-.raindrops-accessible-mode #access  .children a:not(.focus),
-.raindrops-accessible-mode #access li:not(.focus) li a a,
-.enable-keyboard #access  .sub-menu a:not(.focus),
-.enable-keyboard #access  .children a:not(.focus),
-.enable-keyboard #access li:not(.focus) li a a,
-.enable-keyboard #access li:not(.focus) li a li,
-.raindrops-accessible-mode #access li:not(.focus) li a li{
-    opacity:0;
-}
-.enable-keyboard #access  a:hover + .sub-menu a,
-.enable-keyboard #access  a:hover + .children a,
-.enable-keyboard #access  .sub-menu:hover a,
-.enable-keyboard #access  .children:hover a,
-.raindrops-accessible-mode  #access .menu.focus li:first-child a,
-.raindrops-accessible-mode  #access .sub-menu.focus a,
-.raindrops-accessible-mode  #access .children.focus a,
-.enable-keyboard #access  .menu.focus li:first-child a,
-.enable-keyboard #access  .sub-menu.focus a,
-.enable-keyboard #access  .children.focus a,
-.enable-keyboard #access .menu-item-has-children:hover  > ul > li > a,
-.raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
-    opacity: 1.0;
-}
-#access:target li a{
-    opacity: 1.0!important;
-    display:block;
-    text-indent:1em;
-}
-#access ul > li:hover > ul{
-    left:auto;
-    text-indent:0!important;
-}
-.enable-keyboard #access .children .children,
-.enable-keyboard #access .sub-menu .sub-menu,
-.enable-keyboard #access ul ul ul,
-.raindrops-accessible-mode #access .children .children,
-.raindrops-accessible-mode #access .sub-menu .sub-menu,
-.raindrops-accessible-mode #access ul ul ul {
-    left: 100%;
-    top: -0.07692307692em;
-    text-align:center;
-}
-#access .children .children,
-#access .sub-menu .sub-menu,
-#access ul ul ul {
-    left: 100%;
-    top: -0.07692307692em;
-    text-align:center;
-}
-#access ul ul ul.left {
-    left: -100%;
-    top: -0.07692307692em;
-    text-align:center;
-}
-#access ul ul a {
-    line-height: 1em;
-    padding:0.8em 0;
-    height: auto;
-}
-#access ul li:hover > ul {
-    display:block;
-}
-#access ul li.current_page_item > a,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a {
-    margin:0;
-    width:100%;
-    height:100%;
-}
-#access .menu-header,
-div.menu{
-    margin: 0 auto;
-}
-#access .menu-header,
-div.menu {
-    margin-left: 1%;
-    width: 99%;
-}
-#access .menu-header ul,
-div.menu ul {
-    list-style: none;
-    margin: 0;
-}
-div.menu li {
-    float: left;
-    position: relative;
-}
-#access .current_page_item{
-}
-.ie8 #access .menu-header li,
-.ie8 div.menu li {
-  display:block!important;
-    text-indent:0;
-    opacity:1!important;
-    clip:auto!important;
-    position:static!important;
-    text-align:left;
-    border:none!important;
-}
-.ie8 div.menu li:hover + ul > li,
-.ie8 div.menu li:hover + ul{
-    display:block!important;
-    opacity:1;
-    filter: alpha(opacity=100);
-    text-indent:0;
-}
-.ie8 #access .menu-header li a,
-.ie8 div.menu li a{
-   display:block;
-   height:auto!important;
-}
 /* Text meant only for screen readers */
 .screen-reader-text,
 a:link.screen-reader-text,
@@ -4010,4 +3732,436 @@ html body.ja .rsidebar .lang-ja{
 .pagination .nav-links .prev,
 .pagination .nav-links .dots{
     border:none;
+}
+/*-------------------------------------------------------------------------
+ * NEXT VERSION REMOVE
+ * Old wp_nav_menu styles commentout 1.305
+#access a:active {
+    position:relative;
+    top:0.07692307692em;
+}
+.ie11.enable-keyboard #access .sub-menu a:focus,
+.ie11.enable-keyboard #access .children a:focus,
+.ie11.raindrops-accessible-mode #access .sub-menu a:focus,
+.ie11.raindrops-accessible-mode #access .children a:focus,
+.raindrops-accessible-mode .hfeed a:focus{
+    position:relative;
+    margin:-0.07692307692em;
+}
+.raindrops-accessible-mode .hfeed .has-post-thumbnail  a:focus{
+    position:static;
+    margin:0;
+}
+.raindrops-accessible-mode .hfeed .raindrops-mobile-menu a:focus,
+.enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
+    position:absolute;
+}
+.raindrops-accessible-mode #access:target li:hover > ul > li > a,
+.enable-keyboard #access:target li:hover > ul > li > a{
+    border:none;
+}
+.raindrops-accessible-mode #hd + a,
+.enable-keyboard #hd + a{
+    margin:0;
+}
+.raindrops-accessible-mode .entry-content a:focus img,
+.enable-keyboard .entry-content a:focus img{
+    outline:thin dotted;
+}
+.enable-keyboard #access .menu-item-has-children .sub-menu:hover,
+.enable-keyboard #access .menu-item-has-children a:hover + ul,
+.raindrops-accessible-mode #access .menu-item-has-children .sub-menu:hover,
+.raindrops-accessible-mode #access .menu-item-has-children a:hover + ul{
+    z-index:1000;
+}
+#access {
+    display: block;
+    float: left;
+    width:99%;
+    margin-left:0.5%;
+    margin-top:0.38461538461em;
+}
+#access ul{
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+div.menu ul,
+#access li{
+    margin:1px 0;
+    list-style-type:none;
+
+}
+#access ul ul li,
+#access ul ul,
+#access a{
+       min-width:10em;
+}
+#access a {
+    display: block;
+    line-height: 3em;
+    padding: 0 0.4em;
+    text-decoration: none;
+    border-left:1px solid rgba( 222,222,222,.2);
+    text-align:center;
+    position:relative;
+
+}
+#access .page_item_has_children > a:after,
+#access .menu-item-has-children > a:after{
+    content:'\bb';
+    transform: rotate( 90deg );
+    margin:1em;
+    right:0;
+    top:-1em;
+    position:absolute;
+}
+.ie8 #access .page_item_has_children > a:after,
+.ie8 #access .menu-item-has-children > a:after{
+    content :'x';
+    color:red;
+}
+#access .children .page_item_has_children > a:after,
+#access .sub-menu .page_item_has_children > a:after,
+#access .children .menu-item-has-children > a:after,
+#access .sub-menu .menu-item-has-children > a:after{
+    content:'\bb';
+    transform: none;
+    top:-.3em;
+}
+.ie9 #access .children .page_item_has_children > a:after,
+.ie9 #access .sub-menu .page_item_has_children > a:after,
+.ie9 #access .children .menu-item-has-children > a:after,
+.ie9 #access .sub-menu .menu-item-has-children > a:after{
+    content :'x';
+    color:red;
+}
+#access .menu-header li,
+div.menu li {
+    float: left;
+    position: relative;
+    padding:0;
+}
+#access .menu-header li a,
+div.menu li a{
+    margin:0;
+    width:100%;
+    display:block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body.raindrops-accessible-mode  #access ul ul,
+body.enable-keyboard #access ul ul{
+    display:block!important;
+}
+body #access ul ul{
+    display:none;
+}
+#access ul ul {
+    display: none;
+    position: absolute;
+
+    left: 0;
+    float: left;
+    z-index: 99;
+    text-align:center;
+    left:-9000px;
+}
+.ie8 #access ul ul{
+    display:block;
+}
+#access ul ul li {
+    margin:0;
+}
+.enable-keyboard #access li.focus > a + ul,
+.raindrops-accessible-mode #access li.focus > a + ul{
+    left:auto;
+    z-index:9999;
+    opacity:1;
+    text-indent:0;
+}
+.enable-keyboard #access li:not(.focus)  a + ul,
+.raindrops-accessible-mode #access li:not(.focus)  a + ul{
+    text-indent:-9999px;
+}
+.enable-keyboard #access li:not(.focus) li,
+.raindrops-accessible-mode #access li:not(.focus) li{
+    border:none!important;
+    background:none!important;
+}
+.enable-keyboard #access li:not(.focus) li a,
+.raindrops-accessible-mode #access li:not(.focus) li a{
+    opacity: 1;
+}
+.widget_categories .category-widget-select-box,
+.raindrops-accessible-mode  #access li:not(.focus) li,
+.enable-keyboard #access li:not(.focus) li{
+        clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
+        position:absolute;
+}
+
+.raindrops-accessible-mode  #access li:hover li,
+.enable-keyboard #access li:hover li{
+        clip:auto;
+        position:relative;
+}
+.raindrops-accessible-mode  #access  .menu.focus a + .sub-menu,
+.raindrops-accessible-mode #access  .menu.focus a + .children,
+.enable-keyboard #access  .menu.focus a + .sub-menu,
+.enable-keyboard #access  .menu.focus a + .children {
+    background:none;
+}
+
+.raindrops-accessible-mode #access  .sub-menu a:not(.focus),
+.raindrops-accessible-mode #access  .children a:not(.focus),
+.raindrops-accessible-mode #access li:not(.focus) li a a,
+.enable-keyboard #access  .sub-menu a:not(.focus),
+.enable-keyboard #access  .children a:not(.focus),
+.enable-keyboard #access li:not(.focus) li a a,
+.enable-keyboard #access li:not(.focus) li a li,
+.raindrops-accessible-mode #access li:not(.focus) li a li{
+    opacity:0;
+}
+.enable-keyboard #access  a:hover + .sub-menu a,
+.enable-keyboard #access  a:hover + .children a,
+.enable-keyboard #access  .sub-menu:hover a,
+.enable-keyboard #access  .children:hover a,
+.raindrops-accessible-mode  #access .menu.focus li:first-child a,
+.raindrops-accessible-mode  #access .sub-menu.focus a,
+.raindrops-accessible-mode  #access .children.focus a,
+.enable-keyboard #access  .menu.focus li:first-child a,
+.enable-keyboard #access  .sub-menu.focus a,
+.enable-keyboard #access  .children.focus a,
+.enable-keyboard #access .menu-item-has-children:hover  > ul > li > a,
+.raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
+    opacity: 1.0;
+}
+#access:target li a{
+    opacity: 1.0!important;
+    display:block;
+    text-indent:1em;
+}
+#access ul > li:hover > ul{
+    left:auto;
+    text-indent:0!important;
+}
+.enable-keyboard #access .children .children,
+.enable-keyboard #access .sub-menu .sub-menu,
+.enable-keyboard #access ul ul ul,
+.raindrops-accessible-mode #access .children .children,
+.raindrops-accessible-mode #access .sub-menu .sub-menu,
+.raindrops-accessible-mode #access ul ul ul {
+    left: 100%;
+    top: -0.07692307692em;
+    text-align:center;
+}
+#access .children .children,
+#access .sub-menu .sub-menu,
+#access ul ul ul {
+    left: 100%;
+    top: -0.07692307692em;
+    text-align:center;
+}
+#access ul ul ul.left {
+    left: -100%;
+    top: -0.07692307692em;
+    text-align:center;
+}
+#access ul ul a {
+    line-height: 1em;
+    padding:0.8em 0;
+    height: auto;
+}
+#access ul li:hover > ul {
+    display:block;
+}
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a {
+    margin:0;
+    width:100%;
+    height:100%;
+}
+#access .menu-header,
+div.menu{
+    margin: 0 auto;
+}
+#access .menu-header,
+div.menu {
+    margin-left: 1%;
+    width: 99%;
+}
+#access .menu-header ul,
+div.menu ul {
+    list-style: none;
+    margin: 0;
+}
+div.menu li {
+    float: left;
+    position: relative;
+}
+#access .current_page_item{
+}
+.ie8 #access .menu-header li,
+.ie8 div.menu li {
+  display:block!important;
+    text-indent:0;
+    opacity:1!important;
+    clip:auto!important;
+    position:static!important;
+    text-align:left;
+    border:none!important;
+}
+.ie8 div.menu li:hover + ul > li,
+.ie8 div.menu li:hover + ul{
+    display:block!important;
+    opacity:1;
+    filter: alpha(opacity=100);
+    text-indent:0;
+}
+.ie8 #access .menu-header li a,
+.ie8 div.menu li a{
+   display:block;
+   height:auto!important;
+}
+---------------------------------------------------------------------------*/
+
+#access {
+    min-width: 320px;
+    max-width:100%;
+    text-align: center;
+    width:99%;
+    margin-left:0.5%;
+    margin-top:3px;
+}
+#top #access .menu > li > a{
+    padding:0 1em;
+}
+#access li {
+	margin-top: 24px;
+        max-width:100%;
+}
+#access ul.nav-menu,
+#access div.nav-menu > ul {
+	display: none;
+}
+#access ul.nav-menu.toggled-on,
+.menu-toggle {
+	display: inline-block;
+}
+#access ul.nav-menu,
+#access div.nav-menu > ul {
+       display: inline-block !important;
+
+        text-align: left;
+        width: 100%;
+        margin:0;
+        padding:0;
+}
+#access ul {
+        margin: 0;
+        text-indent: 0;
+}
+#access li a,
+#access li {
+        display: inline-block;
+        text-decoration: none;
+}
+#access li a {
+        border-bottom: 0;
+        line-height: 3.4;
+        white-space: nowrap;
+        width:100%;
+}
+#access li {
+        margin: 0 0 0;
+        position: relative;
+}
+#access li ul {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 100%;
+        z-index: 1;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+}
+
+#access li ul ul {
+        top: 0;
+        left: 100%;
+}
+#access ul li:hover > ul,
+#access ul li:focus > ul,
+#access .focus > ul {
+        border-left: 0;
+        clip: inherit;
+        overflow: inherit;
+        height: inherit;
+        width: inherit;
+}
+#access li ul li a {
+        display: block;
+        line-height: 2;
+        padding: 8px 10px;
+        white-space: normal;
+        max-width:100%;
+        box-sizing:border-box;
+}
+#access .current-menu-item > a,
+#access .current-menu-ancestor > a,
+#access .current_page_item > a,
+#access .current_page_ancestor > a {
+        font-weight: bold;
+}
+#access .menu > .page_item_has_children,
+#access .menu > .menu-item-has-children{
+    padding-right:2em;
+    box-sizing: border-box;
+}
+#access .menu-item-has-children > a,
+#access .page_item_has_children > a{
+    padding-right:2em;
+     box-sizing: border-box;
+}
+#access .page_item_has_children > a:after,
+#access .menu-item-has-children > a:after{
+    content:'\bb';
+    transform: rotate( 90deg );
+    margin:1em;
+    right:0;
+    top:-1em;
+    position:absolute;
+}
+#access .children .page_item_has_children > a:after,
+#access .sub-menu .page_item_has_children > a:after,
+#access .children .menu-item-has-children > a:after,
+#access .sub-menu .menu-item-has-children > a:after{
+    content:'\bb';
+    transform: none;
+    top:-.3em;
+}
+.ie8 #access .page_item_has_children > a:after,
+.ie8 #access .menu-item-has-children > a:after{
+    content :'x';
+    color:red;
+}
+
+.ie9 #header-image,
+.ie8 #header-image{
+    background-color:transparent;
+}
+.ie9 #header-image .tagline,
+.ie8 #header-image .tagline{
+    display:none;
+}
+.ie9 #header-image #site-title,
+.ie8 #header-image #site-title{
+    text-align:center;
+    margin:0 auto!important;
 }

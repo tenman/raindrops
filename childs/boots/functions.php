@@ -8,15 +8,15 @@
 if ( !isset( $boots_custom_header_args ) ) {
     $boots_custom_header_args = array(
         'default-text-color'     => 'efefef'
-        , 'width'                  => apply_filters( 'raindrops_header_image_width', 1280 )
+        , 'width'                  => apply_filters( 'raindrops_header_image_width', 1600 )
         , 'flex-width'             => true
-        , 'height'                 => apply_filters( 'raindrops_header_image_height', 521 )
+        , 'height'                 => apply_filters( 'raindrops_header_image_height', 310 )
         , 'flex-height'            => true
         , 'header-text'            => true
         , 'default-image'          => get_stylesheet_directory_uri() . '/images/headers/wp3.jpg'
        // , 'wp-head-callback'       => apply_filters( 'raindrops_wp-head-callback', 'raindrops_child_embed_css' )
-        , 'admin-preview-callback' => 'raindrops_admin_header_image'
-        , 'admin-head-callback'    => 'raindrops_admin_header_style'
+        //, 'admin-preview-callback' => 'raindrops_admin_header_image'
+        //, 'admin-head-callback'    => 'raindrops_admin_header_style'
     );
 
     add_theme_support( 'custom-header', $boots_custom_header_args );

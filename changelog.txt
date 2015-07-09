@@ -1,10 +1,12 @@
 Changelog -----------------------------------
-version:1.304
+version:1.305
 Overview of Changes
 
 	Bug Fixed
 		Not Work at Customizer font color setting
-
+	Primary Nav Menu
+		Renewal All CSS was rewitten
+		Change centerd menu
 	Modify
 		Sticky Post default show allways
 			lib/validate.php
@@ -65,7 +67,7 @@ Files Modified
 	modified:   style.css
 Description of Code Changes
 
-	please seee https://github.com/tenman/raindrops/compare/1.303...1.304
+	please seee https://github.com/tenman/raindrops/compare/1.303...1.305
 -----------------------------------------------
 Changelog -----------------------------------
 version:1.303

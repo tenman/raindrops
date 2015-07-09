@@ -344,7 +344,7 @@ add_filter( 'shortcode_atts_gallery', 'raindrops_gallery_atts', 10, 3 );
  * ver 1.204
  */
 if ( $is_IE ) {
-	
+
 	$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
 	
 	preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $raindrops_regs );
@@ -4717,13 +4717,13 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 		//	if( isset( $raindrops_current_column) && 1 !== $raindrops_current_column ) {
 				
 			$fluid_width = "\n". '/* raindrops is fluid start  */' .
+			'#header-image,' .
 			"\n#doc5{min-width:" . $raindrops_fluid_minimum_width . 
 			'px;max-width:' . $raindrops_full_width_limit_window_width . 'px;}' . 
 			"\n#container > .first{width:" . $main_column_width_fluid . "%;}" . 
 			"\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}'.
 			"\n#doc5 .static-front-content,
-			#doc5 .front-page-top-container,
-			#header-image,
+			#doc5 .front-page-top-container,			
 			#hd,
 			#access .menu-header,
 			#access > .menu,

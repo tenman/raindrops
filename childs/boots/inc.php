@@ -75,6 +75,44 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
         $raindrops_text_color = get_theme_mod( 'header_textcolor', 'ffffff' );
         $header_image         = get_header_image();
 
+		$raindrops_header_imge_filter_color			 = raindrops_warehouse_clone( 'raindrops_header_image_filter_color' );
+		$raindrops_header_image_color_rgb_array		 = raindrops_hex2rgb_array_clone( $raindrops_header_imge_filter_color );
+		$raindrops_header_image_filter_apply_top	 = raindrops_warehouse_clone( 'raindrops_header_image_filter_apply_top' );
+		$raindrops_header_image_filter_apply_bottom	 = raindrops_warehouse_clone( 'raindrops_header_image_filter_apply_bottom' );
+		$raindrops_enable_header_image_filter	 = raindrops_warehouse_clone( 'raindrops_enable_header_image_filter' );
+			
+		$old_ie = '';
+			$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+			preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs );
+			if ( isset( $regs[ 2 ] ) ) {
+				$old_ie = 'ie' . $regs[ 2 ];
+			}	
+		$background_property = '';	
+		if ( false !== $raindrops_header_image_color_rgb_array &&
+			'enable' == $raindrops_enable_header_image_filter &&
+			$old_ie !== 'ie8' &&
+			$old_ie !== 'ie9' 
+		) { // client side yet 1.298
+
+			$style_rule_template = ' background:  
+				linear-gradient(
+					rgba(%1$s, %2$s, %3$s, %4$s),rgba(%1$s, %2$s, %3$s, %5$s)
+				),
+				url(%6$s);
+				 background:  
+				-moz-linear-gradient(
+					rgba(%1$s, %2$s, %3$s, %4$s),rgba(%1$s, %2$s, %3$s, %5$s)
+				),
+				url(%6$s);
+				 background-size:cover;';
+
+			$background_property = sprintf(
+			$style_rule_template, $raindrops_header_image_color_rgb_array[ 0 ], $raindrops_header_image_color_rgb_array[ 1 ], $raindrops_header_image_color_rgb_array[ 2 ], $raindrops_header_image_filter_apply_top, $raindrops_header_image_filter_apply_bottom, esc_url( $header_image )
+			);
+		} else {
+			$background_property = 'background-image:url( ' . esc_url( $header_image ) . ' );';
+		}
+			$css .= " \n#header-image{{$background_property} background-size:cover}";
         if ( $raindrops_text_color !== 'blank' && !empty( $header_image ) ) {
 
             $css .= " \n#site-title a,#site-title span{color:#" . $raindrops_text_color . ';}';
@@ -174,11 +212,11 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
 			if ( $primary_menu_min_width < 10 ) { $child_width = 10; }else{ $child_width = floatval( $primary_menu_min_width );}
 
-			$adding_style = '#access ul ul li,#access ul ul,#access a{ min-width:%1$dem;}
+			$adding_style = '#access ul ul li,#access ul ul,#access a{min-width:%1$dem;}
 							.ie8 #access .page_item_has_children > a:after,
 							.ie8 #access .menu-item-has-children > a:after{ content :"";}
 							#access .children li,#access .sub-menu li,#access .children ul,#access .sub-menu ul,#access .children a,#access .sub-menu a{
-							 width:%2$dem;
+							 min-width:%2$dem;
 							}';
 			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width );
 		}

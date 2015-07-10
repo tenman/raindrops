@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.306
+Overview of Changes
+
+	Bug Fixed
+		Nav Menu CSS Bug Fixed
+
+Files Modified
+
+Description of Code Changes
+
+	please see https://github.com/tenman/raindrops/compare/1.305...1.306
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.305
 Overview of Changes
 

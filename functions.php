@@ -1972,8 +1972,11 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$footer_image_uri = str_replace( $raindrops_current_theme_name, 'raindrops', $footer_image_uri );
 		}
 		$css .= "\n#ft{" . raindrops_upload_image_parser( $footer_image_uri, 'inline', '#ft' ) . '}';
-
-		$css .= "\n#ft{color:". raindrops_warehouse( 'raindrops_footer_color' ). ';}';
+		/* 1.306 add conditional */
+		if( false == raindrops_has_indivisual_notation() ) {
+			
+			$css .= "\n#ft{color:". raindrops_warehouse( 'raindrops_footer_color' ). ';}';
+		}
 		// 2col 3col change style helper
 		$css .= '/*' . raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ) . '*/';
 
@@ -1992,8 +1995,10 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		/* ver 1.304 add */
 		$raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 
-		if ( $raindrops_fonts_color !== '' ) {
+		if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation() ) {
+			/* 1.306 add false == raindrops_has_indivisual_notation() */
 			$css .= ' article {color:' . $raindrops_fonts_color . ';}';
+
 		}
 		/**
 		 * Add @version 1.304
@@ -2035,7 +2040,11 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 				}
 			} else {
 				
-				$css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
+				/* 1.306 add conditional */
+				if( false == raindrops_has_indivisual_notation() ) {
+					$css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
+				}
+
 			}
 		}	
 		
@@ -4725,6 +4734,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			"\n#doc5 .static-front-content,
 			#doc5 .front-page-top-container,			
 			#hd,
+			.no-header-image #header-inner,
 			#access .menu-header,
 			#access > .menu,
 			#top ol.breadcrumbs,

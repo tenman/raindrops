@@ -49,34 +49,17 @@ function raindrops_indv_css_dark() {
 .ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus{
 	$raindrops_focus_style
 }
-.enable-keyboard #access li:hover >ul > li> a,
-.raindrops-accessible-mode #access li:hover> ul>  li a,
+
 #access .sub-menu li a,
 #access .children li a{
     border:1px solid #ccc;
 	border:1px solid rgba(222,222,222,.5);
-	border-top:none;
 }
-
-.enable-keyboard #access li:hover >ul,
-.raindrops-accessible-mode #access li:hover> ul,
-#access .sub-menu:hover,
-#access .children:hover{
-    border-top:1px solid #ccc;
-	border-top:1px solid rgba(222,222,222,.5);
-}
-	
 #access li:hover > ul > ul{
 
 	border:none!important;
 }
-/* pending
-#access a:last-child {
-     border-right:1px solid #000;
-	border-right:1px solid red;
-}*/
-	
-#access li:nth-last-child(1) a {
+#access li:nth-last-child(1) {
      border-right:2px solid rgba( 222,222,222,.2);
 }
 body{
@@ -606,7 +589,7 @@ color:%custom_color%;
 #header-image p{
     text-shadow: 2px 2px 2px #000;
 }
-#access .menu > li > a{
+#access .menu > li{
     border-left:1px solid rgba( 222,222,222,.2);
 }
 .fail-search,
@@ -683,14 +666,7 @@ function raindrops_indv_css_w3standard() {
     %h2_w3standard_background%
     %h_position_rsidebar_h2%
 }
-	
-	
-#access li:nth-last-child(1) a {
-		 border-right:1px solid #ccc;
-}
-#access li:nth-child(1) a {
-	 border-left:1px solid #ccc;
-}
+
 #access .menu li:first-child,
 #access .menu .menu-item-has-children,
 #access .menu li:last-child{
@@ -974,21 +950,11 @@ function raindrops_indv_css_light() {
 .raindrops-accessible-mode .hfeed a:focus{
 	$raindrops_focus_style
 }
-.enable-keyboard #access li:hover >ul > li> a,
-.raindrops-accessible-mode #access li:hover> ul>  li a,
+
 #access .sub-menu li a,
 #access .children li a{
     border:1px solid #696969;
 	border:1px solid rgba(105,105,105,.5);
-	border-top:none;
-}
-.enable-keyboard #access li:hover >ul,
-.raindrops-accessible-mode #access li:hover> ul,
-#access .sub-menu:hover,
-#access .children:hover{
-    border-top:1px solid #696969;
-	border-top:1px solid rgba(105,105,105,.5);
-
 }
  a:link,
  a:active,
@@ -1241,12 +1207,7 @@ select{
 #access ul ul :active >a{
     top:0;
 }
-#access ul li.current_page_item,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a {
-    %c5%
-}
+
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
@@ -1282,6 +1243,7 @@ cite.fn{
 .rd-page-navigation a{
     %c4%
 }
+	
 .rd-page-navigation .current_page_item{
     %c5%
 }
@@ -1401,6 +1363,7 @@ hr{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
+
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1420,8 +1383,7 @@ hr{
     -webkit-box-shadow: 0 1px 3px #333;
 	box-shadow: 0 1px 3px #333;
 }
-.raindrops-tab-list li,
-/*#access .children li,*/
+
 #access .focus a,
 #access li:hover > ul,
 #access a {
@@ -1431,6 +1393,11 @@ hr{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
+#access ul li.current_page_item,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a,
+.raindrops-tab-list li,
 #access .children li:active >a,
 #access li:active >a ,
 #access ul ul :active >a {
@@ -1575,11 +1542,12 @@ function raindrops_indv_css_minimal() {
 	border-top:1px solid rgba(105,105,105,.5);
 
 }
- #access .menu li{
-     border-left:1px solid #ccc;
+
+#access .menu > li{
+    border-left:1px solid #ccc;
     border-left:1px solid rgba( 156,156,156,.7);
 }
- #access .menu li:last-child{
+ #access .menu > li:last-child{
     border-right:1px solid #ccc;
     border-right:1px solid rgba( 156,156,156,.7);
 }
@@ -1587,9 +1555,7 @@ function raindrops_indv_css_minimal() {
  #access .menu li:last-child a{
     border:none;
 }
-#access li:nth-last-child(1) a {
-     border-right:1px solid rgba( 156,156,156,.7);
-}
+
 /* tinyMCE */
 html .mceContentBody,
 body{

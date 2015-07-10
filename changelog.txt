@@ -6,6 +6,9 @@ Overview of Changes
 		Nav Menu CSS Bug Fixed
 
 Files Modified
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   style.css
 
 Description of Code Changes
 

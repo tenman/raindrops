@@ -710,6 +710,16 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 			$classes[] = 'enable-keyboard';
 		}
 		/**
+		 * @since 1.307
+		 */
+		if ( is_home() ) {
+			$raindrops_use_featured_image_emphasis = raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis' );
+			// yes no
+			$raindrops_featured_image_position = raindrops_warehouse_clone( 'raindrops_featured_image_position' );
+			//left front
+			$classes[] = 'rd-featured-'. $raindrops_use_featured_image_emphasis. '-'. $raindrops_featured_image_position;
+		}
+		/**
 		 * @since 1.289
 		 */
 		$classes[] = sanitize_html_class( "rd-pw-" . raindrops_warehouse( 'raindrops_page_width' ) );
@@ -854,8 +864,12 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 			<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 				<div id="comment-<?php comment_ID(); ?>">
 					<div class="comment-author vcard">
-						<div class="raindrops-comment-avatar">
-							<?php echo get_avatar( $comment, 160, '', esc_attr__( 'Avatar', 'Raindrops' ) . ' ' . esc_attr( strip_tags( get_comment_author_link() ) ) ); ?> </div>
+						<?php 
+							$core_avatar_setting = get_option( 'show_avatars' );
+							if ( ! empty( $core_avatar_setting ) ) {
+								printf( '<div class="raindrops-comment-avatar">%1$s</div>', get_avatar( $comment, 160, '', esc_attr__( 'Avatar', 'Raindrops' ) . ' ' . esc_attr( strip_tags( get_comment_author_link() ) ) ) );
+							}
+						?>
 						<div class="raindrops-comment-author-meta">
 							<?php
 							printf( '%1$s <span class="says">%2$s</span>', sprintf( '<cite class="fn">%s</cite> ', get_comment_author_link() ), esc_html__( 'says:', 'Raindrops' ) );
@@ -1921,7 +1935,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 	function raindrops_embed_css() {
 
-		global $post, $raindrops_fluid_or_fixed, $raindrops_fluid_minimum_width, $raindrops_wp_version, $raindrops_current_theme_name, $raindrops_page_width, $raindrops_base_font_size, $raindrops_custom_header_width, $raindrops_custom_header_height,$raindrops_current_column, $raindrops_setting_type, $raindrops_use_transient;
+		global $post, $raindrops_fluid_or_fixed, $raindrops_fluid_minimum_width, $raindrops_wp_version, $raindrops_current_theme_name, $raindrops_page_width, $raindrops_base_font_size, $raindrops_custom_header_width, $raindrops_custom_header_height,$raindrops_current_column, $raindrops_setting_type, $raindrops_use_transient, $raindrops_automatic_color;
 		
 	
 		$css = apply_filters('raindrops_embed_css_pre', '' );
@@ -1974,8 +1988,9 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		$css .= "\n#ft{" . raindrops_upload_image_parser( $footer_image_uri, 'inline', '#ft' ) . '}';
 		/* 1.306 add conditional */
 		if( false == raindrops_has_indivisual_notation() ) {
-			
-			$css .= "\n#ft{color:". raindrops_warehouse( 'raindrops_footer_color' ). ';}';
+			if( false == $raindrops_automatic_color ) {
+				$css .= "\n#ft{color:". raindrops_warehouse( 'raindrops_footer_color' ). ';}';
+			}
 		}
 		// 2col 3col change style helper
 		$css .= '/*' . raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ) . '*/';
@@ -1997,7 +2012,10 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 		if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation() ) {
 			/* 1.306 add false == raindrops_has_indivisual_notation() */
-			$css .= ' article {color:' . $raindrops_fonts_color . ';}';
+			if( false == $raindrops_automatic_color ) {
+				
+				$css .= ' article {color:' . $raindrops_fonts_color . ';}';				
+			}
 
 		}
 		/**
@@ -2042,7 +2060,9 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 				
 				/* 1.306 add conditional */
 				if( false == raindrops_has_indivisual_notation() ) {
-					$css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
+					if( false == $raindrops_automatic_color ) {
+						$css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
+					}
 				}
 
 			}
@@ -2154,6 +2174,8 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 if ( !function_exists( "raindrops_custom_link_color" ) ) {
 
 	function raindrops_custom_link_color( $color ) {
+		
+		$color = apply_filters( 'raindrops_custom_link_color_val', $color );
 
 		$css = <<< LINK_COLOR_CSS
 .entry-content a:link,
@@ -2176,10 +2198,10 @@ if ( !function_exists( "raindrops_custom_link_color" ) ) {
 .posted-on a:hover{
 	color:{$color};
 }
-.entry-meta-default .entry-date{
+.entry-meta-default a{
 color:{$color};
 }/*single.php*/
-.entry-meta-default .author a{
+.entry-meta-default a{
 	color:{$color};
 }/*single.php*/
 
@@ -2215,10 +2237,10 @@ color:{$color};
 	color:{$color}! important;
 }
 
-#nav-above .nav-previous a,
-#nav-above .nav-next a,
-#nav-below .nav-previous a,
-#nav-below .nav-next a{
+.nav-previous a,
+.nav-next a,
+.nav-previous a,
+.nav-next a{
 	color:{$color};
 
 }
@@ -3095,7 +3117,7 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 
 		if ( !empty( $page_title ) ) {
 
-			printf( '<li class="title-wrapper %3$s-wrapper"><strong class="f16" id="archives-title"><span class="label">%1$s</span> <span class="title">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
+			printf( '<li class="title-wrapper %3$s-wrapper"><strong id="archives-title"><span class="label">%1$s</span> <span class="title">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
 
 			if ( is_category() ) {
 				printf('<li class="list-category-navigation">%1$s</li>', raindrops_category_navigation() );
@@ -4698,30 +4720,40 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 
 			$main_column_width_fluid = 100;
 		}
+		
+			$padding_height = 20.859375;
+			$width = absint( raindrops_detect_header_image_size_clone(  'width' ) );
+			$height = absint( raindrops_detect_header_image_size_clone(  'height' ) );
+			if( $width !== 0 || $height !== 0  ) {
+				$padding_height = $height / $width * 100;
+			}
 	
 		if( 'doc3' ==  $page_width ) {
 		
 			$fluid_width = "\n". '/* raindrops is fluid start  */' .
 			"\n#doc3{min-width:" . $raindrops_fluid_minimum_width . 
 			'px;max-width:' . $raindrops_fluid_maximum_width . 'px;}' . 
-			"\n#container > .first{width:" . $main_column_width_fluid . "%;}" . 
+		/* change 1.307	"\n#container > .first{width:" . $main_column_width_fluid . "%;}" . */
 			"\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}'.
 			"\n".
 			".rd-pw-doc3.rd-col-1 .breadcrumbs{width:".$content_width .'px;margin:auto;}'.
+			"\n".
+			"#doc3 #header-image{
+				display:block;
+				position: relative;
+				padding-bottom: {$padding_height}%;
+				height: 0!important;
+				max-width:100%;
+			}".
 			'/* raindrops is fluid end */';
 		
 		} elseif ( 'doc5' ==  $page_width  ) {
 			
-			$padding_height = 20.859375;
-			$width = absint( raindrops_detect_header_image_size_clone(  'width' ) );
-			$height = absint( raindrops_detect_header_image_size_clone(  'height' ) );
+
 			
 			$raindrops_full_width_limit_window_width	= raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
 			$raindrops_full_width_max_width				= raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
 			
-			if( $width !== 0 || $height !== 0  ) {
-				$padding_height = $height / $width * 100;
-			}
 		//change 1.301 
 		//	if( isset( $raindrops_current_column) && 1 !== $raindrops_current_column ) {
 				
@@ -4729,7 +4761,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			'#header-image,' .
 			"\n#doc5{min-width:" . $raindrops_fluid_minimum_width . 
 			'px;max-width:' . $raindrops_full_width_limit_window_width . 'px;}' . 
-			"\n#container > .first{width:" . $main_column_width_fluid . "%;}" . 
+		/* change 1.307	"\n#container > .first{width:" . $main_column_width_fluid . "%;}" . */
 			"\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}'.
 			"\n#doc5 .static-front-content,
 			#doc5 .front-page-top-container,			
@@ -4800,6 +4832,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 					.rd-pw-doc5.rd-col-1 #doc3 .front-page-top-container,
 					.rd-pw-doc5.rd-col-1 #hd,
 					.rd-pw-doc5.rd-col-1 #access .menu-header,
+					.rd-pw-doc5.rd-col-1 #archives-title,
 					.rd-pw-doc5.rd-col-1 .page-title,
 					.rd-pw-doc5.rd-col-1.page-template-date-php #doc3 .raindrops-monthly-archive-prev-next-avigation,
 					.rd-pw-doc5.rd-col-1 #nav-above,
@@ -5408,6 +5441,11 @@ if( ! function_exists( 'raindrops_html_excerpt_with_elements') ) {
 
 			return apply_filters('the_excerpt', get_the_excerpt() );
 		}
+		
+		if( isset( $post->ID ) && is_sticky( $post->ID ) ) {
+			
+			return $content;
+		}
 
 		if ( $allow_html ) {
 
@@ -5536,12 +5574,15 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 	*/
 	function raindrops_entry_content( $more_link_text = null, $stripteaser = false ) {
 
-		global $post;
+		global $post, $more_link_text;
 
 		if ( raindrops_detect_display_none_condition() && !is_sticky() ) {
 
 			return;
 		}
+		
+		
+		
 		$raindrops_excerpt_condition = raindrops_detect_excerpt_condition();
 		$raindrops_excerpt_enable	 = raindrops_warehouse_clone( 'raindrops_excerpt_enable' );
 		$raindrops_allow_oembed_excerpt_view = raindrops_warehouse_clone( 'raindrops_allow_oembed_excerpt_view' );
@@ -5637,11 +5678,12 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 
 		global $post, $raindrops_wp_version;
 		$attr = '';
-
+		$html = '';
 		if ( 'default' == $position ) {
-
-			$html = '<li id="search-default" class="widget-container widget_search">' . get_search_form( false ) . '</li>';
-			$html .= '<li><h2 class="h2 widget-title">' . esc_html__( 'Archives', 'Raindrops' ) . '</h2>';
+			if( ! is_404() ) {
+				$html = '<li id="search-default" class="widget-container widget_search">' . get_search_form( false ) . '</li>';
+			}
+			$html .= '<li><h2 class="h2 widget-title widgettitle">' . esc_html__( 'Archives', 'Raindrops' ) . '</h2>';
 			$html .= '<ul>' . wp_get_archives( 'type=monthly&echo=0' ) . '</ul>';
 			$html .= '</li>';
 		} else {
@@ -7065,10 +7107,9 @@ if ( !function_exists( 'raindrops_nav_menu_primary' ) ) {
 						<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
 						<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
 						 </p>
-						<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '">
+						<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '" class="clearfix">
 						%2$s
-						</%3$s>
-						<br class="clear" />';
+						</%3$s>';
 
 			do_action( 'raindrops_nav_menu_primary' );
 			$html = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ) );
@@ -8300,8 +8341,16 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 			$form					 = '';
 			wp_nonce_field( 'raindrops_inner_custom_box', 'raindrops_inner_custom_box_nonce' );
 			$value					 = get_post_meta( $post->ID, '_css', true );
-			$value					 = str_replace( array( '{', '}', ), array( "{\n", "\n}\n", ), $value );
-			$value					 = str_replace( '![^(\"|\')];!', ";\n", $value );
+			//$value					 = str_replace( array( '{', '}', ), array( "{\n", "\n}\n", ), $value );
+			$value					 = str_replace( array( '{', '}', "\t"), array( "{\r\n\t", "}\r\n", '    '), $value );
+			$value					 = str_replace( '![^(\"|\')];!', ";\r\n", $value );
+			/**
+			 * 1/307
+			 * test
+			 */
+			$value = str_replace( ';',";\r\n    ", $value);
+			$value = str_replace( "    }","}", $value);
+			$value = preg_replace("!^\s!msi",'',$value);
 			$raindrops_restore_check = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
 			$current_value_header	 = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
 
@@ -8430,7 +8479,7 @@ if ( !function_exists( 'raindrops_add_complementary_color' ) ) {
 			$raindrops_css					 = sprintf( '.entry-title span{color:%1$s;}', $raindrops_complementary_color );
 			$raindrops_css					 = apply_filters( 'raindrops_add_complementary_color', $raindrops_css, $raindrops_link_color, $raindrops_complementary_color );			
 				
-			if (false == raindrops_has_indivisual_notation() ) {
+			if ( false == raindrops_has_indivisual_notation() && $raindrops_complementary_color !== $raindrops_link_color ) {
 				wp_add_inline_style( 'style', $raindrops_css );
 			}
 		}
@@ -8439,7 +8488,7 @@ if ( !function_exists( 'raindrops_add_complementary_color' ) ) {
 }
 
 function raindrops_has_indivisual_notation( $post_id = '' ){
-	global $post;
+	global $post, $raindrops_automatic_color;
 	
 	if( empty( $post_id ) && isset( $post->ID ) ) {
 		
@@ -9292,7 +9341,7 @@ if ( ! function_exists( 'raindrops_article_wrapper_class' ) ) {
 
 			if (isset( $post ) && preg_match( '!<[^>]*?(lang-ja|lang-not-ja)[^>]*?>!', $post->post_content ) ) {
 				$lang = 'rd-l-'. raindrops_get_accept_language( );
-				return apply_filters( 'raindrops_article_wrapper_class', $lang );
+				return apply_filters( 'raindrops_article_wrapper_class', $lang  );
 
 			}
 	}
@@ -9804,7 +9853,7 @@ if ( !function_exists( 'raindrops_customizer_add_article_title_css_class' ) ) {
  */
 	function raindrops_customizer_add_article_title_css_class( $class ) {
 		$customizer_config = raindrops_warehouse_clone( 'raindrops_article_title_css_class' );
-		$customizer_config = sanitize_html_class( $customizer_config );
+
 		if ( !empty( $customizer_config ) ) {
 			return $class . ' ' . trim( $customizer_config );
 		} else {
@@ -9922,6 +9971,60 @@ if ( !function_exists( 'raindrops_import_parent_theme_mods' ) ) {
 		return false;
 	}
 
+}
+if ( !function_exists( 'raindrops_press_this_add_class' ) ) {
+	
+	function raindrops_press_this_add_class( $return_value ) {
+
+		if( isset( $return_value["quote"] ) ) {
+
+			$return_value["quote"] = str_replace( array('<blockquote', ), array('<blockquote class="raindrops-press-this"' , ) , $return_value["quote"] );	
+
+			$return_value["quote"] = wpautop( $return_value["quote"] );
+		}
+
+		if( isset( $return_value["link"] ) ) {
+
+			$return_value["link"] = str_replace( '<p','<p class="raindrops-press-this"', $return_value["link"] );	
+		}
+		if( isset( $return_value["embed"] ) ) {
+
+			//$return_value["embed"] = "<div class=\"raindrops-press-this\">\n". $return_value["link"] ."\n</div>";	
+		}
+
+		return $return_value;
+	}
+}
+if ( !function_exists( 'raindrops_recent_comments_avatar' ) ) {
+	
+	function raindrops_recent_comments_avatar(  $return, $author, $comment_ID  ) {
+
+		global $raindrops_recent_comments_avatar;
+		
+		$core_avatar_setting = get_option( 'show_avatars' );
+
+		if ( false == $raindrops_recent_comments_avatar || empty( $core_avatar_setting )) {
+			return $return;
+		}
+		/**
+		 * apply only widget
+		 */
+		if ( in_the_loop() ) {
+			return $return;
+		}
+		$comment_object = get_comment( $comment_ID );
+
+		if( isset( $comment_object ) ) {
+
+			$email_address = $comment_object->comment_author_email;
+			$default_avatar = get_option( 'avatar_default' );
+			$avatar = get_avatar( $email_address, 32, $default_avatar, $author );
+
+			return $avatar. $return;
+		}
+
+		return $return;
+	}
 }
 /**
  *

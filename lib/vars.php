@@ -12,6 +12,28 @@ if ( !defined( 'ABSPATH' ) ) {
 do_action('raindrops_var_before');
 
 /**
+ * Add avatar at Recent Comments
+ * value true or false , default true  
+ */
+if( ! isset( $raindrops_recent_comments_avatar ) ) {
+	
+	$raindrops_recent_comments_avatar = true;
+}
+
+/**
+ * for highly customize
+ * @since 1.307
+ * value true or false , default false
+ */
+if( ! isset( $raindrops_automatic_color ) ) {
+	
+	$raindrops_automatic_color = false;
+}
+if( false !== raindrops_has_indivisual_notation() ) {
+	
+	$raindrops_automatic_color = true;
+}
+/**
  * @since 1.293
  * value 'yes' or 'no'
  */

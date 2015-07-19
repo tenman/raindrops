@@ -36,7 +36,7 @@ function raindrops_indv_css_dark() {
 
     $font_color_5 = raindrops_colors( -5, "color" );
 	
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important; border-bottom:1px rgba(255, 255, 255,.6) solid; margin-bottom:-1px!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;  margin-bottom:-1px!important;');
 	
     $style = <<<DOC
 .raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
@@ -187,11 +187,11 @@ ol.tblist li{
 #ft #wp-calendar{
     border:1px solid %c_border%!important;
 }
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+.footer-widget h2 span,.rsidebar h2 span,.lsidebar h2 span {
     %h2_dark_background%
     %h_position_rsidebar_h2%
-
 }
+
 .sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li,
 .datetable td li,
 .rsidebar ul li ul li,
@@ -237,7 +237,7 @@ hr{
 #calendar_wrap td,
 #date_list td,
 fieldset,
-.itiran,
+/*.itiran,*/
 #month_list,
 #month_list td,
 #raindrops_year_list td,
@@ -435,7 +435,7 @@ ul.archive,ul.index,
 #calendar_wrap td,
 #date_list td,
 fieldset,
-.itiran,
+/*.itiran,*/
 #month_list,
 #month_list td,
 #raindrops_year_list td,
@@ -497,7 +497,7 @@ td.month-date,td.month-name,td.time{
 
 
 
-
+.entry-content .more-link,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -539,6 +539,7 @@ input[type="submit"],
     background:none;
 	border:none;
 }
+
 .ie11 #access .sub-menu a,
 .ie11 #access .children a {
 color:%custom_color%;
@@ -587,7 +588,9 @@ color:%custom_color%;
     border-left:solid 6px %rgba_border%;
 }
 #header-image p{
-    text-shadow: 2px 2px 2px #000;
+    /* 1.306 commentout next version remove.
+		text-shadow: 2px 2px 2px #000;
+	*/
 }
 #access .menu > li{
     border-left:1px solid rgba( 222,222,222,.2);
@@ -614,6 +617,7 @@ a.raindrops-comment-link {
     border-bottom: 0.45em solid rgba(0,0,0,0);
     overflow: hidden; /* IE fix */
 }
+.widget_calendar #today,
 a.raindrops-comment-link:hover em {
     %c2%
 }
@@ -636,7 +640,7 @@ CSS3;
 raindrops_register_styles( "w3standard" );
 
 function raindrops_indv_css_w3standard() {
-		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important; border-bottom:1px solid #000; margin-bottom:-1px!important;');
+		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;  margin-bottom:-1px!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -661,7 +665,7 @@ function raindrops_indv_css_w3standard() {
 #access .children:hover{
     border-top:1px solid #696969;
 }
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+.footer-widget h2 span,.rsidebar h2 span,.lsidebar h2 span {
     %c5%
     %h2_w3standard_background%
     %h_position_rsidebar_h2%
@@ -707,9 +711,9 @@ html .mceContentBody,
      color:%raindrops_footer_link_color%;           
 }
 
-.footer-widget h2,
-.rsidebar h2,
-.lsidebar h2 {
+.footer-widget h2 span,
+.rsidebar h2 span,
+.lsidebar h2 span{
     %h_position_rsidebar_h2%
 }
 .rsidebar ul li ul li,
@@ -819,6 +823,7 @@ cite a:hover{
     %c4%
     border:solid 1px %c_border%;
 }
+
 .entry-content th{
     %c3%
     border:solid 1px %c_border%;
@@ -836,6 +841,7 @@ hr{
 #access ul ul a {
     %c4%
 }
+
 #access li:active > a,
 #access ul ul :active > a {
     top:0;
@@ -910,7 +916,7 @@ cite.fn{
     %c4%
     position: relative;
 }
-
+.widget_calendar #today,
 a.raindrops-comment-link:hover em {
     %c_1%
 }
@@ -938,7 +944,7 @@ raindrops_register_styles( "light" );
 function raindrops_indv_css_light() {
 
     $font_color5 = raindrops_colors( 5, "color" );
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important; border-bottom:1px solid #000; margin-bottom:-1px!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;  margin-bottom:-1px!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -969,7 +975,7 @@ function raindrops_indv_css_light() {
 h2 a{
     background:inherit;
 }
-.footer-widget h2,.rsidebar h2,.lsidebar h2 {
+.footer-widget h2 span,.rsidebar h2 span,.lsidebar h2 span{
     %h2_light_background%;
     %h_position_rsidebar_h2%
 }
@@ -1368,6 +1374,7 @@ hr{
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
 .sticky-widget #wp-calendar tbody td:hover,
+.entry-content .more-link,
 .raindrops-excerpt-more,
 .raindrops-toc-front li,
 #access{
@@ -1457,7 +1464,7 @@ border:1px solid %c_border%;
     border-bottom: 0.45em solid rgba(0,0,0,0);
     overflow: hidden; /* IE fix */
 }
-
+.widget_calendar #today,
 a.raindrops-comment-link:hover em {
     %c_1%
 }
@@ -1505,7 +1512,7 @@ raindrops_register_styles( "minimal" );
 function raindrops_indv_css_minimal() {
     global $raindrops_base_color;
     $font_color = raindrops_colors( 5, "color" );
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important; border-bottom:1px solid #000;	margin-bottom:-1px!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;	margin-bottom:-1px!important;');
     $style = <<<CSS
 .sticky-widget #wp-calendar tbody #today,
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
@@ -1567,6 +1574,7 @@ body{
 .nav-links .page-numbers:hover{
 	%c4%;
 }
+.widget_calendar #today,
 .nav-links .current{
     %c_2%;
 }
@@ -1656,7 +1664,9 @@ blockquote{
     padding:10px;
     %c4%
 }
-
+hr{
+    border-top:1px solid %rgba_border%;
+}
 CSS;
 
 
@@ -2020,6 +2030,7 @@ function raindrops_design_output( $name = 'dark' ) {
     }
 
     if ( $raindrops_show_theme_option == true ) {
+		
         if ( file_exists( get_template_directory() . '/images/' . $navigation_title_img ) || file_exists( get_stylesheet_directory() . '/images/' . $navigation_title_img ) ) {
             $image_exists = true;
         } else {
@@ -2027,6 +2038,7 @@ function raindrops_design_output( $name = 'dark' ) {
         }
 
         $h2_w3standard_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
+		
         if ( true == $image_exists ) {
             $h2_w3standard_background .= "url({$raindrops_images_path}{$navigation_title_img});";
         }else{
@@ -2036,17 +2048,23 @@ function raindrops_design_output( $name = 'dark' ) {
         $h2_w3standard_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
 
         $h2_dark_background = "background:" . raindrops_colors( -3, 'background' ) . ' ';
+		
         if ( true == $image_exists ) {
-            $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";
+			
+            $h2_dark_background .= "url({$raindrops_images_path}{$navigation_title_img});";		
         }else{
             $h2_dark_background .= ";";
         }
+		
         $h2_dark_background .= "color:" . raindrops_colors( -3, 'color' ) . ';';
 
         $h2_light_background = "background:" . raindrops_colors( 5, 'background' ) . ' ';
+		
         if ( true == $image_exists ) {
+			
             $h2_light_background .= "url({$raindrops_images_path}{$navigation_title_img});";
         }else{
+			
             $h2_light_background .= ";";
         }
         $h2_light_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
@@ -2204,16 +2222,6 @@ function raindrops_design_output( $name = 'dark' ) {
                 }
             }
         }
-     
-        if ( $navigation_title_img == 'none'){
-            
-            $content = str_replace( $raindrops_images_path. $navigation_title_img, '', $content );
-        }
-        if ($raindrops_footer_image == 'none'){
-            
-            $content = str_replace( $raindrops_images_path. $navigation_title_img, '', $content );
-        }
-	
     }
 	if( isset( $content ) ) {
 		
@@ -2222,7 +2230,6 @@ function raindrops_design_output( $name = 'dark' ) {
 		return false;
 	}
 }
-
 
 /**
  * register style name

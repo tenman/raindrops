@@ -24,7 +24,7 @@ global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $templa
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?>
 </div>
-<<?php raindrops_doctype_elements( 'div', 'footer' ); ?> id="ft" class="clear" <?php raindrops_doctype_elements( '', 'role="contentinfo"' ); ?>>
+<<?php raindrops_doctype_elements( 'div', 'footer' ); ?> id="ft" class="clear">
 <?php raindrops_prepend_footer(); ?>
 <!--footer-widget start-->
 <div class="widget-wrapper clearfix">

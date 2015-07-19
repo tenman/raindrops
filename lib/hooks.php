@@ -367,9 +367,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_default_category' );
 		add_filter( 'raindrops_entry_title_class', 'raindrops_customizer_add_article_title_css_class' );
 		add_filter( 'excerpt_length', 'raindrops_excerpt_length',99 );
-
-
-		
+		/**
+		 * @since 1.307
+		 */
+		add_filter( 'press_this_suggested_html', 'raindrops_press_this_add_class' );		
+		add_filter( 'get_comment_author_link', 'raindrops_recent_comments_avatar', 10,  3 );		
     }
 }
 ?>

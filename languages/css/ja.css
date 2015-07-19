@@ -31,6 +31,7 @@ body.ja,
 
 .ja #site-title{
 	font-size:197%;
+        margin:.5em 0;
 }
 .ja .entry-title{
 	font-size:146.5%;
@@ -122,4 +123,16 @@ body.ja,
     min-width:13%;
     margin:1%;
     box-sizing:border-box;
+}
+.ja .widget_recent_comments .recentcomments{
+   visibility:hidden;
+   margin-bottom:-1.65em;
+}
+.ja .widget_recent_comments .recentcomments a,
+.ja .widget_recent_comments .recentcomments span,
+.ja .widget_recent_comments .recentcomments img{
+     visibility:visible;
+}
+.ja .widget_recent_comments .comment-author-link{
+    border-bottom:1px dotted rgba(122,122,122,.5);
 }

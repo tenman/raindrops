@@ -35,8 +35,19 @@ function raindrops_header_image_filter_apply_top_validate( $input ) {
 	return 0;
 }
 function raindrops_header_image_filter_color_validate( $input ) {
-	
-	return sanitize_hex_color( $input );
+	/*
+	 * @since 1.306
+	 */
+	$input = str_replace( "#", "", $input );
+
+	if ( ctype_xdigit( $input ) ) {
+
+		return '#' . $input;
+	} else {
+		
+		return '';
+	}
+	//return sanitize_hex_color( $input );
 }
 function raindrops_parent_theme_mods_validate( $input ) {
 	if( $input == 'import'  ) {
@@ -107,7 +118,22 @@ function raindrops_display_article_publish_date_validate( $input ) {
 }
 function raindrops_article_title_css_class_validate( $input ) {
 	
-	$post_class = sanitize_html_class( $input );
+	$post_class = '';
+	
+	$classes = explode(' ', $input );
+	
+	if( 1 == count( $classes ) ) {
+
+		$post_class = sanitize_html_class( $input );
+		
+	}elseif(  1 < count( $classes ) ) {
+		
+		foreach( $classes as $class ) {
+			
+			$post_class .= ' '. sanitize_html_class( $class );
+		}
+		$post_class = trim( $post_class );
+	}
 	return $post_class;
 }
 function raindrops_status_bar_validate( $input ) {

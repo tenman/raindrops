@@ -123,6 +123,11 @@ raindrops_debug_navitation( __FILE__ );
         if ( true == WP_DEBUG ) {
             echo '<!-- #post-' . get_the_ID() . ' -->';
         }
+		?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
+		<?php
+		raindrops_prev_next_post( 'nav-below' );
+		
+		comments_template( '', true );
     }       //　endwhiles
     /**
      * Next Previous post link
@@ -137,7 +142,8 @@ raindrops_debug_navitation( __FILE__ );
 }           // if ( have_posts( ) )
 ?>
 
-						</<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
+						
+					
             </div>
                 <?php
                 /**

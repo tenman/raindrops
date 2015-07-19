@@ -1852,20 +1852,36 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			public $type = 'changelog';
 
 			public function render_content() {
-				$changelog_url = get_template_directory_uri(). '/changelog.txt';
-				$part_data = wp_remote_get(  $changelog_url );
-				$part_data = preg_match( '!Changelog(.+?)Files Modified!siu',$part_data['body'],$regs);
-				$part_data = esc_html( $regs[1] );
-				$part_data = wpautop( $part_data );
+				
+				$changelog_url	= esc_url( get_template_directory_uri(). '/changelog.txt' );
+				$part_data		= wp_remote_get(  $changelog_url );
+				
+					$html = '<div class="raindrops-changelog">
+								<span class="raindrops-customize-content customize-control-title">%1$s</span>
+								<span class="raindrops-description changelog">%4$s</span>
+								<div class="raindrops-recent-changes raindrops-box">
+								%2$s</div>
+								<p><a href="%3$s" target="_blank">%1$s</a></p>
+							</div>';
+					$html_error = '<div class="raindrops-changelog can-not-read-file">
+								<span class="raindrops-customize-content customize-control-title">%1$s</span>
+								<span class="raindrops-description changelog">%2$s</span>								
+							</div>';
+				
+				if( is_array( $part_data ) && isset( $part_data['body'] ) ) {
 
-				$html = '<div class="raindrops-changelog">
-							<span class="raindrops-customize-content customize-control-title">%1$s</span>
-							<span class="raindrops-description changelog">%4$s</span>
-							<div class="raindrops-recent-changes raindrops-box">
-							%2$s</div>
-							<p><a href="%3$s" target="_blank">%1$s</a></p>
-						</div>';
-				printf( $html, esc_html( $this->label ), $part_data, esc_url( $changelog_url ),esc_html( $this->description ) );
+					$part_data = preg_match( '!Changelog(.+?)Files Modified!siu',$part_data['body'],$regs);
+					$part_data = esc_html( $regs[1] );
+					
+					if( ! empty( $part_data ) ) {
+						$part_data = wpautop( $part_data );
+						printf( $html, esc_html( $this->label ), $part_data, esc_url( $changelog_url ),esc_html( $this->description ) );
+					}
+				} else {
+					
+					$part_data = esc_html__( 'Failed to read the changelog', 'Raindrops' );
+					printf( $html_error, esc_html( $this->label ), $part_data );
+				}
 			}
 		}
 	}
@@ -1999,6 +2015,12 @@ function raindrops_customizer_style() {
 .raindrops-recent-changes{
 	background:#efefef;
 	color:#333;
+}
+.raindrops-changelog{
+	word-break: break-all;
+}
+.can-not-read-file .changelog{
+	color: #f55;
 }
 
 CUSTOMIZER_CSS;

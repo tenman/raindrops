@@ -4,12 +4,13 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.306
+Version: 1.307
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: Raindrops
 */
+
 /**
  * Raindrops Base Style Rules
  *
@@ -49,6 +50,32 @@ body.rd-pw-doc3{
     max-width:100%;
     overflow-x: hidden;
 }
+body.rd-col-1 main{ /* author.php */
+    width:90%;
+    margin:0 5%;
+}
+.search-results .pagetitle,
+#comments-title,
+.error404 .entry-title,
+#archives-title,
+.page-title,
+body main h2{
+    text-align:center;
+    margin:1em 0;
+}
+body.rd-col-1 .raindrops-expand-width{
+    width:100%;
+    padding:0;
+}
+.rd-col-1 .nav-links{
+    text-align:center;
+}
+/* 1.307
+ * text-align:left;
+ */
+.hfeed{
+    text-align:left;
+}
 .hfeed a{
     text-decoration:none;
 }
@@ -76,21 +103,18 @@ a:visited{
 .ie11 #doc4 #header-image{
     width:auto;
 }
-#doc4 #header-image,
-#doc2 #header-image,
-#doc #header-image{
-    max-width:100%;
-}
+
 .page-template-page-templatespage-featured-php #container{
     width:100%;
 }
-
+/*
 .enable-keyboard .entry-title a:focus span,
 .enable-keyboard #site-title a:focus span,
 .raindrops-accessible-mode .entry-title a:focus span,
 .raindrops-accessible-mode #site-title a:focus span{
     visibility:visible!important;
 }
+*/
 .gecko td img.size-full{
     width:100%;
 }
@@ -101,8 +125,29 @@ h3,
 .h1,
 .h2,
 .h3{
+    /**
+     * @1.307
     clear:both;
     overflow:hidden;
+    margin:.5em 0;
+    */
+}
+.index article{
+     /**
+     * @1.307
+     */
+    margin-bottom:2em;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content .h1,
+.entry-content .h2,
+.entry-content .h3{
+    /**
+     * @1.307
+     */
     margin:.5em 0;
 }
 h4,
@@ -111,7 +156,7 @@ h6,
 .h4,
 .h5,
 .h6{
-    clear:both;
+   /* clear:both;*/
     margin:.5em 0;
 }
 /* Add 0.902  category blog at listed article issue image after headding is not float*/
@@ -146,24 +191,28 @@ h6 a,
     background:none;
 }
 div.error404{
-    margin:5% 10%;
+    display:block;
+    text-align:center;
 }
-.error404 h1,
-#page-title{
-    margin-left:2em;
+div.error404 .searchform{
+    display:inline-block;
+    font-size:123.6%;
+    padding:2em 0;
+    width:80%;
 }
 /* elemants */
 body{
     color:#000;
     background:#fff;
 }
-a:active,a:focus {
+a:active,
+a:focus {
     border:none;
     outline:none;
 }
 strong,
 b{
-    font-weight:bold;
+    font-weight:700;
     border-bottom:none;
     text-decoration:none;
 }
@@ -266,6 +315,8 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     top: 0;
     left: 0;
     width: 100%;
+    width: -webkit-calc(100% - 2px);
+    width: calc(100% - 2px);
     height: 100%;
     min-width:160px;
 }
@@ -291,12 +342,7 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .entry-content table caption{
     margin:0 0 .5em 0;
 }
-/*
-.entry-content  figure:not(.gallery-item),
-.entry-content  *:not(.gallery) figure{
-    clear:both;
-}
-*/
+
 .entry-content  figure.aligncenter img{
     margin:.5em auto;
 }
@@ -324,6 +370,11 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .entry-content .more-link-post-unique{
     display:none;
 }
+.more-link{
+    padding:7px;
+    margin:1em 0;
+    display:inline-block;
+}
 .comment-body blockquote blockquote blockquote{
     margin:0.2em;
 }
@@ -341,7 +392,6 @@ dd {
 }
 tr,
 table{
-    max-width:100%;
     margin:auto;
 }
 table {
@@ -387,6 +437,11 @@ table.bottom td,
 table td.bottom{
      vertical-align:bottom;
 }
+tr,
+table,
+#doc4 #header-image,
+#doc2 #header-image,
+#doc #header-image,
 fieldset,
 option,
 select,
@@ -444,6 +499,7 @@ ul.index,
 .oembed-container:empty:after{
     max-width:100%;
 }
+
 .rd-col-1 .index article{
     overflow:hidden;
 }
@@ -784,10 +840,6 @@ ul.archive ul li {
 #doc3{
     margin:0 2%;
 }
-#bigbanner {
-    clear:both;
-    overflow:hidden;
-}
 #categorywidget-4 {
     margin-left:0.38461538461em;
 }
@@ -879,16 +931,13 @@ footer a{
 #hd {
     overflow:hidden;
     padding:.5em 1em;
-    min-height:5em;
+    min-height:4em;
 }
 #hideAll {
     background-position:-0.38461538461em -125px;
     background-repeat:no-repeat;
     height:1.84615384615em;
     width:15.3846153846em;
-}
-#map_canvas {
-    overflow:hidden;
 }
 #nav-above,
 #nav-below {
@@ -912,6 +961,7 @@ footer a{
     max-width:48%;
     overflow:hidden;
 }
+/*
 #showAll {
     background-position:-0.38461538461em -8.07692307692em;
     background-repeat:no-repeat;
@@ -921,7 +971,7 @@ footer a{
 #showAll span,
 #hideAll span {
     margin-left:15px;
-}
+}*/
 .lsidebar,
 .rsidebar {
     overflow:hidden;
@@ -986,10 +1036,18 @@ footer a{
 .lsidebar h2,
 .widgettitle h2,
 h2.footer-content {
-    height:17px;
-    text-indent:.5em;
-    padding:2px 0 8px;
-    margin-bottom:0.76923076923em;
+    height:auto;
+    text-indent:0;
+    overflow:visible;
+}
+h2.footer-content,
+.widgettitle h2 span,
+.footer-widget h2 span,
+.rsidebar h2 span,
+.lsidebar h2 span{
+    padding:0 .5em;
+    display:block;
+    box-sizing:border-box;
 }
 .lsidebar h2 ul li ul{
     margin-top:-0.15384615384em;
@@ -1041,7 +1099,7 @@ h2.footer-content {
 }
 .entry-meta{
     line-height:1.6;
-    margin:1em 0;
+    margin:1em 0 0;
     text-align:center;
 }
 .fail-search,
@@ -1054,6 +1112,71 @@ h2.footer-content {
 .page-link {
     text-align:center;
     margin:1em;
+}
+
+.index .entry-content,
+.index .entry-meta,
+.index .entry-meta-gallery,
+.index .entry-meta-image,
+.index .entry-meta-audio,
+.index .entry-meta-video,
+.index .entry-meta-aside,
+.index .entry-meta-quote,
+.index .entry-meta-chat,
+.index .entry-meta-default,
+.index .posted-on{
+    padding:0 13px;
+}
+.single .entry-content,
+.single .entry-meta,
+.single .entry-meta-gallery,
+.single .entry-meta-image,
+.single .entry-meta-audio,
+.single .entry-meta-video,
+.single .entry-meta-aside,
+.single .entry-meta-quote,
+.single .entry-meta-chat,
+.single .entry-meta-default,
+.single .posted-on{
+    padding:0 13px;
+}
+.page .entry-content,
+.page .entry-meta,
+.page .entry-meta-gallery,
+.page .entry-meta-image,
+.page .entry-meta-audio,
+.page .entry-meta-video,
+.page .entry-meta-aside,
+.page .entry-meta-quote,
+.page .entry-meta-chat,
+.page .entry-meta-default,
+.page .posted-on{
+    padding:0 13px;
+}
+/**
+ * Title style of No featured image
+ **/
+.index .entry-title{
+
+}
+.page article .entry-title span,
+.single article .entry-title span,
+.index .entry-title-text{
+    display:inline-block;
+    padding:.5em 13px 0;
+}
+/**
+ * Title style of has featured image
+ */
+
+.rd-featured-yes-top .index .h2-thumb + .entry-title-text{
+    padding:0 1em 0 .4em;
+    display:block;
+    box-sizing: border-box;
+}
+
+.rd-featured-yes-left .index .wp-post-image{
+   top:10px;
 }
 ul.archive,
 ul.index {
@@ -1089,6 +1212,7 @@ ul.index li .edit {
 .page .hentry .entry-content {
     margin-top:2em;
 }
+/*
 .itiran {
     padding:0.76923076923em;
 }
@@ -1096,6 +1220,7 @@ ul.index li .edit {
     text-decoration:none;
     padding:0.76923076923em;
 }
+*/
 .pagenate {
     clear:both;
     text-align:center;
@@ -1139,7 +1264,6 @@ ul.index li .edit {
     margin-left:0;
 }
 .topsidebar ul li ul li a,
-#bigbanner ul li ul li a,
 .lsidebar ul li ul li a,
 .rsidebar ul li ul li a {
     height:100%;
@@ -1148,7 +1272,6 @@ ul.index li .edit {
     vertical-align:top;
 }
 .topsidebar ul li ul li,
-#bigbanner ul li ul li,
 .lsidebar ul li ul li,
 .rsidebar ul li ul li {
     list-style-position:outside;
@@ -1158,7 +1281,6 @@ ul.index li .edit {
     padding:.3em 0 0 .5em;
 }
 .topsidebar ul,
-#bigbanner ul,
 .lsidebar ul,
 .rsidebar ul,
 .topsidebar ul {
@@ -1287,7 +1409,6 @@ ol.commentlist >li{
 .wireframe .lsidebar ul li .widgettitle,
 .wireframe .rsidebar ul li .widgettitle,
 .wireframe .topsidebar ul li ul li,
-.wireframe #bigbanner ul li ul li,
 .wireframe .lsidebar ul li ul li,
 .wireframe .rsidebar ul li ul li,
 .wireframe #ft .widget-wrapper .widgettitle *,
@@ -1320,7 +1441,6 @@ div.entry h2 a,
 table#month-list a {
     text-decoration:none;
 }
-.hentry,
 .breadcrumb,
 .social {
     margin:0.23076923076em;
@@ -1342,12 +1462,12 @@ iframe{
 hr,
 div.attachment {
     border:none;
-    /*margin:1em;*/
+    margin:1em auto 1em;
 }
-#date_title,
-.page-title{
-    margin-left:0.76923076923em;
+p + hr{
+    margin:0 auto 1em;
 }
+
 .datetable h2,
 #date_title{
     margin-left:0;
@@ -1466,9 +1586,8 @@ br.clearfix {
 .sticky-widget.widget_recent-post-groupby-cat .xoxo img{
 
 }
-.widget_recent-post-groupby-cat .widgettitle{
-    padding:.3em;
-    text-indent:1em;
+.widget_recent-post-groupby-cat .widgettitle span{
+    padding:0 .5em;
     display:block;
 }
 .widget_recent-post-groupby-cat .xoxo ul li{
@@ -1731,18 +1850,21 @@ li.byuser,
     margin-bottom:1em;
 }
 /* add*/
+
+/* 1.307
 .single-post-thumbnail{
     margin-left:0.23076923076em;
     width:99%;
     overflow:hidden;
     text-align:center;
     margin-top:1em;
-}
+}*/
+
 .single-post-thumbnail img{
     height:auto;
 }
 .home .sticky {
-    padding:0.76923076923em 1.53846153846em 0 1.53846153846em;
+    padding: 1.53846153846em 1.53846153846em 0 1.53846153846em;
     background:url(images/sticky.png);
 }
 .rd-type-minimal .sticky .entry-title{
@@ -1885,7 +2007,14 @@ br.clear{
     height:100%;
 }
 .h2-thumb{
+    /* 1.307
     margin-right:0.3em;
+    */
+    margin:0;
+}
+body:not(.home) .h2-thumb + .entry-title-text{
+    /* 1.307 */
+    margin-left:.3em;
 }
 body.page .nocomments{
     display:none;
@@ -2076,17 +2205,7 @@ li.comment {
         margin: auto;
         width:80%;
 }
-/* for test
-.rd-type-dark #header-image p{
-        background: -webkit-gradient(linear, left top, right top, from( rgba(0,0,0,0) ), color-stop(50%, rgba(0,0,0,.8)),to(rgba(0,0,0,0)));
-}
-.rd-type-light #header-image p{
-        background: -webkit-gradient(linear, left top, right top, from( rgba(0,0,0,0) ), color-stop(50%, rgba(255,255,255,.8)),to(rgba(0,0,0,0)));
-        box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 0;
-        -webkit-box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 0;
-        -moz-box-shadow:rgba(113, 135, 164, 0.65) 0px 0px 6px 0;
-}
-*/
+
 .datetable{
     margin-bottom:1em;
 }
@@ -2197,7 +2316,6 @@ address .entry-rss:after{
 /* post format */
 .format-link .entry-content{
     display:table;
-    width:100%;
 }
 .entry-meta-link{
     text-align:right;
@@ -2533,6 +2651,13 @@ div.raindrops-tab-page h3{
     margin:14px;
     padding:21px;
 }
+.entry-title.pad-s:not(.sticky),
+.entry-title.pad-m:not(.sticky),
+.entry-title.pad-l:not(.sticky){
+    margin:0;
+    box-sizing:border-box;
+}
+
 /**** Speech Bubble Icons *****/
 .raindrops-comment-link {
     position: relative;
@@ -2611,28 +2736,18 @@ sup {
 #yui-main .raindrops-tag-posts .list li{
     list-style-type:none;
 }
-/*
- * @1.304 customizer add display control
- * This setting will be removed 1.305
-
-.single .raindrops-sticky .entry-content,
-.single .raindrops-sticky .entry-title{
-
-    display:none;
-}
-*/
-
 .sticky-single-follow-text #nav-below{
     display:block;
 }
 .page-template-page-templatesfront-portfolio-php .raindrops-sticky{
     display:block;
 }
-.sticky-single-follow-text{
-    margin-top:45px;
-    text-align:left;
+.sticky-single-follow-text.anytime{
+    margin:1em;
+    text-align:center;
     font-size:153.9%
 }
+
 .sticky.raindrops-sticky{
     display:block;
 }
@@ -2663,9 +2778,11 @@ sup {
 .yui-t1 .raindrops-expand-width{
     padding-right:10px;
 }
+/* @1.307
 .rd-col-1 article{
     margin:0 1.53846153846em;
-}
+}*/
+
 .raindrops-margin-left-none{
     margin-left:0!important;
 }
@@ -2682,16 +2799,16 @@ sup {
 }
 .first .raindrops-monthly-archive-prev-next-avigation{
     margin:0.76923076923em;
-    margin-bottom:50px;
     display:block;
 }
 .lsidebar .raindrops-monthly-archive-prev-next-avigation a,
 .rsidebar .raindrops-monthly-archive-prev-next-avigation a{
    width:6em;
+   text-align:center;
 }
 .lsidebar .raindrops-monthly-archive-prev-next-avigation .alignright,
 .rsidebar .raindrops-monthly-archive-prev-next-avigation .alignright{
-   text-align:right;
+   text-align:center;
 }
 .lsidebar .raindrops-monthly-archive-prev-next-avigation,
 .rsidebar .raindrops-monthly-archive-prev-next-avigation{
@@ -3349,9 +3466,6 @@ ol.list-of-post-list .entry-title{
     }
 }
 
-.rd-type-minimal #hd{
-    min-height:80px;
-}
 /* Raindrops Widget Category New */
 .lsidebar .xoxo li,
 .rsidebar .xoxo li{
@@ -3669,9 +3783,10 @@ html body.ja .lsidebar .lang-ja,
 html body.ja .rsidebar .lang-ja{
     display:block;
 }
+/*
 #doc3 #header-image{
     display:none;
-}
+}*/
 .oembed-container:empty{
     padding-bottom:8%;
     margin-bottom:6em;
@@ -3711,16 +3826,46 @@ html body.ja .rsidebar .lang-ja{
     top:10px;
     left:10px;
 }
-.comment .raindrops-comment-author-meta{
+
+.comment .raindrops-comment-avatar + .raindrops-comment-author-meta,
+.comment .raindrops-comment-avatar  + .raindrops-comment-author-meta + .comment-meta{
     position:absolute;
-    top:10px;
+    top:0.76923076923em;
     left:60px;
     font-size:123.8%;
 }
-.comment-author .comment-meta{
+.comment .raindrops-comment-avatar  + .raindrops-comment-author-meta + .comment-meta{
     position:absolute;
-    top:40px;
+    top:2.38461538462em;
     left:110px;
+    font-size:123.8%;
+}
+.raindrops-comment-author-meta .says{
+    display:none;
+}
+.widget_recent_comments .comment-author-link{
+    display:block;
+    padding:.4em 0;
+    vertical-align:top;
+    overflow:hidden;
+}
+
+.widget_recent_comments .comment-author-link img + a{
+    clear:both;
+}
+.widget_recent_comments .comment-author-link .avatar{
+    float:left;
+    margin-right:10px;
+    vartical-align:top;
+}
+.widget_recent_comments .recentcomments{
+   margin:5px;
+   padding-bottom:5px;
+   border:1px dotted rgba(122,122,122,.5);
+}
+
+ .raindrops-comment-avatar:empty{
+   border:1px solid red;
 }
 .entry-meta-list .edit-link{
     display:inline-block;
@@ -3734,301 +3879,6 @@ html body.ja .rsidebar .lang-ja{
 .pagination .nav-links .dots{
     border:none;
 }
-/*-------------------------------------------------------------------------
- * NEXT VERSION REMOVE
- * Old wp_nav_menu styles commentout 1.305
-#access a:active {
-    position:relative;
-    top:0.07692307692em;
-}
-.ie11.enable-keyboard #access .sub-menu a:focus,
-.ie11.enable-keyboard #access .children a:focus,
-.ie11.raindrops-accessible-mode #access .sub-menu a:focus,
-.ie11.raindrops-accessible-mode #access .children a:focus,
-.raindrops-accessible-mode .hfeed a:focus{
-    position:relative;
-    margin:-0.07692307692em;
-}
-.raindrops-accessible-mode .hfeed .has-post-thumbnail  a:focus{
-    position:static;
-    margin:0;
-}
-.raindrops-accessible-mode .hfeed .raindrops-mobile-menu a:focus,
-.enable-keyboard .hfeed .raindrops-mobile-menu a:focus{
-    position:absolute;
-}
-.raindrops-accessible-mode #access:target li:hover > ul > li > a,
-.enable-keyboard #access:target li:hover > ul > li > a{
-    border:none;
-}
-.raindrops-accessible-mode #hd + a,
-.enable-keyboard #hd + a{
-    margin:0;
-}
-.raindrops-accessible-mode .entry-content a:focus img,
-.enable-keyboard .entry-content a:focus img{
-    outline:thin dotted;
-}
-.enable-keyboard #access .menu-item-has-children .sub-menu:hover,
-.enable-keyboard #access .menu-item-has-children a:hover + ul,
-.raindrops-accessible-mode #access .menu-item-has-children .sub-menu:hover,
-.raindrops-accessible-mode #access .menu-item-has-children a:hover + ul{
-    z-index:1000;
-}
-#access {
-    display: block;
-    float: left;
-    width:99%;
-    margin-left:0.5%;
-    margin-top:0.38461538461em;
-}
-#access ul{
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-}
-div.menu ul,
-#access li{
-    margin:1px 0;
-    list-style-type:none;
-
-}
-#access ul ul li,
-#access ul ul,
-#access a{
-       min-width:10em;
-}
-#access a {
-    display: block;
-    line-height: 3em;
-    padding: 0 0.4em;
-    text-decoration: none;
-    border-left:1px solid rgba( 222,222,222,.2);
-    text-align:center;
-    position:relative;
-
-}
-#access .page_item_has_children > a:after,
-#access .menu-item-has-children > a:after{
-    content:'\bb';
-    transform: rotate( 90deg );
-    margin:1em;
-    right:0;
-    top:-1em;
-    position:absolute;
-}
-.ie8 #access .page_item_has_children > a:after,
-.ie8 #access .menu-item-has-children > a:after{
-    content :'x';
-    color:red;
-}
-#access .children .page_item_has_children > a:after,
-#access .sub-menu .page_item_has_children > a:after,
-#access .children .menu-item-has-children > a:after,
-#access .sub-menu .menu-item-has-children > a:after{
-    content:'\bb';
-    transform: none;
-    top:-.3em;
-}
-.ie9 #access .children .page_item_has_children > a:after,
-.ie9 #access .sub-menu .page_item_has_children > a:after,
-.ie9 #access .children .menu-item-has-children > a:after,
-.ie9 #access .sub-menu .menu-item-has-children > a:after{
-    content :'x';
-    color:red;
-}
-#access .menu-header li,
-div.menu li {
-    float: left;
-    position: relative;
-    padding:0;
-}
-#access .menu-header li a,
-div.menu li a{
-    margin:0;
-    width:100%;
-    display:block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-}
-body.raindrops-accessible-mode  #access ul ul,
-body.enable-keyboard #access ul ul{
-    display:block!important;
-}
-body #access ul ul{
-    display:none;
-}
-#access ul ul {
-    display: none;
-    position: absolute;
-
-    left: 0;
-    float: left;
-    z-index: 99;
-    text-align:center;
-    left:-9000px;
-}
-.ie8 #access ul ul{
-    display:block;
-}
-#access ul ul li {
-    margin:0;
-}
-.enable-keyboard #access li.focus > a + ul,
-.raindrops-accessible-mode #access li.focus > a + ul{
-    left:auto;
-    z-index:9999;
-    opacity:1;
-    text-indent:0;
-}
-.enable-keyboard #access li:not(.focus)  a + ul,
-.raindrops-accessible-mode #access li:not(.focus)  a + ul{
-    text-indent:-9999px;
-}
-.enable-keyboard #access li:not(.focus) li,
-.raindrops-accessible-mode #access li:not(.focus) li{
-    border:none!important;
-    background:none!important;
-}
-.enable-keyboard #access li:not(.focus) li a,
-.raindrops-accessible-mode #access li:not(.focus) li a{
-    opacity: 1;
-}
-.widget_categories .category-widget-select-box,
-.raindrops-accessible-mode  #access li:not(.focus) li,
-.enable-keyboard #access li:not(.focus) li{
-        clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
-        position:absolute;
-}
-
-.raindrops-accessible-mode  #access li:hover li,
-.enable-keyboard #access li:hover li{
-        clip:auto;
-        position:relative;
-}
-.raindrops-accessible-mode  #access  .menu.focus a + .sub-menu,
-.raindrops-accessible-mode #access  .menu.focus a + .children,
-.enable-keyboard #access  .menu.focus a + .sub-menu,
-.enable-keyboard #access  .menu.focus a + .children {
-    background:none;
-}
-
-.raindrops-accessible-mode #access  .sub-menu a:not(.focus),
-.raindrops-accessible-mode #access  .children a:not(.focus),
-.raindrops-accessible-mode #access li:not(.focus) li a a,
-.enable-keyboard #access  .sub-menu a:not(.focus),
-.enable-keyboard #access  .children a:not(.focus),
-.enable-keyboard #access li:not(.focus) li a a,
-.enable-keyboard #access li:not(.focus) li a li,
-.raindrops-accessible-mode #access li:not(.focus) li a li{
-    opacity:0;
-}
-.enable-keyboard #access  a:hover + .sub-menu a,
-.enable-keyboard #access  a:hover + .children a,
-.enable-keyboard #access  .sub-menu:hover a,
-.enable-keyboard #access  .children:hover a,
-.raindrops-accessible-mode  #access .menu.focus li:first-child a,
-.raindrops-accessible-mode  #access .sub-menu.focus a,
-.raindrops-accessible-mode  #access .children.focus a,
-.enable-keyboard #access  .menu.focus li:first-child a,
-.enable-keyboard #access  .sub-menu.focus a,
-.enable-keyboard #access  .children.focus a,
-.enable-keyboard #access .menu-item-has-children:hover  > ul > li > a,
-.raindrops-accessible-mode #access .menu-item-has-children:hover  > ul > li > a{
-    opacity: 1.0;
-}
-#access:target li a{
-    opacity: 1.0!important;
-    display:block;
-    text-indent:1em;
-}
-#access ul > li:hover > ul{
-    left:auto;
-    text-indent:0!important;
-}
-.enable-keyboard #access .children .children,
-.enable-keyboard #access .sub-menu .sub-menu,
-.enable-keyboard #access ul ul ul,
-.raindrops-accessible-mode #access .children .children,
-.raindrops-accessible-mode #access .sub-menu .sub-menu,
-.raindrops-accessible-mode #access ul ul ul {
-    left: 100%;
-    top: -0.07692307692em;
-    text-align:center;
-}
-#access .children .children,
-#access .sub-menu .sub-menu,
-#access ul ul ul {
-    left: 100%;
-    top: -0.07692307692em;
-    text-align:center;
-}
-#access ul ul ul.left {
-    left: -100%;
-    top: -0.07692307692em;
-    text-align:center;
-}
-#access ul ul a {
-    line-height: 1em;
-    padding:0.8em 0;
-    height: auto;
-}
-#access ul li:hover > ul {
-    display:block;
-}
-#access ul li.current_page_item > a,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a {
-    margin:0;
-    width:100%;
-    height:100%;
-}
-#access .menu-header,
-div.menu{
-    margin: 0 auto;
-}
-#access .menu-header,
-div.menu {
-    margin-left: 1%;
-    width: 99%;
-}
-#access .menu-header ul,
-div.menu ul {
-    list-style: none;
-    margin: 0;
-}
-div.menu li {
-    float: left;
-    position: relative;
-}
-#access .current_page_item{
-}
-.ie8 #access .menu-header li,
-.ie8 div.menu li {
-  display:block!important;
-    text-indent:0;
-    opacity:1!important;
-    clip:auto!important;
-    position:static!important;
-    text-align:left;
-    border:none!important;
-}
-.ie8 div.menu li:hover + ul > li,
-.ie8 div.menu li:hover + ul{
-    display:block!important;
-    opacity:1;
-    filter: alpha(opacity=100);
-    text-indent:0;
-}
-.ie8 #access .menu-header li a,
-.ie8 div.menu li a{
-   display:block;
-   height:auto!important;
-}
----------------------------------------------------------------------------*/
 
 #access {
     min-width: 320px;
@@ -4037,6 +3887,12 @@ div.menu li {
     width:99%;
     margin-left:0.5%;
     margin-top:3px;
+}
+.rd-type-minimal #access,
+.rd-type-w3standard #access{
+    width:100%;
+    margin-top:0;
+    margin-left:0;
 }
 #top #access .menu > li {
 
@@ -4169,7 +4025,25 @@ div.menu li {
     content :'x';
     color:red;
 }
-
+.ie8 #access:hover .children,
+.ie8 #access:hover .sub-menu{
+    width:100%;
+    overflow:visible!important;
+    z-index:999;
+}
+.ie8 .rsidebar .h2-thumb,
+.ie8 .lsidebar .h2-thumb{
+    display:none;
+}
+.ie8 .rsidebar .raindrops-pinup-entries img,
+.ie8 .lsidebar .raindrops-pinup-entries img{
+    width:100%;
+    height:auto;
+}
+.ie8 #access a{
+    /*float:left;
+    z-index:99999;*/
+}
 .ie9 #header-image,
 .ie8 #header-image{
     background-color:transparent;
@@ -4178,10 +4052,16 @@ div.menu li {
 .ie8 #header-image .tagline{
     display:none;
 }
+.ie8 #header-image{
+    text-align:center;
+}
 .ie9 #header-image #site-title,
 .ie8 #header-image #site-title{
     text-align:center;
-    margin:0 auto!important;
+    margin:3% auto!important;
+    width:100%;
 }
-
-
+.raindrops-press-this a{
+    display:inline-block;
+    margin-bottom:1em;
+}

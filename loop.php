@@ -35,7 +35,7 @@ if ( have_posts() ) {
         $raindrops_loop_number++;
         ?>
 		<div id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
-									<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>		
+			<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>		
         <?php
         $format = get_post_format();
         /**
@@ -79,7 +79,7 @@ if ( have_posts() ) {
 										<div class="entry-content clearfix">
 											
 										<?php raindrops_prepend_entry_content();?>
-	<?php raindrops_entry_content(); ?>
+										<?php raindrops_entry_content(); ?>
 											<br class="clear" />
 										<?php raindrops_append_entry_content(); ?>
 											
@@ -98,7 +98,7 @@ if ( have_posts() ) {
             <?php
             }
             ?>
-								<br class="clear" />
+
 									</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
 		</div>
 								</li>

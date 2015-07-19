@@ -26,6 +26,9 @@
     body{
         box-sizing:border-box!important;
     }
+    #hd {
+        min-height:3em;
+    }
     #access ul li > ul {
         display:block!important;
     }   
@@ -335,14 +338,15 @@
         font-weight:bold;
         font-size:131%;
     }
+    /* 1.307 */
     #doc5 .rsidebar,
-    #doc5 .lsidebar,
+    #doc5 .lsidebar/*,
     #doc5 div.post,
-    #doc5 article,
+    #doc5 article,*/
     #doc3 .rsidebar,
-    #doc3 .lsidebar,
+    #doc3 .lsidebar/*,
     #doc3 div.post,
-    #doc3 article{
+    #doc3 article*/{
         margin:0 8px!important;
         box-sizing: border-box;
     }
@@ -354,7 +358,6 @@
     .archive #doc5 .entry-meta a,
     .single #doc5 .entry-meta a,
     #doc5 .topsidebar ul li ul li a,
-    #doc5 #bigbanner ul li ul li a,
     #doc5 .lsidebar ul li ul li a,
     #doc5 .rsidebar ul li ul li a,
     #doc5 .lsidebar li.page_item a,
@@ -367,7 +370,6 @@
     .archive #doc3 .entry-meta a,
     .single #doc3 .entry-meta a,
     #doc3 .topsidebar ul li ul li a,
-    #doc3 #bigbanner ul li ul li a,
     #doc3 .lsidebar ul li ul li a,
     #doc3 .rsidebar ul li ul li a,
     #doc3 .lsidebar li.page_item a,
@@ -437,9 +439,6 @@
     #doc3 .lsidebar h2,
     #doc3 .widgettitle h2,
     #doc3 h2.footer-content{
-        background-repeat:no-repeat;
-        height:2em;
-        background:none;
     }
     #access ul ul{
         text-align:left;

@@ -105,7 +105,7 @@ h6,
 .h6{
     font-family:Geneva, Arial, Helvetica, sans-serif;
 }
-
+#archives-title,
 var,
 h1,
 h2,
@@ -189,7 +189,7 @@ h3,
 .f19 {
     font-size:146.5%;
 }
-#archives-title,
+
 .h2:not(h2),
 h2,
 .f20 {
@@ -236,9 +236,10 @@ h1,
 .ie8 #site-title{
     font-size:236.8%;
 }
-.pagetitle{
-    font-size:230.7%;
-}
+
+#archives-title,
+.archive .page-title,
+.pagetitle,
 .entry-title{
     font-size:230.7%;
 }
@@ -319,6 +320,9 @@ dt,
 .current_page_item > a,
 .current-menu-item > a{
     font-weight:bold;
+}
+#archives-title{
+    font-weight:normal;
 }
 .raindrops-comment-link em {
     font-style: normal;

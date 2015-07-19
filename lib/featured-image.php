@@ -230,7 +230,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 				$post_id = '#post-' . $id;
 				$custom_css .= "{$post_id} .h2-thumb{display:block; margin-bottom:1em;}
 							 {$post_id} .hentry{position:relative; min-height:{$height}px;}
-							 {$post_id} .wp-post-image{	position:absolute; left:0; width:{$featured_image_column_width};}
+							 {$post_id} .wp-post-image{	position:absolute; left:10px; width:{$featured_image_column_width};}
 							 {$post_id} .entry-meta-list, {$post_id}  #nav-below, {$post_id}  .entry-meta-default, 
 							 {$post_id} .entry-meta, {$post_id} .entry-title, {$post_id} .posted-on, {$post_id} .entry-meta-aside,
 							 {$post_id} .hentry .entry-content, {$post_id} .posted-in{

@@ -52,12 +52,7 @@ if ( false === $format ) {
             ?>
         </div>
 <?php
-if ( is_single() ) {
 
-    raindrops_prev_next_post( 'nav-below' );
-}
-
-comments_template( '', true );
 
 do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?>

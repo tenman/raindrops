@@ -112,7 +112,7 @@ raindrops_debug_navitation( __FILE__ );
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 <?php raindrops_prepend_loop(); ?>
 
-                <h2 class="page-title">
+                <h2 id="archives-title" class="page-title">
                     <?php
                     if ( is_year() ) {
                         $one_year = query_posts( "posts_per_page=-1&year=$ye" );

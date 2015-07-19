@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.307
+Overview of Changes
+
+	Bug Fixed
+
+
+Files Modified
+
+
+Description of Code Changes
+
+	please see https://github.com/tenman/raindrops/compare/1.303...1.307
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.306
 Overview of Changes
 

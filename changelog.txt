@@ -2,11 +2,54 @@ Changelog -----------------------------------
 version:1.307
 Overview of Changes
 
-	Bug Fixed
+	Modify
+		Remove role contentinfo from footer elemant
+		Add featured image class at body_class()
+		Add var $raindrops_automatic_color at vars.php
+			relate function , raindrops_embed_css()
+		Add var $raindrops_recent_comments_avatar at vars.php
+			relate function , raindrops_recent_comments_avatar()
+		Add function raindrops_press_this_add_class()
+			add CSS class for press this contents
+		Add function raindrops_recent_comments_avatar()
+			add avatar for recent comments widget.
+		header image responsive control
+			Change from javascript to CSS
+
+	Fixed
+		Raindrops_Customize_Changelog_Control extends WP_Customize_Control
+			Fatal error occur when changelog.txt not exists
+
+	Fixed
+		Fatal error sanitize_hex_color( $input ) in raindrops_header_image_filter_color_validate()
+		When using old theme option panel
+
+	Fixed
+		raindrops_article_title_css_class_validate()
+		When you write two or more classes, it does not work properly
 
 
 Files Modified
-
+	modified:   date.php
+	modified:   fonts.css
+	modified:   footer.php
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   loop.php
+	modified:   part.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   reset-fonts-grids.css
+	modified:   responsiveness.css
+	modified:   sidebar-default.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 

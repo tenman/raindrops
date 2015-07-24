@@ -42,7 +42,7 @@
         jQuery('#raindrops_status_bar').hide();
 
          jQuery(window).mousemove(function(e){
-              
+
                 var status_bar_window_height =  jQuery(window).innerHeight();
                 if ( status_bar_window_height - 100 < e.pageY - jQuery(this).scrollTop() ) {
                     jQuery('#raindrops_status_bar').show();
@@ -50,7 +50,7 @@
                     jQuery('#raindrops_status_bar').hide();
                 }
          });
-                 
+
     });
 
 })(jQuery);
@@ -96,5 +96,12 @@
         jQuery(".raindrops-tab-list").css({"margin": "auto"});
         jQuery(".raindrops-tab-list li").css({"float": "left", "list-style": "none"});
         jQuery(".raindrops-tab-list li a").css({"display": "block", "padding": "10px", "text-decoration": "none", "margin-right": "1px"});
+    });
+})(jQuery);
+
+(function() {
+    jQuery(function() {
+         jQuery("figure").each(function (i) { jQuery(this).attr('tabindex', 0); });
+        jQuery("figcaption").each(function (i) { jQuery(this).attr('tabindex', 0); });
     });
 })(jQuery);

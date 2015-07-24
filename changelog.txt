@@ -1,4 +1,43 @@
 Changelog -----------------------------------
+version:1.308
+Overview of Changes
+	Remove Attribute
+		rel="vcard:url"
+	Fixed	Customizer
+				Display control at Raindrops Status Bar
+	Fixed	Comment HTML display improperly at Page Width Full Width Responsive
+	Fixed   Addmin Panel comment widget avatar shows twice.
+	Fixed	Raindrops style not apply for Bundle Plug in Event Calendar
+	Fixed   Comment form show twice, navigation link show twice
+				part-gallery.php
+				part-blog.php
+	Fixed   Post format image display improperly.
+				When no title and set post format.
+	Modify
+		priority change 10 to 999 at raindrops_non_breaking_title filter function
+
+	Add Automatically apply google fonts at entry title CSS Class
+		Add raindrops_apply_google_font_import_rule_for_article_title()
+		Add raindrops_apply_google_font_styles_for_article_title()
+
+Files Modified
+	modified:   functions.php
+	modified:   header.php
+	modified:   languages/css/ja.css
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   part-blog.php
+	modified:   part-gallery.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   style.css
+Description of Code Changes
+
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.307&new_path=raindrops/1.308
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.307
 Overview of Changes
 

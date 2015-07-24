@@ -134,9 +134,11 @@ function raindrops_article_title_css_class_validate( $input ) {
 		}
 		$post_class = trim( $post_class );
 	}
+
 	return $post_class;
 }
 function raindrops_status_bar_validate( $input ) {
+
 	if( $input == 'show' || $input == 'hide'  ) {
 		return $input;
 	} else {

@@ -71,8 +71,8 @@ body.ja,
 .ja .lsidebar h2,
 .ja .widgettitle h2,
 .ja h2.footer-content {
-	height:17px;
-	text-indent:.5em;
+	/*height:17px;
+	text-indent:.5em;*/
 	font-size:108%;
 	padding:5px 0;
 }

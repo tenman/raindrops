@@ -699,9 +699,7 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		
 		$classes[] = get_locale();
 		
-		if ( ! isset( $raindrops_status_bar ) ) {
-			$raindrops_status_bar = raindrops_warehouse_clone( 'raindrops_status_bar' );
-		}
+		
 		
 		$keyboard_support = raindrops_enable_keyboard();
 				
@@ -836,6 +834,19 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		if ( true == $raindrops_link_unique_text ) {
 
 			$classes[] = 'raindrops-accessible-mode';
+		}
+		
+		if ( ! isset( $raindrops_status_bar ) ) {
+			
+			$raindrops_status_bar = raindrops_warehouse_clone( 'raindrops_status_bar' );
+			
+			if( 'show' == $raindrops_status_bar ){
+				
+				$raindrops_status_bar = true;
+			} else {
+				
+				$raindrops_status_bar = false;
+			}
 		}
 
 		if ( isset( $raindrops_status_bar ) && $raindrops_status_bar == true ) {
@@ -1069,7 +1080,7 @@ if ( !function_exists( 'raindrops_post_author' ) ) {
 
 		$author						= raindrops_blank_fallback( get_the_author(), 'Somebody' );
 		$author_attr_title_string	 = sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), wp_kses( $author, array() ) );
-		$author_html				 = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ';
+		$author_html				 = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ';
 		$author_html				 = sprintf(	$author_html, get_author_posts_url( get_the_author_meta( 'ID' ) ), $author_attr_title_string, $author );
 		$author_html				 = apply_filters( 'raindrops_post_author', $author_html );
 
@@ -2922,7 +2933,7 @@ if ( !function_exists( "raindrops_month_list" ) ) {
 						$html = '<li id="post-%5$s" %6$s>
 					<span class="%1$s"><a href="%2$s" rel="bookmark" title="%3$s"><span>%4$s</span></a></span>
 					<%7$s class="entry-date updated" %8$s>%9$s</%7$s>
-					<span class="author vcard"><a class="url fn nickname" href="%10$s" title="%11$s" rel="vcard:url">%12$s</a></span> 					</li>';
+					<span class="author vcard"><a class="url fn nickname" href="%10$s" title="%11$s">%12$s</a></span> 					</li>';
 
 						$display_name = get_the_author_meta( 'display_name', $month->post_author );
 						$links .= sprintf( $html, 'h2 entry-title', esc_url( get_permalink( $month->ID ) ), 'link to content: ' . esc_attr( strip_tags( $month->post_title ) ), $month->post_title, $month->ID, ' ' . raindrops_post_class( array( 'clearfix' ), $month->ID, false ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ), $month->post_date, get_author_posts_url( get_the_author_meta( 'ID' ) ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $display_name ), $display_name
@@ -4766,6 +4777,11 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			"\n#doc5 .static-front-content,
 			#doc5 .front-page-top-container,			
 			#hd,
+			.social,
+			.commentlist,
+			#nav-above-comments,
+			#nav-below-comments,
+			#doc5 #nav-below,
 			.no-header-image #header-inner,
 			#access .menu-header,
 			#access > .menu,
@@ -6032,7 +6048,7 @@ if ( !function_exists( 'raindrops_get_recent_posts' ) ) {
 			$classes = 'class="' . join( ' ', $classes ) . '"';
 
 			$result .= sprintf( $html, get_permalink( $val[ 'ID' ] ), $val[ 'post_title' ], $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $val[ 'ID' ], $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-			), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ', get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ), $author
+			), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ), $author
 			), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ). $oembed_flag, $thumbnail, $article_margin
 			);
 		}
@@ -6217,7 +6233,7 @@ if ( !function_exists( 'raindrops_get_category_posts' ) ) {
 
 				$classes = 'class="' . join( ' ', $classes ) . '"';
 				$result .= sprintf( $html, get_permalink( $post->ID ), get_the_title(), $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $post->ID, $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, get_the_date() ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ), get_the_author()
+				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ). $oembed_flag, $thumbnail, $article_margin
 				);
 
@@ -6402,7 +6418,7 @@ if ( !function_exists( 'raindrops_get_tag_posts' ) ) {
 
 				$classes = 'class="' . join( ' ', $classes ) . '"';
 				$result .= sprintf( $html, get_permalink( $post->ID ), get_the_title(), $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $post->ID, $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, get_the_date() ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ), get_the_author()
+				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 				);
 			}
@@ -7363,7 +7379,7 @@ if ( !function_exists( 'raindrops_remove_sticky_link_from_recent_post_widget' ) 
  */
 if ( isset( $raindrops_use_wbr_for_title ) && true == $raindrops_use_wbr_for_title ) {
 
-	add_filter( 'the_title', 'raindrops_non_breaking_title' );
+	add_filter( 'the_title', 'raindrops_non_breaking_title', 999 );
 }
 
 if ( !function_exists( 'raindrops_non_breaking_title' ) ) {
@@ -7955,6 +7971,7 @@ if ( !function_exists( 'raindrops_add_more' ) ) {
  *
  * @since 1.211
  */
+
 if ( !function_exists( 'raindrops_status_bar' ) ) {
 
 	function raindrops_status_bar() {
@@ -9529,10 +9546,12 @@ if ( !function_exists( 'raindrops_parse_webfonts' ) ) {
 																			 $font_for_style_italic.
 																			 $font_for_style_weight.
 																			'}' . "\n",'',$web_font_styles );
-						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', h1.google-font-' . sanitize_html_class( $reg[ 3 ] ) .' span{ font-family:"' . $font_for_style . '", sans-serif;'.
+						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .google-font-' . sanitize_html_class( $reg[ 3 ] ) .' span{ font-family:"' . $font_for_style . '", sans-serif;'.
 																			 $font_for_style_italic.
 																			 $font_for_style_weight.
 																			'}' . "\n";
+
+
 					}
 
 					$query_val = str_replace( '%2B', '+', urlencode( $font_name ) );
@@ -9619,6 +9638,26 @@ if ( ! function_exists('raindrops_get_classes_from_primary_menu') ) {
 		return false;
 	}
 }
+if ( ! function_exists( 'raindrops_apply_google_font_import_rule_for_article_title' ) ) {
+	/**
+	 *
+	 * @param type $css
+	 * @return type
+	 * @since 1.278
+	 */
+	function raindrops_apply_google_font_import_rule_for_article_title( $css ) {
+
+		$setting_value	= raindrops_warehouse_clone( 'raindrops_article_title_css_class' );
+		$fonts_get		= raindrops_parse_webfonts( $setting_value ) ;
+		$import_rule    = $fonts_get['import_rule'];
+
+		if ( ! empty( $import_rule ) ) {
+
+			return  wp_strip_all_tags( $import_rule. $css );
+		}
+		return $css;
+	}
+}
 if ( ! function_exists( 'raindrops_apply_google_font_import_rule_for_site_title' ) ) {
 	/**
 	 *
@@ -9658,6 +9697,25 @@ if ( ! function_exists( 'raindrops_apply_google_font_import_rule_for_primary_men
 		}
 		return $css;
 
+	}
+}
+if ( ! function_exists( 'raindrops_apply_google_font_styles_for_article_title' ) ) {
+	/**
+	 *
+	 * @param type $css
+	 * @return type
+	 * @since 1.278
+	 */
+	function raindrops_apply_google_font_styles_for_article_title( $css ) {
+		$setting_value	= raindrops_warehouse_clone( 'raindrops_article_title_css_class' );
+		$fonts_get		= raindrops_parse_webfonts( $setting_value ) ;
+		$style			= $fonts_get['apply_style'];
+
+		if ( ! empty( $style ) ) {
+
+			return  wp_strip_all_tags( $style. $css );
+		}
+		return $css;
 	}
 }
 if ( ! function_exists( 'raindrops_apply_google_font_styles_for_site_title' ) ) {
@@ -10003,7 +10061,7 @@ if ( !function_exists( 'raindrops_recent_comments_avatar' ) ) {
 		
 		$core_avatar_setting = get_option( 'show_avatars' );
 
-		if ( false == $raindrops_recent_comments_avatar || empty( $core_avatar_setting )) {
+		if ( false == $raindrops_recent_comments_avatar || empty( $core_avatar_setting ) || is_admin() ) {
 			return $return;
 		}
 		/**
@@ -10026,6 +10084,7 @@ if ( !function_exists( 'raindrops_recent_comments_avatar' ) ) {
 		return $return;
 	}
 }
+
 /**
  *
  *

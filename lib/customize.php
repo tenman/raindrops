@@ -901,7 +901,6 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-
 		"raindrops_status_bar"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_status_bar','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -998,12 +997,12 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Complementary Link Color For Entry Title', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) value yes or none', 'Raindrops' ),
+			'description'		 => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) ', 'Raindrops' ),
 			'sanitize_callback'	 => 'raindrops_complementary_color_for_title_link_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'yes'	 => 'Yes',
-				'no'	 => 'No' ),
+				'none'	 => 'No' ),
 			'priority'			=> 12,
 			'active_callback'   => 'raindrops_hyperlink_color_is_chromatic',
 			'section'			=> 'colors',
@@ -1508,7 +1507,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'label'				 => esc_html__( 'The Events Calendar Automatic Presentation', 'Raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Theme, will make a presentation of applying the plugin automatically. using The Events Calendar Plugin', 'Raindrops' ),
-			'sanitize_callback'	 => 'raindrops_plugin_presentation_the_events_calendarr_validate',
+			'sanitize_callback'	 => 'raindrops_plugin_presentation_the_events_calendar_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'yes'	 => esc_html__( 'Yes', 'Raindrops' ),

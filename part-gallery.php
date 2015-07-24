@@ -98,13 +98,5 @@ raindrops_entry_title();
                 raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ), '<span class="edit-link">', '</span>' );
                 ?>
         </div>
-    <?php
-    if ( is_single() ) {
 
-        raindrops_prev_next_post( 'nav-below' );
-    }
-    ?>
-<?php
-comments_template( '', true );
-do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
-?>
+<?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

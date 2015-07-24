@@ -98,10 +98,3 @@
         jQuery(".raindrops-tab-list li a").css({"display": "block", "padding": "10px", "text-decoration": "none", "margin-right": "1px"});
     });
 })(jQuery);
-
-(function() {
-    jQuery(function() {
-         jQuery("figure").each(function (i) { jQuery(this).attr('tabindex', 0); });
-        jQuery("figcaption").each(function (i) { jQuery(this).attr('tabindex', 0); });
-    });
-})(jQuery);

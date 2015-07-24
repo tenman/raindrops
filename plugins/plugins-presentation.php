@@ -226,14 +226,16 @@ if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
  * @global type $post
  */
 	function raindrops_bcn_nav_menu() {
-		global $post;
+		global $post, $template;
+		$template_name = basename( $template,'.php');
+
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
 
 			$html		 = '<ol class="breadcrumbs" itemprop="breadcrumbs">%1$s</ol>';
 			$breadcrumb	 = bcn_display_list( true );
 
-			if ( !is_home() && !is_front_page() && ( isset( $post ) && 0 !== $post->ID ) ) { // $post->ID for check the events calendar
+			if ( 'bbpress' !== $template_name && !is_home() && !is_front_page() && ( isset( $post ) && 0 !== $post->ID ) ) { // $post->ID for check the events calendar
 				$breadcrumb = bcn_display_list( true );
 				printf( $html, $breadcrumb );
 			}
@@ -241,6 +243,7 @@ if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
 	}
 
 }
+
 if ( !function_exists( 'raindrops_bcn_css' ) ) {
 /**
  *
@@ -596,11 +599,11 @@ if ( !function_exists( 'raindrops_the_event_calendar_setup' ) ) {
  *
  */
 	function raindrops_the_event_calendar_setup() {
-		add_filter( 'tribe_events_event_classes', 'raindrops_tribe_events_event_classes', 999 );
-		add_action( 'wp_enqueue_scripts', 'raindrops_the_event_calendar_css' );
+		add_filter( 'tribe_events_event_classes', 'raindrops_tribe_events_event_classes',999 );
+		add_action( 'wp_enqueue_scripts', 'raindrops_the_event_calendar_css' );	
 	}
-
 }
+
 if ( !function_exists( 'raindrops_tribe_events_event_classes' ) ) {
 /**
  *
@@ -642,9 +645,11 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
  *
  *
  */
-	function raindrops_the_event_calendar_css() {
+	function raindrops_the_event_calendar_css( ) {
+
 		if ( 'yes' == get_theme_mod( 'raindrops_the_events_calendar_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_the_events_calendar' ) ) {
+
 			$color_type	 = raindrops_warehouse( 'raindrops_style_type' );
 			$border_rgba = '52,52,52,1';
 			switch ( $color_type ) {
@@ -669,12 +674,12 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 				$custom_color		 = '#000';
 				$custom_background	 = '#fff';
 			}
-			$raindrops_pagenav_css = '@media screen and (max-width : 920px){
+			$raindrops_event_calendar_css = '@media screen and (max-width : 920px){
 					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '}
 				}
 .tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
-			.tribe-events-list-widget li{padding:0 10px 20px}
-			.tribe-events-list-widget li{}
+			.tribe-events-list-widget li{padding:0 10px 20px;}
+			.tribe-events-list-widget ol li{margin:10px 0;}
 			.events-archive .entry-title,.icon-link-no-title,
 			.events-single .entry-title{display:none;}
 			.events-archive.events-gridview #tribe-events-content table .vevent .entry-title{display:block;margin:0;text-align:left;background:transparent;}
@@ -709,6 +714,8 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-photo #tribe-events-footer{border-top:1px solid rgba(' . $border_rgba . ');}
 			#tribe-events .tribe-events-notices li{background:#d9edf7; color:#000;}
 			#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover{background:#fff;color:#000;}
+			.tribe-events-list-widget .tribe-events-widget-link a{margin:1em;
+			background:' . $custom_background . '; text-align:center; padding:1em;display:inline-block;box-sizing:border-box;border:1px solid rgba(' . $border_rgba . ');}
 			.tribe-events-list-widget .tribe-events-widget-link a,
 			.tribe-events-list-widget .tribe-events-list-widget-events .entry-title{font-size:108%;}
 			.tribe-events-list-widget ol li{margin-bottom:10px;}
@@ -716,11 +723,12 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 
 			if ( WP_DEBUG !== true ) {
 
-				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
+				$raindrops_event_calendar_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
 													  array( "", "", "", '"', '', '"' ),
-													  $raindrops_pagenav_css );
+													  $raindrops_event_calendar_css );
 			}
-			wp_add_inline_style( 'tribe-events-calendar-style', $raindrops_pagenav_css );
+			
+			wp_add_inline_style( 'tribe-events-calendar-style', $raindrops_event_calendar_css );
 		}
 	}
 

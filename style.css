@@ -103,6 +103,11 @@ a:visited{
 .ie11 #doc4 #header-image{
     width:auto;
 }
+#doc-3 #header-image,
+#doc-5 #header-image{
+    background-size:cover;
+}
+
 
 .page-template-page-templatespage-featured-php #container{
     width:100%;
@@ -917,7 +922,8 @@ ul.archive ul li {
     line-height:2;
 }
 .wireframe .footer-widget{
-    border:0.07692307692em solid #ccc;
+    border:0.07692307692em solid rgba(222,222,222,.5);
+    width:32%!important;
 }
 .footer-widget h2{
     width:100%;
@@ -1851,15 +1857,9 @@ li.byuser,
 }
 /* add*/
 
-/* 1.307
 .single-post-thumbnail{
-    margin-left:0.23076923076em;
-    width:99%;
-    overflow:hidden;
     text-align:center;
-    margin-top:1em;
-}*/
-
+}
 .single-post-thumbnail img{
     height:auto;
 }
@@ -2316,6 +2316,7 @@ address .entry-rss:after{
 /* post format */
 .format-link .entry-content{
     display:table;
+    margin:1.6em auto;
 }
 .entry-meta-link{
     text-align:right;
@@ -2413,8 +2414,16 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .icon-link-no-title{
     background: url("images/link.png");
     background-size:24px 24px;
+    vertical-align:middle;
+    background-repeat:no-repeat;
 }
-
+.single .current_item .icon-link-no-title,
+.single article .icon-link-no-title,
+.single article .entry-title .icon-link-no-title,
+.page .icon-link-no-title,
+.page .page .icon-link-no-title{
+    display:none;
+}
 .icon-post-format-aside{
     background: url("images/post-format-aside.png");
     background-size:24px 24px;
@@ -2468,6 +2477,19 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
     background-size:24px 24px;
     width:24px;
     height:24px;
+}
+.icon-post-format-image,
+.icon-post-format-link,
+.icon-post-format-quote,
+.icon-post-format-status,
+.icon-post-format-video,
+.icon-post-format-aside,
+.icon-post-format-audio,
+.icon-post-format-chat,
+.icon-post-format-gallery{
+    background-repeat:no-repeat;
+    display:inline-block;
+    padding:0 0 0 10px;
 }
 .nav-previous .meta-nav,
 .nav-next .meta-nav{
@@ -4065,3 +4087,4 @@ html body.ja .rsidebar .lang-ja{
     display:inline-block;
     margin-bottom:1em;
 }
+

@@ -83,7 +83,7 @@ if ( is_single() ) {
             esc_html_e( 'Author:', 'Raindrops' );
 
             printf(
-                    '<span class="author vcard"><a class="url fn n" href="%1$s"   rel="vcard:url">%2$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_html( get_the_author() )
+                    '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_html( get_the_author() )
             );
             ?>
         </li>
@@ -131,12 +131,7 @@ if ( is_single() ) {
 
     </div>
     <div class="clearfix"></div>
-                <?php
-                if ( is_single() ) {
-
-                    raindrops_prev_next_post( 'nav-below' );
-                }
-                comments_template( '', true );
+            <?php              
             } else {
 
                 /**
@@ -159,7 +154,7 @@ if ( is_single() ) {
     $raindrops_avatar = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 48 ), '', get_the_author_meta( 'display_name' )
     );
     printf(
-            '<span class="author vcard"><a class="url" href="%1$s"   rel="vcard:url">%2$s<span class="fn n">%3$s</span></a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), $raindrops_avatar, get_the_author_meta( 'display_name' ) );
+            '<span class="author vcard"><a class="url" href="%1$s">%2$s<span class="fn n">%3$s</span></a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), $raindrops_avatar, get_the_author_meta( 'display_name' ) );
     ?>
 
             </li>

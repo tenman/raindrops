@@ -286,7 +286,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			. '<a href="%1$s" class="post-group_by-category-entry-title %8$s">%3$s</a>'
 			. '<%4$s class="entry-date updated post-group-by-category-time" %5$s>%2$s</%4$s>'
 			. '<span class="author vcard">'
-			. ' <a class="url fn n post-group_by-category-author" href="%6$s" rel="vcard:url">%7$s</a>'
+			. ' <a class="url fn n post-group_by-category-author" href="%6$s">%7$s</a>'
 			. '</span></li>';
 			$loop_end_html	 = '</ul></li>';
 

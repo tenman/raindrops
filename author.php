@@ -72,7 +72,7 @@ raindrops_debug_navitation( __FILE__ );
                                     </dt>
                                     <dd>
                                         <?php
-                                        $raindrops_html_author_url = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s" rel="vcard:url">%3$s</a></span>';
+                                        $raindrops_html_author_url = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span>';
 
                                         printf( $raindrops_html_author_url, esc_url( $curauth->user_url ), sprintf( 'link to author %1$s', esc_attr( $curauth->display_name ) ), esc_url( $curauth->user_url )
                                         );

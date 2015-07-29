@@ -1174,7 +1174,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				"hide"		 => esc_html__( "Hide", 'Raindrops' ),
 				"lightbox"	 => esc_html__( "Light Box", 'Raindrops' ),
 			),
-			'active_callback'	 => 'raindrops_use_featured_image_emphasis_callback',
+			'active_callback'	 => '',
 			'section'			 => 'raindrops_theme_settings_featured',
 		),
 		//////////////////////////////////////////

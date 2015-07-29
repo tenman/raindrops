@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.309
+Overview of Changes
+
+
+Files Modified
+
+Description of Code Changes
+
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.308&new_path=raindrops/1.309
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.308
 Overview of Changes
 	Remove Attribute

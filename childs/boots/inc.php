@@ -41,19 +41,35 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 		$raindrops_page_width		 = raindrops_warehouse_clone( 'raindrops_page_width' );
 		$raindrops_base_color		 = raindrops_warehouse_clone( 'raindrops_base_color' );
 		$raindrops_hyperlink_color	 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-		$raindrops_style_type		 = raindrops_warehouse_clone( 'raindrops_style_type' );
-		$raindrops_indv_css			 = raindrops_design_output( $raindrops_style_type ) . raindrops_color_base();
+		
+		/* Single post , page check Raindrops notation */
+		
+		$color_check = raindrops_has_indivisual_notation();
 
+		if ( false == $color_check ) {
+			$raindrops_style_type		 = raindrops_warehouse_clone( 'raindrops_style_type' );	
+		} else {
+			if( isset( $color_check['color_type'] ) ) {
+				$raindrops_style_type = $color_check['color_type'];
+			}
+			//$columns = $color_check['col'];
+		}
+
+		$raindrops_indv_css	= raindrops_design_output( $raindrops_style_type ) . raindrops_color_base();
+		
+		
 		//when this code exists [raindrops color_type="minimal" col="1"] in the post
 
 		$raindrops_indv_css = raindrops_color_type_custom( $raindrops_indv_css );
 
 		$css .= apply_filters( "raindrops_indv_css", $raindrops_indv_css );
 
-        if ( $raindrops_hyperlink_color !== '' ) {
+        if ( $raindrops_hyperlink_color !== '' && false == raindrops_has_indivisual_notation() ) {
 
             $css .= raindrops_custom_link_color( $raindrops_hyperlink_color );
         }
+		
+		
         $background = get_background_image();
         $color      = get_background_color();
 
@@ -68,31 +84,34 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
             $css .= 'body{font-size:' . $raindrops_base_font_size . 'px;}';
         }
-       $css .= raindrops_embed_css();
+		
+		$css .= raindrops_embed_css();
+		 
         $css = str_replace( "raindrops_color_ja", '', $css );
 
 
-        $raindrops_text_color = get_theme_mod( 'header_textcolor', 'ffffff' );
-        $header_image         = get_header_image();
-
+        $raindrops_text_color						 = get_theme_mod( 'header_textcolor', 'ffffff' );
+		$header_image								 = get_header_image();
 		$raindrops_header_imge_filter_color			 = raindrops_warehouse_clone( 'raindrops_header_image_filter_color' );
 		$raindrops_header_image_color_rgb_array		 = raindrops_hex2rgb_array_clone( $raindrops_header_imge_filter_color );
 		$raindrops_header_image_filter_apply_top	 = raindrops_warehouse_clone( 'raindrops_header_image_filter_apply_top' );
 		$raindrops_header_image_filter_apply_bottom	 = raindrops_warehouse_clone( 'raindrops_header_image_filter_apply_bottom' );
-		$raindrops_enable_header_image_filter	 = raindrops_warehouse_clone( 'raindrops_enable_header_image_filter' );
-			
+		$raindrops_enable_header_image_filter		 = raindrops_warehouse_clone( 'raindrops_enable_header_image_filter' );
+
 		$old_ie = '';
+		
 			$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
 			preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs );
 			if ( isset( $regs[ 2 ] ) ) {
 				$old_ie = 'ie' . $regs[ 2 ];
-			}	
+			}
+			
 		$background_property = '';	
-		if ( false !== $raindrops_header_image_color_rgb_array &&
-			'enable' == $raindrops_enable_header_image_filter &&
-			$old_ie !== 'ie8' &&
-			$old_ie !== 'ie9' 
-		) { // client side yet 1.298
+			if ( false !== $raindrops_header_image_color_rgb_array &&
+				'enable' == $raindrops_enable_header_image_filter &&
+				$old_ie !== 'ie8' &&
+				$old_ie !== 'ie9' 
+			) { // client side yet 1.298
 
 			$style_rule_template = ' background:  
 				linear-gradient(
@@ -128,27 +147,30 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
         $raindrops_options         = get_option( 'raindrops_theme_settings' );
         $raindrops_hyperlink_color = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
 
-        if ( $raindrops_hyperlink_color !== '' ) {
+        if ( $raindrops_hyperlink_color !== '' && false == raindrops_has_indivisual_notation() ) {
             $css .= ".yui-main a{color:" . $raindrops_hyperlink_color . ";}";
         }
 
         $raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 
-        if ( $raindrops_fonts_color !== '' ) {
+        if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation() ) {
             $css .= "article {color:" . $raindrops_fonts_color . ";}";
         }
 
         $raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
 
-        if ( $raindrops_fonts_color !== '' ) {
+        if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation()) {
             $css .= "#ft {color:" . $raindrops_fonts_color . "!important;}";
         }
 
+
         $raindrops_footer_link_color = raindrops_warehouse_clone( 'raindrops_footer_link_color' );
 
-        if ( !empty( $raindrops_footer_link_color ) ) {
+        if ( !empty( $raindrops_footer_link_color ) && false == raindrops_has_indivisual_notation() ) {
             $css .= "#ft a{color:" . $raindrops_footer_link_color . ";}";
         }
+		
+		
 
         $background = get_background_image();
         $color      = get_background_color();
@@ -902,7 +924,7 @@ array( 'option_id'    => 44,
 array( 'option_id'    => 45,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_site_title_top_margin",
-	'option_value' => 22,
+	'option_value' => 5,
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Top Margin of Site Title', 'Raindrops' ),
 	'excerpt1'     => '',

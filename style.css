@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.308
+Version: 1.309
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2489,7 +2489,23 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .icon-post-format-gallery{
     background-repeat:no-repeat;
     display:inline-block;
-    padding:0 0 0 10px;
+    box-sizing:border-box;
+    margin-left:10px;
+}
+.widget .icon-post-format-image,
+.widget .icon-post-format-link,
+.widget .icon-post-format-quote,
+.widget .icon-post-format-status,
+.widget .icon-post-format-video,
+.widget .icon-post-format-aside,
+.widget .icon-post-format-audio,
+.widget .icon-post-format-chat,
+.widget .icon-post-format-gallery{
+    margin-left:0;
+}
+.breadcrumbs .icon-post-format-image{
+    vertical-align:middle;
+
 }
 .nav-previous .meta-nav,
 .nav-next .meta-nav{
@@ -4022,9 +4038,8 @@ html body.ja .rsidebar .lang-ja{
 #access .menu-item-has-children > a:after{
     content:'\bb';
     transform: rotate( 90deg );
-    margin:1em;
-    right:0;
-    top:-1em;
+    right:.5em;
+    top:0;
     position:absolute;
 }
 #access .children .page_item_has_children > a:after,
@@ -4033,7 +4048,7 @@ html body.ja .rsidebar .lang-ja{
 #access .sub-menu .menu-item-has-children > a:after{
     content:'\bb';
     transform: none;
-    top:-.3em;
+    top:.5em;
 }
 .ie8 #access .page_item_has_children > a:after,
 .ie8 #access .menu-item-has-children > a:after{
@@ -4087,4 +4102,6 @@ html body.ja .rsidebar .lang-ja{
     display:inline-block;
     margin-bottom:1em;
 }
-
+.raindrops-auto-fit-width .portfolio-nav li{
+    width:50%;
+}

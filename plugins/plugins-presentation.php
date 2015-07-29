@@ -613,9 +613,7 @@ if ( !function_exists( 'raindrops_tribe_events_event_classes' ) ) {
 	function raindrops_tribe_events_event_classes( $return_value ) {
 		if ( 'yes' == get_theme_mod( 'raindrops_the_events_calendar_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_the_events_calendar' ) ) {
-			/* 	$return_value[] = 'gradient-1';
-			  $return_value[] = 'corner';
-			  $return_value[] = 'block'; */
+
 		}
 		return $return_value;
 	}

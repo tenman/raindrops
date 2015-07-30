@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.309
+Version: 1.308
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2743,30 +2743,30 @@ sup {
 .widget_text .yui-gb div.yui-u{
     width:31%;
 }
-.raindrops-recent-posts
-.raindrops-category-posts
-.raindrops-tag-posts{
+.page-template-blank_front .raindrops-recent-posts
+.page-template-blank_front .raindrops-category-posts
+.page-template-blank_front .raindrops-tag-posts{
     clear:both;
 }
-.raindrops-recent-posts .entry-title,
-.raindrops-category-posts .title,
-.raindrops-category-posts,
-.raindrops-tag-posts .title{
+.page-template-blank_front .raindrops-recent-posts .entry-title,
+.page-template-blank_front .raindrops-category-posts .title,
+.page-template-blank_front .raindrops-category-posts,
+.page-template-blank_front .raindrops-tag-posts .title{
     text-overflow: ellipsis;
 }
 
-.raindrops-tag-posts ul,
-.raindrops-category-posts ul{
+.page-template-blank_front .raindrops-tag-posts ul,
+.page-template-blank_front .raindrops-category-posts ul{
     overflow:hidden;
 }
-.raindrops-recent-posts li,
-.raindrops-tag-posts li,
-.raindrops-category-posts li{
+.page-template-blank_front .raindrops-recent-posts li,
+.page-template-blank_front .raindrops-tag-posts li,
+.page-template-blank_front .raindrops-category-posts li{
     list-style:none;
 }
-.raindrops-recent-posts .list,
-.raindrops-category-posts .list,
-.raindrops-tag-posts .list{
+.page-template-blank_front .raindrops-recent-posts .list,
+.page-template-blank_front .raindrops-category-posts .list,
+.page-template-blank_front .raindrops-tag-posts .list{
     margin:0;
 }
 #yui-main .raindrops-recent-posts .list li,
@@ -3074,10 +3074,10 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     background-position:center!important;
     border:0.07692307692em solid rgba( 104, 104, 104, 0.5 );
 }
-.column-4 ul.index > li{ /* 4columns */
+#portfolio.column-4 ul.index > li{ /* 4columns */
     width:25%;
 }
-.column-2 ul.index > li{
+#portfolio.column-2 ul.index > li{
     width:50%;
     height:260px;
 }
@@ -3184,10 +3184,11 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
     margin:0 -2px;
     padding:18px 0;
     display:inline-block;
-    width:30%;
+    width:50%;
     height:50px;
     text-align:center;
 }
+
 .portfolio-prev:after{
     content: url( images/next.png );
     vertical-align:middle;
@@ -3839,8 +3840,10 @@ html body.ja .rsidebar .lang-ja{
     background: url("images/sticky.png");
     visibility:visible;
 }
-.raindrops-excerpt-more{
-    display:inline-block;
+div.raindrops-excerpt-more{
+    margin:3em 0 0;
+    display:block;
+    width:9em;
 }
 #top ol.breadcrumbs{
     padding:1em 0 0;
@@ -4104,4 +4107,35 @@ html body.ja .rsidebar .lang-ja{
 }
 .raindrops-auto-fit-width .portfolio-nav li{
     width:50%;
+}
+
+.raindrops-tag-posts li,
+.raindrops-category-posts li,
+.raindrops-recent-posts li{
+    height:125px;
+    margin: 0 0 1em 2em;
+    list-style:none;
+}
+span.raindrops_tag_posts,
+span.raindrops_category_posts,
+span.raindrops_recent_posts{
+    position:absolute;
+}
+body:not(.page-template-blank_front) .raindrops-tag-posts .title,
+body:not(.page-template-blank_front) .raindrops-category-posts .title,
+body:not(.page-template-blank_front) #raindrops-recent-posts .title{
+    display:block;
+    margin:2em;
+    text-align:center;
+    font-size:230.7%;
+}
+body:not(.page-template-blank_front) .raindrops-tag-posts .entry-title,
+body:not(.page-template-blank_front) .raindrops-category-posts .entry-title,
+body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
+    font-size:153.9%;
+}
+.raindrops-tag-posts article,
+.raindrops-category-posts article,
+.raindrops-recent-posts article{
+    margin-left:135px;   
 }

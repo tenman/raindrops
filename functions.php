@@ -1,4 +1,5 @@
 <?php
+
 /**
  * functions and constants for Raindrops theme
  *
@@ -4807,6 +4808,8 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			#doc5 .front-page-top-container,			
 			#hd,
 			.social,
+			#portfolio,
+			#raindrops-recent-posts,
 			.commentlist,
 			#nav-above-comments,
 			#nav-below-comments,
@@ -5826,7 +5829,7 @@ if ( !function_exists( 'raindrops_recent_posts' ) ) {
 
 		if ( false === ( $val = get_transient( __FUNCTION__ ) ) || get_transient( 'raindrops_bf_recent_posts_setting')  !==  md5(serialize( $raindrops_bf_recent_posts_setting ) ) ) {
 
-			$result = raindrops_get_recent_posts( $args = array() );
+			$result = raindrops_get_recent_posts( $args );
 
 			if( $raindrops_use_transient == true ) {
 
@@ -5856,7 +5859,7 @@ if ( !function_exists( 'raindrops_category_posts' ) ) {
 
 		if ( false === ( $val = get_transient( __FUNCTION__ ) ) || get_transient( 'raindrops_bf_category_posts_setting')  !==  md5(serialize( $raindrops_bf_category_posts_setting ) )) {
 
-			$result = raindrops_get_category_posts( $args = array() );
+			$result = raindrops_get_category_posts( $args );
 
 			if( $raindrops_use_transient == true ) {
 				set_transient( 'raindrops_bf_category_posts_setting', md5(serialize( $raindrops_bf_category_posts_setting )));
@@ -5887,7 +5890,7 @@ if ( !function_exists( 'raindrops_tag_posts' ) ) {
 		global $raindrops_bf_tag_posts_setting, $raindrops_use_transient;
 		if ( false === ( $val = get_transient( __FUNCTION__ ) ) || get_transient( 'raindrops_bf_tag_posts_setting' )  !==  md5( serialize( $raindrops_bf_tag_posts_setting ) ) ) {
 
-			$result = raindrops_get_tag_posts( $args = array() );
+			$result = raindrops_get_tag_posts( $args );
 			if( $raindrops_use_transient == true ) {
 				set_transient( 'raindrops_bf_tag_posts_setting', md5(serialize( $raindrops_bf_tag_posts_setting )));
 				set_transient( __FUNCTION__, $result);
@@ -9313,45 +9316,53 @@ if ( ! function_exists( 'raindrops_add_class' ) ) {
 
 if ( ! function_exists( 'raindrops_category_navigation' ) ) {
 
-	function raindrops_category_navigation(){
-		$result = '';
-		$tmp_id = get_query_var( 'cat');
-		$tmp_id = absint( $tmp_id );
+	function raindrops_category_navigation() {
+
+		$result	 = '';
+		$tmp_id	 = get_query_var( 'cat' );
+		$tmp_id	 = absint( $tmp_id );
 		$sibling = '';
-		
-		$tmp_parent =  get_category_parents(  $tmp_id , true, ' &raquo; ' );
 
-		if( strip_tags( $tmp_parent ) !== get_the_category_by_ID( $tmp_id ). ' &raquo; ' ) {
-			
-			$tmp_parent = trim( $tmp_parent ,' &raquo; ');
-			$result  = str_replace(get_the_category_by_ID( $tmp_id ),'', $tmp_parent );
+		$tmp_parent = get_category_parents( $tmp_id, true, ' &raquo; ' );
 
-			$result .= sprintf( '<span class="current">%1$s</span> &raquo; ',  get_the_category_by_ID( $tmp_id ) );
+		if ( strip_tags( $tmp_parent ) !== get_the_category_by_ID( $tmp_id ) . ' &raquo; ' ) {
+
+			$tmp_parent	 = trim( $tmp_parent, ' &raquo; ' );
+			$result		 = str_replace( get_the_category_by_ID( $tmp_id ), '', $tmp_parent );
+
+			$result .= sprintf( '<span class="current">%1$s</span> &raquo; ', get_the_category_by_ID( $tmp_id ) );
 		}
 
 		$tmp_child_ids = get_term_children( $tmp_id, 'category' );
-		
-		foreach( $tmp_child_ids as $tmp_id ) {
-			
-			$term = get_term_by( 'id', $tmp_id, 'category' );
-			
-			if( $sibling == $term->parent ) {
-				$category_separator = '|';
-				$flag = 'sibling';
-			} else {
-				$category_separator = "&raquo;";
-				$flag = 'parent';
-			}
-			
-			$category_separator = apply_filters( 'raindrops_category_navigation_separator', $category_separator, $flag );
 
-			$result .= " {$category_separator} ". '<a href="' . esc_url( get_term_link( $tmp_id, 'category' ) ) . '">' . esc_html( $term->name ) . "</a>";
-			
-			$sibling = $term->parent;
+		if ( isset( $tmp_child_ids ) && !empty( $tmp_child_ids ) ) {
+
+			foreach ( $tmp_child_ids as $tmp_id ) {
+
+				$term = get_term_by( 'id', $tmp_id, 'category' );
+
+				if ( false !== $term && isset( $term->parent ) ) {
+
+					if ( $sibling == $term->parent ) {
+						$category_separator	 = '|';
+						$flag				 = 'sibling';
+					} else {
+						$category_separator	 = "&raquo;";
+						$flag				 = 'parent';
+					}
+
+					$category_separator = apply_filters( 'raindrops_category_navigation_separator', $category_separator, $flag );
+
+					$result .= " {$category_separator} " . '<a href="' . esc_url( get_term_link( $tmp_id, 'category' ) ) . '">' . esc_html( $term->name ) . "</a>";
+
+					$sibling = $term->parent;
+				}
+			}
 		}
 
-		return apply_filters( 'raindrops_category_navigation', '<div class="raindrops-category-navigation">'. trim( $result,' &raquo; '). '</div>' );
+		return apply_filters( 'raindrops_category_navigation', '<div class="raindrops-category-navigation">' . trim( $result, ' &raquo; ' ) . '</div>' );
 	}
+
 }
 
 

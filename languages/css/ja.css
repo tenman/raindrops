@@ -136,3 +136,7 @@ body.ja,
 .ja .widget_recent_comments .comment-author-link{
     border-bottom:1px dotted rgba(122,122,122,.5);
 }
+
+.ja .raindrops-excerpt-more{
+    width:6em;
+}

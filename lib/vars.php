@@ -1186,6 +1186,16 @@ array( 'option_id'    => 79,
         'excerpt2'     => esc_html__( 'Sticky Post Show only Home Page or Always it displayed ( default Always it displayed )', 'Raindrops' ),
         'validate'     => 'raindrops_display_sticky_post_validate',
 		'list'         => 78 ),	
+array( 'option_id'    => 80,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_sitewide_css',
+        'option_value' => '',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Site-wide CSS', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Style  It will be retained even if the theme is updated', 'Raindrops' ),
+        'validate'     => 'raindrops_sitewide_css_validate',
+		'list'         => 79 ),	
 );
 }
 

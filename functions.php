@@ -1,5 +1,4 @@
 <?php
-
 /**
  * functions and constants for Raindrops theme
  *
@@ -2187,6 +2186,13 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 							}';
 
 			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width);
+		}
+		
+		$raindrops_sitewide_css = raindrops_warehouse_clone( 'raindrops_sitewide_css' );
+		
+		if ( isset( $raindrops_sitewide_css ) && !empty( $raindrops_sitewide_css ) ) {
+			
+			$css .= ' '. wp_strip_all_tags( $raindrops_sitewide_css );
 		}
 
 		if ( empty( $css ) ) {
@@ -9317,6 +9323,13 @@ if ( ! function_exists( 'raindrops_add_class' ) ) {
 if ( ! function_exists( 'raindrops_category_navigation' ) ) {
 
 	function raindrops_category_navigation() {
+		
+		global $raindrops_category_navigation;
+		
+		if( isset( $raindrops_category_navigation ) && false == $raindrops_category_navigation ) {
+			
+			return;
+		}
 
 		$result	 = '';
 		$tmp_id	 = get_query_var( 'cat' );
@@ -9340,6 +9353,12 @@ if ( ! function_exists( 'raindrops_category_navigation' ) ) {
 			foreach ( $tmp_child_ids as $tmp_id ) {
 
 				$term = get_term_by( 'id', $tmp_id, 'category' );
+				
+				$url = get_term_link( $tmp_id, 'category' );
+				
+				if ( is_wp_error( $url ) ) {
+						continue;
+				}
 
 				if ( false !== $term && isset( $term->parent ) ) {
 
@@ -9353,8 +9372,8 @@ if ( ! function_exists( 'raindrops_category_navigation' ) ) {
 
 					$category_separator = apply_filters( 'raindrops_category_navigation_separator', $category_separator, $flag );
 
-					$result .= " {$category_separator} " . '<a href="' . esc_url( get_term_link( $tmp_id, 'category' ) ) . '">' . esc_html( $term->name ) . "</a>";
-
+					$result .= " {$category_separator} " . '<a href="' . esc_url( $url ) . '">' . esc_html( $term->name ) . "</a>";
+					
 					$sibling = $term->parent;
 				}
 			}

@@ -806,7 +806,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 						$year_link = get_year_link( absint( $key ) );
 						$year_label  = apply_filters( 'raindrops_archive_year_label', esc_html( $key ) );
 						$result_html .= sprintf( '<h3 class="year year-%2$s"><a href="%1$s">%3$s</a></h3><ul class="item year-%2$s">', $year_link, absint( $key ), $year_label );
-
+						
+						$month_name_before = array( 'January', 'February', 'March', 'April', 'MayJune', 'July', 'August', 'September', 'October', 'November', 'December' );
+						$month_name_after = array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
+						
 						foreach( $val as $k=>$v ){
 
 							preg_match('!>.*[^0-9]([0-9]{1,2})[^0-9].*<!',$v,$regs );
@@ -821,8 +824,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 								$class = trim( str_replace(array( 0,1,2,3,4,5,6,7,8,9, ' '), array( '','','','','','','','','','', '-') , $class ), '-' );
 								$class = esc_attr( 'month month-'. $class );
 								$v = preg_replace( '![^/=][0-9]{4}!','',$v);
+
 							}
 
+							$v = str_replace( $month_name_before, $month_name_after, $v );
 							$result_html .= sprintf('<li class="%2$s">%1$s</li>',$v,$class);
 						}
 						$result_html .= '</ul>';	

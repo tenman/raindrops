@@ -4139,3 +4139,6 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 .raindrops-recent-posts article{
     margin-left:135px;   
 }
+.raindrops-pinup-entries p{
+    overflow:hidden;
+}

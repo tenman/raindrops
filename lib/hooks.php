@@ -376,7 +376,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.308
 		 */
 		add_filter( 'raindrops_embed_meta_pre', 'raindrops_apply_google_font_import_rule_for_article_title' );
-		add_filter( 'raindrops_embed_meta_css', 'raindrops_apply_google_font_styles_for_article_title' );		
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_apply_google_font_styles_for_article_title' );
     }
 }
 ?>

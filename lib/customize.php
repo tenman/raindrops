@@ -1038,6 +1038,19 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'none'	 => esc_html__( 'No', 'Raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
+		//////////////////////////////////////////////////////////
+		"raindrops_sitewide_css"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sitewide_css','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Site-wide CSS', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Style  It will be retained even if the theme is updated', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_sitewide_css_validate',
+			'type'				 => 'textarea',
+			'section'			 => 'raindrops_theme_settings_document',
+		),
 		/**
 		 * Pending not work at customizer
 		 * old theme page works
@@ -2021,7 +2034,15 @@ function raindrops_customizer_style() {
 .can-not-read-file .changelog{
 	color: #f55;
 }
+#customize-control-raindrops_theme_settings-raindrops_sitewide_css label{
+	width:98%;
+}
+#customize-control-raindrops_theme_settings-raindrops_sitewide_css textarea{
+	width:100%;
+	font-family:"Lucida Console", Monaco, monospace;
+	height:16em!important;
 
+}
 CUSTOMIZER_CSS;
 
 		if ( version_compare( $wp_version, '4.3', '<' ) ) {

@@ -1,4 +1,28 @@
 Changelog -----------------------------------
+version:1.309
+Overview of Changes
+	Additional customizer setting
+		Site-wide CSS at Section Advanced
+	Fixed Category separator sepalate sibling and child
+		In some environments, there is a report of a cacheable fatal error has been recorded.
+		If there is a similar phenomenon, please post to the following address
+		https://wordpress.org/support/theme/raindrops
+	Fixed Bundle Plugin The Event Calendar display improperly.
+
+Files Modified
+	modified:   functions.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.308&new_path=raindrops/1.309
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.308
 Overview of Changes
 	Remove Attribute

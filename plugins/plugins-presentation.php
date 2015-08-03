@@ -669,10 +669,12 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			switch ( $color_type ) {
 				case 'dark':
 					$color_type_value	 = -3;
+					$color_type_value_hover	 = 3;
 					$border_rgba		 = '222,222,222,0.3';
 					break;
 				case 'light':
 					$color_type_value	 = 4;
+					$color_type_value_hover	 = -3;
 					$border_rgba		 = '52,52,52,0.2';
 					break;
 				default:
@@ -683,15 +685,20 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 				$raindrops_gradient	 = raindrops_gradient_single_clone( $color_type_value );
 				$custom_color		 = raindrops_colors_clone( $color_type_value, 'color' );
 				$custom_background	 = raindrops_colors_clone( $color_type_value, 'background' );
+				$custom_color_hover		 = raindrops_colors_clone( $color_type_value_hover, 'color' );
+				$custom_background_hover	 = raindrops_colors_clone( $color_type_value_hover, 'background' );
 			} else {
 				$raindrops_gradient	 = '';
 				$custom_color		 = '#000';
 				$custom_background	 = '#fff';
+				$custom_color_hover		 = '#fff';
+				$custom_background_hover	 = '#000';
 			}
 			$raindrops_event_calendar_css = '@media screen and (max-width : 920px){
 					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '}
 				}
-.tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
+			.tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
+			.datepicker{ width:280px;max-width:100%;}
 			.tribe-events-list-widget li{padding:0 10px 20px;}
 			.tribe-events-list-widget ol li{margin:10px 0;}
 			.events-archive .entry-title,.icon-link-no-title,
@@ -705,9 +712,12 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-day .tribe-events-day-time-slot h5,
 			.tribe-bar-views-inner,
 			#tribe-bar-form,
+			.datepicker.dropdown-menu,
 			.tribe-events-list .tribe-events-event-cost span,
 			.tribe-events-list-separator-month span,
+			#tribe-events-content .tribe-events-calendar td.tribe-events-othermonth,
 			.single-tribe_events .tribe-events-event-meta{color:' . $custom_color . '; background:' . $custom_background . '}
+			.datepicker thead tr:first-child th:hover, .datepicker tfoot tr th:hover,.datepicker.dropdown-menu td span:hover{color:' . $custom_color_hover . '; background:' . $custom_background_hover . '}
 			.tribe-events-list-widget-events,
 			.events-archive .tribe-events-calendar td.tribe-events-future div[id*="tribe-events-daynum-"],
 			.events-archive .tribe-events-calendar td.tribe-events-future div[id*="tribe-events-daynum-"] > a,
@@ -734,6 +744,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-list-widget .tribe-events-widget-link a,
 			.tribe-events-list-widget .tribe-events-list-widget-events .entry-title{font-size:108%;}
 			.tribe-events-list-widget ol li{margin-bottom:10px;}
+			.tribe-events-sub-nav{background:transparent!important;}
 			#tribe-events-content .tribe-events-calendar td:hover{background:' . $custom_background . '}';
 
 			if ( WP_DEBUG !== true ) {

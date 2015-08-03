@@ -1,6 +1,10 @@
 <?php
 function raindrops_sitewide_css_validate( $input ) {
 	
+	if ( empty( $input ) ) {
+		return '';
+	}
+	
 	$style = ' ' . wp_strip_all_tags( $input );
 	// format
 	$value = str_replace( array( '{', '}', "\t"), array( "{\r\n\t", "}\r\n", '    '), $input );

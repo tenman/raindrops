@@ -744,6 +744,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-list-widget .tribe-events-widget-link a,
 			.tribe-events-list-widget .tribe-events-list-widget-events .entry-title{font-size:108%;}
 			.tribe-events-list-widget ol li{margin-bottom:10px;}
+			#tribe-bar-collapse-toggle,
 			.tribe-events-sub-nav{background:transparent!important;}
 			#tribe-events-content .tribe-events-calendar td:hover{background:' . $custom_background . '}';
 

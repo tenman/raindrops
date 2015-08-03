@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.310
+version:1.311
 Overview of Changes
 	Additional customizer setting
 		Site-wide CSS at Section Advanced

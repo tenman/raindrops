@@ -1,10 +1,37 @@
 Changelog -----------------------------------
 version:1.312
 Overview of Changes
+	Default value change
+		post author text to avatar.
+		( changeable to old setting from customizer )
+	Fixed main navigation menu
+		Just below the navigation, the menu can not be properly displayed if the slider and movie are arranged
+	Fixed for child theme boots
+		site title position ( when no header image ) display improperly
+	Fixed child theme $raindrops_current_column not works
 
+	Modified
+		Add customizer control
+			raindrops_posted_in_label ( Hide or use emoji Posted in Labels )
+			raindrops_comments_are_closed ( Hide comments are closed label )
+			raindrops_archive_title_label( Hide Cstegory Archive label )
+			raindrops_archive_nav_above( Hide Archives top navigation )
+			add function raindrops_emoji_collection()
+			$raindrops_category_emoji = '&#x1f4c2;';
+			$raindrops_tag_emoji = '&#x1f4ce;';
+			$raindrops_posted_on_date_emoji = '&#x1f4c5;';
+		Code cleaning
+			$_SERVER[ "HTTP_ACCEPT_LANGUAGE" ] to raindrops_get_accept_language();
 Files Modified
-
-
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   responsiveness.css
+	modified:   style.css
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.311&new_path=raindrops/1.312
 -----------------------------------------------

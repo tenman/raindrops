@@ -32,14 +32,15 @@ function raindrops_sitewide_css_validate( $input ) {
 	if ( empty( $input ) ) {
 		return '';
 	}
-	
-	$style = ' ' . wp_strip_all_tags( $input );
+
+	$value =  wp_strip_all_tags( $input );
 	// format
-	$value = str_replace( array( '{', '}', "\t"), array( "{\r\n\t", "}\r\n", '    '), $input );
-	$value = str_replace( '![^(\"|\')];!', ";\r\n", $value );
-	$value = str_replace( ';',";\r\n    ", $value);
+	$value = str_replace(array("\r\n","\r","\n"),'',$value);
+	$value = str_replace( array( '{', '}', "\t"), array( "{\n\t", "}\n", '    '), $value );
+	$value = str_replace( '![^(\"|\')];!', ";\n", $value );
+	$value = str_replace( ';',";\n    ", $value);
 	$value = str_replace( "    }","}", $value);
-	$value = preg_replace("!^\s!msi",'',$value);
+	$value = preg_replace("!^(\s|\t)*$!msi",'',$value);
 	
 	return $value;
 }

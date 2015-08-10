@@ -1,4 +1,14 @@
 Changelog -----------------------------------
+version:1.313
+Overview of Changes
+	Fixed
+		raindrops_sitewide_css_validate() incorrect validate
+Files Modified
+	modified:   lib/validate.php
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.311&new_path=raindrops/1.313
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.312
 Overview of Changes
 	Default value change

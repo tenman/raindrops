@@ -80,7 +80,7 @@ if ( ! isset( $wp_customize ) ) {
 			),
 		'raindrops_theme_settings_fonts'	 => array(
 			'title' => esc_html__( 'Fonts', 'Raindrops' ),
-			'priority' => 28,
+			'priority' => 41,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			),
 		'raindrops_theme_page_width'	 => array(
@@ -100,8 +100,15 @@ if ( ! isset( $wp_customize ) ) {
 			'description'	 => '',
 			),
 		'raindrops_theme_settings_post' => array(
-			'title' => esc_html__( 'Post Settings', 'Raindrops' ),
+			'title' => esc_html__( 'Post', 'Raindrops' ),
 			'priority' => 100,
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'theme_supports' => '',
+			'description'	 => esc_html__( 'The following changes are made using the CSS', 'Raindrops' ),
+			),
+		'raindrops_theme_settings_archive' => array(
+			'title' => esc_html__( 'Archive', 'Raindrops' ),
+			'priority' => 110,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
 			'description'	 => esc_html__( 'The following changes are made using the CSS', 'Raindrops' ),
@@ -934,19 +941,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-		"raindrops_basefont_settings"					 => array(
-			'default'			 => $raindrops_basefont_default_val,
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Base Font Size', 'Raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( "Base Font Size Value Recommend 13-20 (px size)", 'Raindrops' ),
-			'sanitize_callback'	 => 'raindrops_basefont_settings_validate',
-			'type'				 => 'radio',
-			'choices'			 => array_flip( $raindrops_basefont_size ),
-			'section'			 => 'raindrops_theme_settings_fonts',
-		),
+		
 		"raindrops_fluid_max_width"						 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_fluid_max_width','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1128,6 +1123,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_featured',
 		),
+		
 		"raindrops_featured_image_position"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_featured_image_position','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1191,6 +1187,19 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_featured',
 		),
 		//////////////////////////////////////////
+		"raindrops_basefont_settings"					 => array(
+			'default'			 => $raindrops_basefont_default_val,
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Base Font Size', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( "Base Font Size Value Recommend 13-20 (px size)", 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_basefont_settings_validate',
+			'type'				 => 'radio',
+			'choices'			 => array_flip( $raindrops_basefont_size ),
+			'section'			 => 'raindrops_theme_settings_fonts',
+		),
 		"raindrops_article_title_css_class"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_article_title_css_class','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1216,6 +1225,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'choices'			 => array(
 				'show'	 => esc_html__( 'Show', 'Raindrops' ),
 				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+				'emoji'	 => esc_html__( 'Emoji', 'Raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_post',
 		),
@@ -1226,12 +1236,13 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Display Author', 'Raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'default Show', 'Raindrops' ),
+			'description'		 => esc_html__( 'default Avatar', 'Raindrops' ),
 			'sanitize_callback'	 => 'raindrops_display_article_author_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'show'	 => esc_html__( 'Show', 'Raindrops' ),
 				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+				'avatar'	 => esc_html__( 'Avatar', 'Raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_post',
 		),
@@ -1256,6 +1267,73 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_post',
+		),
+		///////////////////////////////////////////
+		"raindrops_posted_in_label"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_posted_in_label','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Posted in Labels', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Hide Posted in Labels ', 'Raindrops' ) . esc_html__( 'This entry was posted in', 'Raindrops' ) .' '. esc_html__( 'and tagged', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_posted_in_label_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+				'emoji'	 => esc_html__( 'emoji', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_post',
+		),
+		"raindrops_comments_are_closed"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_comments_are_closed','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 =>  esc_html__( 'Comments are closed Label', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Hide label ', 'Raindrops' ) .esc_html__( 'Comments are closed.', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_comments_are_closed_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_post',
+		),
+		"raindrops_archive_title_label"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_archive_title_label','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Comments are closed Label', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Hide or Show label like Category Archives, Tag Archives', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_archive_title_label_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+				'emoji'	 => esc_html__( 'emoji', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_archive',
+		),
+		"raindrops_archive_nav_above"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_archive_nav_above','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archive Page Top Navigation', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Hide or Show Blog Archives page top navigation', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_archive_nav_above_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_archive',
 		),
 		//////////////////////////////////////
 		"raindrops_enable_header_image_filter"					 => array(
@@ -1850,8 +1928,8 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 			'section'		 => 'raindrops_theme_settings_document',
 			'settings'		 => 'raindrops_changelog_setting',
 		) ) );
-
-
+		
+		$wp_customize->add_control( 'display_header_text', array() );
 	}
 
 }

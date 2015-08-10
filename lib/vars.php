@@ -10,7 +10,20 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 do_action('raindrops_var_before');
+/** 
+ * emoji icon
+ * must needs Hexadecimal HTML Entity
+ */
+if( ! isset( $raindrops_category_emoji ) ) {
+	
+	$raindrops_category_emoji = '&#x1f4c2;';
+}
+if( ! isset( $raindrops_tag_emoji ) ) {
+	
+	$raindrops_tag_emoji = '&#x1f4ce;';
+}
 
+$raindrops_posted_on_date_emoji = '&#x1f4c5;';
 /**
  * Add avatar at Recent Comments
  * value true or false , default true  
@@ -1049,11 +1062,11 @@ array( 'option_id'    => 65,
 array( 'option_id'    => 66,
         'blog_id'      => 0,
         'option_name'  => "raindrops_display_article_author",
-        'option_value' => 'show',
+        'option_value' => 'avatar',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Display Post Author', 'Raindrops' ),
         'excerpt1'     => '',
-        'excerpt2'     => esc_html__( 'default show', 'Raindrops' ),
+        'excerpt2'     => esc_html__( 'default avatar', 'Raindrops' ),
         'validate'     => 'raindrops_display_article_author_validate',
 		'list'         => 65 ),
 array( 'option_id'    => 67,
@@ -1196,6 +1209,46 @@ array( 'option_id'    => 80,
         'excerpt2'     => esc_html__( 'Style  It will be retained even if the theme is updated', 'Raindrops' ),
         'validate'     => 'raindrops_sitewide_css_validate',
 		'list'         => 79 ),	
+array( 'option_id'    => 81,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_posted_in_label',
+        'option_value' => 'emoji',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Posted in Labels', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide Posted in Labels ', 'Raindrops' ) . esc_html__( 'This entry was posted in', 'Raindrops' ) .esc_html__( 'and tagged', 'Raindrops' ),
+        'validate'     => 'raindrops_posted_in_label_validate',
+		'list'         => 80 ),	
+array( 'option_id'    => 81,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_comments_are_closed',
+        'option_value' => 'hide',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Comments are closed Label', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide ', 'Raindrops' ) .esc_html__( 'Comments are closed.', 'Raindrops' ),
+        'validate'     => 'raindrops_comments_are_closed_validate',
+		'list'         => 80 ),	
+array( 'option_id'    => 82,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_archive_title_label',
+        'option_value' => 'emoji',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Comments are closed Label', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide or Show like Category Archives, Tag Archives label', 'Raindrops' ),
+        'validate'     => 'raindrops_archive_title_label_validate',
+		'list'         => 81 ),	
+array( 'option_id'    => 83,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_archive_nav_above',
+        'option_value' => 'hide',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Archive Page Top Navigation', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide or Show Blog Archives page top navigation', 'Raindrops' ),
+        'validate'     => 'raindrops_archive_nav_above_validate',
+		'list'         => 82 ),	
 );
 }
 

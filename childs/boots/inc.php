@@ -33,7 +33,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
     function raindrops_child_embed_css( ) {
 
-		global $post, $raindrops_current_theme_name, $raindrops_base_font_size;
+		global $post, $raindrops_current_theme_name, $raindrops_base_font_size, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width;
 		$pinup_style				 = '';
 		$result						 = '';
 		$css						 = '/*raindrops_child_embed_css*/';
@@ -137,7 +137,15 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
             $css .= " \n#site-title a,#site-title span{color:#" . $raindrops_text_color . ';}';
             $css .= " \n.description{color:#" . $raindrops_text_color . ';}';
         }
-
+		$raindrops_full_width_limit_window_width	= raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
+		$raindrops_full_width_max_width				= raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
+		
+		$css .= "\n#doc5 #header-inner{min-width:" . $raindrops_fluid_minimum_width .
+				'px;max-width:' . $raindrops_full_width_max_width . 'px; margin:auto;border:1px solid red;}';
+		$css .= "\n.rd-pw-doc3 #header-inner,
+				\n#doc3 #header-inner{min-width:" . $raindrops_fluid_minimum_width .
+				'px;max-width:' . $raindrops_fluid_maximum_width . 'px;	margin:auto;}';
+		
 		$setting_value = raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image' );
 
 		If( $setting_value !== 'show' ) {
@@ -1280,6 +1288,46 @@ array( 'option_id'    => 80,
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Style  It will be retained even if the theme is updated', 'Raindrops' ),
         'validate'     => 'raindrops_sitewide_css_validate',
-		'list'         => 79 ),	
+		'list'         => 79 ),
+array( 'option_id'    => 81,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_posted_in_label',
+        'option_value' => 'emoji',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Posted in Labels', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide Posted in Labels ', 'Raindrops' ) . esc_html__( 'This entry was posted in', 'Raindrops' ) .esc_html__( 'and tagged', 'Raindrops' ),
+        'validate'     => 'raindrops_posted_in_label_validate',
+		'list'         => 80 ),	
+array( 'option_id'    => 81,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_comments_are_closed',
+        'option_value' => 'hide',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Comments are closed Label', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide ', 'Raindrops' ) .esc_html__( 'Comments are closed.', 'Raindrops' ),
+        'validate'     => 'raindrops_comments_are_closed_validate',
+		'list'         => 80 ),	
+array( 'option_id'    => 82,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_archive_title_label',
+        'option_value' => 'emoji',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Comments are closed Label', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide or Show like Category Archives, Tag Archives label', 'Raindrops' ),
+        'validate'     => 'raindrops_archive_title_label_validate',
+		'list'         => 81 ),	
+array( 'option_id'    => 83,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_archive_nav_above',
+        'option_value' => 'hide',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Archive Page Top Navigation', 'Raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Hide or Show Blog Archives page top navigation', 'Raindrops' ),
+        'validate'     => 'raindrops_archive_nav_above_validate',
+		'list'         => 82 ),	
 );
 }

@@ -118,6 +118,13 @@
         text-align:right;
         /*	line-height:2;*/
     }
+    div#doc3 div[class^="entry-meta"],
+    div#doc3 .posted-on,
+    div#doc5 div[class^="entry-meta"],
+    div#doc5 .posted-on{
+        margin-right:26px;
+        position:relative;
+    }
     #doc5 .mejs-horizontal-volume-total,
     #doc3 .mejs-horizontal-volume-total{
         max-width:100%;

@@ -1,4 +1,32 @@
 <?php
+function raindrops_archive_nav_above_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'hide';
+	}		
+}
+function raindrops_archive_title_label_validate( $input ) {
+	if( $input == 'show' || $input == 'hide' || $input == 'emoji' ) {
+		return $input;
+	} else {
+		return 'hide';
+	}	
+}
+function raindrops_comments_are_closed_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'hide';
+	}	
+}
+function raindrops_posted_in_label_validate( $input ) {
+	if( $input == 'show' || $input == 'hide' || $input == 'emoji' ) {
+		return $input;
+	} else {
+		return 'hide';
+	}	
+}
 function raindrops_sitewide_css_validate( $input ) {
 	
 	if ( empty( $input ) ) {
@@ -119,14 +147,14 @@ function raindrops_display_default_category_validate( $input ) {
 	}
 }
 function raindrops_display_article_author_validate( $input ) {
-	if( $input == 'show' || $input == 'hide'  ) {
+	if( $input == 'show' || $input == 'hide' || $input == 'avatar' ) {
 		return $input;
 	} else {
 		return 'show';
 	}
 }
 function raindrops_display_article_publish_date_validate( $input ) {
-	if( $input == 'show' || $input == 'hide'  ) {
+	if( $input == 'show' || $input == 'hide' || $input == 'emoji' ) {
 		return $input;
 	} else {
 		return 'show';

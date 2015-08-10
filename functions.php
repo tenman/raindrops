@@ -687,7 +687,7 @@ foreach ( $raindrops_base_setting as $setting ) {
  * add browser class, languages class,
  *
  *
- */
+ */	
 
 if ( !function_exists( 'raindrops_add_body_class' ) ) {
 
@@ -695,6 +695,7 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 
 		global $post, $current_blog, $raindrops_link_unique_text, $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone, $raindrops_browser_detection, $raindrops_status_bar, $raindrops_current_column;
 
+		
 		$raindrops_link_unique_text = raindrops_link_unique_text();
 
 		$classes[] = get_locale();
@@ -721,7 +722,15 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		 * @since 1.289
 		 */
 		$classes[] = sanitize_html_class( "rd-pw-" . raindrops_warehouse( 'raindrops_page_width' ) );
-
+		/**
+		 * When child theme $raindrops_current_column not works
+		 * overwritten global
+		 * @since 1.312
+		 */
+		if ( is_child_theme() ) {
+			raindrops_filter_page_column_control();
+		}
+		
 		if( isset( $raindrops_current_column ) && !empty( $raindrops_current_column ) ) {
 			$classes[] = sanitize_html_class( 'rd-col-'. $raindrops_current_column );
 		}
@@ -763,17 +772,14 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		}
 
 		if ( true == $raindrops_browser_detection ) {
-
-			$accept_language = filter_input(INPUT_ENV,"HTTP_ACCEPT_LANGUAGE");
-
-			if ( ! is_null( $accept_language ) ) {
-
-				$browser_lang	 = $_SERVER[ "HTTP_ACCEPT_LANGUAGE" ];
-				$browser_lang	 = explode( ",", $browser_lang );
-				$browser_lang	 = esc_html( $browser_lang[ 0 ] );
-				$browser_lang	 = 'accept-lang-' . $browser_lang;
+			
+			$blowser_lang = raindrops_get_accept_language();
+			
+			if( !empty( $blowser_lang ) ) {
+				$browser_lang	 = 'accept-lang-' . $blowser_lang;
 				$classes[]		 = sanitize_html_class( $browser_lang );
 			}
+
 			switch ( true ) {
 				case ( $is_lynx ):
 					$classes[] = 'lynx';
@@ -943,6 +949,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
  *
  */
 
+
 if ( !function_exists( 'raindrops_posted_in' ) ) {
 
 	function raindrops_posted_in( ) {
@@ -950,7 +957,7 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 		$exclude_category_conditionals = apply_filters( 'raindrops_posted_in_category',array( 'is_category'=> 'raindrops_post_category_relation' ) );
 		$exclude_tag_conditional       = apply_filters( 'raindrops_posted_in_tag',array( 'is_tag' => '' ) );
 
-		global $post;
+		global $post,$raindrops_tag_emoji,$raindrops_category_emoji;
 
 		if ( is_sticky() ) {
 
@@ -993,19 +1000,43 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 				}
 			}
 		}
+		
+		if( 'emoji' == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
+		
+			$category_label = $raindrops_category_emoji. '<span class="screen-reader-text">'. esc_html__( 'This entry was posted in', 'Raindrops' ). '</span>';
+			$tag_label = $raindrops_tag_emoji. '<span class="screen-reader-text">'.  esc_html__( 'and tagged', 'Raindrops' ). '</span>';
+			
+			$categories = wp_get_post_categories( $post->ID );
+			$categories_count = count( $categories );
+			$default_category_id = absint( get_option('default_category') );
+			$raindrops_display_default_category = raindrops_warehouse_clone( 'raindrops_display_default_category' );
 
+			if(  $categories_count == 1 && absint( $categories[0] ) == absint( $default_category_id ) && 'show' !== $raindrops_display_default_category){
+				$category_label = '';
+			} 
+			if( is_category() ) {
+				$category_label = '';
+			}
+		} else {
+			$category_label = esc_html__( 'This entry was posted in', 'Raindrops' );
+			$tag_label = esc_html__( 'and tagged', 'Raindrops' );
+		}
 		if ( false === $format ) {
 
 			if ( $tag_list ) {
 
 				$posted_in = '<span class="this-posted-in">' .
-								esc_html__( 'This entry was posted in', 'Raindrops' ) .
+								 $category_label.
 							'</span> %1$s <span class="tagged">' .
-								esc_html__( 'and tagged', 'Raindrops' ) .
+								 $tag_label.
 							'</span> %2$s';
+		
+				
+				
 			} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
 
-				$posted_in = '<span class="this-posted-in">' . esc_html__( 'This entry was posted in', 'Raindrops' ) . '</span> %1$s ';
+				$posted_in = '<span class="this-posted-in">' . $category_label . '</span> %1$s ';
+				
 			} else {
 
 				$posted_in = '';
@@ -1016,10 +1047,10 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 
 			if ( $tag_list ) {
 
-				$posted_in = '<span class="this-posted-in">' . esc_html__( 'This entry was posted in', 'Raindrops' ) . '</span> %1$s <span class="tagged">' . esc_html__( 'and tagged', 'Raindrops' ) . '</span> %2$s ' . '  <span class="post-format-text">%4$s</span> <a href="%3$s"> <span class="post-format">%5$s</span></a>';
+				$posted_in = '<span class="this-posted-in">' . $category_label . '</span> %1$s <span class="tagged">' . $tag_label . '</span> %2$s ' . '  <span class="post-format-text">%4$s</span> <a href="%3$s"> <span class="post-format">%5$s</span></a>';
 			} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
 
-				$posted_in = '<span class="this-posted-in">' . esc_html__( 'This entry was posted in', 'Raindrops' ) . '</span> %1$s %2$s' . '  <span class="post-format-text">%4$s</span><a href="%3$s"> <span class="post-format">%5$s</span></a>';
+				$posted_in = '<span class="this-posted-in">' . $category_label . '</span> %1$s %2$s' . '  <span class="post-format-text">%4$s</span><a href="%3$s"> <span class="post-format">%5$s</span></a>';
 			} else {
 
 				$posted_in = '<a href="%3$s">   <span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
@@ -1081,6 +1112,12 @@ if ( !function_exists( 'raindrops_post_author' ) ) {
 		$author						= raindrops_blank_fallback( get_the_author(), 'Somebody' );
 		$author_attr_title_string	 = sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), wp_kses( $author, array() ) );
 		$author_html				 = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ';
+		
+		if ( "avatar" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
+			
+			$author = get_avatar( get_the_author_meta( 'ID' ), 24 ). '<span class="screen-reader-text">'. $author. '</span>';
+		}
+
 		$author_html				 = sprintf(	$author_html, get_author_posts_url( get_the_author_meta( 'ID' ) ), $author_attr_title_string, $author );
 		$author_html				 = apply_filters( 'raindrops_post_author', $author_html );
 
@@ -1095,7 +1132,7 @@ if ( !function_exists( 'raindrops_post_date' ) ) {
  * @since1.272
  */
 	function raindrops_post_date(){
-		global $post;
+		global $post, $raindrops_posted_on_date_emoji ;
 
 		$entry_date_html = '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>';
 
@@ -1104,11 +1141,17 @@ if ( !function_exists( 'raindrops_post_date' ) ) {
 		$archive_day			 = get_the_time( 'd' );
 		$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
 		$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+		
+		$date_text = get_the_date( $raindrops_date_format );
+		
+		if ( 'emoji' == raindrops_warehouse_clone( 'raindrops_display_article_publish_date' ) ) {
+			$date_text = '<span class="emoji-date">'. $raindrops_posted_on_date_emoji. '</span><span class="screen-reader-text">'. $date_text. '</span>';
+		}
 
 		$entry_date_html = sprintf(	$entry_date_html,
 									$day_link,
 									esc_attr( 'archives daily ' . get_the_date( $raindrops_date_format ) ),
-									get_the_date( $raindrops_date_format ),
+									$date_text,
 									raindrops_doctype_elements( 'span', 'time', false ),
 									raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 		);
@@ -1939,8 +1982,31 @@ if ( !function_exists( "raindrops_delete_all_options" ) ) {
  *
  *
  *
- *
+ * @1.312
  */
+if ( !function_exists( "raindrops_emoji_collection" ) ) {
+
+	function raindrops_emoji_collection( $condition = '' ) {
+		global $raindrops_tag_emoji, $raindrops_category_emoji;
+
+		$raindrops_tag_emoji_for_archive		 = '\\' . str_replace( array( '&#x', ';' ), '', $raindrops_tag_emoji );
+		$raindrops_category_emoji_for_archive	 = '\\' . str_replace( array( '&#x', ';' ), '', $raindrops_category_emoji );
+
+		$emoji_code	 = '';
+		$condition	 = get_the_archive_title();
+
+
+		if ( is_tag() ) {
+			$condition	 = 'tag';
+			$emoji_code	 = $raindrops_tag_emoji_for_archive;
+		}
+		if ( is_category() ) {
+			$condition	 = 'category';
+			$emoji_code	 = $raindrops_category_emoji_for_archive;
+		}
+		return apply_filters( 'raindrops_emoji_collection', $emoji_code, $condition );
+	}
+}
 
 if ( !function_exists( "raindrops_embed_css" ) ) {
 
@@ -2021,8 +2087,26 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= '.yui-t6 .index.archives,.yui-t5 .index.archives,.yui-t4 .index.archives{
 					 margin-right:1em;	}';
 		}
-		if ( "show" !== raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
+		
+		if ( "hide" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
 			$css .= ' .posted-by-string{display:none;} .raindrops-comment-link{margin:0;} ';
+		}
+
+		if ( "hide" == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
+			$css .= ' .entry-meta .tagged, .this-posted-in{display:none;} ';
+		} 
+		if ( "show" !== raindrops_warehouse_clone( 'raindrops_comments_are_closed' ) ) {
+			$css .= ' .nocomments{display:none;} ';
+		}
+		$raindrops_archive_title_label = raindrops_warehouse_clone( 'raindrops_archive_title_label' );
+		if ( "hide" == $raindrops_archive_title_label ) {
+			$css .= ' #archives-title .label{display:none;} ';
+		} elseif(  "emoji" == $raindrops_archive_title_label ) {
+			 $css .= ' #archives-title .label{display:none;} ';
+			 $css .= ' #archives-title .title:before{ content: \''.raindrops_emoji_collection().'\';display:inline-block;margin-right:13px; }';
+		}
+		if ( "show" !== raindrops_warehouse_clone( 'raindrops_archive_nav_above' ) ) {
+			$css .= ' #nav-above{display:none;} ';
 		}
 		/* ver 1.304 add */
 		$raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
@@ -2054,7 +2138,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
         if ( 'show' !== $raindrops_display_default_category ) {
 
-			$css .= ' .this-posted-in{ display:none; }';
+			//$css .= ' .this-posted-in{ display:none; }';
 		}
 		//when manual style rule mode
 
@@ -6481,6 +6565,10 @@ if ( !function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ) {
 		global $wpdb, $wp_query, $wp_locale;
 
 		if ( ! is_singular() && !is_404() ) {
+			
+			if( ! isset( $wp_query->posts[ 0 ]->post_date ) || !isset( $wp_query->posts[ 0 ]->post_date ) ) {
+				return;
+			}
 
 			$thisyear		 = mysql2date( 'Y', $wp_query->posts[ 0 ]->post_date );
 			$thismonth		 = mysql2date( 'm', $wp_query->posts[ 0 ]->post_date );
@@ -6689,7 +6777,7 @@ if ( !function_exists( 'raindrops_dinamic_class' ) ) {
 
 		global $rsidebar_show,$raindrops_current_column, $raindrops_keep_content_width;
 		$class = '';
-
+		
 		if ( 'yui-u first' == $id ) {
 
 			if ( 3 == $raindrops_current_column ) {
@@ -8670,6 +8758,7 @@ if ( !function_exists( 'raindrops_register_color_type_style' ) ) {
     function raindrops_register_color_type_style() {
 
 		global $raindrops_current_data_version,$post,$posts,$raindrops_current_column;
+		
 		$query = '';
 		$count = count( $posts );
 		if( isset($post) && $count == 1 ) {
@@ -8690,7 +8779,7 @@ if ( !function_exists( 'raindrops_color_type_style_buffer' ) ) {
 	 */
     function raindrops_color_type_style_buffer( ) {
 		global $raindrops_fallback_human_interface_show,$post,$raindrops_current_column;
-
+		
         if( intval( get_query_var( 'raindrops_color_type' ) ) == 1 ) {
 			if( $raindrops_fallback_human_interface_show == true ) { exit;}
 
@@ -9440,12 +9529,14 @@ if ( ! function_exists( 'raindrops_article_wrapper_class' ) ) {
  */
 	function raindrops_article_wrapper_class( ) {
 		global $post;
-
+			$class = array();
 			if (isset( $post ) && preg_match( '!<[^>]*?(lang-ja|lang-not-ja)[^>]*?>!', $post->post_content ) ) {
-				$lang = 'rd-l-'. raindrops_get_accept_language( );
-				return apply_filters( 'raindrops_article_wrapper_class', $lang  );
-
+				
+				$class[] = sanitize_html_class( 'rd-l-'. raindrops_get_accept_language( ) );				
 			}
+			
+			$result = trim( implode(' ', $class ) );			
+			return apply_filters( 'raindrops_article_wrapper_class', $result, $class );			
 	}
 }
 if ( ! function_exists( 'raindrops_get_accept_language' ) ) {
@@ -9463,6 +9554,7 @@ if ( ! function_exists( 'raindrops_get_accept_language' ) ) {
 					$browser_lang	 = $accept_language;
 					$browser_lang	 = explode( ",", $browser_lang );
 					$browser_lang	 = wp_strip_all_tags( $browser_lang[ 0 ] );
+
 					if( isset( $browser_lang ) ) {
 						return $browser_lang;
 					}
@@ -10045,8 +10137,11 @@ if ( !function_exists( 'raindrops_customizer_hide_post_author' ) ) {
 	function raindrops_customizer_hide_post_author( $css ) {
 		$customizer_config = raindrops_warehouse_clone( 'raindrops_display_article_author' );
 
-		if ( 'show' !== $customizer_config ) {
-			$css_add = '.posted-on .author a,.ported-on .posted-by-string,.entry-meta-default .author a,.entry-meta-default .posted-by-string{display:none;}';
+		if ( 'hide' == $customizer_config ) {
+			$css_add = '.posted-on .author a,
+						.ported-on .posted-by-string,
+						div[class^="entry-meta"] .author a,
+						div[class^="entry-meta"] .posted-by-string{display:none;}';
 			return $css . $css_add;
 		}
 		return $css;
@@ -10063,11 +10158,21 @@ if ( !function_exists( 'raindrops_customizer_hide_post_date' ) ) {
 	function raindrops_customizer_hide_post_date( $css ) {
 		$customizer_config = raindrops_warehouse_clone( 'raindrops_display_article_publish_date' );
 
-		if ( 'show' !== $customizer_config ) {
-			$css_add = '.posted-on .posted-on-string,.posted-on .entry-date,.entry-meta-default  .posted-on-string,.entry-meta-default .entry-date{display:none;}';
+		if ( 'hide' == $customizer_config ) {
+			$css_add = '.posted-on .posted-on-string,
+						.posted-on .entry-date,
+						div[class^="entry-meta"]  .posted-on-string,
+						div[class^="entry-meta"] .entry-date{display:none;}';
 			$css_add .= '.author time.entry-date{display:none;}';
 			return $css . $css_add;
 		}
+		if ( 'emoji' == $customizer_config ) {
+			$css_add = 'div[class^="entry-meta"]  .posted-on-string,
+						.posted-on .posted-on-string{display:none;}';
+
+			return $css . $css_add;
+		}
+		
 		return $css;
 	}
 

@@ -1,4 +1,48 @@
 Changelog -----------------------------------
+version:1.314
+Overview of Changes
+
+	Fixed Customizer 'choices' Tranlatable.
+	Modified Add isset, defined or function_exists check for vars ,functions, const at lib/vars.php
+	Fixed Wrong Label from 'title'        => esc_html__( 'Comments are closed Label', 'Raindrops' ),
+        				to 'title'        => esc_html__( 'Archives label', 'Raindrops' ),
+	Fixed Moble nav_menu display improperly.
+	Modified For Raindrops for plugin bbpress, change the correction style so that it can be disabled in the filter
+
+		Disabling logic
+
+			style.css change from
+			body #bbpress-forums .subscription-toggle{...}
+			to
+			body:not(.no-apply-bbpress-css) #bbpress-forums .subscription-toggle{...}
+
+			[PHP]
+
+			add_filter('body_class', 'my_ignore_bbperess_style');
+
+			function my_ignore_bbperess_style( $classes ){
+
+				$classes[] = 'no-apply-bbpress-css';
+
+				return $classes;
+			}
+
+			[/PHP]
+
+Files Modified
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   responsiveness.css
+	modified:   style.css
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.313&new_path=raindrops/1.314
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.313
 Overview of Changes
 	Fixed

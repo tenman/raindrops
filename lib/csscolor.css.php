@@ -104,6 +104,7 @@ cite,
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited,
 ul.nav li a:hover,ul.nav li a:active,
 .entry-meta,
+.blog .sticky
 .home .sticky{
     %c_4%
 }
@@ -155,11 +156,13 @@ input[type="submit"]{
 #header-image{
     background-color:%custom_light_bg%!important;
 }
+.blog .sticky,
 .home .sticky,
 .entry-meta{
     border-top:solid 2px %c_border%;
     border-bottom:solid 2px %c_border%;
 }
+.blog .sticky,
 .home .sticky{
     border-top:solid 6px %c_border%;
 }
@@ -378,12 +381,13 @@ hr{
     border:none;
     border-top:1px solid %rgba_border%;
 }
-
+.blog .sticky,
 .home .sticky,
 .entry-meta{
     border-top:solid 2px %rgba_border%;
     border-bottom:solid 2px %rgba_border%;
 }
+.blog .sticky,
 .home .sticky{
     border-top:solid 6px %rgba_border%;
 }
@@ -500,7 +504,7 @@ td.month-date,td.month-name,td.time{
 .entry-content .more-link,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
-.sticky-widget #wp-calendar #prev,
+.sticky-widget #wp-calendar #prev a,
 .sticky-widget #wp-calendar tbody td:hover,
 .raindrops-excerpt-more,
 .raindrops-toc-front li,
@@ -726,7 +730,7 @@ html .mceContentBody,
     list-style:none;
 
 }
-
+.blog .sticky,
 .home .sticky {
     %c5%
     border-top:solid 6px %c_border%;
@@ -997,12 +1001,14 @@ body{
 .hfeed{
     %c5%
 }
+.blog .sticky,
 .home .sticky {
     %c4%
 }
 .entry-meta{
     %c5%
 }
+.blog .sticky,
 .home .sticky a{
     background-color: none;
 
@@ -1271,6 +1277,7 @@ DOC;
     -moz-box-shadow: 0 0 5px %rgba_border%;
 
 }
+.blog .sticky,
 .home .sticky {
     border-top:solid 6px %rgba_border%;
     border-bottom:solid 2px %rgba_border%;
@@ -1378,13 +1385,13 @@ hr{
 .raindrops-excerpt-more,
 .raindrops-toc-front li,
 #access{
-	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%)!important;
+	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     border-radius:3px 3px 3px 3px;
     -moz-border-radius:3px 3px 3px 3px;
-    -webkit-border-radius:3px 3px 3px 3px!important;
+    -webkit-border-radius:3px 3px 3px 3px;
     border-top:1px solid rgba(255, 255, 255, 0.3);
     -moz-box-shadow: 0 1px 3px #333;
     -webkit-box-shadow: 0 1px 3px #333;

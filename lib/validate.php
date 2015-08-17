@@ -166,6 +166,7 @@ function raindrops_article_title_css_class_validate( $input ) {
 	$post_class = '';
 	
 	$classes = explode(' ', $input );
+
 	
 	if( 1 == count( $classes ) ) {
 

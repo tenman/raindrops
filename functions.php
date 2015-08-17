@@ -1,4 +1,11 @@
 <?php
+
+add_filter( 'wp_title', 'function_name' );
+
+function function_name( $return_value ) {
+	
+	return str_replace( '|','#', $return_value );
+}
 /**
  * functions and constants for Raindrops theme
  *
@@ -97,7 +104,7 @@ if ( class_exists( 'Jetpack', false ) && $jetpack_active_modules ) {
 }
 
 /**
- * Featured Image Prezentation
+ * Featured Image Presentation
  * @since 1.274
  */
 if ( false !== ( $path = raindrops_locate_url( 'lib/featured-image.php', 'path' ) ) ) {
@@ -1922,7 +1929,7 @@ if ( !function_exists( "raindrops_install_navigation" ) ) {
 			}
 			if( 'delete' == raindrops_warehouse_clone( "raindrops_uninstall_option" ) ) {
 
-				//add_action( 'switch_theme', 'raindrops_delete_all_options' );
+				add_action( 'switch_theme', 'raindrops_delete_all_options' );
 			}
 		}
 	}
@@ -2088,8 +2095,12 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 					 margin-right:1em;	}';
 		}
 		
-		if ( "hide" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
+		if ( "hide" == raindrops_warehouse_clone( 'raindrops_display_article_author' )) {
 			$css .= ' .posted-by-string{display:none;} .raindrops-comment-link{margin:0;} ';
+		}
+
+		if( "avatar" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
+			$css .= 'body:not(.ja) .posted-by-string{visibility:hidden;margin:-.5em;} ';
 		}
 
 		if ( "hide" == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
@@ -3423,6 +3434,7 @@ list-style-position:inside;
 .ie8 .lsidebar .widget ul li a {
 list-style:none;
 }
+.blog .sticky,
 .home .sticky {
 %c5%
 border-top:solid 6px %c_border%;
@@ -4914,7 +4926,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 				max-width:{$raindrops_full_width_max_width}px;
 				margin:auto;
 			}
-
+			
 			#top > a{
 				display:block;
 
@@ -10011,7 +10023,7 @@ if ( ! function_exists( 'raindrops_custom_site_title_style' ) ) {
 	 * @return type
 	 * @since 1.278
 	 */
-	function raindrops_custom_site_title_style( $return_value ) {
+	function raindrops_custom_site_title_style( $return_value  ) {
 		global $post;
 		$display_header_image_file = '';
 

@@ -744,6 +744,7 @@ if ( ! function_exists( 'raindrops_design_output_clone' ) ) {
 	}
 }
 if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
+	
 	function raindrops_default_color_clone( $option_name , $style_type = '') {
 
 	   if ( empty( $style_type ) ) {

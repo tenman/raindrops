@@ -10,7 +10,6 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: Raindrops
 */
-
 /**
  * Raindrops Base Style Rules
  *
@@ -49,6 +48,7 @@ body.rd-pw-doc5,
 body.rd-pw-doc3{
     max-width:100%;
     overflow-x: hidden;
+    overflow-y: visible;
 }
 body.rd-col-1 main{ /* author.php */
     width:90%;
@@ -527,7 +527,9 @@ q q:after{
     content:'\2019';
 }
 abbr{
+  
 }
+
 /**
  * input
  */
@@ -694,6 +696,7 @@ article .entry-content .block{
     width:11.5384615385em;
     margin-top:0.3em;
 }
+.blog #content .category-gallery .entry-utility,
 .home #content .category-gallery .entry-utility {
     padding-top: 0.30769230769em;
 }
@@ -1543,7 +1546,9 @@ br.clearfix {
     padding:0;
 }
 #wp-calendar caption{
-    margin:.3em 0;
+    margin:1em 0;
+    text-align:center;
+    font-weight:bold;
 }
 #wp-calendar a{
     text-decoration:underline;
@@ -1555,13 +1560,33 @@ br.clearfix {
 #wp-calendar tfoot #prev{
     text-align:left;
 }
+#calendar_wrap td{
+    position:static;
+    text-align:center;
+    width:14.2857142857%;
+
+}
+#ft #calendar_wrap td{
+    position:static;
+    text-align:center;
+    width:14.2857142857%;
+    height:0;
+    padding-top:3.5%;
+    padding-bottom:3.5%;
+}
+#wp-calendar #next a,
+#wp-calendar #prev a{
+    padding:1em;
+    text-decoration:none;
+}
 .sticky-widget #wp-calendar{
     width:90%;
     margin:auto;
     border:none;
 }
 .sticky-widget #wp-calendar caption{
-   margin:.5em 0;
+   margin:2em 0;
+   font-size:153.9%;   
 }
 .sticky-widget #wp-calendar tfoot td,
 .sticky-widget #wp-calendar th{
@@ -1573,7 +1598,6 @@ br.clearfix {
     border:none!important;
 }
 .sticky-widget #wp-calendar tbody td{
-
     text-align:center;
     width:14.2%;
     padding-top:5%;
@@ -1588,6 +1612,12 @@ br.clearfix {
     padding-bottom:3%;
     height:0;
 }
+.sticky-widget #wp-calendar #next a,
+.sticky-widget #wp-calendar #prev a{
+    padding:.3em .5em;
+    font-size:123.6%;
+    text-decoration:none;
+}
 .sticky-widget #wp-calendar tfoot td{
     border:none;
 }
@@ -1598,7 +1628,6 @@ br.clearfix {
 }
 .sticky-widget.widget_recent-post-groupby-cat .xoxo > li,
 .sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul{
-
     margin-left:2.2em;
 }
 .sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li{
@@ -1880,6 +1909,7 @@ li.byuser,
 .single-post-thumbnail img{
     height:auto;
 }
+.blog .sticky,
 .home .sticky {
     padding: 1.53846153846em 1.53846153846em 0 1.53846153846em;
     background:url(images/sticky.png);
@@ -1887,12 +1917,16 @@ li.byuser,
 .rd-type-minimal .sticky .entry-title{
     padding-top:.3em;
 }
+.blog .sticky .entry-meta,
 .home .sticky .entry-meta{
-    border:none!important;
+    border:none;
+    background:transparent;
 }
+.blog .sticky .posted-on,
 .home .sticky .posted-on{
     display:none;
 }
+.blog #container,
 .home #container{
     margin:0;
 }
@@ -2029,6 +2063,7 @@ br.clear{
     */
     margin:0;
 }
+body:not(.blog) .h2-thumb + .entry-title-text,
 body:not(.home) .h2-thumb + .entry-title-text{
     /* 1.307 */
     margin-left:.3em;
@@ -2977,6 +3012,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .blog .entry-content .loop-hide,
 .search .entry-content .loop-hide,
 .archive .entry-content .loop-hide,
+.blog .entry-content .loop-hide,
 .home .entry-content .loop-hide{
     display:none;
 }
@@ -3631,73 +3667,75 @@ ol.list-of-post-list .entry-title{
     margin-top:0;
 }
 /* bbpress */
-#bbpress-forums .subscription-toggle{
+
+body:not(.no-apply-bbpress-css) #bbpress-forums .subscription-toggle{
     display:inline-block;
     margin-top:2px;
     margin-left:1em;
 }
-#bbpress-forums p.bbp-topic-meta img.avatar,
-#bbpress-forums ul.bbp-reply-revision-log img.avatar,
-#bbpress-forums ul.bbp-topic-revision-log img.avatar,
-#bbpress-forums div.bbp-template-notice img.avatar,
-#bbpress-forums .widget_display_topics img.avatar,
-#bbpress-forums .widget_display_replies img.avatar{
+body:not(.no-apply-bbpress-css) #bbpress-forums p.bbp-topic-meta img.avatar,
+body:not(.no-apply-bbpress-css) #bbpress-forums ul.bbp-reply-revision-log img.avatar,
+body:not(.no-apply-bbpress-css) #bbpress-forums ul.bbp-topic-revision-log img.avatar,
+body:not(.no-apply-bbpress-css) #bbpress-forums div.bbp-template-notice img.avatar,
+body:not(.no-apply-bbpress-css) #bbpress-forums .widget_display_topics img.avatar,
+body:not(.no-apply-bbpress-css) #bbpress-forums .widget_display_replies img.avatar{
     margin-bottom:-3px;
 }
-#bbpress-forums .subscription-toggle{
+body:not(.no-apply-bbpress-css) #bbpress-forums .subscription-toggle{
     display:inline-block;
     margin-top:2px;
     margin-left:1em;
 }
-#bbpress-forums .bbp-topic-reply-count,
-#bbpress-forums .bbp-topic-voice-count,
-#bbpress-forums .bbp-topic-started-by,
-#bbpress-forums .bbp-forum-content,
-#bbpress-forums .bbp-forum-reply-count,
-#bbpress-forums .bbp-forum-topic-count,
-#bbpress-forums #bbp_topic_title,
-#bbpress-forums #bbp_topic_tags,
-#bbpress-forums #bbp_topic_content,
-#bbpress-forums #bbp_reply_content,
-#bbpress-forums .bbp-pagination,
-#bbpress-forums .bbp-body,
-#bbpress-forums .bbp-reply-content,
-#bbpress-forums .bbp-meta,
-#bbpress-forums .bbp-header,
-#bbpress-forums .forum-titles,
-#bbpress-forums .bbp-footer,
-#bbpress-forums legend,
-#bbpress-forums .bbp-reply-form,
-#bbpress-forums .bbp-topic-form{
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-reply-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-voice-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-started-by,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-forum-content,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-forum-reply-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-forum-topic-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums #bbp_topic_title,
+body:not(.no-apply-bbpress-css) #bbpress-forums #bbp_topic_tags,
+body:not(.no-apply-bbpress-css) #bbpress-forums #bbp_topic_content,
+body:not(.no-apply-bbpress-css) #bbpress-forums #bbp_reply_content,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-pagination,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-body,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-reply-content,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-meta,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-header,
+body:not(.no-apply-bbpress-css) #bbpress-forums .forum-titles,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-footer,
+body:not(.no-apply-bbpress-css) #bbpress-forums legend,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-reply-form,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-form{
     background:#fff;
     color:#000;
     font-size:100%;
 }
-#bbpress-forums .bbp-forum-info .bbp-forum-content, #bbpress-forums p.bbp-topic-meta{
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-forum-info .bbp-forum-content, body:not(.no-apply-bbpress-css) #bbpress-forums p.bbp-topic-meta{
     font-size:100%;
 }
-#bbpress-forums .bbp-topic-reply-count,
-#bbpress-forums .bbp-topic-voice-count,
-#bbpress-forums .bbp-forum-reply-count,
-#bbpress-forums .bbp-forum-topic-count,
-#bbpress-forums .forum-titles{
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-reply-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-voice-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-forum-reply-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-forum-topic-count,
+body:not(.no-apply-bbpress-css) #bbpress-forums .forum-titles{
     background:transparent;
 }
-#bbpress-forums .bbp-pagination{
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-pagination{
     padding:.5em;
     margin-bottom:1px;
 }
-#bbpress-forums  #bbp_reply_submit,
-#bbpress-forums  #bbp_topic_submit{
+body:not(.no-apply-bbpress-css) #bbpress-forums  #bbp_reply_submit,
+body:not(.no-apply-bbpress-css) #bbpress-forums  #bbp_topic_submit{
     padding:6px;
 }
-#bbpress-forums .bbp-reply-form,
-#bbpress-forums .bbp-topic-form{
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-reply-form,
+body:not(.no-apply-bbpress-css) #bbpress-forums .bbp-topic-form{
     padding-bottom:.5em;
 }
-#bbpress-forums a{
+body:not(.no-apply-bbpress-css) #bbpress-forums a{
     color:#666;
 }
+
 /**
  * The Events Calendar
  * https://wordpress.org/plugins/the-events-calendar/

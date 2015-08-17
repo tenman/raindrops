@@ -28,7 +28,9 @@ Overview of Changes
 			}
 
 			[/PHP]
-
+	File Move
+			childs/boots/functions.php to child/functions.php
+			childs/boots/inc.php to child/inc.php
 Files Modified
 	modified:   languages/ja.mo
 	modified:   languages/ja.po

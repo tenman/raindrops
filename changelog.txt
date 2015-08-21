@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.314
+version:1.315
 Overview of Changes
 
 	Fixed Customizer 'choices' Tranlatable.
@@ -28,6 +28,28 @@ Overview of Changes
 			}
 
 			[/PHP]
+		Add Content Share Link
+			Shows entry-title,featured image and excerpt html source.
+				add function raindrops_add_share_link()
+				add raindrops_content_shareing()
+
+			If you no needs add var at functions.php first.
+			[php]
+				$raindrops_allow_share_link = false;
+			[/php]
+		Class change constructer name
+				lib/csscolor/csscolor.php
+					function raindrops_PEAR to __construct
+					function raindrops_PEAR_Error to __construct
+		Customize.php function change from __() to esc_html__()
+
+		Customizer modified
+			add tagline position. above header image.
+
+		Fixed sanitize_callback function name wrong
+			from	raindrops_enalbe_header_image_filter_validate
+			to		raindrops_enable_header_image_filter_validate
+
 	File Move
 			childs/boots/functions.php to child/functions.php
 			childs/boots/inc.php to child/inc.php
@@ -42,7 +64,7 @@ Files Modified
 	modified:   responsiveness.css
 	modified:   style.css
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.313&new_path=raindrops/1.314
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.313&new_path=raindrops/1.315
 -----------------------------------------------
 Changelog -----------------------------------
 version:1.313

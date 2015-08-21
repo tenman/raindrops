@@ -187,7 +187,8 @@ class raindrops_PEAR
      * @access public
      * @return void
      */
-    function raindrops_PEAR($error_class = null)
+   // function raindrops_PEAR($error_class = null) @ since 1.315
+	function __construct($error_class = null)
     {
         $classname = strtolower(get_class($this));
         if ($this->_debug) {
@@ -781,7 +782,9 @@ class raindrops_PEAR_Error
      * @access public
      *
      */
-    function raindrops_PEAR_Error($message = 'unknown error', $code = null,
+   /* function raindrops_PEAR_Error($message = 'unknown error', $code = null,
+                        $mode = null, $options = null, $userinfo = null) @ since 1.315*/
+	function __construct($message = 'unknown error', $code = null,
                         $mode = null, $options = null, $userinfo = null)
     {
 
@@ -1108,10 +1111,11 @@ class raindrops_CSS_Color extends raindrops_PEAR{
 
     // Initialize this PEAR object so I can
     // use the PEAR error return mechanism
-    $this->raindrops_PEAR();
-
+   // $this->raindrops_PEAR();
+	  new raindrops_PEAR();
     // Initialize the palette
     $this->raindrops_setPalette($bgHex, $fgHex);
+
   }
 
   //==================================================

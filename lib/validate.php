@@ -304,7 +304,7 @@ function raindrops_col_setting_type_validate( $input ) {
 }
 function raindrops_tagline_in_the_header_image_validate( $input ) {
 	
-	if( $input == 'show' || $input == 'hide' ) {
+	if( $input == 'show' || $input == 'hide' || $input == 'above') {
 		return $input;
 	}	
 	return 'show';	

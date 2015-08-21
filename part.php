@@ -45,7 +45,7 @@ if ( false === $format ) {
         <div class="entry-utility entry-meta">
             <?php
             echo raindrops_posted_in();
-
+			
             edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
             raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );

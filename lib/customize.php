@@ -490,11 +490,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_page_width_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'doc'	 => __( '750px centered', 'Raindrops' ),
-				'doc2'	 => __( '950px centered', 'Raindrops' ),
-				'doc4'	 => __( '974px', 'Raindrops' ),
-				'doc3'	 => __( 'Box Layout Responsive', 'Raindrops' ),
-				'doc5'   => __( 'Full Width Responsive', 'Raindrops' ),
+				'doc'	 =>  esc_html__( '750px centered', 'Raindrops' ),
+				'doc2'	 =>  esc_html__( '950px centered', 'Raindrops' ),
+				'doc4'	 =>  esc_html__( '974px', 'Raindrops' ),
+				'doc3'	 =>  esc_html__( 'Box Layout Responsive', 'Raindrops' ),
+				'doc5'   =>  esc_html__( 'Full Width Responsive', 'Raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_sidebar',
 			'priority'			=> 8,
@@ -510,8 +510,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_col_setting_type_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'simple' => __( 'Simple', 'Raindrops' ),
-				'details' => __( 'Details', 'Raindrops' ),
+				'simple' =>  esc_html__( 'Simple', 'Raindrops' ),
+				'details' =>  esc_html__( 'Details', 'Raindrops' ),
 
 			),
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -527,12 +527,12 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_col_width_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				't1' => __( 'left 160px', 'Raindrops' ),
-				't2' => __( 'left 180px', 'Raindrops' ),
-				't3' => __( 'left 300px', 'Raindrops' ),
-				't4' => __( 'right 180px', 'Raindrops' ),
-				't5' => __( 'right 240px', 'Raindrops' ),
-				't6' => __( 'right 300px', 'Raindrops' ),
+				't1' =>  esc_html__( 'left 160px', 'Raindrops' ),
+				't2' =>  esc_html__( 'left 180px', 'Raindrops' ),
+				't3' =>  esc_html__( 'left 300px', 'Raindrops' ),
+				't4' =>  esc_html__( 'right 180px', 'Raindrops' ),
+				't5' =>  esc_html__( 'right 240px', 'Raindrops' ),
+				't6' =>  esc_html__( 'right 300px', 'Raindrops' ),
 			),
 			'priority'			=> 22,
 			'section'			 => 'raindrops_theme_settings_sidebar',
@@ -548,8 +548,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_show_right_sidebar_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'show'	 => __( 'Show', 'Raindrops' ),
-				'hide'	 => __( 'Hide', 'Raindrops' ),
+				'show'	 =>  esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 =>  esc_html__( 'Hide', 'Raindrops' ),
 			),
 			'priority'			=> 23,
 			'active_callback'   => 'raindrops_col_setting_type_is_simple',
@@ -570,11 +570,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_right_sidebar_width_percent_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'25' => __( '25%', 'Raindrops' ),
-				'33' => __( '33%', 'Raindrops' ),
-				'50' => __( '50%', 'Raindrops' ),
-				'66' => __( '66%', 'Raindrops' ),
-				'75' => __( '75%', 'Raindrops' ),
+				'25' =>  esc_html__( '25%', 'Raindrops' ),
+				'33' =>  esc_html__( '33%', 'Raindrops' ),
+				'50' =>  esc_html__( '50%', 'Raindrops' ),
+				'66' =>  esc_html__( '66%', 'Raindrops' ),
+				'75' =>  esc_html__( '75%', 'Raindrops' ),
 			),
 			'active_callback'	 => 'raindrops_show_right_sidebar_callback',
 			'priority'			=> 24,
@@ -590,9 +590,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_index_validate',
@@ -609,9 +609,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_date_validate',
@@ -628,9 +628,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_page_validate',
@@ -647,9 +647,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_search_validate',
@@ -667,9 +667,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_single_validate',
@@ -687,9 +687,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_image_archive_validate',
@@ -706,9 +706,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_404_validate',
@@ -725,9 +725,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 12,
 			'sanitize_callback'	 => 'raindrops_sidebar_list_of_post_validate',
@@ -745,9 +745,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 =>  esc_html__( '1 column', 'Raindrops' ),
+				2 =>  esc_html__( '2 columns', 'Raindrops' ),
+				3 =>  esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 15,
 			'sanitize_callback'	 => 'raindrops_sidebar_catetory_validate',
@@ -764,9 +764,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 => esc_html__( '1 column', 'Raindrops' ),
+				2 => esc_html__( '2 columns', 'Raindrops' ),
+				3 => esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 15,
 			'sanitize_callback'	 => 'raindrops_sidebar_tag_validate',
@@ -783,9 +783,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'description'		 => '',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				1 => __( '1 column', 'Raindrops' ),
-				2 => __( '2 columns', 'Raindrops' ),
-				3 => __( '3 columns', 'Raindrops' ),
+				1 => esc_html__( '1 column', 'Raindrops' ),
+				2 => esc_html__( '2 columns', 'Raindrops' ),
+				3 => esc_html__( '3 columns', 'Raindrops' ),
 			),
 			'priority'			=> 15,
 			'sanitize_callback'	 => 'raindrops_sidebar_author_validate',
@@ -803,8 +803,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_show_menu_primary_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'show'	 => __( 'Show', 'Raindrops' ),
-				'hide'	 => __( 'Hide', 'Raindrops' ),
+				'show'	 => esc_html__( 'Show', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
 			),
 			'section'			 => 'nav',
 		),
@@ -820,8 +820,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_accessibility_settings_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				'yes'	 => __( 'Yes', 'Raindrops' ),
-				'no'	 => __( 'No', 'Raindrops' ),
+				'yes'	 => esc_html__( 'Yes', 'Raindrops' ),
+				'no'	 => esc_html__( 'No', 'Raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
@@ -997,7 +997,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'yes'	 =>  esc_html__( 'Yes', 'Raindrops' ),
-				'none'	 =>  esc_html__( 'No' ), 'Raindrops' ),
+				'none'	 =>  esc_html__( 'No' , 'Raindrops' ),
+				),
 			'priority'			=> 12,
 			'active_callback'   => 'raindrops_hyperlink_color_is_chromatic',
 			'section'			=> 'colors',
@@ -1722,8 +1723,24 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_place_of_site_title_callback_b',
 			'section'			 => 'title_tagline',
 		),
-
-
+		"raindrops_tagline_in_the_header_image"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Place of the Tagline', 'Raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'tagline show or hide', 'Raindrops' ),
+			'sanitize_callback'	 => 'raindrops_tagline_in_the_header_image_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show in the header image', 'Raindrops' ),
+				'above'	 => esc_html__( 'Show above the header image', 'Raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
+			),
+			'active_callback'	 => '',
+			'section'			 => 'title_tagline',
+		),
 		"raindrops_site_title_css_class"		 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_css_class','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1736,23 +1753,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'text',
 			'section'			 => 'title_tagline',
 		),
-		"raindrops_tagline_in_the_header_image"	 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Tagline in the header image', 'Raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'tagline show or hide', 'Raindrops' ),
-			'sanitize_callback'	 => 'raindrops_tagline_in_the_header_image_validate',
-			'type'				 => 'radio',
-			'choices'			 => array(
-				'show'	 => esc_html__( 'Show', 'Raindrops' ),
-				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
-			),
-			'active_callback'	 => 'raindrops_place_of_site_title_callback',
-			'section'			 => 'title_tagline',
-		),
+		
 	);
 
 	if ( RAINDROPS_USE_LIST_EXCERPT !== false ) {
@@ -1926,7 +1927,7 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 			'settings'		 => 'raindrops_changelog_setting',
 		) ) );
 		
-		$wp_customize->add_control( 'display_header_text', array() );
+		$wp_customize->remove_control( 'display_header_text' );
 	}
 
 }
@@ -1991,6 +1992,7 @@ function raindrops_customizer_style() {
 	 * 4.3-alpha-33010
 	 */
 	$current_admin_color = get_user_option( 'admin_color' );
+
 	$property = 'name';
 	/* strange */
 	$color_patturn_array = raindrops_wp_admin_css_colors( 'colors' );
@@ -2027,13 +2029,19 @@ function raindrops_customizer_style() {
 	$css = <<<CUSTOMIZER_CSS
 	
 /* control area */
-	
+#customize-footer-actions .collapse-sidebar-label,
+li.customize-control .customizer-section-intro,
+li.customize-control .raindrops-description,
+li.customize-control .raindrops-changelog a,
+li.customize-control .inner span{
+		color:$admin_color_base;
+}
 .accordion-section-content	li.customize-control{
 	border:1px solid rgba(52,52,52,.1);
 	padding-bottom:1em;
 	padding-left:5px;
 	background:rgba(222,222,222,.3);
-	background:$admin_color3;
+	background:$admin_color1;
 }
 	
 /* title */

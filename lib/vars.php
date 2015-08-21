@@ -9,7 +9,23 @@
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
+/**
+ * Show Content Share Link
+ * @since 1.315
+ */
 do_action('raindrops_var_before');
+if( ! isset( $raindrops_allow_share_link ) ) {
+	
+	$raindrops_allow_share_link = true;
+}
+/**
+ * Eye Candy Image for Content Share Link
+ * @since 1.315
+ */
+if( ! isset( $raindrops_share_link_image ) ) {
+	
+	$raindrops_share_link_image = 'post_thumbnail';
+}
 /**
  * emoji icon
  * must needs Hexadecimal HTML Entity
@@ -1191,7 +1207,7 @@ array( 'option_id'    => 77,
         'title'        => esc_html__( 'Header Image Filter', 'Raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => '',
-        'validate'     => 'raindrops_enalbe_header_image_filter_validate',
+        'validate'     => 'raindrops_enable_header_image_filter_validate',
 		'list'         => 76 ),
 array( 'option_id'    => 78,
         'blog_id'      => 0,

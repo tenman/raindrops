@@ -1753,7 +1753,7 @@ if ( ! function_exists( 'raindrops_wp_admin_css_colors') ) {
 			'light'		 => array( 'label'	 => _x( 'Light', 'admin color scheme', 'Raindrops' ),
 				'colors' => array( '#e5e5e5', '#999', '#d64e07', '#04a4cc' ),
 				//'name'	 => array( 'base' => '#999', 'focus' => '#ccc', 'current' => '#ccc' )
-				'name'	 => array( 'base' => '#999', 'focus' => '#000', 'current' => '#ccc' )
+				'name'	 => array( 'base' => '#333', 'focus' => '#000', 'current' => '#555' )
 			),
 			'blue'		 => array( 'label'	 => _x( 'Blue', 'admin color scheme', 'Raindrops' ),
 				'colors' => array( '#096484', '#4796b3', '#52accc', '#74B6CE' ),
@@ -1778,6 +1778,14 @@ if ( ! function_exists( 'raindrops_wp_admin_css_colors') ) {
 			'coffee'	 => array( 'label'	 => _x( 'Coffee', 'admin color scheme', 'Raindrops' ),
 				'colors' => array( '#46403c', '#59524c', '#c7a589', '#9ea476' ),
 				'name'	 => array( 'base' => '#f3f2f1', 'focus' => '#fff', 'current' => '#fff' )
+			),
+			'bbp-evergreen'	 => array( 'label'	 => _x( 'Evergreen', 'admin color scheme', 'Raindrops' ),
+				'colors' => array( '#324d3a', '#446950', '#56b274', '#324d3a' ),
+				'name'	 => array( 'base' => '#fff', 'focus' => '#fff', 'current' => '#fff' )
+			),
+			'bbp-mint'	 => array( 'label'	 => _x( 'Mint', 'admin color scheme', 'Raindrops' ),
+				'colors' => array( '#4f6d59', '#33834e', '#5FB37C', '#81c498' ),
+				'name'	 => array( 'base' => '#fff', 'focus' => '#fff', 'current' => '#fff' )
 			) );
 
 		if ( isset( $standard_color[ $current_admin_color ][ $property ] ) ) {

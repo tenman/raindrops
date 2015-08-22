@@ -83,11 +83,11 @@ if ( ! isset( $wp_customize ) ) {
 			'priority' => 41,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			),
-		'raindrops_theme_page_width'	 => array(
+		/*'raindrops_theme_page_width'	 => array(
 			'title' => esc_html__( 'Page Width', 'Raindrops' ),
 			'priority' => 28,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
-			),
+			),*/
 		'raindrops_theme_settings_document'	 => array( 'title' => esc_html__( 'Advanced', 'Raindrops' ), 'priority' => 24, ),
 		'raindrops_theme_settings_content'	 => array( 'title' => esc_html__( 'Excerpt', 'Raindrops' ), 'priority' => 29, ),
 		'raindrops_theme_settings_plugins'	 => array( 'title' => esc_html__( 'Add-ons', 'Raindrops' ), 'priority' => 30, ),
@@ -113,18 +113,25 @@ if ( ! isset( $wp_customize ) ) {
 			'theme_supports' => '',
 			'description'	 => esc_html__( 'The following changes are made using the CSS', 'Raindrops' ),
 			),
+		'raindrops_theme_settings_menu_size' => array(
+			'title' => esc_html__( 'Menu', 'Raindrops' ),
+			'priority' => 110,
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'theme_supports' => '',
+			'description'	 => esc_html__( 'Menu Size and Width', 'Raindrops' ),
+			),
 	);
 /**
  * Panels
  *
  */
 	$raindrops_theme_customize_panels = array(
-		'raindrops_theme_settings_featured_panel' => array( 'priority'		 => 40,
+	/*	'raindrops_theme_settings_featured_panel' => array( 'priority'		 => 40,
 			'capability'	 => $raindrops_customize_cap,
 			'theme_supports' => '',
 			'title'			 => __( 'Featured Image', 'Raindrops' ),
 			'description'	 => __( 'Emphasis of new content using the Featured Image', 'Raindrops' ),
-		),
+		),*/
 		'raindrops_theme_settings_presentation_panel' => array( 'priority'		 => 25,
 			'capability'	 => $raindrops_customize_cap,
 			'theme_supports' => '',
@@ -806,7 +813,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'show'	 => esc_html__( 'Show', 'Raindrops' ),
 				'hide'	 => esc_html__( 'Hide', 'Raindrops' ),
 			),
-			'section'			 => 'nav',
+			'section'			 => 'raindrops_theme_settings_menu_size',
 		),
 
 		"raindrops_accessibility_settings"				 => array(
@@ -1086,7 +1093,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'class'	 => 'menu-primary-font-size raindrops',
 				'style'	 => '',
 			),
-			'section'			 => 'nav',
+			'section'			 => 'raindrops_theme_settings_menu_size',
 		),
 		"raindrops_menu_primary_min_width"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_menu_primary_min_width','option_value' ),
@@ -1106,7 +1113,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'class'	 => 'menu-primary-min-width raindrops',
 				'style'	 => '',
 			),
-			'section'			 => 'nav',
+			'section'			 => 'raindrops_theme_settings_menu_size',
 		),
 		"raindrops_use_featured_image_emphasis"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis','option_value' ),

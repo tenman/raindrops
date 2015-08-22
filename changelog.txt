@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:1.316
+Overview of Changes
+	Fixed
+		Child theme relate issue
+			Child boots theme will broken WEBSite
+		Theme Customizer at version4.3
+			Section only is a problem that is displayed,
+			modified by changing the menu section('nav'),
+			a set of themes that can no longer be operated
+Files Modified
+	modified:   lib/customize.php
+	new file:   childs/boots/inc.php
+	new file:   childs/boots/functions.php
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.313&new_path=raindrops/1.316
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.315
 Overview of Changes
 

@@ -1,15 +1,31 @@
 Changelog -----------------------------------
-version:1.316
+version:1.317
 Overview of Changes
 	Fixed
+		Change from PHP4 constuctor to PHP5 __construct
+			lib/csscolor.php line:190
+				Thanks @benlumia007
+
+	Fixed
+		HTML structure WAI AREA issue.
             remove role attribute from searchform.php
-		remove raindrops_doctype_elements( '', 'role="search"' );
+				remove raindrops_doctype_elements( '', 'role="search"' );
             remove role attribute from sidebar-extra.php
                 raindrops_doctype_elements( '', 'role="complementary"' );
+		HTML Presentation issue
+			Not apply hover style extra sidebar(.rsidebar) a element
+			Post Archives date fallback image( no title image ) shows improperly.( post format image )
+		Customizer Preview works improperly ( when change columns count )
+		Raindrops $raindrops_base_setting_args
+			$var name change from raindrops_sidebar_catetory to raindrops_sidebar_category
+
+	Add body class
+		For Windows10 edge browser CSS class
+
 Files Modified
-	
+
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.316
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.317
 -----------------------------------------------
 
 Changelog -----------------------------------

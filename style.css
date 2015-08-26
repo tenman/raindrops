@@ -31,6 +31,7 @@ http://developer.yahoo.com/yui/fonts/
 /**
  * Add @1.304
  */
+
 .entry-content > div{
     margin:1em 0;
 }
@@ -2299,7 +2300,6 @@ li.comment {
 }
 dl.author dt > a{
     position:relative;
-    top:-.5em;
 }
 #header-image{
     clear:both;
@@ -2456,19 +2456,8 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .raindrops-chat-author-5:before{
     background-image: url('images/raindrops-chat-author-5.png');
 }
-.icon-post-format-notitle,
-.icon-link-no-title{
-    display:inline-block;
-    width:24px;
-    height:24px;
-    background-repeat:no-repeat;
-}
-.icon-link-no-title{
-    background: url("images/link.png");
-    background-size:24px 24px;
-    vertical-align:middle;
-    background-repeat:no-repeat;
-}
+
+
 .single .current_item .icon-link-no-title,
 .single article .icon-link-no-title,
 .single article .entry-title .icon-link-no-title,
@@ -2530,6 +2519,21 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
     width:24px;
     height:24px;
 }
+.icon-link-no-title{
+    background: url("images/link.png");
+    background-size:24px 24px;
+    background-repeat:no-repeat;
+    width:24px;
+    height:24px;
+}
+/* @1.317
+.icon-link-no-title{
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:10px;
+}*/
+.icon-link-no-title,
+.icon-post-format-notitle,
 .icon-post-format-image,
 .icon-post-format-link,
 .icon-post-format-quote,
@@ -2544,6 +2548,8 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
     box-sizing:border-box;
     margin-left:10px;
 }
+.widget .icon-link-no-title,
+.widget .icon-post-format-notitle,
 .widget .icon-post-format-image,
 .widget .icon-post-format-link,
 .widget .icon-post-format-quote,

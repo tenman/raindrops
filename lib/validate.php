@@ -206,7 +206,7 @@ function raindrops_xhtml_media_type_validate( $input ) {
 		return 'text/html';
 	}
 }
-function raindrops_sidebar_catetory_validate( $input ) {
+function raindrops_sidebar_category_validate( $input ) {
 	$input = (int) $input;
 	if( $input == 1 || $input == 2 || $input == 3 ) {
 		return $input;

@@ -2,6 +2,20 @@ Changelog -----------------------------------
 version:1.316
 Overview of Changes
 	Fixed
+            remove role attribute from searchform.php
+		remove raindrops_doctype_elements( '', 'role="search"' );
+            remove role attribute from sidebar-extra.php
+                raindrops_doctype_elements( '', 'role="complementary"' );
+Files Modified
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.316
+-----------------------------------------------
+
+Changelog -----------------------------------
+version:1.316
+Overview of Changes
+	Fixed
 		Child theme relate issue
 			Child boots theme will broken WEBSite
 		Theme Customizer at version4.3

@@ -14,7 +14,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 
 if ( 'html5' == $raindrops_document_type ) {
     ?>
-    <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" <?php raindrops_doctype_elements( '', 'role="search"' ); ?>>
+    <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
         <div class="searchform">
             <label class="screen-reader-text" for="s">Search for:</label>
             <input type="text" value="<?php the_search_query(); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags', 'Raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'Raindrops' ); ?>" name="s" id="s"  />

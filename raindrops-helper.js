@@ -77,6 +77,9 @@
                     var ie_num = userAgent.match( /MSIE (\d+\.\d+);/i );
                     var ieversion = parseInt( ie_num[1], 10 );
                     jQuery( 'body' ).addClass( 'ie' + ieversion );
+                } else if ( userAgent.match( /Edge/i ) ) {
+
+                    jQuery( 'body' ).addClass( 'Edge' );
                 } else if ( userAgent.indexOf( 'opera' ) != -1 ) {
 
                     jQuery( 'body' ).addClass( 'opera' );

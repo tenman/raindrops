@@ -1567,6 +1567,7 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 				return;
 			}
 		} 
+		
 		if ( is_home() ) {
 
 			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_index' );
@@ -1590,7 +1591,7 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			return;
 		}
 		if ( is_category() ) {
-			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_catetory' );
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_category' );
 			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;
 		}

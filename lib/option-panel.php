@@ -66,7 +66,10 @@ class raindrops_menu_create {
         "Animation Color" => "raindrops_color_anime"
     );
     var $first_save_to_database                             = 'no';
-
+	
+	function __construct(){
+		
+	}
     /**
      *
      *

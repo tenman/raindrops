@@ -1112,8 +1112,7 @@ class raindrops_CSS_Color extends raindrops_PEAR{
 
     // Initialize this PEAR object so I can
     // use the PEAR error return mechanism
-    //$this->raindrops_PEAR();
-	  new raindrops_PEAR();
+	  parent::__construct();
     // Initialize the palette
     $this->raindrops_setPalette($bgHex, $fgHex);
 

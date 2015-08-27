@@ -1,9 +1,11 @@
 Changelog -----------------------------------
-version:1.317
+version:1.318
 Overview of Changes
 	Fixed
 		Change from PHP4 constuctor to PHP5 __construct
 			lib/csscolor.php line:190
+		Change parent::WP_Widget to parent::__construct
+			lib/widget.php
 				Thanks @benlumia007
 
 	Fixed
@@ -25,7 +27,7 @@ Overview of Changes
 Files Modified
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.317
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.318
 -----------------------------------------------
 
 Changelog -----------------------------------

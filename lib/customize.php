@@ -2035,7 +2035,10 @@ function raindrops_customizer_style() {
 
 	$css = <<<CUSTOMIZER_CSS
 	
+
 /* control area */
+
+	
 #customize-footer-actions .collapse-sidebar-label,
 li.customize-control .customizer-section-intro,
 li.customize-control .raindrops-description,
@@ -2043,6 +2046,7 @@ li.customize-control .raindrops-changelog a,
 li.customize-control .inner span{
 		color:$admin_color_base;
 }
+li.customize-control .widget-inside .widget-content,
 .accordion-section-content	li.customize-control{
 	border:1px solid rgba(52,52,52,.1);
 	padding-bottom:1em;
@@ -2056,6 +2060,8 @@ li.customize-control .inner span{
 	color:$admin_color_focus;
 }
 /* label */
+li.customize-control .widget-content p,
+li.customize-control .widget-inside .widget-content h4,
 .accordion-section-content	li.customize-control label{
 	color:$admin_color_current;
 }

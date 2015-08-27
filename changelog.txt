@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.318
+version:1.319
 Overview of Changes
 	Fixed
 		Change from PHP4 constuctor to PHP5 __construct
@@ -20,6 +20,9 @@ Overview of Changes
 		Customizer Preview works improperly ( when change columns count )
 		Raindrops $raindrops_base_setting_args
 			$var name change from raindrops_sidebar_catetory to raindrops_sidebar_category
+		Customizer menu
+			Category New Post display improperly,
+			Pinup entries display improperly
 
 	Add body class
 		For Windows10 edge browser CSS class
@@ -27,7 +30,7 @@ Overview of Changes
 Files Modified
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.318
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.316&new_path=raindrops/1.319
 -----------------------------------------------
 
 Changelog -----------------------------------

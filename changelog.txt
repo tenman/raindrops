@@ -2,7 +2,64 @@ Changelog -----------------------------------
 version:1.320
 Overview of Changes
 
+	Modified
+		text domain change from Raindrops to raindrops
+		if ( ! function_exists( '_wp_render_title_tag' ) ) was comment outed
+			It will remove next version
+		Default Header Image change.
+			licensed GPL2. This image is original image.
+		Move function
+			raindrops_has_indivisual_notation()
+			move from functions.php to lib/alias_functions.php
+	Update
+		ja.po,ja.mo raindrops.pot
+	Fixed
+		Indivisual( each post ) Header image works improperly.
+
 Files Modified
+	modified:   404.php
+	modified:   README.txt
+	modified:   author.php
+	modified:   bbpress.php
+	modified:   blank_front.php
+	modified:   changelog.txt
+	modified:   childs/boots/inc.php
+	modified:   childs/inc.php
+	modified:   comments.php
+	modified:   date.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   image.php
+	modified:   images/headers/wp3-thumbnail.jpg
+	modified:   images/headers/wp3.jpg
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/raindrops.pot
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.php
+	modified:   lib/option-panel.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   loop.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/page-featured.php
+	modified:   page.php
+	modified:   part-additional.php
+	modified:   part-blog.php
+	modified:   part-gallery.php
+	modified:   part.php
+	modified:   plugins/class-tgm-plugin-activation.php
+	modified:   plugins/plugins-presentation.php
+	modified:   plugins/tgm-config.php
+	modified:   raindrops.js
+	modified:   search.php
+	modified:   searchform.php
+	modified:   sidebar.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.319&new_path=raindrops/1.320

@@ -26,12 +26,12 @@ raindrops_debug_navitation( __FILE__ );
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
                 <h1 class="entry-title">
-<?php esc_html_e( 'Error 404 - Not Found', 'Raindrops' ); ?>
+<?php esc_html_e( 'Error 404 - Not Found', 'raindrops' ); ?>
                 </h1>
                 <div id="post-0" class="post error404 not-found">
                     <div class="entry-content">
                         <p>
-                        <?php esc_html_e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'Raindrops' ); ?>
+                        <?php esc_html_e( 'Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post.', 'raindrops' ); ?>
                         </p>
 <?php get_search_form(); ?>
                     </div>

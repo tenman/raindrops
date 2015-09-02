@@ -41,7 +41,7 @@ raindrops_entry_title();
 
 	if ( empty( $text_array[ 'more_text' ] ) ) {
 
-		$text_array[ 'more_text' ] = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . get_the_ID() . '</span>';
+		$text_array[ 'more_text' ] = esc_html__( 'Continue&nbsp;reading ', 'raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . get_the_ID() . '</span>';
 	}
 	
 	if ( $text_array[ 'extended' ] !== '' ) {
@@ -70,9 +70,9 @@ raindrops_entry_title();
 
 <div class="entry-utility entry-meta">
 	<?php
-	edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-	raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+	raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 	?>
 </div>
 <?php

@@ -4,11 +4,11 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.319
+Version: 1.320
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: Raindrops
+Text Domain: raindrops
 */
 /**
  * Raindrops Base Style Rules
@@ -577,6 +577,7 @@ input[type="file"]{
 .comment-form-email input,
 .comment-form-author input{
     display:block;
+    padding:0.38461538461em;
 }
 .social input[type="submit"]{
     padding:2px 0.46153846153em;
@@ -855,6 +856,10 @@ ul.archive ul li {
 #commentform label {
     display:block;
 }
+#commentform label[for="url"]{
+    display:inline;
+}
+
 .datetable{
     padding:0 0 0 0.76923076923em;
 }
@@ -1351,7 +1356,6 @@ ul.index li .edit {
 .social .option{
     display:inline-block;
     margin:0;
-    width:4em;
     min-width:0;
 }
 .commentlist{
@@ -2335,6 +2339,7 @@ dl.author dt > a{
     background:url("images/require.png");
     background-repeat:no-repeat;
     background-size:16px 16px;
+    vertical-align:middle;
 }
 .error404 .entry-title:before{
     content:" ";
@@ -2381,7 +2386,7 @@ address .entry-rss:after{
     display:none;
 }
 /* WordPress4.0 Press this link not wrapped p*/
-.format-link .entry-content  a:first-of-type,
+.format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type,
 .format-link .entry-content p:first-of-type a{
     display:table-cell;
     text-align:center;

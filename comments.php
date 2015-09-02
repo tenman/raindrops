@@ -24,8 +24,8 @@ global $raindrops_document_type;
 <div id="comments">
         <?php if ( post_password_required() ) { ?>
         <p class="nopassword">
-    <?php esc_html_e( 'This post is password protected.', 'Raindrops' ); ?> 
-    <?php esc_html_e( 'Enter the password to view any comments.', 'Raindrops' ); ?>
+    <?php esc_html_e( 'This post is password protected.', 'raindrops' ); ?> 
+    <?php esc_html_e( 'Enter the password to view any comments.', 'raindrops' ); ?>
         </p>
     </div>
     <?php return; ?>
@@ -33,17 +33,17 @@ global $raindrops_document_type;
     <?php if ( have_comments() ) { ?>
     <h2 id="comments-title" class="h2">
         <?php
-        printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'Raindrops' ), number_format_i18n( get_comments_number() ), '<strong>' . get_the_title() . '</strong>', get_comments_number()
+        printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'raindrops' ), number_format_i18n( get_comments_number() ), '<strong>' . get_the_title() . '</strong>', get_comments_number()
         );
         ?>
     </h2>
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through??>
         <div id="nav-above-comments" class="clearfix">
             <span class="nav-previous">
-        <?php previous_comments_link( '<span class="meta-nav">&larr;</span>' . esc_html__( 'Older Comments', 'Raindrops' ) ); ?>
+        <?php previous_comments_link( '<span class="meta-nav">&larr;</span>' . esc_html__( 'Older Comments', 'raindrops' ) ); ?>
             </span>
             <span class="nav-next">
-                <?php next_comments_link( esc_html__( 'Newer Comments', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span>' ); ?>
+                <?php next_comments_link( esc_html__( 'Newer Comments', 'raindrops' ) . '<span class="meta-nav">&rarr;</span>' ); ?>
             </span>
         </div>
             <?php } // check for comment navigation?>
@@ -53,10 +53,10 @@ global $raindrops_document_type;
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through? ?>
         <div id="nav-below-comments" class="clearfix">
             <span class="nav-previous">
-        <?php previous_comments_link( '<span class="meta-nav">&larr;</span> ' . esc_html__( 'Older Comments', 'Raindrops' ) ); ?>
+        <?php previous_comments_link( '<span class="meta-nav">&larr;</span> ' . esc_html__( 'Older Comments', 'raindrops' ) ); ?>
             </span>
             <span class="nav-next">
-                <?php next_comments_link( esc_html__( 'Newer Comments ', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span>' ); ?>
+                <?php next_comments_link( esc_html__( 'Newer Comments ', 'raindrops' ) . '<span class="meta-nav">&rarr;</span>' ); ?>
             </span>
         </div>
             <?php } // check for comment navigation ?>
@@ -69,7 +69,7 @@ global $raindrops_document_type;
     if ( !comments_open() ) {
         ?>
         <p class="nocomments">
-        <?php esc_html_e( 'Comments are closed.', 'Raindrops' ); ?>
+        <?php esc_html_e( 'Comments are closed.', 'raindrops' ); ?>
         </p>
         <?php } // end ! comments_open( ) 
     }// end have_comments( )

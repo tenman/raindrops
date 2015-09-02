@@ -85,7 +85,7 @@ if ( !isset( $raindrops_bf_recent_posts ) ) {
 if ( !isset( $raindrops_bf_recent_posts_setting ) ) {
 
     $raindrops_bf_recent_posts_setting = array(
-        'title'                                       => esc_html__( 'Recent Posts', 'Raindrops' ),
+        'title'                                       => esc_html__( 'Recent Posts', 'raindrops' ),
         'numberposts'                                 => 4, //show count
         'raindrops_excerpt_length'                    => 50, // excerpt length
         'raindrops_excerpt_more'                      => '...', // excerpt more marker
@@ -108,7 +108,7 @@ if ( !isset( $raindrops_bf_category_posts ) ) {
 if ( !isset( $raindrops_bf_category_posts_setting ) ) {
 
     $raindrops_bf_category_posts_setting = array(
-        'title'                                         => esc_html__( 'Categories', 'Raindrops' ),
+        'title'                                         => esc_html__( 'Categories', 'raindrops' ),
         'numberposts'                                   => 4, //show count
         'category'                                      => 0, //category id
         'orderby'                                       => 'post_date',
@@ -131,7 +131,7 @@ if ( !isset( $raindrops_bf_tag_posts ) ) {
 if ( !isset( $raindrops_bf_tag_posts_setting ) ) {
 
     $raindrops_bf_tag_posts_setting = array(
-        'title'                                         => esc_html__( 'Tags', 'Raindrops' ),
+        'title'                                         => esc_html__( 'Tags', 'raindrops' ),
         'numberposts'                                   => 4, //show count
         'raindrops_post_thumbnail'                      => true,
         'raindrops_category_post_thumbnail_default_uri' => get_template_directory_uri() . '/images/dummy.png',

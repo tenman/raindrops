@@ -37,7 +37,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
 	function raindrops_child_embed_css() {
 
-		global $post, $raindrops_current_theme_name, $raindrops_base_font_size, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width;
+		global $post, $raindrops_current_theme_name, $raindrops_base_font_size, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width,$raindrops_header_image_default_ratio;
 		$pinup_style				 = '';
 		$result						 = '';
 		$css						 = '/*raindrops_child_embed_css*/';
@@ -98,6 +98,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 		$raindrops_header_image_filter_apply_top	 = raindrops_warehouse_clone( 'raindrops_header_image_filter_apply_top' );
 		$raindrops_header_image_filter_apply_bottom	 = raindrops_warehouse_clone( 'raindrops_header_image_filter_apply_bottom' );
 		$raindrops_enable_header_image_filter		 = raindrops_warehouse_clone( 'raindrops_enable_header_image_filter' );
+		$raindrops_field_exists_check				 = get_post_custom_values( '_raindrops_this_header_image' );
 
 		$old_ie = '';
 
@@ -131,31 +132,41 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 		} else {
 			$background_property = 'background-image:url( ' . esc_url( $header_image ) . ' );';
 		}
+		
+		$padding_height = $raindrops_header_image_default_ratio * 100;
+		$raindrops_header_image_width = absint( raindrops_detect_header_image_size_clone(  'width' ) );
+		$raindrops_header_image_height = absint( raindrops_detect_header_image_size_clone(  'height' ) );
+		
+		if( is_singular() && $raindrops_field_exists_check !== null) {
 
-		/* indivisual post header image */
-
-		$raindrops_field_exists_check = get_post_custom_values( '_raindrops_this_header_image' );
-		$background_property = '';
-		if ( $raindrops_field_exists_check !== null ) {
 			$display_header_image_file = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
 
-			if ( !empty( $display_header_image_file ) && $display_header_image_file !== 'default' && is_singular() ) {
+			if ( !empty( $display_header_image_file ) && $display_header_image_file !== 'default' ) {
 
 				$display_header_image_attr = wp_get_attachment_image_src( $display_header_image_file, 'full' );
 				if ( !empty( $display_header_image_attr ) ) {
 					$raindrops_header_image_uri		 = $display_header_image_attr[ 0 ];
 					$raindrops_header_image_width	 = $display_header_image_attr[ 1 ];
 					$raindrops_header_image_height	 = $display_header_image_attr[ 2 ];
+					
 				}
 				if( isset( $raindrops_header_image_uri ) && !empty( $raindrops_header_image_uri ) ) {
-					$background_property = 'background-image:url( ' . esc_url( $raindrops_header_image_uri ) . ' );';
+					$background_property .= 'background-image:url( ' . esc_url( $raindrops_header_image_uri ) . ' );';
 				}
 			}
 		}
-		if( !empty( $background_property ) ) {
-			
-			$css .= " \n#header-image{{$background_property} background-size:cover}";
+		
+		if( $raindrops_header_image_height !== 0 && $raindrops_header_image_width !== 0  ) {
+				$padding_height = $raindrops_header_image_height / $raindrops_header_image_width * 100;
 		}
+		$background_property .= " display:block;
+				position: relative;
+				padding-bottom: {$padding_height}%;
+				height: 0!important;
+				max-width:100%; ";
+
+		$css .= " \n#header-image{{$background_property} background-size:cover}";
+//////////////////////////////////////////////		
 		if( isset( $post ) && !empty( $post->ID ) ) {
 			
 			$boots_this_header_image = get_post_meta( $post->ID, '_raindrops_this_header_image', true );

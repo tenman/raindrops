@@ -17,10 +17,10 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
         <?php
         if ( !dynamic_sidebar( 'sidebar-1' ) ) {
 
-            wp_list_pages( 'title_li=<h2 class="h2">' . esc_html__( 'Pages', 'Raindrops' ) . '</h2>' );
+            wp_list_pages( 'title_li=<h2 class="h2">' . esc_html__( 'Pages', 'raindrops' ) . '</h2>' );
             ?>
             <li>
-                <h2 class="h2"><?php esc_html_e( 'Archives', 'Raindrops' ); ?></h2>
+                <h2 class="h2"><?php esc_html_e( 'Archives', 'raindrops' ); ?></h2>
                 <ul>
                     <?php
                     wp_get_archives( 'type=monthly' );
@@ -28,7 +28,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
                 </ul>
             </li>
             <?php
-            wp_list_categories( 'show_count=1&title_li=<h2 class="h2">' . esc_html__( 'Categories', 'Raindrops' ) . '</h2>' );
+            wp_list_categories( 'show_count=1&title_li=<h2 class="h2">' . esc_html__( 'Categories', 'raindrops' ) . '</h2>' );
 
 
             if ( is_front_page() || is_page() ) {
@@ -36,7 +36,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
                 wp_list_bookmarks();
                 ?>
                 <li>
-                    <h2 class="h2">Meta<?php esc_html_e( 'Meta', 'Raindrops' ); ?></h2>
+                    <h2 class="h2">Meta<?php esc_html_e( 'Meta', 'raindrops' ); ?></h2>
                     <ul>
                         <?php
                         wp_register();

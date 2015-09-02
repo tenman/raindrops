@@ -1173,28 +1173,26 @@ if ( ! function_exists( 'raindrops_hex2rgb_array_clone' ) ) {
 
 	function raindrops_detect_header_image_size_clone( $xy = 'width' ) {
 
-		global $raindrops_custom_header_args;
+		global $raindrops_custom_header_args, $raindrops_header_image_default_ratio;
 
 		$all_header_images		 = array();
 		$header_image			 = get_custom_header();
 		$header_image_uri		 = $header_image->url;
 		$header_image_basename	 = basename( $header_image_uri );
 		$page_width				 = raindrops_warehouse_clone( 'raindrops_page_width' );
+		$all_header_images		 = get_uploaded_header_images();
+		
+		if ( 'width' == $xy ) {
+			if ( ! empty( $header_image->width ) ) {
 
-		if ( $raindrops_custom_header_args[ "default-image" ] == $header_image_uri ) {
+				return absint( $header_image->width );
+			}
+		} elseif ( 'height' == $xy ) {
+			if ( ! empty( $header_image->height ) ) {
 
-			if ( 'width' == $xy ) {
-				if ( false !== $raindrops_custom_header_args[ "width" ] ) {
-					return $raindrops_custom_header_args[ "width" ];
-				}
-			} elseif ( 'height' == $xy ) {
-				if ( false !== $raindrops_custom_header_args[ "height" ] ) {
-					return $raindrops_custom_header_args[ "height" ];
-				}
+				return absint( $header_image->height );
 			}
 		}
-
-		$all_header_images = get_uploaded_header_images();
 
 		if ( 'width' == $xy ) {
 
@@ -1225,29 +1223,32 @@ if ( ! function_exists( 'raindrops_hex2rgb_array_clone' ) ) {
 		switch ( $page_width ) {
 			case ( "doc" ):
 				$custom_header_width	 = 750;
-				$custom_header_height	 = 335;
+				$custom_header_height	 = round( $custom_header_width * $raindrops_header_image_default_ratio );
 				break;
 
 			case ( "doc2" ):
 				$custom_header_width	 = 950;
-				$custom_header_height	 = 425;
+				$custom_header_height	 = round( $custom_header_width * $raindrops_header_image_default_ratio );
 				break;
 
 			case ( "doc3" ):
 
 				$custom_header_width	 = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
-				$custom_header_height	 = round( $custom_header_width * 0.40859375 );
+				$custom_header_height	 = round( $custom_header_width * $raindrops_header_image_default_ratio );
+				
 				break;
 
 			case ( "doc4" ):
 
 				$custom_header_width	 = 974;
-				$custom_header_height	 = 436;
+				$custom_header_height	 = round( $custom_header_width * $raindrops_header_image_default_ratio );
 				break;
 			case ( "doc5" ):
 
 				$custom_header_width	 = raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
-				$custom_header_height	 = round( $custom_header_width * 0.40859375 );
+				$custom_header_height	 = round( $custom_header_width * $raindrops_header_image_default_ratio );
+				
+				
 				break;
 		}
 
@@ -1372,8 +1373,8 @@ if ( ! class_exists( 'RaindropsPostHelp') ) {
 
 			get_current_screen()->add_help_tab( array(
 				'id'		 => $id
-				, 'title'		 => __( 'Raindrops Help', 'Raindrops' )
-				, 'content'	 => '<h1>' . __( 'About Base Color related Class', 'Raindrops' ) . '</h1>'
+				, 'title'		 => __( 'Raindrops Help', 'raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Base Color related Class', 'raindrops' ) . '</h1>'
 				, 'callback'	 => array( $this, 'prepare' )
 			) );
 		}
@@ -1385,8 +1386,8 @@ if ( ! class_exists( 'RaindropsPostHelp') ) {
 
 			get_current_screen()->add_help_tab( array(
 				'id'		 => $id
-				, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
-				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
+				, 'title'		 => __( 'Raindrops Theme Help', 'raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'raindrops' ) . '</h1>'
 				, 'callback'	 => array( $this, 'prepare_theme' )
 			) );
 		}
@@ -1398,8 +1399,8 @@ if ( ! class_exists( 'RaindropsPostHelp') ) {
 
 			get_current_screen()->add_help_tab( array(
 				'id'		 => $id
-				, 'title'		 => __( 'Raindrops Theme Help', 'Raindrops' )
-				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'Raindrops' ) . '</h1>'
+				, 'title'		 => __( 'Raindrops Theme Help', 'raindrops' )
+				, 'content'	 => '<h1>' . __( 'About Raindrops Theme', 'raindrops' ) . '</h1>'
 				, 'callback'	 => array( $this, 'prepare_theme' )
 			) );
 		}
@@ -1412,7 +1413,7 @@ if ( ! class_exists( 'RaindropsPostHelp') ) {
 			echo raindrops_edit_help( '' );
 		} else {
 
-			printf( '<p class="disable-color-gradient">%1$s</p>', esc_html__( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'Raindrops' ) );
+			printf( '<p class="disable-color-gradient">%1$s</p>', esc_html__( 'Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help', 'raindrops' ) );
 		}
 	}
 
@@ -1717,6 +1718,19 @@ if ( ! function_exists( 'raindrops_responsive_width_ajust') ) {
 
 			return raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
 		}
+		if( $page_type_check == 'doc5' ) {
+
+			$width = absint( raindrops_detect_header_image_size_clone(  'width' ) );
+			$raindrops_full_width_limit_window_width	= raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
+			$raindrops_full_width_max_width				= raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
+
+			if ( $width <  $raindrops_full_width_max_width  ) {
+
+				return $width;
+			}
+
+			return raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+		}
 		return $width;
 	}
 }
@@ -1743,6 +1757,24 @@ if ( ! function_exists( 'raindrops_responsive_height_ajust') ) {
 			return $height;
 
 		}
+		if( $page_type_check == 'doc5' ) {
+			$raindrops_full_width_limit_window_width	= raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
+			$max_width				= raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
+			$width = absint( raindrops_detect_header_image_size_clone(  'width' ) );
+
+			if( $width < $max_width ) {
+				$orrection_amount = $width / $max_width;
+
+				return round( $height * $orrection_amount );
+			}
+			if( $width > $max_width ) {
+				$orrection_amount = $max_width / $width;
+
+				return round( $height * $orrection_amount );
+			}
+			return $height;
+
+		}
 		return $height;
 	}
 }
@@ -1751,40 +1783,40 @@ if ( ! function_exists( 'raindrops_wp_admin_css_colors') ) {
 	function raindrops_wp_admin_css_colors( $property = 'name' ) {
 		$current_admin_color = get_user_option( 'admin_color' );
 		$standard_color		 = array(
-			'light'		 => array( 'label'	 => _x( 'Light', 'admin color scheme', 'Raindrops' ),
+			'light'		 => array( 'label'	 => _x( 'Light', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#e5e5e5', '#999', '#d64e07', '#04a4cc' ),
 				//'name'	 => array( 'base' => '#999', 'focus' => '#ccc', 'current' => '#ccc' )
 				'name'	 => array( 'base' => '#333', 'focus' => '#000', 'current' => '#555' )
 			),
-			'blue'		 => array( 'label'	 => _x( 'Blue', 'admin color scheme', 'Raindrops' ),
+			'blue'		 => array( 'label'	 => _x( 'Blue', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#096484', '#4796b3', '#52accc', '#74B6CE' ),
 				'name'	 => array( 'base' => '#e5f8ff', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'midnight'	 => array( 'label'	 => _x( 'Midnight', 'admin color scheme', 'Raindrops' ),
+			'midnight'	 => array( 'label'	 => _x( 'Midnight', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#25282b', '#363b3f', '#69a8bb', '#e14d43' ),
 				'name'	 => array( 'base' => '#f1f2f3', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'sunrise'	 => array( 'label'	 => _x( 'Sunrise', 'admin color scheme', 'Raindrops' ),
+			'sunrise'	 => array( 'label'	 => _x( 'Sunrise', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#b43c38', '#cf4944', '#dd823b', '#ccaf0b' ),
 				'name'	 => array( 'base' => '#f3f1f1', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'ectoplasm'	 => array( 'label'	 => _x( 'Ectoplasm', 'admin color scheme', 'Raindrops' ),
+			'ectoplasm'	 => array( 'label'	 => _x( 'Ectoplasm', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#413256', '#523f6d', '#a3b745', '#d46f15' ),
 				'name'	 => array( 'base' => '#ece6f6', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'ocean'		 => array( 'label'	 => _x( 'Ocean', 'admin color scheme', 'Raindrops' ),
+			'ocean'		 => array( 'label'	 => _x( 'Ocean', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#627c83', '#738e96', '#9ebaa0', '#aa9d88' ),
 				'name'	 => array( 'base' => '#f2fcff', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'coffee'	 => array( 'label'	 => _x( 'Coffee', 'admin color scheme', 'Raindrops' ),
+			'coffee'	 => array( 'label'	 => _x( 'Coffee', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#46403c', '#59524c', '#c7a589', '#9ea476' ),
 				'name'	 => array( 'base' => '#f3f2f1', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'bbp-evergreen'	 => array( 'label'	 => _x( 'Evergreen', 'admin color scheme', 'Raindrops' ),
+			'bbp-evergreen'	 => array( 'label'	 => _x( 'Evergreen', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#324d3a', '#446950', '#56b274', '#324d3a' ),
 				'name'	 => array( 'base' => '#fff', 'focus' => '#fff', 'current' => '#fff' )
 			),
-			'bbp-mint'	 => array( 'label'	 => _x( 'Mint', 'admin color scheme', 'Raindrops' ),
+			'bbp-mint'	 => array( 'label'	 => _x( 'Mint', 'admin color scheme', 'raindrops' ),
 				'colors' => array( '#4f6d59', '#33834e', '#5FB37C', '#81c498' ),
 				'name'	 => array( 'base' => '#fff', 'focus' => '#fff', 'current' => '#fff' )
 			) );
@@ -1797,5 +1829,30 @@ if ( ! function_exists( 'raindrops_wp_admin_css_colors') ) {
 		return false;
 	}
 
+}
+if ( !function_exists( 'raindrops_has_indivisual_notation' ) ) {
+	
+	function raindrops_has_indivisual_notation( $post_id = '' ) {
+		global $post, $raindrops_automatic_color;
+
+		if( empty( $post_id ) && isset( $post->ID ) ) {
+
+			$post_id = $post->ID;
+		}
+
+		if ( ! empty( $post_id ) && is_singular() ) {
+
+			$post_id = absint( $post_id );
+
+			$raindrops_content_check = get_post( $post_id );
+			$raindrops_content_check = $raindrops_content_check->post_content;
+
+			if( preg_match( "!\[raindrops\s+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )\s+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+
+				return array( trim( $regs[1] ) => trim( $regs[3] ), trim( $regs[5] ) => trim( $regs[7] ) );
+			}
+		}
+		return false;
+	}
 }
 ?>

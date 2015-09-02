@@ -17,8 +17,8 @@ if ( 'html5' == $raindrops_document_type ) {
     <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
         <div class="searchform">
             <label class="screen-reader-text" for="s">Search for:</label>
-            <input type="text" value="<?php the_search_query(); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags', 'Raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'Raindrops' ); ?>" name="s" id="s"  />
-            <input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'Raindrops' ); ?>" />
+            <input type="text" value="<?php the_search_query(); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags', 'raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'raindrops' ); ?>" name="s" id="s"  />
+            <input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'raindrops' ); ?>" />
         </div>
     </form>
     <?php
@@ -29,7 +29,7 @@ if ( 'html5' == $raindrops_document_type ) {
             <label class="screen-reader-text" for="s">Search for:</label>
             <input type="text" value="<?php the_search_query(); ?>" name="s" id="s" accesskey="s" tabindex="1" />
             &nbsp;
-            <input type="submit" id="searchsubmit" value="<?php esc_html_e( 'Search', 'Raindrops' ); ?>" accesskey="b" tabindex="2" />
+            <input type="submit" id="searchsubmit" value="<?php esc_html_e( 'Search', 'raindrops' ); ?>" accesskey="b" tabindex="2" />
         </div>
     </form>
     <?php

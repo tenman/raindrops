@@ -72,7 +72,7 @@ What is changed when Accessibility mode yes
 Add body element CSS class raindrops-accessible-mode more link text
 Raindrops add html below
 
-	<span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . get_the_ID() . '</span>'
+	<span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . get_the_ID() . '</span>'
 
 next prev links
 

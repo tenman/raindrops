@@ -60,27 +60,27 @@ if ( is_single() ) {
         </li>
         <li class="blog-avatar post-format-status-avatar">
             <?php
-            echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ), '', __( 'Author', 'Raindrops' ) . ' ' . get_the_author_meta( 'display_name' )
+            echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ), '', __( 'Author', 'raindrops' ) . ' ' . get_the_author_meta( 'display_name' )
             );
             ?>
         </li>
         <li>
             <?php
-            esc_html_e( 'Category:', 'Raindrops' );
+            esc_html_e( 'Category:', 'raindrops' );
 
             the_category( ' ' )
             ?>
         </li>
         <li>
             <?php
-            esc_html_e( 'Tags:', 'Raindrops' );
+            esc_html_e( 'Tags:', 'raindrops' );
 
             the_tags( ' ', ' ' );
             ?>
         </li>
         <li>
             <?php
-            esc_html_e( 'Author:', 'Raindrops' );
+            esc_html_e( 'Author:', 'raindrops' );
 
             printf(
                     '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_html( get_the_author() )
@@ -90,7 +90,7 @@ if ( is_single() ) {
         <li>
             <?php
             if ( comments_open() ) {
-                comments_popup_link( esc_html__( 'Leave a comment', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), esc_html__( '1 Comment', 'Raindrops' ), esc_html__( '% Comments', 'Raindrops' )
+                comments_popup_link( esc_html__( 'Leave a comment', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), esc_html__( '1 Comment', 'raindrops' ), esc_html__( '% Comments', 'raindrops' )
                 );
             }
             ?>
@@ -100,10 +100,10 @@ if ( is_single() ) {
             ?>
         <li>
             <?php
-            edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>'
+            edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>'
             );
 
-            raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>'
+            raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>'
             );
             ?>
         </li>
@@ -188,9 +188,9 @@ if ( is_single() ) {
                     <?php
                     echo raindrops_posted_in();
 
-                    edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+                    edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-                    raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+                    raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
                     ?>		
             </div>
                     <?php
@@ -200,9 +200,9 @@ if ( is_single() ) {
                     ?>
             <div class="entry-utility entry-meta clear">
             <?php
-            edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+            edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-            raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+            raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
             ?>
             </div>
                 <?php

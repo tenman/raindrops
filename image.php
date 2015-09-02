@@ -37,7 +37,7 @@ raindrops_debug_navitation( __FILE__ );
 								?>
 								<p class="parent-entry">
 									<?php
-									esc_html_e( "Entry : ", 'Raindrops' );
+									esc_html_e( "Entry : ", 'raindrops' );
 									?>
 									<a href="<?php echo get_permalink( $post->post_parent ); ?>" rev="attachment">
 										<?php
@@ -97,9 +97,9 @@ raindrops_debug_navitation( __FILE__ );
 						</div>
 						<br class="clear" />
 						<?php
-						edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+						edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-						raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+						raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 						?>
 					</div>
 					<?php
@@ -108,7 +108,7 @@ raindrops_debug_navitation( __FILE__ );
 					?>
 					<p>
 						<?php
-						esc_html_e( "Sorry, no attachments matched your criteria.", "Raindrops" );
+						esc_html_e( "Sorry, no attachments matched your criteria.", 'raindrops' );
 						?>
 					</p>
 					<?php

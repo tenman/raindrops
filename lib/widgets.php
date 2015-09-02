@@ -11,7 +11,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 		function __construct() {
 			parent::__construct(
-			'recent-post-groupby-cat', esc_html__( '2.Category New Post [Raindrops]', 'Raindrops' ), array( 'description' => esc_html__( 'Show latest posts that were grouped for each category', 'Raindrops' ), )
+			'recent-post-groupby-cat', esc_html__( '2.Category New Post [Raindrops]', 'raindrops' ), array( 'description' => esc_html__( 'Show latest posts that were grouped for each category', 'raindrops' ), )
 			);
 		}
 
@@ -22,7 +22,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$title = apply_filters( 'widget_title', $instance[ 'title' ] );
 			} else {
 
-				$title = __( "Category What's New", 'Raindrops' );
+				$title = __( "Category What's New", 'raindrops' );
 			}
 			if ( isset( $instance[ 'count' ] ) && is_numeric( $instance[ 'count' ] ) ) {
 
@@ -70,7 +70,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$title = $instance[ 'title' ];
 			} else {
 
-				$title = __( "Category What's New", 'Raindrops' );
+				$title = __( "Category What's New", 'raindrops' );
 			}
 			if ( isset( $instance[ 'count' ] ) && is_numeric( $instance[ 'count' ] ) ) {
 
@@ -90,14 +90,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			?>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'Raindrops' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'raindrops' ); ?></label> 
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php esc_html_e( 'Show Items Counts', 'Raindrops' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php esc_html_e( 'Show Items Counts', 'raindrops' ); ?></label> 
 				<input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo absint( $count ); ?>">
 			</p>
-			<h4><?php esc_html_e( 'Select Categories', 'Raindrops' ); ?></h4>
+			<h4><?php esc_html_e( 'Select Categories', 'raindrops' ); ?></h4>
 			<div style="border:1px solid #ddd;margin-bottom:1em;padding:1em;">
 				<?php
 				$categories = get_terms( 'category' );
@@ -308,7 +308,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					if (  has_post_thumbnail( $val )  && !post_password_required() && true == $raindrops_group_by_category_icon) {
 
 						$thumbnail .= "\n". str_repeat("\t", 11 ). '<span class="h2-thumb">';
-						$thumbnail .= get_the_post_thumbnail( $val, array( 48, 48 ), array( "style" => "vertical-align:middle;", "alt" => esc_attr__( 'Featured Image', 'Raindrops' ) ) );
+						$thumbnail .= get_the_post_thumbnail( $val, array( 48, 48 ), array( "style" => "vertical-align:middle;", "alt" => esc_attr__( 'Featured Image', 'raindrops' ) ) );
 						$thumbnail .= "\n". str_repeat("\t", 11 ). '</span>';
 						
 					}
@@ -362,10 +362,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			$widget_ops = array(
 				'classname'		 => 'raindrops-pinup-entries',
-				'description'	 => esc_html__( 'Display Pinup entries', 'Raindrops' )
+				'description'	 => esc_html__( 'Display Pinup entries', 'raindrops' )
 			);
-			//parent::WP_Widget( false, esc_html__( '1.Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
-			parent::__construct( false, esc_html__( '1.Pinup entries [Raindrops]', 'Raindrops' ), $widget_ops );
+			//parent::WP_Widget( false, esc_html__( '1.Pinup entries [Raindrops]', 'raindrops' ), $widget_ops );
+			parent::__construct( false, esc_html__( '1.Pinup entries [Raindrops]', 'raindrops' ), $widget_ops );
 			wp_reset_query();
 		}
 
@@ -590,7 +590,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 				$checked_default = "";
 			}
-			$alert = '<strong style="color:red">'.esc_html__( 'Please check, incorrect value in post ID might have been set,', 'Raindrops' ). '</strong>';
+			$alert = '<strong style="color:red">'.esc_html__( 'Please check, incorrect value in post ID might have been set,', 'raindrops' ). '</strong>';
 			
 			$entry_title_names = $id;		
 			if( ! empty(  $entry_title_names ) ) {
@@ -625,40 +625,40 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 				$raindrops_html = '<h4>%1$s</h4><p>%2$s</p>';
 
-				printf( $raindrops_html, esc_html__( 'Posted title that has been set', 'Raindrops' ), $entry_title_names );
+				printf( $raindrops_html, esc_html__( 'Posted title that has been set', 'raindrops' ), $entry_title_names );
 			}
 			$raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
 
-			printf( $raindrops_html, esc_html__( 'Post ID', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'Comma separated IDs[Randum Displayed]', 'Raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )
+			printf( $raindrops_html, esc_html__( 'Post ID', 'raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_html__( 'Comma separated IDs[Randum Displayed]', 'raindrops' ), esc_attr( $this->get_field_id( 'id' ) ), esc_attr( $this->get_field_name( 'id' ) ), esc_html( $id )
 			);
 
 			$raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
 
-			printf( $raindrops_html, esc_html__( 'Post Type', 'Raindrops' ), esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "post", false ), $checked_default, esc_html__( 'Post:', 'Raindrops' ), 'post'
+			printf( $raindrops_html, esc_html__( 'Post Type', 'raindrops' ), esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "post", false ), $checked_default, esc_html__( 'Post:', 'raindrops' ), 'post'
 			);
 
 			$raindrops_html = '<li><label ><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
 
-			printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page', 'Raindrops' ), 'page'
+			printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page', 'raindrops' ), 'page'
 			);
 
 			$raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
 
-			printf( $raindrops_html, esc_html( 'Content Type', 'Raindrops' ), esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "content", false ), $checked_default, esc_html__( 'Content:', 'Raindrops' ), 'content' );
+			printf( $raindrops_html, esc_html( 'Content Type', 'raindrops' ), esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "content", false ), $checked_default, esc_html__( 'Content:', 'raindrops' ), 'content' );
 
 			$raindrops_html = '<li><label"><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
 
-			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "excerpt", false ), esc_html__( 'Excerpt:', 'Raindrops' ), 'excerpt'
+			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "excerpt", false ), esc_html__( 'Excerpt:', 'raindrops' ), 'excerpt'
 			);
 
 			$raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
 
-			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "attachment", false ), esc_html__( 'Attachment IMG:', 'Raindrops' ), 'attachment'
+			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "attachment", false ), esc_html__( 'Attachment IMG:', 'raindrops' ), 'attachment'
 			);
 
 			$raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
 
-			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), esc_html__( 'Featured IMG', 'Raindrops' ), 'featured'
+			printf( $raindrops_html, esc_attr( $this->get_field_id( 'content' ) ), esc_attr( $this->get_field_name( 'content' ) ), checked( $content, "featured", false ), esc_html__( 'Featured IMG', 'raindrops' ), 'featured'
 			);
 
 			$raindrops_html = '<label><h4>Style</h4><textarea id="%1$s" name="%2$s" class="raindrops-pinup-entry-style" rows="8">%3$s</textarea></label><br />';
@@ -688,10 +688,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				
 			$widget_ops = array(
 				'classname'		 => 'raindrops-extend-archive',
-				'description'	 => esc_html__( 'Archives Extended', 'Raindrops' )
+				'description'	 => esc_html__( 'Archives Extended', 'raindrops' )
 			);
-			//parent::WP_Widget( false, esc_html__( '3.Archives Extended [Raindrops]', 'Raindrops' ), $widget_ops );
-			parent::__construct( false, esc_html__( '3.Archives Extended [Raindrops]', 'Raindrops' ), $widget_ops );
+			//parent::WP_Widget( false, esc_html__( '3.Archives Extended [Raindrops]', 'raindrops' ), $widget_ops );
+			parent::__construct( false, esc_html__( '3.Archives Extended [Raindrops]', 'raindrops' ), $widget_ops );
 			wp_reset_query();
 			}
 
@@ -707,7 +707,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$title = $instance[ 'title' ];
 				} else {
 
-					$title = esc_html__( "Archives", 'Raindrops' );
+					$title = esc_html__( "Archives", 'raindrops' );
 				}
 				if ( ! empty( $title ) ) {
 					$result_html  = $before_title;
@@ -870,7 +870,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$title = $instance[ 'title' ];
 				} else {
 
-					$title = esc_html__( "Archives", 'Raindrops' );
+					$title = esc_html__( "Archives", 'raindrops' );
 				}
 
 				if ( isset( $instance[ 'archives_start_year' ] ) ) {
@@ -906,16 +906,16 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				}
 				?>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'Raindrops' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'raindrops' ); ?></label> 
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 			</p>
 			<?php
 			$raindrops_html = '<h4>%1$s</h4><p><label for="%2$s">%3$s<input class="widefat" id="%4$s" name="%5$s" type="text" value="%6$s" /></label></p>';
 
 			printf( $raindrops_html, 
-					esc_html__( 'Display Archives Start Year', 'Raindrops' ), 
+					esc_html__( 'Display Archives Start Year', 'raindrops' ), 
 					esc_attr( $this->get_field_id( 'archives_start_year' ) ), 
-					esc_html__( 'Please use the 4-digit number or blank ex. 2010', 'Raindrops' ), 
+					esc_html__( 'Please use the 4-digit number or blank ex. 2010', 'raindrops' ), 
 					esc_attr( $this->get_field_id( 'archives_start_year' ) ), 
 					esc_attr( $this->get_field_name( 'archives_start_year' ) ),
 					esc_html( $archives_start_year )
@@ -925,12 +925,12 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 
 			printf( $raindrops_html, 
-					esc_html__( 'Groop by Year, by Month', 'Raindrops' ), 
+					esc_html__( 'Groop by Year, by Month', 'raindrops' ), 
 					esc_attr( $this->get_field_id( 'group_year_month' ) ), 
 					esc_attr( $this->get_field_name( 'group_year_month' ) ), 
 					checked( $group_year_month, "year", false ), 
 					$raindrops_year_checked_default, 
-					esc_html__( 'Year', 'Raindrops' ),
+					esc_html__( 'Year', 'raindrops' ),
 					'year'
 				);
 			
@@ -940,19 +940,19 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					esc_attr( $this->get_field_id( 'group_year_month' ) ), 
 					esc_attr( $this->get_field_name( 'group_year_month' ) ), 
 					checked( $group_year_month, "month", false ), 
-					esc_html__( 'Month', 'Raindrops' ), 
+					esc_html__( 'Month', 'raindrops' ), 
 					'month'
 			);	
 				
 			$raindrops_html = '<h4>%1$s</h4><ul><li><label><input type="radio" id="%2$s" name="%3$s" value="%7$s" %4$s %5$s />%6$s</label></li>';
 
 			printf( $raindrops_html, 
-					esc_html__( 'Show Post Count', 'Raindrops' ), 
+					esc_html__( 'Show Post Count', 'raindrops' ), 
 					esc_attr( $this->get_field_id( 'show_post_count' ) ), 
 					esc_attr( $this->get_field_name( 'show_post_count' ) ), 
 					checked( $show_post_count, "no", false ), 
 					$show_post_count_checked_default, 
-					esc_html__( 'No', 'Raindrops' ),
+					esc_html__( 'No', 'raindrops' ),
 					'no'
 				);			
 						$raindrops_html = '<li><label><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
@@ -961,7 +961,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					esc_attr( $this->get_field_id( 'show_post_count' ) ), 
 					esc_attr( $this->get_field_name( 'show_post_count' ) ), 
 					checked( $show_post_count, "yes", false ),
-					esc_html__( 'Yes', 'Raindrops' ), 
+					esc_html__( 'Yes', 'raindrops' ), 
 					'yes'
 			);
 				

@@ -94,7 +94,7 @@ if ( !function_exists( 'raindrops_use_wp_pagenav' ) ) {
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_wp_pagenav' ) ) {
 
 			if ( function_exists( 'wp_pagenavi' ) and $position == 'nav-below' ) {
-				return wp_pagenavi( array( 'echo' => false, 'options' => array( 'prev_text' => esc_html__( 'Prev', 'Raindrops' ), 'next_text' => esc_html__( 'Next', 'Raindrops' ) ) ) );
+				return wp_pagenavi( array( 'echo' => false, 'options' => array( 'prev_text' => esc_html__( 'Prev', 'raindrops' ), 'next_text' => esc_html__( 'Next', 'raindrops' ) ) ) );
 			} else {
 				return $link;
 			}
@@ -358,11 +358,11 @@ if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
 
 			if ( preg_match( '!date-year!', $this_type ) ) {
 
-				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'year_name', 'Raindrops' );
+				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'year_name', 'raindrops' );
 			}
 			if ( preg_match( '!date-day!', $this_type ) ) {
 
-				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'day_name', 'Raindrops' );
+				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'day_name', 'raindrops' );
 			}
 
 
@@ -466,7 +466,7 @@ if ( !function_exists( 'raindrops_get_ml_slider_ids' ) ) {
 					'order' => 'ASC',
 					'posts_per_page' => -1
 				) );
-			$result['none'] = esc_html__( 'Select', 'Raindrops' );
+			$result['none'] = esc_html__( 'Select', 'raindrops' );
 
 			foreach( $slider_posts as $post ) {
 

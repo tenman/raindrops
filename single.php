@@ -91,7 +91,7 @@ raindrops_debug_navitation( __FILE__ );
                             ?>
                             <div class="sticky-single-follow-text">
 
-                                <strong><a href="<?php echo $raindrops_home_url; ?>"><?php esc_html_e( 'Sticky Post Shows Only WEB Site Home.', 'Raindrops' ); ?></a></strong>
+                                <strong><a href="<?php echo $raindrops_home_url; ?>"><?php esc_html_e( 'Sticky Post Shows Only WEB Site Home.', 'raindrops' ); ?></a></strong>
 
                             </div>
             <?php		}
@@ -99,7 +99,7 @@ raindrops_debug_navitation( __FILE__ );
                             ?>
                             <div class="sticky-single-follow-text anytime">
 
-                                <strong><a href="<?php echo $raindrops_home_url; ?>"><?php esc_html_e( 'Sticky Post', 'Raindrops' ); ?></a></strong>
+                                <strong><a href="<?php echo $raindrops_home_url; ?>"><?php esc_html_e( 'Sticky Post', 'raindrops' ); ?></a></strong>
 
                             </div>
             <?php		} 

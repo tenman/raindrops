@@ -701,11 +701,11 @@ if ( !function_exists( 'raindrops_right_sidebar_width_percent_validate' ) ) {
 	function raindrops_right_sidebar_width_percent_validate( $input ) {
 
 		$value = array( 'choices'			 => array(
-				'25' => __( '25%', 'Raindrops' ),
-				'33' => __( '33%', 'Raindrops' ),
-				'50' => __( '50%', 'Raindrops' ),
-				'66' => __( '66%', 'Raindrops' ),
-				'75' => __( '75%', 'Raindrops' ),
+				'25' => __( '25%', 'raindrops' ),
+				'33' => __( '33%', 'raindrops' ),
+				'50' => __( '50%', 'raindrops' ),
+				'66' => __( '66%', 'raindrops' ),
+				'75' => __( '75%', 'raindrops' ),
 			),
 		);
 		if( array_key_exists ( $input, $value['choices'] ) ) {
@@ -725,8 +725,8 @@ if ( !function_exists( 'raindrops_show_right_sidebar_validate' ) ) {
 	function raindrops_show_right_sidebar_validate( $input ) {
 
 		$value = array( 'choices'			 => array(
-				'show'	 => __( 'Show', 'Raindrops' ),
-				'hide'	 => __( 'Hide', 'Raindrops' ),
+				'show'	 => __( 'Show', 'raindrops' ),
+				'hide'	 => __( 'Hide', 'raindrops' ),
 			),
 		);
 		if( array_key_exists ( $input, $value['choices'] ) ) {
@@ -790,12 +790,12 @@ if ( !function_exists( 'raindrops_col_width_validate' ) ) {
 	function raindrops_col_width_validate( $input ) {
 
 		$value = array( 'choices'			 => array(
-				't1' => __( 'left 160px', 'Raindrops' ),
-				't2' => __( 'left 180px', 'Raindrops' ),
-				't3' => __( 'left 300px', 'Raindrops' ),
-				't4' => __( 'right 180px', 'Raindrops' ),
-				't5' => __( 'right 240px', 'Raindrops' ),
-				't6' => __( 'right 300px', 'Raindrops' ),
+				't1' => __( 'left 160px', 'raindrops' ),
+				't2' => __( 'left 180px', 'raindrops' ),
+				't3' => __( 'left 300px', 'raindrops' ),
+				't4' => __( 'right 180px', 'raindrops' ),
+				't5' => __( 'right 240px', 'raindrops' ),
+				't6' => __( 'right 300px', 'raindrops' ),
 			),
 		);
 		if( array_key_exists ( $input, $value['choices'] ) ) {
@@ -817,11 +817,11 @@ if ( !function_exists( 'raindrops_page_width_validate' ) ) {
 	function raindrops_page_width_validate( $input ) {
 
 		$value = array('choices'			 => array(
-				'doc'	 => __( '750px centered', 'Raindrops' ),
-				'doc2'	 => __( '950px centered', 'Raindrops' ),
-				'doc4'	 => __( '974px', 'Raindrops' ),			
-				'doc3'	 => __( 'Box Layout Responsive', 'Raindrops' ),
-				'doc5'   => __( 'Full Width Resuponsive', 'Raindrops' ),
+				'doc'	 => __( '750px centered', 'raindrops' ),
+				'doc2'	 => __( '950px centered', 'raindrops' ),
+				'doc4'	 => __( '974px', 'raindrops' ),			
+				'doc3'	 => __( 'Box Layout Responsive', 'raindrops' ),
+				'doc5'   => __( 'Full Width Resuponsive', 'raindrops' ),
 				),
 			);
 

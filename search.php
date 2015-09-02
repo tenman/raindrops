@@ -73,9 +73,9 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
                                         <?php
                                         raindrops_posted_in();
 
-                                        edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+                                        edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
-                                        raindrops_delete_post_link( esc_html__( 'Trash', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+                                        raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
                                         ?>
                                     </div>
                                     <br class="clear" />
@@ -96,7 +96,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 						<?php do_action( 'raindrops_prepend_fail_search');?>
                         <h2 class="center h2">
                             <?php
-                            esc_html_e( "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.", "Raindrops" );
+                            esc_html_e( "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it.", 'raindrops' );
                             ?>
                         </h2>
                         <?php get_search_form(); ?>

@@ -93,13 +93,13 @@ if ( 0 == $calendar_page_number ) {
 $calendar_page_last  = $calendar_page_number * $post_per_page;
 $calendar_page_start = $calendar_page_last - $post_per_page;
 $weekdaynames        = array(
-    0 => esc_html__( 'Sunday', 'Raindrops' ),
-    1 => esc_html__( 'Monday', 'Raindrops' ),
-    2 => esc_html__( 'Tuesday', 'Raindrops' ),
-    3 => esc_html__( 'Wednesday', 'Raindrops' ),
-    4 => esc_html__( 'Thursday', 'Raindrops' ),
-    5 => esc_html__( 'Friday', 'Raindrops' ),
-    6 => esc_html__( 'Saturday', 'Raindrops' )
+    0 => esc_html__( 'Sunday', 'raindrops' ),
+    1 => esc_html__( 'Monday', 'raindrops' ),
+    2 => esc_html__( 'Tuesday', 'raindrops' ),
+    3 => esc_html__( 'Wednesday', 'raindrops' ),
+    4 => esc_html__( 'Thursday', 'raindrops' ),
+    5 => esc_html__( 'Friday', 'raindrops' ),
+    6 => esc_html__( 'Saturday', 'raindrops' )
 );
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
@@ -118,17 +118,17 @@ raindrops_debug_navitation( __FILE__ );
                         $one_year = query_posts( "posts_per_page=-1&year=$ye" );
                         $output   = raindrops_get_year( $one_year, $ye );
                         wp_reset_query();
-                        esc_html_e( 'Yearly Archives', 'Raindrops' );
+                        esc_html_e( 'Yearly Archives', 'raindrops' );
                     } elseif ( is_month() ) {
                         $one_month = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo" );
                         $output    = raindrops_month_list( $one_month, $ye, $mo );
                         wp_reset_query();
-                        esc_html_e( 'Monthly Archives', 'Raindrops' );
+                        esc_html_e( 'Monthly Archives', 'raindrops' );
                     } elseif ( is_day() ) {
                         $one_day = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo&day=$da" );
                         $output  = raindrops_get_day( $one_day, $ye, $mo, $da );
                         wp_reset_query();
-                        esc_html_e( 'Daily Archives', 'Raindrops' );
+                        esc_html_e( 'Daily Archives', 'raindrops' );
                     }
                     ?>
                 </h2>

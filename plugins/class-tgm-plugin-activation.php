@@ -166,26 +166,26 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
             self::$instance = $this;
 
             $this->strings = array(
-                'page_title'                     => __( 'Install Required Plugins', 'Raindrops' ),
-                'menu_title'                     => __( 'Install Plugins', 'Raindrops' ),
-                'installing'                     => __( 'Installing Plugin: %s', 'Raindrops' ),
-                'oops'                           => __( 'Something went wrong.', 'Raindrops' ),
-                'notice_can_install_required'    => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' , 'Raindrops'),
-                'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'Raindrops' ),
-                'notice_cannot_install'          => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'Raindrops' ),
-                'notice_can_activate_required'   => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'Raindrops' ),
-                'notice_can_activate_recommended'=> _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'Raindrops' ),
-                'notice_cannot_activate'         => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'Raindrops' ),
-                'notice_ask_to_update'           => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'Raindrops' ),
-                'notice_cannot_update'           => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'Raindrops' ),
-                'install_link'                   => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'Raindrops' ),
-                'activate_link'                  => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'Raindrops' ),
-                'return'                         => __( 'Return to Required Plugins Installer', 'Raindrops' ),
-                'dashboard'                      => __( 'Return to the dashboard', 'Raindrops' ),
-                'plugin_activated'               => __( 'Plugin activated successfully.', 'Raindrops' ),
-                'activated_successfully'         => __( 'The following plugin was activated successfully:', 'Raindrops' ),
-                'complete'                       => __( 'All plugins installed and activated successfully. %1$s', 'Raindrops' ),
-                'dismiss'                        => __( 'Dismiss this notice', 'Raindrops' ),
+                'page_title'                     => __( 'Install Required Plugins', 'raindrops' ),
+                'menu_title'                     => __( 'Install Plugins', 'raindrops' ),
+                'installing'                     => __( 'Installing Plugin: %s', 'raindrops' ),
+                'oops'                           => __( 'Something went wrong.', 'raindrops' ),
+                'notice_can_install_required'    => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' , 'raindrops'),
+                'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'raindrops' ),
+                'notice_cannot_install'          => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'raindrops' ),
+                'notice_can_activate_required'   => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'raindrops' ),
+                'notice_can_activate_recommended'=> _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'raindrops' ),
+                'notice_cannot_activate'         => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'raindrops' ),
+                'notice_ask_to_update'           => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'raindrops' ),
+                'notice_cannot_update'           => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'raindrops' ),
+                'install_link'                   => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'raindrops' ),
+                'activate_link'                  => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'raindrops' ),
+                'return'                         => __( 'Return to Required Plugins Installer', 'raindrops' ),
+                'dashboard'                      => __( 'Return to the dashboard', 'raindrops' ),
+                'plugin_activated'               => __( 'Plugin activated successfully.', 'raindrops' ),
+                'activated_successfully'         => __( 'The following plugin was activated successfully:', 'raindrops' ),
+                'complete'                       => __( 'All plugins installed and activated successfully. %1$s', 'raindrops' ),
+                'dismiss'                        => __( 'Dismiss this notice', 'raindrops' ),
             );
 
             // Set the current WordPress version.
@@ -537,7 +537,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
                 // All plugins are active, so we display the complete string and hide the plugin menu.
                 if ( empty( $complete ) ) {
-                    echo '<p>' .  sprintf( $this->strings['complete'], '<a href="' . network_admin_url() . '" title="' . __( 'Return to the Dashboard', 'Raindrops' ) . '">' . __( 'Return to the Dashboard', 'Raindrops' ) . '</a>' ) . '</p>';
+                    echo '<p>' .  sprintf( $this->strings['complete'], '<a href="' . network_admin_url() . '" title="' . __( 'Return to the Dashboard', 'raindrops' ) . '">' . __( 'Return to the Dashboard', 'raindrops' ) . '</a>' ) . '</p>';
                     echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                 }
 
@@ -725,12 +725,12 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     $last_plugin = array_pop( $plugin_groups ); // Pop off last name to prep for readability.
                     $imploded    = empty( $plugin_groups ) ? '<em>' . $last_plugin . '</em>' : '<em>' . ( implode( ', ', $plugin_groups ) . '</em> and <em>' . $last_plugin . '</em>' );
 
-                    $rendered .= '<p>' . sprintf( translate_nooped_plural( $this->strings[$type], $count, 'Raindrops' ), $imploded, $count ) . '</p>';
+                    $rendered .= '<p>' . sprintf( translate_nooped_plural( $this->strings[$type], $count, 'raindrops' ), $imploded, $count ) . '</p>';
                 }
 
                 // Setup variables to determine if action links are needed.
-                $show_install_link  = $install_link ? '<a href="' . esc_url( add_query_arg( 'page', $this->menu, network_admin_url( 'themes.php' ) ) ). '">' . translate_nooped_plural( $this->strings['install_link'], $install_link_count, 'Raindrops' ) . '</a>' : '';
-                $show_activate_link = $activate_link ? '<a href="' . esc_url( add_query_arg( 'page', $this->menu, network_admin_url( 'themes.php' ) ) ). '">' . translate_nooped_plural( $this->strings['activate_link'], $activate_link_count, 'Raindrops' ) . '</a>'  : '';
+                $show_install_link  = $install_link ? '<a href="' . esc_url( add_query_arg( 'page', $this->menu, network_admin_url( 'themes.php' ) ) ). '">' . translate_nooped_plural( $this->strings['install_link'], $install_link_count, 'raindrops' ) . '</a>' : '';
+                $show_activate_link = $activate_link ? '<a href="' . esc_url( add_query_arg( 'page', $this->menu, network_admin_url( 'themes.php' ) ) ). '">' . translate_nooped_plural( $this->strings['activate_link'], $activate_link_count, 'raindrops' ) . '</a>'  : '';
 
                 // Define all of the action links.
                 $action_links = apply_filters(
@@ -1170,23 +1170,23 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 if ( ! empty( $plugin['source'] ) ) {
                     // The plugin must be from a private repository.
                     if ( preg_match( '|^http(s)?://|', $plugin['source'] ) ) {
-                        $table_data[$i]['source'] = __( 'Private Repository', 'Raindrops' );
+                        $table_data[$i]['source'] = __( 'Private Repository', 'raindrops' );
                     // The plugin is pre-packaged with the theme.
                     } else {
-                        $table_data[$i]['source'] = __( 'Pre-Packaged', 'Raindrops' );
+                        $table_data[$i]['source'] = __( 'Pre-Packaged', 'raindrops' );
                     }
                 }
                 // The plugin is from the WordPress repository.
                 else {
-                    $table_data[$i]['source'] = __( 'WordPress Repository', 'Raindrops' );
+                    $table_data[$i]['source'] = __( 'WordPress Repository', 'raindrops' );
                 }
 
-                $table_data[$i]['type'] = isset( $plugin['required'] ) && $plugin['required'] ? __( 'Required', 'Raindrops' ) : __( 'Recommended', 'Raindrops' );
+                $table_data[$i]['type'] = isset( $plugin['required'] ) && $plugin['required'] ? __( 'Required', 'raindrops' ) : __( 'Recommended', 'raindrops' );
 
                 if ( ! isset( $installed_plugins[$plugin['file_path']] ) ) {
-                    $table_data[$i]['status'] = sprintf( '%1$s', __( 'Not Installed', 'Raindrops' ) );
+                    $table_data[$i]['status'] = sprintf( '%1$s', __( 'Not Installed', 'raindrops' ) );
                 } elseif ( is_plugin_inactive( $plugin['file_path'] ) ) {
-                    $table_data[$i]['status'] = sprintf( '%1$s', __( 'Installed But Not Activated', 'Raindrops' ) );
+                    $table_data[$i]['status'] = sprintf( '%1$s', __( 'Installed But Not Activated', 'raindrops' ) );
                 }
 
                 $table_data[$i]['file_path'] = $plugin['file_path'];
@@ -1292,7 +1292,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             if ( ! isset( $installed_plugins[$item['file_path']] ) ) {
                 $actions = array(
                     'install' => sprintf(
-                        '<a href="%1$s" title="' . __( 'Install', 'Raindrops' ) . ' %2$s">' . __( 'Install', 'Raindrops' ) . '</a>',
+                        '<a href="%1$s" title="' . __( 'Install', 'raindrops' ) . ' %2$s">' . __( 'Install', 'raindrops' ) . '</a>',
                         wp_nonce_url(
                             esc_url( add_query_arg(
                                 array(
@@ -1314,7 +1314,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             elseif ( is_plugin_inactive( $item['file_path'] ) ) {
                 $actions = array(
                     'activate' => sprintf(
-                        '<a href="%1$s" title="' . __( 'Activate', 'Raindrops' ) . ' %2$s">' . __( 'Activate', 'Raindrops' ) . '</a>',
+                        '<a href="%1$s" title="' . __( 'Activate', 'raindrops' ) . ' %2$s">' . __( 'Activate', 'raindrops' ) . '</a>',
                         esc_url( add_query_arg(
                             array(
                                 'page'                 => TGM_Plugin_Activation::$instance->menu,
@@ -1363,7 +1363,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          */
         public function no_items() {
 
-            printf( __( 'No plugins to install or activate. <a href="%1$s" title="Return to the Dashboard">Return to the Dashboard</a>', 'Raindrops' ), network_admin_url() );
+            printf( __( 'No plugins to install or activate. <a href="%1$s" title="Return to the Dashboard">Return to the Dashboard</a>', 'raindrops' ), network_admin_url() );
             echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 
         }
@@ -1379,10 +1379,10 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             $columns = array(
                 'cb'     => '<input type="checkbox" />',
-                'plugin' => __( 'Plugin', 'Raindrops' ),
-                'source' => __( 'Source', 'Raindrops' ),
-                'type'   => __( 'Type', 'Raindrops' ),
-                'status' => __( 'Status', 'Raindrops' )
+                'plugin' => __( 'Plugin', 'raindrops' ),
+                'source' => __( 'Source', 'raindrops' ),
+                'type'   => __( 'Type', 'raindrops' ),
+                'status' => __( 'Status', 'raindrops' )
             );
 
             return $columns;
@@ -1400,8 +1400,8 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
         public function get_bulk_actions() {
 
             $actions = array(
-                'tgmpa-bulk-install'  => __( 'Install', 'Raindrops' ),
-                'tgmpa-bulk-activate' => __( 'Activate', 'Raindrops' ),
+                'tgmpa-bulk-install'  => __( 'Install', 'raindrops' ),
+                'tgmpa-bulk-activate' => __( 'Activate', 'raindrops' ),
             );
 
             return $actions;
@@ -1636,7 +1636,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 if ( is_wp_error( $activate ) ) {
                     echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
                 } else {
-                    printf( '<div id="message" class="updated"><p>%1$s %2$s</p></div>', _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'Raindrops' ), $imploded );
+                    printf( '<div id="message" class="updated"><p>%1$s %2$s</p></div>', _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'raindrops' ), $imploded );
                 }
 
                 // Update recently activated plugins option.
@@ -1928,12 +1928,12 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET['page'] ) && TGM_Plugin_A
              */
             public function install_strings() {
 
-                $this->strings['no_package']          = __( 'Install package not available.', 'Raindrops' );
-                $this->strings['downloading_package'] = __( 'Downloading install package from <span class="code">%s</span>&#8230;', 'Raindrops' );
-                $this->strings['unpack_package']      = __( 'Unpacking the package&#8230;', 'Raindrops' );
-                $this->strings['installing_package']  = __( 'Installing the plugin&#8230;', 'Raindrops' );
-                $this->strings['process_failed']      = __( 'Plugin install failed.', 'Raindrops' );
-                $this->strings['process_success']     = __( 'Plugin installed successfully.', 'Raindrops' );
+                $this->strings['no_package']          = __( 'Install package not available.', 'raindrops' );
+                $this->strings['downloading_package'] = __( 'Downloading install package from <span class="code">%s</span>&#8230;', 'raindrops' );
+                $this->strings['unpack_package']      = __( 'Unpacking the package&#8230;', 'raindrops' );
+                $this->strings['installing_package']  = __( 'Installing the plugin&#8230;', 'raindrops' );
+                $this->strings['process_failed']      = __( 'Plugin install failed.', 'raindrops' );
+                $this->strings['process_success']     = __( 'Plugin installed successfully.', 'raindrops' );
 
             }
 
@@ -1944,8 +1944,8 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET['page'] ) && TGM_Plugin_A
              */
             public function activate_strings() {
 
-                $this->strings['activation_failed']  = __( 'Plugin activation failed.', 'Raindrops' );
-                $this->strings['activation_success'] = __( 'Plugin activated successfully.', 'Raindrops' );
+                $this->strings['activation_failed']  = __( 'Plugin activation failed.', 'raindrops' );
+                $this->strings['activation_success'] = __( 'Plugin activated successfully.', 'raindrops' );
 
             }
 
@@ -2058,19 +2058,19 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET['page'] ) && TGM_Plugin_A
 
                 // Automatic activation strings.
                 if ( TGM_Plugin_Activation::$instance->is_automatic ) {
-                    $this->upgrader->strings['skin_upgrade_start']        = __( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'Raindrops' );
-                    $this->upgrader->strings['skin_update_successful']    = __( '%1$s installed and activated successfully.', 'Raindrops' ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . __( 'Show Details', 'Raindrops' ) . '</span><span class="hidden">' . __( 'Hide Details', 'Raindrops' ) . '</span>.</a>';
-                    $this->upgrader->strings['skin_upgrade_end']          = __( 'All installations and activations have been completed.', 'Raindrops' );
-                    $this->upgrader->strings['skin_before_update_header'] = __( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'Raindrops' );
+                    $this->upgrader->strings['skin_upgrade_start']        = __( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'raindrops' );
+                    $this->upgrader->strings['skin_update_successful']    = __( '%1$s installed and activated successfully.', 'raindrops' ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . __( 'Show Details', 'raindrops' ) . '</span><span class="hidden">' . __( 'Hide Details', 'raindrops' ) . '</span>.</a>';
+                    $this->upgrader->strings['skin_upgrade_end']          = __( 'All installations and activations have been completed.', 'raindrops' );
+                    $this->upgrader->strings['skin_before_update_header'] = __( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'raindrops' );
                 }
                 // Default installation strings.
                 else {
-                    $this->upgrader->strings['skin_upgrade_start']        = __( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'Raindrops' );
-                    $this->upgrader->strings['skin_update_failed_error']  = __( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'Raindrops' );
-                    $this->upgrader->strings['skin_update_failed']        = __( 'The installation of %1$s failed.', 'Raindrops' );
-                    $this->upgrader->strings['skin_update_successful']    = __( '%1$s installed successfully.', 'Raindrops' ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . __( 'Show Details', 'Raindrops' ) . '</span><span class="hidden">' . __( 'Hide Details', 'Raindrops' ) . '</span>.</a>';
-                    $this->upgrader->strings['skin_upgrade_end']          = __( 'All installations have been completed.', 'Raindrops' );
-                    $this->upgrader->strings['skin_before_update_header'] = __( 'Installing Plugin %1$s (%2$d/%3$d)', 'Raindrops' );
+                    $this->upgrader->strings['skin_upgrade_start']        = __( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'raindrops' );
+                    $this->upgrader->strings['skin_update_failed_error']  = __( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'raindrops' );
+                    $this->upgrader->strings['skin_update_failed']        = __( 'The installation of %1$s failed.', 'raindrops' );
+                    $this->upgrader->strings['skin_update_successful']    = __( '%1$s installed successfully.', 'raindrops' ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . __( 'Show Details', 'raindrops' ) . '</span><span class="hidden">' . __( 'Hide Details', 'raindrops' ) . '</span>.</a>';
+                    $this->upgrader->strings['skin_upgrade_end']          = __( 'All installations have been completed.', 'raindrops' );
+                    $this->upgrader->strings['skin_before_update_header'] = __( 'Installing Plugin %1$s (%2$d/%3$d)', 'raindrops' );
                 }
 
             }
@@ -2162,7 +2162,7 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET['page'] ) && TGM_Plugin_A
 
                 // All plugins are active, so we display the complete string and hide the menu to protect users.
                 if ( empty( $complete ) ) {
-                    echo '<p>' .  sprintf( TGM_Plugin_Activation::$instance->strings['complete'], '<a href="' . network_admin_url() . '" title="' . __( 'Return to the Dashboard', 'Raindrops' ) . '">' . __( 'Return to the Dashboard', 'Raindrops' ) . '</a>' ) . '</p>';
+                    echo '<p>' .  sprintf( TGM_Plugin_Activation::$instance->strings['complete'], '<a href="' . network_admin_url() . '" title="' . __( 'Return to the Dashboard', 'raindrops' ) . '">' . __( 'Return to the Dashboard', 'raindrops' ) . '</a>' ) . '</p>';
                     echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                 }
 

@@ -21,7 +21,7 @@ do_action( 'raindrops_before' );
  * Raindrops Theme read this language file.
  * You can override parent themes language file from child theme.
  */
-load_theme_textdomain( 'Raindrops', apply_filters( 'raindrops_load_text_domain', get_template_directory() . '/languages' ) );
+load_theme_textdomain( 'raindrops', apply_filters( 'raindrops_load_text_domain', get_template_directory() . '/languages' ) );
 /**
  * include raindrops custom settings
  *
@@ -167,7 +167,7 @@ add_action( 'wp_enqueue_scripts', 'raindrops_add_stylesheet' );
 /**
  *
  */
-register_nav_menus( array( 'primary' => esc_html__( 'Primary Navigation', 'Raindrops' ), ) );
+register_nav_menus( array( 'primary' => esc_html__( 'Primary Navigation', 'raindrops' ), ) );
 /**
  * Custom image header
  * $raindrops_custom_header_args
@@ -180,7 +180,6 @@ if ( !isset( $raindrops_custom_header_args ) ) {
 
 	$raindrops_custom_header_width  = apply_filters( 'raindrops_header_image_width', absint( raindrops_detect_header_image_size_clone(  'width' ) )	);
 	$raindrops_custom_header_height = apply_filters( 'raindrops_header_image_height', absint( raindrops_detect_header_image_size_clone( 'height' ) ) );
-
 	$raindrops_current_style_type   = raindrops_warehouse_clone( 'raindrops_style_type' );
 
 	$raindrops_custom_header_args = array(
@@ -568,7 +567,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 	function raindrops_widgets_init() {
 
 		register_sidebar( array(
-			'name'			 => esc_html__( 'Default Sidebar', 'Raindrops' ),
+			'name'			 => esc_html__( 'Default Sidebar', 'raindrops' ),
 			'id'			 => 'sidebar-1',
 			'before_widget'	 => '<li id="%1$s" class="%2$s widget default" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
@@ -579,7 +578,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 			'text'			 => "1" ) );
 
 		register_sidebar( array(
-			'name'			 => esc_html__( 'Extra Sidebar', 'Raindrops' ),
+			'name'			 => esc_html__( 'Extra Sidebar', 'raindrops' ),
 			'id'			 => 'sidebar-2',
 			'before_widget'	 => '<li id="%1$s" class="%2$s widget extra" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
@@ -589,7 +588,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 			'widget_name'	 => 'extra',
 			'text'			 => "2" ) );
 		register_sidebar( array(
-			'name'			 => esc_html__( 'Sticky Widget', 'Raindrops' ),
+			'name'			 => esc_html__( 'Sticky Widget', 'raindrops' ),
 			'id'			 => 'sidebar-3',
 			'before_widget'	 => '<li id="%1$s" class="%2$s widget sticky-widget" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
@@ -599,7 +598,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 			'widget_name'	 => 'toppage2',
 			'text'			 => "3" ) );
 		register_sidebar( array(
-			'name'			 => esc_html__( 'Footer Widget', 'Raindrops' ),
+			'name'			 => esc_html__( 'Footer Widget', 'raindrops' ),
 			'id'			 => 'sidebar-4',
 			'before_widget'	 => '<li id="%1$s" class="%2$s widget footer-widget" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
@@ -609,7 +608,7 @@ if ( !function_exists( 'raindrops_widgets_init' ) ) {
 			'widget_name'	 => 'footer',
 			'text'			 => "4" ) );
 		register_sidebar( array(
-			'name'			 => esc_html__( 'Post Format Status Sidebar', 'Raindrops' ),
+			'name'			 => esc_html__( 'Post Format Status Sidebar', 'raindrops' ),
 			'id'			 => 'sidebar-5',
 			'before_widget'	 => '<li  id="%1$s" class="%2$s widget category-blog-widget status-side-bar" '. raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 			'after_widget'	 => '</li>',
@@ -675,7 +674,7 @@ foreach ( $raindrops_base_setting as $setting ) {
 
 	if ( !function_exists( $function_name ) ) {
 
-		$message = sprintf( esc_html__( 'If you add  %s when you must create function %s for data validation', 'Raindrops' ), $setting[ 'option_name' ], $function_name );
+		$message = sprintf( esc_html__( 'If you add  %s when you must create function %s for data validation', 'raindrops' ), $setting[ 'option_name' ], $function_name );
 		printf( '<script type="text/javascript">alert( \'%s\'  );</script>', $message );
 		return;
 	}
@@ -884,18 +883,18 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 						<?php
 							$core_avatar_setting = get_option( 'show_avatars' );
 							if ( ! empty( $core_avatar_setting ) ) {
-								printf( '<div class="raindrops-comment-avatar">%1$s</div>', get_avatar( $comment, 160, '', esc_attr__( 'Avatar', 'Raindrops' ) . ' ' . esc_attr( strip_tags( get_comment_author_link() ) ) ) );
+								printf( '<div class="raindrops-comment-avatar">%1$s</div>', get_avatar( $comment, 160, '', esc_attr__( 'Avatar', 'raindrops' ) . ' ' . esc_attr( strip_tags( get_comment_author_link() ) ) ) );
 							}
 						?>
 						<div class="raindrops-comment-author-meta">
 							<?php
-							printf( '%1$s <span class="says">%2$s</span>', sprintf( '<cite class="fn">%s</cite> ', get_comment_author_link() ), esc_html__( 'says:', 'Raindrops' ) );
+							printf( '%1$s <span class="says">%2$s</span>', sprintf( '<cite class="fn">%s</cite> ', get_comment_author_link() ), esc_html__( 'says:', 'raindrops' ) );
 							?>
 						</div>
 						<div class="comment-meta commentmetadata clearfix">
-							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( esc_html__( '%1$s at %2$s', 'Raindrops' ), get_comment_date(), get_comment_time() ); ?></a>
+							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( esc_html__( '%1$s at %2$s', 'raindrops' ), get_comment_date(), get_comment_time() ); ?></a>
 							<?php
-							edit_comment_link( esc_html__( ' Edit ', 'Raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID ), ' ' );
+							edit_comment_link( esc_html__( ' Edit ', 'raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID ), ' ' );
 							?>
 						</div>
 					</div>
@@ -903,7 +902,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 					<?php
 					if ( '0' == $comment->comment_approved ) {
 						?>
-						<div class="clearfix awaiting"> <em><?php esc_html_e( 'Your comment is awaiting moderation.', 'Raindrops' ); ?></em>
+						<div class="clearfix awaiting"> <em><?php esc_html_e( 'Your comment is awaiting moderation.', 'raindrops' ); ?></em>
 							<br />
 						</div>
 						<?php
@@ -917,7 +916,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 					</div>
 					<div class="reply">
 						<?php
-						$raindrops_comment_reply_text = esc_html__( 'Reply', 'Raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID );
+						$raindrops_comment_reply_text = esc_html__( 'Reply', 'raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID );
 						comment_reply_link( array_merge( $args, array( 'reply_text' => $raindrops_comment_reply_text, 'depth' => $depth, 'max_depth' => $args[ 'max_depth' ] ) ) );
 						?>
 					</div>
@@ -930,10 +929,10 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 			<li class="post pingback">
 				<p>
 					<?php
-					esc_html_e( 'Pingback:', 'Raindrops' );
+					esc_html_e( 'Pingback:', 'raindrops' );
 					comment_author_link();
 					echo ' ';
-					edit_comment_link( esc_html__( ' Edit ', 'Raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID ), ' ' );
+					edit_comment_link( esc_html__( ' Edit ', 'raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID ), ' ' );
 					?>
 				</p>
 				<?php
@@ -971,7 +970,7 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 		if( is_singular() && true == $raindrops_allow_share_link && !$is_IE ) {
 
 			ob_start();
-			?><a href='<?php echo raindrops_content_shareing( $eye_candy_image );?>' target="_blank" class="share-link"><?php esc_html_e('Share', 'Raindrops');?></a><?php
+			?><a href='<?php echo raindrops_content_shareing( $eye_candy_image );?>' target="_blank" class="share-link"><?php esc_html_e('Share', 'raindrops');?></a><?php
 			$share_link = ob_get_clean();
 			return $posted_in. $share_link;
 		}
@@ -1041,8 +1040,8 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 
 		if( 'emoji' == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
 
-			$category_label = $raindrops_category_emoji. '<span class="screen-reader-text">'. esc_html__( 'This entry was posted in', 'Raindrops' ). '</span>';
-			$tag_label = $raindrops_tag_emoji. '<span class="screen-reader-text">'.  esc_html__( 'and tagged', 'Raindrops' ). '</span>';
+			$category_label = $raindrops_category_emoji. '<span class="screen-reader-text">'. esc_html__( 'This entry was posted in', 'raindrops' ). '</span>';
+			$tag_label = $raindrops_tag_emoji. '<span class="screen-reader-text">'.  esc_html__( 'and tagged', 'raindrops' ). '</span>';
 
 			$categories = wp_get_post_categories( $post->ID );
 			$categories_count = count( $categories );
@@ -1056,8 +1055,8 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 				$category_label = '';
 			}
 		} else {
-			$category_label = esc_html__( 'This entry was posted in', 'Raindrops' );
-			$tag_label = esc_html__( 'and tagged', 'Raindrops' );
+			$category_label = esc_html__( 'This entry was posted in', 'raindrops' );
+			$tag_label = esc_html__( 'and tagged', 'raindrops' );
 		}
 		if ( false === $format ) {
 
@@ -1096,7 +1095,7 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 
 				$posted_in = '<a href="%3$s">   <span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></a>';
 			}
-			$result = sprintf( $posted_in, get_the_category_list( ' ' ), $tag_list, esc_url( get_post_format_link( $format ) ), esc_html( 'Format', 'Raindrops' ), get_post_format_string( $format ) );
+			$result = sprintf( $posted_in, get_the_category_list( ' ' ), $tag_list, esc_url( get_post_format_link( $format ) ), esc_html( 'Format', 'raindrops' ), get_post_format_string( $format ) );
 			echo apply_filters( "raindrops_posted_in", $result );
 		}
 	}
@@ -1119,11 +1118,11 @@ if ( !function_exists( 'raindrops_comments_link' ) ) {
 
 			if ( get_comments_number() > 0 ) {
 
-				$raindrops_comment_string	 = _n( 'Comment', 'Comments', get_comments_number(), 'Raindrops' ) . raindrops_link_unique( 'Post', get_the_ID() );
+				$raindrops_comment_string	 = _n( 'Comment', 'Comments', get_comments_number(), 'raindrops' ) . raindrops_link_unique( 'Post', get_the_ID() );
 				$raindrops_comment_number	 = get_comments_number();
 			} else {
 
-				$raindrops_comment_string	 = __( 'Comment ', 'Raindrops' ) . raindrops_link_unique( 'Post', get_the_ID() );
+				$raindrops_comment_string	 = __( 'Comment ', 'raindrops' ) . raindrops_link_unique( 'Post', get_the_ID() );
 				$raindrops_comment_number	 = '';
 			}
 		} else {
@@ -1151,7 +1150,7 @@ if ( !function_exists( 'raindrops_post_author' ) ) {
 		global $post;
 
 		$author						= raindrops_blank_fallback( get_the_author(), 'Somebody' );
-		$author_attr_title_string	 = sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), wp_kses( $author, array() ) );
+		$author_attr_title_string	 = sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), wp_kses( $author, array() ) );
 		$author_html				 = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ';
 
 		if ( "avatar" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
@@ -1227,11 +1226,11 @@ if ( !function_exists( 'raindrops_posted_on' ) ) {
 		$result = apply_filters('raindrops_posted_on_result', $result );
 		$posted_on_string = '';
 		if( !empty( $entry_date_html ) ) {
-			$posted_on_string = __( 'Posted on', 'Raindrops' );
+			$posted_on_string = __( 'Posted on', 'raindrops' );
 		}
 		$posted_by_string = '';
 		if( !empty( $entry_date_html ) ) {
-			$posted_by_string =  __( 'by', 'Raindrops' );
+			$posted_by_string =  __( 'by', 'raindrops' );
 		}
 		$result = sprintf( $result, $posted_on_string , $entry_date_html, $posted_by_string, $author_html, $posted_on_comment_link );
 
@@ -1339,17 +1338,17 @@ if ( !function_exists( 'raindrops_settings_page_contextual_help' ) ) {
 		$link	 = '<a href="%1$s" %3$s>%2$s</a>';
 		$content = '';
 		/* theme URI */
-		$content .= sprintf( $html, esc_html__( 'Theme URI', 'Raindrops' ), sprintf( $link, $raindrops_current_data->get( 'ThemeURI' ), $raindrops_current_data->get( 'ThemeURI' ), 'target="_self"' ) );
+		$content .= sprintf( $html, esc_html__( 'Theme URI', 'raindrops' ), sprintf( $link, $raindrops_current_data->get( 'ThemeURI' ), $raindrops_current_data->get( 'ThemeURI' ), 'target="_self"' ) );
 		/* AuthorURI */
-		$content .= sprintf( $html, esc_html__( 'Author', 'Raindrops' ), sprintf( $link, $raindrops_current_data->get( 'AuthorURI' ), $raindrops_current_data->get( 'Author' ), 'target="_self"' ) );
+		$content .= sprintf( $html, esc_html__( 'Author', 'raindrops' ), sprintf( $link, $raindrops_current_data->get( 'AuthorURI' ), $raindrops_current_data->get( 'Author' ), 'target="_self"' ) );
 		/* Support */
-		$content .= sprintf( $html, esc_html__( 'Support', 'Raindrops' ), sprintf( $link, 'http://wordpress.org/support/theme/raindrops', esc_html__( 'http://wordpress.org/support/theme/raindrops', 'Raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'http://ja.forums.wordpress.org/', esc_html__( 'http://ja.forums.wordpress.org/ lang:Japanese', 'Raindrops' ), 'target="_blank"' ) );
+		$content .= sprintf( $html, esc_html__( 'Support', 'raindrops' ), sprintf( $link, 'http://wordpress.org/support/theme/raindrops', esc_html__( 'http://wordpress.org/support/theme/raindrops', 'raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'http://ja.forums.wordpress.org/', esc_html__( 'http://ja.forums.wordpress.org/ lang:Japanese', 'raindrops' ), 'target="_blank"' ) );
 		/* Version */
-		$content .= sprintf( $html, esc_html__( 'Version', 'Raindrops' ), $raindrops_current_data->get( 'Version' ) );
+		$content .= sprintf( $html, esc_html__( 'Version', 'raindrops' ), $raindrops_current_data->get( 'Version' ) );
 		/* Changelog.txt */
-		$content .= sprintf( $html, esc_html__( 'Change log text', 'Raindrops' ), sprintf( $link, get_template_directory_uri() . '/changelog.txt', esc_html__( 'Changelog , display new window', 'Raindrops' ), 'target="_blank"' ), 'target = "_blank"' );
+		$content .= sprintf( $html, esc_html__( 'Change log text', 'raindrops' ), sprintf( $link, get_template_directory_uri() . '/changelog.txt', esc_html__( 'Changelog , display new window', 'raindrops' ), 'target="_blank"' ), 'target = "_blank"' );
 		/* readme.txt */
-		$content .= sprintf( $html, esc_html__( 'Readme text', 'Raindrops' ), sprintf( $link, get_template_directory_uri() . '/README.txt', esc_html__( 'Readme , display new window', 'Raindrops' ), 'target="_blank"' ) );
+		$content .= sprintf( $html, esc_html__( 'Readme text', 'raindrops' ), sprintf( $link, get_template_directory_uri() . '/README.txt', esc_html__( 'Readme , display new window', 'raindrops' ), 'target="_blank"' ) );
 		$content = '<dl id="raindrops-help">' . $content . '</dl>';
 
 		return $content;
@@ -1365,15 +1364,15 @@ if ( !function_exists( 'raindrops_editor_page_contextual_help' ) ) {
 		$html	 = '<dt>%1$s</dt><dd>%2$s</dd>';
 		$link	 = '<a href="%1$s" %3$s>%2$s</a>';
 		$content = '';
-		$content .= sprintf( $html, esc_html__( 'Support', 'Raindrops' ), sprintf( $link, 'http://wordpress.org/support/theme/raindrops', esc_html__( 'English', 'Raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'http://ja.forums.wordpress.org/', esc_html__( 'Japanese', 'Raindrops' ), 'target="_blank"' ) );
+		$content .= sprintf( $html, esc_html__( 'Support', 'raindrops' ), sprintf( $link, 'http://wordpress.org/support/theme/raindrops', esc_html__( 'English', 'raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'http://ja.forums.wordpress.org/', esc_html__( 'Japanese', 'raindrops' ), 'target="_blank"' ) );
 
-		$help = '<h2>' . esc_html__( 'How to remove Site Title Block', 'Raindrops' ) . '</h2><pre><code>#hd{display:none;}</code></pre>';
-		$help .= '<h2>' . esc_html__( 'How to remove Post Author Name', 'Raindrops' ) . '</h2><pre><code>.posted-by-string,.author{display:none;}</code></pre>';
-		$help .= '<h2>' . esc_html__( 'How to remove Entry Date', 'Raindrops' ) . '</h2><pre><code>.posted-on-string,.entry-date{display:none;}</code></pre>';
-		$help .= '<h2>' . esc_html__( 'How to remove Entry Meta', 'Raindrops' ) . '</h2><pre><code>.entry-meta{display:none;}</code></pre>';
-		$help .= '<h2>' . esc_html__( 'How to remove Archive Title Label[ like Category Archives ]', 'Raindrops' ) . '</h2><pre><code>#archives-title .label{display:none;}</code></pre>';
-		$help .= '<h2>' . esc_html__( 'How to remove Home list above next prev navigation link', 'Raindrops' ) . '</h2><pre><code> #nav-above{ display:none;}</code></pre>';
-		$help .= '<p>' . esc_html__( 'above codes paste style.css last. If not change when  Version value change ( line:9 )', 'Raindrops' ) . '</p>';
+		$help = '<h2>' . esc_html__( 'How to remove Site Title Block', 'raindrops' ) . '</h2><pre><code>#hd{display:none;}</code></pre>';
+		$help .= '<h2>' . esc_html__( 'How to remove Post Author Name', 'raindrops' ) . '</h2><pre><code>.posted-by-string,.author{display:none;}</code></pre>';
+		$help .= '<h2>' . esc_html__( 'How to remove Entry Date', 'raindrops' ) . '</h2><pre><code>.posted-on-string,.entry-date{display:none;}</code></pre>';
+		$help .= '<h2>' . esc_html__( 'How to remove Entry Meta', 'raindrops' ) . '</h2><pre><code>.entry-meta{display:none;}</code></pre>';
+		$help .= '<h2>' . esc_html__( 'How to remove Archive Title Label[ like Category Archives ]', 'raindrops' ) . '</h2><pre><code>#archives-title .label{display:none;}</code></pre>';
+		$help .= '<h2>' . esc_html__( 'How to remove Home list above next prev navigation link', 'raindrops' ) . '</h2><pre><code> #nav-above{ display:none;}</code></pre>';
+		$help .= '<p>' . esc_html__( 'above codes paste style.css last. If not change when  Version value change ( line:9 )', 'raindrops' ) . '</p>';
 
 		$help = wpautop( $help );
 
@@ -1403,9 +1402,9 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 
 		if ( ( isset( $post_type_object ) && ( $title == $post_type_object->labels->add_new_item || $title == $post_type_object->labels->edit_item ) || true == $force ) ) {
 
-			$result = "<h2 class=\"h2\">" . esc_html__( 'Tips', "Raindrops" ) . '</h2>';
-			$result .= '<p>' . esc_html__( 'If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once.', "Raindrops" ) . "</p>";
-			$result .= "<dl><dt><h3>" . esc_html__( 'Dinamic Color Class', 'Raindrops' ) . '</strong></h3>';
+			$result = "<h2 class=\"h2\">" . esc_html__( 'Tips', 'raindrops' ) . '</h2>';
+			$result .= '<p>' . esc_html__( 'If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once.', 'raindrops' ) . "</p>";
+			$result .= "<dl><dt><h3>" . esc_html__( 'Dinamic Color Class', 'raindrops' ) . '</strong></h3>';
 			$result .= '<dd><table><tr>
 							<td style="' .raindrops_colors_clone( 5, 'set' ) . ';padding:0.5em;">class color5</td>
 							<td style="' . raindrops_colors_clone( 4, 'set' ) . ';padding:0.5em;">class color4</td>
@@ -1418,13 +1417,13 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 							<td style="' . raindrops_colors_clone( '-4', 'set' ) . ';padding:0.5em;">class color-4</td>
 							<td style="' . raindrops_colors_clone( '-5', 'set' ) . ';padding:0.5em;">class color-5</td></tr>
 							<tr><td colspan="5">
-							' . esc_html__( 'code example:please HTML editor mode', 'Raindrops' ) . '
+							' . esc_html__( 'code example:please HTML editor mode', 'raindrops' ) . '
 							<div  style="' . raindrops_colors_clone( -1, 'set' ) . ';padding:1em;">&lt;div class="color-1"&gt;
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum&lt;/div&gt;
 							</div></td>
 							</tr></table>
 							</dd>';
-			$result .= "<dt><h3>" . esc_html__( 'Dinamic Gradient Class', 'Raindrops' ) . '</h3></dt>';
+			$result .= "<dt><h3>" . esc_html__( 'Dinamic Gradient Class', 'raindrops' ) . '</h3></dt>';
 			$result .= '<dd><table><tr>
 						<td style="' . raindrops_gradient_single( 1, "asc" ) . 'padding:0.5em;">class gradient1</td>
 						<td style="' . raindrops_gradient_single( 2, "asc" ) . 'padding:0.5em;">class gradient2</td>
@@ -1437,34 +1436,34 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 						<td style="' . raindrops_gradient_single( -4, "asc" ) . 'padding:0.5em;">class gradient-4</td>
 						</tr>
 						<tr><td colspan="5">
-						' . esc_html__( 'code example:please HTML editor mode', 'Raindrops' ) . '
+						' . esc_html__( 'code example:please HTML editor mode', 'raindrops' ) . '
 						<div  style="' . raindrops_gradient_single( -1, "asc" ) . 'padding:1em;">&lt;div class="gradient-1"&gt;<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>&lt;/div&gt;</div></td></tr></table></dd>';
-			$result .= "<dl><dt><h3>" . esc_html__( 'Font Size CSS Class', 'Raindrops' ) . '</strong></h3>';
-			$result .= "<dt><p>" . esc_html__( 'Classes', 'Raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26', 'Raindrops' ) . "</p><pre><code>&lt;p class=\"f16\"&gt;Font Size 16px&lt;/p&gt;</code></pre>";
+			$result .= "<dl><dt><h3>" . esc_html__( 'Font Size CSS Class', 'raindrops' ) . '</strong></h3>';
+			$result .= "<dt><p>" . esc_html__( 'Classes', 'raindrops' ) . '</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26', 'raindrops' ) . "</p><pre><code>&lt;p class=\"f16\"&gt;Font Size 16px&lt;/p&gt;</code></pre>";
 			$result .= "</dl>";
-			$result .= "<dl><dt><h3>" . esc_html__( 'Google Fonts Family CSS Class', 'Raindrops' ) . '</strong></h3>';
-			$result .= "<dt><p>" . esc_html__( 'Classes', 'Raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'Note, More than 90 percent of the Google font can be used, but there are some limitations.', 'Raindrops' ) . "</p></dd>";
-			$result .= "<dd><p>" . esc_html__( 'Examples of the no corresponding font', 'Raindrops' ) . "</p><pre><code>Fredericka the Great ( The first character is lowercase word ) </code></pre></dd>";
-			$result .= "<dd><p>" . esc_html__( 'Examples of the corresponding font', 'Raindrops' ) . "</p><pre><code>Open Sans Condensed ( font name has 0 - 2 spaces ) </code></pre></dd>";
-			$result .= "<dd><p>" . esc_html__( 'How to specify the font', 'Raindrops' ) . "</p><pre><code>Open Sans: &lt;p class=\"google-font-open-sans\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
-			$result .= "<dd><p>" . esc_html__( 'Add prefix google-font- + Font name lowercase and change to - the space', 'Raindrops' ) . "</p></dd>";
-			$result .= "<dd><p>" . esc_html__( 'How to specify the font weight', 'Raindrops' ) . "</p><pre><code>Open Sans EXTRA-BOLD800: &lt;p class=\"google-font-open-sans800\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
-			$result .= "<dd><p>" . esc_html__( 'How to specify the font style', 'Raindrops' ) . "</p><pre><code>Open Sans EXTRA-BOLD800 Italic: &lt;p class=\"google-font-open-sans800i\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
+			$result .= "<dl><dt><h3>" . esc_html__( 'Google Fonts Family CSS Class', 'raindrops' ) . '</strong></h3>';
+			$result .= "<dt><p>" . esc_html__( 'Classes', 'raindrops' ) . '</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'Note, More than 90 percent of the Google font can be used, but there are some limitations.', 'raindrops' ) . "</p></dd>";
+			$result .= "<dd><p>" . esc_html__( 'Examples of the no corresponding font', 'raindrops' ) . "</p><pre><code>Fredericka the Great ( The first character is lowercase word ) </code></pre></dd>";
+			$result .= "<dd><p>" . esc_html__( 'Examples of the corresponding font', 'raindrops' ) . "</p><pre><code>Open Sans Condensed ( font name has 0 - 2 spaces ) </code></pre></dd>";
+			$result .= "<dd><p>" . esc_html__( 'How to specify the font', 'raindrops' ) . "</p><pre><code>Open Sans: &lt;p class=\"google-font-open-sans\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
+			$result .= "<dd><p>" . esc_html__( 'Add prefix google-font- + Font name lowercase and change to - the space', 'raindrops' ) . "</p></dd>";
+			$result .= "<dd><p>" . esc_html__( 'How to specify the font weight', 'raindrops' ) . "</p><pre><code>Open Sans EXTRA-BOLD800: &lt;p class=\"google-font-open-sans800\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
+			$result .= "<dd><p>" . esc_html__( 'How to specify the font style', 'raindrops' ) . "</p><pre><code>Open Sans EXTRA-BOLD800 Italic: &lt;p class=\"google-font-open-sans800i\"&gt;Open Sans&lt;/p&gt;</code></pre></dd>";
 			$result .= "</dl>";
 
-			$result .= "<dl><dt><h3>" . esc_html__( 'Example of Custom CSS Meta Box Style Rules', 'Raindrops' ) . '</strong></h3>';
-			$result .= "<dt><p>" . esc_html__( 'Styling Entry Title', 'Raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'Change entry title color', 'Raindrops' ) . "</p><pre><code>.entry-title span{ color:red; }</code></pre>";
-			$result .= "<dt><p>" . esc_html__( 'Styling Posted on', 'Raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'hide posted on from all post', 'Raindrops' ) . "</p><pre><code> .posted-on, .entry-meta-default{ display:none;}</code></pre></dd>";
-			$result .= "<dt><p>" . esc_html__( 'Styling Posted in', 'Raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'hide posted in', 'Raindrops' ) . "</p><pre><code> .entry-meta{ display:none;}</code></pre></dd>";
-			$result .= "<dt><p>" . esc_html__( 'Styling Article', 'Raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'add border and padding', 'Raindrops' ) . "</p><pre><code>article {border:1px solid red;padding:1em;}</code></pre>"
-			. "<p>" . esc_html__( 'note:article elements and post_class () You can use all of the elements to be output.', 'Raindrops' ) . "</p></dd>";
+			$result .= "<dl><dt><h3>" . esc_html__( 'Example of Custom CSS Meta Box Style Rules', 'raindrops' ) . '</strong></h3>';
+			$result .= "<dt><p>" . esc_html__( 'Styling Entry Title', 'raindrops' ) . '</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'Change entry title color', 'raindrops' ) . "</p><pre><code>.entry-title span{ color:red; }</code></pre>";
+			$result .= "<dt><p>" . esc_html__( 'Styling Posted on', 'raindrops' ) . '</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'hide posted on from all post', 'raindrops' ) . "</p><pre><code> .posted-on, .entry-meta-default{ display:none;}</code></pre></dd>";
+			$result .= "<dt><p>" . esc_html__( 'Styling Posted in', 'raindrops' ) . '</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'hide posted in', 'raindrops' ) . "</p><pre><code> .entry-meta{ display:none;}</code></pre></dd>";
+			$result .= "<dt><p>" . esc_html__( 'Styling Article', 'raindrops' ) . '</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'add border and padding', 'raindrops' ) . "</p><pre><code>article {border:1px solid red;padding:1em;}</code></pre>"
+			. "<p>" . esc_html__( 'note:article elements and post_class () You can use all of the elements to be output.', 'raindrops' ) . "</p></dd>";
 			$result .= "</dl>";
 
 			$result .= $text;
@@ -1738,7 +1737,7 @@ if ( !function_exists( "raindrops_comment_form" ) ) {
 	function raindrops_comment_form( $form ) {
 
 		global $commenter;
-		$form[ 'url' ] = '<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'Raindrops' ) . '</label><span class="option">' . esc_html__( '(&nbsp;optional&nbsp;)', 'Raindrops' ) . '</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter[ 'comment_author_url' ] ) . '" size="30" /></p>';
+		$form[ 'url' ] = '<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'raindrops' ) . '</label><span class="option">' . esc_html__( '(&nbsp;optional&nbsp;)', 'raindrops' ) . '</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter[ 'comment_author_url' ] ) . '" size="30" /></p>';
 		return apply_filters( "raindrops_comment_form", $form );
 	}
 
@@ -1866,10 +1865,10 @@ if ( !function_exists( "raindrops_first_only_msg" ) ) {
 
 			if ( version_compare( PHP_VERSION, '5.0.0', '<' ) ) {
 
-				$msg = sprintf( esc_html__( 'Sorry Your PHP version is %s Please use PHP version 5 || later.', 'Raindrops' ), PHP_VERSION );
+				$msg = sprintf( esc_html__( 'Sorry Your PHP version is %s Please use PHP version 5 || later.', 'raindrops' ), PHP_VERSION );
 			} else {
 
-				$msg = sprintf( esc_html__( 'Thank you for adopting the %1$s theme. It is necessary to set it to this theme. Please move to a set screen clicking this ', 'Raindrops' ) . '<a href="%2$s">' . esc_html__( 'Raindrops settings view', 'Raindrops' ) . '</a>.', $raindrops_current_theme_name, $link );
+				$msg = sprintf( esc_html__( 'Thank you for adopting the %1$s theme. It is necessary to set it to this theme. Please move to a set screen clicking this ', 'raindrops' ) . '<a href="%2$s">' . esc_html__( 'Raindrops settings view', 'raindrops' ) . '</a>.', $raindrops_current_theme_name, $link );
 			}
 		}
 		return '<div id="testmsg" class="error"><p>' . $msg . '</p></div>' . "\n";
@@ -2934,7 +2933,7 @@ if ( !function_exists( "raindrops_get_year" ) ) {
 		foreach ( $months as $num => $val ) {
 
 			$num				 = (int) $num;
-			$table_year[ $num ]	 = '<tr><td class="month-name"><a href="' . esc_url( get_month_link( $year, $num ) ). "\" title=\"".esc_attr( $year. '/'. $num). "\">" . $num . '</a></td><td class="month-excerpt"><a href="' . get_month_link( $year, $num ) . "\" title=\"$year/$num\">" . sprintf( esc_html__( "%s Articles archived", "Raindrops" ), count( $val ) ) . '</a></td></tr>';
+			$table_year[ $num ]	 = '<tr><td class="month-name"><a href="' . esc_url( get_month_link( $year, $num ) ). "\" title=\"".esc_attr( $year. '/'. $num). "\">" . $num . '</a></td><td class="month-excerpt"><a href="' . get_month_link( $year, $num ) . "\" title=\"$year/$num\">" . sprintf( esc_html__( "%s Articles archived", 'raindrops' ), count( $val ) ) . '</a></td></tr>';
 		}
 		return $output . implode( "\n", $table_year );
 	}
@@ -3101,7 +3100,7 @@ if ( !function_exists( "raindrops_month_list" ) ) {
 					<span class="author vcard"><a class="url fn nickname" href="%10$s" title="%11$s">%12$s</a></span> 					</li>';
 
 						$display_name = get_the_author_meta( 'display_name', $month->post_author );
-						$links .= sprintf( $html, 'h2 entry-title', esc_url( get_permalink( $month->ID ) ), 'link to content: ' . esc_attr( strip_tags( $month->post_title ) ), $month->post_title, $month->ID, ' ' . raindrops_post_class( array( 'clearfix' ), $month->ID, false ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ), $month->post_date, get_author_posts_url( get_the_author_meta( 'ID' ) ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $display_name ), $display_name
+						$links .= sprintf( $html, 'h2 entry-title', esc_url( get_permalink( $month->ID ) ), 'link to content: ' . esc_attr( strip_tags( $month->post_title ) ), $month->post_title, $month->ID, ' ' . raindrops_post_class( array( 'clearfix' ), $month->ID, false ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ), $month->post_date, get_author_posts_url( get_the_author_meta( 'ID' ) ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $display_name ), $display_name
 						);
 						$c++;
 					}
@@ -3162,17 +3161,17 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 		if ( is_search() ) {
 
 			$Raindrops_class_name	 = 'serch-result';
-			$page_title				 = esc_html__( "Search Results", 'Raindrops' );
+			$page_title				 = esc_html__( "Search Results", 'raindrops' );
 			$page_title_c			 = get_search_query();
 		} elseif ( is_tag() ) {
 
 			$Raindrops_class_name	 = 'tag-archives';
-			$page_title				 = esc_html__( "Tag Archives", 'Raindrops' );
+			$page_title				 = esc_html__( "Tag Archives", 'raindrops' );
 			$page_title_c			 = single_term_title( "", false );
 		} elseif ( is_category() ) {
 
 			$Raindrops_class_name	 = 'category-archives';
-			$page_title				 = esc_html__( "Category Archives", 'Raindrops' );
+			$page_title				 = esc_html__( "Category Archives", 'raindrops' );
 			$page_title_c			 = single_cat_title( '', false );
 		} elseif ( is_archive() ) {
 
@@ -3181,12 +3180,12 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 			if ( is_day() ) {
 
 				$Raindrops_class_name	 = 'dayly-archives';
-				$page_title				 = esc_html__( 'Daily Archives', 'Raindrops' );
+				$page_title				 = esc_html__( 'Daily Archives', 'raindrops' );
 				$page_title_c			 = get_the_date( $raindrops_date_format );
 			} elseif ( is_month() ) {
 
 				$Raindrops_class_name	 = 'monthly-archives';
-				$page_title				 = esc_html__( 'Monthly Archives', 'Raindrops' );
+				$page_title				 = esc_html__( 'Monthly Archives', 'raindrops' );
 
 				if ( 'ja' == get_locale() ) {
 
@@ -3198,12 +3197,12 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 			} elseif ( is_year() ) {
 
 				$Raindrops_class_name	 = 'yearly-archives';
-				$page_title				 = esc_html__( 'Yearly Archives', 'Raindrops' );
+				$page_title				 = esc_html__( 'Yearly Archives', 'raindrops' );
 				$page_title_c			 = get_the_date( 'Y' );
 			} elseif ( is_author() ) {
 
 				$Raindrops_class_name	 = 'author-archives';
-				$page_title				 = esc_html__( "Author Archives", 'Raindrops' );
+				$page_title				 = esc_html__( "Author Archives", 'raindrops' );
 				while ( have_posts() ) {
 					the_post();
 					$page_title_c = get_avatar( get_the_author_meta( 'user_email' ), 32 ) . ' ' . get_the_author();
@@ -3214,60 +3213,60 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 
 				$slug					 = 'aside';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'chat' ) ) {
 
 				$slug					 = 'chat';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'gallery' ) ) {
 
 				$slug					 = 'gallery';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'link' ) ) {
 
 				$slug					 = 'link';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'image' ) ) {
 
 				$slug					 = 'image';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'quote' ) ) {
 
 				$slug					 = 'quote';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'status' ) ) {
 
 				$slug					 = 'status';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'video' ) ) {
 
 				$slug					 = 'video';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} elseif ( has_post_format( 'audio' ) ) {
 
 				$slug					 = 'audio';
 				$Raindrops_class_name	 = 'post-format-' . $slug;
-				$page_title				 = esc_html__( 'Post Format', 'Raindrops' );
+				$page_title				 = esc_html__( 'Post Format', 'raindrops' );
 				$page_title_c			 = get_post_format_string( $slug );
 			} else {
 
 				$Raindrops_class_name	 = 'blog-archives';
-				$page_title				 = esc_html__( "Blog Archives", 'Raindrops' );
+				$page_title				 = esc_html__( "Blog Archives", 'raindrops' );
 			}
 		}
 
@@ -4461,7 +4460,7 @@ if ( !function_exists( 'raindrops_filter_title' ) ) {
 
 		if ( $paged > 1 || $page > 1 ) {
 
-			$page_info = sprintf( esc_html__( ' Page %s', 'Raindrops' ), max( $paged, $page ) );
+			$page_info = sprintf( esc_html__( ' Page %s', 'raindrops' ), max( $paged, $page ) );
 		}
 
 		if ( 'right' == $seplocation ) {
@@ -4625,7 +4624,7 @@ if ( !function_exists( "raindrops_delete_post_link" ) ) {
 
 		if ( empty( $link_text ) ) {
 
-			$link_text = esc_html__( 'Trash', 'Raindrops' );
+			$link_text = esc_html__( 'Trash', 'raindrops' );
 		}
 
 		if ( current_user_can( 'edit_post', $post->ID ) && $url = get_delete_post_link() ) {
@@ -4956,11 +4955,12 @@ if ( !function_exists( 'raindrops_custom_width' ) ) {
  *
  *
  */
+
 if ( !function_exists( 'raindrops_is_fluid' ) ) {
 
 	function raindrops_is_fluid() {
 
-		global $is_IE, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width, $raindrops_current_column, $raindrops_stylesheet_type;
+		global $post, $is_IE, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width, $raindrops_current_column, $raindrops_stylesheet_type, $raindrops_header_image_default_ratio;
 		if ( ! isset( $raindrops_stylesheet_type ) ) {
 
 			$raindrops_stylesheet_type = raindrops_warehouse_clone( 'raindrops_stylesheet_in_html' );
@@ -4996,12 +4996,24 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			$main_column_width_fluid = 100;
 		}
 
-			$padding_height = 20.859375;
-			$width = absint( raindrops_detect_header_image_size_clone(  'width' ) );
-			$height = absint( raindrops_detect_header_image_size_clone(  'height' ) );
-			if( $width !== 0 || $height !== 0  ) {
-				$padding_height = $height / $width * 100;
+		$padding_height					 = $raindrops_header_image_default_ratio * 100;
+		$raindrops_header_image_width							 = absint( raindrops_detect_header_image_size_clone( 'width' ) );
+		$raindrops_header_image_height							 = absint( raindrops_detect_header_image_size_clone( 'height' ) );
+		$raindrops_field_exists_check	 = get_post_custom_values( '_raindrops_this_header_image' );
+
+		if( is_singular() && $raindrops_field_exists_check !== null) {
+			$display_header_image_file = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
+			$display_header_image_attr = wp_get_attachment_image_src( $display_header_image_file, 'full' );
+			
+			if ( !empty( $display_header_image_attr ) ) {
+					$raindrops_header_image_uri		 = $display_header_image_attr[ 0 ];
+					$raindrops_header_image_width	 = $display_header_image_attr[ 1 ];
+					$raindrops_header_image_height	 = $display_header_image_attr[ 2 ];					
 			}
+		}
+		if( $raindrops_header_image_height !== 0 && $raindrops_header_image_width !== 0  ) {
+				$padding_height = $raindrops_header_image_height / $raindrops_header_image_width * 100;
+		}
 
 		if( 'doc3' ==  $page_width ) {
 
@@ -5396,7 +5408,7 @@ if ( !function_exists( 'raindrops_action_hook_messages' ) ) {
 
 			if ( isset( $args ) && array_key_exists( 'hook_name', $args ) && array_key_exists( 'template_part_name', $args ) ) {
 
-				$message = esc_html__( 'add_action(  \'%1$s\', \'your_function\'  ) or add template part file the name \'%2$s\'.', 'Raindrops' );
+				$message = esc_html__( 'add_action(  \'%1$s\', \'your_function\'  ) or add template part file the name \'%2$s\'.', 'raindrops' );
 				$message = sprintf( $message, $args[ 'hook_name' ], $args[ 'template_part_name' ] );
 				printf( '<div style="%2$s" class="color3 pad-m corner">%1$s</div>', $message, 'word-break:break-all;word-wrap:break-word;' );
 			}
@@ -5872,7 +5884,7 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 
 			if ( empty( $more_link_text ) ) {
 
-				$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . get_the_ID() . '</span>';
+				$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . get_the_ID() . '</span>';
 			}
 
 			$content = ''; // wp-includes/post-template.php:265 - Trying to get property of non-object
@@ -5908,7 +5920,7 @@ if ( !function_exists( 'raindrops_next_prev_links' ) ) {
 		if ( $wp_query->max_num_pages > 1 ) {
 
 			$html	 = '<div id="%3$s" class="clearfix">'."\n". str_repeat("\t", 8). '<span class="nav-previous">%1$s</span><span class="nav-next">%2$s</span>'."\n". str_repeat("\t", 7).'</div>'. "\n";
-			$html	 = sprintf( $html, get_next_posts_link( '<span class="meta-nav">&larr;</span>' . $raindrops_old . esc_html__( ' Older posts', 'Raindrops' ) ), get_previous_posts_link( '<span>' . $raindrops_new . esc_html__( 'Newer posts', 'Raindrops' ) . '<span class="meta-nav">&rarr;</span></span>' ), $position );
+			$html	 = sprintf( $html, get_next_posts_link( '<span class="meta-nav">&larr;</span>' . $raindrops_old . esc_html__( ' Older posts', 'raindrops' ) ), get_previous_posts_link( '<span>' . $raindrops_new . esc_html__( 'Newer posts', 'raindrops' ) . '<span class="meta-nav">&rarr;</span></span>' ), $position );
 			echo apply_filters( 'raindrops_next_prev_links', $html, $position );
 		}
 	}
@@ -5954,12 +5966,12 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 			if( ! is_404() ) {
 				$html = '<li id="search-default" class="widget-container widget_search">' . get_search_form( false ) . '</li>';
 			}
-			$html .= '<li><h2 class="h2 widget-title widgettitle">' . esc_html__( 'Archives', 'Raindrops' ) . '</h2>';
+			$html .= '<li><h2 class="h2 widget-title widgettitle">' . esc_html__( 'Archives', 'raindrops' ) . '</h2>';
 			$html .= '<ul>' . wp_get_archives( 'type=monthly&echo=0' ) . '</ul>';
 			$html .= '</li>';
 		} else {
 
-			$html = wp_list_categories( 'show_count=1&title_li=<h2 class="h2 widget-title">' . esc_html__( 'Categories', 'Raindrops' ) . '</h2>&echo=0' );
+			$html = wp_list_categories( 'show_count=1&title_li=<h2 class="h2 widget-title">' . esc_html__( 'Categories', 'raindrops' ) . '</h2>&echo=0' );
 		}
 		echo apply_filters( 'raindrops_sidebar_menus', $html );
 		wp_reset_postdata();
@@ -6161,7 +6173,7 @@ if ( !function_exists( 'raindrops_get_recent_posts' ) ) {
 		}
 
 		$default = array(
-			'title'											 => esc_html__( 'Recent Post', 'Raindrops' ),
+			'title'											 => esc_html__( 'Recent Post', 'raindrops' ),
 			'numberposts'									 => 10,
 			'offset'										 => 0,
 			'category'										 => 0,
@@ -6294,7 +6306,7 @@ if ( !function_exists( 'raindrops_get_recent_posts' ) ) {
 			$classes = 'class="' . join( ' ', $classes ) . '"';
 
 			$result .= sprintf( $html, get_permalink( $val[ 'ID' ] ), $val[ 'post_title' ], $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $val[ 'ID' ], $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-			), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), $author ), $author
+			), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $author ), $author
 			), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ). $oembed_flag, $thumbnail, $article_margin
 			);
 		}
@@ -6345,7 +6357,7 @@ if ( !function_exists( 'raindrops_get_category_posts' ) ) {
 
 		$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 		$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
-		$settings				 = array( 'title'											 => esc_html__( 'Categories', 'Raindrops' ),
+		$settings				 = array( 'title'											 => esc_html__( 'Categories', 'raindrops' ),
 			'numberposts'									 => 0,
 			'offset'										 => 0,
 			'category'										 => 0,
@@ -6477,7 +6489,7 @@ if ( !function_exists( 'raindrops_get_category_posts' ) ) {
 
 				$classes = 'class="' . join( ' ', $classes ) . '"';
 				$result .= sprintf( $html, get_permalink( $post->ID ), get_the_title(), $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $post->ID, $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, get_the_date() ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ), get_the_author()
+				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ). $oembed_flag, $thumbnail, $article_margin
 				);
 
@@ -6529,7 +6541,7 @@ if ( !function_exists( 'raindrops_get_tag_posts' ) ) {
 		$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 		$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
 		$settings				 = array(
-			'title'										 => esc_html__( 'Tags', 'Raindrops' ),
+			'title'										 => esc_html__( 'Tags', 'raindrops' ),
 			'numberposts'								 => 0,
 			'offset'									 => 0,
 			'category'									 => 0,
@@ -6662,7 +6674,7 @@ if ( !function_exists( 'raindrops_get_tag_posts' ) ) {
 
 				$classes = 'class="' . join( ' ', $classes ) . '"';
 				$result .= sprintf( $html, get_permalink( $post->ID ), get_the_title(), $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $post->ID, $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, get_the_date() ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'Raindrops' ), get_the_author() ), get_the_author()
+				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 				);
 			}
@@ -6717,7 +6729,7 @@ if ( !function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ) {
 
 				$previous_label = $wp_locale->get_month( $previous->month );
 
-				$calendar_output = sprintf( $html, get_month_link( $previous->year, $previous->month ), sprintf( esc_html__( '&laquo; %s ', 'Raindrops' ), $previous_label ), 'alignleft' );
+				$calendar_output = sprintf( $html, get_month_link( $previous->year, $previous->month ), sprintf( esc_html__( '&laquo; %s ', 'raindrops' ), $previous_label ), 'alignleft' );
 			}
 			$calendar_output .= "\t";
 
@@ -6729,7 +6741,7 @@ if ( !function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ) {
 			if ( $next ) {
 				$next_label = $wp_locale->get_month( $next->month );
 
-				$calendar_output .= sprintf( $html, get_month_link( $next->year, $next->month ), sprintf( esc_html__( ' %s &raquo;', 'Raindrops' ), $next_label ), 'alignright' );
+				$calendar_output .= sprintf( $html, get_month_link( $next->year, $next->month ), sprintf( esc_html__( ' %s &raquo;', 'raindrops' ), $next_label ), 'alignright' );
 			}
 			$html			 = '<div class="%1$s">%2$s<br class="clear" /></div>';
 			$calendar_output = sprintf( $html, 'raindrops-monthly-archive-prev-next-avigation', $calendar_output );
@@ -7148,7 +7160,7 @@ if ( !function_exists( 'raindrops_featured_image' ) ) {
 		if ( has_post_thumbnail() && true == $raindrops_use_featured_image_light_box ) {
 
 			$raindrops_html_piece = '<p style="text-align:center;font-size:small;"><a href="%1$s">%2$s</a></p>';
-			printf( $raindrops_html_piece, get_attachment_link( get_post_thumbnail_id() ), esc_html__( 'Go to Attachment page', 'Raindrops' ) );
+			printf( $raindrops_html_piece, get_attachment_link( get_post_thumbnail_id() ), esc_html__( 'Go to Attachment page', 'raindrops' ) );
 		}
 	}
 }
@@ -7914,7 +7926,7 @@ if ( !function_exists( 'raindrops_list_of_posts' ) ) {
 							$raindrops_list_of_posts_excerpt	 = preg_replace( '!\[[^\]]*\]!', '', $raindrops_list_of_posts_excerpt );
 
 							if ( empty( $raindrops_list_of_posts_excerpt ) ) {
-								$raindrops_list_of_posts_excerpt	 = esc_html__( 'Empty content', 'Raindrops' );
+								$raindrops_list_of_posts_excerpt	 = esc_html__( 'Empty content', 'raindrops' );
 								$raindrops_list_of_posts_empty_flag	 = true;
 							}
 							$raindrops_list_of_posts_contents	 = $raindrops_list_of_posts_excerpt;
@@ -7950,9 +7962,9 @@ if ( !function_exists( 'raindrops_list_of_posts' ) ) {
 				</ul>
 				<div class="list-of-post-edit-link">
 					<?php
-					raindrops_delete_post_link( __( 'Trash', 'Raindrops' ), '<span class="delete-link">', '</span>' );
+					raindrops_delete_post_link( __( 'Trash', 'raindrops' ), '<span class="delete-link">', '</span>' );
 
-					edit_post_link( __( 'Edit', 'Raindrops' ), '<span class="edit-link">', '</span>' );
+					edit_post_link( __( 'Edit', 'raindrops' ), '<span class="edit-link">', '</span>' );
 					?>
 				</div>
 			</li>
@@ -7968,12 +7980,12 @@ if ( !function_exists( 'raindrops_list_of_posts' ) ) {
 		<div class="list-of-post-next-prev">
 			<div class="left">
 				<?php
-				next_posts_link( __( '&laquo; Older Entries', 'Raindrops' ), $raindrops_list_of_post_query->max_num_pages )
+				next_posts_link( __( '&laquo; Older Entries', 'raindrops' ), $raindrops_list_of_post_query->max_num_pages )
 				?>
 			</div>
 			<div class="right">
 				<?php
-				previous_posts_link( __( 'Newer Entries &raquo;', 'Raindrops' ), $raindrops_list_of_post_query->max_num_pages )
+				previous_posts_link( __( 'Newer Entries &raquo;', 'raindrops' ), $raindrops_list_of_post_query->max_num_pages )
 				?>
 			</div>
 		</div>
@@ -8044,10 +8056,10 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 						<?php raindrops_posted_on(); ?>
 					</div>
 					<div class="entry-content clearfix">
-						<a href="<?php echo get_comments_link( $post->ID ); ?>" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em><?php esc_html_e( 'Comment', 'Raindrops' ); ?></em></a>
+						<a href="<?php echo get_comments_link( $post->ID ); ?>" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em><?php esc_html_e( 'Comment', 'raindrops' ); ?></em></a>
 					</div>
 					<div class="entry-meta">
-						<?php edit_post_link( esc_html__( 'Edit', 'Raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>', $post->ID ); ?>
+						<?php edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>', $post->ID ); ?>
 					</div>
 					<br class="clear" />
 					</<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
@@ -8063,17 +8075,17 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 				if ( is_front_page() ) {
 
 					$url	 = esc_url( add_query_arg( 'page', 2 ) ) . '#portfolio';
-					$html	 = '<li><a href="' . esc_url( $url ) . '" title="page 2" class="portfolio-page2">' . esc_html__( 'Page', 'Raindrops' ) . '2</a></li>';
+					$html	 = '<li><a href="' . esc_url( $url ) . '" title="page 2" class="portfolio-page2">' . esc_html__( 'Page', 'raindrops' ) . '2</a></li>';
 				} else {
 
 					$url	 = esc_url( add_query_arg( 'page', 2 ) ) . '#portfolio';
-					$html	 = '<li><a href="' . esc_url( $url ) . '" title="page 2" class="portfolio-page2">' . esc_html__( 'Page', 'Raindrops' ) . '2</a></li>';
+					$html	 = '<li><a href="' . esc_url( $url ) . '" title="page 2" class="portfolio-page2">' . esc_html__( 'Page', 'raindrops' ) . '2</a></li>';
 				}
 			} elseif ( $args[ 'paged' ] > 0 ) {
 
 				$page	 = $args[ 'paged' ] + 1;
 				$url	 = esc_url( add_query_arg( 'page', $page ) ). '#portfolio';
-				$html	 = sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-next portfolio-' . $page, 'portfolio-nav-next', esc_html__( 'Page', 'Raindrops' ) . ' ' . $page
+				$html	 = sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-next portfolio-' . $page, 'portfolio-nav-next', esc_html__( 'Page', 'raindrops' ) . ' ' . $page
 				);
 			}
 
@@ -8096,14 +8108,14 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 
 				$page	 = $args[ 'paged' ] - 1;
 				$url	 = esc_url( add_query_arg( 'page', $page ) ) . '#portfolio';
-				$html .= sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-prev portfolio-home', 'portfolio-nav-prev', __( 'Portfolio Home', 'Raindrops' )
+				$html .= sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-prev portfolio-home', 'portfolio-nav-prev', __( 'Portfolio Home', 'raindrops' )
 				);
 			} elseif ( $args[ 'paged' ] > 2 ) {
 
 				$page	 = $args[ 'paged' ];
 				$page	 = $page - 1;
 				$url	 = esc_url( add_query_arg( 'page', $page ) ). '#portfolio';
-				$html .= sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-prev portfolio-' . $page, 'portfolio-nav-prev', esc_html__( 'Page', 'Raindrops' ) . ' ' . $page
+				$html .= sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-prev portfolio-' . $page, 'portfolio-nav-prev', esc_html__( 'Page', 'raindrops' ) . ' ' . $page
 				);
 			}
 
@@ -8116,10 +8128,10 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 				$raindrops_html_page = '<p style="text-align:center;"><a href="%1$s" class="%2$s" ><span class="%3$st">%4$s</span></a></p>';
 				if ( preg_match( '!page=!', $query_string ) ) {
 					?><h3 style="text-align:center" class="h1 portfolio-navigation-last">End</h3><?php
-					echo apply_filters( 'raindrops_portfolio_nav', sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-home', 'portfolio-home-text', esc_html__( 'Portfolio Home', 'Raindrops' )
+					echo apply_filters( 'raindrops_portfolio_nav', sprintf( $raindrops_html_page, esc_url( $url ), 'portfolio-home', 'portfolio-home-text', esc_html__( 'Portfolio Home', 'raindrops' )
 					) );
 				}
-				echo apply_filters( 'raindrops_portfolio_nav', sprintf( $raindrops_html_page, home_url(), 'portfolio blog-home-link', 'portfolio-nav', esc_html__( 'Home', 'Raindrops' )
+				echo apply_filters( 'raindrops_portfolio_nav', sprintf( $raindrops_html_page, home_url(), 'portfolio blog-home-link', 'portfolio-nav', esc_html__( 'Home', 'raindrops' )
 				) );
 				?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div><?php
 			}
@@ -8148,7 +8160,7 @@ if ( !function_exists( 'raindrops_add_more' ) ) {
 		if ( empty( $more_link_text ) ) {
 
 			$raindrops_aria_hidden = raindrops_doctype_elements( '', 'aria-hidden="true"', false );
-			$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) . '<span class="meta-nav" '. $raindrops_aria_hidden. '>&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . $id . '</span>';
+			$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'raindrops' ) . '<span class="meta-nav" '. $raindrops_aria_hidden. '>&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . $id . '</span>';
 		}
 		$output			 = '';
 		$strip_teaser	 = false;
@@ -8278,7 +8290,7 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
 
 						$number = count( $child_pages );
 						?>
-						<span class="status-bar-page-title"><?php echo _nx( 'Child Page : ', 'Child Pages : ', $number, '', 'Raindrops' ); ?></span>
+						<span class="status-bar-page-title"><?php echo _nx( 'Child Page : ', 'Child Pages : ', $number, '', 'raindrops' ); ?></span>
 						<?php
 						foreach ( $child_pages as $child ) {
 							$permalink	 = apply_filters( 'the_permalink', get_permalink( $child->ID ) );
@@ -8518,7 +8530,7 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 
 				add_meta_box(
 				'raindrops_custom_css'
-				, esc_html__( 'Custom CSS For This Entry', 'Raindrops' )
+				, esc_html__( 'Custom CSS For This Entry', 'raindrops' )
 				, array( $this, 'render_meta_box_content' )
 				, $post_type
 				, 'advanced'
@@ -8619,9 +8631,9 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 
 			if ( $raindrops_static_front_page_template_slug == $page_page_auto_include_template && $raindrops_current_screen->post_type == 'page' ) {
 
-				$form .= '<h4>' . esc_html__( 'Add Front Page', 'Raindrops' ) . '</h4>';
-				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="add" ' . checked( 'add', $current_value, false ) . ' />' . __( 'Add Front Page This Content', 'Raindrops' ) . '</p>';
-				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="default" ' . checked( '', $current_value, false ) . checked( 'default', $current_value, false ) . '  />' . __( 'No Need', 'Raindrops' ) . '</p>';
+				$form .= '<h4>' . esc_html__( 'Add Front Page', 'raindrops' ) . '</h4>';
+				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="add" ' . checked( 'add', $current_value, false ) . ' />' . __( 'Add Front Page This Content', 'raindrops' ) . '</p>';
+				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="default" ' . checked( '', $current_value, false ) . checked( 'default', $current_value, false ) . '  />' . __( 'No Need', 'raindrops' ) . '</p>';
 			}
 
 			/**
@@ -8630,12 +8642,12 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 			 */
 			if ( 'remove-header' !== $raindrops_restore_check && $raindrops_show_on_front !== 'page' ) {
 
-				$form .= '<h4>' . esc_html__( 'Override header Image', 'Raindrops' ) . '</h4>';
+				$form .= '<h4>' . esc_html__( 'Override header Image', 'raindrops' ) . '</h4>';
 
 				$images = get_uploaded_header_images();
 
-				$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="hide" ' . checked( 'hide', $current_value_header, false ) . ' />' . __( 'Hide Header Image', 'Raindrops' ) . '</p>';
-				$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="default" ' . checked( '', $current_value_header, false ) . checked( 'default', $current_value_header, false ) . '  />' . __( 'Default Image', 'Raindrops' ) . '</p>';
+				$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="hide" ' . checked( 'hide', $current_value_header, false ) . ' />' . __( 'Hide Header Image', 'raindrops' ) . '</p>';
+				$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="default" ' . checked( '', $current_value_header, false ) . checked( 'default', $current_value_header, false ) . '  />' . __( 'Default Image', 'raindrops' ) . '</p>';
 				$form .= '<div class="header-image-wrapper" style="max-height:320px;overflow-y:scroll;overflow-x:hidden;">';
 
 				$header_image_html = '<p %1$s>'
@@ -8650,16 +8662,16 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 				}
 				$form .= '</div>';
 
-				$form .= '<p><a class="button button-large" href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . esc_html__( 'Add Custom Header', 'Raindrops' ) . '</a></p>';
+				$form .= '<p><a class="button button-large" href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . esc_html__( 'Add Custom Header', 'raindrops' ) . '</a></p>';
 			}
 			if ( $raindrops_static_front_page_template_slug == 'front-page.php' && 'page' == get_option('show_on_front') ) {
 
-				$form .= '<h4>' . esc_html__( 'Override header Image', 'Raindrops' ) . '</h4>';
-				$form .= '<p>'. esc_html__( 'Now Selected Front Page template,You can use Featured Image for override header image', 'Raindrops' ). '</p>';
+				$form .= '<h4>' . esc_html__( 'Override header Image', 'raindrops' ) . '</h4>';
+				$form .= '<p>'. esc_html__( 'Now Selected Front Page template,You can use Featured Image for override header image', 'raindrops' ). '</p>';
 
 			}
 
-			printf( $form, 'raindrops_custom_css_field', __( 'The Custom CSS Field only for the current post', 'Raindrops' ), esc_textarea( $value ), 'style="width:100%;height:13em;font-size:1.3em;"'
+			printf( $form, 'raindrops_custom_css_field', __( 'The Custom CSS Field only for the current post', 'raindrops' ), esc_textarea( $value ), 'style="width:100%;height:13em;font-size:1.3em;"'
 			);
 
 			do_action( ' raindrops_custom_css_after' );
@@ -8667,7 +8679,7 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 	}
 }
 
-
+if ( !function_exists( 'raindrops_play_list_add_atts' ) ) {
 /**
  *
  * @param type $out
@@ -8675,10 +8687,6 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
  * @param type $atts
  * @return string
  */
-
-
-if ( !function_exists( 'raindrops_play_list_add_atts' ) ) {
-
 	function raindrops_play_list_add_atts( $out, $pairs, $atts ) {
 
 		global $post;
@@ -8731,31 +8739,6 @@ if ( !function_exists( 'raindrops_add_complementary_color' ) ) {
 	}
 
 }
-
-function raindrops_has_indivisual_notation( $post_id = '' ){
-	global $post, $raindrops_automatic_color;
-
-	if( empty( $post_id ) && isset( $post->ID ) ) {
-
-		$post_id = $post->ID;
-	}
-
-	if ( ! empty( $post_id ) && is_singular() ) {
-
-		$post_id = absint( $post_id );
-
-		$raindrops_content_check = get_post( $post_id );
-		$raindrops_content_check = $raindrops_content_check->post_content;
-
-		if( preg_match( "!\[raindrops\s+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )\s+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
-
-			return array( trim( $regs[1] ) => trim( $regs[3] ), trim( $regs[5] ) => trim( $regs[7] ) );
-		}
-	}
-	return false;
-}
-
-
 
 if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 
@@ -8952,20 +8935,20 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 		$raindrops_address_html .= apply_filters( 'raindrops_prepend_footer_address', '' );
 
 		$raindrops_address_rss =  "\n". str_repeat("\t", 2 ). '<small>%1$s<a href="%2$s" class="entry-rss">%3$s</a>' .
-								  "\n". str_repeat("\t", 3 ). '<span>'. esc_html__( 'and', 'Raindrops' ) . '</span>' .
+								  "\n". str_repeat("\t", 3 ). '<span>'. esc_html__( 'and', 'raindrops' ) . '</span>' .
 								  "\n". str_repeat("\t", 2 ). '<a href="%4$s" class="comments-rss">%5$s</a>';
 
-		$raindrops_address_html .= sprintf( $raindrops_address_rss, $raindrops_copyright_text, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", "Raindrops" ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', "Raindrops" )
+		$raindrops_address_html .= sprintf( $raindrops_address_rss, $raindrops_copyright_text, get_bloginfo( 'rss2_url' ), esc_html__( "Entries RSS", 'raindrops' ), get_bloginfo( 'comments_rss2_url' ), esc_html__( 'Comments RSS', 'raindrops' )
 		);
 
 		$raindrops_address_html .= '</small> ';
 
 		if ( is_child_theme() ) {
 
-			$raindrops_theme_name = 'Child theme ' . esc_html( ucwords( $raindrops_current_theme_name ) ) . ' of ' . esc_html__( "Raindrops Theme", "Raindrops" );
+			$raindrops_theme_name = 'Child theme ' . esc_html( ucwords( $raindrops_current_theme_name ) ) . ' of ' . esc_html__( "Raindrops Theme", 'raindrops' );
 		} else {
 
-			$raindrops_theme_name = esc_html__( "Raindrops Theme", "Raindrops" );
+			$raindrops_theme_name = esc_html__( "Raindrops Theme", 'raindrops' );
 		}
 
 		$raindrops_address_html .= sprintf(  "\n". str_repeat("\t", 2 ). '<small><a href="%s">%s</a></small> ', $raindrops_current_data_theme_uri, $raindrops_theme_name
@@ -9259,12 +9242,11 @@ if ( !function_exists( 'raindrops_editor_styles_callback' ) ) {
 
 		$metabox_style	 = '';
 		$result			 = '';
+		
 		if ( isset( $_REQUEST[ 'id' ] ) && !empty( $_REQUEST[ 'id' ] ) ) {
 			$post_id = absint( $_REQUEST[ 'id' ] );
 
 			$metabox_style	 = get_post_meta( $post_id, '_css', true );
-			//$metabox_style	 = preg_replace_callback( '![^}]+{[^}]+}!siu', 'raindrops_css_add_id', $metabox_style );
-			//$metabox_style	 = str_replace( '#post-','#post-'. $post_id, $metabox_style );
 			$style			 = get_post_meta( $post_id, '_web_fonts_styles', true );
 			$result			 = str_replace( $style, '', $result );
 			$result .= $result . $style;
@@ -9434,17 +9416,19 @@ if ( !function_exists( 'raindrops_pinup_entry_style' ) ) {
 
 }
 
-if ( ! function_exists( '_wp_render_title_tag' ) ) {
+//if ( ! function_exists( '_wp_render_title_tag' ) ) {
 /**
  * WordPress4.1 Backwards compatibility
  * @since 1.265
- */
+ *@ 1.320  this function will removed next version
+  
     function raindrops_render_title() {
 ?><title><?php wp_title( '|', true, 'right' ); ?></title>
 <?php
     }
     add_action( 'wp_head', 'raindrops_render_title' );
-}
+ */
+//}
 
 if ( ! function_exists( 'raindrops_month_list_count' ) ) {
 	/**
@@ -9594,7 +9578,7 @@ if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
 			$parents			 = explode( '&raquo;', $parents_item );
 
 			if ( ! empty( $parents_item ) ) {
-				$result[] = '<span class="label title parent">'.esc_html__('Parent Category:','Raindrops' ).'</span>';
+				$result[] = '<span class="label title parent">'.esc_html__('Parent Category:','raindrops' ).'</span>';
 			}
 			foreach ( $parents as $links ) {
 
@@ -9607,7 +9591,7 @@ if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
 			$child_result	 = '';
 			$child_ready	 = array();
 			if ( ! empty( $tmp_child_ids ) ) {
-				$result[] = '<span class="label title child">'.esc_html__('Child Category:','Raindrops' ).'</span>';
+				$result[] = '<span class="label title child">'.esc_html__('Child Category:','raindrops' ).'</span>';
 			}
 			foreach ( $tmp_child_ids as $tmp_id ) {
 
@@ -9690,9 +9674,9 @@ if ( ! function_exists( 'raindrops_excerpt_after_link' ) ) {
 		global $post;
 		$raindrops_excerpt_more = raindrops_warehouse_clone( 'raindrops_read_more_after_excerpt' );
 
-		$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'Raindrops' ) .
+		$more_link_text = esc_html__( 'Continue&nbsp;reading ', 'raindrops' ) .
 						'<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' .
-						esc_html__( '&nbsp;Post ID&nbsp;', 'Raindrops' ) . get_the_ID() . '</span>';
+						esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . get_the_ID() . '</span>';
 
 		$html = '<div class="raindrops-excerpt-more pad-s corner"><a href="%1$s" rel="bookmark">%2$s</a></div>';
 		$link = sprintf( $html , get_permalink( $post->ID ) . '#read', $more_link_text );
@@ -10152,8 +10136,6 @@ if ( ! function_exists( 'raindrops_custom_site_title_style' ) ) {
 			$style .= '#header-image #site-title{font-size:'. $setting_value. 'vw;}';
 		}
 
-
-
 		$setting_value_left_type = raindrops_warehouse_clone( 'raindrops_site_title_left_margin_type' );
 
 		if( 'centered' == $setting_value_left_type ) {
@@ -10413,6 +10395,7 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 		$title		 = $article->post_title;
 		$content	 = $article->post_content;
 		$excerpt	 = wp_html_excerpt( $content, $excerpt_length, '...' );
+		$excerpt	 = wptexturize( $excerpt );
 		$permalink	 = get_permalink( $post->ID );
 
 		$id = get_option( 'site_icon' );

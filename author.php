@@ -46,21 +46,21 @@ raindrops_debug_navitation( __FILE__ );
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" >
                 <<?php raindrops_doctype_elements( 'div', 'main' ); ?> <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>	
                 <h2 class="h2">
-<?php printf( esc_html__( 'Author Archives: %s', 'Raindrops' ), esc_html( $curauth->nickname ) ); ?>
+<?php printf( esc_html__( 'Author Archives: %s', 'raindrops' ), esc_html( $curauth->nickname ) ); ?>
                 </h2>
 
                 <table <?php raindrops_doctype_elements( 'summary="author infomation"', '' ); ?> class="author-meta left auto">
                     <tr>
                         <td class="avatar-col">
                             <?php
-                            echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ), '', esc_attr__( 'Author Avatar Image', 'Raindrops' ) );
+                            echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 60 ), '', esc_attr__( 'Author Avatar Image', 'raindrops' ) );
                             ?>
                         </td>
                         <td>
                             <dl class="author raindrops">
                                 <?php if ( esc_html( $curauth->description ) ) { ?>
                                     <dt>
-                                        <?php esc_html_e( 'Profile', 'Raindrops' ); ?>
+                                        <?php esc_html_e( 'Profile', 'raindrops' ); ?>
                                     </dt>
                                     <dd>
                                     <?php echo wpautop( esc_html( $curauth->description ) ); ?>
@@ -68,7 +68,7 @@ raindrops_debug_navitation( __FILE__ );
                                 <?php }// end if ( esc_html( $curauth->description ) ) ?>
                                 <?php if ( !empty( $curauth->user_url ) ) { ?>
                                     <dt>
-                                        <?php esc_html_e( 'Website', 'Raindrops' ); ?>
+                                        <?php esc_html_e( 'Website', 'raindrops' ); ?>
                                     </dt>
                                     <dd>
                                         <?php
@@ -80,7 +80,7 @@ raindrops_debug_navitation( __FILE__ );
                                     </dd>
                                 <?php } //if ( ! empty( $curauth->user_url ) ) {?>
                                 <dt>
-                                <?php esc_html_e( 'registered', 'Raindrops' ); ?>
+                                <?php esc_html_e( 'registered', 'raindrops' ); ?>
                                 </dt>
                                 <dd>
 								<?php	echo apply_filters( 'get_the_date', $curauth->user_registered ); ?>
@@ -90,7 +90,7 @@ raindrops_debug_navitation( __FILE__ );
                     </tr>
                 </table>
                 <br class="clear" />
-                <h2 class="h2"><?php esc_html_e( "Recent post", 'Raindrops' ); ?></h2>
+                <h2 class="h2"><?php esc_html_e( "Recent post", 'raindrops' ); ?></h2>
                 <dl class="author">
                     <!-- The Loop -->
 <?php
@@ -114,14 +114,14 @@ if ( have_posts() ) {
                             </dt>
                             <dd>
                             <?php
-                            esc_html_e( 'Categories :', 'Raindrops' );
+                            esc_html_e( 'Categories :', 'raindrops' );
 
                             the_category( ', ' );
                             ?>
                             </dd>
                             <dd>
                                 <?php
-                                esc_html_e( 'Tag :', 'Raindrops' );
+                                esc_html_e( 'Tag :', 'raindrops' );
 
                                 echo get_the_tag_list( '', ', ' );
                                 ?>
@@ -133,7 +133,7 @@ if ( have_posts() ) {
                                     ?>
                                 <dd>
                                 <?php
-                                esc_html_e( 'Format :', 'Raindrops' );
+                                esc_html_e( 'Format :', 'raindrops' );
 
                                 echo ' <a href="' . esc_url( get_post_format_link( $format ) ) . '">' . esc_html( get_post_format_string( $format ) ) . '</a>';
                                 ?>
@@ -143,7 +143,7 @@ if ( have_posts() ) {
                         } //end while			
                     } else {
                         ?>
-                        <p><?php esc_html_e( 'No posts by this author.', 'Raindrops' ); ?></p>
+                        <p><?php esc_html_e( 'No posts by this author.', 'raindrops' ); ?></p>
                         <?php } //if ( have_posts( ) ) 
                     ?>
                 </dl>

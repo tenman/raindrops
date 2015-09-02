@@ -110,12 +110,12 @@ class raindrops_menu_create {
 
             if ( !wp_verify_nonce( $_POST[ '_wpnonce' ], 'update-options' ) ) {
 
-                wp_die( esc_html__( 'Post Errors 14', 'Raindrops' ) );
+                wp_die( esc_html__( 'Post Errors 14', 'raindrops' ) );
             }
 
             if ( !check_admin_referer( 'update-options', '_wpnonce' ) ) {
 
-                wp_die( esc_html__( 'Post Errors 18', 'Raindrops' ) );
+                wp_die( esc_html__( 'Post Errors 18', 'raindrops' ) );
             }
 
 
@@ -145,17 +145,17 @@ class raindrops_menu_create {
             }
         }
         $result .= '<div class="wrap"><div id="title-raindrops-header" >';
-        $result .= "<h2>" . ucfirst( $raindrops_current_theme_name ) . esc_html__( ' Theme Settings', 'Raindrops' ) . "</h2>";
+        $result .= "<h2>" . ucfirst( $raindrops_current_theme_name ) . esc_html__( ' Theme Settings', 'raindrops' ) . "</h2>";
 
 
         $install_condition = get_option( 'raindrops_theme_settings' );
 
         if ( $install_condition !== false ) {
 
-            $result .= "<p>" . __( 'Saved Database table name:', 'Raindrops' ) . " <strong>" . RAINDROPS_PLUGIN_TABLE . "</strong></p></div>";
+            $result .= "<p>" . __( 'Saved Database table name:', 'raindrops' ) . " <strong>" . RAINDROPS_PLUGIN_TABLE . "</strong></p></div>";
         } else {
 
-            $result .= "<p>" . __( 'Now, Raindrops Not Using Database Table', 'Raindrops' ) . "</p></div>";
+            $result .= "<p>" . __( 'Now, Raindrops Not Using Database Table', 'raindrops' ) . "</p></div>";
         }
         /**
          *
@@ -213,15 +213,15 @@ class raindrops_menu_create {
 
                 if ( $this->first_save_to_database == 'yes' ) {
 
-                    $result .= '<div id="message" class="updated fade" title="' . esc_attr( $raindrops_updates ) . '"><p>' . __( 'updated saved database successfully.', 'Raindrops' );
+                    $result .= '<div id="message" class="updated fade" title="' . esc_attr( $raindrops_updates ) . '"><p>' . __( 'updated saved database successfully.', 'raindrops' );
                 } else {
 
-                    $result .= '<div id="message" class="updated fade" title="' . esc_attr( $raindrops_updates ) . '"><p>' . sprintf( __( 'updated %1$s successfully.', 'Raindrops' ), $raindrops_updates );
+                    $result .= '<div id="message" class="updated fade" title="' . esc_attr( $raindrops_updates ) . '"><p>' . sprintf( __( 'updated %1$s successfully.', 'raindrops' ), $raindrops_updates );
                 }
 
                 if ( is_multisite() ) {
 
-                    $result .= sprintf( '<a href="%s">%s</a></p></div>', 'themes.php?page=raindrops_settings', esc_html__( " MultiSite User must Click here !!", "Raindrops" ) );
+                    $result .= sprintf( '<a href="%s">%s</a></p></div>', 'themes.php?page=raindrops_settings', esc_html__( " MultiSite User must Click here !!", 'raindrops' ) );
                 } else {
 
                     $result .= '</p></div>';
@@ -243,10 +243,10 @@ class raindrops_menu_create {
 
             if ( true == $upload_result[ 0 ] ) {
 
-                $result .= '<div id="message" class="updated fade" title="' . esc_attr( basename( $upload_result[ 1 ] ) ) . '"><img src="' . $upload_result[ 2 ] . '" width="100" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;&nbsp;' . sprintf( __( 'updated %1$s successfully.', 'Raindrops' ), basename( $upload_result[ 2 ] ) );
+                $result .= '<div id="message" class="updated fade" title="' . esc_attr( basename( $upload_result[ 1 ] ) ) . '"><img src="' . $upload_result[ 2 ] . '" width="100" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;&nbsp;' . sprintf( __( 'updated %1$s successfully.', 'raindrops' ), basename( $upload_result[ 2 ] ) );
             } else {
 
-                $result .= '<div id="message" class="updated fade" title="' . esc_attr( basename( $upload_result[ 1 ] ) ) . '">' . sprintf( __( 'updated %s fail.', 'Raindrops' ), $upload_result[ 1 ] );
+                $result .= '<div id="message" class="updated fade" title="' . esc_attr( basename( $upload_result[ 1 ] ) ) . '">' . sprintf( __( 'updated %s fail.', 'raindrops' ), $upload_result[ 1 ] );
             }
         }
         $result .= '</div>';
@@ -350,21 +350,21 @@ class raindrops_menu_create {
 
         $current_heading_image     = raindrops_warehouse( "raindrops_heading_image" );
         $raindrops_navigation_add  = '';
-        $raindrops_navigation_list = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">' . __( 'WordPress Native Theme Options', 'Raindrops' ) . '</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
+        $raindrops_navigation_list = '<div class="raindrops-navigation-wrapper"><h3 class="raindrops-navigation-title">' . __( 'WordPress Native Theme Options', 'raindrops' ) . '</h3><ul style="margin-bottom:5px;" class="raindrops-native-menu">';
 
 
-        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'customize.php' ) . '">' . esc_html__( 'Theme customizer', 'Raindrops' ) . '</a></li>';
+        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'customize.php' ) . '">' . esc_html__( 'Theme customizer', 'raindrops' ) . '</a></li>';
 
-        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . esc_html__( 'Custom Header', 'Raindrops' ) . '</a></li>';
-        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'themes.php?page=custom-background' ) . '">' . esc_html__( 'Custom Background', 'Raindrops' ) . '</a></li>';
-        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'widgets.php' ) . '">' . esc_html__( 'Widget', 'Raindrops' ) . '</a></li>';
-        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">' . esc_html__( 'Menus', 'Raindrops' ) . '</a></li>';
-        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'theme-editor.php' ) . '">' . esc_html__( 'Theme Editor', 'Raindrops' ) . '</a></li>';
+        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'themes.php?page=custom-header' ) . '">' . esc_html__( 'Custom Header', 'raindrops' ) . '</a></li>';
+        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'themes.php?page=custom-background' ) . '">' . esc_html__( 'Custom Background', 'raindrops' ) . '</a></li>';
+        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'widgets.php' ) . '">' . esc_html__( 'Widget', 'raindrops' ) . '</a></li>';
+        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">' . esc_html__( 'Menus', 'raindrops' ) . '</a></li>';
+        $raindrops_navigation_list .= '<li><a href="' . admin_url( 'theme-editor.php' ) . '">' . esc_html__( 'Theme Editor', 'raindrops' ) . '</a></li>';
         $raindrops_navigation_list .= '</ul>';
 
         if ( true == RAINDROPS_USE_AUTO_COLOR ) {
 
-            $raindrops_navigation_list .= '<h3 class="raindrops-navigation-title">' . __( 'Raindrops Extend Theme Options', 'Raindrops' ) . '</h3><ul id="raindrops_navigation_list" class="raindrops-options-menu">';
+            $raindrops_navigation_list .= '<h3 class="raindrops-navigation-title">' . __( 'Raindrops Extend Theme Options', 'raindrops' ) . '</h3><ul id="raindrops_navigation_list" class="raindrops-options-menu">';
         } else {
 
             $raindrops_navigation_list = '<div class="raindrops-navigation-wrapper">';
@@ -385,13 +385,13 @@ class raindrops_menu_create {
                 $raindrops_navigation_list .= '<li><a href="#' . str_replace( "_", "-", $key ) . '">' . raindrops_admin_meta( $key, 'title' ) . '</a></li>';
                 if ( 'raindrops_base_color' == $key ) {
 
-                    $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">' . __( 'go to Color Type', 'Raindrops' ) . '</a></li></ul>';
+                    $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-style-type">' . __( 'go to Color Type', 'raindrops' ) . '</a></li></ul>';
                 } elseif ( 'raindrops_header_image' == $key || 'raindrops_footer_image' == $key ) {
 
-                    $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">' . __( 'Go to upload form', 'Raindrops' ) . '</a></li></ul>';
+                    $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops_upload_form">' . __( 'Go to upload form', 'raindrops' ) . '</a></li></ul>';
                 } elseif ( 'raindrops_style_type' == $key ) {
 
-                    $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">' . __( 'Go to Base Color', 'Raindrops' ) . '</a></li></ul>';
+                    $raindrops_navigation_add = '<ul style="padding:0 30px;"><li><a href="#raindrops-base-color">' . __( 'Go to Base Color', 'raindrops' ) . '</a></li></ul>';
                 } else {
 
                     $raindrops_navigation_add = '';
@@ -436,10 +436,10 @@ class raindrops_menu_create {
             if ( empty( $style ) ) {
 
                 $style .='visibility:hidden';
-                $table_header = '<thead><tr><th>&nbsp;</th><th>' . __( "Value", 'Raindrops' ) . '</th><th>' . __( "Edit", 'Raindrops' ) . '</th><th style="width:6em;">&nbsp;</th></tr></thead>';
+                $table_header = '<thead><tr><th>&nbsp;</th><th>' . __( "Value", 'raindrops' ) . '</th><th>' . __( "Edit", 'raindrops' ) . '</th><th style="width:6em;">&nbsp;</th></tr></thead>';
             } else {
 
-                $table_header = '<thead><tr><th >' . __( "Color", 'Raindrops' ) . '</th><th>' . __( "Value", 'Raindrops' ) . '</th><th>' . __( "Edit", 'Raindrops' ) . '</th><th style="width:6em;">&nbsp;</th></tr></thead>';
+                $table_header = '<thead><tr><th >' . __( "Color", 'raindrops' ) . '</th><th>' . __( "Value", 'raindrops' ) . '</th><th>' . __( "Edit", 'raindrops' ) . '</th><th style="width:6em;">&nbsp;</th></tr></thead>';
             }
 
             if ( false == RAINDROPS_USE_AUTO_COLOR && ( "raindrops_footer_color" == $key or
@@ -577,7 +577,7 @@ class raindrops_menu_create {
             }
 
             $i++;
-            $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"" . esc_attr__( 'Save', 'Raindrops' ) . '" /></td>';
+            $lines .= "<td style=\"vertical-align:bottom;text-align:right;\"><input type=\"submit\" class=\"button-primary\" value=\"" . esc_attr__( 'Save', 'raindrops' ) . '" /></td>';
             $lines .= '</tr>';
             $send_key_name = "";
             $lines .= "</tbody></table><br />{$add_box}{$raindrops_navigation_add}</div>";
@@ -589,17 +589,17 @@ class raindrops_menu_create {
 
         if ( !preg_match( '|<tbody>|', $lines ) ) {
 
-            $lines .= "<tbody><tr><td colspan=\"4\">" . __( "Please reload this page ex. windows F5", 'Raindrops' ) . '</td></tr></tbody>';
+            $lines .= "<tbody><tr><td colspan=\"4\">" . __( "Please reload this page ex. windows F5", 'raindrops' ) . '</td></tr></tbody>';
         }
 
         $lines .= raindrops_upload_form();
 
         if ( is_child_theme() ) {
 
-            $raindrops_theme_name = 'Child theme ' . ucwords( wp_get_theme() ) . ' of ' . __( "Raindrops Theme", "Raindrops" );
+            $raindrops_theme_name = 'Child theme ' . ucwords( wp_get_theme() ) . ' of ' . __( "Raindrops Theme", 'raindrops' );
         } else {
 
-            $raindrops_theme_name = esc_html__( "Raindrops Theme", "Raindrops" );
+            $raindrops_theme_name = esc_html__( "Raindrops Theme", 'raindrops' );
         }
 
         if ( true == RAINDROPS_USE_AUTO_COLOR ) {
@@ -607,7 +607,7 @@ class raindrops_menu_create {
             $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a></div>', $raindrops_current_data_theme_uri, $raindrops_theme_name );
         } else {
 
-            $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false", 'Raindrops' ) . '</span>' );
+            $add_infomation = sprintf( '<div class="raindrops-option-footer-infomation"><a href="%s">%s</a>%s</div>', $raindrops_current_data_theme_uri, $raindrops_theme_name, '&nbsp;&nbsp;<span class="raindrops-use-auto-color-disable">' . __( "Now constant RAINDROPS_USE_AUTO_COLOR is false", 'raindrops' ) . '</span>' );
         }
         return apply_filters( 'raindrops_form_user_input',  $raindrops_navigation_list . '</ul>' . $add_infomation . '</div>' . $lines . '<br style="clear:both" />' );
     }
@@ -673,7 +673,7 @@ class raindrops_menu_create {
             }
         } else {
 
-            $result .= '<option disabled>' . esc_html( 'Not selectable', 'Raindrops' ) . '</option>';
+            $result .= '<option disabled>' . esc_html( 'Not selectable', 'raindrops' ) . '</option>';
         }
 
         $result .='</select>';
@@ -697,45 +697,45 @@ function raindrops_upload_form() {
 			<h3 id="raindrops-style-type" title="raindrops style type">
 			<div id="icon-upload" class="icon32"></div>
 			<span>' .
-            esc_html__( 'Image Upload', 'Raindrops' ) .
+            esc_html__( 'Image Upload', 'raindrops' ) .
             '</span></h3>
-			<fieldset ><legend>' . esc_html__( 'Upload', 'Raindrops' ) . '</legend>
+			<fieldset ><legend>' . esc_html__( 'Upload', 'raindrops' ) . '</legend>
 			<form enctype="multipart/form-data" action="' . $deliv . '" method="POST">' . wp_nonce_field( 'update-options2' ) . '<p>
 			<input name="uploadfile" type="file"></p><p>' .
-            esc_html__( 'Purpose:', 'Raindrops' ) . '<label>
+            esc_html__( 'Purpose:', 'raindrops' ) . '<label>
 			<input type="radio" name="purpose" value="header" checked="checked" />' .
             '<strong>' .
-            esc_html__( 'Header Image', 'Raindrops' ) .
+            esc_html__( 'Header Image', 'raindrops' ) .
             '</strong></label>
 			&nbsp;&nbsp;&nbsp;<label><input type="radio" name="purpose" value="footer" />' .
             '<strong>' .
-            esc_html__( 'Footer Image', 'Raindrops' ) .
+            esc_html__( 'Footer Image', 'raindrops' ) .
             '</strong></label></p><p>' .
-            esc_html__( 'Style:', 'Raindrops' ) . '<label>
+            esc_html__( 'Style:', 'raindrops' ) . '<label>
 			<input type="radio" name="style" value="norepeat" checked="checked" />' .
-            esc_html__( 'no-repeat', 'Raindrops' ) .
+            esc_html__( 'no-repeat', 'raindrops' ) .
             '</label>&nbsp;&nbsp;&nbsp;<label>
 			<input type="radio" name="style" value="repeatx" />' .
-            esc_html__( 'repeat-x', 'Raindrops' ) . '</label></p>
-			<p>' . esc_html__( 'position:', 'Raindrops' ) . '<label>' .
-            esc_html__( 'top:', 'Raindrops' ) . '<input type="text" name="position-top" value="0" style="text-align:right;" />' .
-            esc_html__( 'px', 'Raindrops' ) . '</label>&nbsp;&nbsp;&nbsp;' .
-            esc_html__( 'left:', 'Raindrops' ) .
+            esc_html__( 'repeat-x', 'raindrops' ) . '</label></p>
+			<p>' . esc_html__( 'position:', 'raindrops' ) . '<label>' .
+            esc_html__( 'top:', 'raindrops' ) . '<input type="text" name="position-top" value="0" style="text-align:right;" />' .
+            esc_html__( 'px', 'raindrops' ) . '</label>&nbsp;&nbsp;&nbsp;' .
+            esc_html__( 'left:', 'raindrops' ) .
             '<label><input type="text" name="position-left" value="0" style="text-align:right;" />' .
-            esc_html__( 'px', 'Raindrops' ) . '</label></p><p>' .
-            esc_html__( 'box height:', 'Raindrops' ) . '<label>
+            esc_html__( 'px', 'raindrops' ) . '</label></p><p>' .
+            esc_html__( 'box height:', 'raindrops' ) . '<label>
 			<input type="text" name="height" value="0" style="text-align:right;" />' .
-            esc_html__( 'px', 'Raindrops' ) . '</label></p><p>
+            esc_html__( 'px', 'raindrops' ) . '</label></p><p>
 			<input type="submit" value="upload" name="raindrops_upload" class="button-primary"></p>
 			</form>
 			</fieldset>' .
             '<div class="raindrops_navigation_list">
 			<ul>
 			<li><a href="#raindrops-header-image">' .
-            esc_html__( 'Go to current header image', 'Raindrops' ) .
+            esc_html__( 'Go to current header image', 'raindrops' ) .
             '</a></li>
 			<li><a href="#raindrops-footer-image">' .
-            esc_html__( 'Go to current footer image', 'Raindrops' ) .
+            esc_html__( 'Go to current footer image', 'raindrops' ) .
             '</a></li></ul></div>' .
             '</div>';
     return $result;
@@ -762,12 +762,12 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
 
         if ( !isset( $_REQUEST[ '_wpnonce' ] ) ) {
 
-            $result = esc_html__( "Cannot be trusted data", "Raindrops" );
+            $result = esc_html__( "Cannot be trusted data", 'raindrops' );
             return array( false, $result );
         } else {
 
             if ( !wp_verify_nonce( $_REQUEST[ '_wpnonce' ], 'update-options2' ) ) {
-                $result = esc_html__( "Can not Upload Security issue", "Raindrops" );
+                $result = esc_html__( "Can not Upload Security issue", 'raindrops' );
                 return array( false, $result );
             }
         }
@@ -778,7 +778,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
             $propaty  = $propaty . '-' . sanitize_key( $_POST[ 'purpose' ] );
         } else {
 
-            $result = esc_html__( "purpose no data", "Raindrops" );
+            $result = esc_html__( "purpose no data", 'raindrops' );
             return array( false, $result );
         }
 
@@ -788,7 +788,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
             $propaty = $propaty . '-style-' . sanitize_key( $_POST[ 'style' ] );
         } else {
 
-            $result = esc_html__( "style no data", "Raindrops" );
+            $result = esc_html__( "style no data", 'raindrops' );
             return array( false, $result );
         }
 
@@ -798,7 +798,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
             $propaty = $propaty . '-top-' . sanitize_key( $_POST[ 'position-top' ] );
         } else {
 
-            $result = esc_html__( "position top no data", "Raindrops" );
+            $result = esc_html__( "position top no data", 'raindrops' );
             return array( false, $result . 'c' );
         }
 
@@ -808,7 +808,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
             $propaty = $propaty . '-left-' . sanitize_key( $_POST[ 'position-left' ] ) . '-';
         } else {
 
-            $result = esc_html__( "position no data", "Raindrops" );
+            $result = esc_html__( "position no data", 'raindrops' );
             return array( false, $result );
         }
 
@@ -818,7 +818,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
             $propaty = $propaty . 'x-height-' . sanitize_key( $_POST[ 'height' ] ) . '-';
         } else {
 
-            $result = esc_html__( "box height no data", "Raindrops" );
+            $result = esc_html__( "box height no data", 'raindrops' );
             return array( false, $result );
         }
 
@@ -830,13 +830,13 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
 
         if ( false == in_array( $_FILES[ 'uploadfile' ][ 'type' ], $raindrops_allow_file_type ) ) {
 
-            $result = sprintf( esc_html__( '%s is not permitted filetype.', "Raindrops" ), $_FILES[ 'uploadfile' ][ 'type' ] ) . implode( ',', $raindrops_allow_file_type );
+            $result = sprintf( esc_html__( '%s is not permitted filetype.', 'raindrops' ), $_FILES[ 'uploadfile' ][ 'type' ] ) . implode( ',', $raindrops_allow_file_type );
             return array( false, $result );
         }
 
         if ( !function_exists( 'wp_handle_upload' ) ) {
 
-            $result = sprintf( esc_html__( '%s function is not exists', "Raindrops" ), 'wp_handle_upload' );
+            $result = sprintf( esc_html__( '%s function is not exists', 'raindrops' ), 'wp_handle_upload' );
             return array( false, $result );
         }
 
@@ -901,7 +901,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
                 if ( $raindrops_max_width < $width || $height > $raindrops_max_width * 1.5 ) {
 
                     unlink( $save_dir . $_FILES[ 'uploadfile' ][ 'name' ] );
-                    $result = sprintf( esc_html__( "%d px * %d width too big. limit %d px", "Raindrops" ), $width, $height, $raindrops_max_width );
+                    $result = sprintf( esc_html__( "%d px * %d width too big. limit %d px", 'raindrops' ), $width, $height, $raindrops_max_width );
                     return array( false, $result . 'g' );
                 }
             }
@@ -921,7 +921,7 @@ function raindrops_upload_image( $raindrops_max_upload_size, $raindrops_max_widt
             return array( true, 'success', $uploaded_url, $width, $height, true );
         } else {
 
-            $result = esc_html__( "It failed in up-loading.", "Raindrops" );
+            $result = esc_html__( "It failed in up-loading.", 'raindrops' );
 
             foreach ( $_FILES[ 'userfile' ][ 'error' ] as $error ) {
 

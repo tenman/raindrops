@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.321
+version:1.322
 Overview of Changes
 
 	Fixed a bug that link is broken when a single-quote is mixed
@@ -19,7 +19,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.319&new_path=raindrops/1.321
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.319&new_path=raindrops/1.322
 -----------------------------------------------
 Changelog -----------------------------------
 version:1.320

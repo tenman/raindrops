@@ -3350,16 +3350,16 @@ if ( !function_exists( "raindrops_yui_class_modify" ) ) {
  */
 
 if ( !function_exists( "is_2col_raindrops" ) ) {
-	
-	
+
+
 
 	function is_2col_raindrops( $action = true, $echo = true ) {
 		global $template;
-		
+
 		$template_name = basename( $template, '.php' );
-		
+
 		$raindrops_col_setting_type = raindrops_warehouse_clone( 'raindrops_col_setting_type' );
-		
+
 		if( 'simple' == $raindrops_col_setting_type ) {
 
 			if ( 'hide' == raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ) ) {
@@ -3377,7 +3377,7 @@ if ( !function_exists( "is_2col_raindrops" ) ) {
 			}
 		}
 		if( 'details' == $raindrops_col_setting_type ) {
-			
+
 			if ( is_home() &&  2 == raindrops_warehouse_clone( 'raindrops_sidebar_index' ) ) {
 				if ( true == $echo ) {
 					echo $action;
@@ -4008,9 +4008,9 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 
 			$id = $post->ID;
 		}
-		//@ 1.317	
+		//@ 1.317
 		$id = absint( $id );
-		
+
 		if ( !is_admin() ) {
 
 			$format = get_post_format( $id );
@@ -5004,11 +5004,11 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 		if( is_singular() && $raindrops_field_exists_check !== null) {
 			$display_header_image_file = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
 			$display_header_image_attr = wp_get_attachment_image_src( $display_header_image_file, 'full' );
-			
+
 			if ( !empty( $display_header_image_attr ) ) {
 					$raindrops_header_image_uri		 = $display_header_image_attr[ 0 ];
 					$raindrops_header_image_width	 = $display_header_image_attr[ 1 ];
-					$raindrops_header_image_height	 = $display_header_image_attr[ 2 ];					
+					$raindrops_header_image_height	 = $display_header_image_attr[ 2 ];
 			}
 		}
 		if( $raindrops_header_image_height !== 0 && $raindrops_header_image_width !== 0  ) {
@@ -9242,7 +9242,7 @@ if ( !function_exists( 'raindrops_editor_styles_callback' ) ) {
 
 		$metabox_style	 = '';
 		$result			 = '';
-		
+
 		if ( isset( $_REQUEST[ 'id' ] ) && !empty( $_REQUEST[ 'id' ] ) ) {
 			$post_id = absint( $_REQUEST[ 'id' ] );
 
@@ -9421,7 +9421,7 @@ if ( !function_exists( 'raindrops_pinup_entry_style' ) ) {
  * WordPress4.1 Backwards compatibility
  * @since 1.265
  *@ 1.320  this function will removed next version
-  
+
     function raindrops_render_title() {
 ?><title><?php wp_title( '|', true, 'right' ); ?></title>
 <?php
@@ -10392,23 +10392,23 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 
 		$site_icon	 = '';
 		$article	 = get_post( $post->ID );
-		
+
 		$title		 = $article->post_title;
 		$title		 = wp_kses( $title, array() );
-		$title		 = wptexturize( $title );		
-		$title		 = str_replace( array("'"),array('&#38;'), $title );
-		
+		$title		 = wptexturize( $title );
+		$title		 = str_replace( array("'"),array('&#39;'), $title );
+
 		$content	 = $article->post_content;
 		$excerpt	 = wp_html_excerpt( $content, $excerpt_length, '...' );
 		$excerpt	 = wptexturize( $excerpt );
-		$excerpt	 = str_replace( array("'"),array('&#38;'), $excerpt );
+		$excerpt	 = str_replace( array("'"),array('&#39;'), $excerpt );
 		$permalink	 = get_permalink( $post->ID );
 
 		 if ( isset( $blog_id ) && is_multisite() ) {
-			 
+
 			$id = get_blog_option( $blog_id, 'site_icon' );
 		} else {
-			
+
 			$id = get_option( 'site_icon' );
 		}
 		if ( isset( $id ) ) {

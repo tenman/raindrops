@@ -9891,7 +9891,9 @@ if ( ! function_exists('raindrops_get_classes_from_primary_menu') ) {
 			if( isset( $items ) && ! empty( $items ) ) {
 
 				foreach( $items as $val){
+					if ( isset( $val->classes ) && is_array( $val ) ) {
 						$class_strings .= ' '. implode( ',', $val->classes ).' ';
+					}
 				}
 
 				return esc_attr( $class_strings );

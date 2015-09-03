@@ -1934,6 +1934,11 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 			'settings'		 => 'raindrops_changelog_setting',
 		) ) );
 		
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_textcolor', array(
+			'label'				=> __( 'Header Text Color' , 'raindrops' ),
+			'section'			=> 'title_tagline',
+			'priority'			=> 10 ) ) );
+		
 		$wp_customize->remove_control( 'display_header_text' );
 	}
 
@@ -2037,8 +2042,6 @@ function raindrops_customizer_style() {
 	
 
 /* control area */
-
-	
 #customize-footer-actions .collapse-sidebar-label,
 li.customize-control .customizer-section-intro,
 li.customize-control .raindrops-description,
@@ -2058,6 +2061,25 @@ li.customize-control .widget-inside .widget-content,
 /* title */
 .accordion-section-content	li.customize-control .customize-control-title{
 	color:$admin_color_focus;
+}
+/* menu */
+#menu-to-edit .customize-control-nav_menu_item {
+	padding:5px 0 1em 5px;
+}
+.menu-delete-item .menu-delete,
+.submitbox .submitdelete{
+		color:$admin_color_base;
+}
+#menu-to-edit .customize-control-nav_menu_item .menu-item-bar .menu-item-handle,
+#menu-to-edit .customize-control-nav_menu_item .menu-item-bar,
+#menu-to-edit .customize-control-nav_menu_item .menu-item-settings{
+	background:transparent;
+}
+#menu-to-edit .customize-control-nav_menu_item .menu-item-bar .menu-item-handle,
+#menu-to-edit .customize-control-nav_menu_item .menu-item-bar,
+.menu-item-settings .original-link,
+.menu-item-settings .link-to-original{
+	color:$admin_color_current;
 }
 /* label */
 li.customize-control .widget-content p,

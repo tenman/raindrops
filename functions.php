@@ -8342,8 +8342,8 @@ if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
 
 	function raindrops_widget_tag_cloud_args( $args ) {
 
-		$args[ 'smallest' ]	 = '100';
-		$args[ 'largest' ]	 = '300';
+		$args[ 'smallest' ]	 = '85';
+		$args[ 'largest' ]	 = '277';
 		$args[ 'unit' ]		 = '%';
 
 		return $args;
@@ -10377,7 +10377,7 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 	 */
 	function raindrops_content_shareing( $type = '', $excerpt_length = 100 ) {
 
-		global $post, $raindrops_allow_share_link, $raindrops_share_link_image, $is_gecko, $is_IE;
+		global $post, $raindrops_allow_share_link, $raindrops_share_link_image, $is_gecko, $is_IE, $blog_id;
 		if ( false == $raindrops_allow_share_link ) {
 			return;
 		}
@@ -10392,13 +10392,25 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 
 		$site_icon	 = '';
 		$article	 = get_post( $post->ID );
+		
 		$title		 = $article->post_title;
+		$title		 = wp_kses( $title, array() );
+		$title		 = wptexturize( $title );		
+		$title		 = str_replace( array("'"),array('&#38;'), $title );
+		
 		$content	 = $article->post_content;
 		$excerpt	 = wp_html_excerpt( $content, $excerpt_length, '...' );
 		$excerpt	 = wptexturize( $excerpt );
+		$excerpt	 = str_replace( array("'"),array('&#38;'), $excerpt );
 		$permalink	 = get_permalink( $post->ID );
 
-		$id = get_option( 'site_icon' );
+		 if ( isset( $blog_id ) && is_multisite() ) {
+			 
+			$id = get_blog_option( $blog_id, 'site_icon' );
+		} else {
+			
+			$id = get_option( 'site_icon' );
+		}
 		if ( isset( $id ) ) {
 			$site_icon = wp_get_attachment_image( $id );
 		}

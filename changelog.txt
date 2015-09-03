@@ -2,8 +2,21 @@ Changelog -----------------------------------
 version:1.321
 Overview of Changes
 
+	Fixed a bug that link is broken when a single-quote is mixed
+		raindrops_content_shareing()
+
+	Fixed Customizer menu display improperly.
+		Low contrast issue ( can not readable ).
+
+	Fixed Site Title and Tagline color allways reset.
+		Header Text Color control move from color to title_tagline section.
 
 Files Modified
+
+	modified:   functions.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.319&new_path=raindrops/1.321

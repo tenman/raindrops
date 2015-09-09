@@ -1,4 +1,38 @@
 Changelog -----------------------------------
+version:1.324
+Overview of Changes
+
+	Fixed
+
+		link hover presentation.
+		Japanese date not apply at part-blog.php
+		Cannot hide entry-date from Customizer at part-blog.php
+		Cannot hide Comment off message from Customizer at part-gallery.php
+		Media Query style move style.css to responsiveness.css
+
+	Modified
+
+		Removal of important specified stylesheet
+			Also efforts to continue future
+		Add screen reader text at Widget Raindrops Custom Archive
+		Some CSS rules
+
+Files Modified
+
+	modified:   css3.css
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   lib/widgets.php
+	modified:   page-templates/list-of-post.php
+	modified:   part-blog.php
+	modified:   part-gallery.php
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.323&new_path=raindrops/1.324
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.323
 Overview of Changes
 

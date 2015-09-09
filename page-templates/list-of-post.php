@@ -8,6 +8,7 @@
   $raindrops_list_of_posts_more		= '[...]';
   $raindrops_list_of_posts_use_toggle	= true;
  */
+
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }

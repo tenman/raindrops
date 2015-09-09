@@ -41,7 +41,21 @@ $raindrops_archive_month    = get_the_time( 'm' );
 $raindrops_archive_day      = get_the_time( 'd' );
 $raindrops_day_link         = esc_url( get_day_link( $raindrops_archive_year, $raindrops_archive_month, $raindrops_archive_day ) . '#post-' . $post->ID
 );
-$raindrops_status_date      = get_the_time( $raindrops_date_format );
+$raindrops_display_article_publish_date = raindrops_warehouse_clone( 'raindrops_display_article_publish_date' );
+
+if ( 'ja' == get_locale()) {
+	// japanese date
+	$raindrops_archive_year     = raindrops_year_name_filter( $raindrops_archive_year );
+	$raindrops_archive_month    = raindrops_archive_day_filter_month( $raindrops_archive_month );
+	$raindrops_archive_day      = raindrops_archive_day_filter_day( $raindrops_archive_day );
+	
+	$raindrops_status_date = $raindrops_archive_year. $raindrops_archive_month. $raindrops_archive_day;
+} else {
+	
+	$raindrops_status_date      = get_the_time( $raindrops_date_format );
+}
+
+
 
 if ( is_single() ) {
 
@@ -53,32 +67,34 @@ if ( is_single() ) {
      */
     ?>
     <ul class="entry-meta-list left">
+		<?php if( 'show' == $raindrops_display_article_publish_date ) { ?>
         <li class="category-blog-publish-date post-format-status-publish-date">
             <?php
             printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
             ?>
         </li>
+		<?php } ?>
         <li class="blog-avatar post-format-status-avatar">
             <?php
             echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ), '', __( 'Author', 'raindrops' ) . ' ' . get_the_author_meta( 'display_name' )
             );
             ?>
         </li>
-        <li>
+        <li class="category">
             <?php
             esc_html_e( 'Category:', 'raindrops' );
 
             the_category( ' ' )
             ?>
         </li>
-        <li>
+        <li class="tag">
             <?php
             esc_html_e( 'Tags:', 'raindrops' );
 
             the_tags( ' ', ' ' );
             ?>
         </li>
-        <li>
+        <li class="author">
             <?php
             esc_html_e( 'Author:', 'raindrops' );
 
@@ -87,7 +103,7 @@ if ( is_single() ) {
             );
             ?>
         </li>
-        <li>
+        <li class="comment">
             <?php
             if ( comments_open() ) {
                 comments_popup_link( esc_html__( 'Leave a comment', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), esc_html__( '1 Comment', 'raindrops' ), esc_html__( '% Comments', 'raindrops' )
@@ -98,7 +114,7 @@ if ( is_single() ) {
             <?php
             dynamic_sidebar( 'sidebar-5' );
             ?>
-        <li>
+        <li class="misc">
             <?php
             edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>'
             );
@@ -109,7 +125,7 @@ if ( is_single() ) {
         </li>
     </ul>
 
-    <div class="blog-main left post-format-status-main">
+    <div class="blog-main right post-format-status-main">
             <?php
             raindrops_entry_title();
             ?>
@@ -132,7 +148,7 @@ if ( is_single() ) {
     </div>
     <div class="clearfix"></div>
             <?php              
-            } else {
+} else {
 
                 /**
                  * Template for Not Single post
@@ -142,13 +158,15 @@ if ( is_single() ) {
                  */
                 ?>
     <div class="format-status-not-single-post">
-        <div class="posted-on">
-    <?php
-    raindrops_posted_on();
-    ?>
-        </div>
-
+       
         <ul class="entry-meta-list left">
+		<?php if( 'show' == $raindrops_display_article_publish_date ) { ?>
+			 <li class="category-blog-publish-date post-format-status-publish-date">
+            <?php
+            printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
+            ?>
+			</li>
+		<?php } ?>
             <li class="blog-avatar">
     <?php
     $raindrops_avatar = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 48 ), '', get_the_author_meta( 'display_name' )
@@ -160,7 +178,7 @@ if ( is_single() ) {
             </li>
         </ul>
 
-        <div class="blog-main left post-format-status-main">
+        <div class="blog-main right post-format-status-main">
                 <?php
                 raindrops_entry_title();
                 ?>

@@ -70,7 +70,7 @@ raindrops_entry_title();
             <?php
             if ( true == $raindrops_format ) {
                 ?>
-                <p style="margin:1em;"><em>
+                <p style="margin:1em;"><em class="gallery-infomation">
                         <?php
                         echo sprintf( esc_html__( 'This gallery contains %1$s photographs in all as ', 'raindrops' ), $total_images ) . '&nbsp;' . wp_get_attachment_link( $raindrops_image_result->ID, false, true ) . '&nbsp;' . __( 'photograph etc.', 'raindrops' );
                         ?>
@@ -90,7 +90,19 @@ raindrops_entry_title();
             );
             ?>
             <span class="comments-link">
-            <?php comments_popup_link( esc_html__( 'Leave a comment', 'raindrops' ), esc_html__( '1 Comment', 'raindrops' ), esc_html__( '% Comments', 'raindrops' ) ); ?>
+            <?php 
+			
+			$raindrops_comments_are_closed = raindrops_warehouse_clone('raindrops_comments_are_closed');
+			
+			if ( 'hide' == $raindrops_comments_are_closed ) {
+				
+				$comment_off_message = '';
+			} else {
+				
+				$comment_off_message = 'Comments off';
+			}
+			
+			comments_popup_link( esc_html__( 'Leave a comment', 'raindrops' ), esc_html__( '1 Comment', 'raindrops' ), esc_html__( '% Comments', 'raindrops' ), '', $comment_off_message ); ?>
             </span>
                 <?php
                 edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );

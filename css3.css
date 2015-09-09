@@ -88,6 +88,22 @@ submit{
 .rsidebar .children li:nth-last-child(1){
     border:none;
 }
+#ft .footer-widget a:hover,
+.page .entry-content a:hover,
+.post .entry-content a:hover,
+.raindrops-accessible-mode .nickname:focus img,
+.enable-keyboard .nickname:focus img,
+#site-title a:hover span,
+.gallery-infomation a:hover,
+.more-link:hover,
+#nav-above a:hover,
+#nav-below a:hover,
+article .entry-meta-default a:hover,
+article .posted-on a:hover,
+article .entry-meta a:hover,
+#access a:hover,
+.lsidebar .widget .tagcloud a:hover,
+.rsidebar .widget .tagcloud a:hover,
 .entry-title a:hover span,
 .rsidebar li.page_item a:hover,
 .rsidebar .widget ul li a:hover,

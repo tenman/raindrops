@@ -830,7 +830,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 							}
 
 							$v = str_replace( $month_name_before, $month_name_after, $v );
-							$result_html .= sprintf('<li class="%2$s">%1$s</li>',$v,$class);
+							$result_html .= sprintf('<li class="%2$s">%1$s<span class="screen-reader-text">%3$s</span></li>',  $v , esc_attr( $class ), esc_html( $year_label ) );
 						}
 						$result_html .= '</ul>';	
 					}
@@ -848,7 +848,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 						$result_html  .= sprintf( '<h3 class="month month-%2$s">%1$s</h3><ul>', $month_name, esc_attr( $key ) );
 						foreach( $val as $v ){
 
-							$result_html  .= sprintf('<li class="item item-%2$s">%1$s</li>', str_replace($month_name,'',$v) , esc_attr( $key ) );
+							$result_html  .= sprintf('<li class="item item-%2$s">%1$s<span class="screen-reader-text">%3$s</span></li>', str_replace($month_name,'',$v) , esc_attr( $key ), esc_html( $month_name ) );
 						}
 						$result_html  .= '</ul>';	
 					}

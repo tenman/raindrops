@@ -906,7 +906,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Developer Settings', 'raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Show Insert Point hooks and auto include template name for Developer, default hide', 'raindrops' ),
+			'description'		 => esc_html__( 'Show Insert Point hooks and auto load template name for Developer, default hide', 'raindrops' ),
 			'sanitize_callback'	 => 'raindrops_actions_hook_message_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(

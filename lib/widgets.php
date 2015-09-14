@@ -364,7 +364,6 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				'classname'		 => 'raindrops-pinup-entries',
 				'description'	 => esc_html__( 'Display Pinup entries', 'raindrops' )
 			);
-			//parent::WP_Widget( false, esc_html__( '1.Pinup entries [Raindrops]', 'raindrops' ), $widget_ops );
 			parent::__construct( false, esc_html__( '1.Pinup entries [Raindrops]', 'raindrops' ), $widget_ops );
 			wp_reset_query();
 		}
@@ -690,7 +689,6 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				'classname'		 => 'raindrops-extend-archive',
 				'description'	 => esc_html__( 'Archives Extended', 'raindrops' )
 			);
-			//parent::WP_Widget( false, esc_html__( '3.Archives Extended [Raindrops]', 'raindrops' ), $widget_ops );
 			parent::__construct( false, esc_html__( '3.Archives Extended [Raindrops]', 'raindrops' ), $widget_ops );
 			wp_reset_query();
 			}

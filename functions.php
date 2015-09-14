@@ -1,4 +1,5 @@
 <?php
+// Add Custom Active link Color End
 /**
  * functions and constants for Raindrops theme
  *
@@ -675,7 +676,7 @@ foreach ( $raindrops_base_setting as $setting ) {
 	if ( !function_exists( $function_name ) ) {
 
 		$message = sprintf( esc_html__( 'If you add  %s when you must create function %s for data validation', 'raindrops' ), $setting[ 'option_name' ], $function_name );
-		printf( '<script type="text/javascript">alert( \'%s\'  );</script>', $message );
+		printf( '<script type="text/javascript">alert( \'%s\' );</script>', $message );
 		return;
 	}
 }
@@ -1195,7 +1196,7 @@ if ( !function_exists( 'raindrops_post_date' ) ) {
 									raindrops_doctype_elements( 'span', 'time', false ),
 									raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 		);
-		$entry_date_html = apply_filters( 'raindrops_post_date', $entry_date_html );
+		$entry_date_html = apply_filters( 'raindrops_post_date', $entry_date_html, $date_text, absint( $post->ID ) );
 
 		return $entry_date_html;
 
@@ -5888,12 +5889,22 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 			}
 
 			$content = ''; // wp-includes/post-template.php:265 - Trying to get property of non-object
+			
 			if ( isset( $post ) ) {
-				$content = get_the_content( $more_link_text, $stripteaser );
+				$content .= get_the_content( $more_link_text, $stripteaser );
 			}
+		
 			$content = apply_filters( 'the_content', $content );
 			$content = apply_filters( 'raindrops_entry_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
+			/**
+			 * @1.325
+			 */
+			if ( has_excerpt() && empty( $content )) { 
+				
+				$content .= sprintf( '<div class="entry-content-fallback">%1$s</div>', get_the_excerpt() );
+			} 
+		
 			echo $content;
 
 		}
@@ -5986,8 +5997,12 @@ if ( !function_exists( 'raindrops_link_get' ) ) {
 * @since 1.246
 */
 	function raindrops_link_get( $text = '' ) {
-
-		if ( preg_match_all( "/(https?:\/\/)([-_.!˜*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/iu", $text, $matches, PREG_SET_ORDER ) ) {
+		/**
+		 * @1.325
+		 * remove ~ from regex 
+ 		 * for theme check plugin
+		 */
+		if ( preg_match_all( "/(https?:\/\/)([-_.!*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/iu", $text, $matches, PREG_SET_ORDER ) ) {
 
 			return $matches;
 		}
@@ -7489,6 +7504,8 @@ if ( !function_exists( 'raindrops_chat_filter' ) ) {
 		$html			 = '<dt class="raindrops-chat raindrops-chat-author-%1$s">%2$s</dt><dd class="raindrops-chat-text raindrops-chat-author-text-%1$s">%3$s</dd>';
 
 		foreach ( $new_contents as $key => $new ) {
+			
+			$new = str_replace( '</p>', '', $new );
 
 			preg_match( '|([^\:]+)(\:)(.+)|si', $new, $regs );
 
@@ -7503,7 +7520,7 @@ if ( !function_exists( 'raindrops_chat_filter' ) ) {
 			} else {
 
 				if ( !empty( $new ) ) {
-					$result .= '<dd>' . $new . '</dd>';
+					$result .= '<dd>' . $new. '</dd>';
 				}
 			}
 		}
@@ -7677,8 +7694,13 @@ if ( !function_exists( 'raindrops_non_breaking_content' ) ) {
 		//long url link text breakable
 
 		if ( !is_admin() && 'html5' == $raindrops_document_type ) {
+		/**
+		 * @1.325
+		 * remove ~ from regex 
+		 * for theme check plugin
+		 */
 
-			return preg_replace_callback( "|>([-_.!˜*\'()a-zA-Z0-9;\/?:@&=+$,%#]{30,})<|", 'raindrops_add_wbr_content_long_text', $content );
+			return preg_replace_callback( "|>([-_.!*\'()a-zA-Z0-9;\/?:@&=+$,%#]{30,})<|", 'raindrops_add_wbr_content_long_text', $content );
 		}
 		return $content;
 	}

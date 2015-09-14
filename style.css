@@ -218,6 +218,9 @@ p{
     line-height:1.65;
     margin-bottom:1em;
 }
+p:empty{
+    display:none;
+}
 /* html5 elements */
 mark{
     padding:0 4px;
@@ -4154,4 +4157,3 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 .category-blog .entry-meta-list li.post-format-status-avatar{
     text-align:center;
 }
-

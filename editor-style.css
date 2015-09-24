@@ -489,3 +489,77 @@ html .mce-content-body .wp-caption{
 .mce-content-body table td.bottom{
      vertical-align:bottom;
 }
+.mce-content-body .raindrops-tab-list,
+.mce-content-body .raindrops-tab-list .dummy{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.mce-content-body .raindrops-tab-page{
+    padding:16px;
+    box-sizing:border-box;
+}
+.mce-content-body .raindrops-tab-page h3:before{
+    content:'TAB LABEL: ';   
+}
+/* share link fallback style start */
+#quote-raindrops{
+    background:#fff;
+    color:#333;
+    padding:1em;
+    font-size:16px;border:1px solid #ccc;
+    overflow:hidden;}
+#quote-raindrops ul{
+    margin:0;
+    padding:0;
+}
+#quote-raindrops h3{
+    background:#fff;
+    color:#333;
+    padding:0;
+    margin:0;
+    font-size:16px;
+    display:inline-block;
+}
+#quote-raindrops a{
+    background:#fff;
+    color:#666;
+    padding:0;10px;
+    font-size:16px;
+    font-weight:700
+}
+#quote-raindrops img{
+    width:75px;
+    height:auto;
+}
+#quote-raindrops .first{ 
+    width:75px;
+    float:left;
+    list-style:none;
+    margin:0;
+}
+#quote-raindrops .second{ 
+    margin-left:95px;
+    display:block;
+    list-style:none;
+}
+#quote-raindrops .first:empty + .second{
+    margin-left:0;
+    display:block;
+    list-style:none;
+}
+@media (max-width: 640px) {
+    #quote-raindrops .second,#quote-raindrops .first{
+        margin:0;
+        float:none;
+        width:auto;
+        list-style:none;
+        text-align:left;
+        display:block;
+    }
+    #quote-raindrops .first{
+        text-align:center;
+        background:#ccc;
+    }
+}
+/* share link fallback style end */

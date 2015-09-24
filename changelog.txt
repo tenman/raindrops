@@ -1,4 +1,99 @@
 Changelog -----------------------------------
+version:1.326
+Overview of Changes
+	Fixed
+
+		Child Theme boots hot fix
+		Add CSS childs/boots/base.css
+
+	Modified
+
+		share link fallback CSS
+
+			editor-style.css
+			style.css
+		Add Attribute for share link rel="nofolow"
+
+		Add CSS Class, Remove Inline Style
+
+			raindrops_posted_in( )
+				Customize Tagline style more easy
+
+			For Example
+				customize / Advanced / Site-wide CSS
+
+				/* Place of the Tagline  Show in the header image */
+
+				.tagline{
+				color:red;
+				}
+				/* Place of the Tagline   Show above the header image */
+
+				#site-description{
+				color:red;
+				}
+
+
+		Add Accessiblity ( Tab control ) for Raindrops toggle Presentation
+
+			When focus open toggle contents
+
+			Example
+				Add Entry content.
+
+			<ul>
+				<li class="raindrops-toggle raindrops-toggle-title">Toggle Label</li>
+				<li class="raindrops-toggle">
+					<p class="google-font-lobster">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					</p>
+				</li>
+			</ul>
+
+			Add Accessiblity ( Tab key control ) for Raindrops TAB Presentation
+
+			When focus open tab contents
+
+			Example
+				Add Entry content.
+
+<ul class="raindrops-tab-list clearfix">
+	<li class="dummy">Tab Area</li>
+</ul>
+<div class="raindrops-tab-content clearfix">
+	<div class="raindrops-tab-page">
+		<h3>Lobster</h3>
+		<p class="google-font-lobster">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="raindrops-tab-page">
+		<h3>Lato</h3>
+		<p class="google-font-lato">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<div class="raindrops-tab-page">
+		<h3>Open Sans</h3>
+		<p class="google-font-open-sans">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+</div>
+
+Files Modified
+
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.325&new_path=raindrops/1.326
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.325
 Overview of Changes
 

@@ -1,5 +1,4 @@
 <?php
-delete_option('raindrops_theme_settings');
 /**
  *
  *
@@ -5889,22 +5888,22 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 			}
 
 			$content = ''; // wp-includes/post-template.php:265 - Trying to get property of non-object
-			
+
 			if ( isset( $post ) ) {
 				$content .= get_the_content( $more_link_text, $stripteaser );
 			}
-		
+
 			$content = apply_filters( 'the_content', $content );
 			$content = apply_filters( 'raindrops_entry_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
 			/**
 			 * @1.325
 			 */
-			if ( has_excerpt() && empty( $content )) { 
-				
+			if ( has_excerpt() && empty( $content )) {
+
 				$content .= sprintf( '<div class="entry-content-fallback">%1$s</div>', get_the_excerpt() );
-			} 
-		
+			}
+
 			echo $content;
 
 		}
@@ -5999,7 +5998,7 @@ if ( !function_exists( 'raindrops_link_get' ) ) {
 	function raindrops_link_get( $text = '' ) {
 		/**
 		 * @1.325
-		 * remove ~ from regex 
+		 * remove ~ from regex
  		 * for theme check plugin
 		 */
 		if ( preg_match_all( "/(https?:\/\/)([-_.!*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/iu", $text, $matches, PREG_SET_ORDER ) ) {
@@ -7504,7 +7503,7 @@ if ( !function_exists( 'raindrops_chat_filter' ) ) {
 		$html			 = '<dt class="raindrops-chat raindrops-chat-author-%1$s">%2$s</dt><dd class="raindrops-chat-text raindrops-chat-author-text-%1$s">%3$s</dd>';
 
 		foreach ( $new_contents as $key => $new ) {
-			
+
 			$new = str_replace( '</p>', '', $new );
 
 			preg_match( '|([^\:]+)(\:)(.+)|si', $new, $regs );
@@ -7696,7 +7695,7 @@ if ( !function_exists( 'raindrops_non_breaking_content' ) ) {
 		if ( !is_admin() && 'html5' == $raindrops_document_type ) {
 		/**
 		 * @1.325
-		 * remove ~ from regex 
+		 * remove ~ from regex
 		 * for theme check plugin
 		 */
 

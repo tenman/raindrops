@@ -16,11 +16,11 @@ if ( !defined( 'ABSPATH' ) ) {
 do_action('raindrops_var_before');
 
 if( ! isset( $raindrops_header_image_default_ratio ) ) {
-	
+
 	$raindrops_header_image_default_ratio = 0.303125;
 }
 if( ! isset( $raindrops_allow_share_link ) ) {
-	
+
 	$raindrops_allow_share_link = true;
 }
 /**
@@ -28,7 +28,7 @@ if( ! isset( $raindrops_allow_share_link ) ) {
  * @since 1.315
  */
 if( ! isset( $raindrops_share_link_image ) ) {
-	
+
 	$raindrops_share_link_image = 'post_thumbnail';
 }
 /**
@@ -102,28 +102,28 @@ $raindrops_text_domain				 = $raindrops_current_data->get( 'TextDomain' );
  * value true or false default true;
  */
 if( ! isset( $raindrops_extend_customizer ) ) {
-	
+
 	$raindrops_extend_customizer = true;
 }
 /** DON'T CHANGE NOW TEST
  * value theme_mod or option
  */
 if( ! isset( $raindrops_setting_type ) ) {
-	
+
 	$raindrops_setting_type	= 'option';
 }
 /** DON'T CHANGE NOW TEST
  * Customizer Option Field Name
  */
 if( ! defined('THEME_OPTION_FIELD_NAME') ) {
-	
+
 	define( 'THEME_OPTION_FIELD_NAME', 'raindrops_theme_settings' );
 }
 /**
  * Customizer Capability
  */
 if( ! isset( $raindrops_customize_cap ) ) {
-	
+
 	$raindrops_customize_cap = 'edit_theme_options';
 }
 /**
@@ -196,7 +196,7 @@ if ( !defined( 'RAINDROPS_CUSTOM_FIELD_META' ) ) {
 }
 if ( !defined( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' ) ) {
 
-	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', true );
+	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
 }
 /**
  *

@@ -1,4 +1,36 @@
 Changelog -----------------------------------
+version:1.327
+Overview of Changes
+
+	Modified	Add position control for posted on,posted in from cusutomizer
+	Modified	Add element abbr style
+	Modified	Add elemant ins style
+
+	Fixed	raindrops_pagenav_filter ( for bundle plugin )
+		remove attribute rel
+	Fixed	raindrops toggle works improperly.
+	Fixed	mobile wp_nav_menu contrast issue.
+
+Files Modified
+
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   loop.php
+	modified:   part-additional.php
+	modified:   part-blog.php
+	modified:   part-gallery.php
+	modified:   part.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.326&new_path=raindrops/1.327
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.326
 Overview of Changes
 	Fixed

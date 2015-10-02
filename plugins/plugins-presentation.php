@@ -116,7 +116,7 @@ if ( !function_exists( 'raindrops_pagenav_filter' ) ) {
 		if ( 'yes' == get_theme_mod( 'raindrops_wp_pagenavi_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_wp_pagenav' ) ) {
 			$before	 = array( 'previouspostslink"', 'nextpostslink"' );
-			$after	 = array( 'previouspostslink" rel="prev"', 'previouspostslink" rel="next"' );
+			$after	 = array( 'previouspostslink', 'previouspostslink' );
 
 			return str_replace( $before, $after, $nav_html );
 		}

@@ -29,7 +29,7 @@
         jQuery('.raindrops-toggle.raindrops-toggle-title').show().css({"width": "90%", "list-style": "none", "font-weight": "bold", "margin": "0 0 0 -1em"}).prepend("+ ");
         /* @1.326 for keyboard accessibility */
         jQuery('.raindrops-toggle.raindrops-toggle-title').attr("tabindex","0");
-        
+
         jQuery('.raindrops-toggle.raindrops-toggle-title').css("cursor", "pointer").click(function() {
 
             jQuery(this).siblings().toggle("slow");
@@ -41,11 +41,12 @@
             } else if (v == "-") {
                 jQuery(this).html("+" + jQuery(this).html().substring(1));
             }
-        });
-        /* @1.326 for keyboard accessibility */
-         jQuery('.raindrops-toggle.raindrops-toggle-title').css("cursor", "pointer").focus(function() {
+            return false;
+        }).on('keydown', function(e) {
 
-            jQuery(this).siblings().toggle("slow");
+        /* @1.326 for keyboard accessibility */
+        if(e.keyCode == 9){ //tab key
+           jQuery(this).siblings().toggle("slow");
 
             var v = jQuery(this).html().substring(0, 1);
 
@@ -54,6 +55,7 @@
             } else if (v == "-") {
                 jQuery(this).html("+" + jQuery(this).html().substring(1));
             }
+        }
         });
 
         jQuery('#raindrops_status_bar').hide();
@@ -101,6 +103,8 @@
         jQuery(".raindrops-tab-list li:first").addClass("active").show(); //Activate first tab
         jQuery(".raindrops-tab-page:first").show(); //Show first tab content
 
+
+
         //On Click Event
         jQuery(".raindrops-tab-list li").click(function() {
             jQuery(".raindrops-tab-list li").removeClass("active"); //Remove any "active" class
@@ -108,15 +112,16 @@
             jQuery(".raindrops-tab-page").hide(); //Hide all tab content
             var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
             jQuery(activeTab).fadeIn(); //Fade in the active content
+
             return false;
-        });
-         /* @1.326 for keyboard accessibility */
-        jQuery(".raindrops-tab-list li").focus(function() {
+        }).focus(function() {
+         
             jQuery(".raindrops-tab-list li").removeClass("active"); //Remove any "active" class
             jQuery(this).addClass("active"); //Add "active" class to selected tab
             jQuery(".raindrops-tab-page").hide(); //Hide all tab content
             var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
             jQuery(activeTab).fadeIn(); //Fade in the active content
+        
             return false;
         });
         jQuery(".raindrops-tab-list").css({"margin": "auto"});

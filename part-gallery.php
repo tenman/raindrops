@@ -13,11 +13,16 @@ global $template;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 raindrops_entry_title();
 ?>
-        <div class="entry-meta-gallery">
-            <?php
-            raindrops_posted_on();
-            ?>
-        </div>
+        <div class="entry-meta-gallery"><?php
+				if( 'before' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+					?><div class="posted-on" ><?php
+					raindrops_posted_on();
+					?></div><?php
+				}
+
+				if( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+					raindrops_posted_in();
+				}?></div>
         <div class="entry-content">
             <?php
             raindrops_prepend_entry_content();
@@ -79,6 +84,13 @@ raindrops_entry_title();
             }
             ?>
         </div>
+		<?php		
+		if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+			?><div class="posted-on-after"><?php
+				raindrops_posted_on();
+			?></div><?php
+		}
+		?>
         <div class="entry-utility entry-meta">
             <?php
             $category_id = get_cat_ID( 'Gallery' );
@@ -105,7 +117,8 @@ raindrops_entry_title();
 			comments_popup_link( esc_html__( 'Leave a comment', 'raindrops' ), esc_html__( '1 Comment', 'raindrops' ), esc_html__( '% Comments', 'raindrops' ), '', $comment_off_message ); ?>
             </span>
                 <?php
-                edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+
+               edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
                 raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ), '<span class="edit-link">', '</span>' );
                 ?>

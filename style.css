@@ -510,7 +510,35 @@ q q:after{
     content:'\2019';
 }
 abbr{
+    cursor:help;
+    text-decoration:underline;
+}
 
+.entry-content ins{
+    position:relative;
+    border-bottom:1px dashed #fff;
+    display:inline-block;
+    border-bottom:1px dashed #ccc;
+}
+.entry-content ins[datetime]:hover::after {
+    content: attr(datetime);
+    position:absolute;
+    left:0;
+    top:-2.5em;
+    border:1px solid rgba(123,123,123,.4);
+    padding:.2em .5em .2em 5em;
+    background:#000;
+    color:#fff;
+}
+.entry-content ins:hover::before{
+    content:'inserted ';
+    position:absolute;
+    top:-2.5em;
+    border:1px solid rgba(123,123,123,.4);
+    padding:.2em .5em;
+    background:#000;
+    color:#fff;
+    z-index:2; 
 }
 
 /**
@@ -1132,6 +1160,18 @@ h2.footer-content,
 .page .entry-meta-default,
 .page .posted-on{
     padding:0 13px;
+}
+.page .posted-on,
+.single .posted-on,
+.index .posted-on{
+    display:inline;margin-right:20px;
+}
+.entry-title + .this-posted-in{
+    display:inline-block;
+    margin-left:1em;
+}
+.posted-on-after{
+    text-align:right;
 }
 div[class^="entry-meta"] .author .nickname,
 .posted-on .author .nickname{
@@ -4153,3 +4193,7 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
     }
 }
 /* share link fallback style end */
+.post .entry-meta:empty{
+    display:none!important;
+}
+

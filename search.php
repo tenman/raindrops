@@ -51,12 +51,19 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 									 <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                                     <?php
                                     raindrops_entry_title();
-                                    ?>
-                                    <div class="posted-on">
-                                        <?php
-                                        raindrops_posted_on();
-                                        ?>
-                                    </div>
+                                   
+										if( 'before' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+											?><div class="posted-on" ><?php
+											raindrops_posted_on();
+											?></div><?php
+										}
+										
+										if( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+											?><?php
+											raindrops_posted_in();
+											?><?php
+										}
+									?>
                                     <div class="entry-content clearfix">
 
                                         <?php
@@ -69,15 +76,14 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
                                         raindrops_append_entry_content();
                                         ?>
                                     </div>
-                                    <div class="entry-meta">
-                                        <?php
-                                        raindrops_posted_in();
-
-                                        edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-
-                                        raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-                                        ?>
-                                    </div>
+                                    <div class="entry-meta"><?php 
+										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+											raindrops_posted_on(); 
+										}
+										if( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+											raindrops_posted_in(); 
+										}
+										?></div>
                                     <br class="clear" />
 								</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
                                 </div>

@@ -23,8 +23,16 @@ if ( false === $format ) {
 raindrops_entry_title();
 ?>
 <div class="<?php echo $raindrops_entry_meta_class; ?>">
-	<?php
-	raindrops_posted_on();
+	<?php 
+		if( 'before' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+			?><div class="posted-on" ><?php
+			raindrops_posted_on();
+			?></div><?php
+		}
+
+		if( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+			raindrops_posted_in();
+		}
 	?>
 </div>
 

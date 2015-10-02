@@ -16,8 +16,6 @@ do_action( 'raindrops_before' );
  *
  * @since 0.988
  *
- * When child theme has languages/raindrops_[lang].mo
- * Raindrops Theme read this language file.
  * You can override parent themes language file from child theme.
  */
 load_theme_textdomain( 'raindrops', apply_filters( 'raindrops_load_text_domain', get_template_directory() . '/languages' ) );
@@ -335,7 +333,7 @@ add_filter( 'shortcode_atts_gallery', 'raindrops_gallery_atts', 10, 3 );
  *
  * Raindrops 1.204 remove from header.php
  * 		<!--[if IE]>
- * 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ * 		<script src="http : // html5shiv.googlecode.com / svn / trunk / html5.js"></script>
  * 		<![endif]-->
  *
  *
@@ -1098,6 +1096,11 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 			$result = sprintf( $posted_in, get_the_category_list( ' ' ), $tag_list, esc_url( get_post_format_link( $format ) ), esc_html( 'Format', 'raindrops' ), get_post_format_string( $format ) );
 			echo apply_filters( "raindrops_posted_in", $result );
 		}
+				
+		 edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+
+         raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
+								
 	}
 }
 /**
@@ -5946,7 +5949,7 @@ function raindrops_the_pagenation( $html , $position){
 
 		if ( $raindrops_document_type == 'html5' ) {
 
-			return get_the_posts_pagination();
+			return get_the_posts_pagination( );
 		} elseif( $raindrops_document_type == 'xhtml' ) {
 
 			$result = str_replace( array('<nav ','</nav>'),array('<div ', '</div>'), get_the_posts_pagination() );

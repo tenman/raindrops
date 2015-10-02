@@ -202,15 +202,14 @@ if ( is_single() ) {
             <?php
             if ( !is_tax() ) {
                 ?>
-            <div class="entry-utility entry-meta clear">
-                    <?php
-                    echo raindrops_posted_in();
-
-                    edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-
-                    raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-                    ?>		
-            </div>
+            <div class="entry-utility entry-meta clear"><?php 
+				if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+					raindrops_posted_on(); 
+				}
+				if( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+					raindrops_posted_in(); 
+				}
+				?></div>
                     <?php
                 }
 

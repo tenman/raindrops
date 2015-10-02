@@ -70,11 +70,20 @@ if ( have_posts() ) {
              */
         } else {
             ?>
-									<?php raindrops_entry_title(); ?>
+									<?php raindrops_entry_title(); 
 
-										<div class="posted-on">
-											<?php raindrops_posted_on(); ?>
-										</div>
+										if( 'before' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+											?><div class="posted-on" ><?php
+											raindrops_posted_on();
+											?></div><?php
+										}
+										
+										if( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+											?><?php
+											raindrops_posted_in();
+											?><?php
+										}
+										?>
 
 										<div class="entry-content clearfix">
 											
@@ -84,17 +93,20 @@ if ( have_posts() ) {
 										<?php raindrops_append_entry_content(); ?>
 											
 										</div>
-									
-										<div class="entry-meta">
-											<?php 
-											raindrops_posted_in();
-		
-            edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-
-            raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-            ?>
+										<?php 
 										
-										</div>
+										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+											?><div class="posted-on-after"><?php
+											raindrops_posted_on();
+											?></div><?php
+										}
+										
+										if( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+											?><div class="entry-meta"><?php
+											raindrops_posted_in();
+											?></div><?php
+										}
+										?>
             <?php
             }
             ?>

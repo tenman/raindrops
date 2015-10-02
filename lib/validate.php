@@ -1,4 +1,18 @@
 <?php
+function raindrops_posted_on_position_validate( $input ) {
+	if( $input == 'before' || $input == 'after'  ) {
+		return $input;
+	} else {
+		return 'before';
+	}			
+}
+function raindrops_posted_in_position_validate( $input ) {
+	if( $input == 'before' || $input == 'after'  ) {
+		return $input;
+	} else {
+		return 'after';
+	}			
+}
 function raindrops_archive_nav_above_validate( $input ) {
 	if( $input == 'show' || $input == 'hide'  ) {
 		return $input;

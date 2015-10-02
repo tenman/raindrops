@@ -196,7 +196,7 @@ if ( !defined( 'RAINDROPS_CUSTOM_FIELD_META' ) ) {
 }
 if ( !defined( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' ) ) {
 
-	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );
+	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', true );
 }
 /**
  *
@@ -1284,6 +1284,26 @@ array( 'option_id'    => 83,
         'excerpt2'     => esc_html__( 'Hide or Show Blog Archives page top navigation', 'raindrops' ),
         'validate'     => 'raindrops_archive_nav_above_validate',
 		'list'         => 82 ),
+array( 'option_id'    => 84,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_posted_on_position',
+        'option_value' => 'before',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Position of Posted on', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'default before contents', 'raindrops' ),
+        'validate'     => 'raindrops_posted_on_position_validate',
+		'list'         => 83 ),
+array( 'option_id'    => 85,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_posted_in_position',
+        'option_value' => 'after',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Position of Posted in', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'default after contents', 'raindrops' ),
+        'validate'     => 'raindrops_posted_in_position_validate',
+		'list'         => 84 ),
 );
 }
 

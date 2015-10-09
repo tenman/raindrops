@@ -303,6 +303,17 @@
                     }
                // }
             }
+            
+            
         }
+
+        // "//www.tenman.info/wpdev/wp-content/uploads/2015/08/404.jpg"
+        /* show alternative image when image of entry content not exists */
+        if( /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(raindrops_script_vars.fallback_image_for_entry_content ) ) { 
+            jQuery( ".entry-content img" ).error( function () {
+                jQuery( this ).unbind( "error" ).attr( "src", raindrops_script_vars.fallback_image_for_entry_content );
+            } );
+        }
+        
     } );
 } )( jQuery );

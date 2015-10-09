@@ -63,6 +63,9 @@ if ( ! isset( $wp_customize ) ) {
  * Sections
  *
  */
+
+
+
 	if ( !isset( $raindrops_customize_args ) ) {
 		$raindrops_theme_customize_sections = array(
 		'raindrops_theme_settings'			 => array( 'title' => esc_html__( 'Color Scheme', 'raindrops' ), 'priority' => 26, ),
@@ -289,6 +292,11 @@ if ( ! isset( $wp_customize ) ) {
 		}else{
 			return false;
 		}
+	}
+	function raindrops_fallback_image_for_entry_content_is_show( $control ) {
+		global $raindrops_fallback_image_for_entry_content_enable;
+		
+		return $raindrops_fallback_image_for_entry_content_enable;
 	}
 	function raindrops_show_menu_primary_is_show( $control ) {
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_menu_primary' ) )->value() == 'show' ) {
@@ -931,7 +939,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-		/////////////////////////////////////////////////
+
 		"raindrops_display_sticky_post"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_display_sticky_post','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1041,7 +1049,20 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'none'	 => esc_html__( 'No', 'raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-		//////////////////////////////////////////////////////////
+		"raindrops_fallback_image_for_entry_content"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_fallback_image_for_entry_content','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Fallback Image for Entry Content', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Image, to display an alternative image if that can not be displayed. Please input Image URI. When you return to the change after the default image, please enter default ', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_fallback_image_for_entry_content_validate',
+			'active_callback'	=>  'raindrops_fallback_image_for_entry_content_is_show',
+			'type'				 => 'text',
+			'section'			 => 'raindrops_theme_settings_document',
+		),
+
 		"raindrops_sitewide_css"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_sitewide_css','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1275,7 +1296,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_post',
 		),
-		///////////////////////////////////////////
+
 		"raindrops_posted_in_label"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_posted_in_label','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1374,7 +1395,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_archive',
 		),
-		//////////////////////////////////////
+
 		"raindrops_enable_header_image_filter"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_enable_header_image_filter','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1972,6 +1993,7 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 			'priority'			=> 10 ) ) );
 		
 		$wp_customize->remove_control( 'display_header_text' );
+		
 	}
 
 }
@@ -2091,6 +2113,7 @@ li.customize-control .widget-inside .widget-content,
 }
 	
 /* title */
+.menu-item-bar:hover .menu-item-handle .item-type,
 .accordion-section-content	li.customize-control .customize-control-title{
 	color:$admin_color_focus;
 }
@@ -2098,6 +2121,8 @@ li.customize-control .widget-inside .widget-content,
 #menu-to-edit .customize-control-nav_menu_item {
 	padding:5px 0 1em 5px;
 }
+.customize-control-nav_menu .reorder,
+.menu-item-bar .menu-item-handle .item-type,
 .menu-delete-item .menu-delete,
 .submitbox .submitdelete{
 		color:$admin_color_base;
@@ -2190,6 +2215,7 @@ li.customize-control .widget-inside .widget-content h4,
 	height:16em!important;
 
 }
+
 CUSTOMIZER_CSS;
 
 		if ( version_compare( $wp_version, '4.3', '<' ) ) {
@@ -2209,13 +2235,14 @@ CUSTOMIZER_CSS;
 add_action( 'customize_controls_print_scripts', 'raindrops_print_scripts' );
 
 function raindrops_print_scripts() {
-	global $raindrops_current_data_version, $raindrops_customizer_admin_color;
+	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type;
 	wp_enqueue_script( 'raindrops-customize', get_template_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
 	wp_localize_script(
 	'raindrops-customize', 'raindrops_customizer_script_vars', array(
 		'preview_label'						 => __( 'Preview Width', 'raindrops' ),
 		'basic_config_label'				 => __( '<span>Basic Config</span>', 'raindrops' ),
 		'admin_color'						 => $raindrops_customizer_admin_color,
+		'setting_field_type'				=> $raindrops_setting_type,
 		'dark_footer_color_default'			 => raindrops_default_color_clone( 'raindrops_footer_color', 'dark' ),
 		'dark_hyperlink_color_default'		 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'dark' ),
 		'dark_fonts_color_default'			 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'dark' ),

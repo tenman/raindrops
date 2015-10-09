@@ -5,10 +5,27 @@
  */
 (function() {
     jQuery(function() {
+        
+         var entity_map = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+          };
+
+        function escape_html(string) {
+          return String(string).replace(/[&<>"'\/]/g, function (s) {
+            return entity_map[s];
+          });
+        }
         jQuery("blockquote").each(function() {
             var cite = jQuery(this).attr("cite");
+            
             if (cite) {
-                jQuery(this).append("<p style=\"text-align:right;\">cite:<a href=\"" + cite + "\" onclick=\"this.target='_blank';\" onkeypress=\"this.target='_blank';\">" + cite + "</a></p>");
+                var decoded_uri = decodeURIComponent( cite );
+                jQuery(this).append("<p class=\"cite-url\">cite:<a href=\"" + cite + "\" onclick=\"this.target='_blank';\" onkeypress=\"this.target='_blank';\">" + escape_html(decoded_uri) + "</a></p>");
             }
 
         });
@@ -138,3 +155,4 @@
         jQuery(".raindrops-tab-list li").each(function (i) { jQuery(this).attr('tabindex', 0); });
     });
 })(jQuery);
+

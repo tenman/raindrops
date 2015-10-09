@@ -229,7 +229,7 @@ h1,
     font-size:230.7%;
 }
 
-#site-title{
+div[role="banner"] #site-title{
     font-size:296%;
 	
 }

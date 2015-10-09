@@ -10,6 +10,14 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * fallback image for attachment , gallery
+ * @since 1.328
+ */
+if ( ! isset( $raindrops_fallback_image_for_entry_content_enable) ) {
+	
+	$raindrops_fallback_image_for_entry_content_enable = true;
+}
+/**
  * Show Content Share Link
  * @since 1.315
  */
@@ -110,7 +118,7 @@ if( ! isset( $raindrops_extend_customizer ) ) {
  */
 if( ! isset( $raindrops_setting_type ) ) {
 
-	$raindrops_setting_type	= 'option';
+	$raindrops_setting_type	= 'option';	
 }
 /** DON'T CHANGE NOW TEST
  * Customizer Option Field Name
@@ -142,7 +150,7 @@ if ( ! isset( $raindrops_keep_content_width ) ) {
  */
 if ( ! isset( $raindrops_use_transient ) ) {
 
-	$raindrops_use_transient = false;
+	$raindrops_use_transient = true;
 }
 /**
  * Raindrops Gallery Presentation
@@ -1304,6 +1312,16 @@ array( 'option_id'    => 85,
         'excerpt2'     => esc_html__( 'default after contents', 'raindrops' ),
         'validate'     => 'raindrops_posted_in_position_validate',
 		'list'         => 84 ),
+array( 'option_id'    => 86,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_fallback_image_for_entry_content',
+        'option_value' => get_template_directory_uri().'/images/image-not-found.png',
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Fallback Image for Entry Content', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Image, to display an alternative image if that can not be displayed', 'raindrops' ),
+        'validate'     => 'raindrops_fallback_image_for_entry_content_validate',
+		'list'         => 85 ),
 );
 }
 

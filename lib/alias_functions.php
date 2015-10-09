@@ -103,7 +103,14 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 				
 				return 'custom-doc';
 			}
+			
 			$result = get_theme_mod( $name );
+			$theme_slug = get_option( 'stylesheet' );
+			
+			if( false === $result && strpos($name, $theme_slug ) !== false ) {
+				
+				$result = raindrops_warehouse_clone( $name ,'option_value' );
+			}
 				
 			if ( isset( $result ) && !empty( $result ) ) {
 				
@@ -1469,14 +1476,15 @@ if ( ! function_exists( 'raindrops_theme_mod_default_normalize') ) {
 	}
 }
 if ( ! function_exists( 'raindrops_data_store_relate_id') ) {	
-function raindrops_data_store_relate_id( $id ) {
+	
+	function raindrops_data_store_relate_id( $id ) {
 
-	if ( 'option' == raindrops_theme_mod( $id, 'data_type' ) ) {
+		if ( 'option' == raindrops_theme_mod( $id, 'data_type' ) ) {
 
-		return THEME_OPTION_FIELD_NAME . '[' . $id . ']';
+			return THEME_OPTION_FIELD_NAME . '[' . $id . ']';
+		}
+		return $id;
 	}
-	return $id;
-}
 }
 if ( ! function_exists( 'raindrops_theme_mod') ) {
 	

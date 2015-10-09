@@ -1,4 +1,13 @@
 <?php
+function raindrops_fallback_image_for_entry_content_validate( $input ) {
+
+	$result = filter_var( trim($input), FILTER_VALIDATE_URL );
+	if( false === $result || $input == 'default' ) {
+
+		return raindrops_warehouse_clone( 'raindrops_fallback_image_for_entry_content','option_value' );
+	}
+	return $result;
+}
 function raindrops_posted_on_position_validate( $input ) {
 	if( $input == 'before' || $input == 'after'  ) {
 		return $input;

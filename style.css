@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.327
+Version: 1.328
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -88,7 +88,10 @@ a:visited{
     text-decoration:none;
     border-bottom:solid 0.07692307692em;
 }
-
+article{
+    /* @1.328 */
+    overflow:hidden;
+}
 /** 1.301 when Force Unique Link Text settings yes , :hover, display imploperly featured image */
 
 .ie8 #doc #header-image,
@@ -513,13 +516,14 @@ abbr{
     cursor:help;
     text-decoration:underline;
 }
-
+.entry-content del,
 .entry-content ins{
     position:relative;
     border-bottom:1px dashed #fff;
     display:inline-block;
     border-bottom:1px dashed #ccc;
 }
+.entry-content del[datetime]:hover::after,
 .entry-content ins[datetime]:hover::after {
     content: attr(datetime);
     position:absolute;
@@ -530,6 +534,7 @@ abbr{
     background:#000;
     color:#fff;
 }
+.entry-content del:hover::before,
 .entry-content ins:hover::before{
     content:'inserted ';
     position:absolute;
@@ -1775,7 +1780,7 @@ figure .size-thumbnail{
 }
 .wp-caption.aligncenter a img{
     margin:0.38461538461em 0.38461538461em 0.38461538461em 0.38461538461em;
-    max-width:98%;
+   /* 1.328 max-width:98%; */
 }
 .wp-caption.aligncenter a[rel~="attachment"] img{
     margin:0.38461538461em 0 0 0;
@@ -4197,3 +4202,8 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
     display:none!important;
 }
 
+blockquote .cite-url{
+    text-align:right;
+    word-wrap: break-word;
+    word-break: break-all;
+}

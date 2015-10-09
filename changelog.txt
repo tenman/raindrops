@@ -2,9 +2,33 @@ Changelog -----------------------------------
 version:1.328
 Overview of Changes
 
+	Fixed Responsive #site-title display improperly.
+	Modify Add fallback image when attachment image removed.
+				add function raindrops_fallback_image_for_entry_content_is_show for active callback
+				add raindrops_fallback_image_for_entry_content_validate()
+	Modified	raindrops_add_wbr_content_long_text()
+	Modified 	raindrops_widget_ids()
+	Modified 	Link text presentation.
+					link text decode for multibite language when link text using URL
+					function raindrops_link_text_filter()
+					function raindrops_link_url_text_decode()
+	Modified	blockquote cite link text decode.
 
 Files Modified
 
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.327&new_path=raindrops/1.328

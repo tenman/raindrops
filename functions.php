@@ -1,5 +1,4 @@
 <?php
-delete_option( 'raindrops_theme_settings' );
 /**
  *
  *
@@ -1097,11 +1096,11 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 			$result = sprintf( $posted_in, get_the_category_list( ' ' ), $tag_list, esc_url( get_post_format_link( $format ) ), esc_html( 'Format', 'raindrops' ), get_post_format_string( $format ) );
 			echo apply_filters( "raindrops_posted_in", $result );
 		}
-				
+
 		 edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
          raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
-								
+
 	}
 }
 /**
@@ -1892,16 +1891,16 @@ if ( !function_exists( "raindrops_install_navigation" ) ) {
 		global $raindrops_setting_type, $raindrops_current_theme_slug, $raindrops_current_theme_name;
 
 		$install	 = get_option( 'raindrops_theme_settings' );
-	
+
 		$upload_dir	 = wp_upload_dir();
 		if ( false == $install ) {
 
 		} else {
 
 			if ( isset( $install[ 'current_stylesheet_dir_url' ] ) && get_stylesheet_directory_uri() !== $install[ 'current_stylesheet_dir_url' ] ) {
-				
+
 				if( isset($install[ '_raindrops_indv_css' ])){
-					
+
 					$install[ '_raindrops_indv_css' ]		 = str_replace( $install[ 'current_stylesheet_dir_url' ], get_stylesheet_directory_uri(), $install[ '_raindrops_indv_css' ] );
 				}
 				$install[ 'old_stylesheet_dir_url' ]	 = $install[ 'current_stylesheet_dir_url' ];
@@ -1915,7 +1914,7 @@ if ( !function_exists( "raindrops_install_navigation" ) ) {
 
 					set_theme_mod( '_raindrops_indv_css', $install[ '_raindrops_indv_css' ] );
 					set_theme_mod( 'old_stylesheet_dir_url', esc_url( $install[ 'old_stylesheet_dir_url' ] ) );
-					set_theme_mod( 'current_stylesheet_dir_url', esc_url( $install[ 'current_stylesheet_dir_url' ] ) );					
+					set_theme_mod( 'current_stylesheet_dir_url', esc_url( $install[ 'current_stylesheet_dir_url' ] ) );
 				}
 
 			} elseif ( !isset( $install[ 'current_stylesheet_dir_url' ] ) ) {
@@ -4909,13 +4908,13 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 		/* @1.328 */
 
 		if( true == $raindrops_fallback_image_for_entry_content_enable ) {
-			
+
 			$raindrops_fallback_image_for_entry_content = esc_url( raindrops_warehouse_clone( 'raindrops_fallback_image_for_entry_content' ) );
 		} else {
-			
+
 			$raindrops_fallback_image_for_entry_content = false;
 		}
-		
+
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'					 => $is_IE,
 			'fluid_maximum_width'	 => $raindrops_fluid_maximum_width,
@@ -8418,7 +8417,7 @@ if ( ! function_exists('raindrops_widget_ids') ) {
 			if( 'theme_mod' == $raindrops_setting_type ) {
 
 					$old_mods = get_theme_mods();
-					
+
 					if( is_array($old_mods) ) {
 						$new_mods = array_merge( $old_mods, $raindrops_theme_settings );
 					} else {
@@ -8532,19 +8531,19 @@ if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
 		$content = preg_replace( '!(<' . $allblocks . '[^>]*>[^<]*)</p>!', "$1", $content );
 		$content = preg_replace( '!(<' . $allblocks . '[^>]*>)([^(<|\s)]+)<p>!', "$1<p>$2</p>", $content );
 		$content = str_replace( 'class="wp-caption-text"></p>', 'class="wp-caption-text">', $content );
-		
-		
+
+
 		return $content;
 	}
 }
 
 if ( !function_exists( 'raindrops_link_text_filter' ) ) {
 /**
- * 
+ *
  * @param type $content
  * @return type
  * @since 1.328
- */	
+ */
 	function raindrops_link_text_filter( $content ){
 
 		$content = preg_replace_callback( "|<a[^>]+>.*?(https?:\/\/[-_.!*\'()a-zA-Z0-9;\/?:@&=+$,%#]+).*?</a>|", "raindrops_link_url_text_decode", $content );
@@ -8554,21 +8553,21 @@ if ( !function_exists( 'raindrops_link_text_filter' ) ) {
 }
 if ( !function_exists( 'raindrops_link_url_text_decode' ) ) {
 /**
- * 
+ *
  * @param type $matches
  * @return type
  * @since 1.328
- */	
+ */
 	function raindrops_link_url_text_decode( $matches ) {
 
 		if( isset( $matches[1] ) ) {
-			
+
 			$replace = urldecode( $matches[1] );
 			$replace = esc_html( $replace );
-			
+
 			return preg_replace("|(>.*)?". $matches[1]."*?</a>|", "$1{$replace}$2", $matches[0] );
 		}
-		return $matches;		
+		return $matches;
 	}
 }
 /**

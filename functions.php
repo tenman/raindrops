@@ -244,7 +244,7 @@ if ( ! function_exists( 'raindrops_current_url' ) ) {
 		}
 		$url .= "://";
 		$server_port = filter_input(INPUT_ENV,"SERVER_PORT", FILTER_VALIDATE_INT );
-		$server_name = filter_input(INPUT_ENV,"SERVER_PORT");
+		$server_name = filter_input(INPUT_ENV,"SERVER_NAME");
 		$request_uri = filter_input(INPUT_ENV,"REQUEST_URI");
 
 		if ( ! is_null( $server_port ) && 80 !== $server_port ) {
@@ -253,6 +253,7 @@ if ( ! function_exists( 'raindrops_current_url' ) ) {
 		} else {
 			$url .= $server_name . $request_uri;
 		}
+
 		$url = esc_url( $url );
 
 		return apply_filters( 'raindrops_current_url', $url );
@@ -1722,7 +1723,7 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 
 		if ( false !== ( $url = raindrops_locate_url( 'raindrops.js' ) ) ) {
 
-			wp_register_script( 'raindrops', $url, array( 'jquery', 'jquery-migrate' ), $raindrops_current_data_version, false );
+			wp_register_script( 'raindrops', $url, array( 'jquery', 'jquery-migrate','raindrops_helper_script' ), $raindrops_current_data_version, true );
 			wp_enqueue_script( 'raindrops' );
 		}
 	}
@@ -2415,7 +2416,7 @@ color:{$color};
 .raindrops-comment-link a:active em,
 .raindrops-comment-link a:visited em,
 .raindrops-comment-link a:hover em{
-	color:{$color}! important;
+	/* @1.329 color:{$color}! important;*/
 }
 
 .nav-previous a,
@@ -4938,6 +4939,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'page_width'			 => $raindrops_page_width,
 			'accessibility_settings' => raindrops_warehouse_clone( 'raindrops_accessibility_settings' ),
 			'fallback_image_for_entry_content' => $raindrops_fallback_image_for_entry_content,
+			'blockquote_cite_i18n'   => esc_html__('cite:', 'raindrops' ),
 			)
 		);
 	}
@@ -8383,6 +8385,8 @@ if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
 		$args[ 'largest' ]	 = '277';
 		$args[ 'unit' ]		 = '%';
 
+
+
 		return $args;
 	}
 }
@@ -8564,6 +8568,7 @@ if ( !function_exists( 'raindrops_link_url_text_decode' ) ) {
 
 			$replace = urldecode( $matches[1] );
 			$replace = esc_html( $replace );
+			
 
 			return preg_replace("|(>.*)?". $matches[1]."*?</a>|", "$1{$replace}$2", $matches[0] );
 		}

@@ -294,7 +294,7 @@
         padding:.6em 0.5em 0;
         box-sizing: border-box;
         font-size:123%; 
-        overflow:hidden;
+       /* @1.328 overflow:hidden;*/
     }
     .pagination .nav-links{
         font-size:123%;

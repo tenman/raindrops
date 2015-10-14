@@ -39,6 +39,8 @@ function raindrops_indv_css_dark() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;  margin-bottom:-1px!important;');
 	
     $style = <<<DOC
+	
+
 .raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
 .enable-keyboard.rd-type-dark .raindrops-comment-link:focus em,
 .ie11.enable-keyboard.rd-type-dark #access .sub-menu a:focus,
@@ -147,7 +149,10 @@ ul.nav{
 .ie6 #access ul li a:hover {
     %c_2%
 }
-
+ 
+.current-cat{
+	 %c_2%
+}
 input[type="file"],
 input[type="reset"],
 .social input[type="submit"],
@@ -521,6 +526,9 @@ input[type="submit"],
     -webkit-box-shadow: 1px 1px 3px #000;
     border-top:1px solid rgba(100,100,100,1);
 }
+.widget_calendar #today a,
+.widget_calendar #today,
+a.raindrops-comment-link em,
 .entry-content input[type="submit"]{
     border: solid 1px %rgba_border%;
 }
@@ -573,7 +581,9 @@ color:%custom_color%;
     color:%custom_color%;
 }
 
-
+.widget_calendar #today a,
+.widget_calendar #today,
+a.raindrops-comment-link em,
 .wp-caption {
     -moz-border-radius: 3px;
     -khtml-border-radius: 3px;
@@ -601,7 +611,7 @@ color:%custom_color%;
 a.raindrops-comment-link {
 }
 .raindrops-comment-link em {
-    %c_2%
+    %c_3%
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
     border-radius: 0.25em;
@@ -613,11 +623,7 @@ a.raindrops-comment-link {
     border-bottom: 0.45em solid rgba(0,0,0,0);
     overflow: hidden; /* IE fix */
 }
-.widget_calendar #today a,
-.widget_calendar #today,
-a.raindrops-comment-link:hover em {
-    %c2%
-}
+
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
@@ -637,6 +643,7 @@ CSS3;
 raindrops_register_styles( "w3standard" );
 
 function raindrops_indv_css_w3standard() {
+	
 		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;  margin-bottom:-1px!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
@@ -859,6 +866,9 @@ hr{
     %c3%
 }
 
+.current-cat{
+	 %c5%
+}
 table,
 table td,
 #access > li{
@@ -913,6 +923,7 @@ cite.fn{
     %c4%
     position: relative;
 }
+	
 .widget_calendar #today a,
 .widget_calendar #today,
 a.raindrops-comment-link:hover em {
@@ -1225,6 +1236,10 @@ select{
 .ie6 #access ul li a:hover {
     %c2%
 }
+
+.current-cat{
+	 %c4%
+}
 address{
     margin:10px auto;
 }
@@ -1405,6 +1420,9 @@ hr{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
+.widget_calendar #today a,
+.widget_calendar #today,
+a.raindrops-comment-link em,
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
@@ -1429,7 +1447,9 @@ hr{
 .ie10 #access ul ul :active >a{
     background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
-
+.widget_calendar #today a,
+.widget_calendar #today,
+a.raindrops-comment-link em,
 .wp-caption {
     border:solid 1px %rgba_border%;
     -moz-border-radius: 3px;
@@ -1469,11 +1489,7 @@ border:1px solid %c_border%;
     border-bottom: 0.45em solid rgba(0,0,0,0);
     overflow: hidden; /* IE fix */
 }
-.widget_calendar #today a,
-.widget_calendar #today,
-a.raindrops-comment-link:hover em {
-    %c_1%
-}
+
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
@@ -1517,6 +1533,7 @@ raindrops_register_styles( "minimal" );
 
 function raindrops_indv_css_minimal() {
     global $raindrops_base_color;
+	
     $font_color = raindrops_colors( 5, "color" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;	margin-bottom:-1px!important;');
     $style = <<<CSS
@@ -1670,6 +1687,11 @@ blockquote{
     border-left-color:%rgba_border%;
     padding:10px;
     %c4%
+}
+
+
+.current-cat{
+	 %c5%
 }
 hr{
     border-top:1px solid %rgba_border%;

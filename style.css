@@ -78,7 +78,7 @@ body.rd-col-1 .raindrops-expand-width{
 .lsidebar a:active,
 .rsidebar a:active{
     position:relative;
-    top:0.07692307692em;
+    top:1px;
 }
 a:visited{
    opacity:0.8;
@@ -89,8 +89,8 @@ a:visited{
     border-bottom:solid 0.07692307692em;
 }
 article{
-    /* @1.328 */
-    overflow:hidden;
+    /* @1.329 
+    overflow:hidden;*/
 }
 /** 1.301 when Force Unique Link Text settings yes , :hover, display imploperly featured image */
 
@@ -516,12 +516,16 @@ abbr{
     cursor:help;
     text-decoration:underline;
 }
-.entry-content del,
+
 .entry-content ins{
     position:relative;
-    border-bottom:1px dashed #fff;
     display:inline-block;
     border-bottom:1px dashed #ccc;
+}
+.entry-content del{
+    position:relative;
+    display:inline-block;
+
 }
 .entry-content del[datetime]:hover::after,
 .entry-content ins[datetime]:hover::after {
@@ -534,7 +538,7 @@ abbr{
     background:#000;
     color:#fff;
 }
-.entry-content del:hover::before,
+
 .entry-content ins:hover::before{
     content:'inserted ';
     position:absolute;
@@ -545,7 +549,16 @@ abbr{
     color:#fff;
     z-index:2;
 }
-
+.entry-content del:hover::before{
+    content:'deleted ';
+    position:absolute;
+    top:-2.5em;
+    border:1px solid rgba(123,123,123,.4);
+    padding:.2em .5em;
+    background:#000;
+    color:#fff;
+    z-index:2;
+}
 /**
  * input
  */
@@ -2782,6 +2795,8 @@ a.raindrops-comment-link:hover em {
     margin:0.38461538461em 0;
     width:100%;
 }
+.categories li,
+.widget_archive li,
 .widget_categories li{
     color:#888;
 }
@@ -3334,12 +3349,14 @@ ol.list-of-post-list .entry-title{
 }
 .list-of-post-toggle .no-toggle-content,
 .list-of-post-toggle .raindrops-toggle:not(.raindrops-toggle-title){
-    margin:1em 0 0 40px;
+    margin:1em 0 0 0;
     margin-top:2em;
     list-style-type:none;
     border:0.07692307692em solid rgba(222,222,222,.5);
     padding:1em;
+    overflow:hidden;
 }
+
 
 .entry-content .raindrops-toggle{
     margin-top:1em;
@@ -3686,6 +3703,11 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
 }
 .wp-smiley{
     vertical-align:middle;
+}
+/* @1.329 */
+.button{
+    display:inline-block;
+    padding:.3em .5em;
 }
 .entry-content .button a:focus{
     margin:0;
@@ -4206,4 +4228,22 @@ blockquote .cite-url{
     text-align:right;
     word-wrap: break-word;
     word-break: break-all;
+}
+.cat-item{} 
+.current-cat{
+   
+}
+
+/* @1.329 ol.sectioned class render sectioned number lists */
+.entry-content .sectioned ul, 
+.entry-content .sectioned ol,
+.entry-content .sectioned{
+    counter-reset: sectioned;
+}
+.entry-content .sectioned li {
+    list-style: none;
+}
+.entry-content .sectioned li:before {
+    content : counters(sectioned, '.') '.\00a0 \00a0 \00a0';
+    counter-increment : sectioned;
 }

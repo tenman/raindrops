@@ -141,3 +141,25 @@ body.ja,
 .ja .raindrops-excerpt-more{
     width:6em;
 }
+
+.ja .entry-content ins:hover::before{
+    content:'\633f \5165 ';
+}
+.ja .entry-content del:hover::before{
+    content:'\524a \9664 ';
+}
+
+/* @1.329 ol.sectioned class render sectioned number lists */
+
+.ja .entry-content .sectioned li:before {
+    content : '\7b2c ' counters(sectioned, '.') '\7ae0 \00a0 \00a0 \00a0';
+    counter-increment : sectioned;
+}
+.ja .entry-content .sectioned li li:before {
+    content : counters(sectioned,'\7ae0') '\7bc0 \00a0 \00a0 \00a0';
+    counter-increment : sectioned;
+}
+.ja .entry-content .sectioned li li li:before {
+    content : counters(sectioned, '-') '\9805 \00a0 \00a0 \00a0';
+    counter-increment : sectioned;
+}

@@ -25,7 +25,7 @@
             
             if (cite) {
                 var decoded_uri = decodeURIComponent( cite );
-                jQuery(this).append("<p class=\"cite-url\">cite:<a href=\"" + cite + "\" onclick=\"this.target='_blank';\" onkeypress=\"this.target='_blank';\">" + escape_html(decoded_uri) + "</a></p>");
+                jQuery(this).append("<p class=\"cite-url\">" + raindrops_script_vars.blockquote_cite_i18n + "<a href=\"" + cite + "\" onclick=\"this.target='_blank';\" onkeypress=\"this.target='_blank';\">" + escape_html(decoded_uri) + "</a></p>");
             }
 
         });

@@ -1,4 +1,30 @@
 Changelog -----------------------------------
+version:1.330
+Overview of Changes
+
+	Modified Add styles rules em i u kbd
+	Modified Add New CSS Class sectioned for ol element
+	Modified Add editor style for japanese language
+	Modified Add styles for google fonts material-icons
+
+	Fixed hard coded text to translatable ( searchform.php )
+
+Files Modified
+
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   raindrops.js
+	modified:   searchform.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.329&new_path=raindrops/1.330
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.329
 Overview of Changes
 

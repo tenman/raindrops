@@ -184,3 +184,7 @@ body.ja,
     content : counters(sectioned, '-') '\9805 \00a0 \00a0 \00a0';
     counter-increment : sectioned;
 }
+.mce-content-body  .sectioned li li li li:before,
+.ja .entry-content .sectioned li li li li:before{
+    content:'';
+}

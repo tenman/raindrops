@@ -376,6 +376,11 @@ cite {
     margin:0.2em .5em;
     padding:0 1em;
 }
+.mce-content-body kbd {
+   display:inline-block;
+   margin:0 .1em;
+   padding:.1em .6em;
+}
 /* plugins issue */
 /* http://wordpress.org/plugins/crayon-syntax-highlighter/ */
 .crayon-table{
@@ -524,7 +529,7 @@ html .mce-content-body .wp-caption{
 #quote-raindrops a{
     background:#fff;
     color:#666;
-    padding:0;10px;
+    padding:0 10px;
     font-size:16px;
     font-weight:700
 }
@@ -591,4 +596,13 @@ u{
 .mce-content-body .sectioned li:before {
     content : counters(sectioned, '.') '.\00a0 \00a0 \00a0';
     counter-increment : sectioned;
+}
+.mce-content-body .sectioned li li li ul li{
+    list-style:lower-alpha inside;
+}
+.mce-content-body .sectioned li li li ol li{
+    list-style:lower-roman inside;
+}
+.mce-content-body .sectioned li li li li:before {
+    content:'';
 }

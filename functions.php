@@ -10551,12 +10551,21 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 	}
 }
 
+if ( !function_exists( 'raindrops_localize_style_add' ) ) {
+	/**
+	 * 
+	 * @param type $style
+	 * @return array
+	 * @1.330
+	 */	
+	function raindrops_localize_style_add( $style ) {
 
-
-function raindrops_localize_style_add( $style ) {
-	if ( 'ja' == get_locale() ) {
-
-		if ( false !== ( $url = raindrops_locate_url( 'languages/css/ja.css' ) ) ) {
+		 $locale = get_locale();
+		 
+		if ( false !== ( $url = raindrops_locate_url( 'fonts.css' ) ) ) {
+			$style[] = $url;
+		}
+		if ( false !== ( $url = raindrops_locate_url( 'languages/css/'. $locale. '.css' ) ) ) {
 			$style[] = $url;
 		}
 		return $style;

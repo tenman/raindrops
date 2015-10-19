@@ -1,9 +1,11 @@
 Changelog -----------------------------------
-version:1.330
+version:1.331
 Overview of Changes
 
-	Modified Add styles rules em i u kbd
+	Modified Add styles rules em i u kbd detail
 	Modified Add New CSS Class sectioned for ol element
+	Modified Add a class that represents the state of the content
+                rd-alert, rd-info, rd-notice
 	Modified Add editor style for japanese language
 	Modified Add styles for google fonts material-icons
 

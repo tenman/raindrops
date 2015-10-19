@@ -155,4 +155,3 @@
         jQuery(".raindrops-tab-list li").each(function (i) { jQuery(this).attr('tabindex', 0); });
     });
 })(jQuery);
-

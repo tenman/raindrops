@@ -10550,6 +10550,18 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 		return 'data:text/plain;charset=utf-8,' . sprintf( $html, $style, $site_icon, $permalink, $title, $excerpt, $additional_filter );
 	}
 }
+
+
+
+function raindrops_localize_style_add( $style ) {
+	if ( 'ja' == get_locale() ) {
+
+		if ( false !== ( $url = raindrops_locate_url( 'languages/css/ja.css' ) ) ) {
+			$style[] = $url;
+		}
+		return $style;
+	}
+}
 /**
  *
  *

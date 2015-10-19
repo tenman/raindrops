@@ -563,3 +563,32 @@ html .mce-content-body .wp-caption{
     }
 }
 /* share link fallback style end */
+em,
+i{
+    font-style: italic;
+    padding:0 .3em;
+}
+/* for google fonts material-icons */
+i.material-icons{
+    vertical-align:middle;
+    font-size:138.5%;
+   font-style: normal;
+}
+u{
+    text-decoration:none;
+    border-color:#888;
+    border-bottom:3px double rgba(127,127,127,.5);
+}
+/* @1.329 ol.sectioned class render sectioned number lists */
+.mce-content-body .sectioned ul,
+.mce-content-body .sectioned ol,
+.mce-content-body .sectioned{
+    counter-reset: sectioned;
+}
+.mce-content-body .sectioned li {
+    list-style: none;
+}
+.mce-content-body .sectioned li:before {
+    content : counters(sectioned, '.') '.\00a0 \00a0 \00a0';
+    counter-increment : sectioned;
+}

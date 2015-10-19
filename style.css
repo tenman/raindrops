@@ -206,7 +206,30 @@ b{
 em,
 i{
     font-style: italic;
+    padding:0 .3em;
 }
+/* for google fonts material-icons */
+i.material-icons{
+    vertical-align:middle;
+    font-size:138.5%;
+   font-style: normal;
+}
+u{
+    text-decoration:none;
+    border-color:#888;
+    border-bottom:3px double rgba(127,127,127,.5);
+}
+
+details summary{   
+    margin-bottom:1em;
+    display:inline-block;
+    cursor: pointer;
+}
+details[open] summary+div{
+    padding:1em;
+    box-sizing:border-box;
+}
+
 td{
     line-height:1.35;
 }
@@ -581,6 +604,11 @@ select,
 option,
 select{
     margin:auto;
+}
+kbd{
+   display:inline-block;
+   margin:0 .1em;
+   padding:.1em .6em;
 }
 input[type="text"],
 input[type="submit"],
@@ -2749,16 +2777,16 @@ div.raindrops-tab-page h3{
  * preset padding dlass
  */
 .pad-s{
-    margin:14px;
     padding:7px;
+    box-sizing:border-box;
 }
 .pad-m{
-    margin:14px;
     padding:14px;
+    box-sizing:border-box;
 }
 .pad-l{
-    margin:14px;
     padding:21px;
+    box-sizing:border-box;
 }
 .entry-title.pad-s:not(.sticky),
 .entry-title.pad-m:not(.sticky),
@@ -4246,4 +4274,20 @@ blockquote .cite-url{
 .entry-content .sectioned li:before {
     content : counters(sectioned, '.') '.\00a0 \00a0 \00a0';
     counter-increment : sectioned;
+}
+.page .rd-alert,
+.post .rd-alert{
+    color:#e14d43;
+}
+.page .rd-info,
+.post .rd-info{
+    color:#56b274;
+}
+.page .rd-notice,
+.post .rd-notice{
+   color: #a38c08;
+}
+.size-large{
+    width:30%;
+    height:auto;
 }

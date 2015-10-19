@@ -238,7 +238,6 @@ hr{
     border-top:1px solid %c_border%;
 }
 
-
 #month_list,
 #month_list td,
 #raindrops_year_list td,
@@ -391,6 +390,7 @@ hr{
     border:none;
     border-top:1px solid %rgba_border%;
 }
+
 .blog .sticky,
 .home .sticky,
 .entry-meta{
@@ -401,6 +401,8 @@ hr{
 .home .sticky{
     border-top:solid 6px %rgba_border%;
 }
+.page .rd-border,
+.post .rd-border,
 .comment-body th,
 .comment-body td,
 .wp-caption,
@@ -483,7 +485,7 @@ td.month-date,td.month-name,td.time{
     -webkit-box-shadow: 0 0 5px %rgba_border%;
     -moz-box-shadow: 0 0 5px %rgba_border%;
 }
-
+kbd,
 .searchform input[type="text"],
 #respond input[type="text"],
 #respond textarea#comment,
@@ -502,6 +504,7 @@ td.month-date,td.month-name,td.time{
 .entry-content textarea{
     background: %rgba_border%
 }
+kbd,
 .entry-content .more-link,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
@@ -769,6 +772,9 @@ select{
     %c4%
 
 }
+.page .rd-border,
+.post .rd-border,
+kbd,
 .sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
@@ -1283,7 +1289,7 @@ DOC;
     $css3 = <<<CSS3
 
 %gradient%
-
+kbd,
 .hfeed{
     box-shadow: 0 0 5px %rgba_border%;
     -webkit-box-shadow: 0 0 5px %rgba_border%;
@@ -1320,6 +1326,7 @@ ul.category li{
     border-bottom:1px solid %rgba_border%;
 
 }
+kbd,
 table td{
     border:1px solid %rgba_border%;
 }
@@ -1367,7 +1374,8 @@ hr{
 .social input[type="submit"]{
     border:1px solid %rgba_border%;
 }
-
+.page .rd-border,
+.post .rd-border,
 .entry-content th{
     border:solid 1px %rgba_border%;
 }
@@ -1389,7 +1397,7 @@ hr{
     background: %rgba_border%
     border:double 3px %rgba_border%;
 }
-
+kbd,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1447,6 +1455,8 @@ a.raindrops-comment-link em,
 .ie10 #access ul ul :active >a{
     background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
+.page .rd-border,
+.post .rd-border,
 .widget_calendar #today a,
 .widget_calendar #today,
 a.raindrops-comment-link em,
@@ -1648,6 +1658,11 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
+.page .rd-border,
+.post .rd-border{
+	border:1px solid %rgba_border%;
+}
+kbd,
 input[type="email"],
 .raindrops-toc-front li,
 input[type="text"],
@@ -1689,7 +1704,7 @@ blockquote{
     %c4%
 }
 
-
+kbd,
 .current-cat{
 	 %c5%
 }

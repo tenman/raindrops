@@ -4,12 +4,18 @@
  * Filetype: CSS
  * @package Raindrops
  */
+.mce-content-body,
 body.ja,
 .ja h1,
-.ja h2, 
+.mce-content-body h2,
+.ja h2,
+.mce-content-body h3,
 .ja h3,
+.mce-content-body .h1,
 .ja .h1,
-.ja .h2, 
+.mce-content-body .h2,
+.ja .h2,
+.mce-content-body .h3,
 .ja .h3{
 	font-family:'Meiryo',Arial,sans-serif;
 }
@@ -42,26 +48,38 @@ body.ja,
 .ja .rsidebar h2{
 	font-size:108%;
 }
+.mce-content-body .h1:not(h1),
+.mce-content-body h1,
 .ja .h1:not(h1),
 .ja h1{
 	font-size:161.6%;
 }
+.mce-content-body .h2:not(h2),
+.mce-content-body h2,
 .ja .h2:not(h2),
 .ja h2{
 	font-size:138.5%;
 }
+.mce-content-body .h3:not(h3),
+.mce-content-body h3,
 .ja .h3:not(h3),
 .ja h3{
 	font-size:116%;
 }
+.mce-content-body .h4:not(h3),
+.mce-content-body h4,
 .ja .h4:not(h4),
 .ja h4{
 	font-size:100%;
 }
+.mce-content-body .h5:not(h3),
+.mce-content-body h5,
 .ja .h5:not(h5),
 .ja h5{
 	font-size:85%;
 }
+.mce-content-body .h6:not(h3),
+.mce-content-body h6,
 .ja .h6:not(h6),
 .ja h6{
 	font-size:xx-small;
@@ -108,6 +126,8 @@ body.ja,
 .ja i{
         font-style: italic;
 }
+
+.mce-content-body p,
 .ja p{
     line-height:1.6;
 }
@@ -141,7 +161,6 @@ body.ja,
 .ja .raindrops-excerpt-more{
     width:6em;
 }
-
 .ja .entry-content ins:hover::before{
     content:'\633f \5165 ';
 }
@@ -150,15 +169,17 @@ body.ja,
 }
 
 /* @1.329 ol.sectioned class render sectioned number lists */
-
+.mce-content-body .sectioned li:before,
 .ja .entry-content .sectioned li:before {
     content : '\7b2c ' counters(sectioned, '.') '\7ae0 \00a0 \00a0 \00a0';
     counter-increment : sectioned;
 }
+.mce-content-body  .sectioned li li:before,
 .ja .entry-content .sectioned li li:before {
     content : counters(sectioned,'\7ae0') '\7bc0 \00a0 \00a0 \00a0';
     counter-increment : sectioned;
 }
+.mce-content-body  .sectioned li li li:before,
 .ja .entry-content .sectioned li li li:before {
     content : counters(sectioned, '-') '\9805 \00a0 \00a0 \00a0';
     counter-increment : sectioned;

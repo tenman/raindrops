@@ -51,12 +51,12 @@ function raindrops_posted_in_label_validate( $input ) {
 	}	
 }
 function raindrops_sitewide_css_validate( $input ) {
-	
-	if ( empty( $input ) ) {
-		return '';
-	}
 
 	$value =  wp_strip_all_tags( $input );
+	
+	if ( empty( $value ) ) {
+		return '';
+	}	
 	// format
 	$value = str_replace(array("\r\n","\r","\n"),'',$value);
 	$value = str_replace( array( '{', '}', "\t"), array( "{\n\t", "}\n", '    '), $value );

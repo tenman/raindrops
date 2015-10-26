@@ -56,16 +56,6 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          *
          *
          */
-        /* 		if (  $raindrops_wp_version < '3.4'  ) {
-          add_filter( "wp_head", "raindrops_embed_meta", '90' );
-          } */
-        /**
-         *
-         *
-         *
-         *
-         *
-         */
         add_filter( 'comment_form_default_fields', 'raindrops_comment_form' );
         /**
          *
@@ -129,17 +119,6 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          *
          *
          */
-        //    if (  !is_admin(  )  ) {
-        // add_action( 'wp_print_styles', 'add_raindrops_stylesheet' );
-        //    }
-
-        /**
-         *
-         *
-         *
-         *
-         *
-         */
         add_action( 'admin_init', 'raindrops_options_init' );
         /**
          *
@@ -149,10 +128,6 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
          *
          */
 		add_theme_support( 'title-tag' );
-		if ( ! function_exists( '_wp_render_title_tag' ) ) {
-
-			add_filter( 'wp_title', 'raindrops_filter_title', 10, 3 );
-		}
         /**
          *
          *

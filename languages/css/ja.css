@@ -159,7 +159,7 @@ body.ja,
 }
 
 .ja .raindrops-excerpt-more{
-    width:6em;
+    width:8em;
 }
 .ja .entry-content ins:hover::before{
     content:'\633f \5165 ';

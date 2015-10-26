@@ -280,7 +280,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			$result			 = apply_filters( 'raindrops_display_recent_post_group_by_category_before', '' );
 			$wrap_html		 = '<ul class="xoxo">%1$s</ul>';
-			$category_title	 = '<li><h3 class="post-group_by-category-title category-title"><a href="%1$s">%2$s</a></h3><ul>';
+			$category_title	 = '<li class="post-group-by-category-title"><h3 class="post-group_by-category-title category-title %3$s"><a href="%1$s">%2$s</a></h3><ul>';
 			$entry_item		 = '<li><a href="%1$s">%3$s</a><p><span title="%4$s">%2$s</span> </p>';
 			$entry_item		 = '<li>'
 			. '<a href="%1$s" class="post-group_by-category-entry-title %8$s">%3$s</a>'
@@ -295,10 +295,13 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			foreach ( $raindrops_get_post_array_group_by_category as $key => $vals ) {
 
 				$cat_id = get_cat_ID( $key );
+				$cat_property = get_category( $cat_id );
+				$cat_slug = sanitize_html_class( $cat_property->slug );
+				$cat_slug = apply_filters( 'raindrops_post_group_by_category_title_class', $cat_slug, $key );
 
 				if ( !empty( $vals ) ) {
 
-					$result .= sprintf( $category_title, get_category_link( $cat_id ), $key );
+					$result .= sprintf( $category_title, get_category_link( $cat_id ), $key,  $cat_slug  );
 				}
 
 				foreach ( $vals as $val ) {
@@ -400,8 +403,11 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			if (  isset( $instance[ 'inline_style' ] ) && ( $instance[ 'content' ] == 'content' || $instance[ 'content' ] == 'excerpt' ) && !is_single( $instance[ 'id' ] ) ) {
 
 				$posts = get_posts( array( 'include' => absint( $instance[ 'id' ] ), 'post_type' => sanitize_key( $instance[ 'type' ] ) ) );
+				
+				$pinup_entry_title_class = apply_filters( 'raindrops_pinup_entry_title_class', ' title pinup-entry-title ' );
+				$pinup_entry_title_class = trim( $pinup_entry_title_class );
+				$html_title = '<h2 class="'. esc_attr( $pinup_entry_title_class ) .'" id="approach-%1$s"><a href="%2$s"><span>%3$s</span></a></h2>';
 
-				$html_title = '<h2 class="title pinup-entry-title" id="approach-%1$s"><a href="%2$s"><span>%3$s</span></a></h2>';
 
 				foreach ( $posts as $post ) {
 					setup_postdata( $post );
@@ -796,7 +802,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				}
 				
 
-				$result_html  .= '<div class="eco-archive extent-archives">';
+				$result_html  .= '<div class="eco-archive extent-archives by-'. esc_attr( $groups ). '">';
 				$result_html  .= raindrops_monthly_archive_prev_next_navigation( false, true );
 
 				if ( $groups == 'year') {
@@ -816,12 +822,13 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 							if( isset($regs[1]) ) {
 
-								$class = 'month-'.$regs[1];
+								$class = 'month month-'.$regs[1];
 								$v = str_replace( $regs[0],'>'.$wp_locale->get_month( $regs[1] ).'<',$v);
 							} else {
-								
-								$class = trim( strtolower( wp_kses( $v , array() ) ) );
-								$class = trim( str_replace(array( 0,1,2,3,4,5,6,7,8,9, ' '), array( '','','','','','','','','','', '-') , $class ), '-' );
+	
+								$class = trim( strtolower( wp_kses( $v , array() ) ) );								
+								$class = trim( str_replace(array( 0,1,2,3,4,5,6,7,8,9, ' ','(',')','&nbsp;'), array( '','','','','','','','','','', '-','','','') , $class ), '-' );
+
 								$class = esc_attr( 'month month-'. $class );
 								$v = preg_replace( '![^/=][0-9]{4}!','',$v);
 

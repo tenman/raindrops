@@ -1,10 +1,24 @@
 Changelog -----------------------------------
 version:1.332
 Overview of Changes
-
+	Modified Remove wp_title filter function and backword compatibilities
+	Modified raindrops-helper.js child theme support
+    Modified raindrops_script_vars remove un used var post
+	Modified share link, change content excerpt to entry date. and inline css modified change id to class
+	Modified Sticky Widget Area widgets, Apply styles.
+	Modified function raindrops_sitewide_css_validate()
+	Fixed .raindrops-excerpt-more width too narrow.
 
 Files Modified
-
+	modified:   changelog.txt
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.331&new_path=raindrops/1.332

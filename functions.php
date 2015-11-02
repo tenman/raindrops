@@ -1641,7 +1641,16 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 
 	function raindrops_add_stylesheet() {
 
-		global $raindrops_current_theme_name, $raindrops_current_data_version, $raindrops_css_auto_include;
+		global $raindrops_current_theme_name, $raindrops_current_data_version, $raindrops_css_auto_include,$raindrops_fallback_human_interface_show;
+		/* @1.333 */
+		if( true == $raindrops_fallback_human_interface_show){
+			
+			$fallback_style = get_template_directory_uri() . '/fallback.css';
+			wp_register_style( 'fallback_style', $fallback_style, array(), $raindrops_current_data_version, 'all' );
+			wp_enqueue_style( 'fallback_style' );
+			
+			return;
+		}
 
 		if ( false !== ( $url = raindrops_locate_url( 'reset-fonts-grids.css' ) ) ){
 
@@ -2451,7 +2460,11 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 	function raindrops_embed_meta( $content ) {
 
-		global $post, $wp_customize, $content_width, $raindrops_use_transient, $raindrops_stylesheet_type;
+		global $post, $wp_customize, $content_width, $raindrops_use_transient, $raindrops_stylesheet_type,$raindrops_fallback_human_interface_show;
+		/* @1.333 */
+		if( true == $raindrops_fallback_human_interface_show ) {
+			return;
+		}
 
 		if ( ! isset( $raindrops_stylesheet_type ) ) {
 
@@ -4627,6 +4640,7 @@ if ( !function_exists( "raindrops_enqueue_comment_reply" ) ) {
 	}
 
 }
+// @1.333 comment out , next version removed
 //add_filter( 'the_content', 'raindrops_fallback_human_interface' );
 //add_filter( 'raindrops_posted_in', 'raindrops_fallback_human_interface' );
 /**
@@ -4636,6 +4650,7 @@ if ( !function_exists( "raindrops_enqueue_comment_reply" ) ) {
  *
  * @since 0.958
  */
+/*
 if ( !function_exists( "raindrops_fallback_human_interface" ) ) {
 
 	function raindrops_fallback_human_interface( $content ) {
@@ -4649,6 +4664,8 @@ if ( !function_exists( "raindrops_fallback_human_interface" ) ) {
 		}
 	}
 }
+ * 
+ */
 /**
  *
  *
@@ -4656,7 +4673,7 @@ if ( !function_exists( "raindrops_fallback_human_interface" ) ) {
  *
  * @since 0.958
  */
-
+/*
 if ( !function_exists( "small_screen_check" ) ) {
 
 	function small_screen_check() {
@@ -4700,6 +4717,8 @@ if ( !function_exists( "small_screen_check" ) ) {
 		return false;
 	}
 }
+ * 
+ */
 /**
  *
  *
@@ -4707,7 +4726,7 @@ if ( !function_exists( "small_screen_check" ) ) {
  *
  * @since 0.958
  */
-
+/*
 if ( !function_exists( "raindrops_fallback_user_interface_view" ) ) {
 
 	function raindrops_fallback_user_interface_view() {
@@ -4750,7 +4769,7 @@ if ( !function_exists( "raindrops_fallback_user_interface_view" ) ) {
 		add_action( 'wp_head', 'raindrops_mobile_meta' );
 	}
 }
-
+*/
 if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 	/**
 	 *
@@ -4765,7 +4784,11 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 	 */
 	function raindrops_load_small_device_helper() {
 
-		global $raindrops_current_data_version, $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text, $raindrops_fallback_image_for_entry_content_enable;
+		global $raindrops_current_data_version, $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text, $raindrops_fallback_image_for_entry_content_enable,$raindrops_fallback_human_interface_show;
+	
+		if( true == $raindrops_fallback_human_interface_show ) {
+			return;
+		}
 		$raindrops_header_image		 = get_custom_header();
 		$raindrops_header_image_uri	 = $raindrops_header_image->url;
 		$ratio						 = 0;
@@ -4877,7 +4900,11 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 
 			$raindrops_fallback_image_for_entry_content = false;
 		}
-	
+		if ( wp_is_mobile() ) {
+			$kind_of_browser = 'rd-mobile';
+		} else {
+			$kind_of_browser = 'rd-pc';
+		}
 		
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'					 => $is_IE,
@@ -4902,6 +4929,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'accessibility_settings' => raindrops_warehouse_clone( 'raindrops_accessibility_settings' ),
 			'fallback_image_for_entry_content' => $raindrops_fallback_image_for_entry_content,
 			'blockquote_cite_i18n'   => esc_html__('cite:', 'raindrops' ),
+			'kind_of_browser'		 => $kind_of_browser,
 			)
 		);
 		
@@ -9643,13 +9671,20 @@ if ( ! function_exists( 'raindrops_article_wrapper_class' ) ) {
  *
  * @return string
  * @since1.277
+ * todo: @1.333 works improperly when using cache plugin. needs client side add class.
+ * test code: raindrops-helper.js line:4 test code...
  */
 	function raindrops_article_wrapper_class( ) {
 		global $post;
 			$class = array();
 			if (isset( $post ) && preg_match( '!<[^>]*?(lang-ja|lang-not-ja)[^>]*?>!', $post->post_content ) ) {
-
-				$class[] = sanitize_html_class( 'rd-l-'. raindrops_get_accept_language( ) );
+				
+				$detect_lang = raindrops_get_accept_language( );
+				
+				if ( ! empty( $detect_lang ) ) {
+					
+					$class[] = sanitize_html_class( 'rd-l-'. $detect_lang );
+				}
 			}
 
 			$result = trim( implode(' ', $class ) );

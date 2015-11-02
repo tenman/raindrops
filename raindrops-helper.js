@@ -1,6 +1,13 @@
 ( function ( ) {
 
     jQuery( function ( ) {
+        /* test code @see functions.php raindrops_article_wrapper_class() */
+        try{  
+            jQuery( '.index.archives li > div' ).addClass( 'rd-l-' + navigator.language );
+        }catch(e){  
+            jQuery( '.index.archives li > div' ).addClass( 'rd-l-unknown' );
+        }finally{  }  
+        
         if ( raindrops_script_vars.page_width == 'doc3' || raindrops_script_vars.page_width == 'doc5' ) {
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
@@ -59,6 +66,7 @@
                 //  if ( raindrops_script_vars.is_single || raindrops_script_vars.is_page ) {
 
                 jQuery( 'body' ).addClass( raindrops_script_vars.color_type );
+                jQuery( 'body' ).addClass( raindrops_script_vars.kind_of_browser );
 
                 if ( navigator.userLanguage ) {
 
@@ -77,9 +85,18 @@
                     var ie_num = userAgent.match( /MSIE (\d+\.\d+);/i );
                     var ieversion = parseInt( ie_num[1], 10 );
                     jQuery( 'body' ).addClass( 'ie' + ieversion );
+                    
+                } else if ( userAgent.match( /Edge\/12/i ) ) {
+
+                    jQuery( 'body' ).addClass( 'edge' );
+                
+                } else if ( userAgent.match( /Trident/i ) && userAgent.match( /rv:11/i )) {
+
+                    jQuery( 'body' ).addClass( 'ie11' );
+                
                 } else if ( userAgent.match( /Edge/i ) ) {
 
-                    jQuery( 'body' ).addClass( 'Edge' );
+                   // jQuery( 'body' ).addClass( 'Edge' );
                 } else if ( userAgent.indexOf( 'opera' ) != -1 ) {
 
                     jQuery( 'body' ).addClass( 'opera' );
@@ -93,17 +110,20 @@
 
                     jQuery( 'body' ).addClass( 'firefox' );
                 } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
+                    
                     var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
                     try{
                         var version = parseInt( match[2], 10 );
                     }catch(error){
                         var version = -1; //match == null for no match
                     }
+                    
                     if ( version == 11 ) {
                         jQuery( 'body' ).addClass( 'ie11' );
                     } else {
                         jQuery( 'body' ).addClass( 'gecko' );
                     }
+                    
                 } else if ( userAgent.indexOf( 'iphone' ) != -1 ) {
 
                     jQuery( 'body' ).addClass( 'iphone' );
@@ -175,8 +195,10 @@
                             jQuery('div[class^=rd-l-]').removeClass().addClass( accept_language_class );
                         }
                         
-                        jQuery( '.single div[class^=rd-l-] .entry-content,.page div[class^=rd-l-] .entry-content').prepend( '<button id="show_all_lang" class="pad-s">Show All Languages</button>' );
-                        
+                        if( jQuery('.single div[class^=rd-l-] .entry-content div').hasClass('lang-not-ja') ||
+                            jQuery( '.page div[class^=rd-l-] .entry-content div').hasClass('lang-not-ja') ) {
+                                jQuery( '.single div[class^=rd-l-] .entry-content,.page div[class^=rd-l-] .entry-content').prepend( '<button id="show_all_lang" class="pad-s clearfix">Show All Languages</button>' );
+                        }
                         jQuery('#show_all_lang').click(function(){
                             jQuery('article div,article span').removeClass('lang-ja lang-not-ja');
                             jQuery( '#show_all_lang').remove();

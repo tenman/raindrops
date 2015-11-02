@@ -119,8 +119,8 @@
         jQuery(".raindrops-tab-page").hide(); //Hide all content
         jQuery(".raindrops-tab-list li:first").addClass("active").show(); //Activate first tab
         jQuery(".raindrops-tab-page:first").show(); //Show first tab content
-
-
+        jQuery(".raindrops-tab-list").show();
+        jQuery(".raindrops-tab-content").show();
 
         //On Click Event
         jQuery(".raindrops-tab-list li").click(function() {

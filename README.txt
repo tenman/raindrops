@@ -63,6 +63,9 @@ Special Thanks for Translation files provided
 QUICK START
 see: http://www.tenman.info/wp3/raindrops/quick-start/
 
+var 1.333
+    Added normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css
+        fallback.css
 ver 1.232
 
 Note: About Raindrops Accessible Mode.

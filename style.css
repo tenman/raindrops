@@ -2312,6 +2312,10 @@ li.comment {
     overflow:hidden;
     padding-right:1em;
 }
+.comment-edit-link{
+    display:inline-block;
+    margin-left:.8em;
+}
 .ie7 .commentmetadata{
     width:100%;
 }
@@ -2320,6 +2324,7 @@ li.comment {
     text-align:center;
     margin:2em 0;
 }
+
 #header-image{
     position:relative;
     overflow:hidden;
@@ -2749,7 +2754,13 @@ div[class^="horizon"]{
     visibility:visible;
 }
 .raindrops-tab-list{
-    margin:0;padding:0;
+    display:none;
+    margin:0;
+    padding:0;
+}
+
+.raindrops-tab-content{
+    display:none;
 }
 .raindrops-tab-content,
 .raindrops-tab-list li{
@@ -2837,6 +2848,7 @@ a.raindrops-comment-link {
 .raindrops-comment-link em {
     padding: 0 0.4em;
     position: relative;
+    margin-left:1em;
 }
 .raindrops-comment-link .point {
     width: 0;
@@ -3870,6 +3882,7 @@ html body.ja .lsidebar .lang-not-ja,
 html body.ja .rsidebar .lang-not-ja{
     display:none;
 }
+
 html body.ja #access .lang-ja,
 html body.ja .widget-wrapper .lang-ja,
 html body.ja .lsidebar .lang-ja,

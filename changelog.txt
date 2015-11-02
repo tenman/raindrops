@@ -1,4 +1,32 @@
 Changelog -----------------------------------
+version:1.333
+Overview of Changes
+	Modified Add normalize.css at fallback.css
+		when true $raindrops_fallback_human_interface_show show fallback style.
+		Comment out old functions. this will be remove next version
+			raindrops_fallback_human_interface()
+			small_screen_check()
+			raindrops_fallback_user_interface_view()
+	Fixed CSS lang-ja, lang-not-ja works improperly when using cache plugin.
+		css class was changed from Server Side to Cliant Side.
+	Modified .raindrops-tab-list.
+		Flash of Unstyled Content.
+	Added new browser detect css class 'edge' and 'ie11' , body_class()
+	Modified ja.po, ja.mo
+
+Files Modified
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.332&new_path=raindrops/1.333
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.332
 Overview of Changes
 	Modified Remove wp_title filter function and backword compatibilities

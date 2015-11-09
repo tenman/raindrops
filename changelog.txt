@@ -1,4 +1,37 @@
 Changelog -----------------------------------
+version:1.334
+Overview of Changes
+
+	Added navigation( next prev year links ) for year archive.
+		new function raindrops_archive_year_navigation()
+    Added new CSS Class rd-list-type-tree.
+	Modified New Comment style, placeholder text( Translatable )
+    Fixed Page width improperly when doctype xhtml + page type doc5(full width layout)
+	Added new hooks raindrops_before_article, raindrops_after_article
+	Modified change position for bundle breadcrumb
+	Modified I18n ja.po ja.mo
+
+Files Modified
+
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   page.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.333&new_path=raindrops/1.334
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.333
 Overview of Changes
 	Modified Add normalize.css at fallback.css

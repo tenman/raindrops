@@ -379,7 +379,17 @@ border-left:solid 1px %c_border%;
 .current_page_item{
     %c_2%
 }
+
+.yui-main .rd-list-type-tree li:before {
+    border-top:solid 1px %c_border%;
+}
+.yui-main .rd-list-type-tree:before, 
+.yui-main .rd-list-type-tree ul:before {
+    border-left:solid 1px %c_border%;
+}
 /* tinyMCE */
+.yui-main .rd-list-type-tree li:last-child:before,
+.breadcrumbs li:last-child:before,
 html .mceContentBody{
  %c_5%
 }
@@ -746,7 +756,16 @@ body {
 #hd{
   /*  background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
 }
+.yui-main .rd-list-type-tree li:before {
+    border-top:solid 1px %c_border%;
+}
+.yui-main .rd-list-type-tree:before, 
+.yui-main .rd-list-type-tree ul:before {
+    border-left:solid 1px %c_border%;
+}
 /* tinyMCE */
+.yui-main .rd-list-type-tree li:last-child:before,
+.breadcrumbs li:last-child:before,
 html .mceContentBody,
 .hfeed{
     background:#fff;
@@ -798,19 +817,21 @@ input[type="radio"],
 select{
     %c4%
 }
+.social input[type="submit"],
 #respond input[type="text"],
 #respond textarea#comment,
 .social textarea#comment,
 .social input[type="text"] {
     outline:none;
-    %c3%
-
+    background:#fff;
+	color:#333;
+	border:solid 1px %c_border%;
 }
 #respond input[type="text"]:focus,
 #respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input:focus{
-    %c4%
+    %c5%
 
 }
 .page .rd-border,
@@ -1085,16 +1106,15 @@ body{
 	   color:%raindrops_header_color%;
 		   */
 }
-/* dialog header color issue 1.239
-.entry div h2,.entry div h3{
-    %c5%
-}*/
+
 .entry ol ol ,.entry ul {
     %c5%
 }
+/* @1.334
 .entry ul *{
     %c5%
 }
+*/
 
 #hd{
     %c5%
@@ -1111,7 +1131,16 @@ body{
     %c4%
     background:none;
 }
+.yui-main .rd-list-type-tree li:before{
+    border-top:solid 1px %c_border%;
+}
+.yui-main .rd-list-type-tree:before,
+.yui-main .rd-list-type-tree ul:before{
+	border-left:solid 1px %c_border%;
+}
 /* tinyMCE */
+.yui-main .rd-list-type-tree li:last-child:before,
+.breadcrumbs li:last-child:before,
 html .mceContentBody,	
 #doc,#doc2,#doc3,#doc4{
     %c5%
@@ -1229,7 +1258,8 @@ input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
-    %c4%
+    background:#fff;
+	color:#333;
 }
 input[type="checkbox"],
 input[type="radio"],
@@ -1414,6 +1444,7 @@ hr{
     -webkit-box-shadow: 0 0 5px %rgba_border%;
     -moz-box-shadow: 0 0 5px %rgba_border%;
     border:1px solid %rgba_border%;
+	%c5%
 }
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
@@ -1583,6 +1614,8 @@ a.raindrops-comment-link:hover .point {
     border-right:1px solid rgba( 156,156,156,.7); 
 
 }
+	
+
 CSS3;
 
 	 return apply_filters( __FUNCTION__ , $style . $css3 );
@@ -1675,6 +1708,7 @@ function raindrops_indv_css_minimal() {
 }
 
 /* tinyMCE */
+
 html .mceContentBody,
 body{
     border-top:6px solid $raindrops_base_color;
@@ -1714,8 +1748,11 @@ a:hover{
 h2.footer-content {
     text-indent:0;
 }
-
+.social input[type="submit"]{
+    border:1px solid rgba(105,105,105,.7);
+}
 /*comment bubble*/
+
 .raindrops-comment-link em {
     %c4%
     -moz-border-radius: 0.25em;
@@ -1740,6 +1777,7 @@ a.raindrops-comment-link:hover .point {
 .post .rd-border{
 	border:1px solid %rgba_border%;
 }
+
 kbd,
 input[type="email"],
 .raindrops-toc-front li,

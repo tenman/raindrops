@@ -21,7 +21,8 @@ raindrops_debug_navitation( __FILE__ );
 		<?php get_template_part( 'widget', 'sticky' ); ?>
 
 		<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-			<div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+
+			<div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>						
 <?php
 				if ( have_posts() ) {
 
@@ -30,6 +31,7 @@ raindrops_debug_navitation( __FILE__ );
 					the_post();
 					?>
 					<div id="post-<?php the_ID(); ?>"  <?php raindrops_post_class(); ?>>
+						<?php raindrops_before_article(); ?>
 						<div class="entry attachment raindrops-image-page">
 							<h2 class="image-title h2"><?php the_title(); ?></h2>
 							<?php
@@ -95,6 +97,7 @@ raindrops_debug_navitation( __FILE__ );
 								<br class="clear" />
 							</div>
 						</div>
+						<?php raindrops_after_article(); ?>	
 						<br class="clear" />
 						<?php
 						edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
@@ -115,8 +118,10 @@ raindrops_debug_navitation( __FILE__ );
 				}
 				?>							
 
-				<br style="clear:both" />			
+				<br style="clear:both" />		
+				
 			</div>
+			
 			<?php
 			if ( 3 == $raindrops_current_column ) {
 				?>

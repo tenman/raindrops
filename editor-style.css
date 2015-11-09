@@ -606,3 +606,59 @@ u{
 .mce-content-body .sectioned li li li li:before {
     content:'';
 }
+
+.rd-list-type-tree, 
+.rd-list-type-tree ul {
+    margin:0 0 0 1em;
+    padding:0;
+    list-style-position: inside;
+    list-style-type:none;
+    position:relative;
+}
+.yui-main .rd-list-type-tree ul {
+    margin-left:.5em;
+    margin-top:0;
+}
+.rd-list-type-tree:before, 
+.rd-list-type-tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid;
+}
+.rd-list-type-tree li {
+    margin:0;
+    padding:0 1.5em;
+    line-height:2em;
+    position:relative;
+}
+.rd-list-type-tree li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0;
+}
+.rd-list-type-tree li:last-child:before {
+    background:white;
+    height:auto;
+    top:1em;
+    bottom:0;
+}
+.rd-list-type-tree li:after {
+    content:'\2022';
+    display:block;
+    width:1em;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-.2em;
+}

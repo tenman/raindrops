@@ -31,6 +31,7 @@ raindrops_debug_navitation( __FILE__ );
 				<div class="entry page">
 					<div id="post-<?php the_ID(); ?>">
 						<<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
+						<?php raindrops_before_article(); ?>
 							<?php
 							raindrops_entry_title();
 							?>
@@ -67,6 +68,7 @@ raindrops_debug_navitation( __FILE__ );
 							?>
 						</div>
 					</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+					<?php raindrops_after_article(); ?>
 				</div>
 				<?php
 			} //endwhile 

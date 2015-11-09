@@ -629,6 +629,7 @@ input[type="file"]{
     width:59%;
     display:inline-block;
 }
+.comment-form-comment textarea,
 .comment-form-url input,
 .comment-form-email input,
 .comment-form-author input{
@@ -636,7 +637,7 @@ input[type="file"]{
     padding:0.38461538461em;
 }
 .social input[type="submit"]{
-    padding:2px 0.46153846153em;
+    padding:.3em .6em;
 }
 .post-password-required input[type="submit"]{
     margin:0.38461538461em 0;
@@ -3907,6 +3908,7 @@ div.raindrops-excerpt-more{
     margin:3em 0 0;
     display:block;
     width:10em;
+    clear:both;
 }
 #top ol.breadcrumbs{
     padding:1em 0 0;
@@ -4405,3 +4407,77 @@ blockquote .cite-url{
 .raindrops-extend-archive.sticky-widget .eco-archive .raindrops-monthly-archive-prev-next-avigation{
     display:none;
 }
+#comments #reply-title{
+    margin-bottom:1em;
+}
+
+.rd-list-type-tree, 
+.rd-list-type-tree ul {
+    margin:0 0 0 1em;
+    padding:0;
+    list-style-position: inside;
+    list-style-type:none;
+    position:relative;   
+}
+.yui-main .rd-list-type-tree ul {
+    margin-left:.5em;
+    margin-top:0;
+}
+.rd-list-type-tree:before, 
+.rd-list-type-tree ul:before {
+    content:"";
+    display:block;
+    width:0;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    border-left:1px solid;
+}
+.rd-list-type-tree li {
+    margin:0;
+    padding:0 1.5em;
+    line-height:2em;
+    position:relative;
+}
+.rd-list-type-tree li:before {
+    content:"";
+    display:block;
+    width:10px;
+    height:0;
+    border-top:1px solid;
+    margin-top:-1px;
+    position:absolute;
+    top:1em;
+    left:0;
+}
+.rd-list-type-tree li:last-child:before {
+    background:white;
+    height:auto;
+    top:1em;
+    bottom:0;
+}
+.rd-list-type-tree li:after {
+    content:'\2022';
+    display:block;
+    width:1em;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-.2em;
+}
+/* yearly archive navigation */
+.archive-year-links li {
+    list-style:none;
+    display:inline-block;
+    margin:0 5px;
+}
+.archive-year-links .current-year {
+    font-size:2em;
+}
+.archive-year-links .prev-year:before{
+    content:"\00ab";
+}
+.archive-year-links .next-year:after{
+    content: "\00BB";
+} 

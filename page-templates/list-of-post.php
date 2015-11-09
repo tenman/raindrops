@@ -30,6 +30,7 @@ raindrops_debug_navitation( __FILE__ );
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
                 <div class="entry page list-of-post-entry">
                     <?php
+					raindrops_prepend_loop();
                     $query = get_query_var( 'paged' );
 
                     if ( have_posts() && is_page() && empty( $query ) ) {

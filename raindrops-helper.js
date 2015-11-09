@@ -337,5 +337,109 @@
             } );
         }
         
+       /**
+        * Comment form
+        * @1.334
+        */           
+				
+       var require_name_email = raindrops_script_vars.require_name_email;
+       
+       if( 9 <  parseInt( ieversion ) || !ieversion ) {
+            jQuery( '#comments .social label, #comments .social label + .option, #comments .social .comment-notes' ).css('display','none');
+            jQuery( "#respond textarea#comment, .social textarea#comment").css({'border-bottom':'2px solid #e14d43'}).attr("placeholder", raindrops_script_vars.placeholder_text_message );	
+            jQuery( "#respond textarea#comment, .social textarea#comment").attr("title", raindrops_script_vars.placeholder_text_required_message );
+            jQuery( '#comments .social #author' ).attr("placeholder", raindrops_script_vars.placeholder_text_comment_name );
+            jQuery( '#comments .social #email' ).attr("placeholder", raindrops_script_vars.placeholder_text_email );
+            jQuery( '#comments .social #url' ).attr("placeholder", raindrops_script_vars.placeholder_text_url );
+        }
+				
+        if( 1 ==  require_name_email ) {
+
+                jQuery('#comments .social input[required="required"]').css({'border-bottom':'2px solid #e14d43'});
+                jQuery( '#comments .social #email[required="required"]' ).attr("title", raindrops_script_vars.placeholder_text_required_email );
+                jQuery( '#comments .social #author[required="required"]' ).attr("title", raindrops_script_vars.placeholder_text_required_comment_name );
+
+                var inputvalue = jQuery( '#comments .social #author[required="required"]' ).attr("value");
+
+                if(inputvalue !== "") {
+                        jQuery('#comments .social #author[required="required"]').removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+                }
+
+                var inputvalue = jQuery( '#comments .social #email[required="required"]' ).attr("value");
+
+                if( validateEmail(inputvalue) ) {
+                        jQuery('#comments .social #email[required="required"]').removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+                }
+        }
+
+        jQuery("#respond textarea#comment, .social textarea#comment").live('change', function() {
+
+               var inputvalue = jQuery("#respond textarea#comment, .social textarea#comment").attr("value");
+
+               if(inputvalue !== "") {
+                       jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+               }   
+
+               else if(inputvalue === "") {
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');	
+               }
+
+       });
+			
+        jQuery('#comments .social #author[required="required"]').live('change', function() {
+
+                var inputvalue = jQuery( this ).attr("value");
+
+               if(inputvalue !== "") {
+                       jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+               }   
+
+               else if(inputvalue === "") {
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');	
+               }
+
+       });
+			
+        jQuery('#comments .social #email[required="required"]').live('change', function() {
+
+                var inputvalue = jQuery( this ).attr("value");
+
+                if(validateEmail(inputvalue) && '' !== inputvalue ) {
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+                } else if( false == validateEmail(inputvalue) ) {
+                         jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');	
+                }
+
+        });
+
+        jQuery('#comments .social #url').live('change', function() {
+
+                 var inputvalue = jQuery( this ).attr("value");
+
+                if(validateUrl(inputvalue)) {
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px green'); 
+                } else if('' !== inputvalue) {
+                         jQuery(this).removeAttr( 'style' ).css('border-bottom', '2px solid #e14d43');	
+                }
+
+        });
+
+        function validateEmail($email) {
+            var emailReg =  /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+            if (!emailReg.test($email)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        function validateUrl($url) {
+            var urlReg = /^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
+            if (!urlReg.test($url)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
     } );
 } )( jQuery );

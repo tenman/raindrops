@@ -132,7 +132,11 @@ raindrops_debug_navitation( __FILE__ );
                     }
                     ?>
                 </h2>
-                <?php raindrops_monthly_archive_prev_next_navigation(); ?>
+                <?php 
+				if(is_month()){
+					raindrops_monthly_archive_prev_next_navigation();
+				}
+				?>
                 <div class="datetable">
                     <?php echo $output; ?>
                 </div>

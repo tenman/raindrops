@@ -205,8 +205,9 @@ if ( !function_exists( 'raindrops_bcn_setup' ) ) {
 	function raindrops_bcn_setup() {
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
-
-			add_action( 'raindrops_after_nav_menu', 'raindrops_bcn_nav_menu' );
+			
+			add_action('raindrops_before_article', 'raindrops_bcn_nav_menu' );
+			add_action( 'raindrops_prepend_loop', 'raindrops_bcn_nav_menu' );
 			add_action( 'wp_enqueue_scripts', 'raindrops_bcn_css' );
 
 			if ( get_locale() == 'ja' ) {
@@ -233,7 +234,6 @@ if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
 
 			$html		 = '<ol class="breadcrumbs" itemprop="breadcrumbs">%1$s</ol>';
-			$breadcrumb	 = bcn_display_list( true );
 
 			if ( 'bbpress' !== $template_name && !is_home() && !is_front_page() && ( isset( $post ) && 0 !== $post->ID ) ) { // $post->ID for check the events calendar
 				$breadcrumb = bcn_display_list( true );
@@ -285,49 +285,64 @@ list-style:none;
 }
 
 @media screen and (max-width : 640px){
-	#doc3 ol.breadcrumbs{
-		margin:2em 0;
-	}
-	#doc3 .breadcrumbs li{
-		list-style:none;
-		margin:0;
-		padding:1em;
-		font-size:123%;
-	}
-	#doc3 .breadcrumbs li:after{
-	content: "\bb";
-	display:inline-block;
-	width:1em;
-	text-align:center;
-	}
-	.breadcrumbs li:nth-child(2) a{
-		margin:0 0 0 10px;
-	}
+	   .breadcrumbs{
+        display:block;
+        width:90%;
+        margin:0 5%;
+		box-sizing:border-box;
+    }
+    .yui-main .breadcrumbs li{
+        margin-left:1.5em;
+    }
+    .yui-main .breadcrumbs li{
+        display:block;
+    }
+    .yui-main .breadcrumbs li:after{
+        display:none;
+    }
+    .breadcrumbs{
+        margin:0 0 0 1em;
+        padding:0;
+        list-style:none;
+        position:relative;
+    }  
+    .yui-main .breadcrumbs:before {
+        content:"";
+        display:block;
+        width:0;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        border-left:1px solid;
+        font-weight:bold;
 
-	.breadcrumbs li:nth-child(3) a{
-		margin:0 0 0 20px;
-	}
-	.breadcrumbs li:nth-child(4) a{
-		margin:0 0 0 30px;
-	}
-	.breadcrumbs li:nth-child(5) a,
-	.breadcrumbs li:nth-child(6) a,
-	.breadcrumbs li:nth-child(7) a,
-	.breadcrumbs li:nth-child(8) a,
-	.breadcrumbs li:nth-child(9) a,
-	.breadcrumbs li:nth-child(10) a{
-		margin:0 0 0 40px;
-	}
-
-	.breadcrumbs li:after{
-		content: "";
-		display:inline-block;
-		width:2em;
-		text-align:center;
-	}
-	.current_item{
-		text-align:center;
-	}
+    }
+    .breadcrumbs li {
+        margin:0;
+        padding:0 1.5em;
+        line-height:2em;
+        font-weight:bold;
+        position:relative;
+        text-align:left;
+    }
+    .breadcrumbs li:before {
+        content:"";
+        display:block;
+        width:10px;
+        height:0;
+        border-top:1px solid;
+        margin-top:-1px;
+            position:absolute;
+        top:1em;
+        left:-1.5em;
+    }
+    
+    .breadcrumbs li:last-child:before {
+        height:auto;
+        top:1em;
+        bottom:0;
+    }
 }';
 			if ( WP_DEBUG !== true ) {
 

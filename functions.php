@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  *
@@ -9,6 +10,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 do_action( 'raindrops_before' );
+
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -1982,6 +1984,7 @@ if ( !function_exists( "raindrops_install_navigation" ) ) {
 		}
 	}
 }
+
 if ( !function_exists( "raindrops_delete_all_options" ) ) {
 
 	function raindrops_delete_all_options(){
@@ -2946,7 +2949,8 @@ if ( !function_exists( "raindrops_get_year" ) ) {
 			$months[ $m ][]	 = $post;
 		}
 		$year_label  = apply_filters( 'raindrops_archive_year_label', $year );
-		$output		 = "<h2 class=\"h2 year\"><span class=\"year-name\">$year_label</span></h2>";
+		// @1.334 $output		 = "<h2 class=\"h2 year\"><span class=\"year-name\">$year_label</span></h2>";
+		$output		= raindrops_archive_year_navigation( false );
 		$table_year	 = array( '<table id="raindrops_year_list"' . raindrops_doctype_elements( 'summary ="Archives in ' . esc_attr( $year ) . '"', '', false ) . '><tbody>', '<tr><td class="month-name">1</td><td></td></tr>', '<tr><td class="month-name">2</td><td></td></tr>', '<tr><td class="month-name">3</td><td></td></tr>', '<tr><td class="month-name">4</td><td></td></tr>', '<tr><td class="month-name">5</td><td></td></tr>', '<tr><td class="month-name">6</td><td></td></tr>', '<tr><td class="month-name">7</td><td></td></tr>', '<tr><td class="month-name">8</td><td></td></tr>', '<tr><td class="month-name">9</td><td></td></tr>', '<tr><td class="month-name">10</td><td></td></tr>', '<tr><td class="month-name">11</td><td></td></tr>', '<tr><td class="month-name">12</td><td></td></tr>', '</tbody></table>' );
 
 		foreach ( $months as $num => $val ) {
@@ -4905,33 +4909,48 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 		} else {
 			$kind_of_browser = 'rd-pc';
 		}
+		/* comments */
+		if( 1 == get_option('require_name_email')  ){ 
+			$raindrops_required_name_email = 1;
+			
+		} else {
+			$raindrops_required_name_email = 0;
+		}
+		
 		
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
-			'is_ie'					 => $is_IE,
-			'fluid_maximum_width'	 => $raindrops_fluid_maximum_width,
-			'browser_detection'		 => $raindrops_browser_detection,
-			'template'				 => $template,
-			'link_unique_text'		 => $raindrops_link_unique_text,
-			'header_image_uri'		 => $raindrops_header_image_uri,
-			'header_image_width'	 => $raindrops_header_image_width,
-			'header_image_height'	 => $raindrops_header_image_height,
-			'field_exists_check'	 => $raindrops_field_exists_check,
-			'restore_check'			 => $raindrops_restore_check,
-			'ratio'					 => apply_filters( 'raindrops_header_image_ratio', $ratio ),
-			'current_template'		 => $raindrops_current_template,
-			'ignore_template'		 => $raindrops_ignore_template,
-			'is_single'				 => $raindrops_is_single,
-			'is_page'				 => $raindrops_is_page,
-			'is_singular'			 => $raindrops_is_singular,
-			'browser_detection'		 => $raindrops_browser_detection,
-			'color_type'			 => $color_type,
-			'page_width'			 => $raindrops_page_width,
-			'accessibility_settings' => raindrops_warehouse_clone( 'raindrops_accessibility_settings' ),
-			'fallback_image_for_entry_content' => $raindrops_fallback_image_for_entry_content,
-			'blockquote_cite_i18n'   => esc_html__('cite:', 'raindrops' ),
-			'kind_of_browser'		 => $kind_of_browser,
-			)
-		);
+			'is_ie'									 => $is_IE,
+			'fluid_maximum_width'					 => $raindrops_fluid_maximum_width,
+			'browser_detection'						 => $raindrops_browser_detection,
+			'template'								 => $template,
+			'link_unique_text'						 => $raindrops_link_unique_text,
+			'header_image_uri'						 => $raindrops_header_image_uri,
+			'header_image_width'					 => $raindrops_header_image_width,
+			'header_image_height'					 => $raindrops_header_image_height,
+			'field_exists_check'					 => $raindrops_field_exists_check,
+			'restore_check'							 => $raindrops_restore_check,
+			'ratio'									 => apply_filters( 'raindrops_header_image_ratio', $ratio ),
+			'current_template'						 => $raindrops_current_template,
+			'ignore_template'						 => $raindrops_ignore_template,
+			'is_single'								 => $raindrops_is_single,
+			'is_page'								 => $raindrops_is_page,
+			'is_singular'							 => $raindrops_is_singular,
+			'browser_detection'						 => $raindrops_browser_detection,
+			'color_type'							 => $color_type,
+			'page_width'							 => $raindrops_page_width,
+			'accessibility_settings'				 => raindrops_warehouse_clone( 'raindrops_accessibility_settings' ),
+			'fallback_image_for_entry_content'		 => $raindrops_fallback_image_for_entry_content,
+			'blockquote_cite_i18n'					 => esc_html__( 'cite:', 'raindrops' ),
+			'kind_of_browser'						 => $kind_of_browser,
+			'require_name_email'					 => $raindrops_required_name_email,
+			'placeholder_text_message'				 => esc_html__( "Message", 'raindrops' ),
+			'placeholder_text_required_message'		 => esc_html__( "Required Your Message", 'raindrops' ),
+			'placeholder_text_comment_name'			 => esc_html__( "Name", 'raindrops' ),
+			'placeholder_text_required_comment_name' => esc_html__( "Required Your Name", 'raindrops' ),
+			'placeholder_text_email'				 => esc_html__( "Email Address", 'raindrops' ),
+			'placeholder_text_required_email'		 => esc_html__( "Required Your Email", 'raindrops' ),
+			'placeholder_text_url'					 => esc_html__( "Website", 'raindrops' ),
+		) );
 		
 		wp_reset_postdata( );
 	}
@@ -4952,7 +4971,7 @@ if ( !function_exists( 'raindrops_custom_width' ) ) {
 		$c_width				 = (int) $raindrops_page_width;
 		$width					 = $c_width / 13;
 		$ie_width				 = $width * 0.9759;
-	//	return "/* test: $c_width */";
+
 		$custom_content_width	 = '/* set custom content width start */' . '#custom-doc {margin:auto;text-align:left;' . "\n" . 'width:' . round( $width, 0 ) . 'em;' . "\n" . '*width:' . round( $ie_width, 0 ) . 'em;' . "\n" . 'min-width:' . round( $width * 0.7, 0 ) . 'em;}/* set custom content width end */';
 		return apply_filters( "raindrops_custom_width", $custom_content_width );
 	}
@@ -5141,7 +5160,22 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 					.rd-pw-doc5.rd-col-1 #ft address{
 						margin:1em auto;
 					}
-
+					/* div > div for xhtml */
+					.rd-pw-doc5.rd-col-1.search .search-results > div > div,
+					.rd-pw-doc5.rd-col-1.tag > div > div,
+					.rd-pw-doc5.rd-col-1.single .post,
+					.rd-pw-doc5.rd-col-1.page .page .page,
+					.rd-pw-doc5.rd-col-1 .loop-1  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-2  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-3  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-4  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-5  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-6  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-7  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-8  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-9  > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-10 > div > div,
+					.rd-pw-doc5.rd-col-1 .loop-item-show-allways > div > div,
 				.rd-pw-doc5.rd-col-1.error404 .entry-title,
 					.rd-pw-doc5.rd-col-1.archive.author main,
 					.rd-pw-doc5.rd-col-1.archive .raindrops-monthly-archive-prev-next-avigation,
@@ -5315,6 +5349,7 @@ if ( !function_exists( 'raindrops_page_menu_args' ) ) {
 	}
 
 }
+
 /**
  *
  *
@@ -5343,6 +5378,8 @@ if ( !function_exists( 'insert_message_action_hook_position' ) ) {
 				add_action( 'raindrops_prepend_entry_content', 'raindrops_action_hook_messages' );
 				add_action( 'raindrops_prepend_loop', 'raindrops_action_hook_messages' );
 				add_action( 'raindrops_append_loop', 'raindrops_action_hook_messages' );
+				add_action( 'raindrops_before_article', 'raindrops_action_hook_messages' );
+				add_action( 'raindrops_after_article', 'raindrops_action_hook_messages' );
 		}
 	}
 
@@ -5415,7 +5452,7 @@ if ( !function_exists( 'raindrops_action_hook_messages' ) ) {
 		}
 
 		if( true == $raindrops_actions_hook_message ) {
-
+			
 			if ( isset( $args ) && array_key_exists( 'hook_name', $args ) && array_key_exists( 'template_part_name', $args ) ) {
 
 				$message = esc_html__( 'add_action(  \'%1$s\', \'your_function\'  ) or add template part file the name \'%2$s\'.', 'raindrops' );
@@ -5610,6 +5647,40 @@ if ( !function_exists( 'raindrops_append_footer' ) ) {
 		$args = array( 'hook_name' => 'raindrops_append_footer', 'template_part_name' => 'hook-append-footer.php' );
 		get_template_part( 'hook', 'append-footer' );
 		do_action( 'raindrops_append_footer', $args );
+	}
+
+}
+/**
+ *
+ *
+ *
+ *
+ * @since 1.334
+ */
+if ( !function_exists( 'raindrops_before_article' ) ) {
+
+	function raindrops_before_article() {
+
+		$args = array( 'hook_name' => 'raindrops_before_article', 'template_part_name' => 'hook_before_article.php' );
+		get_template_part( 'hook', 'before_article' );
+		do_action( 'raindrops_before_article', $args );
+	}
+
+}
+/**
+ *
+ *
+ *
+ *
+ * @since 1.334
+ */
+if ( !function_exists( 'raindrops_after_article' ) ) {
+
+	function raindrops_after_article() {
+
+		$args = array( 'hook_name' => 'raindrops_after_article', 'template_part_name' => 'hook_after_article.php' );
+		get_template_part( 'hook', 'after_article' );
+		do_action( 'raindrops_after_article', $args );
 	}
 
 }
@@ -5955,8 +6026,9 @@ function raindrops_the_pagenation( $html , $position){
 	if ( function_exists( 'get_the_posts_pagination' ) && $position == 'nav-below' ) {
 
 		if ( $raindrops_document_type == 'html5' ) {
-
-			return get_the_posts_pagination( );
+			
+			$result = str_replace( array('role="navigation"'),array(''), get_the_posts_pagination() );
+			return $result;
 		} elseif( $raindrops_document_type == 'xhtml' ) {
 
 			$result = str_replace( array('<nav ','</nav>'),array('<div ', '</div>'), get_the_posts_pagination() );
@@ -10569,6 +10641,71 @@ if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 		return $style;
 	}
 }
+
+function raindrops_archive_year_navigation ( $echo = true ) {
+
+	$html			 = '<li><a href="%1$s" class="%2$s"><span class="screen-reader-text">%3$s</span>%4$s</a></li>';
+	$result			 = '<ul class="archive-year-links">';
+	$year_current	 = get_query_var( 'year' );
+	$year_list		 = get_posts( array( 'post_status' => 'publish', 'posts_per_page' => -1, 'order' => 'ASC' ) );
+
+	foreach ( $year_list as $list ) {
+
+		$years[] = substr( $list->post_date, 0, 4 );
+	}
+	$years = array_values( array_unique( $years, SORT_NUMERIC ) );
+
+	$before			 = '';
+	$after			 = '';
+	
+	$last			 = end( $years );
+	$first			 = reset( $years );
+	
+	$not_set_before	 = false;
+	
+	foreach ( $years as $key => $year ) {
+
+		$year				 = absint( $year );
+		$class				 = sanitize_html_class( 'year-' . $year );
+		$link				 = esc_url( get_year_link( $year ) );
+		$screen_reader_text	 = esc_html__( 'Link to Year Archives ', 'raindrops' );
+		$year_text			 = raindrops_year_name_filter( $year );
+
+		if ( $year_current == $year ) {
+			if ( $first !== $year ) {
+				$not_set_before = true;
+			}
+			if ( $last !== $year ) {
+				$break_point = $key + 1;
+			}
+			$class = 'current-year';
+
+			$current = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
+		}
+		if ( isset( $break_point ) && $key == $break_point ) {
+			$class = 'next-year';
+			$after = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
+			break;
+		}
+		if ( true !== $not_set_before ) {
+			$class = 'prev-year';
+			$before = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
+		}
+	}
+	$result .= $before . $current . $after;
+	$result .= '</ul>';
+	
+	wp_reset_postdata();
+	
+	if ( true !== $echo ) {
+
+		return $result;
+	} else {
+
+		echo $result;
+	}
+}
+
 /**
  *
  *

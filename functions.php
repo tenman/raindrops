@@ -950,7 +950,7 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 	 */
 
 	function raindrops_add_share_link( $posted_in ) {
-		
+
 		global $raindrops_allow_share_link, $raindrops_share_link_image, $is_IE, $post;
 
 		/* Widdows10 edge browser */
@@ -973,33 +973,33 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 			$title	 = urlencode( get_the_title( $id ) );
 			$url	 = urlencode( esc_url( get_permalink( $id ) ) );
 
-			$array_options	 = array( 
+			$array_options	 = array(
 				' - - - '			 => array( 'type' =>'', 'url' => '', 'icon' => '' ),
 				'tweet'			 => array( 'type' =>'link', 'url' => 'https://twitter.com/intent/tweet?text=%title%&amp;url=%url%', 'icon' => '' ),
-				'html'			 => array( 'type' =>'data','url' => 'data:text', 'icon' => '' ) 
+				'html'			 => array( 'type' =>'data','url' => 'data:text', 'icon' => '' )
 			);
 			$array_options	 = apply_filters( 'raindrops_add_share_link_args', $array_options );
 
 			$select	 = '<form name="raindrops_share" id="raindrops_share">
-							<select name="share_links" onchange="sample()" id="share_links" class="share-links">
+							<select name="share_links" onchange="raindrops_share_href()" id="share_links" class="share-links">
 							%1$s</select>
 						</form>';
 			$option	 = '<option value="%1$s" class="%3$s" data-icon="%4$s">%2$s</option>' . "\n";
 			$i		 = 0;
 			$options = '';
-			
+
 			foreach ( $array_options as $key => $val ) {
 
 				$replaced_url	 = str_replace( array( '%title%', '%url%' ), array( $title, $url ), $val[ 'url' ] );
-				
+
 				if( 'link' == $val['type'] ) {
-					
+
 					$replaced_url	 = esc_url( $replaced_url );
 				} elseif( 'data' == $val['type'] ) {
-					
+
 					$replaced_url = esc_html( $val[ 'url' ] );
 				} else {
-					
+
 					$replaced_url = '';
 				}
 
@@ -1687,11 +1687,11 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 		global $raindrops_current_theme_name, $raindrops_current_data_version, $raindrops_css_auto_include,$raindrops_fallback_human_interface_show;
 		/* @1.333 */
 		if( true == $raindrops_fallback_human_interface_show){
-			
+
 			$fallback_style = get_template_directory_uri() . '/fallback.css';
 			wp_register_style( 'fallback_style', $fallback_style, array(), $raindrops_current_data_version, 'all' );
 			wp_enqueue_style( 'fallback_style' );
-			
+
 			return;
 		}
 
@@ -4709,7 +4709,7 @@ if ( !function_exists( "raindrops_fallback_human_interface" ) ) {
 		}
 	}
 }
- * 
+ *
  */
 /**
  *
@@ -4762,7 +4762,7 @@ if ( !function_exists( "small_screen_check" ) ) {
 		return false;
 	}
 }
- * 
+ *
  */
 /**
  *
@@ -4830,7 +4830,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 	function raindrops_load_small_device_helper() {
 
 		global $raindrops_current_data_version, $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text, $raindrops_fallback_image_for_entry_content_enable,$raindrops_fallback_human_interface_show;
-	
+
 		if( true == $raindrops_fallback_human_interface_show ) {
 			return;
 		}
@@ -4951,14 +4951,14 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			$kind_of_browser = 'rd-pc';
 		}
 		/* comments */
-		if( 1 == get_option('require_name_email')  ){ 
+		if( 1 == get_option('require_name_email')  ){
 			$raindrops_required_name_email = 1;
-			
+
 		} else {
 			$raindrops_required_name_email = 0;
 		}
-		
-		
+
+
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'									 => $is_IE,
 			'fluid_maximum_width'					 => $raindrops_fluid_maximum_width,
@@ -4994,7 +4994,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'home_url'								 => home_url(),
 			'content_shareing'						 => raindrops_content_shareing(),
 		) );
-		
+
 		wp_reset_postdata( );
 	}
 }
@@ -5495,7 +5495,7 @@ if ( !function_exists( 'raindrops_action_hook_messages' ) ) {
 		}
 
 		if( true == $raindrops_actions_hook_message ) {
-			
+
 			if ( isset( $args ) && array_key_exists( 'hook_name', $args ) && array_key_exists( 'template_part_name', $args ) ) {
 
 				$message = esc_html__( 'add_action(  \'%1$s\', \'your_function\'  ) or add template part file the name \'%2$s\'.', 'raindrops' );
@@ -6069,7 +6069,7 @@ function raindrops_the_pagenation( $html , $position){
 	if ( function_exists( 'get_the_posts_pagination' ) && $position == 'nav-below' ) {
 
 		if ( $raindrops_document_type == 'html5' ) {
-			
+
 			$result = str_replace( array('role="navigation"'),array(''), get_the_posts_pagination() );
 			return $result;
 		} elseif( $raindrops_document_type == 'xhtml' ) {
@@ -8675,7 +8675,7 @@ if ( !function_exists( 'raindrops_link_url_text_decode' ) ) {
 
 			$replace = urldecode( $matches[1] );
 			$replace = esc_html( $replace );
-			
+
 
 			return preg_replace("|(>.*)?". $matches[1]."*?</a>|", "$1{$replace}$2", $matches[0] );
 		}
@@ -9793,11 +9793,11 @@ if ( ! function_exists( 'raindrops_article_wrapper_class' ) ) {
 		global $post;
 			$class = array();
 			if (isset( $post ) && preg_match( '!<[^>]*?(lang-ja|lang-not-ja)[^>]*?>!', $post->post_content ) ) {
-				
+
 				$detect_lang = raindrops_get_accept_language( );
-				
+
 				if ( ! empty( $detect_lang ) ) {
-					
+
 					$class[] = sanitize_html_class( 'rd-l-'. $detect_lang );
 				}
 			}
@@ -10593,7 +10593,7 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 		//$excerpt	 = str_replace( array("'"),array('&#39;'), $excerpt );
 		$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 		$excerpt				 = esc_html__( 'Published:', 'raindrops' ) . get_the_date( $raindrops_date_format, $post->ID );
-		
+
 		$permalink				 = get_permalink( $post->ID );
 
 		if ( isset( $blog_id ) && is_multisite() ) {
@@ -10666,15 +10666,15 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 
 if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 	/**
-	 * 
+	 *
 	 * @param type $style
 	 * @return array
 	 * @1.330
-	 */	
+	 */
 	function raindrops_localize_style_add( $style ) {
 
 		 $locale = get_locale();
-		 
+
 		if ( false !== ( $url = raindrops_locate_url( 'fonts.css' ) ) ) {
 			$style[] = $url;
 		}
@@ -10700,12 +10700,12 @@ function raindrops_archive_year_navigation ( $echo = true ) {
 
 	$before			 = '';
 	$after			 = '';
-	
+
 	$last			 = end( $years );
 	$first			 = reset( $years );
-	
+
 	$not_set_before	 = false;
-	
+
 	foreach ( $years as $key => $year ) {
 
 		$year				 = absint( $year );
@@ -10737,9 +10737,9 @@ function raindrops_archive_year_navigation ( $echo = true ) {
 	}
 	$result .= $before . $current . $after;
 	$result .= '</ul>';
-	
+
 	wp_reset_postdata();
-	
+
 	if ( true !== $echo ) {
 
 		return $result;

@@ -2,16 +2,16 @@
 
     jQuery( function ( ) {
         /* test code @see functions.php raindrops_article_wrapper_class() */
-        try{  
+        try{
             jQuery( '.index.archives li > div' ).addClass( 'rd-l-' + navigator.language );
-        }catch(e){  
+        }catch(e){
             jQuery( '.index.archives li > div' ).addClass( 'rd-l-unknown' );
-        }finally{  }  
-        
+        }finally{  }
+
         if ( raindrops_script_vars.page_width == 'doc3' || raindrops_script_vars.page_width == 'doc5' ) {
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
-         
+
             function raindrops_resizes( ) {
 
                 if ( raindrops_script_vars.restore_check !== 'remove-header' ) {
@@ -22,7 +22,7 @@
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
                   /*  jQuery( '#header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block' } );*/
-                      
+
                 }
             }
 
@@ -85,15 +85,15 @@
                     var ie_num = userAgent.match( /MSIE (\d+\.\d+);/i );
                     var ieversion = parseInt( ie_num[1], 10 );
                     jQuery( 'body' ).addClass( 'ie' + ieversion );
-                    
+
                 } else if ( userAgent.match( /Edge\/12/i ) ) {
 
                     jQuery( 'body' ).addClass( 'edge' );
-                
+
                 } else if ( userAgent.match( /Trident/i ) && userAgent.match( /rv:11/i )) {
 
                     jQuery( 'body' ).addClass( 'ie11' );
-                
+
                 } else if ( userAgent.match( /Edge/i ) ) {
 
                    // jQuery( 'body' ).addClass( 'Edge' );
@@ -110,20 +110,20 @@
 
                     jQuery( 'body' ).addClass( 'firefox' );
                 } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
-                    
+
                     var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
                     try{
                         var version = parseInt( match[2], 10 );
                     }catch(error){
                         var version = -1; //match == null for no match
                     }
-                    
+
                     if ( version == 11 ) {
                         jQuery( 'body' ).addClass( 'ie11' );
                     } else {
                         jQuery( 'body' ).addClass( 'gecko' );
                     }
-                    
+
                 } else if ( userAgent.indexOf( 'iphone' ) != -1 ) {
 
                     jQuery( 'body' ).addClass( 'iphone' );
@@ -180,7 +180,7 @@
                     }
                     // Only Japanese Languages
                     if( jQuery('div[class^=rd-l-]') ) {
-                        
+
                         function raindrops_language_detect() {
                             try {
                                 return (navigator.browserLanguage || navigator.language || navigator.userLanguage);
@@ -189,12 +189,12 @@
                                  return -1;
                             }
                         }
-                        
-                        if ( raindrops_language_detect() ) {                    
-                            var accept_language_class = 'rd-l-' + raindrops_language_detect();                                  
+
+                        if ( raindrops_language_detect() ) {
+                            var accept_language_class = 'rd-l-' + raindrops_language_detect();
                             jQuery('div[class^=rd-l-]').removeClass().addClass( accept_language_class );
                         }
-                        
+
                         if( jQuery('.single div[class^=rd-l-] .entry-content div').hasClass('lang-not-ja') ||
                             jQuery( '.page div[class^=rd-l-] .entry-content div').hasClass('lang-not-ja') ) {
                                 jQuery( '.single div[class^=rd-l-] .entry-content,.page div[class^=rd-l-] .entry-content').prepend( '<button id="show_all_lang" class="pad-s clearfix">Show All Languages</button>' );
@@ -212,25 +212,25 @@
             jQuery( window ).resize( function ( ) {
                 raindrops_resizes( )
             } );
- 
+
 
             jQuery( '#access' ).find( 'a' ).on( 'focus.raindrops blur.raindrops', function ( ) {
                // jQuery( this ).parents( '.menu-header .menu, .menu-item, .page_item, .skip-link' ).toggleClass( 'focus' );
                 jQuery( this ).parents( ).toggleClass( 'focus' );
             } );
-            
-           
+
+
            /*
             * While using the keyboard interface, if you use a mouse, they affect the display of menu If you do not remove the focus class
             */
             jQuery( '#access' ).on('mousemove','a', function(){
-               jQuery( this ).toggleClass('focus').parents( ).children().removeClass('focus'); 
+               jQuery( this ).toggleClass('focus').parents( ).children().removeClass('focus');
             });
 
         } else {
 
 
-            
+
             if ( raindrops_script_vars.browser_detection !== 1 ) {
 
 
@@ -325,34 +325,34 @@
                     }
                // }
             }
-            
-            
+
+
         }
 
         // "//www.tenman.info/wpdev/wp-content/uploads/2015/08/404.jpg"
         /* show alternative image when image of entry content not exists */
-        if( /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(raindrops_script_vars.fallback_image_for_entry_content ) ) { 
+        if( /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(raindrops_script_vars.fallback_image_for_entry_content ) ) {
             jQuery( ".entry-content img" ).error( function () {
                 jQuery( this ).unbind( "error" ).attr( "src", raindrops_script_vars.fallback_image_for_entry_content );
             } );
         }
-        
+
        /**
         * Comment form
         * @1.334
-        */           
-				
+        */
+
        var require_name_email = raindrops_script_vars.require_name_email;
-       
+
        if( 9 <  parseInt( ieversion ) || !ieversion ) {
             jQuery( '#comments .social label, #comments .social label + .option, #comments .social .comment-notes' ).css('display','none');
-            jQuery( "#respond textarea#comment, .social textarea#comment").css({'border-bottom':'2px solid #e14d43'}).attr("placeholder", raindrops_script_vars.placeholder_text_message );	
+            jQuery( "#respond textarea#comment, .social textarea#comment").css({'border-bottom':'2px solid #e14d43'}).attr("placeholder", raindrops_script_vars.placeholder_text_message );
             jQuery( "#respond textarea#comment, .social textarea#comment").attr("title", raindrops_script_vars.placeholder_text_required_message );
             jQuery( '#comments .social #author' ).attr("placeholder", raindrops_script_vars.placeholder_text_comment_name );
             jQuery( '#comments .social #email' ).attr("placeholder", raindrops_script_vars.placeholder_text_email );
             jQuery( '#comments .social #url' ).attr("placeholder", raindrops_script_vars.placeholder_text_url );
         }
-				
+
         if( 1 ==  require_name_email ) {
 
                 jQuery('#comments .social input[required="required"]').css({'border-bottom':'2px solid #e14d43'});
@@ -362,13 +362,13 @@
                 var inputvalue = jQuery( '#comments .social #author[required="required"]' ).attr("value");
 
                 if(inputvalue !== "") {
-                        jQuery('#comments .social #author[required="required"]').removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+                        jQuery('#comments .social #author[required="required"]').removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274');
                 }
 
                 var inputvalue = jQuery( '#comments .social #email[required="required"]' ).attr("value");
 
                 if( validateEmail(inputvalue) ) {
-                        jQuery('#comments .social #email[required="required"]').removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+                        jQuery('#comments .social #email[required="required"]').removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274');
                 }
         }
 
@@ -377,37 +377,37 @@
                var inputvalue = jQuery("#respond textarea#comment, .social textarea#comment").attr("value");
 
                if(inputvalue !== "") {
-                       jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
-               }   
+                       jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274');
+               }
 
                else if(inputvalue === "") {
-                        jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');	
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');
                }
 
        });
-			
+
         jQuery('#comments .social #author[required="required"]').live('change', function() {
 
                 var inputvalue = jQuery( this ).attr("value");
 
                if(inputvalue !== "") {
-                       jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
-               }   
+                       jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274');
+               }
 
                else if(inputvalue === "") {
-                        jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');	
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');
                }
 
        });
-			
+
         jQuery('#comments .social #email[required="required"]').live('change', function() {
 
                 var inputvalue = jQuery( this ).attr("value");
 
                 if(validateEmail(inputvalue) && '' !== inputvalue ) {
-                        jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274'); 
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px #56b274');
                 } else if( false == validateEmail(inputvalue) ) {
-                         jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');	
+                         jQuery(this).removeAttr( 'style' ).css('border-bottom','2px solid #e14d43');
                 }
 
         });
@@ -417,9 +417,9 @@
                  var inputvalue = jQuery( this ).attr("value");
 
                 if(validateUrl(inputvalue)) {
-                        jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px green'); 
+                        jQuery(this).removeAttr( 'style' ).css('border-bottom', 'solid 2px green');
                 } else if('' !== inputvalue) {
-                         jQuery(this).removeAttr( 'style' ).css('border-bottom', '2px solid #e14d43');	
+                         jQuery(this).removeAttr( 'style' ).css('border-bottom', '2px solid #e14d43');
                 }
 
         });
@@ -440,13 +440,13 @@
                 return true;
             }
         }
-        
+
         /**
          * add external class for external links
          */
 
          jQuery('a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').addClass('external');
-        
+
         /**
          * add rel="nofollow" for External links that have been described in the comment text
          */
@@ -454,10 +454,10 @@
     } );
 } )( jQuery );
 
-function sample() {
-    
+function raindrops_share_href() {
+
     var browser = document.raindrops_share.share_links.value;
-    
+
     if ( browser == 'data:text' ) {
         location.href = raindrops_script_vars.content_shareing;
     } else {

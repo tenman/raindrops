@@ -1,4 +1,34 @@
 Changelog -----------------------------------
+version:1.335
+Overview of Changes
+
+	Added Twitter tweet link at posted in share
+	Added share.png for share link
+	Modified change hook position raindrops_before_article(),raindrops_after_article()
+	Modified add CSS Class 'external' for externallink
+	Added Add scrollbar for Table elements wider than content width
+		mean for responsive presentation.
+		When If you no needs scrollbar, Please add CSS Class 'rd-no-scroll' at table element
+	Modified If comment text has external link, add attribute rel="nofollow"
+
+Files Modified
+
+	modified:   image.php
+	modified:   index.php
+	modified:   lib/csscolor.css.php
+	modified:   loop.php
+	modified:   page-templates/full-width.php
+	modified:   page.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   single.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.334&new_path=raindrops/1.335
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.334
 Overview of Changes
 

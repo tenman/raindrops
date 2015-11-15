@@ -8,6 +8,8 @@ ver1.245 add image
 images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg
 var1.279 add image
 images/screenshot-example-header.jpg
+var1.335 add image
+images/share.png
 
 Above images License
 

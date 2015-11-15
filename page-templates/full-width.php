@@ -28,10 +28,9 @@ raindrops_debug_navitation( __FILE__ );
 				the_post();
 				?>
 				
-				<div class="entry page">
+				<div class="entry page"><?php raindrops_before_article(); ?>
 					<div id="post-<?php the_ID(); ?>">
 						<<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
-						<?php raindrops_before_article(); ?>
 							<?php
 							raindrops_entry_title();
 							?>
@@ -67,9 +66,8 @@ raindrops_debug_navitation( __FILE__ );
 							comments_template( '', true );
 							?>
 						</div>
-					</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
-					<?php raindrops_after_article(); ?>
-				</div>
+					</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>					
+				</div><?php raindrops_after_article(); ?>
 				<?php
 			} //endwhile 
 			raindrops_next_prev_links( "nav-below" );

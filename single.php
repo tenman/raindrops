@@ -82,8 +82,8 @@ raindrops_debug_navitation( __FILE__ );
 
                             echo '<!--Single Post Format or 2 Category ' . $cat . ' start-->';
                         }
-                        ?><div id="post-<?php the_ID(); ?>"  class="<?php echo raindrops_article_wrapper_class();?>">
-						<?php raindrops_before_article(); ?>
+                        raindrops_before_article(); ?>
+						<div id="post-<?php the_ID(); ?>"  class="<?php echo raindrops_article_wrapper_class();?>">
                         <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                         <?php
 						$raindrops_sticky_conditional = raindrops_warehouse_clone( 'raindrops_display_sticky_post' );
@@ -125,8 +125,15 @@ raindrops_debug_navitation( __FILE__ );
             echo '<!-- #post-' . get_the_ID() . ' -->';
         }
 		?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
-		<?php raindrops_after_article(); ?></div>
 		<?php
+			$short_link = wp_get_shortlink();
+			$article_title = get_the_title().'%0a';
+		?>
+		</div>
+
+		<?php 
+		raindrops_after_article();
+		
 		raindrops_prev_next_post( 'nav-below' );
 		
 		comments_template( '', true );

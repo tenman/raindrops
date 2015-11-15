@@ -29,9 +29,8 @@ raindrops_debug_navitation( __FILE__ );
 					while ( have_posts() ) {
 
 					the_post();
-					?>
-					<div id="post-<?php the_ID(); ?>"  <?php raindrops_post_class(); ?>>
-						<?php raindrops_before_article(); ?>
+					raindrops_before_article(); ?>
+					<div id="post-<?php the_ID(); ?>"  <?php raindrops_post_class(); ?>>		
 						<div class="entry attachment raindrops-image-page">
 							<h2 class="image-title h2"><?php the_title(); ?></h2>
 							<?php
@@ -97,14 +96,13 @@ raindrops_debug_navitation( __FILE__ );
 								<br class="clear" />
 							</div>
 						</div>
-						<?php raindrops_after_article(); ?>	
 						<br class="clear" />
 						<?php
 						edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
 						raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 						?>
-					</div>
+					</div><?php raindrops_after_article(); ?>	
 					<?php
 					} // while ( have_posts( ) )
 				} else {

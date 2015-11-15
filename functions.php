@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  *
@@ -951,32 +950,74 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 	 */
 
 	function raindrops_add_share_link( $posted_in ) {
-		global $raindrops_allow_share_link, $raindrops_share_link_image, $is_IE;
+		
+		global $raindrops_allow_share_link, $raindrops_share_link_image, $is_IE, $post;
 
 		/* Widdows10 edge browser */
-		$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+		$http_user_agent = filter_input( INPUT_ENV, 'HTTP_USER_AGENT' );
 
-		if( $is_IE || preg_match('!Edge!', $http_user_agent ) ) {
+		if ( $is_IE || preg_match( '!Edge!', $http_user_agent ) ) {
 
 			return $posted_in;
 		}
 
 		$eye_candy_image = '';
 
-		if( 'post_thumbnail' == $raindrops_share_link_image ) {
+		if ( 'post_thumbnail' == $raindrops_share_link_image ) {
 			$eye_candy_image = 'post_thumbnail';
 		}
 
-		if( is_singular() && true == $raindrops_allow_share_link && !$is_IE ) {
+		if ( isset( $post->ID ) && is_singular() && true == $raindrops_allow_share_link && !$is_IE ) {
 
-			ob_start();
-			?><a href='<?php echo raindrops_content_shareing( $eye_candy_image );?>' target="_blank" class="share-link"><?php esc_html_e('Share', 'raindrops');?></a><?php
-			$share_link = ob_get_clean();
-			return $posted_in. $share_link;
+			$id		 = absint( $post->ID );
+			$title	 = urlencode( get_the_title( $id ) );
+			$url	 = urlencode( esc_url( get_permalink( $id ) ) );
+
+			$array_options	 = array( 
+				' - - - '			 => array( 'type' =>'', 'url' => '', 'icon' => '' ),
+				'tweet'			 => array( 'type' =>'link', 'url' => 'https://twitter.com/intent/tweet?text=%title%&amp;url=%url%', 'icon' => '' ),
+				'html'			 => array( 'type' =>'data','url' => 'data:text', 'icon' => '' ) 
+			);
+			$array_options	 = apply_filters( 'raindrops_add_share_link_args', $array_options );
+
+			$select	 = '<form name="raindrops_share" id="raindrops_share">
+							<select name="share_links" onchange="sample()" id="share_links" class="share-links">
+							%1$s</select>
+						</form>';
+			$option	 = '<option value="%1$s" class="%3$s" data-icon="%4$s">%2$s</option>' . "\n";
+			$i		 = 0;
+			$options = '';
+			
+			foreach ( $array_options as $key => $val ) {
+
+				$replaced_url	 = str_replace( array( '%title%', '%url%' ), array( $title, $url ), $val[ 'url' ] );
+				
+				if( 'link' == $val['type'] ) {
+					
+					$replaced_url	 = esc_url( $replaced_url );
+				} elseif( 'data' == $val['type'] ) {
+					
+					$replaced_url = esc_html( $val[ 'url' ] );
+				} else {
+					
+					$replaced_url = '';
+				}
+
+				$icon = esc_html( $val[ 'icon' ] );
+
+				$post_class = 'share-link ' . sanitize_html_class( $key, 'share-' . $i );
+				$options .= sprintf( $option, $replaced_url, $key, $post_class, $icon );
+
+				$i++;
+			}
+			$result = sprintf( $select, $options );
+
+			return $posted_in . apply_filters( 'raindrops_add_share_link', $result );
 		}
 
 		return $posted_in;
 	}
+
 }
 /**
  * Template function posted in
@@ -4950,6 +4991,8 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'placeholder_text_email'				 => esc_html__( "Email Address", 'raindrops' ),
 			'placeholder_text_required_email'		 => esc_html__( "Required Your Email", 'raindrops' ),
 			'placeholder_text_url'					 => esc_html__( "Website", 'raindrops' ),
+			'home_url'								 => home_url(),
+			'content_shareing'						 => raindrops_content_shareing(),
 		) );
 		
 		wp_reset_postdata( );
@@ -7470,13 +7513,13 @@ if ( !function_exists( 'raindrops_nav_menu_primary' ) ) {
 				$raindrops_nav_menu_primary = wp_nav_menu( $args );
 			}
 
-			$template = '<p class="' . $args[ 'wrap_mobile_class' ] . '">
-						<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
-						<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
-						 </p>
-						<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '" class="clearfix" aria-label="%4$s">
-						%2$s
-						</%3$s>';
+			$template = "\n". str_repeat("\t", 4 ). '<p class="' . $args[ 'wrap_mobile_class' ] . '">
+					<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
+					<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
+					 </p>
+					<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '" class="clearfix" aria-label="%4$s">
+					%2$s
+					</%3$s>';
 
 			do_action( 'raindrops_nav_menu_primary' );
 			$html = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ) , esc_attr__( 'Primary Navigation', 'raindrops' ) );

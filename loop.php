@@ -34,8 +34,9 @@ if ( have_posts() ) {
 
         $raindrops_loop_number++;
         ?>
-		<div id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
-			<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>		
+
+									<div id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
+										<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>		
         <?php
         $format = get_post_format();
         /**
@@ -70,12 +71,15 @@ if ( have_posts() ) {
              */
         } else {
             ?>
-									<?php raindrops_entry_title(); 
-
+										<?php raindrops_entry_title();?> 
+										<?php
 										if( 'before' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
-											?><div class="posted-on" ><?php
+											?>	<div class="posted-on" ><?php
 											raindrops_posted_on();
-											?></div><?php
+											?>
+											
+											</div>
+										<?php
 										}
 										
 										if( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
@@ -85,14 +89,14 @@ if ( have_posts() ) {
 										}
 										?>
 
-										<div class="entry-content clearfix">
+											<div class="entry-content clearfix">
 											
 										<?php raindrops_prepend_entry_content();?>
-										<?php raindrops_entry_content(); ?>
-											<br class="clear" />
+											<?php raindrops_entry_content(); ?>
+												<br class="clear" />
 										<?php raindrops_append_entry_content(); ?>
 											
-										</div>
+											</div>
 										<?php 
 										
 										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
@@ -107,9 +111,9 @@ if ( have_posts() ) {
 											?></div><?php
 										}
 										?>
-            <?php
-            }
-            ?>
+		<?php
+		}
+		?>
 
 									</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
 		</div>

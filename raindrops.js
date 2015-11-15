@@ -155,3 +155,11 @@
         jQuery(".raindrops-tab-list li").each(function (i) { jQuery(this).attr('tabindex', 0); });
     });
 })(jQuery);
+
+(function() {
+    jQuery(function() {
+        jQuery("table").not('.rd-no-scroll').each(function (i) { 
+            jQuery(this).wrap('<div class="rd-table-wrapper"></div>') 
+        });
+    });
+})(jQuery);

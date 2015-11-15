@@ -277,6 +277,9 @@ list-style:none;
 .entry-content li ul{
 	margin-top:1em;
 }
+.breadcrumbs a:hover{
+	opacity:0.75;
+}
 .entry-content ul .raindrops-toggle{
 	list-style:none;
 }

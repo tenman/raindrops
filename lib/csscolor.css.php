@@ -69,17 +69,21 @@ function raindrops_indv_css_dark() {
     border-bottom:1px solid rgba(122,122,122,.5);
 }
 
-#access .sub-menu li a,
-#access .children li a{
-    border:1px solid #ccc;
+#access .sub-menu,
+#access .children{
+	border:1px solid #ccc;
 	border:1px solid rgba(222,222,222,.5);
 }
-#access li:hover > ul > ul{
-
-	/*  @1.324 border:none!important;*/
+#access .sub-menu li a,
+#access .children li a{
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-bottom:1px solid rgba(222,222,222,.5);
+	border-left:1px solid rgba(222,222,222,.5);
 }
-#access li:nth-last-child(1) {
-    /*  @1.324  border-right:2px solid rgba( 222,222,222,.2);*/
+#access .sub-menu li:last-child > a,
+#access .children li:last-child > a{
+	border-bottom:none;
 }
 body{
     %c1%
@@ -175,9 +179,7 @@ input[type="reset"],
 input[type="submit"]{
     %c_3%
 }
-#header-image{
-   /*  @1.324  background-color:%custom_light_bg%!important;*/
-}
+
 .blog .sticky,
 .home .sticky,
 .entry-meta{
@@ -208,9 +210,6 @@ ol.tblist li{
 #ft a{
      color:%raindrops_footer_link_color%; 
          background:none;
-}
-#ft #wp-calendar{
-   /*  @1.324  border:1px solid %c_border%!important;*/
 }
 .footer-widget h2 span,.rsidebar h2 span,.lsidebar h2 span {
     %h2_dark_background%
@@ -554,7 +553,6 @@ input[type="submit"],
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     border-radius:3px 3px 3px 3px;
     -moz-border-radius:3px 3px 3px 3px;
-   /*  @1.324  -webkit-border-radius:3px 3px 3px 3px!important;*/
     -moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;
     border-top:1px solid rgba(100,100,100,1);
@@ -1048,12 +1046,7 @@ function raindrops_indv_css_light() {
 .widget_pages.sticky-widget .children a{
     border-bottom:1px solid rgba(105,105,105,.5);
 }
-	
-#access .sub-menu li a,
-#access .children li a{
-    border:1px solid #696969;
-	border:1px solid rgba(105,105,105,.5);
-}
+
  a:link,
  a:active,
  a:visited,
@@ -1605,16 +1598,23 @@ a.raindrops-comment-link:hover .point {
 	* 1.295 commentout
 	text-shadow: 2px 2px 2px #fff;*/
 }
-#access .menu li{
-    border-left:1px solid #ccc;
-    border-left:1px solid rgba( 156,156,156,.7);
-}
-#access .menu li:last-child{
-   border-right:1px solid #ccc;
-    border-right:1px solid rgba( 156,156,156,.7); 
 
+#access .sub-menu,
+#access .children{
+	border:1px solid #ccc;
+	border:1px solid rgba( 156,156,156,.7);
 }
-	
+#access .sub-menu li a,
+#access .children li a{
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-bottom:1px solid rgba( 156,156,156,.7);
+	border-left:1px solid rgba( 156,156,156,.7);
+}
+#access .sub-menu li:last-child > a,
+#access .children li:last-child > a{
+	border-bottom:none;
+}	
 
 CSS3;
 

@@ -441,5 +441,27 @@
             }
         }
         
+        /**
+         * add external class for external links
+         */
+
+         jQuery('a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').addClass('external');
+        
+        /**
+         * add rel="nofollow" for External links that have been described in the comment text
+         */
+        jQuery('.comment-body a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').attr('rel','nofollow');
     } );
 } )( jQuery );
+
+function sample() {
+    
+    var browser = document.raindrops_share.share_links.value;
+    
+    if ( browser == 'data:text' ) {
+        location.href = raindrops_script_vars.content_shareing;
+    } else {
+        location.href = browser;
+    }
+}
+

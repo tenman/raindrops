@@ -58,8 +58,8 @@ raindrops_debug_navitation( __FILE__ );
 
                         printf( '<!--%1$s-->', $raindrops_document_type );
                         ?>
-                        <div class="entry page"><div  id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
-						<?php raindrops_before_article(); ?>		
+                        <div class="entry page"><?php raindrops_before_article(); ?><div  id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
+								
                             <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
 
                             <?php
@@ -99,7 +99,7 @@ raindrops_debug_navitation( __FILE__ );
                             comments_template( '', true );
                             ?>
                             </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
-							<?php raindrops_after_article(); ?></div>
+							</div><?php raindrops_after_article(); ?>
                         </div>
                         <?php
                     } //endwhile 

@@ -36,7 +36,7 @@ function raindrops_indv_css_dark() {
 
     $font_color_5 = raindrops_colors( -5, "color" );
 	
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;  margin-bottom:-1px!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 	
     $style = <<<DOC
 	
@@ -675,7 +675,7 @@ raindrops_register_styles( "w3standard" );
 
 function raindrops_indv_css_w3standard() {
 	
-		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;  margin-bottom:-1px!important;');
+		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -1019,7 +1019,7 @@ raindrops_register_styles( "light" );
 function raindrops_indv_css_light() {
 
     $font_color5 = raindrops_colors( 5, "color" );
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;  margin-bottom:-1px!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;');
     $style = <<<DOC
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -1637,7 +1637,7 @@ function raindrops_indv_css_minimal() {
     global $raindrops_base_color;
 	
     $font_color = raindrops_colors( 5, "color" );
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;	margin-bottom:-1px!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;');
     $style = <<<CSS
 .sticky-widget #wp-calendar tbody #today,
 .raindrops-accessible-mode .raindrops-comment-link:focus em,

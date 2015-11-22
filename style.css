@@ -401,7 +401,9 @@ table.bottom td,
 table td.bottom{
      vertical-align:bottom;
 }
-
+.ie8 img{
+    width:100%;
+}
 
 #doc4 #header-image,
 #doc2 #header-image,
@@ -1196,7 +1198,7 @@ h2.footer-content,
     text-align:center;
     margin:1em;
 }
-
+/*
 .index .entry-content,
 .index .entry-meta,
 .index .entry-meta-gallery,
@@ -1205,10 +1207,8 @@ h2.footer-content,
 .index .entry-meta-video,
 .index .entry-meta-aside,
 .index .entry-meta-quote,
-.index .entry-meta-chat,
-.index .entry-meta-default,
-.index .posted-on{
-    padding:0 13px;
+.index .entry-meta-chat{
+   padding:0 13px;
 }
 .single .entry-content,
 .single .entry-meta,
@@ -1218,9 +1218,7 @@ h2.footer-content,
 .single .entry-meta-video,
 .single .entry-meta-aside,
 .single .entry-meta-quote,
-.single .entry-meta-chat,
-.single .entry-meta-default,
-.single .posted-on{
+.single .entry-meta-chat{
     padding:0 13px;
 }
 .page .entry-content,
@@ -1231,20 +1229,27 @@ h2.footer-content,
 .page .entry-meta-video,
 .page .entry-meta-aside,
 .page .entry-meta-quote,
-.page .entry-meta-chat,
-.page .entry-meta-default,
-.page .posted-on{
+.page .entry-meta-chat{
     padding:0 13px;
-}
+}*/
 .page .posted-on,
 .single .posted-on,
 .index .posted-on{
-    display:inline;margin-right:20px;
+    display:inline;
+    /* @1.336
+    margin-right:20px;
+    */
+    vertical-align:bottom;
 }
+.posted-on + .this-posted-in:before{
+    content: '\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0';
+    white-space: pre;
+}
+.posted-on + .this-posted-in,
 .entry-title + .this-posted-in{
     display:inline-block;
-    margin-left:1em;
 }
+
 .posted-on-after{
     text-align:right;
 }
@@ -1271,11 +1276,17 @@ div[class^="entry-meta"] .emoji-date,
 .index .entry-title{
 
 }
-.page article .entry-title span,
-.single article .entry-title span,
-.index .entry-title-text{
-    display:inline-block;
-    padding:.5em 13px 0;
+.entry-title span,
+.entry-title-text{
+   /* fallback */
+   display:inline-block;
+   /* @1.336 
+  padding:.5em 13px 0;
+  */
+}
+
+.h2-thumb + .entry-title-text{
+     padding:0 13px 0;
 }
 /**
  * Title style of has featured image
@@ -2188,7 +2199,9 @@ br.clear{
 }
 body:not(.blog) .h2-thumb + .entry-title-text,
 body:not(.home) .h2-thumb + .entry-title-text{
-    margin-left:.3em;
+   /* @1.336
+   margin-left:.3em;
+   */
 }
 body.page .nocomments{
     display:none;
@@ -4538,4 +4551,41 @@ blockquote .cite-url{
 #raindrops_share .share-links .tweet{
     color:#55acee;
     font-weight:bold;
+}
+article .post-password-form label,
+article .post-password-form label{
+    /* article for detect html5  when xhtml allways show */
+    display:none;
+}
+.ie9 article .post-password-form label,
+.ie8 article .post-password-form label{
+    display:inline;
+}
+.tag .entry-title > a > span,
+.category .entry-title > a > span,
+.rd-featured-no-left .entry-title > a > span,
+.rd-featured-no-front .entry-title > a > span,
+.paged .entry-title > a > span,
+.paged .entry-title > a > span{
+    display:table;
+}
+.tag .h2-thumb,
+.category .h2-thumb,
+.rd-featured-no-front .h2-thumb,
+.rd-featured-no-left .h2-thumb,
+.paged .h2-thumb,
+.paged .h2-thumb{
+    display:table-cell;
+    width:48px;
+    vertical-align:bottom;
+    min-width:48px;/* for non space long text */
+}
+.tag .h2-thumb + .entry-title-text,
+.category .h2-thumb + .entry-title-text,
+.rd-featured-no-left .h2-thumb + .entry-title-text,
+.rd-featured-no-front .h2-thumb + .entry-title-text,
+.paged .h2-thumb + .entry-title-text,
+.paged .h2-thumb + .entry-title-text{
+     display:table-cell;
+     vertical-align:bottom;
 }

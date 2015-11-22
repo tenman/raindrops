@@ -10,6 +10,23 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * tagcloud widget presentation
+ *  @see raindrops_color_pallet_tagcloud()
+ *  value false then WordPress default widget style.
+ */
+if ( ! isset( $raindrops_tag_cloud_widget_presentation) ) {
+	
+	 $raindrops_tag_cloud_widget_presentation = true;
+}
+/**
+ * Tag shows or not by tagcloud item count ,Applied CSS
+ */
+if ( ! isset( $raindrops_tag_cloud_widget_threshold_val ) ) {
+	
+	 $raindrops_tag_cloud_widget_threshold_val = 0;
+}
+
+/**
  * fallback image for attachment , gallery
  * @since 1.328
  */

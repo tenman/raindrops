@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template file index
  *
@@ -34,7 +35,7 @@ raindrops_debug_navitation( __FILE__ );
 					<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
 						<div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 							<?php get_template_part( 'loop', $raindrops_document_type ); ?>
-							<br style="clear:both" />			
+							<br style="clear:both" />
 						</div>
 					<?php
 					if ( 3 == $raindrops_current_column ) {

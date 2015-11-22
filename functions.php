@@ -7737,13 +7737,14 @@ if ( !function_exists( 'raindrops_accessible_titled' ) ) {
  *
  * @since 1.118
  */
-add_filter( 'image_send_to_editor', 'raindrops_remove_category_rel' );
 
 if ( !function_exists( 'raindrops_remove_category_rel' ) ) {
 
 	function raindrops_remove_category_rel( $output ) {
-
-		$output = preg_replace( '!( rel="[^"]+")!', '', $output );
+		if( 'html5' !== raindrops_warehouse_clone('raindrops_doc_type_settings') ) {
+			$output = preg_replace( '!( rel="[^"]+")!', '', $output );
+		return $output;
+		}
 		return $output;
 	}
 }
@@ -7777,13 +7778,18 @@ if ( !function_exists( 'raindrops_non_breaking_title' ) ) {
 		//Floccinaucinihilipilification
 
 		if ( !is_admin() && 'html5' == $raindrops_document_type ) {
+			
+			$title_text = strip_tags( $title );
+			
+			if ( preg_match( "/[\x20-\x7E]{30,}/", $title_text ) && preg_match( '!([A-Z])!', $title ) ) {
 
-			if ( preg_match( "/[\x20-\x7E]{30,}/", strip_tags( $title ) ) && preg_match( '!([A-Z])!', $title ) ) {
-
-				return preg_replace( '!([A-Z])!', '<wbr>$1', $title );
-			} elseif ( preg_match( "/[\x20-\x7E]{30,}/", strip_tags( $title ) ) ) {
-
-				return preg_replace( '!([A-Z])!', '$1<wbr>', $title );
+				$replace_text = preg_replace( '!([A-Z])!', '<wbr>$1', $title_text );
+				return str_replace( $title_text, $replace_text, $title );
+				
+			} elseif ( preg_match( "/[\x20-\x7E]{30,}/", $title_text ) ) {
+				
+				$replace_text = preg_replace( '!([A-Z])!', '$1<wbr>', $title_text );
+				return str_replace( $title_text, $replace_text, $title );
 			}
 		}
 		return $title;
@@ -8487,12 +8493,19 @@ if ( !function_exists( 'raindrops_base_font_size' ) ) {
 if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
 
 	function raindrops_widget_tag_cloud_args( $args ) {
-
-		$args[ 'smallest' ]	 = '85';
-		$args[ 'largest' ]	 = '277';
-		$args[ 'unit' ]		 = '%';
-
-
+		
+		global $raindrops_tag_cloud_widget_presentation;
+		
+		if( true == $raindrops_tag_cloud_widget_presentation && 'post_tag' == $args['taxonomy'] ) {
+			
+			$args[ 'smallest' ]	 = '108';
+			$args[ 'largest' ]	 = '108';
+			$args[ 'unit' ]		 = '%';
+		} else {			
+			$args[ 'smallest' ]	 = '85';
+			$args[ 'largest' ]	 = '277';
+			$args[ 'unit' ]		 = '%';
+		}
 
 		return $args;
 	}
@@ -10684,71 +10697,183 @@ if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 		return $style;
 	}
 }
+if ( !function_exists( 'raindrops_archive_year_navigation' ) ) {
+	/**
+	 * 
+	 * @param type $echo
+	 * @return string
+	 * @since 1.335
+	 */
+	function raindrops_archive_year_navigation( $echo = true ) {
 
-function raindrops_archive_year_navigation ( $echo = true ) {
+		$html			 = '<li><a href="%1$s" class="%2$s"><span class="screen-reader-text">%3$s</span>%4$s</a></li>';
+		$result			 = '<ul class="archive-year-links">';
+		$year_current	 = get_query_var( 'year' );
+		$year_list		 = get_posts( array( 'post_status' => 'publish', 'posts_per_page' => -1, 'order' => 'ASC' ) );
 
-	$html			 = '<li><a href="%1$s" class="%2$s"><span class="screen-reader-text">%3$s</span>%4$s</a></li>';
-	$result			 = '<ul class="archive-year-links">';
-	$year_current	 = get_query_var( 'year' );
-	$year_list		 = get_posts( array( 'post_status' => 'publish', 'posts_per_page' => -1, 'order' => 'ASC' ) );
+		foreach ( $year_list as $list ) {
 
-	foreach ( $year_list as $list ) {
+			$years[] = substr( $list->post_date, 0, 4 );
+		}
+		$years = array_values( array_unique( $years, SORT_NUMERIC ) );
 
-		$years[] = substr( $list->post_date, 0, 4 );
-	}
-	$years = array_values( array_unique( $years, SORT_NUMERIC ) );
+		$before	 = '';
+		$after	 = '';
 
-	$before			 = '';
-	$after			 = '';
+		$last	 = end( $years );
+		$first	 = reset( $years );
 
-	$last			 = end( $years );
-	$first			 = reset( $years );
+		$not_set_before = false;
 
-	$not_set_before	 = false;
+		foreach ( $years as $key => $year ) {
 
-	foreach ( $years as $key => $year ) {
+			$year				 = absint( $year );
+			$class				 = sanitize_html_class( 'year-' . $year );
+			$link				 = esc_url( get_year_link( $year ) );
+			$screen_reader_text	 = esc_html__( 'Link to Year Archives ', 'raindrops' );
+			$year_text			 = raindrops_year_name_filter( $year );
 
-		$year				 = absint( $year );
-		$class				 = sanitize_html_class( 'year-' . $year );
-		$link				 = esc_url( get_year_link( $year ) );
-		$screen_reader_text	 = esc_html__( 'Link to Year Archives ', 'raindrops' );
-		$year_text			 = raindrops_year_name_filter( $year );
+			if ( $year_current == $year ) {
+				if ( $first !== $year ) {
+					$not_set_before = true;
+				}
+				if ( $last !== $year ) {
+					$break_point = $key + 1;
+				}
+				$class = 'current-year';
 
-		if ( $year_current == $year ) {
-			if ( $first !== $year ) {
-				$not_set_before = true;
+				$current = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
 			}
-			if ( $last !== $year ) {
-				$break_point = $key + 1;
+			if ( isset( $break_point ) && $key == $break_point ) {
+				$class	 = 'next-year';
+				$after	 = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
+				break;
 			}
-			$class = 'current-year';
+			if ( true !== $not_set_before ) {
+				$class	 = 'prev-year';
+				$before	 = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
+			}
+		}
+		$result .= $before . $current . $after;
+		$result .= '</ul>';
 
-			$current = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
-		}
-		if ( isset( $break_point ) && $key == $break_point ) {
-			$class = 'next-year';
-			$after = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
-			break;
-		}
-		if ( true !== $not_set_before ) {
-			$class = 'prev-year';
-			$before = sprintf( $html, $link, $class, $screen_reader_text, $year_text );
+		wp_reset_postdata();
+
+		if ( true !== $echo ) {
+
+			return $result;
+		} else {
+
+			echo $result;
 		}
 	}
-	$result .= $before . $current . $after;
-	$result .= '</ul>';
 
-	wp_reset_postdata();
-
-	if ( true !== $echo ) {
-
-		return $result;
-	} else {
-
-		echo $result;
-	}
 }
 
+if ( !function_exists( 'raindrops_post_password_form_html5' ) ) {
+	/**
+	 * 
+	 * @global type $post
+	 * @param type $form
+	 * @return type
+	 * @since 1.336
+	 */
+	function raindrops_post_password_form_html5( $form ) {
+
+		global $post;
+
+		$document_type = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
+
+		if ( 'html5' !== $document_type ) {
+
+			return $form;
+		}
+
+		$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
+
+		$form = <<< POST_FORM
+		
+	<form action="%1\$s" class="post-password-form" method="post">
+		<p>
+			<span class="screen-reader-text">%4\$s</span>
+			<label for="%2\$s">%3\$s</label>
+			<input name="post_password" id="%2\$s" type="password" size="20" placeholder="%3\$s" required="required" aria-required="true" title="%4\$s" />
+
+			<input type="submit" name="Submit" value="%5\$s" />
+		</p>
+	</form>
+		
+POST_FORM;
+
+		$form = str_replace( array( "\n", "\r" ), '', $form );
+
+		$output = sprintf( $form, 
+							esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ), 
+							$label, 
+							esc_html__( 'Password', 'raindrops' ),
+							esc_attr__( 'This content is password protected. To view it please enter your password', 'raindrops' ), 
+							esc_attr__( 'Submit', 'raindrops' )
+		);
+		
+		$output = apply_filters( 'raindrops_post_password_form_html5', $output );
+		
+		return $output;
+	}
+}
+if ( !function_exists( 'raindrops_color_pallet_tagcloud' ) ) {
+	/**
+	 * 
+	 * @global type $raindrops_tag_cloud_widget_presentation
+	 * @param type $css
+	 * @return type
+	 */
+	function raindrops_color_pallet_tagcloud( $css ) {
+
+		global $raindrops_tag_cloud_widget_presentation, $raindrops_tag_cloud_widget_threshold_val;
+
+		if ( false == $raindrops_tag_cloud_widget_presentation ) {
+			return $css;
+		}
+
+		$raindrops_current_style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
+		if ( 'dark' == $raindrops_current_style_type ) {
+
+			$saturation_base = 80;
+			$lightness_base	 = 60;
+		} else {
+			$saturation_base = 80;
+			$lightness_base	 = 40;
+		}
+		$start_angle = 0;
+		$result		 = '';
+		$count_sep	 = absint( $raindrops_tag_cloud_widget_threshold_val );
+		/** end config */
+		$taxonomies	 = array( 'post_tag' );
+		$args		 = array(
+			'orderby'	 => 'count',
+			'order'		 => 'DESC',
+		);
+		$terms		 = get_terms( $taxonomies, $args );
+
+		$count_terms = count( $terms );
+
+		$radian = 270 / $count_terms;
+
+		foreach ( $terms as $key => $term ) {
+			$v			 = $key + 1;
+			$hue		 = $start_angle + ( $radian * $v );
+			$saturation	 = $saturation_base . '%';
+			$lightness	 = $lightness_base . '%';
+			if ( $term->count > $count_sep ) {
+				$result .= '.widget_tag_cloud .tagcloud .tag-link-' . $term->term_id . '{color:hsl(' . $hue . ',' . $saturation . ',' . $lightness . ');} ';
+			} else {
+				$result .= '.widget_tag_cloud .tagcloud .tag-link-' . $term->term_id . '{display:none;} ';
+			}
+		}
+
+		return $css . apply_filters( 'raindrops_color_pallet_tagcloud', $result );
+	}
+}
 /**
  *
  *

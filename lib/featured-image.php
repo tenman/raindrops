@@ -228,7 +228,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 
 			if ( has_post_thumbnail( $id ) && !has_post_format( 'status', $id ) ) {
 				$post_id = '#post-' . $id;
-				$custom_css .= "{$post_id} .h2-thumb{display:block; margin-bottom:1em;}
+				$custom_css .= "{$post_id} .h2-thumb{display:block;}
 							 {$post_id} .hentry{position:relative; min-height:{$height}px;}
 							 {$post_id} .wp-post-image{	position:absolute; left:10px; width:{$featured_image_column_width};}
 							 {$post_id} .entry-meta-list, {$post_id}  #nav-below, {$post_id}  .entry-meta-default, 
@@ -237,7 +237,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 								margin-left:{$article_column_width}; }";
 
 				$custom_css .= '@media screen and (max-width : 960px){';
-				$custom_css .= $post_id . " .wp-post-image{margin-bottom:1em;display:block;width:100%;" . $padding;
+				$custom_css .= $post_id . " .wp-post-image{display:block;width:100%;" . $padding;
 				$custom_css .= ' background:' . $post_image_background;
 				$custom_css .= "}";
 				$custom_css .= "{$post_id} .wp-post-image{position:static; }

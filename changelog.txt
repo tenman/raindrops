@@ -1,4 +1,30 @@
 Changelog -----------------------------------
+version:1.336
+Overview of Changes
+	Modified	rel ( category tag ) attribute use when html5
+	Modified	tagcloud widget presentation
+		new function raindrops_color_pallet_tagcloud
+	Modified	form support html5 for Password post
+	Modified	Translation ja.po, ja.mo
+	Fixed	long Entry-title awkward to display
+	Fixed function works improperly
+		function raindrops_non_breaking_title
+
+Files Modified
+
+	modified:   index.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.335&new_path=raindrops/1.336
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.335
 Overview of Changes
 

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.336
+version:1.337
 Overview of Changes
 	Modified	rel ( category tag ) attribute use when html5
 	Modified	tagcloud widget presentation
@@ -9,7 +9,7 @@ Overview of Changes
 	Fixed	long Entry-title awkward to display
 	Fixed function works improperly
 		function raindrops_non_breaking_title
-
+	Fixed	raindrops_checked()
 Files Modified
 
 	modified:   index.php
@@ -20,7 +20,7 @@ Files Modified
 	modified:   lib/hooks.php
 	modified:   lib/vars.php
 	modified:   style.css
-
+	modified:	lib/widgets.php
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.335&new_path=raindrops/1.336
 -----------------------------------------------

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.337
+version:1.338
 Overview of Changes
 	Modified	rel ( category tag ) attribute use when html5
 	Modified	tagcloud widget presentation

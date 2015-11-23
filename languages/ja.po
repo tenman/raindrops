@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: raindrops v1.248\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-20 12:19+0900\n"
-"PO-Revision-Date: 2015-11-20 12:19+0900\n"
+"PO-Revision-Date: 2015-11-23 11:18+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "Language: ja_JP\n"
@@ -3464,7 +3464,7 @@ msgstr "最近の投稿を、カテゴリ毎にグループ化して表示しま
 # @ raindrops
 #: raindrops/lib/widgets.php:25 raindrops/lib/widgets.php:73
 msgid "Category What's New"
-msgstr "カテゴリー別アーカイブ: %s"
+msgstr "カテゴリー別　最近の投稿"
 
 #: raindrops/lib/widgets.php:93 raindrops/lib/widgets.php:914
 msgid "Title:"

@@ -190,9 +190,7 @@ input[type="submit"]{
 .home .sticky{
     border-top:solid 6px %c_border%;
 }
-.attachment .caption dt{
-    border-bottom:double 3px %c_border%;
-}
+
 #yui-main{
     /*1.303
 		color:%raindrops_header_color%;
@@ -231,7 +229,6 @@ ul.category li,
 ul.sitemap ul li,
 ul.archive ul li,
 ul.all_entry h2,
-.attachment .caption dd,
 ul.archive,ul.index,
 .sitemap.new li{
     border-bottom:1px solid %c_border%;
@@ -439,11 +436,6 @@ hr{
 .entry-content th{
     border:solid 1px %rgba_border%;
 }
-
-.attachment .caption dt{
-    border-bottom:3px double %rgba_border%;
-}
-
 .datetable td li,
 .rsidebar ul li ul li,
 .lsidebar ul li ul li,
@@ -458,7 +450,6 @@ ul.category li,
 ul.sitemap ul li,
 ul.archive ul li,
 ul.all_entry h2,
-.attachment .caption dd,
 ul.archive,ul.index,
 .sitemap.new li{
     border-bottom:1px solid %rgba_border%;
@@ -1185,12 +1176,6 @@ dl.author dt,
 dl.my_tags dd,
 dl.my_tags dt{
     border-bottom:1px solid %c_border%;
-}
-.attachment .caption dd{
-    border-bottom:1px solid %c_border%;
-}
-.attachment .caption dt{
-    border-bottom:double 3px %c_border%;
 }
 ul.archive,
 ul.index{

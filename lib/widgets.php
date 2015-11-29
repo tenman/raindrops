@@ -257,6 +257,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				}
 			}
 			wp_reset_query();
+			
+			if ( empty( $result) ) {
+				return array();
+			}
 
 			uksort( $result, "compare_capital_lower_not_distinguish" );
 
@@ -282,7 +286,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			$result			 = apply_filters( 'raindrops_display_recent_post_group_by_category_before', '' );
 			$wrap_html		 = '<ul class="xoxo">%1$s</ul>';
-			$category_title	 = '<li class="post-group-by-category-title"><h3 class="post-group_by-category-title category-title %3$s"><a href="%1$s">%2$s</a></h3><ul>';
+			$category_title	 = '<li class="post-group-by-category-title"><h3 class="post-group_by-category-title category-title %3$s"><a href="%1$s"><span class="cat-item cat-item-%4$s">%2$s</span></a></h3><ul>';
 			$entry_item		 = '<li><a href="%1$s">%3$s</a><p><span title="%4$s">%2$s</span> </p>';
 			$entry_item		 = '<li>'
 			. '<a href="%1$s" class="post-group_by-category-entry-title %8$s">%3$s</a>'
@@ -303,7 +307,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 				if ( !empty( $vals ) ) {
 
-					$result .= sprintf( $category_title, get_category_link( $cat_id ), $key,  $cat_slug  );
+					$result .= sprintf( $category_title, get_category_link( $cat_id ), $key,  $cat_slug, absint( $cat_id ) );
 				}
 
 				foreach ( $vals as $val ) {

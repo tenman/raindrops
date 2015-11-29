@@ -1,4 +1,14 @@
 <?php
+function raindrops_custom_footer_credit_validate( $input ) {
+	
+	if ( ! empty( $input ) ){
+
+		$input = strip_tags( $input, '<address><span><a><br><img>');
+		return $input;
+	}
+	
+	return false;
+}
 function raindrops_fallback_image_for_entry_content_validate( $input ) {
 
 	$result = filter_var( trim($input), FILTER_VALIDATE_URL );

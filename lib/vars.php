@@ -304,8 +304,8 @@ if ( !isset( $raindrops_fluid_or_fixed ) ) {
  *
  */
 if ( !isset( $raindrops_fluid_minimum_width ) ) {
-
-	$raindrops_fluid_minimum_width = '320';
+	/* @1.337 from 320 to 296*/
+	$raindrops_fluid_minimum_width = '296';
 }
 /**
  * Special simple view for mobile and small width browser
@@ -1339,6 +1339,16 @@ array( 'option_id'    => 86,
         'excerpt2'     => esc_html__( 'Image, to display an alternative image if that can not be displayed', 'raindrops' ),
         'validate'     => 'raindrops_fallback_image_for_entry_content_validate',
 		'list'         => 85 ),
+array( 'option_id'    => 87,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_custom_footer_credit',
+        'option_value' => false,
+        'autoload'     => 'show',
+        'title'        => esc_html__( 'Custom Footer Credit', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )', 'raindrops' ),
+        'validate'     => 'raindrops_custom_footer_credit_validate',
+		'list'         => 86 ),
 );
 }
 

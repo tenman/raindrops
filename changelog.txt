@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.339
+Overview of Changes
+
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.338&new_path=raindrops/1.339
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.338
 Overview of Changes
 	Modified	rel ( category tag ) attribute use when html5

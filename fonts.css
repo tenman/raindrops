@@ -339,3 +339,7 @@ dt,
 .sticky-widget #wp-calendar tbody td{
     font-size:123.6%;
 }
+.parent-entry-title,
+.image-caption .section-title{
+    font-size:138.5%;
+}

@@ -316,12 +316,16 @@ if( ! function_exists( 'raindrops_gallery_atts' ) ) {
 		if ( $raindrops_extend_galleries !== true ){
 			return  $out;
 		}
-
+		
 		if (  empty( $atts["columns"] ) || $atts["columns"] < 4 ) {
+			
+			if (isset($atts["columns"]) && 1 == $atts["columns"] ){
+				$gallary_img_size = 'large';
+			} else {
+				$gallary_img_size = 'medium';
+			}
 
-			$atts = shortcode_atts( array(
-			'size' => 'medium',
-			), $atts );
+			$atts = shortcode_atts( array( 'size' => $gallary_img_size,	), $atts );
 
 			$out['size'] = $atts['size'];
 		}
@@ -1042,8 +1046,8 @@ if ( !function_exists( 'raindrops_posted_in' ) ) {
 		}
 
 		$format		     = get_post_format( $post->ID );
-		$tag_list		 = get_the_tag_list( '', ' ' );
-		$categories_list = get_the_category_list( ' ' );
+		$tag_list		 = raindrops_get_the_posted_in_tag( '', ' ' );
+		$categories_list = raindrops_get_the_posted_in_category( ' ' );
 
 
 		if ( ! empty($exclude_category_conditionals) && is_array( $exclude_category_conditionals ) ) {
@@ -3212,6 +3216,7 @@ if ( !function_exists( "raindrops_month_list" ) ) {
  *
  *
  */
+
 if ( !function_exists( "raindrops_loop_title" ) ) {
 
 	function raindrops_loop_title() {
@@ -3233,10 +3238,11 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 			$page_title				 = esc_html__( "Tag Archives", 'raindrops' );
 			$page_title_c			 = single_term_title( "", false );
 		} elseif ( is_category() ) {
-
-			$Raindrops_class_name	 = 'category-archives';
+			$page_title_c			 = single_cat_title( '', false );	
+			$category_id			= get_cat_ID( $page_title_c );
+			$Raindrops_class_name	 = 'category-archives cat-item-'. $category_id;
 			$page_title				 = esc_html__( "Category Archives", 'raindrops' );
-			$page_title_c			 = single_cat_title( '', false );
+
 		} elseif ( is_archive() ) {
 
 			$raindrops_date_format = get_option( 'date_format' );
@@ -3356,7 +3362,7 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 
 		if ( !empty( $page_title ) ) {
 
-			printf( '<li class="title-wrapper %3$s-wrapper"><strong id="archives-title"><span class="label">%1$s</span> <span class="title">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
+			printf( '<li class="title-wrapper %3$s-wrapper"><strong id="archives-title"><span class="label">%1$s</span> <span class="title ">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
 
 			if ( is_category() ) {
 				printf('<li class="list-category-navigation">%1$s</li>', raindrops_category_navigation() );
@@ -6023,7 +6029,7 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 			/**
 			 * @1.325
 			 */
-			if ( has_excerpt() && empty( $content )) {
+			if ( has_excerpt() && empty( $content ) && !wp_attachment_is_image($post->ID) ) {
 
 				$content .= sprintf( '<div class="entry-content-fallback">%1$s</div>', get_the_excerpt() );
 			}
@@ -9129,6 +9135,15 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 	function raindrops_footer_text() {
 
 		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template, $raindrops_accessibility_link;
+		
+		$raindrops_custom_footer_credit = raindrops_warehouse_clone('raindrops_custom_footer_credit');
+
+		if( ! empty( $raindrops_custom_footer_credit ) ) {
+			
+			$current_year = date('Y');
+			echo str_replace('%current_year%', $current_year, $raindrops_custom_footer_credit );
+			return;
+		}
 
 		$raindrops_copyright_text = sprintf( apply_filters( 'raindrops_copyright_text' , '&copy;%1$s '. $raindrops_current_theme_name. ' ') ,  date( "Y" ) );
 
@@ -9736,7 +9751,7 @@ if ( ! function_exists( 'raindrops_category_navigation' ) ) {
 
 					$category_separator = apply_filters( 'raindrops_category_navigation_separator', $category_separator, $flag );
 
-					$result .= " {$category_separator} " . '<a href="' . esc_url( $url ) . '">' . esc_html( $term->name ) . "</a>";
+					$result .= " {$category_separator} " . '<a href="' . esc_url( $url ) . '"><span class="cat-item cat-item-'. $tmp_id. '">' . esc_html( $term->name ) . "</span></a>";
 
 					$sibling = $term->parent;
 				}
@@ -9761,19 +9776,24 @@ if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
 		foreach ( $categories as $category ) {
 			$category->term_id	 = absint( $category->term_id );
 			$parents			 = get_category_parents( $category->term_id, true, '&raquo;' );
-			$parents_item		 = str_replace( '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . "</a>&raquo;", '', $parents );
+			
+			$parents_item		 = str_replace( '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . "</a>&raquo;", 
+								   '<a href="' . get_category_link( $category->term_id ) . '"><span class="cat-item cat-item-'.$category->term_id.'">' . $category->name . "</a>&raquo;", $parents );
+			
 			$parents			 = explode( '&raquo;', $parents_item );
 
 			if ( ! empty( $parents_item ) ) {
 				$result[] = '<span class="label title parent">'.esc_html__('Parent Category:','raindrops' ).'</span>';
 			}
+			
 			foreach ( $parents as $links ) {
 
 				$result[] = $links;
 			}
-
+	
 			$replace_check	 = get_the_category_by_ID( $category->term_id );
 			$replace_check	 = get_category_link( $category->term_id );
+			
 			$tmp_child_ids	 = get_term_children( $category->term_id, 'category' );
 			$child_result	 = '';
 			$child_ready	 = array();
@@ -9784,7 +9804,7 @@ if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
 
 				$tmp_id		 = absint( $tmp_id );
 				$term		 = get_term_by( 'id',$tmp_id , 'category' );
-				$result[]	 = '<a href="' . get_term_link( $tmp_id, 'category' ) . '">' . $term->name . "</a>";
+				$result[]	 = '<a href="' . get_term_link( $tmp_id, 'category' ) . '"><span class="cat-item cat-item-'. $tmp_id. '">' . $term->name . "</span></a>";
 			}
 		}
 
@@ -10874,6 +10894,111 @@ if ( !function_exists( 'raindrops_color_pallet_tagcloud' ) ) {
 		return $css . apply_filters( 'raindrops_color_pallet_tagcloud', $result );
 	}
 }
+
+if ( !function_exists( 'raindrops_get_the_posted_in_category' ) ) {
+	/**
+	 * 
+	 * @global type $wp_rewrite
+	 * @param type $separator
+	 * @param type $parents
+	 * @param type $post_id
+	 * @return type
+	 * @since 1.337
+	 */
+
+	function raindrops_get_the_posted_in_category( $separator = '', $parents = '', $post_id = false ) {
+
+		global $wp_rewrite;
+
+		if ( !is_object_in_taxonomy( get_post_type( $post_id ), 'category' ) ) {
+			/** This filter is documented in wp-includes/category-template.php */
+			return apply_filters( 'the_category', '', $separator, $parents );
+		}
+
+		$categories = get_the_category( $post_id );
+		if ( empty( $categories ) ) {
+			/** This filter is documented in wp-includes/category-template.php */
+			return apply_filters( 'the_category', __( 'Uncategorized' ), $separator, $parents );
+		}
+
+		$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="category"';
+
+		$thelist = '';
+		if ( '' == $separator ) {
+			$html = '<li class="cat-item cat-item-%4$d"><a href="%1$s" %2$s>%3$s</a></li>';
+
+			$thelist .= '<ul class="posted-in-categories">';
+			foreach ( $categories as $category ) {
+				$thelist .= "\n\t";
+				$permalink = esc_url( get_category_link( $category->term_id ) );
+				$thelist .= sprintf( $html, $permalink, $rel, $category->name, $category->term_id );
+			}
+			$thelist .= '</ul>';
+		} else {
+			$i = 0;
+			foreach ( $categories as $category ) {
+				if ( 0 < $i )
+					$thelist .= $separator;
+				$thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" ' . $rel .
+				'><span class="cat-item cat-item-' . absint( $category->term_id ) . '">' . $category->name . '</span></a>';
+				++$i;
+			}
+		}
+
+		return apply_filters( 'the_category', $thelist, $separator, $parents );
+	}
+}
+if ( !function_exists( 'raindrops_get_the_posted_in_tag' ) ) {
+	/**
+	 * 
+	 * @global type $post
+	 * @param type $before
+	 * @param type $sep
+	 * @param type $after
+	 * @return boolean
+	 * @since 1.337
+	 */
+
+	function raindrops_get_the_posted_in_tag( $before = '', $sep = '', $after = '' ) {
+
+		global $post;
+
+		if ( !isset( $post ) ) {
+			return;
+		}
+
+		$id			 = $post->ID;
+		$taxonomy	 = 'post_tag';
+		$terms		 = get_the_terms( $id, $taxonomy );
+
+		if ( is_wp_error( $terms ) ) {
+			return $terms;
+		}
+
+		if ( empty( $terms ) ) {
+			return false;
+		}
+
+		$links = array();
+
+		foreach ( $terms as $term ) {
+
+			$link = get_term_link( $term, $taxonomy );
+			if ( is_wp_error( $link ) ) {
+				return $link;
+			}
+
+			$links[] = '<a href="' . esc_url( $link ) . '" rel="tag"><span class="tag-link-' . absint( $term->term_id ) . '">' . $term->name . '</span></a>';
+		}
+
+		$term_links = apply_filters( "term_links-$taxonomy", $links );
+
+		$result = $before . join( $sep, $term_links ) . $after;
+
+		return apply_filters( 'the_tags', $result, $before, $sep, $after, $id );
+	}
+}
+
 /**
  *
  *

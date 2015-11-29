@@ -1075,6 +1075,18 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'textarea',
 			'section'			 => 'raindrops_theme_settings_document',
 		),
+		"raindrops_custom_footer_credit"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_custom_footer_credit','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Custom Footer Credit', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_custom_footer_credit_validate',
+			'type'				 => 'textarea',
+			'section'			 => 'raindrops_theme_settings_document',
+		),
 		/**
 		 * Pending not work at customizer
 		 * old theme page works

@@ -637,6 +637,12 @@
         border:1px dashed rgba(122,122,122,.5);
         float:none;
     }
+    /* @1.337 */
+    .page article,
+    .single article{
+        width:90vw;
+        margin:auto auto 1em;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

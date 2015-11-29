@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.338
+Version: 1.339
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -99,6 +99,10 @@ a:visited{
 }
 .index article{
     margin-bottom:2em;
+}
+/* @1.337 */
+.single article{
+    margin-top:1em;
 }
 /* headding */
 
@@ -519,13 +523,19 @@ abbr{
 .entry-content table caption{
     margin:0 0 .5em 0;
 }
+/* @1.337 */
+.entry-content  figure.alignnone,
+.entry-content  figure.aligncenter{
+    margin-bottom:1em;
+}
 .entry-content  figure.aligncenter img{
     margin:.5em auto;
+
 }
 .entry-content  figure img{
     margin:auto;
     width:auto;
-    max-width:calc(100% - 1em) ;
+    max-width:calc(100% - .5em) ;
 }
 /* Compatibility html4 caption */
 .entry-content  figure.wp-caption,
@@ -1775,9 +1785,16 @@ br.clearfix {
     margin-bottom:.5em;
     border-bottom:none;
 }
-.sticky-widget .post-group_by-category-title a{
-
+.post-group_by-category-title a span{
+    display:block;
+    width:100%;
+    height:100%;
 }
+
+.post-group_by-category-title > ul{
+    margin-left:.5em;
+}
+
 .sticky-widget.raindrops-pinup-entries .entry-title {
     top: -1em;
 }
@@ -1911,6 +1928,7 @@ figure .size-thumbnail{
     display:block;
     margin:auto;
     text-align:left;
+    margin:.5em;
 }
 .wp-caption p.wp-caption-text {
     line-height: 1.5;
@@ -2843,6 +2861,7 @@ div[class^="horizon"]{
     padding:0;
 }
 /* tiny mce br issue*/
+
 .yui-g > br,
 .yui-gb > br,
 .yui-gc > br,
@@ -4588,4 +4607,28 @@ article .post-password-form label{
 .paged .h2-thumb + .entry-title-text{
      display:table-cell;
      vertical-align:bottom;
+}
+.attachment-info{
+    margin:auto;
+    padding:1em;
+    box-sizing:border-box;
+}
+/* for template image.php */
+.image-title{
+    text-align:center;
+}
+
+.image-caption .section-title{
+    margin-bottom:1em;
+}
+.parent-entry-title{
+    margin-bottom:1em;
+    margin-left:3%;
+}
+.parent-entry-excerpt{
+    margin-left:3%;
+    margin-bottom:1em;
+}
+.image-caption-text{
+    margin-left:3%;
 }

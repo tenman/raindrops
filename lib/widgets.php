@@ -205,6 +205,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 	 *
 	 * @since 1.234
 	 */
+
 	if ( !function_exists( 'raindrops_get_post_array_group_by_category' ) ) {
 
 		function raindrops_get_post_array_group_by_category( $limit_posts = 5, $args = array() ) {
@@ -234,7 +235,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 						foreach ( $args[ 'raindrops_cat_items' ] as $key => $val ) {
 
 							$term = get_term( $val, 'category' );
-							if ( empty( $result[ $term->name ] ) || count( $result[ $term->name ] ) < $limit_posts ) {
+							if ( isset( $term->name) && ( empty( $result[ $term->name ] ) || count( $result[ $term->name ] ) < $limit_posts ) ) {
 
 								if ( in_category( $term->name ) ) {
 
@@ -248,7 +249,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 						foreach ( $categories as $key => $val ) {
 
-							if ( empty( $result[ $val->name ] ) || count( $result[ $val->name ] ) < $limit_posts ) {
+							if ( isset( $val->name ) && ( empty( $result[ $val->name ] ) || count( $result[ $val->name ] ) < $limit_posts ) ) {
 
 								$result[ $val->name ][ $post->ID ] = $post->ID;
 							}
@@ -257,7 +258,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				}
 			}
 			wp_reset_query();
-			
+
 			if ( empty( $result) ) {
 				return array();
 			}

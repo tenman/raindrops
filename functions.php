@@ -10875,6 +10875,10 @@ if ( !function_exists( 'raindrops_color_pallet_tagcloud' ) ) {
 		);
 		$terms		 = get_terms( $taxonomies, $args );
 
+		if( empty( $terms ) ) {
+			return $css;
+		}
+
 		$count_terms = count( $terms );
 
 		$radian = 270 / $count_terms;

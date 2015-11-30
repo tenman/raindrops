@@ -2,8 +2,47 @@ Changelog -----------------------------------
 version:1.339
 Overview of Changes
 
+	Fixed
+		Warning: Division by zero in /wp-content/themes/raindrops/functions.php on line 10860
+
+		this error occure when no settings tags
+
+		Warning: uksort() expects parameter 1 to be array, null given in /wp-content/themes/raindrops/lib/widgets.php on line 259
+		Warning: Invalid argument supplied for foreach() in /wp-content/themes/raindrops/lib/widgets.php on line 295
+
+		this error occure when use category what's new widget and not exists categories or not exists has category posts.
+
+	Add class cat-item, cat-item-(cat_ID) for All category links
+		new function raindrops_get_the_posted_in_category
+
+	Add class tag-link-(term_ID) for posted in tags
+		new function raindrops_get_the_posted_in_tag
+	Full review of presentation for image.php
+	Modified Translation japanese.
+	new function raindrops_get_image_sizes
+	Modified gallery Presentation
+		It keeps the image margins of the fixed page width is also varied
+	Add Customize option
+		Changeable footer credit
+		new function raindrops_custom_footer_credit_validate
+	Change default value
+		$raindrops_fluid_minimum_width change from 320 to 296 (px)
 
 Files Modified
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   page.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 
 Description of Code Changes

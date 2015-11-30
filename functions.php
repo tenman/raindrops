@@ -316,9 +316,9 @@ if( ! function_exists( 'raindrops_gallery_atts' ) ) {
 		if ( $raindrops_extend_galleries !== true ){
 			return  $out;
 		}
-		
+
 		if (  empty( $atts["columns"] ) || $atts["columns"] < 4 ) {
-			
+
 			if (isset($atts["columns"]) && 1 == $atts["columns"] ){
 				$gallary_img_size = 'large';
 			} else {
@@ -3238,7 +3238,7 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 			$page_title				 = esc_html__( "Tag Archives", 'raindrops' );
 			$page_title_c			 = single_term_title( "", false );
 		} elseif ( is_category() ) {
-			$page_title_c			 = single_cat_title( '', false );	
+			$page_title_c			 = single_cat_title( '', false );
 			$category_id			= get_cat_ID( $page_title_c );
 			$Raindrops_class_name	 = 'category-archives cat-item-'. $category_id;
 			$page_title				 = esc_html__( "Category Archives", 'raindrops' );
@@ -7784,16 +7784,16 @@ if ( !function_exists( 'raindrops_non_breaking_title' ) ) {
 		//Floccinaucinihilipilification
 
 		if ( !is_admin() && 'html5' == $raindrops_document_type ) {
-			
+
 			$title_text = strip_tags( $title );
-			
+
 			if ( preg_match( "/[\x20-\x7E]{30,}/", $title_text ) && preg_match( '!([A-Z])!', $title ) ) {
 
 				$replace_text = preg_replace( '!([A-Z])!', '<wbr>$1', $title_text );
 				return str_replace( $title_text, $replace_text, $title );
-				
+
 			} elseif ( preg_match( "/[\x20-\x7E]{30,}/", $title_text ) ) {
-				
+
 				$replace_text = preg_replace( '!([A-Z])!', '$1<wbr>', $title_text );
 				return str_replace( $title_text, $replace_text, $title );
 			}
@@ -8499,15 +8499,15 @@ if ( !function_exists( 'raindrops_base_font_size' ) ) {
 if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
 
 	function raindrops_widget_tag_cloud_args( $args ) {
-		
+
 		global $raindrops_tag_cloud_widget_presentation;
-		
+
 		if( true == $raindrops_tag_cloud_widget_presentation && 'post_tag' == $args['taxonomy'] ) {
-			
+
 			$args[ 'smallest' ]	 = '108';
 			$args[ 'largest' ]	 = '108';
 			$args[ 'unit' ]		 = '%';
-		} else {			
+		} else {
 			$args[ 'smallest' ]	 = '85';
 			$args[ 'largest' ]	 = '277';
 			$args[ 'unit' ]		 = '%';
@@ -9135,11 +9135,11 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 	function raindrops_footer_text() {
 
 		global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template, $raindrops_accessibility_link;
-		
+
 		$raindrops_custom_footer_credit = raindrops_warehouse_clone('raindrops_custom_footer_credit');
 
 		if( ! empty( $raindrops_custom_footer_credit ) ) {
-			
+
 			$current_year = date('Y');
 			echo str_replace('%current_year%', $current_year, $raindrops_custom_footer_credit );
 			return;
@@ -9776,24 +9776,24 @@ if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
 		foreach ( $categories as $category ) {
 			$category->term_id	 = absint( $category->term_id );
 			$parents			 = get_category_parents( $category->term_id, true, '&raquo;' );
-			
-			$parents_item		 = str_replace( '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . "</a>&raquo;", 
+
+			$parents_item		 = str_replace( '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . "</a>&raquo;",
 								   '<a href="' . get_category_link( $category->term_id ) . '"><span class="cat-item cat-item-'.$category->term_id.'">' . $category->name . "</a>&raquo;", $parents );
-			
+
 			$parents			 = explode( '&raquo;', $parents_item );
 
 			if ( ! empty( $parents_item ) ) {
 				$result[] = '<span class="label title parent">'.esc_html__('Parent Category:','raindrops' ).'</span>';
 			}
-			
+
 			foreach ( $parents as $links ) {
 
 				$result[] = $links;
 			}
-	
+
 			$replace_check	 = get_the_category_by_ID( $category->term_id );
 			$replace_check	 = get_category_link( $category->term_id );
-			
+
 			$tmp_child_ids	 = get_term_children( $category->term_id, 'category' );
 			$child_result	 = '';
 			$child_ready	 = array();
@@ -10719,7 +10719,7 @@ if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 }
 if ( !function_exists( 'raindrops_archive_year_navigation' ) ) {
 	/**
-	 * 
+	 *
 	 * @param type $echo
 	 * @return string
 	 * @since 1.335
@@ -10792,7 +10792,7 @@ if ( !function_exists( 'raindrops_archive_year_navigation' ) ) {
 
 if ( !function_exists( 'raindrops_post_password_form_html5' ) ) {
 	/**
-	 * 
+	 *
 	 * @global type $post
 	 * @param type $form
 	 * @return type
@@ -10812,7 +10812,7 @@ if ( !function_exists( 'raindrops_post_password_form_html5' ) ) {
 		$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 
 		$form = <<< POST_FORM
-		
+
 	<form action="%1\$s" class="post-password-form" method="post">
 		<p>
 			<span class="screen-reader-text">%4\$s</span>
@@ -10822,27 +10822,27 @@ if ( !function_exists( 'raindrops_post_password_form_html5' ) ) {
 			<input type="submit" name="Submit" value="%5\$s" />
 		</p>
 	</form>
-		
+
 POST_FORM;
 
 		$form = str_replace( array( "\n", "\r" ), '', $form );
 
-		$output = sprintf( $form, 
-							esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ), 
-							$label, 
+		$output = sprintf( $form,
+							esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ),
+							$label,
 							esc_html__( 'Password', 'raindrops' ),
-							esc_attr__( 'This content is password protected. To view it please enter your password', 'raindrops' ), 
+							esc_attr__( 'This content is password protected. To view it please enter your password', 'raindrops' ),
 							esc_attr__( 'Submit', 'raindrops' )
 		);
-		
+
 		$output = apply_filters( 'raindrops_post_password_form_html5', $output );
-		
+
 		return $output;
 	}
 }
 if ( !function_exists( 'raindrops_color_pallet_tagcloud' ) ) {
 	/**
-	 * 
+	 *
 	 * @global type $raindrops_tag_cloud_widget_presentation
 	 * @param type $css
 	 * @return type
@@ -10897,7 +10897,7 @@ if ( !function_exists( 'raindrops_color_pallet_tagcloud' ) ) {
 
 if ( !function_exists( 'raindrops_get_the_posted_in_category' ) ) {
 	/**
-	 * 
+	 *
 	 * @global type $wp_rewrite
 	 * @param type $separator
 	 * @param type $parents
@@ -10918,7 +10918,7 @@ if ( !function_exists( 'raindrops_get_the_posted_in_category' ) ) {
 		$categories = get_the_category( $post_id );
 		if ( empty( $categories ) ) {
 			/** This filter is documented in wp-includes/category-template.php */
-			return apply_filters( 'the_category', __( 'Uncategorized' ), $separator, $parents );
+			return apply_filters( 'the_category', __( 'Uncategorized','raindrops' ), $separator, $parents );
 		}
 
 		$rel = ( is_object( $wp_rewrite ) && $wp_rewrite->using_permalinks() ) ? 'rel="category tag"' : 'rel="category"';
@@ -10950,7 +10950,7 @@ if ( !function_exists( 'raindrops_get_the_posted_in_category' ) ) {
 }
 if ( !function_exists( 'raindrops_get_the_posted_in_tag' ) ) {
 	/**
-	 * 
+	 *
 	 * @global type $post
 	 * @param type $before
 	 * @param type $sep

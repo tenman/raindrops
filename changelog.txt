@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.339
+version:1.340
 Overview of Changes
 
 	Fixed
@@ -46,7 +46,7 @@ Files Modified
 
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.338&new_path=raindrops/1.339
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.338&new_path=raindrops/1.340
 -----------------------------------------------
 Changelog -----------------------------------
 version:1.338

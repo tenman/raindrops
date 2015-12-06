@@ -2,10 +2,55 @@ Changelog -----------------------------------
 version:1.343
 Overview of Changes
 
+	Add New Template pdf.php
+		new function raindrops_pdf_send_to_editor
+		new function raindrops_sidebar_pdf_archive_validate
+		this page can columns controlable from the customizer
+
+	Modified 404.php
+		Headding element change from h1 to h2
+
+	Rename un prefixed function
+		Change from is_2col_raindrops to raindrops_is_2col
+		Change from insert_message_action_hook_position to raindrops_insert_message_action_hook_position
+		Change from plugin_is_active to raindrops_plugin_is_active
+
+	Remove action do_not_cache_feeds
+
+	Added New function raindrops_pdf_send_to_editor
+
+	Modified Post Format Chat Template
+		Added conditional body class 'chat-emoji' for Backward compatibility
+		If no needs change, Please change from chat-emoji to chat at header.php( header-xhtml.php )
+		 The setting of this body class is deprecated in several versions destination
+
+	Modified h2 headding element for japanese user , change font size from 146.5% to 153.9% at .entry-title
+	Modified language files ja.po ja.mo
 
 Files Modified
 
-
+	modified:   author.php
+	modified:   blank_front.php
+	modified:   category.php
+	modified:   changelog.txt
+	modified:   date.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.342&new_path=raindrops/1.343

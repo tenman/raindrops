@@ -37,7 +37,6 @@ if ( !defined( 'ABSPATH' ) ) {
 $raindrops_home_url       = trailingslashit( home_url() );
 $raindrops_current_column = raindrops_column_controller();
 
-
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
 }

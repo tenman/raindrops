@@ -372,6 +372,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_filter( 'the_password_form', 'raindrops_post_password_form_html5' );		
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_color_pallet_tagcloud' );
+		/**
+		 * @since 1.343
+		 */		
+		add_filter('media_send_to_editor', 'raindrops_pdf_send_to_editor', 10, 3 );
     }
 }
 ?>

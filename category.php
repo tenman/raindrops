@@ -10,7 +10,7 @@
  * @uses is_active_sidebar( 'sidebar-3' )	include template part file
  * @uses dynamic_sidebar( 'sidebar-3' )	include template part file
  * @uses raindrops_yui_class_modify( )	add class attribute value
- * @uses is_2col_raindrops( 'style="width:99%;"' )	add inline style attribute
+ * @uses raindrops_is_2col( 'style="width:99%;"' )	add inline style attribute
  * @uses get_template_part( 'loop', 'default' )	include template part file
  * @uses get_sidebar( 'extra' )	include template part file
  * @uses get_sidebar( 'default' )	include template part file

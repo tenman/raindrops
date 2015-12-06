@@ -624,24 +624,39 @@
     #nav-above .nav-previous,
     #nav-below .nav-previous{
         display:block;
-        width:100%;
-        max-width:100%;
-        margin-bottom:.5em;
+        width:90%;
+        max-width:90%;
+        margin:auto auto .5em;
         border:1px dashed rgba(122,122,122,.5);
         float:none;
     }
     #nav-above .nav-next,
     #nav-below .nav-next{
         display:block;
-        width:100%;
+        width:90%;
+        max-width:90%;
+        margin:auto auto .5em;
         border:1px dashed rgba(122,122,122,.5);
         float:none;
     }
-    /* @1.337 */
+    .rd-col-1 #nav-below{
+        margin:0;
+    }
+
+    /* @1.343 */
+    .fail-search,
+    .index article,
     .page article,
-    .single article{
-        width:90vw;
+    .single-post article{
+        width:90%;
         margin:auto auto 1em;
+    }
+    .entry-content .rd-table-wrapper{
+        width:90vw;
+        margin:auto;
+    }
+    .index article { 
+        margin-bottom: 2em;
     }
 }
 @media screen and (max-width : 480px){

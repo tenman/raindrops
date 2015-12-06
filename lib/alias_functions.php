@@ -1644,6 +1644,11 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;
 		}
+		if ( 'pdf' == $template ) {
+			$raindrops_current_column = ( int ) raindrops_warehouse_clone( 'raindrops_sidebar_pdf_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
 
 		if ( is_singular() && isset( $post ) ) {
 

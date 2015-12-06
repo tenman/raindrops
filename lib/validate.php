@@ -1,4 +1,12 @@
 <?php
+function raindrops_sidebar_pdf_archive_validate( $input ) {
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}	
+}
 function raindrops_custom_footer_credit_validate( $input ) {
 	
 	if ( ! empty( $input ) ){

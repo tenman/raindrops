@@ -7,7 +7,7 @@
  *
  * @uses get_header( $raindrops_document_type )	include template part file
  * @uses raindrops_yui_class_modify( )	add class attribute value
- * @uses is_2col_raindrops( 'style="width:99%;"' )	add inline style attribute
+ * @uses raindrops_is_2col( 'style="width:99%;"' )	add inline style attribute
  * @uses get_avatar( )
  * @uses apply_filters( 'raindrops_author_bio_avatar_size', 60 )
  * @uses have_posts( )

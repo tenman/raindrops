@@ -15,7 +15,7 @@
  * @uses get_template_part( 'archive' )
  * @uses mysql2date( )
  * @uses raindrops_yui_class_modify( )
- * @uses is_2col_raindrops( 'style="width:99%;"' )
+ * @uses raindrops_is_2col( 'style="width:99%;"' )
  * @uses query_posts( "posts_per_page=-1&year=$ye" )
  * @uses raindrops_get_year( $one_year, $ye )
  * @uses wp_reset_query( )

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.342
+Version: 1.343
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -42,12 +42,15 @@ body.rd-col-1 main{ /* author.php */
 }
 .search-results .pagetitle,
 #comments-title,
-.error404 .entry-title,
 #archives-title,
 .page-title,
 body main h2{
     text-align:center;
     margin:1em 0;
+}
+.error404 .entry-title{
+    text-align:center;
+    padding:1em;
 }
 body.rd-col-1 .raindrops-expand-width{
     width:100%;
@@ -170,6 +173,12 @@ h6 a,
 div.error404{
     display:block;
     text-align:center;
+}
+div.error404 .entry-content form{
+    margin:0;
+}
+div.error404 .entry-content .message-404{
+    margin:1em;
 }
 div.error404 .searchform{
     display:inline-block;
@@ -853,11 +862,10 @@ div.hentry {
 .search-results > li{
     list-style:none;
 }
-.fail-search{
-    margin-top:1.15384615385em;
-}
+
 body.search-results .hentry{
-    margin-left:2.30769230769em;
+   /* @1.343
+   margin-left:2.30769230769em;*/
 }
 
 div.entry h2,
@@ -904,6 +912,10 @@ table#date-list {
 }
 #searchform{
     margin:1em 0 1em 0.38461538461em;
+}
+.fail-search #searchform{
+    text-align:center;
+    margin-top:2em;
 }
 table.company th.col2 {
     width:70%;
@@ -1313,7 +1325,8 @@ div[class^="entry-meta"] .emoji-date,
 }
 ul.archive,
 ul.index {
-    margin:.5em 0;
+   /* @1.343
+   margin:.5em 0;*/
 }
 ul.blank-front{
     margin-left:1em;
@@ -2578,35 +2591,45 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .raindrops-chat-text{
     margin-left:4em;
 }
-.raindrops-chat{
+.chat-emoji .raindrops-chat{
+    margin:0;
+    font-size:156%;
+}
+.chat-emoji .raindrops-chat img{
+    font-size:200%;
+}
+.chat .raindrops-chat{
     margin:0;
 }
-.raindrops-chat:before{
+.chat .raindrops-chat:before{
     margin:0 0.76923076923em;
     content:" ";
     display:inline-block;
     width:13px;
     height:13px;
     background-size:cover;
+
 }
-.raindrops-chat-author-0:before{
+
+.chat .raindrops-chat-author-0:before{
     background-image: url('images/raindrops-chat-author-0.png');
 }
-.raindrops-chat-author-1:before{
+.chat .raindrops-chat-author-1:before{
     background-image: url('images/raindrops-chat-author-1.png');
 }
-.raindrops-chat-author-2:before{
+.chat .raindrops-chat-author-2:before{
     background-image: url('images/raindrops-chat-author-2.png');
 }
-.raindrops-chat-author-3:before{
+.chat .raindrops-chat-author-3:before{
     background-image: url('images/raindrops-chat-author-3.png');
 }
-.raindrops-chat-author-4:before{
+.chat .raindrops-chat-author-4:before{
     background-image: url('images/raindrops-chat-author-4.png');
 }
-.raindrops-chat-author-5:before{
+.chat .raindrops-chat-author-5:before{
     background-image: url('images/raindrops-chat-author-5.png');
 }
+
 
 
 .single .current_item .icon-link-no-title,
@@ -4631,4 +4654,23 @@ article .post-password-form label{
 }
 .image-caption-text{
     margin-left:3%;
+}
+.pdf-preview{
+    height:90vh;
+    padding-bottom:100%;
+}
+.rd-pdf:before{
+    content:'PDF';
+    margin-right:.5em;
+    display:inline-block;
+}
+.rd-pdf:before{
+    content:'PDF';
+    margin-right:.5em;
+    display:inline-block;
+    background:#991c26;
+    color:#fff;
+    font-size:77%;
+    padding:0 6px;
+    box-sizing:border-box;
 }

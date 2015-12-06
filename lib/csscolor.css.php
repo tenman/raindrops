@@ -144,7 +144,7 @@ input[type="file"],
 input[type="reset"],
 input[type="submit"],
 .fail-search,
-#not-found ,
+.error404,
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
@@ -340,10 +340,8 @@ li.byuser span.says{
     color:%custom_color%;
 }
 
-.fail-search,
-#not-found{
-    border:1px solid;
-}
+
+
 .reply,
 .page .hentry .entry-title a,
 cite.fn,
@@ -532,7 +530,6 @@ kbd,
 .sticky-widget #wp-calendar tbody td:hover,
 .raindrops-excerpt-more,
 .raindrops-toc-front li,
-.fail-search,
 input[type="file"],
 input[type="reset"],
 .searchform input[type="submit"],
@@ -590,7 +587,7 @@ color:%custom_color%;
     background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
 
-.fail-search,
+
 .raindrops-tab-list li:active,
 #access .children li:active,
 #access li:active,
@@ -623,7 +620,7 @@ a.raindrops-comment-link em,
 #access .menu > li{
     border-left:1px solid rgba( 222,222,222,.2);
 }
-.fail-search,
+
 #slides .slides_container,
 .raindrops-tab-content,
 .raindrops-tab-list li{
@@ -957,8 +954,8 @@ cite.fn{
     background:none;
 }
 
-.fail-search,
-#not-found {
+
+.error404 {
     %c3%
     border:3px double;
 }
@@ -1326,8 +1323,8 @@ address{
 cite.fn{
     background:none;
 }
-.fail-search,
-#not-found {
+
+.error404 {
     %c4%
     border:3px double %c_border%;
 }

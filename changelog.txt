@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.343
+Overview of Changes
+
+
+Files Modified
+
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.342&new_path=raindrops/1.343
+-----------------------------------------------
+Changelog -----------------------------------
 version:1.342
 Overview of Changes
 
@@ -5487,7 +5499,7 @@ added
         raindrops_prepend_footer()
         raindrops_append_footer()
         raindrops_append_doc()
-        function insert_message_action_hook_position()
+        function raindrops_insert_message_action_hook_position()
         function raindrops_action_hook_messages()
         raindrops_entry_title()
         raindrops_entry_content()

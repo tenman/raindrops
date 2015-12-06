@@ -417,7 +417,7 @@ if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom
         <?php get_template_part( 'widget', 'sticky' ); ?>
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
             <div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php
-            is_2col_raindrops( 'style="width:99%;"' );
+            raindrops_is_2col( 'style="width:99%;"' );
 
             if ( $raindrops_devide_column_extra_class !== 'yui-u' ) {
                 echo 'style="width:99%;"';

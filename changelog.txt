@@ -1,12 +1,41 @@
 Changelog -----------------------------------
 version:1.344
 Overview of Changes
-
-
+	Modified	editor style
+		taindrops tablist
+		.columns class
+		PDF link
+	Fixed Not work raindrops_header_image_ratio filter
+	Modified Show Responsive
+		reverbnation oembed
+		Speaker Deck oembed
+		videopress oembed
+	Add new css class
+		rd-round
+		<div style="width:300px" class="rd-round">
+			<span style="background:url(IMAGE URI);"></span>
+		</div>
+		not-hover
+		<div style="width:300px" class="rd-round not-hover">
+			<span style="background:url(IMAGE URI);"></span>
+		</div>
+		rd-squere
+		<div style="width:300px" class="rd-squere">
+			<span style="background:url(IMAGE URI);"></span>
+		</div>
+		note: must not set height
+	Fixed
+		Embed external post style shows improperly
 
 Files Modified
 
-
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.343&new_path=raindrops/1.344

@@ -162,4 +162,4 @@
             jQuery(this).wrap('<div class="rd-table-wrapper"></div>') 
         });
     });
-})(jQuery);
+})(jQuery); 

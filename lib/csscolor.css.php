@@ -382,6 +382,7 @@ border-left:solid 1px %c_border%;
     border-left:solid 1px %c_border%;
 }
 /* tinyMCE */
+html .mceContentBody li:last-child:before,
 .yui-main .rd-list-type-tree li:last-child:before,
 .breadcrumbs li:last-child:before,
 html .mceContentBody{
@@ -750,6 +751,7 @@ body {
     border-left:solid 1px %c_border%;
 }
 /* tinyMCE */
+html .mceContentBody li:last-child:before,
 .yui-main .rd-list-type-tree li:last-child:before,
 .breadcrumbs li:last-child:before,
 html .mceContentBody,
@@ -1120,6 +1122,7 @@ body{
 	border-left:solid 1px %c_border%;
 }
 /* tinyMCE */
+html .mceContentBody li:last-child:before,
 .yui-main .rd-list-type-tree li:last-child:before,
 .breadcrumbs li:last-child:before,
 html .mceContentBody,	

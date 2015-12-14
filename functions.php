@@ -4977,6 +4977,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'field_exists_check'					 => $raindrops_field_exists_check,
 			'restore_check'							 => $raindrops_restore_check,
 			'ratio'									 => apply_filters( 'raindrops_header_image_ratio', $ratio ),
+			'has_ratio_filter'						 => has_filter( 'raindrops_header_image_ratio' ),
 			'current_template'						 => $raindrops_current_template,
 			'ignore_template'						 => $raindrops_ignore_template,
 			'is_single'								 => $raindrops_is_single,
@@ -5101,22 +5102,27 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			"\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}'.
 			"\n".
 			".rd-pw-doc3.rd-col-1 .breadcrumbs{width:".$content_width .'px;margin:auto;}'.
-			"\n".
-			"#doc3 #header-image{
-				display:block;
-				position: relative;
-				padding-bottom: {$padding_height}%;
-				height: 0!important;
-				max-width:100%;
-			}".
-			'/* raindrops is fluid end */';
-
+			"\n";
+			if ( false == has_filter( 'raindrops_header_image_ratio' ) ) {
+				
+				$fluid_width .= "#doc3 #header-image{
+					display:block;
+					position: relative;
+					padding-bottom: {$padding_height}%;
+					height: 0!important;
+					max-width:100%;
+				}";
+			
+			}
+			$fluid_width .= '/* raindrops is fluid end */';
 		} elseif ( 'doc5' ==  $page_width  ) {
+			
+
 
 			$raindrops_full_width_limit_window_width	= raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
 			$raindrops_full_width_max_width				= raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
 
-
+			
 			$fluid_width = "\n". '/* raindrops is fluid start  */' .
 			'#header-image,' .
 			"\n#doc5{min-width:" . $raindrops_fluid_minimum_width .
@@ -5147,22 +5153,27 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			#top > a{
 				display:block;
 
+			}";
+			
+			if ( false == has_filter( 'raindrops_header_image_ratio' ) ) {
+				
+				$fluid_width .= "#doc5 #header-image{
+					display:block;
+					position: relative;
+					padding-bottom: {$padding_height}%;
+					height: 0!important;
+					max-width:100%;
+				}";
 			}
-			#doc5 #header-image{
-				display:block;
-				position: relative;
-				padding-bottom: {$padding_height}%;
-				height: 0!important;
-				max-width:100%;
-			}".
-			"\n".'/* raindrops is fluid end */';
+				
+			$fluid_width .= "\n".'/* raindrops is fluid end */';
 
 				$fluid_width .= "\n". '/* raindrops is fluid 1 column start  */'.
 				"\n#doc5{
 					min-width:{$raindrops_fluid_minimum_width}px;
 					max-width: {$raindrops_full_width_limit_window_width}px;
 					}
-				#doc5 #header-image{
+				.rd-pw-doc5.rd-col-1 #doc5 #header-image{
 					display:block;
 					position: relative;
 					padding-bottom: {$padding_height}%;
@@ -8513,7 +8524,8 @@ if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
 			$args[ 'largest' ]	 = '277';
 			$args[ 'unit' ]		 = '%';
 		}
-
+		$args[ 'echo' ] = false;
+		
 		return $args;
 	}
 }
@@ -8968,8 +8980,23 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 		}
 
 		$element = raindrops_doctype_elements( 'div', 'figure', false );
-
-		if ( !preg_match( '!(twitter.com|tumblr.com)!', $url ) ) {
+		/**
+		 * https://www.reverbnation.com/
+		 */
+		if ( preg_match( '!(reverbnation.com)!', $url ) ) {
+			return sprintf( '<%2$s class="rd-reverbnation clearfix"><div>%1$s</div></%2$s>', $html, $element );
+		}
+		/*
+		 * https://speakerd.s3.amazonaws.com/presentations/50021f75cf1db900020005e7/slide_0.jpg?1362165300
+		 */
+		if ( preg_match( '!(speakerdeck.com|speakerd)!', $url ) ) {
+			return sprintf( '<%2$s class="rd-speakerdeck clearfix"><div>%1$s</div></%2$s>', $html, $element );
+		}
+		/**
+		 * note: 4:3 ratio can use .rd-ratio-075
+		 */
+		
+		if ( !preg_match( '!(twitter.com|tumblr.com|speakerdeck)!', $url ) && !preg_match( '!(wp-embedded-content)!', $html )) {
 			return sprintf( '<%2$s class="oembed-container clearfix">%1$s</%2$s>', $html, $element );
 		}
 		return $html;
@@ -10708,6 +10735,7 @@ if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 	function raindrops_localize_style_add( $style ) {
 
 		 $locale = get_locale();
+		 
 
 		if ( false !== ( $url = raindrops_locate_url( 'fonts.css' ) ) ) {
 			$style[] = $url;
@@ -11022,7 +11050,6 @@ if ( !function_exists( 'raindrops_pdf_send_to_editor' ) ) {
 		}
 		return $html;
 	}
-
 }
 
 /**
@@ -11032,4 +11059,3 @@ if ( !function_exists( 'raindrops_pdf_send_to_editor' ) ) {
  * @since 1.138
  */
 do_action( 'raindrops_last' );
-?>

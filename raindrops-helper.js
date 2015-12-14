@@ -21,7 +21,9 @@
                     var raindrops_window_width = jQuery( window ).width();
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
-                  /*  jQuery( '#header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block' } );*/
+                    if ( raindrops_script_vars.has_ratio_filter ) {
+                       jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover' } );
+                    }
 
                 }
             }

@@ -494,11 +494,17 @@ html .mce-content-body .wp-caption{
 .mce-content-body table td.bottom{
      vertical-align:bottom;
 }
-.mce-content-body .raindrops-tab-list,
-.mce-content-body .raindrops-tab-list .dummy{
+.mce-content-body .raindrops-tab-list{
     list-style:none;
     margin:0;
     padding:0;
+}
+.mce-content-body .raindrops-tab-list li{
+    display:inline-block;
+    list-style: none;
+    padding: 10px; 
+    text-decoration: none;
+    margin-right: 1px;
 }
 .mce-content-body .raindrops-tab-page{
     padding:16px;
@@ -661,4 +667,21 @@ u{
     top:0;
     bottom:0;
     left:-.2em;
+}
+.mce-content-body .columns{
+    -moz-columns: 20em auto;
+    -webkit-columns:20em auto;
+    -o-columns: 20em auto;
+    -ms-columns: 20em auto;
+}
+
+.mce-content-body .rd-pdf:before{
+    content:'PDF';
+    margin-right:.5em;
+    display:inline-block;
+    background:#991c26;
+    color:#fff;
+    font-size:77%;
+    padding:0 6px;
+    box-sizing:border-box;
 }

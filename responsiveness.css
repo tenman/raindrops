@@ -255,6 +255,7 @@
     #doc3 .lsidebar{
         box-sizing: border-box;
     }
+    address span,
     .reply, #ft a,
     .page .hentry .entry-title a,
     #site-description,

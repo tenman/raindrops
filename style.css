@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.343
+Version: 1.344
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -243,7 +243,7 @@ p{
     line-height:1.65;
     margin-bottom:1em;
 }
-p:empty{
+.entry-content p:empty{
     display:none;
 }
 /* html5 elements */
@@ -313,9 +313,11 @@ iframe[src^="https://embed-ssl.ted.com/"]{
    clear:both;
    max-height:100%;
 }
+.wp-embedded-content,
 .oembed-container iframe {
     border:none;
 }
+
 .oembed-container{
     margin:0;
 }
@@ -334,6 +336,35 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .oembed-container + *{
     margin-top:1em;
 }
+.rd-reverbnation{
+    width:100%;
+    max-width:484px;
+    margin:auto;
+}
+.rd-reverbnation > div{
+    height:0;
+    padding-bottom:100%;
+    overflow:hidden;
+}
+.rd-reverbnation > div > iframe{
+    min-height:484px;
+}
+.rd-ratio-075{
+   width:100%;
+   max-width:100%;
+       margin:0;
+       border-bottom:1px solid #000;
+}
+.entry-content .rd-ratio-075 > div{
+    height:0;
+    padding-bottom:75%;
+    overflow:hidden;
+
+}
+.rd-ratio-075 > div > iframe{
+    min-height:550px;
+}
+
 /* oembed end */
 
 .comment-body blockquote blockquote {
@@ -630,6 +661,11 @@ html body.ja .hentry .entry-content .block,
 div .entry-content .block,
 article .entry-content .block{
     display:block;
+}
+body .raindrops-tag-posts .title.h2,
+body .raindrops-category-posts .title.h2,
+#raindrops-recent-posts .title{
+    margin:2em 0;
 }
 #raindrops-recent-posts .entry-content{
     margin-top:.5em;
@@ -4097,7 +4133,7 @@ video{
 .widget_nav_menu.sticky-widget,
 .widget_pages.sticky-widget,
 #access {
-    min-width: 320px;
+    min-width: 296px;
     max-width:100%;
     text-align: center;
     width:99%;
@@ -4250,7 +4286,7 @@ video{
 #access .menu-item-has-children > a:after{
     content:'\bb';
     transform: rotate( 90deg );
-    right:.5em;
+    right:1em;
     top:0;
     position:absolute;
 }
@@ -4673,4 +4709,29 @@ article .post-password-form label{
     font-size:77%;
     padding:0 6px;
     box-sizing:border-box;
+}
+.entry-content .rd-squere,
+.entry-content .rd-round{
+    display:inline-block;
+}
+.entry-content .rd-round > *,
+.entry-content .rd-squere > *{
+    display:block;
+    width:100%;
+    height:0;
+    padding-bottom:100%;
+    background-size:cover!important;
+    background-repeat:no-repeat;
+    overflow:hidden;
+}
+.entry-content .rd-round > *{
+    border-radius:50%;
+
+}
+.entry-content .rd-round:not(.not-hover) > *:hover{
+    border-radius:0;
+    background-size:contain;
+}
+.not-hover{
+    /* stop hover presentation */
 }

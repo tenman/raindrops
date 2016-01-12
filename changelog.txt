@@ -2,7 +2,52 @@ Changelog -----------------------------------
 version:1.345
 Overview of Changes
 
+	Fixed conflict Responsive Image (WordPress4.4)
+
+		filter raindrops_chat_filter move from functions.php to lib/hooks.php
+		Change priority default to 11
+	Fixed raindrops_link_url_text_decode()
+		regex issue
+	Fixed Oembed speakerdeck presentation issue.
+
+	Modified i18n languages/ja.po, ja.mo.
+
+	Modified Raindrops color type 'minimal' default 3col to 2col
+		Add raindrops_switch_default_by_color_type_clone()
+		minimal style apply at lib/csscolor.css.php
+		Change lib/customize.js
+		Change lib/customize.php
+		Change lib/vars.php
+		Note: if you needs other columns style then once minimal save it,you can controll column count.
+	Modified part-blog.php
+
+	Add class
+		.rd-float-wrapper
+			for make floating blockquote , floatting table, etc block elements
+		.clear
+		.rd-float
+			for dl elements
+
+			@see http://www.tenman.info/wp3/tips/2016/01/12/26199/
+
 Files Modified
+	modified:   css3.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   page-templates/page-featured.php
+	modified:   part-blog.php
+	modified:   part.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.344&new_path=raindrops/1.345

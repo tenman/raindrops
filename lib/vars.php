@@ -452,6 +452,8 @@ if ( !isset( $raindrops_page_width ) ) {
 if ( ! isset( $raindrops_base_setting_args ) ) {
 
 	$raindrops_current_style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
+	
+	
 
 $raindrops_base_setting_args = array(
 array( 'option_id'    => 1,
@@ -537,8 +539,8 @@ array( 'option_id'    => 8,
 	'validate'     => 'raindrops_page_width_validate', 'list'         => 7 ),
 array( 'option_id'    => 9,
 	'blog_id'      => 0,
-	'option_name'  => "raindrops_col_width",
-	'option_value' => "t2",
+	'option_name'  => "raindrops_col_width",	
+	'option_value' => raindrops_switch_default_by_color_type_clone($raindrops_current_style_type,"raindrops_col_width", "t2", "t6" ),
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Column Width and Position', 'raindrops' ),
 	'excerpt1'     => '',
@@ -565,7 +567,7 @@ array( 'option_id'    => 11,
 array( 'option_id'    => 12,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_show_right_sidebar",
-	'option_value' => "show",
+	'option_value' => raindrops_switch_default_by_color_type_clone($raindrops_current_style_type, "raindrops_show_right_sidebar", "show", "hide" ), 
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Extra Sidebar', 'raindrops' ),
 	'excerpt1'     => '',
@@ -1091,7 +1093,7 @@ array( 'option_id'    => 62,
 array( 'option_id'    => 63,
         'blog_id'      => 0,
         'option_name'  => "raindrops_status_bar",
-        'option_value' => 'show',
+        'option_value' => raindrops_switch_default_by_color_type_clone($raindrops_current_style_type, "raindrops_status_bar", "show", "hide" ), 
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Bottom Status Bar', 'raindrops' ),
         'excerpt1'     => '',

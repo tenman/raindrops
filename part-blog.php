@@ -43,11 +43,14 @@ $raindrops_day_link         = esc_url( get_day_link( $raindrops_archive_year, $r
 );
 $raindrops_display_article_publish_date = raindrops_warehouse_clone( 'raindrops_display_article_publish_date' );
 
-if ( 'ja' == get_locale()) {
+$use_japanese_date = raindrops_warehouse('raindrops_japanese_date');
+
+if ( 'yes' == $use_japanese_date && 'ja' == get_locale() ) {
 	// japanese date
 	$raindrops_archive_year     = raindrops_year_name_filter( $raindrops_archive_year );
 	$raindrops_archive_month    = raindrops_archive_day_filter_month( $raindrops_archive_month );
 	$raindrops_archive_day      = raindrops_archive_day_filter_day( $raindrops_archive_day );
+	
 	
 	$raindrops_status_date = $raindrops_archive_year. $raindrops_archive_month. $raindrops_archive_day;
 } else {
@@ -82,14 +85,14 @@ if ( is_single() ) {
         </li>
         <li class="category">
             <?php
-            esc_html_e( 'Category:', 'raindrops' );
+            esc_html_e( 'Category:&shy;', 'raindrops' );
 
             the_category( ' ' )
             ?>
         </li>
         <li class="tag">
             <?php
-            esc_html_e( 'Tags:', 'raindrops' );
+            esc_html_e( 'Tags:&shy;', 'raindrops' );
 
             the_tags( ' ', ' ' );
             ?>

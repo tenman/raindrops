@@ -510,6 +510,22 @@ if ( ! function_exists( 'raindrops_colors_clone' ) ) {
 		return false;
 	}
 }
+
+function raindrops_switch_default_by_color_type_clone( $name = 'dark', $option_name = false, $default_val = '', $conditional_val = '' ) {
+	
+	switch ( $name ) {
+
+		case ( "minimal" ):
+			if( !empty( $option_name )  && 'bad' !== raindrops_warehouse_clone( $option_name ) ) {
+			
+				return $conditional_val;
+			}
+			
+
+		break;
+	}	
+	return $default_val;
+}
 /**
  * Declaration Calculator
  *

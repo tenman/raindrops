@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: raindrops v1.248\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 08:31+0900\n"
-"PO-Revision-Date: 2015-12-03 16:02+0900\n"
+"PO-Revision-Date: 2015-12-21 13:17+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
 "Language: ja_JP\n"
@@ -1585,7 +1585,8 @@ msgstr "パスワード"
 #: raindrops/functions.php:10834
 msgid ""
 "This content is password protected. To view it please enter your password"
-msgstr "この投稿はパスワードで保護されています。パスワードを入力してください。"
+msgstr ""
+"この記事はパスワードで保護されています。パスワードの入力をお願いします。"
 
 #: raindrops/functions.php:10835
 msgid "Submit"
@@ -4042,7 +4043,7 @@ msgstr "インストールするプラグインが選択されていませんの
 
 #: raindrops/plugins/class-tgm-plugin-activation.php:2652
 msgid "No plugins were selected to be updated. No action taken."
-msgstr "更新するプラグインが選択されていませんので、動作を停止します。"
+msgstr "\t更新するプラグインが選択されていません。"
 
 #: raindrops/plugins/class-tgm-plugin-activation.php:2688
 msgid "No plugins are available to be installed at this time."
@@ -4050,7 +4051,7 @@ msgstr "今のところ、インストール可能なプラグインはありま
 
 #: raindrops/plugins/class-tgm-plugin-activation.php:2690
 msgid "No plugins are available to be updated at this time."
-msgstr "いまのところ、更新可能なプラグインはありません"
+msgstr "現在、更新できるプラグインはありません。"
 
 #: raindrops/plugins/class-tgm-plugin-activation.php:2795
 msgid "No plugins were selected to be activated. No action taken."

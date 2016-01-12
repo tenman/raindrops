@@ -2269,6 +2269,16 @@ add_action( 'customize_controls_print_scripts', 'raindrops_print_scripts' );
 function raindrops_print_scripts() {
 	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type;
 	wp_enqueue_script( 'raindrops-customize', get_template_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
+	
+	$customized = get_option('raindrops_theme_settings');
+	
+	if( false == $customized ) {
+		$raindrops_is_customized = 'no';
+	} else {
+		$raindrops_is_customized = 'yes';		
+	}
+	
+	
 	wp_localize_script(
 	'raindrops-customize', 'raindrops_customizer_script_vars', array(
 		'preview_label'						 => __( 'Preview Width', 'raindrops' ),
@@ -2300,7 +2310,7 @@ function raindrops_print_scripts() {
 		'fallback_fonts_color_default'		 => apply_filters( 'raindrops_fallback_fonts_color_default', raindrops_default_color_clone( 'raindrops_default_fonts_color', 'fallback' ) ),
 		'fallback_footer_link_color'		=> apply_filters( 'raindrops_fallback_footer_link_color', raindrops_default_color_clone( 'raindrops_footer_link_color', 'fallback' ) ),
 	'fallback_header_textcolor'			 =>  apply_filters( 'raindrops_fallback_header_textcolor', raindrops_default_color_clone( 'header_textcolor', 'fallback' ) ),
-	
+	'is_customized'							=> 	$raindrops_is_customized,
 	)
 	);
 }

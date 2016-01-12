@@ -3422,7 +3422,6 @@ if ( !function_exists( "raindrops_yui_class_modify" ) ) {
 if ( !function_exists( "raindrops_is_2col" ) ) {
 
 
-
 	function raindrops_is_2col( $action = true, $echo = true ) {
 		global $template;
 
@@ -5034,12 +5033,12 @@ if ( !function_exists( 'raindrops_custom_width' ) ) {
  *
  *
  */
-
 if ( !function_exists( 'raindrops_is_fluid' ) ) {
 
 	function raindrops_is_fluid() {
 
 		global $post, $is_IE, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width, $raindrops_current_column, $raindrops_stylesheet_type, $raindrops_header_image_default_ratio;
+			
 		if ( ! isset( $raindrops_stylesheet_type ) ) {
 
 			$raindrops_stylesheet_type = raindrops_warehouse_clone( 'raindrops_stylesheet_in_html' );
@@ -5096,7 +5095,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 
 		if( 'doc3' ==  $page_width ) {
 
-			$fluid_width = "\n". '/* raindrops is fluid start  */' .
+			$fluid_width = "\n". '/* raindrops is fluid start */' .
 			"\n#doc3,.raindrops-auto-fit-width{min-width:" . $raindrops_fluid_minimum_width .
 			'px;max-width:' . $raindrops_fluid_maximum_width . 'px;}' .
 			"\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}'.
@@ -7065,9 +7064,11 @@ if ( !function_exists( 'raindrops_dinamic_class' ) ) {
 
 	function raindrops_dinamic_class( $id = 'yui-u first', $echo = false ) {
 
-		global $rsidebar_show,$raindrops_current_column, $raindrops_keep_content_width;
-		$class = '';
+		global $rsidebar_show, $raindrops_current_column, $raindrops_keep_content_width;
 
+		
+		$class = '';
+		
 		if ( 'yui-u first' == $id ) {
 
 			if ( 3 == $raindrops_current_column ) {
@@ -7620,7 +7621,7 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
  *
  * @since 1.111
  */
-add_filter( 'the_content', 'raindrops_chat_filter' );
+
 
 if ( !function_exists( 'raindrops_chat_filter' ) ) {
 
@@ -7868,6 +7869,7 @@ if ( !function_exists( 'raindrops_add_wbr_content_long_text' ) ) {
 if ( !function_exists( 'raindrops_poster' ) ) {
 
 	function raindrops_poster( $args ) {
+		global $post;
 
 		$args_count	 = count( $args );
 		$html		 = '<a href="%1$s" title="link to %2$s" class="page-featured-template">%3$s</a>';
@@ -7892,8 +7894,12 @@ if ( !function_exists( 'raindrops_poster' ) ) {
 				}
 
 				if ( 'widget' == $page_item[ 'type' ][ 0 ] ) {
+	
+					echo '<div id="post-'. absint( $post->ID ) .'">';
 
 					the_widget( $page_item[ 'type' ][ 1 ], $page_item[ 'type' ][ 2 ], $page_item[ 'type' ][ 3 ] );
+					
+					echo '</div>';
 				}
 
 				if ( 'page' == $page_item[ 'type' ][ 0 ] || 'post' == $page_item[ 'type' ][ 0 ] ) {
@@ -8688,7 +8694,7 @@ if ( !function_exists( 'raindrops_link_text_filter' ) ) {
  * @since 1.328
  */
 	function raindrops_link_text_filter( $content ){
-
+		
 		$content = preg_replace_callback( "|<a[^>]+>.*?(https?:\/\/[-_.!*\'()a-zA-Z0-9;\/?:@&=+$,%#]+).*?</a>|", "raindrops_link_url_text_decode", $content );
 
 		return $content;
@@ -8702,16 +8708,15 @@ if ( !function_exists( 'raindrops_link_url_text_decode' ) ) {
  * @since 1.328
  */
 	function raindrops_link_url_text_decode( $matches ) {
-
-		if( isset( $matches[1] ) ) {
+		
+		if( isset( $matches[1] ) &&  false !== strpos($matches[1], '%') ) {
 
 			$replace = urldecode( $matches[1] );
 			$replace = esc_html( $replace );
 
-
-			return preg_replace("|(>.*)?". $matches[1]."*?</a>|", "$1{$replace}$2", $matches[0] );
+			return preg_replace("|>". $matches[1]."</a>|", ">{$replace}</a>", $matches[0] );
 		}
-		return $matches;
+		return $matches[0];
 	}
 }
 /**
@@ -8990,7 +8995,7 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 		 * https://speakerd.s3.amazonaws.com/presentations/50021f75cf1db900020005e7/slide_0.jpg?1362165300
 		 */
 		if ( preg_match( '!(speakerdeck.com|speakerd)!', $url ) ) {
-			return sprintf( '<%2$s class="rd-speakerdeck clearfix"><div>%1$s</div></%2$s>', $html, $element );
+			return sprintf( '<%2$s class="rd-ratio-075 rd-speakerdeck clearfix"><div>%1$s</div></%2$s>', $html, $element );
 		}
 		/**
 		 * note: 4:3 ratio can use .rd-ratio-075

@@ -659,6 +659,18 @@
     .index article { 
         margin-bottom: 2em;
     }
+    /* @1.345 test */
+    .entry-content .alignleft,
+    .entry-content .alignright,
+    .entry-content .aligncenter{
+        float:none;
+        display:block;
+        margin:auto;
+    }
+    .entry-content .float{
+        min-width:296px;
+    }
+    
 }
 @media screen and (max-width : 480px){
     html .gecko{

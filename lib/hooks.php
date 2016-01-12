@@ -376,6 +376,13 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.343
 		 */		
 		add_filter('media_send_to_editor', 'raindrops_pdf_send_to_editor', 10, 3 );
+		/**
+		 * @since 1.345
+		 * moved from functions.php
+		 * priority change from 10 to 11
+		 * conflict Responsive Image (WordPress4.4)
+		 */			
+		add_filter( 'the_content', 'raindrops_chat_filter',11 );
     }
 }
 ?>

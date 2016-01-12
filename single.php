@@ -130,7 +130,7 @@ raindrops_debug_navitation( __FILE__ );
 		?>
 		</div>
 
-		<?php 
+		<?php
 		raindrops_after_article();
 		
 		raindrops_prev_next_post( 'nav-below' );

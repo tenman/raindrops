@@ -388,6 +388,8 @@ html .mceContentBody li:last-child:before,
 html .mceContentBody{
  %c_5%
 }
+	
+
 DOC;
 
     $css3 = <<<CSS3
@@ -1716,12 +1718,12 @@ a:hover{
     color:#777;
 }
 #yui-main{
-   /*1.303
-	   color:%raindrops_header_color%;
-		   */
+
+	/* color:%raindrops_header_color%; */
+		   
 }
 #ft{
-	%c5%
+	/* %c5% */
 	}
 #ft a{
      color:%raindrops_footer_link_color%;           
@@ -1733,6 +1735,7 @@ a:hover{
 h2.footer-content {
     text-indent:0;
 }
+input[type="submit"],
 .social input[type="submit"]{
     border:1px solid rgba(105,105,105,.7);
 }
@@ -1802,7 +1805,7 @@ blockquote{
     border-left:6px solid;
     border-left-color:%rgba_border%;
     padding:10px;
-    %c4%
+    %c5%
 }
 
 kbd,
@@ -1812,6 +1815,57 @@ kbd,
 hr{
     border-top:1px solid %rgba_border%;
 }
+/* @1.345 start */
+.rsidebar ul li ul li,
+.lsidebar ul li ul li{
+    list-style-type:square;
+    list-style-position:inside;
+	line-height:2;
+}
+.entry-content table{
+	 border-top:1px solid %rgba_border%;
+	 border-bottom:1px solid %rgba_border%;
+	border-collapse: collapse;
+}
+.entry-content th,
+.entry-content td{
+	padding:.7em .5em;
+	 border-bottom:1px dashed %rgba_border%;
+}
+.entry-content tfoot{
+	 border-top:1px dashed %rgba_border%;
+	font-weight:bold;
+}
+.entry-content thead,
+.entry-content tfoot{
+	%c5%;
+}
+.entry-content tr:last-child td{
+	border:none;
+}
+#raindrops.rd-type-minimal a{
+	
+}
+.entry-meta .post-format-text + a,
+.post-tag a span,
+.post-category a span,
+.entry-meta span:not(.author) a{
+	 border:1px solid rgba(127,127,127,.3);
+	padding:.2em .3em;
+	line-height:2.4;
+}
+#raindrops.rd-type-minimal a:hover{
+	 color:rgba(41, 128, 185,1.0);
+}
+.rd-type-minimal #access .menu > li{
+	border:none;
+}
+.rd-type-minimal #access a:hover{
+	color:rgba(255, 255, 255,1.0);
+	background:#000;
+}
+/* @1.345 end */	
+	
 CSS;
 
 

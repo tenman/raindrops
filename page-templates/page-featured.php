@@ -144,10 +144,7 @@ if ( have_posts() ) {
                         <br class="clear" />
                         <div class="postmetadata">
                             <?php
-                            the_category( ', ' );
-
-                            echo '&nbsp;';
-
+   
                             edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 
                            raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );

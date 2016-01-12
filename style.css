@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.344
+Version: 1.345
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,9 @@ body.rd-col-1 .raindrops-expand-width{
 }
 .rd-col-1 .nav-links{
     text-align:center;
+}
+.rd-type-minimal.rd-col-2 .raindrops-expand-width{
+  width:95%;
 }
 
 .hfeed{
@@ -349,6 +352,9 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .rd-reverbnation > div > iframe{
     min-height:484px;
 }
+.entry-content .rd-speakerdeck{
+    max-width:652px;
+}
 .rd-ratio-075{
    width:100%;
    max-width:100%;
@@ -387,7 +393,8 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     margin:0.2em;
 }
 dl {
-    clear:both;
+   /* @1.345
+      clear:both; */
     margin:0 0 1em 1.5em;
     overflow:hidden;
 }
@@ -582,6 +589,16 @@ abbr{
 .entry-content  div.wp-caption{
    max-width:98%;
 }
+img.aligncenter,
+.wp-caption.aligncenter{
+    clear:both;
+}
+img.aligncenter:before,
+.wp-caption:before{
+    content: "\a";
+    display:block;
+    height:1px;
+}
 
 .entry-content ins{
     position:relative;
@@ -628,6 +645,12 @@ abbr{
 .entry-content input{
     display:inline-block;
     margin:.5em 0;
+}
+/* @1.345 */
+.rd-type-minimal .entry-content input[name="post_password"]{
+    display:inline-block;
+    padding:.2em;
+    height:1.4em;
 }
 .entry-content input[name="post_password"],
 .entry-content input[type="checkbox"],
@@ -680,7 +703,10 @@ body .raindrops-category-posts .title.h2,
     height:auto;
     box-sizing: border-box;
 }
-.entry-content ul li{
+.entry-content ol,
+.entry-content ul {
+    /* @1.345 */
+    list-style-position: inside;
 }
 .entry-content li > ol,
 .entry-content li > ul{
@@ -723,6 +749,9 @@ body .raindrops-category-posts .title.h2,
 input[type="submit"]{
     cursor:pointer;
     display:inline-block;
+}
+.rd-type-minimal input[type="submit"]{
+    padding:.5em 1em;
 }
 input[type="checkbox"],
 input[type="radio"],
@@ -1225,7 +1254,7 @@ h2.footer-content,
 }
 .entry-title {
     clear:both;
-    margin-bottom:0;
+    margin-bottom:3px;
 }
 
 
@@ -1315,11 +1344,21 @@ div[class^="entry-meta"] .author .nickname,
 .posted-on .author .nickname{
     overflow:hidden;
 }
+/*
 div[class^="entry-meta"] .author .avatar,
 .posted-on .author .avatar{
     width:24px;
     height:24px;
-    position:absolute;
+  position:absolute;
+}
+@1.345 maybe absolute no needs */
+
+div[class^="entry-meta"] .author .avatar,
+.posted-on .author .avatar{
+    width:24px;
+    height:24px;
+    position:static;
+    vertical-align:middle;
 }
 div[class^="entry-meta"] .emoji-date,
 .posted-on .emoji-date{
@@ -1654,6 +1693,9 @@ hr,
 div.attachment {
     border:none;
     margin:1em auto 1em;
+}
+.rd-type-minimal hr{
+    margin:3em auto 3em;
 }
 p + hr{
     margin:0 auto 1em;
@@ -2011,8 +2053,8 @@ li.byuser,
 .format-status .entry-title,
 .category-blog .entry-title{
     border:none;
-    margin:.5em 0;
-    padding:0;
+    padding:.5em 0;
+    box-sizing:border-box;
 }
 .format-status .entry-content,
 .category-blog .entry-content{
@@ -2095,6 +2137,11 @@ li.byuser,
 .format-status .avatar,
 .category-blog .avatar{
     margin-bottom:1em;
+}
+.format-status .entry-meta .avatar,
+.category-blog .entry-meta .avatar{
+    margin-bottom:0;
+    vertical-align:middle;
 }
 /* add*/
 
@@ -2244,6 +2291,28 @@ div.nest :after{
 br.clear{
     clear:both!important;
 }
+
+.clear{
+    clear:both!important;
+}
+
+.clear:before{
+    content: "\a";
+    display:block;
+    height:1px;
+}
+
+h1.clear:before,
+h2.clear:before,
+h3.clear:before,
+h4.clear:before,
+h5.clear:before,
+h6.clear:before{
+    content: "\a";
+    display:block;
+    height:2em;
+}
+
 #month_list,#raindrops_year_list,#date_list{
     width:100%;
 }
@@ -3081,7 +3150,7 @@ sup {
 .static-front-content{
     margin:0.76923076923em 0 0 1em;
 }
-.raindrops-expand-width{
+body:not(.rd-type-minimal) .raindrops-expand-width{
     width:100%!important;
     box-sizing:border-box;
 }
@@ -4140,7 +4209,12 @@ video{
     margin-left:0.5%;
     margin-top:3px;
 }
-.rd-type-minimal #access,
+.rd-type-minimal #access{
+    width:100%;
+    margin-top:2em;
+    margin-bottom:2em;
+    margin-left:0;
+}
 .rd-type-w3standard #access{
     width:100%;
     margin-top:0;
@@ -4150,7 +4224,7 @@ video{
 .widget_pages.sticky-widget > ul > li,
 #top #access .menu > li {
 
-    margin-right: -6px; /* element after \n */
+  /*   margin-right: -6px; element after \n */
 }
 .widget_nav_menu.sticky-widget > ul > li >a,
 .widget_pages.sticky-widget > ul > li >a,
@@ -4735,3 +4809,33 @@ article .post-password-form label{
 .not-hover{
     /* stop hover presentation */
 }
+.post-format-status-main .entry-title:before{
+    content:"\00a0 \00a0";
+    float:left;
+    font-size:100%;
+}
+.post-format-status-main .entry-content{
+    margin:1em;
+}
+/* @1.345 float image and block settings */
+.entry-content .rd-float-wrapper{
+    clear:none;
+    display:table;
+    width:auto;
+}
+.entry-content .rd-float{
+    clear:none;
+    overflow:visible;
+}
+.entry-content .rd-float dt{
+    /* for dl */
+    display:table;
+    min-width:10em;
+}
+.entry-content .rd-float-wrapper,
+.entry-content ol,
+.entry-content ul,
+.entry-content dl:not(.rd-float){
+    min-width:296px;
+}
+

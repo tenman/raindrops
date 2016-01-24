@@ -56,14 +56,7 @@ if ( $raindrops_xhtml_media_type == 'application/xhtml+xml' ) {
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head(); ?>
     </head>
-		<?php 
-		/**
-		 *  conditional presentation setting 
-		 * value chat (default presentation ) 
-		 * chat-emoji ( emoji + presentation )
-		 */
-		$raindrops_conditionals_body_class = array('chat-emoji'); ?>
-    <body <?php body_class( $raindrops_conditionals_body_class ); ?> >
+    <body <?php body_class( ); ?>>
 		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
         <div class="skip-link"><a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a></div> 
         <?php } // raindrops_disable_keyboard_focus ?>

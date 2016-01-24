@@ -14,6 +14,18 @@
         width:33%;
         margin:0;
     }
+   .entry-content figure.alignright + p,
+    .entry-content figure.alignleft + p{
+        display:table;
+        min-width:12em;
+    }
+    .entry-content .alignright.size-medium,
+    .entry-content .alignleft.size-medium{
+        max-width:60%;
+    }
+    .entry-content blockquote{
+        margin:1em 40px;
+    }
 }
 @media screen and (max-width : 640px){
     #access .menu{
@@ -670,7 +682,14 @@
     .entry-content .float{
         min-width:296px;
     }
-    
+    .rsidebar .eco-archive li,
+    .lsidebar .eco-archive li{
+        min-width:29%;
+    }
+    article.page{
+        max-width:90%;
+        margin:5%;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

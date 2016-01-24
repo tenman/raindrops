@@ -13,14 +13,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
         <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 <?php wp_head(); ?>
     </head>
-	<?php 
-		/**
-		 *  conditional presentation setting 
-		 * value chat (default presentation ) 
-		 * chat-emoji ( emoji + presentation )
-		 */
-		$raindrops_conditionals_body_class = array('chat-emoji'); ?>
-    <body id="<?php echo $raindrops_current_theme_slug; ?>" <?php body_class( $raindrops_conditionals_body_class );?>>
+    <body id="<?php echo $raindrops_current_theme_slug; ?>" <?php body_class( );?>>
 		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
         <div class="skip-link"><a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a></div><?php echo raindrops_skip_links(); ?>
 		<?php } // raindrops_disable_keyboard_focus ?>

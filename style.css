@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.345
+Version: 1.346
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -110,6 +110,9 @@ a:visited{
 .single article{
     margin-top:1em;
 }
+article.page{
+    max-width:100%;
+}
 /* headding */
 
 .entry-content h1,
@@ -117,8 +120,35 @@ a:visited{
 .entry-content h3,
 .entry-content .h1,
 .entry-content .h2,
-.entry-content .h3{
-     margin:.5em 0;
+.entry-content .h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6,
+.entry-content .h4,
+.entry-content .h5,
+.entry-content .h6{
+     padding:.5em 0;
+     /* @1.346 */
+    clear:none;
+    display:table;
+    display:flex;
+    width:auto;
+}
+
+.entry-content .clear{
+     /* @1.346 */
+    clear:both;
+    display:block;
+}
+h1.clear:before,
+h2.clear:before,
+h3.clear:before,
+h4.clear:before,
+h5.clear:before,
+h6.clear:before{
+    content: "\a";
+    display:block;
+    height:1px;
 }
 h4,
 h5,
@@ -172,6 +202,9 @@ h6 a,
     text-decoration:none;
     display:inline;
     background:none;
+}
+article div{
+    overflow:hidden;
 }
 div.error404{
     display:block;
@@ -261,9 +294,14 @@ mark{
     margin:0.23076923076em 0;
 }
 .entry-content blockquote {
-    clear:both;
-    margin:1em 2.5em;
+    /* @1.346 clear:both;*/
+    overflow:hidden;
+    display:block;
+    /* @1.346 margin:1em 2.5em;*/
     padding:1em;
+}
+.clear > blockquote {
+    margin-top:1em;
 }
 .entry-meta-list .edit-link .post-edit-link .raindrops_unique_identifier,
 .raindrops_unique_identifier,
@@ -370,7 +408,10 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .rd-ratio-075 > div > iframe{
     min-height:550px;
 }
-
+.rd-squere > .oembed-container,
+.rd-round > .oembed-container{
+    padding-top:0;
+}
 /* oembed end */
 
 .comment-body blockquote blockquote {
@@ -396,7 +437,10 @@ dl {
    /* @1.345
       clear:both; */
     margin:0 0 1em 1.5em;
-    overflow:hidden;
+   /* @1.346 remove
+    overflow:hidden;*/
+    clear:none;
+    overflow:visible;
 }
 dt {
     padding:.5em;
@@ -414,6 +458,7 @@ table {
     box-sizing:border-box;
     table-layout:fixed;
     width:100%;
+    margin:2em auto;
 }
 .gist-syntax table{
     table-layout:auto;
@@ -575,6 +620,12 @@ abbr{
 .entry-content  figure.aligncenter{
     margin-bottom:1em;
 }
+.entry-content  figure.alignnone{
+    display:inline-block;
+}
+.entry-content  figure.alignnone img{
+    margin:.2em auto;
+}
 .entry-content  figure.aligncenter img{
     margin:.5em auto;
 
@@ -705,9 +756,20 @@ body .raindrops-category-posts .title.h2,
 }
 .entry-content ol,
 .entry-content ul {
-    /* @1.345 */
-    list-style-position: inside;
+    /* @1.346 */
+    position:relative;
+    left:1.5em;
+    max-width:96%;
+    max-width: calc(100% - 3em);
+    box-sizing:border-box;
+    width:auto;
+    margin-top:1em;
 }
+.rd-float-wrapper > ol,
+.rd-float-wrapper > ul{
+    margin-top:0;
+}
+
 .entry-content li > ol,
 .entry-content li > ul{
     margin-top:1em;
@@ -730,7 +792,19 @@ body .raindrops-category-posts .title.h2,
     overflow:auto;
     width:100%;
     position:relative; /* for ie */
+    /* @1.346 */
+    max-width:100%;
 }
+.entry-content .rd-table-wrapper{
+     position:relative;/* @1.346 */
+    clear:none;
+    display:table;
+    display:flex;
+    width:auto;
+      max-width:100%;
+}
+
+
 .entry-content .rd-table-wrapper::-webkit-scrollbar {
     width: 1em;
     height:.5em;
@@ -1589,6 +1663,7 @@ ol.commentlist >li{
     margin:1em;
     padding:0.23076923076em;
     clear:both;
+    line-height:2;
 }
 .comment-body table{
     width:100%;
@@ -1966,14 +2041,20 @@ div.aligncenter {
 div.alignleft,
 img.alignleft,
 .alignleft {
+    clear:left;
     float: left;
     padding:0.38461538461em 0.76923076923em 0.15384615384em 0;
 }
 div.alignright,
 img.alignright,
 .alignright {
+    clear:right;
     float: right;
     padding:0.38461538461em 0 0.38461538461em 0.76923076923em;
+}
+.alignnone{
+    display:inline;
+    padding:0.38461538461em 0.76923076923em 0.76923076923em 0;
 }
 .size-thumbnail{
     padding:.5em;
@@ -2302,16 +2383,7 @@ br.clear{
     height:1px;
 }
 
-h1.clear:before,
-h2.clear:before,
-h3.clear:before,
-h4.clear:before,
-h5.clear:before,
-h6.clear:before{
-    content: "\a";
-    display:block;
-    height:2em;
-}
+
 
 #month_list,#raindrops_year_list,#date_list{
     width:100%;
@@ -2696,11 +2768,11 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .raindrops-chat-text{
     margin-left:4em;
 }
-.chat-emoji .raindrops-chat{
+.raindrops-chat{
     margin:0;
     font-size:156%;
 }
-.chat-emoji .raindrops-chat img{
+.raindrops-chat img{
     font-size:200%;
 }
 .chat .raindrops-chat{
@@ -4000,7 +4072,7 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
     display:inline-block;
     border:none;
     min-width:30%;
-    margin:1%;
+    margin:1.5%;
     box-sizing:border-box;
 }
 .rsidebar .eco-archive .month,
@@ -4061,31 +4133,33 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
  *  <span lang="lang-not-ja">English Title</span><span class="lang-ja">Japanese Title</span>
  */
 
-body.ja:not(.firefox) :not(.rd-l-en_US) .lang-not-ja,
-body.ja div:not(.rd-l-ja) .lang-ja,
-body.ja div:not(.rd-l-ja-JP) .lang-ja,
-body.ja div.rd-l-ja .post .lang-not-ja{
+body.accept-lang-ja:not(.firefox) :not(.rd-l-en_US) .lang-not-ja,
+body.accept-lang-ja div:not(.rd-l-ja) .lang-ja,
+body.accept-lang-ja div:not(.rd-l-ja-JP) .lang-ja,
+body.accept-lang-ja div.rd-l-ja .post .lang-not-ja{
     display:none;
+
 }
-body.ja .rd-l-en .hentry .lang-not-ja,
-body.ja .rd-l-en_US .hentry .lang-not-ja,
-body.ja .rd-l-ja .hentry .lang-ja,
-body.ja .rd-l-ja-JP .hentry .lang-ja,
-body.ja :not(.rd-l-ja-JP) .hentry .lang-not-ja
-body.ja :not(.rd-l-ja) .hentry .lang-not-ja{
+body.accept-lang-ja .rd-l-en .hentry .lang-not-ja,
+body.accept-lang-ja .rd-l-en_US .hentry .lang-not-ja,
+body.accept-lang-ja .rd-l-ja .hentry .lang-ja,
+body.accept-lang-ja .rd-l-ja-JP .hentry .lang-ja,
+body.accept-lang-ja :not(.rd-l-ja-JP) .hentry .lang-not-ja
+body.accept-lang-ja :not(.rd-l-ja) .hentry .lang-not-ja{
     display:inline-block;
 }
-html body.ja #access .lang-not-ja,
-html body.ja .widget-wrapper .lang-not-ja,
-html body.ja .lsidebar .lang-not-ja,
-html body.ja .rsidebar .lang-not-ja{
+
+html body.accept-lang-ja #access .lang-not-ja,
+html body.accept-lang-ja .widget-wrapper .lang-not-ja,
+html body.accept-lang-ja .lsidebar .lang-not-ja,
+html body.accept-lang-ja .rsidebar .lang-not-ja{
     display:none;
 }
 
-html body.ja #access .lang-ja,
-html body.ja .widget-wrapper .lang-ja,
-html body.ja .lsidebar .lang-ja,
-html body.ja .rsidebar .lang-ja{
+html body.accept-lang-ja #access .lang-ja,
+html body.accept-lang-ja .widget-wrapper .lang-ja,
+html body.accept-lang-ja .lsidebar .lang-ja,
+html body.accept-lang-ja .rsidebar .lang-ja{
     display:block;
 }
 .oembed-container:empty{
@@ -4504,10 +4578,12 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
     text-align:center;
 }
 /* share link fallback style start */
+.clip-link{ margin-bottom:1em;}
 .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}
 .clip-link .quote-raindrops{background:#fff;color:#333;padding:.3em!important;font-size:16px;border:1px solid #ccc;overflow:hidden;}
 .clip-link .quote-raindrops ul{overflow:hidden;}
 .clip-link .quote-raindrops h3{background:#fff;color:#333;padding:0;margin:0;font-size:16px;display:inline-block;line-height:1.1;}
+.clip-link .quote-raindrops .second a{background:#fff;color:#333;padding:0 10px;font-size:16px;font-weight:700}
 .clip-link .quote-raindrops a{background:#fff;color:#666;padding:0 10px;font-size:16px;font-weight:700}
 .clip-link .quote-raindrops img{width:65px;height:auto;}
 .clip-link .quote-raindrops .first{ width:65px;height:65px;float:left;list-style:none;margin:0;}
@@ -4819,18 +4895,37 @@ article .post-password-form label{
 }
 /* @1.345 float image and block settings */
 .entry-content .rd-float-wrapper{
+    position:static;/* @1.346 */
     clear:none;
     display:table;
+    display:flex;
     width:auto;
 }
 .entry-content .rd-float{
     clear:none;
-    overflow:visible;
+    overflow:hidden;
 }
 .entry-content .rd-float dt{
     /* for dl */
     display:table;
+    min-width:14em;
+}
+/* @1.346 */
+.rd-nowrap{
+    overflow:hidden;
+    width:auto;
+}
+dl.rd-nowrap{
+    display:block;
+}
+.rd-nowrap > dt{
+    /* for dl */
+    display:table;
     min-width:10em;
+}
+ol.rd-nowrap,
+ul.rd-nowrap{
+    display:inline-block;
 }
 .entry-content .rd-float-wrapper,
 .entry-content ol,
@@ -4839,3 +4934,38 @@ article .post-password-form label{
     min-width:296px;
 }
 
+.rsidebar .eco-archive  h3,
+.lsidebar .eco-archive  h3{
+    padding-bottom:0!important;
+}
+.rsidebar .eco-archive  h3 a:active,
+.lsidebar .eco-archive  h3 a:active,
+.rsidebar .eco-archive  h3 a,
+.lsidebar .eco-archive  h3 a{
+    padding:.3em .5em;
+    display:inline-block;
+    width:30%;
+}
+
+.rsidebar .eco-archive  h3,
+.lsidebar .eco-archive  h3{
+    border-bottom:3px solid rgba(105,105,105,.3);
+}
+.rsidebar .eco-archive  h3 a:active,
+.lsidebar .eco-archive  h3 a:active,
+.rsidebar .eco-archive  h3 a,
+.lsidebar .eco-archive  h3 a{
+    background: rgba(105,105,105,.3);
+}
+.ie8 .alignnone{
+   clear: none;
+   display: block;
+   height:auto;
+   width:auto;
+}
+.ie8 .alignleft{
+    clear: both;
+    float: left;
+    display: block;
+    width: auto;
+}

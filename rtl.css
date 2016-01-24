@@ -4,6 +4,9 @@ body{
     max-width:100%;
     overflow-x: hidden;
 }
+div{
+    overflow:visible;
+}
 #hd{
     text-align:right;
 }

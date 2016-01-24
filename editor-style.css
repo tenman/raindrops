@@ -685,3 +685,54 @@ u{
     padding:0 6px;
     box-sizing:border-box;
 }
+
+.mce-content-body .rd-float-wrapper{
+    clear:none;
+    display:table;
+    display:flex;
+    width:auto;
+}
+.mce-content-body .rd-float{
+    clear:none;
+    overflow:visible;
+}
+.mce-content-body .rd-float dt{
+    /* for dl */
+    display:table;
+    min-width:10em;
+}
+.mce-content-body .rd-float-wrapper,
+.mce-content-body ol,
+.mce-content-body ul,
+.mce-content-body dl:not(.rd-float){
+    min-width:296px;
+}
+.mce-content-body ol,
+.mce-content-body ul{
+   /* list-style-position: inside;*/
+    /*overflow:hidden;*/
+}
+.clear{
+    clear:both!important;
+}
+
+.clear:before{
+    content: "\a";
+    display:block;
+    height:1px;
+}
+/* share link fallback style start */
+.mce-content-body .clip-link{ margin-bottom:1em;}
+.mce-content-body .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}
+.mce-content-body .clip-link .quote-raindrops{background:#fff;color:#333;padding:.3em!important;font-size:16px;border:1px solid #ccc;overflow:hidden;}
+.mce-content-body .clip-link .quote-raindrops ul{overflow:hidden;}
+.mce-content-body .clip-link .quote-raindrops h3{background:#fff;color:#333;padding:0;margin:0;font-size:16px;display:inline-block;line-height:1.1;}
+.clip-link .quote-raindrops .second a{background:#fff;color:#333;padding:0 10px;font-size:16px;font-weight:700}
+.mce-content-body .clip-link .quote-raindrops a{background:#fff;color:#666;padding:0 10px;font-size:16px;font-weight:700}
+.mce-content-body .clip-link .quote-raindrops img{width:65px;height:auto;}
+.mce-content-body .clip-link .quote-raindrops .first{ width:65px;height:65px;float:left;list-style:none;margin:0;}
+.mce-content-body .clip-link .quote-raindrops .second{ margin-left:80px!important;display:block;list-style:none;}
+.mce-content-body .clip-link .quote-raindrops .first:empty + .second{margin-left:0;display:block;list-style:none;}
+.mce-content-body .clip-link .link-info:empty{display:none;}
+.mce-content-body .clip-link .link-excerpt{font-size:13px;}
+/* share link fallback style end */

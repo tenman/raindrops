@@ -43,7 +43,7 @@ function raindrops_indv_css_dark() {
 
 .raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
 .enable-keyboard.rd-type-dark .raindrops-comment-link:focus em,
-.ie11.enable-keyboard.rd-type-dark #access .sub-menu a:focus,
+.ie11.enable-keyboard.rd-type-dark eess .sub-menu a:focus,
 .ie11.enable-keyboard.rd-type-dark #access .children a:focus,
 .enable-keyboard.rd-type-dark .hfeed a:focus,
 .raindrops-accessible-mode.rd-type-dark .hfeed a:focus,
@@ -400,8 +400,27 @@ body{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
 }
+.rsidebar .eco-archive li,
+.lsidebar .eco-archive li,
+.rsidebar .eco-archive ul li:last-child,
+.lsidebar .eco-archive ul li:last-child,
 .nav-links .page-numbers{
      border:1px solid %rgba_border%;
+}
+	
+.rsidebar .eco-archive li:hover,
+.lsidebar .eco-archive li:hover{
+	%c_2%;
+}
+.rsidebar .eco-archive  h3,
+.lsidebar .eco-archive  h3{
+    border-bottom:3px solid %rgba_border%;
+}
+.rsidebar .eco-archive  h3 a:active,
+.lsidebar .eco-archive  h3 a:active,
+.rsidebar .eco-archive  h3 a,
+.lsidebar .eco-archive  h3 a{
+    background: %rgba_border%;
 }
 .nav-links .page-numbers:hover{
 	%c4%;
@@ -678,6 +697,7 @@ function raindrops_indv_css_w3standard() {
 .raindrops-accessible-mode .hfeed a:focus{
 	$raindrops_focus_style
 }
+
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
 #access .sub-menu li a,
@@ -990,7 +1010,16 @@ a.raindrops-comment-link:hover em {
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %c_border%;
 }
-
+.rsidebar .eco-archive  h3,
+.lsidebar .eco-archive  h3{
+    border-bottom:3px solid %rgba_border%;
+}
+.rsidebar .eco-archive  h3 a:active,
+.lsidebar .eco-archive  h3 a:active,
+.rsidebar .eco-archive  h3 a,
+.lsidebar .eco-archive  h3 a{
+    background: %rgba_border%;
+}
 DOC;
     
 	 return apply_filters( __FUNCTION__ , $style );
@@ -1061,6 +1090,8 @@ body{
     margin:0!important;
     %c4%
 }
+.rsidebar .eco-archive li,
+.lsidebar .eco-archive li,
 .nav-links .page-numbers{
     border:1px solid rgba(105,105,105,.5);
 }
@@ -1142,9 +1173,6 @@ ul.nav li a,ul.nav li a:link,ul.nav li a:visited{
 }
 ul.nav li a:hover,ul.nav li a:active{
     %c4%
-}
-.postmetadata{
-    %c5%
 }
 ol.tblist li{
     background:transparent url(%raindrops_images_path%c.gif) 0 2px no-repeat;
@@ -1317,11 +1345,6 @@ address{
 }
 
 
-#bd article:not(.format-link) a,
-.postmetadata{
-    background:none!important;
-}
-
 .wp-caption {
     border:solid 1px #999;
 }
@@ -1371,7 +1394,26 @@ kbd,
     border-top:solid 1px %rgba_border%;
     border-bottom:solid 1px %rgba_border%;
 }
-
+.rsidebar .eco-archive li,
+.lsidebar .eco-archive li,
+.rsidebar .eco-archive ul li:last-child,
+.lsidebar .eco-archive ul li:last-child{
+      border:1px solid %rgba_border%;
+}
+.rsidebar .eco-archive li:hover,
+.lsidebar .eco-archive li:hover{
+	%c4%;
+}
+.rsidebar .eco-archive  h3,
+.lsidebar .eco-archive  h3{
+    border-bottom:3px solid %rgba_border%;
+}
+.rsidebar .eco-archive  h3 a:active,
+.lsidebar .eco-archive  h3 a:active,
+.rsidebar .eco-archive  h3 a,
+.lsidebar .eco-archive  h3 a{
+    background: %rgba_border%;
+}
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
     border-bottom:1px solid %rgba_border%;
@@ -1637,6 +1679,17 @@ function raindrops_indv_css_minimal() {
 .raindrops-accessible-mode .hfeed a:focus{
 	$raindrops_focus_style
 }
+.rsidebar .eco-archive li,
+.lsidebar .eco-archive li,
+.rsidebar .eco-archive ul li:last-child,
+.lsidebar .eco-archive ul li:last-child{
+     border:1px solid %rgba_border%;
+}
+	
+.rsidebar .eco-archive li:hover,
+.lsidebar .eco-archive li:hover{
+	%c5%;
+}
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
 .yui-b .sticky-widget.widget_archive li,
@@ -1846,10 +1899,10 @@ hr{
 #raindrops.rd-type-minimal a{
 	
 }
+.entry-meta .edit-link,
 .entry-meta .post-format-text + a,
 .post-tag a span,
-.post-category a span,
-.entry-meta span:not(.author) a{
+.post-category a span{
 	 border:1px solid rgba(127,127,127,.3);
 	padding:.2em .3em;
 	line-height:2.4;
@@ -1864,8 +1917,18 @@ hr{
 	color:rgba(255, 255, 255,1.0);
 	background:#000;
 }
-/* @1.345 end */	
+/* @1.345 end */
 	
+.rsidebar .eco-archive  h3,
+.lsidebar .eco-archive  h3{
+    border-bottom:3px solid %rgba_border%;
+}
+.rsidebar .eco-archive  h3 a:active,
+.lsidebar .eco-archive  h3 a:active,
+.rsidebar .eco-archive  h3 a,
+.lsidebar .eco-archive  h3 a{
+    background: %rgba_border%;
+}	
 CSS;
 
 

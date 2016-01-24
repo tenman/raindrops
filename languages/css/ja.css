@@ -137,14 +137,16 @@ body.ja,
 .ja .datetable .day-name{
     font-style:normal;
 }
+.ja .rsidebar .eco-archive ul,
+.ja .lsidebar .eco-archive ul{
+    margin:auto;
+}
 .ja .rsidebar .eco-archive li,
 .ja .lsidebar .eco-archive li{
     display:inline-block;
-    border:none;
-    min-width:13%;
-    margin:1%;
-    box-sizing:border-box;
+    margin:1.5%;
 }
+
 .ja .widget_recent_comments .recentcomments{
    visibility:hidden;
    margin-bottom:-1.65em;

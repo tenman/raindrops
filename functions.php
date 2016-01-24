@@ -1,4 +1,5 @@
 <?php
+delete_option('raindrops_theme_settings');
 /**
  *
  *
@@ -2111,6 +2112,8 @@ if ( !function_exists( "raindrops_emoji_collection" ) ) {
 	}
 }
 
+
+
 if ( !function_exists( "raindrops_embed_css" ) ) {
 
 	function raindrops_embed_css() {
@@ -2378,6 +2381,29 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width);
 		}
+		
+		/* @1.346  image width class */
+		$thumbnail_size_w = get_option('thumbnail_size_w');
+		if( ! empty( $thumbnail_size_w ) ) {
+			
+			$css .= ' .rd-thumbnail{width:'. absint( $thumbnail_size_w ).'px; max-width:100%;}';
+		}
+		
+		$medium_size_w = get_option('medium_size_w');
+		if( ! empty( $medium_size_w ) ) {
+			
+			$css .= ' .rd-medium{width:'. absint( $medium_size_w ).'px; max-width:100%;}';
+		}
+		$large_size_w = get_option('large_size_w');
+		if( ! empty( $large_size_w ) ) {
+			
+			$css .= ' .rd-large{width:'. absint( $large_size_w ).'px; max-width:100%;}';
+		}
+		
+		$css .= ' .rd-w320{width:320px; max-width:100%;}';			
+		$css .= ' .rd-w480{width:480px; max-width:100%;}';
+		$css .= ' .rd-w640{width:640px; max-width:100%;}';
+		
 
 		$raindrops_sitewide_css = raindrops_warehouse_clone( 'raindrops_sitewide_css' );
 
@@ -2518,11 +2544,16 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			$raindrops_stylesheet_type = raindrops_warehouse_clone( 'raindrops_stylesheet_in_html' );
 		}
+		
+		$zen = get_option('zencache_options');
+		
+		if ( true == $raindrops_use_transient && !is_user_logged_in() &&
+			false !== ( $raindrops_embed_meta_transient = get_transient( 'raindrops_embed_meta_transient' ) ) &&
+			( isset( $zen ) && false == $zen['enable'] || !class_exists('\\zencache\\plugin') )
+		) {
 
-		if ( true == $raindrops_use_transient && !is_user_logged_in() && false !== ( $raindrops_embed_meta_transien = get_transient( 'raindrops_embed_meta_transient' ) ) ) {
 
-
-		    echo  $raindrops_embed_meta_transien;
+		    echo  $raindrops_embed_meta_transient;
 
 			return $content;
 		}

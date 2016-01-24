@@ -1,10 +1,39 @@
 Changelog -----------------------------------
 version:1.346
 Overview of Changes
+	Post Presentation change.
+		float image (.alignleft,alignright) with block elements
+		@see: http://www.tenman.info/wp3/raindrops/2016/01/22/%E4%BA%88%E5%91%8A%EF%BC%9Araindrops1-346%E3%80%801-345%E3%81%A7%E3%81%AE%E3%83%95%E3%83%AD%E3%83%BC%E3%83%88%E7%94%BB%E5%83%8F%E3%82%92%E5%90%AB%E3%82%80%E6%8A%95%E7%A8%BF%E3%81%AE%E8%A1%A8%E7%A4%BA/
+		(sorry!, Lang Japanese )
 
+	Add New CSS Classes
+		width control classes
+		.rd-thumbnail
+		.rd-medium
+        .rd-large
+		.rd-w320
+		.rd-w480
+		.rd-w640
+		@see: http://www.tenman.info/wp3/manualraindrops/archives/2514
+		(sorry!, Lang Japanese )
+	Remove chat-emoji CSS Class from body_class()
+
+	Archives Extended widget design renew.
+
+	Improved compatibility with zencache plug-ins
 
 Files Modified
-
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   responsiveness.css
+	modified:   rtl.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.345&new_path=raindrops/1.346

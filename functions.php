@@ -1,5 +1,4 @@
 <?php
-delete_option('raindrops_theme_settings');
 /**
  *
  *
@@ -2381,29 +2380,29 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 			$css .= sprintf( $adding_style , $primary_menu_min_width, $child_width);
 		}
-		
+
 		/* @1.346  image width class */
 		$thumbnail_size_w = get_option('thumbnail_size_w');
 		if( ! empty( $thumbnail_size_w ) ) {
-			
+
 			$css .= ' .rd-thumbnail{width:'. absint( $thumbnail_size_w ).'px; max-width:100%;}';
 		}
-		
+
 		$medium_size_w = get_option('medium_size_w');
 		if( ! empty( $medium_size_w ) ) {
-			
+
 			$css .= ' .rd-medium{width:'. absint( $medium_size_w ).'px; max-width:100%;}';
 		}
 		$large_size_w = get_option('large_size_w');
 		if( ! empty( $large_size_w ) ) {
-			
+
 			$css .= ' .rd-large{width:'. absint( $large_size_w ).'px; max-width:100%;}';
 		}
-		
-		$css .= ' .rd-w320{width:320px; max-width:100%;}';			
+
+		$css .= ' .rd-w320{width:320px; max-width:100%;}';
 		$css .= ' .rd-w480{width:480px; max-width:100%;}';
 		$css .= ' .rd-w640{width:640px; max-width:100%;}';
-		
+
 
 		$raindrops_sitewide_css = raindrops_warehouse_clone( 'raindrops_sitewide_css' );
 
@@ -2544,9 +2543,9 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			$raindrops_stylesheet_type = raindrops_warehouse_clone( 'raindrops_stylesheet_in_html' );
 		}
-		
+
 		$zen = get_option('zencache_options');
-		
+
 		if ( true == $raindrops_use_transient && !is_user_logged_in() &&
 			false !== ( $raindrops_embed_meta_transient = get_transient( 'raindrops_embed_meta_transient' ) ) &&
 			( isset( $zen ) && false == $zen['enable'] || !class_exists('\\zencache\\plugin') )
@@ -5069,7 +5068,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 	function raindrops_is_fluid() {
 
 		global $post, $is_IE, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width, $raindrops_current_column, $raindrops_stylesheet_type, $raindrops_header_image_default_ratio;
-			
+
 		if ( ! isset( $raindrops_stylesheet_type ) ) {
 
 			$raindrops_stylesheet_type = raindrops_warehouse_clone( 'raindrops_stylesheet_in_html' );
@@ -5134,7 +5133,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			".rd-pw-doc3.rd-col-1 .breadcrumbs{width:".$content_width .'px;margin:auto;}'.
 			"\n";
 			if ( false == has_filter( 'raindrops_header_image_ratio' ) ) {
-				
+
 				$fluid_width .= "#doc3 #header-image{
 					display:block;
 					position: relative;
@@ -5142,17 +5141,17 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 					height: 0!important;
 					max-width:100%;
 				}";
-			
+
 			}
 			$fluid_width .= '/* raindrops is fluid end */';
 		} elseif ( 'doc5' ==  $page_width  ) {
-			
+
 
 
 			$raindrops_full_width_limit_window_width	= raindrops_warehouse_clone( 'raindrops_full_width_limit_window_width' );
 			$raindrops_full_width_max_width				= raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
 
-			
+
 			$fluid_width = "\n". '/* raindrops is fluid start  */' .
 			'#header-image,' .
 			"\n#doc5{min-width:" . $raindrops_fluid_minimum_width .
@@ -5184,9 +5183,9 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 				display:block;
 
 			}";
-			
+
 			if ( false == has_filter( 'raindrops_header_image_ratio' ) ) {
-				
+
 				$fluid_width .= "#doc5 #header-image{
 					display:block;
 					position: relative;
@@ -5195,7 +5194,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 					max-width:100%;
 				}";
 			}
-				
+
 			$fluid_width .= "\n".'/* raindrops is fluid end */';
 
 				$fluid_width .= "\n". '/* raindrops is fluid 1 column start  */'.
@@ -7097,9 +7096,9 @@ if ( !function_exists( 'raindrops_dinamic_class' ) ) {
 
 		global $rsidebar_show, $raindrops_current_column, $raindrops_keep_content_width;
 
-		
+
 		$class = '';
-		
+
 		if ( 'yui-u first' == $id ) {
 
 			if ( 3 == $raindrops_current_column ) {
@@ -7925,11 +7924,11 @@ if ( !function_exists( 'raindrops_poster' ) ) {
 				}
 
 				if ( 'widget' == $page_item[ 'type' ][ 0 ] ) {
-	
+
 					echo '<div id="post-'. absint( $post->ID ) .'">';
 
 					the_widget( $page_item[ 'type' ][ 1 ], $page_item[ 'type' ][ 2 ], $page_item[ 'type' ][ 3 ] );
-					
+
 					echo '</div>';
 				}
 
@@ -8562,7 +8561,7 @@ if ( !function_exists( 'raindrops_widget_tag_cloud_args' ) ) {
 			$args[ 'unit' ]		 = '%';
 		}
 		$args[ 'echo' ] = false;
-		
+
 		return $args;
 	}
 }
@@ -8725,7 +8724,7 @@ if ( !function_exists( 'raindrops_link_text_filter' ) ) {
  * @since 1.328
  */
 	function raindrops_link_text_filter( $content ){
-		
+
 		$content = preg_replace_callback( "|<a[^>]+>.*?(https?:\/\/[-_.!*\'()a-zA-Z0-9;\/?:@&=+$,%#]+).*?</a>|", "raindrops_link_url_text_decode", $content );
 
 		return $content;
@@ -8739,7 +8738,7 @@ if ( !function_exists( 'raindrops_link_url_text_decode' ) ) {
  * @since 1.328
  */
 	function raindrops_link_url_text_decode( $matches ) {
-		
+
 		if( isset( $matches[1] ) &&  false !== strpos($matches[1], '%') ) {
 
 			$replace = urldecode( $matches[1] );
@@ -9031,7 +9030,7 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 		/**
 		 * note: 4:3 ratio can use .rd-ratio-075
 		 */
-		
+
 		if ( !preg_match( '!(twitter.com|tumblr.com|speakerdeck)!', $url ) && !preg_match( '!(wp-embedded-content)!', $html )) {
 			return sprintf( '<%2$s class="oembed-container clearfix">%1$s</%2$s>', $html, $element );
 		}
@@ -10771,7 +10770,7 @@ if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 	function raindrops_localize_style_add( $style ) {
 
 		 $locale = get_locale();
-		 
+
 
 		if ( false !== ( $url = raindrops_locate_url( 'fonts.css' ) ) ) {
 			$style[] = $url;
@@ -11069,7 +11068,7 @@ if ( !function_exists( 'raindrops_get_the_posted_in_tag' ) ) {
 }
 if ( !function_exists( 'raindrops_pdf_send_to_editor' ) ) {
 	/**
-	 * 
+	 *
 	 * @param type $html
 	 * @param type $attachment_id
 	 * @param type $attachment

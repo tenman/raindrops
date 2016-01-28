@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.347
+Overview of Changes
+	Modification of fatal bug
+		remove delete_option( 'raindrops_theme_settings' );
+
+Files Modified
+	modified:   functions.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.346&new_path=raindrops/1.347
+-----------------------------------------------Changelog -----------------------------------
 version:1.346
 Overview of Changes
 	Post Presentation change.

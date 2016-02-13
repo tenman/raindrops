@@ -1,8 +1,62 @@
 Changelog -----------------------------------
 version:1.348
+Overview of Changes
+	Modified editor-style.css
+		Add hedding element style
+		Add width classes (.rd-thumbnail,.rd-medium,.rd-large)
+	Modified fonts.css
+		Add font size class 27-32px(.f27-.f32)
+	Modified functions.php
+		change get_option() to raindrops_warehouse_clone()
+	New Presentation Modal box support
+
+		HTML pattern
+
+        <a href="#raindrops_modal_fragment_id_automatic" class="modal-link">test</a>
+		<div class="rd-modal" id="raindrops_modal_fragment_id_automatic">
+			<div class="color4">
+				<div class="header color-3 block">
+		                   <h3>Title here, If need</h3>
+		                </div>
+				<div class="body">
+		youtube, form, table, list anything to here
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		                </div>
+				<div class="footer color5 block">
+					<a href="#page" ><span class="lb-close color5 pad-s corner">Close</span></a>
+				</div>
+			</div>
+		</div>
+
+
+		flagment link and modal id is automaticaly set,
+			href="#raindrops_modal_fragment_id_automatic"
+			id="raindrops_modal_fragment_id_automatic"
+		 is automatic replaced unique value
+
+	Modified lib/customize.js, lib/customize.php
+		add check current style type.
+	Modified style.css
+		Add Class rd-break-word,rd-break-all for non breaking text
+		etc,
 
 Files Modified
-
+	modified:   css3.css
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.347&new_path=raindrops/1.348

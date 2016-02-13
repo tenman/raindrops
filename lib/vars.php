@@ -134,7 +134,7 @@ if( ! isset( $raindrops_extend_customizer ) ) {
  * value theme_mod or option
  */
 if( ! isset( $raindrops_setting_type ) ) {
-
+	
 	$raindrops_setting_type	= 'option';	
 }
 /** DON'T CHANGE NOW TEST

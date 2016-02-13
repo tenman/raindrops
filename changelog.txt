@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.348
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.347&new_path=raindrops/1.348
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.347
 Overview of Changes
 	Modification of fatal bug
@@ -10,6 +19,7 @@ Files Modified
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.346&new_path=raindrops/1.347
 -----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.346
 Overview of Changes
 	Post Presentation change.

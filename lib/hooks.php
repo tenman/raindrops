@@ -383,6 +383,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * conflict Responsive Image (WordPress4.4)
 		 */			
 		add_filter( 'the_content', 'raindrops_chat_filter',11 );
+		/**
+		 * @since 1.348
+		 */
+		add_filter('the_content', 'raindrops_automatic_modal_rel_rev' );
     }
 }
 ?>

@@ -79,11 +79,7 @@ submit{
     /*font-size:86%;*/
     font-size:11px;
 }
-.nav-next span{
-    display:-moz-inline-box;
-    display:inline-block;
-    text-align:left;
-}
+
 .lsidebar .children li:nth-last-child(1),
 .rsidebar .children li:nth-last-child(1){
     border:none;

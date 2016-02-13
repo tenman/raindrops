@@ -6,7 +6,7 @@ if ( ! isset( $wp_customize ) ) {
 	return;
 }
 /**
- * IDsraindrops_complementary_color_for_title_link
+ * raindrops_complementary_color_for_title_link
  *
  * raindrops_base_color
  * raindrops_default_fonts_color
@@ -2278,6 +2278,7 @@ function raindrops_print_scripts() {
 		$raindrops_is_customized = 'yes';		
 	}
 	
+	$raindrops_current_style_type = raindrops_warehouse_clone('raindrops_style_type');
 	
 	wp_localize_script(
 	'raindrops-customize', 'raindrops_customizer_script_vars', array(
@@ -2311,6 +2312,7 @@ function raindrops_print_scripts() {
 		'fallback_footer_link_color'		=> apply_filters( 'raindrops_fallback_footer_link_color', raindrops_default_color_clone( 'raindrops_footer_link_color', 'fallback' ) ),
 	'fallback_header_textcolor'			 =>  apply_filters( 'raindrops_fallback_header_textcolor', raindrops_default_color_clone( 'header_textcolor', 'fallback' ) ),
 	'is_customized'							=> 	$raindrops_is_customized,
+	'raindrops_current_style_type' => $raindrops_current_style_type,
 	)
 	);
 }

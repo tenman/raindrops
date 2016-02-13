@@ -110,6 +110,7 @@
         background: url(images/raindrops-nav-menu-shrunk.png);
         background-repeat:no-repeat;
         background-position:center;
+        max-height:100%;
     }
     .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
         visibility:hidden;

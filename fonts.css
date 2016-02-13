@@ -125,13 +125,17 @@ tt,code,kbd{
  *
  *
  *
- */ 
+ */
+.post .entry-title.f10,
+div[role="banner"] #site-title.f10,
 h2 a.rsswidget,
 .h6:not(h6),
 h6,
 .f10{
     font-size:77%;
 }
+.post .entry-title.f11,
+div[role="banner"] #site-title.f11,
 .portfolio .index > li .entry-title a,
 sub, sup,
 .px11,
@@ -141,10 +145,14 @@ h5,
 .f11 {
     font-size:85%;
 }
+.post .entry-title.f12,
+div[role="banner"] #site-title.f12,
 .gallery .gallery-caption,
 .f12 {
     font-size:93%;
 }
+.post .entry-title.f13,
+div[role="banner"] #site-title.f13,
 .wp-caption p.wp-caption-text,
 /*#access .menu-header,*/
 div.menu,
@@ -154,15 +162,21 @@ h4,
 .f13 {
     font-size:100%;
 }
+.post .entry-title.f14,
+div[role="banner"] #site-title.f14,
 .px14,
 big,
 .f14 {
     font-size:108%;
 }
+.post .entry-title.f15,
+div[role="banner"] #site-title.f15,
 .px15,
 .f15 {
     font-size:116%;
 }
+.post .entry-title.f16,
+div[role="banner"] #site-title.f16,
 .date table .entry-title,
 .px16,
 .h3:not(h3),
@@ -172,24 +186,32 @@ h3,
 .f16 {
     font-size:123.1%;
 }
+
 .lsidebar h2,
 .rsidebar h2{
     font-size:16px;/* if( $raindrops_base_font_size customized ) { over flow list area }*/
 }
+.post .entry-title.f17,
+div[role="banner"] #site-title.f17,
 .px17,
 .f17 {
     font-size:131%;
 }
+.post .entry-title.f18,
+div[role="banner"] #site-title.f18,
 .author .entry-title,
 .px18,
 .f18 {
     font-size:138.5%;
 }
+.post .entry-title.f19,
+div[role="banner"] #site-title.f19,
 .px19,
 .f19 {
     font-size:146.5%;
 }
-
+.post .entry-title.f20,
+div[role="banner"] #site-title.f20,
 .h2:not(h2),
 h2,
 .f20 {
@@ -198,24 +220,36 @@ h2,
 #ft .widgettitle{
     font-size:20px;/* if( $raindrops_base_font_size customized ) { overflow list area }*/
 }
+.post .entry-title.f21,
+div[role="banner"] #site-title.f21,
 h2.year-month-date .day-name,
 .year .year-name,
 h2.year-month .month-name,
 .f21 {
     font-size:161.6%;
 }
+.post .entry-title.f22,
+div[role="banner"] #site-title.f22,
 .f22 {
     font-size:167%;
 }
+.post .entry-title.f23,
+div[role="banner"] #site-title.f23,
 .f23 {
     font-size:174%;
 }
+.post .entry-title.f24,
+div[role="banner"] #site-title.f24,
 .f24 {
     font-size:182%;
 }
+.post .entry-title.f25,
+div[role="banner"] #site-title.f25,
 .f25 {
     font-size:189%;
 }
+.post .entry-title.f26,
+div[role="banner"] #site-title.f26,
 .h1:not(h1),
 h1,
 .f26 {
@@ -342,4 +376,23 @@ dt,
 .parent-entry-title,
 .image-caption .section-title{
     font-size:138.5%;
+}
+/* @1.348 Add font size Class */
+.f27{
+    font-size:207.6%;
+}
+.f28{
+    font-size:215.3%;
+}
+.f29{
+    font-size:223%;
+}
+.f30{
+    font-size:230%;
+}
+.f31{
+    font-size:238.4%;
+}
+.f32{
+    font-size:246.1%;
 }

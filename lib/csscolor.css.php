@@ -1020,6 +1020,24 @@ a.raindrops-comment-link:hover .point {
 .lsidebar .eco-archive  h3 a{
     background: %rgba_border%;
 }
+.lsidebar .widgettitle,
+.rsidebar .widgettitle{
+	font-weight:700;
+	padding:.5em 0;
+	margin:.7em 0;
+}
+.rsidebar .widget  .post-group_by-category-title,
+.lsidebar .widget  .post-group_by-category-title{
+	border-bottom:3px solid %rgba_border%;
+}
+.rsidebar .widget  .post-group-by-category-title li,
+.lsidebar .widget  .post-group-by-category-title li,
+.rsidebar .widget  .post-group-by-category-title,
+.lsidebar .widget  .post-group-by-category-title{
+    list-style-type:none;
+}
+
+
 DOC;
     
 	 return apply_filters( __FUNCTION__ , $style );
@@ -1314,11 +1332,11 @@ select{
 .entry-content input[type="color"],
 .entry-content select{
     %c4%
-    border:double 3px %c_border%;
+    border:solid 1px %c_border%;
 }
 
 .entry-content textarea{
-    border:double 3px %c_border%;
+    border:solid 1px %c_border%;
 }
 
 /*--------------------------------*/
@@ -1490,20 +1508,20 @@ hr{
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
-    border:double 3px %rgba_border%;
+    border:solid 1px %rgba_border%;
 }
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"]{
-    border:double 3px %rgba_border%;
+    border:solid 1px %rgba_border%;
 }
 
 .entry-content select{
-    border:double 3px %rgba_border%;
+    border:solid 1px %rgba_border%;
 }
 
 .entry-content textarea{
-    background: %rgba_border%
-    border:double 3px %rgba_border%;
+    background: %rgba_border%;
+    border:solid 1px %rgba_border%;
 }
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
@@ -1918,7 +1936,25 @@ hr{
 	background:#000;
 }
 /* @1.345 end */
-	
+.lsidebar .widgettitle,
+.rsidebar .widgettitle{
+	font-weight:700;
+	padding:.5em 0;
+	margin:.7em 0;
+}
+.rsidebar .widget  .post-group-by-category-title li,
+.lsidebar .widget  .post-group-by-category-title li,
+.rsidebar .widget  .post-group-by-category-title,
+.lsidebar .widget  .post-group-by-category-title{
+    list-style-type:none;
+}
+.rsidebar .widget  .post-group-by-category-title li,
+.lsidebar .widget  .post-group-by-category-title li{
+	border-bottom:1px solid %rgba_border%;
+}
+
+.rsidebar .widget  .post-group-by-category-title h3,
+.lsidebar .widget  .post-group-by-category-title h3,	
 .rsidebar .eco-archive  h3,
 .lsidebar .eco-archive  h3{
     border-bottom:3px solid %rgba_border%;

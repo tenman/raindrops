@@ -23,6 +23,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
         global $raindrops_base_setting, $raindrops_page_width, $raindrops_setting_type;
 
 		$row = '';
+		$name = trim( $name );
 		
 		if ( false !== $property ) {
 			
@@ -105,6 +106,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 			}
 			
 			$result = get_theme_mod( $name );
+
 			$theme_slug = get_option( 'stylesheet' );
 			
 			if( false === $result && strpos($name, $theme_slug ) !== false ) {

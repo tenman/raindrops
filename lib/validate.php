@@ -543,7 +543,7 @@ function raindrops_plugin_presentation_bcn_nav_menu_validate( $input ) {
  * @since 1.243
  */
 function raindrops_complementary_color_for_title_link_validate( $input ) {
-
+	
 	if ( $input == 'yes' ) {
 
 		return 'yes';

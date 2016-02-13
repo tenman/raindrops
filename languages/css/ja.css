@@ -190,3 +190,95 @@ body.ja,
 .ja .entry-content .sectioned li li li li:before{
     content:'';
 }
+
+.ja .entry-title.f10,
+div[role="banner"] #site-title.f10,
+.f10{
+    font-size:77%;
+}
+.ja .entry-title.f11,
+div[role="banner"] #site-title.f11,
+.f11 {
+    font-size:85%;
+}
+.ja .entry-title.f12,
+div[role="banner"] #site-title.f12,
+.f12 {
+    font-size:93%;
+}
+.ja .entry-title.f13,
+div[role="banner"] #site-title.f13,
+.f13 {
+    font-size:100%;
+}
+.ja .entry-title.f14,
+div[role="banner"] #site-title.f14,
+.f14 {
+    font-size:108%;
+}
+.ja .entry-title.f15,
+div[role="banner"] #site-title.f15,
+.f15 {
+    font-size:116%;
+}
+.ja .entry-title.f16,
+div[role="banner"] #site-title.f16,
+.f16 {
+    font-size:123.1%;
+}
+
+.lsidebar h2,
+.rsidebar h2{
+    font-size:16px;/* if( $raindrops_base_font_size customized ) { over flow list area }*/
+}
+.ja .entry-title.f17,
+div[role="banner"] #site-title.f17,
+.f17 {
+    font-size:131%;
+}
+.ja .entry-title.f18,
+div[role="banner"] #site-title.f18,
+.f18 {
+    font-size:138.5%;
+}
+.ja .entry-title.f19,
+div[role="banner"] #site-title.f19,
+.f19 {
+    font-size:146.5%;
+}
+.ja .entry-title.f20,
+div[role="banner"] #site-title.f20,
+.f20 {
+    font-size:153.9%;
+}
+.ja .entry-title.f21,
+div[role="banner"] #site-title.f21,
+.f21 {
+    font-size:161.6%;
+}
+.ja .entry-title.f22,
+div[role="banner"] #site-title.f22,
+.f22 {
+    font-size:167%;
+}
+.ja .entry-title.f23,
+div[role="banner"] #site-title.f23,
+.f23 {
+    font-size:174%;
+}
+.ja .entry-title.f24,
+div[role="banner"] #site-title.f24,
+.f24 {
+    font-size:182%;
+}
+.ja .entry-title.f25,
+div[role="banner"] #site-title.f25,
+.f25 {
+    font-size:189%;
+}
+.ja .entry-title.f26,
+div[role="banner"] #site-title.f26,
+.h1:not(h1),
+.f26 {
+    font-size:197%;
+}

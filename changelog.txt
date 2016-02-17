@@ -1,4 +1,23 @@
 Changelog -----------------------------------
+version:1.349
+Overview of Changes
+
+	Modified
+      Add check modal exists
+	Fixed Customizer color reset issue
+		lib/customize.js
+	Modified
+		Not remove title attribute when link has tooltip class,
+
+Files Modified
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   raindrops.js
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.348&new_path=raindrops/1.349
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.348
 Overview of Changes
 	Modified editor-style.css

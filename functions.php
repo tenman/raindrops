@@ -11105,7 +11105,7 @@ if ( ! function_exists( 'raindrops_automatic_modal_rel_rev' ) ) {
 
 		global $post;
 
-		if ( isset( $post->ID ) ) {
+		if ( isset( $post->ID ) && false !== strpos( $content, 'raindrops_modal_fragment_id_automatic') ) {
 
 			$modals	 = explode( '#raindrops_modal', $content );
 			$result	 = '';

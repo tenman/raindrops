@@ -642,7 +642,9 @@ a.raindrops-comment-link em,
 #access .menu > li{
     border-left:1px solid rgba( 222,222,222,.2);
 }
-
+#access .menu > li:last-child{
+    border-right:1px solid rgba( 222,222,222,.2);
+}
 #slides .slides_container,
 .raindrops-tab-content,
 .raindrops-tab-list li{

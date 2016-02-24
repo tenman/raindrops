@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.350
+version:1.351
 Overview of Changes
 
 	Fixed Customizer color reset issue
@@ -8,7 +8,7 @@ Files Modified
 	modified:   lib/customize.js
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.349&new_path=raindrops/1.350
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.349&new_path=raindrops/1.351
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.349

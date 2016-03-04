@@ -1,9 +1,56 @@
 Changelog -----------------------------------
 version:1.352
 Overview of Changes
+	Modified relate change for child theme
+		childs/boots/inc.php
+	Added jQuery ui tooltip
+		raindrops_add_stylesheet();
+		lib/csscolor.css.php
+		lib/customize.php
+		lib/validate.php
+		lib/vars.php
+		style.css
+        @see Customize / Advanced / Tooltip
+		if needs revert, set No.
+	Added Primary Menu Automatic Responsive
+		lib/customize.php
+		lib/validate.php
+		raindrops-helper.js
+		raindrops.js
+		responsiveness.css
+        @see Customize / Presentation / Menu / Primary Menu Automatic Responsive
+		if needs revert, set No.
+	Modified Translation japanese
+
+	Fixed category sepalator show twice.
+		raindrops_category_navigation()
+	Fixed year archive display improperly.
+		raindrops_archive_year_navigation()
+	Fixed page width 750px 950px 974px shows improperly when select 1column
+		grid.css
+	Fixed Modalbox title display improperly when language japanese.
+
+	Fixed Sticky widget area not work when Static Front Page Front page displays 'A static page'
 
 Files Modified
-
+	modified:   childs/boots/inc.php
+	modified:   css3.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   header.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   pdf.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+	modified:   widget-sticky.php
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.351&new_path=raindrops/1.352

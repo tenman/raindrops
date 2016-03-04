@@ -33,6 +33,20 @@ body.ja,
 .ja .entry-content .h3{
        margin:1.6em 0;   
 }
+.ja .rd-modal h4,
+.ja .rd-modal h5,
+.ja .rd-modal h6,
+.ja .rd-modal h1,
+.ja .rd-modal h2,
+.ja .rd-modal h3,
+.ja .rd-modal .h4,
+.ja .rd-modal .h5,
+.ja .rd-modal .h6,
+.ja .rd-modal .h1,
+.ja .rd-modal .h2, 
+.ja .rd-modal .h3{
+       margin: 0;   
+}
 
 /* Raindrops new h1-h6 font size from ver 0.996 start */
 

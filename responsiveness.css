@@ -936,3 +936,138 @@
         text-align:left;
     }
 }
+
+/* javascript relative responsive style */
+
+.rd-primary-menu-responsive-active #access ul li > ul {
+     display:block!important;
+ }
+.rd-primary-menu-responsive-active .menu-item{
+     float:none;
+     width:100%;
+ }
+ .rd-primary-menu-responsive-active .raindrops-mobile-menu{
+     display:block!important;
+ }
+ .rd-primary-menu-responsive-active .raindrops-mobile-menu{
+     display:inline-block;
+     height:1em;
+     text-align:right;
+     padding:1em;
+     font-size:138.5%;
+ }
+.rd-primary-menu-responsive-active #access{display:none!important;}
+.rd-primary-menu-responsive-active #access:target{
+     display:block!important;
+
+     padding-top:100px;
+     margin-top:-100px;
+ }
+ .rd-primary-menu-responsive-active.ie6 #access:target{display:block!important;}
+ .rd-primary-menu-responsive-active.ie7 #access:target{display:block!important;}
+ .rd-primary-menu-responsive-active.ie8 #access:target{display:block!important;}
+ .rd-primary-menu-responsive-active .raindrops-mobile-menu{
+     position:relative;
+     margin:0 10px;
+ }
+ .rd-primary-menu-responsive-active .raindrops-mobile-menu .open{
+     position:absolute;
+     top:4px;
+     left:0;
+     font-size:153.9%;
+     width:10%;
+     background: url(images/raindrops-nav-menu-expand.png);
+     background-repeat:no-repeat;
+     background-position:center;
+ }
+ .rd-primary-menu-responsive-active .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
+     visibility:hidden;
+     width:20px;
+     height:20px;
+     display:inline-block;
+     text-indent:-100px;
+ }
+.rd-primary-menu-responsive-active .raindrops-mobile-menu .close{
+     position:absolute;
+     top:2px;
+     right:5%;
+     font-size:153.9%;
+     width:10%;
+     background: url(images/raindrops-nav-menu-shrunk.png);
+     background-repeat:no-repeat;
+     background-position:center;
+     max-height:100%;
+ }
+.rd-primary-menu-responsive-active .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
+     visibility:hidden;
+     width:20px;
+     height:20px;
+     display:inline-block;
+ }
+ .rd-primary-menu-responsive-active #doc5 #access ul ul,
+ .rd-primary-menu-responsive-active #doc5 #access ul,
+ .rd-primary-menu-responsive-active #doc5 #access ul li{
+     float:none;
+     margin:0;
+     margin-left:0;
+     margin-right:0;
+     display:block;
+     max-width:100%;
+     width:100%;
+     box-sizing: border-box;
+     clear:both;
+     background-repeat:no-repeat;
+     position:static;       
+ } 
+.rd-primary-menu-responsive-active #doc5 #access a,
+.rd-primary-menu-responsive-active #doc5 #access ul ul,
+ .rd-primary-menu-responsive-active #doc5 #access ul,
+ .rd-primary-menu-responsive-active #doc5 #access ul li,
+.rd-primary-menu-responsive-active  #doc3 #access a,
+.rd-primary-menu-responsive-active  #doc3 #access ul ul,
+.rd-primary-menu-responsive-active  #doc3 #access ul,
+.rd-primary-menu-responsive-active  #doc3 #access ul li{
+     border:none;
+ }
+ .rd-primary-menu-responsive-active #access > div.menu > ul > li > a, 
+ .rd-primary-menu-responsive-active #access .menu > li > a,
+ .rd-primary-menu-responsive-active #access .menu-header,
+.rd-primary-menu-responsive-active  #access ul,
+.rd-primary-menu-responsive-active  #access a + ul,
+.rd-primary-menu-responsive-active  #access .children a,
+.rd-primary-menu-responsive-active  #access .sub-menu a{
+         position:static;
+         display:inline-block;
+         visibility:visible;
+         float:none;
+         overflow:visible;
+         z-index:999!important;
+         height:auto;
+         text-align:left;
+         background-image:none!important;
+         max-width:100%;
+ }
+
+ .rd-primary-menu-responsive-active #top #access .menu{
+      overflow:hidden;
+ }
+ .rd-primary-menu-responsive-active #top #access .children,
+ .rd-primary-menu-responsive-active #top #access .sub-menu{
+     margin-left:5vw;
+     width:90vw;
+     color:#fff;
+
+ }
+ .rd-primary-menu-responsive-active .raindrops-mobile-menu .menu-text{
+     position:absolute;top:10px;left:44%;
+ }
+
+ .rd-primary-menu-responsive-active #access .page_item_has_children > a:after,
+ .rd-primary-menu-responsive-active #access .menu-item-has-children > a:after,
+ .rd-primary-menu-responsive-active #access .children .page_item_has_children > a:after,
+ .rd-primary-menu-responsive-active #access .sub-menu .page_item_has_children > a:after,
+ .rd-primary-menu-responsive-active #access .children .menu-item-has-children > a:after,
+ .rd-primary-menu-responsive-active #access .sub-menu .menu-item-has-children > a:after{
+    content:'';
+    transform: none;
+}

@@ -39,7 +39,15 @@ function raindrops_indv_css_dark() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 	
     $style = <<<DOC
-	
+.ui-tooltip {
+    background: #333;
+    color: #ccc;
+    border: none;
+}
+.ui-tooltip-content:before{
+    border: 10px solid transparent;
+    border-top: 10px solid #333;
+}	
 
 .raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
 .enable-keyboard.rd-type-dark .raindrops-comment-link:focus em,
@@ -689,6 +697,15 @@ function raindrops_indv_css_w3standard() {
 	
 		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
+.ui-tooltip {
+    background: #333;
+    color: #ccc;
+    border: none;
+}
+.ui-tooltip-content:before{
+    border: 10px solid transparent;
+    border-top: 10px solid #333;
+}
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
@@ -1062,6 +1079,16 @@ function raindrops_indv_css_light() {
     $font_color5 = raindrops_colors( 5, "color" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;');
     $style = <<<DOC
+.ui-tooltip {
+    background: #333;
+    color: #ccc;
+    border: none;
+}
+.ui-tooltip-content:before{
+    border: 10px solid transparent;
+    border-top: 10px solid #333;
+}
+	
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
@@ -1688,6 +1715,16 @@ function raindrops_indv_css_minimal() {
     $font_color = raindrops_colors( 5, "color" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;');
     $style = <<<CSS
+.ui-tooltip {
+    background: #333;
+    color: #ccc;
+    border: none;
+}
+.ui-tooltip-content:before{
+    border: 10px solid transparent;
+    border-top: 10px solid #333;
+}
+
 .sticky-widget #wp-calendar tbody #today,
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,

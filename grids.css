@@ -615,3 +615,14 @@ body {
 .yui-t6 #yui-main .yui-b{
     max-width:100%;
 }
+.rd-col-1.page #doc article,
+.rd-col-1.page #doc2 article,
+.rd-col-1.page #doc4 article,
+.rd-col-1.single #doc article,
+.rd-col-1.single #doc2 article,
+.rd-col-1.single #doc4 article,
+.rd-col-1 #doc .index,
+.rd-col-1 #doc2 .index,
+.rd-col-1 #doc4 .index{
+    margin:1em;
+}

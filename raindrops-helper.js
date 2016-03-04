@@ -11,7 +11,7 @@
         if ( raindrops_script_vars.page_width == 'doc3' || raindrops_script_vars.page_width == 'doc5' ) {
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
-
+            var raindrops_primary_menu_height = jQuery('#access ul.menu').height();
             function raindrops_resizes( ) {
 
                 if ( raindrops_script_vars.restore_check !== 'remove-header' ) {
@@ -24,10 +24,24 @@
                     if ( raindrops_script_vars.has_ratio_filter ) {
                        jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover' } );
                     }
+                    /* @1.352 */
+                    if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive ) {
+                        
+                        var raindrops_primary_menu_height = jQuery('#access ul.menu').height();
+                        
+                        if( raindrops_primary_menu_height > raindrops_script_vars.raindrops_primary_menu_responsive_height ) {
+                             jQuery('#access').hide();
+                             jQuery( 'body' ).addClass( 'rd-primary-menu-responsive-active' );
+                         }else{
+                             jQuery( 'body' ).removeClass( 'rd-primary-menu-responsive-active' );
+                         }
+                    }
 
                 }
             }
 
+            
+            jQuery('#access').show();
             if ( raindrops_script_vars.current_template == 'list_of_post' ) {
 
                 var raindrops_ignore_template = true;

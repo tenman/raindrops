@@ -1095,6 +1095,24 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'textarea',
 			'section'			 => 'raindrops_theme_settings_document',
 		),
+
+		"raindrops_tooltip"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_tooltip','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Tooltip', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Enable Tooltip. value yes or no. default yes', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_tooltip_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),		
+
 		"raindrops_custom_footer_credit"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_custom_footer_credit','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1165,6 +1183,23 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'step'	 => 0.1,
 				'class'	 => 'menu-primary-min-width raindrops',
 				'style'	 => '',
+			),
+			'section'			 => 'raindrops_theme_settings_menu_size',
+		),
+
+		"raindrops_primary_menu_responsive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_primary_menu_responsive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Primary Menu Automatic Responsive', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'value yes or no. default yes', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_primary_menu_responsive_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_menu_size',
 		),

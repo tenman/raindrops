@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.351
+Version: 1.352
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -532,10 +532,11 @@ table td.bottom{
     word-wrap:break-word;
     overflow-wrap:break-word;
 }
+/* @1.352
 .ie8 img{
     width:100%;
 }
-
+*/
 #doc4 #header-image,
 #doc2 #header-image,
 #doc #header-image,
@@ -2285,6 +2286,13 @@ li.byuser,
     margin-bottom:0;
     vertical-align:middle;
 }
+.single .format-status{
+    font-size:116%;
+}
+.single .format-status p{
+    margin:1.7em 0;
+    line-height:1.7;
+}
 /* add*/
 
 .single-post-thumbnail{
@@ -2873,8 +2881,8 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .single .current_item .icon-link-no-title,
 .single article .icon-link-no-title,
 .single article .entry-title .icon-link-no-title,
-.page .icon-link-no-title,
-.page .page .icon-link-no-title{
+.page article .icon-link-no-title,
+.page article .icon-link-no-title{
     display:none;
 }
 .icon-post-format-aside{
@@ -4343,6 +4351,9 @@ video{
     margin-top:0;
     margin-left:0;
 }
+.rd-primary-menu-responsive-active #access{
+    display:none;
+}
 .widget_nav_menu.sticky-widget > ul > li,
 .widget_pages.sticky-widget > ul > li,
 #top #access .menu > li {
@@ -5105,4 +5116,27 @@ x:-o-prefocus, .rd-modal > div {
 .ie8 .modal-link{
     /* IE8 Not Support Modal allways shows itself */
     display:none!important;
+}
+/* Tooltip style */
+.ui-tooltip {
+    opacity: 1;
+    padding: 8px;
+    position: absolute;
+    z-index: 9999;
+    max-width: 300px;
+
+}
+.ui-tooltip-content {
+    position: relative;
+    text-align:left;
+}
+.ui-tooltip-content:before{
+    content: "";
+    position: absolute;
+    bottom:-28px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    width:2px;
 }

@@ -33,6 +33,7 @@
         jQuery("#month_list ul li:last-child").css({border: "none"});
        // jQuery(".widget ul li:last-child").css({border: "none"});
        jQuery('a').not( "#flags,.tooltip" ).removeAttr("title");
+       jQuery( ".no-tooltip" ).removeAttr("title");
         // #flags is google translate plugin
 
         /** Toggle

@@ -10,6 +10,14 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Tooltip Script
+ */
+
+
+if ( ! isset( $raindrops_tooltip ) ) {	
+	$raindrops_tooltip = true;
+} 
+/**
  * tagcloud widget presentation
  *  @see raindrops_color_pallet_tagcloud()
  *  value false then WordPress default widget style.
@@ -1361,6 +1369,26 @@ array( 'option_id'    => 88,
         'excerpt2'     => esc_html__( 'value 1-3. default 3', 'raindrops' ),
         'validate'     => 'raindrops_sidebar_pdf_archive_validate',
 		'list'         => 87 ),
+array( 'option_id'    => 89,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_primary_menu_responsive",
+        'option_value' => 'yes',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Primary Menu Automatic Responsive', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'value yes or no. default yes', 'raindrops' ),
+        'validate'     => 'raindrops_primary_menu_responsive_validate',
+		'list'         => 88 ),
+array( 'option_id'    => 90,
+        'blog_id'      => 0,
+        'option_name'  => "raindrops_tooltip",
+        'option_value' => 'yes',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Tooltip', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Enable Tooltip. value yes or no. default yes', 'raindrops' ),
+        'validate'     => 'raindrops_tooltip_validate',
+		'list'         => 89 ),
 );
 }
 

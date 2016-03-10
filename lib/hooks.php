@@ -387,6 +387,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.348
 		 */
 		add_filter('the_content', 'raindrops_automatic_modal_rel_rev' );
+		/*
+		 * @since 1.353
+		 */
+		global $wp_embed;
+		add_filter( 'widget_text', array( $wp_embed, 'autoembed' ), 9 );
     }
 }
 ?>

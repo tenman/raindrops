@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.352
+Version: 1.353
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1395,8 +1395,6 @@ h2.footer-content,
     clear:both;
     margin-bottom:3px;
 }
-
-
 .blogrolls dd,
 #site-description {
     text-align:right;
@@ -1509,10 +1507,12 @@ div[class^="entry-meta"] .emoji-date,
 .entry-title-text{
    /* fallback */
    display:inline-block;
+
    /* @1.336
   padding:.5em 13px 0;
   */
 }
+
 .entry-title span{
    max-width:100%;
    word-wrap:break-word;
@@ -1522,10 +1522,39 @@ div[class^="entry-meta"] .emoji-date,
 .h2-thumb + .entry-title-text{
      padding:0 13px 0;
 }
+
 /**
  * Title style of has featured image
  */
+.rd-featured-yes-front .index > li .entry-title a span,
+.rd-featured-yes-front .index > li .entry-title a,
+.rd-featured-yes-front .index > li{
+    /* @1.353 */
+    word-wrap:normal;
+    overflow-wrap:normal;
+    width:100%;
+    display:block;
+}
+.rd-featured-yes-front .index > li .entry-title a .icon-post-format-notitle,
+.rd-featured-yes-front .index > li .entry-title a .icon-link-no-title{
+    width:24px;
+    display:inline-block;
+}
 
+.rd-featured-yes-front .index > li .entry-title-text{
+    display:inline-block;
+    width:24px;
+    margin-right:1em;
+}
+.rd-featured-yes-front .index > li .h2-thumb + .entry-title-text{
+    padding:0;
+}
+.rd-featured-yes-front .index > li .h2-thumb{
+    /* @1.353 */
+    display:block;
+     text-align:center;
+    width:100%;
+}
 .rd-featured-yes-top .index .h2-thumb + .entry-title-text{
     padding:0 1em 0 .4em;
     display:block;
@@ -1989,7 +2018,10 @@ br.clearfix {
 .sticky-widget #wp-calendar tfoot td{
     border:none;
 }
-
+/*--------@1,353-----------------------------------*/
+.widget_recent-post-groupby-cat .h2-thumb + .entry-title-text{
+    padding:0;
+}
 .sticky-widget.widget_recent-post-groupby-cat{
     width:90%;
     margin:auto;
@@ -2006,6 +2038,7 @@ br.clearfix {
 .sticky-widget.widget_recent-post-groupby-cat .xoxo img{
 
 }
+
 .widget_recent-post-groupby-cat .widgettitle span{
     padding:0 .5em;
     display:block;
@@ -2026,7 +2059,7 @@ br.clearfix {
 .sticky-widget.raindrops-pinup-entries .entry-title {
     top: -1em;
 }
-
+/*----------------------------------------------------------------------------*/
 .widget form{
     text-align:center;
 }
@@ -5139,4 +5172,21 @@ x:-o-prefocus, .rd-modal > div {
     margin-left:auto;
     margin-right:auto;
     width:2px;
+}
+#site-title,
+.custom-logo-wrap,
+.custom-logo-link{
+    overflow:hidden;
+    display:inline-block;
+    vertical-align:middle;
+}
+.custom-logo-wrap,
+.custom-logo-link{
+    height:1em;
+    width:auto;
+}
+.custom-logo{
+    max-height:100%;
+    width:auto;
+    margin-right:5px;
 }

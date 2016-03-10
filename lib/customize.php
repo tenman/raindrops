@@ -1850,6 +1850,25 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_place_of_site_title_callback_b',
 			'section'			 => 'title_tagline',
 		),
+		//@1.353
+		"raindrops_display_site_title"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_display_site_title','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Display Site Title Text', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'value show, hide. default show', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_display_site_title_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
+			),
+			'active_callback'	 => '',
+			'section'			 => 'title_tagline',
+			'priority' => 9,
+		),
 		"raindrops_tagline_in_the_header_image"	 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

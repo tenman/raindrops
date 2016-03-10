@@ -1,4 +1,11 @@
 <?php
+function raindrops_display_site_title_validate( $input ) {
+	if( $input == 'show' || $input == 'hide'  ) {
+		return $input;
+	} else {
+		return 'show';
+	}			
+}
 function raindrops_tooltip_validate( $input ) {
 	if( $input == 'yes' || $input == 'no'  ) {
 		return $input;

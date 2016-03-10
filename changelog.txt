@@ -1,9 +1,33 @@
 Changelog -----------------------------------
 version:1.353
+
+Important Note
+
+	Next Version change sticky widget position.
+
+	If you are using this widget area now is to create a child theme, the theme, please duplicate the index.php in child theme
+
+	Example of Child Theme
+
+	http://tenman.info/download/child-raindrops.zip
+
 Overview of Changes
+	Fixed child theme style.css can not auto load when $raindrops_css_auto_include == false
+	Fixed Randum Header Image not work
+	Fixed Display Improperly. Custmize Section Featured Image Settings / Featured Image Position Infront of Title
+	Modyfied Add control raindrops_display_site_title for Custom Logo( WordPress4.5 )
+	Add Custom Logo Support for WordPress4.5
+	Add Text Widget Support Oembed Media
 
 Files Modified
-
+	modified:   functions.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.352&new_path=raindrops/1.353

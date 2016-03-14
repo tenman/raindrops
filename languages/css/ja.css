@@ -161,19 +161,23 @@ body.ja,
     margin:1.5%;
 }
 
-.ja .widget_recent_comments .recentcomments{
+.ja .rsidebar .widget_recent_comments .recentcomments
+.ja .lsidebar .widget_recent_comments .recentcomments{
    visibility:hidden;
    margin-bottom:-1.65em;
 }
-.ja .widget_recent_comments .recentcomments a,
-.ja .widget_recent_comments .recentcomments span,
-.ja .widget_recent_comments .recentcomments img{
+.ja .rsidebar .widget_recent_comments .recentcomments a,
+.ja .rsidebar .widget_recent_comments .recentcomments span,
+.ja .rsidebar .widget_recent_comments .recentcomments img
+.ja .lsidebar .widget_recent_comments .recentcomments a,
+.ja .lsidebar .widget_recent_comments .recentcomments span,
+.ja .lsidebar .widget_recent_comments .recentcomments img{
      visibility:visible;
 }
-.ja .widget_recent_comments .comment-author-link{
+.ja .rsidebar.widget_recent_comments .comment-author-link
+.ja .lsidebar.widget_recent_comments .comment-author-link{
     border-bottom:1px dotted rgba(122,122,122,.5);
 }
-
 
 .ja .raindrops-excerpt-more{
     width:8em;
@@ -296,4 +300,11 @@ div[role="banner"] #site-title.f26,
 .h1:not(h1),
 .f26 {
     font-size:197%;
+}
+.raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
+.raindrops-extend-archive.sticky-widget .eco-archive.by-year .month{
+     width:10em;
+}
+.topsidebar .raindrops-extend-archive.sticky-widget h3.year a{
+    background:transparent!important;
 }

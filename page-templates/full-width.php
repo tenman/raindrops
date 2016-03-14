@@ -16,10 +16,10 @@ if ( $raindrops_current_column !== false ) {
 
 raindrops_debug_navitation( __FILE__ );
 ?>
+<?php get_template_part( 'widget', 'sticky' ); ?>
 <div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main', true ); ?>">
     <div id="container">
 		<?php
-		get_template_part( 'widget', 'sticky' );
 
 		if ( have_posts() ) {
 

@@ -13,13 +13,12 @@ $raindrops_current_column = raindrops_column_controller();
 if ( $raindrops_current_column !== false ) {
 	add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
 }
-
 raindrops_debug_navitation( __FILE__ );
 ?>
+<?php get_template_part( 'widget', 'sticky' ); ?>
 <div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
     <div id="container">
 		<?php
-		get_template_part( 'widget', 'sticky' );
 
 		if ( have_posts() ) {
 

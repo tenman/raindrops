@@ -97,10 +97,11 @@ if ( $raindrops_current_column !== false ) {
 
 raindrops_debug_navitation( __FILE__ );
 ?>
+<?php get_template_part( 'widget', 'sticky' ); ?>
 <div id="yui-main">
     <div id="container">
 <?php
-get_template_part( 'widget', 'sticky' );
+
 
 if ( have_posts() ) {
 

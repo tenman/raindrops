@@ -412,9 +412,10 @@ if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom
     $raindrops_devide_column_extra_class = '';
 }
 ?>
+
 <div id="yui-main">
     <div class="<?php echo $raindrops_devide_column_class; ?>">
-        <?php get_template_part( 'widget', 'sticky' ); ?>
+
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
             <div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php
             raindrops_is_2col( 'style="width:99%;"' );
@@ -423,7 +424,7 @@ if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom
                 echo 'style="width:99%;"';
             }
             ?>>
-
+			<?php get_template_part( 'widget', 'sticky' ); ?>			
                 <?php if ( true == $raindrops_bf_show_sticky_post ) { ?>
                     <div>
                         <ul class="raindrops-sticky-posts">

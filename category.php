@@ -27,11 +27,11 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 
 ?>
-
+<?php get_template_part( 'widget', 'sticky' ); ?>
 			<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
 				
 				<div class="<?php raindrops_dinamic_class( 'yui-b',true ); ?>">
-                <?php get_template_part( 'widget', 'sticky' ); ?>
+
 					<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
 						<div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 

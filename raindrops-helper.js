@@ -1,6 +1,7 @@
 ( function ( ) {
 
     jQuery( function ( ) {
+
         /* test code @see functions.php raindrops_article_wrapper_class() */
         try{
             jQuery( '.index.archives li > div' ).addClass( 'rd-l-' + navigator.language );
@@ -36,6 +37,26 @@
                              jQuery( 'body' ).removeClass( 'rd-primary-menu-responsive-active' );
                          }
                     }
+                    /* @1.354 */
+                    var raindrops_main_sidebar_height = jQuery( '.lsidebar' ).height( );
+                    var raindrops_extra_sidebar_height = jQuery( '.rsidebar' ).height( );
+                    var raindrops_container_height = jQuery( '#container' ).height( );
+                    
+                    if( raindrops_window_width < 641 ) {
+                        
+                        jQuery( '.lsidebar, .rsidebar' ).removeAttr( 'style' );
+                    } else {
+                        
+                        if ( raindrops_main_sidebar_height > raindrops_container_height ) {
+
+                            jQuery( '#container' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
+                            jQuery( '.rsidebar' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
+                        } else {
+
+                            jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
+                            jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
+                        }                       
+                    }
 
                 }
             }
@@ -49,13 +70,15 @@
 
                 var raindrops_ignore_template = false;
             }
-
-            if ( raindrops_window_width > 640 && raindrops_script_vars.ignore_template == false ) {
+            
+            // todo @1.354 , check needs remove
+/*
+               if ( raindrops_window_width > 640 && raindrops_script_vars.ignore_template == false ) {
 
                 var raindrops_main_sidebar_height = jQuery( '.lsidebar' ).height( );
                 var raindrops_extra_sidebar_height = jQuery( '.rsidebar' ).height( );
                 var raindrops_container_height = jQuery( '#container' ).height( );
-                var raindrops_sticky_widget_height = jQuery( '.topsidebar' ).height( );
+               // var raindrops_sticky_widget_height = jQuery( '.topsidebar' ).height( );
 
                 if ( raindrops_main_sidebar_height > raindrops_container_height ) {
 
@@ -64,16 +87,20 @@
                 } else {
 
                     if ( raindrops_sticky_widget_height > 0 ) {
-
-                        raindrops_left_sidebar_height = raindrops_container_height + raindrops_sticky_widget_height + 13;
-                        jQuery( '.lsidebar' ).css( { 'min-height': raindrops_left_sidebar_height + 'px' } );
+                        //test @1.354
+                       // raindrops_left_sidebar_height = raindrops_container_height + raindrops_sticky_widget_height + 13;
+                       // jQuery( '.lsidebar' ).css( { 'min-height': raindrops_left_sidebar_height + 'px' } );
+                       jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
                     } else {
-
+                        //test @1.354
                         jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
                     }
+                    
+                    jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
                     jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
                 }
             }
+*/
 
 //detect lang  add ver 1.120
 
@@ -229,16 +256,19 @@
                 raindrops_resizes( )
             } );
 
-
-            jQuery( '#access' ).find( 'a' ).on( 'focus.raindrops blur.raindrops', function ( ) {
-               // jQuery( this ).parents( '.menu-header .menu, .menu-item, .page_item, .skip-link' ).toggleClass( 'focus' );
-                jQuery( this ).parents( ).toggleClass( 'focus' );
+            jQuery( '.topsidebar' ).find( 'a' ).on( 'focus.raindrops blur.raindrops', function ( ) {
+                  jQuery( this ).parents( ).toggleClass( 'focus' );
             } );
-
+            jQuery( '#access' ).find( 'a' ).on( 'focus.raindrops blur.raindrops', function ( ) {
+                   jQuery( this ).parents( ).toggleClass( 'focus' );
+            } );
 
            /*
             * While using the keyboard interface, if you use a mouse, they affect the display of menu If you do not remove the focus class
             */
+            jQuery( '.topsidebar' ).on('mousemove','a', function(){
+               jQuery( this ).toggleClass('focus').parents( ).children().removeClass('focus');
+            });
             jQuery( '#access' ).on('mousemove','a', function(){
                jQuery( this ).toggleClass('focus').parents( ).children().removeClass('focus');
             });

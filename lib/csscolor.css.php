@@ -35,10 +35,92 @@ raindrops_register_styles( "dark" );
 function raindrops_indv_css_dark() {
 
     $font_color_5 = raindrops_colors( -5, "color" );
-	
+	$background_4 = raindrops_colors( -4, "background" );
+	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 	
     $style = <<<DOC
+.topsidebar .widget_tag_cloud .tagcloud a{
+	background:$background_4;
+}
+.topsidebar .widget_meta ul > li a,
+.topsidebar .widget_meta ul > li,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
+.topsidebar .sticky-widget.widget_archive li a,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .cat-item a,	
+.topsidebar .cat-item{
+	%c_4%;
+}
+.topsidebar .widget_tag_cloud .tagcloud a:hover{
+	background:$background_3;
+}
+.topsidebar .widget_tag_cloud .tagcloud a:focus{
+	%c_3%;
+}
+.topsidebar .widget_meta ul > li:hover a,
+.topsidebar .widget_meta ul > li:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item:hover a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month:hover a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month:hover,
+.topsidebar .sticky-widget.widget_archive li:hover a,
+.topsidebar .sticky-widget.widget_archive li:hover,
+.topsidebar .cat-item:hover a,	
+.topsidebar .cat-item:hover{
+	%c_3%;
+}
+.topsidebar .widget_recent_comments #recentcomments li{
+	%c_1%;
+}
+.topsidebar .widget_rss ul li a,
+.topsidebar .widget_rss ul li{
+	%c2%;
+}
+.topsidebar .widget_rss .rsswidget a,
+.topsidebar .widget_rss .rsswidget{
+	%c_1%;
+}
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .widget_rss h2 .rsswidget a,
+.topsidebar .widget_rss h2 .rsswidget{
+	background:transparent;
+}
+
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li a,
+    .topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li{
+		%c1%;
+	
+	}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(1) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(1){
+	%c4%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(2) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(2){
+	%c3%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(3) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(3){
+	%c2%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > .post-group-by-category-title h3 span{
+	background:transparent;
+}
 .ui-tooltip {
     background: #333;
     color: #ccc;
@@ -47,8 +129,10 @@ function raindrops_indv_css_dark() {
 .ui-tooltip-content:before{
     border: 10px solid transparent;
     border-top: 10px solid #333;
-}	
+}
 
+.focus .icon-post-format-notitle,
+.icon-post-format-notitle:focus,
 .raindrops-accessible-mode.rd-type-dark .raindrops-comment-link:focus em,
 .enable-keyboard.rd-type-dark .raindrops-comment-link:focus em,
 .ie11.enable-keyboard.rd-type-dark eess .sub-menu a:focus,
@@ -59,24 +143,26 @@ function raindrops_indv_css_dark() {
 .ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus{
 	$raindrops_focus_style
 }
+
 .widget_nav_menu.sticky-widget .sub-menu,
 .widget_pages.sticky-widget .children,
 .widget_nav_menu.sticky-widget .sub-menu a,
 .widget_pages.sticky-widget .children a{
     width:12em;
-    background:#000;
-    color:#fff;
-
+ 
 }
-.topsidebar .widget_nav_menu.sticky-widget .sub-menu,
+.topsidebar .widget_nav_menu.sticky-widget .children,
+.topsidebar .widget_nav_menu.sticky-widget .sub-menu{
+	border-bottom:1px solid rgba(122,122,122,.5);
+	   %c_4%;
+}
 .topsidebar .widget_pages.sticky-widget .children{
-     border:1px solid rgba(122,122,122,.5);
+   border-top:1px solid rgba(68,68,68,.5);
+   %c_4%;
 }
-.widget_nav_menu.sticky-widget .sub-menu a,
-.widget_pages.sticky-widget .children a{
-    border-bottom:1px solid rgba(122,122,122,.5);
+.topsidebar .widget_nav_menu.sticky-widget .sub-menu:last-child{
+	 border-bottom:none;
 }
-
 #access .sub-menu,
 #access .children{
 	border:1px solid #ccc;
@@ -453,8 +539,8 @@ hr{
 }
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
-.yui-b .sticky-widget.widget_archive li,
-.yui-b .sticky-widget.widget_categories .cat-item,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .sticky-widget.widget_categories .cat-item,
 .page .rd-border,
 .post .rd-border,
 .comment-body th,
@@ -694,9 +780,92 @@ CSS3;
 raindrops_register_styles( "w3standard" );
 
 function raindrops_indv_css_w3standard() {
-	
+	$background4 = raindrops_colors( 5, "background" );
+	$background3 = raindrops_colors( 4, "background" );	
 		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
+.topsidebar .widget_tag_cloud .tagcloud a{
+	background:$background4;
+}
+.topsidebar .widget_meta ul > li a,
+.topsidebar .widget_meta ul > li,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
+.topsidebar .sticky-widget.widget_archive li a,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .cat-item a,	
+.topsidebar .cat-item{
+	%c4%;
+}
+.topsidebar .widget_tag_cloud .tagcloud a:hover{
+	background:#fff;
+}
+.topsidebar .widget_meta ul > li:hover a,
+.topsidebar .widget_meta ul > li:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item:hover a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month:hover a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month:hover,
+.topsidebar .sticky-widget.widget_archive li:hover a,
+.topsidebar .sticky-widget.widget_archive li:hover,
+.topsidebar .cat-item:hover a,	
+.topsidebar .cat-item:hover{
+	%c5%;
+	opacity:1.0;
+}
+.topsidebar .widget_recent_comments #recentcomments li{
+	%c5%;
+}
+.topsidebar .widget_rss ul li a,
+.topsidebar .widget_rss ul li{
+	%c4%;
+}
+.topsidebar .widget_rss .rssSummary + cite,
+.topsidebar .widget_rss .rsswidget a,
+.topsidebar .widget_rss .rsswidget{
+	%c_1%;
+}
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive h3.month a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive h3.year a,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .widget_rss h2 .rsswidget a,
+.topsidebar .widget_rss h2 .rsswidget{
+	background:transparent;
+}
+	
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li{
+	%c4%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(1) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(1){
+	%c1%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(2) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(2){
+	%c2%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(3) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(3){
+	%c3%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > .post-group-by-category-title h3 span{
+	background:transparent;
+}
+/*-----------------------------------------------------------*/
 .ui-tooltip {
     background: #333;
     color: #ccc;
@@ -737,19 +906,16 @@ function raindrops_indv_css_w3standard() {
     %h_position_rsidebar_h2%
 }
 	
-.widget_nav_menu.sticky-widget .sub-menu,
-.widget_pages.sticky-widget .children,
-.widget_nav_menu.sticky-widget .sub-menu a,
-.widget_pages.sticky-widget .children a{
-    background:#fff;
-    color:#000;
+.topsidebar .widget_pages.sticky-widget .children,
+.topsidebar .widget_nav_menu.sticky-widget .children,
+.topsidebar .widget_nav_menu.sticky-widget .sub-menu{
+	border:none;
+	%c5%;
 }
-.topsidebar .widget_nav_menu.sticky-widget .sub-menu,
 .topsidebar .widget_pages.sticky-widget .children{
-     border:1px solid rgba(122,122,122,.5);
+     border-top:1px dotted rgba(122,122,122,.5);
 }
-.widget_nav_menu.sticky-widget .sub-menu a,
-.widget_pages.sticky-widget .children a{
+.widget_nav_menu.sticky-widget .sub-menu{
     border-bottom:1px solid rgba(122,122,122,.5);
 }
 	
@@ -765,10 +931,11 @@ body {
 }
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
-.yui-b .sticky-widget.widget_archive li,
-.yui-b .sticky-widget.widget_categories .cat-item,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .sticky-widget.widget_categories .cat-item,
 .nav-links .page-numbers{
      border:1px solid #ccc;
+
 }
 .nav-links .page-numbers:hover{
 	%c4%;
@@ -1064,7 +1231,6 @@ DOC;
 
 ?>
 <?php
-
 /**
  * Color type light
  *
@@ -1075,10 +1241,70 @@ DOC;
 raindrops_register_styles( "light" );
 
 function raindrops_indv_css_light() {
-
+	$background5 = raindrops_colors( 5, "background" );
+	$background4 = raindrops_colors( 4, "background" );	
     $font_color5 = raindrops_colors( 5, "color" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;');
     $style = <<<DOC
+.topsidebar .widget_tag_cloud .tagcloud a{
+	background:$background5;
+}
+
+.topsidebar .widget_meta ul > li{
+	%c4%;
+}
+.topsidebar .widget_tag_cloud .tagcloud a:hover{
+	background:#fff;
+}
+.topsidebar .widget_meta ul > li:hover a,
+.topsidebar .widget_meta ul > li:hover{
+	%c5%;
+	opacity:1.0;
+}
+.topsidebar .widget_recent_comments #recentcomments li{
+	%c5%;
+}
+
+.topsidebar .widget_rss ul li a,
+.topsidebar .widget_rss ul li{
+	%c4%;
+}
+.topsidebar .widget_rss h2 a,
+.topsidebar .widget_rss h2{
+	%c5%;	
+}
+.topsidebar .widget_rss .rssSummary + cite,
+.topsidebar .widget_rss .rsswidget a,
+.topsidebar .widget_rss .rsswidget{
+	%c_1%;
+}
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month{
+	background:transparent;
+}
+	
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li{
+	%c4%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(1) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(1){
+	%c1%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(2) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(2){
+	%c2%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(3) a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li:nth-child(3){
+	%c3%;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > .post-group-by-category-title h3 span{
+	background:transparent;
+}
+/*-----------------------------------------------------------*/
 .ui-tooltip {
     background: #333;
     color: #ccc;
@@ -1101,18 +1327,18 @@ function raindrops_indv_css_light() {
 }
 	
 .widget_nav_menu.sticky-widget .sub-menu,
-.widget_pages.sticky-widget .children,
-.widget_nav_menu.sticky-widget .sub-menu a,
-.widget_pages.sticky-widget .children a{
-    %c5%
+.widget_pages.sticky-widget .children{
+    %c4%
 }
-.topsidebar .widget_nav_menu.sticky-widget .sub-menu,
+.topsidebar .widget_nav_menu.sticky-widget .sub-menu{
+	
+}
 .topsidebar .widget_pages.sticky-widget .children{
-     border:1px solid rgba(105,105,105,.5);
+     border-top:1px dotted rgba(105,105,105,.5);
 }
 .widget_nav_menu.sticky-widget .sub-menu a,
 .widget_pages.sticky-widget .children a{
-    border-bottom:1px solid rgba(105,105,105,.5);
+  /*  border-bottom:1px solid rgba(105,105,105,.5);*/
 }
 
  a:link,
@@ -1483,8 +1709,8 @@ ul.category li{
 }
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
-.yui-b .sticky-widget.widget_archive li,
-.yui-b .sticky-widget.widget_categories .cat-item,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .sticky-widget.widget_categories .cat-item,
 kbd,
 table td,
 td.month-date,td.month-name,td.time,
@@ -1515,6 +1741,7 @@ hr{
     border:1px solid %rgba_border%;
 	%c5%
 }
+
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1552,10 +1779,12 @@ hr{
     background: %rgba_border%;
     border:solid 1px %rgba_border%;
 }
+
+.topsidebar .widget_meta ul > li,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
-.yui-b .sticky-widget.widget_archive li,
-.yui-b .sticky-widget.widget_categories .cat-item,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .sticky-widget.widget_categories .cat-item,
 kbd,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
@@ -1587,6 +1816,7 @@ kbd,
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
+
 .widget_calendar #today a,
 .widget_calendar #today,
 a.raindrops-comment-link em,
@@ -1713,8 +1943,34 @@ function raindrops_indv_css_minimal() {
     global $raindrops_base_color;
 	
     $font_color = raindrops_colors( 5, "color" );
+
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;');
     $style = <<<CSS
+.topsidebar .widget_rss ul li a,
+.topsidebar .widget_rss ul li{
+	%c5%;
+}
+.topsidebar .widget_rss .rssSummary + cite,
+.topsidebar .widget_rss .rsswidget a,
+.topsidebar .widget_rss .rsswidget{
+	%c4%;
+}
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month:hover,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .year,
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive .month,
+.topsidebar .widget_rss h2 .rsswidget a,
+.topsidebar .widget_rss h2 .rsswidget{
+	background:transparent;
+}
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li a,
+.topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li{
+	%c5%;
+
+}
+.topsidebar .widget a.post-group_by-category-entry-title.no-thumb{
+	 border-left:48px solid #bdc3c7;
+}
 .ui-tooltip {
     background: #333;
     color: #ccc;
@@ -1749,8 +2005,8 @@ function raindrops_indv_css_minimal() {
 }
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
-.yui-b .sticky-widget.widget_archive li,
-.yui-b .sticky-widget.widget_categories .cat-item,
+.topsidebar .sticky-widget.widget_archive li,
+.topsidebar .sticky-widget.widget_categories .cat-item,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1766,14 +2022,17 @@ function raindrops_indv_css_minimal() {
     color:#000;
 	background:#fff;
 }
+.topsidebar .widget_nav_menu.sticky-widget .children,
 .topsidebar .widget_nav_menu.sticky-widget .sub-menu,
 .topsidebar .widget_pages.sticky-widget .children{
-     border:1px solid rgba(105,105,105,.5);
+    border:1px dotted rgba(105,105,105,.5);
 }
+/*
 .widget_nav_menu.sticky-widget .sub-menu a,
 .widget_pages.sticky-widget .children a{
     border-bottom:1px solid rgba(105,105,105,.5);
 }
+	*/
 .enable-keyboard #access li:hover >ul > li> a,
 .raindrops-accessible-mode #access li:hover> ul>  li a,
 #access .sub-menu li a,

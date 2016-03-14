@@ -567,6 +567,8 @@
     .rsidebar ul li ul li{
         padding:0;
     }
+    .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
+    .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
     .topsidebar .sticky-widget.widget_pages > ul,
     .topsidebar .sticky-widget.widget_archive,
     .topsidebar .sticky-widget.raindrops-extend-archive,
@@ -591,8 +593,19 @@
         overflow:hidden;
         box-sizing:border-box;
     }
-    .topsidebar .sticky-widget.widget_pages .sub-menu,
-    .topsidebar .sticky-widget.widget_pages .children,
+    .topsidebar .sticky-widget.widget_pages .children{
+        width:100%;
+        float:none;
+        height:auto;
+        margin-left:5%;
+        clip:auto;
+        display:block;
+        position:static;
+        background:transparent!important;
+     }
+     .topsidebar .sticky-widget.widget_pages .page_item_has_children a:after{
+         content: '';
+     }
     .topsidebar .sticky-widget.widget_pages .sub-menu li,
     .topsidebar .sticky-widget.widget_pages .children li,
     .topsidebar .sticky-widget.widget_pages div[class$="container"] ul,
@@ -607,22 +620,39 @@
        float:none;
        height:auto;       
     }
+
+    .topsidebar .sticky-widget.widget_pages .sub-menu li,
+    .topsidebar .sticky-widget.widget_pages .children li,
+    .topsidebar .sticky-widget.widget_nav_menu .sub-menu li,
+    .topsidebar .sticky-widget.widget_nav_menu .children li{
+        padding-right:0;
+        padding-left:1em;
+        background:transparent!important;
+    }
+    .topsidebar .sticky-widget.widget_nav_menu .sub-menu,
+    .topsidebar .sticky-widget.widget_nav_menu .children{
+        background:transparent!important;       
+    }
     .topsidebar .sticky-widget.widget_pages li a,
     .topsidebar .sticky-widget.widget_nav_menu li a{
-        border:none;
+
     }
-    .topsidebar .sticky-widget.widget_pages li,
+   .topsidebar .sticky-widget.widget_pages li,
     .topsidebar .sticky-widget.widget_pages  .menu,
     .topsidebar .sticky-widget.widget_nav_menu li,
     .topsidebar .sticky-widget.widget_nav_menu  .menu{
-        border-bottom:1px solid rgba(122,122,122,.5);
         display:block;
     }
+    .widget_nav_menu.sticky-widget ul > .menu-item-has-children, 
+    .widget_pages.sticky-widget ul > .menu-item-has-children{
+        padding-right:0;
+    } 
+
     .topsidebar .sticky-widget.widget_pages li:last-child,
     .topsidebar .sticky-widget.widget_pages  .menu:last-child,
     .topsidebar .sticky-widget.widget_nav_menu li:last-child,
     .topsidebar .sticky-widget.widget_nav_menu  .menu:last-child{
-        border-bottom:none;
+        /*border-bottom:none;*/
     }
     .topsidebar .sticky-widget.widget_pages,
     .topsidebar .sticky-widget.widget_nav_menu{ 
@@ -691,6 +721,38 @@
         max-width:90%;
         margin:5%;
     }
+    .topsidebar .widget_nav_menu .menu-item-has-children,
+    .topsidebar .widget_nav_menu .menu li{
+        text-align:left;
+    }
+    .topsidebar .widget_rss ul li,
+    .topsidebar .widget_tag_cloud .tagcloud a,
+    .topsidebar .widget_meta ul > li,
+    .topsidebar .sticky-widget.widget_archive li,
+    .topsidebar .sticky-widget.widget_categories .cat-item,
+    .topsidebar #recentcomments li,
+    .topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li{ 
+        width:100%;
+    }
+    .topsidebar .widget a.post-group_by-category-entry-title:not(.no-thumb) .h2-thumb{
+        width:48px;
+        height:48px;
+        top:0;
+    }
+    .topsidebar .widget_recent-post-groupby-cat .xoxo > li > ul > li .has-thumb .entry-title-text{
+       padding:0;
+    }
+    .topsidebar .widget a.post-group_by-category-entry-title.no-thumb{
+        padding:.5em 0 0 1em;
+    }
+    .widget_nav_menu.sticky-widget .page_item_has_children > a:after, 
+    .widget_nav_menu.sticky-widget .menu-item-has-children > a:after, 
+    .widget_pages.sticky-widget .page_item_has_children > a:after, 
+    .widget_pages.sticky-widget .menu-item-has-children > a:after{
+        content:'';
+        display:none;
+    } 
+    
 }
 @media screen and (max-width : 480px){
     html .gecko{
@@ -942,7 +1004,7 @@
 .rd-primary-menu-responsive-active #access ul li > ul {
      display:block!important;
  }
-.rd-primary-menu-responsive-active .menu-item{
+.rd-primary-menu-responsive-active #access .menu-item{
      float:none;
      width:100%;
  }

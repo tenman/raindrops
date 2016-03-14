@@ -1,4 +1,65 @@
 Changelog -----------------------------------
+version:1.354
+
+Overview of Changes
+	And the change of Sticky widget area, review the display of the default widget
+
+		Fixed Posts page shows Sticky widget.
+			Posts page No shows Sticky widget.
+			Static Front Page shows Sticky widget.
+			is_home() shows Sticky widget.
+
+		Modified Change place of Sticky Widget area of Templates
+			bbpress.php,
+			blank_front.php,
+			category.php, image.php,
+			index.php,
+			page-templates/full-width.php,
+			page-templates/list-of-post.php,
+			page-templates/page-featured.php,
+			page.php,
+			pdf.php,
+			widget-sticky.php
+
+		Modified Change of Child Theme relate
+			childs/boots/inc.php
+		Modified Category style of Custom Format
+		Modified style lang ja
+			languages/css/ja.css
+		Modified Translation japanese
+			lib/csscolor.css.php
+		Modified Style
+			lib/csscolor.css.php
+			responsiveness.css
+			style.css
+		Modified js for sidebar height calculation.
+
+Files Modified
+	modified:   blank_front.php
+	modified:   category.php
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   image.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   page-templates/front-page.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   page-templates/page-featured.php
+	modified:   page.php
+	modified:   pdf.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
+	modified:   widget-sticky.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.353&new_path=raindrops/1.354
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.353
 
 Important Note

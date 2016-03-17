@@ -1271,7 +1271,7 @@ function raindrops_indv_css_light() {
 }
 .topsidebar .widget_rss h2 a,
 .topsidebar .widget_rss h2{
-	%c5%;	
+	background:transparent;	
 }
 .topsidebar .widget_rss .rssSummary + cite,
 .topsidebar .widget_rss .rsswidget a,

@@ -1617,6 +1617,52 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 
 		global $raindrops_current_column, $post, $template, $raindrops_keep_content_width;
 
+		if ( is_tax( 'post_format', 'post-format-link' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_link_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if ( is_tax( 'post_format', 'post-format-image' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_image_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if ( is_tax( 'post_format', 'post-format-quote' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_quote_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if ( is_tax( 'post_format', 'post-format-status' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_status_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if ( is_tax( 'post_format', 'post-format-video' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_video_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if ( is_tax( 'post_format', 'post-format-audio' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_audio_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+
+		if ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_gallery_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if ( is_tax( 'post_format', 'post-format-chat' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_chat_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}		
+		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_aside_archive' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}		
 		if( isset( $template ) && !empty( $template ) ) {
 			$template = basename( $template,'.php' );
 		} else {
@@ -1667,7 +1713,17 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;
 		}
-
+		if (  is_home() == false && is_front_page() == true ) { // static front page
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_index' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		if (  is_home() == true && is_front_page() == false ) { // page_for_posts blog archive
+			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_posts_page' );
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;
+		}
+		
 		if ( is_singular() && isset( $post ) ) {
 
 			$raindrops_content_check = get_post( $post->ID );
@@ -1687,7 +1743,7 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 				$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 				return;
 			}
-		} 
+		}
 		
 		if ( is_home() ) {
 
@@ -1725,7 +1781,7 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_tag' );
 			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;
-		}	
+		}
 	}
 }
 if ( ! function_exists( 'raindrops_keep_content_width') ) {

@@ -1,9 +1,10 @@
 <?php
-
- $page_for_posts	= get_option( 'page_for_posts' );
- $page_id			= get_queried_object_id();
- 
-if ( ( is_front_page() || ( is_home() && absint( $page_for_posts ) !==  absint( $page_id ) ) ) && is_active_sidebar( 'sidebar-3' ) ) { 
+if( is_paged() ) {
+	return;
+}
+if ( ( is_home() == true && is_front_page() == true ) || // default
+	 ( is_home() == false && is_front_page() == true )   // static front page
+) {
 ?>
 	<div class="topsidebar">
         <ul>
@@ -11,6 +12,6 @@ if ( ( is_front_page() || ( is_home() && absint( $page_for_posts ) !==  absint( 
         </ul>
     </div>
     <br class="clear" />
-    <?php
-} // end if ( is_home( ) &&  is_active_sidebar( 'sidebar-3' ) )
+<?php
+} 
 ?>

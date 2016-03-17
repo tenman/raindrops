@@ -267,6 +267,21 @@ if ( ! isset( $wp_customize ) ) {
 			return false;
 		}
 	}
+	function raindrops_col_setting_type_is_posts_page( $control ) {
+		
+		$page_for_posts = get_option('page_for_posts');
+		
+		if( empty( $page_for_posts ) ) {
+			return false;
+		}
+
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_col_setting_type' ) )->value() == 'details' ) {
+
+			return true;
+		} else {
+			return false;
+		}
+	}
 	function raindrops_col_setting_type_is_simple( $control ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_col_setting_type' ) )->value() == 'simple' ) {
@@ -600,7 +615,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Index Page columns', 'raindrops' ),
+			'label'				 => esc_html__( 'Index Page, Static Front Page columns', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => '',
 			'type'				 => 'radio',
@@ -612,6 +627,25 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'priority'			=> 11,
 			'sanitize_callback'	 => 'raindrops_sidebar_index_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_posts_page"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_posts_page','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Static Front Page / Posts page ', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 =>  esc_html__( '1 column', 'raindrops' ),
+				2 =>  esc_html__( '2 columns', 'raindrops' ),
+				3 =>  esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 11,
+			'sanitize_callback'	 => 'raindrops_sidebar_posts_page_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_posts_page',
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
 		"raindrops_sidebar_date"			 => array(
@@ -826,7 +860,178 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_sidebar_author_validate',
 			'active_callback'	 => 'raindrops_col_setting_type_is_details',
 			'section'			 => 'raindrops_theme_settings_sidebar',
+		),		
+		"raindrops_sidebar_format_link_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_link_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format link Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_link_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
+		"raindrops_sidebar_format_image_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_image_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Image Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_image_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_quote_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_quote_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Quote Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_quote_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_status_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_status_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Status Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_status_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_video_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_video_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Video Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_video_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_audio_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_audio_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Audio Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_audio_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_gallery_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_gallery_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Gallery Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_gallery_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_chat_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_chat_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Chat Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_chat_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_sidebar_format_aside_archive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_format_aside_archive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Archives Post Format Aside Columns', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => '',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				1 => esc_html__( '1 column', 'raindrops' ),
+				2 => esc_html__( '2 columns', 'raindrops' ),
+				3 => esc_html__( '3 columns', 'raindrops' ),
+			),
+			'priority'			=> 15,
+			'sanitize_callback'	 => 'raindrops_sidebar_format_aside_archive_validate',
+			'active_callback'	 => 'raindrops_col_setting_type_is_details',
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),		
 		"raindrops_show_menu_primary"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_show_menu_primary','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

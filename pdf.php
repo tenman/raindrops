@@ -69,7 +69,7 @@ raindrops_debug_navitation( __FILE__ );
 									if ( $post->post_parent > 0 ) {
 										?>
 										<div class="image-caption parent-entry">
-											<p class="section-title"><?php esc_html_e( "Parent Entry", 'raindrops' ); ?></p>								
+											<p class="section-title"><?php esc_html_e( "Attached Source", 'raindrops' ); ?></p>								
 											<h3 class="parent-entry-title h3"><a href="<?php echo get_permalink( $post->post_parent ); ?>" rev="attachment">
 													<?php echo get_the_title( $post->post_parent ); ?>
 												</a></h3>
@@ -80,15 +80,17 @@ raindrops_debug_navitation( __FILE__ );
 									if ( $post->post_parent > 0 ) {
 
 										$parent					 = get_post( $post->post_parent );
+										$parent					 = strip_shortcodes( $parent->post_content );
 										$parent_excerpt_length	 = raindrops_warehouse_clone( 'raindrops_excerpt_length' );
 										$more					 = '...';
-										$parent_excerpt			 = wp_html_excerpt( $parent->post_content, $parent_excerpt_length, $more );
-										$parent_excerpt			 = strip_shortcodes( $parent_excerpt );
-										?><div class="parent-entry-excerpt entry-summary"><?php
-										echo $parent_excerpt; // this is the "parent post excerpt" 
-										?></div><?php
-										}
+										$parent_excerpt			 = wp_html_excerpt( $parent, $parent_excerpt_length, $more );
 
+										if( ! empty( $parent_excerpt ) ) {
+											?><div class="parent-entry-excerpt entry-summary"><?php
+											echo $parent_excerpt; // this is the "parent post excerpt" 
+											?></div><?php
+										}
+									}
 									do_action( 'raindrops_append_attachment_info' );
 									?>
 								</div>

@@ -1,4 +1,94 @@
 <?php
+function raindrops_sidebar_posts_page_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_aside_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_chat_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_gallery_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_audio_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_video_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_status_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_quote_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_image_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
+function raindrops_sidebar_format_link_archive_validate( $input ) {
+	
+	$input = (int) $input;
+	if( $input == 1 || $input == 2 || $input == 3 ) {
+		return $input;
+	} else {
+		return 3;
+	}		
+}
 function raindrops_display_site_title_validate( $input ) {
 	if( $input == 'show' || $input == 'hide'  ) {
 		return $input;

@@ -384,6 +384,8 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 
 .oembed-container{
     margin:0;
+    word-wrap:normal;
+    overflow-wrap:normal;
 }
 .oembed-container iframe,
 .oembed-container object,
@@ -822,6 +824,10 @@ body .raindrops-category-posts .title.h2,
 
 .entry-content > img{
     padding:0.76923076923em 0.76923076923em 0 0;
+}
+.ie8 .entry-content img {
+  width: auto;
+  height: auto;
 }
 .entry-content .raindrops-toggle{
     margin-top:1em;
@@ -1965,7 +1971,7 @@ br.clearfix {
 }
 /* @1.332 */
 .topsidebar .sticky-widget{
-    margin:.5em 0 0 10px;
+ /*   margin:.5em 0 0 10px;*/
     padding:0 13px;
 }
 .topsidebar .sticky-widget.widget_archive > ul,
@@ -4027,6 +4033,9 @@ ol.list-of-post-list .entry-title{
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
 }
+.raindrops-pinup-entries{
+    margin-top:1.6em;
+}
 .raindrops-pinup-entries img{
     width:auto;
     height:auto;
@@ -4247,6 +4256,9 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
 .raindrops-category-navigation .current{
     font-weight:bold;
 }
+.raindrops-category-navigation:empty{
+    display:none;
+}
 /* Simple language settings
  * Support for only japanese language
  *
@@ -4405,7 +4417,12 @@ video{
     text-align:left;
 }
 .widget_nav_menu.sticky-widget,
-.widget_pages.sticky-widget,
+.widget_pages.sticky-widget{
+    min-width: 296px;
+    max-width:100%;
+    text-align: center;
+    width:100%;  
+}
 #access {
     min-width: 296px;
     max-width:100%;
@@ -4977,6 +4994,7 @@ article .post-password-form label{
 .parent-entry-excerpt{
     margin-left:3%;
     margin-bottom:1em;
+    line-height:1.65;
 }
 .image-caption-text{
     margin-left:3%;
@@ -5427,7 +5445,7 @@ x:-o-prefocus, .rd-modal > div {
     text-align:center;
 }
 .topsidebar .raindrops-pinup-entries > div{
-    display:inline-block;
+    display:block;
     text-align:left;
 }
 .topsidebar .raindrops-pinup-entries > div > *{
@@ -5439,7 +5457,7 @@ x:-o-prefocus, .rd-modal > div {
 .topsidebar .widget_search .searchform{
     text-align:left;
 }
-.topsidebar .widget_pages{
+.topsidebar .widget_pages > ul{
     text-align:left;
 }
 /*
@@ -5454,6 +5472,20 @@ x:-o-prefocus, .rd-modal > div {
 .topsidebar .widget_nav_menu > div[class$='container'] ul{
     box-sizing:border-box;
 }
-.topsidebar .widget_nav_menu{
-    margin:2em auto;
+.rd-pw-doc5.rd-col-1 .topsidebar > ul > li{
+    padding-bottom:1.5em;
 }
+/* 1 column entry background separater */
+.rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even),
+.rd-pw-doc5.rd-col-1.rd-type-light .topsidebar > ul > li:nth-child(even){
+    background:rgba(255,255,255,.4);
+}
+.rd-pw-doc5.rd-col-1.rd-type-dark .index > li:nth-child(even),
+.rd-pw-doc5.rd-col-1.rd-type-dark .topsidebar > ul > li:nth-child(even){
+    background:rgba(0,0,0,.5);
+}
+.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_archive,
+.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_categories{
+    text-align:center;
+}
+/* todo ie8 image */

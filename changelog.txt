@@ -15,6 +15,8 @@ Overview of Changes
 
         All archive pages,static front and posts page can control columns
 
+	Fixed Slideshare Oembed Presentation
+
 Files Modified
 
 	modified:   childs/boots/inc.php
@@ -31,6 +33,7 @@ Files Modified
 	modified:   pdf.php
 	modified:   style.css
 	modified:   widget-sticky.php
+	modified:   resposiveness.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.354&new_path=raindrops/1.355

@@ -1155,7 +1155,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery-columns-10 .gallery-item{ width: 9.9% }\n";*/
 		
 		$all_sizes = raindrops_get_image_sizes();
-		$raindrops_gallerys = '.entry-content .gallery{margin:auto;}';
+		$raindrops_gallerys = '.entry-content .gallery{margin:1em auto;}';
 		foreach( $all_sizes as $name => $value ) {
 				$width = absint( $value['width'] );
 				$width2 = $width * 2;

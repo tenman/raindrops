@@ -8995,6 +8995,14 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 		if ( preg_match( '!(speakerdeck.com|speakerd)!', $url ) ) {
 			return sprintf( '<%2$s class="rd-ratio-075 rd-speakerdeck clearfix"><div>%1$s</div></%2$s>', $html, $element );
 		}
+		/*
+		 * https://www.slideshare.net/slideshow/embed_code/7306301
+		 */		
+		if ( preg_match( '!(slideshare.net)!', $url ) ) {
+			return sprintf( '<%2$s class="oembed-container rd-slideshare clearfix"><div>%1$s</div></%2$s>', $html, $element );
+		}
+		
+		
 		/**
 		 * note: 4:3 ratio can use .rd-ratio-075
 		 */

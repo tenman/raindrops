@@ -1,4 +1,41 @@
 Changelog -----------------------------------
+version:1.355
+
+Overview of Changes
+
+    Focus at Customize / Presentation / Layout and Sidebar
+
+        When Side bar setting method set Details
+            Change from index page columns to Index Page, Static Front Page columns
+            You can change Static front page columns
+        When Static Front Page / Posts page is set
+            Show Control 'Static Front Page / Posts page' after 'Index Page, Static Front Page columns'
+            You can change Posts page columns
+        Add Archive of Post formats column control when Side bar setting method set Details
+
+        All archive pages,static front and posts page can control columns
+
+Files Modified
+
+	modified:   childs/boots/inc.php
+	modified:   functions.php
+	modified:   header.php
+	modified:   image.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   pdf.php
+	modified:   style.css
+	modified:   widget-sticky.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.354&new_path=raindrops/1.355
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.354
 
 Overview of Changes

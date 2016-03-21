@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.354
+Version: 1.355
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,10 @@ a:visited{
 }
 .index article{
     margin-bottom:2em;
+}
+.blog .sticky, 
+.home .sticky{
+    margin-bottom:1em;
 }
 /* @1.337 */
 .single article{
@@ -433,6 +437,23 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .rd-ratio-075 > div > iframe{
     min-height:550px;
 }
+.entry-content .rd-slideshare{
+    text-align:center;
+}
+.entry-content .rd-slideshare > div{
+    height:0;
+    padding-bottom:78%;
+}
+#container .entry-content .rd-slideshare iframe{
+    width:100%;
+    width: -webkit-calc(100% - 2px);
+    width: calc(100% - 2px);
+    /* important for inline style overwrite */
+    border:none!important;
+}
+.oembed-container.rd-slideshare {
+    padding-bottom: 78%;
+}
 .rd-squere > .oembed-container,
 .rd-round > .oembed-container{
     padding-top:0;
@@ -645,6 +666,11 @@ abbr{
 .entry-content cite {
     margin:0.2em .5em;
     padding:0 1em;
+}
+.entry-content blockquote cite {
+    display:inline-block;
+    margin:1em 0 .5em;
+    padding:.3em .6em;
 }
 .entry-content table {
     width:100%;
@@ -1971,7 +1997,7 @@ br.clearfix {
 }
 /* @1.332 */
 .topsidebar .sticky-widget{
- /*   margin:.5em 0 0 10px;*/
+    margin-bottom:1em;
     padding:0 13px;
 }
 .topsidebar .sticky-widget.widget_archive > ul,
@@ -4041,6 +4067,13 @@ ol.list-of-post-list .entry-title{
     height:auto;
     margin-top:2.6em;
 }
+.home .raindrops-pinup-entries img{
+    margin-top:2.0em;
+}
+.topsidebar .raindrops-pinup-entries img{
+    margin-top:3em;
+}
+
 .raindrops-pinup-entries p img{
     width:auto;
     height:auto;
@@ -4075,10 +4108,9 @@ ol.list-of-post-list .entry-title{
 .entry-content .gist .line-numbers{
     background:#555;
     color:#fff;
+    border:1px solid red;
 }
-.entry-content .gist td{
-    text-align:left;
-}
+
 .entry-content .gist .pl-vo{
     color:#999988;
 }
@@ -4087,6 +4119,10 @@ ol.list-of-post-list .entry-title{
 }
 .raindrops-pinup-entries .wp-playlist img{
     margin-top:0;
+}
+.entry-content .gist .blob-num{
+    width:16px;
+    background:rgba(236, 240, 241,.3);
 }
 /* bbpress */
 
@@ -4373,7 +4409,9 @@ div.raindrops-excerpt-more{
     margin-right:10px;
     vartical-align:top;
 }
-.widget_recent_comments .recentcomments{
+.widget_recent_comments .recentcomments,
+.rsidebar .widget_recent_comments .recentcomments,
+.lsidebar .widget_recent_comments .recentcomments{
    margin:5px;
    padding-bottom:5px;
    border:1px dotted rgba(122,122,122,.5);
@@ -4593,6 +4631,8 @@ video{
     right:1em;
     top:0;
     position:absolute;
+    /* must not background */
+    background:transparent!important;
 }
 .widget_nav_menu.sticky-widget .children .page_item_has_children > a:after,
 .widget_nav_menu.sticky-widget .sub-menu .page_item_has_children > a:after,
@@ -4609,6 +4649,8 @@ video{
     content:'\bb';
     transform: none;
     top:.5em;
+    /* must not background */
+    background:transparent!important;
 }
 .ie8 #access .page_item_has_children > a:after,
 .ie8 #access .menu-item-has-children > a:after{
@@ -5391,14 +5433,14 @@ x:-o-prefocus, .rd-modal > div {
 
 }
 .topsidebar .widget_recent_entries ul{
-    border-top: 1px dotted rgba(68,68,68,.3);
+    border-top: 1px dotted rgba(68,68,68,.5);
 }
 .topsidebar .widget_recent_entries ul li{
     display:flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
     margin:.5%;
-    border-bottom: 1px dotted rgba(68,68,68,.3);
+    border-bottom: 1px dotted rgba(68,68,68,.5);
     padding:1em;
 }
 .topsidebar .widget_recent_entries ul li .post-date{
@@ -5484,8 +5526,30 @@ x:-o-prefocus, .rd-modal > div {
 .rd-pw-doc5.rd-col-1.rd-type-dark .topsidebar > ul > li:nth-child(even){
     background:rgba(0,0,0,.5);
 }
+.topsidebar .raindrops-pinup-entries .approach-image,
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_archive,
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_categories{
     text-align:center;
 }
-/* todo ie8 image */
+.page .has-post-thumbnail .entry-title,
+.single .has-post-thumbnail .entry-title{
+    margin-top:.75em;
+}
+.topsidebar .raindrops-pinup-entries .approach-image + h2,
+.footer-widget,
+#ft .raindrops-pinup-entries .pinup-entry-title,
+#ft .raindrops-pinup-entries .entry-title{
+    max-width:90%;
+    margin-bottom:1em;
+}
+.raindrops-pinup-entries .approach-image{
+    display:block;
+}
+.topsidebar .raindrops-pinup-entries .approach-image + h2,
+.topsidebar .raindrops-pinup-entries .approach-image{
+    margin-left:0;
+}
+#ft .raindrops-pinup-entries .approach-image + h2{
+    font-size:153.9%;
+    margin-top:1em;
+}

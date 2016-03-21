@@ -239,10 +239,15 @@ input[type="reset"],
 input[type="submit"],
 .fail-search,
 .error404,
+/*
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a,
+#access ul li.current-menu-parent > a,*/
+#access .current_page_item,
+#access .current-menu-ancestor,
+#access .current-menu-item,
+#access .current-menu-parent,
 .searchform input[type="text"],
 .social textarea#comment,
 .social input[type="text"],
@@ -1116,10 +1121,15 @@ hr{
     %c2%
     color:%custom_color%
 }
+	/*
 #access ul li.current_page_item,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a {
+#access ul li.current-menu-parent > a*/ 
+#access .current_page_item,
+#access .current-menu-ancestor,
+#access .current-menu-item,
+#access .current-menu-parent{
     %c4%
 }
 .ie6 #access ul li.current_page_item a,
@@ -1602,6 +1612,7 @@ select{
     top:0;
 }
 
+	
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
@@ -1820,10 +1831,15 @@ kbd,
 .widget_calendar #today a,
 .widget_calendar #today,
 a.raindrops-comment-link em,
+/* @1.355 todo */
 #access ul li.current_page_item,
+#access ul li.current_page_item:after,
 #access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-ancestor > a:after,
 #access ul li.current-menu-item > a,
+#access ul li.current-menu-item > a:after,
 #access ul li.current-menu-parent > a,
+#access ul li.current-menu-parent > a:after,
 .raindrops-tab-list li,
 #access .children li:active >a,
 #access li:active >a ,

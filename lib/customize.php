@@ -1274,6 +1274,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'none'	 => esc_html__( 'No', 'raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
+		
 		"raindrops_fallback_image_for_entry_content"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_fallback_image_for_entry_content','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1406,6 +1407,21 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				"yes"	 => esc_html__( "Yes", 'raindrops' ),
 				"no"	 => esc_html__( "No", 'raindrops' ),
 			),
+			'section'			 => 'raindrops_theme_settings_menu_size',
+		),
+		"raindrops_sticky_menu"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sticky_menu','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Sticky Menu ', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'value yes or no. default yes', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_sticky_menu_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_menu_size',
 		),
 		"raindrops_use_featured_image_emphasis"			 => array(

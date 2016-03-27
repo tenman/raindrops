@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template file index
  *

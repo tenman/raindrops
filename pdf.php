@@ -36,7 +36,7 @@ raindrops_debug_navitation( __FILE__ );
 
 								<?php
 								
-								$attachment_permalink = get_attachment_link($post->ID);
+								$attachment_permalink = esc_url( get_attachment_link($post->ID) );
 								
 								$parent_id = wp_get_post_parent_id( $post->ID );
 								$args = array( 'post_mime_type' => 'application/pdf', 
@@ -44,14 +44,15 @@ raindrops_debug_navitation( __FILE__ );
 												'numberposts' => 1, 
 												'post_status' => 'publick',
 												'post_parent' => $parent_id );
-								$direct_link = wp_get_attachment_url( $post->ID );
+								$direct_link = esc_url( wp_get_attachment_url( $post->ID ) );
+								
 								$attachments = get_posts($args);
 
 								?>
 								<div class="attachment-info">
 									<?php do_action( 'raindrops_prepend_attachment_info' ); ?>
 
-									<h2 class="image-title entry-title h2"><a href="<?php echo esc_url( $direct_link ); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="image-title entry-title h2"><a href="<?php echo $direct_link; ?>"><?php the_title(); ?></a></h2>
 
 									<div class="serif entry-content">
 										<?php
@@ -96,8 +97,8 @@ raindrops_debug_navitation( __FILE__ );
 								</div>
 								<br class="clear" />
 								<?php do_action( 'raindrops_attachment_pdf_before' ); ?>
-								<object class="pdf-preview" data="<?php echo $direct_link; ?>" type="application/pdf" width="100%" height="100%" typemustmatch="typemustmatch">
-									<p><a href="<?php echo esc_url( $direct_link ); ?>"><?php esc_html_e('Click here to the PDF file.', 'raindrops'); ?></a></p>
+								<object class="pdf-preview" data="<?php echo  $direct_link; ?>" type="application/pdf" width="100%" height="100%" typemustmatch="typemustmatch">
+									<p><a href="<?php echo  $direct_link; ?>"><?php esc_html_e('Click here to the PDF file.', 'raindrops'); ?></a></p>
 								</object>
 								<?php do_action( 'raindrops_attachment_pdf_after' ); ?>
 								<br class="clear" />

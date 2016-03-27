@@ -215,6 +215,7 @@ h2 a{
 .lsidebar option.level-0,
 .commentlist .pingback,
 div[id^="comment-"],
+.textwidget td,
 .entry-content td,
 cite a:link,cite a:active,cite a:visited,cite a:hover,
 cite,
@@ -252,6 +253,7 @@ input[type="submit"],
 .social textarea#comment,
 .social input[type="text"],
 .hentry input[type="password"],
+.textwidget blockquote,
 .entry-content blockquote,
 td.month-date,td.month-name,td.time,
 .footer-widget h2,.rsidebar h2,.lsidebar h2,
@@ -382,10 +384,11 @@ fieldset,
 .entry-content input[type=color],
 .entry-content textarea,
 .entry-content blockquote,
+.textwidget blockquote,
 td.month-date,td.month-name,td.time{
     border:1px solid %c_border%;
 }
-
+.textwidget blockquote,
 .entry-content blockquote {
     border-left:solid 6px %c_border%;
 }
@@ -396,6 +399,7 @@ li.bypostauthor,
 #respond textarea#comment:focus,
 .social textarea#comment:focus,
 .social input:focus,
+.textwidget th,
 .entry-content th{
     %c_3%
 }
@@ -551,6 +555,8 @@ hr{
 .comment-body th,
 .comment-body td,
 .wp-caption,
+.textwidget td,
+.textwidget th,
 .entry-content td,
 .entry-content th{
     border:solid 1px %rgba_border%;
@@ -610,6 +616,7 @@ fieldset,
 .entry-content input[type=number],
 .entry-content input[type=color],
 .entry-content blockquote,
+.textwidget blockquote,
 td.month-date,td.month-name,td.time{
     border:1px solid %rgba_border%;
 }
@@ -734,6 +741,7 @@ a.raindrops-comment-link em,
 	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
 }
+.textwidget blockquote,
 .entry-content blockquote {
     border-left:solid 6px %rgba_border%;
 }
@@ -791,6 +799,10 @@ function raindrops_indv_css_w3standard() {
     $style = <<<DOC
 .topsidebar .widget_tag_cloud .tagcloud a{
 	background:$background4;
+}
+.topsidebar a{
+	%c4%;
+	background:transparent;
 }
 .topsidebar .widget_meta ul > li a,
 .topsidebar .widget_meta ul > li,
@@ -1071,9 +1083,9 @@ kbd,
 .entry-content select{
     %c5%
 }
-
+.textwidget blockquote,
 .entry-content blockquote{
-    %c4%
+    %c4%;
     border-left:solid 6px %c_border%;
 }
 cite{
@@ -1091,12 +1103,14 @@ cite a:hover{
 .entry-content legend{
     %c5%
 }
+.textwidget td,
+.textwidget td,
 .comment-body td,
 .entry-content td{
     %c4%
     border:solid 1px %c_border%;
 }
-
+.textwidget th,
 .entry-content th{
     %c3%
     border:solid 1px %c_border%;
@@ -1526,6 +1540,7 @@ td.month-date,td.month-name,td.time{
     %c4%
     border-bottom:1px solid %c_border%;
 }
+.textwidget blockquote,
 .entry-content blockquote{
     border-left:solid 3px %c_border%;
     background:#fefefe;
@@ -1574,6 +1589,7 @@ select{
     border:solid 1px %c_border%;
     %c4%
 }
+.textwidget th,
 .entry-content th{
     %c3%
     border:solid 1px %c_border%;
@@ -2212,6 +2228,8 @@ hr{
 	 border-bottom:1px solid %rgba_border%;
 	border-collapse: collapse;
 }
+.textwidget th,
+.textwidget td,
 .entry-content th,
 .entry-content td{
 	padding:.7em .5em;
@@ -2221,6 +2239,8 @@ hr{
 	 border-top:1px dashed %rgba_border%;
 	font-weight:bold;
 }
+.textwidget thead,
+.textwidget tfoot,	
 .entry-content thead,
 .entry-content tfoot{
 	%c5%;
@@ -2278,7 +2298,8 @@ hr{
 .rsidebar .eco-archive  h3 a,
 .lsidebar .eco-archive  h3 a{
     background: %rgba_border%;
-}	
+}
+
 CSS;
 
 

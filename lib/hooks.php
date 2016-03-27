@@ -392,6 +392,15 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		global $wp_embed;
 		add_filter( 'widget_text', array( $wp_embed, 'autoembed' ), 9 );
+		/*
+		 * @since 1.356
+		 */		
+		add_filter( 'author_link','esc_url' );
+		//add_filter( 'wp_get_attachment_url', 'esc_url' );
+		add_filter( 'attachment_link','esc_url' );
+		add_filter( 'site_url','esc_url');
+		add_filter( 'month_link', 'esc_url' );
+		//add_filter( 'year_link', 'esc_url' ); add_filter( 'day_link', 'esc_url' ); are all escaped		
     }
 }
 ?>

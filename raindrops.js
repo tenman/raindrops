@@ -82,9 +82,12 @@
 
                 var status_bar_window_height =  jQuery(window).innerHeight();
                 if ( status_bar_window_height - 100 < e.pageY - jQuery(this).scrollTop() ) {
+
                     jQuery('#raindrops_status_bar').show();
                 } else {
+                   
                     jQuery('#raindrops_status_bar').hide();
+
                 }
          });
 

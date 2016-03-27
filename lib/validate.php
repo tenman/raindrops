@@ -1,4 +1,11 @@
 <?php
+function raindrops_sticky_menu_validate( $input ) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'yes';
+	}		
+}
 function raindrops_sidebar_posts_page_validate( $input ) {
 	
 	$input = (int) $input;

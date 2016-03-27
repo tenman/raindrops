@@ -1,4 +1,4 @@
-/* optional responsive grid  end */
+/* optional responsive grid */
 
 @media screen and (min-width : 641px){
     #doc5 .nav-menu-toggle,
@@ -26,6 +26,17 @@
     .entry-content blockquote{
         margin:1em 40px;
     }
+    /* @1.356 sticky menu start */
+    .rd-primary-menu-responsive-active .raindrops-mobile-menu{
+        box-sizing:border-box;
+        margin:0!important;
+    }
+
+    .raindrops-mobile-menu .raindrops-nav-menu-expand,
+    .raindrops-mobile-menu .raindrops-nav-menu-shrunk{
+        visibility:hidden;
+    }
+    /* @1.356 sticky menu end */
 }
 @media screen and (max-width : 640px){
     #access .menu{
@@ -67,9 +78,7 @@
     #access ul li > ul {
         display:block!important;
     }   
-    .raindrops-mobile-menu{
-        display:block!important;
-    }
+
     #access{display:none!important;}
     #access:target{
         display:block!important;
@@ -81,18 +90,23 @@
     .ie7 #access:target{display:block!important;}
     .ie8 #access:target{display:block!important;}
     .raindrops-mobile-menu{
+        display:block!important;
+    }
+    .raindrops-mobile-menu{
         position:relative;
-        margin:0 10px;
+        margin:0;
+
     }
     .raindrops-mobile-menu .open{
         position:absolute;
         top:4px;
         left:0;
-        font-size:153.9%;
+        font-size:100%;
         width:10%;
-        background: url(images/raindrops-nav-menu-expand.png);
+   /*     background: url(images/raindrops-nav-menu-expand.png);*/
         background-repeat:no-repeat;
         background-position:center;
+        max-height:100%;
     }
     .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
         visibility:hidden;
@@ -105,9 +119,9 @@
         position:absolute;
         top:2px;
         right:5%;
-        font-size:153.9%;
+        font-size:100%;
         width:10%;
-        background: url(images/raindrops-nav-menu-shrunk.png);
+    /*    background: url(images/raindrops-nav-menu-shrunk.png);*/
         background-repeat:no-repeat;
         background-position:center;
         max-height:100%;
@@ -117,6 +131,16 @@
         width:20px;
         height:20px;
         display:inline-block;
+    }
+    .raindrops-mobile-menu .menu-text{
+        position:absolute;top:10px;left:44%;
+    }
+    .raindrops-mobile-menu{
+        display:inline-block;
+        height:1em;
+        text-align:right;
+        padding:1em;
+        font-size:138.5%;
     }
     .page-title,
     #archives-title{
@@ -149,9 +173,7 @@
         margin:.5em 0;
         font-family:sans-serif;
     }
-    .raindrops-mobile-menu .menu-text{
-        position:absolute;top:10px;left:44%;
-    }
+ 
     #doc5 .entry-content blockquote,
     #doc3 .entry-content blockquote{
         margin:1em 0;
@@ -267,6 +289,8 @@
     #doc3 .rsidebar,
     #doc3 .lsidebar{
         box-sizing: border-box;
+        width:90vw;
+        margin:2em auto;
     }
     
     address span,
@@ -289,7 +313,9 @@
         box-sizing: border-box;
         font-size:123%;
     }
-
+    .topsidebar .widget_recent_entries a{
+        padding:0;
+    }
     .blog.rd-featured-yes-left .sticky a,
     .blog.rd-featured-yes-left .sticky .entry-title > a >span,
     .home.rd-featured-yes-left .sticky .entry-title > a >span,
@@ -351,13 +377,7 @@
         padding:.5em 0;
 
     }
-    .raindrops-mobile-menu{
-        display:inline-block;
-        height:1em;
-        text-align:right;
-        padding:1em;
-        font-size:138.5%;
-    }
+
 
     #access > div.menu > ul > li > a, 
     #access .menu > li > a,
@@ -380,6 +400,7 @@
     #top #access .menu{
          overflow:hidden;
     }
+
     #top #access .children,
     #top #access .sub-menu{
         margin-left:5vw;
@@ -493,7 +514,7 @@
         top: -10px;
         white-space: nowrap;
         width: 90vw;
-        left:3.2vw;
+       /* left:3.2vw;*/
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
@@ -635,7 +656,8 @@
         background:transparent!important;
      }
      .topsidebar .sticky-widget.widget_pages .page_item_has_children a:after{
-         content: '';
+         /* must not show lt 640px has children marker */
+         content: ''!Important;
      }
     .topsidebar .sticky-widget.widget_pages .sub-menu li,
     .topsidebar .sticky-widget.widget_pages .children li,
@@ -780,10 +802,24 @@
     .widget_nav_menu.sticky-widget .menu-item-has-children > a:after, 
     .widget_pages.sticky-widget .page_item_has_children > a:after, 
     .widget_pages.sticky-widget .menu-item-has-children > a:after{
-        content:'';
+        /* must not show lt 640px has children marker */
+        content: ''!Important;
         display:none;
-    } 
-    
+    }
+    /* @1.356 sticky menu start */
+    body .raindrops-mobile-menu.raindrops-menu-fixed{
+        display:block;
+    }
+    p.raindrops-mobile-menu{
+        position:relative;
+        max-width:100%;
+        box-sizing:border-box;
+    }
+    .admin-bar p.raindrops-menu-fixed,
+    .admin-bar #access.raindrops-menu-fixed{
+        top:0;
+    }
+    /* @1.356 sticky menu end */
 }
 @media screen and (max-width : 480px){
     html .gecko{
@@ -1066,11 +1102,10 @@
  }
  .rd-primary-menu-responsive-active .raindrops-mobile-menu .open{
      position:absolute;
-     top:4px;
+     top:0;
      left:0;
      font-size:153.9%;
      width:10%;
-     background: url(images/raindrops-nav-menu-expand.png);
      background-repeat:no-repeat;
      background-position:center;
  }
@@ -1083,11 +1118,10 @@
  }
 .rd-primary-menu-responsive-active .raindrops-mobile-menu .close{
      position:absolute;
-     top:2px;
-     right:5%;
+     top:0;
+     right:2%;
      font-size:153.9%;
      width:10%;
-     background: url(images/raindrops-nav-menu-shrunk.png);
      background-repeat:no-repeat;
      background-position:center;
      max-height:100%;
@@ -1153,7 +1187,7 @@
 
  }
  .rd-primary-menu-responsive-active .raindrops-mobile-menu .menu-text{
-     position:absolute;top:10px;left:44%;
+     position:absolute;top:3px;left:44%;
  }
 
  .rd-primary-menu-responsive-active #access .page_item_has_children > a:after,

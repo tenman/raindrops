@@ -25,7 +25,6 @@
  * @uses previous_posts_link( )
  * @uses get_sidebar( )
  * @uses get_footer( $raindrops_document_type )
- * @uses get_attachment_link( )
  * @uses get_post_thumbnail_id( )
  * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )

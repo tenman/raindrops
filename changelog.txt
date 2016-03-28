@@ -2,12 +2,47 @@ Changelog -----------------------------------
 version:1.356
 
 Overview of Changes
+	Add Stikey Menu
+		add raindrops_sticky_menu control,
+		add function raindrops_sticky_menu_validate(),
+		add array raindrops_theme_settings args raindrops_sticky_menu,
+		add script jquery for sticky menu
+		add css for sticky menu
+	Add Font Size Class
+		fonts.css
+	Add esc_url for sanitize
+		get_month_link(),get_year_link(),get_day_link(),get_permalink(),get_attachment_link(),get_category_link()
+		get_term_link(),wp_get_attachment_link(),wp_get_attachment_url()
 
+		author_link(),attachment_link(),site-url() by filter.
+
+	Add Class
+		Class site-title-link at #site-title a, for customize Custom Logo
+	Modified
+		Text widget (main reason, for .topsidebar)
+		    Reflection of all style without google-font-... class.
 
 
 Files Modified
-
-
+	modified:   childs/boots/inc.php
+	modified:   css3.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   part-gallery.php
+	modified:   pdf.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
+	modified:   widget-sticky.php
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.355&new_path=raindrops/1.356

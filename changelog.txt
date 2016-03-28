@@ -8,6 +8,7 @@ Overview of Changes
 		add array raindrops_theme_settings args raindrops_sticky_menu,
 		add script jquery for sticky menu
 		add css for sticky menu
+		Add image images/go-top.png, images/desmiss.png
 	Add Font Size Class
 		fonts.css
 	Add esc_url for sanitize

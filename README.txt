@@ -10,6 +10,8 @@ var1.279 add image
 images/screenshot-example-header.jpg
 var1.335 add image
 images/share.png
+var1.356 add image
+images/go-top.png, images/desmiss.png
 
 Above images License
 

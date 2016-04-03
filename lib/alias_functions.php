@@ -6,19 +6,134 @@
  * @package WordPress
  * @subpackage Raindrops
  * @since Raindrops 0.931
+ * 
  */
-
 if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
+	/**
+	 * 
+	 * @global type $raindrops_base_setting
+	 * @global type $raindrops_page_width
+	 * @global type $raindrops_setting_type
+	 * @global type $raindrops_base_setting_args
+	 * @param type $name
+	 * @param type $property
+	 * @param type $fallback
+	 * @return string|boolean
+	 * @since 1.400
+	 */
+	function raindrops_warehouse_clone( $name, $property = false, $fallback = false ) {
 
+		global $raindrops_base_setting, $raindrops_page_width, $raindrops_setting_type, $raindrops_base_setting_args;
+
+		$raindrops_current_data			 = wp_get_theme();
+		$raindrops_current_data_version	 = $raindrops_current_data->get( 'Version' );
+		$raindrops_current_theme_name	 = $raindrops_current_data->get( 'Name' );
+		/**
+		 * Theme version trainsitional setting
+		 * Note: Maybe remove new version live
+		 */
+		if ( version_compare( $raindrops_current_data_version, '1.356.1', '<=' ) && 'boots' == $raindrops_current_theme_name ) {
+
+			return raindrops_warehouse_clone_transitional( $name, $property, $fallback );
+		}
+
+		if ( version_compare( $raindrops_current_data_version, '1.216', '<=' ) && 'puddle' == $raindrops_current_theme_name ) {
+
+			return raindrops_warehouse_clone_transitional( $name, $property, $fallback );
+		}
+
+		$name = trim( $name );
+
+		if ( !array_key_exists( $name, $raindrops_base_setting_args ) ) {
+
+			return false;
+		}
+
+		if ( 'option_value' == $property ) {
+
+			if ( isset( $raindrops_base_setting_args[ $name ][ 'option_value' ] ) ) {
+
+				return $raindrops_base_setting_args[ $name ][ 'option_value' ];
+			} else {
+
+				return 'bad';
+			}
+		}
+
+		if ( 'option' == $raindrops_setting_type ) {
+
+			if ( isset( $raindrops_page_width ) && !empty( $raindrops_page_width ) && 'raindrops_page_width' == $name ) {
+
+				return 'custom-doc';
+			}
+			$result = get_option( 'raindrops_theme_settings' );
+
+			if ( isset( $result[ $name ] ) && !empty( $result[ $name ] ) ) {
+
+				return apply_filters( 'raindrops_theme_settings_' . $name, $result[ $name ] );
+			} else {
+
+				if ( isset( $raindrops_base_setting_args[ $name ][ 'option_value' ] ) ) {
+
+					$result = $raindrops_base_setting_args[ $name ][ 'option_value' ];
+				} else {
+
+					$result = false;
+				}
+
+				if ( isset( $result ) && !empty( $result ) ) {
+
+					return apply_filters( 'raindrops_theme_settings_' . $name, $result );
+				}
+			}
+			return $fallback;
+		}
+
+		if ( 'theme_mod' == $raindrops_setting_type ) {
+
+			if ( isset( $raindrops_page_width ) && !empty( $raindrops_page_width ) && 'raindrops_page_width' == $name ) {
+
+				return 'custom-doc';
+			}
+
+			$result = get_theme_mod( $name, false );
+
+			if ( false !== $result ) {
+
+				return apply_filters( 'raindrops_theme_settings_' . $name, get_theme_mod( $name ) );
+			}
+
+			if ( false === $result ) {
+
+				if ( isset( $raindrops_base_setting_args[ $name ][ 'option_value' ] ) ) {
+
+					$result = $raindrops_base_setting_args[ $name ][ 'option_value' ];
+				} else {
+					$result = false;
+				}
+			}
+
+			if ( isset( $result ) && !empty( $result ) ) {
+
+				return apply_filters( 'raindrops_theme_settings_' . $name, $result );
+			} else {
+
+				return $fallback;
+			}
+		}
+		return false;
+	}
+}
+if ( !function_exists( 'raindrops_warehouse_clone_transitional' ) ) {
     /**
      * return Raindrops settings
-     *
+     *  Note: Maybe remove new version live
      *
      * @see raindrops_warehouse( )
      *
      */
 
-	function raindrops_warehouse_clone( $name , $property = false, $fallback = false ) {
+	function raindrops_warehouse_clone_transitional( $name , $property = false, $fallback = false ) {
 		
         global $raindrops_base_setting, $raindrops_page_width, $raindrops_setting_type;
 
@@ -31,7 +146,6 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 				
 				return 'bad';
 			}
-			
 
 			foreach ( $raindrops_base_setting as $key => $val ) {
 
@@ -106,7 +220,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 			}
 			
 			$result = get_theme_mod( $name );
-
+			
 			$theme_slug = get_option( 'stylesheet' );
 			
 			if( false === $result && strpos($name, $theme_slug ) !== false ) {
@@ -117,9 +231,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 			if ( isset( $result ) && !empty( $result ) ) {
 				
 				return apply_filters( 'raindrops_theme_settings_' . $name, $result );
-			}elseif( false === $result ) {
-				
-				return $fallback;
+
 			} elseif ( isset( $raindrops_base_setting[$row]['option_value'] ) && !empty( $raindrops_base_setting[$row]['option_value'] ) ) {
 				
 				return apply_filters( 'raindrops_theme_settings_' . $row, $raindrops_base_setting[$row]['option_value'] );
@@ -512,21 +624,22 @@ if ( ! function_exists( 'raindrops_colors_clone' ) ) {
 		return false;
 	}
 }
+if ( ! function_exists( 'raindrops_switch_default_by_color_type_clone' ) ) {
+	function raindrops_switch_default_by_color_type_clone( $name = 'dark', $option_name = false, $default_val = '', $conditional_val = '' ) {
 
-function raindrops_switch_default_by_color_type_clone( $name = 'dark', $option_name = false, $default_val = '', $conditional_val = '' ) {
-	
-	switch ( $name ) {
+		switch ( $name ) {
 
-		case ( "minimal" ):
-			if( !empty( $option_name )  && 'bad' !== raindrops_warehouse_clone( $option_name ) ) {
-			
-				return $conditional_val;
-			}
-			
+			case ( "minimal" ):
+				if( !empty( $option_name )  && 'bad' !== raindrops_warehouse_clone( $option_name ) ) {
 
-		break;
-	}	
-	return $default_val;
+					return $conditional_val;
+				}
+
+
+			break;
+		}	
+		return $default_val;
+	}
 }
 /**
  * Declaration Calculator

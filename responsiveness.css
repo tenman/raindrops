@@ -820,6 +820,12 @@
         top:0;
     }
     /* @1.356 sticky menu end */
+    /* @1.357 */
+    #doc5.yui-t6 #container > .first > div,
+    #doc5.yui-t5 #container > .first > div,
+    #doc5.yui-t4 #container > .first > div{
+       margin-right:0;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

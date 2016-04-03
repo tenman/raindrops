@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Raindrops default settings and display the admin option panel.
  *

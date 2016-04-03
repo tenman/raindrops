@@ -385,7 +385,7 @@ if ( ! isset( $wp_customize ) ) {
 		  ), */
 // Color Picker
 		"raindrops_base_color"							 => array(
-			'default'					 => raindrops_warehouse_clone( 'raindrops_base_color','option_value' ),
+			'default'					 =>  raindrops_warehouse_clone( 'raindrops_base_color','option_value' ),
 			'data_type'					 => $raindrops_setting_type,
 			'autoload'					 => 'yes',
 			'capability'				 => $raindrops_customize_cap,

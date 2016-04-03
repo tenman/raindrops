@@ -1507,5 +1507,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt2'		 => esc_html__( 'value 1-3. default 3', 'raindrops' ),
 			'validate'		 => 'raindrops_sidebar_posts_page_validate',
 			'list'			 => 100 ),
+	array( 'option_id'    => 102,
+			'blog_id'      => 0,
+			'option_name'  => "raindrops_sticky_menu",
+			'option_value' => 'yes',
+			'autoload'     => 'yes',
+			'title'        => esc_html__( 'Sticky Menu ', 'raindrops' ),
+			'excerpt1'     => '',
+			'excerpt2'     => esc_html__( 'value yes or no. default yes', 'raindrops' ),
+			'validate'     => 'raindrops_sticky_menu_validate',
+			'list'         => 101 ),
 	);
 }

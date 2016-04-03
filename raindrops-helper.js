@@ -13,6 +13,8 @@
             var raindrops_width = jQuery( 'div#header-image' ).width( );
             var raindrops_window_width = jQuery( window ).width();
             var raindrops_primary_menu_height = jQuery('#access ul.menu').height();
+            
+            
             function raindrops_resizes( ) {
 
                 if ( raindrops_script_vars.restore_check !== 'remove-header' ) {
@@ -29,7 +31,7 @@
                     if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive ) {
                         
                         var raindrops_primary_menu_height = jQuery('#access ul.menu').height();
-                        
+          
                         if( raindrops_primary_menu_height > raindrops_script_vars.raindrops_primary_menu_responsive_height ) {
                              jQuery('#access').hide();
                              jQuery( 'body' ).addClass( 'rd-primary-menu-responsive-active' );

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.356
+Version: 1.400
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1138,6 +1138,7 @@ address {
     text-align:center;
     margin:0.76923076923em auto;
 }
+
 div.hentry {
     padding:0;
     margin:1em;
@@ -1302,6 +1303,7 @@ ul.archive ul li {
     padding-top:1.53846153846em;
     min-height:1.38461538462em;
 }
+
 .widget-wrapper{
     margin:0;
 }
@@ -1385,7 +1387,9 @@ footer a{
     height:1.84615384615em;
     width:15.3846153846em;
 }
-#nav-above,
+#nav-above{
+    margin:0 0 1em 0;
+}
 #nav-below {
     margin:0;
 }
@@ -1568,6 +1572,7 @@ div[class^="entry-meta"] .author .avatar,
 div[class^="entry-meta"] .emoji-date,
 .posted-on .emoji-date{
     font-size:1.8em;
+    vertical-align:middle;
 }
 .format-status .posted-on .avatar{
     display:none;
@@ -2898,6 +2903,7 @@ dl.author dt > a{
     background-size:cover;
     background: url("images/stop.png");
 }
+/*
 address .raindrops-accessibility-link:after{
     margin:0 .5em;
     content:" ";
@@ -2907,7 +2913,7 @@ address .raindrops-accessibility-link:after{
     background-size:cover;
     vertical-align:text-bottom;
     background: url("images/accessibility.png");
-}
+}*/
 address .comments-rss:after,
 address .entry-rss:after{
     margin:0 .5em;
@@ -3456,6 +3462,12 @@ body .raindrops-expand-width{
 .yui-t4 #container > .first{
     margin-left:10px;
     margin-right:-10px;
+}
+
+#doc5.yui-t6 #container > .first > div,
+#doc5.yui-t5 #container > .first > div,
+#doc5.yui-t4 #container > .first > div{
+   margin-right:1em;
 }
 /* widget */
 .raindrops_status_bar .raindrops-monthly-archive-prev-next-avigation{
@@ -4422,6 +4434,7 @@ div.raindrops-excerpt-more{
     width:10em;
     clear:both;
 }
+
 #top ol.breadcrumbs{
     padding:1em 0 0;
     box-sizing:border-box;
@@ -5117,7 +5130,10 @@ article .post-password-form label{
 }
 .pdf-preview{
     height:90vh;
-    padding-bottom:100%;
+    text-align:center;
+}
+.ie8 .pdf-preview{
+    height:600px;
 }
 .rd-pdf:before{
     content:'PDF';

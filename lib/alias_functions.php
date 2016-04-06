@@ -9,6 +9,7 @@
  * 
  */
 if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
+
 	/**
 	 * 
 	 * @global type $raindrops_base_setting
@@ -41,12 +42,21 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 
 			return raindrops_warehouse_clone_transitional( $name, $property, $fallback );
 		}
+		if ( apply_filters( 'raindrops_warehouse_clone_transitional', false ) ) {
+
+			return raindrops_warehouse_clone_transitional( $name, $property, $fallback );
+		}
 
 		$name = trim( $name );
-
-		if ( !array_key_exists( $name, $raindrops_base_setting_args ) ) {
-
+		
+		if (  empty( $name )  ) {
+			
 			return false;
+		}
+
+		if ( isset( $raindrops_base_setting_args ) && !array_key_exists( $name, $raindrops_base_setting_args ) ) {
+
+			return $fallback;
 		}
 
 		if ( 'option_value' == $property ) {
@@ -124,6 +134,7 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 		return false;
 	}
 }
+
 if ( !function_exists( 'raindrops_warehouse_clone_transitional' ) ) {
     /**
      * return Raindrops settings

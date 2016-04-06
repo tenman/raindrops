@@ -5683,6 +5683,10 @@ x:-o-prefocus, .rd-modal > div {
     border-top: 10px solid #333;
 }
 /* @1.356 sticky menu start */
+.raindrops-menu-fixed{
+    /* fallback style */
+    background:#fff;
+}
 p.raindrops-mobile-menu,
 #access.raindrops-menu-fixed{
     position:fixed;
@@ -5788,3 +5792,6 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     */
 }
 /* @1.356 sticky menu end */
+.ui-helper-hidden-accessible{
+    display:none;
+}

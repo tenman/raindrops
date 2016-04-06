@@ -2321,7 +2321,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 do_action( 'raindrops_extend_style_type' );
 
-global $raindrops_wp_version, $raindrops_current_theme_name,$raindrops_current_theme_slug,$raindrops_setting_type;
+global $raindrops_wp_version, $raindrops_current_theme_name,$raindrops_current_theme_slug,$raindrops_setting_type, $wp_customize;
 
 $alias_functions = get_stylesheet_directory() . '/lib/alias_functions.php';
 
@@ -2599,7 +2599,7 @@ function raindrops_design_output( $name = 'dark' ) {
     $c_3        = raindrops_colors( -3 );
     $c_4        = raindrops_colors( -4 );
     $c_5        = raindrops_colors( -5 );
-    $position_y = raindrops_warehouse_clone( 'raindrops_heading_image_position' );
+    $position_y = ( int ) raindrops_warehouse_clone( 'raindrops_heading_image_position' );
     $y          = $position_y * 26;
     $y          = '-' . $y . 'px';
 

@@ -1,4 +1,25 @@
 Changelog -----------------------------------
+version:1.400
+
+Overview of Changes
+	Modified $raindrops_base_setting_args array structure change. to associative array
+		Modified	raindrops_warehouse_clone()
+		Added		raindrops_warehouse_clone_transitional()
+		Added		filter raindrops_warehouse_clone_transitional
+	Modified member function render_meta_box_content()
+		Added		filter raindrops_header_img_override_option
+	Modified raindrops_prev_next_post( )
+
+Files Modified
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   style.css
+	modified:	functions.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.356&new_path=raindrops/1.400
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.356
 
 Overview of Changes

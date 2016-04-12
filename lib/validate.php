@@ -1,4 +1,20 @@
 <?php
+function raindrops_color_select_validate( $input ) {
+	
+	if( $input == 'automatic' || $input == 'custom'  ) {
+		return $input;
+	} else {
+		return 'automatic';
+	}			
+}
+function raindrops_reset_options_validate( $input ) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}			
+	
+}
 function raindrops_sticky_menu_validate( $input ) {
 	if( $input == 'yes' || $input == 'no'  ) {
 		return $input;
@@ -127,13 +143,15 @@ function raindrops_sidebar_pdf_archive_validate( $input ) {
 }
 function raindrops_custom_footer_credit_validate( $input ) {
 	
-	if ( ! empty( $input ) ){
-
+	if( empty( $input ) ) {
+		
+		return '';
+	}else{
+		
 		$input = strip_tags( $input, '<address><span><a><br><img>');
 		return $input;
 	}
-	
-	return false;
+
 }
 function raindrops_fallback_image_for_entry_content_validate( $input ) {
 
@@ -1186,8 +1204,30 @@ if ( !function_exists( 'raindrops_update_theme_option' ) ) {
 
 		$validate_function_name = $option . '_validate';
 
+/**
+ * for @1.401+
+ */
 		$options = get_option( 'raindrops_theme_settings' );
 
+		if( isset($options[$option]) && !empty( $options[$option] ) ) {
+			
+			foreach( $options as $key => $val) {
+				
+				if( $key == $option ) {
+					
+					$validate_function = $key.'_validate';
+					
+					$val = $validate_function( $new_value );
+			
+					$options[ $key ] = $val;
+				}
+			}
+			
+			$result = update_option( 'raindrops_theme_settings', $options );
+			return $result;
+		}
+		
+/* below old code lt @1.400 */
 		$result = false;
 
 		if ( !isset( $option ) or empty( $option ) ) {

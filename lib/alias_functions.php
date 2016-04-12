@@ -1740,6 +1740,16 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 	function raindrops_filter_page_column_control() {
 
 		global $raindrops_current_column, $post, $template, $raindrops_keep_content_width;
+		/**
+		 * @1.401
+		 */
+		if ( is_child_theme() &&
+			'simple' == raindrops_warehouse_clone( 'raindrops_col_setting_type' ) &&
+			'hide' == raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ) ) {
+			$raindrops_current_column = 2;
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			return;						
+		}
 
 		if ( is_tax( 'post_format', 'post-format-link' ) ) {
 			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_link_archive' );

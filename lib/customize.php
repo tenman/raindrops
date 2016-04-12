@@ -290,7 +290,13 @@ if ( ! isset( $wp_customize ) ) {
 			return false;
 		}
 	}
-
+	function raindrops_color_selected_relate( $control ){
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_color_select' ) )->value() == 'custom' ) {
+			return true;
+		} else {
+			return false;
+		}		
+	}
 	function raindrops_hyperlink_color_is_chromatic(  $control ) {
 		/* Not showing gray color was set */
 
@@ -398,6 +404,24 @@ if ( ! isset( $wp_customize ) ) {
 			'section'					 => 'raindrops_theme_settings_presentation',
 			'priority'					 => 9,
 		),
+
+		"raindrops_color_select"					 => array(
+			'default'					 => raindrops_warehouse_clone( 'raindrops_color_select','option_value' ),
+			'data_type'					 => $raindrops_setting_type,
+			'autoload'					 => 'yes',
+			'capability'				 => $raindrops_customize_cap,
+			'label'						 => esc_html__( 'Color Setting', 'raindrops' ),
+			'excerpt1'					 => '',
+			'description'				 => esc_html__( 'Select Automatic Color or Custom Color', 'raindrops' ),
+			'sanitize_callback'			 => 'raindrops_color_select_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'automatic'	 =>  esc_html__( 'Automatic Color Setting', 'raindrops' ),
+				'custom'	 =>  esc_html__( 'Custom Color Setting', 'raindrops' ),
+			),
+			'section'					 => 'colors',
+		),
+		
 		"raindrops_default_fonts_color"					 => array(
 			'default'					 => raindrops_warehouse_clone( 'raindrops_default_fonts_color','option_value' ),
 			'data_type'					 => $raindrops_setting_type,
@@ -410,6 +434,25 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
 			'section'					 => 'colors',
+			'active_callback'   => 'raindrops_color_selected_relate',
+		),
+		"raindrops_complementary_color_for_title_link"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_complementary_color_for_title_link','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Complementary Link Color For Entry Title', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) ', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_complementary_color_for_title_link_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 =>  esc_html__( 'Yes', 'raindrops' ),
+				'none'	 =>  esc_html__( 'No' , 'raindrops' ),
+				),
+			'active_callback'   => 'raindrops_hyperlink_color_is_chromatic',
+			'section'			=> 'colors',
+			'priority'					=> 18,
 		),
 		"raindrops_footer_color"						 => array(
 			'default'					 => raindrops_warehouse_clone( 'raindrops_footer_color','option_value' ),
@@ -423,6 +466,8 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
 			'section'					 => 'colors',
+			'active_callback'   => 'raindrops_color_selected_relate',
+						'priority'					=> 19,
 		),
 		"raindrops_hyperlink_color"						 => array(
 			'default'					 => raindrops_warehouse_clone( 'raindrops_hyperlink_color','option_value' ),
@@ -435,8 +480,10 @@ if ( ! isset( $wp_customize ) ) {
 			'sanitize_callback'			 => 'raindrops_hyperlink_color_validate',
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
+			'active_callback'   => 'raindrops_color_selected_relate',			
 			'section'					 => 'colors',
 		),
+
 		"raindrops_footer_link_color"					 => array(
 			'default'					 => raindrops_warehouse_clone( 'raindrops_footer_link_color','option_value' ),
 			'data_type'					 => $raindrops_setting_type,
@@ -450,6 +497,7 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_setting'	 => '',
 			'priority'					=> 20,
 			'section'					 => 'colors',
+			'active_callback'   => 'raindrops_color_selected_relate',
 		),
 // End Color Picker
 		"raindrops_style_type"							 => array(
@@ -1048,6 +1096,65 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_menu_size',
 		),
+		
+		"raindrops_reset_options"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_reset_options','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Reset Theme Settings', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Carefully Use! Reset All Theme Settings', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_reset_options_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),
+		
+		"raindrops_custom_footer_credit"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_custom_footer_credit','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Custom Footer Credit', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_custom_footer_credit_validate',
+			'type'				 => 'textarea',
+			'section'			 => 'raindrops_theme_settings_document',
+		),
+		
+		"raindrops_sitewide_css"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_sitewide_css','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Site-wide CSS', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Style  It will be retained even if the theme is updated', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_sitewide_css_validate',
+			'type'				 => 'textarea',
+			'section'			 => 'raindrops_theme_settings_document',
+		),
+		"raindrops_actions_hook_message"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_actions_hook_message','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Developer Settings', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Show Insert Point hooks and auto load template name for Developer, default hide', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_actions_hook_message_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),
 
 		"raindrops_accessibility_settings"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_accessibility_settings','option_value' ),
@@ -1132,22 +1239,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_document',
 		),
 
-		"raindrops_actions_hook_message"					 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_actions_hook_message','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Developer Settings', 'raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Show Insert Point hooks and auto load template name for Developer, default hide', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_actions_hook_message_validate',
-			'type'				 => 'radio',
-			'choices'			 => array(
-				'show'	 => esc_html__( 'Show', 'raindrops' ),
-				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
-			),
-			'section'			 => 'raindrops_theme_settings_document',
-		),
+
 		"raindrops_status_bar"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_status_bar','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1225,24 +1317,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'priority'			=> 9,
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
-		"raindrops_complementary_color_for_title_link"	 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_complementary_color_for_title_link','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Complementary Link Color For Entry Title', 'raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) ', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_complementary_color_for_title_link_validate',
-			'type'				 => 'radio',
-			'choices'			 => array(
-				'yes'	 =>  esc_html__( 'Yes', 'raindrops' ),
-				'none'	 =>  esc_html__( 'No' , 'raindrops' ),
-				),
-			'priority'			=> 12,
-			'active_callback'   => 'raindrops_hyperlink_color_is_chromatic',
-			'section'			=> 'colors',
-		),
+
 		"raindrops_disable_keyboard_focus"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_disable_keyboard_focus','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1289,19 +1364,6 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_document',
 		),
 
-		"raindrops_sitewide_css"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_sitewide_css','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Site-wide CSS', 'raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Style  It will be retained even if the theme is updated', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_sitewide_css_validate',
-			'type'				 => 'textarea',
-			'section'			 => 'raindrops_theme_settings_document',
-		),
-
 		"raindrops_tooltip"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_tooltip','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1319,18 +1381,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_document',
 		),		
 
-		"raindrops_custom_footer_credit"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_custom_footer_credit','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Custom Footer Credit', 'raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_custom_footer_credit_validate',
-			'type'				 => 'textarea',
-			'section'			 => 'raindrops_theme_settings_document',
-		),
+
 		/**
 		 * Pending not work at customizer
 		 * old theme page works
@@ -1757,6 +1808,31 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		),
 
 	);
+////////////////////////////////////////
+	if( 'yes' == raindrops_warehouse_clone( 'raindrops_reset_options') ) {
+
+		foreach( $raindrops_customize_args as $key => $val ) {
+			
+			$wp_customize->add_setting( $key , array( 'default' => $val , 'sanitize_callback' => "{$key}_validate" ) );
+		}
+		
+	}
+
+	if( 'automatic' == raindrops_warehouse_clone( 'raindrops_color_select') ) {
+
+			$change_settings = array('raindrops_default_fonts_color','raindrops_complementary_color_for_title_link',
+								'raindrops_footer_color','raindrops_hyperlink_color','raindrops_footer_link_color');
+		
+		foreach( $raindrops_customize_args as $key => $val ) {
+			
+			if( in_array( $key, $change_settings ) ) {
+	
+				$wp_customize->add_setting( $key , array( 'default' => $val, 'sanitize_callback' => "{$key}_validate" ) );
+			}
+		}
+	}
+//////////////////////////////////////////
+	
 
 	/**
 	 * Conditional args
@@ -1883,6 +1959,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_content',
 		),
 	);
+	
+	
 
 	$raindrops_customize_args_conditional_2 = array(
 		"raindrops_plugin_presentation_bcn_nav_menu" => array(
@@ -2248,6 +2326,7 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 			'label'		 => raindrops_theme_mod( $settings, 'label' ),
 			'section'	 => raindrops_theme_mod( $settings, 'section' ),
 			'settings'	 => $key,
+			'active_callback'	 => raindrops_theme_mod( $settings, 'active_callback' ),
 			'priority'	 => raindrops_theme_mod( $settings, 'priority' ),
 		) ) );
 		$settings	 = 'raindrops_footer_color';
@@ -2522,7 +2601,14 @@ li.customize-control .widget-inside .widget-content h4,
 	height:16em!important;
 
 }
-
+#rd-control-description-raindrops-color-select.rd-custom-message{
+	display: list-item;
+	border-left:5px solid #ea6153;
+	max-width:99%;
+}
+rd-control-description-raindrops-color-select.rd-custom-message .customize-control-title{
+	
+}
 CUSTOMIZER_CSS;
 
 		if ( version_compare( $wp_version, '4.3', '<' ) ) {
@@ -2542,8 +2628,15 @@ CUSTOMIZER_CSS;
 add_action( 'customize_controls_print_scripts', 'raindrops_print_scripts' );
 
 function raindrops_print_scripts() {
-	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type;
-	wp_enqueue_script( 'raindrops-customize', get_template_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
+	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type, $raindrops_customize_args;
+
+	if ( file_exists( get_stylesheet_directory() . '/lib/customize.js' ) ) {
+		
+		wp_enqueue_script( 'raindrops-customize', get_stylesheet_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
+	} else {
+		
+		wp_enqueue_script( 'raindrops-customize', get_template_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
+	}
 	
 	$customized = get_option('raindrops_theme_settings');
 	
@@ -2554,42 +2647,60 @@ function raindrops_print_scripts() {
 	}
 	
 	$raindrops_current_style_type = raindrops_warehouse_clone('raindrops_style_type');
-	
-	wp_localize_script(
-	'raindrops-customize', 'raindrops_customizer_script_vars', array(
+
+	$setting_values = array(
 		'preview_label'						 => __( 'Preview Width', 'raindrops' ),
 		'basic_config_label'				 => __( '<span>Basic Config</span>', 'raindrops' ),
 		'admin_color'						 => $raindrops_customizer_admin_color,
-		'setting_field_type'				=> $raindrops_setting_type,
+		'setting_field_type'				 => $raindrops_setting_type,
 		'dark_footer_color_default'			 => raindrops_default_color_clone( 'raindrops_footer_color', 'dark' ),
 		'dark_hyperlink_color_default'		 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'dark' ),
 		'dark_fonts_color_default'			 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'dark' ),
 		'dark_footer_link_color'			 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'dark' ),
-	'dark_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'dark' ),		
+		'dark_header_textcolor'				 => raindrops_default_color_clone( 'header_textcolor', 'dark' ),
 		'w3standard_footer_color_default'	 => raindrops_default_color_clone( 'raindrops_footer_color', 'w3standard' ),
 		'w3standard_hyperlink_color_default' => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'w3standard' ),
 		'w3standard_fonts_color_default'	 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'w3standard' ),
 		'w3standard_footer_link_color'		 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'w3standard' ),
-	'w3standard_header_textcolor'		 => raindrops_default_color_clone( 'header_textcolor', 'w3standard' ),			
+		'w3standard_header_textcolor'		 => raindrops_default_color_clone( 'header_textcolor', 'w3standard' ),
 		'light_footer_color_default'		 => raindrops_default_color_clone( 'raindrops_footer_color', 'light' ),
 		'light_hyperlink_color_default'		 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'light' ),
 		'light_fonts_color_default'			 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'light' ),
 		'light_footer_link_color'			 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'light' ),
-	'light_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'light' ),		
+		'light_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'light' ),
 		'minimal_footer_color_default'		 => raindrops_default_color_clone( 'raindrops_footer_color', 'minimal' ),
 		'minimal_hyperlink_color_default'	 => raindrops_default_color_clone( 'raindrops_hyperlink_color', 'minimal' ),
 		'minimal_fonts_color_default'		 => raindrops_default_color_clone( 'raindrops_default_fonts_color', 'minimal' ),
 		'minimal_footer_link_color'			 => raindrops_default_color_clone( 'raindrops_footer_link_color', 'minimal' ),
-	'minimal_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'minimal' ),
-		'fallback_footer_color_default'		 => apply_filters('raindrops_fallback_footer_color_default',raindrops_default_color_clone( 'raindrops_footer_color', 'fallback' ) ),
+		'minimal_header_textcolor'			 => raindrops_default_color_clone( 'header_textcolor', 'minimal' ),
+		'fallback_footer_color_default'		 => apply_filters( 'raindrops_fallback_footer_color_default', raindrops_default_color_clone( 'raindrops_footer_color', 'fallback' ) ),
 		'fallback_hyperlink_color_default'	 => apply_filters( 'raindrops_fallback_hyperlink_color_default', raindrops_default_color_clone( 'raindrops_hyperlink_color', 'fallback' ) ),
 		'fallback_fonts_color_default'		 => apply_filters( 'raindrops_fallback_fonts_color_default', raindrops_default_color_clone( 'raindrops_default_fonts_color', 'fallback' ) ),
-		'fallback_footer_link_color'		=> apply_filters( 'raindrops_fallback_footer_link_color', raindrops_default_color_clone( 'raindrops_footer_link_color', 'fallback' ) ),
-	'fallback_header_textcolor'			 =>  apply_filters( 'raindrops_fallback_header_textcolor', raindrops_default_color_clone( 'header_textcolor', 'fallback' ) ),
-	'is_customized'							=> 	$raindrops_is_customized,
-	'raindrops_current_style_type' => $raindrops_current_style_type,
-	)
+		'fallback_footer_link_color'		 => apply_filters( 'raindrops_fallback_footer_link_color', raindrops_default_color_clone( 'raindrops_footer_link_color', 'fallback' ) ),
+		'fallback_header_textcolor'			 => apply_filters( 'raindrops_fallback_header_textcolor', raindrops_default_color_clone( 'header_textcolor', 'fallback' ) ),
+		'is_customized'						 => $raindrops_is_customized,
+		'raindrops_current_style_type'		 => $raindrops_current_style_type,
+		'reset_label'						 => esc_html__( 'Reset', 'raindrops' ),
+		'reset_confirm'						 => esc_html__( "Attention!This action is irreversible. When click Save & Publish button, It will remove all customizations ever made via customizer to this theme!\n\n", 'raindrops' ),
+		'raindrops_reset_options'			 => raindrops_warehouse_clone( 'raindrops_reset_options' ),
+		'raindrops_raindrops_color_select'	 => raindrops_warehouse_clone( 'raindrops_color_select' ),
 	);
+
+	wp_localize_script(	'raindrops-customize', 'raindrops_customizer_script_vars',$setting_values );
 }
 
+// Custom Message 
+
+add_action('customize_render_control_raindrops_theme_settings[raindrops_color_select]', 'raindrops_customize_control_message_raindrops_color_select' );
+
+function raindrops_customize_control_message_raindrops_color_select(){
+	
+	$html = '<li id="rd-control-description-raindrops-color-select" class="rd-custom-message customize-control customize-control-color" >
+	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content">%2$s</div></label></li>';
+	
+	printf( $html,
+	__('Important Note','raindrops'),// Title
+	__('If you change the color settings, please press the always Save &amp; Publish button.','raindrops') //Message
+	);
+}
 ?>

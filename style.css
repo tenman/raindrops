@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.400
+Version: 1.401
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -5629,13 +5629,23 @@ x:-o-prefocus, .rd-modal > div {
     padding-bottom:1.5em;
 }
 /* 1 column entry background separater */
+.rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even) .entry-meta{
+    background:rgba(255,255,255,.4);
+}
 .rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even),
 .rd-pw-doc5.rd-col-1.rd-type-light .topsidebar > ul > li:nth-child(even){
     background:rgba(255,255,255,.4);
+    padding-top:1em;
+    padding-bottom:1em;
+}
+.rd-pw-doc5.rd-col-1.rd-type-dark .index > li:nth-child(even) .entry-meta{
+    background:rgba(0,0,0,.5);
 }
 .rd-pw-doc5.rd-col-1.rd-type-dark .index > li:nth-child(even),
 .rd-pw-doc5.rd-col-1.rd-type-dark .topsidebar > ul > li:nth-child(even){
     background:rgba(0,0,0,.5);
+    padding-top:1em;
+    padding-bottom:1em;
 }
 .topsidebar .raindrops-pinup-entries .approach-image,
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_archive,
@@ -5794,4 +5804,14 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 /* @1.356 sticky menu end */
 .ui-helper-hidden-accessible{
     display:none;
+}
+#nav-above-comments .nav-previous a{
+}
+#nav-above-comments .nav-previous a:before{
+    vertical-align:top;
+    margin-right:.5em;
+}
+#nav-above-comments .nav-next a:after{
+    vertical-align:top;
+    margin-left:.5em;
 }

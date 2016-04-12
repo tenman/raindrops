@@ -254,7 +254,7 @@ if ( !function_exists( 'raindrops_bcn_css' ) ) {
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
 
 			$raindrops_bcn_css = 'ol.breadcrumbs{
-	margin:1em;
+	margin:1em 0;
 }
 .breadcrumbs li{
 list-style:none;

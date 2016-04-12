@@ -428,7 +428,7 @@ li.byuser span.says{
 .entry-content input[type=number],
 .entry-content input[type=color],
 .entry-content select{
-    %c_4%
+    %c_3%
 }
 #access .children li ,
 #access .children a {
@@ -1008,7 +1008,7 @@ html .mceContentBody,
 }
 .blog .sticky,
 .home .sticky {
-    %c5%
+
     border-top:solid 6px %c_border%;
     border-bottom:solid 2px %c_border%;
 }
@@ -1404,7 +1404,7 @@ body{
 }
 .blog .sticky,
 .home .sticky {
-    %c4%
+
 }
 .entry-meta{
     %c5%

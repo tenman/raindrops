@@ -2,10 +2,30 @@ Changelog -----------------------------------
 version:1.401
 
 Overview of Changes
+	Add Reset Theme Options control
+		Add raindrops_reset_options_validate()
 
+	Fixed Customizer color reset issue.
+		Add control raindrops_color_select
+		Add raindrops_color_select_validate()
+
+	Add function raindrops_prepend_widget_sticky(),raindrops_append_widget_sticky()
+		hook for sticky widget
 
 Files Modified
-
+	modified:   functions.php
+	modified:   header.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+	modified:   widget-sticky.php
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.400&new_path=raindrops/1.401

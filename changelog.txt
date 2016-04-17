@@ -1,4 +1,27 @@
 Changelog -----------------------------------
+version:1.402
+
+Overview of Changes
+	Removed Old theme options settings are complete removed
+	Removed Un needed version_compare() and relate functions
+
+	Modified Customizer Style for Admin Color Scheme
+
+Files Modified
+	modified:   header-front.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/vars.php
+	modified:   page-templates/front-page.php
+	modified:   raindrops-config-example.php
+	modified:   style.css
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.401&new_path=raindrops/1.402
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.401
 
 Overview of Changes

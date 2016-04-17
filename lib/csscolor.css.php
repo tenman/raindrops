@@ -1959,9 +1959,7 @@ CSS3;
 	 return apply_filters( __FUNCTION__ , $style . $css3 );
 }
 
-?>
-<?php
-
+?><?php
 /**
  * Color type minimal
  *
@@ -1976,7 +1974,7 @@ function raindrops_indv_css_minimal() {
 	
     $font_color = raindrops_colors( 5, "color" );
 
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
     $style = <<<CSS
 .topsidebar .widget_rss ul li a,
 .topsidebar .widget_rss ul li{
@@ -2270,6 +2268,39 @@ hr{
 	background:#000;
 }
 /* @1.345 end */
+/* @1.402 start */
+address .comments-rss:after, 
+address .entry-rss:after,
+.nav-next a:after,
+.nav-previous a:before{
+	display:none;
+}
+.nav-next, .nav-previous{
+	border:1px solid #ccc;
+	text-align:center;
+	padding:1em;
+	box-sizing:border-box;
+}
+.nav-next:hover, .nav-previous:hover{
+	color:%c5%;
+	-webkit-transition: width 2s; /* Safari */
+    -webkit-transition-timing-function: linear; /* Safari */
+    transition: background 1.2s;
+    transition-timing-function: linear;
+}
+#date_list td,
+#raindrops_year_list td,
+#month_list td{
+	 border:1px solid rgba(127,127,127,.3);
+}
+#date_list td:first-child,
+#raindrops_year_list td:first-child,
+#month_list td:first-child{
+	text-align:center;
+}
+
+	
+/* @1.402 end */	
 .lsidebar .widgettitle,
 .rsidebar .widgettitle{
 	font-weight:700;
@@ -2529,7 +2560,7 @@ function raindrops_hex2rgba( $color, $opecity ) {
  */
 function raindrops_design_output( $name = 'dark' ) {
 
-    global $raindrops_show_theme_option, $raindrops_automatic_color;
+    global $raindrops_automatic_color;
 
     $uploads                 = wp_upload_dir();
     $raindrops_header_image  = raindrops_warehouse_clone( 'raindrops_header_image' );
@@ -2632,7 +2663,7 @@ function raindrops_design_output( $name = 'dark' ) {
             $h_position_rsidebar_h2 = "background-position:0 208px;";
             break;
     }
-
+/*
     if ( $raindrops_show_theme_option == true ) {
 		
         if ( file_exists( get_template_directory() . '/images/' . $navigation_title_img ) || file_exists( get_stylesheet_directory() . '/images/' . $navigation_title_img ) ) {
@@ -2673,7 +2704,7 @@ function raindrops_design_output( $name = 'dark' ) {
         }
         $h2_light_background .= "color:" . raindrops_colors( 4, 'color' ) . ';';
     }
-	
+*/
 	$raindrops_has_indivisual_notation = raindrops_has_indivisual_notation();
 		// else color is only notation default
     switch ( $name ) {

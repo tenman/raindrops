@@ -7,14 +7,6 @@
  * 				 to   raindrops-config.php
  *
  */
-/** Theme Option Page
- *
- *
- * true Shows Theme option page
- * false Hide Theme option page
- * default true
- */
-$raindrops_show_theme_option = true;
 
 /** Shows Place holder for insert contents
  *

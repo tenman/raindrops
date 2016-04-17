@@ -184,18 +184,6 @@ if( ! isset( $raindrops_extend_galleries ) ) {
 
 	$raindrops_extend_galleries = true;
 }
-/**
- * Show theme options page
- * If set false then hide Raindrops theme option and Raindrops options page
- *
- * $raindrops_show_theme_option
- * @since 1.149
- * default value change 1.293
- */
-if ( !isset( $raindrops_show_theme_option ) ) {
-
-	$raindrops_show_theme_option = false;
-}
 
 if ( !defined( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
 

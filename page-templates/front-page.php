@@ -37,8 +37,9 @@ raindrops_debug_navitation( __FILE__ );
 		'post_type'		 => 'post',
 		'post_status'	 => 'publish',
 		'category'       => '',// category ID comma sapalated values		
-		'post__not_in'	 => get_option( 'sticky_posts' ) );
-
+		'post__not_in'	 => get_option( 'sticky_posts' ), 
+		'raindrops_tile_col' => $raindrops_posts_per_page,		
+		);
 
 	raindrops_tile( $args );
 

@@ -1808,7 +1808,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		),
 
 	);
-////////////////////////////////////////
+	/**
+	 * Reset
+	 */
 	if( 'yes' == raindrops_warehouse_clone( 'raindrops_reset_options') ) {
 
 		foreach( $raindrops_customize_args as $key => $val ) {
@@ -1831,8 +1833,6 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			}
 		}
 	}
-//////////////////////////////////////////
-	
 
 	/**
 	 * Conditional args
@@ -2459,7 +2459,7 @@ function raindrops_customizer_style() {
 		
 
 
-	if ( version_compare( $wp_version, '4.2.2', '>' ) ) {
+
 
 		if( 'light' == $current_admin_color || 'fresh' == $current_admin_color ) {
 
@@ -2468,18 +2468,9 @@ function raindrops_customizer_style() {
 
 			$admin_color_relate_color = '#fff';
 		}
-	}
-
-	
-	if ( version_compare( $wp_version, '4.3', '<' ) ) {
-	/**
-	 * Transitonal conditional current version WordPress 4.3 No need below
-	 */
-		$admin_color_relate_color = $admin_color2;
-	}
 
 	$css = <<<CUSTOMIZER_CSS
-	
+
 
 /* control area */
 #customize-footer-actions .collapse-sidebar-label,
@@ -2606,21 +2597,43 @@ li.customize-control .widget-inside .widget-content h4,
 	border-left:5px solid #ea6153;
 	max-width:99%;
 }
-rd-control-description-raindrops-color-select.rd-custom-message .customize-control-title{
+#rd-control-description-raindrops-style-type.rd-custom-message{
+	display: list-item;
+	border-left:5px solid #40d47e;
+	max-width:99%;
+}
+#rd-control-description-raindrops-style-type .customize-control-content a{
+	color:$admin_color_base;
+}
+#customize-theme-controls .accordion-section-title{
 	
 }
+.customize-section-title h3,
+.customize-section-title,
+#customize-controls .customize-info .customize-help-toggle,
+#customize-controls .customize-info .accordion-section-title,
+.wp-core-ui #customize-theme-controls .control-section .accordion-section-title{
+	background:$admin_color1;
+	color:$admin_color_base;
+	border-bottom: 1px solid rgba(222,222,222,.2);	
+}
+#customize-controls .customize-info .customize-help-toggle{
+	border:none;
+}
+.customize-section-title a{
+	color:$admin_color_base;	
+}
+#customize-controls .customize-info .accordion-section-title:hover,
+.wp-core-ui #customize-theme-controls .control-section .accordion-section-title:hover{
+	background:$admin_color2;
+	color:$admin_color_focus;
+}
+.wp-core-ui .button, .wp-core-ui .button-secondary{
+	background:$admin_color3;
+	color:$admin_color_base;
+	border:1px solid rgba(222,222,222,.2);
+}
 CUSTOMIZER_CSS;
-
-		if ( version_compare( $wp_version, '4.3', '<' ) ) {
-		/**
-		 * Transitonal conditional current version WordPress 4.3 No need below
-		 */
-			$current_admin_color = get_user_option( 'admin_color' );
-
-			if( 'fresh' == $current_admin_color ) {
-				$css .= '#customize-info .accordion-section-title{ color:#333;}';
-			}
-		}
 
 	wp_add_inline_style( 'customize-controls', $css );
 }
@@ -2689,7 +2702,9 @@ function raindrops_print_scripts() {
 	wp_localize_script(	'raindrops-customize', 'raindrops_customizer_script_vars',$setting_values );
 }
 
-// Custom Message 
+/**
+ *  Custom Message 
+ */
 
 add_action('customize_render_control_raindrops_theme_settings[raindrops_color_select]', 'raindrops_customize_control_message_raindrops_color_select' );
 
@@ -2701,6 +2716,19 @@ function raindrops_customize_control_message_raindrops_color_select(){
 	printf( $html,
 	__('Important Note','raindrops'),// Title
 	__('If you change the color settings, please press the always Save &amp; Publish button.','raindrops') //Message
+	);
+}
+add_action('customize_render_control_raindrops_theme_settings[raindrops_style_type]', 'raindrops_customize_control_message_raindrops_style_type' );
+
+function raindrops_customize_control_message_raindrops_style_type(){
+	$customizer_url = 'customize.php?autofocus[section]=colors';
+	$html = '<li id="rd-control-description-raindrops-style-type" class="rd-custom-message customize-control customize-control-style-type" >
+	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
+	
+	printf( $html,
+	__('Navigation','raindrops'),// Title
+	admin_url( $customizer_url ), // link
+	__('Go to Custom Color Settings','raindrops')//link label
 	);
 }
 ?>

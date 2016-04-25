@@ -1,4 +1,44 @@
 Changelog -----------------------------------
+version:1.403
+
+Overview of Changes
+
+	Add script Simple jQuery Equal Heights
+	Fixed raindrops_get_recent_post(), raindrops_get_category_posts(),raindrops_get_tag_posts()
+		post_class() display improperly
+	Change Debug message
+		Change from echo '<!--' . basename( $template, '.php' ) . '[' . basename( dirname( __FILE__ ) ) . ']-->';
+				to  echo '<!-- Template[' . basename( $template ) . '] Theme[' . basename( dirname( __FILE__ ) ) . '] -->';
+	Modified  raindrops_content_shareing()
+		show excerpt, show titles when entry content has h1-h6 elements
+	Modified front-page.php
+		Shange navigation styling
+	Modified Customizer color type minimal add message box
+	Fixed add on plugin Breadcrump nav XT
+		Japanese date display improperly
+		raindrops_bcn_setup()
+	Add CSS new class centered
+		child elements display centered like vertical align middle, text-align center.( use display:flex )
+
+Files Modified
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   header.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   single.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.402&new_path=raindrops/1.403
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.402
 
 Overview of Changes

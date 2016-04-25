@@ -778,6 +778,12 @@ a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
 CSS3;
+	$page_for_posts	= get_option( 'page_for_posts', false );
+
+	if( false == is_home() && true == is_front_page() && $page_for_posts ) {
+
+		$style .= ' .portfolio-nav > ul > li{width:33%;}';	
+	}
     return apply_filters( __FUNCTION__ , $style . $css3 );
 }
 
@@ -935,12 +941,7 @@ function raindrops_indv_css_w3standard() {
 .widget_nav_menu.sticky-widget .sub-menu{
     border-bottom:1px solid rgba(122,122,122,.5);
 }
-	
-#access .menu li:first-child,
-#access .menu .menu-item-has-children,
-#access .menu li:last-child{
-   border-right:1px solid #fff;    
-}
+
 body {
 %c4%
     margin:0!important;padding:0;
@@ -960,11 +961,7 @@ body {
 .nav-links .current{
     %c5%;
 }
-#yui-main{
-	 /*1.303
-    color:%raindrops_header_color%;
-	*/
-}
+
 #hd{
   /*  background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);*/
 }
@@ -1126,20 +1123,16 @@ hr{
 }
 
 #access ul ul a {
-    %c4%
+    %c5%
 }
 
 #access li:active > a,
 #access ul ul :active > a {
     top:0;
-    %c2%
+    %c4%
     color:%custom_color%
 }
-	/*
-#access ul li.current_page_item,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a*/ 
+
 #access .current_page_item,
 #access .current-menu-ancestor,
 #access .current-menu-item,
@@ -1246,9 +1239,14 @@ a.raindrops-comment-link:hover .point {
 .lsidebar .widget  .post-group-by-category-title{
     list-style-type:none;
 }
-
-
 DOC;
+	
+	$page_for_posts	= get_option( 'page_for_posts', false );
+
+	if( false == is_home() && true == is_front_page() && $page_for_posts ) {
+
+		$style .= ' .portfolio-nav > ul > li{width:33%;}';	
+	}
     
 	 return apply_filters( __FUNCTION__ , $style );
 }
@@ -1955,7 +1953,13 @@ a.raindrops-comment-link:hover .point {
 }	
 
 CSS3;
+	
+	$page_for_posts	= get_option( 'page_for_posts', false );
 
+	if( false == is_home() && true == is_front_page() && $page_for_posts ) {
+
+		$style .= ' .portfolio-nav > ul > li{width:33%;}';	
+	}
 	 return apply_filters( __FUNCTION__ , $style . $css3 );
 }
 
@@ -2203,8 +2207,7 @@ textarea#comment{
 blockquote{
     border-left:6px solid;
     border-left-color:%rgba_border%;
-    padding:10px;
-    %c5%
+    padding:10px;    
 }
 
 kbd,
@@ -2300,7 +2303,24 @@ address .entry-rss:after,
 }
 
 	
-/* @1.402 end */	
+/* @1.402 end */
+/* @1.403 add */
+.topsidebar .portfolio-nav{
+		overflow:visible;
+}
+
+.topsidebar .portfolio-nav > ul > li a{
+	padding:1em;
+	display:block;
+	border:1px solid #ccc;
+	margin:1em;
+}
+
+.topsidebar .portfolio-nav li{
+	margin:1em;
+	width:20%;
+}
+/* @1.403 end */
 .lsidebar .widgettitle,
 .rsidebar .widgettitle{
 	font-weight:700;
@@ -2332,7 +2352,13 @@ address .entry-rss:after,
 }
 
 CSS;
+	
+	$page_for_posts	= get_option( 'page_for_posts', false );
 
+	if( false == is_home() && true == is_front_page() && $page_for_posts ) {
+
+		$style .= ' .portfolio-nav > ul > li{width:33%;}';	
+	}
 
  return apply_filters( __FUNCTION__ , $style  );
 

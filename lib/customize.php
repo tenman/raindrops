@@ -2697,6 +2697,12 @@ function raindrops_print_scripts() {
 		'reset_confirm'						 => esc_html__( "Attention!This action is irreversible. When click Save & Publish button, It will remove all customizations ever made via customizer to this theme!\n\n", 'raindrops' ),
 		'raindrops_reset_options'			 => raindrops_warehouse_clone( 'raindrops_reset_options' ),
 		'raindrops_raindrops_color_select'	 => raindrops_warehouse_clone( 'raindrops_color_select' ),
+		'raindrops_col_width'				 => raindrops_warehouse_clone( 'raindrops_col_width' ),
+		'raindrops_show_right_sidebar'		 => raindrops_warehouse_clone( 'raindrops_show_right_sidebar' ),
+		'raindrops_col_width_default'				 => raindrops_warehouse_clone( 'raindrops_col_width','option_value' ),
+		'raindrops_show_right_sidebar_default'		 => raindrops_warehouse_clone( 'raindrops_show_right_sidebar','option_value' ),
+		'color_type_minimal_confirm'		=> esc_html__('Color type minimal, it also includes a change in the theme of the layout. If it is good, Click OK, please press the Save button in the customizer.
+This change in layout, you can later freely change.','raindrops'),
 	);
 
 	wp_localize_script(	'raindrops-customize', 'raindrops_customizer_script_vars',$setting_values );

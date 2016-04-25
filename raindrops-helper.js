@@ -59,8 +59,16 @@
                             jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
                         }                       
                     }
-
+                   
                 }
+                 /* @1.403 */
+                    var raindrops_content_width = jQuery( '#container > .first').width();
+
+                    if ( raindrops_content_width < 481 && raindrops_window_width > 640 ) {
+                        jQuery( 'body').addClass('content-lt-480');
+                    } else {
+                        jQuery( 'body').removeClass('content-lt-480');
+                    }
             }
 
             

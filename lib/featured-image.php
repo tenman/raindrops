@@ -213,6 +213,10 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 		foreach ( $recent_posts as $key => $val ) {
 
 			$thumb_image_size = raindrops_get_post_image_size( $raindrops_post_image_size );
+			
+			if( ! isset($thumb_image_size[ 'width' ])){
+				return $css;
+			}
 
 			if ( $thumb_image_size[ 'width' ] < $content_width ) {
 				$padding = ( $content_width - $thumb_image_size[ 'width' ] ) / 2;
@@ -229,7 +233,7 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 			if ( has_post_thumbnail( $id ) && !has_post_format( 'status', $id ) ) {
 				$post_id = '#post-' . $id;
 				$custom_css .= "{$post_id} .h2-thumb{display:block;}
-							 {$post_id} .hentry{position:relative; min-height:{$height}px;}
+							 {$post_id} .post.hentry{position:relative; min-height:{$height}px;}
 							 {$post_id} .wp-post-image{	position:absolute; left:10px; width:{$featured_image_column_width};}
 							 {$post_id} .entry-meta-list, {$post_id}  #nav-below, {$post_id}  .entry-meta-default, 
 							 {$post_id} .entry-meta, {$post_id} .entry-title, {$post_id} .posted-on, {$post_id} .entry-meta-aside,

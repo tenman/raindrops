@@ -213,9 +213,11 @@ if ( !function_exists( 'raindrops_bcn_setup' ) ) {
 			if ( get_locale() == 'ja' ) {
 
 				/**
-				 * Commentout Raindrops1.297				 
-				 * add_filter( 'bcn_template_tags', 'raindrops_template_tags_change_date', 10, 3 );
+				 * Commentout Raindrops1.297
+				 * Modify @1.403　filter active
 				 */
+				 add_filter( 'bcn_template_tags', 'raindrops_template_tags_change_date', 10, 3 );
+
 			}
 		}
 	}
@@ -373,17 +375,15 @@ if ( !function_exists( 'raindrops_template_tags_change_date' ) ) {
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
 
 			$this_type = implode( ',', $type );
-
+							
 			if ( preg_match( '!date-year!', $this_type ) ) {
 
-				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'year_name', 'raindrops' );
+				$replacements[ "%htitle%" ] = str_replace('年','', $replacements[ "%htitle%" ] );
 			}
 			if ( preg_match( '!date-day!', $this_type ) ) {
 
-				$replacements[ "%htitle%" ] = $replacements[ "%htitle%" ] . esc_html__( 'day_name', 'raindrops' );
+				$replacements[ "%htitle%" ] = str_replace('日','', $replacements[ "%htitle%" ] );
 			}
-
-
 			return $replacements;
 		}
 	}

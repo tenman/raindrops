@@ -770,4 +770,22 @@ nav#access:before{
 }
 #top div#site-description{
     display:block!important;
+    font-size:16px;
+    text-align:right;
+}
+#header-image .tagline{
+    text-align:center;
+}
+.topsidebar li:empty{
+    display:none;
+}
+.single-post-thumbnail{
+    background:#eee;
+    text-align:center;
+}
+.custom-logo-wrap img{
+    width:auto;
+    height:1em;
+    vertical-align:middle;
+    
 }

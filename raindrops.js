@@ -30,12 +30,13 @@
 
         });
 
-        jQuery("#month_list ul li:last-child").css({border: "none"});
-       // jQuery(".widget ul li:last-child").css({border: "none"});
-       jQuery('a').not( "#flags,.tooltip" ).removeAttr("title");
+       jQuery("#month_list ul li:last-child").css({border: "none"});
+       jQuery('a').not( "#flags, .flag, .tooltip" ).removeAttr("title");
        jQuery( ".no-tooltip" ).removeAttr("title");
+       
         // #flags is google translate plugin
-
+        // @1.403 add class .flag for Google Language Translator plugin version 5.0.06
+        
         /** Toggle
          *
          *
@@ -166,4 +167,39 @@
             jQuery(this).wrap('<div class="rd-table-wrapper"></div>') 
         });
     });
-})(jQuery); 
+})(jQuery);
+
+/*!
+ * Simple jQuery Equal Heights
+ * 
+ * https://github.com/mattbanks/jQuery.equalHeights
+ * Copyright (c) 2013 Matt Banks
+ * Dual licensed under the MIT and GPL licenses.
+ * Uses the same license as jQuery, see:
+ * http://docs.jquery.com/License
+ *
+ * @version 1.5.1
+ */
+(function($) {
+
+    $.fn.equalHeights = function() {
+        var maxHeight = 0,
+            $this = $(this);
+
+        $this.each( function() {
+            var height = $(this).innerHeight();
+
+            if ( height > maxHeight ) { maxHeight = height; }
+        });
+
+        return $this.css('height', maxHeight);
+    };
+
+    // auto-initialize plugin
+    $('[data-equal]').each(function(){
+        var $this = $(this),
+            target = $this.data('equal');
+        $this.find(target).equalHeights();
+    });
+
+})(jQuery);

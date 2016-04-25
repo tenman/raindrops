@@ -335,7 +335,10 @@ body {
 .yui-gf div.first {
     width: 24%;
 }
-
+/* 1.403 */
+.rd-col-2 #container > .first{
+    width:100%;
+}
 .yui-g .yui-gb div.first,
 .yui-gb div.first, 
 .yui-gc div.first, 

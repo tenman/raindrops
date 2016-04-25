@@ -55,6 +55,15 @@ This theme using  TGM-Plugin-Activation license below
 			Contributors: Matt Mullenweg , John James Jacoby , Jennifer M. Dodd , Stephen Edgar
 			License: GPLv2 or later
 
+This theme using  Simple jQuery Equal Heights license below
+
+    https://github.com/mattbanks/jQuery.equalHeights
+    Copyright (c) 2013 Matt Banks
+    Dual licensed under the MIT and GPL licenses.
+    Uses the same license as jQuery, see:
+    http://docs.jquery.com/License
+    @version 1.5.1
+
 Special Thanks for Contribution
 
 	@ Luigi Rosa  Optimising Images

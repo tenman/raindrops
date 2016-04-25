@@ -29,7 +29,7 @@ http://developer.yahoo.com/yui/fonts/
 26px = 197%
 ------------------------------------------------------*/
 
-
+ 
 
 
 body.rd-pw-doc5,
@@ -1643,6 +1643,9 @@ div[class^="entry-meta"] .emoji-date,
 
 .rd-featured-yes-left .index .wp-post-image{
    top:10px;
+}
+.rd-featured-yes-left .index .h2-thumb + .entry-title-text{
+    padding:0;
 }
 ul.archive,
 ul.index {
@@ -3699,7 +3702,8 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     float:left!important;
     height:0;
     overflow:hidden;
-    padding-bottom:18.75%;
+    /* @1.403 */
+    padding-bottom:25%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -4172,7 +4176,9 @@ ol.list-of-post-list .entry-title{
 .topsidebar .raindrops-pinup-entries img{
     margin-top:3em;
 }
-
+.topsidebar .raindrops-pinup-entries p img{
+    margin-top:0;
+}
 .raindrops-pinup-entries p img{
     width:auto;
     height:auto;
@@ -4662,6 +4668,7 @@ video{
 #access li ul ul {
     top: 0;
     left: 100%;
+    margin:-1px;/* @1.403 */
 }
 
 .widget_nav_menu.sticky-widget ul li:hover > ul,
@@ -4844,6 +4851,12 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 .raindrops-recent-posts article{
     margin-left:135px;
 }
+.topsidebar .raindrops-tag-posts article,
+.topsidebar .raindrops-category-posts article,
+.topsidebar .raindrops-recent-posts article{
+   min-height:125px;
+   box-sizing:border-box;
+}
 .raindrops-pinup-entries p{
     overflow:hidden;
 }
@@ -4895,6 +4908,7 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 .clip-link .quote-raindrops .first:empty + .second{margin-left:0;display:block;list-style:none;}
 .clip-link .link-info:empty{display:none;}
 .clip-link .link-excerpt{font-size:13px;}
+.clip-link .titles span {padding:.2em .5em!important;border-bottom:1px solid #ccc;margin:.25em!important;display:inline-block;}
 @media (max-width: 640px) {
    .clip-link .quote-raindrops .second,
     .clip-link .quote-raindrops .first{
@@ -5846,6 +5860,15 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .topsidebar li:empty{
     display:none;
 }
+
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    height:100%;
+}
+
 .link-to-sidebar-settings {
     display: flex;
     align-items: center;
@@ -5867,4 +5890,9 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 #front-page-top-container .static-front-media #header-image{
     /* override inline style this case */
     background-origin:padding-box!important;
+}
+.topsidebar .raindrops-tag-posts li,
+.topsidebar .raindrops-category-posts li,
+.topsidebar .raindrops-recent-posts li{
+    margin-bottom:1em;
 }

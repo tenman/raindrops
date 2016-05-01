@@ -51,7 +51,12 @@ raindrops_debug_navitation( __FILE__ );
 									<?php do_action( 'raindrops_prepend_attachment_info' ); ?>
 
 									<h2 class="image-title entry-title h2"><a href="<?php echo esc_url( $image[ 0 ] ); ?>"><?php the_title(); ?></a></h2>
-
+									<?php 
+									if( 'yes' == raindrops_warehouse('raindrops_show_date_author_in_attachment') ) {
+										raindrops_posted_on();
+									}								
+									?>
+									
 									<div class="serif entry-content">
 										<?php
 										raindrops_prepend_entry_content();

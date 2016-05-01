@@ -69,6 +69,10 @@ raindrops_debug_navitation( __FILE__ );
                             the_post_thumbnail( 'full', 'class=page-featured-image' );							
 							
                             raindrops_entry_title();
+
+							if( 'yes' == raindrops_warehouse('raindrops_show_date_author_in_page') ) {
+								raindrops_posted_on();
+							}								
                             ?>
                             <div class="entry-content">
                                 <?php

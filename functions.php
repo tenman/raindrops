@@ -332,11 +332,13 @@ if ( !isset( $raindrops_custom_background_args ) ) {
  * $raindrops_post_thumbnails_args
  *
  */
-if ( !isset( $raindrops_post_thumbnails_args ) ) {
+	/**
+	 * @1.404 removed args
+	 * $raindrops_post_thumbnails_args = array();
+	 * , apply_filters( 'raindrops_post_thumbnails_args', $raindrops_post_thumbnails_args ) 
+	 */
+add_theme_support( 'post-thumbnails' );
 
-	$raindrops_post_thumbnails_args = array( 'post', 'page' );
-	add_theme_support( 'post-thumbnails', apply_filters( 'raindrops_post_thumbnails_args', $raindrops_post_thumbnails_args ) );
-}
 /**
  *
  *
@@ -1308,7 +1310,16 @@ if ( !function_exists( 'raindrops_posted_on' ) ) {
 
 		$author_html			 = apply_filters( 'raindrops_post_author', raindrops_post_author( ), $called_function );
 		$entry_date_html		 = apply_filters( 'raindrops_post_date', raindrops_post_date( ), $called_function );
-		$posted_on_comment_link  = apply_filters( 'raindrops_comments_link', raindrops_comments_link(), $called_function );
+		$posted_on_comment_link	 = '';
+		
+		if ( ! is_attachment() ) {
+			/**
+			 * @1.404
+			 * Customize / Advanced / Show Attach to Post Date and Author in Attachment
+			 * No needs comments link when attachment page
+			 */
+			$posted_on_comment_link  = apply_filters( 'raindrops_comments_link', raindrops_comments_link(), $called_function );
+		}
 
 		$result = '<span class="meta-prep meta-prep-author">
 					<span class="posted-on-string">%1$s</span></span> %2$s
@@ -1316,11 +1327,24 @@ if ( !function_exists( 'raindrops_posted_on' ) ) {
 		$result = apply_filters('raindrops_posted_on_result', $result );
 		$posted_on_string = '';
 		if( !empty( $entry_date_html ) ) {
-			$posted_on_string = __( 'Posted on', 'raindrops' );
+			/**
+			 * @1.404
+			 */
+			if ( is_attachment() ) {
+				
+				$posted_on_string = esc_html__( 'Attached to Post on', 'raindrops' );
+			} elseif ( is_page() ) {
+				
+				$posted_on_string = esc_html__( 'Created on', 'raindrops' );
+			} else {
+				
+				$posted_on_string = esc_html__( 'Posted on', 'raindrops' );
+			}
 		}
 		$posted_by_string = '';
 		if( !empty( $entry_date_html ) ) {
-			$posted_by_string =  __( 'by', 'raindrops' );
+			
+			$posted_by_string =  esc_html__( 'by', 'raindrops' );
 		}
 		$result = sprintf( $result, $posted_on_string , $entry_date_html, $posted_by_string, $author_html, $posted_on_comment_link );
 
@@ -1757,6 +1781,7 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 
 		global $raindrops_current_theme_name, $raindrops_current_data_version, $raindrops_css_auto_include,$raindrops_fallback_human_interface_show,$raindrops_tooltip,$wp_scripts;
 		/* @1.333 */
+
 		if( true == $raindrops_fallback_human_interface_show){
 
 			$fallback_style = get_template_directory_uri() . '/fallback.css';
@@ -8925,7 +8950,12 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 		if ( preg_match( '!(slideshare.net)!', $url ) ) {
 			return sprintf( '<%2$s class="oembed-container rd-slideshare clearfix"><div>%1$s</div></%2$s>', $html, $element );
 		}
-		
+		/*
+		 * https://www.mixcloud.com/
+		 */		
+		if ( preg_match( '!(mixcloud.com)!', $url ) ) {
+			return sprintf( '<%2$s class="oembed-container rd-mixcloud clearfix"><div>%1$s</div></%2$s>', $html, $element );
+		}		
 		
 		/**
 		 * note: 4:3 ratio can use .rd-ratio-075

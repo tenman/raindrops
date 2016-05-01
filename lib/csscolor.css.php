@@ -354,19 +354,17 @@ hr{
 #month_list,
 #month_list td,
 #raindrops_year_list td,
-#calendar_wrap td,
 #date_list td,
 #month_list,
 #month_list td,
 #raindrops_year_list td,
+#wp-calendar td,
 #calendar_wrap td,
 #date_list td,
 fieldset,
-/*.itiran,*/
 #month_list,
 #month_list td,
 #raindrops_year_list td,
-#calendar_wrap td,
 #date_list td,
 .searchform input[type="text"],
 .searchform input[type="submit"],
@@ -385,7 +383,9 @@ fieldset,
 .entry-content textarea,
 .entry-content blockquote,
 .textwidget blockquote,
-td.month-date,td.month-name,td.time{
+td.month-date,
+td.month-name,
+td.time{
     border:1px solid %c_border%;
 }
 .textwidget blockquote,

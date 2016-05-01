@@ -34,7 +34,7 @@ if ( !defined( 'ABSPATH' ) ) {
 global $template;
 
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
-$raindrops_date_html_module = '<a href="%1$s">%2$s</a>';
+$raindrops_date_html_module ='<a href="%1$s"><%3$s class="entry-date updated" %4$s>%2$s</%3$s></a>';
 $raindrops_date_format      = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
 $raindrops_archive_year     = get_the_time( 'Y' );
 $raindrops_archive_month    = get_the_time( 'm' );
@@ -72,9 +72,11 @@ if ( is_single() ) {
     <ul class="entry-meta-list left">
 		<?php if( 'show' == $raindrops_display_article_publish_date ) { ?>
         <li class="category-blog-publish-date post-format-status-publish-date">
-            <?php
-            printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
-            ?>
+            <?php  printf( $raindrops_date_html_module, 
+							$raindrops_day_link, 
+							$raindrops_status_date, raindrops_doctype_elements( 'span', 'time', false ),
+							raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ) ); 
+			?>
         </li>
 		<?php } ?>
         <li class="blog-avatar post-format-status-avatar">
@@ -164,10 +166,12 @@ if ( is_single() ) {
        
         <ul class="entry-meta-list left">
 		<?php if( 'show' == $raindrops_display_article_publish_date ) { ?>
-			 <li class="category-blog-publish-date post-format-status-publish-date">
-            <?php
-            printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
-            ?>
+			<li class="category-blog-publish-date post-format-status-publish-date">
+            <?php  printf( $raindrops_date_html_module, 
+							$raindrops_day_link, 
+							$raindrops_status_date, raindrops_doctype_elements( 'span', 'time', false ),
+							raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ) ); 
+			?>
 			</li>
 		<?php } ?>
             <li class="blog-avatar">
@@ -230,7 +234,10 @@ if ( is_single() ) {
 
                 $raindrops_date_html_module = '<p style="text-align:right;">' . $raindrops_date_html_module . '</p>';
 
-                printf( $raindrops_date_html_module, $raindrops_day_link, $raindrops_status_date );
+				printf( $raindrops_date_html_module, 
+							$raindrops_day_link, 
+							$raindrops_status_date, raindrops_doctype_elements( 'span', 'time', false ),
+							raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ) );
             }
             ?>
     </div>

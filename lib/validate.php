@@ -1,4 +1,18 @@
 <?php
+function raindrops_show_date_author_in_page_validate( $input ) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}				
+}
+function raindrops_show_date_author_in_attachment_validate( $input ) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}				
+}
 function raindrops_color_select_validate( $input ) {
 	
 	if( $input == 'automatic' || $input == 'custom'  ) {

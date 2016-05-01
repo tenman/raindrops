@@ -389,6 +389,9 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     padding-top: 30px;
     height: 0;
 }
+.oembed-container.rd-mixcloud{
+   padding-bottom: 36.25%;  
+}
 .oembed-container .issuuembed{
    clear:both;
    max-height:100%;
@@ -2029,6 +2032,8 @@ br.clearfix {
     position:static;
     text-align:center;
     width:14.2857142857%;
+    word-wrap: normal;
+    overflow-wrap: normal;
 
 }
 #ft #calendar_wrap td{
@@ -2038,6 +2043,8 @@ br.clearfix {
     height:0;
     padding-top:3.5%;
     padding-bottom:3.5%;
+    word-wrap: normal;
+    overflow-wrap: normal;
 }
 #wp-calendar #next a,
 #wp-calendar #prev a{
@@ -4217,7 +4224,6 @@ ol.list-of-post-list .entry-title{
 .entry-content .gist .line-numbers{
     background:#555;
     color:#fff;
-    border:1px solid red;
 }
 .textwidget .gist .pl-vo,
 .entry-content .gist .pl-vo{
@@ -5860,7 +5866,6 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .topsidebar li:empty{
     display:none;
 }
-
 .centered{
     display: flex;
     align-items: center;
@@ -5896,3 +5901,80 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .topsidebar .raindrops-recent-posts li{
     margin-bottom:1em;
 }
+/**
+ * @1.404
+ * for grid pinup widget
+ */
+.topsidebar .grid-pinup-widgets{   
+    display:flex;
+    flex-wrap:wrap;
+    text-align:left;
+ 
+}
+.topsidebar .grid-pinup-widgets > li{
+    flex-grow:1;
+    flex-basis: 0;
+    min-width:240px;
+}
+.rd-col-1 .topsidebar .grid-pinup-widgets .page,
+.rd-col-1 .topsidebar .grid-pinup-widgets .post{
+    padding:1em;
+}
+.topsidebar .grid-pinup-widgets > li:hover{
+    border:1px solid rgba(122,122,122,.3);
+    background:rgba(122,122,122,.15);
+    margin:-1px;
+}
+.topsidebar .grid-pinup-widgets .pinup-entry-title{
+    margin:0;
+    padding:.5em .1em;
+    box-sizing:border-box;
+}
+.topsidebar .grid-pinup-widgets .widgettitle{
+    padding: 0;
+}
+.topsidebar .grid-pinup-widgets img.aligncenter{
+    padding:0;
+}
+
+.rsidebar .grid-pinup-item h2,
+.lsidebar .grid-pinup-item h2,
+.rsidebar .grid-pinup-item h2 span,
+.lsidebar .grid-pinup-item h2 span{
+    background:transparent;
+}
+.rsidebar .raindrops-pinup-entries .widgettitle,
+.lsidebar .raindrops-pinup-entries .widgettitle{
+    padding:0 .5em;
+}
+.rsidebar .raindrops-pinup-entries img.aligncenter,
+.lsidebar .raindrops-pinup-entries img.aligncenter{
+   padding:0; 
+}
+.ie9 .topsidebar .grid-pinup-widgets{    
+    display:block;
+}
+.ie9 .topsidebar .grid-pinup-widgets:after{
+    content:'';
+    display:table;
+}
+.ie9 .grid-pinup-widgets > li,
+.ie9 .grid-pinup-widgets .grid-pinup-item{
+    display:inline-block;
+    width:33%;
+    float:left;
+}
+.ie9 .topsidebar .grid-pinup-widgets .pinup-entry-title{
+    margin:0;
+    padding:.5em .1em;
+    box-sizing:border-box;
+}
+.ie9 .topsidebar .grid-pinup-widgets .widgettitle{
+    padding:.5em 0;
+}
+.ie9 .topsidebar .grid-pinup-widgets img.aligncenter{
+    padding:0;
+    box-sizing:border-box;
+}
+/*  * for grid pinup widget END */
+

@@ -1379,9 +1379,42 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				"no"	 => esc_html__( "No", 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_document',
-		),		
-
-
+		),
+		
+		"raindrops_show_date_author_in_attachment"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_date_author_in_attachment','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Show Attach to Post Date and Author in Attachment', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Default no', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_date_author_in_attachment_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),
+		
+		"raindrops_show_date_author_in_page"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_date_author_in_page','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Show Publish Date and Author in Page', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Default no', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_date_author_in_page_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),
+		
 		/**
 		 * Pending not work at customizer
 		 * old theme page works

@@ -826,6 +826,17 @@
     #doc5.yui-t4 #container > .first > div{
        margin-right:0;
     }
+    /*
+     * @1.404
+     * for grid pinup widget
+    */
+    .topsidebar .grid-pinup-widgets .grid-pinup-item a{
+        width:auto;
+    }
+    .topsidebar .raindrops-pinup-entries .widgettitle,
+    .topsidebar .grid-pinup-widgets .pinup-entry-title{
+        text-align:center;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

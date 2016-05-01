@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.403
+Version: 1.404
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -390,7 +390,7 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     height: 0;
 }
 .oembed-container.rd-mixcloud{
-   padding-bottom: 36.25%;  
+   padding-bottom: 36.25%;
 }
 .oembed-container .issuuembed{
    clear:both;
@@ -5905,11 +5905,11 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  * @1.404
  * for grid pinup widget
  */
-.topsidebar .grid-pinup-widgets{   
+.topsidebar .grid-pinup-widgets{
     display:flex;
     flex-wrap:wrap;
     text-align:left;
- 
+
 }
 .topsidebar .grid-pinup-widgets > li{
     flex-grow:1;
@@ -5949,9 +5949,9 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 .rsidebar .raindrops-pinup-entries img.aligncenter,
 .lsidebar .raindrops-pinup-entries img.aligncenter{
-   padding:0; 
+   padding:0;
 }
-.ie9 .topsidebar .grid-pinup-widgets{    
+.ie9 .topsidebar .grid-pinup-widgets{
     display:block;
 }
 .ie9 .topsidebar .grid-pinup-widgets:after{

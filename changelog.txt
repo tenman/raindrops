@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.404
+
+Overview of Changes
+	removed $raindrops_post_thumbnails_args = array('post','page') for Plugin
+	User request posted on for image.php and page.php
+		Add Menu for Customizer
+			Show Attach to Post Date and Author in Attachment
+			Show Publish Date and Author in Page'
+	Add mixcloud oembed style
+	Pinup entry widget new Presentation
+		show grid and group title.
+
+Files Modified
+	modified:   image.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   page.php
+	modified:   part-blog.php
+	modified:   responsiveness.css
+	modified:   style.css
+	modified:   widget-sticky.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.403&new_path=raindrops/1.404
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.403
 
 Overview of Changes

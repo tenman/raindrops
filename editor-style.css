@@ -25,21 +25,34 @@ a:hover {
     cursor:pointer;
 }
 /* wordPress native */
+img.aligncenter,
 .aligncenter,
 div.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding:0.76923076923em;
 }
+.page-featured-image{
+    padding:0;
+}
+div.alignleft,
+img.alignleft,
 .alignleft {
-    display:inline;
+    clear:left;
     float: left;
-    margin-right:10px;
+    padding:0.38461538461em 0.76923076923em 0.15384615384em 0;
 }
+div.alignright,
+img.alignright,
 .alignright {
-    display:inline;
+    clear:right;
     float: right;
-    margin-left:1em;
+    padding:0.38461538461em 0 0.38461538461em 0.76923076923em;
+}
+.alignnone{
+    display:inline;
+    padding:0.38461538461em 0.76923076923em 0.76923076923em 0;
 }
 .size-thumbnail{
     padding:.5em;

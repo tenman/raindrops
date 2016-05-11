@@ -399,7 +399,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'attachment_link','esc_url' );
 		add_filter( 'site_url','esc_url');
 
-		//add_filter( 'month_link', 'esc_url' );,add_filter( 'year_link', 'esc_url' ); add_filter( 'day_link', 'esc_url' ); are all escaped
+		/*
+		 * @since 1.405
+		 */
+		add_action( 'admin_enqueue_scripts', 'raindrops_widget_page_style' );
+		add_action('sidebar_admin_page','raindrops_widget_style_description');
     }
 }
 ?>

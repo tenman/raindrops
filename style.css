@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.404
+Version: 1.405
 Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,10 +28,6 @@ http://developer.yahoo.com/yui/fonts/
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
-
-
-
-
 body.rd-pw-doc5,
 body.rd-pw-doc3{
     max-width:100%;
@@ -899,6 +895,7 @@ body .raindrops-category-posts .title.h2,
     width:auto;
     margin-top:1em;
 }
+
 .rd-float-wrapper > ol,
 .rd-float-wrapper > ul{
     margin-top:0;
@@ -4348,6 +4345,18 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
         margin-bottom:1em;
     }
 }
+/**
+ * buddypress
+ * @1.405
+ */
+.buddypress.page #buddypress .rd-table-wrapper{
+    width:100%;
+}
+.buddypress.page #buddypress table#message-threads td{
+    background:transparent;
+    border-top:1px solid rgba(127,127,127,.3);
+    border-bottom:1px solid rgba(127,127,127,.3);
+}
 
 .rsidebar .eco-archive ul,
 .lsidebar .eco-archive ul{
@@ -4903,6 +4912,7 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 /* share link fallback style start */
 .clip-link{ margin-bottom:1em;}
 .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}
+.clip-link .quote-raindrops{ position:static;min-width:0;}
 .clip-link .quote-raindrops{background:#fff;color:#333;padding:.3em!important;font-size:16px;border:1px solid #ccc;overflow:hidden;}
 .clip-link .quote-raindrops ul{overflow:hidden;}
 .clip-link .quote-raindrops h3{background:#fff;color:#333;padding:0;margin:0;font-size:16px;display:inline-block;line-height:1.1;}
@@ -5977,4 +5987,11 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     box-sizing:border-box;
 }
 /*  * for grid pinup widget END */
+.bbp-no-reply .bbp-template-notice{
+    visibility:hidden;
+}
 
+.bbp-no-reply .bbp-template-notice:after{
+	content:'ログインが必要です';
+	visibility:visible;
+}

@@ -424,7 +424,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
                 }
             }
 
-            if ( WP_DEBUG !== true ) {
+           if ( WP_DEBUG !== true ) {
 
                 $result_indv = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $result_indv );
             }

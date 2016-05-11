@@ -444,8 +444,8 @@ if ( !function_exists( 'raindrops_gradient_single_clone' ) ) {
         }
         $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
         $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
-        $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
-        $g.= 'background: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
+        $g.= 'background: -moz-linear-gradient( top, ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
+        $g.= 'background: -ms-linear-gradient( top, ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
         $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
         return wp_strip_all_tags( $g );
     }
@@ -498,20 +498,20 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
             $g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';		
-            $g.= "}\n";
+            $g.= "}";
             $g.= $selector . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
-            $g.= "}\n";
+            $g.= "}";
             $g.= $selector . '-' . $i . '{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg2 . ' ), to( ' . $custom_light_bg2 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';
             $g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';			
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg2 . '\', endColorstr=\'' . $custom_light_bg2 . '\' );';
-            $g.= "}\n";
+            $g.= "}";
             $g.= $selector . '-' . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
-            $g.= "}\n";
+            $g.= "}";
 			/* nav menu gradient class support @since 1.272 */
 			$g.= '#access '. $selector . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
@@ -519,27 +519,27 @@ if ( !function_exists( 'raindrops_gradient_clone' ) ) {
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
 			$g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';	
-            $g.= "}\n";
+            $g.= "}";
 			$g.= '#access '. $selector . '-' . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg1 . ' ), to( ' . $custom_light_bg1 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg1 . '\', endColorstr=\'' . $custom_light_bg1 . '\' );';
 			$g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg1 . ',  ' . $custom_light_bg1 . ' );';	
-            $g.= "}\n";
+            $g.= "}";
             $g.= $selector . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
-            $g.= "}\n";
+            $g.= "}";
             $g.= '#access '. $selector . '-' . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
             $g.= 'background: -webkit-gradient( linear, left top, left bottom, from( ' . $custom_dark_bg2 . ' ), to( ' . $custom_light_bg2 . ' ) );';
             $g.= 'background: -moz-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';
 			$g.= 'background-image: -ms-linear-gradient( top,  ' . $custom_dark_bg2 . ',  ' . $custom_light_bg2 . ' );';		
             $g.= 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'' . $custom_dark_bg2 . '\', endColorstr=\'' . $custom_light_bg2 . '\' );';
-            $g.= "}\n";
+            $g.= "}";
             $g.= $selector . '-' . $i . ' a{';
             $g.= 'color:' . raindrops_colors_clone( $i, 'color' ) . ';';
-            $g.= "}\n";
+            $g.= "}";
         }
 		$g = wp_strip_all_tags( $g );
         return apply_filters( 'raindrops_gradient', $g );
@@ -637,7 +637,7 @@ if ( ! function_exists( 'raindrops_colors_clone' ) ) {
 }
 if ( ! function_exists( 'raindrops_switch_default_by_color_type_clone' ) ) {
 	function raindrops_switch_default_by_color_type_clone( $name = 'dark', $option_name = false, $default_val = '', $conditional_val = '' ) {
-
+		
 		switch ( $name ) {
 
 			case ( "minimal" ):
@@ -1235,15 +1235,15 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 		global $raindrops_extend_galleries, $post;
 
 			$clear_float = ".gallery,
-				.gallery-columns-1 .gallery-item:nth-child(2),\n
-				.gallery-columns-2 .gallery-item:nth-child(3),\n
-				.gallery-columns-3 .gallery-item:nth-child(4),\n
-				.gallery-columns-4 .gallery-item:nth-child(5),\n
-				.gallery-columns-5 .gallery-item:nth-child(6),\n
-				.gallery-columns-6 .gallery-item:nth-child(7),\n
-				.gallery-columns-7 .gallery-item:nth-child(8),\n
-				.gallery-columns-8 .gallery-item:nth-child(9),\n
-				.gallery-columns-9 .gallery-item:nth-child(10),\n
+				.gallery-columns-1 .gallery-item:nth-child(2),
+				.gallery-columns-2 .gallery-item:nth-child(3),
+				.gallery-columns-3 .gallery-item:nth-child(4),
+				.gallery-columns-4 .gallery-item:nth-child(5),
+				.gallery-columns-5 .gallery-item:nth-child(6),
+				.gallery-columns-6 .gallery-item:nth-child(7),
+				.gallery-columns-7 .gallery-item:nth-child(8),
+				.gallery-columns-8 .gallery-item:nth-child(9),
+				.gallery-columns-9 .gallery-item:nth-child(10),
 				.gallery-columns-10 .gallery-item:nth-child(11){clear:both;}";
 
 			if ( $raindrops_extend_galleries !== true ){
@@ -1282,15 +1282,17 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 		$raindrops_gallerys = '.entry-content .gallery{margin:1em auto;}';
 		foreach( $all_sizes as $name => $value ) {
 				$width = absint( $value['width'] );
-				$width2 = $width * 2;
-				$width3 = $width * 3;
-				$width4 = $width * 4;
-				$width5 = $width * 5;
-				$width6 = $width * 6;
-				$width7 = $width * 7;
-				$width8 = $width * 8;
-				$width9 = $width * 9;
-				$width10 = $width * 10;
+				
+					$width2	 = round( $width * 2 );
+					$width3	 = round( $width * 3 );
+					$width4	 = round( $width * 4 );
+					$width5	 = round( $width * 5 );
+					$width6	 = round( $width * 6 );
+					$width7	 = round( $width * 7 );
+					$width8	 = round( $width * 8 );
+					$width9	 = round( $width * 9 );
+					$width10 = round( $width * 10 );
+			
 				
 				$raindrops_gallerys .= '.gallery-columns-1.gallery-size-'. $name. '{ width: '. $width. 'px ; max-width:100%; }
 				.gallery-columns-2.gallery-size-'. $name. ' { width:'. $width2. 'px ; max-width:100%; }
@@ -1305,21 +1307,21 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 		}		
 		
 		$raindrops_gallerys .= "
-				.gallery .gallery-item { margin: 0px; }\n
-				.gallery .gallery-item {". $display_property. " margin-top: .5em; text-align: center; }\n
-				.gallery img { max-width:100%; }\n
-				.gallery .gallery-caption { margin-left: 0; }\n
-				.gallery br { clear: both }\n
-				.gallery-columns-1 .gallery-item{ width: 100% }\n
-				.gallery-columns-2 .gallery-item{ width: 50% }\n
-				.gallery-columns-3 .gallery-item{ width: 33.3% }\n
-				.gallery-columns-4 .gallery-item{ width: 25% }\n
-				.gallery-columns-5 .gallery-item{ width: 20% }\n
-				.gallery-columns-6 .gallery-item{ width: 16.6% }\n
-				.gallery-columns-7 .gallery-item{ width: 14.28% }\n
-				.gallery-columns-8 .gallery-item{ width: 12.5% }\n
-				.gallery-columns-9 .gallery-item{ width: 11.1% }\n
-				.gallery-columns-10 .gallery-item{ width: 9.9% }\n";
+				.gallery .gallery-item { margin: 0px; }
+				.gallery .gallery-item {". $display_property. " margin-top: .5em; text-align: center; }
+				.gallery img { max-width:100%; }
+				.gallery .gallery-caption { margin-left: 0; }
+				.gallery br { clear: both }
+				.gallery-columns-1 .gallery-item{ width: 100% }
+				.gallery-columns-2 .gallery-item{ width: 50% }
+				.gallery-columns-3 .gallery-item{ width: 33.3% }
+				.gallery-columns-4 .gallery-item{ width: 25% }
+				.gallery-columns-5 .gallery-item{ width: 20% }
+				.gallery-columns-6 .gallery-item{ width: 16.6% }
+				.gallery-columns-7 .gallery-item{ width: 14.28% }
+				.gallery-columns-8 .gallery-item{ width: 12.5% }
+				.gallery-columns-9 .gallery-item{ width: 11.1% }
+				.gallery-columns-10 .gallery-item{ width: 9.9% }";
 		
 		
 		

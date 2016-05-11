@@ -214,7 +214,7 @@ if ( !function_exists( 'raindrops_bcn_setup' ) ) {
 
 				/**
 				 * Commentout Raindrops1.297
-				 * Modify @1.403　filter active
+				 * Modify @1.403 filter active
 				 */
 				 add_filter( 'bcn_template_tags', 'raindrops_template_tags_change_date', 10, 3 );
 
@@ -756,6 +756,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			.tribe-events-map #tribe-events-footer,
 			.tribe-events-photo #tribe-events-footer{border-top:1px solid rgba(' . $border_rgba . ');}
 			#tribe-events .tribe-events-notices li{background:#d9edf7; color:#000;}
+			.entry-content #tribe-bar-views ul.tribe-bar-views-list{min-width:0;}
 			#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover{background:#fff;color:#000;}
 			.tribe-events-list-widget .tribe-events-widget-link a{margin:1em;
 			background:' . $custom_background . '; text-align:center; padding:1em;display:inline-block;box-sizing:border-box;border:1px solid rgba(' . $border_rgba . ');}
@@ -779,8 +780,11 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 
 }
 
-
-add_filter( 'load_textdomain_mofile', 'raindrops_override_quick_cache_mo', 10, 2 );
+/**
+ * @1.405 stop this filter
+ * Comet Cache not exists translate files
+ */
+//add_filter( 'load_textdomain_mofile', 'raindrops_override_quick_cache_mo', 10, 2 );
 
 if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
 /**
@@ -796,6 +800,5 @@ if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
 		}
 		return $mofile;
 	}
-
 }
 ?>

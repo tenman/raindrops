@@ -195,9 +195,9 @@ if ( ! isset( $wp_customize ) ) {
 	$raindrops_get_permalink_structure = get_option( 'permalink_structure' );
 
 	if( empty( $raindrops_get_permalink_structure ) ) {
-		$raindrops_get_permalink_structure_message = '1';
+		$raindrops_get_permalink_structure_message = 1;
 	} else {
-		$raindrops_get_permalink_structure_message = '0';
+		$raindrops_get_permalink_structure_message = 0;
 	}
 	/*
 	 * callback
@@ -1646,6 +1646,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_post',
 		),
+
 		"raindrops_display_default_category"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_display_default_category','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

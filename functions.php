@@ -2543,6 +2543,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		return apply_filters( "raindrops_embed_meta_css", $css );
 	}
 }
+
 /**
  *
  *
@@ -3170,13 +3171,21 @@ if ( !function_exists( "raindrops_get_year" ) ) {
 if ( !function_exists( "raindrops_get_day" ) ) {
 
 	function raindrops_get_day( $posts = '', $year = '', $mon = '', $day = '', $pad = 1 ) {
-
 		global $month;
+				
 		$here	 = home_url();
 		$year_label = apply_filters( 'raindrops_archive_year_label', $year );
 		$month_label = apply_filters( 'raindrops_archive_month_label', $mon );
 		$day_label = apply_filters( 'raindrops_archive_day_label', $day );
-		$output	 = "<h2 class=\"h2 year-month-date\"><a href=\"" . esc_url( get_year_link( $year ) ) . "\" title=\"$year\"><span class=\"year-name\">$year_label</span></a> <a href=\"" . get_month_link( $year, $mon ) . "\" title=\"$year/$mon\"><span class=\"month-name\">" . $month_label . "</span></a>&nbsp;<span class=\"day-name\">" . $day_label . "</span></h2>";
+		
+		if( 'ja' == get_locale() ) {
+			$output	 = "<h2 class=\"h2 year-month-date\"><a href=\"" . esc_url( get_year_link( $year ) ) . "\" title=\"$year\"><span class=\"year-name\">$year_label</span></a> <a href=\"" . get_month_link( $year, $mon ) . "\" title=\"$year/$mon\"><span class=\"month-name\">" . $month_label . "</span></a>&nbsp;<span class=\"day-name\">" . $day_label . "</span></h2>";
+		} else {
+			$output	 = "<h2 class=\"h2 year-month-date\"><span class=\"day-name\">" . $day_label . "</span> <a href=\"" . get_month_link( $year, $mon ) . "\" title=\"$year/$mon\"><span class=\"month-name\">" . $month_label . "</span></a>&nbsp<a href=\"" . esc_url( get_year_link( $year ) ) . "\" title=\"$year\"><span class=\"year-name\">$year_label</span></a></h2>";
+		}
+		
+
+		
 		$output .= '<table id="date_list" ' . raindrops_doctype_elements( 'summary="Archive in ' . esc_attr( $day ) . ', ' . esc_attr( $mon ) . ', ' . esc_attr( $year ). '"', '', false ) . '>';
 
 		foreach ( $posts as $mytime ) {
@@ -5271,7 +5280,7 @@ if ( !function_exists( 'raindrops_gallerys' ) ) {
 												  $raindrops_gallerys );
 		}
 
-		return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
+		return $raindrops_gallerys;
 	}
 
 }
@@ -6033,9 +6042,9 @@ if ( !function_exists( 'raindrops_the_pagenation' ) ) {
  * @since 0.980
  * change @1.402
  */
-if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
+if ( !function_exists( 'raindrops_sidebar_menus2' ) ) {
 
-	function raindrops_sidebar_menus( $position = 'default' ) {
+	function raindrops_sidebar_menus2( $position = 'default' ) {
 
 		global $post, $raindrops_wp_version, $wp_customize;
 
@@ -6048,7 +6057,7 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 
 			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
 
-				if ( !$wp_customize ) {
+			//	if ( !$wp_customize ) {
 
 					printf( $html,	esc_html__( 'Default Sidebar', 'raindrops' ), 
 									admin_url( 'widgets.php' ), 
@@ -6057,7 +6066,7 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 									admin_url( $customizer_url ), 
 									esc_html__( 'Change Columns', 'raindrops' )
 					);
-				} else {
+			/*	} else {
 
 					printf( $html_customize,esc_html__( 'Default Sidebar', 'raindrops' ), 
 											esc_html__( 'Column Change', 'raindrops' ), 
@@ -6065,13 +6074,13 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 											esc_html__( 'Add Widget', 'raindrops' ), 
 											esc_html__( 'Menu: Widgets', 'raindrops' )
 					);
-				}
+				}*/
 			}
 		} else {
 
 			if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) {
 
-				if ( !$wp_customize ) {
+			//	if ( !$wp_customize ) {
 
 					printf( $html,	esc_html__( 'Extra Sidebar', 'raindrops' ), 
 									admin_url( 'widgets.php' ), 
@@ -6080,7 +6089,7 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 									admin_url( $customizer_url ), 
 									esc_html__( 'Change Columns', 'raindrops' )
 					);
-				} else {
+			/*	} else {
 
 					printf( $html_customize,	esc_html__( 'Extra Sidebar', 'raindrops' ), 
 												esc_html__( 'Column Change', 'raindrops' ), 
@@ -6088,12 +6097,27 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 												esc_html__( 'Add Widget', 'raindrops' ), 
 												esc_html__( 'Menu: Widgets', 'raindrops' )
 					);
-				}
+				}*/
 			}
 		}
 	}
 }
+if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 
+	function raindrops_sidebar_menus( $position = 'default' ) {
+
+		if ( 'default' == $position ) {
+			echo '<li>';
+			the_widget( 'WP_Widget_Categories' );
+			echo '</li>';
+			
+		} else {
+			echo '<li>';
+			the_widget( 'WP_Widget_Archives' );
+			echo '</li>';
+		}
+	}
+}
 if ( !function_exists( 'raindrops_link_get' ) ) {
 /**
 *
@@ -9467,8 +9491,8 @@ if ( !function_exists( 'raindrops_editor_styles_callback' ) ) {
 		$font_size				 = raindrops_warehouse_clone( 'raindrops_basefont_settings' );
 		$font_color				 = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 		$link_color				 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-
-		$editor_custom_styles	 = 'html .mceContentBody{max-width:' . $content_width . 'px;}' . "\n";
+		$raindrops_editor_styles_width = apply_filters('raindrops_editor_styles_width', $content_width );
+		$editor_custom_styles	 = 'html .mceContentBody{max-width:' . $raindrops_editor_styles_width . 'px;}' . "\n";
 		$editor_custom_styles	 .= 'html .mceContentBody{font-size:' . $font_size . 'px;}' . "\n";
 		if( isset( $font_color ) && !empty( $font_color )) {
 			$editor_custom_styles	 .= 'html .mceContentBody.mce-content-body{color:' . $font_color . ';}' . "\n";
@@ -10669,6 +10693,7 @@ if ( !function_exists( 'raindrops_content_shareing' ) ) {
 
 		$style = apply_filters( 'raindrops_content_shareing_style', ".clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}
 					.clip-link .quote-raindrops{background:#fff;color:#333;padding:.3em!important;font-size:16px;border:1px solid #ccc;overflow:hidden;}
+					.clip-link .quote-raindrops{ position:static;min-width:0;}
 					.clip-link .quote-raindrops ul{overflow:hidden;}
 					.clip-link .quote-raindrops h3{background:#fff;color:#333;padding:0;margin:0;font-size:16px;display:inline-block;line-height:1.1;}
 					.clip-link .quote-raindrops a{background:#fff;color:#666;padding:0;10px;font-size:16px;font-weight:700}
@@ -11079,7 +11104,63 @@ if ( ! function_exists( 'raindrops_automatic_modal_rel_rev' ) ) {
 	}
 
 }
+if ( ! function_exists( 'raindrops_widget_page_style' ) ) {
+	/**
+	 * @since 1.405
+	 */
+	function raindrops_widget_page_style() {
 
+			$colors = raindrops_wp_admin_css_colors( 'colors' );
+
+			if( isset($colors[2]) && ! empty( $colors[2] ) ) {
+				$background_theme = raindrops_header_image_filter_color_validate( $colors[2] );
+			} else {
+				$background_theme = '#1abc9c';
+			}
+			if( isset($colors[3]) && ! empty( $colors[3] ) ) {
+				$background_addon = raindrops_header_image_filter_color_validate( $colors[3] );
+			} else {
+				$background_addon = '#95a5a6';
+			}
+			
+			$custom_css = ".raindrops-widget-color-theme-excerpt,div[id*=\"_recent-post-groupby-cat-\"] h3,
+					div[id*=\"_raindrops_pinup_entry_widget-\"] h3,div[id*=\"_raindrops_extend_archive_widget-\"] h3{
+							background: {$background_theme};
+								color: #000;
+					}";
+			$custom_css .= ".raindrops-widget-color-addon-excerpt,div[id*=\"_tribe-events-list-widget-\"] h3,
+				div[id*=\"_metaslider_widget-\"] h3,div[id*=\"_bcn_widget\"] h3{
+								background: {$background_addon};
+								color: #000;			
+					}";
+			$custom_css .= "
+					.raindrops-widget-color-addon-excerpt,.raindrops-widget-color-theme-excerpt{
+						padding:1em;
+					}";
+			$custom_css .= "
+					#available-widgets-list div[id*=\"_tribe-events-list-widget-\"] h3,#available-widgets-list div[id*=\"_metaslider_widget-\"] h3,
+					#available-widgets-list div[id*=\"_bcn_widget\"] h3,#available-widgets-list div[id*=\"_recent-post-groupby-cat-\"] h3,
+					#available-widgets-list div[id*=\"_raindrops_pinup_entry_widget-\"] h3,#available-widgets-list div[id*=\"_raindrops_extend_archive_widget-\"] h3{
+						padding:5px;
+					}";
+			$custom_css .= "
+					.customize-section-description-container{position:fixed; width:260px;z-index:999;}
+					.customize-section-description-container+li{margin-top:80px;}
+					}";			
+			wp_add_inline_style( 'widgets', $custom_css );
+	}
+}
+if ( ! function_exists( 'raindrops_widget_style_description' ) ) {
+	/**
+	 * @since 1.405
+	 */
+	function raindrops_widget_style_description(){
+		
+		$html = '<p><span class="raindrops-widget-color-theme-excerpt">%1$s</span>	<span class="raindrops-widget-color-addon-excerpt">%2$s</span></p>';
+		
+		printf($html, esc_html__( 'Theme Widget', 'raindrops'), esc_html__( 'Add On Widget', 'raindrops') );
+	}
+}
 /**
  *
  *

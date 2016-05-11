@@ -174,6 +174,10 @@ if ( ! isset( $raindrops_keep_content_width ) ) {
 if ( ! isset( $raindrops_use_transient ) ) {
 
 	$raindrops_use_transient = true;
+	
+	if ( WP_DEBUG == true ) {
+		$raindrops_use_transient = false;		
+	}
 }
 /**
  * Raindrops Gallery Presentation

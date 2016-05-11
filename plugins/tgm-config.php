@@ -32,8 +32,8 @@ function raindrops_theme_register_required_plugins() {
             'required'           => false,
         ),
 		 array(
-            'name'               => 'ZenCache',
-            'slug'               => 'zencache',
+            'name'               => 'Comet Cache',
+            'slug'               => 'comet-cache',
             'required'           => false,
         ),
 		 array(

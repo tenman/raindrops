@@ -161,6 +161,7 @@
     });
 })(jQuery);
 
+
 (function() {
     jQuery(function() {
         jQuery("table").not('.rd-no-scroll').each(function (i) { 

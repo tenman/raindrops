@@ -1,8 +1,9 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-09 16:18+0900\n"
+"POT-Creation-Date: 2016-05-10 14:19+0900\n"
 "PO-Revision-Date: 2014-02-09 16:19+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
@@ -10,2086 +11,3737 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Language: Japanese\n"
-"X-Poedit-Country: JAPAN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
-"X-Poedit-Basepath: e:/apache2.2/htdocs/\n"
+"X-Poedit-Basepath: .\n"
 "X-Textdomain-Support: yes\n"
-"X-Poedit-SearchPath-0: raindrops\n"
+"Language: ja_JP\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-# @ raindrops
-#: raindrops/404.php:25
+#: ../404.php:30
 msgid "Error 404 - Not Found"
 msgstr ""
 
-# @ raindrops
-#: raindrops/404.php:30
-#, fuzzy
+#: ../404.php:35
 msgid "Apologies, but no results were found for the requested Archive. Perhaps searching will help find a related post."
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:46
+#: ../author.php:49
 #, php-format
 msgid "Author Archives: %s"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:54
+#: ../author.php:56
 msgid "Author Avatar Image"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:60
-#, fuzzy
+#: ../author.php:63
 msgid "Profile"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:68
-#: raindrops/functions.php:1516
-#, fuzzy
+#: ../author.php:71 ../functions.php:1916 ../functions.php:4893
 msgid "Website"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:84
+#: ../author.php:83
 msgid "registered"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:95
+#: ../author.php:93
 msgid "Recent post"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:123
-#, fuzzy
+#: ../author.php:117
 msgid "Categories :"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:129
-#, fuzzy
+#: ../author.php:124
 msgid "Tag :"
 msgstr ""
 
-#: raindrops/author.php:139
-#, fuzzy
+#: ../author.php:136
 msgid "Format :"
 msgstr ""
 
-# @ raindrops
-#: raindrops/author.php:147
+#: ../author.php:146
 msgid "No posts by this author."
 msgstr ""
 
-# @ raindrops
-#: raindrops/blank_front.php:31
-#, fuzzy
-msgid "Recent posts"
+#: ../bbpress.php:57 ../customizer-unittest.php:296 ../functions.php:1189
+#: ../functions.php:8105 ../functions.php:8200 ../image.php:125
+#: ../lib/option-panel.php:440 ../lib/option-panel.php:443
+#: ../page-templates/full-width.php:60 ../page-templates/page-featured.php:149
+#: ../page.php:100 ../part-additional.php:81 ../part-blog.php:124
+#: ../part-blog.php:227 ../part-gallery.php:121 ../pdf.php:122
+msgid "Edit"
 msgstr ""
 
-# @ raindrops
-#: raindrops/blank_front.php:45
-#: raindrops/functions.php:4585
-#: raindrops/functions.php:4651
-#, fuzzy
+#: ../bbpress.php:59 ../customizer-unittest.php:298 ../functions.php:1191
+#: ../functions.php:4667 ../functions.php:8103 ../image.php:127
+#: ../page-templates/full-width.php:62 ../page-templates/page-featured.php:151
+#: ../page.php:102 ../part-additional.php:83 ../part-blog.php:127
+#: ../part-blog.php:229 ../part-gallery.php:123 ../pdf.php:124
+msgid "Trash"
+msgstr ""
+
+#: ../blank_front.php:88 ../no-hook-prepend-widget-sticky.php:27
+msgid "Recent Posts"
+msgstr ""
+
+#: ../blank_front.php:111 ../functions.php:6504
+#: ../no-hook-prepend-widget-sticky.php:37 ../sidebar.php:31
 msgid "Categories"
 msgstr ""
 
-# @ raindrops
-#: raindrops/blank_front.php:61
-#: raindrops/functions.php:4699
-#, fuzzy
+#: ../blank_front.php:134 ../functions.php:6688
+#: ../no-hook-prepend-widget-sticky.php:48
 msgid "Tags"
 msgstr ""
 
-#: raindrops/blank_front.php:352
-msgid "Continue&nbsp;reading"
+#: ../childs/boots/inc.php:482 ../lib/customize-blank-front.php:8
+#: ../lib/customize.php:71 ../lib/customize.php:102 ../lib/vars.php:462
+msgid "Color Scheme"
 msgstr ""
 
-# @ raindrops
-#: raindrops/comments.php:25
+#: ../childs/boots/inc.php:484 ../lib/vars.php:464
+msgid "Please choose the naming convention for the color list"
+msgstr ""
+
+#: ../childs/boots/inc.php:491 ../lib/vars.php:471
+msgid "Base Color for Automatic Color Arrangement"
+msgstr ""
+
+#: ../childs/boots/inc.php:493 ../lib/customize.php:400 ../lib/vars.php:473
+msgid "Please specify your favorite color. and an automatic arrangement of color is designed."
+msgstr ""
+
+#: ../childs/boots/inc.php:501 ../lib/customize.php:508 ../lib/vars.php:481
+msgid "Color Type"
+msgstr ""
+
+#: ../childs/boots/inc.php:503 ../lib/vars.php:483
+msgid "The mood like dark atmosphere and the bright note, etc. is decided. and The editor is displayed when themename is selected, and a present style can be edited in detail."
+msgstr ""
+
+#: ../childs/boots/inc.php:512 ../lib/customize.php:522 ../lib/vars.php:492
+msgid "Header background image"
+msgstr ""
+
+#: ../childs/boots/inc.php:514 ../lib/customize.php:524 ../lib/vars.php:494
+msgid ""
+"The header image can be set by two methods.\n"
+"One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image."
+msgstr ""
+
+#: ../childs/boots/inc.php:524 ../lib/customize.php:534 ../lib/vars.php:504
+msgid "Footer background image"
+msgstr ""
+
+#: ../childs/boots/inc.php:526 ../lib/customize.php:536 ../lib/vars.php:506
+msgid ""
+"The footer image can be set by two methods.\n"
+"One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image."
+msgstr ""
+
+#: ../childs/boots/inc.php:534 ../lib/vars.php:514
+msgid "Widget Title Background Image"
+msgstr ""
+
+#: ../childs/boots/inc.php:536 ../lib/vars.php:516
+msgid "The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png]."
+msgstr ""
+
+#: ../childs/boots/inc.php:543 ../lib/vars.php:523
+msgid "Widget Title Background Image Position"
+msgstr ""
+
+#: ../childs/boots/inc.php:545 ../lib/vars.php:525
+msgid "The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. "
+msgstr ""
+
+#: ../childs/boots/inc.php:552 ../lib/vars.php:532
+msgid "Page Width"
+msgstr ""
+
+#: ../childs/boots/inc.php:554 ../lib/vars.php:534
+msgid "Please choose width on the page."
+msgstr ""
+
+#: ../childs/boots/inc.php:555 ../lib/vars.php:535
+msgid "Please choose from four kinds of inside of"
+msgstr ""
+
+#: ../childs/boots/inc.php:556 ../lib/vars.php:536
+msgid "750px centerd 950px centerd fluid 974px."
+msgstr ""
+
+#: ../childs/boots/inc.php:563 ../lib/customize.php:602 ../lib/vars.php:543
+msgid "Column Width and Position"
+msgstr ""
+
+#: ../childs/boots/inc.php:565 ../lib/customize.php:604 ../lib/vars.php:545
+msgid "Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified."
+msgstr ""
+
+#: ../childs/boots/inc.php:572 ../lib/vars.php:552
+msgid "Text color in content "
+msgstr ""
+
+#: ../childs/boots/inc.php:574 ../lib/customize.php:432 ../lib/vars.php:554
+msgid "If you need to set contents Special font color."
+msgstr ""
+
+#: ../childs/boots/inc.php:581 ../lib/vars.php:561
+msgid "Text color in footer "
+msgstr ""
+
+#: ../childs/boots/inc.php:583 ../lib/customize.php:464 ../lib/vars.php:563
+msgid "If you need to set footer Special font color."
+msgstr ""
+
+#: ../childs/boots/inc.php:590 ../functions.php:616 ../functions.php:6085
+#: ../lib/vars.php:570
+msgid "Extra Sidebar"
+msgstr ""
+
+#: ../childs/boots/inc.php:592 ../lib/customize.php:625 ../lib/vars.php:572
+msgid "Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show"
+msgstr ""
+
+#: ../childs/boots/inc.php:599 ../lib/customize.php:642 ../lib/vars.php:579
+msgid "Extra Sidebar Width"
+msgstr ""
+
+#: ../childs/boots/inc.php:601 ../lib/customize.php:644 ../lib/vars.php:581
+msgid "When display extra sidebar is set to show"
+msgstr ""
+
+#: ../childs/boots/inc.php:602 ../lib/customize.php:645 ../lib/vars.php:582
+msgid "it is necessary to specify it."
+msgstr ""
+
+#: ../childs/boots/inc.php:603 ../lib/customize.php:646 ../lib/vars.php:583
+msgid "It can decide to divide the width of which place of extra sidebar"
+msgstr ""
+
+#: ../childs/boots/inc.php:604 ../lib/customize.php:647 ../lib/vars.php:584
+msgid "and to give it. Please select it from among 25% 33% 50% 66% 75%. "
+msgstr ""
+
+#: ../childs/boots/inc.php:611 ../lib/vars.php:591
+msgid "Menu Primary"
+msgstr ""
+
+#: ../childs/boots/inc.php:613 ../lib/customize.php:1090 ../lib/vars.php:593
+msgid "Display or not Menu Primary. default value is show. set hide when not display menu primary"
+msgstr ""
+
+#: ../childs/boots/inc.php:620 ../lib/vars.php:600
+msgid "Link color"
+msgstr ""
+
+#: ../childs/boots/inc.php:622 ../lib/customize.php:479 ../lib/vars.php:602
+msgid "Hyper link color"
+msgstr ""
+
+#: ../childs/boots/inc.php:629 ../lib/vars.php:609
+msgid "Accessibility Settings"
+msgstr ""
+
+#: ../childs/boots/inc.php:631 ../lib/customize.php:1166 ../lib/vars.php:611
+msgid "Accessibility Settings is create a unique link text. set to yes or no."
+msgstr ""
+
+#: ../childs/boots/inc.php:640 ../lib/vars.php:620
+msgid "Document Type Settings"
+msgstr ""
+
+#: ../childs/boots/inc.php:642 ../lib/customize.php:1182 ../lib/vars.php:622
+msgid "Default Document type html5. Set to xhtml or html5."
+msgstr ""
+
+#: ../childs/boots/inc.php:651 ../lib/vars.php:631
+msgid "Base Font Size Setting"
+msgstr ""
+
+#: ../childs/boots/inc.php:653 ../lib/customize.php:1597 ../lib/vars.php:633
+msgid "Base Font Size Value Recommend 13-20 (px size)"
+msgstr ""
+
+#: ../childs/boots/inc.php:662 ../lib/vars.php:642
+msgid "Fluid ( Responsive ) Max Page Width"
+msgstr ""
+
+#: ../childs/boots/inc.php:664 ../lib/customize.php:1284
+#: ../lib/customize.php:1299 ../lib/vars.php:644
+msgid "Default 1280 (px size)"
+msgstr ""
+
+#: ../childs/boots/inc.php:673 ../lib/vars.php:653
+msgid "Home Entry Content Type"
+msgstr ""
+
+#: ../childs/boots/inc.php:675 ../childs/boots/inc.php:686
+#: ../childs/boots/inc.php:697 ../lib/vars.php:655 ../lib/vars.php:666
+#: ../lib/vars.php:678
+msgid "value content, excerpt, none"
+msgstr ""
+
+#: ../childs/boots/inc.php:684 ../lib/vars.php:664
+msgid "Category Archive Content Type"
+msgstr ""
+
+#: ../childs/boots/inc.php:695 ../lib/vars.php:676
+msgid "Search Result Content Type"
+msgstr ""
+
+#: ../childs/boots/inc.php:706 ../lib/vars.php:687
+msgid "Link color in footer "
+msgstr ""
+
+#: ../childs/boots/inc.php:708 ../lib/customize.php:494
+msgid "If you need to set footer Special link color.hex color ex.#ff0000 or none"
+msgstr ""
+
+#: ../childs/boots/inc.php:717 ../lib/vars.php:698
+msgid "Complementary Color For Entry Title Link "
+msgstr ""
+
+#: ../childs/boots/inc.php:719 ../lib/vars.php:700
+msgid "If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) value yes or none"
+msgstr ""
+
+#: ../childs/boots/inc.php:728 ../lib/vars.php:709
+msgid "Breadcrumb NavXT Automatic Presentation "
+msgstr ""
+
+#: ../childs/boots/inc.php:730 ../childs/boots/inc.php:741
+#: ../childs/boots/inc.php:763 ../lib/vars.php:711 ../lib/vars.php:722
+#: ../lib/vars.php:744
+msgid "Theme, will make a presentation of applying the plugin automatically, value set yes or none"
+msgstr ""
+
+#: ../childs/boots/inc.php:739 ../lib/vars.php:720
+msgid "WP-PageNavi Automatic Presentation "
+msgstr ""
+
+#: ../childs/boots/inc.php:750 ../lib/vars.php:731
+msgid "Meta Slider Automatic Presentation "
+msgstr ""
+
+#: ../childs/boots/inc.php:752 ../lib/vars.php:733
+msgid "Please Set Meta Slider ID or none"
+msgstr ""
+
+#: ../childs/boots/inc.php:761 ../lib/vars.php:742
+msgid "The Events Calendar Automatic Presentation "
+msgstr ""
+
+#: ../childs/boots/inc.php:772 ../lib/vars.php:753
+msgid "Disable Keyboard Focus "
+msgstr ""
+
+#: ../childs/boots/inc.php:774 ../lib/customize.php:1328 ../lib/vars.php:755
+msgid "Fallback Setting when Nav Menu displayed improperly, value set enable( defalt ) or disable"
+msgstr ""
+
+#: ../childs/boots/inc.php:783 ../lib/customize.php:1342 ../lib/vars.php:764
+msgid "Synchronize Style for Visual Editor"
+msgstr ""
+
+#: ../childs/boots/inc.php:785 ../lib/customize.php:1344 ../lib/vars.php:766
+msgid "Reflect on Dynamically Editor Style Settings, value set yes ( default ) or none"
+msgstr ""
+
+#: ../childs/boots/inc.php:794 ../lib/customize.php:97 ../lib/vars.php:775
+msgid "Uninstall Option"
+msgstr ""
+
+#: ../childs/boots/inc.php:796 ../lib/vars.php:777
+msgid "Delete all Theme Settings when switch theme. default keep ( or delete )"
+msgstr ""
+
+#: ../childs/boots/inc.php:805 ../lib/customize.php:1444 ../lib/vars.php:786
+msgid "Menu Primary Font Size"
+msgstr ""
+
+#: ../childs/boots/inc.php:807 ../lib/customize.php:1446 ../lib/vars.php:788
+msgid "Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182"
+msgstr ""
+
+#: ../childs/boots/inc.php:815 ../lib/vars.php:796
+msgid "Menu Primary Menu Width"
+msgstr ""
+
+#: ../childs/boots/inc.php:817 ../lib/vars.php:798
+msgid "Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999"
+msgstr ""
+
+#: ../childs/boots/inc.php:825 ../lib/customize.php:1533 ../lib/vars.php:806
+msgid "Featured Image Position"
+msgstr ""
+
+#: ../childs/boots/inc.php:827 ../lib/vars.php:808
+msgid "Featured Image Position for Emphasis of new content using the Featured Image values default,left,front"
+msgstr ""
+
+#: ../childs/boots/inc.php:835 ../lib/customize.php:1550 ../lib/vars.php:816
+msgid "Featured Image Size"
+msgstr ""
+
+#: ../childs/boots/inc.php:837 ../lib/customize.php:1552 ../lib/vars.php:818
+msgid "values thumbnail, medium, large, default"
+msgstr ""
+
+#: ../childs/boots/inc.php:845 ../lib/customize.php:1564 ../lib/vars.php:826
+msgid "Featured Image Special Layout Apply Post Count"
+msgstr ""
+
+#: ../childs/boots/inc.php:847 ../lib/vars.php:828
+msgid "values from 1 to Post Per Page count default value none"
+msgstr ""
+
+#: ../childs/boots/inc.php:855 ../lib/vars.php:836
+msgid "Featured Image Show, lightbox or Hide on Singular Post,Page"
+msgstr ""
+
+#: ../childs/boots/inc.php:857 ../lib/vars.php:838
+msgid "values show or hide or lightbox ( light box is crop height ,add lightbox )"
+msgstr ""
+
+#: ../childs/boots/inc.php:865 ../lib/customize.php:1516 ../lib/vars.php:846
+msgid "USE or Not Emphasis of new content using the Featured Image"
+msgstr ""
+
+#: ../childs/boots/inc.php:867 ../childs/boots/inc.php:877 ../lib/vars.php:848
+#: ../lib/vars.php:858
+msgid "values yes or no default no"
+msgstr ""
+
+#: ../childs/boots/inc.php:875 ../lib/customize.php:2075 ../lib/vars.php:856
+msgid "USE or Not Japanese Date"
+msgstr ""
+
+#: ../childs/boots/inc.php:885 ../lib/vars.php:866
+msgid "Add Read More Link"
+msgstr ""
+
+#: ../childs/boots/inc.php:887 ../lib/vars.php:868
+msgid "Add read more link after excerpt. values yes or no default no"
+msgstr ""
+
+#: ../childs/boots/inc.php:895 ../lib/vars.php:876
+msgid "Use Raindrops Extend Excerpt"
+msgstr ""
+
+#: ../childs/boots/inc.php:897 ../lib/vars.php:878
+msgid "HTML in Excerpt. values yes or no default no"
+msgstr ""
+
+#: ../childs/boots/inc.php:905 ../lib/vars.php:886
+msgid "Allow Oembed Media at Raindrops Extend Excerpt"
+msgstr ""
+
+#: ../childs/boots/inc.php:907 ../lib/customize.php:1932 ../lib/vars.php:888
+msgid "Overview display, if you set no, you can reduce the load time of the page. values yes or no default yes"
+msgstr ""
+
+#: ../childs/boots/inc.php:915 ../lib/vars.php:896
+msgid "Place of Title"
+msgstr ""
+
+#: ../childs/boots/inc.php:917
+msgid "value default above or header_image"
+msgstr ""
+
+#: ../childs/boots/inc.php:925 ../childs/boots/inc.php:1175 ../lib/vars.php:906
+#: ../lib/vars.php:1157
+msgid "Left Margin of Site Title"
+msgstr ""
+
+#: ../childs/boots/inc.php:927 ../childs/boots/inc.php:937 ../lib/vars.php:908
+#: ../lib/vars.php:918 ../lib/vars.php:1159
+msgid "Works only Place of Title value set header_image, default value  1"
+msgstr ""
+
+#: ../childs/boots/inc.php:935 ../lib/vars.php:916
+msgid "Top Margin of Site Title"
+msgstr ""
+
+#: ../childs/boots/inc.php:945 ../lib/customize.php:2110 ../lib/vars.php:926
+msgid "Font Size of Site Title"
+msgstr ""
+
+#: ../childs/boots/inc.php:947 ../lib/customize.php:2112 ../lib/vars.php:928
+msgid "default value none, or 1-10( percent of viewport width )"
+msgstr ""
+
+#: ../childs/boots/inc.php:955 ../lib/vars.php:936
+msgid "Site Title CSS"
+msgstr ""
+
+#: ../childs/boots/inc.php:957 ../lib/customize.php:2229 ../lib/vars.php:938
+msgid "for example google-font-lobster default value none"
+msgstr ""
+
+#: ../childs/boots/inc.php:965 ../lib/vars.php:946
+msgid "Tagline in the header image"
+msgstr ""
+
+#: ../childs/boots/inc.php:967 ../lib/customize.php:2211 ../lib/vars.php:948
+msgid "tagline show or hide"
+msgstr ""
+
+#: ../childs/boots/inc.php:975 ../lib/customize-blank-front.php:42
+#: ../lib/customize.php:585 ../lib/vars.php:956
+msgid "Side bar setting method"
+msgstr ""
+
+#: ../childs/boots/inc.php:977 ../lib/vars.php:958
+msgid "value details or simple. default simple"
+msgstr ""
+
+#: ../childs/boots/inc.php:985
+msgid "Index Page columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:987 ../childs/boots/inc.php:997
+#: ../childs/boots/inc.php:1007 ../childs/boots/inc.php:1017
+#: ../childs/boots/inc.php:1027 ../childs/boots/inc.php:1037
+#: ../childs/boots/inc.php:1047 ../childs/boots/inc.php:1077
+#: ../childs/boots/inc.php:1087 ../childs/boots/inc.php:1167
+#: ../childs/boots/inc.php:1187 ../childs/boots/inc.php:1377
+#: ../childs/boots/inc.php:1417 ../childs/boots/inc.php:1427
+#: ../childs/boots/inc.php:1437 ../childs/boots/inc.php:1447
+#: ../childs/boots/inc.php:1457 ../childs/boots/inc.php:1467
+#: ../childs/boots/inc.php:1477 ../childs/boots/inc.php:1487
+#: ../childs/boots/inc.php:1497 ../childs/boots/inc.php:1507
+#: ../lib/vars.php:968 ../lib/vars.php:978 ../lib/vars.php:988
+#: ../lib/vars.php:998 ../lib/vars.php:1008 ../lib/vars.php:1018
+#: ../lib/vars.php:1028 ../lib/vars.php:1058 ../lib/vars.php:1068
+#: ../lib/vars.php:1149 ../lib/vars.php:1169 ../lib/vars.php:1359
+#: ../lib/vars.php:1399 ../lib/vars.php:1409 ../lib/vars.php:1419
+#: ../lib/vars.php:1429 ../lib/vars.php:1439 ../lib/vars.php:1449
+#: ../lib/vars.php:1459 ../lib/vars.php:1469 ../lib/vars.php:1479
+#: ../lib/vars.php:1489
+msgid "value 1-3. default 3"
+msgstr ""
+
+#: ../childs/boots/inc.php:995 ../lib/customize.php:704 ../lib/vars.php:976
+msgid "Date Archive columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1005 ../lib/customize.php:723 ../lib/vars.php:986
+msgid "Static Page columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1015 ../lib/customize.php:762 ../lib/vars.php:996
+msgid "Single Post columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1025 ../lib/customize.php:742 ../lib/vars.php:1006
+msgid "Search Result Page columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1035 ../lib/customize.php:821 ../lib/vars.php:1016
+msgid "404 Page columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1045 ../lib/customize.php:840 ../lib/vars.php:1026
+msgid "List of Post Template columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1055 ../lib/vars.php:1036
+msgid "Content Container Width"
+msgstr ""
+
+#: ../childs/boots/inc.php:1057 ../lib/vars.php:1038
+msgid "px value, default 1280"
+msgstr ""
+
+#: ../childs/boots/inc.php:1065 ../lib/customize.php:1311 ../lib/vars.php:1046
+msgid "Support limit Browser Width"
+msgstr ""
+
+#: ../childs/boots/inc.php:1067 ../lib/vars.php:1048
+msgid "In the case of specified size abnormalities of the browser window size, it will show in the box layout. set px value, default 1920"
+msgstr ""
+
+#: ../childs/boots/inc.php:1075 ../childs/boots/inc.php:1085
+#: ../lib/customize.php:860 ../lib/vars.php:1056 ../lib/vars.php:1066
+msgid "Category Archive columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1095 ../lib/vars.php:1076
+msgid "xhtml media type"
+msgstr ""
+
+#: ../childs/boots/inc.php:1097 ../lib/customize.php:1231 ../lib/vars.php:1078
+msgid "value text/html or application/xhtml+xml, default text/html"
+msgstr ""
+
+#: ../childs/boots/inc.php:1105 ../lib/vars.php:1086
+msgid "Insert Point hooks and auto load template name for Developer"
+msgstr ""
+
+#: ../childs/boots/inc.php:1107 ../lib/vars.php:1088 ../lib/vars.php:1098
+msgid "value show or hide, default hide"
+msgstr ""
+
+#: ../childs/boots/inc.php:1115 ../lib/vars.php:1096
+msgid "Bottom Status Bar"
+msgstr ""
+
+#: ../childs/boots/inc.php:1117
+msgid "value show or hide, default show"
+msgstr ""
+
+#: ../childs/boots/inc.php:1125 ../lib/customize.php:1608 ../lib/vars.php:1107
+msgid "Entry Title CSS Class"
+msgstr ""
+
+#: ../childs/boots/inc.php:1127 ../lib/customize.php:1610 ../lib/vars.php:1109
+msgid "default empty"
+msgstr ""
+
+#: ../childs/boots/inc.php:1135 ../lib/vars.php:1117
+msgid "Display Post Publish Date"
+msgstr ""
+
+#: ../childs/boots/inc.php:1137 ../childs/boots/inc.php:1147
+#: ../childs/boots/inc.php:1157 ../lib/vars.php:1119 ../lib/vars.php:1139
+msgid "default show"
+msgstr ""
+
+#: ../childs/boots/inc.php:1145 ../lib/vars.php:1127
+msgid "Display Post Author"
+msgstr ""
+
+#: ../childs/boots/inc.php:1155 ../lib/customize.php:1654 ../lib/vars.php:1137
+msgid "Display Default Category"
+msgstr ""
+
+#: ../childs/boots/inc.php:1165
+msgid "Image Archive columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1177
+msgid "Works only Place of Title value set header_image, centered, manual, default value default"
+msgstr ""
+
+#: ../childs/boots/inc.php:1185 ../lib/customize.php:879 ../lib/vars.php:1167
+msgid "Tag Archive columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1195 ../lib/customize.php:1981 ../lib/vars.php:1177
+msgid "Excerpt Length"
+msgstr ""
+
+#: ../childs/boots/inc.php:1197 ../lib/vars.php:1179
+msgid "20-400"
+msgstr ""
+
+#: ../childs/boots/inc.php:1205 ../lib/customize.php:1196 ../lib/vars.php:1187
+msgid "Location of the style sheet"
+msgstr ""
+
+#: ../childs/boots/inc.php:1207 ../lib/customize.php:1198 ../lib/vars.php:1189
+msgid "Select link stylesheet to their source HTML or document with the LINK element"
+msgstr ""
+
+#: ../childs/boots/inc.php:1215 ../lib/customize.php:1212
+#: ../lib/customize.php:1219 ../lib/vars.php:1197
+msgid "Import Raindrops Theme Current Settings"
+msgstr ""
+
+#: ../childs/boots/inc.php:1225 ../lib/customize.php:1794 ../lib/vars.php:1207
+msgid "Header Image Filter Color"
+msgstr ""
+
+#: ../childs/boots/inc.php:1235 ../lib/customize.php:1809 ../lib/vars.php:1217
+msgid "Filter Image Top"
+msgstr ""
+
+#: ../childs/boots/inc.php:1245 ../lib/customize.php:1828 ../lib/vars.php:1227
+msgid "Filter Image Bottom"
+msgstr ""
+
+#: ../childs/boots/inc.php:1255 ../childs/boots/inc.php:1265
+#: ../lib/customize.php:1776 ../lib/vars.php:1237 ../lib/vars.php:1247
+msgid "Header Image Filter"
+msgstr ""
+
+#: ../childs/boots/inc.php:1275 ../lib/customize.php:1265 ../lib/vars.php:1257
+msgid "Sticky Post Show Single Post"
+msgstr ""
+
+#: ../childs/boots/inc.php:1277 ../lib/customize.php:1267 ../lib/vars.php:1259
+msgid "Sticky Post Show only Home Page or Always it displayed ( default Always it displayed )"
+msgstr ""
+
+#: ../childs/boots/inc.php:1285 ../lib/customize.php:1135 ../lib/vars.php:1267
+msgid "Site-wide CSS"
+msgstr ""
+
+#: ../childs/boots/inc.php:1287 ../lib/customize.php:1137 ../lib/vars.php:1269
+msgid "Style  It will be retained even if the theme is updated"
+msgstr ""
+
+#: ../childs/boots/inc.php:1295 ../lib/customize.php:1677 ../lib/vars.php:1277
+msgid "Posted in Labels"
+msgstr ""
+
+#: ../childs/boots/inc.php:1297 ../lib/customize.php:1679 ../lib/vars.php:1279
+msgid "Hide Posted in Labels "
+msgstr ""
+
+#: ../childs/boots/inc.php:1297 ../functions.php:1130 ../functions.php:1145
+#: ../lib/customize.php:1679 ../lib/vars.php:1279
+msgid "This entry was posted in"
+msgstr ""
+
+#: ../childs/boots/inc.php:1297 ../functions.php:1131 ../functions.php:1146
+#: ../lib/customize.php:1679 ../lib/vars.php:1279
+msgid "and tagged"
+msgstr ""
+
+#: ../childs/boots/inc.php:1305 ../lib/customize.php:1694 ../lib/vars.php:1287
+msgid "Comments are closed Label"
+msgstr ""
+
+#: ../childs/boots/inc.php:1307 ../lib/vars.php:1289
+msgid "Hide "
+msgstr ""
+
+#: ../childs/boots/inc.php:1307 ../comments.php:72 ../lib/customize.php:1696
+#: ../lib/vars.php:1289
+msgid "Comments are closed."
+msgstr ""
+
+#: ../childs/boots/inc.php:1315 ../lib/customize.php:1742 ../lib/vars.php:1297
+msgid "Archives label"
+msgstr ""
+
+#: ../childs/boots/inc.php:1317 ../lib/vars.php:1299
+msgid "Hide or Show like Category Archives, Tag Archives label"
+msgstr ""
+
+#: ../childs/boots/inc.php:1325 ../lib/customize.php:1759 ../lib/vars.php:1307
+msgid "Archive Page Top Navigation"
+msgstr ""
+
+#: ../childs/boots/inc.php:1327 ../lib/customize.php:1761 ../lib/vars.php:1309
+msgid "Hide or Show Blog Archives page top navigation"
+msgstr ""
+
+#: ../childs/boots/inc.php:1335 ../lib/customize.php:1710 ../lib/vars.php:1317
+msgid "Position of Posted on"
+msgstr ""
+
+#: ../childs/boots/inc.php:1337 ../lib/customize.php:1712 ../lib/vars.php:1319
+msgid "default before contents"
+msgstr ""
+
+#: ../childs/boots/inc.php:1345 ../lib/customize.php:1726 ../lib/vars.php:1327
+msgid "Position of Posted in"
+msgstr ""
+
+#: ../childs/boots/inc.php:1347 ../lib/customize.php:1728 ../lib/vars.php:1329
+msgid "default after contents"
+msgstr ""
+
+#: ../childs/boots/inc.php:1355 ../lib/customize.php:1358 ../lib/vars.php:1337
+msgid "Fallback Image for Entry Content"
+msgstr ""
+
+#: ../childs/boots/inc.php:1357 ../lib/vars.php:1339
+msgid "Image, to display an alternative image if that can not be displayed"
+msgstr ""
+
+#: ../childs/boots/inc.php:1365 ../lib/customize.php:1122 ../lib/vars.php:1347
+msgid "Custom Footer Credit"
+msgstr ""
+
+#: ../childs/boots/inc.php:1367 ../lib/customize.php:1124 ../lib/vars.php:1349
+msgid "Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )"
+msgstr ""
+
+#: ../childs/boots/inc.php:1375 ../lib/customize.php:802 ../lib/vars.php:1357
+msgid "Attachment Page PDF Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1385 ../lib/customize.php:1485 ../lib/vars.php:1367
+msgid "Primary Menu Automatic Responsive"
+msgstr ""
+
+#: ../childs/boots/inc.php:1387 ../childs/boots/inc.php:1517
+#: ../lib/customize.php:1487 ../lib/customize.php:1503 ../lib/vars.php:1369
+#: ../lib/vars.php:1499
+msgid "value yes or no. default yes"
+msgstr ""
+
+#: ../childs/boots/inc.php:1395 ../lib/customize.php:1372 ../lib/vars.php:1377
+msgid "Tooltip"
+msgstr ""
+
+#: ../childs/boots/inc.php:1397 ../lib/customize.php:1374 ../lib/vars.php:1379
+msgid "Enable Tooltip. value yes or no. default yes"
+msgstr ""
+
+#: ../childs/boots/inc.php:1405 ../lib/customize.php:2191 ../lib/vars.php:1387
+msgid "Display Site Title Text"
+msgstr ""
+
+#: ../childs/boots/inc.php:1407 ../lib/customize.php:2193 ../lib/vars.php:1389
+msgid "value show, hide. default show"
+msgstr ""
+
+#: ../childs/boots/inc.php:1415
+msgid "Post Format link Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1425
+msgid "Post Format Image Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1435
+msgid "Post Format Quote Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1445
+msgid "Post Format Status Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1455
+msgid "Post Format Video Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1465
+msgid "Post Format Audio Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1475
+msgid "Post Format Galley Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1485
+msgid "Post Format Chat Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1495
+msgid "Post Format Aside Columns"
+msgstr ""
+
+#: ../childs/boots/inc.php:1505 ../lib/customize.php:685 ../lib/vars.php:1487
+msgid "Static Front Page / Posts page "
+msgstr ""
+
+#: ../childs/boots/inc.php:1515 ../lib/customize.php:1501 ../lib/vars.php:1497
+msgid "Sticky Menu "
+msgstr ""
+
+#: ../comments.php:27
 msgid "This post is password protected."
 msgstr ""
 
-# @ raindrops
-#: raindrops/comments.php:26
+#: ../comments.php:28
 msgid "Enter the password to view any comments."
 msgstr ""
 
-#  Raindrops
-#: raindrops/comments.php:35
+#: ../comments.php:36
 #, php-format
 msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
 msgstr[0] ""
 msgstr[1] ""
 
-# @ raindrops
-#: raindrops/comments.php:46
-#: raindrops/comments.php:59
+#: ../comments.php:43 ../comments.php:56
 msgid "Older Comments"
 msgstr ""
 
-# @ raindrops
-#: raindrops/comments.php:49
+#: ../comments.php:46
 msgid "Newer Comments"
 msgstr ""
 
-# @ raindrops
-#: raindrops/comments.php:62
+#: ../comments.php:59
 msgid "Newer Comments "
 msgstr ""
 
-# @ raindrops
-#: raindrops/comments.php:74
-msgid "Comments are closed."
-msgstr ""
-
-# @ raindrops
-#: raindrops/date.php:93
-#, fuzzy
+#: ../date.php:96
 msgid "Sunday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:94
-#, fuzzy
+#: ../date.php:97
 msgid "Monday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:95
-#, fuzzy
+#: ../date.php:98
 msgid "Tuesday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:96
-#, fuzzy
+#: ../date.php:99
 msgid "Wednesday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:97
-#, fuzzy
+#: ../date.php:100
 msgid "Thursday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:98
-#, fuzzy
+#: ../date.php:101
 msgid "Friday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:99
-#, fuzzy
+#: ../date.php:102
 msgid "Saturday"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:116
-#: raindrops/functions.php:2425
+#: ../date.php:121 ../functions.php:3431
 msgid "Yearly Archives"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:122
-#: raindrops/functions.php:2413
+#: ../date.php:126 ../functions.php:3419
 msgid "Monthly Archives"
 msgstr ""
 
-# @ raindrops
-#: raindrops/date.php:127
-#: raindrops/functions.php:2408
+#: ../date.php:131 ../functions.php:3414
 msgid "Daily Archives"
 msgstr ""
 
-# @ raindrops
-#: raindrops/footer.php:39
-msgid "and"
-msgstr ""
-
-#: raindrops/footer.php:47
-msgid "Entries RSS"
-msgstr ""
-
-# @ raindrops
-#: raindrops/footer.php:49
-msgid "Comments RSS"
-msgstr ""
-
-# @ raindrops
-#: raindrops/footer.php:54
-#: raindrops/footer.php:57
-msgid "Raindrops Theme"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:179
-msgid "Raindrops Help"
-msgstr ""
-
-#: raindrops/functions.php:180
-msgid "About Base Color related Class"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:192
-msgid "Raindrops Theme Help"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:193
-msgid "About Raindrops Theme"
-msgstr ""
-
-# @ default
-#: raindrops/functions.php:207
-#, fuzzy
-msgid "Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:258
+#: ../functions.php:153 ../functions.php:7502
 msgid "Primary Navigation"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:677
-#: raindrops/functions.php:4188
+#: ../functions.php:605 ../functions.php:6062
 msgid "Default Sidebar"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:687
-#: raindrops/functions.php:4186
-msgid "Extra Sidebar"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:696
+#: ../functions.php:626
 msgid "Sticky Widget"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:705
+#: ../functions.php:636
 msgid "Footer Widget"
 msgstr ""
 
-#: raindrops/functions.php:714
+#: ../functions.php:646
 msgid "Post Format Status Sidebar"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:810
+#: ../functions.php:713
 #, php-format
 msgid "If you add  %s when you must create function %s for data validation"
 msgstr ""
 
-#: raindrops/functions.php:952
+#: ../functions.php:930 ../lib/customize.php:1645
 msgid "Avatar"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:955
-#, fuzzy
+#: ../functions.php:935
 msgid "says:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:961
+#: ../functions.php:939
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:963
-#: raindrops/functions.php:1004
-#, fuzzy
+#: ../functions.php:941 ../functions.php:979
 msgid " Edit "
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:973
-#, fuzzy
+#: ../functions.php:949
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: raindrops/functions.php:987
+#: ../functions.php:963
 msgid "Reply"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1001
-#, fuzzy
+#: ../functions.php:976
 msgid "Pingback:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1036
-#: raindrops/functions.php:1039
-#: raindrops/functions.php:1050
-#: raindrops/functions.php:1053
-msgid "This entry was posted in"
-msgstr ""
-
-#: raindrops/functions.php:1036
-#: raindrops/functions.php:1050
-msgid "and tagged"
-msgstr ""
-
-#: raindrops/functions.php:1036
-msgid "Bookmark the"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:1089
-#: raindrops/functions.php:5907
+#: ../functions.php:1213 ../functions.php:8197
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-# @ raindrops
-#: raindrops/functions.php:1093
-#, fuzzy
+#: ../functions.php:1217
 msgid "Comment "
 msgstr ""
 
-#: raindrops/functions.php:1102
-#, fuzzy, php-format
-msgid "%1$s %5$s %2$s %6$s %3$s %4$s"
-msgstr ""
-
-#: raindrops/functions.php:1102
-#: raindrops/functions.php:2338
+#: ../functions.php:1245 ../functions.php:3332 ../functions.php:6453
+#: ../functions.php:6636 ../functions.php:6821
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: raindrops/functions.php:1102
+#: ../functions.php:1335
+msgid "Attached to Post on"
+msgstr ""
+
+#: ../functions.php:1338
+msgid "Created on"
+msgstr ""
+
+#: ../functions.php:1341
 msgid "Posted on"
 msgstr ""
 
-#: raindrops/functions.php:1102
+#: ../functions.php:1347
 msgid "by"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1201
+#: ../functions.php:1483
 msgid "Theme URI"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1203
-#, fuzzy
+#: ../functions.php:1485 ../part-blog.php:84
 msgid "Author"
 msgstr ""
 
-#: raindrops/functions.php:1205
+#: ../functions.php:1487 ../functions.php:1509
 msgid "Support"
 msgstr ""
 
-#: raindrops/functions.php:1205
+#: ../functions.php:1487
 msgid "http://wordpress.org/support/theme/raindrops"
 msgstr ""
 
-#: raindrops/functions.php:1205
+#: ../functions.php:1487
 msgid "http://ja.forums.wordpress.org/ lang:Japanese"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1207
+#: ../functions.php:1489 ../plugins/class-tgm-plugin-activation.php:2449
 msgid "Version"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1209
+#: ../functions.php:1491
 msgid "Change log text"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1209
+#: ../functions.php:1491
 msgid "Changelog , display new window"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1211
+#: ../functions.php:1493
 msgid "Readme text"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1211
+#: ../functions.php:1493
 msgid "Readme , display new window"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1239
+#: ../functions.php:1509
+msgid "English"
+msgstr ""
+
+#: ../functions.php:1509
+msgid "Japanese"
+msgstr ""
+
+#: ../functions.php:1511
+msgid "How to remove Site Title Block"
+msgstr ""
+
+#: ../functions.php:1512
+msgid "How to remove Post Author Name"
+msgstr ""
+
+#: ../functions.php:1513
+msgid "How to remove Entry Date"
+msgstr ""
+
+#: ../functions.php:1514
+msgid "How to remove Entry Meta"
+msgstr ""
+
+#: ../functions.php:1515
+msgid "How to remove Archive Title Label[ like Category Archives ]"
+msgstr ""
+
+#: ../functions.php:1516
+msgid "How to remove Home list above next prev navigation link"
+msgstr ""
+
+#: ../functions.php:1517
+msgid "above codes paste style.css last. If not change when  Version value change ( line:9 )"
+msgstr ""
+
+#: ../functions.php:1547
 msgid "Tips"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1240
+#: ../functions.php:1548
 msgid "If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once."
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1241
+#: ../functions.php:1549
 msgid "Dinamic Color Class"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1254
-#: raindrops/functions.php:1273
+#: ../functions.php:1562 ../functions.php:1581
 msgid "code example:please HTML editor mode"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1260
+#: ../functions.php:1568
 msgid "Dinamic Gradient Class"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1276
-msgid "About Featured Image"
+#: ../functions.php:1584
+msgid "Font Size CSS Class"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1277
-msgid "image width and height aspect ratio is 3:1. another aspect ratio will be trimming center"
+#: ../functions.php:1585 ../functions.php:1589
+msgid "Classes"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1516
-msgid "Option"
+#: ../functions.php:1586
+msgid "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1660
-#, php-format
-msgid "Sorry Your PHP version is %s Please use PHP version 5 || later."
+#: ../functions.php:1588
+msgid "Google Fonts Family CSS Class"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1663
-#, fuzzy, php-format
-msgid "Thank you for adopting the %1$s theme. It is necessary to set it to this theme. Please move to a set screen clicking this "
+#: ../functions.php:1590
+msgid "Note, More than 90 percent of the Google font can be used, but there are some limitations."
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:1663
-msgid "Raindrops settings view"
+#: ../functions.php:1591
+msgid "Examples of the no corresponding font"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:2183
+#: ../functions.php:1592
+msgid "Examples of the corresponding font"
+msgstr ""
+
+#: ../functions.php:1593
+msgid "How to specify the font"
+msgstr ""
+
+#: ../functions.php:1594
+msgid "Add prefix google-font- + Font name lowercase and change to - the space"
+msgstr ""
+
+#: ../functions.php:1595
+msgid "How to specify the font weight"
+msgstr ""
+
+#: ../functions.php:1596
+msgid "How to specify the font style"
+msgstr ""
+
+#: ../functions.php:1599
+msgid "Example of Custom CSS Meta Box Style Rules"
+msgstr ""
+
+#: ../functions.php:1600
+msgid "Styling Entry Title"
+msgstr ""
+
+#: ../functions.php:1601
+msgid "Change entry title color"
+msgstr ""
+
+#: ../functions.php:1602
+msgid "Styling Posted on"
+msgstr ""
+
+#: ../functions.php:1603
+msgid "hide posted on from all post"
+msgstr ""
+
+#: ../functions.php:1604
+msgid "Styling Posted in"
+msgstr ""
+
+#: ../functions.php:1605
+msgid "hide posted in"
+msgstr ""
+
+#: ../functions.php:1606
+msgid "Styling Article"
+msgstr ""
+
+#: ../functions.php:1607
+msgid "add border and padding"
+msgstr ""
+
+#: ../functions.php:1608
+msgid "note:article elements and post_class () You can use all of the elements to be output."
+msgstr ""
+
+#: ../functions.php:1916
+msgid "(&nbsp;optional&nbsp;)"
+msgstr ""
+
+#: ../functions.php:3157
 #, php-format
 msgid "%s Articles archived"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:2389
-#, fuzzy
+#: ../functions.php:3394
 msgid "Search Results"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:2394
+#: ../functions.php:3399
 msgid "Tag Archives"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:2399
-#, fuzzy
+#: ../functions.php:3405
 msgid "Category Archives"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:2430
+#: ../functions.php:3436
 msgid "Author Archives"
 msgstr ""
 
-#: raindrops/functions.php:2441
-#: raindrops/functions.php:2447
-#: raindrops/functions.php:2453
-#: raindrops/functions.php:2459
-#: raindrops/functions.php:2465
-#: raindrops/functions.php:2471
-#: raindrops/functions.php:2477
-#: raindrops/functions.php:2483
-#: raindrops/functions.php:2489
+#: ../functions.php:3447 ../functions.php:3453 ../functions.php:3459
+#: ../functions.php:3465 ../functions.php:3471 ../functions.php:3477
+#: ../functions.php:3483 ../functions.php:3489 ../functions.php:3495
 msgid "Post Format"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:2494
+#: ../functions.php:3500
 msgid "Blog Archives"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:3103
-msgid "Current theme is fluid settings"
+#: ../functions.php:4060
+msgid "Article"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:3103
-msgid "image size will be shrink to fit page"
+#: ../functions.php:4068
+msgid " to entry"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:3104
-msgid "Theme Settings"
+#: ../functions.php:4075
+msgid "Standard"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:3530
-#, fuzzy, php-format
-msgid " Page %s"
+#: ../functions.php:4076
+msgid "Aside"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:3630
-#: raindrops/functions.php:5806
-#: raindrops/image.php:119
-#: raindrops/image.php:230
-#: raindrops/loop.php:104
-msgid "Trash"
+#: ../functions.php:4077
+msgid "Chat"
 msgstr ""
 
-# @ raindrops
-#: raindrops/functions.php:4171
-msgid "Raindrops theme settings"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4172
-msgid "Another Settings link"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4181
-msgid "Custom Header"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4181
-msgid "Widget"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4181
-#, fuzzy
-msgid "Nav Menus"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4181
-msgid "Raindrops Settings"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4181
-msgid "Theme"
-msgstr ""
-
-#: raindrops/functions.php:4181
-msgid "Dashbord"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4182
-msgid "Base color"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4184
-msgid "Color Type"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4185
-msgid "Page width"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4189
-msgid "Menu Primary"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4190
-msgid "Font Color"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4191
-msgid "Link Color"
-msgstr ""
-
-# @ default
-#: raindrops/functions.php:4271
-#, fuzzy, php-format
-msgid "add_action(  '%1$s', 'your_function'  ) or add template part file the name '%2$s'."
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4473
-#, fuzzy
-msgid "Featured Image"
-msgstr ""
-
-#: raindrops/functions.php:4518
-#: raindrops/functions.php:6030
-msgid "Continue&nbsp;reading "
-msgstr ""
-
-#: raindrops/functions.php:4518
-#: raindrops/functions.php:6030
-msgid "&nbsp;Post ID&nbsp;"
-msgstr ""
-
-#: raindrops/functions.php:4550
-msgid " Older posts"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4550
-msgid "Newer posts"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4580
-#, fuzzy
-msgid "Archives"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4616
-msgid "Recent Post"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4755
-#, php-format
-msgid "Prev Month(  %sth  )"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:4761
-#, php-format
-msgid "Next Month(  %sth  )"
-msgstr ""
-
-#: raindrops/functions.php:4840
-msgid "New window"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:5110
-msgid "Go to Attachment page"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:5770
-msgid "Empty content"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:5808
-#: raindrops/functions.php:5910
-#: raindrops/image.php:117
-#: raindrops/image.php:228
-#: raindrops/loop.php:102
-msgid "Edit"
-msgstr ""
-
-#: raindrops/functions.php:5825
-msgid "&laquo; Older Entries"
-msgstr ""
-
-#: raindrops/functions.php:5830
-msgid "Newer Entries &raquo;"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:5926
-#: raindrops/functions.php:5930
-#: raindrops/functions.php:5940
-#: raindrops/functions.php:5975
-#, fuzzy
-msgid "Page"
-msgstr ""
-
-# @ raindrops
-#: raindrops/functions.php:5951
-msgid "Now Page"
-msgstr ""
-
-#: raindrops/functions.php:5963
-#: raindrops/functions.php:5994
-msgid "Portfolio Home"
-msgstr ""
-
-#: raindrops/functions.php:6001
-msgid "Home"
-msgstr ""
-
-# @ raindrops
-#: raindrops/header.php:26
-#, fuzzy
-msgid "Skip to content"
-msgstr ""
-
-# @ raindrops
-#: raindrops/image.php:55
-#: raindrops/image.php:164
-msgid "Entry : "
-msgstr ""
-
-# @ raindrops
-#: raindrops/image.php:128
-#: raindrops/image.php:240
-msgid "Sorry, no attachments matched your criteria."
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-blog.php:72
-msgid "Category:"
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-blog.php:79
-msgid "Tags:"
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-blog.php:86
-msgid "Author:"
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-blog.php:97
-#: raindrops/part-gallery.php:97
-msgid "Leave a comment"
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-blog.php:98
-#: raindrops/part-gallery.php:97
-msgid "1 Comment"
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-blog.php:99
-#: raindrops/part-gallery.php:97
-msgid "% Comments"
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-gallery.php:74
-#, php-format
-msgid "This gallery contains %1$s photographs in all as "
-msgstr ""
-
-# @ raindrops
-#: raindrops/part-gallery.php:74
-msgid "photograph etc."
-msgstr ""
-
-#: raindrops/part-gallery.php:90
-msgid "View posts in the Gallery category"
-msgstr ""
-
-#: raindrops/part-gallery.php:91
+#: ../functions.php:4078 ../part-gallery.php:101
 msgid "Gallery"
 msgstr ""
 
-# @ raindrops
-#: raindrops/part-gallery.php:92
-msgid "Link to Category"
+#: ../functions.php:4079
+msgid "Link"
 msgstr ""
 
-# @ raindrops
-#: raindrops/search.php:86
-msgid "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it."
+#: ../functions.php:4080
+msgid "Image"
 msgstr ""
 
-#: raindrops/searchform.php:18
-msgid "must not contain html tags"
+#: ../functions.php:4081
+msgid "Quote"
 msgstr ""
 
-# @ raindrops
-#: raindrops/searchform.php:18
-#: raindrops/searchform.php:19
-#: raindrops/searchform.php:29
-#, fuzzy
-msgid "Search"
+#: ../functions.php:4082 ../plugins/class-tgm-plugin-activation.php:2450
+msgid "Status"
 msgstr ""
 
-# @ raindrops
-#: raindrops/sidebar.php:18
-#, fuzzy
-msgid "Pages"
+#: ../functions.php:4083
+msgid "Video"
 msgstr ""
 
-# @ raindrops
-#: raindrops/sidebar.php:37
-#, fuzzy
-msgid "Meta"
+#: ../functions.php:4084
+msgid "Audio"
 msgstr ""
 
-#: raindrops/single.php:92
-msgid "Sticky Post Shows Only WEB Site Home."
+#: ../functions.php:4094
+msgid "Post Format "
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:20
-msgid "Color Scheme"
+#: ../functions.php:4884
+msgid "cite:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:22
-msgid "Please choose the naming convention for the color list"
+#: ../functions.php:4887
+msgid "Message"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:29
-msgid "Base Color for Automatic Color Arrangement"
+#: ../functions.php:4888
+msgid "Required Your Message"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:31
-msgid "Please specify your favorite color. and an automatic arrangement of color is designed."
+#: ../functions.php:4889
+msgid "Name"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:41
-msgid "The mood like dark atmosphere and the bright note, etc. is decided. and The editor is displayed when themename is selected, and a present style can be edited in detail."
+#: ../functions.php:4890
+msgid "Required Your Name"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:50
-msgid "Header background image"
+#: ../functions.php:4891
+msgid "Email Address"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:52
+#: ../functions.php:4892
+msgid "Required Your Email"
+msgstr ""
+
+#: ../functions.php:5430
+#, php-format
+msgid "add_action(  '%1$s', 'your_function'  ) or add template part file the name '%2$s'."
+msgstr ""
+
+#: ../functions.php:5962 ../functions.php:8301 ../functions.php:9910
+#: ../part-additional.php:52
+msgid "Continue&nbsp;reading "
+msgstr ""
+
+#: ../functions.php:5962 ../functions.php:8301 ../functions.php:9912
+#: ../part-additional.php:52
+msgid "&nbsp;Post ID&nbsp;"
+msgstr ""
+
+#: ../functions.php:6008
+msgid " Older posts"
+msgstr ""
+
+#: ../functions.php:6008
+msgid "Newer posts"
+msgstr ""
+
+#: ../functions.php:6064 ../functions.php:6087
+msgid "Set Widgets"
+msgstr ""
+
+#: ../functions.php:6065 ../functions.php:6088
+msgid "or"
+msgstr ""
+
+#: ../functions.php:6067 ../functions.php:6090
+msgid "Change Columns"
+msgstr ""
+
+#: ../functions.php:6320
+msgid "Recent Post"
+msgstr ""
+
+#: ../functions.php:6876
+#, php-format
+msgid "&laquo; %s "
+msgstr ""
+
+#: ../functions.php:6888
+#, php-format
+msgid " %s &raquo;"
+msgstr ""
+
+#: ../functions.php:7279
+msgid "Go to Attachment page"
+msgstr ""
+
+#: ../functions.php:8067
+msgid "Empty content"
+msgstr ""
+
+#: ../functions.php:8121
+msgid "&laquo; Older Entries"
+msgstr ""
+
+#: ../functions.php:8126
+msgid "Newer Entries &raquo;"
+msgstr ""
+
+#: ../functions.php:8216 ../functions.php:8220 ../functions.php:8226
+#: ../functions.php:8256 ../lib/widgets.php:873
+msgid "Page"
+msgstr ""
+
+#: ../functions.php:8249 ../functions.php:8269
+msgid "Portfolio Home"
+msgstr ""
+
+#: ../functions.php:8272
+msgid "Home"
+msgstr ""
+
+#: ../functions.php:8431
+msgctxt ""
+msgid "Child Page : "
+msgid_plural "Child Pages : "
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:8721
+msgid "Custom CSS For This Entry"
+msgstr ""
+
+#: ../functions.php:8822
+msgid "Add Front Page"
+msgstr ""
+
+#: ../functions.php:8823
+msgid "Add Front Page This Content"
+msgstr ""
+
+#: ../functions.php:8824
+msgid "No Need"
+msgstr ""
+
+#: ../functions.php:8842
+msgid "show_on_front"
+msgstr ""
+
+#: ../functions.php:8846
+msgid "Hide Header Image"
+msgstr ""
+
+#: ../functions.php:8847
+msgid "Default Image"
+msgstr ""
+
+#: ../functions.php:8862
+msgid "Add Custom Header"
+msgstr ""
+
+#: ../functions.php:8866
+msgid "Override header Image"
+msgstr ""
+
+#: ../functions.php:8867
+msgid "Now Selected Front Page template,You can use Featured Image for override header image"
+msgstr ""
+
+#: ../functions.php:8871
+msgid "The Custom CSS Field only for the current post"
+msgstr ""
+
+#: ../functions.php:9172
+msgid "and"
+msgstr ""
+
+#: ../functions.php:9175
+msgid "Entries RSS"
+msgstr ""
+
+#: ../functions.php:9175
+msgid "Comments RSS"
+msgstr ""
+
+#: ../functions.php:9182 ../functions.php:9185 ../lib/option-panel.php:600
+#: ../lib/option-panel.php:603
+msgid "Raindrops Theme"
+msgstr ""
+
+#: ../functions.php:9805
+msgid "Parent Category:"
+msgstr ""
+
+#: ../functions.php:9820
+msgid "Child Category:"
+msgstr ""
+
+#: ../functions.php:10801
+msgid "Link to Year Archives "
+msgstr ""
+
+#: ../functions.php:10885
+msgid "Password"
+msgstr ""
+
+#: ../functions.php:10886
+msgid "This content is password protected. To view it please enter your password"
+msgstr ""
+
+#: ../functions.php:10887
+msgid "Submit"
+msgstr ""
+
+#: ../functions.php:10977
+msgid "Uncategorized"
+msgstr ""
+
+#: ../functions.php:11157
+msgid "Theme Widget"
+msgstr ""
+
+#: ../functions.php:11157
+msgid "Add On Widget"
+msgstr ""
+
+#: ../header-front.php:63 ../header-xhtml.php:61 ../header.php:18
+msgid "Skip to content"
+msgstr ""
+
+#: ../image.php:75
+msgid "Caption"
+msgstr ""
+
+#: ../image.php:85 ../pdf.php:73
+msgid "Attached Source"
+msgstr ""
+
+#: ../image.php:137 ../pdf.php:134
+msgid "Sorry, no attachments matched your criteria."
+msgstr ""
+
+#: ../lib/alias_functions.php:1616
+msgid "Raindrops Help"
+msgstr ""
+
+#: ../lib/alias_functions.php:1617
+msgid "About Base Color related Class"
+msgstr ""
+
+#: ../lib/alias_functions.php:1629 ../lib/alias_functions.php:1642
+msgid "Raindrops Theme Help"
+msgstr ""
+
+#: ../lib/alias_functions.php:1630 ../lib/alias_functions.php:1643
+msgid "About Raindrops Theme"
+msgstr ""
+
+#: ../lib/alias_functions.php:1656
+msgid "Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help"
+msgstr ""
+
+#: ../lib/alias_functions.php:2098
+msgctxt "admin color scheme"
+msgid "Light"
+msgstr ""
+
+#: ../lib/alias_functions.php:2103
+msgctxt "admin color scheme"
+msgid "Blue"
+msgstr ""
+
+#: ../lib/alias_functions.php:2107
+msgctxt "admin color scheme"
+msgid "Midnight"
+msgstr ""
+
+#: ../lib/alias_functions.php:2111
+msgctxt "admin color scheme"
+msgid "Sunrise"
+msgstr ""
+
+#: ../lib/alias_functions.php:2115
+msgctxt "admin color scheme"
+msgid "Ectoplasm"
+msgstr ""
+
+#: ../lib/alias_functions.php:2119
+msgctxt "admin color scheme"
+msgid "Ocean"
+msgstr ""
+
+#: ../lib/alias_functions.php:2123
+msgctxt "admin color scheme"
+msgid "Coffee"
+msgstr ""
+
+#: ../lib/alias_functions.php:2127
+msgctxt "admin color scheme"
+msgid "Evergreen"
+msgstr ""
+
+#: ../lib/alias_functions.php:2131
+msgctxt "admin color scheme"
+msgid "Mint"
+msgstr ""
+
+#: ../lib/customize-blank-front.php:20 ../lib/customize.php:72
+#: ../lib/widgets.php:326
+msgid "Featured Image"
+msgstr ""
+
+#: ../lib/customize-blank-front.php:21 ../lib/customize.php:77
+msgid "Emphasis of new content using the Featured Image"
+msgstr ""
+
+#: ../lib/customize-blank-front.php:44 ../lib/customize.php:587
+msgid "Please select Simple( All list pages same column ) or details ( It sets the column of the list page, such as archive and index individually )"
+msgstr ""
+
+#: ../lib/customize-blank-front.php:48 ../lib/customize.php:591
+msgid "Simple"
+msgstr ""
+
+#: ../lib/customize-blank-front.php:49 ../lib/customize.php:592
+msgid "Details"
+msgstr ""
+
+#: ../lib/customize.php:76
+msgid "Featured Image Settings"
+msgstr ""
+
+#: ../lib/customize.php:80
+msgid "Layout and Sidebars"
+msgstr ""
+
+#: ../lib/customize.php:85
+msgid "Fonts"
+msgstr ""
+
+#: ../lib/customize.php:94
+msgid "Advanced"
+msgstr ""
+
+#: ../lib/customize.php:95
+msgid "Excerpt"
+msgstr ""
+
+#: ../lib/customize.php:96
+msgid "Add-ons"
+msgstr ""
+
+#: ../lib/customize.php:106
+msgid "Post"
+msgstr ""
+
+#: ../lib/customize.php:110 ../lib/customize.php:117
+msgid "The following changes are made using the CSS"
+msgstr ""
+
+#: ../lib/customize.php:113
+msgid "Archive"
+msgstr ""
+
+#: ../lib/customize.php:120
+msgid "Menu"
+msgstr ""
+
+#: ../lib/customize.php:124
+msgid "Menu Size and Width"
+msgstr ""
+
+#: ../lib/customize.php:141
+msgid "Presentation"
+msgstr ""
+
+#: ../lib/customize.php:398
+msgid "Base color"
+msgstr ""
+
+#: ../lib/customize.php:413 ../lib/vars.php:1517
+msgid "Color Setting"
+msgstr ""
+
+#: ../lib/customize.php:415 ../lib/vars.php:1519
+msgid "Select Automatic Color or Custom Color"
+msgstr ""
+
+#: ../lib/customize.php:419
+msgid "Automatic Color Setting"
+msgstr ""
+
+#: ../lib/customize.php:420
+msgid "Custom Color Setting"
+msgstr ""
+
+#: ../lib/customize.php:430
+msgid "Font Color"
+msgstr ""
+
+#: ../lib/customize.php:444
+msgid "Complementary Link Color For Entry Title"
+msgstr ""
+
+#: ../lib/customize.php:446
+msgid "If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) "
+msgstr ""
+
+#: ../lib/customize.php:450 ../lib/customize.php:1111 ../lib/customize.php:1170
+#: ../lib/customize.php:1348 ../lib/customize.php:1378
+#: ../lib/customize.php:1395 ../lib/customize.php:1412
+#: ../lib/customize.php:1491 ../lib/customize.php:1507
+#: ../lib/customize.php:1522 ../lib/customize.php:1937
+#: ../lib/customize.php:1970 ../lib/customize.php:2010
+#: ../lib/customize.php:2029 ../lib/customize.php:2063
+#: ../lib/customize.php:2081 ../lib/widgets.php:1161
+msgid "Yes"
+msgstr ""
+
+#: ../lib/customize.php:451 ../lib/customize.php:1112 ../lib/customize.php:1171
+#: ../lib/customize.php:1349 ../lib/customize.php:1379
+#: ../lib/customize.php:1396 ../lib/customize.php:1413
+#: ../lib/customize.php:1492 ../lib/customize.php:1508
+#: ../lib/customize.php:1523 ../lib/customize.php:1936
+#: ../lib/customize.php:1971 ../lib/customize.php:2011
+#: ../lib/customize.php:2030 ../lib/customize.php:2064
+#: ../lib/customize.php:2082 ../lib/widgets.php:1157
+msgid "No"
+msgstr ""
+
+#: ../lib/customize.php:462
+msgid "Footer Font Color"
+msgstr ""
+
+#: ../lib/customize.php:477
+msgid "Link Color"
+msgstr ""
+
+#: ../lib/customize.php:492
+msgid "Footer Link Color"
+msgstr ""
+
+#: ../lib/customize.php:564
+msgid "Document Width"
+msgstr ""
+
+#: ../lib/customize.php:571 ../lib/validate.php:1011
+msgid "750px centered"
+msgstr ""
+
+#: ../lib/customize.php:572 ../lib/validate.php:1012
+msgid "950px centered"
+msgstr ""
+
+#: ../lib/customize.php:573 ../lib/validate.php:1013
+msgid "974px"
+msgstr ""
+
+#: ../lib/customize.php:574 ../lib/validate.php:1014
+msgid "Box Layout Responsive"
+msgstr ""
+
+#: ../lib/customize.php:575
+msgid "Full Width Responsive"
+msgstr ""
+
+#: ../lib/customize.php:608 ../lib/validate.php:984
+msgid "left 160px"
+msgstr ""
+
+#: ../lib/customize.php:609 ../lib/validate.php:985
+msgid "left 180px"
+msgstr ""
+
+#: ../lib/customize.php:610 ../lib/validate.php:986
+msgid "left 300px"
+msgstr ""
+
+#: ../lib/customize.php:611 ../lib/validate.php:987
+msgid "right 180px"
+msgstr ""
+
+#: ../lib/customize.php:612 ../lib/validate.php:988
+msgid "right 240px"
+msgstr ""
+
+#: ../lib/customize.php:613 ../lib/validate.php:989
+msgid "right 300px"
+msgstr ""
+
+#: ../lib/customize.php:623
+msgid "Display Extra Sidebar"
+msgstr ""
+
+#: ../lib/customize.php:629 ../lib/customize.php:1094 ../lib/customize.php:1153
+#: ../lib/customize.php:1254 ../lib/customize.php:1583
+#: ../lib/customize.php:1626 ../lib/customize.php:1643
+#: ../lib/customize.php:1666 ../lib/customize.php:1683
+#: ../lib/customize.php:1700 ../lib/customize.php:1748
+#: ../lib/customize.php:1765 ../lib/customize.php:2197 ../lib/validate.php:919
+msgid "Show"
+msgstr ""
+
+#: ../lib/customize.php:630 ../lib/customize.php:1095 ../lib/customize.php:1154
+#: ../lib/customize.php:1255 ../lib/customize.php:1584
+#: ../lib/customize.php:1627 ../lib/customize.php:1644
+#: ../lib/customize.php:1667 ../lib/customize.php:1684
+#: ../lib/customize.php:1701 ../lib/customize.php:1749
+#: ../lib/customize.php:1766 ../lib/customize.php:1887
+#: ../lib/customize.php:1904 ../lib/customize.php:1921
+#: ../lib/customize.php:2198 ../lib/customize.php:2217 ../lib/validate.php:920
+msgid "Hide"
+msgstr ""
+
+#: ../lib/customize.php:651 ../lib/validate.php:895
+msgid "25%"
+msgstr ""
+
+#: ../lib/customize.php:652 ../lib/validate.php:896
+msgid "33%"
+msgstr ""
+
+#: ../lib/customize.php:653 ../lib/validate.php:897
+msgid "50%"
+msgstr ""
+
+#: ../lib/customize.php:654 ../lib/validate.php:898
+msgid "66%"
+msgstr ""
+
+#: ../lib/customize.php:655 ../lib/validate.php:899
+msgid "75%"
+msgstr ""
+
+#: ../lib/customize.php:666 ../lib/vars.php:966
+msgid "Index Page, Static Front Page columns"
+msgstr ""
+
+#: ../lib/customize.php:671 ../lib/customize.php:690 ../lib/customize.php:709
+#: ../lib/customize.php:728 ../lib/customize.php:747 ../lib/customize.php:767
+#: ../lib/customize.php:787 ../lib/customize.php:807 ../lib/customize.php:826
+#: ../lib/customize.php:845 ../lib/customize.php:865 ../lib/customize.php:884
+#: ../lib/customize.php:903 ../lib/customize.php:922 ../lib/customize.php:941
+#: ../lib/customize.php:960 ../lib/customize.php:979 ../lib/customize.php:998
+#: ../lib/customize.php:1017 ../lib/customize.php:1036
+#: ../lib/customize.php:1055 ../lib/customize.php:1074
+msgid "1 column"
+msgstr ""
+
+#: ../lib/customize.php:672 ../lib/customize.php:691 ../lib/customize.php:710
+#: ../lib/customize.php:729 ../lib/customize.php:748 ../lib/customize.php:768
+#: ../lib/customize.php:788 ../lib/customize.php:808 ../lib/customize.php:827
+#: ../lib/customize.php:846 ../lib/customize.php:866 ../lib/customize.php:885
+#: ../lib/customize.php:904 ../lib/customize.php:923 ../lib/customize.php:942
+#: ../lib/customize.php:961 ../lib/customize.php:980 ../lib/customize.php:999
+#: ../lib/customize.php:1018 ../lib/customize.php:1037
+#: ../lib/customize.php:1056 ../lib/customize.php:1075
+msgid "2 columns"
+msgstr ""
+
+#: ../lib/customize.php:673 ../lib/customize.php:692 ../lib/customize.php:711
+#: ../lib/customize.php:730 ../lib/customize.php:749 ../lib/customize.php:769
+#: ../lib/customize.php:789 ../lib/customize.php:809 ../lib/customize.php:828
+#: ../lib/customize.php:847 ../lib/customize.php:867 ../lib/customize.php:886
+#: ../lib/customize.php:905 ../lib/customize.php:924 ../lib/customize.php:943
+#: ../lib/customize.php:962 ../lib/customize.php:981 ../lib/customize.php:1000
+#: ../lib/customize.php:1019 ../lib/customize.php:1038
+#: ../lib/customize.php:1057 ../lib/customize.php:1076
+msgid "3 columns"
+msgstr ""
+
+#: ../lib/customize.php:782 ../lib/vars.php:1147
+msgid "Attachment Page Image Columns"
+msgstr ""
+
+#: ../lib/customize.php:898
+msgid "Author Archives columns"
+msgstr ""
+
+#: ../lib/customize.php:917 ../lib/vars.php:1397
+msgid "Archives Post Format link Columns"
+msgstr ""
+
+#: ../lib/customize.php:936 ../lib/vars.php:1407
+msgid "Archives Post Format Image Columns"
+msgstr ""
+
+#: ../lib/customize.php:955 ../lib/vars.php:1417
+msgid "Archives Post Format Quote Columns"
+msgstr ""
+
+#: ../lib/customize.php:974 ../lib/vars.php:1427
+msgid "Archives Post Format Status Columns"
+msgstr ""
+
+#: ../lib/customize.php:993 ../lib/vars.php:1437
+msgid "Archives Post Format Video Columns"
+msgstr ""
+
+#: ../lib/customize.php:1012 ../lib/vars.php:1447
+msgid "Archives Post Format Audio Columns"
+msgstr ""
+
+#: ../lib/customize.php:1031
+msgid "Archives Post Format Gallery Columns"
+msgstr ""
+
+#: ../lib/customize.php:1050 ../lib/vars.php:1467
+msgid "Archives Post Format Chat Columns"
+msgstr ""
+
+#: ../lib/customize.php:1069 ../lib/vars.php:1477
+msgid "Archives Post Format Aside Columns"
+msgstr ""
+
+#: ../lib/customize.php:1088
+msgid "Display hide"
+msgstr ""
+
+#: ../lib/customize.php:1105 ../lib/vars.php:1507
+msgid "Reset Theme Settings"
+msgstr ""
+
+#: ../lib/customize.php:1107 ../lib/vars.php:1509
+msgid "Carefully Use! Reset All Theme Settings"
+msgstr ""
+
+#: ../lib/customize.php:1147
+msgid "Developer Settings"
+msgstr ""
+
+#: ../lib/customize.php:1149
+msgid "Show Insert Point hooks and auto load template name for Developer, default hide"
+msgstr ""
+
+#: ../lib/customize.php:1164
+msgid "Force Unique Link Text"
+msgstr ""
+
+#: ../lib/customize.php:1180
+msgid "Document Type Definition"
+msgstr ""
+
+#: ../lib/customize.php:1186
+msgid "HTML5"
+msgstr ""
+
+#: ../lib/customize.php:1187
+msgid "XHTML1.0"
+msgstr ""
+
+#: ../lib/customize.php:1202
+msgid "Stylesheet to their source HTML"
+msgstr ""
+
+#: ../lib/customize.php:1203
+msgid "Stylesheet with the LINK element"
+msgstr ""
+
+#: ../lib/customize.php:1214
+msgid "In order to reflect the results, please reload the browser to save once"
+msgstr ""
+
+#: ../lib/customize.php:1220
+msgid "Do not import"
+msgstr ""
+
+#: ../lib/customize.php:1229
+msgid "XHTML Media Type"
+msgstr ""
+
+#: ../lib/customize.php:1236
+msgid "text/html"
+msgstr ""
+
+#: ../lib/customize.php:1237
+msgid "application/xhtml+xml"
+msgstr ""
+
+#: ../lib/customize.php:1248
+msgid "Status Bar"
+msgstr ""
+
+#: ../lib/customize.php:1250
+msgid "Show or Hide, Raindrops Status Bar at Page bottom, default show"
+msgstr ""
+
+#: ../lib/customize.php:1271
+msgid "Always it displayed"
+msgstr ""
+
+#: ../lib/customize.php:1272
+msgid "Show only Home Page"
+msgstr ""
+
+#: ../lib/customize.php:1282
+msgid "Fluid  Max Width (px)"
+msgstr ""
+
+#: ../lib/customize.php:1297
+msgid "Content Container Width (px)"
+msgstr ""
+
+#: ../lib/customize.php:1313
+msgid "In the case of specified size abnormalities of the browser window size, it will show in the box layout. set px value, Default 1920 (px size)"
+msgstr ""
+
+#: ../lib/customize.php:1326
+msgid "Disable Keyboad Focus"
+msgstr ""
+
+#: ../lib/customize.php:1332 ../lib/customize.php:1784
+msgid "Disable"
+msgstr ""
+
+#: ../lib/customize.php:1333 ../lib/customize.php:1783
+msgid "Enable"
+msgstr ""
+
+#: ../lib/customize.php:1360
+msgid "Image, to display an alternative image if that can not be displayed. Please input Image URI. When you return to the change after the default image, please enter default "
+msgstr ""
+
+#: ../lib/customize.php:1389
+msgid "Show Attach to Post Date and Author in Attachment"
+msgstr ""
+
+#: ../lib/customize.php:1391 ../lib/customize.php:1408 ../lib/vars.php:1529
+#: ../lib/vars.php:1539
+msgid "Default no"
+msgstr ""
+
+#: ../lib/customize.php:1406
+msgid "Show Publish Date and Author in Page"
+msgstr ""
+
+#: ../lib/customize.php:1464
+msgid "Menu Primary Min Width"
+msgstr ""
+
+#: ../lib/customize.php:1466
+msgid "Menu Primary Width. default value is 10 ( em ). set 1 between 95.999"
+msgstr ""
+
+#: ../lib/customize.php:1518
+msgid "values yes or no default No"
+msgstr ""
+
+#: ../lib/customize.php:1535
+msgid "Loop Pages Layout of Featured Image"
+msgstr ""
+
+#: ../lib/customize.php:1539
+msgid "In front of Title"
+msgstr ""
+
+#: ../lib/customize.php:1540
+msgid "Left of Article"
+msgstr ""
+
+#: ../lib/customize.php:1566
+msgid "Input Possible values are 1 - "
+msgstr ""
+
+#: ../lib/customize.php:1566
+msgid " default value 3"
+msgstr ""
+
+#: ../lib/customize.php:1577
+msgid "Singular ( post, page )"
+msgstr ""
+
+#: ../lib/customize.php:1579
+msgid "Featured Image Show, Hide or Lightbox on Singular Post,Page. default Show"
+msgstr ""
+
+#: ../lib/customize.php:1585
+msgid "Light Box"
+msgstr ""
+
+#: ../lib/customize.php:1595
+msgid "Base Font Size"
+msgstr ""
+
+#: ../lib/customize.php:1620
+msgid "Display Publish Date"
+msgstr ""
+
+#: ../lib/customize.php:1622
+msgid "default Show"
+msgstr ""
+
+#: ../lib/customize.php:1628
+msgid "Emoji"
+msgstr ""
+
+#: ../lib/customize.php:1637
+msgid "Display Author"
+msgstr ""
+
+#: ../lib/customize.php:1639
+msgid "default Avatar"
+msgstr ""
+
+#: ../lib/customize.php:1657
+msgctxt "permalink setting related message"
+msgid "Current permalink setting is the default. If permalink is the default, this feature does not work correctly."
+msgid_plural "If permalink structure is special may not work"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../lib/customize.php:1685 ../lib/customize.php:1750
+msgid "emoji"
+msgstr ""
+
+#: ../lib/customize.php:1696
+msgid "Hide label "
+msgstr ""
+
+#: ../lib/customize.php:1716 ../lib/customize.php:1732
+msgid "Before Contents"
+msgstr ""
+
+#: ../lib/customize.php:1717 ../lib/customize.php:1733
+msgid "After Contents"
+msgstr ""
+
+#: ../lib/customize.php:1744
+msgid "Hide or Show label like Category Archives, Tag Archives"
+msgstr ""
+
+#: ../lib/customize.php:1796
+msgid "Set Header Image Filter Color"
+msgstr ""
+
+#: ../lib/customize.php:1879
+msgid "Home Listed Entry Contents"
+msgstr ""
+
+#: ../lib/customize.php:1885 ../lib/customize.php:1902
+#: ../lib/customize.php:1919
+msgid "Show Content"
+msgstr ""
+
+#: ../lib/customize.php:1886 ../lib/customize.php:1903
+#: ../lib/customize.php:1920
+msgid "Show Excerpt"
+msgstr ""
+
+#: ../lib/customize.php:1896
+msgid "Category Archives Entry Contents"
+msgstr ""
+
+#: ../lib/customize.php:1913
+msgid "Search Result Entry Contents"
+msgstr ""
+
+#: ../lib/customize.php:1930
+msgid "Allow Oembed in Excerpt"
+msgstr ""
+
+#: ../lib/customize.php:1947
+msgid "Excerpt Type"
+msgstr ""
+
+#: ../lib/customize.php:1949
+msgid "Default WordPress Excerpt, HTML in Excerpt is Raindrops original excerpt"
+msgstr ""
+
+#: ../lib/customize.php:1953
+msgid "WordPress Excerpt"
+msgstr ""
+
+#: ../lib/customize.php:1954
+msgid "HTML in Excerpt"
+msgstr ""
+
+#: ../lib/customize.php:1964
+msgid "Add More Link After Excerpt"
+msgstr ""
+
+#: ../lib/customize.php:1983
+msgid "Value 20-400"
+msgstr ""
+
+#: ../lib/customize.php:2004
+msgid "Breadcrumbs"
+msgstr ""
+
+#: ../lib/customize.php:2006
+msgid "Theme, will make a presentation of applying the plugin automatically, value set yes or none. using Breadcrumb NavXT"
+msgstr ""
+
+#: ../lib/customize.php:2023
+msgid "Custom Page Navigation"
+msgstr ""
+
+#: ../lib/customize.php:2025
+msgid "Theme, will make a presentation of applying the plugin automatically, value set yes or none. using WP PageNavi"
+msgstr ""
+
+#: ../lib/customize.php:2042
+msgid "Slider for HomePage"
+msgstr ""
+
+#: ../lib/customize.php:2044
+msgid "Please Set Meta Slider ID or none. using Meta Slider"
+msgstr ""
+
+#: ../lib/customize.php:2057
+msgid "The Events Calendar Automatic Presentation"
+msgstr ""
+
+#: ../lib/customize.php:2059
+msgid "Theme, will make a presentation of applying the plugin automatically. using The Events Calendar Plugin"
+msgstr ""
+
+#: ../lib/customize.php:2094
+msgid "Place of the Title"
+msgstr ""
+
+#: ../lib/customize.php:2100
+msgid "Above the header image"
+msgstr ""
+
+#: ../lib/customize.php:2101
+msgid "In the header image"
+msgstr ""
+
+#: ../lib/customize.php:2130
+msgid "Top Margin in the header image"
+msgstr ""
+
+#: ../lib/customize.php:2132
+msgid " default value is 1 . set 0 between 100 ( percent )"
+msgstr ""
+
+#: ../lib/customize.php:2151
+msgid "The choice of left margin how to set"
+msgstr ""
+
+#: ../lib/customize.php:2157
+msgid "Default"
+msgstr ""
+
+#: ../lib/customize.php:2158
+msgid "Centered"
+msgstr ""
+
+#: ../lib/customize.php:2159
+msgid "Manual Settings"
+msgstr ""
+
+#: ../lib/customize.php:2170
+msgid "Left Margin in the header image"
+msgstr ""
+
+#: ../lib/customize.php:2172
+msgid " default value is 1. set 0 between 100 ( percent )"
+msgstr ""
+
+#: ../lib/customize.php:2209
+msgid "Place of the Tagline"
+msgstr ""
+
+#: ../lib/customize.php:2215
+msgid "Show in the header image"
+msgstr ""
+
+#: ../lib/customize.php:2216
+msgid "Show above the header image"
+msgstr ""
+
+#: ../lib/customize.php:2227
+msgid "CSS Class of Site Title"
+msgstr ""
+
+#: ../lib/customize.php:2403
+msgid "Change Log"
+msgstr ""
+
+#: ../lib/customize.php:2404
+msgid "Most Recent Changes"
+msgstr ""
+
+#: ../lib/customize.php:2410
+msgid "Header Text Color"
+msgstr ""
+
+#: ../lib/customize.php:2455
+msgid "Failed to read the changelog"
+msgstr ""
+
+#: ../lib/customize.php:2698
+msgid "Preview Width"
+msgstr ""
+
+#: ../lib/customize.php:2699
+msgid "<span>Basic Config</span>"
+msgstr ""
+
+#: ../lib/customize.php:2729
+msgid "Reset"
+msgstr ""
+
+#: ../lib/customize.php:2730
 msgid ""
-"The header image can be set by two methods.\n"
-"One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image."
+"Attention!This action is irreversible. When click Save & Publish button, It will remove all customizations ever made via customizer to this theme!\n"
+"\n"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:62
-msgid "Footer background image"
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:64
+#: ../lib/customize.php:2737
 msgid ""
-"The footer image can be set by two methods.\n"
-"One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image."
+"Color type minimal, it also includes a change in the theme of the layout. If it is good, Click OK, please press the Save button in the customizer.\n"
+"This change in layout, you can later freely change."
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:72
-msgid "Widget Title Background Image"
+#: ../lib/customize.php:2756
+msgid "Important Note"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:74
-msgid "The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png]."
+#: ../lib/customize.php:2757
+msgid "If you change the color settings, please press the always Save &amp; Publish button."
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:81
-msgid "Widget Title Background Image Position"
+#: ../lib/customize.php:2768
+msgid "Navigation"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:83
-#, fuzzy
-msgid "The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. "
+#: ../lib/customize.php:2770
+msgid "Go to Custom Color Settings"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:90
-msgid "Page Width"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:92
-msgid "Please choose width on the page."
-msgstr ""
-
-#: raindrops/lib/option-panel.php:93
-msgid "Please choose from four kinds of inside of"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:94
-msgid "750px centerd 950px centerd fluid 974px."
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:101
-msgid "Column Width and Position"
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:103
-msgid "Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified."
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:110
-msgid "Text color in content "
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:112
-msgid "If you need to set contents Special font color."
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:119
-msgid "Text color in footer "
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:121
-msgid "If you need to set footer Special font color."
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:130
-msgid "Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show"
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:137
-msgid "Extra Sidebar Width"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:139
-msgid "When display extra sidebar is set to show"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:140
-msgid "it is necessary to specify it."
-msgstr ""
-
-#: raindrops/lib/option-panel.php:141
-msgid "It can decide to divide the width of which place of extra sidebar"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:142
-msgid "and to give it. Please select it from among 25% 33% 50% 66% 75%. "
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:151
-msgid "Display or not Menu Primary. default value is show. set hide when not display menu primary"
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:158
-msgid "Link color"
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:160
-msgid "Hyper link color"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:167
-msgid "Accessibility Settings"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:169
-msgid "Accessibility Settings is create a unique link text. set to yes or no."
-msgstr ""
-
-# @ raindrops
-#: raindrops/lib/option-panel.php:177
-msgid "Document Type Settings"
-msgstr ""
-
-#: raindrops/lib/option-panel.php:179
-msgid "Default Document type html5. Set to xhtml or html5."
-msgstr ""
-
-#: raindrops/lib/option-panel.php:610
+#: ../lib/option-panel.php:114
 msgid "Post Errors 14"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:615
+#: ../lib/option-panel.php:119
 msgid "Post Errors 18"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:635
+#: ../lib/option-panel.php:149
 msgid " Theme Settings"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:636
+#: ../lib/option-panel.php:156
 msgid "Saved Database table name:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:685
-#: raindrops/lib/option-panel.php:713
-#, fuzzy, php-format
+#: ../lib/option-panel.php:159
+msgid "Now, Raindrops Not Using Database Table"
+msgstr ""
+
+#: ../lib/option-panel.php:217
+msgid "updated saved database successfully."
+msgstr ""
+
+#: ../lib/option-panel.php:220 ../lib/option-panel.php:247
+#, php-format
 msgid "updated %1$s successfully."
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:691
+#: ../lib/option-panel.php:225
 msgid " MultiSite User must Click here !!"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:716
+#: ../lib/option-panel.php:250
 #, php-format
 msgid "updated %s fail."
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:794
+#: ../lib/option-panel.php:354
 msgid "WordPress Native Theme Options"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:798
+#: ../lib/option-panel.php:357
 msgid "Theme customizer"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:802
+#: ../lib/option-panel.php:359
+msgid "Custom Header"
+msgstr ""
+
+#: ../lib/option-panel.php:360
 msgid "Custom Background"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:804
+#: ../lib/option-panel.php:361
+msgid "Widget"
+msgstr ""
+
+#: ../lib/option-panel.php:362
 msgid "Menus"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:805
+#: ../lib/option-panel.php:363
 msgid "Theme Editor"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:810
+#: ../lib/option-panel.php:368
 msgid "Raindrops Extend Theme Options"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:830
+#: ../lib/option-panel.php:389
 msgid "go to Color Type"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:833
+#: ../lib/option-panel.php:392
 msgid "Go to upload form"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:836
+#: ../lib/option-panel.php:395
 msgid "Go to Base Color"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:881
-#: raindrops/lib/option-panel.php:884
-#, fuzzy
+#: ../lib/option-panel.php:440 ../lib/option-panel.php:443
 msgid "Value"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:884
-#, fuzzy
+#: ../lib/option-panel.php:443
 msgid "Color"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1030
+#: ../lib/option-panel.php:581
 msgid "Save"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1042
+#: ../lib/option-panel.php:593
 msgid "Please reload this page ex. windows F5"
 msgstr ""
 
-# @ default
-#: raindrops/lib/option-panel.php:1067
+#: ../lib/option-panel.php:611
 msgid "Now constant RAINDROPS_USE_AUTO_COLOR is false"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1156
+#: ../lib/option-panel.php:701
 msgid "Image Upload"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1158
-#, fuzzy
+#: ../lib/option-panel.php:703
 msgid "Upload"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1161
+#: ../lib/option-panel.php:706
 msgid "Purpose:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1164
-#, fuzzy
+#: ../lib/option-panel.php:709
 msgid "Header Image"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1168
+#: ../lib/option-panel.php:713
 msgid "Footer Image"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1170
+#: ../lib/option-panel.php:715
 msgid "Style:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1172
-#, fuzzy
+#: ../lib/option-panel.php:717
 msgid "no-repeat"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1175
+#: ../lib/option-panel.php:720
 msgid "repeat-x"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1176
+#: ../lib/option-panel.php:721
 msgid "position:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1177
-#, fuzzy
+#: ../lib/option-panel.php:722
 msgid "top:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1178
-#: raindrops/lib/option-panel.php:1181
-#: raindrops/lib/option-panel.php:1184
+#: ../lib/option-panel.php:723 ../lib/option-panel.php:726
+#: ../lib/option-panel.php:729
 msgid "px"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1179
-#, fuzzy
+#: ../lib/option-panel.php:724
 msgid "left:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1182
-#, fuzzy
+#: ../lib/option-panel.php:727
 msgid "box height:"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1191
+#: ../lib/option-panel.php:736
 msgid "Go to current header image"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1194
+#: ../lib/option-panel.php:739
 msgid "Go to current footer image"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1220
+#: ../lib/option-panel.php:766
 msgid "Cannot be trusted data"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1225
+#: ../lib/option-panel.php:771
 msgid "Can not Upload Security issue"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1236
+#: ../lib/option-panel.php:782
 msgid "purpose no data"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1246
+#: ../lib/option-panel.php:792
 msgid "style no data"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1256
+#: ../lib/option-panel.php:802
 msgid "position top no data"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1266
+#: ../lib/option-panel.php:812
 msgid "position no data"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1276
+#: ../lib/option-panel.php:822
 msgid "box height no data"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1288
+#: ../lib/option-panel.php:834
 #, php-format
 msgid "%s is not permitted filetype."
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1294
+#: ../lib/option-panel.php:840
 #, php-format
 msgid "%s function is not exists"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1359
+#: ../lib/option-panel.php:905
 #, php-format
 msgid "%d px * %d width too big. limit %d px"
 msgstr ""
 
-#: raindrops/lib/option-panel.php:1379
+#: ../lib/option-panel.php:925
 msgid "It failed in up-loading."
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
-#, fuzzy
+#: ../lib/validate.php:1015
+msgid "Full Width Resuponsive"
+msgstr ""
+
+#: ../lib/vars.php:128
+msgid "This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)"
+msgstr ""
+
+#: ../lib/vars.php:689
+msgid "If you need to set footer Special link color.hex color ex.#ff0000 or empty string"
+msgstr ""
+
+#: ../lib/vars.php:898
+msgid "value header_image, above. default above "
+msgstr ""
+
+#: ../lib/vars.php:1129
+msgid "default avatar"
+msgstr ""
+
+#: ../lib/vars.php:1457
+msgid "Archives Post Format Galley Columns"
+msgstr ""
+
+#: ../lib/vars.php:1527
+msgid "Show Posted on in Attachment"
+msgstr ""
+
+#: ../lib/vars.php:1537
+msgid "Show Posted on in Static Page"
+msgstr ""
+
+#: ../lib/vars.php:1558
 msgid "none"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "toki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tutuji"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sakura"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "bara"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "karakurenai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sango"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "koubai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "momo"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "beni"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "beniaka"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "enji"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "suou"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "akane"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "aka"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "syu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "benikaba"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "benihi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "entan"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "beniebitya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tobi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "azuki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "bengara"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ebitya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kinaka"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "akatya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "akasabi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ouni"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sekitou"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "nikkei"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kaba"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "renga"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sabi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "hiwada"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kuri"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kiaka"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "taisya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "rakuda"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kitye"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "hadairo"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "daidai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "haitya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kogetya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kouji"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "anzu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "mikan"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kassyoku"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tutiiro"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "komugi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kohaku"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kintya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tamago"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "yamabuki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "oudo"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kutiba"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "himawari"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ukon"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "suna"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "karasi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tanpopo"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "uguisutya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tyuki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kariyasu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kihada"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "miru"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "biwa"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "uguisu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "mattya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kimidori"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "koke"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "wakakusa"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "moegi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kusa"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "wakaba"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "matuba"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "byakuroku"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "midori"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tokiwa"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "rokusyou"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "titosemidori"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "fukamidori"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "wakatake"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "seiji"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "aotake"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tetu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "aomidori"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sabiasagi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "mizuasagi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sinbasi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "asagi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "byakugun"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "nando"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kamenozoki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "mizu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ainezu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sora"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ao"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "koiai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "wasurenagusa"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tuyukusa"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "hanada"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "konjou"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ruri"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "rurikon"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kon"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kakitubata"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kati"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "gunjou"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tetukon"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "fujinando"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kikyou"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "konai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "fuji"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "fujimurasaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "aomurasaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sumire"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "hatoba"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "syoubu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "edomurasaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "murasaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kodaimurasaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "nasukon"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sikon"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ayame"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "botan"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "akamurasaki"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "siro"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "gofun"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kinari"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "zouge"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "ginnezu"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tyanezumi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "nezumi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "rikyunezumi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "namari"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "hai"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "susutake"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kurotya"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "sumi"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "kuro"
 msgstr ""
 
-# @ raindrops
-#: raindrops/lib/option-panel.php:1396
+#: ../lib/vars.php:1558
 msgid "tetukuro"
 msgstr ""
 
-# @ raindrops
-#~ msgid "Description"
-#~ msgstr ""
-# @ raindrops
-#, fuzzy
-#~ msgid "raindrops infomation"
-#~ msgstr ""
+#: ../lib/widgets.php:14
+msgid "2.Category New Post [Raindrops]"
+msgstr ""
 
-# @ raindrops
-#~ msgid "Page %s"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "Category Blog Widget"
-#~ msgstr ""
-#~ msgid "permalink"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "This entry has no title"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "More Galleries"
-#~ msgstr ""
-#~ msgid "Bookmark the "
-#~ msgstr ""
-# @ raindrops
-#, fuzzy
-#~ msgid "<span>Newer posts <span class=\"meta-nav\">&rarr;</span></span>"
-#~ msgstr ""
+#: ../lib/widgets.php:14
+msgid "Show latest posts that were grouped for each category"
+msgstr ""
 
-# @ raindrops
-#, fuzzy
-#~ msgid "This entry was posted in "
-#~ msgstr ""
+#: ../lib/widgets.php:25 ../lib/widgets.php:73
+msgid "Category What's New"
+msgstr ""
 
-# @ raindrops
-#, fuzzy
-#~ msgid "Text Color "
-#~ msgstr ""
+#: ../lib/widgets.php:93 ../lib/widgets.php:1135
+msgid "Title:"
+msgstr ""
 
-# @ raindrops
-#, fuzzy
-#~ msgid ""
-#~ "Please choose width on the page.\n"
-#~ "    Please choose from four kinds of inside of 750px centerd 950px "
-#~ "centerd fluid 974px."
-#~ msgstr ""
-#~ "750px 中央 950px 中央 100% fluid 974pxの4種類のページ幅からどれかを選んで"
-#~ "ください"
+#: ../lib/widgets.php:97
+msgid "Show Items Counts"
+msgstr ""
 
-# @ raindrops
-#, fuzzy
-#~ msgid ""
-#~ "When display extra sidebar is set to show, it is necessary to specify it. "
-#~ "It can decide to divide the width of which place of extra sidebar and to "
-#~ "give it. Please select it from among 25% 33% 50% 66% 75%. "
-#~ msgstr ""
-#~ "エキストラサイドバーを表示させる設定にした時には、とエキストラサイドバーの"
-#~ "幅も設定する必要があります。25% 33% 50% 66% 75%.農地いずれかをセットしてく"
-#~ "ださい"
+#: ../lib/widgets.php:100
+msgid "Select Categories"
+msgstr ""
 
-# @ raindrops
-#, fuzzy
-#~ msgid "Continue&nbsp;reading&nbsp;<span class=\"meta-nav\">&rarr;</span>"
-#~ msgstr ""
+#: ../lib/widgets.php:379
+msgid "Display Pinup entries"
+msgstr ""
 
-# @ raindrops
-#~ msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "Entries <span>(RSS)</span>"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "Comments <span>(RSS)</span>"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "%s <span class=\"says\">says:</span>"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "(Edit)"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s"
-#~ "\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-#~ msgstr ""
-# @ raindrops
-#~ msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title="
-#~ "\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
-#~ msgstr ""
-# @ raindrops
-#~ msgid "Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark"
-#~ "\">permalink</a>."
-#~ msgstr ""
-# @ raindrops
-#~ msgid "<span class=\"%1$s\">Posted on</span> %2$s <span class=\"meta-sep\">by</"
-#~ "span> %3$s %4$s"
-#~ msgstr ""
-# @ raindrops
-#~ msgid "Settings with Live preview "
-#~ msgstr ""
+#: ../lib/widgets.php:381
+msgid "1.Pinup entries [Raindrops]"
+msgstr ""
 
+#: ../lib/widgets.php:813
+msgid "Please check, incorrect value in post ID might have been set,"
+msgstr ""
+
+#: ../lib/widgets.php:847
+msgid "Posted title that has been set"
+msgstr ""
+
+#: ../lib/widgets.php:851
+msgid "Title"
+msgstr ""
+
+#: ../lib/widgets.php:851
+msgid "Show only Display Type: Grid"
+msgstr ""
+
+#: ../lib/widgets.php:855
+msgid "Post ID"
+msgstr ""
+
+#: ../lib/widgets.php:855
+msgid "Comma separated IDs"
+msgstr ""
+
+#: ../lib/widgets.php:860
+msgid "Display Type"
+msgstr ""
+
+#: ../lib/widgets.php:860
+msgid "Grid Layout"
+msgstr ""
+
+#: ../lib/widgets.php:864
+msgid "Randum Show"
+msgstr ""
+
+#: ../lib/widgets.php:868
+msgid "Post Type"
+msgstr ""
+
+#: ../lib/widgets.php:868
+msgid "Post:"
+msgstr ""
+
+#: ../lib/widgets.php:878
+msgid "Content:"
+msgstr ""
+
+#: ../lib/widgets.php:882
+msgid "Excerpt:"
+msgstr ""
+
+#: ../lib/widgets.php:887
+msgid "Attachment IMG:"
+msgstr ""
+
+#: ../lib/widgets.php:892
+msgid "Featured IMG"
+msgstr ""
+
+#: ../lib/widgets.php:922
+msgid "Archives Extended"
+msgstr ""
+
+#: ../lib/widgets.php:924
+msgid "3.Archives Extended [Raindrops]"
+msgstr ""
+
+#: ../lib/widgets.php:940 ../lib/widgets.php:1100 ../sidebar.php:23
+msgid "Archives"
+msgstr ""
+
+#: ../lib/widgets.php:1141
+msgid "Display Archives Start Year"
+msgstr ""
+
+#: ../lib/widgets.php:1141
+msgid "Please use the 4-digit number or blank ex. 2010"
+msgstr ""
+
+#: ../lib/widgets.php:1147
+msgid "Groop by Year, by Month"
+msgstr ""
+
+#: ../lib/widgets.php:1147
+msgid "Year"
+msgstr ""
+
+#: ../lib/widgets.php:1152
+msgid "Month"
+msgstr ""
+
+#: ../lib/widgets.php:1157
+msgid "Show Post Count"
+msgstr ""
+
+#: ../part-blog.php:90
+msgid "Category:&shy;"
+msgstr ""
+
+#: ../part-blog.php:97
+msgid "Tags:&shy;"
+msgstr ""
+
+#: ../part-blog.php:104
+msgid "Author:"
+msgstr ""
+
+#: ../part-blog.php:114 ../part-gallery.php:117
+msgid "Leave a comment"
+msgstr ""
+
+#: ../part-blog.php:114 ../part-gallery.php:117
+msgid "1 Comment"
+msgstr ""
+
+#: ../part-blog.php:114 ../part-gallery.php:117
+msgid "% Comments"
+msgstr ""
+
+#: ../part-gallery.php:80
+#, php-format
+msgid "This gallery contains %1$s photographs in all as "
+msgstr ""
+
+#: ../part-gallery.php:80
+msgid "photograph etc."
+msgstr ""
+
+#: ../part-gallery.php:101
+msgid "View posts in the Gallery category"
+msgstr ""
+
+#: ../part-gallery.php:101
+msgid "Link to Category"
+msgstr ""
+
+#: ../pdf.php:101
+msgid "Click here to the PDF file."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:342
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:343
+msgid "Install Plugins"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:344
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:345
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:347
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:352
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:357
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to install the %1$s plugin."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %1$s plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:362
+#, php-format
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:367
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:372
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %1$s plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:377
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:382
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:387
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to activate the %1$s plugin."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %1$s plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:392
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:397
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:402
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:406
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:407
+msgid "Return to the dashboard"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:408
+#: ../plugins/class-tgm-plugin-activation.php:3036
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:409
+#: ../plugins/class-tgm-plugin-activation.php:2839
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:410
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:411
+#, php-format
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:412
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:413
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:414
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:529
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:530
+msgid "Update Required"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:644
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:835
+#: ../plugins/class-tgm-plugin-activation.php:3445
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:942
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:942
+#: ../plugins/class-tgm-plugin-activation.php:945
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:945
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:1888
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2174
+msgid "Required"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2177
+msgid "Recommended"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2193
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2196
+msgid "External Source"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2199
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2216
+msgid "Not Installed"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2220
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2222
+msgid "Active"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2228
+msgid "Required Update not Available"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2231
+msgid "Requires Update"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2234
+msgid "Update recommended"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2242
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2287
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2290
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2293
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2296
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2378
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2386
+msgid "Installed version:"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2394
+msgid "Minimum required version:"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2406
+msgid "Available version:"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2429
+#, php-format
+msgid "No plugins to install, update or activate. <a href=\"%1$s\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2443
+msgid "Plugin"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2444
+msgid "Source"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2445
+msgid "Type"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2498
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2502
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2507
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2577
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2610
+msgid "Install"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2616
+msgid "Update"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2619
+msgid "Activate"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2650
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2652
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2688
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2690
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2795
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:2821
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3035
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3369
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3371
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3372
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3376
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3377
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3377
+#: ../plugins/class-tgm-plugin-activation.php:3383
+msgid "Show Details"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3377
+#: ../plugins/class-tgm-plugin-activation.php:3383
+msgid "Hide Details"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3378
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3379
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3382
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3383
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3384
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../plugins/class-tgm-plugin-activation.php:3385
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../plugins/plugins-presentation.php:97
+msgid "Prev"
+msgstr ""
+
+#: ../plugins/plugins-presentation.php:97
+msgid "Next"
+msgstr ""
+
+#: ../plugins/plugins-presentation.php:487
+msgid "Select"
+msgstr ""
+
+#: ../plugins/tgm-config.php:59
+msgid "Once you activate Breadcrumb NavXT, the WP-PageNavi, Next Setting is the Plugin Presentation at customizer page.If Set to yes then reflect automatically, even without and editing of the template to reflect automatically."
+msgstr ""
+
+#: ../plugins/tgm-config.php:60
+msgid "Prior to install the theme, if you have to activate these plug-ins, it does not do anything. If you use the function of customized plug-in theme, Once you have the plug-in de-activate, add this page or, in the plug-in list, and you'll re-activated, the item of the customizer add-on It will be."
+msgstr ""
+
+#: ../plugins/tgm-config.php:61
+msgid "Of course, even if you do not use these plugins, it will work without the function of the Raindrops is lost, please decide freely whether or not to use or use in your favorite"
+msgstr ""
+
+#: ../plugins/tgm-config.php:62
+msgid "Link to Customizer"
+msgstr ""
+
+#: ../search.php:105
+msgid "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it."
+msgstr ""
+
+#: ../searchform.php:19 ../searchform.php:29
+msgid "Search for:"
+msgstr ""
+
+#: ../searchform.php:20
+msgid "must not contain html tags"
+msgstr ""
+
+#: ../searchform.php:20 ../searchform.php:21 ../searchform.php:32
+msgid "Search"
+msgstr ""
+
+#: ../sidebar.php:20
+msgid "Pages"
+msgstr ""
+
+#: ../sidebar.php:39
+msgid "Meta"
+msgstr ""
+
+#: ../single.php:92
+msgid "Sticky Post Shows Only WEB Site Home."
+msgstr ""
+
+#: ../single.php:100
+msgid "Sticky Post"
+msgstr ""

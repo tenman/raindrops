@@ -284,8 +284,8 @@ input[type="submit"]{
 .blog .sticky,
 .home .sticky,
 .entry-meta{
-    border-top:solid 2px %c_border%;
-    border-bottom:solid 2px %c_border%;
+    border-top:solid 1px %c_border%;
+	border-bottom:solid 1px %c_border%;
 }
 .blog .sticky,
 .home .sticky{
@@ -539,9 +539,10 @@ hr{
 .blog .sticky,
 .home .sticky,
 .entry-meta{
-    border-top:solid 2px %rgba_border%;
-    border-bottom:solid 2px %rgba_border%;
+    border-top:solid 1px %rgba_border%;
+	border-bottom:solid 1px %rgba_border%;
 }
+
 .blog .sticky,
 .home .sticky{
     border-top:solid 6px %rgba_border%;
@@ -2131,6 +2132,7 @@ a:hover{
 #ft a{
      color:%raindrops_footer_link_color%;           
 }
+	
 .footer-widget h2,
 .rsidebar h2,
 .lsidebar h2,
@@ -2321,6 +2323,7 @@ address .entry-rss:after,
 	width:20%;
 }
 /* @1.403 end */
+
 .lsidebar .widgettitle,
 .rsidebar .widgettitle{
 	font-weight:700;

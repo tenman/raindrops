@@ -3,8 +3,40 @@ version:1.405
 
 Overview of Changes
 
-Files Modified
+	Sidebar setting revert. change from customizer link to dummy sidebar contents( archive widget, category widget )
+	Filter add raindrops_editor_styles_width for post editor content width.
 
+	Widget Page, Add Emphasis styles for Add Theme widget and Add on plugin widget
+
+	Change header image.
+
+	Update raindrops.pot ja.po ja.mo
+
+	Modified Header inline style (minify)
+
+	Modified When DEBUG MODE, $raindrops_use_transient = false
+
+	Modified Plugin installer, Plugin change from zencache to comet cache.
+
+Files Modified
+	modified:   childs/boots/inc.php
+	modified:   date.php
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   images/headers/wp3-thumbnail.jpg
+	modified:   images/headers/wp3.jpg
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/raindrops.pot
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   plugins/tgm-config.php
+	modified:   raindrops.js
+	modified:   style.css
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.404&new_path=raindrops/1.405
 -----------------------------------------------Changelog -----------------------------------

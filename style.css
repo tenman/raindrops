@@ -5986,12 +5986,4 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     padding:0;
     box-sizing:border-box;
 }
-/*  * for grid pinup widget END */
-.bbp-no-reply .bbp-template-notice{
-    visibility:hidden;
-}
-
-.bbp-no-reply .bbp-template-notice:after{
-	content:'ログインが必要です';
-	visibility:visible;
-}
+/* for grid pinup widget END */

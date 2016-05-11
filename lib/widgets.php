@@ -775,10 +775,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			if ( isset( $instance[ 'title' ] ) ) {
 
 				$title = esc_attr( $instance[ 'title' ] );
+			} else {
+				$title = '';
 			}
 			if ( isset( $instance[ 'id' ] ) ) {
 
 				$id = esc_attr( $instance[ 'id' ] );
+			} else {
+				$id = '';
 			}
 			if ( isset( $instance[ 'content' ] ) ) {
 
@@ -786,14 +790,25 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 				$raindrops_content_checked	 = checked( $instance[ 'content' ], "content", false );
 				$puddele_excerpt_checked	 = checked( $instance[ 'content' ], "excerpt", false );
+			} else {
+				
+				$content = 'content';
+				$raindrops_content_checked	 = "checked='checked'";
+				$puddele_excerpt_checked	 = "";
 			}
 			if ( isset( $instance[ 'type' ] ) ) {
 
 				$type = esc_attr( $instance[ 'type' ] );
+			} else {
+				
+				$type = 'post';
 			}
 			if ( isset( $instance[ 'display_type' ] ) ) {
 
 				$display_type = esc_attr( $instance[ 'display_type' ] );
+			} else {
+				
+				$display_type = 'grid';
 			}
 
 			if ( isset( $instance[ 'inline_style' ] ) ) {

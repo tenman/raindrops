@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.405
+version:1.406
 
 Overview of Changes
 
@@ -17,6 +17,8 @@ Overview of Changes
 	Modified When DEBUG MODE, $raindrops_use_transient = false
 
 	Modified Plugin installer, Plugin change from zencache to comet cache.
+
+	Fixed raindrops_pinup_entry_Widget notice errors
 
 Files Modified
 	modified:   childs/boots/inc.php
@@ -38,7 +40,7 @@ Files Modified
 	modified:   raindrops.js
 	modified:   style.css
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.404&new_path=raindrops/1.405
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.404&new_path=raindrops/1.406
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.404

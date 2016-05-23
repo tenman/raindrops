@@ -186,11 +186,6 @@ if ( ! isset( $wp_customize ) ) {
 		}
 	}
 
-	$raindrops_customize_color_ja		 = array_flip( $raindrops_color_ja );
-	$raindrops_customize_color_en_140	 = array_flip( $raindrops_color_en_140 );
-	$raindrops_customize_color_en		 = array_flip( $raindrops_color_en );
-	$raindrops_customize_color_anime	 = array_flip( $raindrops_color_anime );
-
 	$raindrops_style_type_chices = raindrops_register_styles( "w3standard" );
 	$raindrops_get_permalink_structure = get_option( 'permalink_structure' );
 

@@ -24,9 +24,11 @@
                     var raindrops_window_width = jQuery( window ).width();
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
+
                     if ( raindrops_script_vars.has_ratio_filter ) {
                        jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover' } );
                     }
+                }
                     /* @1.352 */
                     if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive ) {
                         
@@ -45,10 +47,10 @@
                     var raindrops_container_height = jQuery( '#container' ).height( );
                     
                     if( raindrops_window_width < 641 ) {
-                        
+                      
                         jQuery( '.lsidebar, .rsidebar' ).removeAttr( 'style' );
                     } else {
-                        
+  
                         if ( raindrops_main_sidebar_height > raindrops_container_height ) {
 
                             jQuery( '#container' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
@@ -60,7 +62,6 @@
                         }                       
                     }
                    
-                }
                  /* @1.403 */
                     var raindrops_content_width = jQuery( '#container > .first').width();
 
@@ -80,43 +81,11 @@
 
                 var raindrops_ignore_template = false;
             }
-            
-            // todo @1.354 , check needs remove
-/*
-               if ( raindrops_window_width > 640 && raindrops_script_vars.ignore_template == false ) {
 
-                var raindrops_main_sidebar_height = jQuery( '.lsidebar' ).height( );
-                var raindrops_extra_sidebar_height = jQuery( '.rsidebar' ).height( );
-                var raindrops_container_height = jQuery( '#container' ).height( );
-               // var raindrops_sticky_widget_height = jQuery( '.topsidebar' ).height( );
-
-                if ( raindrops_main_sidebar_height > raindrops_container_height ) {
-
-                    jQuery( '#container' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
-                    jQuery( '.rsidebar' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
-                } else {
-
-                    if ( raindrops_sticky_widget_height > 0 ) {
-                        //test @1.354
-                       // raindrops_left_sidebar_height = raindrops_container_height + raindrops_sticky_widget_height + 13;
-                       // jQuery( '.lsidebar' ).css( { 'min-height': raindrops_left_sidebar_height + 'px' } );
-                       jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
-                    } else {
-                        //test @1.354
-                        jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
-                    }
-                    
-                    jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
-                    jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
-                }
-            }
-*/
-
-//detect lang  add ver 1.120
-
+/**
+ * detect lang  add ver 1.120
+ */
             if ( raindrops_script_vars.browser_detection !== 1 ) {
-
-                //  if ( raindrops_script_vars.is_single || raindrops_script_vars.is_page ) {
 
                 jQuery( 'body' ).addClass( raindrops_script_vars.color_type );
                 jQuery( 'body' ).addClass( raindrops_script_vars.kind_of_browser );
@@ -139,7 +108,7 @@
                     var ieversion = parseInt( ie_num[1], 10 );
                     jQuery( 'body' ).addClass( 'ie' + ieversion );
 
-                } else if ( userAgent.match( /Edge\/12/i ) ) {
+                } else if ( userAgent.match( /Edge\/\d+/i ) ) {
 
                     jQuery( 'body' ).addClass( 'edge' );
 
@@ -149,7 +118,7 @@
 
                 } else if ( userAgent.match( /Edge/i ) ) {
 
-                   // jQuery( 'body' ).addClass( 'Edge' );
+                    //jQuery( 'body' ).addClass( 'Edge' );
                 } else if ( userAgent.indexOf( 'opera' ) != -1 ) {
 
                     jQuery( 'body' ).addClass( 'opera' );
@@ -202,8 +171,6 @@
                     jQuery( 'body' ).removeClass( 'raindrops-accessible-mode' );
 
                 }
-                // } //end if (  true !== $raindrops_browser_detection  )
-
                 /**
                  * Check window size and mouse position
                  * Controll childlen menu show right or left side.
@@ -558,7 +525,7 @@ jQuery( function ( $ ) {
                 $( '#desmiss' ).fadeOut('fast');
                 topBtn.fadeOut('fast');
                 $( 'nav#access, p.raindrops-mobile-menu' ).removeClass( 'raindrops-menu-fixed' );
-                $( 'nav' ).removeAttr( 'style' );
+                $( 'nav' ).not('.lsidebar').removeAttr( 'style' );
                 $( 'nav .menu > li > a' ).removeAttr( 'style' );
             }
         } );

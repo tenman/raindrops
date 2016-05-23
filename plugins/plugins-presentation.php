@@ -290,7 +290,7 @@ list-style:none;
 }
 
 @media screen and (max-width : 640px){
-	   .breadcrumbs{
+	   ol.breadcrumbs{
         display:block;
         width:90%;
         margin:0 5%;

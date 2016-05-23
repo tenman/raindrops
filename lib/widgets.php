@@ -1041,7 +1041,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 
 			$result_html .= '<div class="eco-archive extent-archives by-' . esc_attr( $groups ) . '">';
-			$result_html .= raindrops_monthly_archive_prev_next_navigation( false, true );
+			/**
+			 * @1.407 
+			 * $result_html .= raindrops_monthly_archive_prev_next_navigation( false, true );
+			 */
 
 			if ( $groups == 'year' ) {
 

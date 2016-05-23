@@ -37,6 +37,7 @@ raindrops_entry_title();
             );
 
             $raindrops_images = get_children( $raindrops_attachment_args );
+			
 
             if ( isset( $raindrops_images ) && !empty( $raindrops_images ) ) {
 
@@ -58,7 +59,7 @@ raindrops_entry_title();
                 ?>
                 <div class="gallery-thumb">
                     <?php
-                    echo esc_url( wp_get_attachment_link( $raindrops_image_result->ID, 'thumbnail', true ) );
+                    echo  wp_get_attachment_link( $raindrops_image_result->ID, 'thumbnail', true ) ;
                     ?>
                 </div>
                 <?php

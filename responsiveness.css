@@ -274,8 +274,13 @@
 
     #doc5 .datetable,
     #doc3 .datetable{
-        margin:0 5px 10px 0!important;
+       /**
+        * @1.407
+        * margin:0 5px 10px 0!important;
+        */
         box-sizing: border-box;
+        width:90vw;
+        margin:auto;
     }
     #doc5 .this-posted-in,
     #doc5 .bookmark-the,
@@ -411,8 +416,8 @@
     #hd #site-title{
         font-size:167%;
     }
-    #doc5 .entry-title,
-    #doc3 .entry-title{
+    body:not(.date) #doc5 .entry-title,
+    body:not(.date) #doc3 .entry-title{
         font-size:153.5%;
     }
     #doc5 #site-description,

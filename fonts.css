@@ -367,10 +367,11 @@ div[role="banner"] #site-title{
 .yui-t3 #wp-calendar td,
 .yui-t6 #wp-calendar td{
 }
+#month_list td.month-date,
 .datetable .time,
 .datetable .month-name,
 .datetable .year-name,
-.datetable .day-name{
+.datetable #month_list .day-name{
     font-size:1.23076923077em;
 }
 .datetable .time,

@@ -3,8 +3,33 @@ version:1.407
 
 Overview of Changes
 
+	remove vars $raindrops_customize_color_ja,$raindrops_customize_color_en_140,$raindrops_customize_color_en,$raindrops_customize_color_anime
+
+	Fixed part-gallery.php
+		remove wrong esc_url()
+    Updated class-tgm-plugin-activation.php ver2.6.0
+
+	Fixed Scroll up to top then default sidebar background-color remove.
+
+	Fixed Browser detection for Edge
+
+	Modified Translation files ja.po raindrops.pot
 
 Files Modified
+	modified:   fonts.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/raindrops.pot
+	modified:   lib/customize.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   part-gallery.php
+	modified:   plugins/class-tgm-plugin-activation.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.406&new_path=raindrops/1.407

@@ -5,7 +5,7 @@ Description: This theme can change freely fonts,layout,color scheme and header i
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
 Version: 1.407
-Tags: black, blue, gray, brown, green, orange, pink, purple, red, silver, tan, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, fixed-layout, fluid-layout, responsive-layout, rtl-language-support, microformats
+Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: raindrops
@@ -2263,6 +2263,7 @@ img.alignleft,
     clear:left;
     float: left;
     padding:0.38461538461em 0.76923076923em 0.15384615384em 0;
+    box-sizing:border-box;
 }
 div.alignright,
 img.alignright,
@@ -2270,10 +2271,12 @@ img.alignright,
     clear:right;
     float: right;
     padding:0.38461538461em 0 0.38461538461em 0.76923076923em;
+    box-sizing:border-box;
 }
 .alignnone{
     display:inline;
     padding:0.38461538461em 0.76923076923em 0.76923076923em 0;
+    box-sizing:border-box;
 }
 .size-thumbnail{
     padding:.5em;
@@ -3433,9 +3436,7 @@ sup {
 .sticky.raindrops-sticky{
     display:block;
 }
-#wpadminbar div{
-    max-width:none;
-}
+
 .page-template-page-templatesfull-width-php .widget-wrapper li{
     text-align:left;
 }
@@ -5230,11 +5231,13 @@ article .post-password-form label{
     background-repeat:no-repeat;
     overflow:hidden;
 }
+
 .textwidget .rd-round > *,
 .entry-content .rd-round > *{
     border-radius:50%;
 
 }
+
 .textwidget .rd-round:not(.not-hover) > *:hover,
 .entry-content .rd-round:not(.not-hover) > *:hover{
     border-radius:0;
@@ -5395,7 +5398,7 @@ ul.rd-nowrap{
     max-height:80vh;
     max-width:90%;
     margin:auto;
-    text-align:left;
+    text-right:left;
     overflow-x:hidden;
     overflow-y:auto;
 }

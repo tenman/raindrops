@@ -7130,10 +7130,10 @@ if ( !function_exists( 'raindrops_doctype_elements' ) ) {
 
 		if ( true == $echo ) {
 
-			echo $$raindrops_document_type;
+			echo ${$raindrops_document_type};
 		} else {
 
-			return $$raindrops_document_type;
+			return ${$raindrops_document_type};
 		}
 	}
 }

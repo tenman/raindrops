@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.408
+version:1.409
 
 Overview of Changes
 	Fixed Theme does not show dark color type in PHP7
@@ -11,7 +11,7 @@ Files Modified
 	modified:   lib/csscolor.css.php
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.407&new_path=raindrops/1.408
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.407&new_path=raindrops/1.409
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.407

@@ -881,8 +881,8 @@ if ( ! function_exists( 'raindrops_design_output_clone' ) ) {
 				foreach ( $regs as $reg ) {
 
 					if ( isset( ${$reg[1]} ) ) {
-
-						$content = str_replace( ${reg[0]}, ${$reg[1]}, $content );
+						
+						$content = str_replace( $reg[0], ${$reg[1]}, $content );			
 					} else {
 						$content = str_replace( $reg[0], '/*cannot bind data [%' . $reg[1] . '%]*/', $content );
 					}

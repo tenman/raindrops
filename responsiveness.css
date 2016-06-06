@@ -842,6 +842,13 @@
     .topsidebar .grid-pinup-widgets .pinup-entry-title{
         text-align:center;
     }
+    .search-results ul.search-results{
+        width:90vw;
+        margin:auto;
+    }
+    ul.search-results .entry-meta{
+        text-align:center;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{
@@ -849,7 +856,6 @@
         margin:0;
         padding:0;
     }
-
 }
 @media screen and (max-width : 640px){
     .portfolio > ul{
@@ -1092,7 +1098,7 @@
 /* javascript relative responsive style */
 
 .rd-primary-menu-responsive-active #access ul li > ul {
-     display:block!important;
+    /* display:block!important;*/
  }
 .rd-primary-menu-responsive-active #access .menu-item{
      float:none;
@@ -1186,16 +1192,26 @@
 .rd-primary-menu-responsive-active  #access a + ul,
 .rd-primary-menu-responsive-active  #access .children a,
 .rd-primary-menu-responsive-active  #access .sub-menu a{
-         position:static;
+       position:static;
          display:inline-block;
          visibility:visible;
          float:none;
          overflow:visible;
          z-index:999!important;
-         height:auto;
+         height:auto;  
          text-align:left;
          background-image:none!important;
          max-width:100%;
+
+ }
+ .rd-primary-menu-responsive-active #access{
+     max-height:50vh;
+     overflow-y:scroll;
+     
+ }
+ .rd-primary-menu-responsive-active #access:target{
+     padding-top:0;
+     margin-top:2em;
  }
 
  .rd-primary-menu-responsive-active #top #access .menu{

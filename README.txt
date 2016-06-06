@@ -12,7 +12,8 @@ var1.335 add image
 images/share.png
 var1.356 add image
 images/go-top.png, images/desmiss.png
-
+ver 1.410 add image
+images/open.png, images/close.png
 Above images License
 
 copyright   Copyright (c) 2010-2012, Tenman

@@ -404,6 +404,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_action( 'admin_enqueue_scripts', 'raindrops_widget_page_style' );
 		add_action('sidebar_admin_page','raindrops_widget_style_description');
+		/**
+		 * @since 1.410
+		 */
+		add_filter('wp_nav_menu_items','raindrops_responsive_sidebar_switch');
+		add_action( 'raindrops_loop_title_after', 'raindrops_term_description' );
     }
 }
 ?>

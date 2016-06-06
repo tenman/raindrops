@@ -138,8 +138,13 @@ sub {
 }
 img {
   border: 0;
+  width:auto;
   max-width:100%;/* raindrops */
   height:auto;/* raindrops */
+}
+.entry-content img{
+  max-width:640px; 
+  height:auto;
 }
     .author.vcard img{
         vertical-align:middle;
@@ -467,6 +472,7 @@ aside > ul,
     width:950px;
     margin:auto;
 }
+#doc5,
 #raindrops_status_bar,
 #doc3{
     width:974px;
@@ -788,4 +794,11 @@ nav#access:before{
     height:1em;
     vertical-align:middle;
     
+}
+#access .button-wrapper{
+    display:none;
+}
+#bd .topsidebar-append,
+#bd .topsidebar-prepend{
+    list-style:none!important;
 }

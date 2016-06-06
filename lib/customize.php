@@ -69,7 +69,7 @@ if ( ! isset( $wp_customize ) ) {
 	if ( !isset( $raindrops_customize_args ) ) {
 		$raindrops_theme_customize_sections = array(
 		'raindrops_theme_settings'			 => array( 'title' => esc_html__( 'Color Scheme', 'raindrops' ), 'priority' => 26, ),
-		'raindrops_theme_settings_featured'	 => array( 'title'			 => esc_html__( 'Featured Image', 'raindrops' ),
+		'raindrops_theme_settings_featured'	 => array( 'title' => esc_html__( 'Featured Image', 'raindrops' ),
 			'priority'		 => 40,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
@@ -80,11 +80,13 @@ if ( ! isset( $wp_customize ) ) {
 			'title' => esc_html__( 'Layout and Sidebars', 'raindrops' ),
 			'priority' => 27,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'description'	 => __( '1-3 the different layout of the column, can be created in all of the archives,post and page', 'raindrops' ),
 			),
 		'raindrops_theme_settings_fonts'	 => array(
 			'title' => esc_html__( 'Fonts', 'raindrops' ),
 			'priority' => 41,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'description'	 => __( 'change the base font, all the elements will be proportionally change', 'raindrops' ),
 			),
 		/*'raindrops_theme_page_width'	 => array(
 			'title' => esc_html__( 'Page Width', 'raindrops' ),
@@ -92,15 +94,23 @@ if ( ! isset( $wp_customize ) ) {
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			),*/
 		'raindrops_theme_settings_document'	 => array( 'title' => esc_html__( 'Advanced', 'raindrops' ), 'priority' => 24, ),
-		'raindrops_theme_settings_content'	 => array( 'title' => esc_html__( 'Excerpt', 'raindrops' ), 'priority' => 29, ),
-		'raindrops_theme_settings_plugins'	 => array( 'title' => esc_html__( 'Add-ons', 'raindrops' ), 'priority' => 30, ),
+		'raindrops_theme_settings_content'	 => array( 
+			'title' => esc_html__( 'Excerpt', 'raindrops' ), 
+			'priority' => 29, 
+			'description'	 => esc_html__( 'When you select the Show Excerpt, sub-menu appears and you can fine setting.', 'raindrops' ),
+			),
+		'raindrops_theme_settings_plugins'	 => array( 
+			'title' => esc_html__( 'Add-ons', 'raindrops' ), 
+			'priority' => 30, 
+			'description'	 => esc_html__( 'Add-on, it is adjusted plug-ins to fit the theme.', 'raindrops' ),			
+			),
 		'raindrops_theme_settings_uninstall' => array( 'title' => esc_html__( 'Uninstall Option', 'raindrops' ), 'priority' => 99, ),
 		'raindrops_theme_settings_presentation' => array(
 			'priority' => 25,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
 			'title'			 => esc_html__( 'Color Scheme', 'raindrops' ),
-			'description'	 => '',
+			'description'	 => esc_html__( 'Change the Base color, you can create an infinite number of color scheme.', 'raindrops' ),
 			),
 		'raindrops_theme_settings_post' => array(
 			'title' => esc_html__( 'Post', 'raindrops' ),
@@ -121,7 +131,7 @@ if ( ! isset( $wp_customize ) ) {
 			'priority' => 110,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
-			'description'	 => esc_html__( 'Menu Size and Width', 'raindrops' ),
+			'description'	 => esc_html__( 'You can fine-tune the size and how to display the menu', 'raindrops' ),
 			),
 	);
 /**
@@ -217,6 +227,14 @@ if ( ! isset( $wp_customize ) ) {
 			return false;
 		}
 	}
+	function raindrops_default_sidebar_responsive_callback( $control ) {
+
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_default_sidebar_responsive' ) )->value() == 'yes' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	function raindrops_show_right_sidebar_callback( $control ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_right_sidebar' ) )->value() == 'show' ) {
@@ -225,7 +243,15 @@ if ( ! isset( $wp_customize ) ) {
 			return false;
 		}
 	}
+	function raindrops_extra_sidebar_responsive_callback( $control ) {
 
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_extra_sidebar_responsive' ) )->value() == 'yes' &&
+			 $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_right_sidebar' ) )->value() == 'show' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
 	function raindrops_post_content_type_callback( $control ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_home' ) )->value() == 'excerpt' ||
@@ -610,6 +636,42 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'priority'			=> 22,
 			'section'			 => 'raindrops_theme_settings_sidebar',
 		),
+		"raindrops_default_sidebar_responsive"							 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Responsive Default Sidebar', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Default yes', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_default_sidebar_responsive_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
+			),
+			'priority'			=> 22,
+			'section'			 => 'raindrops_theme_settings_sidebar',
+		),
+		"raindrops_default_sidebar_responsive_breakpoint"							 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive_breakpoint','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Responsive Breakpoint for Default Sidebar', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please Set Numeric Pixel Value', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_default_sidebar_responsive_breakpoint_validate',
+			'type' => 'number',
+				'input_attrs' => array(
+					'min' => 641,
+					'max' => 1600,
+					'step' => 1,
+				),
+			'priority'			=> 22,
+			'section'			 => 'raindrops_theme_settings_sidebar',
+			'active_callback'   => 'raindrops_default_sidebar_responsive_callback',
+		),
 		"raindrops_show_right_sidebar"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_show_right_sidebar','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -652,6 +714,44 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_show_right_sidebar_callback',
 			'priority'			=> 24,
 			'section'			 => 'raindrops_theme_settings_sidebar',
+			'sanitize_callback'	 => 'raindrops_right_sidebar_width_percent_validate',
+		),
+		"raindrops_extra_sidebar_responsive"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_extra_sidebar_responsive','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Responsive Extra Sidebar', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Default yes', 'raindrops' ),
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"yes"	 => esc_html__( "Yes", 'raindrops' ),
+				"no"	 => esc_html__( "No", 'raindrops' ),
+			),
+			'active_callback'	 => 'raindrops_show_right_sidebar_callback',
+			'priority'			=> 24,
+			'section'			 => 'raindrops_theme_settings_sidebar',
+			'sanitize_callback'	 => 'raindrops_extra_sidebar_responsive_validate',
+		),
+		"raindrops_extra_sidebar_responsive_breakpoint"			 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_extra_sidebar_responsive_breakpoint','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Responsive Breakpoint for Extra Sidebar', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please Set Numeric Pixel Value', 'raindrops' ),
+			'type' => 'number',
+				'input_attrs' => array(
+					'min' => 641,
+					'max' => 1600,
+					'step' => 1,
+				),
+			'active_callback'	 => 'raindrops_extra_sidebar_responsive_callback',
+			'priority'			=> 24,
+			'section'			 => 'raindrops_theme_settings_sidebar',
+			'sanitize_callback'	 => 'raindrops_extra_sidebar_responsive_breakpoint_validate',
 		),
 		"raindrops_sidebar_index"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_sidebar_index','option_value' ),
@@ -2662,6 +2762,7 @@ li.customize-control .widget-inside .widget-content h4,
 	color:$admin_color_base;
 	border:1px solid rgba(222,222,222,.2);
 }
+					
 CUSTOMIZER_CSS;
 
 	wp_add_inline_style( 'customize-controls', $css );

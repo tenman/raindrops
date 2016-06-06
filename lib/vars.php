@@ -10,6 +10,13 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Show category,tag description
+ * @since 1.410
+ */
+if ( ! isset( $raindrops_use_term_description ) ) {	
+	$raindrops_use_term_description = true;
+}
+/**
  * Tooltip Script
  */
 if ( ! isset( $raindrops_tooltip ) ) {	
@@ -317,6 +324,19 @@ if ( !isset( $raindrops_fallback_human_interface_show ) ) {
 
 	$raindrops_fallback_human_interface_show = false;
 }
+/**
+ * No support IE8
+ * Showing fallback style.
+ * @since 1.410
+ */
+$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+		
+if( preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs ) && isset( $regs[2]) && absint($regs[2]) < 9 ) {
+
+	$raindrops_fallback_human_interface_show = true;
+}
+
+
 /**
  * Raindrops header and footer image upload
  *
@@ -1539,6 +1559,46 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'     => esc_html__( 'Default no', 'raindrops' ),
         'validate'     => 'raindrops_show_date_author_in_page_validate',
 		'list'         => 105 ),
+'raindrops_default_sidebar_responsive' => array( 'option_id'    => 107,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_default_sidebar_responsive',
+        'option_value' => 'no',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Default Sidebar Responsive', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Default no', 'raindrops' ),
+        'validate'     => 'raindrops_default_sidebar_responsive_validate',
+		'list'         => 106 ),
+'raindrops_extra_sidebar_responsive' => array( 'option_id'    => 108,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_extra_sidebar_responsive',
+        'option_value' => 'yes',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Default Sidebar Responsive', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Default yes', 'raindrops' ),
+        'validate'     => 'raindrops_extra_sidebar_responsive_validate',
+		'list'         => 107 ),
+'raindrops_default_sidebar_responsive_breakpoint' => array( 'option_id'    => 107,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_default_sidebar_responsive_breakpoint',
+        'option_value' => 800,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Responsive Breakpoint for Default Sidebar', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Please Set Numeric Pixel Value', 'raindrops' ),
+        'validate'     => 'raindrops_default_sidebar_responsive_breakpoint_validate',
+		'list'         => 106 ),
+'raindrops_extra_sidebar_responsive_breakpoint' => array( 'option_id'    => 108,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_extra_sidebar_responsive_breakpoint',
+        'option_value' => 960,
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Responsive Breakpoint for Extra Sidebar', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Please Set Numeric Pixel Value', 'raindrops' ),
+        'validate'     => 'raindrops_extra_sidebar_responsive_breakpoint_validate',
+		'list'         => 107 ),
 	);
 }
 

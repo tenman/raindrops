@@ -750,9 +750,10 @@ a.raindrops-comment-link em,
 #access .menu > li{
     border-left:1px solid rgba( 222,222,222,.2);
 }
-#access .menu > li:last-child{
-    border-right:1px solid rgba( 222,222,222,.2);
+#access .menu > li:nth-of-type(2){
+    border-left:none;
 }
+
 #slides .slides_container,
 .raindrops-tab-content,
 .raindrops-tab-list li{
@@ -2089,9 +2090,8 @@ function raindrops_indv_css_minimal() {
     border-left:1px solid #ccc;
     border-left:1px solid rgba( 156,156,156,.7);
 }
- #access .menu > li:last-child{
-    border-right:1px solid #ccc;
-    border-right:1px solid rgba( 156,156,156,.7);
+#access .menu > li:nth-of-type(2){
+    border-left:none;
 }
  #access .menu li:first-child a,
  #access .menu li:last-child a{

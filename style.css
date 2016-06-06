@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.409
+Version: 1.410
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -477,6 +477,10 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 }
 .alignleft.rd-thumbnail > .oembed-container{
     margin-right:1em;
+}
+.rd-reddit iframe{
+    background:#fff;
+    color:#000;
 }
 /* oembed end */
 
@@ -1006,6 +1010,7 @@ input[type="file"]{
 .comment-form-author input{
     display:block;
     padding:0.38461538461em;
+    box-sizing:border-box;
 }
 .social input[type="submit"]{
     padding:.3em .6em;
@@ -1745,8 +1750,7 @@ ul.index li .edit {
     padding:0;
 }
 
-.lsidebar > ul,
-.rsidebar > ul,
+
 .topsidebar > ul {
     list-style:none;
     margin:0;
@@ -1781,8 +1785,15 @@ ul.index li .edit {
 .topsidebar a:hover{
     opacity:0.75;
 }
+
+.rsidebar > ul,
 .lsidebar > ul{
     margin:0 0.38461538461em;
+}
+.rsidebar > ul .widgettitle,
+.lsidebar > ul .widgettitle{
+    margin:0 -0.38461538461em;
+    padding:.5em;
 }
 .rd-type-light .lsidebar > ul{
     margin:auto;
@@ -4600,6 +4611,16 @@ video{
     margin-left:0.5%;
     margin-top:3px;
 }
+#doc3 #access,
+#doc5 #access {
+    width:100%;
+    width:calc(100% - 6px);
+    margin:3px auto 0;
+}
+#doc3 #access.raindrops-menu-fixed,
+#doc5 #access.raindrops-menu-fixed{
+    margin:0 3px 0;
+}
 .rd-type-minimal #access{
     width:100%;
     margin-top:2em;
@@ -5784,8 +5805,11 @@ body:not(.rd-primary-menu-responsive-active) #access:not(.raindrops-menu-fixed) 
 }
 
 body:not(.rd-primary-menu-responsive-active) #access .menu{
-    margin-right:100px;
-    margin-left:100px;
+   /* @1.410
+   margin-right:100px;
+    margin-left:100px;*/
+   margin-right:2%;
+   margin-left:2%;
 }
 .rd-primary-menu-responsive-active .raindrops-mobile-menu.raindrops-menu-fixed{
     position:fixed;
@@ -5997,3 +6021,69 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     box-sizing:border-box;
 }
 /* for grid pinup widget END */
+/* @1.410 Responsive Sidebar */
+.lsidebar-shrink button,
+.rsidebar-shrink button,
+.lsidebar-shrink,
+.rsidebar-shrink{
+    display:none;
+    padding:1em;
+}
+.lsidebar-shrink button,
+.rsidebar-shrink button,
+#access .menu .lsidebar-shrink,
+#access .menu .rsidebar-shrink{
+    border:none;
+}
+#doc5 .raindrops-mobile-menu #access .rsidebar-shrink button,
+#doc3 .raindrops-mobile-menu #access .rsidebar-shrink button{
+    margin:1em;
+}
+#top #access .menu .rsidebar-shrink.button-wapper{
+   position:relative;
+}
+.raindrops-mobile-menu.raindrops-menu-fixed .rsidebar-shrink{
+    text-align:center;
+}
+
+.lsidebar-shrink .rd-expand-sidebar-default span,
+.rsidebar-shrink .rd-expand-sidebar span,
+.button-wrapper span{
+    visibility:hidden!important;
+}
+.rsidebar-shrink button,
+.lsidebar-shrink button{
+    background:url(images/open.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+.rsidebar-shrink button:hover,
+.lsidebar-shrink button:hover{
+    cursor:pointer
+}
+.lsidebar-shrink button.rd-expand-sidebar-default{
+    background:url(images/close.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+.rsidebar-shrink button.rd-expand-sidebar{
+    background:url(images/close.png);
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+#bd .widget_nav_menu li.button-wrapper {
+    display:none;
+    border:1px solid red;
+}
+/* @1.410 Responsive Sidebar End */
+
+.rd-category-description,
+.rd-tag-description{
+    width:100%;
+    min-height:3em;
+    border:1px solid rgba(127,127,127,.3);
+    margin-bottom:2em;
+}

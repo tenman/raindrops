@@ -33,13 +33,13 @@
                     if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive ) {
                         
                         var raindrops_primary_menu_height = jQuery('#access ul.menu').height();
-          
+ 
                         if( raindrops_primary_menu_height > raindrops_script_vars.raindrops_primary_menu_responsive_height ) {
                              jQuery('#access').hide();
                              jQuery( 'body' ).addClass( 'rd-primary-menu-responsive-active' );
-                         }else{
+                        }else{
                              jQuery( 'body' ).removeClass( 'rd-primary-menu-responsive-active' );
-                         }
+                        }
                     }
                     /* @1.354 */
                     var raindrops_main_sidebar_height = jQuery( '.lsidebar' ).height( );
@@ -538,6 +538,29 @@ jQuery( function ( $ ) {
         $( '#desmiss' ).click( function () {
             topBtn.fadeOut('fast');
             $( 'nav#access' ).removeClass( 'raindrops-menu-fixed' );
+        } );
+    }
+} );
+
+jQuery( function ( $ ) {
+    /**
+     * Responsive Sidebar
+     * @sice 1.410
+     */
+    
+    if ( 'yes' == raindrops_script_vars.raindrops_extra_sidebar_responsive ) {
+
+        $( ".rsidebar-shrink button" ).click( function () {
+            $( ".rd-col-3 #container, .rsidebar-shrink button" ).toggleClass( "rd-expand-sidebar" );
+            $( ".rsidebar-shrink button span" ).not( ".rd-expand-sidebar" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_op );
+            $( ".rsidebar-shrink button.rd-expand-sidebar span" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_cl );
+        } );
+    }
+    if ( 'yes' == raindrops_script_vars.raindrops_default_sidebar_responsive ) {
+        $( ".lsidebar-shrink button" ).click( function () {
+            $( ".rd-col-3 #bd, .lsidebar-shrink button" ).toggleClass( "rd-expand-sidebar-default" );
+            $( ".lsidebar-shrink button span" ).not( ".rd-expand-sidebar-default" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_op );
+            $( ".lsidebar-shrink button.rd-expand-sidebar-default span" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_cl );
         } );
     }
 } );

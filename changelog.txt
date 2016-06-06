@@ -3,9 +3,42 @@ version:1.410
 
 Overview of Changes
 
+	Added Responsive Sidebar
+
+		Dashboard/Appearance/Customize
+			Presentation/ Layout and Sidebars /
+				Responsive Default Sidebar(default no)
+					Responsive Breakpoint for Default Sidebar(default 800)
+				Responsive Extra Sidebar (default yes)
+					Responsive Breakpoint for Extra Sidebar (default 960)
+
+		You can enable the Responsive sidebar, you can set a breakpoint freely
+
+	Changed Presentation for IE8 and older version.
+		Show Simple mode
+
+    Fixed Monthly Archive not showing links
+
+	Added Category discription , Tag discription. shows in archive page when discription exists.
+
+    Update ja.po , ja.mo
+
 
 Files Modified
-
+	modified:   changelog.txt
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/raindrops.pot
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.409&new_path=raindrops/1.410

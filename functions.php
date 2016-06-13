@@ -11463,6 +11463,7 @@ if ( !function_exists( 'raindrops_xhtml_language_attributes' ) ) {
 			$lang = get_bloginfo( 'language' );
 			return $lang_attr . " lang=\"$lang\"";
 		}
+		return $lang_attr;
 	}
 }
 if ( ! function_exists( 'raindrops_custom_image_send_to_editor' ) ) {

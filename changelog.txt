@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.412
+
+Overview of Changes
+	Fixed language attribute when html5
+
+Files Modified
+	modified:   functions.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.411&new_path=raindrops/1.412
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.411
 
 Overview of Changes

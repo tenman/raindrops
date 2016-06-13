@@ -1,4 +1,46 @@
 Changelog -----------------------------------
+version:1.411
+
+Overview of Changes
+	Modified Change HTML Named Special Symbols to numerical character references
+		For Document Type XHTML character standard
+	Modified minified CSS JS auto include when file exists.
+		fonts.css - fonts-min.css ...
+	Modified Remove empty elements and remove empty class attribute
+	Modified Remove role attribute when xhtml from page navigation.
+	Modified Remove aria-label attribute when xhtml from primary menu.
+	Added Filter functions raindrops_xhtml_language_attributes(),
+					raindrops_custom_image_send_to_editor(),
+					raindrops_remove_itemprop_from_site_logo(),
+					raindrops_remove_grabatar_srcset(),
+					raindrops_gettext_with_context(),
+					raindrops_remove_sizes_attribute(),
+	Fixed add_filter( 'site_url','esc_url'); is worked improperly.
+			password fogot link output &amp;038;
+	Modified Raindrops shows Simple mode < IE9 blowser.
+			Add filter raindrops_lt_ie9_shows_simple_mode for Cache Plugin issue.
+
+Files Modified
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   image.php
+	modified:   lib/alias_functions.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   loop.php
+	modified:   page.php
+	modified:   part-additional.php
+	modified:   search.php
+	modified:   single.php
+	modified:   style.css
+	modified:   widget-sticky.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.410&new_path=raindrops/1.411
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.410
 
 Overview of Changes

@@ -1525,30 +1525,105 @@ if ( ! function_exists( 'raindrops_complementary_color_clone') ) {
 		return false;
 	}
 }
-if ( ! function_exists( 'raindrops_locate_url') ) {	
-	function raindrops_locate_url( $filename , $type = 'url' ) {
 
+if( ! function_exists( 'raindrops_minified_file_suffix_validate') ) {
+	
+	function raindrops_minified_file_suffix_validate( $suffix ) {
+		
+		if( empty( $suffix ) ) {
+			return '';
+		}
+
+		if( preg_match("/^[a-zA-Z0-9-]+$/", $suffix ) ) {
+			return $suffix;
+		}
+		return false;
+	}
+	
+}
+
+
+if ( !function_exists( 'raindrops_locate_url' ) ) {
+
+	function raindrops_locate_url( $filename, $type = 'url' ) {
+
+
+		global $raindrops_minified_suffix, $raindrops_load_minified_css_js, $raindrops_minified_files_js_dir, $raindrops_minified_files_css_dir;
+		
+		$minified_flag						 = true;
+		$raindrops_minified_suffix			 = raindrops_minified_file_suffix_validate( $raindrops_minified_suffix );
+		$raindrops_minified_files_js_dir	 = raindrops_minified_file_suffix_validate( $raindrops_minified_files_js_dir );
+		$raindrops_minified_files_css_dir	 = raindrops_minified_file_suffix_validate( $raindrops_minified_files_css_dir );
+
+		if( false === $raindrops_minified_suffix || false === $raindrops_minified_files_js_dir || 
+			false === $raindrops_minified_files_css_dir ||  false === $raindrops_load_minified_css_js ) {
+			
+			$minified_flag = false;
+		}
+		
+		$filetype		 = wp_check_filetype( $filename );
 		$template_uri	 = trailingslashit( get_template_directory_uri() );
 		$template_path	 = trailingslashit( get_template_directory() );
 
-		if ( is_child_theme() ) {
-
-				$stylesheet_uri	 = trailingslashit( get_stylesheet_directory_uri() );
-				$stylesheet_path = trailingslashit( get_stylesheet_directory() );
-
-				if ( file_exists( $stylesheet_path . $filename ) ) {
-
-						if ( $type == 'url' ) {
-							return $stylesheet_uri . $filename;
-						}
-						if ( $type == 'path' ) {
-							return $stylesheet_path . $filename;
-						}
-
-				}
+		if ( !empty( $raindrops_minified_files_js_dir ) && 'js' == $filetype[ 'ext' ] ) {
+			
+			$raindrops_minified_files_dir = trailingslashit( basename( $raindrops_minified_files_js_dir ) );
+		} elseif ( !empty( $raindrops_minified_files_css_dir ) && 'css' == $filetype[ 'ext' ] ) {
+			
+			$raindrops_minified_files_dir = trailingslashit( basename( $raindrops_minified_files_css_dir ) );
+		} else {
+			$raindrops_minified_files_dir = '';
 		}
 
-		if ( ! file_exists( $template_path . $filename ) ) {
+		$file_name_extension = '.' . $filetype[ 'ext' ];
+
+		if ( is_child_theme() ) {
+
+			$stylesheet_uri	 = trailingslashit( get_stylesheet_directory_uri() );
+			$stylesheet_path = trailingslashit( get_stylesheet_directory() );
+
+			if ( true == $minified_flag && isset( $filetype[ 'ext' ] ) && ('css' == $filetype[ 'ext' ] || 'js' == $filetype[ 'ext' ] ) ) {
+
+				$minified_name = str_replace( $file_name_extension, $raindrops_minified_suffix . $file_name_extension, $filename );
+
+				if ( file_exists( $stylesheet_path . $raindrops_minified_files_dir . $minified_name ) ) {
+
+					if ( $type == 'url' ) {
+						return $stylesheet_uri . $raindrops_minified_files_dir . $minified_name;
+					}
+					if ( $type == 'path' ) {
+						return $stylesheet_path . $raindrops_minified_files_dir . $minified_name;
+					}
+				}
+			}
+
+			if ( file_exists( $stylesheet_path . $filename ) ) {
+
+				if ( $type == 'url' ) {
+					return $stylesheet_uri . $filename;
+				}
+				if ( $type == 'path' ) {
+					return $stylesheet_path . $filename;
+				}
+			}
+		}
+
+		if ( true == $minified_flag && isset( $filetype[ 'ext' ] ) && ('css' == $filetype[ 'ext' ] || 'js' == $filetype[ 'ext' ] ) ) {
+
+			$minified_name = str_replace( $file_name_extension, $raindrops_minified_suffix . $file_name_extension, $filename );
+
+			if ( file_exists( $template_path . $raindrops_minified_files_dir . $minified_name ) ) {
+
+				if ( $type == 'url' ) {
+					return $template_uri . $raindrops_minified_files_dir . $minified_name;
+				}
+				if ( $type == 'path' ) {
+					return $template_path . $raindrops_minified_files_dir . $minified_name;
+				}
+			}
+		}
+
+		if ( !file_exists( $template_path . $filename ) ) {
 
 			return false;
 		}
@@ -1559,8 +1634,8 @@ if ( ! function_exists( 'raindrops_locate_url') ) {
 			return $template_path . $filename;
 		}
 		return false;
-
 	}
+
 }
 if ( ! class_exists( 'RaindropsPostHelp') ) {	
 	class RaindropsPostHelp {

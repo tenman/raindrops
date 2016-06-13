@@ -5,15 +5,20 @@ if( is_paged() ) {
 if ( ( is_home() == true && is_front_page() == true ) || // default
 	 ( is_home() == false && is_front_page() == true )   // static front page
 ) {
+    if ( is_active_sidebar('sidebar-3') ) {
 ?>
 	<div class="topsidebar">
+		
         <ul>
-			<li class="topsidebar-prepend"><?php raindrops_prepend_widget_sticky(); ?></li>
-            <?php dynamic_sidebar( 'sidebar-3' ); ?>
-			<li class="topsidebar-append"><?php raindrops_append_widget_sticky(); ?></li>
+			<?php 
+			raindrops_prepend_widget_sticky();
+			dynamic_sidebar( 'sidebar-3' ); 
+			raindrops_append_widget_sticky(); 
+			?>
         </ul>
     </div>
     <br class="clear" />
 <?php
+	}
 } 
 ?>

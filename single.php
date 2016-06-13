@@ -80,7 +80,7 @@ raindrops_debug_navitation( __FILE__ );
                             echo '<!--Single Post Format or 2 Category ' . $cat . ' start-->';
                         }
                         raindrops_before_article(); ?>
-						<div id="post-<?php the_ID(); ?>"  class="<?php echo raindrops_article_wrapper_class();?>">
+						<div id="post-<?php the_ID(); ?>"<?php raindrops_the_article_wrapper_class(); ?>>
                         <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                         <?php
 						$raindrops_sticky_conditional = raindrops_warehouse_clone( 'raindrops_display_sticky_post' );

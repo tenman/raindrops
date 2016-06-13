@@ -51,7 +51,7 @@ if ( $raindrops_xhtml_media_type == 'application/xhtml+xml' ) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes( 'xhtml' ); ?>>
-    <head profile="http://gmpg.org/xfn/11">
+    <head>
 <?php raindrops_xhtml_http_equiv();?>
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head(); ?>
@@ -65,10 +65,13 @@ if ( $raindrops_xhtml_media_type == 'application/xhtml+xml' ) {
 			
 			<div id="top">
 				<div id="hd">
-					<?php echo raindrops_site_title();?>
-					
-					<?php echo raindrops_site_description(); ?>
-					
+					<?php 
+					if( raindrops_is_place_of_site_title() == true ) {
+						
+						echo raindrops_site_title();
+					}
+					echo raindrops_site_description();
+					?>
 				</div>
 				<?php  echo raindrops_header_image( 'elements' );?>
 				

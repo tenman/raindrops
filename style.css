@@ -5322,6 +5322,9 @@ ul.rd-nowrap{
 .entry-content dl:not(.rd-float){
     min-width:296px;
 }
+.entry-content dl.gallery-item{
+    min-width:0;
+}
 
 .rsidebar .eco-archive  h3,
 .lsidebar .eco-archive  h3{
@@ -6086,4 +6089,9 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     min-height:3em;
     border:1px solid rgba(127,127,127,.3);
     margin-bottom:2em;
+}
+@media screen and (max-width : 641px){
+    #header-image{
+       padding-bottom:40vw!important;    
+    }
 }

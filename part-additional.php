@@ -49,7 +49,7 @@ raindrops_entry_title();
 
 	if ( empty( $text_array[ 'more_text' ] ) ) {
 
-		$text_array[ 'more_text' ] = esc_html__( 'Continue&nbsp;reading ', 'raindrops' ) . '<span class="meta-nav">&rarr;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . get_the_ID() . '</span>';
+		$text_array[ 'more_text' ] = esc_html__( 'Continue&nbsp;reading ', 'raindrops' ) . '<span class="meta-nav">&#8594;</span><span class="more-link-post-unique">' . esc_html__( '&nbsp;Post ID&nbsp;', 'raindrops' ) . get_the_ID() . '</span>';
 	}
 	
 	if ( $text_array[ 'extended' ] !== '' ) {

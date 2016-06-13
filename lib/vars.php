@@ -10,6 +10,42 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Auto load minified CSS and javascript files
+ * file naming rule
+ *    css filename + $raindrops_minified_suffix + .css
+ *    
+ * @since 1.411
+ */
+if ( ! isset( $raindrops_load_minified_css_js ) ) {
+	/**
+	 * value true or false
+	 * false  not load minified file
+	 */
+		$raindrops_load_minified_css_js = true;
+}
+if ( ! isset( $raindrops_minified_files_js_dir ) ) {
+	/**
+	 * only string dirname 
+	 *     can not use directory separator
+	 */
+		$raindrops_minified_files_js_dir = 'min-js';
+}
+if ( ! isset( $raindrops_minified_files_css_dir ) ) {
+	/**
+	 * only string dirname 
+	 *     can not use directory separator
+	 */
+		$raindrops_minified_files_css_dir = 'min-css';
+}
+if ( ! isset( $raindrops_minified_suffix ) ) {
+    /**
+	 *  Suffix of minified files
+	 *  do not use directory separator
+	 */	
+		$raindrops_minified_suffix = '-min';
+}
+
+/**
  * Show category,tag description
  * @since 1.410
  */
@@ -324,16 +360,22 @@ if ( !isset( $raindrops_fallback_human_interface_show ) ) {
 
 	$raindrops_fallback_human_interface_show = false;
 }
+
 /**
  * No support IE8
  * Showing fallback style.
  * @since 1.410
  */
-$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
-		
-if( preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs ) && isset( $regs[2]) && absint($regs[2]) < 9 ) {
+$raindrops_lt_ie9_shows_simple_mode = apply_filters( 'raindrops_lt_ie9_shows_simple_mode', true );
 
-	$raindrops_fallback_human_interface_show = true;
+if ( true == $raindrops_lt_ie9_shows_simple_mode ) {
+
+	$http_user_agent = filter_input(INPUT_ENV,'HTTP_USER_AGENT');
+
+	if( preg_match( "|(MSIE )([0-9]{1,2})(\.)|si", $http_user_agent, $regs ) && isset( $regs[2]) && absint($regs[2]) < 9 ) {
+
+		$raindrops_fallback_human_interface_show = true;
+	}
 }
 
 

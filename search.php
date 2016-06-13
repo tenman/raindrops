@@ -47,7 +47,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 							$raindrops_loop_number++;
 						?>
 						
-                                <div id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
+                                <div id="post-<?php the_ID(); ?>"<?php raindrops_the_article_wrapper_class(); ?>>
 									 <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class( array( 'clearfix' ) ); ?>>	
                                     <?php
                                     raindrops_entry_title();

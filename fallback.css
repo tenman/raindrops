@@ -798,7 +798,11 @@ nav#access:before{
 #access .button-wrapper{
     display:none;
 }
-#bd .topsidebar-append,
-#bd .topsidebar-prepend{
-    list-style:none!important;
+
+.lsidebar li,
+.topsidebar li,
+.bottom-sidebar-3 li,
+.bottom-sidebar-2 li,
+.index.front-page li{
+    list-style:none;
 }

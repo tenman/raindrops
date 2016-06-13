@@ -397,8 +397,6 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_filter( 'author_link','esc_url' );
 		add_filter( 'attachment_link','esc_url' );
-		add_filter( 'site_url','esc_url');
-
 		/*
 		 * @since 1.405
 		 */
@@ -409,6 +407,19 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_filter('wp_nav_menu_items','raindrops_responsive_sidebar_switch');
 		add_action( 'raindrops_loop_title_after', 'raindrops_term_description' );
+		/**
+		 * @since 1.411
+		 */
+		add_filter( 'language_attributes', 'raindrops_xhtml_language_attributes',10,2 );		
+		/**
+		 * html5 can not use role attribute for indivisual values
+		 * @1.411
+		 */
+		add_filter('image_send_to_editor','raindrops_custom_image_send_to_editor');
+		add_filter( 'get_custom_logo', 'raindrops_remove_itemprop_from_site_logo' );
+		add_filter( 'get_avatar', 'raindrops_remove_grabatar_srcset' );
+		add_filter( 'site_icon_meta_tags', 'raindrops_remove_sizes_attribute' );
+		add_filter( 'gettext_with_context', 'raindrops_gettext_with_context', 10, 4 );
     }
 }
 ?>

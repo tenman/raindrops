@@ -35,7 +35,7 @@ if ( have_posts() ) {
         $raindrops_loop_number++;
         ?>
 
-									<div id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
+									<div id="post-<?php the_ID(); ?>"<?php raindrops_the_article_wrapper_class(); ?>>
 										<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>		
         <?php
         $format = get_post_format();

@@ -52,7 +52,18 @@ raindrops_debug_navitation( __FILE__ );
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 				<?php get_template_part( 'widget', 'sticky' ); ?>
                 <?php
-                if ( have_posts() ) {
+				if ( is_page() ) {
+
+					$menu_slug	 = get_post_field( 'post_name', $post->ID );
+					$menu_object = wp_get_nav_menu_object( $menu_slug );
+
+					if ( is_object( $menu_object ) ) {
+						wp_nav_menu( array( 'menu' => $menu_slug, 'fallback_cb' => '' ) );
+					} else {
+						wp_nav_menu( array( 'menu' => 'page-default', 'fallback_cb' => '' ) );
+					}
+				}
+				if ( have_posts() ) {
 
                     while ( have_posts() ) {
 
@@ -61,7 +72,7 @@ raindrops_debug_navitation( __FILE__ );
                         printf( '<!--%1$s-->', $raindrops_document_type );
                         ?>
                         <div class="entry page"><?php raindrops_before_article(); ?>
-							<div  id="post-<?php the_ID(); ?>" class="<?php echo raindrops_article_wrapper_class();?>">
+							<div  id="post-<?php the_ID(); ?>"<?php raindrops_the_article_wrapper_class(); ?>>
 								
                             <<?php raindrops_doctype_elements( 'div', 'article' ); ?> <?php raindrops_post_class(); ?>>
 

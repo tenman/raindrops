@@ -9,7 +9,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) );
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-    <head>
+	<head>
         <meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 <?php wp_head(); ?>
     </head>

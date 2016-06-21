@@ -1,4 +1,41 @@
 Changelog -----------------------------------
+version:1.413
+
+Overview of Changes
+	Added CSS Classes
+		.rd-hover-shadow
+			lift up content when hover
+		.rd-ripple
+			for Simple ripple effect
+		.rd-alert-bg, .rd-info-bg, .rd-notice-bg
+
+	Fixed CSS Class .raindrops-empty-title, .raindrops-empty-content ( post class ) not worked
+	Added function raindrops_current_post_hilight()
+		Sidebar link highlight. TAG Archive Widget, Single Post, Monthly Archive, Resent Post Widget,
+        Archives Extended widget, Category New Post widget
+	Modified　raindrops_minified_suffix add empty check
+	Fixed Pinup entries widget html structure issue
+    Fixed raindrops_next_prev_links() position wrong in search.php template
+	Fixed .rd-square class not worked
+	Fixed editor style issue. gallery shows improperly.
+	Modified child theme option vars
+
+Files Modified
+	modified:   css3.css
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.412&new_path=raindrops/1.413
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.412
 
 Overview of Changes

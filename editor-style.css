@@ -720,6 +720,9 @@ u{
 .mce-content-body dl:not(.rd-float){
     min-width:296px;
 }
+.mce-content-body dl.gallery-item{
+    min-width:0;
+}
 .mce-content-body ol,
 .mce-content-body ul{
    /* list-style-position: inside;*/

@@ -420,6 +420,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'get_avatar', 'raindrops_remove_grabatar_srcset' );
 		add_filter( 'site_icon_meta_tags', 'raindrops_remove_sizes_attribute' );
 		add_filter( 'gettext_with_context', 'raindrops_gettext_with_context', 10, 4 );
+		/**
+		 * 
+		 * @1.413
+		 */		
+		add_action( 'wp_print_styles', 'raindrops_current_post_hilight' );
     }
 }
 ?>

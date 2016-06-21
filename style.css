@@ -2192,7 +2192,10 @@ br.clearfix {
 }
 
 .sticky-widget.raindrops-pinup-entries .entry-title {
-    top: -1em;
+  /**
+   * @since 1.413
+   *top: -1em;
+   */
 }
 /*----------------------------------------------------------------------------*/
 .widget form{
@@ -3330,8 +3333,11 @@ div.raindrops-tab-page > h3:first-child{
     margin:0;
 }
 /**
- * preset padding dlass
+ * preset padding class
  */
+span.pad-s,span.pad-m,span.pad-l{
+    display:inline-block;
+}
 .pad-s{
     padding:7px;
     box-sizing:border-box;
@@ -5021,7 +5027,21 @@ blockquote .cite-url{
 .post .rd-notice{
    color: #a38c08;
 }
-
+.page .rd-alert-bg,
+.post .rd-alert-bg{
+    background:#e14d43;
+    color:#fff;
+}
+.page .rd-info-bg,
+.post .rd-info-bg{
+    background:#56b274;
+    color:#fff;
+}
+.page .rd-notice-bg,
+.post .rd-notice-bg{
+   background: #a38c08;
+   color:#fff;
+}
 
 .raindrops-extend-archive.sticky-widget .raindrops-monthly-archive-prev-next-avigation{
     height:3em;
@@ -5242,7 +5262,7 @@ article .post-password-form label{
 .textwidget .rd-square > *,
 .textwidget .rd-squere > *,
 .entry-content .rd-round > *,
-.entry-content .rd-square > *
+.entry-content .rd-square > *,
 .entry-content .rd-squere > *{
     display:block;
     width:100%;
@@ -5325,7 +5345,6 @@ ul.rd-nowrap{
 .entry-content dl.gallery-item{
     min-width:0;
 }
-
 .rsidebar .eco-archive  h3,
 .lsidebar .eco-archive  h3{
     padding-bottom:0!important;
@@ -5337,7 +5356,6 @@ ul.rd-nowrap{
     padding:.3em .5em;
     display:inline-block;
 }
-
 .rsidebar .eco-archive  h3,
 .lsidebar .eco-archive  h3{
     border-bottom:3px solid rgba(105,105,105,.3);
@@ -5660,7 +5678,7 @@ x:-o-prefocus, .rd-modal > div {
     flex-wrap:wrap;
 }
 .topsidebar .widget_tag_cloud .tagcloud a{
-   flex-grow:1;
+    flex-grow:1;
     flex-basis: 0;
     display:inline-block;
     min-width:8em;
@@ -6090,8 +6108,83 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     border:1px solid rgba(127,127,127,.3);
     margin-bottom:2em;
 }
-@media screen and (max-width : 641px){
-    #header-image{
-       padding-bottom:40vw!important;
+.page .entry-title{
+    margin-top:.5em;
+}
+.fail-search,
+.home .index{
+    margin-top:.75em;
+}
+.widget_recent_entries a{
+    padding:.3em .5em;
+    display:block;
+}
+.lsidebar .widget_archive a,
+.rsidebar .widget_archive a{
+    width:75%;
+    padding:.3em .5em;
+    display:inline-block;
+}
+.lsidebar .widget_recent_comments li,
+.rsidebar .widget_recent_comments li{
+    list-style:none;
+}
+.page .raindrops-empty-title .entry-title,
+.single .raindrops-empty-title .entry-title{
+   margin:0;
+   overflow:hidden;
+   height:10px;
+}
+.page .raindrops-empty-title .entry-content{
+   margin-top:0;
+}
+/* simple ripple effect class 
+ * This effect needs attribute tabindex=0 or -1
+ * @since 1.413
+ */
+.rd-ripple{
+    position: relative;
+    overflow: hidden;
+    display:inline-block;
+}
+.rd-ripple:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    background: #f1c40f;/* fallback background setting */
+    border-radius: 100%;
+    opacity: .6;
+    transform: scale(0);
+    
+}
+
+@keyframes rd-ripple {
+    0% {
+    transform: scale(0);
     }
+    20% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+.rd-ripple:not(:active):after {
+    animation: rd-ripple 1s ease-out;
+}
+.rd-ripple:after {
+    visibility: hidden;
+}
+.rd-ripple:focus:after {
+    visibility: visible;
+}
+.rd-ripple.block:focus:after{   
+    visibility:hidden;
 }

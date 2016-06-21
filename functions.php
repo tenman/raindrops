@@ -7704,12 +7704,12 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
 
 			$classes[] = 'raindrops-sticky';
 		}
-
+		$raindrops_title_empty_class = '';
 		$raindrops_content_empty_class = ''; // wp-includes/post-template.php:265 - Trying to get property of non-object
 
 		if ( isset( $post ) ) {
 
-			$raindrops_content_empty_class = trim( get_the_content() );
+			$raindrops_content_empty_class = $post->post_content;
 		}
 		if ( isset( $template ) ) {
 
@@ -7721,7 +7721,10 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
 
 			$classes[] = 'raindrops-empty-content';
 		}
-		$raindrops_title_empty_class = trim( the_title( '', '', false ) );
+		if ( isset( $post ) ) {
+			
+			$raindrops_title_empty_class = $post->post_title;
+		}
 
 		if ( empty( $raindrops_title_empty_class ) ) {
 
@@ -7742,6 +7745,7 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
 
 			$classes[] = 'raindrops-mod-new';
 		}
+		
 		$classes = array_map( 'esc_attr', $classes );
 
 		if ( true == $echo ) {
@@ -11549,6 +11553,40 @@ if ( !function_exists( 'raindrops_remove_sizes_attribute' ) ) {
 		return $site_icon;
 	}
 }
+if ( !function_exists( 'raindrops_current_post_hilight' ) ) {
+	/**
+	 * 
+	 * @global type $post
+	 * @global type $wp_styles
+	 * @since 1.413
+	 */
+	function raindrops_current_post_hilight() {
+		global $post, $wp_styles;
+
+		if ( is_singular() ) {
+			$current_url	 = get_permalink( $post->ID );
+			$inline_style	 = '.widget_recent_entries a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
+
+			wp_add_inline_style( 'style', $inline_style );
+		}
+		if ( is_tag() ) {
+			$id				 = get_queried_object_id();
+			$current_url	 = get_tag_link( $id );
+			$inline_style	 = '.widget_tag_cloud a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
+
+			wp_add_inline_style( 'style', $inline_style );
+		}
+		if ( is_date() && is_month() ) {
+
+			$month			 = get_query_var( 'monthnum' );
+			$year			 = get_query_var( 'year' );
+			$current_url	 = get_month_link( $year, $month );
+			$inline_style	 = '.widget_archive a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
+
+			wp_add_inline_style( 'style', $inline_style );
+		}
+	}
+}
 /**
  *
  *
@@ -11556,4 +11594,3 @@ if ( !function_exists( 'raindrops_remove_sizes_attribute' ) ) {
  * @since 1.138
  */
 do_action( 'raindrops_last' );
-

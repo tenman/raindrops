@@ -16,6 +16,7 @@
     border-radius:0.38461538461em;
     -moz-border-radius:0.38461538461em;
     padding:0.38461538461em;
+    border:1px solid red;
 }
 .corner-m{
     border-radius:0.76923076923em;
@@ -137,6 +138,13 @@ article .entry-meta a:hover,
     -webkit-box-shadow: 0.53846153846em 0.53846153846em 0.61538461538em #cccccc;
     -moz-box-shadow: 0.53846153846em 0.53846153846em 0.61538461538em #cccccc;
 }
+.rd-hover-shadow:hover{
+    box-shadow:0 4px 4px -1px #888;
+    -moz-box-shadow:0 4px 4px -1px #888;
+    -webkit-box-shadow:0 4px 4px -1px #888;
+    border-top:1px solid rgba(136,136,136,.4);
+}
+
 #access{
     -webkit-text-size-adjust: 120%;
 }

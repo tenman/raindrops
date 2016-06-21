@@ -37,9 +37,13 @@ function raindrops_indv_css_dark() {
     $font_color_5 = raindrops_colors( -5, "color" );
 	$background_4 = raindrops_colors( -4, "background" );
 	$background_3 = raindrops_colors( -3, "background" );
+	$background4 = raindrops_colors( 4, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 	
     $style = <<<DOC
+.rd-ripple:after {
+    background: $background4;
+}
 .topsidebar .widget_tag_cloud .tagcloud a{
 	background:$background_4;
 }
@@ -270,7 +274,8 @@ ul.nav{
 .ie6 #access ul li a:hover {
     %c_2%
 }
- 
+.rd-current-month-archive,
+.rd-current-post,
 .current-cat{
 	 %c_2%
 }
@@ -716,13 +721,16 @@ color:%custom_color%;
     background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
 
-
+/*
 .raindrops-tab-list li:active,
 #access .children li:active,
 #access li:active,
-#access ul ul :active{
+#access ul ul :active{*/
+.raindrops-tab-list li:active,
+#access li a:active{
    top:0;
-    background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
+
+	background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
     background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 	background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
@@ -803,8 +811,12 @@ raindrops_register_styles( "w3standard" );
 function raindrops_indv_css_w3standard() {
 	$background4 = raindrops_colors( 5, "background" );
 	$background3 = raindrops_colors( 4, "background" );	
-		$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
+	$background_3 = raindrops_colors( -3, "background" );
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
+.rd-ripple:after {
+    background: $background_3;
+}	
 .topsidebar .widget_tag_cloud .tagcloud a{
 	background:$background4;
 }
@@ -1148,7 +1160,8 @@ hr{
 .ie6 #access ul li a:hover {
     %c3%
 }
-
+rd-current-month-archive,
+.rd-current-post,
 .current-cat{
 	 %c5%
 }
@@ -1268,12 +1281,15 @@ function raindrops_indv_css_light() {
 	$background5 = raindrops_colors( 5, "background" );
 	$background4 = raindrops_colors( 4, "background" );	
     $font_color5 = raindrops_colors( 5, "color" );
+	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;');
     $style = <<<DOC
 .topsidebar .widget_tag_cloud .tagcloud a{
 	background:$background5;
 }
-
+.rd-ripple:after {
+    background: $background_3;
+}
 .topsidebar .widget_meta ul > li{
 	%c4%;
 }
@@ -1636,7 +1652,8 @@ select{
 .ie6 #access ul li a:hover {
     %c2%
 }
-
+.rd-current-month-archive,
+.rd-current-post,
 .current-cat{
 	 %c4%
 }
@@ -1979,9 +1996,12 @@ function raindrops_indv_css_minimal() {
     global $raindrops_base_color;
 	
     $font_color = raindrops_colors( 5, "color" );
-
+	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
     $style = <<<CSS
+.rd-ripple:after {
+    background: $background_3;
+}
 .topsidebar .widget_rss ul li a,
 .topsidebar .widget_rss ul li{
 	%c5%;
@@ -2211,7 +2231,8 @@ blockquote{
     border-left-color:%rgba_border%;
     padding:10px;    
 }
-
+.rd-current-month-archive,
+.rd-current-post,
 kbd,
 .current-cat{
 	 %c5%

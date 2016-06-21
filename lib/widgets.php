@@ -284,7 +284,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 		function raindrops_display_recent_post_group_by_category( $limit_posts = 5, $args = array() ) {
 
-			global $raindrops_group_by_category_icon;
+			global $raindrops_group_by_category_icon, $post;
 
 			$raindrops_get_post_array_group_by_category = raindrops_get_post_array_group_by_category( $limit_posts, $args );
 
@@ -294,7 +294,8 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			$wrap_html		 = '<ul class="xoxo">%1$s</ul>';
 			$category_title	 = '<li class="post-group-by-category-title"><h3 class="post-group_by-category-title category-title %3$s"><a href="%1$s"><span class="cat-item cat-item-%4$s">%2$s</span></a></h3><ul>';
 			$entry_item		 = '<li><a href="%1$s">%3$s</a><p><span title="%4$s">%2$s</span> </p>';
-			$entry_item		 = '<li>'
+			
+			$entry_item		 = '<li %9$s>'
 			. '<a href="%1$s" class="post-group_by-category-entry-title %8$s">%3$s</a>'
 			. '<%4$s class="entry-date updated post-group-by-category-time" %5$s>%2$s</%4$s>'
 			. '<span class="author vcard">'
@@ -344,8 +345,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$author			 = wp_kses( $author, array() );
 					$author_link	 = get_author_posts_url( get_the_author_meta( 'ID' ) );
 					$author_link	 = esc_url( $author_link );
+					
+					if( isset( $post->ID ) && $post->ID == $val && is_single() ) {
+						$list_class = 'class="rd-current-post"';
+					} else {
+						$list_class = '';
+					}
 
-					$result .= sprintf( $entry_item, $permalink, $date, $title, $time_element, $attribute_time, $author_link, $author, $thumbnail_class );
+					$result .= sprintf( $entry_item, $permalink, $date, $title, $time_element, $attribute_time, $author_link, $author, $thumbnail_class, $list_class );
 				}
 				$result .= $loop_end_html;
 			}
@@ -571,7 +578,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					}
 					echo $after_widget;
 
-					echo '</li>';
+					/**
+					 * @since 1.413
+					 * echo '</li>';
+					 */
 				}
 				
 				echo '</ul>';
@@ -1045,11 +1055,23 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			 * @1.407 
 			 * $result_html .= raindrops_monthly_archive_prev_next_navigation( false, true );
 			 */
+			/**
+			* add rd-current-month-archive class
+			* @1.413
+			*/
+			$current_month_class = '';
+			if( is_month() ) {
+				$current_month_of_archive	 = (int) get_query_var( 'monthnum' );
+				$current_year_of_archive	 = get_query_var( 'year' );
+			} else {
+				$current_month_of_archive	 = '';
+				$current_year_of_archive	 = '';	
+			}
 
 			if ( $groups == 'year' ) {
 
 				foreach ( $result as $key => $val ) {
-
+					
 					$year_link	 = get_year_link( absint( $key ) );
 					$year_label	 = apply_filters( 'raindrops_archive_year_label', esc_html( $key ) );
 					$result_html .= sprintf( '<h3 class="year year-%2$s"><a href="%1$s">%3$s</a></h3><ul class="item year-%2$s">', $year_link, absint( $key ), $year_label );
@@ -1059,18 +1081,24 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 					foreach ( $val as $k => $v ) {
 
-						preg_match( '!>.*[^0-9]([0-9]{1,2})[^0-9].*<!', $v, $regs );
+						if ( !empty( $current_month_of_archive ) && !empty( $current_year_of_archive ) && strtotime( $current_year_of_archive.'/'. $current_month_of_archive .'/1' ) ==  strtotime( strip_tags('1 '. $v ) ) ) {
+							$current_month_class = 'rd-current-month-archive';
+						} else {
+							$current_month_class = '';
+						}
+
+					preg_match( '!>.*[^0-9]([0-9]{1,2})[^0-9].*<!', $v, $regs );
 
 						if ( isset( $regs[ 1 ] ) ) {
 
-							$class	 = 'month month-' . $regs[ 1 ];
+							$class	 = 'month month-' . $regs[ 1 ]. ' '. $current_month_class;
 							$v		 = str_replace( $regs[ 0 ], '>' . $wp_locale->get_month( $regs[ 1 ] ) . '<', $v );
 						} else {
 
 							$class	 = trim( strtolower( wp_kses( $v, array() ) ) );
 							$class	 = trim( str_replace( array( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ' ', '(', ')', '&nbsp;' ), array( '', '', '', '', '', '', '', '', '', '', '-', '', '', '' ), $class ), '-' );
 
-							$class	 = esc_attr( 'month month-' . $class );
+							$class	 = esc_attr( 'month month-' . $class . ' '. $current_month_class );
 							$v		 = preg_replace( '![^/=][0-9]{4}!', '', $v );
 						}
 
@@ -1091,9 +1119,22 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 					$month_name = $wp_locale->get_month( $key );
 					$result_html .= sprintf( '<h3 class="month month-%2$s">%1$s</h3><ul>', $month_name, esc_attr( $key ) );
+					
+				
+				
+					
 					foreach ( $val as $v ) {
 
-						$result_html .= sprintf( '<li class="item item-%2$s">%1$s<span class="screen-reader-text">%3$s</span></li>', str_replace( $month_name, '', $v ), esc_attr( $key ), esc_html( $month_name ) );
+						if( is_month() ) {	
+
+							if (  !empty( $current_month_of_archive ) && !empty( $current_year_of_archive ) &&  strtotime( $current_year_of_archive.'/'. $current_month_of_archive .'/1' ) ==  strtotime( strip_tags('1 '. $v ) ) ) {
+									$current_month_class = 'rd-current-month-archive';
+							} else {
+									$current_month_class = '';
+							}
+						}
+
+						$result_html .= sprintf( '<li class="item item-%2$s">%1$s<span class="screen-reader-text">%3$s</span></li>', str_replace( $month_name, '', $v ), esc_attr( $key ). ' '. $current_month_class, esc_html( $month_name ) );
 					}
 					$result_html .= '</ul>';
 				}

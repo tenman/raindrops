@@ -28,16 +28,16 @@ if ( ! isset( $raindrops_minified_files_js_dir ) ) {
 	 * only string dirname 
 	 *     can not use directory separator
 	 */
-		$raindrops_minified_files_js_dir = 'min-js';
+		$raindrops_minified_files_js_dir = '';
 }
 if ( ! isset( $raindrops_minified_files_css_dir ) ) {
 	/**
 	 * only string dirname 
 	 *     can not use directory separator
 	 */
-		$raindrops_minified_files_css_dir = 'min-css';
+		$raindrops_minified_files_css_dir = '';
 }
-if ( ! isset( $raindrops_minified_suffix ) ) {
+if ( ! isset( $raindrops_minified_suffix ) || empty( $raindrops_minified_suffix ) ) {
     /**
 	 *  Suffix of minified files
 	 *  do not use directory separator

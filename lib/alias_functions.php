@@ -2234,7 +2234,7 @@ if ( !function_exists( 'raindrops_has_indivisual_notation' ) ) {
 			$raindrops_content_check = get_post( $post_id );
 			$raindrops_content_check = $raindrops_content_check->post_content;
 
-			if( preg_match( "!\[raindrops\s+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )\s+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+			if( preg_match( "!\[raindrops.+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' ).+(color_type|col)=(\"|')*?([^(\"|')]+)(\"|' )[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
 
 				return array( trim( $regs[1] ) => trim( $regs[3] ), trim( $regs[5] ) => trim( $regs[7] ) );
 			}

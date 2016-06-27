@@ -10034,20 +10034,43 @@ if ( ! function_exists( 'raindrops_article_wrapper_class' ) ) {
 
 				if ( ! empty( $detect_lang ) ) {
 
-					$class[] = sanitize_html_class( 'rd-l-'. $detect_lang );
+					array_push( $class, 'rd-l-'. $detect_lang );
 				}
 			}
+			if ( isset( $post )  && preg_match( "!\[raindrops[^\]]+(class)=(\"|')*?([^\"']+)(\"|')*?[^\]]*\]!si", $post->post_content, $matches ) ) {
 
-			$result = trim( implode(' ', $class ) );
-			return apply_filters( 'raindrops_article_wrapper_class', $result, $class );
+				if ( isset( $matches[ 3 ] ) && !empty( $matches[ 3 ] ) ) {
+
+					$classes = preg_split( "/[\s,]+/", $matches[ 3 ] );
+
+					foreach ( $classes as $extend_class ) {
+						
+						array_push($class, $extend_class );
+					}
+				}
+			}
+		
+		return apply_filters( 'raindrops_article_wrapper_class',$class );
 	}
 }
 
 function raindrops_the_article_wrapper_class(){
+	global $post;
 
-	$result = raindrops_article_wrapper_class( );
+	$results = raindrops_article_wrapper_class( );
+		
+	$result = array();
+		
+	foreach( $results as $v){
+		array_push( $result, sanitize_html_class( $v ) );
+	}
+		
+	$result = array_unique( $result );	
+	
+	$result = trim( implode( ' ', $result ) );
 
 	if( ! empty( $result ) ) {
+		
 		printf(' class="%1$s"', $result );
 	}
 

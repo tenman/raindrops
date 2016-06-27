@@ -196,12 +196,15 @@ div[id="yui-main"],
 .entry ol ol ,.entry ul{
     %c_5%
 }
+h1{
+	background:transparent;
+}
 
 a:link,
 a:active,
 a:visited,
 a:hover,
-#site-title,
+/*#site-title,*/
 .h1 a{
     color:$font_color_5;
     background:none;
@@ -1385,7 +1388,7 @@ function raindrops_indv_css_light() {
  a:active,
  a:visited,
  a:hover,
-#site-title,
+/*#site-title,*/
 .h1 a{
       color:$font_color5;
  background:none;
@@ -1452,8 +1455,8 @@ body{
     background-position:0 -5px;*/
 
 }
-#hd h1,.h1,#site-title{
-    %c4%
+#hd h1,.h1,/*#site-title*/{
+    %c4%;
     background:none;
 }
 #site-description{

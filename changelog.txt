@@ -2,8 +2,16 @@ Changelog -----------------------------------
 version:1.414
 
 Overview of Changes
+	Added able to use class attribute like  class="rd-card" raindrops notation( [raindrops class="rd-card"] )
+		this class added to article wrapper element
+	Added Example Class rd-card
+	Fixed featured image display improperly at peged.
 
 Files Modified
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.413&new_path=raindrops/1.414

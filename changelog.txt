@@ -2,9 +2,37 @@ Changelog -----------------------------------
 version:1.415
 
 Overview of Changes
+	 Highlighted by the automatic color-coded to the post tag links and Category links,
+		Added Customizer Section customize / appearance / post / Enable Color-coded category,
+								 customize / appearance / post / Enable Color-coded Post Tag
+		Added  body_class rd-cat-em,rd-tag-em
+		Added function raindrops_color_pallet_category(),raindrops_archive_has_count(),
+					   raindrops_color_coded_post_tag_validate(),raindrops_color_coded_category_validate()
+	Added AMP( https://wordpress.org/plugins/amp/ ) relate code
+		plugins/plugins-presentation.php
+	Added New CSS class
+		clear-1,clear-2,clear-3
+		Add element above space 1em, 2em 3em
+	Changed archive category and post tag style.
 
 Files Modified
-
+	modified:   childs/boots/inc.php
+	modified:   editor-style.css
+	modified:   footer.php
+	modified:   functions.php
+	modified:   header.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/raindrops.pot
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.414&new_path=raindrops/1.415

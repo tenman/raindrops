@@ -507,6 +507,12 @@ DOC;
 
 %gradient%
 
+.rd-cat-em .footer-widget-wrapper .cat-item:before,
+.rd-cat-em .topsidebar .cat-item:before,
+.rd-cat-em .rsidebar .cat-item:before,
+.rd-cat-em .lsidebar .cat-item:before{
+	border:2px solid $background_4;
+}
 body{
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
     background: -moz-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
@@ -817,6 +823,12 @@ function raindrops_indv_css_w3standard() {
 	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
+.rd-cat-em .footer-widget-wrapper .cat-item:before,
+.rd-cat-em .topsidebar .cat-item:before,
+.rd-cat-em .rsidebar .cat-item:before,
+.rd-cat-em .lsidebar .cat-item:before{
+	border:2px solid #fff;
+}
 .rd-ripple:after {
     background: $background_3;
 }	
@@ -1698,6 +1710,13 @@ DOC;
     $css3 = <<<CSS3
 
 %gradient%
+	
+.rd-cat-em .footer-widget-wrapper .cat-item:before,
+.rd-cat-em .topsidebar .cat-item:before,
+.rd-cat-em .rsidebar .cat-item:before,
+.rd-cat-em .lsidebar .cat-item:before{
+	border:2px solid $background5;
+}
 kbd,
 .hfeed{
     box-shadow: 0 0 5px %rgba_border%;
@@ -2002,6 +2021,13 @@ function raindrops_indv_css_minimal() {
 	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
     $style = <<<CSS
+	
+.rd-cat-em .footer-widget-wrapper .cat-item:before,
+.rd-cat-em .topsidebar .cat-item:before,
+.rd-cat-em .rsidebar .cat-item:before,
+.rd-cat-em .lsidebar .cat-item:before{
+	border:2px solid #fff;
+}
 .rd-ripple:after {
     background: $background_3;
 }

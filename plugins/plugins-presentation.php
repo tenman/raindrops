@@ -801,4 +801,36 @@ if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
 		return $mofile;
 	}
 }
+
+/**
+ * https://wordpress.org/plugins/amp/
+ * @since 1.415
+ */
+
+if( function_exists( 'amp_init' ) ) {
+	
+	add_filter('the_content','raindrops_amp_filter');
+
+	function raindrops_amp_filter( $content ) {
+		if(get_query_var('amp')){
+
+			$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
+		}
+		return $content;
+	}
+	add_action('amp_post_template_css', 'raindrops_amp_css');
+	function raindrops_amp_css(){
+		?>
+		hr + hr{
+			display:none;
+		}
+		pre{
+		background:#eee;
+		padding:1em;
+		box-sizing:border-box;
+		white-space: pre-wrap; 
+		}
+		<?php
+	}
+}
 ?>

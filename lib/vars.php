@@ -74,6 +74,24 @@ if ( ! isset( $raindrops_tag_cloud_widget_threshold_val ) ) {
 	
 	 $raindrops_tag_cloud_widget_threshold_val = 0;
 }
+/**
+ * category widget presentation
+ *  @see raindrops_color_pallet_category()
+ *  value false then WordPress default widget style.
+ * @since 1.415
+ */
+if ( ! isset( $raindrops_category_widget_presentation ) ) {
+	
+	 $raindrops_category_widget_presentation = true;
+}
+/**
+ * Tag shows or not by tagcloud item count ,Applied CSS
+ * since 1.415
+ */
+if ( ! isset( $raindrops_category_widget_threshold_val ) ) {
+	
+	 $raindrops_category_widget_threshold_val = 0;
+}
 
 /**
  * fallback image for attachment , gallery
@@ -1641,6 +1659,26 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'excerpt2'     => esc_html__( 'Please Set Numeric Pixel Value', 'raindrops' ),
         'validate'     => 'raindrops_extra_sidebar_responsive_breakpoint_validate',
 		'list'         => 107 ),
+'raindrops_color_coded_category' => array( 'option_id'    => 109,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_color_coded_category',
+        'option_value' => 'yes',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Enable Color-coded category', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Please Set yes or no. default yes', 'raindrops' ),
+        'validate'     => 'raindrops_color_coded_category_validate',
+		'list'         => 108 ),
+'raindrops_color_coded_post_tag' => array( 'option_id'    => 110,
+        'blog_id'      => 0,
+        'option_name'  => 'raindrops_color_coded_post_tag',
+        'option_value' => 'yes',
+        'autoload'     => 'yes',
+        'title'        => esc_html__( 'Enable Color-coded Post Tag', 'raindrops' ),
+        'excerpt1'     => '',
+        'excerpt2'     => esc_html__( 'Please Set yes or no. default yes', 'raindrops' ),
+        'validate'     => 'raindrops_color_coded_post_tag_validate',
+		'list'         => 109 ),
 	);
 }
 

@@ -348,7 +348,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_post_date' );
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_customizer_hide_default_category' );
 		add_filter( 'raindrops_entry_title_class', 'raindrops_customizer_add_article_title_css_class' );
-		add_filter( 'excerpt_length', 'raindrops_excerpt_length',99 );
+		add_filter( 'excerpt_length', 'raindrops_excerpt_length', 99 );
 		/**
 		 * @since 1.307
 		 */
@@ -413,7 +413,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'language_attributes', 'raindrops_xhtml_language_attributes',10,2 );		
 		/**
 		 * html5 can not use role attribute for indivisual values
-		 * @1.411
+		 * @since 1.411
 		 */
 		add_filter('image_send_to_editor','raindrops_custom_image_send_to_editor');
 		add_filter( 'get_custom_logo', 'raindrops_remove_itemprop_from_site_logo' );
@@ -422,9 +422,15 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'gettext_with_context', 'raindrops_gettext_with_context', 10, 4 );
 		/**
 		 * 
-		 * @1.413
+		 * @since 1.413
 		 */		
 		add_action( 'wp_print_styles', 'raindrops_current_post_hilight' );
+		/**
+		 * @since 1.415
+		 */
+		
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_color_pallet_category' );
+
     }
 }
 ?>

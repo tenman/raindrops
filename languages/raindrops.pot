@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops v0.987\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-06 12:25+0900\n"
+"POT-Creation-Date: 2016-07-11 07:37+0900\n"
 "PO-Revision-Date: 2014-02-09 16:19+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops-i18n <webmaster@tenman.info>\n"
@@ -44,7 +44,7 @@ msgstr "アバター"
 msgid "Profile"
 msgstr "プロフィール"
 
-#: ../author.php:71 ../functions.php:1916 ../functions.php:5038
+#: ../author.php:71 ../functions.php:1938 ../functions.php:5065
 #, fuzzy
 msgid "Website"
 msgstr "ウェブサイト"
@@ -79,8 +79,8 @@ msgstr "投稿フォーマット："
 msgid "No posts by this author."
 msgstr "この著者の投稿はありません"
 
-#: ../bbpress.php:57 ../functions.php:1189 ../functions.php:8256
-#: ../functions.php:8351 ../image.php:125 ../page-templates/full-width.php:60
+#: ../bbpress.php:57 ../functions.php:1202 ../functions.php:8300
+#: ../functions.php:8395 ../image.php:125 ../page-templates/full-width.php:60
 #: ../page-templates/page-featured.php:149 ../page.php:100
 #: ../part-additional.php:81 ../part-blog.php:124 ../part-blog.php:227
 #: ../part-gallery.php:122 ../pdf.php:122
@@ -88,8 +88,8 @@ msgstr "この著者の投稿はありません"
 msgid "Edit"
 msgstr "(編集)"
 
-#: ../bbpress.php:59 ../functions.php:1191 ../functions.php:4812
-#: ../functions.php:8254 ../image.php:127 ../page-templates/full-width.php:62
+#: ../bbpress.php:59 ../functions.php:1204 ../functions.php:4839
+#: ../functions.php:8298 ../image.php:127 ../page-templates/full-width.php:62
 #: ../page-templates/page-featured.php:151 ../page.php:102
 #: ../part-additional.php:83 ../part-blog.php:127 ../part-blog.php:229
 #: ../part-gallery.php:124 ../pdf.php:124
@@ -102,261 +102,261 @@ msgstr "ゴミ箱へ移動"
 msgid "Recent Posts"
 msgstr "最近の投稿"
 
-#: ../blank_front.php:111 ../functions.php:6655 ../sidebar.php:31
+#: ../blank_front.php:111 ../functions.php:6686 ../sidebar.php:31
 #, fuzzy
 msgid "Categories"
 msgstr "カテゴリー"
 
-#: ../blank_front.php:134 ../functions.php:6839
+#: ../blank_front.php:134 ../functions.php:6870
 #, fuzzy
 msgid "Tags"
 msgstr "タグ"
 
-#: ../childs/boots/inc.php:482 ../lib/customize-blank-front.php:8
-#: ../lib/customize.php:71 ../lib/customize.php:112 ../lib/vars.php:482
+#: ../childs/boots/inc.php:482 ../lib/customize.php:71 ../lib/customize.php:112
+#: ../lib/vars.php:542
 #, fuzzy
 msgid "Color Scheme"
 msgstr "配色"
 
-#: ../childs/boots/inc.php:484 ../lib/vars.php:484
+#: ../childs/boots/inc.php:484 ../lib/vars.php:544
 #, fuzzy
 msgid "Please choose the naming convention for the color list"
 msgstr "色選択リスト用の配色セットを選んでください"
 
-#: ../childs/boots/inc.php:491 ../lib/vars.php:491
+#: ../childs/boots/inc.php:491 ../lib/vars.php:551
 #, fuzzy
 msgid "Base Color for Automatic Color Arrangement"
 msgstr "自動配色のための基本色設定"
 
-#: ../childs/boots/inc.php:493 ../lib/customize.php:421 ../lib/vars.php:493
+#: ../childs/boots/inc.php:493 ../lib/customize.php:421 ../lib/vars.php:553
 #, fuzzy
 msgid "Please specify your favorite color. and an automatic arrangement of color is designed."
 msgstr "好きな色をセットしていただければ、自動的に配色します"
 
-#: ../childs/boots/inc.php:501 ../lib/customize.php:529 ../lib/vars.php:501
+#: ../childs/boots/inc.php:501 ../lib/customize.php:529 ../lib/vars.php:561
 #, fuzzy
 msgid "Color Type"
 msgstr "配色タイプ"
 
-#: ../childs/boots/inc.php:503 ../lib/vars.php:503
+#: ../childs/boots/inc.php:503 ../lib/vars.php:563
 #, fuzzy
 msgid "The mood like dark atmosphere and the bright note, etc. is decided. and The editor is displayed when themename is selected, and a present style can be edited in detail."
 msgstr "dark、light、等を選ぶと自動配色します テーマ名を選択すると、現在のスタイルをカスタマイズするためのエディタ画面が表示されます。"
 
-#: ../childs/boots/inc.php:512 ../lib/customize.php:543 ../lib/vars.php:512
+#: ../childs/boots/inc.php:512 ../lib/customize.php:543 ../lib/vars.php:572
 #, fuzzy
 msgid "Header background image"
 msgstr "ヘッダの背景画像"
 
-#: ../childs/boots/inc.php:514 ../lib/customize.php:545 ../lib/vars.php:514
+#: ../childs/boots/inc.php:514 ../lib/customize.php:545 ../lib/vars.php:574
 #, fuzzy
 msgid ""
 "The header image can be set by two methods.\n"
 "One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image."
 msgstr "ヘッダー画像は2つの方法でセットできます"
 
-#: ../childs/boots/inc.php:524 ../lib/customize.php:555 ../lib/vars.php:524
+#: ../childs/boots/inc.php:524 ../lib/customize.php:555 ../lib/vars.php:584
 #, fuzzy
 msgid "Footer background image"
 msgstr "フッターの背景画像"
 
-#: ../childs/boots/inc.php:526 ../lib/customize.php:557 ../lib/vars.php:526
+#: ../childs/boots/inc.php:526 ../lib/customize.php:557 ../lib/vars.php:586
 #, fuzzy
 msgid ""
 "The footer image can be set by two methods.\n"
 "One is a method of up-loading the image from the below up-loading form. Another is a method of filling in the filename from this textfield from Raindrops/images something image."
 msgstr "フッターの画像は2つの方法でセットできます"
 
-#: ../childs/boots/inc.php:534 ../lib/vars.php:534
+#: ../childs/boots/inc.php:534 ../lib/vars.php:594
 #, fuzzy
 msgid "Widget Title Background Image"
 msgstr "ウィジェットタイトルの背景画像"
 
-#: ../childs/boots/inc.php:536 ../lib/vars.php:536
+#: ../childs/boots/inc.php:536 ../lib/vars.php:596
 #, fuzzy
 msgid "The header image can be chosen from among three kinds [h2.png,h2b.png,h2c.png]."
 msgstr "ウィジェットタイトルの画像は、h2.png,h2b.png,h2c.pngから選んでください"
 
-#: ../childs/boots/inc.php:543 ../lib/vars.php:543
+#: ../childs/boots/inc.php:543 ../lib/vars.php:603
 #, fuzzy
 msgid "Widget Title Background Image Position"
 msgstr "ウィジェットタイトル背景の画像位置設定"
 
-#: ../childs/boots/inc.php:545 ../lib/vars.php:545
+#: ../childs/boots/inc.php:545 ../lib/vars.php:605
 #, fuzzy
 msgid "The name of the picture file used for the h2 headding is set. Please set the integral value from 0 to 7. "
 msgstr "h2見出し用の背景画像を選んだら、さらにどの画像にするか、0から7の半角英数で指定してください"
 
-#: ../childs/boots/inc.php:552 ../lib/vars.php:552
+#: ../childs/boots/inc.php:552 ../lib/vars.php:612
 #, fuzzy
 msgid "Page Width"
 msgstr "ページ幅"
 
-#: ../childs/boots/inc.php:554 ../lib/vars.php:554
+#: ../childs/boots/inc.php:554 ../lib/vars.php:614
 #, fuzzy
 msgid "Please choose width on the page."
 msgstr "ページ幅を設定してください。　"
 
-#: ../childs/boots/inc.php:555 ../lib/vars.php:555
+#: ../childs/boots/inc.php:555 ../lib/vars.php:615
 #, fuzzy
 msgid "Please choose from four kinds of inside of"
 msgstr "次の、4種類から選択できます。"
 
-#: ../childs/boots/inc.php:556 ../lib/vars.php:556
+#: ../childs/boots/inc.php:556 ../lib/vars.php:616
 #, fuzzy
 msgid "750px centerd 950px centerd fluid 974px."
 msgstr "750px　950px　974px　固定幅　及び、フルードレイアウト（レスポンシブ）"
 
-#: ../childs/boots/inc.php:563 ../lib/customize.php:623 ../lib/vars.php:563
+#: ../childs/boots/inc.php:563 ../lib/customize.php:623 ../lib/vars.php:623
 #, fuzzy
 msgid "Column Width and Position"
 msgstr "サイドバーの幅と位置"
 
-#: ../childs/boots/inc.php:565 ../lib/customize.php:625 ../lib/vars.php:565
+#: ../childs/boots/inc.php:565 ../lib/customize.php:625 ../lib/vars.php:625
 #, fuzzy
 msgid "Please specify the position and the width of Default Sidebar. Six kinds of sidebars of left 160px left 180px left 300px right 180px right 240px right 300px can be specified."
 msgstr "デフォルトサイドバーの位置と幅を指定してください。デフォルト値は、左側180pxです。"
 
-#: ../childs/boots/inc.php:572 ../lib/vars.php:572
+#: ../childs/boots/inc.php:572 ../lib/vars.php:632
 #, fuzzy
 msgid "Text color in content "
 msgstr "コンテンツの文字の色"
 
-#: ../childs/boots/inc.php:574 ../lib/customize.php:453 ../lib/vars.php:574
+#: ../childs/boots/inc.php:574 ../lib/customize.php:453 ../lib/vars.php:634
 #, fuzzy
 msgid "If you need to set contents Special font color."
 msgstr "コンテンツの文字色を指定したい時に"
 
-#: ../childs/boots/inc.php:581 ../lib/vars.php:581
+#: ../childs/boots/inc.php:581 ../lib/vars.php:641
 #, fuzzy
 msgid "Text color in footer "
 msgstr "フッターの文字色"
 
-#: ../childs/boots/inc.php:583 ../lib/customize.php:485 ../lib/vars.php:583
+#: ../childs/boots/inc.php:583 ../lib/customize.php:485 ../lib/vars.php:643
 #, fuzzy
 msgid "If you need to set footer Special font color."
 msgstr "フッターの文字色を指定したい時に、"
 
-#: ../childs/boots/inc.php:590 ../functions.php:616 ../functions.php:6236
-#: ../functions.php:11335 ../lib/vars.php:590
+#: ../childs/boots/inc.php:590 ../functions.php:619 ../functions.php:6267
+#: ../functions.php:11438 ../lib/vars.php:650
 #, fuzzy
 msgid "Extra Sidebar"
 msgstr "エキストラサイドバー"
 
-#: ../childs/boots/inc.php:592 ../lib/customize.php:682 ../lib/vars.php:592
+#: ../childs/boots/inc.php:592 ../lib/customize.php:682 ../lib/vars.php:652
 #, fuzzy
 msgid "Please specify show when you want to use three row layout. Please set Ratio to text when extra sidebar is displayed when you specify show"
 msgstr "表示だと3列、非表示だと2列で表示します"
 
-#: ../childs/boots/inc.php:599 ../lib/customize.php:699 ../lib/vars.php:599
+#: ../childs/boots/inc.php:599 ../lib/customize.php:699 ../lib/vars.php:659
 #, fuzzy
 msgid "Extra Sidebar Width"
 msgstr "エキストラサイドバー　幅"
 
-#: ../childs/boots/inc.php:601 ../lib/customize.php:701 ../lib/vars.php:601
+#: ../childs/boots/inc.php:601 ../lib/customize.php:701 ../lib/vars.php:661
 #, fuzzy
 msgid "When display extra sidebar is set to show"
 msgstr "エキストラサイドバーを表示する場合、"
 
-#: ../childs/boots/inc.php:602 ../lib/customize.php:702 ../lib/vars.php:602
+#: ../childs/boots/inc.php:602 ../lib/customize.php:702 ../lib/vars.php:662
 #, fuzzy
 msgid "it is necessary to specify it."
 msgstr "設定してください。　"
 
-#: ../childs/boots/inc.php:603 ../lib/customize.php:703 ../lib/vars.php:603
+#: ../childs/boots/inc.php:603 ../lib/customize.php:703 ../lib/vars.php:663
 #, fuzzy
 msgid "It can decide to divide the width of which place of extra sidebar"
 msgstr "エキストラサイドバーがコンテンツ幅に占める割合"
 
-#: ../childs/boots/inc.php:604 ../lib/customize.php:704 ../lib/vars.php:604
+#: ../childs/boots/inc.php:604 ../lib/customize.php:704 ../lib/vars.php:664
 #, fuzzy
 msgid "and to give it. Please select it from among 25% 33% 50% 66% 75%. "
 msgstr "お好きな幅を選択してください。デフォルト値は25%です。"
 
-#: ../childs/boots/inc.php:611 ../lib/vars.php:611
+#: ../childs/boots/inc.php:611 ../lib/vars.php:671
 #, fuzzy
 msgid "Menu Primary"
 msgstr "メインメニュー"
 
-#: ../childs/boots/inc.php:613 ../lib/customize.php:1185 ../lib/vars.php:613
+#: ../childs/boots/inc.php:613 ../lib/customize.php:1185 ../lib/vars.php:673
 #, fuzzy
 msgid "Display or not Menu Primary. default value is show. set hide when not display menu primary"
 msgstr "メインメニューの表示と非表示"
 
-#: ../childs/boots/inc.php:620 ../lib/vars.php:620
+#: ../childs/boots/inc.php:620 ../lib/vars.php:680
 #, fuzzy
 msgid "Link color"
 msgstr "リンクの色"
 
-#: ../childs/boots/inc.php:622 ../lib/customize.php:500 ../lib/vars.php:622
+#: ../childs/boots/inc.php:622 ../lib/customize.php:500 ../lib/vars.php:682
 #, fuzzy
 msgid "Hyper link color"
 msgstr "リンクの色"
 
-#: ../childs/boots/inc.php:629 ../lib/vars.php:629
+#: ../childs/boots/inc.php:629 ../lib/vars.php:689
 #, fuzzy
 msgid "Accessibility Settings"
 msgstr "アクセシビリティ設定"
 
-#: ../childs/boots/inc.php:631 ../lib/customize.php:1261 ../lib/vars.php:631
+#: ../childs/boots/inc.php:631 ../lib/customize.php:1261 ../lib/vars.php:691
 #, fuzzy
 msgid "Accessibility Settings is create a unique link text. set to yes or no."
 msgstr "アクセシビリティセッティングはリンクテキストをユニークな値に変更しますか？"
 
-#: ../childs/boots/inc.php:640 ../lib/vars.php:640
+#: ../childs/boots/inc.php:640 ../lib/vars.php:700
 #, fuzzy
 msgid "Document Type Settings"
 msgstr "HTML 文書型設定"
 
-#: ../childs/boots/inc.php:642 ../lib/customize.php:1277 ../lib/vars.php:642
+#: ../childs/boots/inc.php:642 ../lib/customize.php:1277 ../lib/vars.php:702
 #, fuzzy
 msgid "Default Document type html5. Set to xhtml or html5."
 msgstr "HTML文書型を選択できます。デフォルトは、html5ですが、xhtml1.0も選択できます。xhtmlを選択すると、メディアタイプの指定もできます。"
 
-#: ../childs/boots/inc.php:651 ../lib/vars.php:651
+#: ../childs/boots/inc.php:651 ../lib/vars.php:711
 #, fuzzy
 msgid "Base Font Size Setting"
 msgstr "ベースフォントサイズの設定"
 
-#: ../childs/boots/inc.php:653 ../lib/customize.php:1692 ../lib/vars.php:653
+#: ../childs/boots/inc.php:653 ../lib/customize.php:1692 ../lib/vars.php:713
 #, fuzzy
 msgid "Base Font Size Value Recommend 13-20 (px size)"
 msgstr "ベースフォントサイズの推奨サイズは13-20ピクセルです"
 
-#: ../childs/boots/inc.php:662 ../lib/vars.php:662
+#: ../childs/boots/inc.php:662 ../lib/vars.php:722
 #, fuzzy
 msgid "Fluid ( Responsive ) Max Page Width"
 msgstr "フルード　レスポンシブレイアウトの最大幅"
 
 #: ../childs/boots/inc.php:664 ../lib/customize.php:1379
-#: ../lib/customize.php:1394 ../lib/vars.php:664
+#: ../lib/customize.php:1394 ../lib/vars.php:724
 #, fuzzy
 msgid "Default 1280 (px size)"
 msgstr "初期値　1280（ピクセル）"
 
-#: ../childs/boots/inc.php:673 ../lib/vars.php:673
+#: ../childs/boots/inc.php:673 ../lib/vars.php:733
 #, fuzzy
 msgid "Home Entry Content Type"
 msgstr "トップページの投稿本文　表示設定"
 
 #: ../childs/boots/inc.php:675 ../childs/boots/inc.php:686
-#: ../childs/boots/inc.php:697 ../lib/vars.php:675 ../lib/vars.php:686
-#: ../lib/vars.php:698
+#: ../childs/boots/inc.php:697 ../lib/vars.php:735 ../lib/vars.php:746
+#: ../lib/vars.php:758
 #, fuzzy
 msgid "value content, excerpt, none"
 msgstr "値は、content, excerpt, none　のいずれかをセットしてください"
 
-#: ../childs/boots/inc.php:684 ../lib/vars.php:684
+#: ../childs/boots/inc.php:684 ../lib/vars.php:744
 #, fuzzy
 msgid "Category Archive Content Type"
 msgstr "カテゴリアーカイブの投稿本文　表示設定"
 
-#: ../childs/boots/inc.php:695 ../lib/vars.php:696
+#: ../childs/boots/inc.php:695 ../lib/vars.php:756
 #, fuzzy
 msgid "Search Result Content Type"
 msgstr "検索結果ページの投稿本文　表示設定"
 
-#: ../childs/boots/inc.php:706 ../lib/vars.php:707
+#: ../childs/boots/inc.php:706 ../lib/vars.php:767
 #, fuzzy
 msgid "Link color in footer "
 msgstr "フッター内のリンク色"
@@ -366,185 +366,185 @@ msgstr "フッター内のリンク色"
 msgid "If you need to set footer Special link color.hex color ex.#ff0000 or none"
 msgstr "フッターの文字色を指定したい時に、hex colorを指定します　例えば　#ff0000  指定しない場合は none"
 
-#: ../childs/boots/inc.php:717 ../lib/vars.php:718
+#: ../childs/boots/inc.php:717 ../lib/vars.php:778
 #, fuzzy
 msgid "Complementary Color For Entry Title Link "
 msgstr "補色を投稿タイトルに適用"
 
-#: ../childs/boots/inc.php:719 ../lib/vars.php:720
+#: ../childs/boots/inc.php:719 ../lib/vars.php:780
 #, fuzzy
 msgid "If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) value yes or none"
 msgstr "投稿タイトルの色にリンク色の補色を使う（リンク色が有彩色に設定されている必要があります）値は、yesまたはnoneをセットします"
 
-#: ../childs/boots/inc.php:728 ../lib/vars.php:729
+#: ../childs/boots/inc.php:728 ../lib/vars.php:789
 #, fuzzy
 msgid "Breadcrumb NavXT Automatic Presentation "
 msgstr "Breadcrumb NavXT　自動表示"
 
 #: ../childs/boots/inc.php:730 ../childs/boots/inc.php:741
-#: ../childs/boots/inc.php:763 ../lib/vars.php:731 ../lib/vars.php:742
-#: ../lib/vars.php:764
+#: ../childs/boots/inc.php:763 ../lib/vars.php:791 ../lib/vars.php:802
+#: ../lib/vars.php:824
 #, fuzzy
 msgid "Theme, will make a presentation of applying the plugin automatically, value set yes or none"
 msgstr "テーマは、プラグインを自動的に表示します。値は yes または none をセットしてください"
 
-#: ../childs/boots/inc.php:739 ../lib/vars.php:740
+#: ../childs/boots/inc.php:739 ../lib/vars.php:800
 #, fuzzy
 msgid "WP-PageNavi Automatic Presentation "
 msgstr "WP-PageNavi　自動表示"
 
-#: ../childs/boots/inc.php:750 ../lib/vars.php:751
+#: ../childs/boots/inc.php:750 ../lib/vars.php:811
 #, fuzzy
 msgid "Meta Slider Automatic Presentation "
 msgstr "Meta Slider プラグインの自動表示"
 
-#: ../childs/boots/inc.php:752 ../lib/vars.php:753
+#: ../childs/boots/inc.php:752 ../lib/vars.php:813
 #, fuzzy
 msgid "Please Set Meta Slider ID or none"
 msgstr "スライダーのIDを入力するか、使わない場合は、none　をセットしてください"
 
-#: ../childs/boots/inc.php:761 ../lib/vars.php:762
+#: ../childs/boots/inc.php:761 ../lib/vars.php:822
 #, fuzzy
 msgid "The Events Calendar Automatic Presentation "
 msgstr "The Events Calendar イベントカレンダープラグイン　自動表示"
 
-#: ../childs/boots/inc.php:772 ../lib/vars.php:773
+#: ../childs/boots/inc.php:772 ../lib/vars.php:833
 #, fuzzy
 msgid "Disable Keyboard Focus "
 msgstr "キーボードアクセシビリティの停止"
 
-#: ../childs/boots/inc.php:774 ../lib/customize.php:1423 ../lib/vars.php:775
+#: ../childs/boots/inc.php:774 ../lib/customize.php:1423 ../lib/vars.php:835
 #, fuzzy
 msgid "Fallback Setting when Nav Menu displayed improperly, value set enable( defalt ) or disable"
 msgstr "メインメニューの動作に異常がある場合の回避設定　値は enable( デフォルト ) または disable　を設定してください。"
 
-#: ../childs/boots/inc.php:783 ../lib/customize.php:1437 ../lib/vars.php:784
+#: ../childs/boots/inc.php:783 ../lib/customize.php:1437 ../lib/vars.php:844
 #, fuzzy
 msgid "Synchronize Style for Visual Editor"
 msgstr "ビジュアルエディタをテーマの設定に同期する"
 
-#: ../childs/boots/inc.php:785 ../lib/customize.php:1439 ../lib/vars.php:786
+#: ../childs/boots/inc.php:785 ../lib/customize.php:1439 ../lib/vars.php:846
 #, fuzzy
 msgid "Reflect on Dynamically Editor Style Settings, value set yes ( default ) or none"
 msgstr "テーマの設定を、ビジュアルエディタに反映しますか？"
 
-#: ../childs/boots/inc.php:794 ../lib/customize.php:107 ../lib/vars.php:795
+#: ../childs/boots/inc.php:794 ../lib/customize.php:107 ../lib/vars.php:855
 #, fuzzy
 msgid "Uninstall Option"
 msgstr "アンインストール設定"
 
-#: ../childs/boots/inc.php:796 ../lib/vars.php:797
+#: ../childs/boots/inc.php:796 ../lib/vars.php:857
 #, fuzzy
 msgid "Delete all Theme Settings when switch theme. default keep ( or delete )"
 msgstr "テーマを変更する時にすべてのテーマ設定を削除します　デフォルトは keep ( 削除する場合は、delete )"
 
-#: ../childs/boots/inc.php:805 ../lib/customize.php:1539 ../lib/vars.php:806
+#: ../childs/boots/inc.php:805 ../lib/customize.php:1539 ../lib/vars.php:866
 #, fuzzy
 msgid "Menu Primary Font Size"
 msgstr "主ナビゲーションのフォントサイズ"
 
-#: ../childs/boots/inc.php:807 ../lib/customize.php:1541 ../lib/vars.php:808
+#: ../childs/boots/inc.php:807 ../lib/customize.php:1541 ../lib/vars.php:868
 #, fuzzy
 msgid "Menu Primary Font Size. default value is 100( % ). set font size between 77 and 182"
 msgstr "プライマリメニューのフォントサイズ　規定値　100（%）設定可能な値は、77　から　182　までです"
 
-#: ../childs/boots/inc.php:815 ../lib/vars.php:816
+#: ../childs/boots/inc.php:815 ../lib/vars.php:876
 #, fuzzy
 msgid "Menu Primary Menu Width"
 msgstr "主ナビゲーションの幅"
 
-#: ../childs/boots/inc.php:817 ../lib/vars.php:818
+#: ../childs/boots/inc.php:817 ../lib/vars.php:878
 #, fuzzy
 msgid "Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999"
 msgstr "プライマリメニューの幅設定　規定値　10( em ) 設定可能な値は、1　から　96　未満までの範囲です。"
 
-#: ../childs/boots/inc.php:825 ../lib/customize.php:1628 ../lib/vars.php:826
+#: ../childs/boots/inc.php:825 ../lib/customize.php:1628 ../lib/vars.php:886
 #, fuzzy
 msgid "Featured Image Position"
 msgstr "アイキャッチ画像の位置"
 
-#: ../childs/boots/inc.php:827 ../lib/vars.php:828
+#: ../childs/boots/inc.php:827 ../lib/vars.php:888
 #, fuzzy
 msgid "Featured Image Position for Emphasis of new content using the Featured Image values default,left,front"
 msgstr "アイキャッチ画像を強調するための位置指定 設定可能な値は、default ,leftまたは、frontです。"
 
-#: ../childs/boots/inc.php:835 ../lib/customize.php:1645 ../lib/vars.php:836
+#: ../childs/boots/inc.php:835 ../lib/customize.php:1645 ../lib/vars.php:896
 #, fuzzy
 msgid "Featured Image Size"
 msgstr "アイキャッチ画像　サイズ"
 
-#: ../childs/boots/inc.php:837 ../lib/customize.php:1647 ../lib/vars.php:838
+#: ../childs/boots/inc.php:837 ../lib/customize.php:1647 ../lib/vars.php:898
 #, fuzzy
 msgid "values thumbnail, medium, large, default"
 msgstr "設定可能な値は、thumbnail, medium, large, またはテーマの設定値です"
 
-#: ../childs/boots/inc.php:845 ../lib/customize.php:1659 ../lib/vars.php:846
+#: ../childs/boots/inc.php:845 ../lib/customize.php:1659 ../lib/vars.php:906
 #, fuzzy
 msgid "Featured Image Special Layout Apply Post Count"
 msgstr "アイキャッチ画像の特別な表示を行う件数"
 
-#: ../childs/boots/inc.php:847 ../lib/vars.php:848
+#: ../childs/boots/inc.php:847 ../lib/vars.php:908
 #, fuzzy
 msgid "values from 1 to Post Per Page count default value none"
 msgstr "設定可能な値は、１から、1ページに表示する最大投稿数（　設定・表示設定　）の範囲です。"
 
-#: ../childs/boots/inc.php:855 ../lib/vars.php:856
+#: ../childs/boots/inc.php:855 ../lib/vars.php:916
 #, fuzzy
 msgid "Featured Image Show, lightbox or Hide on Singular Post,Page"
 msgstr "シングルページ（投稿）でのアイキャッチ画像の表示設定、設定可能な値は、 表示、非表示、ライトボックスです"
 
-#: ../childs/boots/inc.php:857 ../lib/vars.php:858
+#: ../childs/boots/inc.php:857 ../lib/vars.php:918
 #, fuzzy
 msgid "values show or hide or lightbox ( light box is crop height ,add lightbox )"
 msgstr "値は、表示,非表示　またはライトボックス（縦方向でクロップされます）"
 
-#: ../childs/boots/inc.php:865 ../lib/customize.php:1611 ../lib/vars.php:866
+#: ../childs/boots/inc.php:865 ../lib/customize.php:1611 ../lib/vars.php:926
 #, fuzzy
 msgid "USE or Not Emphasis of new content using the Featured Image"
 msgstr "投稿のアイキャッチ画像の強調設定利用の可否"
 
-#: ../childs/boots/inc.php:867 ../childs/boots/inc.php:877 ../lib/vars.php:868
-#: ../lib/vars.php:878
+#: ../childs/boots/inc.php:867 ../childs/boots/inc.php:877 ../lib/vars.php:928
+#: ../lib/vars.php:938
 #, fuzzy
 msgid "values yes or no default no"
 msgstr "設定可能な値は、yes または　no　です。規定値は no"
 
-#: ../childs/boots/inc.php:875 ../lib/customize.php:2171 ../lib/vars.php:876
+#: ../childs/boots/inc.php:875 ../lib/customize.php:2204 ../lib/vars.php:936
 #, fuzzy
 msgid "USE or Not Japanese Date"
 msgstr "日付の和暦表示"
 
-#: ../childs/boots/inc.php:885 ../lib/vars.php:886
+#: ../childs/boots/inc.php:885 ../lib/vars.php:946
 #, fuzzy
 msgid "Add Read More Link"
 msgstr "「続きを読む」リンクの追加"
 
-#: ../childs/boots/inc.php:887 ../lib/vars.php:888
+#: ../childs/boots/inc.php:887 ../lib/vars.php:948
 #, fuzzy
 msgid "Add read more link after excerpt. values yes or no default no"
 msgstr "設定可能な値は、yes または　noです。規定値は no"
 
-#: ../childs/boots/inc.php:895 ../lib/vars.php:896
+#: ../childs/boots/inc.php:895 ../lib/vars.php:956
 #, fuzzy
 msgid "Use Raindrops Extend Excerpt"
 msgstr "レインドロップスのカスタム概要表示"
 
-#: ../childs/boots/inc.php:897 ../lib/vars.php:898
+#: ../childs/boots/inc.php:897 ../lib/vars.php:958
 #, fuzzy
 msgid "HTML in Excerpt. values yes or no default no"
 msgstr "設定可能な値は、yes または　noです。規定値は no"
 
-#: ../childs/boots/inc.php:905 ../lib/vars.php:906
+#: ../childs/boots/inc.php:905 ../lib/vars.php:966
 #, fuzzy
 msgid "Allow Oembed Media at Raindrops Extend Excerpt"
 msgstr "レインドロップス概要表示でOEmbedメディアの表示"
 
-#: ../childs/boots/inc.php:907 ../lib/customize.php:2028 ../lib/vars.php:908
+#: ../childs/boots/inc.php:907 ../lib/customize.php:2061 ../lib/vars.php:968
 #, fuzzy
 msgid "Overview display, if you set no, you can reduce the load time of the page. values yes or no default yes"
 msgstr "「いいえ」をセットするとページのロード時間を節約できます。"
 
-#: ../childs/boots/inc.php:915 ../lib/vars.php:916
+#: ../childs/boots/inc.php:915 ../lib/vars.php:976
 #, fuzzy
 msgid "Place of Title"
 msgstr "サイトタイトルの表示位置"
@@ -554,60 +554,59 @@ msgstr "サイトタイトルの表示位置"
 msgid "value default above or header_image"
 msgstr "設定可能な値は、above または、header_image"
 
-#: ../childs/boots/inc.php:925 ../childs/boots/inc.php:1175 ../lib/vars.php:926
-#: ../lib/vars.php:1177
+#: ../childs/boots/inc.php:925 ../childs/boots/inc.php:1175 ../lib/vars.php:986
+#: ../lib/vars.php:1237
 #, fuzzy
 msgid "Left Margin of Site Title"
 msgstr "タイトルの左マージン"
 
-#: ../childs/boots/inc.php:927 ../childs/boots/inc.php:937 ../lib/vars.php:928
-#: ../lib/vars.php:938 ../lib/vars.php:1179
+#: ../childs/boots/inc.php:927 ../childs/boots/inc.php:937 ../lib/vars.php:988
+#: ../lib/vars.php:998 ../lib/vars.php:1239
 #, fuzzy
 msgid "Works only Place of Title value set header_image, default value  1"
 msgstr "サイトタイトルをヘッダー画像内に設定した場合のみ、初期設定は 1"
 
-#: ../childs/boots/inc.php:935 ../lib/vars.php:936
+#: ../childs/boots/inc.php:935 ../lib/vars.php:996
 #, fuzzy
 msgid "Top Margin of Site Title"
 msgstr "サイトタイトルの上部スペース"
 
-#: ../childs/boots/inc.php:945 ../lib/customize.php:2206 ../lib/vars.php:946
+#: ../childs/boots/inc.php:945 ../lib/customize.php:2239 ../lib/vars.php:1006
 #, fuzzy
 msgid "Font Size of Site Title"
 msgstr "サイトタイトルのフォントサイズ"
 
-#: ../childs/boots/inc.php:947 ../lib/customize.php:2208 ../lib/vars.php:948
+#: ../childs/boots/inc.php:947 ../lib/customize.php:2241 ../lib/vars.php:1008
 #, fuzzy
 msgid "default value none, or 1-10( percent of viewport width )"
 msgstr "初期設定ではnone,設定可能な値は1-10(ブラウザ幅に対するパーセントサイズ)"
 
-#: ../childs/boots/inc.php:955 ../lib/vars.php:956
+#: ../childs/boots/inc.php:955 ../lib/vars.php:1016
 #, fuzzy
 msgid "Site Title CSS"
 msgstr "サイトタイトルのCSS"
 
-#: ../childs/boots/inc.php:957 ../lib/customize.php:2325 ../lib/vars.php:958
+#: ../childs/boots/inc.php:957 ../lib/customize.php:2358 ../lib/vars.php:1018
 #, fuzzy
 msgid "for example google-font-lobster default value none"
 msgstr "例えば、google-font-lobster 初期設定値は　none"
 
-#: ../childs/boots/inc.php:965 ../lib/vars.php:966
+#: ../childs/boots/inc.php:965 ../lib/vars.php:1026
 #, fuzzy
 msgid "Tagline in the header image"
 msgstr "ヘッダー画像内のキャッチフレーズ"
 
-#: ../childs/boots/inc.php:967 ../lib/customize.php:2307 ../lib/vars.php:968
+#: ../childs/boots/inc.php:967 ../lib/customize.php:2340 ../lib/vars.php:1028
 #, fuzzy
 msgid "tagline show or hide"
 msgstr "キャッチフレーズの表示・非表示"
 
-#: ../childs/boots/inc.php:975 ../lib/customize-blank-front.php:42
-#: ../lib/customize.php:606 ../lib/vars.php:976
+#: ../childs/boots/inc.php:975 ../lib/customize.php:606 ../lib/vars.php:1036
 #, fuzzy
 msgid "Side bar setting method"
 msgstr "サイドバー設定の選択"
 
-#: ../childs/boots/inc.php:977 ../lib/vars.php:978
+#: ../childs/boots/inc.php:977 ../lib/vars.php:1038
 #, fuzzy
 msgid "value details or simple. default simple"
 msgstr "値は　details または simple　です。　デフォルト設定はnoです"
@@ -628,95 +627,95 @@ msgstr "トップページのカラム数"
 #: ../childs/boots/inc.php:1457 ../childs/boots/inc.php:1467
 #: ../childs/boots/inc.php:1477 ../childs/boots/inc.php:1487
 #: ../childs/boots/inc.php:1497 ../childs/boots/inc.php:1507
-#: ../lib/vars.php:988 ../lib/vars.php:998 ../lib/vars.php:1008
-#: ../lib/vars.php:1018 ../lib/vars.php:1028 ../lib/vars.php:1038
-#: ../lib/vars.php:1048 ../lib/vars.php:1078 ../lib/vars.php:1088
-#: ../lib/vars.php:1169 ../lib/vars.php:1189 ../lib/vars.php:1379
-#: ../lib/vars.php:1419 ../lib/vars.php:1429 ../lib/vars.php:1439
-#: ../lib/vars.php:1449 ../lib/vars.php:1459 ../lib/vars.php:1469
+#: ../lib/vars.php:1048 ../lib/vars.php:1058 ../lib/vars.php:1068
+#: ../lib/vars.php:1078 ../lib/vars.php:1088 ../lib/vars.php:1098
+#: ../lib/vars.php:1108 ../lib/vars.php:1138 ../lib/vars.php:1148
+#: ../lib/vars.php:1229 ../lib/vars.php:1249 ../lib/vars.php:1439
 #: ../lib/vars.php:1479 ../lib/vars.php:1489 ../lib/vars.php:1499
-#: ../lib/vars.php:1509
+#: ../lib/vars.php:1509 ../lib/vars.php:1519 ../lib/vars.php:1529
+#: ../lib/vars.php:1539 ../lib/vars.php:1549 ../lib/vars.php:1559
+#: ../lib/vars.php:1569
 #, fuzzy
 msgid "value 1-3. default 3"
 msgstr "値は、1-3の範囲　デフォルト3"
 
-#: ../childs/boots/inc.php:995 ../lib/customize.php:799 ../lib/vars.php:996
+#: ../childs/boots/inc.php:995 ../lib/customize.php:799 ../lib/vars.php:1056
 #, fuzzy
 msgid "Date Archive columns"
 msgstr "月次アーカイブのカラム数"
 
-#: ../childs/boots/inc.php:1005 ../lib/customize.php:818 ../lib/vars.php:1006
+#: ../childs/boots/inc.php:1005 ../lib/customize.php:818 ../lib/vars.php:1066
 #, fuzzy
 msgid "Static Page columns"
 msgstr "固定ページのカラム数"
 
-#: ../childs/boots/inc.php:1015 ../lib/customize.php:857 ../lib/vars.php:1016
+#: ../childs/boots/inc.php:1015 ../lib/customize.php:857 ../lib/vars.php:1076
 #, fuzzy
 msgid "Single Post columns"
 msgstr "投稿のカラム数"
 
-#: ../childs/boots/inc.php:1025 ../lib/customize.php:837 ../lib/vars.php:1026
+#: ../childs/boots/inc.php:1025 ../lib/customize.php:837 ../lib/vars.php:1086
 #, fuzzy
 msgid "Search Result Page columns"
 msgstr "検索結果ページのカラム数"
 
-#: ../childs/boots/inc.php:1035 ../lib/customize.php:916 ../lib/vars.php:1036
+#: ../childs/boots/inc.php:1035 ../lib/customize.php:916 ../lib/vars.php:1096
 #, fuzzy
 msgid "404 Page columns"
 msgstr "404ページのカラム数"
 
-#: ../childs/boots/inc.php:1045 ../lib/customize.php:935 ../lib/vars.php:1046
+#: ../childs/boots/inc.php:1045 ../lib/customize.php:935 ../lib/vars.php:1106
 #, fuzzy
 msgid "List of Post Template columns"
 msgstr "List of Post テンプレートのカラム数"
 
-#: ../childs/boots/inc.php:1055 ../lib/vars.php:1056
+#: ../childs/boots/inc.php:1055 ../lib/vars.php:1116
 #, fuzzy
 msgid "Content Container Width"
 msgstr "コンテンツコンテナの幅"
 
-#: ../childs/boots/inc.php:1057 ../lib/vars.php:1058
+#: ../childs/boots/inc.php:1057 ../lib/vars.php:1118
 #, fuzzy
 msgid "px value, default 1280"
 msgstr "単位はpx,デフォルト値は1280です"
 
-#: ../childs/boots/inc.php:1065 ../lib/customize.php:1406 ../lib/vars.php:1066
+#: ../childs/boots/inc.php:1065 ../lib/customize.php:1406 ../lib/vars.php:1126
 #, fuzzy
 msgid "Support limit Browser Width"
 msgstr "ブラウザ最大許容ウィンドウ幅"
 
-#: ../childs/boots/inc.php:1067 ../lib/vars.php:1068
+#: ../childs/boots/inc.php:1067 ../lib/vars.php:1128
 #, fuzzy
 msgid "In the case of specified size abnormalities of the browser window size, it will show in the box layout. set px value, default 1920"
 msgstr "ユーザーのブラウザサイズ（幅）が許容限度を超えた時には、指定された値以上のウィンドウ幅の場合は、ボックスレイアウトに切り替わります。単位はpx、デフォルト値は1920です"
 
 #: ../childs/boots/inc.php:1075 ../childs/boots/inc.php:1085
-#: ../lib/customize.php:955 ../lib/vars.php:1076 ../lib/vars.php:1086
+#: ../lib/customize.php:955 ../lib/vars.php:1136 ../lib/vars.php:1146
 #, fuzzy
 msgid "Category Archive columns"
 msgstr "カテゴリーアーカイブのカラム数"
 
-#: ../childs/boots/inc.php:1095 ../lib/vars.php:1096
+#: ../childs/boots/inc.php:1095 ../lib/vars.php:1156
 #, fuzzy
 msgid "xhtml media type"
 msgstr "XHTMLメディアタイプ"
 
-#: ../childs/boots/inc.php:1097 ../lib/customize.php:1326 ../lib/vars.php:1098
+#: ../childs/boots/inc.php:1097 ../lib/customize.php:1326 ../lib/vars.php:1158
 #, fuzzy
 msgid "value text/html or application/xhtml+xml, default text/html"
 msgstr "値は、text/html または application/xhtml+xml　です。デフォルト値は　text/html"
 
-#: ../childs/boots/inc.php:1105 ../lib/vars.php:1106
+#: ../childs/boots/inc.php:1105 ../lib/vars.php:1166
 #, fuzzy
 msgid "Insert Point hooks and auto load template name for Developer"
 msgstr "ページの各部にテンプレートの挿入、アクションフックでの追加ができます（開発者向け）"
 
-#: ../childs/boots/inc.php:1107 ../lib/vars.php:1108 ../lib/vars.php:1118
+#: ../childs/boots/inc.php:1107 ../lib/vars.php:1168 ../lib/vars.php:1178
 #, fuzzy
 msgid "value show or hide, default hide"
 msgstr "値は show またはhideデフォルトはhideです"
 
-#: ../childs/boots/inc.php:1115 ../lib/vars.php:1116
+#: ../childs/boots/inc.php:1115 ../lib/vars.php:1176
 #, fuzzy
 msgid "Bottom Status Bar"
 msgstr "ページ下部のステータスバー"
@@ -726,33 +725,33 @@ msgstr "ページ下部のステータスバー"
 msgid "value show or hide, default show"
 msgstr "値は show または hide  デフォルトは show です"
 
-#: ../childs/boots/inc.php:1125 ../lib/customize.php:1703 ../lib/vars.php:1127
+#: ../childs/boots/inc.php:1125 ../lib/customize.php:1703 ../lib/vars.php:1187
 #, fuzzy
 msgid "Entry Title CSS Class"
 msgstr "投稿タイトル　CSSクラス"
 
-#: ../childs/boots/inc.php:1127 ../lib/customize.php:1705 ../lib/vars.php:1129
+#: ../childs/boots/inc.php:1127 ../lib/customize.php:1705 ../lib/vars.php:1189
 #, fuzzy
 msgid "default empty"
 msgstr "デフォルトは emptyです"
 
-#: ../childs/boots/inc.php:1135 ../lib/vars.php:1137
+#: ../childs/boots/inc.php:1135 ../lib/vars.php:1197
 #, fuzzy
 msgid "Display Post Publish Date"
 msgstr "投稿日付の表示"
 
 #: ../childs/boots/inc.php:1137 ../childs/boots/inc.php:1147
-#: ../childs/boots/inc.php:1157 ../lib/vars.php:1139 ../lib/vars.php:1159
+#: ../childs/boots/inc.php:1157 ../lib/vars.php:1199 ../lib/vars.php:1219
 #, fuzzy
 msgid "default show"
 msgstr "デフォルト　表示"
 
-#: ../childs/boots/inc.php:1145 ../lib/vars.php:1147
+#: ../childs/boots/inc.php:1145 ../lib/vars.php:1207
 #, fuzzy
 msgid "Display Post Author"
 msgstr "著者の表示"
 
-#: ../childs/boots/inc.php:1155 ../lib/customize.php:1750 ../lib/vars.php:1157
+#: ../childs/boots/inc.php:1155 ../lib/customize.php:1750 ../lib/vars.php:1217
 #, fuzzy
 msgid "Display Default Category"
 msgstr "デフォルトカテゴリの表示"
@@ -767,209 +766,209 @@ msgstr "画像アーカイブのカラム数"
 msgid "Works only Place of Title value set header_image, centered, manual, default value default"
 msgstr "ヘッダー画像内にタイトルを表示した時だけ動作します"
 
-#: ../childs/boots/inc.php:1185 ../lib/customize.php:974 ../lib/vars.php:1187
+#: ../childs/boots/inc.php:1185 ../lib/customize.php:974 ../lib/vars.php:1247
 #, fuzzy
 msgid "Tag Archive columns"
 msgstr "タグアーカイブのカラム数"
 
-#: ../childs/boots/inc.php:1195 ../lib/customize.php:2077 ../lib/vars.php:1197
+#: ../childs/boots/inc.php:1195 ../lib/customize.php:2110 ../lib/vars.php:1257
 #, fuzzy
 msgid "Excerpt Length"
 msgstr "概要の長さ"
 
-#: ../childs/boots/inc.php:1197 ../lib/vars.php:1199
+#: ../childs/boots/inc.php:1197 ../lib/vars.php:1259
 #, fuzzy
 msgid "20-400"
 msgstr "20-400"
 
-#: ../childs/boots/inc.php:1205 ../lib/customize.php:1291 ../lib/vars.php:1207
+#: ../childs/boots/inc.php:1205 ../lib/customize.php:1291 ../lib/vars.php:1267
 #, fuzzy
 msgid "Location of the style sheet"
 msgstr "スタイルシートの読み込み設定"
 
-#: ../childs/boots/inc.php:1207 ../lib/customize.php:1293 ../lib/vars.php:1209
+#: ../childs/boots/inc.php:1207 ../lib/customize.php:1293 ../lib/vars.php:1269
 #, fuzzy
 msgid "Select link stylesheet to their source HTML or document with the LINK element"
 msgstr "link要素で外部ファイルとして読み込むかhtmlヘッダーにスタイルを埋め込むか選択します"
 
 #: ../childs/boots/inc.php:1215 ../lib/customize.php:1307
-#: ../lib/customize.php:1314 ../lib/vars.php:1217
+#: ../lib/customize.php:1314 ../lib/vars.php:1277
 #, fuzzy
 msgid "Import Raindrops Theme Current Settings"
 msgstr "親テーマRaindropsの現在の設定をインポート"
 
-#: ../childs/boots/inc.php:1225 ../lib/customize.php:1890 ../lib/vars.php:1227
+#: ../childs/boots/inc.php:1225 ../lib/customize.php:1923 ../lib/vars.php:1287
 #, fuzzy
 msgid "Header Image Filter Color"
 msgstr "ヘッダー画像と混色する色"
 
-#: ../childs/boots/inc.php:1235 ../lib/customize.php:1905 ../lib/vars.php:1237
+#: ../childs/boots/inc.php:1235 ../lib/customize.php:1938 ../lib/vars.php:1297
 #, fuzzy
 msgid "Filter Image Top"
 msgstr "画像上部への混色の強さ"
 
-#: ../childs/boots/inc.php:1245 ../lib/customize.php:1924 ../lib/vars.php:1247
+#: ../childs/boots/inc.php:1245 ../lib/customize.php:1957 ../lib/vars.php:1307
 #, fuzzy
 msgid "Filter Image Bottom"
 msgstr "画像下部への混色の強さ"
 
 #: ../childs/boots/inc.php:1255 ../childs/boots/inc.php:1265
-#: ../lib/customize.php:1872 ../lib/vars.php:1257 ../lib/vars.php:1267
+#: ../lib/customize.php:1905 ../lib/vars.php:1317 ../lib/vars.php:1327
 #, fuzzy
 msgid "Header Image Filter"
 msgstr "ヘッダー画像フィルター"
 
-#: ../childs/boots/inc.php:1275 ../lib/customize.php:1360 ../lib/vars.php:1277
+#: ../childs/boots/inc.php:1275 ../lib/customize.php:1360 ../lib/vars.php:1337
 #, fuzzy
 msgid "Sticky Post Show Single Post"
 msgstr "スティキー投稿は、投稿でも表示する"
 
-#: ../childs/boots/inc.php:1277 ../lib/customize.php:1362 ../lib/vars.php:1279
+#: ../childs/boots/inc.php:1277 ../lib/customize.php:1362 ../lib/vars.php:1339
 #, fuzzy
 msgid "Sticky Post Show only Home Page or Always it displayed ( default Always it displayed )"
 msgstr "スティッキー投稿を、常に表示する　または、トップページだけで表示するかを選択します"
 
-#: ../childs/boots/inc.php:1285 ../lib/customize.php:1230 ../lib/vars.php:1287
+#: ../childs/boots/inc.php:1285 ../lib/customize.php:1230 ../lib/vars.php:1347
 #, fuzzy
 msgid "Site-wide CSS"
 msgstr "サイト全体のCSS"
 
-#: ../childs/boots/inc.php:1287 ../lib/customize.php:1232 ../lib/vars.php:1289
+#: ../childs/boots/inc.php:1287 ../lib/customize.php:1232 ../lib/vars.php:1349
 #, fuzzy
 msgid "Style  It will be retained even if the theme is updated"
 msgstr "このスタイルは、テーマがアップデートしても保持されます。"
 
-#: ../childs/boots/inc.php:1295 ../lib/customize.php:1773 ../lib/vars.php:1297
+#: ../childs/boots/inc.php:1295 ../lib/customize.php:1773 ../lib/vars.php:1357
 #, fuzzy
 msgid "Posted in Labels"
 msgstr "投稿（カテゴリ、タグ）ラベルテキスト"
 
-#: ../childs/boots/inc.php:1297 ../lib/customize.php:1775 ../lib/vars.php:1299
+#: ../childs/boots/inc.php:1297 ../lib/customize.php:1775 ../lib/vars.php:1359
 #, fuzzy
 msgid "Hide Posted in Labels "
 msgstr " posted in（カテゴリ、タグの表示ブロック）の非表示"
 
-#: ../childs/boots/inc.php:1297 ../functions.php:1130 ../functions.php:1145
-#: ../lib/customize.php:1775 ../lib/vars.php:1299
+#: ../childs/boots/inc.php:1297 ../functions.php:1142 ../functions.php:1158
+#: ../lib/customize.php:1775 ../lib/vars.php:1359
 #, fuzzy
 msgid "This entry was posted in"
 msgstr "投稿グループ"
 
-#: ../childs/boots/inc.php:1297 ../functions.php:1131 ../functions.php:1146
-#: ../lib/customize.php:1775 ../lib/vars.php:1299
+#: ../childs/boots/inc.php:1297 ../functions.php:1143 ../functions.php:1159
+#: ../lib/customize.php:1775 ../lib/vars.php:1359
 #, fuzzy
 msgid "and tagged"
 msgstr "タグ"
 
-#: ../childs/boots/inc.php:1305 ../lib/customize.php:1790 ../lib/vars.php:1307
+#: ../childs/boots/inc.php:1305 ../lib/customize.php:1790 ../lib/vars.php:1367
 #, fuzzy
 msgid "Comments are closed Label"
 msgstr "「コメントは受け付けていません」 のラベルテキスト表示"
 
-#: ../childs/boots/inc.php:1307 ../lib/vars.php:1309
+#: ../childs/boots/inc.php:1307 ../lib/vars.php:1369
 #, fuzzy
 msgid "Hide "
 msgstr "隠す"
 
 #: ../childs/boots/inc.php:1307 ../comments.php:72 ../lib/customize.php:1792
-#: ../lib/vars.php:1309
+#: ../lib/vars.php:1369
 #, fuzzy
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません"
 
-#: ../childs/boots/inc.php:1315 ../lib/customize.php:1838 ../lib/vars.php:1317
+#: ../childs/boots/inc.php:1315 ../lib/customize.php:1871 ../lib/vars.php:1377
 #, fuzzy
 msgid "Archives label"
 msgstr "アーカイブ　ラベルテキスト"
 
-#: ../childs/boots/inc.php:1317 ../lib/vars.php:1319
+#: ../childs/boots/inc.php:1317 ../lib/vars.php:1379
 #, fuzzy
 msgid "Hide or Show like Category Archives, Tag Archives label"
 msgstr "アーカイブタイトルの、カテゴリーアーカイブや　タグアーカイブと表示されるラベルを表示するか、表示しない等を選択します。"
 
-#: ../childs/boots/inc.php:1325 ../lib/customize.php:1855 ../lib/vars.php:1327
+#: ../childs/boots/inc.php:1325 ../lib/customize.php:1888 ../lib/vars.php:1387
 #, fuzzy
 msgid "Archive Page Top Navigation"
 msgstr "アーカイブページの上部のページナビゲーション"
 
-#: ../childs/boots/inc.php:1327 ../lib/customize.php:1857 ../lib/vars.php:1329
+#: ../childs/boots/inc.php:1327 ../lib/customize.php:1890 ../lib/vars.php:1389
 #, fuzzy
 msgid "Hide or Show Blog Archives page top navigation"
 msgstr "アーカイブページのタイトル上部に表示されるナビゲーションの表示、非表示を選択します"
 
-#: ../childs/boots/inc.php:1335 ../lib/customize.php:1806 ../lib/vars.php:1337
+#: ../childs/boots/inc.php:1335 ../lib/customize.php:1806 ../lib/vars.php:1397
 #, fuzzy
 msgid "Position of Posted on"
 msgstr " タイトル下の、投稿者や日付のブロックの位置"
 
-#: ../childs/boots/inc.php:1337 ../lib/customize.php:1808 ../lib/vars.php:1339
+#: ../childs/boots/inc.php:1337 ../lib/customize.php:1808 ../lib/vars.php:1399
 #, fuzzy
 msgid "default before contents"
 msgstr "デフォルト値 before contents"
 
-#: ../childs/boots/inc.php:1345 ../lib/customize.php:1822 ../lib/vars.php:1347
+#: ../childs/boots/inc.php:1345 ../lib/customize.php:1822 ../lib/vars.php:1407
 #, fuzzy
 msgid "Position of Posted in"
 msgstr " 投稿の下部にある、カテゴリやタグを表示するブロックの位置"
 
-#: ../childs/boots/inc.php:1347 ../lib/customize.php:1824 ../lib/vars.php:1349
+#: ../childs/boots/inc.php:1347 ../lib/customize.php:1824 ../lib/vars.php:1409
 #, fuzzy
 msgid "default after contents"
 msgstr "デフォルト値　after contents"
 
-#: ../childs/boots/inc.php:1355 ../lib/customize.php:1453 ../lib/vars.php:1357
+#: ../childs/boots/inc.php:1355 ../lib/customize.php:1453 ../lib/vars.php:1417
 #, fuzzy
 msgid "Fallback Image for Entry Content"
 msgstr "投稿本文内代替画像"
 
-#: ../childs/boots/inc.php:1357 ../lib/vars.php:1359
+#: ../childs/boots/inc.php:1357 ../lib/vars.php:1419
 #, fuzzy
 msgid "Image, to display an alternative image if that can not be displayed"
 msgstr "代替画像の表示"
 
-#: ../childs/boots/inc.php:1365 ../lib/customize.php:1217 ../lib/vars.php:1367
+#: ../childs/boots/inc.php:1365 ../lib/customize.php:1217 ../lib/vars.php:1427
 #, fuzzy
 msgid "Custom Footer Credit"
 msgstr "フッタークレジット"
 
-#: ../childs/boots/inc.php:1367 ../lib/customize.php:1219 ../lib/vars.php:1369
+#: ../childs/boots/inc.php:1367 ../lib/customize.php:1219 ../lib/vars.php:1429
 #, fuzzy
 msgid "Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )"
 msgstr "このフィールドに、リンクやテキスト要素を記述すると、フッタークレジットを自分自身のものに書き換えることが出来ます。使用できるhtml要素はaddress, span, a, br,img, %current_year% (この記述は、現在の年西暦4桁に置換されます )"
 
-#: ../childs/boots/inc.php:1375 ../lib/customize.php:897 ../lib/vars.php:1377
+#: ../childs/boots/inc.php:1375 ../lib/customize.php:897 ../lib/vars.php:1437
 #, fuzzy
 msgid "Attachment Page PDF Columns"
 msgstr "添付ファイルPDFのカラム数"
 
-#: ../childs/boots/inc.php:1385 ../lib/customize.php:1580 ../lib/vars.php:1387
+#: ../childs/boots/inc.php:1385 ../lib/customize.php:1580 ../lib/vars.php:1447
 #, fuzzy
 msgid "Primary Menu Automatic Responsive"
 msgstr "自動レスポンシブ表示"
 
 #: ../childs/boots/inc.php:1387 ../childs/boots/inc.php:1517
-#: ../lib/customize.php:1582 ../lib/customize.php:1598 ../lib/vars.php:1389
-#: ../lib/vars.php:1519
+#: ../lib/customize.php:1582 ../lib/customize.php:1598 ../lib/vars.php:1449
+#: ../lib/vars.php:1579
 #, fuzzy
 msgid "value yes or no. default yes"
 msgstr "設定可能な値は、yes または　no　です。規定値は yes"
 
-#: ../childs/boots/inc.php:1395 ../lib/customize.php:1467 ../lib/vars.php:1397
+#: ../childs/boots/inc.php:1395 ../lib/customize.php:1467 ../lib/vars.php:1457
 #, fuzzy
 msgid "Tooltip"
 msgstr "ツールチップ"
 
-#: ../childs/boots/inc.php:1397 ../lib/customize.php:1469 ../lib/vars.php:1399
+#: ../childs/boots/inc.php:1397 ../lib/customize.php:1469 ../lib/vars.php:1459
 #, fuzzy
 msgid "Enable Tooltip. value yes or no. default yes"
 msgstr "ツールチップの有効化　設定可能な値は、yes または　no　です。規定値は yes"
 
-#: ../childs/boots/inc.php:1405 ../lib/customize.php:2287 ../lib/vars.php:1407
+#: ../childs/boots/inc.php:1405 ../lib/customize.php:2320 ../lib/vars.php:1467
 #, fuzzy
 msgid "Display Site Title Text"
 msgstr "サイトタイトルの表示"
 
-#: ../childs/boots/inc.php:1407 ../lib/customize.php:2289 ../lib/vars.php:1409
+#: ../childs/boots/inc.php:1407 ../lib/customize.php:2322 ../lib/vars.php:1469
 #, fuzzy
 msgid "value show, hide. default show"
 msgstr "値は show または hide  デフォルトは show です"
@@ -1019,15 +1018,96 @@ msgstr "投稿フォーマットアーカイブ「チャット」カラム数"
 msgid "Post Format Aside Columns"
 msgstr "投稿フォーマットアーカイブ「アサイド」カラム数"
 
-#: ../childs/boots/inc.php:1505 ../lib/customize.php:780 ../lib/vars.php:1507
+#: ../childs/boots/inc.php:1505 ../lib/customize.php:780 ../lib/vars.php:1567
 #, fuzzy
 msgid "Static Front Page / Posts page "
 msgstr "固定フロントページ/投稿ページ"
 
-#: ../childs/boots/inc.php:1515 ../lib/customize.php:1596 ../lib/vars.php:1517
+#: ../childs/boots/inc.php:1515 ../lib/customize.php:1596 ../lib/vars.php:1577
 #, fuzzy
 msgid "Sticky Menu "
 msgstr "スティキーメニュー"
+
+#: ../childs/boots/inc.php:1525 ../lib/customize.php:1200 ../lib/vars.php:1587
+#, fuzzy
+msgid "Reset Theme Settings"
+msgstr "テーマ設定のリセット"
+
+#: ../childs/boots/inc.php:1527 ../lib/customize.php:1202 ../lib/vars.php:1589
+#, fuzzy
+msgid "Carefully Use! Reset All Theme Settings"
+msgstr "注意！すべてのテーマ設定がリセットされます"
+
+#: ../childs/boots/inc.php:1535 ../lib/customize.php:434 ../lib/vars.php:1597
+#, fuzzy
+msgid "Color Setting"
+msgstr "カラー設定"
+
+#: ../childs/boots/inc.php:1537 ../lib/customize.php:436 ../lib/vars.php:1599
+#, fuzzy
+msgid "Select Automatic Color or Custom Color"
+msgstr "自動カラー設定、カスタムカラー設定の選択"
+
+#: ../childs/boots/inc.php:1545 ../lib/vars.php:1607
+#, fuzzy
+msgid "Show Posted on in Attachment"
+msgstr "アタッチメントページで投稿日と著者を表示"
+
+#: ../childs/boots/inc.php:1547 ../childs/boots/inc.php:1557
+#: ../childs/boots/inc.php:1567 ../lib/customize.php:1486
+#: ../lib/customize.php:1503 ../lib/vars.php:1609 ../lib/vars.php:1619
+#: ../lib/vars.php:1629
+#, fuzzy
+msgid "Default no"
+msgstr "デフォルト no"
+
+#: ../childs/boots/inc.php:1555 ../lib/vars.php:1617
+#, fuzzy
+msgid "Show Posted on in Static Page"
+msgstr "固定ページで投稿日と著者表示"
+
+#: ../childs/boots/inc.php:1565 ../childs/boots/inc.php:1575
+#: ../lib/vars.php:1627 ../lib/vars.php:1637
+#, fuzzy
+msgid "Default Sidebar Responsive"
+msgstr "デフォルトサイドバーのレスポンシブ設定"
+
+#: ../childs/boots/inc.php:1577 ../lib/customize.php:646
+#: ../lib/customize.php:726 ../lib/vars.php:1639
+#, fuzzy
+msgid "Default yes"
+msgstr "デフォルト yes"
+
+#: ../childs/boots/inc.php:1585 ../lib/customize.php:661 ../lib/vars.php:1647
+#, fuzzy
+msgid "Responsive Breakpoint for Default Sidebar"
+msgstr "デフォルトサイドバーのブレークポイント"
+
+#: ../childs/boots/inc.php:1587 ../childs/boots/inc.php:1597
+#: ../lib/customize.php:663 ../lib/customize.php:744 ../lib/vars.php:1649
+#: ../lib/vars.php:1659
+#, fuzzy
+msgid "Please Set Numeric Pixel Value"
+msgstr "ピクセル単位での数値を入力してください"
+
+#: ../childs/boots/inc.php:1595 ../lib/customize.php:742 ../lib/vars.php:1657
+#, fuzzy
+msgid "Responsive Breakpoint for Extra Sidebar"
+msgstr "エキストラサイドバーのブレークポイント"
+
+#: ../childs/boots/inc.php:1605 ../lib/customize.php:1838 ../lib/vars.php:1667
+msgid "Enable Color-coded category"
+msgstr ""
+
+#: ../childs/boots/inc.php:1607 ../childs/boots/inc.php:1617
+#: ../lib/customize.php:1840 ../lib/customize.php:1856 ../lib/vars.php:1669
+#: ../lib/vars.php:1679
+msgid "Please Set yes or no. default yes"
+msgstr ""
+
+#: ../childs/boots/inc.php:1615 ../lib/customize.php:1854 ../lib/vars.php:1677
+msgid "Enable Color-coded Post Tag"
+msgstr ""
 
 #: ../comments.php:27
 #, fuzzy
@@ -1096,720 +1176,706 @@ msgstr "金曜"
 msgid "Saturday"
 msgstr "土曜"
 
-#: ../date.php:121 ../functions.php:3571
+#: ../date.php:121 ../functions.php:3598
 #, fuzzy
 msgid "Yearly Archives"
 msgstr "年次アーカイブ"
 
-#: ../date.php:126 ../functions.php:3559
+#: ../date.php:126 ../functions.php:3586
 #, fuzzy
 msgid "Monthly Archives"
 msgstr "月次アーカイブ"
 
-#: ../date.php:131 ../functions.php:3554
+#: ../date.php:131 ../functions.php:3581
 #, fuzzy
 msgid "Daily Archives"
 msgstr "日次アーカイブ"
 
-#: ../functions.php:153 ../functions.php:7653
+#: ../functions.php:156 ../functions.php:7683
 #, fuzzy
 msgid "Primary Navigation"
 msgstr "hello' class='hello-world'"
 
-#: ../functions.php:605 ../functions.php:6213
+#: ../functions.php:608 ../functions.php:6244
 #, fuzzy
 msgid "Default Sidebar"
 msgstr "デフォルトサイドバー"
 
-#: ../functions.php:626
+#: ../functions.php:629
 #, fuzzy
 msgid "Sticky Widget"
 msgstr "スティッキーウィジェット"
 
-#: ../functions.php:636
+#: ../functions.php:639
 #, fuzzy
 msgid "Footer Widget"
 msgstr "フッターウィジェット"
 
-#: ../functions.php:646
+#: ../functions.php:649
 #, fuzzy
 msgid "Post Format Status Sidebar"
 msgstr "投稿フォーマット　ステータス　サイドバー"
 
-#: ../functions.php:713
+#: ../functions.php:716
 #, fuzzy, php-format
 msgid "If you add  %s when you must create function %s for data validation"
 msgstr "フォームに新しい項目(%s)を追加したら、その項目のバリデーション関数（%s）も書かなければなりませんよ"
 
-#: ../functions.php:930 ../lib/customize.php:1740
+#: ../functions.php:942 ../lib/customize.php:1740
 #, fuzzy
 msgid "Avatar"
 msgstr "アバター"
 
-#: ../functions.php:935
+#: ../functions.php:947
 #, fuzzy
 msgid "says:"
 msgstr "コメント投稿者"
 
-#: ../functions.php:939
+#: ../functions.php:951
 #, fuzzy, php-format
 msgid "%1$s at %2$s"
 msgstr "%2$s%1$s"
 
-#: ../functions.php:941 ../functions.php:979
+#: ../functions.php:953 ../functions.php:991
 #, fuzzy
 msgid " Edit "
 msgstr "(編集)"
 
-#: ../functions.php:949
+#: ../functions.php:961
 #, fuzzy
 msgid "Your comment is awaiting moderation."
 msgstr "コメントは管理者の承認待ちです。"
 
-#: ../functions.php:963
+#: ../functions.php:975
 #, fuzzy
 msgid "Reply"
 msgstr "返信"
 
-#: ../functions.php:976
+#: ../functions.php:988
 #, fuzzy
 msgid "Pingback:"
 msgstr "ピンバック："
 
-#: ../functions.php:1213 ../functions.php:8348
+#: ../functions.php:1226 ../functions.php:8392
 msgid "Comment"
 msgid_plural "Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:1217
+#: ../functions.php:1230
 #, fuzzy
 msgid "Comment "
 msgstr "コメント"
 
-#: ../functions.php:1245 ../functions.php:3470 ../functions.php:6604
-#: ../functions.php:6787 ../functions.php:6972
+#: ../functions.php:1258 ../functions.php:3496 ../functions.php:6635
+#: ../functions.php:6818 ../functions.php:7003
 #, fuzzy, php-format
 msgid "View all posts by %s"
 msgstr " %sのすべての投稿"
 
-#: ../functions.php:1335
+#: ../functions.php:1348
 #, fuzzy
 msgid "Attached to Post on"
 msgstr "添付日"
 
-#: ../functions.php:1338
+#: ../functions.php:1351
 #, fuzzy
 msgid "Created on"
 msgstr "作成日"
 
-#: ../functions.php:1341
+#: ../functions.php:1354
 #, fuzzy
 msgid "Posted on"
 msgstr " 投稿日"
 
-#: ../functions.php:1347
+#: ../functions.php:1360
 msgid "by"
 msgstr ""
 
-#: ../functions.php:1483
+#: ../functions.php:1497
 #, fuzzy
 msgid "Theme URI"
 msgstr "テーマ　URI"
 
-#: ../functions.php:1485 ../part-blog.php:84
+#: ../functions.php:1499 ../part-blog.php:84
 #, fuzzy
 msgid "Author"
 msgstr "著者"
 
-#: ../functions.php:1487 ../functions.php:1509
+#: ../functions.php:1501 ../functions.php:1523
 #, fuzzy
 msgid "Support"
 msgstr "Support"
 
-#: ../functions.php:1487
+#: ../functions.php:1501
 #, fuzzy
 msgid "http://wordpress.org/support/theme/raindrops"
 msgstr "http://wordpress.org/support/theme/raindrops"
 
-#: ../functions.php:1487
+#: ../functions.php:1501
 #, fuzzy
 msgid "http://ja.forums.wordpress.org/ lang:Japanese"
 msgstr "http://ja.forums.wordpress.org/ lang:Japanese"
 
-#: ../functions.php:1489 ../plugins/class-tgm-plugin-activation.php:2553
-#: ../plugins/old-class-tgm-plugin-activation.php:2450
+#: ../functions.php:1503 ../plugins/class-tgm-plugin-activation.php:2553
 #, fuzzy
 msgid "Version"
 msgstr "バージョン"
 
-#: ../functions.php:1491
+#: ../functions.php:1505
 #, fuzzy
 msgid "Change log text"
 msgstr "変更履歴"
 
-#: ../functions.php:1491
+#: ../functions.php:1505
 #, fuzzy
 msgid "Changelog , display new window"
 msgstr "変更履歴の表示（新しい画面）"
 
-#: ../functions.php:1493
+#: ../functions.php:1507
 #, fuzzy
 msgid "Readme text"
 msgstr "説明書き"
 
-#: ../functions.php:1493
+#: ../functions.php:1507
 #, fuzzy
 msgid "Readme , display new window"
 msgstr "説明の表示（新しい画面)"
 
-#: ../functions.php:1509
+#: ../functions.php:1523
 #, fuzzy
 msgid "English"
 msgstr "英語"
 
-#: ../functions.php:1509
+#: ../functions.php:1523
 #, fuzzy
 msgid "Japanese"
 msgstr "日本語"
 
-#: ../functions.php:1511
+#: ../functions.php:1525
 #, fuzzy
 msgid "How to remove Site Title Block"
 msgstr "サイトタイトルのバナーブロックを非表示にする"
 
-#: ../functions.php:1512
+#: ../functions.php:1526
 #, fuzzy
 msgid "How to remove Post Author Name"
 msgstr "投稿者名を非表示にする"
 
-#: ../functions.php:1513
+#: ../functions.php:1527
 #, fuzzy
 msgid "How to remove Entry Date"
 msgstr "投稿の投稿日を非表示にする"
 
-#: ../functions.php:1514
+#: ../functions.php:1528
 #, fuzzy
 msgid "How to remove Entry Meta"
 msgstr "投稿のカテゴリなどのメタフィールドを非表示にする"
 
-#: ../functions.php:1515
+#: ../functions.php:1529
 #, fuzzy
 msgid "How to remove Archive Title Label[ like Category Archives ]"
 msgstr "アーカイブタイトルの　「カテゴリアーカイブ」のようなラベルを非表示にする"
 
-#: ../functions.php:1516
+#: ../functions.php:1530
 #, fuzzy
 msgid "How to remove Home list above next prev navigation link"
 msgstr "トップページの、上部にある次のページへのリンクを非表示にする"
 
-#: ../functions.php:1517
+#: ../functions.php:1531
 #, fuzzy
 msgid "above codes paste style.css last. If not change when  Version value change ( line:9 )"
 msgstr "上記のコードをペーストしても、変化のない場合は、キャッシュの影響が考えられますので、9行目にあるversionの項目にあるバージョン番号を0とか、他の値に変更してみてください"
 
-#: ../functions.php:1547
+#: ../functions.php:1561
 #, fuzzy
 msgid "Tips"
 msgstr "Tips"
 
-#: ../functions.php:1548
+#: ../functions.php:1562
 #, fuzzy
 msgid "If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once."
 msgstr "レインドロップスの設定画面から、基本色を設定するとそれに応じた背景色クラスが自動生成します"
 
-#: ../functions.php:1549
+#: ../functions.php:1563
 #, fuzzy
 msgid "Dinamic Color Class"
 msgstr "動的な色クラス"
 
-#: ../functions.php:1562 ../functions.php:1581
+#: ../functions.php:1576 ../functions.php:1595
 #, fuzzy
 msgid "code example:please HTML editor mode"
 msgstr "HTMLモードを使ってくださいね"
 
-#: ../functions.php:1568
+#: ../functions.php:1582
 #, fuzzy
 msgid "Dinamic Gradient Class"
 msgstr "動的なグラデーションクラス"
 
-#: ../functions.php:1584
+#: ../functions.php:1598
 #, fuzzy
 msgid "Font Size CSS Class"
 msgstr "フォントサイズ　CSSクラス"
 
-#: ../functions.php:1585 ../functions.php:1589
+#: ../functions.php:1599 ../functions.php:1603
 #, fuzzy
 msgid "Classes"
 msgstr "クラス"
 
-#: ../functions.php:1586
+#: ../functions.php:1600
 #, fuzzy
 msgid "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26"
 msgstr "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26"
 
-#: ../functions.php:1588
+#: ../functions.php:1602
 #, fuzzy
 msgid "Google Fonts Family CSS Class"
 msgstr "グーグルフォント　CSS　Class"
 
-#: ../functions.php:1590
+#: ../functions.php:1604
 #, fuzzy
 msgid "Note, More than 90 percent of the Google font can be used, but there are some limitations."
 msgstr "備考　グーグルフォントの90%以上をカバーしますが、いくつかの制限があります。"
 
-#: ../functions.php:1591
+#: ../functions.php:1605
 #, fuzzy
 msgid "Examples of the no corresponding font"
 msgstr "対応しないフォントの例"
 
-#: ../functions.php:1592
+#: ../functions.php:1606
 #, fuzzy
 msgid "Examples of the corresponding font"
 msgstr "対応するフォントの例"
 
-#: ../functions.php:1593
+#: ../functions.php:1607
 #, fuzzy
 msgid "How to specify the font"
 msgstr "フォントの指定方法"
 
-#: ../functions.php:1594
+#: ../functions.php:1608
 #, fuzzy
 msgid "Add prefix google-font- + Font name lowercase and change to - the space"
 msgstr "プレフィックス　google-font- に続けて、フォント名を小文字に変更し、スペースを　-　に変更してください。"
 
-#: ../functions.php:1595
+#: ../functions.php:1609
 #, fuzzy
 msgid "How to specify the font weight"
 msgstr "フォントウェイトの指定方法"
 
-#: ../functions.php:1596
+#: ../functions.php:1610
 #, fuzzy
 msgid "How to specify the font style"
 msgstr "フォントスタイルの指定方法"
 
-#: ../functions.php:1599
+#: ../functions.php:1613
 #, fuzzy
 msgid "Example of Custom CSS Meta Box Style Rules"
 msgstr "投稿のカスタムCSSメタボックスのスタイル指定例"
 
-#: ../functions.php:1600
+#: ../functions.php:1614
 #, fuzzy
 msgid "Styling Entry Title"
 msgstr "投稿タイトルへのスタイル適用"
 
-#: ../functions.php:1601
+#: ../functions.php:1615
 #, fuzzy
 msgid "Change entry title color"
 msgstr "投稿タイトルの色を変更"
 
-#: ../functions.php:1602
+#: ../functions.php:1616
 #, fuzzy
 msgid "Styling Posted on"
 msgstr " タイトル下の、投稿者や日付のブロック"
 
-#: ../functions.php:1603
+#: ../functions.php:1617
 #, fuzzy
 msgid "hide posted on from all post"
 msgstr "投稿から、投稿日　著者　ブロックを非表示にする"
 
-#: ../functions.php:1604
+#: ../functions.php:1618
 #, fuzzy
 msgid "Styling Posted in"
 msgstr " 投稿の下部にある、カテゴリやタグを表示するブロック"
 
-#: ../functions.php:1605
+#: ../functions.php:1619
 #, fuzzy
 msgid "hide posted in"
 msgstr " posted in（カテゴリ、タグの表示ブロック）の非表示"
 
-#: ../functions.php:1606
+#: ../functions.php:1620
 #, fuzzy
 msgid "Styling Article"
 msgstr "投稿全体へのスタイルの適用"
 
-#: ../functions.php:1607
+#: ../functions.php:1621
 #, fuzzy
 msgid "add border and padding"
 msgstr "現在の投稿全体に、ボーダーやパディングを設定する"
 
-#: ../functions.php:1608
+#: ../functions.php:1622
 #, fuzzy
 msgid "note:article elements and post_class () You can use all of the elements to be output."
 msgstr "備考、スタイルは、artile要素　post_class()が出力するすべてのクラスを利用することが出来ます。"
 
-#: ../functions.php:1916
+#: ../functions.php:1938
 #, fuzzy
 msgid "(&nbsp;optional&nbsp;)"
 msgstr "(&nbsp;任意&nbsp;)"
 
-#: ../functions.php:3294
+#: ../functions.php:3320
 #, fuzzy, php-format
 msgid "%s Articles archived"
 msgstr "%s 件のアーカイブがあります"
 
-#: ../functions.php:3534
+#: ../functions.php:3560
 #, fuzzy
 msgid "Search Results"
 msgstr "検索 結果"
 
-#: ../functions.php:3539
+#: ../functions.php:3566
 #, fuzzy
 msgid "Tag Archives"
 msgstr "タグ別アーカイブ: "
 
-#: ../functions.php:3545
+#: ../functions.php:3572
 #, fuzzy
 msgid "Category Archives"
 msgstr "カテゴリー別アーカイブ"
 
-#: ../functions.php:3576
+#: ../functions.php:3603
 #, fuzzy
 msgid "Author Archives"
 msgstr "作成者別アーカイブ: "
 
-#: ../functions.php:3587 ../functions.php:3593 ../functions.php:3599
-#: ../functions.php:3605 ../functions.php:3611 ../functions.php:3617
-#: ../functions.php:3623 ../functions.php:3629 ../functions.php:3635
+#: ../functions.php:3614 ../functions.php:3620 ../functions.php:3626
+#: ../functions.php:3632 ../functions.php:3638 ../functions.php:3644
+#: ../functions.php:3650 ../functions.php:3656 ../functions.php:3662
 #, fuzzy
 msgid "Post Format"
 msgstr "投稿フォーマット"
 
-#: ../functions.php:3640
+#: ../functions.php:3667
 #, fuzzy
 msgid "Blog Archives"
 msgstr "ブログ　アーカイブ"
 
-#: ../functions.php:4205
+#: ../functions.php:4232
 #, fuzzy
 msgid "Article"
 msgstr "記事"
 
-#: ../functions.php:4213
+#: ../functions.php:4240
 #, fuzzy
 msgid " to entry"
 msgstr "投稿へ"
 
-#: ../functions.php:4220
+#: ../functions.php:4247
 #, fuzzy
 msgid "Standard"
 msgstr "標準"
 
-#: ../functions.php:4221
+#: ../functions.php:4248
 #, fuzzy
 msgid "Aside"
 msgstr "余談"
 
-#: ../functions.php:4222
+#: ../functions.php:4249
 #, fuzzy
 msgid "Chat"
 msgstr "チャット"
 
-#: ../functions.php:4223 ../part-gallery.php:102
+#: ../functions.php:4250 ../part-gallery.php:102
 #, fuzzy
 msgid "Gallery"
 msgstr "ギャラリー"
 
-#: ../functions.php:4224
+#: ../functions.php:4251
 #, fuzzy
 msgid "Link"
 msgstr "リンク"
 
-#: ../functions.php:4225
+#: ../functions.php:4252
 #, fuzzy
 msgid "Image"
 msgstr "画像"
 
-#: ../functions.php:4226
+#: ../functions.php:4253
 #, fuzzy
 msgid "Quote"
 msgstr "引用"
 
-#: ../functions.php:4227 ../plugins/class-tgm-plugin-activation.php:2554
-#: ../plugins/old-class-tgm-plugin-activation.php:2451
+#: ../functions.php:4254 ../plugins/class-tgm-plugin-activation.php:2554
 #, fuzzy
 msgid "Status"
 msgstr "ステータス"
 
-#: ../functions.php:4228
+#: ../functions.php:4255
 #, fuzzy
 msgid "Video"
 msgstr "ビデオ"
 
-#: ../functions.php:4229
+#: ../functions.php:4256
 #, fuzzy
 msgid "Audio"
 msgstr "オーディオ"
 
-#: ../functions.php:4239
+#: ../functions.php:4266
 #, fuzzy
 msgid "Post Format "
 msgstr "投稿フォーマット"
 
-#: ../functions.php:5029
+#: ../functions.php:5056
 #, fuzzy
 msgid "cite:"
 msgstr "引用元："
 
-#: ../functions.php:5032
+#: ../functions.php:5059
 #, fuzzy
 msgid "Message"
 msgstr "メッセージ"
 
-#: ../functions.php:5033
+#: ../functions.php:5060
 #, fuzzy
 msgid "Required Your Message"
 msgstr "メッセージは必須項目です"
 
-#: ../functions.php:5034
+#: ../functions.php:5061
 #, fuzzy
 msgid "Name"
 msgstr "お名前"
 
-#: ../functions.php:5035
+#: ../functions.php:5062
 #, fuzzy
 msgid "Required Your Name"
 msgstr "お名前は必須項目です"
 
-#: ../functions.php:5036
+#: ../functions.php:5063
 #, fuzzy
 msgid "Email Address"
 msgstr "メールアドレス"
 
-#: ../functions.php:5037
+#: ../functions.php:5064
 #, fuzzy
 msgid "Required Your Email"
 msgstr "メールアドレスは必須項目です"
 
-#: ../functions.php:5046 ../functions.php:11334
+#: ../functions.php:5073 ../functions.php:11437
 #, fuzzy
 msgid "Open"
 msgstr "開く"
 
-#: ../functions.php:5047
+#: ../functions.php:5074
 #, fuzzy
 msgid "Close"
 msgstr "閉じる"
 
-#: ../functions.php:5581
+#: ../functions.php:5609
 #, fuzzy, php-format
 msgid "add_action(  '%1$s', 'your_function'  ) or add template part file the name '%2$s'."
 msgstr "アクションフック  add_action(  '%1$s', 'your_function'  )  あるいは　%2$s　テンプレートを追加していただく事で、この場所にコンテンツを追加できます。"
 
-#: ../functions.php:6113 ../functions.php:8452 ../functions.php:10066
+#: ../functions.php:6141 ../functions.php:8496 ../functions.php:10150
 #: ../part-additional.php:52
 #, fuzzy
 msgid "Continue&nbsp;reading "
 msgstr "続きを読む"
 
-#: ../functions.php:6113 ../functions.php:8452 ../functions.php:10068
+#: ../functions.php:6141 ../functions.php:8496 ../functions.php:10152
 #: ../part-additional.php:52
 #, fuzzy
 msgid "&nbsp;Post ID&nbsp;"
 msgstr "&nbsp;投稿 ID&nbsp;"
 
-#: ../functions.php:6159
+#: ../functions.php:6187
 #, fuzzy
 msgid " Older posts"
 msgstr "過去の投稿"
 
-#: ../functions.php:6159
+#: ../functions.php:6187
 #, fuzzy
 msgid "Newer posts"
 msgstr "新しい投稿"
 
-#: ../functions.php:6215 ../functions.php:6238
+#: ../functions.php:6246 ../functions.php:6269
 #, fuzzy
 msgid "Set Widgets"
 msgstr "ウィジェットを設定"
 
-#: ../functions.php:6216 ../functions.php:6239
+#: ../functions.php:6247 ../functions.php:6270
 msgid "or"
 msgstr ""
 
-#: ../functions.php:6218 ../functions.php:6241
+#: ../functions.php:6249 ../functions.php:6272
 #, fuzzy
 msgid "Change Columns"
 msgstr "カラム数の変更"
 
-#: ../functions.php:6471
+#: ../functions.php:6502
 #, fuzzy
 msgid "Recent Post"
 msgstr "最近の投稿"
 
-#: ../functions.php:7027
-#, fuzzy, php-format
-msgid "&laquo; %s "
-msgstr "&laquo; %s "
+#: ../functions.php:7058
+#, php-format
+msgid "&#171; %s "
+msgstr ""
 
-#: ../functions.php:7039
-#, fuzzy, php-format
-msgid " %s &raquo;"
-msgstr " %s &raquo;"
+#: ../functions.php:7070
+#, php-format
+msgid " %s &#187;"
+msgstr ""
 
-#: ../functions.php:7430
+#: ../functions.php:7461
 #, fuzzy
 msgid "Go to Attachment page"
 msgstr "添付ファイルへ"
 
-#: ../functions.php:8218
+#: ../functions.php:8262
 #, fuzzy
 msgid "Empty content"
 msgstr "空白コンテンツ"
 
-#: ../functions.php:8272
-#, fuzzy
-msgid "&laquo; Older Entries"
-msgstr "&laquo; 古い投稿"
+#: ../functions.php:8316
+msgid "&#171; Older Entries"
+msgstr ""
 
-#: ../functions.php:8277
-#, fuzzy
-msgid "Newer Entries &raquo;"
-msgstr "新しい投稿 &raquo;"
+#: ../functions.php:8321
+msgid "Newer Entries &#187;"
+msgstr ""
 
-#: ../functions.php:8367 ../functions.php:8371 ../functions.php:8377
-#: ../functions.php:8407 ../lib/widgets.php:888
+#: ../functions.php:8411 ../functions.php:8415 ../functions.php:8421
+#: ../functions.php:8451 ../lib/widgets.php:898
 #, fuzzy
 msgid "Page"
 msgstr "ページ"
 
-#: ../functions.php:8400 ../functions.php:8420
+#: ../functions.php:8444 ../functions.php:8464
 #, fuzzy
 msgid "Portfolio Home"
 msgstr "ポートフォリオ　ホーム"
 
-#: ../functions.php:8423
+#: ../functions.php:8467
 #, fuzzy
 msgid "Home"
 msgstr "Home"
 
-#: ../functions.php:8582
+#: ../functions.php:8626
 msgctxt ""
 msgid "Child Page : "
 msgid_plural "Child Pages : "
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:8872
+#: ../functions.php:8916
 #, fuzzy
 msgid "Custom CSS For This Entry"
 msgstr "この投稿のカスタムCSS"
 
-#: ../functions.php:8973
+#: ../functions.php:9017
 #, fuzzy
 msgid "Add Front Page"
 msgstr "固定フロントページに追加"
 
-#: ../functions.php:8974
+#: ../functions.php:9018
 #, fuzzy
 msgid "Add Front Page This Content"
 msgstr "このコンテンツを固定フロントページに追加"
 
-#: ../functions.php:8975
+#: ../functions.php:9019
 #, fuzzy
 msgid "No Need"
 msgstr "必要ありません"
 
-#: ../functions.php:8993
+#: ../functions.php:9037
 #, fuzzy
 msgid "show_on_front"
 msgstr "show_on_front"
 
-#: ../functions.php:8997
+#: ../functions.php:9041
 #, fuzzy
 msgid "Hide Header Image"
 msgstr "この投稿ではヘッダー画像を表示しない"
 
-#: ../functions.php:8998
+#: ../functions.php:9042
 #, fuzzy
 msgid "Default Image"
 msgstr "既定のヘッダー画像を使う"
 
-#: ../functions.php:9013
+#: ../functions.php:9057
 #, fuzzy
 msgid "Add Custom Header"
 msgstr "カスタムヘッダーを追加"
 
-#: ../functions.php:9017
+#: ../functions.php:9061
 #, fuzzy
 msgid "Override header Image"
 msgstr "投稿のカスタムヘッダー画像"
 
-#: ../functions.php:9018
+#: ../functions.php:9062
 #, fuzzy
 msgid "Now Selected Front Page template,You can use Featured Image for override header image"
 msgstr "現在フロントページテンプレートが選択されています。アイキャッチ画像をセットすると、ヘッダーイメージを上書きすることが出来ます。"
 
-#: ../functions.php:9022
+#: ../functions.php:9066
 #, fuzzy
 msgid "The Custom CSS Field only for the current post"
 msgstr "カスタムCSSフィールドは、この投稿だけにしかスタイルが適用されません"
 
-#: ../functions.php:9328
+#: ../functions.php:9372
 msgid "and"
 msgstr ""
 
-#: ../functions.php:9331
+#: ../functions.php:9375
 #, fuzzy
 msgid "Entries RSS"
 msgstr "投稿フィード"
 
-#: ../functions.php:9331
+#: ../functions.php:9375
 #, fuzzy
 msgid "Comments RSS"
 msgstr "コメントフィード"
 
-#: ../functions.php:9338 ../functions.php:9341
+#: ../functions.php:9382 ../functions.php:9385
 #, fuzzy
 msgid "Raindrops Theme"
 msgstr "レインドロップス　テーマ"
 
-#: ../functions.php:9961
-#, fuzzy
-msgid "Parent Category:"
-msgstr "親カテゴリー："
-
-#: ../functions.php:9976
-#, fuzzy
-msgid "Child Category:"
-msgstr "子カテゴリー："
-
-#: ../functions.php:10957
+#: ../functions.php:11046
 #, fuzzy
 msgid "Link to Year Archives "
 msgstr "年別アーカイブへのリンク"
 
-#: ../functions.php:11041
+#: ../functions.php:11130
 #, fuzzy
 msgid "Password"
 msgstr "パスワード"
 
-#: ../functions.php:11042
+#: ../functions.php:11131
 #, fuzzy
 msgid "This content is password protected. To view it please enter your password"
 msgstr "この記事はパスワードで保護されています。パスワードの入力をお願いします。"
 
-#: ../functions.php:11043
+#: ../functions.php:11132
 #, fuzzy
 msgid "Submit"
 msgstr "送信"
 
-#: ../functions.php:11133
+#: ../functions.php:11236
 #, fuzzy
 msgid "Uncategorized"
 msgstr "未分類"
 
-#: ../functions.php:11314
+#: ../functions.php:11417
 #, fuzzy
 msgid "Theme Widget"
 msgstr "テーマのウィジェット"
 
-#: ../functions.php:11314
+#: ../functions.php:11417
 #, fuzzy
 msgid "Add On Widget"
 msgstr "ウィジェットを追加"
 
-#: ../functions.php:11336
+#: ../functions.php:11439
 #, fuzzy
 msgid "Main Sidebar"
 msgstr "メインサイドバー"
@@ -1834,115 +1900,99 @@ msgstr "添付元"
 msgid "Sorry, no attachments matched your criteria."
 msgstr "条件に合う添付ファイルはありませんでした。"
 
-#: ../lib/alias_functions.php:1616
+#: ../lib/alias_functions.php:1691
 #, fuzzy
 msgid "Raindrops Help"
 msgstr "Raindrops ヘルプ"
 
-#: ../lib/alias_functions.php:1617
+#: ../lib/alias_functions.php:1692
 #, fuzzy
 msgid "About Base Color related Class"
 msgstr "ベースカラー連携クラスについて"
 
-#: ../lib/alias_functions.php:1629 ../lib/alias_functions.php:1642
+#: ../lib/alias_functions.php:1704 ../lib/alias_functions.php:1717
 #, fuzzy
 msgid "Raindrops Theme Help"
 msgstr "Raindrops テーマヘルプ"
 
-#: ../lib/alias_functions.php:1630 ../lib/alias_functions.php:1643
+#: ../lib/alias_functions.php:1705 ../lib/alias_functions.php:1718
 #, fuzzy
 msgid "About Raindrops Theme"
 msgstr "Raindropsテーマについて"
 
-#: ../lib/alias_functions.php:1656
+#: ../lib/alias_functions.php:1731
 #, fuzzy
 msgid "Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help"
 msgstr "定数TMN_USE_AUTO_COLORがfalseに設定されています"
 
-#: ../lib/alias_functions.php:2098
+#: ../lib/alias_functions.php:2173
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Light"
 msgstr "ライト"
 
-#: ../lib/alias_functions.php:2103
+#: ../lib/alias_functions.php:2178
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Blue"
 msgstr "Blue"
 
-#: ../lib/alias_functions.php:2107
+#: ../lib/alias_functions.php:2182
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Midnight"
 msgstr "Midnight"
 
-#: ../lib/alias_functions.php:2111
+#: ../lib/alias_functions.php:2186
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Sunrise"
 msgstr "Sunrise"
 
-#: ../lib/alias_functions.php:2115
+#: ../lib/alias_functions.php:2190
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Ectoplasm"
 msgstr "Ectoplasm"
 
-#: ../lib/alias_functions.php:2119
+#: ../lib/alias_functions.php:2194
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Ocean"
 msgstr "Ocean"
 
-#: ../lib/alias_functions.php:2123
+#: ../lib/alias_functions.php:2198
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Coffee"
 msgstr "Coffee"
 
-#: ../lib/alias_functions.php:2127
+#: ../lib/alias_functions.php:2202
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Evergreen"
 msgstr "エバーグリーン"
 
-#: ../lib/alias_functions.php:2131
+#: ../lib/alias_functions.php:2206
 #, fuzzy
 msgctxt "admin color scheme"
 msgid "Mint"
 msgstr "ミント"
 
-#: ../lib/customize-blank-front.php:20 ../lib/customize.php:72
-#: ../lib/widgets.php:326
+#: ../lib/customize.php:72 ../lib/widgets.php:327
 #, fuzzy
 msgid "Featured Image"
 msgstr "アイキャッチ 画像"
-
-#: ../lib/customize-blank-front.php:21 ../lib/customize.php:77
-#, fuzzy
-msgid "Emphasis of new content using the Featured Image"
-msgstr "アイキャッチ画像を使った、新しい投稿の強調"
-
-#: ../lib/customize-blank-front.php:44 ../lib/customize.php:608
-#, fuzzy
-msgid "Please select Simple( All list pages same column ) or details ( It sets the column of the list page, such as archive and index individually )"
-msgstr "テンプレート毎にカラムを変更する設定を行う場合は「詳細」を、すべてのページで同じカラム設定を行う場合は「シンプル」を選択してください"
-
-#: ../lib/customize-blank-front.php:48 ../lib/customize.php:612
-#, fuzzy
-msgid "Simple"
-msgstr "シンプル"
-
-#: ../lib/customize-blank-front.php:49 ../lib/customize.php:613
-#, fuzzy
-msgid "Details"
-msgstr "詳細"
 
 #: ../lib/customize.php:76
 #, fuzzy
 msgid "Featured Image Settings"
 msgstr "アイキャッチ画像"
+
+#: ../lib/customize.php:77
+#, fuzzy
+msgid "Emphasis of new content using the Featured Image"
+msgstr "アイキャッチ画像を使った、新しい投稿の強調"
 
 #: ../lib/customize.php:80
 #, fuzzy
@@ -2029,16 +2079,6 @@ msgstr "外観"
 msgid "Base color"
 msgstr "ベースカラー"
 
-#: ../lib/customize.php:434 ../lib/vars.php:1537
-#, fuzzy
-msgid "Color Setting"
-msgstr "カラー設定"
-
-#: ../lib/customize.php:436 ../lib/vars.php:1539
-#, fuzzy
-msgid "Select Automatic Color or Custom Color"
-msgstr "自動カラー設定、カスタムカラー設定の選択"
-
 #: ../lib/customize.php:440
 #, fuzzy
 msgid "Automatic Color Setting"
@@ -2069,10 +2109,11 @@ msgstr "投稿タイトルの色にリンク色の補色を使う（リンク色
 #: ../lib/customize.php:1443 ../lib/customize.php:1473
 #: ../lib/customize.php:1490 ../lib/customize.php:1507
 #: ../lib/customize.php:1586 ../lib/customize.php:1602
-#: ../lib/customize.php:1617 ../lib/customize.php:2033
-#: ../lib/customize.php:2066 ../lib/customize.php:2106
-#: ../lib/customize.php:2125 ../lib/customize.php:2159
-#: ../lib/customize.php:2177 ../lib/widgets.php:1179
+#: ../lib/customize.php:1617 ../lib/customize.php:1844
+#: ../lib/customize.php:1860 ../lib/customize.php:2066
+#: ../lib/customize.php:2099 ../lib/customize.php:2139
+#: ../lib/customize.php:2158 ../lib/customize.php:2192
+#: ../lib/customize.php:2210 ../lib/widgets.php:1220
 #, fuzzy
 msgid "Yes"
 msgstr "はい"
@@ -2082,10 +2123,11 @@ msgstr "はい"
 #: ../lib/customize.php:1444 ../lib/customize.php:1474
 #: ../lib/customize.php:1491 ../lib/customize.php:1508
 #: ../lib/customize.php:1587 ../lib/customize.php:1603
-#: ../lib/customize.php:1618 ../lib/customize.php:2032
-#: ../lib/customize.php:2067 ../lib/customize.php:2107
-#: ../lib/customize.php:2126 ../lib/customize.php:2160
-#: ../lib/customize.php:2178 ../lib/widgets.php:1175
+#: ../lib/customize.php:1618 ../lib/customize.php:1845
+#: ../lib/customize.php:1861 ../lib/customize.php:2065
+#: ../lib/customize.php:2100 ../lib/customize.php:2140
+#: ../lib/customize.php:2159 ../lib/customize.php:2193
+#: ../lib/customize.php:2211 ../lib/widgets.php:1216
 msgid "No"
 msgstr ""
 
@@ -2109,22 +2151,22 @@ msgstr "フッターリンク色"
 msgid "Document Width"
 msgstr "ページ幅"
 
-#: ../lib/customize.php:592 ../lib/validate.php:1040
+#: ../lib/customize.php:592 ../lib/validate.php:1054
 #, fuzzy
 msgid "750px centered"
 msgstr "750px 中央揃え"
 
-#: ../lib/customize.php:593 ../lib/validate.php:1041
+#: ../lib/customize.php:593 ../lib/validate.php:1055
 #, fuzzy
 msgid "950px centered"
 msgstr "950px 中央揃え"
 
-#: ../lib/customize.php:594 ../lib/validate.php:1042
+#: ../lib/customize.php:594 ../lib/validate.php:1056
 #, fuzzy
 msgid "974px"
 msgstr "974px 中央揃え"
 
-#: ../lib/customize.php:595 ../lib/validate.php:1043
+#: ../lib/customize.php:595 ../lib/validate.php:1057
 #, fuzzy
 msgid "Box Layout Responsive"
 msgstr "レスポンシブ　ボックス"
@@ -2134,32 +2176,47 @@ msgstr "レスポンシブ　ボックス"
 msgid "Full Width Responsive"
 msgstr "フルサイズレスポンシブ"
 
-#: ../lib/customize.php:629 ../lib/validate.php:1013
+#: ../lib/customize.php:608
+#, fuzzy
+msgid "Please select Simple( All list pages same column ) or details ( It sets the column of the list page, such as archive and index individually )"
+msgstr "テンプレート毎にカラムを変更する設定を行う場合は「詳細」を、すべてのページで同じカラム設定を行う場合は「シンプル」を選択してください"
+
+#: ../lib/customize.php:612
+#, fuzzy
+msgid "Simple"
+msgstr "シンプル"
+
+#: ../lib/customize.php:613
+#, fuzzy
+msgid "Details"
+msgstr "詳細"
+
+#: ../lib/customize.php:629 ../lib/validate.php:1027
 #, fuzzy
 msgid "left 160px"
 msgstr "左側 160 ピクセル"
 
-#: ../lib/customize.php:630 ../lib/validate.php:1014
+#: ../lib/customize.php:630 ../lib/validate.php:1028
 #, fuzzy
 msgid "left 180px"
 msgstr "左側 180 ピクセル"
 
-#: ../lib/customize.php:631 ../lib/validate.php:1015
+#: ../lib/customize.php:631 ../lib/validate.php:1029
 #, fuzzy
 msgid "left 300px"
 msgstr "左側 300 ピクセル"
 
-#: ../lib/customize.php:632 ../lib/validate.php:1016
+#: ../lib/customize.php:632 ../lib/validate.php:1030
 #, fuzzy
 msgid "right 180px"
 msgstr "右側 180 ピクセル"
 
-#: ../lib/customize.php:633 ../lib/validate.php:1017
+#: ../lib/customize.php:633 ../lib/validate.php:1031
 #, fuzzy
 msgid "right 240px"
 msgstr "右側 240 ピクセル"
 
-#: ../lib/customize.php:634 ../lib/validate.php:1018
+#: ../lib/customize.php:634 ../lib/validate.php:1032
 #, fuzzy
 msgid "right 300px"
 msgstr "右側 300 ピクセル"
@@ -2168,22 +2225,6 @@ msgstr "右側 300 ピクセル"
 #, fuzzy
 msgid "Responsive Default Sidebar"
 msgstr "デフォルトサイドバーのレスポンシブ設定"
-
-#: ../lib/customize.php:646 ../lib/customize.php:726 ../lib/vars.php:1579
-#, fuzzy
-msgid "Default yes"
-msgstr "デフォルト yes"
-
-#: ../lib/customize.php:661 ../lib/vars.php:1587
-#, fuzzy
-msgid "Responsive Breakpoint for Default Sidebar"
-msgstr "デフォルトサイドバーのブレークポイント"
-
-#: ../lib/customize.php:663 ../lib/customize.php:744 ../lib/vars.php:1589
-#: ../lib/vars.php:1599
-#, fuzzy
-msgid "Please Set Numeric Pixel Value"
-msgstr "ピクセル単位での数値を入力してください"
 
 #: ../lib/customize.php:680
 #, fuzzy
@@ -2194,8 +2235,8 @@ msgstr "エキストラサイドバー表示設定"
 #: ../lib/customize.php:1349 ../lib/customize.php:1678
 #: ../lib/customize.php:1721 ../lib/customize.php:1738
 #: ../lib/customize.php:1762 ../lib/customize.php:1779
-#: ../lib/customize.php:1796 ../lib/customize.php:1844
-#: ../lib/customize.php:1861 ../lib/customize.php:2293 ../lib/validate.php:948
+#: ../lib/customize.php:1796 ../lib/customize.php:1877
+#: ../lib/customize.php:1894 ../lib/customize.php:2326 ../lib/validate.php:962
 #, fuzzy
 msgid "Show"
 msgstr "表示"
@@ -2204,35 +2245,35 @@ msgstr "表示"
 #: ../lib/customize.php:1350 ../lib/customize.php:1679
 #: ../lib/customize.php:1722 ../lib/customize.php:1739
 #: ../lib/customize.php:1763 ../lib/customize.php:1780
-#: ../lib/customize.php:1797 ../lib/customize.php:1845
-#: ../lib/customize.php:1862 ../lib/customize.php:1983
-#: ../lib/customize.php:2000 ../lib/customize.php:2017
-#: ../lib/customize.php:2294 ../lib/customize.php:2313 ../lib/validate.php:949
+#: ../lib/customize.php:1797 ../lib/customize.php:1878
+#: ../lib/customize.php:1895 ../lib/customize.php:2016
+#: ../lib/customize.php:2033 ../lib/customize.php:2050
+#: ../lib/customize.php:2327 ../lib/customize.php:2346 ../lib/validate.php:963
 #, fuzzy
 msgid "Hide"
 msgstr "隠す"
 
-#: ../lib/customize.php:708 ../lib/validate.php:924
+#: ../lib/customize.php:708 ../lib/validate.php:938
 #, fuzzy
 msgid "25%"
 msgstr "25パーセント"
 
-#: ../lib/customize.php:709 ../lib/validate.php:925
+#: ../lib/customize.php:709 ../lib/validate.php:939
 #, fuzzy
 msgid "33%"
 msgstr "33パーセント"
 
-#: ../lib/customize.php:710 ../lib/validate.php:926
+#: ../lib/customize.php:710 ../lib/validate.php:940
 #, fuzzy
 msgid "50%"
 msgstr "50パーセント"
 
-#: ../lib/customize.php:711 ../lib/validate.php:927
+#: ../lib/customize.php:711 ../lib/validate.php:941
 #, fuzzy
 msgid "66%"
 msgstr "66パーセント"
 
-#: ../lib/customize.php:712 ../lib/validate.php:928
+#: ../lib/customize.php:712 ../lib/validate.php:942
 #, fuzzy
 msgid "75%"
 msgstr "75パーセント"
@@ -2242,12 +2283,7 @@ msgstr "75パーセント"
 msgid "Responsive Extra Sidebar"
 msgstr "エキストラサイドバーのレスポンシブ設定"
 
-#: ../lib/customize.php:742 ../lib/vars.php:1597
-#, fuzzy
-msgid "Responsive Breakpoint for Extra Sidebar"
-msgstr "エキストラサイドバーのブレークポイント"
-
-#: ../lib/customize.php:761 ../lib/vars.php:986
+#: ../lib/customize.php:761 ../lib/vars.php:1046
 #, fuzzy
 msgid "Index Page, Static Front Page columns"
 msgstr "トップページ"
@@ -2291,7 +2327,7 @@ msgstr "2カラム"
 msgid "3 columns"
 msgstr "3カラム"
 
-#: ../lib/customize.php:877 ../lib/vars.php:1167
+#: ../lib/customize.php:877 ../lib/vars.php:1227
 #, fuzzy
 msgid "Attachment Page Image Columns"
 msgstr "添付ファイル画像のカラム数"
@@ -2301,32 +2337,32 @@ msgstr "添付ファイル画像のカラム数"
 msgid "Author Archives columns"
 msgstr "著者アーカイブのカラム数"
 
-#: ../lib/customize.php:1012 ../lib/vars.php:1417
+#: ../lib/customize.php:1012 ../lib/vars.php:1477
 #, fuzzy
 msgid "Archives Post Format link Columns"
 msgstr "投稿フォーマットアーカイブ「リンク」のカラム数"
 
-#: ../lib/customize.php:1031 ../lib/vars.php:1427
+#: ../lib/customize.php:1031 ../lib/vars.php:1487
 #, fuzzy
 msgid "Archives Post Format Image Columns"
 msgstr "投稿フォーマットアーカイブ「画像」のカラム数"
 
-#: ../lib/customize.php:1050 ../lib/vars.php:1437
+#: ../lib/customize.php:1050 ../lib/vars.php:1497
 #, fuzzy
 msgid "Archives Post Format Quote Columns"
 msgstr "投稿フォーマットアーカイブ「引用」カラム数"
 
-#: ../lib/customize.php:1069 ../lib/vars.php:1447
+#: ../lib/customize.php:1069 ../lib/vars.php:1507
 #, fuzzy
 msgid "Archives Post Format Status Columns"
 msgstr "投稿フォーマットアーカイブ「ステータス」カラム数"
 
-#: ../lib/customize.php:1088 ../lib/vars.php:1457
+#: ../lib/customize.php:1088 ../lib/vars.php:1517
 #, fuzzy
 msgid "Archives Post Format Video Columns"
 msgstr "投稿フォーマットアーカイブ「動画」カラム数"
 
-#: ../lib/customize.php:1107 ../lib/vars.php:1467
+#: ../lib/customize.php:1107 ../lib/vars.php:1527
 #, fuzzy
 msgid "Archives Post Format Audio Columns"
 msgstr "投稿フォーマットアーカイブ「オーディオ」カラム数"
@@ -2336,12 +2372,12 @@ msgstr "投稿フォーマットアーカイブ「オーディオ」カラム数
 msgid "Archives Post Format Gallery Columns"
 msgstr "投稿フォーマットアーカイブ「ギャラリー」カラム数"
 
-#: ../lib/customize.php:1145 ../lib/vars.php:1487
+#: ../lib/customize.php:1145 ../lib/vars.php:1547
 #, fuzzy
 msgid "Archives Post Format Chat Columns"
 msgstr "投稿フォーマットアーカイブ「チャット」カラム数"
 
-#: ../lib/customize.php:1164 ../lib/vars.php:1497
+#: ../lib/customize.php:1164 ../lib/vars.php:1557
 #, fuzzy
 msgid "Archives Post Format Aside Columns"
 msgstr "投稿フォーマットアーカイブ「アサイド」カラム数"
@@ -2350,16 +2386,6 @@ msgstr "投稿フォーマットアーカイブ「アサイド」カラム数"
 #, fuzzy
 msgid "Display hide"
 msgstr "表示　非表示設定"
-
-#: ../lib/customize.php:1200 ../lib/vars.php:1527
-#, fuzzy
-msgid "Reset Theme Settings"
-msgstr "テーマ設定のリセット"
-
-#: ../lib/customize.php:1202 ../lib/vars.php:1529
-#, fuzzy
-msgid "Carefully Use! Reset All Theme Settings"
-msgstr "注意！すべてのテーマ設定がリセットされます"
 
 #: ../lib/customize.php:1242
 #, fuzzy
@@ -2465,12 +2491,12 @@ msgstr ""
 msgid "Disable Keyboad Focus"
 msgstr "キーボードアクセシビリティ"
 
-#: ../lib/customize.php:1427 ../lib/customize.php:1880
+#: ../lib/customize.php:1427 ../lib/customize.php:1913
 #, fuzzy
 msgid "Disable"
 msgstr "無効"
 
-#: ../lib/customize.php:1428 ../lib/customize.php:1879
+#: ../lib/customize.php:1428 ../lib/customize.php:1912
 #, fuzzy
 msgid "Enable"
 msgstr "有効"
@@ -2484,12 +2510,6 @@ msgstr "添付画像が表示できない場合の代替画像です。がぞう
 #, fuzzy
 msgid "Show Attach to Post Date and Author in Attachment"
 msgstr "画像添付日付と著者の表示"
-
-#: ../lib/customize.php:1486 ../lib/customize.php:1503 ../lib/vars.php:1549
-#: ../lib/vars.php:1559 ../lib/vars.php:1569
-#, fuzzy
-msgid "Default no"
-msgstr "デフォルト no"
 
 #: ../lib/customize.php:1501
 #, fuzzy
@@ -2588,7 +2608,7 @@ msgid_plural "If permalink structure is special may not work"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../lib/customize.php:1781 ../lib/customize.php:1846
+#: ../lib/customize.php:1781 ../lib/customize.php:1879
 #, fuzzy
 msgid "emoji"
 msgstr "絵文字"
@@ -2608,234 +2628,234 @@ msgstr "本文の手前"
 msgid "After Contents"
 msgstr "本文の後"
 
-#: ../lib/customize.php:1840
+#: ../lib/customize.php:1873
 #, fuzzy
 msgid "Hide or Show label like Category Archives, Tag Archives"
 msgstr "アーカイブタイトルの「カテゴリアーカイブ」のようなラベルを非表示にする"
 
-#: ../lib/customize.php:1892
+#: ../lib/customize.php:1925
 #, fuzzy
 msgid "Set Header Image Filter Color"
 msgstr "この投稿ではヘッダー画像を表示しない"
 
-#: ../lib/customize.php:1975
+#: ../lib/customize.php:2008
 #, fuzzy
 msgid "Home Listed Entry Contents"
 msgstr "トップページの投稿本文"
 
-#: ../lib/customize.php:1981 ../lib/customize.php:1998
-#: ../lib/customize.php:2015
+#: ../lib/customize.php:2014 ../lib/customize.php:2031
+#: ../lib/customize.php:2048
 #, fuzzy
 msgid "Show Content"
 msgstr "本文を表示"
 
-#: ../lib/customize.php:1982 ../lib/customize.php:1999
-#: ../lib/customize.php:2016
+#: ../lib/customize.php:2015 ../lib/customize.php:2032
+#: ../lib/customize.php:2049
 #, fuzzy
 msgid "Show Excerpt"
 msgstr "概要文を表示"
 
-#: ../lib/customize.php:1992
+#: ../lib/customize.php:2025
 #, fuzzy
 msgid "Category Archives Entry Contents"
 msgstr "カテゴリー別アーカイブの投稿本文"
 
-#: ../lib/customize.php:2009
+#: ../lib/customize.php:2042
 #, fuzzy
 msgid "Search Result Entry Contents"
 msgstr "検索結果ページの投稿本文"
 
-#: ../lib/customize.php:2026
+#: ../lib/customize.php:2059
 #, fuzzy
 msgid "Allow Oembed in Excerpt"
 msgstr "概要表示で、Oembedメディアを表示する"
 
-#: ../lib/customize.php:2043
+#: ../lib/customize.php:2076
 #, fuzzy
 msgid "Excerpt Type"
 msgstr "概要タイプの選択"
 
-#: ../lib/customize.php:2045
+#: ../lib/customize.php:2078
 #, fuzzy
 msgid "Default WordPress Excerpt, HTML in Excerpt is Raindrops original excerpt"
 msgstr "デフォルトは　WordPressの概要表示、HTML in Excerptはレインドロップスの独自概要表示です。"
 
-#: ../lib/customize.php:2049
+#: ../lib/customize.php:2082
 #, fuzzy
 msgid "WordPress Excerpt"
 msgstr "ワードプレスの概要"
 
-#: ../lib/customize.php:2050
+#: ../lib/customize.php:2083
 #, fuzzy
 msgid "HTML in Excerpt"
 msgstr "HTMLを含んだ概要"
 
-#: ../lib/customize.php:2060
+#: ../lib/customize.php:2093
 #, fuzzy
 msgid "Add More Link After Excerpt"
 msgstr "概要表示の後に「続きを読む」リンクを追加"
 
-#: ../lib/customize.php:2079
+#: ../lib/customize.php:2112
 #, fuzzy
 msgid "Value 20-400"
 msgstr "値 20-400"
 
-#: ../lib/customize.php:2100
+#: ../lib/customize.php:2133
 #, fuzzy
 msgid "Breadcrumbs"
 msgstr "パンくずリスト"
 
-#: ../lib/customize.php:2102
+#: ../lib/customize.php:2135
 #, fuzzy
 msgid "Theme, will make a presentation of applying the plugin automatically, value set yes or none. using Breadcrumb NavXT"
 msgstr "Breadcrumb NavXTパンくずリストプラグインを自動的に設定しますか？"
 
-#: ../lib/customize.php:2119
+#: ../lib/customize.php:2152
 #, fuzzy
 msgid "Custom Page Navigation"
 msgstr "カスタムページナビゲーション"
 
-#: ../lib/customize.php:2121
+#: ../lib/customize.php:2154
 #, fuzzy
 msgid "Theme, will make a presentation of applying the plugin automatically, value set yes or none. using WP PageNavi"
 msgstr "WP PageNaviページネーションプラグインを自動的に設定しますか？"
 
-#: ../lib/customize.php:2138
+#: ../lib/customize.php:2171
 #, fuzzy
 msgid "Slider for HomePage"
 msgstr "トップページにスライダーを表示"
 
-#: ../lib/customize.php:2140
+#: ../lib/customize.php:2173
 #, fuzzy
 msgid "Please Set Meta Slider ID or none. using Meta Slider"
 msgstr "Meta Slider　スライダープラグインをトップページに自動設定しますか？"
 
-#: ../lib/customize.php:2153
+#: ../lib/customize.php:2186
 #, fuzzy
 msgid "The Events Calendar Automatic Presentation"
 msgstr "イベント管理"
 
-#: ../lib/customize.php:2155
+#: ../lib/customize.php:2188
 #, fuzzy
 msgid "Theme, will make a presentation of applying the plugin automatically. using The Events Calendar Plugin"
 msgstr "The Events Calendar Plugin　イベント管理プラグインを自動設定しますか？"
 
-#: ../lib/customize.php:2190
+#: ../lib/customize.php:2223
 msgid "Place of the Title"
 msgstr ""
 
-#: ../lib/customize.php:2196
+#: ../lib/customize.php:2229
 msgid "Above the header image"
 msgstr ""
 
-#: ../lib/customize.php:2197
+#: ../lib/customize.php:2230
 #, fuzzy
 msgid "In the header image"
 msgstr "ヘッダー画像の中に表示"
 
-#: ../lib/customize.php:2226
+#: ../lib/customize.php:2259
 #, fuzzy
 msgid "Top Margin in the header image"
 msgstr "サイトタイトルの上部マージン"
 
-#: ../lib/customize.php:2228
+#: ../lib/customize.php:2261
 #, fuzzy
 msgid " default value is 1 . set 0 between 100 ( percent )"
 msgstr "初期設定では　1、設定可能な値は1-100（パーセント)"
 
-#: ../lib/customize.php:2247
+#: ../lib/customize.php:2280
 #, fuzzy
 msgid "The choice of left margin how to set"
 msgstr "左マージンの設定の選択"
 
-#: ../lib/customize.php:2253
+#: ../lib/customize.php:2286
 #, fuzzy
 msgid "Default"
 msgstr "デフォルト"
 
-#: ../lib/customize.php:2254
+#: ../lib/customize.php:2287
 #, fuzzy
 msgid "Centered"
 msgstr "中央"
 
-#: ../lib/customize.php:2255
+#: ../lib/customize.php:2288
 #, fuzzy
 msgid "Manual Settings"
 msgstr "手動設定"
 
-#: ../lib/customize.php:2266
+#: ../lib/customize.php:2299
 #, fuzzy
 msgid "Left Margin in the header image"
 msgstr "サイトタイトルの左マージン"
 
-#: ../lib/customize.php:2268
+#: ../lib/customize.php:2301
 #, fuzzy
 msgid " default value is 1. set 0 between 100 ( percent )"
 msgstr "初期設定では　1、設定可能な値は1-100（パーセント)"
 
-#: ../lib/customize.php:2305
+#: ../lib/customize.php:2338
 #, fuzzy
 msgid "Place of the Tagline"
 msgstr "キャッチフレーズの表示場所"
 
-#: ../lib/customize.php:2311
+#: ../lib/customize.php:2344
 #, fuzzy
 msgid "Show in the header image"
 msgstr "ヘッダー画像の中に表示"
 
-#: ../lib/customize.php:2312
+#: ../lib/customize.php:2345
 #, fuzzy
 msgid "Show above the header image"
 msgstr "ヘッダー画像の上に表示"
 
-#: ../lib/customize.php:2323
+#: ../lib/customize.php:2356
 #, fuzzy
 msgid "CSS Class of Site Title"
 msgstr "サイトタイトルのCSS クラス"
 
-#: ../lib/customize.php:2499
+#: ../lib/customize.php:2532
 #, fuzzy
 msgid "Change Log"
 msgstr "変更履歴"
 
-#: ../lib/customize.php:2500
+#: ../lib/customize.php:2533
 #, fuzzy
 msgid "Most Recent Changes"
 msgstr "最も新しい変更点"
 
-#: ../lib/customize.php:2506
+#: ../lib/customize.php:2539
 #, fuzzy
 msgid "Header Text Color"
 msgstr "ヘッダーフォントカラー"
 
-#: ../lib/customize.php:2551
+#: ../lib/customize.php:2584
 #, fuzzy
 msgid "Failed to read the changelog"
 msgstr "変更履歴の読み込みに失敗しました"
 
-#: ../lib/customize.php:2795
+#: ../lib/customize.php:2828
 #, fuzzy
 msgid "Preview Width"
 msgstr "プリビュー幅"
 
-#: ../lib/customize.php:2796
+#: ../lib/customize.php:2829
 #, fuzzy
 msgid "<span>Basic Config</span>"
 msgstr "<span>基本設定</span>"
 
-#: ../lib/customize.php:2826
+#: ../lib/customize.php:2859
 #, fuzzy
 msgid "Reset"
 msgstr "リセット"
 
-#: ../lib/customize.php:2827
+#: ../lib/customize.php:2860
 #, fuzzy
 msgid ""
 "Attention!This action is irreversible. When click Save & Publish button, It will remove all customizations ever made via customizer to this theme!\n"
 "\n"
 msgstr "注意!　この変更は元に戻りません。OKボタンを押して、さらにカスタマイザーの「保存して公開」を押すとテーマの設定は、リセットされます。\n"
 
-#: ../lib/customize.php:2834
+#: ../lib/customize.php:2867
 #, fuzzy
 msgid ""
 "Color type minimal, it also includes a change in the theme of the layout. If it is good, Click OK, please press the Save button in the customizer.\n"
@@ -2844,70 +2864,55 @@ msgstr ""
 "カラータイプミニマルは、色の変更だけでなくレイアウトの変更も伴います。変更する場合は　OKを押してから、カスタマイザーの保存ボタンを押してください\n"
 "この変更は、後で自由に再変更が可能です。"
 
-#: ../lib/customize.php:2853
+#: ../lib/customize.php:2886
 #, fuzzy
 msgid "Important Note"
 msgstr "重要"
 
-#: ../lib/customize.php:2854
+#: ../lib/customize.php:2887
 #, fuzzy
 msgid "If you change the color settings, please press the always Save &amp; Publish button."
 msgstr "カラー設定を変更した場合は、必ず「保存して公開」ボタンで変更を保存してください。"
 
-#: ../lib/customize.php:2865
+#: ../lib/customize.php:2898
 #, fuzzy
 msgid "Navigation"
 msgstr "ナビゲーション"
 
-#: ../lib/customize.php:2867
+#: ../lib/customize.php:2900
 #, fuzzy
 msgid "Go to Custom Color Settings"
 msgstr "カスタムカラー設定に移動"
 
-#: ../lib/validate.php:1044
+#: ../lib/validate.php:1058
 #, fuzzy
 msgid "Full Width Resuponsive"
 msgstr "レスポンシブ　フルサイズ"
 
-#: ../lib/vars.php:135
+#: ../lib/vars.php:189
 #, fuzzy
 msgid "This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)"
 msgstr "このテーマはフォントやレイアウト、配色を投稿毎、固定ページ毎に設定することが出来ます。<br />グーグルフォントは、投稿本文のフォントが必要な部分で、CSSクラスを指定する事で、90%以上のフォントをを使うことが出来ます。<br />レイアウトや配色はテーマカスタマイザーから、自由に変更できます。<br />テーマのアップデートについては、テーマページのヘルプタブから、changelog　を確認することが出来ます。<br />投稿の編集ページや新規作成ページのヘルプタブを開いていただくと、使い方に関するコツも記述されていますので、是非ご覧ください。<br />サポート言語　日本語,　ポルトガル語,　フランス語,　ポーランド語"
 
-#: ../lib/vars.php:709
+#: ../lib/vars.php:769
 #, fuzzy
 msgid "If you need to set footer Special link color.hex color ex.#ff0000 or empty string"
 msgstr "フッターの文字色を指定したい時に、hex colorを指定します　例えば　#ff0000  指定しない場合は none　"
 
-#: ../lib/vars.php:918
+#: ../lib/vars.php:978
 #, fuzzy
 msgid "value header_image, above. default above "
 msgstr "設定可能な値は、header_image または above です。規定値は above"
 
-#: ../lib/vars.php:1149
+#: ../lib/vars.php:1209
 #, fuzzy
 msgid "default avatar"
 msgstr "デフォルトのアバター"
 
-#: ../lib/vars.php:1477
+#: ../lib/vars.php:1537
 #, fuzzy
 msgid "Archives Post Format Galley Columns"
 msgstr "投稿フォーマットアーカイブ「ギャラリー」カラム数"
-
-#: ../lib/vars.php:1547
-#, fuzzy
-msgid "Show Posted on in Attachment"
-msgstr "アタッチメントページで投稿日と著者を表示"
-
-#: ../lib/vars.php:1557
-#, fuzzy
-msgid "Show Posted on in Static Page"
-msgstr "固定ページで投稿日と著者表示"
-
-#: ../lib/vars.php:1567 ../lib/vars.php:1577
-#, fuzzy
-msgid "Default Sidebar Responsive"
-msgstr "デフォルトサイドバーのレスポンシブ設定"
 
 #: ../lib/widgets.php:14
 #, fuzzy
@@ -2924,7 +2929,7 @@ msgstr "最近の投稿を、カテゴリ毎にグループ化して表示しま
 msgid "Category What's New"
 msgstr "カテゴリー別　最近の投稿"
 
-#: ../lib/widgets.php:93 ../lib/widgets.php:1153
+#: ../lib/widgets.php:93 ../lib/widgets.php:1194
 #, fuzzy
 msgid "Title:"
 msgstr "タイトル："
@@ -2939,132 +2944,132 @@ msgstr "表示する投稿数を指定"
 msgid "Select Categories"
 msgstr "カテゴリーを選択してください"
 
-#: ../lib/widgets.php:379
+#: ../lib/widgets.php:386
 #, fuzzy
 msgid "Display Pinup entries"
 msgstr "ピンナップ投稿の表示"
 
-#: ../lib/widgets.php:381
+#: ../lib/widgets.php:388
 #, fuzzy
 msgid "1.Pinup entries [Raindrops]"
 msgstr "ピンナップ投稿ウィジェット[Raindrops]"
 
-#: ../lib/widgets.php:828
+#: ../lib/widgets.php:838
 #, fuzzy
 msgid "Please check, incorrect value in post ID might have been set,"
 msgstr "投稿IDに不適切な値がセットされた可能性がありますので、確認してください。"
 
-#: ../lib/widgets.php:862
+#: ../lib/widgets.php:872
 #, fuzzy
 msgid "Posted title that has been set"
 msgstr "設定されている　投稿タイトル"
 
-#: ../lib/widgets.php:866
+#: ../lib/widgets.php:876
 #, fuzzy
 msgid "Title"
 msgstr "タイトル"
 
-#: ../lib/widgets.php:866
+#: ../lib/widgets.php:876
 #, fuzzy
 msgid "Show only Display Type: Grid"
 msgstr "グリッド表示の場合に限り表示します"
 
-#: ../lib/widgets.php:870
+#: ../lib/widgets.php:880
 #, fuzzy
 msgid "Post ID"
 msgstr " 投稿ID"
 
-#: ../lib/widgets.php:870
+#: ../lib/widgets.php:880
 #, fuzzy
 msgid "Comma separated IDs"
 msgstr "コンマ区切りのIDを指定"
 
-#: ../lib/widgets.php:875
+#: ../lib/widgets.php:885
 #, fuzzy
 msgid "Display Type"
 msgstr "表示　非表示設定"
 
-#: ../lib/widgets.php:875
+#: ../lib/widgets.php:885
 #, fuzzy
 msgid "Grid Layout"
 msgstr "グリッドレイアウト"
 
-#: ../lib/widgets.php:879
+#: ../lib/widgets.php:889
 #, fuzzy
 msgid "Randum Show"
 msgstr "デフォルト 表示"
 
-#: ../lib/widgets.php:883
+#: ../lib/widgets.php:893
 #, fuzzy
 msgid "Post Type"
 msgstr "投稿タイプ"
 
-#: ../lib/widgets.php:883
+#: ../lib/widgets.php:893
 #, fuzzy
 msgid "Post:"
 msgstr "投稿："
 
-#: ../lib/widgets.php:893
+#: ../lib/widgets.php:903
 #, fuzzy
 msgid "Content:"
 msgstr "本文:"
 
-#: ../lib/widgets.php:897
+#: ../lib/widgets.php:907
 #, fuzzy
 msgid "Excerpt:"
 msgstr "概要文"
 
-#: ../lib/widgets.php:902
+#: ../lib/widgets.php:912
 #, fuzzy
 msgid "Attachment IMG:"
 msgstr "添付ファイル"
 
-#: ../lib/widgets.php:907
+#: ../lib/widgets.php:917
 #, fuzzy
 msgid "Featured IMG"
 msgstr "アイキャッチ 画像"
 
-#: ../lib/widgets.php:937
+#: ../lib/widgets.php:947
 #, fuzzy
 msgid "Archives Extended"
 msgstr "カスタム　アーカイブ"
 
-#: ../lib/widgets.php:939
+#: ../lib/widgets.php:949
 #, fuzzy
 msgid "3.Archives Extended [Raindrops]"
 msgstr "3.カスタムアーカイブ [Raindrops]"
 
-#: ../lib/widgets.php:955 ../lib/widgets.php:1118 ../sidebar.php:23
+#: ../lib/widgets.php:965 ../lib/widgets.php:1159 ../sidebar.php:23
 #, fuzzy
 msgid "Archives"
 msgstr "アーカイブ"
 
-#: ../lib/widgets.php:1159
+#: ../lib/widgets.php:1200
 #, fuzzy
 msgid "Display Archives Start Year"
 msgstr "アーカイブを表示する 最初の年"
 
-#: ../lib/widgets.php:1159
+#: ../lib/widgets.php:1200
 #, fuzzy
 msgid "Please use the 4-digit number or blank ex. 2010"
 msgstr "4桁の数値または空白にしてください。"
 
-#: ../lib/widgets.php:1165
+#: ../lib/widgets.php:1206
 #, fuzzy
 msgid "Groop by Year, by Month"
 msgstr "年または月でグループ化"
 
-#: ../lib/widgets.php:1165
+#: ../lib/widgets.php:1206
 #, fuzzy
 msgid "Year"
 msgstr "年"
 
-#: ../lib/widgets.php:1170
+#: ../lib/widgets.php:1211
 #, fuzzy
 msgid "Month"
 msgstr "月"
 
-#: ../lib/widgets.php:1175
+#: ../lib/widgets.php:1216
 #, fuzzy
 msgid "Show Post Count"
 msgstr "投稿数を表示"
@@ -3125,19 +3130,16 @@ msgid "Click here to the PDF file."
 msgstr "PDFを開く"
 
 #: ../plugins/class-tgm-plugin-activation.php:327
-#: ../plugins/old-class-tgm-plugin-activation.php:343
 #, fuzzy
 msgid "Install Required Plugins"
 msgstr "テーマ拡張機能　アドオン"
 
 #: ../plugins/class-tgm-plugin-activation.php:328
-#: ../plugins/old-class-tgm-plugin-activation.php:344
 #, fuzzy
 msgid "Install Plugins"
 msgstr "テーマ拡張機能"
 
 #: ../plugins/class-tgm-plugin-activation.php:330
-#: ../plugins/old-class-tgm-plugin-activation.php:345
 #, fuzzy, php-format
 msgid "Installing Plugin: %s"
 msgstr " %s　プラグインをインストール中"
@@ -3148,13 +3150,11 @@ msgid "Updating Plugin: %s"
 msgstr " %s　プラグインを更新中"
 
 #: ../plugins/class-tgm-plugin-activation.php:333
-#: ../plugins/old-class-tgm-plugin-activation.php:346
 #, fuzzy
 msgid "Something went wrong with the plugin API."
 msgstr "plugin API　で問題が発生しました"
 
 #: ../plugins/class-tgm-plugin-activation.php:336
-#: ../plugins/old-class-tgm-plugin-activation.php:348
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
@@ -3162,7 +3162,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:342
-#: ../plugins/old-class-tgm-plugin-activation.php:353
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
@@ -3170,7 +3169,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:348
-#: ../plugins/old-class-tgm-plugin-activation.php:363
 #, php-format
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
@@ -3178,7 +3176,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:354
-#: ../plugins/old-class-tgm-plugin-activation.php:368
 #, php-format
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
@@ -3186,7 +3183,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:360
-#: ../plugins/old-class-tgm-plugin-activation.php:378
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
@@ -3194,7 +3190,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:366
-#: ../plugins/old-class-tgm-plugin-activation.php:383
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
@@ -3202,28 +3197,24 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:371
-#: ../plugins/old-class-tgm-plugin-activation.php:393
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:376
-#: ../plugins/old-class-tgm-plugin-activation.php:398
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:381
-#: ../plugins/old-class-tgm-plugin-activation.php:403
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:385
-#: ../plugins/old-class-tgm-plugin-activation.php:407
 #, fuzzy
 msgid "Return to Required Plugins Installer"
 msgstr "テーマのおすすめプラグインのページへ移動"
@@ -3232,49 +3223,39 @@ msgstr "テーマのおすすめプラグインのページへ移動"
 #: ../plugins/class-tgm-plugin-activation.php:827
 #: ../plugins/class-tgm-plugin-activation.php:2533
 #: ../plugins/class-tgm-plugin-activation.php:3580
-#: ../plugins/old-class-tgm-plugin-activation.php:836
-#: ../plugins/old-class-tgm-plugin-activation.php:3446
 #, fuzzy
 msgid "Return to the Dashboard"
 msgstr "管理パネルへ移動"
 
 #: ../plugins/class-tgm-plugin-activation.php:387
 #: ../plugins/class-tgm-plugin-activation.php:3159
-#: ../plugins/old-class-tgm-plugin-activation.php:409
-#: ../plugins/old-class-tgm-plugin-activation.php:3037
 #, fuzzy
 msgid "Plugin activated successfully."
 msgstr "%1$s の更新に成功しました。"
 
 #: ../plugins/class-tgm-plugin-activation.php:388
 #: ../plugins/class-tgm-plugin-activation.php:2952
-#: ../plugins/old-class-tgm-plugin-activation.php:410
-#: ../plugins/old-class-tgm-plugin-activation.php:2840
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:390
-#: ../plugins/old-class-tgm-plugin-activation.php:411
 #, fuzzy, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr "%1$s  プラグインは、すでにアクティベート済みですから、何もしません。"
 
 #: ../plugins/class-tgm-plugin-activation.php:392
-#: ../plugins/old-class-tgm-plugin-activation.php:412
 #, fuzzy, php-format
 msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
 msgstr "プラグインをアクティベートしません。このテーマでは、%sの新しいバージョンを必要とします。プラグインをアップデートしてください"
 
 #: ../plugins/class-tgm-plugin-activation.php:394
-#: ../plugins/old-class-tgm-plugin-activation.php:413
 #, fuzzy, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr "これら %1$s　すべてのプラグインはインストールが完了し、アクティブになりました"
 
 #: ../plugins/class-tgm-plugin-activation.php:395
-#: ../plugins/old-class-tgm-plugin-activation.php:414
 #, fuzzy
 msgid "Dismiss this notice"
 msgstr "非表示にする"
@@ -3285,39 +3266,32 @@ msgid "There are one or more required or recommended plugins to install, update 
 msgstr "インストールして更新またはアクティベートするための1つ以上の必須または推奨プラグインがあります。"
 
 #: ../plugins/class-tgm-plugin-activation.php:397
-#: ../plugins/old-class-tgm-plugin-activation.php:415
 #, fuzzy
 msgid "Please contact the administrator of this site for help."
 msgstr "このサイトの管理者に助言を求めてください"
 
 #: ../plugins/class-tgm-plugin-activation.php:522
-#: ../plugins/old-class-tgm-plugin-activation.php:530
 #, fuzzy
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr "%1$s プラグインはテーマとの互換性を最大限に確保するために最新バージョンにアップデートする必要があります"
 
 #: ../plugins/class-tgm-plugin-activation.php:523
-#: ../plugins/old-class-tgm-plugin-activation.php:531
 #, fuzzy
 msgid "Update Required"
 msgstr "アップデートが必要です"
 
 #: ../plugins/class-tgm-plugin-activation.php:934
-#: ../plugins/old-class-tgm-plugin-activation.php:943
 #, fuzzy
 msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr "リモートプラグインパッゲージには、必要な名前とリネームホルダーが含まれていませんので動作しません"
 
 #: ../plugins/class-tgm-plugin-activation.php:934
 #: ../plugins/class-tgm-plugin-activation.php:937
-#: ../plugins/old-class-tgm-plugin-activation.php:943
-#: ../plugins/old-class-tgm-plugin-activation.php:946
 #, fuzzy
 msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
 msgstr "プラグインの配布者と連絡を取って、WordPressのガイドラインに従ったプラグインのパッケージ化を行うよう依頼してください"
 
 #: ../plugins/class-tgm-plugin-activation.php:937
-#: ../plugins/old-class-tgm-plugin-activation.php:946
 #, fuzzy
 msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
 msgstr "リモードプラグインパッケージは複数ファイルで構成されていますが、ファイルがホルダー内にパッケージされていません。"
@@ -3328,66 +3302,55 @@ msgid "TGMPA v%s"
 msgstr "TGMPAバージョン：%s"
 
 #: ../plugins/class-tgm-plugin-activation.php:2273
-#: ../plugins/old-class-tgm-plugin-activation.php:2175
 #, fuzzy
 msgid "Required"
 msgstr "必須"
 
 #: ../plugins/class-tgm-plugin-activation.php:2276
-#: ../plugins/old-class-tgm-plugin-activation.php:2178
 #, fuzzy
 msgid "Recommended"
 msgstr "おすすめ"
 
 #: ../plugins/class-tgm-plugin-activation.php:2292
-#: ../plugins/old-class-tgm-plugin-activation.php:2194
 #, fuzzy
 msgid "WordPress Repository"
 msgstr "ワードプレス　公式リポジトリ"
 
 #: ../plugins/class-tgm-plugin-activation.php:2295
-#: ../plugins/old-class-tgm-plugin-activation.php:2197
 #, fuzzy
 msgid "External Source"
 msgstr "外部ソース"
 
 #: ../plugins/class-tgm-plugin-activation.php:2298
-#: ../plugins/old-class-tgm-plugin-activation.php:2200
 #, fuzzy
 msgid "Pre-Packaged"
 msgstr "未パッケージ"
 
 #: ../plugins/class-tgm-plugin-activation.php:2315
-#: ../plugins/old-class-tgm-plugin-activation.php:2217
 #, fuzzy
 msgid "Not Installed"
 msgstr "未インストール"
 
 #: ../plugins/class-tgm-plugin-activation.php:2319
-#: ../plugins/old-class-tgm-plugin-activation.php:2221
 msgid "Installed But Not Activated"
 msgstr ""
 
 #: ../plugins/class-tgm-plugin-activation.php:2321
-#: ../plugins/old-class-tgm-plugin-activation.php:2223
 #, fuzzy
 msgid "Active"
 msgstr "アクティブ"
 
 #: ../plugins/class-tgm-plugin-activation.php:2327
-#: ../plugins/old-class-tgm-plugin-activation.php:2229
 #, fuzzy
 msgid "Required Update not Available"
 msgstr "利用可能な更新はありません"
 
 #: ../plugins/class-tgm-plugin-activation.php:2330
-#: ../plugins/old-class-tgm-plugin-activation.php:2232
 #, fuzzy
 msgid "Requires Update"
 msgstr "アップデートが必要です"
 
 #: ../plugins/class-tgm-plugin-activation.php:2333
-#: ../plugins/old-class-tgm-plugin-activation.php:2235
 #, fuzzy
 msgid "Update recommended"
 msgstr "アップデートをお勧めします"
@@ -3399,7 +3362,6 @@ msgid "%1$s, %2$s"
 msgstr "%1$s: %2$s"
 
 #: ../plugins/class-tgm-plugin-activation.php:2388
-#: ../plugins/old-class-tgm-plugin-activation.php:2288
 #, php-format
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
@@ -3408,7 +3370,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:2392
-#: ../plugins/old-class-tgm-plugin-activation.php:2291
 #, php-format
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
@@ -3416,7 +3377,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:2396
-#: ../plugins/old-class-tgm-plugin-activation.php:2294
 #, php-format
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
@@ -3424,7 +3384,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:2400
-#: ../plugins/old-class-tgm-plugin-activation.php:2297
 #, php-format
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
@@ -3432,26 +3391,22 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../plugins/class-tgm-plugin-activation.php:2482
-#: ../plugins/old-class-tgm-plugin-activation.php:2379
 #, fuzzy
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr "バージョン不明"
 
 #: ../plugins/class-tgm-plugin-activation.php:2490
-#: ../plugins/old-class-tgm-plugin-activation.php:2387
 #, fuzzy
 msgid "Installed version:"
 msgstr "インストール　バージョン："
 
 #: ../plugins/class-tgm-plugin-activation.php:2498
-#: ../plugins/old-class-tgm-plugin-activation.php:2395
 #, fuzzy
 msgid "Minimum required version:"
 msgstr "最低必要なバージョン"
 
 #: ../plugins/class-tgm-plugin-activation.php:2510
-#: ../plugins/old-class-tgm-plugin-activation.php:2407
 #, fuzzy
 msgid "Available version:"
 msgstr "利用可能なバージョン："
@@ -3462,19 +3417,16 @@ msgid "No plugins to install, update or activate."
 msgstr "インストール,アクティベートが必要なプラグインはありません。 <a href=\"%1$s\" title=\"Return to the Dashboard\">管理パネルへ移動</a>"
 
 #: ../plugins/class-tgm-plugin-activation.php:2547
-#: ../plugins/old-class-tgm-plugin-activation.php:2444
 #, fuzzy
 msgid "Plugin"
 msgstr "プラグイン"
 
 #: ../plugins/class-tgm-plugin-activation.php:2548
-#: ../plugins/old-class-tgm-plugin-activation.php:2445
 #, fuzzy
 msgid "Source"
 msgstr "ソース"
 
 #: ../plugins/class-tgm-plugin-activation.php:2549
-#: ../plugins/old-class-tgm-plugin-activation.php:2446
 #, fuzzy
 msgid "Type"
 msgstr "タイプ"
@@ -3495,217 +3447,126 @@ msgid "Activate %s"
 msgstr "%s をアクティベート"
 
 #: ../plugins/class-tgm-plugin-activation.php:2684
-#: ../plugins/old-class-tgm-plugin-activation.php:2578
 #, fuzzy
 msgid "Upgrade message from the plugin author:"
 msgstr "プラグイン作者からの更新メッセージ"
 
 #: ../plugins/class-tgm-plugin-activation.php:2717
-#: ../plugins/old-class-tgm-plugin-activation.php:2611
 #, fuzzy
 msgid "Install"
 msgstr "インストール"
 
 #: ../plugins/class-tgm-plugin-activation.php:2723
-#: ../plugins/old-class-tgm-plugin-activation.php:2617
 #, fuzzy
 msgid "Update"
 msgstr "更新"
 
 #: ../plugins/class-tgm-plugin-activation.php:2726
-#: ../plugins/old-class-tgm-plugin-activation.php:2620
 #, fuzzy
 msgid "Activate"
 msgstr "アクティベート"
 
 #: ../plugins/class-tgm-plugin-activation.php:2757
-#: ../plugins/old-class-tgm-plugin-activation.php:2651
 #, fuzzy
 msgid "No plugins were selected to be installed. No action taken."
 msgstr "インストールするプラグインが選択されていませんので、動作を停止します。"
 
 #: ../plugins/class-tgm-plugin-activation.php:2759
-#: ../plugins/old-class-tgm-plugin-activation.php:2653
 #, fuzzy
 msgid "No plugins were selected to be updated. No action taken."
 msgstr "更新するプラグインが選択されていません。"
 
 #: ../plugins/class-tgm-plugin-activation.php:2800
-#: ../plugins/old-class-tgm-plugin-activation.php:2689
 #, fuzzy
 msgid "No plugins are available to be installed at this time."
 msgstr "今のところ、インストール可能なプラグインはありません。"
 
 #: ../plugins/class-tgm-plugin-activation.php:2802
-#: ../plugins/old-class-tgm-plugin-activation.php:2691
 #, fuzzy
 msgid "No plugins are available to be updated at this time."
 msgstr "現在、更新できるプラグインはありません。"
 
 #: ../plugins/class-tgm-plugin-activation.php:2908
-#: ../plugins/old-class-tgm-plugin-activation.php:2796
 #, fuzzy
 msgid "No plugins were selected to be activated. No action taken."
 msgstr "アクティベートするプラグインが選択されていないので、動作を停止します"
 
 #: ../plugins/class-tgm-plugin-activation.php:2934
-#: ../plugins/old-class-tgm-plugin-activation.php:2822
 #, fuzzy
 msgid "No plugins are available to be activated at this time."
 msgstr "アクティベートするプラグインが選択されていないので、動作を停止します"
 
 #: ../plugins/class-tgm-plugin-activation.php:3158
-#: ../plugins/old-class-tgm-plugin-activation.php:3036
 #, fuzzy
 msgid "Plugin activation failed."
 msgstr "プラグインのアクティベートに失敗しました"
 
 #: ../plugins/class-tgm-plugin-activation.php:3498
-#: ../plugins/old-class-tgm-plugin-activation.php:3370
 #, fuzzy, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr " プラグインを更新しています %1$s (%2$d/%3$d) "
 
 #: ../plugins/class-tgm-plugin-activation.php:3501
-#: ../plugins/old-class-tgm-plugin-activation.php:3372
 #, fuzzy, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr "%1$s: <strong>%2$s</strong> のインストール中にエラーが発生しました"
 
 #: ../plugins/class-tgm-plugin-activation.php:3503
-#: ../plugins/old-class-tgm-plugin-activation.php:3373
 #, fuzzy, php-format
 msgid "The installation of %1$s failed."
 msgstr "%1$s のインストールに失敗しました"
 
 #: ../plugins/class-tgm-plugin-activation.php:3507
-#: ../plugins/old-class-tgm-plugin-activation.php:3377
 #, fuzzy
 msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr "インストールとアクティベートのプロセスがスタートしました　この処理には、時間がかかることがあります"
 
 #: ../plugins/class-tgm-plugin-activation.php:3509
-#: ../plugins/old-class-tgm-plugin-activation.php:3378
 #, fuzzy, php-format
 msgid "%1$s installed and activated successfully."
 msgstr "%1$s の更新に成功しました。"
 
 #: ../plugins/class-tgm-plugin-activation.php:3509
 #: ../plugins/class-tgm-plugin-activation.php:3517
-#: ../plugins/old-class-tgm-plugin-activation.php:3378
-#: ../plugins/old-class-tgm-plugin-activation.php:3384
 #, fuzzy
 msgid "Show Details"
 msgstr "詳細の表示"
 
 #: ../plugins/class-tgm-plugin-activation.php:3509
 #: ../plugins/class-tgm-plugin-activation.php:3517
-#: ../plugins/old-class-tgm-plugin-activation.php:3378
-#: ../plugins/old-class-tgm-plugin-activation.php:3384
 #, fuzzy
 msgid "Hide Details"
 msgstr "詳細を閉じる"
 
 #: ../plugins/class-tgm-plugin-activation.php:3510
-#: ../plugins/old-class-tgm-plugin-activation.php:3379
 #, fuzzy
 msgid "All installations and activations have been completed."
 msgstr "すべてのインストールとアクティベートに成功しました"
 
 #: ../plugins/class-tgm-plugin-activation.php:3512
-#: ../plugins/old-class-tgm-plugin-activation.php:3380
 #, fuzzy, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr "インストールとアクティベート中のプラグイン  %1$s (%2$d/%3$d)"
 
 #: ../plugins/class-tgm-plugin-activation.php:3515
-#: ../plugins/old-class-tgm-plugin-activation.php:3383
 #, fuzzy
 msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr "インストールプロセスを開始しました。　この処理には、時間がかかることがあります"
 
 #: ../plugins/class-tgm-plugin-activation.php:3517
-#: ../plugins/old-class-tgm-plugin-activation.php:3384
 #, fuzzy, php-format
 msgid "%1$s installed successfully."
 msgstr "%1$s の更新に成功しました。"
 
 #: ../plugins/class-tgm-plugin-activation.php:3518
-#: ../plugins/old-class-tgm-plugin-activation.php:3385
 #, fuzzy
 msgid "All installations have been completed."
 msgstr "すべてのインストールは、完了しました"
 
 #: ../plugins/class-tgm-plugin-activation.php:3520
-#: ../plugins/old-class-tgm-plugin-activation.php:3386
 #, fuzzy, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr " %1$s (%2$d/%3$d) をインストール中"
-
-#: ../plugins/old-class-tgm-plugin-activation.php:358
-#, php-format
-msgid "Sorry, but you do not have the correct permissions to install the %1$s plugin."
-msgid_plural "Sorry, but you do not have the correct permissions to install the %1$s plugins."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../plugins/old-class-tgm-plugin-activation.php:373
-#, php-format
-msgid "Sorry, but you do not have the correct permissions to update the %1$s plugin."
-msgid_plural "Sorry, but you do not have the correct permissions to update the %1$s plugins."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../plugins/old-class-tgm-plugin-activation.php:388
-#, php-format
-msgid "Sorry, but you do not have the correct permissions to activate the %1$s plugin."
-msgid_plural "Sorry, but you do not have the correct permissions to activate the %1$s plugins."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../plugins/old-class-tgm-plugin-activation.php:408
-msgid "Return to the dashboard"
-msgstr ""
-
-#: ../plugins/old-class-tgm-plugin-activation.php:645
-#, fuzzy
-msgid "Set the parent_slug config variable instead."
-msgstr "Set the parent_slug config variable instead."
-
-#: ../plugins/old-class-tgm-plugin-activation.php:1889
-#, fuzzy, php-format
-msgctxt "%s = version number"
-msgid "TGMPA v%s"
-msgstr "TGMPAバージョン：%s"
-
-#: ../plugins/old-class-tgm-plugin-activation.php:2243
-#, fuzzy, php-format
-msgctxt "%1$s = install status, %2$s = update status"
-msgid "%1$s, %2$s"
-msgstr "%1$s: %2$s"
-
-#: ../plugins/old-class-tgm-plugin-activation.php:2430
-#, fuzzy, php-format
-msgid "No plugins to install, update or activate. <a href=\"%1$s\">Return to the Dashboard</a>"
-msgstr "インストール,アクティベートが必要なプラグインはありません。　<a href=\"%1$s\" title=\"Return to the Dashboard\">管理パネルへ移動</a>"
-
-#: ../plugins/old-class-tgm-plugin-activation.php:2499
-#, fuzzy, php-format
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Install %2$s"
-msgstr " %2$s をインストール"
-
-#: ../plugins/old-class-tgm-plugin-activation.php:2503
-#, fuzzy, php-format
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Update %2$s"
-msgstr " %2$s  を更新"
-
-#: ../plugins/old-class-tgm-plugin-activation.php:2508
-#, fuzzy, php-format
-msgctxt "%2$s = plugin name in screen reader markup"
-msgid "Activate %2$s"
-msgstr "%2$s をアクティベート"
 
 #: ../plugins/plugins-presentation.php:97
 #, fuzzy
@@ -3742,7 +3603,7 @@ msgstr "もちろん、これらのプラグインを使用しなかったから
 msgid "Link to Customizer"
 msgstr "カスタマイザーへ"
 
-#: ../search.php:105
+#: ../search.php:103
 #, fuzzy
 msgid "Nothing was found though it was regrettable. Please change the key word if it is good, and retrieve it."
 msgstr "残念ですが、何も見つかりませんでした。よろしければ、別のキーワードで、再度お試しください"

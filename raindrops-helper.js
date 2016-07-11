@@ -351,6 +351,10 @@
 
 
         }
+        
+        if( true == raindrops_script_vars.raindrops_archive_has_count ) {
+                jQuery('.widget_archive').addClass('has-count');
+        }
 
         // "//www.tenman.info/wpdev/wp-content/uploads/2015/08/404.jpg"
         /* show alternative image when image of entry content not exists */

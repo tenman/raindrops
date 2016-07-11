@@ -346,7 +346,7 @@
     .home .entry-meta a{
        /* @1.328 display:inline-block;*/
         background-repeat:no-repeat;
-        padding:.6em 0.5em 0;
+        padding:.6em 0.1em 0;
         box-sizing: border-box;
         font-size:123%; 
        /* @1.328 overflow:hidden;*/
@@ -850,7 +850,28 @@
     ul.search-results .entry-meta{
         text-align:center;
     }
-}
+    /**
+     * @since 1.415 
+     * As float block does not lose readability
+     */
+    .textwidget .rd-float-wrapper, 
+    .textwidget ol, .textwidget ul, 
+    .textwidget dl:not(.rd-float), 
+    .entry-content .rd-float-wrapper, 
+    .entry-content ol, .entry-content ul, 
+    .entry-content dl:not(.rd-float){
+        min-width:50vw;
+    }
+    .rd-cat-em .footer-widget-wrapper .cat-item a,
+    .rd-cat-em .topsidebar .cat-item a,
+    .rd-cat-em .rsidebar .cat-item a,
+    .rd-cat-em .lsidebar .cat-item a{
+        position:static;
+    }
+    .rd-cat-em .rsidebar .cat-item:before,
+    .rd-cat-em .lsidebar .cat-item:before{
+       vertical-align:middle;
+    }
 @media screen and (max-width : 480px){
     html .gecko{
         max-width:98.4%;

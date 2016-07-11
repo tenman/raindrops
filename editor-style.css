@@ -399,6 +399,9 @@ cite {
 .crayon-table{
     table-layout:auto;
 }
+html .mce-content-body pre{
+    color:#777;
+}
 /* https://gist.github.com/ */
 .gist{
     table-layout:auto;

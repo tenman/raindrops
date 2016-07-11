@@ -27,7 +27,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 <<?php raindrops_doctype_elements( 'div', 'footer' ); ?> id="ft" class="clear">
 <?php raindrops_prepend_footer(); ?>
 <!--footer-widget start-->
-<div class="widget-wrapper clearfix">
+<div class="widget-wrapper clearfix footer-widget-wrapper">
     <?php if ( is_active_sidebar( 'sidebar-4' ) ) { ?>
         <ul>
             <?php dynamic_sidebar( 'sidebar-4' ); ?>

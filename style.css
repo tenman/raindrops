@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.414
+Version: 1.415
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -67,12 +67,13 @@ body.rd-col-1 .raindrops-expand-width{
 .hfeed a{
     text-decoration:none;
 }
+/* 1.415 comment out
 #ft a:active,
 .lsidebar a:active,
 .rsidebar a:active{
     position:relative;
     top:1px;
-}
+}*/
 a:visited{
    opacity:0.8;
 }
@@ -1561,6 +1562,75 @@ h2.footer-content,
 .entry-title + .this-posted-in{
     display:inline-block;
 }
+.rd-tag-em .post-tag span[class^="tag-link-"],
+.category-archives .cat-item,
+.entry-meta > .post-category .cat-item,
+.posted-on + .this-posted-in + .post-category .cat-item,
+.entry-title + .this-posted-in + .post-category .cat-item{
+   margin:2px 0;
+   padding:2px 4px;
+   display:inline-block;
+   line-height:1.6;
+}
+.rd-tag-em .post-tag a{
+    position:relative;
+}
+
+.rd-tag-em:not(.rd-type-dark) .category-archives .cat-item,
+.rd-tag-em:not(.rd-type-dark) .entry-meta > .post-category .cat-item,
+.rd-tag-em:not(.rd-type-dark) .posted-on + .this-posted-in + .post-category .cat-item,
+.rd-tag-em:not(.rd-type-dark) .entry-title + .this-posted-in + .post-category .cat-item{
+     border:1px solid rgba(129,129,129,.4);
+}
+.rd-tag-em .post-tag span[class^="tag-link-"]{
+    border-radius: 3px;
+}
+.rd-tag-em:not(.rd-type-dark) .post-tag span[class^="tag-link-"]{
+    border-radius: 3px;
+    border:1px solid rgba(129,129,129,.4);
+}
+.rd-cat-em .footer-widget-wrapper .cat-item:before,
+.rd-cat-em .topsidebar .cat-item:before,
+.rd-cat-em .rsidebar .cat-item:before,
+.rd-cat-em .lsidebar .cat-item:before{
+    content:" ";
+    width:1.231em;
+    height:1.231em;
+    display:inline-block;
+    margin-right:.5em;
+    opacity:1;
+}
+
+.rd-cat-em .footer-widget-wrapper .cat-item a,
+.rd-cat-em .topsidebar .cat-item a,
+.rd-cat-em .rsidebar .cat-item a,
+.rd-cat-em .lsidebar .cat-item a{
+    position:relative;
+    top:-.5em;
+}
+
+.rd-cat-em .rsidebar .post-group-by-category-title a span:before,
+.rd-cat-em .lsidebar .post-group-by-category-title a span:before{
+    margin:2px .5em 0 2px;
+    width:1em;
+    height:1em;
+    position:relative;
+    top:2px;
+    vertical-align:central;
+}
+.rd-cat-em .rsidebar .post-group-by-category-title a span:hover:before,
+.rd-cat-em .lsidebar .post-group-by-category-title a span:hover:before,
+.rd-cat-em .rsidebar .widget_categories li:hover:before,
+.rd-cat-em .lsidebar .widget_categories li:hover:before{
+    border-radius: 50%;
+    transition: border-radius 0.8s;
+}
+.rd-cat-em .footer-widget-wrapper .widget_categories li,
+.rd-cat-em .topsidebar .widget_categories li,
+.rd-cat-em .lsidebar .widget_categories li,
+.rd-cat-em .rsidebar .widget_categories li{
+    list-style:none;
+}
 .posted-on-after{
    text-align:right;
    padding-right:1em;
@@ -1740,6 +1810,9 @@ ul.index li .edit {
     height:100%;
     text-decoration:none;
     width:100%;
+}
+.raindrops-extend-archive li a{
+    display:block;
 }
 .topsidebar ul li ul li,
 .lsidebar ul li ul li,
@@ -2107,6 +2180,8 @@ br.clearfix {
 }
 .topsidebar .sticky-widget.widget_categories .cat-item{
     display:block;
+    text-align:left;
+    padding:.5em 0 .2em .5em;
 }
 .topsidebar .sticky-widget.widget_archive select,
 .topsidebar .sticky-widget.widget_categories select{
@@ -2189,6 +2264,7 @@ br.clearfix {
     display:block;
     width:100%;
     height:100%;
+
 }
 
 .post-group_by-category-title > ul{
@@ -2622,7 +2698,9 @@ div.nest :after{
 br.clear{
     clear:both!important;
 }
-
+.clear-3,
+.clear-2,
+.clear-1,
 .clear{
     clear:both!important;
 }
@@ -2632,9 +2710,29 @@ br.clear{
     display:block;
     height:1px;
 }
+.clear-3:before,
+.clear-2:before,
+.clear-1:before{
+    content:'';
+    display:block;
+    clear:both;
+    height:1em;
+}
+.clear-3:before{
+    height:3em;
+}
+.clear-2:before{
+    height:2em;
+}
+.clear-1{
 
+}
+.clear-2{
 
+}
+.clear-3{
 
+}
 #month_list,#raindrops_year_list,#date_list{
     width:100%;
 }
@@ -4139,10 +4237,8 @@ ol.list-of-post-list .entry-title{
     margin:0 .7em;
     display:none;
 }
-
 .widget .post-group_by-category-title a{
     font-weight:700;
-    margin:1.2em 0;
     font-family:sans-serif;
 }
 .widget a.post-group_by-category-title:not(.no-thumb),
@@ -4232,6 +4328,9 @@ ol.list-of-post-list .entry-title{
 .textwidget .crayon-table,
 .entry-content .crayon-table{
     table-layout:auto;
+}
+.entry-content .crayon-table td{
+    min-width:0;
 }
 /* https://gist.github.com/ */
 .textwidget .gist,
@@ -6125,9 +6224,19 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 .lsidebar .widget_archive a,
 .rsidebar .widget_archive a{
-    width:75%;
+    width:90%;
+    width:calc(100% - 4.4em);
     padding:.3em .5em;
     display:inline-block;
+}
+.rd-type-dark .lsidebar .widget_archive a,
+.rd-type-dark .rsidebar .widget_archive a{
+    width:100%;
+}
+.lsidebar .widget_archive.has-count a,
+.rsidebar .widget_archive.has-count a{
+    width:70%;
+    width:calc( 100% - 4em );
 }
 .lsidebar .widget_recent_comments li,
 .rsidebar .widget_recent_comments li{
@@ -6192,10 +6301,9 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .rd-ripple.block:focus:after{
     visibility:hidden;
 }
-/**
+/** START
  * Example style
- * raindrops 1.414
- * start
+ * @since 1.414
  */
 .rd-card{
 
@@ -6227,4 +6335,17 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .rd-pw-doc5.rd-col-1.single .rd-card article{
     padding:0;
 }
-/** * Example style * raindrops 1.414 * start */
+/** END
+ * Example style
+ * @since 1.414
+ */
+/**
+ * Safari Garbled characters
+ * @since 1.415
+ */
+.safari #archives-title .title::before {
+    content:'';
+}
+.safari .this-posted-in{
+  visibility:hidden;
+}

@@ -480,10 +480,8 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 				}
 			}
 
-			if ( WP_DEBUG !== true ) {
-
-				$result_indv = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $result_indv );
-			}
+			$result_indv = raindrops_remove_spaces_from_css( $result_indv );
+			
 			$result .= '<style type="text/css">';
 			$result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= "\n/*start custom fields style for loop pages*/\n";

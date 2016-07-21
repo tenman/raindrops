@@ -103,7 +103,6 @@
         left:0;
         font-size:100%;
         width:10%;
-   /*     background: url(images/raindrops-nav-menu-expand.png);*/
         background-repeat:no-repeat;
         background-position:center;
         max-height:100%;
@@ -121,7 +120,6 @@
         right:5%;
         font-size:100%;
         width:10%;
-    /*    background: url(images/raindrops-nav-menu-shrunk.png);*/
         background-repeat:no-repeat;
         background-position:center;
         max-height:100%;
@@ -520,7 +518,6 @@
         top: -10px;
         white-space: nowrap;
         width: 90vw;
-       /* left:3.2vw;*/
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
@@ -574,9 +571,6 @@
     .entry-content > dl{
         margin-left:0;
         margin-right:0;
-    }
-    .entry-content dt{
-      
     }
     .entry-content dd{
         margin:0;
@@ -692,10 +686,7 @@
     .topsidebar .sticky-widget.widget_nav_menu .children{
         background:transparent!important;       
     }
-    .topsidebar .sticky-widget.widget_pages li a,
-    .topsidebar .sticky-widget.widget_nav_menu li a{
 
-    }
    .topsidebar .sticky-widget.widget_pages li,
     .topsidebar .sticky-widget.widget_pages  .menu,
     .topsidebar .sticky-widget.widget_nav_menu li,
@@ -706,13 +697,6 @@
     .widget_pages.sticky-widget ul > .menu-item-has-children{
         padding-right:0;
     } 
-
-    .topsidebar .sticky-widget.widget_pages li:last-child,
-    .topsidebar .sticky-widget.widget_pages  .menu:last-child,
-    .topsidebar .sticky-widget.widget_nav_menu li:last-child,
-    .topsidebar .sticky-widget.widget_nav_menu  .menu:last-child{
-        /*border-bottom:none;*/
-    }
     .topsidebar .sticky-widget.widget_pages,
     .topsidebar .sticky-widget.widget_nav_menu{ 
         overflow:hidden;
@@ -872,6 +856,19 @@
     .rd-cat-em .lsidebar .cat-item:before{
        vertical-align:middle;
     }
+    /* @1.416 */
+    .blog .sticky, .home .sticky {
+        box-sizing:border-box;
+        width:90vw;
+    }
+    .grid-pinup-item{
+        position:relative;
+    }
+    .safari .entry-content ol, 
+    .safari .entry-content ul{
+        min-width:0;
+    }
+}
 @media screen and (max-width : 480px){
     html .gecko{
         max-width:98.4%;

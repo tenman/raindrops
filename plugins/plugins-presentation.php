@@ -182,12 +182,7 @@ if ( !function_exists( 'raindrops_pagenav_css' ) ) {
 			.wp-pagenavi span{display:inline-block;line-height:2}.wp-pagenavi .extend{border:none;}
 			.wp-pagenavi .previouspostslink,.wp-pagenavi .first,.wp-pagenavi .last,.wp-pagenavi .pages{display:block;text-align:center;} }';
 
-			if ( WP_DEBUG !== true ) {
-
-				$raindrops_pagenav_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
-													  array( "", "", "", '"', '', '"' ),
-													  $raindrops_pagenav_css );
-			}
+			$raindrops_pagenav_css = raindrops_remove_spaces_from_css( $raindrops_pagenav_css );
 
 			wp_add_inline_style( 'wp-pagenavi', $raindrops_pagenav_css );
 		}
@@ -349,12 +344,8 @@ list-style:none;
         bottom:0;
     }
 }';
-			if ( WP_DEBUG !== true ) {
-
-				$raindrops_bcn_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
-													  array( "", "", "", '"', '', '"' ),
-													  $raindrops_bcn_css );
-			}
+			$raindrops_bcn_css = raindrops_remove_spaces_from_css( $raindrops_bcn_css );
+			
 			wp_add_inline_style( 'style', $raindrops_bcn_css );
 		}
 	}
@@ -576,13 +567,8 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 			}
 
 			$metaslider = apply_filters( 'raindrops_metaslider_css', $metaslider);
-
-			if ( WP_DEBUG !== true ) {
-
-				$metaslider = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
-													  array( "", "", "", '"', '', '"' ),
-													  $metaslider );
-			}
+			$metaslider = raindrops_remove_spaces_from_css( $metaslider );
+			
 			wp_add_inline_style( 'style', $metaslider );
 		}
 	}
@@ -766,13 +752,8 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			#tribe-bar-collapse-toggle,
 			.tribe-events-sub-nav{background:transparent!important;}
 			#tribe-events-content .tribe-events-calendar td:hover{background:' . $custom_background . '}';
-
-			if ( WP_DEBUG !== true ) {
-
-				$raindrops_event_calendar_css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
-													  array( "", "", "", '"', '', '"' ),
-													  $raindrops_event_calendar_css );
-			}
+			
+			$raindrops_event_calendar_css = raindrops_remove_spaces_from_css( $raindrops_event_calendar_css );
 
 			wp_add_inline_style( 'tribe-events-calendar-style', $raindrops_event_calendar_css );
 		}

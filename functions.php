@@ -394,7 +394,6 @@ if ( !isset( $raindrops_fluid_maximum_width ) ) {
 }
 
 if ( !function_exists( 'raindrops_reset_theme_options' ) ) {
-
 	/**
 	 * @since 1.401
 	 */
@@ -410,7 +409,6 @@ if ( !function_exists( 'raindrops_reset_theme_options' ) ) {
 add_action('customize_save_after', 'raindrops_reset_theme_options');
 
 if ( !function_exists( 'raindrops_reset_custom_color' ) ) {
-
 	/**
 	 *
 	 * @global type $raindrops_base_setting_args
@@ -2694,13 +2692,7 @@ $css .= '@media screen and  ( min-width: 641px) and ( max-width: '. $sidebar_bre
 		}
 
 
-		if ( WP_DEBUG !== true ) {
-
-			$css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $css );
-		} else {
-
-			$css = str_replace( array( '&quot;', '--', '\"' ), array( '"', '', '"' ), $css );
-		}
+		$css = raindrops_remove_spaces_from_css( $css );
 
 		return apply_filters( "raindrops_embed_meta_css", $css );
 	}
@@ -3050,10 +3042,8 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 			$result .= $css;
 			$result .= "/*start custom fields style for loop pages*/\n";
 
-			if ( WP_DEBUG !== true ) {
-
-				$result_indv = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $result_indv );
-			}
+			$result_indv = raindrops_remove_spaces_from_css( $result_indv );
+			
 			$result .= $result_indv;
 			$result .= "\n/*end custom fields style for loop pages*/";
 			$result .= "\n/*]]>*/-->\n";
@@ -5356,13 +5346,8 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 
 
 		}
-		if ( WP_DEBUG !== true ) {
-
-			$fluid_width = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $fluid_width );
-		} else {
-
-			$fluid_width = str_replace( array( '&quot;', '--', '\"' ), array( '"', '', '"' ), $fluid_width );
-		}
+		
+		$fluid_width = raindrops_remove_spaces_from_css( $fluid_width );
 
 		return apply_filters( "raindrops_is_fluid", $fluid_width );
 	}
@@ -5452,12 +5437,7 @@ if ( !function_exists( 'raindrops_gallerys' ) ) {
 
 		$raindrops_gallerys = raindrops_gallerys_clone();
 
-		if ( WP_DEBUG !== true ) {
-
-			$raindrops_gallerys = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ),
-												  array( "", "", "", '"', '', '"' ),
-												  $raindrops_gallerys );
-		}
+		$raindrops_gallerys = raindrops_remove_spaces_from_css( $raindrops_gallerys );
 
 		return $raindrops_gallerys;
 	}
@@ -5834,7 +5814,7 @@ if ( !function_exists( 'raindrops_before_article' ) ) {
 
 	function raindrops_before_article() {
 
-		$args = array( 'hook_name' => 'raindrops_before_article', 'template_part_name' => 'hook_before_article.php' );
+		$args = array( 'hook_name' => 'raindrops_before_article', 'template_part_name' => 'hook-before_article.php' );
 		get_template_part( 'hook', 'before_article' );
 		do_action( 'raindrops_before_article', $args );
 	}
@@ -5851,7 +5831,7 @@ if ( !function_exists( 'raindrops_after_article' ) ) {
 
 	function raindrops_after_article() {
 
-		$args = array( 'hook_name' => 'raindrops_after_article', 'template_part_name' => 'hook_after_article.php' );
+		$args = array( 'hook_name' => 'raindrops_after_article', 'template_part_name' => 'hook-after_article.php' );
 		get_template_part( 'hook', 'after_article' );
 		do_action( 'raindrops_after_article', $args );
 	}
@@ -7785,10 +7765,11 @@ if ( !function_exists( 'raindrops_post_class' ) ) {
 if ( !function_exists( 'raindrops_chat_filter' ) ) {
 
 	function raindrops_chat_filter( $contents ) {
-
-		if ( !has_post_format( 'chat' ) ) {
+		
+		if ( ! has_post_format( 'chat' )  ) {
 
 			return $contents;
+			
 		} else {
 
 			/* chat notation use : remove protocol from url */
@@ -11205,13 +11186,9 @@ if ( !function_exists( 'raindrops_color_pallet_tagcloud' ) ) {
 				}
 			}
 		}
-		if ( WP_DEBUG !== true ) {
 
-			$result = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $result );
-		} else {
-
-			$result = str_replace( array( '&quot;', '--', '\"' ), array( '"', '', '"' ), $result );
-		}
+		$result = raindrops_remove_spaces_from_css( $result );
+		
 		return $css . apply_filters( 'raindrops_color_pallet_tagcloud', $result );
 	}
 }
@@ -11757,13 +11734,9 @@ if ( !function_exists( 'raindrops_color_pallet_category' ) ) {
 				$result .= 'rd-cat-em .category-archives .cat-item.cat-item-'. $term->term_id . ' {display:none;} ';
 			}
 		}
-		if ( WP_DEBUG !== true ) {
-
-			$result = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $result );
-		} else {
-
-			$result = str_replace( array( '&quot;', '--', '\"' ), array( '"', '', '"' ), $result );
-		}
+		
+		$result = raindrops_remove_spaces_from_css( $result );
+		
 		return $css . apply_filters( 'raindrops_color_pallet_category', $result );
 	}
 }

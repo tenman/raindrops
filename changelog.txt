@@ -2,9 +2,26 @@ Changelog -----------------------------------
 version:1.416
 
 Overview of Changes
+	Added function raindrops_remove_spaces_from_css();
+	Fixed wrong template part file name
+		hook_before_article.php to hook-before_article.php
+		hook_after_article.php to hook-after_article.php
+	Added Meta Slider fallback style
+	Fixed @media query close tag not exists
+	Fixed grid-pinup-widges is affected by post format chat (CSS level hotfix)
+	Fixed grid-pinup-widges title display improperly.
+	Fixed safari browser li element overflow parent ul
+    Fixed sticky article overflow mobile width
 
 Files Modified
-
+	modified:   childs/boots/inc.php
+	modified:   childs/inc.php
+	modified:   functions.php
+	modified:   grids.css
+	modified:   lib/alias_functions.php
+	modified:   plugins/plugins-presentation.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.415&new_path=raindrops/1.416

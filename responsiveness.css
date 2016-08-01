@@ -846,6 +846,11 @@
     .entry-content dl:not(.rd-float){
         min-width:50vw;
     }
+    /* @1.417 */
+    .entry-content .rd-list-type-tree{
+        min-width:0;
+        overflow:hidden;
+    }
     .rd-cat-em .footer-widget-wrapper .cat-item a,
     .rd-cat-em .topsidebar .cat-item a,
     .rd-cat-em .rsidebar .cat-item a,

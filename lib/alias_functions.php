@@ -1333,7 +1333,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery figcaption{
 				box-sizing:border-box;
 				position:absolute;
-				top:-10%;
+				min-height:66%;
 				left:3px;
 				width:100%;
 				min-width:199px;

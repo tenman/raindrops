@@ -468,3 +468,37 @@ dt,
 .f32{
     font-size:246.1%;
 }
+/**
+ * Font weight Class
+ * @1.417
+ */
+.b1{
+    font-weight:100;
+}
+.b2{
+    font-weight:200;
+}
+.b3{
+    font-weight:300;
+}
+.b4{
+    font-weight:400;
+}
+.b5{
+    font-weight:500;
+}
+.b6{
+    font-weight:600;
+}
+.b7{
+    font-weight:700;
+}
+.b8{
+    font-weight:800;
+}
+.b9{
+    font-weight:800;
+}
+.small-caps{
+    font-variant: small-caps;
+}

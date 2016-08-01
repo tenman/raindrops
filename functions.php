@@ -5341,7 +5341,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 					.rd-pw-doc5.rd-col-1 .loop-item-show-allways article{
 										  max-width:{$raindrops_full_width_max_width}px;
 										  margin:0 auto!important;
-										  padding:2em;
+										/* @1.417  padding:2em;*/
 					}". '/* raindrops is fluid 1 column end  */';
 
 
@@ -8811,9 +8811,9 @@ if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
 		$content = preg_replace( '!([^(<p>)]*)</p>(</' . $allblocks . '>)!', "$1$2", $content );
 		$content = preg_replace( '!(<(select|del|option|canvas|mrow|svg|rect|optgroup) [^>]*>)(<br />|</p>)!', "$1", $content );
 		$content = preg_replace( '!(</option>|</svg>|</figcaption>|<mrow>|<msup>|</msup>|</mi>|</mn>|</mrow>|</mo>|</rect>|</button>|</optgroup>|</select>)<br />!', "$1", $content );
-		$content = preg_replace( '!<p>\s*(</?(ins|del|msup)[^>]*>)\s*</p>!', "$1", $content );
+		$content = preg_replace( '!<p>\s*(</?(ins|del|msup|input)[^>]*>)\s*</p>!', "$1", $content );
 		$content = preg_replace( '!(</?(svg|msup|keygen|command|canvas|datalist|script)[^>]*>)\s*</p>!', "$1", $content );
-		$content = preg_replace( '!(<p>)(</?(svg|msup|keygen|command|canvas|datalist)[^>]*>)!', "$2", $content );
+		$content = preg_replace( '!(<p>)(</?(svg|msup|keygen|command|canvas|datalist|input)[^>]*>)!', "$2", $content );
 		$content = preg_replace( '!(<p>[^<]*)(</' . $allblocks . '>)!', "$1</p>$2", $content );
 		$content = preg_replace( '!(<' . $allblocks . '[^>]*>[^<]*)</p>!', "$1", $content );
 		$content = preg_replace( '!(<' . $allblocks . '[^>]*>)([^(<|\s)]+)<p>!', "$1<p>$2</p>", $content );

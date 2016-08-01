@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.416
+Version: 1.417
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1073,6 +1073,12 @@ input[type="file"]{
   line-height:1.7;
   text-align:left;
 }
+.gallery .gallery-caption ul{
+   position:static;
+   min-width:0;
+   margin-left:0;
+   padding:0;
+}
 .category-gallery .size-thumbnail img {
     border: 0.76923076923em solid #f1f1f1;
     margin-bottom: 0;
@@ -1604,6 +1610,10 @@ h2.footer-content,
 .rd-cat-em .lsidebar .widget_categories li,
 .rd-cat-em .rsidebar .widget_categories li{
     list-style:none;
+}
+.rd-cat-em footer .widget_recent-post-groupby-cat .cat-item:before{
+    vertical-align:middle;
+    margin-left:3px;
 }
 .posted-on-after{
    text-align:right;
@@ -4999,15 +5009,23 @@ blockquote .cite-url{
 
 /* @1.329 ol.sectioned class render sectioned number lists */
 /*.entry-content .sectioned ul,*/
+.entry-content .sectioned{
+    left:0;
+    position:static;
+}
 .textwidget .sectioned ol,
 .textwidget .sectioned,
 .entry-content .sectioned ol,
 .entry-content .sectioned{
     counter-reset: sectioned;
+    max-width:96%;
 }
 .textwidget .sectioned li,
 .entry-content .sectioned li {
     list-style: none;
+    margin-left:0;
+    max-width: 96%;
+    box-sizing:border-box;
 }
 .textwidget .sectioned li:before,
 .entry-content .sectioned li:before {
@@ -5081,21 +5099,28 @@ blockquote .cite-url{
 #comments #reply-title{
     margin-bottom:1em;
 }
+.entry-content .rd-list-type-tree{
+    left:0;
+    position:static;
 
-.rd-list-type-tree,
-.rd-list-type-tree ul {
+}
+.entry-content .rd-list-type-tree,
+.entry-content .rd-list-type-tree ul {
     margin:0 0 0 1em;
+    margin:0;
     padding:0;
     list-style-position: inside;
     list-style-type:none;
     position:relative;
+    max-width:100%;
+
 }
-.yui-main .rd-list-type-tree ul {
+.entry-content .rd-list-type-tree ul {
     margin-left:.5em;
     margin-top:0;
 }
-.rd-list-type-tree:before,
-.rd-list-type-tree ul:before {
+.entry-content .rd-list-type-tree:before,
+.entry-content .rd-list-type-tree ul:before {
     content:"";
     display:block;
     width:0;
@@ -5105,13 +5130,16 @@ blockquote .cite-url{
     left:0;
     border-left:1px solid;
 }
-.rd-list-type-tree li {
+.entry-content .rd-list-type-tree li {
     margin:0;
-    padding:0 1.5em;
+    padding:0 1em;
     line-height:2em;
     position:relative;
+    box-sizing:border-box;
+    min-width:0;
+
 }
-.rd-list-type-tree li:before {
+.entry-content .rd-list-type-tree li:before {
     content:"";
     display:block;
     width:10px;
@@ -5122,13 +5150,13 @@ blockquote .cite-url{
     top:1em;
     left:0;
 }
-.rd-list-type-tree li:last-child:before {
+.entry-content .rd-list-type-tree li:last-child:before {
     background:white;
     height:auto;
     top:1em;
     bottom:0;
 }
-.rd-list-type-tree li:after {
+.entry-content .rd-list-type-tree li:after {
     content:'\2022';
     display:block;
     width:1em;
@@ -5313,6 +5341,7 @@ article .post-password-form label{
     display:table;
     display:flex;
     width:auto;
+    flex-direction:column;
 }
 .textwidget .rd-float,
 .entry-content .rd-float{
@@ -6247,11 +6276,110 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .safari #archives-title .title::before {
     content:'';
 }
-.safari .this-posted-in{
-  visibility:hidden;
-}
+
 /* to do @1.416 */
 .grid-pinup-widgets .format-standard .raindrops-post-format-chat,
 .grid-pinup-widgets .format-standard .raindrops-post-format-chat dd{
     margin:0;
 }
+
+/**
+ * Entry Content sub box class
+ * @since 1.417
+ */
+/* Basic Structure
+    <div data-title="tips" data-mod="aside" data-skin="info">
+        <h3 class="h3">hello world</h3>
+        <p class="custom-field-shortcode ">Lorem ipsum dolor sit amet, ...</p>
+    </div>
+ */
+/**
+ * Reset
+ */
+.entry-content div[data-mod] dl, .entry-content div[data-mod] td, .entry-content div[data-mod] table, .entry-content div[data-mod] p, .entry-content div[data-mod] .h3, .entry-content div[data-skin]{
+    min-width:0;
+    max-width:100%;
+}
+/**
+ * Module
+ *
+ */
+.entry-content div[data-mod="aside"]{
+    border:1px solid #aaa;
+    border-top: 3px solid #777;
+    padding:1em;
+    margin:2em 1em;
+    position:relative;
+    overflow:hidden;
+}
+.entry-content div[data-mod="aside"]:before{
+    content: attr(data-title);
+    display: block;
+    position:absolute;
+    right:0;
+    top:0;
+    padding:.2em 1em;
+    font-weight:700;
+}
+.entry-content div[data-skin] .h3:first-of-type{
+    margin-top:0;
+}
+.entry-content div[data-skin] .h3{
+    margin:1.5em 0;
+    border-bottom:1px solid #aaa;
+}
+.entry-content div[data-mod] p{
+    margin-bottom:.4em;
+}
+.entry-content div[data-mod] table{
+    margin:0 0 1em;
+}
+.entry-content div[data-mod] td{
+    min-width:5em;
+}
+.entry-content div[data-mod] dl{
+    margin:0 0 1em 0;
+}
+/**
+ * presentation of Anchor
+ */
+.entry-content div[data-mod] a:after{
+    content: " \00a0 \1f517 \00a0";
+    display:inline-block;
+    color:#3498db;
+    font-size:1.2em;
+    transform: rotate(-45deg);
+}
+/**
+ * Skin
+ * Conditional Color Settings
+ */
+.entry-content div[data-mod="aside"]{
+    font-size:100%;
+    border:1px solid #aaa;
+    border-top: 3px solid #777;
+}
+.entry-content div[data-skin]:before{
+    background:#777;
+    color:#fff;
+}
+.entry-content div[data-skin="info"]:before {
+    background: #56b274;
+}
+.entry-content div[data-skin="alert"]:before{
+    background: #e14d43;
+}
+.entry-content div[data-skin="notice"]:before{
+    background:#a38c08;
+}
+.entry-content div[data-skin="info"]{
+    border-top: 3px solid #56b274;
+}
+.entry-content div[data-skin="alert"]{
+    border-top: 3px solid #e14d43;
+}
+.entry-content div[data-skin="notice"]{
+    border-top: 3px solid #a38c08;
+}
+/* End Entry Content sub box class */
+

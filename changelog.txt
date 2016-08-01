@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.417
+
+Overview of Changes
+
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.416&new_path=raindrops/1.417
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.416
 
 Overview of Changes

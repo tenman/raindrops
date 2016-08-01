@@ -2,10 +2,18 @@ Changelog -----------------------------------
 version:1.417
 
 Overview of Changes
-
+	Added font weight class .b1-.b9
+    Added Entry Content sub box class
+    Modified input element no wrap wpautop()
+    Modified .rd-list-type-tree.
+    Modified gallery caption css
 
 Files Modified
-
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.416&new_path=raindrops/1.417

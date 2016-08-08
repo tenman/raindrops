@@ -29,28 +29,13 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 				 echo raindrops_site_description(); 
 				?>               
 			</div>
-            <?php 
-				/**
-                 * Custom Header
-                 */
-				 $raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
-
-				if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) { ?>
-			
-			<?php  echo raindrops_header_image( 'elements' );
-				} else { ?>
-
-			<?php  echo raindrops_header_image( 'home_url');
-                }
+				<?php
+			    raindrops_the_header_image();
                 
                 raindrops_nav_menu_primary();
-
-				/**
-                 * horizontal menubar
-                 */
-			?>
-			<?php  raindrops_after_nav_menu();?>
-			
+				
+				raindrops_after_nav_menu();
+				?>			
 		</header>
 		<div id="bd" class="clearfix">
 				

@@ -24,6 +24,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 <?php raindrops_prepend_loop(); ?>
+
 <?php if ( have_posts() ) { 
             raindrops_next_prev_links(); ?>	
                     <h1 class="pagetitle h1">Search Results : <?php the_search_query(); ?></h1>

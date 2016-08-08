@@ -1909,27 +1909,40 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 			wp_enqueue_script( 'raindrops' );
 		}
 
-		if ( $raindrops_tooltip == true && 'yes' == raindrops_warehouse_clone( 'raindrops_tooltip' ) ) {
-
-			wp_enqueue_script( 'jquery-ui-tooltip' );
-				$js = "jQuery(function() {
-							jQuery( document ).tooltip({position: {
-								my: 'center', at: 'top-30', collision: 'none'
-							}});
-						});";
-			$wp_scripts->add_data( 'jquery-ui-tooltip', 'data', $js );
-		}
+		raindrops_add_tooltip_script();
 	}
 }
-/**
- * filter function comment form
- *
- *
- *
- *
- */
-if ( !function_exists( "raindrops_comment_form" ) ) {
+if ( !function_exists( "raindrops_add_tooltip_script" ) ) {
+	/**
+	 * 
+	 * @global type $raindrops_tooltip
+	 * @global type $wp_scripts
+	 * @since 1.417
+	 */
+	function raindrops_add_tooltip_script(){
 
+		global $raindrops_tooltip, $wp_scripts;
+
+			if ( $raindrops_tooltip == true && 'yes' == raindrops_warehouse_clone( 'raindrops_tooltip' ) ) {
+
+				wp_enqueue_script( 'jquery-ui-tooltip' );
+					$js = "jQuery(function() {
+								jQuery( document ).tooltip({position: {
+									my: 'center', at: 'top-30', collision: 'none'
+								}});
+							});";
+				$wp_scripts->add_data( 'jquery-ui-tooltip', 'data', $js );
+			}	
+	}
+}
+
+if ( !function_exists( "raindrops_comment_form" ) ) {
+	/**
+	 * filter function comment form
+	 * @global type $commenter
+	 * @param array $form
+	 * @return type
+	 */
 	function raindrops_comment_form( $form ) {
 
 		global $commenter;
@@ -4340,6 +4353,26 @@ if ( !function_exists( 'raindrops_detect_header_image_size' ) ) {
 		return  raindrops_detect_header_image_size_clone( $xy );
 	}
 
+}
+if ( !function_exists( 'raindrops_the_header_image' ) ) {
+	
+	function raindrops_the_header_image( $type = 'default', $args = array() ) {
+		global $raindrops_link_unique_text;
+		/**
+		 * Custom Header
+		 */
+		 $raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
+
+		if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) {
+
+			$type = 'elements';
+		} else {
+
+			$type = 'home_url';
+		}
+
+		echo  raindrops_header_image( $type, $args );
+	}
 }
 /**
  * Template function print header image

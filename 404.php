@@ -25,7 +25,7 @@ raindrops_debug_navitation( __FILE__ );
     <div class="<?php raindrops_dinamic_class( 'yui-b', true ); ?>">
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
-                <div id="post-0" class="post error404 not-found">				
+                <div id="post-0" class="post error404 not-found">
 					<h2 class="entry-title title-404">
 					<?php esc_html_e( 'Error 404 - Not Found', 'raindrops' ); ?>
 					</h2>

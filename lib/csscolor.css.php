@@ -688,6 +688,7 @@ input[type="submit"],
     -webkit-box-shadow: 1px 1px 3px #000;
     border-top:1px solid rgba(100,100,100,1);
 }
+
 .widget_calendar #today a,
 .widget_calendar #today,
 a.raindrops-comment-link em,
@@ -730,22 +731,15 @@ color:%custom_color%;
     background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
 
-/*
-.raindrops-tab-list li:active,
-#access .children li:active,
-#access li:active,
-#access ul ul :active{*/
 .raindrops-tab-list li:active,
 #access li a:active{
-   top:0;
-
+	top:0;
 	background: -webkit-gradient(linear, left top, left bottom, from(%custom_light_bg%), to(%custom_dark_bg%));
-    background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
+	background: -moz-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 	background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
-    color:%custom_color%;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_light_bg%', endColorstr='%custom_dark_bg%');
+	color:%custom_color%;
 }
-
 .widget_calendar #today a,
 .widget_calendar #today,
 a.raindrops-comment-link em,
@@ -1086,6 +1080,7 @@ kbd,
 .entry-content input[type=color]{
     border:1px solid %rgba_border%;
 }
+
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
@@ -1625,6 +1620,7 @@ select{
     %c3%
     border:solid 1px %c_border%;
 }
+
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
@@ -1827,6 +1823,7 @@ hr{
 .entry-content th{
     border:solid 1px %rgba_border%;
 }
+
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
 .entry-content input[type="file"]{
@@ -1915,6 +1912,7 @@ a.raindrops-comment-link em,
 .ie10 #access ul ul :active >a{
     background-image: -ms-linear-gradient(top, %custom_light_bg%, %custom_dark_bg%);
 }
+
 .page .rd-border,
 .post .rd-border,
 .widget_calendar #today a,

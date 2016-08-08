@@ -164,7 +164,7 @@
 
 (function() {
     jQuery(function() {
-        jQuery("table").not('.rd-no-scroll').each(function (i) { 
+        jQuery("table").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).wrap('<div class="rd-table-wrapper"></div>') 
         });
     });

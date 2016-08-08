@@ -73,7 +73,7 @@ if ( $raindrops_xhtml_media_type == 'application/xhtml+xml' ) {
 					echo raindrops_site_description();
 					?>
 				</div>
-				<?php  echo raindrops_header_image( 'elements' );?>
+				<?php  echo raindrops_the_header_image( 'elements' );?>
 				
 				<?php	raindrops_nav_menu_primary(); 
 				

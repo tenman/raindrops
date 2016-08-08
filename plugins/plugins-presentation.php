@@ -701,6 +701,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			$raindrops_event_calendar_css = '@media screen and (max-width : 920px){
 					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '}
 				}
+			.entry-content .tribe-events-schedule h2{display:block;}
 			.tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
 			.datepicker{ width:280px;max-width:100%;}
 			.tribe-events-list-widget li{padding:0 10px 20px;}

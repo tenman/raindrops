@@ -466,6 +466,30 @@ if ( !function_exists( 'raindrops_sidebar_catetory_validate' ) ) {
 		return raindrops_sidebar_category_validate( $input );
 	}
 }
+
+if ( !function_exists( 'raindrops_remove_spaces_from_css' ) ) {
+	/**
+	 * 
+	 * @param type $css
+	 * @return type
+	 * @since 1.416
+	 */
+	function raindrops_remove_spaces_from_css( $css = '' ) {
+		// Test for CSS custom property
+		if ( WP_DEBUG !== true ) {
+
+			//$css = str_replace( array( "\n", "\r", "\t", '&quot;', '--', '\"' ), array( "", "", "", '"', '', '"' ), $css );
+			$css = str_replace( array( "\n", "\r", "\t", '&quot;',  '\"' ), array( "", "", "", '"', '"' ), $css );
+		} else {
+
+			//$css = str_replace( array( '&quot;', '--', '\"' ), array( '"', '', '"' ), $css );
+			$css = str_replace( array( '&quot;', '\"' ), array( '"', '"' ), $css );
+		}
+
+		return $css;
+	}
+
+}
 /**
  * Overwrite Parent Theme Settings
  */

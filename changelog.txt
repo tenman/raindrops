@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.419
+
+Overview of Changes
+	HotFixed Child Theme boots fatal error
+		add raindrops_remove_spaces_from_css()
+
+Files Modified
+	childs/inc.php
+    childs/boots/inc.php
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.418&new_path=raindrops/1.419
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.418
 
 Overview of Changes

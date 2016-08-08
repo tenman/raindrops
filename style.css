@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.417
+Version: 1.418
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2257,7 +2257,7 @@ br.clearfix {
 }
 
 .widget_categories .category-widget-select-box{
-    /* wp_nav_menu settings */   
+    /* wp_nav_menu settings */
     clip: rect(0.07692307692em, 0.07692307692em, 0.07692307692em, 0.07692307692em);
     position:absolute;
 }
@@ -6391,7 +6391,7 @@ body:not(.rd-type-dark) .entry-content [data-mod="postit"]:hover{
     opacity:1;
     box-shadow: 0px 0px 6px 3px #deebe7;
     -moz-box-shadow: 0px 0px 6px 3px #deebe7;
-    -webkit-box-shadow: 0px 0px 6px 3px #deebe7;  
+    -webkit-box-shadow: 0px 0px 6px 3px #deebe7;
 }
 .entry-content [data-mod="postit"]{
     display:inline-block;

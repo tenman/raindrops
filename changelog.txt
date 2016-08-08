@@ -1,4 +1,29 @@
 Changelog -----------------------------------
+version:1.418
+
+Overview of Changes
+	Add raindrops_add_toootip_script()
+	Add template function raindrops_the_header_image()
+	Fixed plugin the event calendar, tooltip show impropely
+    Add CSS class .row for headding elements
+    Fix right left center class shows impropely in th attribute.
+	Add data attribute [data-mod="postit"][data-skin] for Presentation
+    Add CSS class .rd-shorten Presentation use ellipsis li element child a,span.
+
+Files Modified
+	modified:   functions.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   lib/csscolor.css.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   search.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.417&new_path=raindrops/1.418
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.417
 
 Overview of Changes

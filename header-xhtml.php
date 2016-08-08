@@ -12,8 +12,8 @@
  * @uses bloginfo( 'html_type' )
  * @uses bloginfo( 'charset' )
  * @uses wp_title( '|', true, 'right' )
- * @uses bloginfo( 'name' ) 
- * @uses get_bloginfo( 'description', 'display' ) 
+ * @uses bloginfo( 'name' )
+ * @uses get_bloginfo( 'description', 'display' )
  * @uses bloginfo( 'pingback_url' )
  * @uses is_singular( )
  * @uses get_option( 'thread_comments' )
@@ -30,9 +30,9 @@
  * @uses home_url( )
  * @uses esc_attr( )
  * @uses get_bloginfo( 'name', 'display' )
- * @uses raindrops_header_image( $args = array( ) ) 
- * 
- * 
+ * @uses raindrops_header_image( $args = array( ) )
+ *
+ *
  */
 if ( !defined( 'ABSPATH' ) ) {
     exit;
@@ -57,26 +57,26 @@ if ( $raindrops_xhtml_media_type == 'application/xhtml+xml' ) {
 <?php wp_head(); ?>
     </head>
     <body <?php body_class( ); ?>>
-		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
-        <div class="skip-link"><a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a></div> 
+		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>
+        <div class="skip-link"><a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a></div>
         <?php } // raindrops_disable_keyboard_focus ?>
 		<div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 		<?php raindrops_prepend_doc(); ?>
-			
+
 			<div id="top">
 				<div id="hd">
-					<?php 
+					<?php
 					if( raindrops_is_place_of_site_title() == true ) {
-						
+
 						echo raindrops_site_title();
 					}
 					echo raindrops_site_description();
 					?>
 				</div>
-				<?php  echo raindrops_the_header_image( 'elements' );?>
-				
-				<?php	raindrops_nav_menu_primary(); 
-				
+				<?php  raindrops_the_header_image( 'elements' );?>
+
+				<?php	raindrops_nav_menu_primary();
+
 						raindrops_after_nav_menu();?>
 
 			</div>

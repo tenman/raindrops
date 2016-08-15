@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.419
+Version: 1.420
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -309,6 +309,15 @@ p{
     word-wrap:break-word;
     overflow-wrap:break-word;
 }
+.safari caption,
+.safari table td{
+    /**
+     * @1.420 todo
+     * Safari 5.1.7
+     * Consecutive ASCII characters to overflow
+    */
+}
+
 dd,
 p{
     line-height:1.65;
@@ -1948,9 +1957,17 @@ ol.commentlist >li{
 .ie6 .clearfix {
     height:1%;
 }
-.wireframe .rsidebar,
-.wireframe .lsidebar{
+.wireframe footer,
+.wireframe.rd-col3 .rsidebar,
+.wireframe.rd-col2 .rsidebar,
+.wireframe.rd-col2 .lsidebar,
+.wireframe.rd-col2 .lsidebar{
     border:0.07692307692em solid #777;
+    min-height:100vw;
+}
+.wireframe.rd-col1 .rsidebar,
+.wireframe.rd-col1 .lsidebar{
+    display:none;
 }
 .wireframe .entry-title {
      border:1px solid #555;
@@ -1959,6 +1976,7 @@ ol.commentlist >li{
 .wireframe .rsidebar ul li ul .widgettitle,
 .wireframe .entry-content {
    border:1px solid #555;
+
 }
 .wireframe .lsidebar ul li .widgettitle,
 .wireframe .rsidebar ul li .widgettitle,
@@ -1967,7 +1985,7 @@ ol.commentlist >li{
 .wireframe .rsidebar ul li ul li,
 .wireframe #ft .widget-wrapper .widgettitle *,
 .wireframe #ft .widget-wrapper > ul > li > ul > li,
-.wireframe #access .menu a,
+/*.wireframe #access .menu a,*/
 .wireframe .entry-title *,
 .wireframe .entry-content *{
     visibility:hidden;
@@ -1978,7 +1996,7 @@ ol.commentlist >li{
 .wireframe .h1 {
     border:0.07692307692em solid navy;
 }
-
+.wireframe #access,
 .wireframe #access .menu,
 .wireframe .entry-meta,
 .wireframe .blogrolls dd,
@@ -2883,6 +2901,7 @@ li.comment {
     right: 0;
     bottom: 0;
     display:block;
+    height:2em; /* @1.420 for safari */
     height:2vw;
     margin: auto;
     width:80%;
@@ -5041,28 +5060,34 @@ blockquote .cite-url{
     content:'';
 }
 /* for status */
+.rd-alert,
 .page .rd-alert,
 .post .rd-alert{
     color:#e14d43;
 }
+.rd-info,
 .page .rd-info,
 .post .rd-info{
     color:#56b274;
 }
+.rd-notice,
 .page .rd-notice,
 .post .rd-notice{
    color: #a38c08;
 }
+.rd-alert-bg,
 .page .rd-alert-bg,
 .post .rd-alert-bg{
     background:#e14d43;
     color:#fff;
 }
+.rd-info-bg,
 .page .rd-info-bg,
 .post .rd-info-bg{
     background:#56b274;
     color:#fff;
 }
+.rd-notice-bg,
 .page .rd-notice-bg,
 .post .rd-notice-bg{
    background: #a38c08;
@@ -6301,13 +6326,12 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  *
  */
 .entry-content div[data-mod="aside"]{
-    border:1px solid #aaa;
-    border-top: 3px solid #777;
     padding:1em;
     margin:2em 1em;
     position:relative;
     overflow:hidden;
 }
+
 .entry-content div[data-mod="aside"]:before{
     content: attr(data-title);
     display: block;
@@ -6350,36 +6374,36 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  * Skin
  * Conditional Color Settings
  */
-.entry-content div[data-mod="aside"]{
+article div[data-skin]{
     font-size:100%;
     border:1px solid #aaa;
+    border:1px solid rgba(170,170,170,.5);
     border-top: 3px solid #777;
 }
-.entry-content [data-mod="postit"][data-skin]:before,
-.entry-content div[data-skin]:before{
+article [data-mod="postit"][data-skin]:before,
+article div[data-skin]:before{
     background:#777;
     color:#fff;
 }
-.entry-content [data-mod][data-skin="info"]:before,
+article [data-mod][data-skin="info"]:before,
 .entry-content div[data-skin="info"]:before {
     background: #56b274;
 }
-.entry-content [data-mod][data-skin="alert"]:before,
-.entry-content div[data-skin="alert"]:before{
+article [data-mod][data-skin="alert"]:before,
+article div[data-skin="alert"]:before{
     background: #e14d43;
 }
-.entry-content [data-mod][data-skin="notice"]:before,
-.entry-content div[data-skin="notice"]:before{
+article [data-mod][data-skin="notice"]:before,
+article div[data-skin="notice"]:before{
     background:#a38c08;
 }
-
-.entry-content div[data-skin="info"]{
+article div[data-skin="info"]{
     border-top: 3px solid #56b274;
 }
-.entry-content div[data-skin="alert"]{
+article div[data-skin="alert"]{
     border-top: 3px solid #e14d43;
 }
-.entry-content div[data-skin="notice"]{
+article div[data-skin="notice"]{
     border-top: 3px solid #a38c08;
 }
 /* End Entry Content sub box class */
@@ -6387,22 +6411,24 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  * data-mod postit
  * @since 1.418
  */
-body:not(.rd-type-dark) .entry-content [data-mod="postit"]:hover{
+body:not(.rd-type-dark) article [data-mod="postit"]:hover{
     opacity:1;
     box-shadow: 0px 0px 6px 3px #deebe7;
     -moz-box-shadow: 0px 0px 6px 3px #deebe7;
     -webkit-box-shadow: 0px 0px 6px 3px #deebe7;
 }
-.entry-content [data-mod="postit"]{
+article [data-mod="postit"]{
     display:inline-block;
     height:3em;
     line-height:3em;
-    border:1px solid #bbb;
+    border:1px solid #aaa;
+    border:1px solid rgba(170,170,170,1);
     position:relative;
     padding-left:4em;
     padding-right:1em;
+    overflow:hidden;
 }
-.entry-content [data-mod="postit"]:before{
+article [data-mod="postit"]:before{
     content:attr(data-title);
     text-align:center;
     font-weight:700;
@@ -6413,12 +6439,12 @@ body:not(.rd-type-dark) .entry-content [data-mod="postit"]:hover{
     position:absolute;
     left:0;
 }
+.rd-type-dark [data-mod="postit"]:before,
 .rd-type-dark [data-mod="postit"]{
-    border: 1px solid #ccc;
+    border:1px solid #aaa;
+    border:1px solid rgba(170,170,170,.5);
 }
-.rd-type-dark [data-mod="postit"]:before{
-   border-right:1px solid #ccc;
-}
+
 
 /* end postit */
 

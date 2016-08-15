@@ -427,10 +427,14 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_action( 'wp_print_styles', 'raindrops_current_post_hilight' );
 		/**
 		 * @since 1.415
-		 */
-		
+		 */		
 		add_filter( 'raindrops_embed_meta_css', 'raindrops_color_pallet_category' );
-
+		/**
+		 * @since 1.420
+		 * Note: EXCEPTION! article only one and <!--nextpage--> is not work.
+		 */
+		add_filter( 'previous_post_rel_link', 'raindrops_nextpage_tag_with_header_rel',12 );
+		add_filter( 'next_post_rel_link', 'raindrops_nextpage_tag_with_header_nav_helper',12);
     }
 }
 ?>

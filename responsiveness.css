@@ -300,8 +300,8 @@
     .reply, #ft a,
     .page .hentry .entry-title a,
     #site-description,
-    .blog  .sticky a,
-    .home #doc5 .sticky a,
+ /* @1.420   .blog  .sticky a, 
+    .home #doc5 .sticky a,*/
     .topsidebar ul li ul li a,
     .lsidebar ul li ul li a,
     .rsidebar ul li ul li a,

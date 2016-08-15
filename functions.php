@@ -127,9 +127,6 @@ if( true == $raindrops_extend_customizer &&  isset( $wp_customize ) ) {
  *
  *
  */
-
-
-
 if ( false !== ( $path = raindrops_locate_url( 'lib/hooks.php', 'path' ) ) ) {
 
 	require_once ( $path );
@@ -2370,7 +2367,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		/* ver 1.304 add */
 		$raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 
-		if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation() ) {
+		if ( ! empty( $raindrops_fonts_color ) && false == raindrops_has_indivisual_notation() ) {
 			/* 1.306 add false == raindrops_has_indivisual_notation() */
 			if( false == $raindrops_automatic_color ) {
 
@@ -2430,8 +2427,8 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 	}
 
 	$use_settings = raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive' );
-
-	if( 2 < raindrops_get_column_count() && 'yes' == $use_settings ) {
+	/* @1.150 2 to 1 */
+	if( 1 < raindrops_get_column_count() && 'yes' == $use_settings ) {
 
 		$sidebar_breakpoint = absint( raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive_breakpoint' ) );
 
@@ -11747,17 +11744,28 @@ if ( !function_exists( 'raindrops_color_pallet_category' ) ) {
 			}else{
 				$color = '#fff';
 			}
+
 			
 			if ( $term->count > $count_sep ) {
 				// for article extend color class
 				$result .= '.rd-cat-em .cat-color-' . $term->term_id . ' {color:'.$color.';background:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ','.$alpha.');} ';
 				$result .= '.rd-cat-em .cat-color-' . $term->term_id . ' a{color:'.$color.';}';
 				// for article
-				$result .= '.rd-cat-em .post .cat-item-' . $term->term_id . ' {color:'.$color.';background:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ','.$alpha.');} ';
-				$result .= '.rd-cat-em .post .cat-item-' . $term->term_id . ' a{color:'.$color.';}';
+				/**
+				 * @1.420
+				 * escape for indivisual color
+				 *	$result .= '.rd-cat-em .post .cat-item-' . $term->term_id . ' {color:'.$color .';background:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ','.$alpha.');} ';
+				 *	$result .= '.rd-cat-em .post .cat-item-' . $term->term_id . ' a{color:'.$color .';}';
+				 */
+				$result .= '.rd-cat-em .post .cat-item-' . $term->term_id . ' {background:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ','.$alpha.');} ';
+
 				// for sidebars
 				$result .= '.rd-cat-em .yui-b .cat-item-' . $term->term_id . ':before{color:'.$color.';background:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ','.$alpha_b.');} ';
-				$result .= '.rd-cat-em .yui-b .cat-item-' . $term->term_id . ' a{color:'.$color.';}';
+				/**
+				 * @1.420
+				 * escape for indivisual color
+				  $result .= '.rd-cat-em .yui-b .cat-item-' . $term->term_id . ' a{color:'.$color.';}';
+				 */
 				$result .= '.rd-cat-em footer .cat-item-' . $term->term_id . ':before{color:'.$color.';background:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ','.$alpha_b.');} ';
 				$result .= '.rd-cat-em footer .cat-item-' . $term->term_id . ' a{color:'.$color.';}';
 				//for archive title before icon
@@ -11771,6 +11779,91 @@ if ( !function_exists( 'raindrops_color_pallet_category' ) ) {
 		$result = raindrops_remove_spaces_from_css( $result );
 		
 		return $css . apply_filters( 'raindrops_color_pallet_category', $result );
+	}
+}
+
+if ( ! function_exists( 'raindrops_nextpage_tag_with_header_nav') ) {
+	/**
+	 * 
+	 * @global type $post
+	 * @global type $page
+	 * @return type
+	 * @since1.420
+	 */
+	function raindrops_nextpage_tag_with_header_nav() {
+		global $post, $page;
+
+		$prev			 = '';
+		$next			 = '';
+		$current_page	 = 0;
+		$count			 = 0;
+
+		if ( isset( $page ) && isset( $post ) && preg_match_all( '#<!--nextpage-->#', $post->post_content, $result, PREG_SET_ORDER ) ) {
+			
+			$count			 = (int) count( $result );
+			$current_page	 = (int) $page;
+			$link = get_permalink( $post->ID );
+
+			if ( $current_page <= $count ) {
+				$next = esc_url( add_query_arg( 'page', $current_page + 1, $link ) );
+			}
+
+			if ( $current_page > 2 ) {
+				$prev = esc_url( add_query_arg( 'page', $current_page - 1, $link ) );
+			} elseif ( $current_page == 2 ) {
+				$prev = esc_url( $link );
+			}
+		}
+		return array( 'prev' => $prev, 'next' => $next );	
+	}
+}
+if ( ! function_exists( 'raindrops_nextpage_tag_with_header_rel') ) {
+	/**
+	 * 
+	 * @param type $rel_prev
+	 * @return type
+	 * @since 1.420
+	 */
+	function raindrops_nextpage_tag_with_header_rel( $rel_prev ) {
+		
+		$link		 = raindrops_nextpage_tag_with_header_nav();
+		$result_html = '<link rel="prev" href="%1$s" />';
+		$result		 = '';
+
+		if ( !empty( $link[ 'prev' ] ) ) {
+			$result_html = sprintf( $result_html, $link[ 'prev' ] );
+			$result = apply_filters( 'raindrops_nextpage_tag_with_header_nav', $result_html. PHP_EOL, $link[ 'prev' ], $link[ 'next' ] );
+		} else {
+			$result = $rel_prev;
+		}
+		$result_html = '<link rel="next" href="%1$s" />';
+
+		if ( !empty( $link[ 'next' ] ) ) {
+			$result_html = sprintf( $result_html, $link[ 'next' ] );
+			$result .= apply_filters( 'raindrops_nextpage_tag_with_header_nav', PHP_EOL . $result_html . PHP_EOL, $link[ 'prev' ], $link[ 'next' ] );
+		}
+		
+		if( ! empty( $result ) ) {
+			return $result;
+		}
+		return $rel_prev;
+	}
+}
+if ( ! function_exists( 'raindrops_nextpage_tag_with_header_nav_helper') ) {
+	/**
+	 * 
+	 * @param type $rel_next
+	 * @return type
+	 * @since 1.420
+	 */
+	function raindrops_nextpage_tag_with_header_nav_helper( $rel_next ) {
+
+		$link		 = raindrops_nextpage_tag_with_header_nav();
+		
+		if( ! empty( $link['next'] ) ) {
+			return '';
+		}
+		return $rel_next;
 	}
 }
 /**

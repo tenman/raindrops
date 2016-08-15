@@ -562,7 +562,7 @@ jQuery( function ( $ ) {
     }
     if ( 'yes' == raindrops_script_vars.raindrops_default_sidebar_responsive ) {
         $( ".lsidebar-shrink button" ).click( function () {
-            $( ".rd-col-3 #bd, .lsidebar-shrink button" ).toggleClass( "rd-expand-sidebar-default" );
+            $( ".rd-col-2 #bd,.rd-col-3 #bd, .lsidebar-shrink button" ).toggleClass( "rd-expand-sidebar-default" );
             $( ".lsidebar-shrink button span" ).not( ".rd-expand-sidebar-default" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_op );
             $( ".lsidebar-shrink button.rd-expand-sidebar-default span" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_cl );
         } );

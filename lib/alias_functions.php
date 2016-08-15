@@ -1828,6 +1828,7 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			return;						
 		}
 
+
 		if ( is_tax( 'post_format', 'post-format-link' ) ) {
 			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_link_archive' );
 			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
@@ -1941,8 +1942,10 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			$raindrops_content_check = $raindrops_content_check->post_content;
 
 			if ( preg_match( "!\[raindrops[^\]]+(col)=(\"|')*?([^\"' ]+)(\"|')*?[^\]]*\]!si", $raindrops_content_check, $regs ) ) {
+				
 
 				$raindrops_current_column = absint( $regs[ 3 ] );
+				
 				$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 				return;
 			} else {
@@ -2001,8 +2004,13 @@ if ( ! function_exists( 'raindrops_keep_content_width') ) {
 		global $raindrops_keep_content_width;
 
 		$page_width	= raindrops_warehouse_clone( 'raindrops_page_width' );
-
-		if( 1 == $column && 'doc5' == $page_width ) {
+		
+		if( 1 == (int) $column && 'doc5' == $page_width ) {
+			
+			if( is_child_theme() ) {
+				/* todo @1.420 */
+				return apply_filters('raindrops_keep_content_width', true );
+			}
 
 			return apply_filters('raindrops_keep_content_width', false );
 		} else {

@@ -2,10 +2,23 @@ Changelog -----------------------------------
 version:1.420
 
 Overview of Changes
-
+	Fixed raindrops_color_pallet_category()
+		Under certain conditions, the contrast of the problem between the background and the color is generated
+	Add header prev next rel element support <!--nextpage--> tag.
+	Modified raindrops_keep_content_width in child theme.
+    Modified tooltip issue
+    Modified body .wireframe class
+    Modified using data-attribute CSS class
 
 Files Modified
-
+	modified:   functions.php
+	modified:   header.php
+	modified:   lib/alias_functions.php
+	modified:   lib/hooks.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.419&new_path=raindrops/1.420
 -----------------------------------------------Changelog -----------------------------------

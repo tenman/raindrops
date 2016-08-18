@@ -7,11 +7,11 @@ Overview of Changes
            change Style rules.
 	Added helper script for Plugin AMP
 		filter function raindrops_load_amp_css()
-		filter function trimming_skip_amp()
+		filter function raindrops_skip_amp()
 Files Modified
 	modified:   plugins/plugins-presentation.php
 	modified:   single.php
-	modified:   style.css
+	modified:	functions.php
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.420&new_path=raindrops/1.421
 -----------------------------------------------Changelog -----------------------------------

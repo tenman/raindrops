@@ -803,7 +803,7 @@ if( function_exists( 'amp_init' ) ) {
 		 * @since 1.415
 		 */
 		function raindrops_amp_filter( $content ) {
-			if(get_query_var('amp')){
+			if(is_amp_endpoint()){
 
 				$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
 			}
@@ -943,9 +943,9 @@ if( function_exists( 'amp_init' ) ) {
 		}
 	}
 
-	add_filter( 'amp_skip_post', 'trimming_skip_amp', 10, 3 );
+	add_filter( 'amp_skip_post', 'raindrops_skip_amp', 10, 3 );
 
-	if( ! function_exists('trimming_skip_amp') ) {
+	if( ! function_exists('raindrops_skip_amp') ) {
 		/**
 		 * Skip AMP
 		 * add <!--skipamp--> in entry content.
@@ -956,7 +956,7 @@ if( function_exists( 'amp_init' ) ) {
 		 * @return boolean
 		 * @since 1.421
 		 */
-		function trimming_skip_amp( $bool, $post_id, $post ) {
+		function raindrops_skip_amp( $bool, $post_id, $post ) {
 
 			if ( is_amp_endpoint() && preg_match( '#<!--skipamp-->#', $post->post_content ) ) {
 
@@ -966,15 +966,15 @@ if( function_exists( 'amp_init' ) ) {
 		}
 	}
 
-	add_action( 'amp_post_template_css', 'trimming_load_amp_css', 11 );
+	add_action( 'amp_post_template_css', 'raindrops_load_amp_css', 11 );
 
-	if ( !function_exists( 'trimming_load_amp_css' ) ) {
+	if ( !function_exists( 'raindrops_load_amp_css' ) ) {
 
 		/**
 		 * When theme has amp.css then load style amp page header
 		 * @since 1.421
 		 */
-		function trimming_load_amp_css() {
+		function raindrops_load_amp_css() {
 			$css		 = '';
 			$file_path	 = trailingslashit( get_stylesheet_directory() ) . 'amp.css';
 			if ( file_exists( $file_path ) ) {

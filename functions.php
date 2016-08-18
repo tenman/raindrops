@@ -4644,6 +4644,10 @@ if ( !function_exists( 'raindrops_site_description' ) ) {
  */
 if ( function_exists( 'the_custom_logo' ) ) {
 /* for WordPress 4.5 */
+	/**
+	 *
+	 * @see https://developers.google.com/search/docs/data-types/articles#amp-logo-guidelines
+	 */
 	add_image_size( 'raindrops-logo', 1200, 120 );
 	add_theme_support( 'custom-logo', array( 'size' => 'raindrops-logo' ) );
 }
@@ -7098,6 +7102,8 @@ if ( !function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ) {
  *
  *
  */
+
+
 if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 
 	function raindrops_customize_controls_print_styles() {
@@ -7115,8 +7121,9 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 				display:inline-block!important;
 				margin-right:1em;
 			}
-
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label ,/* new */
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label ,/* Wordpress 4.6 */
+			#customize-control-raindrops_style_type .customize-control-notifications-container + label,
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label ,/* Wordpress 4.5 */
 			#customize-control-raindrops_style_type .customize-control-title + label{
 
 				background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-dark.png'; ?> );
@@ -7126,7 +7133,9 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 				background-repeat:no-repeat;
 				background-size:contain;
 			}
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label,/*new*/
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label,/* Wordpress 4.6 */
+			#customize-control-raindrops_style_type .customize-control-notifications-container  + label + label,
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label,/* Wordpress 4.5 */
 			#customize-control-raindrops_style_type .customize-control-title  + label + label{
 
 				background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-w3standard.png'; ?> );
@@ -7136,7 +7145,9 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 				background-repeat:no-repeat;
 				background-size:contain;
 			}
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label,/*new*/
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label,/* Wordpress 4.6 */
+			#customize-control-raindrops_style_type .customize-control-notifications-container  + label +label + label,
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label,/* Wordpress 4.5 */
 			#customize-control-raindrops_style_type .customize-control-title  + label +label + label{
 
 				background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-light.png'; ?> );
@@ -7146,7 +7157,9 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 				background-repeat:no-repeat;
 				background-size:contain;
 			}
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label,/*new*/
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label + label,/* Wordpress 4.6 */
+			#customize-control-raindrops_style_type .customize-control-notifications-container  + label +label + label + label,			
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label,/* Wordpress 4.5 */
 			#customize-control-raindrops_style_type .customize-control-title  + label +label + label + label{
 
 				background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-minimal.png'; ?> );
@@ -7159,7 +7172,9 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 			<?php
 			if ( is_child_theme() ) {
 				?>
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label + label,/*new*/
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label + label + label,/* Wordpress 4.6 */
+			#customize-control-raindrops_style_type .customize-control-notifications-container  + label +label + label + label + label,
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label + label,/* Wordpress 4.5 */
 			#customize-control-raindrops_style_type .customize-control-title  + label +label + label + label + label{
 				/**
 				* Conditional fallback screenshot using multiple background

@@ -791,28 +791,204 @@ if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
 
 if( function_exists( 'amp_init' ) ) {
 	
-	add_filter('the_content','raindrops_amp_filter');
+	add_filter( 'the_content', 'raindrops_amp_filter' );
+	add_action( 'amp_post_template_css', 'raindrops_amp_css' );	
+	add_filter( 'amp_post_template_metadata', 'raindrops_amp_modify_json_metadata', 10, 2 );
+	
+	if( ! function_exists('raindrops_amp_filter') ) {
+		/**
+		 * 
+		 * @param type $content
+		 * @return type
+		 * @since 1.415
+		 */
+		function raindrops_amp_filter( $content ) {
+			if(get_query_var('amp')){
 
-	function raindrops_amp_filter( $content ) {
-		if(get_query_var('amp')){
-
-			$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
+				$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
+			}
+			return $content;
 		}
-		return $content;
 	}
-	add_action('amp_post_template_css', 'raindrops_amp_css');
-	function raindrops_amp_css(){
-		?>
-		hr + hr{
-			display:none;
+	
+	if( ! function_exists('raindrops_amp_css') ) {
+		/**
+		 * 
+		 * @since 1.415
+		 */
+		function raindrops_amp_css(){
+			?>
+			hr + hr{
+				display:none;
+			}
+			pre{
+			background:#eee;
+			padding:1em;
+			box-sizing:border-box;
+			white-space: pre-wrap; 
+			}
+			amp-carousel{
+			max-width:300px;
+			margin:2em auto;
+			}
+			amp-img.alignleft{
+				margin:0 2em 1em 0;
+			}
+			<?php
 		}
-		pre{
-		background:#eee;
-		padding:1em;
-		box-sizing:border-box;
-		white-space: pre-wrap; 
+	}
+
+	if( ! function_exists('raindrops_amp_modify_json_metadata') ) {
+		/**
+		 * 
+		 * @param type $metadata
+		 * @param type $post
+		 * @return type
+		 * @since 1.421
+		 */
+		function raindrops_amp_modify_json_metadata( $metadata, $post ) {
+
+			$post_image_url					 = '';
+			$post_image_width				 = '';
+			$post_image_height				 = '';
+			$raindrops_header_image_width	 = raindrops_detect_header_image_size( 'width' );
+			$raindrops_header_image_height	 = raindrops_detect_header_image_size( 'height' );
+
+			if ( isset( $post ) && 	is_singular() && has_post_thumbnail() ) {
+
+				$post_image_url		 = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+				$post_image_url		 = esc_url( $post_image_url[ 0 ] );
+				$post_image_width	 = $post_image_url[ 1 ];
+				$post_image_height	 = $post_image_url[ 2 ];
+			} else {
+
+				$raindrops_header_image		 = get_custom_header();
+				$raindrops_header_image_uri	 = $raindrops_header_image->url;
+
+				if ( empty( $raindrops_header_image_uri ) ) {
+
+					$raindrops_header_image_uri = get_header_image();
+				}
+				
+				$raindrops_field_exists_check = get_post_custom_values( '_raindrops_this_header_image' );
+				
+				if ( $raindrops_field_exists_check !== null ) {
+
+					$display_header_image_file = get_post_meta( $post->ID, '_raindrops_this_header_image', true );
+
+					if ( !empty( $display_header_image_file ) && $display_header_image_file !== 'default' && is_singular() ) {
+
+						$display_header_image_attr = wp_get_attachment_image_src( $display_header_image_file, 'full' );
+
+						if ( ! empty( $display_header_image_attr ) ) {
+							$raindrops_header_image_uri		 = esc_url( $display_header_image_attr[ 0 ] );
+							$raindrops_header_image_width	 = absint( $display_header_image_attr[ 1 ] );
+							$raindrops_header_image_height	 = absint( $display_header_image_attr[ 2 ] );
+						}
+					}
+				}
+				
+				$post_image_url = $raindrops_header_image_uri;
+				$post_image_width = $raindrops_header_image_width;
+				$post_image_height = $raindrops_header_image_height;
+			}
+
+			if ( 'post' === $post->post_type ) {
+
+				$metadata['@type'] = 'Article';
+
+				if( ! isset( $metadata['publisher']['logo'] ) ) {
+					
+					$custom_logo_id = get_theme_mod( 'custom_logo' );
+				
+					if ( ! empty( $custom_logo_id ) ) {
+						$logo_image  = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+						$logo_uri    = apply_filters( 'raindrops_amp_logo_uri', esc_url( $logo_image[0] ), absint( $post->ID ) );
+						$logo_width	 = apply_filters( 'raindrops_amp_logo_width', absint( $logo_image[1] ), absint( $post->ID ) );
+						$logo_height = apply_filters( 'raindrops_amp_logo_height', absint( $logo_image[2] ), absint( $post->ID ) );
+					} else {
+						$logo_uri    = apply_filters( 'raindrops_amp_logo_uri', '', absint( $post->ID ) );
+						$logo_width	 = apply_filters( 'raindrops_amp_logo_width', '', absint( $post->ID ) );
+						$logo_height = apply_filters( 'raindrops_amp_logo_height', '', absint( $post->ID ) );				
+					}
+
+					$metadata['publisher']['logo']	 = array(
+						'@type'	 => 'ImageObject',
+						'url'	 => $logo_uri,
+						'width'	 => $logo_width,
+						'height' => $logo_height,
+					);
+					
+				}
+				if( ! empty( $post_image_url ) ) {
+					$image_uri		 = apply_filters( 'raindrops_amp_image_uri', esc_url( $post_image_url ), absint( $post->ID ) );
+					$image_width	 = apply_filters( 'raindrops_amp_image_width', absint( $post_image_width ), absint( $post->ID ) );
+					$image_height	 = apply_filters( 'raindrops_amp_image_width', absint( $post_image_height ), absint( $post->ID ) );
+				} else {
+					$image_uri		 = apply_filters( 'raindrops_amp_image_uri', '', absint( $post->ID ) );
+					$image_width	 = apply_filters( 'raindrops_amp_image_width', '', absint( $post->ID ) );
+					$image_height	 = apply_filters( 'raindrops_amp_image_width', '', absint( $post->ID ) );				
+				}
+				if( ! isset( $metadata['image'] ) ) {
+
+					$metadata['image'] = array(
+						'@type'	 => 'ImageObject',
+						'url'	 => $image_uri,
+						'width'	 => $image_width,
+						'height' => $image_height,
+					);
+				}
+				return $metadata;
+			}
 		}
-		<?php
+	}
+
+	add_filter( 'amp_skip_post', 'trimming_skip_amp', 10, 3 );
+
+	if( ! function_exists('trimming_skip_amp') ) {
+		/**
+		 * Skip AMP
+		 * add <!--skipamp--> in entry content.
+		 * 
+		 * @param type $bool
+		 * @param type $post_id
+		 * @param type $post
+		 * @return boolean
+		 * @since 1.421
+		 */
+		function trimming_skip_amp( $bool, $post_id, $post ) {
+
+			if ( is_amp_endpoint() && preg_match( '#<!--skipamp-->#', $post->post_content ) ) {
+
+				return true;
+			}
+			return $bool;
+		}
+	}
+
+	add_action( 'amp_post_template_css', 'trimming_load_amp_css', 11 );
+
+	if ( !function_exists( 'trimming_load_amp_css' ) ) {
+
+		/**
+		 * When theme has amp.css then load style amp page header
+		 * @since 1.421
+		 */
+		function trimming_load_amp_css() {
+			$css		 = '';
+			$file_path	 = trailingslashit( get_stylesheet_directory() ) . 'amp.css';
+			if ( file_exists( $file_path ) ) {
+
+				$style_rules = file( $file_path );
+				if ( !empty( $style_rules ) ) {
+					foreach ( $style_rules as $rule ) {
+						$css .= $rule;
+					}
+					echo wp_strip_all_tags( $css );
+				}
+			}
+		}
+
 	}
 }
 ?>

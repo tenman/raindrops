@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.422
+
+Overview of Changes
+	WordPress4.6 relate changes
+     Fixed Customizer, In conjunction with the change of the color type, font link color does not change problem
+
+Files Modified
+	modified:   lib/customize.js
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.421&new_path=raindrops/1.422
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.421
 
 Overview of Changes

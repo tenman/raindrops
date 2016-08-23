@@ -804,8 +804,10 @@ if( function_exists( 'amp_init' ) ) {
 		 */
 		function raindrops_amp_filter( $content ) {
 			if(is_amp_endpoint()){
-
-				$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
+				/**
+				 * commentout @since 1.422 relate AMP 0.3.3
+				 */
+				//	$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
 			}
 			return $content;
 		}
@@ -834,6 +836,35 @@ if( function_exists( 'amp_init' ) ) {
 			amp-img.alignleft{
 				margin:0 2em 1em 0;
 			}
+			.amp-wp-content br + br{
+				display:none;
+			}
+			.rd-modal{
+			display:none;
+			}
+			.wp-caption{
+			border:1px solid #ccc;
+			}
+			.raindrops-tab-list{
+			display:none;
+			}
+			.quote-raindrops .first{
+				/* amp-anim destroy presentation */
+				height:1em;
+				margin-top:-4em;
+				overflow:hidden;
+			}
+			div.clip-link + p{
+			/* <p>&nbsp;</p> create funny space */
+				display:inline;
+			}
+			.alignleft{
+			clear:left;
+			}
+			.alignright{
+			clear:right;
+			}
+
 			<?php
 		}
 	}
@@ -977,6 +1008,7 @@ if( function_exists( 'amp_init' ) ) {
 		function raindrops_load_amp_css() {
 			$css		 = '';
 			$file_path	 = trailingslashit( get_stylesheet_directory() ) . 'amp.css';
+			
 			if ( file_exists( $file_path ) ) {
 
 				$style_rules = file( $file_path );
@@ -984,6 +1016,9 @@ if( function_exists( 'amp_init' ) ) {
 					foreach ( $style_rules as $rule ) {
 						$css .= $rule;
 					}
+
+					$css = str_replace( array( "\n", "\r", "\t", '&quot;',  '\"' ), array( "", "", "", '"', '"' ), $css );
+		
 					echo wp_strip_all_tags( $css );
 				}
 			}

@@ -420,7 +420,9 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     width: -webkit-calc(100% - 2px);
     width: calc(100% - 2px);
     height: 100%;
-    min-width:160px;
+    /* @since 1.422 
+     *min-width:160px;
+     */
 }
 .oembed-container + *{
     margin-top:1em;
@@ -485,6 +487,7 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 }
 .alignleft.rd-thumbnail > .oembed-container{
     margin-right:1em;
+
 }
 .rd-reddit iframe{
     background:#fff;
@@ -5304,12 +5307,12 @@ article .post-password-form label{
 }
 .rd-pdf:before{
     content:'PDF';
-    margin-right:.5em;
+    margin:1px .5em 1px;
     display:inline-block;
     background:#991c26;
     color:#fff;
     font-size:77%;
-    padding:0 6px;
+    padding:3px 6px 1px;
     box-sizing:border-box;
 }
 .textwidget .rd-square

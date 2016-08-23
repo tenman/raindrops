@@ -4,9 +4,14 @@ version:1.422
 Overview of Changes
 	WordPress4.6 relate changes
      Fixed Customizer, In conjunction with the change of the color type, font link color does not change problem
+	Changes for AMP plugin
+		Modified  raindrops_amp_css();
+		Modified raindrops_amp_filter(); remove div element change hr element regex;
 
 Files Modified
 	modified:   lib/customize.js
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.421&new_path=raindrops/1.422

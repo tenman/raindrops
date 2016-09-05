@@ -14,16 +14,16 @@ if ( !defined( 'ABSPATH' ) ) {
  * When false, Raindrops will use CSS equal height settings
  * default false
  * value bool, true or false
- * 
+ *
  */
 if ( ! isset( $raindrops_add_inline_style_for_sidebars ) ) {
-	$raindrops_add_inline_style_for_sidebars = false;
+	$raindrops_add_inline_style_for_sidebars = true;
 }
 /**
  * Auto load minified CSS and javascript files
  * file naming rule
  *    css filename + $raindrops_minified_suffix + .css
- *    
+ *
  * @since 1.411
  */
 if ( ! isset( $raindrops_load_minified_css_js ) ) {
@@ -35,14 +35,14 @@ if ( ! isset( $raindrops_load_minified_css_js ) ) {
 }
 if ( ! isset( $raindrops_minified_files_js_dir ) ) {
 	/**
-	 * only string dirname 
+	 * only string dirname
 	 *     can not use directory separator
 	 */
 		$raindrops_minified_files_js_dir = '';
 }
 if ( ! isset( $raindrops_minified_files_css_dir ) ) {
 	/**
-	 * only string dirname 
+	 * only string dirname
 	 *     can not use directory separator
 	 */
 		$raindrops_minified_files_css_dir = '';
@@ -51,7 +51,7 @@ if ( ! isset( $raindrops_minified_suffix ) || empty( $raindrops_minified_suffix 
     /**
 	 *  Suffix of minified files
 	 *  do not use directory separator
-	 */	
+	 */
 		$raindrops_minified_suffix = '-min';
 }
 
@@ -59,29 +59,29 @@ if ( ! isset( $raindrops_minified_suffix ) || empty( $raindrops_minified_suffix 
  * Show category,tag description
  * @since 1.410
  */
-if ( ! isset( $raindrops_use_term_description ) ) {	
+if ( ! isset( $raindrops_use_term_description ) ) {
 	$raindrops_use_term_description = true;
 }
 /**
  * Tooltip Script
  */
-if ( ! isset( $raindrops_tooltip ) ) {	
+if ( ! isset( $raindrops_tooltip ) ) {
 	$raindrops_tooltip = true;
-} 
+}
 /**
  * tagcloud widget presentation
  *  @see raindrops_color_pallet_tagcloud()
  *  value false then WordPress default widget style.
  */
 if ( ! isset( $raindrops_tag_cloud_widget_presentation) ) {
-	
+
 	 $raindrops_tag_cloud_widget_presentation = true;
 }
 /**
  * Tag shows or not by tagcloud item count ,Applied CSS
  */
 if ( ! isset( $raindrops_tag_cloud_widget_threshold_val ) ) {
-	
+
 	 $raindrops_tag_cloud_widget_threshold_val = 0;
 }
 /**
@@ -91,7 +91,7 @@ if ( ! isset( $raindrops_tag_cloud_widget_threshold_val ) ) {
  * @since 1.415
  */
 if ( ! isset( $raindrops_category_widget_presentation ) ) {
-	
+
 	 $raindrops_category_widget_presentation = true;
 }
 /**
@@ -99,7 +99,7 @@ if ( ! isset( $raindrops_category_widget_presentation ) ) {
  * since 1.415
  */
 if ( ! isset( $raindrops_category_widget_threshold_val ) ) {
-	
+
 	 $raindrops_category_widget_threshold_val = 0;
 }
 
@@ -108,7 +108,7 @@ if ( ! isset( $raindrops_category_widget_threshold_val ) ) {
  * @since 1.328
  */
 if ( ! isset( $raindrops_fallback_image_for_entry_content_enable) ) {
-	
+
 	$raindrops_fallback_image_for_entry_content_enable = true;
 }
 /**
@@ -211,8 +211,8 @@ if( ! isset( $raindrops_extend_customizer ) ) {
  * value theme_mod or option
  */
 if( ! isset( $raindrops_setting_type ) ) {
-	
-	$raindrops_setting_type	= 'option';	
+
+	$raindrops_setting_type	= 'option';
 }
 /** DON'T CHANGE NOW TEST
  * Customizer Option Field Name
@@ -245,9 +245,9 @@ if ( ! isset( $raindrops_keep_content_width ) ) {
 if ( ! isset( $raindrops_use_transient ) ) {
 
 	$raindrops_use_transient = true;
-	
+
 	if ( WP_DEBUG == true ) {
-		$raindrops_use_transient = false;		
+		$raindrops_use_transient = false;
 	}
 }
 /**
@@ -540,8 +540,8 @@ if ( !isset( $raindrops_page_width ) ) {
 if ( ! isset( $raindrops_base_setting_args ) ) {
 
 	$raindrops_current_style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
-	
-	
+
+
 
 $raindrops_base_setting_args = array(
 "raindrops_color_scheme" => array( 'option_id'    => 1,
@@ -627,7 +627,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'validate'     => 'raindrops_page_width_validate', 'list'         => 7 ),
 "raindrops_col_width" => array( 'option_id'    => 9,
 	'blog_id'      => 0,
-	'option_name'  => "raindrops_col_width",	
+	'option_name'  => "raindrops_col_width",
 	'option_value' => raindrops_switch_default_by_color_type_clone($raindrops_current_style_type,"raindrops_col_width", "t2", "t6" ),
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Column Width and Position', 'raindrops' ),
@@ -655,7 +655,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 "raindrops_show_right_sidebar" => array( 'option_id'    => 12,
 	'blog_id'      => 0,
 	'option_name'  => "raindrops_show_right_sidebar",
-	'option_value' => raindrops_switch_default_by_color_type_clone($raindrops_current_style_type, "raindrops_show_right_sidebar", "show", "hide" ), 
+	'option_value' => raindrops_switch_default_by_color_type_clone($raindrops_current_style_type, "raindrops_show_right_sidebar", "show", "hide" ),
 	'autoload'     => 'yes',
 	'title'        => esc_html__( 'Extra Sidebar', 'raindrops' ),
 	'excerpt1'     => '',
@@ -1181,7 +1181,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 "raindrops_status_bar" => array( 'option_id'    => 63,
         'blog_id'      => 0,
         'option_name'  => "raindrops_status_bar",
-        'option_value' => 'hide', 
+        'option_value' => 'hide',
         'autoload'     => 'yes',
         'title'        => esc_html__( 'Bottom Status Bar', 'raindrops' ),
         'excerpt1'     => '',

@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.424
+
+Overview of Changes
+
+	<del>Changed Equal height layout change from javascript to CSS</del>
+	Equal height set by the CSS, because a problem is found, return to the setting up this
+
+Files Modified
+	modified:   lib/vars.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.423&new_path=raindrops/1.424
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.423
 
 Overview of Changes

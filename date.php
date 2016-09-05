@@ -133,6 +133,7 @@ raindrops_debug_navitation( __FILE__ );
 					
                     ?>
                 </h2>
+				<?php get_template_part( 'widget', 'sticky' ); ?>				
                 <?php 
 				if(is_month()){
 					raindrops_monthly_archive_prev_next_navigation();

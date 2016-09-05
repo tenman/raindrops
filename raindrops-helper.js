@@ -29,6 +29,7 @@
                        jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover' } );
                     }
                 }
+
                     /* @1.352 */
                     if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive ) {
                         
@@ -50,16 +51,21 @@
                       
                         jQuery( '.lsidebar, .rsidebar' ).removeAttr( 'style' );
                     } else {
-  
-                        if ( raindrops_main_sidebar_height > raindrops_container_height ) {
+                        
+                        if( true == raindrops_script_vars.raindrops_sidebar_height_style ) {
 
-                            jQuery( '#container' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
-                            jQuery( '.rsidebar' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
-                        } else {
+                           if ( raindrops_main_sidebar_height > raindrops_container_height ) {
 
-                            jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
-                            jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
-                        }                       
+                               jQuery( '#container' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
+                               jQuery( '.rsidebar' ).css( { 'min-height': raindrops_main_sidebar_height + 'px' } );
+                           } else {
+
+                               jQuery( '.lsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
+                               jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
+                           }
+                       } else {
+                           jQuery( 'body' ).addClass( 'rd-css-equal-height' );
+                       }
                     }
                    
                  /* @1.403 */
@@ -252,7 +258,10 @@
 
         } else {
 
+            if( true !== raindrops_script_vars.raindrops_sidebar_height_style ) {
 
+                jQuery( 'body' ).addClass( 'rd-css-equal-height' );
+            }
 
             if ( raindrops_script_vars.browser_detection !== 1 ) {
 

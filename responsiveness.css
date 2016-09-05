@@ -873,6 +873,9 @@
     .safari .entry-content ul{
         min-width:0;
     }
+    .entry-content div[data-skin] .h3:first-of-type{
+        margin-top:.5em;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

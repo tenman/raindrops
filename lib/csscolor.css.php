@@ -325,7 +325,9 @@ ol.tblist li{
 
 .sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li,
 .datetable td li,
+.rsidebar > ul > li:last-child,
 .rsidebar ul li ul li,
+.lsidebar > ul > li:last-child,	
 .lsidebar ul li ul li,
 .blog .entry-utility li,
 .mycomment,
@@ -576,6 +578,8 @@ hr{
 .entry-content th{
     border:solid 1px %rgba_border%;
 }
+.lsidebar > ul > li:last-child,	
+.rsidebar > ul > li:last-child,
 .datetable td li,
 .rsidebar ul li ul li,
 .lsidebar ul li ul li,
@@ -817,6 +821,7 @@ function raindrops_indv_css_w3standard() {
 	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
+
 .rd-cat-em .footer-widget-wrapper .cat-item:before,
 .rd-cat-em .topsidebar .cat-item:before,
 .rd-cat-em .rsidebar .cat-item:before,
@@ -1004,8 +1009,8 @@ html .mceContentBody,
     background:#fff;
 }
 #ft {
-    background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
-    color:%raindrops_footer_color%;
+   /* background:url(%raindrops_images_path%%raindrops_footer_image%) repeat-x;
+    color:%raindrops_footer_color%;*/
 }
 #ft a{
      color:%raindrops_footer_link_color%;           
@@ -1749,6 +1754,8 @@ kbd,
 .lsidebar .eco-archive  h3 a{
     background: %rgba_border%;
 }
+.lsidebar > ul > li:last-child,	
+.rsidebar > ul > li:last-child,
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
     border-bottom:1px solid %rgba_border%;

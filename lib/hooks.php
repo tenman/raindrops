@@ -435,6 +435,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_filter( 'previous_post_rel_link', 'raindrops_nextpage_tag_with_header_rel',12 );
 		add_filter( 'next_post_rel_link', 'raindrops_nextpage_tag_with_header_nav_helper',12);
+		/**
+		 * @since 1.423
+		 * detect <!--noteaser--> TAG, remove Fragment identifier (#post-post_id)
+		 */
+		add_filter( 'the_content_more_link', 'raindrops_remove_noteaser_link_scroll' );
     }
 }
 ?>

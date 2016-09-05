@@ -501,4 +501,5 @@ dt,
 }
 .small-caps{
     font-variant: small-caps;
+    vertical-align:middle;
 }

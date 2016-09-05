@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.422
+Version: 1.423
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1963,15 +1963,15 @@ ol.commentlist >li{
     height:1%;
 }
 .wireframe footer,
-.wireframe.rd-col3 .rsidebar,
-.wireframe.rd-col2 .rsidebar,
-.wireframe.rd-col2 .lsidebar,
-.wireframe.rd-col2 .lsidebar{
+.wireframe.rd-col-3 .rsidebar,
+.wireframe.rd-col-2 .rsidebar,
+.wireframe.rd-col-3 .lsidebar,
+.wireframe.rd-col-2 .lsidebar{
     border:0.07692307692em solid #777;
     min-height:100vw;
 }
-.wireframe.rd-col1 .rsidebar,
-.wireframe.rd-col1 .lsidebar{
+.wireframe.rd-col-1 .rsidebar,
+.wireframe.rd-col-1 .lsidebar{
     display:none;
 }
 .wireframe .entry-title {
@@ -2336,7 +2336,7 @@ img.alignleft,
 .alignleft {
     clear:left;
     float: left;
-    padding:0.38461538461em 0.76923076923em 0.15384615384em 0;
+    padding:0 0.76923076923em 0.38461538461em 0;
     box-sizing:border-box;
 }
 div.alignright,
@@ -2344,7 +2344,7 @@ img.alignright,
 .alignright {
     clear:right;
     float: right;
-    padding:0.38461538461em 0 0.38461538461em 0.76923076923em;
+    padding:0 0 0.38461538461em 0.76923076923em;
     box-sizing:border-box;
 }
 .alignnone{
@@ -3428,7 +3428,10 @@ a.raindrops-comment-link:hover em {
 .categories li,
 .widget_archive li,
 .widget_categories li{
-    color:#888;
+    /**
+     * @1.423
+     * color:#888;
+     */
 }
 li.pingback p{
     padding:.7em 0;
@@ -6175,8 +6178,14 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     margin-top:.75em;
 }
 .widget_recent_entries a{
-    padding:.3em .5em;
+    padding:.279em 0 .279em;
     display:block;
+}
+.widget_recent_entries a + .post-date{
+    display:block;
+    text-align:right;
+    padding:.3em 0 .3em;
+    font-size:93%;
 }
 .lsidebar .widget_archive a,
 .rsidebar .widget_archive a{
@@ -6332,9 +6341,10 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  */
 .entry-content div[data-mod="aside"]{
     padding:1em;
-    margin:2em 1em;
+    margin:2em auto;
     position:relative;
     overflow:hidden;
+    box-sizing:border-box;
 }
 
 .entry-content div[data-mod="aside"]:before{
@@ -6349,6 +6359,7 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .entry-content div[data-skin] .h3:first-of-type{
     margin-top:0;
 }
+
 .entry-content div[data-skin] .h3{
     margin:1.5em 0;
     border-bottom:1px solid #aaa;
@@ -6411,6 +6422,33 @@ article div[data-skin="alert"]{
 article div[data-skin="notice"]{
     border-top: 3px solid #a38c08;
 }
+/**
+ * @1.423
+ */
+.entry-content div[data-skin] h3.color-1:first-of-type,
+.entry-content div[data-skin] h3.color-2:first-of-type,
+.entry-content div[data-skin] h3.color-3:first-of-type,
+.entry-content div[data-skin] h3.color-4:first-of-type,
+.entry-content div[data-skin] h3.color-5:first-of-type,
+.entry-content div[data-skin] h3.color1:first-of-type,
+.entry-content div[data-skin] h3.color2:first-of-type,
+.entry-content div[data-skin] h3.color3:first-of-type,
+.entry-content div[data-skin] h3.color4:first-of-type,
+.entry-content div[data-skin] h3.color5:first-of-type,
+.entry-content div[data-skin] h3.gradient-1:first-of-type,
+.entry-content div[data-skin] h3.gradient-2:first-of-type,
+.entry-content div[data-skin] h3.gradient-3:first-of-type,
+.entry-content div[data-skin] h3.gradient-4:first-of-type,
+.entry-content div[data-skin] h3.gradient1:first-of-type,
+.entry-content div[data-skin] h3.gradient2:first-of-type,
+.entry-content div[data-skin] h3.gradient3:first-of-type,
+.entry-content div[data-skin] h3.gradient4:first-of-type{
+    padding:1em;
+    margin:-1em -1em 1em;
+    box-sizing:content-box;
+    width:100%;
+    display:block;
+}
 /* End Entry Content sub box class */
 /**
  * data-mod postit
@@ -6429,9 +6467,12 @@ article [data-mod="postit"]{
     border:1px solid #aaa;
     border:1px solid rgba(170,170,170,1);
     position:relative;
+    padding-top:0;
+    padding-bottom:0;
     padding-left:4em;
     padding-right:1em;
     overflow:hidden;
+    vertical-align:middle;
 }
 article [data-mod="postit"]:before{
     content:attr(data-title);
@@ -6473,3 +6514,30 @@ article [data-mod="postit"]:before{
     text-align:left;
     max-width:100%;
 }
+/**
+ * BATA TEST
+ * Sidebar equal height from CSS
+ * When $raindrops_sidebar_height_style = false ( lib/vars.php )
+ */
+.rd-css-equal-height .lsidebar,
+.rd-css-equal-height .rsidebar{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+.rd-css-equal-height #ft{
+    position:relative;
+    z-index:2;
+}
+.rd-css-equal-height.rd-type-minimal #ft,
+.rd-css-equal-height.rd-type-w3standard #ft{
+    background:#fff;
+}
+@media screen and (max-width : 640px){
+    .rd-css-equal-height .lsidebar,
+    .rd-css-equal-height .rsidebar{
+        margin-bottom:auto;
+        padding-bottom:auto;
+        background:red!important;
+    }
+}
+/* Sidebar equal height from CSS end */

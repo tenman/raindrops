@@ -400,7 +400,12 @@ cite {
     table-layout:auto;
 }
 html .mce-content-body pre{
-    color:#777;
+    color:#333;
+    white-space: pre-wrap; //css3
+    white-space: moz-pre-wrap; //firefox
+    white-space: -pre-wrap; //opera 4-6
+    white-space: -o-pre-wrap; //opera 7
+    word-wrap: break-word; //internet explorer
 }
 /* https://gist.github.com/ */
 .gist{
@@ -495,6 +500,7 @@ html .mce-content-body .wp-caption{
 .mce-content-body > ul,
 .mce-content-body > ol{
     margin-bottom:2em;
+   
 }
 
 .mce-content-body table.top .top,
@@ -723,6 +729,7 @@ u{
 .mce-content-body dl:not(.rd-float){
     min-width:296px;
 }
+.mce-content-body dl.wp-caption,
 .mce-content-body dl.gallery-item{
     min-width:0;
 }

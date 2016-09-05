@@ -132,12 +132,6 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$category_default	 = get_option( 'default_category' );
 				$category_default	 = array( $category_default );
 
-				/* @1.347 
-				  $zen = get_option('zencache_options');
-				  if ( ( isset( $zen ) && true == $zen['enable'] ) ) {
-				  //	 $GLOBALS['zencache']->clear_cache();
-				  } */
-
 				$instance				 = array();
 				$instance[ 'title' ]	 = (!empty( $new_instance[ 'title' ] ) ) ? strip_tags( $new_instance[ 'title' ] ) : '';
 				$instance[ 'count' ]	 = (!empty( $new_instance[ 'count' ] ) ) ? absint( $new_instance[ 'count' ] ) : 3;

@@ -763,28 +763,6 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 }
 
 /**
- * @1.405 stop this filter
- * Comet Cache not exists translate files
- */
-//add_filter( 'load_textdomain_mofile', 'raindrops_override_quick_cache_mo', 10, 2 );
-
-if ( !function_exists( 'raindrops_override_quick_cache_mo' ) ) {
-/**
- *
- * @param type $mofile
- * @param type $domain
- * @return type
- */
-	function raindrops_override_quick_cache_mo( $mofile, $domain ) {
-		$raindrops_locale = get_locale();
-		if ( $domain == 'zencache' && 'ja' == $raindrops_locale ) {
-			return get_template_directory() . '/languages/plugins/zencache/zencache-' . $raindrops_locale . '.mo';
-		}
-		return $mofile;
-	}
-}
-
-/**
  * https://wordpress.org/plugins/amp/
  * @since 1.415
  */

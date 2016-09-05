@@ -662,102 +662,113 @@ if ( ! function_exists( 'raindrops_switch_default_by_color_type_clone' ) ) {
 if ( ! function_exists( 'raindrops_default_colors_clone' ) ) {
 	function raindrops_default_colors_clone( $name = 'dark', $option_name = false, $default = false ) {
 
-		$raindrops_images_path  = get_stylesheet_directory_uri() . '/images/';
+		$raindrops_images_path		 = get_stylesheet_directory_uri() . '/images/';
 		// Sidebar Image
-		$navigation_title_img   = raindrops_warehouse_clone( 'raindrops_heading_image' );
-		$navigation_title_img_uri = esc_url( $raindrops_images_path. $navigation_title_img );
+		$navigation_title_img		 = raindrops_warehouse_clone( 'raindrops_heading_image' );
+		$navigation_title_img_uri	 = esc_url( $raindrops_images_path . $navigation_title_img );
 
 		switch ( $name ) {
 
 			case ( "w3standard" ):
-				$custom_dark_bg  = apply_filters('raindrops_w3_default_bg_dark', raindrops_colors_clone( '3', 'background' ) );
-				$custom_light_bg = apply_filters('raindrops_w3_default_bg_light', raindrops_colors_clone( '1', 'background' ) );
-				$custom_color    = apply_filters('raindrops_w3_default_color', raindrops_colors_clone( '1', 'color' ) );
-				$custom_link_color    = apply_filters('raindrops_w3_default_link_color', raindrops_colors_clone( '1', 'color' ) );
-				$custom_footer_link_color    = apply_filters('raindrops_w3_default_footer_link_color', raindrops_colors_clone( '1', 'color' ) );
-				$raindrops_footer_color_default =  apply_filters( 'raindrops_w3_default_footer_color', '#000' );
-				$raindrops_header_color_default = apply_filters( 'raindrops_w3_default_header_color','#000' );
-
-			break;
+				$custom_dark_bg					 = apply_filters( 'raindrops_w3_default_bg_dark', raindrops_colors_clone( '3', 'background' ) );
+				$custom_light_bg				 = apply_filters( 'raindrops_w3_default_bg_light', raindrops_colors_clone( '1', 'background' ) );
+				/**
+				 * @1.423 wrong setting
+				 * $custom_color    = apply_filters('raindrops_w3_default_color', raindrops_colors_clone( '1', 'color' ) );
+				 * $custom_link_color    = apply_filters('raindrops_w3_default_link_color', raindrops_colors_clone( '1', 'color' ) );
+				 */
+				$custom_color					 = apply_filters( 'raindrops_w3_default_color', raindrops_colors_clone( '3', 'color' ) );
+				$custom_link_color				 = apply_filters( 'raindrops_w3_default_link_color', '#0000EE' );
+				$custom_footer_link_color		 = apply_filters( 'raindrops_w3_default_footer_link_color', '#0000EE' );		
+				$raindrops_footer_color_default	 = apply_filters( 'raindrops_w3_default_footer_color', '#000' );
+				$raindrops_header_color_default	 = apply_filters( 'raindrops_w3_default_header_color', '#000' );
+				break;
 			case ( "dark" ):
 				/**
 				 * dark
 				 */
-				$custom_dark_bg  = apply_filters('raindrops_dark_default_bg_dark', raindrops_colors_clone( '-1', 'background' ) );
-				$custom_light_bg = apply_filters('raindrops_dark_default_bg_light', raindrops_colors_clone( '-4', 'background' ) );
-				$custom_color    = apply_filters('raindrops_dark_default_color', raindrops_colors_clone( '-3', 'color' ) );
-				$custom_link_color    = apply_filters('raindrops_dark_default_link_color', raindrops_colors_clone( '-3', 'color' ) );
-				$custom_footer_link_color    = apply_filters('raindrops_dark_default_footer_link_color', raindrops_colors_clone( '-3', 'color' ) );
-				$raindrops_footer_color_default = apply_filters( 'raindrops_dark_default_footer_color', '#fff' );
-				$raindrops_header_color_default =  apply_filters( 'raindrops_dark_default_header_color', '#fff' );
+				$custom_dark_bg					 = apply_filters( 'raindrops_dark_default_bg_dark', raindrops_colors_clone( '-1', 'background' ) );
+				$custom_light_bg				 = apply_filters( 'raindrops_dark_default_bg_light', raindrops_colors_clone( '-4', 'background' ) );
+				$custom_color					 = apply_filters( 'raindrops_dark_default_color', raindrops_colors_clone( '-3', 'color' ) );
+				$custom_link_color				 = apply_filters( 'raindrops_dark_default_link_color', raindrops_colors_clone( '-3', 'color' ) );
+				$custom_footer_link_color		 = apply_filters( 'raindrops_dark_default_footer_link_color', raindrops_colors_clone( '-3', 'color' ) );
+				$raindrops_footer_color_default	 = apply_filters( 'raindrops_dark_default_footer_color', '#ccc' );
+				$raindrops_header_color_default	 = apply_filters( 'raindrops_dark_default_header_color', '#fff' );
 				break;
 			case ( "light" ):
 				/**
 				 * light
 				 */
-				$custom_dark_bg  = apply_filters('raindrops_light_default_bg_dark', raindrops_colors_clone( '5', 'background' ) );
-				$custom_light_bg = apply_filters('raindrops_light_default_bg_light', raindrops_colors_clone( '3', 'background' ) );
-				$custom_color    = apply_filters('raindrops_light_default_color', raindrops_colors_clone( '3', 'color' ) );
-				$custom_link_color    = apply_filters('raindrops_light_default_link_color', raindrops_colors_clone( '3', 'color' ) );
-				$custom_footer_link_color    = apply_filters('raindrops_light_default_footer_link_color', raindrops_colors_clone( '3', 'color' ) );
-				$raindrops_footer_color_default = apply_filters( 'raindrops_light_default_footer_color', '#333' );
-				$raindrops_header_color_default = apply_filters( 'raindrops_light_default_header_color', '#333' );
+				$custom_dark_bg					 = apply_filters( 'raindrops_light_default_bg_dark', raindrops_colors_clone( '5', 'background' ) );
+				$custom_light_bg				 = apply_filters( 'raindrops_light_default_bg_light', raindrops_colors_clone( '3', 'background' ) );
+				$custom_color					 = apply_filters( 'raindrops_light_default_color', raindrops_colors_clone( '3', 'color' ) );
+				$custom_link_color				 = apply_filters( 'raindrops_light_default_link_color', raindrops_colors_clone( '3', 'color' ) );
+				$custom_footer_link_color		 = apply_filters( 'raindrops_light_default_footer_link_color', raindrops_colors_clone( '3', 'color' ) );
+				$raindrops_footer_color_default	 = apply_filters( 'raindrops_light_default_footer_color', '#333' );
+				$raindrops_header_color_default	 = apply_filters( 'raindrops_light_default_header_color', '#333' );
 				break;
 			default:
-				$custom_dark_bg  = apply_filters('raindrops_color_type_default_bg_dark', raindrops_colors_clone( '3', 'background' ) );
-				$custom_light_bg = apply_filters('raindrops_color_type_default_bg_light', raindrops_colors_clone( '1', 'background' ) );
-				$custom_color    = apply_filters('raindrops_color_type_default_color',raindrops_colors_clone( '3', 'color' ) );
-				$custom_link_color    = apply_filters('raindrops_color_type_default_link_color', raindrops_colors_clone( '3', 'color' ) );
-				$custom_footer_link_color    = apply_filters('raindrops_color_type_default_footer_link_color', raindrops_colors_clone( '1', 'color' ) );
-				$raindrops_footer_color_default = apply_filters( 'raindrops_color_type_default_footer_color', '#000' );
-				$raindrops_header_color_default = apply_filters( 'raindrops_color_type_default_header_color', '#000' );         
+				$custom_dark_bg					 = apply_filters( 'raindrops_color_type_default_bg_dark', raindrops_colors_clone( '-1', 'background' ) );
+				$custom_light_bg				 = apply_filters( 'raindrops_color_type_default_bg_light', raindrops_colors_clone( '-4', 'background' ) );
+				$custom_color					 = apply_filters( 'raindrops_color_type_default_color', raindrops_colors_clone( '-3', 'color' ) );
+				$custom_link_color				 = apply_filters( 'raindrops_color_type_default_link_color', raindrops_colors_clone( '-3', 'color' ) );
+				$custom_footer_link_color		 = apply_filters( 'raindrops_color_type_default_footer_link_color', raindrops_colors_clone( '-3', 'color' ) );
+				$raindrops_footer_color_default	 = apply_filters( 'raindrops_color_type_default_footer_color', '#ccc' );
+				$raindrops_header_color_default	 = apply_filters( 'raindrops_color_type_default_header_color', '#fff' );
 				break;
 		}
+		
+		if ( !empty( $option_name ) ) {
 
-		if( ! empty( $option_name ) ) {
-
-			if( 'raindrops_background_color' == $option_name ||	'custom_dark_bg' == $option_name ) {
+			if ( 'raindrops_background_color' == $option_name || 'custom_dark_bg' == $option_name ) {
 				return $custom_dark_bg;
 			}
-			if( 'custom_light_bg' == $option_name ) {
+			if ( 'custom_light_bg' == $option_name ) {
 				return $custom_light_bg;
 			}
-			if( 'raindrops_default_fonts_color' == $option_name || 'custom_color' == $option_name || 'default-text-color' ) {
-				return $custom_color;
+			if ( 'raindrops_hyperlink_color' == $option_name ) {
+
+				return $custom_link_color;
 			}
-			if( 'raindrops_header_color' == $option_name ) {
+			
+			if ( 'raindrops_footer_link_color' == $option_name ) {
+				return $custom_footer_link_color;
+			}
+
+			if ( 'raindrops_header_color' == $option_name ) {
 
 				$raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
-
-				if( false == $default && isset( $raindrops_header_color ) && !empty( $raindrops_header_color ) ) {
+				
+				if ( false == $default && isset( $raindrops_header_color ) && !empty( $raindrops_header_color ) ) {
 					return $raindrops_header_color;
 				} else {
 					return $raindrops_header_color_default;
 				}
 			}
-			if( 'raindrops_footer_color' == $option_name ) {
+		
+			if ( 'raindrops_footer_color' == $option_name ) {
 
 				$raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
 
-				if( false == $default && isset( $raindrops_footer_color ) && !empty( $raindrops_footer_color ) ) {
+				if ( false == $default && isset( $raindrops_footer_color ) && !empty( $raindrops_footer_color ) ) {
+
 					return $raindrops_footer_color;
+					
 				} else {
+					
 					return $raindrops_footer_color_default;
 				}
+			}
+			
+			if ( 'raindrops_default_fonts_color' == $option_name || 'custom_color' == $option_name || 'default-text-color' ) {
+				return $custom_color;
+			}		
 
-			}
-			if( 'raindrops_footer_link_color' == $option_name ) {
-				return $custom_footer_link_color;
-			}
-			if( 'raindrops_hyperlink_color' == $option_name ) {
-
-				return  $custom_link_color;
-			}
-			if( 'raindrops_header_image_filter_color' == $option_name ) {
+			if ( 'raindrops_header_image_filter_color' == $option_name ) {
 				return $custom_light_bg;
 			}
 
-			if( 'h2_w3standard_background' == $option_name ) {
+			if ( 'h2_w3standard_background' == $option_name ) {
 
 				$style = "background:" . raindrops_colors_clone( 5, 'background' ) . ' ';
 				$style .= "url( {$navigation_title_img_uri} );";
@@ -778,11 +789,12 @@ if ( ! function_exists( 'raindrops_default_colors_clone' ) ) {
 				$style .= "color:" . raindrops_colors_clone( 4, 'color' ) . ';';
 				return safecss_filter_attr( $style );
 			}
-
 		}
 		return false;
 	}
+
 }
+
 if ( ! function_exists( 'raindrops_design_output_clone' ) ) {
 	function raindrops_design_output_clone( $name = 'dark' ) {
 		/* Header banner line image , footer background image */
@@ -894,6 +906,19 @@ if ( ! function_exists( 'raindrops_design_output_clone' ) ) {
 }
 if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
 	
+	function raindrops_default_color_clone( $option_name = '' , $style_type = '') {
+		
+		if ( empty( $style_type ) ) {
+			$style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
+	    }
+		return raindrops_default_colors_clone( $style_type, $option_name );
+			
+	
+	}
+}
+
+/*if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
+	
 	function raindrops_default_color_clone( $option_name , $style_type = '') {
 
 	   if ( empty( $style_type ) ) {
@@ -909,18 +934,14 @@ if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
 
 			break;
 			case ( "dark" ):
-				/**
-				 * dark
-				 */
+				
 				$custom_dark_bg  = raindrops_colors_clone( '-1', 'background' );
 				$custom_light_bg = raindrops_colors_clone( '-4', 'background' );
 				$custom_color    = raindrops_colors_clone( '-3', 'color' );
 
 				break;
 			case ( "light" ):
-				/**
-				 * light
-				 */
+				
 				$custom_dark_bg  = raindrops_colors_clone( '5', 'background' );
 				$custom_light_bg = raindrops_colors_clone( '3', 'background' );
 				$custom_color    = raindrops_colors_clone( '3', 'color' );
@@ -958,7 +979,7 @@ if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
 		}
 		return false;
 	}
-}
+}*/
 /**
  * Base Color Class Create
  *

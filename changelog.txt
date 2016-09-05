@@ -3,9 +3,36 @@ version:1.423
 
 Overview of Changes
 
+	Changed Equal height layout change from javascript to CSS
 
+	Added date.php get_template_part( 'widget', 'sticky' );
+	Modified editor-style.css pre style
+	Modified raindrops_embed_css() footer image
+	Modified raindrops_embed_meta change zencache_options to comet_cache_options
+	Removed raindrops_indv_css_w3standard() in functions.php
+	Modified raindrops_load_small_device_helper() add json raindrops_sidebar_height_style
+	Removed raindrops_sidebar_menus2()
+	Modified add filter raindrops_skip_links
+	Added filter function raindrops_remove_noteaser_link_scroll()
+	Modified raindrops_switch_default_by_color_type_clone()
+	Modified aindrops_design_output_clone( )
+    Removed raindrops_override_quick_cache_mo()
 Files Modified
-
+	modified:   css3.css
+	modified:   date.php
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   index.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.422&new_path=raindrops/1.423

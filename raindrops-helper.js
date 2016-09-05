@@ -52,7 +52,7 @@
                         jQuery( '.lsidebar, .rsidebar' ).removeAttr( 'style' );
                     } else {
                         
-                        if( true == raindrops_script_vars.raindrops_sidebar_height_style ) {
+                        if( true == raindrops_script_vars.raindrops_add_inline_style_for_sidebars ) {
 
                            if ( raindrops_main_sidebar_height > raindrops_container_height ) {
 
@@ -258,7 +258,7 @@
 
         } else {
 
-            if( true !== raindrops_script_vars.raindrops_sidebar_height_style ) {
+            if( true !== raindrops_script_vars.raindrops_add_inline_style_for_sidebars ) {
 
                 jQuery( 'body' ).addClass( 'rd-css-equal-height' );
             }

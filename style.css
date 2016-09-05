@@ -6517,7 +6517,7 @@ article [data-mod="postit"]:before{
 /**
  * BATA TEST
  * Sidebar equal height from CSS
- * When $raindrops_sidebar_height_style = false ( lib/vars.php )
+ * When $raindrops_add_inline_style_for_sidebars = false ( lib/vars.php )
  */
 .rd-css-equal-height .lsidebar,
 .rd-css-equal-height .rsidebar{

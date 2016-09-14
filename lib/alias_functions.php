@@ -672,11 +672,6 @@ if ( ! function_exists( 'raindrops_default_colors_clone' ) ) {
 			case ( "w3standard" ):
 				$custom_dark_bg					 = apply_filters( 'raindrops_w3_default_bg_dark', raindrops_colors_clone( '3', 'background' ) );
 				$custom_light_bg				 = apply_filters( 'raindrops_w3_default_bg_light', raindrops_colors_clone( '1', 'background' ) );
-				/**
-				 * @1.423 wrong setting
-				 * $custom_color    = apply_filters('raindrops_w3_default_color', raindrops_colors_clone( '1', 'color' ) );
-				 * $custom_link_color    = apply_filters('raindrops_w3_default_link_color', raindrops_colors_clone( '1', 'color' ) );
-				 */
 				$custom_color					 = apply_filters( 'raindrops_w3_default_color', raindrops_colors_clone( '3', 'color' ) );
 				$custom_link_color				 = apply_filters( 'raindrops_w3_default_link_color', '#0000EE' );
 				$custom_footer_link_color		 = apply_filters( 'raindrops_w3_default_footer_link_color', '#0000EE' );		
@@ -1298,7 +1293,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery-columns-8 .gallery-item{ width: 12.5% }\n
 				.gallery-columns-9 .gallery-item{ width: 11.1% }\n
 				.gallery-columns-10 .gallery-item{ width: 9.9% }\n";*/
-		
+	
 		$all_sizes = raindrops_get_image_sizes();
 		$raindrops_gallerys = '.entry-content .gallery{margin:1em auto;}';
 		foreach( $all_sizes as $name => $value ) {

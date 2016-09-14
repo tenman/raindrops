@@ -270,6 +270,7 @@ td.month-date,td.month-name,td.time,
 ul.nav{
     %c_3%
 }
+
 .ie6 #access ul li.current_page_item a,
 .ie6 #access ul li.current-menu-ancestor a,
 .ie6 #access ul li.current-menu-item a,
@@ -2824,9 +2825,9 @@ function raindrops_design_output( $name = 'dark' ) {
             /**
              * dark
              */
-            $custom_dark_bg  = apply_filters( 'raindrops_dark_dark_bg', -1 );
+            $custom_dark_bg  = apply_filters( 'raindrops_dark_dark_bg', -3 );
             $custom_dark_bg  = raindrops_colors( $custom_dark_bg, 'background' );
-            $custom_light_bg = apply_filters( 'raindrops_dark_light_bg', -4 );
+            $custom_light_bg = apply_filters( 'raindrops_dark_light_bg', -5 );
             $custom_light_bg = raindrops_colors( $custom_light_bg, 'background' );
             $custom_color    = apply_filters( 'raindrops_dark_color', -3 );
             $custom_color    = raindrops_colors( $custom_color, 'color' );

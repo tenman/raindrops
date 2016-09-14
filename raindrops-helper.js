@@ -53,6 +53,10 @@
                     } else {
                         
                         if( true == raindrops_script_vars.raindrops_add_inline_style_for_sidebars ) {
+                            
+                            if( jQuery( 'body' ).hasClass( 'rd-css-equal-height' ) ) {
+                                jQuery( 'body' ).remveClass( 'rd-css-equal-height' );
+                            }
 
                            if ( raindrops_main_sidebar_height > raindrops_container_height ) {
 
@@ -64,6 +68,7 @@
                                jQuery( '.rsidebar' ).css( { 'min-height': raindrops_container_height + 'px' } );
                            }
                        } else {
+                           
                            jQuery( 'body' ).addClass( 'rd-css-equal-height' );
                        }
                     }
@@ -258,9 +263,15 @@
 
         } else {
 
-            if( true !== raindrops_script_vars.raindrops_add_inline_style_for_sidebars ) {
+            if( false == raindrops_script_vars.raindrops_add_inline_style_for_sidebars ) {
 
                 jQuery( 'body' ).addClass( 'rd-css-equal-height' );
+            }else{
+                
+                if( jQuery( 'body' ).hasClass( 'rd-css-equal-height' ) ) {
+                    
+                   jQuery( 'body' ).remveClass( 'rd-css-equal-height' );
+                }
             }
 
             if ( raindrops_script_vars.browser_detection !== 1 ) {

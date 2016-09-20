@@ -1,4 +1,40 @@
 Changelog -----------------------------------
+version:1.425
+
+Overview of Changes
+	Removed function raindrops_indv_css_w3standard() in functions.php
+	Removed function raindrops_header_style()
+	Removed function raindrops_sidebar_menus2()
+	Removed function function raindrops_first_only_msg( $type = 0 )
+
+	Modified primary menu style.
+	Modified front-page template :target position
+	Modified dl ul ol list min-width
+    Modified equal height style. but not complete yet
+	Modified editor-style.css reverbnation presentation
+	Modified raindrops_reset_theme_options()
+	Modified raindrops_html_excerpt_with_elements() change shorcode remove regex to strip_shortcodes
+	Modified ja.css ( for japanese lang style ) fonts changed
+
+Files Modified
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   single.php
+	modified:   images/sidebar.png
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/vars.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.424&new_path=raindrops/1.425
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.424
 
 Overview of Changes

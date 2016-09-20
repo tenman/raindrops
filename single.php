@@ -103,18 +103,10 @@ raindrops_debug_navitation( __FILE__ );
             <?php		} 
         /**
          * Show featured image
-         *
-         *
-         *
-         *
          */
         raindrops_featured_image();
         /**
          * Show Category base special layout and default single template part
-         *
-         *
-         *
-         *
          */
         get_template_part( "part", $cat );
 
@@ -123,8 +115,11 @@ raindrops_debug_navitation( __FILE__ );
         }
 		?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
 		<?php
-			$short_link = wp_get_shortlink();
-			$article_title = get_the_title().'%0a';
+		/**
+		 * @1.425 Next version will remove below
+		 */
+			//$short_link = wp_get_shortlink();
+			//$article_title = get_the_title().'%0a';
 		?>
 		</div>
 
@@ -137,10 +132,6 @@ raindrops_debug_navitation( __FILE__ );
     }       //　endwhiles
     /**
      * Next Previous post link
-     *
-     *
-     *
-     *
      */
     raindrops_next_prev_links( "nav-below" );
 	
@@ -155,10 +146,6 @@ raindrops_debug_navitation( __FILE__ );
                 <?php
                 /**
                  * Show Extra sidebar column rsidebar start
-                 *
-                 *
-                 *
-                 *
                  */
                 if ( 3 == $raindrops_current_column ) {
                     ?>
@@ -193,10 +180,6 @@ raindrops_debug_navitation( __FILE__ );
             <?php
             /**
              * Show main column lsidebar start
-             *
-             *
-             *
-             *
              */
             if ( 1 !== $raindrops_current_column || false == $raindrops_current_column ) {
                 ?>

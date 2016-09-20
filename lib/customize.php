@@ -1220,6 +1220,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_custom_footer_credit_validate',
 			'type'				 => 'textarea',
 			'section'			 => 'raindrops_theme_settings_document',
+
 		),
 		
 		"raindrops_sitewide_css"				 => array(
@@ -2399,6 +2400,11 @@ One is a method of up-loading the image from the below up-loading form. Another 
 }
 
 $raindrops_customize_args = raindrops_theme_mod_default_normalize( $raindrops_customize_args );
+/**
+ * @1.425 Add filter 
+ */
+$raindrops_customize_args = apply_filters('raindrops_customize_args', $raindrops_customize_args );
+
 
 add_action( 'customize_register', 'raindrops_extend_customize_register' );
 

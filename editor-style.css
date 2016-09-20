@@ -815,6 +815,14 @@ h6,
     overflow:hidden;
     margin:10px;
 }
+.mce-content-body .rd-reverbnation{
+    margin:auto;
+}
+.mce-content-body .rd-reverbnation > div {
+    height: 0;
+    padding-bottom: 60%;
+    overflow: hidden;
+}
 /* share link fallback style start */
 .mce-content-body .clip-link{ margin-bottom:1em;}
 .mce-content-body .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}

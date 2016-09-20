@@ -261,6 +261,7 @@ function raindrops_posted_in_label_validate( $input ) {
 		return 'hide';
 	}	
 }
+
 function raindrops_sitewide_css_validate( $input ) {
 
 	$value =  wp_strip_all_tags( $input );

@@ -4,6 +4,50 @@
  * Filetype: CSS
  * @package Raindrops
  */
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Medium");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Yu Gothic";
+    src: local("Yu Gothic Bold");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: local("Helvetica Neue Regular");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Helvetica Neue";
+    src: local("Helvetica Neue Regular");
+    font-weight: 200;
+}
+body {
+    font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
+}
+/* IE10以上 */ 
+@media all and (-ms-high-contrast: none) {
+    body {
+    font-family: Verdana, Meiryo, sans-serif;
+}
+}
 .mce-content-body,
 body.ja,
 .ja h1,
@@ -17,7 +61,7 @@ body.ja,
 .ja .h2,
 .mce-content-body .h3,
 .ja .h3{
-	font-family:'Meiryo',Arial,sans-serif;
+	font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
 }
 .ja .entry-content h4,
 .ja .entry-content h5,
@@ -33,25 +77,13 @@ body.ja,
 .ja .entry-content .h3{
        margin:1.6em 0;   
 }
-.ja .rd-modal h4,
-.ja .rd-modal h5,
-.ja .rd-modal h6,
-.ja .rd-modal h1,
-.ja .rd-modal h2,
-.ja .rd-modal h3,
-.ja .rd-modal .h4,
-.ja .rd-modal .h5,
-.ja .rd-modal .h6,
-.ja .rd-modal .h1,
-.ja .rd-modal .h2, 
-.ja .rd-modal .h3{
-       margin: 0;   
-}
 
 /* Raindrops new h1-h6 font size from ver 0.996 start */
 
 .ja #site-title{
 	font-size:197%;
+        margin:.5em 0;
+        letter-spacing: -.04em;
 }
 .ja .entry-title{
 	font-size:153.9%;
@@ -120,17 +152,13 @@ body.ja,
 .ja.date table .entry-title{
 	font-size:108%;
 	font-weight:normal;
-	font-family:arial,helvetica,clean,sans-serif;
-	
 }
 .ja.date .entry-title{
 	font-weight:normal;
-	font-family:arial,helvetica,clean,sans-serif;
 }
 .ja #list-of-post ol .entry-title{
 	font-weight:normal!important;
 	font-size:197%;
-	font-family:arial,helvetica,clean,sans-serif;
 }
 
 .ja em{
@@ -150,31 +178,24 @@ body.ja,
 .ja .datetable .day-name{
     font-style:normal;
 }
-.ja .rsidebar .eco-archive ul,
-.ja .lsidebar .eco-archive ul{
-    margin:auto;
-}
 .ja .rsidebar .eco-archive li,
 .ja .lsidebar .eco-archive li{
     display:inline-block;
-    margin:1.5%;
+    min-width:13%;
+    margin:1%;
+    box-sizing:border-box;
+    width:3em;
 }
-
-.ja .rsidebar .widget_recent_comments .recentcomments
-.ja .lsidebar .widget_recent_comments .recentcomments{
+.ja .widget_recent_comments .recentcomments{
    visibility:hidden;
    margin-bottom:-1.65em;
 }
-.ja .rsidebar .widget_recent_comments .recentcomments a,
-.ja .rsidebar .widget_recent_comments .recentcomments span,
-.ja .rsidebar .widget_recent_comments .recentcomments img
-.ja .lsidebar .widget_recent_comments .recentcomments a,
-.ja .lsidebar .widget_recent_comments .recentcomments span,
-.ja .lsidebar .widget_recent_comments .recentcomments img{
+.ja .widget_recent_comments .recentcomments a,
+.ja .widget_recent_comments .recentcomments span,
+.ja .widget_recent_comments .recentcomments img{
      visibility:visible;
 }
-.ja .rsidebar.widget_recent_comments .comment-author-link
-.ja .lsidebar.widget_recent_comments .comment-author-link{
+.ja .widget_recent_comments .comment-author-link{
     border-bottom:1px dotted rgba(122,122,122,.5);
 }
 
@@ -207,103 +228,4 @@ body.ja,
 .mce-content-body  .sectioned li li li li:before,
 .ja .entry-content .sectioned li li li li:before{
     content:'';
-}
-
-.ja .entry-title.f10,
-div[role="banner"] #site-title.f10,
-.f10{
-    font-size:77%;
-}
-.ja .entry-title.f11,
-div[role="banner"] #site-title.f11,
-.f11 {
-    font-size:85%;
-}
-.ja .entry-title.f12,
-div[role="banner"] #site-title.f12,
-.f12 {
-    font-size:93%;
-}
-.ja .entry-title.f13,
-div[role="banner"] #site-title.f13,
-.f13 {
-    font-size:100%;
-}
-.ja .entry-title.f14,
-div[role="banner"] #site-title.f14,
-.f14 {
-    font-size:108%;
-}
-.ja .entry-title.f15,
-div[role="banner"] #site-title.f15,
-.f15 {
-    font-size:116%;
-}
-.ja .entry-title.f16,
-div[role="banner"] #site-title.f16,
-.f16 {
-    font-size:123.1%;
-}
-
-.lsidebar h2,
-.rsidebar h2{
-    font-size:16px;/* if( $raindrops_base_font_size customized ) { over flow list area }*/
-}
-.ja .entry-title.f17,
-div[role="banner"] #site-title.f17,
-.f17 {
-    font-size:131%;
-}
-.ja .entry-title.f18,
-div[role="banner"] #site-title.f18,
-.f18 {
-    font-size:138.5%;
-}
-.ja .entry-title.f19,
-div[role="banner"] #site-title.f19,
-.f19 {
-    font-size:146.5%;
-}
-.ja .entry-title.f20,
-div[role="banner"] #site-title.f20,
-.f20 {
-    font-size:153.9%;
-}
-.ja .entry-title.f21,
-div[role="banner"] #site-title.f21,
-.f21 {
-    font-size:161.6%;
-}
-.ja .entry-title.f22,
-div[role="banner"] #site-title.f22,
-.f22 {
-    font-size:167%;
-}
-.ja .entry-title.f23,
-div[role="banner"] #site-title.f23,
-.f23 {
-    font-size:174%;
-}
-.ja .entry-title.f24,
-div[role="banner"] #site-title.f24,
-.f24 {
-    font-size:182%;
-}
-.ja .entry-title.f25,
-div[role="banner"] #site-title.f25,
-.f25 {
-    font-size:189%;
-}
-.ja .entry-title.f26,
-div[role="banner"] #site-title.f26,
-.h1:not(h1),
-.f26 {
-    font-size:197%;
-}
-.raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
-.raindrops-extend-archive.sticky-widget .eco-archive.by-year .month{
-     width:10em;
-}
-.topsidebar .raindrops-extend-archive.sticky-widget h3.year a{
-    background:transparent!important;
 }

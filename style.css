@@ -328,6 +328,7 @@ p{
 .textwidget p:empty,
 .entry-content p:empty{
     display:none;
+    margin-bottom:0;
 }
 mark{
 /* html5 elements */
@@ -6620,4 +6621,15 @@ article [data-mod="postit"]:before{
     }
 }
 /* Sidebar equal height from CSS end */
-
+/**
+ * Correction style of empty P element 
+ * @1.425
+ */
+.entry-content .rd-w640,
+.entry-content .rd-w480,
+.entry-content .rd-w320,
+.entry-content .rd-large,
+.entry-content .rd-medium, 
+.entry-content .rd-thumbnail{
+    margin-top:-1.2em;
+}

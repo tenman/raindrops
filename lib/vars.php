@@ -545,7 +545,7 @@ if ( ! isset( $raindrops_base_setting_args ) ) {
  * @since 1.426
  * When color type not exists then reset settings
  */
-	if ( ! empty( $raindrops_current_style_type) && ! array_key_exists ( $raindrops_current_style_type , $raindrops_style_types ) ) {
+	if ( ! is_child_theme() && ! empty( $raindrops_current_style_type) && ! array_key_exists ( $raindrops_current_style_type , $raindrops_style_types ) ) {
 		delete_option( 'raindrops_theme_settings' );
 		$raindrops_current_style_type = 'dark';
 	}

@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.427
+
+Overview of Changes
+	'auto-correction feature of incorrect settings' has bug in multisite child themes
+
+Files Modified
+	modified:   lib/vars.php
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.426&new_path=raindrops/1.427
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.426
 
 Overview of Changes

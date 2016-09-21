@@ -539,9 +539,16 @@ if ( !isset( $raindrops_page_width ) ) {
  */
 if ( ! isset( $raindrops_base_setting_args ) ) {
 
-	$raindrops_current_style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
-
-
+	$raindrops_current_style_type   = raindrops_warehouse_clone( 'raindrops_style_type' );
+	$raindrops_style_types			= raindrops_register_styles();
+/**
+ * @since 1.426
+ * When color type not exists then reset settings
+ */
+	if ( ! empty( $raindrops_current_style_type) && ! array_key_exists ( $raindrops_current_style_type , $raindrops_style_types ) ) {
+		delete_option( 'raindrops_theme_settings' );
+		$raindrops_current_style_type = 'dark';
+	}
 
 $raindrops_base_setting_args = array(
 "raindrops_color_scheme" => array( 'option_id'    => 1,

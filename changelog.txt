@@ -5,6 +5,7 @@ Overview of Changes
 	By custom color type in, such as child theme, adding the auto-correction feature of incorrect settings
 
 Files Modified
+	modified:   lib/vars.php
 
 
 Description of Code Changes

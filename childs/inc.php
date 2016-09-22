@@ -23,6 +23,20 @@ if ( ! function_exists( 'raindrops_child_customizer_relate' ) && $raindrops_vers
 	}
 }
 
+if( is_multisite() ){
+	
+	add_filter('raindrops_theme_settings_raindrops_style_type','my_setting_val');
+ 
+	function my_setting_val( $val){
+		global $raindrops_current_theme_name;
+		
+		if( !empty( $raindrops_current_theme_name ) && function_exists( 'raindrops_indv_css_'. $raindrops_current_theme_name ) ) {	
+			return $raindrops_current_theme_name;
+		}
+		return $val;
+	}
+}
+
 if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 	/**
 	 * Apply style for the theme from customizer settings

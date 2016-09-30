@@ -2894,15 +2894,15 @@ function raindrops_customize_control_message_raindrops_color_select(){
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content">%2$s</div></label></li>';
 	
 	printf( $html,
-	esc_html__('Important Note','raindrops'),// Title
-	esc_html__('If you change the color settings, please press the always Save &amp; Publish button.','raindrops') //Message
+	__('Important Note','raindrops'),// Title
+	__('If you change the color settings, please press the always Save &amp; Publish button.','raindrops') //Message
 	);
 	
 	if ( isset( $raindrops_setting_type ) && 'option' == $raindrops_setting_type ) {
 		
 		printf( $html,
-		sprintf(__('<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">Color Scheme</a>'),'customize.php?autofocus[panel]=raindrops_theme_settings_presentation_panel'),// Title
-		esc_html__('First to display the Color Scheme First, please some preview the most preferred design. If it not from, color customization does not apply.' )  //Message
+		sprintf(__('<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">Color Scheme</a>', 'raindrops'),'customize.php?autofocus[panel]=raindrops_theme_settings_presentation_panel'),// Title
+		__('First to display the Color Scheme First, please some preview the most preferred design. If it not from, color customization does not apply.','raindrops' )  //Message
 		);
 	}
 

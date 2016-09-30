@@ -3,6 +3,22 @@ version:1.430
 
 Overview of Changes
 
+	New Theme data store changes theme_mod, option
+
+		How to change data store
+
+		functions.php
+		`
+		<?php
+		$raindrops_setting_type	= apply_filters('raindrops_theme_data_store', 'theme_mod' );// ADD ONLY THIS LINE
+		/**
+		 *
+		 *
+		 * @package Raindrops
+		 * @since Raindrops 0.1
+		 */
+		`
+
 
 Files Modified
 

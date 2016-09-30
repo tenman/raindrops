@@ -4,18 +4,15 @@
  *
  *
  */
-$raindrops_current_data			 = wp_get_theme( 'raindrops' );
-$raindrops_current_data_version	 = $raindrops_current_data->get( 'Version' );
-$raindrops_version_compare		 = version_compare(  '1.255', $raindrops_current_data_version);
 
-if ( ! function_exists( 'raindrops_child_customizer_relate' ) && $raindrops_version_compare !== 1 ) {
+if ( ! function_exists( 'raindrops_child_customizer_relate' ) ) {
 
 	add_filter( 'raindrops_embed_meta_echo', 'raindrops_child_customizer_relate' );
 
 	function raindrops_child_customizer_relate( $content ) {
 
 		if ( is_child_theme() ) {
-			
+
 			return raindrops_child_embed_css( );
 		} else {
 			return $content;
@@ -50,6 +47,9 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 	 */
 
 	function raindrops_child_embed_css() {
+		
+		
+
 
 		global $post, $raindrops_current_theme_name, $raindrops_base_font_size, $raindrops_fluid_minimum_width, $raindrops_fluid_maximum_width,$raindrops_header_image_default_ratio;
 		$pinup_style				 = '';
@@ -214,7 +214,8 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 			$css .= '#top #header-image .tagline{display:none;}';
 		}
 
-		$raindrops_options			 = get_option( 'raindrops_theme_settings' );
+		//$raindrops_options			 = get_option( 'raindrops_theme_settings' );
+		
 		$raindrops_hyperlink_color	 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
 
 		if ( $raindrops_hyperlink_color !== '' && false == raindrops_has_indivisual_notation() ) {
@@ -223,13 +224,13 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
 		$raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 
-		if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation() ) {
+		if ( ! empty( $raindrops_fonts_color ) && false == raindrops_has_indivisual_notation() ) {
 			$css .= "article {color:" . $raindrops_fonts_color . ";}";
 		}
 
 		$raindrops_fonts_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
 
-		if ( $raindrops_fonts_color !== '' && false == raindrops_has_indivisual_notation() ) {
+		if ( ! empty( $raindrops_fonts_color ) && false == raindrops_has_indivisual_notation() ) {
 			$css .= "#ft {color:" . $raindrops_fonts_color . "!important;}";
 		}
 

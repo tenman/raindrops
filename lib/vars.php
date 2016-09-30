@@ -165,7 +165,11 @@ if( ! isset( $raindrops_recent_comments_avatar ) ) {
  */
 if( ! isset( $raindrops_automatic_color ) ) {
 
-	$raindrops_automatic_color = false;
+	if( 'automatic' == raindrops_warehouse_clone('raindrops_color_select') ) {
+		$raindrops_automatic_color = true;
+	} else {
+		$raindrops_automatic_color = false;
+	}
 }
 if( false !== raindrops_has_indivisual_notation() ) {
 
@@ -208,12 +212,14 @@ if( ! isset( $raindrops_extend_customizer ) ) {
 	$raindrops_extend_customizer = true;
 }
 /**
- * value theme_mod or option
+ * Setting of theme settings data store
+ * value theme_mod or option default option
  */
 if( ! isset( $raindrops_setting_type ) ) {
 
-	$raindrops_setting_type	= 'option';
+	$raindrops_setting_type	= apply_filters('raindrops_theme_data_store', 'option' );
 }
+
 /** DON'T CHANGE NOW TEST
  * Customizer Option Field Name
  */
@@ -545,7 +551,9 @@ if ( ! isset( $raindrops_base_setting_args ) ) {
  * @since 1.426
  * When color type not exists then reset settings
  */
-	if ( ! is_child_theme() && ! empty( $raindrops_current_style_type) && ! array_key_exists ( $raindrops_current_style_type , $raindrops_style_types ) ) {
+	if ( ! is_child_theme() &&
+		( ! empty( $raindrops_current_style_type) && ! array_key_exists ( $raindrops_current_style_type , $raindrops_style_types ) || 
+			empty( $raindrops_current_style_type) ) ) {
 		delete_option( 'raindrops_theme_settings' );
 		$raindrops_current_style_type = 'dark';
 	}
@@ -626,7 +634,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_page_width",
 	'option_value' => "doc3",
 	'autoload'     => 'yes',
-	'title'        => __( 'Page Width', 'raindrops' ),
+	'title'        => __( 'Document Width', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Please choose width on the page.', 'raindrops' ) .
 	esc_html__( 'Please choose from four kinds of inside of', 'raindrops' ) .
@@ -685,7 +693,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_show_menu_primary",
 	'option_value' => "show",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'Menu Primary', 'raindrops' ),
+	'title'        => esc_html__( 'Enable Menu Primary', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Display or not Menu Primary. default value is show. set hide when not display menu primary', 'raindrops' ),
 	'validate'     => 'raindrops_show_menu_primary_validate', 'list'         => 13 ),
@@ -703,7 +711,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_accessibility_settings",
 	'option_value' => "no",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'Accessibility Settings', 'raindrops' ),
+	'title'        => esc_html__( 'Force Unique Link Text', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Accessibility Settings is create a unique link text. set to yes or no.', 'raindrops' ),
 	'validate'     => 'raindrops_accessibility_settings_validate',
@@ -714,7 +722,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_doc_type_settings",
 	'option_value' => "html5",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( "Document Type Settings", 'raindrops' ),
+	'title'        => esc_html__( "Document Type Definition", 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( "Default Document type html5. Set to xhtml or html5.", 'raindrops' ),
 	'validate'     => 'raindrops_doc_type_settings_validate',
@@ -725,7 +733,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_basefont_settings",
 	'option_value' => "13",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( "Base Font Size Setting", 'raindrops' ),
+	'title'        => esc_html__( "Base Font Size", 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( "Base Font Size Value Recommend 13-20 (px size)", 'raindrops' ),
 	'validate'     => 'raindrops_basefont_settings_validate',
@@ -747,7 +755,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_entry_content_is_home",
 	'option_value' => "content",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( "Home Entry Content Type", 'raindrops' ),
+	'title'        => esc_html__( "Home Listed Entry Contents", 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( "value content, excerpt, none", 'raindrops' ),
 	'validate'     => 'raindrops_entry_content_is_home_validate',
@@ -758,7 +766,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_entry_content_is_category",
 	'option_value' => "content",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( "Category Archive Content Type", 'raindrops' ),
+	'title'        => esc_html__( "Category Archives Entry Contents", 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( "value content, excerpt, none", 'raindrops' ),
 	'validate'     => 'raindrops_entry_content_is_category_validate',
@@ -770,7 +778,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_entry_content_is_search",
 	'option_value' => "content",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( "Search Result Content Type", 'raindrops' ),
+	'title'        => esc_html__( "Search Result Entry Contents", 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( "value content, excerpt, none", 'raindrops' ),
 	'validate'     => 'raindrops_entry_content_is_tag_validate',
@@ -792,7 +800,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_complementary_color_for_title_link",
 	'option_value' => "none",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'Complementary Color For Entry Title Link ', 'raindrops' ),
+	'title'        => esc_html__( 'Complementary Link Color For Entry Title', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'If you need to set complementary color for entry title.(There is a need to link color is set to chromatic) value yes or none', 'raindrops' ),
 	'validate'     => 'raindrops_complementary_color_for_title_link_validate',
@@ -803,7 +811,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_plugin_presentation_bcn_nav_menu",
 	'option_value' => "none",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'Breadcrumb NavXT Automatic Presentation ', 'raindrops' ),
+	'title'        => esc_html__( 'Breadcrumbs NavXT Automatic Presentation ', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'raindrops' ),
 	'validate'     => 'raindrops_plugin_presentation_bcn_nav_menu_validate',
@@ -814,7 +822,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_plugin_presentation_wp_pagenav",
 	'option_value' => "none",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'WP-PageNavi Automatic Presentation ', 'raindrops' ),
+	'title'        => esc_html__( 'Custom Page Navigation WP-PageNavi', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Theme, will make a presentation of applying the plugin automatically, value set yes or none', 'raindrops' ),
 	'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
@@ -825,7 +833,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_plugin_presentation_meta_slider",
 	'option_value' => "none",
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'Meta Slider Automatic Presentation ', 'raindrops' ),
+	'title'        => esc_html__( 'Slider for HomePage Meta Slider', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Please Set Meta Slider ID or none', 'raindrops' ),
 	'validate'     => 'raindrops_plugin_presentation_wp_pagenav_validate',
@@ -890,7 +898,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	'option_name'  => "raindrops_menu_primary_min_width",
 	'option_value' => 10,
 	'autoload'     => 'yes',
-	'title'        => esc_html__( 'Menu Primary Menu Width', 'raindrops' ),
+	'title'        => esc_html__( 'Menu Primary Min Width', 'raindrops' ),
 	'excerpt1'     => '',
 	'excerpt2'     => esc_html__( 'Menu Primary Menu Width. default value is 10 ( em ). set 1 between 95.999', 'raindrops' ),
 	'validate'     => 'raindrops_menu_primary_min_width_validate',
@@ -930,7 +938,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_featured_image_singular",
         'option_value' => 'show',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Featured Image Show, lightbox or Hide on Singular Post,Page', 'raindrops' ),
+        'title'        => esc_html__( 'Singular ( post, page ) Show Featured Image', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'values show or hide or lightbox ( light box is crop height ,add lightbox )', 'raindrops' ),
         'validate'     => 'raindrops_featured_image_singular_validate',
@@ -960,7 +968,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_read_more_after_excerpt",
         'option_value' => 'no',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Add Read More Link', 'raindrops' ),
+        'title'        => esc_html__( 'Add More Link After Excerpt', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Add read more link after excerpt. values yes or no default no', 'raindrops' ),
         'validate'     => 'raindrops_read_more_after_excerpt_validate',
@@ -970,7 +978,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_excerpt_enable",
         'option_value' => 'no',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Use Raindrops Extend Excerpt', 'raindrops' ),
+        'title'        => esc_html__( 'Excerpt Type', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'HTML in Excerpt. values yes or no default no', 'raindrops' ),
         'validate'     => 'raindrops_excerpt_enable_validate',
@@ -980,7 +988,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_allow_oembed_excerpt_view",
         'option_value' => 'yes',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Allow Oembed Media at Raindrops Extend Excerpt', 'raindrops' ),
+        'title'        => esc_html__( 'Allow Oembed in HTML Excerpt', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Overview display, if you set no, you can reduce the load time of the page. values yes or no default yes', 'raindrops' ),
         'validate'     => 'raindrops_allow_oembed_excerpt_view_validate',
@@ -1010,7 +1018,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_site_title_top_margin",
         'option_value' => 1,
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Top Margin of Site Title', 'raindrops' ),
+        'title'        => esc_html__( 'Top Margin in the header image', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'raindrops' ),
         'validate'     => 'raindrops_site_title_top_margin_validate',
@@ -1030,7 +1038,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_site_title_css_class",
         'option_value' => 'none',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Site Title CSS', 'raindrops' ),
+        'title'        => esc_html__( 'CSS Class of Site Title', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'for example google-font-lobster default value none', 'raindrops' ),
         'validate'     => 'raindrops_site_title_css_class_validate',
@@ -1040,7 +1048,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_tagline_in_the_header_image",
         'option_value' => 'show',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Tagline in the header image', 'raindrops' ),
+        'title'        => esc_html__( 'Place of the Tagline', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'tagline show or hide', 'raindrops' ),
         'validate'     => 'raindrops_tagline_in_the_header_image_validate',
@@ -1180,7 +1188,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_actions_hook_message",
         'option_value' => 'hide',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Insert Point hooks and auto load template name for Developer', 'raindrops' ),
+        'title'        => esc_html__( 'Developer Settings', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'value show or hide, default hide', 'raindrops' ),
         'validate'     => 'raindrops_actions_hook_message_validate',
@@ -1190,7 +1198,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_status_bar",
         'option_value' => 'hide',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Bottom Status Bar', 'raindrops' ),
+        'title'        => esc_html__( 'Status Bar', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'value show or hide, default hide', 'raindrops' ),
         'validate'     => 'raindrops_status_bar_validate',
@@ -1211,7 +1219,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_display_article_publish_date",
         'option_value' => 'show',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Display Post Publish Date', 'raindrops' ),
+        'title'        => esc_html__( 'Display Publish Date', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'default show', 'raindrops' ),
         'validate'     => 'raindrops_display_article_publish_date_validate',
@@ -1221,7 +1229,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_display_article_author",
         'option_value' => 'avatar',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Display Post Author', 'raindrops' ),
+        'title'        => esc_html__( 'Display Author', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'default avatar', 'raindrops' ),
         'validate'     => 'raindrops_display_article_author_validate',
@@ -1251,7 +1259,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => "raindrops_site_title_left_margin_type",
         'option_value' => 'default',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Left Margin of Site Title', 'raindrops' ),
+        'title'        => esc_html__( 'The choice of left margin how to set', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Works only Place of Title value set header_image, default value  1', 'raindrops' ),
         'validate'     => 'raindrops_site_title_left_margin_type_validate',
@@ -1621,7 +1629,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => 'raindrops_show_date_author_in_attachment',
         'option_value' => 'no',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Show Posted on in Attachment', 'raindrops' ),
+        'title'        => esc_html__( 'Show Attach to Post Date and Author in Attachment', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Default no', 'raindrops' ),
         'validate'     => 'raindrops_show_date_author_in_attachment_validate',
@@ -1631,7 +1639,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => 'raindrops_show_date_author_in_page',
         'option_value' => 'no',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Show Posted on in Static Page', 'raindrops' ),
+        'title'        => esc_html__( 'Show Publish Date and Author in Page', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Default no', 'raindrops' ),
         'validate'     => 'raindrops_show_date_author_in_page_validate',
@@ -1641,7 +1649,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => 'raindrops_default_sidebar_responsive',
         'option_value' => 'no',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Default Sidebar Responsive', 'raindrops' ),
+        'title'        => esc_html__( 'Responsive Default Sidebar', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Default no', 'raindrops' ),
         'validate'     => 'raindrops_default_sidebar_responsive_validate',
@@ -1651,7 +1659,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
         'option_name'  => 'raindrops_extra_sidebar_responsive',
         'option_value' => 'yes',
         'autoload'     => 'yes',
-        'title'        => esc_html__( 'Default Sidebar Responsive', 'raindrops' ),
+        'title'        => esc_html__( 'Responsive Extra Sidebar', 'raindrops' ),
         'excerpt1'     => '',
         'excerpt2'     => esc_html__( 'Default yes', 'raindrops' ),
         'validate'     => 'raindrops_extra_sidebar_responsive_validate',

@@ -1,9 +1,10 @@
 Changelog -----------------------------------
-version:1.431
+version:1.433
 
 Overview of Changes
 
-	Fixed Customizer works improperly
+	Fixed Customizer setting not saved
+
 
 Files Modified
 

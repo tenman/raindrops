@@ -2467,7 +2467,7 @@ if ( !file_exists( $raindrops_images_path ) ) {
 }
 
 $raindrops_base_color   = raindrops_warehouse_clone( 'raindrops_base_color' );
-$style_type             = raindrops_warehouse_clone( 'raindrops_style_type' );
+$raindrops_style_type   = raindrops_warehouse_clone( 'raindrops_style_type' );//@1.430 var name change
 $navigation_title_img   = raindrops_warehouse_clone( 'raindrops_heading_image' );
 $position_y             = raindrops_warehouse_clone( 'raindrops_heading_image_position' );
 $raindrops_header_image = raindrops_warehouse_clone( 'raindrops_header_image' );
@@ -2490,15 +2490,21 @@ if( 'option' == $raindrops_setting_type ) {
 $raindrops_theme_mod_options = false;
 
 if( 'theme_mod' == $raindrops_setting_type ) {
-	$raindrops_theme_mods_key = get_theme_mods( );
-	$raindrops_theme_mods_key = array_keys( $raindrops_theme_mods_key );
 	
-	foreach( $raindrops_theme_mods_key as $key ){
+	$raindrops_theme_mods_key = get_theme_mods( );
+	
+	//@1.430 add $raindrops_theme_mods_key value check	
+	if ( is_array($raindrops_theme_mods_key) && ! empty( $raindrops_theme_mods_key ) ) {
 		
-		if( preg_match( '$raindrops$',$key)){
-			
-			$raindrops_theme_mod_options = true;
-			break;
+		$raindrops_theme_mods_key = array_keys( $raindrops_theme_mods_key );
+		
+		foreach( $raindrops_theme_mods_key as $key ){
+
+			if( preg_match( '$raindrops$',$key)){
+
+				$raindrops_theme_mod_options = true;
+				break;
+			}
 		}
 	}
 	
@@ -2508,7 +2514,7 @@ if ( $raindrops_theme_mod_options == true && 'theme_mod' == $raindrops_setting_t
 		
 	if ( is_admin() || $wp_customize ) {
 	
-			$raindrops_indv_css = raindrops_design_output( $style_type ) . raindrops_color_base();
+			$raindrops_indv_css = raindrops_design_output($raindrops_style_type) . raindrops_color_base();
 			set_theme_mod('_raindrops_indv_css', $raindrops_indv_css );
 
 	}

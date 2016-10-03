@@ -1180,7 +1180,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Display hide', 'raindrops' ),
+			'label'				 => esc_html__( 'Enable Menu Primary', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Display or not Menu Primary. default value is show. set hide when not display menu primary', 'raindrops' ),
 			'sanitize_callback'	 => 'raindrops_show_menu_primary_validate',
@@ -1208,7 +1208,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-		
+
 		"raindrops_custom_footer_credit"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_custom_footer_credit','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1419,7 +1419,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Disable Keyboad Focus', 'raindrops' ),
+			'label'				 => esc_html__( 'Disable Keyboard Focus', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Fallback Setting when Nav Menu displayed improperly, value set enable( defalt ) or disable', 'raindrops' ),
 			'sanitize_callback'	 => 'raindrops_disable_keyboard_focus_validate',
@@ -2057,7 +2057,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Allow Oembed in Excerpt', 'raindrops' ),
+			'label'				 => esc_html__( 'Allow Oembed in HTML Excerpt', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Overview display, if you set no, you can reduce the load time of the page. values yes or no default yes', 'raindrops' ),
 			'sanitize_callback'	 => 'raindrops_allow_oembed_excerpt_view_validate',
@@ -2703,8 +2703,11 @@ li.customize-control .widget-inside .widget-content h4,
 	text-align: right;
 	padding: 10px;
 	display:block;
-	height:46px;
+	min-height:46px;
 	box-sizing:border-box;
+}
+#raindrops-data-stored{
+	margin:0 1em;
 }
 #customize-header-actions{
 		border-color:rgba(152,152,152,.9)!important;
@@ -2810,7 +2813,7 @@ CUSTOMIZER_CSS;
 add_action( 'customize_controls_print_scripts', 'raindrops_print_scripts' );
 
 function raindrops_print_scripts() {
-	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type, $raindrops_customize_args;
+	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type, $raindrops_customize_args, $raindrops_setting_type;
 
 	if ( file_exists( get_stylesheet_directory() . '/lib/customize.js' ) ) {
 		
@@ -2872,6 +2875,7 @@ function raindrops_print_scripts() {
 		'raindrops_show_right_sidebar_default'		 => raindrops_warehouse_clone( 'raindrops_show_right_sidebar','option_value' ),
 		'color_type_minimal_confirm'		=> esc_html__('Color type minimal, it also includes a change in the theme of the layout. If it is good, Click OK, please press the Save button in the customizer.
 This change in layout, you can later freely change.','raindrops'),
+		'raindrops_data_stored'				=> sprintf( esc_html__('Data Stored : %1$s ','raindrops'), $raindrops_setting_type ),
 	);
 
 	wp_localize_script(	'raindrops-customize', 'raindrops_customizer_script_vars',$setting_values );
@@ -2880,11 +2884,12 @@ This change in layout, you can later freely change.','raindrops'),
 /**
  *  Custom Message 
  */
-
+//for using option
 add_action('customize_render_control_raindrops_theme_settings[raindrops_color_select]', 'raindrops_customize_control_message_raindrops_color_select' );
-
+//for using theme_mod
+add_action('customize_render_control_raindrops_color_select', 'raindrops_customize_control_message_raindrops_color_select' );
 function raindrops_customize_control_message_raindrops_color_select(){
-	
+	global $raindrops_setting_type;
 	$html = '<li id="rd-control-description-raindrops-color-select" class="rd-custom-message customize-control customize-control-color" >
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content">%2$s</div></label></li>';
 	
@@ -2892,16 +2897,27 @@ function raindrops_customize_control_message_raindrops_color_select(){
 	__('Important Note','raindrops'),// Title
 	__('If you change the color settings, please press the always Save &amp; Publish button.','raindrops') //Message
 	);
-}
-add_action('customize_render_control_raindrops_theme_settings[raindrops_style_type]', 'raindrops_customize_control_message_raindrops_style_type' );
+	
+	if ( isset( $raindrops_setting_type ) && 'option' == $raindrops_setting_type ) {
+		
+		printf( $html,
+		sprintf(__('<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">Color Scheme</a>', 'raindrops'),'customize.php?autofocus[panel]=raindrops_theme_settings_presentation_panel'),// Title
+		__('First to display the Color Scheme First, please some preview the most preferred design. If it not from, color customization does not apply.','raindrops' )  //Message
+		);
+	}
 
+}
+// for option
+add_action('customize_render_control_raindrops_theme_settings[raindrops_style_type]', 'raindrops_customize_control_message_raindrops_style_type' );
+// for theme_mod
+add_action('customize_render_control_raindrops_style_type', 'raindrops_customize_control_message_raindrops_style_type' );
 function raindrops_customize_control_message_raindrops_style_type(){
 	$customizer_url = 'customize.php?autofocus[section]=colors';
 	$html = '<li id="rd-control-description-raindrops-style-type" class="rd-custom-message customize-control customize-control-style-type" >
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
 	
 	printf( $html,
-	__('Navigation','raindrops'),// Title
+	__('Navigation:(After save and publish)','raindrops'),// Title
 	admin_url( $customizer_url ), // link
 	__('Go to Custom Color Settings','raindrops')//link label
 	);

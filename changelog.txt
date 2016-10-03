@@ -1,13 +1,17 @@
 Changelog -----------------------------------
-version:1.432
+version:1.431
 
 Overview of Changes
-        BUG Malfunction of the Customizer
-	Revert version 1.429
+
+	Fixed Customizer works improperly
+
 Files Modified
 
+	modified:   lib/vars.php
+
+
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.431&new_path=raindrops/1.432
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.431&new_path=raindrops/1.433
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.431

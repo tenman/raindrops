@@ -1,16 +1,26 @@
 Changelog -----------------------------------
-version:1.434
+version:1.435
 
 Overview of Changes
-
-
+	Changed Custom header image for each post.
+		the attachment image of each post is now available for selection.
+		if to reflect the uploaded images to the list, please press the save draft  button
+	Fixed Custom CSS for each post.
+		URL-encoded URL Fixed an issue that would have been deleted
+	Fixed Customizer site tile link color an issue that does not change as specified.
 
 Files Modified
 
-
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.433&new_path=raindrops/1.434
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.433&new_path=raindrops/1.435
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.433

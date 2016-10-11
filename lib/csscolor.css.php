@@ -203,9 +203,7 @@ h1{
 a:link,
 a:active,
 a:visited,
-a:hover,
-/*#site-title,*/
-.h1 a{
+a:hover{
     color:$font_color_5;
     background:none;
 }
@@ -1400,9 +1398,7 @@ function raindrops_indv_css_light() {
  a:link,
  a:active,
  a:visited,
- a:hover,
-/*#site-title,*/
-.h1 a{
+ a:hover{
       color:$font_color5;
  background:none;
 }
@@ -1468,10 +1464,7 @@ body{
     background-position:0 -5px;*/
 
 }
-#hd h1,.h1,/*#site-title*/{
-    %c4%;
-    background:none;
-}
+
 #site-description{
     %c4%
     background:none;

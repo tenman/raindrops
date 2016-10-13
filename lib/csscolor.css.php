@@ -455,7 +455,7 @@ li.byuser span.says{
 
 
 .reply,
-.page .hentry .entry-title a,
+.page .entry-title a,
 cite.fn,
 cite a:link,
 cite a:active,

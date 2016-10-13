@@ -2791,7 +2791,8 @@ if ( !function_exists( "raindrops_custom_link_color" ) ) {
 .entry-content a:hover{
 	color:{$color};
 }
-
+.raindrops-toc-front a,
+.page-template-front-page a,
 .entry-title a:link,
 .entry-title a:active,
 .entry-title a:visited,
@@ -8832,7 +8833,25 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 				$images = get_uploaded_header_images();
 
 				$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="hide" ' . checked( 'hide', $current_value_header, false ) . ' />' . __( 'Hide Header Image', 'raindrops' ) . '</p>';
-				$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="default" ' . checked( '', $current_value_header, false ) . checked( 'default', $current_value_header, false ) . '  />' . __( 'Default Image', 'raindrops' ) . '</p>';
+				$featured_flag = false;
+				if ( 'hide' == raindrops_warehouse_clone('raindrops_featured_image_singular') ) {
+					/**
+					 * @1.436
+					 */ 
+					$post_image_id = get_post_thumbnail_id();
+										
+					if( ! empty( $post_image_id ) && is_numeric( $post_image_id ) ) {
+						$featured_flag = true;
+						$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="'. $post_image_id. '" ' . checked( $post_image_id, $current_value_header, false ) . ' />' . __( 'Featured Image', 'raindrops' ) . '</p>';
+					}else{
+						$featured_flag = false;
+						$current_value_header = 'default';
+						$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="default" ' . checked( '', $current_value_header, false ) . checked( 'default', $current_value_header, false ) . '  />' . __( 'Default Image', 'raindrops' ) . '</p>';
+					}
+				} 
+				if( true == $featured_flag || 'hide' !== raindrops_warehouse_clone('raindrops_featured_image_singular') ) {
+					$form .= '<p><input type="radio" name="header-image-file" id="header-image-file" value="default" ' . checked( '', $current_value_header, false ) . checked( 'default', $current_value_header, false ) . '  />' . __( 'Default Image', 'raindrops' ) . '</p>';
+				}
 				$form .= '<div class="header-image-wrapper" style="max-height:320px;overflow-y:scroll;overflow-x:hidden;">';
 
 				$header_image_html = '<p %1$s>'

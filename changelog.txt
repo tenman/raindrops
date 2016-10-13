@@ -1,10 +1,17 @@
 Changelog -----------------------------------
-version:1.435
+version:1.436
 
 Overview of Changes
 	Changed Custom header image for each post.
 		the attachment image of each post is now available for selection.
 		if to reflect the uploaded images to the list, please press the save draft  button
+
+		featured image to header image
+			must need customizer setting.
+			when Customizer / Presentation / Featured Image Settings
+				Singular(post,page) value set hide.
+			and featured image set after click Save Draft
+			then showing radio button at Custom Header Image For This Post
 	Fixed Custom CSS for each post.
 		URL-encoded URL Fixed an issue that would have been deleted
 	Fixed Customizer site tile link color an issue that does not change as specified.
@@ -20,7 +27,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.433&new_path=raindrops/1.435
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.433&new_path=raindrops/1.436
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.433

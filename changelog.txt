@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.436
+version:1.437
 
 Overview of Changes
 	Changed Custom header image for each post.
@@ -27,7 +27,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.433&new_path=raindrops/1.436
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.433&new_path=raindrops/1.437
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.433

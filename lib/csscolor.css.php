@@ -675,7 +675,6 @@ kbd,
 .sticky-widget #wp-calendar #prev a,
 .sticky-widget #wp-calendar tbody td:hover,
 .raindrops-excerpt-more,
-.raindrops-toc-front li,
 input[type="file"],
 input[type="reset"],
 .searchform input[type="submit"],
@@ -1098,7 +1097,6 @@ kbd,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
 .sticky-widget #wp-calendar tbody td:hover,
-.raindrops-toc-front li,
 .entry-content input[type="email"],
 .entry-content input[type="text"],
 .entry-content input[type="url"],
@@ -1856,7 +1854,6 @@ kbd,
 .sticky-widget #wp-calendar tbody td:hover,
 .entry-content .more-link,
 .raindrops-excerpt-more,
-.raindrops-toc-front li,
 #access{
 	background-image: -ms-linear-gradient(top, %custom_dark_bg%, %custom_light_bg%);
     background: -webkit-gradient(linear, left top, left bottom, from(%custom_dark_bg%), to(%custom_light_bg%));
@@ -2247,7 +2244,7 @@ textarea#comment{
     background:#fff;
     border-left-color:%rgba_border%;
 }
-.raindrops-toc-front li,
+
 #access .sub-menu a:hover,
 #access .children a:hover,
 #access .children .current_page_item a:hover{

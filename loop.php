@@ -8,8 +8,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-?>
-<?php
+
 /**
  * Display navigation to next/previous pages when applicable
  */

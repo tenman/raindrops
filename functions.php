@@ -2411,9 +2411,9 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= ' .nocomments{display:none;} ';
 		}
 		$raindrops_archive_title_label = raindrops_warehouse_clone( 'raindrops_archive_title_label' );
-		if ( "hide" == $raindrops_archive_title_label ) {
+		if ( "hide" == $raindrops_archive_title_label && ! is_post_type_archive() ) {
 			$css .= ' #archives-title .label{display:none;} ';
-		} elseif ( "emoji" == $raindrops_archive_title_label ) {
+		} elseif ( "emoji" == $raindrops_archive_title_label && ! is_post_type_archive() ) {
 			$css .= ' #archives-title .label{display:none;} ';
 			$css .= ' #archives-title .title:before{ content: \'' . raindrops_emoji_collection() . '\';display:inline-block;margin-right:13px; }';
 		}

@@ -3454,7 +3454,7 @@ sup {
 .page-template-blank_front .raindrops-category-posts,
 .page-template-blank_front .raindrops-tag-posts .title{
     text-overflow: ellipsis;
-    max-height:2.4em;
+    max-height:2.3em;
     overflow:hidden;
 }
 
@@ -3607,22 +3607,24 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 /* raindrops-toc  for front-page.php ,full-width.php */
 
 #front-page-template-pages  .page{
-    margin:0 10%;
+    margin:auto;
     padding:1em;
 }
 .page-template-full-width .raindrops-toc-front,
 .page-template-full-width .entry.page{
-    margin:0 10%;
+    margin:auto;
     padding:1em;
 }
-
+.raindrops-toc-front{
+    margin:0 1em;
+}
 .raindrops-toc-front li{
     list-style:none;
-    width:31%;
+    width:32%;
     text-align:center;
     display:inline-block;
     box-sizing:border-box;
-    margin:1%;
+    margin:.5%;
     border:1px solid rgba(222,222,222,.8);
 }
 .raindrops-toc-front a{
@@ -3851,9 +3853,15 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     clear:both;
     visibility:hidden;
 }
-.portfolio-page-content,
-.stickies{
+.portfolio-page-content{
     margin:1% 3%;
+}
+.stickies{
+    border-top: solid 6px rgba(68, 68, 68,0.5);
+    padding: 1.53846153846em 1.53846153846em 1.53846153846em 1.53846153846em;
+    background: url(images/sticky.png);
+    margin-bottom: 2em;
+    line-height: 1.5;
 }
 .portfolio .edit-link{
     margin:0;

@@ -1,4 +1,35 @@
 Changelog -----------------------------------
+version:1.438
+
+Overview of Changes
+
+	Better Presentaition For Custom Post Types
+
+		Fixed Post type Archives
+			Showing Correct Title
+		Fixed Post type Single Post
+			Add Custom Post archive link, and related taxonomy at posted in
+
+		Add 'Custom CSS For This Entry' metabox for Custom Post Type edit page.
+
+		add functions.php
+
+		add_filter('raindrops_custom_css_supports','extend_raindrops_custom_css_supports');
+
+		function extend_raindrops_custom_css_supports($post_type){
+
+			$post_type[] = 'YOUR CUSTOM POST TYPE';
+
+			return $post_type;
+		}
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.437&new_path=raindrops/1.438
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.437
 
 Overview of Changes

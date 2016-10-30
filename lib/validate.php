@@ -1,4 +1,11 @@
 <?php
+function raindrops_widget_recent_posts_validate($input) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}			
+}
 function raindrops_color_coded_post_tag_validate($input) {
 	if( $input == 'yes' || $input == 'no'  ) {
 		return $input;

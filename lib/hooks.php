@@ -345,6 +345,17 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_action( 'admin_print_styles-post.php', 'raindrops_admin_post_stylesheet' );
 		add_action( 'admin_print_styles-post-new.php', 'raindrops_admin_post_stylesheet' );
+		/**
+		 * @since 1.438
+		 */
+		add_filter( 'raindrops_posted_in', 'raindrops_cusotom_post_archive_link' );
+		
+		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_widget_recent_posts' ) ) {
+
+			add_filter( 'widget_posts_args', 'raindrops_filter_custom_post_content' );
+			add_filter( 'widget_title', 'raindrops_filter_custom_post_title', 10, 3 );
+		}
+
 	}
 
 }

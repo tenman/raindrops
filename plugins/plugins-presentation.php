@@ -974,6 +974,25 @@ if( function_exists( 'amp_init' ) ) {
 			return $bool;
 		}
 	}
+	
+	add_filter( 'amp_frontend_show_canonical', 'raindrops_remove_amphtml__link_element' );
+	
+	if( ! function_exists('raindrops_remove_amphtml__link_element') ) {
+		
+		/**
+		 * when <!--skipamp--> exists in entry content ,remove <link ref="amphtml".../>
+		 * @1.438
+		 */
+		
+		function raindrops_remove_amphtml__link_element($val) {
+
+			global $post;
+			if( preg_match('#<!--skipamp-->#',$post->post_content) ) {
+				return false;
+			}
+			return $val;
+		}
+	}
 
 	add_action( 'amp_post_template_css', 'raindrops_load_amp_css', 11 );
 

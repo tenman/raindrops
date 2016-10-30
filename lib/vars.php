@@ -1,5 +1,4 @@
 <?php
-
 /**
  * functions and constants for Raindrops theme
  *
@@ -1700,6 +1699,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt1'		 => '',
 			'excerpt2'		 => esc_html__( 'Please Set yes or no. default yes', 'raindrops' ),
 			'validate'		 => 'raindrops_color_coded_post_tag_validate',
+			'list'			 => 109 ),
+		'raindrops_widget_recent_posts'					 => array( 'option_id'		 => 110,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_widget_recent_posts',
+			'option_value'	 => 'no',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Relate Custom Post Type', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'Recent Post Widget shows Post Type Recent Post on Custom Post Type Single Post', 'raindrops' ),
+			'validate'		 => 'raindrops_widget_recent_posts_validate',
 			'list'			 => 109 ),
 	);
 }

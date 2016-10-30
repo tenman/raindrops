@@ -133,6 +133,13 @@ if ( ! isset( $wp_customize ) ) {
 			'theme_supports' => '',
 			'description'	 => esc_html__( 'You can fine-tune the size and how to display the menu', 'raindrops' ),
 			),
+		'raindrops_theme_settings_widget' => array(
+			'title' => esc_html__( 'Widget', 'raindrops' ),
+			'priority' => 110,
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'theme_supports' => '',
+			'description'	 => esc_html__( 'About Widget Presentation', 'raindrops' ),
+		),
 	);
 /**
  * Panels
@@ -1604,6 +1611,23 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'no'	 => esc_html__( 'No', 'raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_menu_size',
 		),
+	
+		"raindrops_widget_recent_posts"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_widget_recent_posts','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Widget Recent Post relate Custom Post Type', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Recent Post Widget shows Post Type Recent Post on Custom Post Type Single Post', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_widget_recent_posts_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ), ),
+			'section'			 => 'raindrops_theme_settings_widget',
+		),
+		
 		"raindrops_use_featured_image_emphasis"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

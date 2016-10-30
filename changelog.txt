@@ -12,6 +12,18 @@ Overview of Changes
 
 		Add 'Custom CSS For This Entry' metabox for Custom Post Type edit page.
 
+		Add new post_class() .rd-custom-post-type
+
+		Add new filter raindrops_custom_css_supports
+
+		Add new function raindrops_cusotom_post_archive_link()
+
+		Add new function raindrops_is_custom_post_type()
+
+		Add new function raindrops_filter_custom_post_content()
+
+		Add new function raindrops_filter_custom_post_title()
+
 		add functions.php
 
 		add_filter('raindrops_custom_css_supports','extend_raindrops_custom_css_supports');
@@ -23,8 +35,30 @@ Overview of Changes
 			return $post_type;
 		}
 
-Files Modified
+		Add new Customizer Section
 
+			Customize / Presenatation / Widget
+
+				Section: Widget Recent Post relate Custom Post Type (default No)
+
+				Setting:Yes
+
+				When Custom Post Single Post, Recent Post Widget Shows Custom Post Recent Post.
+
+		When AMP Plugin Activeted, Raindrops add helper filter.
+
+			add_filter( 'amp_frontend_show_canonical', 'raindrops_remove_amphtml__link_element' );
+			when <!--skipamp--> exists in entry content ,remove <link ref="amphtml".../>
+
+Files Modified
+	modified:   functions.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.437&new_path=raindrops/1.438

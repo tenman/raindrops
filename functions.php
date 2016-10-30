@@ -11971,7 +11971,7 @@ if ( ! function_exists( 'raindrops_filter_custom_post_title' ) ) {
 
 				if ( !empty( $obj ) && true == $obj->has_archive ) {
 
-					return sprintf( __( '最近の%1$s', 'raindrops' ), $obj->label );
+					return sprintf( __( 'Recent %1$s', 'raindrops' ), $obj->label );
 				}
 			}
 		}

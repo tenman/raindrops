@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.438
+version:1.439
 
 Overview of Changes
 
@@ -61,7 +61,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.437&new_path=raindrops/1.438
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.437&new_path=raindrops/1.439
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.437

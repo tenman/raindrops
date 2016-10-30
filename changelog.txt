@@ -58,6 +58,8 @@ Files Modified
 	modified:   lib/vars.php
 	modified:   plugins/plugins-presentation.php
 	modified:   responsiveness.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
 	modified:   style.css
 
 Description of Code Changes

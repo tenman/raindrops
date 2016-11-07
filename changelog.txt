@@ -32,6 +32,8 @@ Files Modified
 	modified:   lib/vars.php
 	modified:   plugins/plugins-presentation.php
 	modified:   style.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.439&new_path=raindrops/1.440

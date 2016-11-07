@@ -19,7 +19,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			if ( isset( $instance[ 'title' ] ) ) {
 
-				$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+				/**
+				 * @since 1.441
+				 */
+				$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Archives', 'raindrops' ) : $instance['title'], $instance, $this->id_base );
 			} else {
 
 				$title = __( "Category What's New", 'raindrops' );
@@ -485,8 +488,9 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 							'post_type'		 => 'attachment',
 							'numberposts'	 => -1,
 							'post_status'	 => 'public',
-							'post_parent'	 => $val
+							'post_parent'	 => $val,
 						);
+						
 						$attachments = get_posts( $args );
 
 
@@ -775,6 +779,8 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 		function form( $instance ) {
+			
+			global $raindrops_widget_post_types;
 
 			if ( isset( $instance[ 'title' ] ) ) {
 
@@ -887,6 +893,23 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			printf( $raindrops_html, esc_html__( 'Post Type', 'raindrops' ), esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "post", false ), $checked_default, esc_html__( 'Post:', 'raindrops' ), 'post'
 			);
 
+			if ( isset( $raindrops_widget_post_types ) && !empty( $raindrops_widget_post_types ) ) {
+				/**
+				 * @since 1.441
+				 */
+				$raindrops_html = '<li><label ><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li>';
+
+				foreach ( $raindrops_widget_post_types as $raindrops_post_type ) {
+
+					if ( raindrops_post_type_exists( $raindrops_post_type ) ) {
+
+						$post_type_obj = get_post_type_object( $raindrops_post_type );
+
+						printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, $raindrops_post_type, false ), esc_html( $post_type_obj->label ), esc_attr( $raindrops_post_type ) );
+					}
+				}
+			}
+
 			$raindrops_html = '<li><label ><input type="radio" id="%1$s" name="%2$s" value="%5$s" %3$s />%4$s</label></li></ul>';
 
 			printf( $raindrops_html, esc_attr( $this->get_field_id( 'type' ) ), esc_attr( $this->get_field_name( 'type' ) ), checked( $type, "page", false ), esc_html__( 'Page', 'raindrops' ), 'page'
@@ -960,8 +983,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			}
 			if ( !empty( $title ) ) {
 				$result_html = $before_title;
-
-				$result_html .= apply_filters( 'widget_title', $title );
+				/**
+				 * @since 1.441
+				 */
+				$result_html .= apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Archives', 'raindrops' ) : $instance['title'], $instance, $this->id_base );
 
 				$result_html .= $after_title;
 			}

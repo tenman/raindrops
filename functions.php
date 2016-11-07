@@ -11950,6 +11950,36 @@ if ( ! function_exists( 'raindrops_is_custom_post_type' ) ) {
 	}
 
 }
+if ( ! function_exists( 'raindrops_post_type_exists' ) ) {
+	/**
+	 * 
+	 * @global type $post
+	 * @return boolean
+	 * @1.438
+	 */
+	function raindrops_post_type_exists( $post_type ) {
+		global $post;
+
+		$all_custom_post_types = get_post_types( array( '_builtin' => false ) );
+
+		if ( empty( $all_custom_post_types ) ) {
+
+			return false;
+		}
+
+		$custom_types		 = array_keys( $all_custom_post_types );
+		$current_post_type	 = $post_type;
+
+		if ( in_array( $current_post_type, $custom_types ) ) {
+
+			return true;
+		} else {
+
+			return false;
+		}
+	}
+
+}
 if ( ! function_exists( 'raindrops_filter_custom_post_content' ) ) {
 	/**
 	 * 
@@ -11962,7 +11992,7 @@ if ( ! function_exists( 'raindrops_filter_custom_post_content' ) ) {
 		if ( is_singular() ) {
 			$post_type = get_post_type( get_the_ID() );
 
-			if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+			if ( isset( $post_type) && ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) ) {
 				return $args;
 			}
 			$obj = get_post_type_object( $post_type );
@@ -11991,7 +12021,7 @@ if ( ! function_exists( 'raindrops_filter_custom_post_title' ) ) {
 
 				$post_type = get_post_type( get_the_ID() );
 
-				if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+				if ( isset( $post_type) && ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) ) {
 
 					return $title;
 				}
@@ -12023,7 +12053,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_archive_widget' ) ) {
 
 			$post_type = get_post_type( get_the_ID() );
 
-			if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+			if ( isset( $post_type) && ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) ) {
 				return $args;
 			}
 
@@ -12055,7 +12085,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_archive_widget_title' ) ) {
 
 			if ( is_singular() || is_post_type_archive( $post_type ) || is_tax() ) {
 
-				if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+				if ( isset( $post_type) && ("post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) ) {
 
 					return $title;
 				}
@@ -12090,7 +12120,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_category_widget' ) ) {
 
 		if ( is_singular() || is_post_type_archive( $post_type ) || is_tax() ) {
 
-			if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+			if ( isset( $post_type) && ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) ) {
 
 				return $cat_args;
 			}
@@ -12142,7 +12172,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_category_widget_title' ) ) 
 
 				$post_type = get_post_type( get_the_ID() );
 
-				if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+				if ( isset( $post_type) && ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) ) {
 
 					return $title;
 				}

@@ -14,7 +14,9 @@ if ( !defined( 'ABSPATH' ) ) {
  * Pinup_entry_widget add custom post type
  * @since 1.441
  */
-$raindrops_widget_post_types = array();
+if ( !isset( $raindrops_widget_post_types ) ) {
+	$raindrops_widget_post_types = array();
+}
 /**
  * add sidebar height with inline style from jQuery for equal height sidebar.
  * When false, Raindrops will use CSS equal height settings

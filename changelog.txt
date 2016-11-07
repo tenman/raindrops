@@ -2,11 +2,31 @@ Changelog -----------------------------------
 version:1.441
 
 Overview of Changes
+
 	BUG Fixed update
 
+		add post_type exists check
+			raindrops_filter_custom_post_content()
+			raindrops_filter_custom_post_title()
+			raindrops_filter_custom_post_archive_widget()
+			raindrops_filter_custom_post_archive_widget_title()
+			raindrops_filter_custom_post_category_widget()
+			raindrops_filter_custom_post_category_widget_title()
+
+		Shortage argument of filter function
+			widget_title filter
+
+	Pinup entries widget Support Custom Post type
+		add functions.php top
+		ex: add custom post type product
+
+		$raindrops_widget_post_types = array('product');
 
 Files Modified
-
+	modified:   functions.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.440&new_path=raindrops/1.441

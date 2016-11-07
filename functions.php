@@ -776,14 +776,20 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 		if ( 'enable' == $keyboard_support && true !== $raindrops_link_unique_text ) {
 
 			$classes[] = 'enable-keyboard';
-		}
+		}		
 		/**
 		 * @since 1.415
+		 * add $builtin_type @1.440
 		 */
-		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_category' ) ) {
+		$builtin_type = false;
+		
+		if ( isset( $post->post_type ) && ( "post" == $post->post_type || "page" == $post->post_type || "attachment" == $post->post_type || "revision" == $post->post_type || "nav_menu_item" == $post->post_type ) ) {
+			$builtin_type = true;
+		}
+		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_category' ) && true == $builtin_type ) {
 			$classes[] = 'rd-cat-em';
 		}
-		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_post_tag' ) ) {
+		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_post_tag' ) && true == $builtin_type ) {
 			$classes[] = 'rd-tag-em';
 		}
 		/**
@@ -3527,7 +3533,7 @@ if ( ! function_exists( "raindrops_cmp_ids" ) ) {
  */
 if ( ! function_exists( "raindrops_month_list" ) ) {
 
-	function raindrops_month_list( $one_month, $ye, $mo ) {
+	function raindrops_month_list( $one_month, $ye, $mo, $post_type='post' ) {
 
 		global $calendar_page_number, $post_per_page, $calendar_page_last, $calendar_page_start, $wp_locale;
 		$result	 = "";
@@ -3575,9 +3581,15 @@ if ( ! function_exists( "raindrops_month_list" ) ) {
 			}
 
 			if ( !empty( $links ) ) {
+				
+				if ( 'post' !== $post_type ) {
+					$day_permalink	 = add_query_arg( 'post_type', $post_type, get_day_link( $y, $mo, $i ) );
+				}else{
+					$day_permalink	 = get_day_link( $y, $mo, $i );
+				}
 
 				$result .= "<tr><td class=\"month-date\"><span class=\"day-name\">";
-				$result .= "<a href=\"" . esc_url( get_day_link( $y, $mo, $i ) ) . "\">";
+				$result .= "<a href=\"" . esc_url( $day_permalink ) . "\">";
 				$result .= $i;
 				$result .= " </a></span></td><td><ul>";
 				$result .= $links;
@@ -3591,13 +3603,18 @@ if ( ! function_exists( "raindrops_month_list" ) ) {
 			$z = $c;
 		}
 
-		$month_name = $wp_locale->get_month( $m );
+		$month_name		 = $wp_locale->get_month( $m );
+		$year_name		 = apply_filters( 'raindrops_month_list_year_name', $y );
+		if ( 'post' !== $post_type ) {
+			$year_permalink	 = add_query_arg( 'post_type', $post_type, get_year_link( $y ) );
+		}else{
+			$year_permalink	 = get_year_link( $y );
+		}
 
-		$year_name = apply_filters( 'raindrops_month_list_year_name', $y );
 		if ( get_locale() == 'ja' ) {
-			$output = "<h2 id=\"date_title\" class=\"h2 year-month\"><a href=\"" . esc_url( get_year_link( $y ) ) . "\" title=\"" . esc_attr( $y ) . "\"><span class=\"year-name\">" . esc_html( $year_name ) . "</span></a> <span class=\"month-name\">" . esc_html( $month_name ) . " </span></h2>";
+			$output = "<h2 id=\"date_title\" class=\"h2 year-month\"><a href=\"" . esc_url( $year_permalink ) . "\" title=\"" . esc_attr( $y ) . "\"><span class=\"year-name\">" . esc_html( $year_name ) . "</span></a> <span class=\"month-name\">" . esc_html( $month_name ) . " </span></h2>";
 		} else {
-			$output = "<h2 id=\"date_title\" class=\"h2 year-month\"><span class=\"month-name\">" . esc_html( $month_name ) . " </span> <a href=\"" . esc_url( get_year_link( $y ) ) . "\" title=\"" . esc_attr( $y ) . "\"><span class=\"year-name\">" . esc_html( $year_name ) . "</span></a></h2>";
+			$output = "<h2 id=\"date_title\" class=\"h2 year-month\"><span class=\"month-name\">" . esc_html( $month_name ) . " </span> <a href=\"" . esc_url( $year_permalink ) . "\" title=\"" . esc_attr( $y ) . "\"><span class=\"year-name\">" . esc_html( $year_name ) . "</span></a></h2>";
 		}
 		return $output . '<table id="month_list" ' . raindrops_doctype_elements( 'summary="Archive in ' . esc_attr( $m ) . ', ' . esc_attr( $y ) . '"', '', false ) . '>' . $result . "</table>";
 	}
@@ -6827,7 +6844,18 @@ if ( ! function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ) {
 			if ( !isset( $wp_query->posts[ 0 ]->post_date ) || !isset( $wp_query->posts[ 0 ]->post_date ) ) {
 				return;
 			}
+			
+			$post_type = get_post_type( get_the_ID() );
+			$post_query = 'post';
+			if( is_post_type_archive( $post_type )){
+					
+				$post_type_object = get_post_type_object( $post_type );
+				$post_type_title = esc_html( apply_filters('raindrops_post_type_day_archive_title', $post_type_object->label ) );
+				$post_type_title_separator = esc_html( apply_filters('raindrops_post_type_day_archive_title_separator', ' : ' ) );
+				$post_query = $post_type;
+			}
 
+			
 			$thisyear		 = mysql2date( 'Y', $wp_query->posts[ 0 ]->post_date );
 			$thismonth		 = mysql2date( 'm', $wp_query->posts[ 0 ]->post_date );
 			$unixmonth		 = mktime( 0, 0, 0, $thismonth, 1, $thisyear );
@@ -6837,13 +6865,13 @@ if ( ! function_exists( 'raindrops_monthly_archive_prev_next_navigation' ) ) {
 			$previous	 = $wpdb->get_row( "SELECT MONTH(post_date) AS month, YEAR(post_date) AS year
 	FROM $wpdb->posts
 	WHERE post_date < '$thisyear-$thismonth-01'
-	AND post_type = 'post' AND post_status = 'publish'
+	AND post_type = '$post_query' AND post_status = 'publish'
 		ORDER BY post_date DESC
 		LIMIT 1" );
 			$next		 = $wpdb->get_row( "SELECT MONTH(post_date) AS month, YEAR(post_date) AS year
 	FROM $wpdb->posts
 	WHERE post_date > '$thisyear-$thismonth-{$last_day} 23:59:59'
-	AND post_type = 'post' AND post_status = 'publish'
+	AND post_type = '$post_query' AND post_status = 'publish'
 		ORDER BY post_date ASC
 		LIMIT 1" );
 
@@ -11977,6 +12005,203 @@ if ( ! function_exists( 'raindrops_filter_custom_post_title' ) ) {
 		}
 		return $title;
 	}
+}
+
+if ( !function_exists( 'raindrops_filter_custom_post_archive_widget' ) ) {
+
+	/**
+	 * 
+	 * @param type $args
+	 * @return type
+	 * @1.440
+	 */
+	function raindrops_filter_custom_post_archive_widget( $args ) {
+
+		$post_type = get_post_type( get_the_ID() );
+
+		if ( is_singular() || is_post_type_archive( $post_type ) || is_tax() ) {
+
+			$post_type = get_post_type( get_the_ID() );
+
+			if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+				return $args;
+			}
+
+			$obj = get_post_type_object( $post_type );
+
+			if ( !empty( $obj ) && true == $obj->has_archive ) {
+				$args[ 'post_type' ] = $post_type;
+			}
+		}
+		return $args;
+	}
+
+}
+if ( !function_exists( 'raindrops_filter_custom_post_archive_widget_title' ) ) {
+
+	/**
+	 * 
+	 * @param type $title
+	 * @param type $instance
+	 * @param type $id_base
+	 * @return type
+	 * @1.440
+	 */
+	function raindrops_filter_custom_post_archive_widget_title( $title, $instance, $id_base ) {
+
+		if ( 'archives' == $id_base ) {
+
+			$post_type = get_post_type( get_the_ID() );
+
+			if ( is_singular() || is_post_type_archive( $post_type ) || is_tax() ) {
+
+				if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+
+					return $title;
+				}
+				$obj = get_post_type_object( $post_type );
+
+				if ( !empty( $obj ) && true == $obj->has_archive ) {
+
+					$post_type_label = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', $obj->label, $obj, $id_base );
+					$separator		 = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', ' : ', $obj, $id_base );
+					$post_type_title = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', $title, $obj, $id_base );
+
+					return sprintf( __( '%1$s %2$s %3$s', 'raindrops' ), $post_type_label, $separator, $post_type_title );
+				}
+			}
+		}
+		return $title;
+	}
+
+}
+
+if ( !function_exists( 'raindrops_filter_custom_post_category_widget' ) ) {
+
+	/**
+	 * 
+	 * @param type $posted_in
+	 * @return type
+	 * @1.440
+	 */
+	function raindrops_filter_custom_post_category_widget( $cat_args ) {
+
+		$post_type = get_post_type( get_the_ID() );
+
+		if ( is_singular() || is_post_type_archive( $post_type ) || is_tax() ) {
+
+			if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+
+				return $cat_args;
+			}
+			$obj	 = get_post_type_object( $post_type );
+			$taxes	 = get_object_taxonomies( $obj->name );
+
+			if ( is_array( $taxes ) && !empty( $taxes ) ) {
+
+				$tax = $taxes[ 0 ];
+			}
+
+			if ( !empty( $tax ) ) {
+
+				$cat_args[ 'taxonomy' ]				 = $tax;
+				$cat_args[ 'hide_title_if_empty' ]	 = true;
+				
+			} elseif ( !empty( $obj ) ) {
+				
+				$cat_args[ 'taxonomy' ]				 = $obj->label;
+				$cat_args[ 'hide_title_if_empty' ]	 = true;
+			} else {
+
+				return $cat_args;
+			}
+
+			return apply_filters( 'raindrops_filter_custom_post_category_widget', $cat_args );
+		}
+		return $cat_args;
+	}
+
+}
+if ( !function_exists( 'raindrops_filter_custom_post_category_widget_title' ) ) {
+
+	/**
+	 * 
+	 * @param type $title
+	 * @param type $instance
+	 * @param type $id_base
+	 * @return type
+	 * @1.440
+	 */
+	function raindrops_filter_custom_post_category_widget_title( $title, $instance, $id_base ) {
+
+		if ( 'categories' == $id_base ) {
+
+			$post_type = get_post_type( get_the_ID() );
+
+			if ( is_singular() || is_post_type_archive( $post_type ) || is_tax() ) {
+
+				$post_type = get_post_type( get_the_ID() );
+
+				if ( "post" == $post_type || "page" == $post_type || "attachment" == $post_type || "revision" == $post_type || "nav_menu_item" == $post_type ) {
+
+					return $title;
+				}
+				$obj = get_post_type_object( $post_type );
+
+				$taxes = get_object_taxonomies( $obj->name );
+
+				if ( is_array( $taxes ) && !empty( $taxes ) ) {
+
+					$tax = $taxes[ 0 ];
+				} else {
+					
+					return;
+				}
+
+				if ( !empty( $tax ) ) {
+
+					$labels = get_taxonomy( $tax );
+					$title = esc_html( $labels->labels->name );
+				} else {
+					
+					return $title;
+				}
+
+
+				if ( !empty( $obj ) && true == $obj->has_archive ) {
+
+					$post_type_label = apply_filters( 'raindrops_filter_custom_post_archive_widget_label', $obj->label, $obj, $id_base );
+					$separator		 = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', ' : ', $obj, $id_base );
+					$post_type_title = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', $title, $obj, $id_base );
+
+					return sprintf( __( '%1$s %2$s %3$s', 'raindrops' ), $post_type_label, $separator, $post_type_title );
+				}
+			}
+		}
+		return $title;
+	}
+
+}
+
+if ( !function_exists( 'raindrops_post_type_exclude_template' ) ) {
+
+	/**
+	 * 
+	 * @param type $template
+	 * @return type
+	 * @1.440
+	 */
+	function raindrops_post_type_exclude_template( $template ) {
+
+		$post_type = get_post_type( get_the_ID() );
+
+		if ( is_post_type_archive( $post_type ) && is_date() ) {
+
+			return get_index_template();
+		}
+		return $template;
+	}
+
 }
 /**
  *

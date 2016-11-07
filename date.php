@@ -114,18 +114,39 @@ raindrops_debug_navitation( __FILE__ );
 
                 <h2 id="archives-title" class="page-title">
                     <?php
+					/**
+					 * @1.440
+					 */
+					$post_type = get_post_type( get_the_ID() );				
+					$post_type_object = get_post_type_object( $post_type );
+					$post_type_title = esc_html( apply_filters('raindrops_post_type_day_archive_title', $post_type_object->label ) );
+					$post_type_title_separator = esc_html( apply_filters('raindrops_post_type_day_archive_title_separator', ' : ' ) );
+					
+					$add_query = '';
+					if( is_post_type_archive( $post_type )){
+					
+						if( !empty( $post_type ) && $post_type !== 'post' ) {
+
+							$add_query = '&post_type='. wp_strip_all_tags($post_type);
+						}
+	
+							echo $post_type_title. $post_type_title_separator;
+					}
+					
                     if ( is_year() ) {
-                        $one_year = query_posts( "posts_per_page=-1&year=$ye" );
-                        $output   = raindrops_get_year( $one_year, $ye );
+                        $one_year = query_posts( "posts_per_page=-1&year=$ye".$add_query );
+                        $output   = raindrops_get_year( $one_year, $ye, $post_type );
                         wp_reset_query();
                         esc_html_e( 'Yearly Archives', 'raindrops' );
                     } elseif ( is_month() ) {
-                        $one_month = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo" );
-                        $output    = raindrops_month_list( $one_month, $ye, $mo );
+                        $one_month = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo".$add_query );
+                        $output    = raindrops_month_list( $one_month, $ye, $mo, $post_type );
                         wp_reset_query();
+						
+						
                         esc_html_e( 'Monthly Archives', 'raindrops' );
                     } elseif ( is_day() ) {
-                        $one_day = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo&day=$da" );
+                        $one_day = query_posts( "posts_per_page=-1&year=$ye&monthnum=$mo&day=$da".$add_query );
                         $output  = raindrops_get_day( $one_day, $ye, $mo, $da );
                         wp_reset_query();
                         esc_html_e( 'Daily Archives', 'raindrops' );

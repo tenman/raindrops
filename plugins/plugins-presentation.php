@@ -842,6 +842,11 @@ if( function_exists( 'amp_init' ) ) {
 			.alignright{
 			clear:right;
 			}
+			.amp-wp-article-content:after{
+				content:'';
+				display:table;
+				clear:both;
+			}
 
 			<?php
 		}

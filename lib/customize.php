@@ -138,7 +138,7 @@ if ( ! isset( $wp_customize ) ) {
 			'priority' => 110,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
-			'description'	 => esc_html__( 'About Widget Presentation', 'raindrops' ),
+			'description'	 => esc_html__( 'About Widget Presentation for Custom Post Type', 'raindrops' ),
 		),
 	);
 /**
@@ -1627,7 +1627,36 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'no'	 => esc_html__( 'No', 'raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_widget',
 		),
-		
+		"raindrops_widget_categories"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_widget_categories','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Relate Custom Post Type and Categories Widget', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Categories Widget shows Post Type relate Taxonomy on Custom Post Type Pages', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_widget_categories_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ), ),
+			'section'			 => 'raindrops_theme_settings_widget',
+		),
+		"raindrops_widget_archives"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_widget_archives','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Relate Custom Post Type and Archives Widget', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Archives Widget shows Post Type relate Archives on Custom Post Type Pages', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_widget_archives_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ), ),
+			'section'			 => 'raindrops_theme_settings_widget',
+		),		
 		"raindrops_use_featured_image_emphasis"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

@@ -1,4 +1,18 @@
 <?php
+function raindrops_widget_archives_validate($input) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}			
+}
+function raindrops_widget_categories_validate($input) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}			
+}
 function raindrops_widget_recent_posts_validate($input) {
 	if( $input == 'yes' || $input == 'no'  ) {
 		return $input;

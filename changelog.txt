@@ -2,10 +2,36 @@ Changelog -----------------------------------
 version:1.440
 
 Overview of Changes
+	Better Presentaition For Custom Post Types
 
+	When Custom Post Type Archive , Custom Post Single. Shows Custom Post Archive and Taxonomy.
+
+		If you need presentation
+
+			Customize / Presentation / Widget
+				Set Yes. Relate Custom Post Type and Categories Widget
+        			Category widget shows Custom Post relate Taxsonomy
+				Set Yes. Relate Custom Post Type and Archives Widget
+					Archives widget shows Custom post type Monthly Archive.
+		New functions
+
+		 	raindrops_filter_custom_post_archive_widget()
+			raindrops_filter_custom_post_archive_widget_title()
+			raindrops_filter_custom_post_category_widget()
+			raindrops_filter_custom_post_category_widget_title()
+			raindrops_post_type_exclude_template()
+			raindrops_widget_archives_validate()
+			raindrops_widget_categories_validate()
 
 Files Modified
-
+	modified:   date.php
+	modified:   functions.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.439&new_path=raindrops/1.440

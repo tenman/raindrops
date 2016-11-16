@@ -317,12 +317,27 @@ if ( !function_exists( 'raindrops_content_width_clone' ) ) {
 	 *
 	 */
 	function raindrops_content_width_clone() {
-		global $raindrops_page_width, $raindrops_fluid_maximum_width;
+		global $raindrops_page_width, $raindrops_fluid_maximum_width, $raindrops_keep_content_width;
 		$adjust				 = 16;
 		$default			 = 400;
 		$document_width		 = raindrops_warehouse_clone( 'raindrops_page_width' );
 		$sidebar_width		 = 'yui-' . raindrops_warehouse_clone( 'raindrops_col_width' );
 		$extra_sidebar_width = raindrops_warehouse_clone( 'raindrops_right_sidebar_width_percent' );
+
+		if( false == $raindrops_keep_content_width && ( 'doc3' == $document_width || 'doc5' == $document_width ) ) {
+			/**
+			 * @since 1.442
+			 */
+			if ( 'doc3' == $document_width ) {
+				$w = raindrops_warehouse_clone( 'raindrops_fluid_max_width' ) - ( $adjust * 2 );
+			}
+			if ( 'doc5' == $document_width ) {
+				$w = raindrops_warehouse_clone( 'raindrops_full_width_max_width' ) - ( $adjust * 2 );
+			}
+			
+			return $w;
+		}
+		
 		if ( isset( $raindrops_page_width ) && !empty( $raindrops_page_width ) ) {
 			$w		 = $raindrops_page_width;
 			$adjust	 = 16;
@@ -472,7 +487,6 @@ if ( !function_exists( 'raindrops_content_width_clone' ) ) {
 	}
 
 }
-
 if ( !function_exists( 'raindrops_gradient_single_clone' ) ) {
 
     /**

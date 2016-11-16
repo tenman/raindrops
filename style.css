@@ -1544,6 +1544,7 @@ h2.footer-content,
     clear:both;
     text-align:center;
 }
+.postmetadata,
 .entry-meta{
     line-height:1.6;
     margin:1em 0 0;
@@ -3184,7 +3185,10 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
     background-repeat:no-repeat;
     display:inline-block;
     box-sizing:border-box;
-    margin-left:10px;
+    /**
+     * @1.442
+     * margin-left:10px;
+     */
 }
 .widget .icon-link-no-title,
 .widget .icon-post-format-notitle,
@@ -5500,9 +5504,9 @@ ul.rd-nowrap{
 }
 .topsidebar .eco-archive h3 + ul,
 .topsidebar .eco-archive h3{
-    display:inline-block;
-    width:80%;
+    display:block;
 }
+
 .topsidebar .eco-archive h3{
     width:5em;
 }
@@ -6287,7 +6291,10 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .single .raindrops-empty-title .entry-title{
     margin:0;
     overflow:hidden;
-    height:10px;
+    /**
+     * @1.442
+     * height:10px;
+     */
 }
 .page .raindrops-empty-title .entry-content{
     margin-top:0;
@@ -6694,4 +6701,8 @@ article [data-mod="postit"]:before{
 .entry-meta .custom-taxsonomy a,
 .entry-meta .custom-taxsonomy{
     margin:0 .5em;
+}
+
+#doc5 .raindrops-no-keep-content-width .index > li{
+    padding:2em 0;
 }

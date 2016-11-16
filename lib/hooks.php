@@ -372,8 +372,12 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		
 		add_filter('template_include','raindrops_post_type_exclude_template');
 		
-		
-
+		/**
+		 * WordPress4.7 work properly but WordPress4.6.1 Not Work
+		 * This setting for for 4.7
+		 * @since 1.442
+		 */
+		add_theme_support( 'customize-selective-refresh-widgets' );
 	}
 
 }

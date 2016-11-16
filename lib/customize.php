@@ -2601,6 +2601,28 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 		
 		$wp_customize->remove_control( 'display_header_text' );
 		
+		///////////////////////////////////////////////////////////////////////
+		/**
+		 * @since 1.442
+		 * customize-selective-refresh-widgets relate settings
+		 */
+		$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
+		$wp_customize->selective_refresh->add_partial( 'blogname', array(
+		'selector' => '#site-title a span',
+		'render_callback' => 'raindrops_customize_partial_blogname',
+		) );
+		function raindrops_customize_partial_blogname() {
+			bloginfo( 'name' );
+		}
+		$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
+		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
+		'selector' => '.tagline, #site-description',
+		'render_callback' => 'raindrops_customize_partial_blogdescription',
+		) );
+		function raindrops_customize_partial_blogdescription() {
+			bloginfo( 'description' );
+		}
+		///////////////////////////////////////////////////////////////////////		
 	}
 
 }
@@ -2857,7 +2879,18 @@ li.customize-control .widget-inside .widget-content h4,
 	color:$admin_color_base;
 	border:1px solid rgba(222,222,222,.2);
 }
-					
+#customize-theme-controls #sub-accordion-section-custom_css #customize-control-custom_css{
+	width:calc(100% - 1em);
+	margin:auto;
+	padding:0;
+}
+#customize-control-custom_css label{
+	display:block;
+	width:100%;
+}
+.wp-customizer .metabox-prefs label{
+	color:#333;
+}
 CUSTOMIZER_CSS;
 
 	wp_add_inline_style( 'customize-controls', $css );

@@ -1095,7 +1095,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$year_label	 = apply_filters( 'raindrops_archive_year_label', esc_html( $key ) );
 					$result_html .= sprintf( '<h3 class="year year-%2$s"><a href="%1$s">%3$s</a></h3><ul class="item year-%2$s">', $year_link, absint( $key ), $year_label );
 
-					$month_name_before	 = array( 'January', 'February', 'March', 'April', 'MayJune', 'July', 'August', 'September', 'October', 'November', 'December' );
+					$month_name_before	 = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );
 					$month_name_after	 = array( 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
 
 					foreach ( $val as $k => $v ) {
@@ -1138,9 +1138,6 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 					$month_name = $wp_locale->get_month( $key );
 					$result_html .= sprintf( '<h3 class="month month-%2$s">%1$s</h3><ul>', $month_name, esc_attr( $key ) );
-					
-				
-				
 					
 					foreach ( $val as $v ) {
 
@@ -1250,4 +1247,75 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 	}
-	?>
+	
+
+/**
+ * Add Widget Area for Custom Post Type Single Page, After Article
+ * Need Settings
+ * add functions.php top like below 
+ * $raindrops_widget_post_types = array('product');
+ * @since 1.442
+ */
+	
+add_action( 'widgets_init', 'raindrops_post_type_single_widget_area_register' );
+add_action( 'raindrops_after_article', 'raindrops_post_type_single_widget_area_show' );
+
+if ( !function_exists( 'raindrops_post_type_single_widget_area_show' ) ) {
+
+	function raindrops_post_type_single_widget_area_show() {
+
+		global $post, $raindrops_widget_post_types;
+
+		$post_type = get_post_type( get_the_ID() );
+
+		if ( isset( $raindrops_widget_post_types ) && !empty( $raindrops_widget_post_types ) ) {
+
+			foreach ( $raindrops_widget_post_types as $widget ) {
+
+				if ( is_singular() && $post_type == $widget ) {
+					$widget = esc_attr( $widget );
+					if ( is_active_sidebar( $widget ) ) {
+		?>
+												<div class="topsidebar post-type post-type-<?php echo $widget; ?>">
+													<ul>
+						<?php
+						raindrops_prepend_widget_sticky();
+						dynamic_sidebar( $widget );
+						raindrops_append_widget_sticky();
+						?>
+													</ul>
+												</div>
+												<br class="clear" />
+						<?php
+					}
+				}
+			}
+		}
+	}
+}
+
+
+if ( !function_exists( 'raindrops_post_type_single_widget_area_register' ) ) {
+
+	function raindrops_post_type_single_widget_area_register() {
+		global $post, $raindrops_widget_post_types;
+
+		if ( !empty( $raindrops_widget_post_types ) ) {
+
+			foreach ( $raindrops_widget_post_types as $post_type ) {
+
+				$post_type = esc_attr( $post_type );
+
+				register_sidebar( array(
+					'name'			 => esc_html__( sprintf( 'Post Type %1$s Widget', $post_type ), 'raindrops' ),
+					'id'			 => $post_type,
+					'before_widget'	 => '<li id="%1$s" class="%2$s widget post-type-widget post-type-' . $post_type . '" ' . raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
+					'after_widget'	 => '</li>',
+					'before_title'	 => '<h2 class="widgettitle post-type-title h2"><span>',
+					'after_title'	 => '</span></h2>',
+				) );
+			}
+		}
+	}
+}
+?>

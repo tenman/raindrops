@@ -143,6 +143,7 @@ if ( false !== ( $path = raindrops_locate_url( 'lib/hooks.php', 'path' ) ) ) {
 	if( empty( $raindrops_setting_type) ) {
 		$raindrops_setting_type = 'option';
 	}*/
+
 /**
  *
  *
@@ -2936,7 +2937,11 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 		$css .='#doc5 .raindrops-keep-content-width .raindrops-expand-width{margin:0;}' . "\n";
 		$css .='#doc3 .raindrops-keep-content-width{width:' . $content_width . 'px;max-width:100%;margin:auto;float:none;}' . "\n";
 		$css .='#doc3 .raindrops-keep-content-width .raindrops-expand-width{margin:0;}' . "\n";
-
+		
+		$css .='#doc5 .raindrops-no-keep-content-width{max-width:100%;margin:auto;float:none;}' . "\n";
+		$css .='#doc5 .raindrops-no-keep-content-width .raindrops-expand-width{margin:0;}' . "\n";
+		$css .='#doc3 .raindrops-no-keep-content-width{width:' . $content_width . 'px;max-width:100%;margin:auto;float:none;}' . "\n";
+		$css .='#doc3 .raindrops-no-keep-content-width .raindrops-expand-width{margin:0;}' . "\n";
 		if ( isset( $wp_customize ) || $raindrops_stylesheet_type !== 'external' ) {
 			$css .= raindrops_embed_css();
 		}
@@ -4017,6 +4022,7 @@ if ( ! function_exists( "raindrops_content_width" ) ) {
 	}
 
 }
+
 /**
  * plugin API
  *
@@ -6148,10 +6154,20 @@ if ( ! function_exists( 'raindrops_replace_oembed_link_to_icon' ) ) {
 
 			foreach ( $raindrops_post_content_links[ 0 ] as $key => $uri ) {
 
-				if ( wp_oembed_get( $uri ) ) {
+				if ( $embed_result = wp_oembed_get( $uri ) ) {
 
 					$css_class	 = parse_url( $uri );
+					
 					$css_class	 = str_replace( '.', '-', $css_class );
+					
+					if( ! isset(  $css_class[ 'host' ] ) ) {
+						
+						continue;
+					}
+					if( preg_match( '!wp-embedded-content!', $embed_result ) ) {
+						
+						continue;
+					}
 
 					$icon_html_1 = '<span class="oembed-content-icon ' . esc_attr( $css_class[ 'host' ] ) . '">Cloud</span>';
 					$icon_html .= apply_filters( 'raindrops_replace_oembed_link_to_icon_icon', $icon_html_1 );
@@ -6168,10 +6184,12 @@ if ( ! function_exists( 'raindrops_replace_oembed_link_to_icon' ) ) {
 			$link_removed_content	 = $post_content;
 			$icon_html				 = '';
 		}
+
 		return array( 'replaced_content' => $replaced_content, 'link_removed_content' => $link_removed_content, 'icon_html' => $icon_html );
 	}
 
 }
+
 
 if ( ! function_exists( 'raindrops_transient_update' ) ) {
 
@@ -7097,6 +7115,11 @@ if ( ! function_exists( 'raindrops_dinamic_class' ) ) {
 			if ( 1 == $raindrops_current_column && true == $raindrops_keep_content_width ) {
 
 				$class = $id . " raindrops-keep-content-width";
+			} elseif ( 1 == $raindrops_current_column && false == $raindrops_keep_content_width ) {
+				/**
+				 * @since1.442
+				 */
+				$class = $id . " raindrops-no-keep-content-width";
 			} else {
 
 				$class = $id;
@@ -9597,7 +9620,7 @@ if ( ! function_exists( 'raindrops_editor_styles_callback' ) ) {
 
 		$metabox_style	 = '';
 		$result			 = '';
-
+		$post_id = 0;
 		if ( isset( $_REQUEST[ 'id' ] ) && !empty( $_REQUEST[ 'id' ] ) ) {
 			$post_id = absint( $_REQUEST[ 'id' ] );
 
@@ -9612,7 +9635,7 @@ if ( ! function_exists( 'raindrops_editor_styles_callback' ) ) {
 		$font_size						 = raindrops_warehouse_clone( 'raindrops_basefont_settings' );
 		$font_color						 = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 		$link_color						 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-		$raindrops_editor_styles_width	 = apply_filters( 'raindrops_editor_styles_width', $content_width );
+		$raindrops_editor_styles_width	 = apply_filters( 'raindrops_editor_styles_width', $content_width, $post_id );
 		$editor_custom_styles			 = 'html .mceContentBody{max-width:' . $raindrops_editor_styles_width . 'px;}' . "\n";
 		$editor_custom_styles .= 'html .mceContentBody{font-size:' . $font_size . 'px;}' . "\n";
 		if ( isset( $font_color ) && !empty( $font_color ) ) {
@@ -10010,28 +10033,33 @@ if ( ! function_exists( 'raindrops_article_wrapper_class' ) ) {
 	}
 
 }
+if ( !function_exists( 'raindrops_the_article_wrapper_class' ) ) {
 
-function raindrops_the_article_wrapper_class() {
-	global $post;
+	function raindrops_the_article_wrapper_class() {
+		global $post;
 
-	$results = raindrops_article_wrapper_class();
+		$results = raindrops_article_wrapper_class();
 
-	$result = array();
+		$result = array();
 
-	foreach ( $results as $v ) {
-		array_push( $result, sanitize_html_class( $v ) );
-	}
+		if ( !empty( $results ) ) {
 
-	$result = array_unique( $result );
+			foreach ( $results as $v ) {
 
-	$result = trim( implode( ' ', $result ) );
+				array_push( $result, sanitize_html_class( $v ) );
+			}
+		}
 
-	if ( !empty( $result ) ) {
+		$result = array_unique( $result );
 
-		printf( ' class="%1$s"', $result );
+		$result = trim( implode( ' ', $result ) );
+
+		if ( !empty( $result ) ) {
+
+			printf( ' class="%1$s"', $result );
+		}
 	}
 }
-
 if ( ! function_exists( 'raindrops_get_accept_language' ) ) {
 
 	/**
@@ -10055,10 +10083,7 @@ if ( ! function_exists( 'raindrops_get_accept_language' ) ) {
 			return false;
 		}
 	}
-
 }
-
-
 if ( ! function_exists( 'raindrops_excerpt_id' ) ) {
 
 	/**
@@ -11646,6 +11671,15 @@ if ( ! function_exists( 'raindrops_current_post_hilight' ) ) {
 
 			$month			 = get_query_var( 'monthnum' );
 			$year			 = get_query_var( 'year' );
+			/**
+			 * @1.442
+			 * url?m=201402 can not get monthnum
+			 */
+			if( empty( $month ) ) {		
+				$date_info = get_query_var( 'm' );
+				list( $year, $month ) = sscanf($date_info, "%4d%d");
+			}
+			
 			$current_url	 = get_month_link( $year, $month );
 			$inline_style	 = '.widget_archive a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
 			$inline_style .= '.raindrops-extend-archive li a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
@@ -12025,8 +12059,12 @@ if ( ! function_exists( 'raindrops_filter_custom_post_title' ) ) {
 
 					return $title;
 				}
-				$obj = get_post_type_object( $post_type );
+								
+				if ( isset( $instance[ 'title' ] ) && !empty( $instance[ 'title' ] ) ) {
 
+					return esc_html( $instance[ 'title' ] );
+				}
+				$obj = get_post_type_object( $post_type );
 				if ( !empty( $obj ) && true == $obj->has_archive ) {
 
 					return sprintf( __( 'Recent %1$s', 'raindrops' ), $obj->label );

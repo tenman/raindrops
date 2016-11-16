@@ -1,5 +1,4 @@
 <?php
-
 /**
  * functions and constants for Raindrops theme
  *

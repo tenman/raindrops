@@ -291,7 +291,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			$wrap_html		 = '<ul class="xoxo">%1$s</ul>';
 			$category_title	 = '<li class="post-group-by-category-title"><h3 class="post-group_by-category-title category-title %3$s"><a href="%1$s"><span class="cat-item cat-item-%4$s">%2$s</span></a></h3><ul>';
 			$entry_item		 = '<li><a href="%1$s">%3$s</a><p><span title="%4$s">%2$s</span> </p>';
-			
+
 			$entry_item		 = '<li %9$s>'
 			. '<a href="%1$s" class="post-group_by-category-entry-title %8$s">%3$s</a>'
 			. '<%4$s class="entry-date updated post-group-by-category-time" %5$s>%2$s</%4$s>'
@@ -342,7 +342,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$author			 = wp_kses( $author, array() );
 					$author_link	 = get_author_posts_url( get_the_author_meta( 'ID' ) );
 					$author_link	 = esc_url( $author_link );
-					
+
 					if( isset( $post->ID ) && $post->ID == $val && is_single() ) {
 						$list_class = 'class="rd-current-post"';
 					} else {
@@ -406,7 +406,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					echo '<h2 class="widgettitle grid-pinup-title">' . $instance[ 'title' ] . '</h2>';
 				}
 				echo '<ul class="grid-pinup-widgets clearfix">';
-				
+
 				foreach ( $pinup_entries as $key => $val ) {
 
 					$item_number = $key + 1;
@@ -490,7 +490,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 							'post_status'	 => 'public',
 							'post_parent'	 => $val,
 						);
-						
+
 						$attachments = get_posts( $args );
 
 
@@ -503,7 +503,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 						} elseif ( $attachments_num == 1 ) {
 							$post = $attachments[ 0 ];
 						} else {
-							
+
 						}
 
 						if ( isset( $attachments ) && $attachments_num > 0 ) {
@@ -581,13 +581,13 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					 * echo '</li>';
 					 */
 				}
-				
+
 				echo '</ul>';
 
 			} else {
 /**
  * Show Randum
- */				
+ */
 				if ( isset( $instance[ 'id' ] ) && preg_match( '!,!', $instance[ 'id' ] ) ) {
 
 					$content_id	 = explode( ',', $instance[ 'id' ] );
@@ -595,7 +595,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$num		 = rand( 0, $count - 1 );
 					$content_id	 = $content_id[ $num ];
 				} elseif( isset( $instance[ 'id' ] ) ) {
-					
+
 					$content_id	 = absint( $instance[ 'id' ] );
 				}
 
@@ -691,7 +691,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					} elseif ( $attachments_num == 1 ) {
 						$post = $attachments[ 0 ];
 					} else {
-						
+
 					}
 
 					if ( isset( $attachments ) && $attachments_num > 0 ) {
@@ -767,7 +767,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 		function update( $new_instance, $old_instance ) {
-			
+
 			$instance[ 'title' ]		 = strip_tags( stripslashes( $new_instance[ 'title' ] ) );
 			$instance[ 'id' ]			 = strip_tags( stripslashes( $new_instance[ 'id' ] ) );
 			$instance[ 'content' ]		 = strip_tags( stripslashes( $new_instance[ 'content' ] ) );
@@ -779,7 +779,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 		function form( $instance ) {
-			
+
 			global $raindrops_widget_post_types;
 
 			if ( isset( $instance[ 'title' ] ) ) {
@@ -801,7 +801,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$raindrops_content_checked	 = checked( $instance[ 'content' ], "content", false );
 				$puddele_excerpt_checked	 = checked( $instance[ 'content' ], "excerpt", false );
 			} else {
-				
+
 				$content = 'content';
 				$raindrops_content_checked	 = "checked='checked'";
 				$puddele_excerpt_checked	 = "";
@@ -810,14 +810,14 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 				$type = esc_attr( $instance[ 'type' ] );
 			} else {
-				
+
 				$type = 'post';
 			}
 			if ( isset( $instance[ 'display_type' ] ) ) {
 
 				$display_type = esc_attr( $instance[ 'display_type' ] );
 			} else {
-				
+
 				$display_type = 'grid';
 			}
 
@@ -1071,7 +1071,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 			$result_html .= '<div class="eco-archive extent-archives by-' . esc_attr( $groups ) . '">';
 			/**
-			 * @1.407 
+			 * @1.407
 			 * $result_html .= raindrops_monthly_archive_prev_next_navigation( false, true );
 			 */
 			/**
@@ -1084,13 +1084,13 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$current_year_of_archive	 = get_query_var( 'year' );
 			} else {
 				$current_month_of_archive	 = '';
-				$current_year_of_archive	 = '';	
+				$current_year_of_archive	 = '';
 			}
 
 			if ( $groups == 'year' ) {
 
 				foreach ( $result as $key => $val ) {
-					
+
 					$year_link	 = get_year_link( absint( $key ) );
 					$year_label	 = apply_filters( 'raindrops_archive_year_label', esc_html( $key ) );
 					$result_html .= sprintf( '<h3 class="year year-%2$s"><a href="%1$s">%3$s</a></h3><ul class="item year-%2$s">', $year_link, absint( $key ), $year_label );
@@ -1138,10 +1138,10 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 
 					$month_name = $wp_locale->get_month( $key );
 					$result_html .= sprintf( '<h3 class="month month-%2$s">%1$s</h3><ul>', $month_name, esc_attr( $key ) );
-					
+
 					foreach ( $val as $v ) {
 
-						if( is_month() ) {	
+						if( is_month() ) {
 
 							if (  !empty( $current_month_of_archive ) && !empty( $current_year_of_archive ) &&  strtotime( $current_year_of_archive.'/'. $current_month_of_archive .'/1' ) ==  strtotime( strip_tags('1 '. $v ) ) ) {
 									$current_month_class = 'rd-current-month-archive';
@@ -1247,16 +1247,16 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		}
 
 	}
-	
+
 
 /**
  * Add Widget Area for Custom Post Type Single Page, After Article
  * Need Settings
- * add functions.php top like below 
+ * add functions.php top like below
  * $raindrops_widget_post_types = array('product');
  * @since 1.442
  */
-	
+
 add_action( 'widgets_init', 'raindrops_post_type_single_widget_area_register' );
 add_action( 'raindrops_after_article', 'raindrops_post_type_single_widget_area_show' );
 
@@ -1307,7 +1307,7 @@ if ( !function_exists( 'raindrops_post_type_single_widget_area_register' ) ) {
 				$post_type = esc_attr( $post_type );
 
 				register_sidebar( array(
-					'name'			 => esc_html__( sprintf( 'Post Type %1$s Widget', $post_type ), 'raindrops' ),
+					'name'			 => sprintf( esc_html__('Post Type %1$s Widget', 'raindrops' ), $post_type ),
 					'id'			 => $post_type,
 					'before_widget'	 => '<li id="%1$s" class="%2$s widget post-type-widget post-type-' . $post_type . '" ' . raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',
 					'after_widget'	 => '</li>',

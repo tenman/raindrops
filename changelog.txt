@@ -1,4 +1,36 @@
 Changelog -----------------------------------
+version:1.442
+
+Overview of Changes
+
+	Custom Post Type Widget Add Automaticaly. on Article after of Custom Post Type Single Post
+        Need Setting.
+		add functions.php top
+		ex: add custom post type product
+
+		$raindrops_widget_post_types = array('product');
+
+	Modified Adjustment of appearance when var $raindrops_keep_content_width values are changed to false
+
+	Added add_theme_support( 'customize-selective-refresh-widgets' );
+
+	Fixed Archives Extended Widget
+		month permalink works improperly.
+
+Files Modified
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   pdf.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.441&new_path=raindrops/1.442
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.441
 
 Overview of Changes

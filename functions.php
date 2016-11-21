@@ -2784,7 +2784,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		$primary_menu_background = raindrops_warehouse_clone( 'raindrops_primary_menu_background' );
 		if( '' !==  raindrops_primary_menu_color_validate( $primary_menu_background ) ) {
 
-			$css .= ' #top #access .children, #top #access .sub-menu, #top #access, #access a{ background:'. $primary_menu_background. ';}';
+			$css .= ' #top #access .children, #top #access .sub-menu, #top #access, #top #access a{ background:'. $primary_menu_background. ';}';
 		}
 
 		$raindrops_sitewide_css = raindrops_warehouse_clone( 'raindrops_sitewide_css' );

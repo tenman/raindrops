@@ -541,7 +541,6 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_setting'	 => '',
 			'priority'					=> 20,
 			'section'					 => 'raindrops_theme_settings_menu_size',
-			'active_callback'   => 'raindrops_color_selected_relate',
 		),
 		"raindrops_primary_menu_background"					 => array(
 			'default'					 => raindrops_warehouse_clone( 'raindrops_primary_menu_background','option_value' ),
@@ -556,7 +555,6 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_setting'	 => '',
 			'priority'					=> 20,
 			'section'					 => 'raindrops_theme_settings_menu_size',
-			'active_callback'   => 'raindrops_color_selected_relate',
 		),
 		/////////////////////////////////////////////////////////////////////////////
 // End Color Picker

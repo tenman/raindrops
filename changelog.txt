@@ -1,10 +1,10 @@
 Changelog -----------------------------------
-version:1.443
+version:1.444
 
 Overview of Changes
     Fixed User Set When Custom Post Type, Theme Post Date link 404.
         Remove Date Archive Link in Custom Post Type.
-    Add Customizer Section. 
+    Add Customizer Section.
         Primary Menu Link Color, Primary Menu Background Color at Customize/Presentation/Menu Section
             This change is a problem that can be easily changed with CSS, but since many users actually use themes on sites, they are not implemented well
     Modified Setting var $raindrops_keep_content_width and CSS
@@ -19,7 +19,7 @@ Files Modified
     modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.442&new_path=raindrops/1.443
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.442&new_path=raindrops/1.444
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.442

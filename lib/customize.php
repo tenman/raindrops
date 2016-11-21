@@ -540,7 +540,7 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
 			'priority'					=> 20,
-			'section'					 => 'colors',
+			'section'					 => 'raindrops_theme_settings_menu_size',
 			'active_callback'   => 'raindrops_color_selected_relate',
 		),
 		"raindrops_primary_menu_background"					 => array(
@@ -555,7 +555,7 @@ if ( ! isset( $wp_customize ) ) {
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
 			'priority'					=> 20,
-			'section'					 => 'colors',
+			'section'					 => 'raindrops_theme_settings_menu_size',
 			'active_callback'   => 'raindrops_color_selected_relate',
 		),
 		/////////////////////////////////////////////////////////////////////////////
@@ -2071,7 +2071,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	if( 'automatic' == raindrops_warehouse_clone( 'raindrops_color_select') ) {
 
 			$change_settings = array('raindrops_default_fonts_color','raindrops_complementary_color_for_title_link',
-								'raindrops_footer_color','raindrops_hyperlink_color','raindrops_footer_link_color', 'raindrops_primary_menu_color', raindrops_primary_menu_background);
+								'raindrops_footer_color','raindrops_hyperlink_color','raindrops_footer_link_color', 'raindrops_primary_menu_color', 'raindrops_primary_menu_background' );
 		
 		foreach( $raindrops_customize_args as $key => $val ) {
 			

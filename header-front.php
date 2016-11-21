@@ -66,7 +66,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 		<div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 			<?php raindrops_prepend_doc(); ?>
 			<<?php raindrops_doctype_elements( 'div', 'header' ); ?> id="top">
-				<div id="hd">
+				<div id="hd" role="banner">
 					<?php echo raindrops_site_title(); ?>
 
 					<?php echo raindrops_site_description(); ?>

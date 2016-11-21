@@ -33,6 +33,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
+
 $raindrops_home_url       = trailingslashit( home_url() );
 $raindrops_current_column = raindrops_column_controller();
 if ( $raindrops_current_column !== false ) {

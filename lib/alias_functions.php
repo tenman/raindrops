@@ -324,7 +324,7 @@ if ( !function_exists( 'raindrops_content_width_clone' ) ) {
 		$sidebar_width		 = 'yui-' . raindrops_warehouse_clone( 'raindrops_col_width' );
 		$extra_sidebar_width = raindrops_warehouse_clone( 'raindrops_right_sidebar_width_percent' );
 
-		if( false == $raindrops_keep_content_width && ( 'doc3' == $document_width || 'doc5' == $document_width ) ) {
+		if( isset( $raindrops_keep_content_width ) && false == $raindrops_keep_content_width && ( 'doc3' == $document_width || 'doc5' == $document_width ) ) {
 			/**
 			 * @since 1.442
 			 */

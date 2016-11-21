@@ -1336,6 +1336,23 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 
 			$entry_date_html = sprintf( $entry_date_html, $day_link, esc_attr( 'archives daily ' . get_the_date( $raindrops_date_format ) ), $date_text, raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 			);
+			/**
+			 * Custom Post Type Dairy Archives link not yet
+			 * @since 1.443
+			 */
+			$post_type = get_post_type( get_the_ID() );
+			
+			if( 'post' !== $post_type && 'page' !== $post_type ) {
+				
+				$entry_date_html = '<%2$s class="entry-date updated" %3$s>%1$s</%2$s>';
+				
+				$entry_date_html = sprintf( $entry_date_html, 
+									$date_text, 
+									raindrops_doctype_elements( 'span', 'time', false ), 
+									raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
+									);
+			}
+			
 			$entry_date_html = apply_filters( 'raindrops_post_date', $entry_date_html, $date_text, absint( $post->ID ) );
 
 			return $entry_date_html;
@@ -2754,6 +2771,21 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		$css .= ' .rd-w320{width:320px; max-width:100%;}';
 		$css .= ' .rd-w480{width:480px; max-width:100%;}';
 		$css .= ' .rd-w640{width:640px; max-width:100%;}';
+		
+		/**
+		 * @since 1.443
+		 */
+		$primary_menu_color = raindrops_warehouse_clone( 'raindrops_primary_menu_color' );
+		if( '' !== raindrops_primary_menu_color_validate( $primary_menu_color ) ) {
+
+			$css .= ' #top #access .children, #top #access .sub-menu, #top #access a{ color:'. $primary_menu_color. ';}';
+		}
+
+		$primary_menu_background = raindrops_warehouse_clone( 'raindrops_primary_menu_background' );
+		if( '' !==  raindrops_primary_menu_color_validate( $primary_menu_background ) ) {
+
+			$css .= ' #top #access .children, #top #access .sub-menu, #top #access, #access a{ background:'. $primary_menu_background. ';}';
+		}
 
 		$raindrops_sitewide_css = raindrops_warehouse_clone( 'raindrops_sitewide_css' );
 
@@ -5085,6 +5117,7 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 			$raindrops_full_width_max_width			 = raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
 			$raindrops_document_type				 = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
 			$post_per_page							 = get_option( 'posts_per_page' );
+			$raindrops_full_width_max_width_keep_content_width = raindrops_content_width_clone();
 
 			/* loop-12 replace loop-0 */
 			$post_per_page_relate_style = '';
@@ -5235,13 +5268,18 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 					.rd-pw-doc5.rd-col-1 .fail-search,
 					.rd-pw-doc5.rd-col-1.tag article,
 					.rd-pw-doc5.rd-col-1.page-template-date-php #doc3 .datetable,
-					.rd-pw-doc5.rd-col-1.single article,
+					.rd-pw-doc5.rd-col-1.single .raindrops-no-keep-content-width article,
 					.rd-pw-doc5.rd-col-1.page article,
 					.rd-pw-doc5.rd-col-1 .loop-item-show-allways article{
 										  max-width:{$raindrops_full_width_max_width}px;
 										  margin:0 auto!important;
-										/* @1.417  padding:2em;*/
-					}" . '/* raindrops is fluid 1 column end  */';
+					}
+					/* @since1.443 */
+					.rd-pw-doc5.rd-col-1.single .raindrops-keep-content-width article{
+						max-width:{$raindrops_full_width_max_width_keep_content_width}px;
+						margin:0 auto!important;
+					}
+					" . '/* raindrops is fluid 1 column end  */';
 		}
 
 		$fluid_width = raindrops_remove_spaces_from_css( $fluid_width );
@@ -7112,10 +7150,10 @@ if ( ! function_exists( 'raindrops_dinamic_class' ) ) {
 		}
 		if ( 'yui-main' == $id ) {
 
-			if ( 1 == $raindrops_current_column && true == $raindrops_keep_content_width ) {
+			if ( 1 == $raindrops_current_column && isset( $raindrops_keep_content_width ) && true == $raindrops_keep_content_width ) {
 
 				$class = $id . " raindrops-keep-content-width";
-			} elseif ( 1 == $raindrops_current_column && false == $raindrops_keep_content_width ) {
+			} elseif ( 1 == $raindrops_current_column && isset( $raindrops_keep_content_width ) && false == $raindrops_keep_content_width ) {
 				/**
 				 * @since1.442
 				 */
@@ -8797,8 +8835,14 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 		}
 
 		public function add_meta_box( $post_type ) {
-
+			global $raindrops_widget_post_types;
+			
 			$post_types = apply_filters('raindrops_custom_css_supports', array( 'post', 'page' ) );
+			
+			if( isset( $raindrops_widget_post_types ) && ! empty( $raindrops_widget_post_types ) ) {
+				
+				$post_types = array_merge($post_types, $raindrops_widget_post_types );
+			}
 
 			if ( in_array( $post_type, $post_types ) ) {
 

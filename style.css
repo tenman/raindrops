@@ -5959,8 +5959,11 @@ p.raindrops-mobile-menu,
 }
 body:not(.rd-primary-menu-responsive-active) #access:not(.raindrops-menu-fixed) .menu,
 #access:not(.raindrops-menu-fixed) .menu{
-    margin-left:0;
-    margin-right:0;
+  /**
+   * @since 1.443
+   *  margin-left:0;
+   *  margin-right:0;
+   */
 }
 
 body:not(.rd-primary-menu-responsive-active) #access .menu{

@@ -1,4 +1,26 @@
 <?php
+function raindrops_primary_menu_background_validate($input) {
+	$input = str_replace( "#", "", $input );
+
+	if ( ctype_xdigit( $input ) ) {
+
+		return '#' . $input;
+	} else {
+		
+		return '';
+	}
+}
+function raindrops_primary_menu_color_validate($input) {
+	$input = str_replace( "#", "", $input );
+
+	if ( ctype_xdigit( $input ) ) {
+
+		return '#' . $input;
+	} else {
+		
+		return '';
+	}
+}
 function raindrops_widget_archives_validate($input) {
 	if( $input == 'yes' || $input == 'no'  ) {
 		return $input;

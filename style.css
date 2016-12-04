@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.444
+Version: 1.445
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -3504,12 +3504,16 @@ sup {
     text-align:left;
 }
 .static-front-media{
-    padding:0.76923076923em 1em 0 0;
+    padding:0.76923076923em;
 }
 .static-front-content{
-    margin:0.76923076923em 0 0 1em;
+    margin:0.76923076923em;
 }
-
+.page-template-front-page #doc5 .static-front-no-image{
+    margin:2em auto;
+    padding:1em;
+    box-sizing:border-box;
+}
 body .raindrops-expand-width{
     width:100%!important;
     box-sizing:border-box;
@@ -3593,9 +3597,11 @@ body .raindrops-expand-width{
 .page-template-page-templatesfront-page-php #ft .widget{
     text-align:left;
 }
-.page-template-page-templatesfront-page-php .portfolio-nav > ul > li{
-    width:33%;
+
+.page-template-page-templatesfront-page-php .portfolio-nav > ul{
+    display:flex;
 }
+
 #front-page-template-pages .entry-meta-default,
 body#front-page-template-pages:not(.logged-in) .entry-meta{
     display:none;
@@ -3652,6 +3658,14 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     padding-top:80px;
     margin-top:-80px;
     display:block;
+}
+.page-template-front-page .line {
+    width:100%;
+}
+.front-page-template-pages li:target{
+    /* target link position ajust */
+    padding-top:60px;
+    margin-top:-60px;
 }
 /* front-page.php end */
 #date_list a:target{
@@ -3774,43 +3788,54 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     border-bottom:none;
 }
 #portfolio ul.index > li{
-    width:33.3%;
     clear: none;
     display:inline-block;
     float:left!important;
     height:0;
     overflow:hidden;
     /* @1.403 */
-    padding-bottom:25%;
+    padding-bottom:23.475%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     background-size:cover;
-    background-position:center!important;
-    border:0.07692307692em solid rgba( 104, 104, 104, 0.5 );
+    background-position:center!important;  
+}
+#portfolio ul.index > li:hover{
+     border:0.07692307692em solid rgba( 104, 104, 104, 0.5 );
 }
 
 #portfolio.column-4 ul.index > li{ /* 4columns */
     width:25%;
 }
+#portfolio.column-4 ul.index > li .entry-content{
+    margin-top:0;
+}
 #portfolio.column-2 ul.index > li{
     width:50%;
-    height:260px;
+   
+}
+#portfolio.column-2 ul.index > li .entry-content{
+    margin-top:0;
+    height:80%;
 }
 /* @1.402 */
 #portfolio ul.index > li{
-    width:32.3%;
-    margin:.5%;
+    width:31.3%;
+    margin:1%;
 }
 #portfolio.column-4 ul.index > li{ /* 4columns */
-    width:24%;
-    margin:.5%;
+    width:23%;
+    margin:1%;
+    height:0;
+    padding-bottom:17.25%;
 }
 #portfolio.column-2 ul.index > li{
-    width:49%;
-    height:260px;
-    margin:.5%;
+    width:48%;
+    height:0;
+    padding-bottom:36%;
+    margin:1%;
 }
 #portfolio article{
     display:flex;
@@ -3825,16 +3850,42 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .portfolio ul.index > li article{
     visibility:hidden;
     position:relative;
-    height:180px;
+    /*height:180px;*/
     background-size:cover;
     text-align:center;
+    height:0;
+    padding-bottom:75%;
+
+}
+.portfolio ul.index > li article .entry-title{
+   position:absolute;
+   top:0;
+   display:block;
+   overflow:hidden;
+}
+.portfolio ul.index > li article .entry-content{
+   position:absolute;
+   top:60px;
+   display:block;
+   width:calc(100% - 2em);
+   height:60%;
+   overflow:hidden;
+   padding:1em;
+   text-align:left;
+   border:1px solid rgba(127,127,127,.4);
+   box-sizing:border-box;
+   max-width:100%
+
 }
 .portfolio.column-2 ul.index > li article{
-    height:240px;
+    height:0;
+    padding-bottom:75%;
 }
 .portfolio ul.index > li article .entry-meta{
     position:absolute;
     bottom:0;
+    left:0;
+    width:100%;
 }
 .portfolio .posted-on{
     display:none;
@@ -3843,9 +3894,14 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .portfolio ul.index > .loop-item-show-allways article,
 .portfolio ul.index > li:hover article{
     visibility:visible;
+    
+}
+.portfolio ul.index > li{
+    transition:all 0.5s;
 }
 .portfolio ul.index > li:hover{
     background:none!important;
+    transition:all 0.5s;
 }
 .portfolio .index ul,
 .portfolio ul.index > li.loop-9:after,
@@ -3887,10 +3943,11 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .portfolio .index > li .raindrops-comment-link{
     margin:0 0 0 0;
 }
+/*
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link em,
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link{
     display:inline;
-}
+}*/
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .entry-meta,
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .entry-title a{
     display:block;
@@ -4433,7 +4490,8 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
 @media screen and (max-width : 640px){
     #portfolio ul.index > li{
         width:100%;
-        padding-bottom:57.5%;
+        height:0;
+        padding-bottom:75%;
         margin-bottom:1em;
     }
 }
@@ -5355,9 +5413,11 @@ article .post-password-form label{
     height:90vh;
     text-align:center;
 }
+
 .ie8 .pdf-preview{
     height:600px;
 }
+
 .rd-pdf:before{
     content:'PDF';
     margin-right:.5em;
@@ -5534,6 +5594,7 @@ ul.rd-nowrap{
     z-index: 99;
     text-align: center;
 }
+
 .rd-modal .footer{
     text-align:right;
 }
@@ -6092,6 +6153,10 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 .wp-embed-featured-image.square:empty{
     display:none;
+}
+#doc5 #front-page-top-container{
+    padding:1em 0 0 1em;  
+    box-sizing:border-box;
 }
 #front-page-top-container .static-front-media #header-image{
     /* override inline style this case */
@@ -6708,4 +6773,81 @@ article [data-mod="postit"]:before{
 
 #doc5 .raindrops-no-keep-content-width .index > li{
     padding:2em 0;
+}
+
+.pdf-screenshot img{
+    height:auto;
+    text-align:center;
+}
+.pdf-screenshot-links h3{
+    margin:2em 0;
+}
+.pdf-screenshot-links .image-size{
+    width:8em;
+    display:inline-block;
+    text-transform: uppercase;
+}
+.pdf-screenshot-links .image-height:before{
+    content: 'X';
+    display:inline-block;
+    padding:0 .5em;
+}
+.pdf-screenshot-links .image-width:after,
+.pdf-screenshot-links .image-height:after{
+    content:'px';
+}
+
+.rd-video-header #header-image{
+    /**
+     * MUST NOT SHOWS HEADER IMAGE WHEN VIDEO HEADER ACTIVE
+     */
+    position:absolute;
+    background:transparent;
+    z-index:5;
+    height:0;
+
+}
+
+#wp-custom-header,
+.rd-video-header #header-image,
+.rd-video-header #header-image .tagline,
+#wp-custom-header img{
+    display:none;
+}
+.rd-video-header #header-image:hover + #wp-custom-header .wp-custom-header-video-button {
+    visibility:visible;transition: visibility 0.5s ease-out;
+}
+.rd-video-header .wp-custom-header .wp-custom-header-video-button {
+    visibility:hidden;
+    background-color: rgba(222, 222, 222, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.6);
+    height: 45px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 100px;
+    bottom: 10px;
+    width: 45px;
+    font-weight:bold;						
+    transition: visibility 3s ease-out;
+    cursor:pointer;
+    z-index:999;
+}
+
+.rd-video-header .wp-custom-header{
+    /**
+     * fallback height setting exists raindrops-helper.js
+     */
+    max-width:100%;
+    position:relative;
+}
+.attachment-pdf .parent-entry-excerpt,
+.attachment-pdf .image-title a{
+    max-width:100%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.wp-video .mejs-overlay-button{
+    visibility:hidden;
 }

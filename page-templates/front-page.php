@@ -70,19 +70,18 @@ raindrops_debug_navitation( __FILE__ );
 			?>
 		</ul>
 
-		<div id="front-page-template-pages">	
+		<ul id="front-page-template-pages" class="index front-page-template-pages">	
+			<?php	raindrops_prepend_loop();?>
 			<?php
-			raindrops_prepend_loop();
-
 			foreach ( $raindrops_add_front_pages as $post ) {
-				?><div id="post-<?php the_ID(); ?>"><<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>><?php
+				?><li id="post-<?php the_ID(); ?>"><<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>><?php
 				setup_postdata( $post );
 				get_template_part( 'part', 'additional' );
-				?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div><?php
+				?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>></li><?php
 			}
 			wp_reset_postdata();
 			?>
-		</div>
+		</ul>
 		<?php
 	}
 	?>

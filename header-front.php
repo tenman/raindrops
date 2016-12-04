@@ -66,14 +66,28 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 		<div id="<?php echo esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ); ?>" class="<?php echo esc_attr( 'yui-' . raindrops_warehouse( 'raindrops_col_width' ) ); ?> hfeed">
 			<?php raindrops_prepend_doc(); ?>
 			<<?php raindrops_doctype_elements( 'div', 'header' ); ?> id="top">
-				<div id="hd" role="banner">
-					<?php echo raindrops_site_title(); ?>
+			<div id="hd" <?php raindrops_doctype_elements( '', 'role="banner"' ); ?>>
+				<?php	
+				if( raindrops_is_place_of_site_title() == true ) {
+					
+					echo raindrops_site_title();
+				}
+				 echo raindrops_site_description(); 
+				?>               
+			</div>
+			<?php
+				if ( function_exists('has_header_video') && function_exists('the_custom_header_markup' ) &&	has_header_video() 
+						&& ( true == is_home() && true == is_front_page() || false == is_home() && true == is_front_page() ) ) {
+					raindrops_the_header_image();
+					the_custom_header_markup();
+					
+				} 
+                
+                raindrops_nav_menu_primary();
+				
+				raindrops_after_nav_menu();
+				?>			
 
-					<?php echo raindrops_site_description(); ?>
-
-				</div>
-				<?php raindrops_nav_menu_primary();?>
-				<?php raindrops_after_nav_menu();?>
 			</<?php raindrops_doctype_elements( 'div', 'header' ); ?>>
 			<?php
 			$raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
@@ -81,6 +95,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 			if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) {
 			
 				$raindrops_header_image = raindrops_header_image( 'elements' );
+				
 			} else {
 
 				$raindrops_header_image = raindrops_header_image( 'home_url' );
@@ -89,8 +104,8 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 			if ( !empty( $raindrops_header_image ) || has_post_thumbnail() ) {
 				?>
 				<span id="container"></span>
-				<div class="yui-g front-page-top-container" id="front-page-top-container">
-					<div class="" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
+				<div class="line front-page-top-container" id="front-page-top-container">
+					<div class="unit size1of2" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 						<div class="static-front-content yui-u first">
 							<?php
 							if ( is_page() ) {
@@ -108,17 +123,23 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 							<br style="clear:both" />
 						</div>
 					</div>
-					<div class="yui-u">
+					<div class="unit size1of2">
+						
 						<div class="static-front-media">
 							<?php
+							
 							if ( has_post_thumbnail() ) {
 								the_post_thumbnail( 'large', 'style=max-width:100%;width:100%;height:auto;' );
 							} else {
 								echo $raindrops_header_image;
+								
 							}
-						} else {
+						?></div>
+					</div>
+				</div><?php
+			} else {
 							?>  
-							<div class="static-front-content">
+							<div class="static-front-content static-front-no-image">
 								<?php
 								if ( is_page() ) {
 
@@ -133,10 +154,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 								}
 								?>
 								<br style="clear:both" />
-							</div>
-<?php } // end if ( ! empty( $raindrops_header_image ) || has_post_thumbnail( ) )   ?>
-					</div>
-				</div>
-			</div>
+							</div>					
+	<?php	} ?>
 			<div id="bd" class="clearfix">
 <?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

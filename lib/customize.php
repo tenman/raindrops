@@ -214,7 +214,23 @@ if ( ! isset( $wp_customize ) ) {
 	/*
 	 * callback
 	 */
+	function raindrops_sitewide_css_migration_setting( $control ) {
+		/**
+		 * WordPress 4.7 Additional CSS Support.
+		 * The role of Sitewide CSS is over
+		 * Do not display if user is not using
+		 * @since 1.445
+		 */		
+		$setting_exists = raindrops_warehouse_clone( 'raindrops_sitewide_css' );
+		
+		if ( function_exists('has_header_video') && empty( $setting_exists ) ) {
 
+			return false;
+		} else {
+			
+			return true;
+		}
+	}
 	function raindrops_place_of_site_title_callback( $control ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_place_of_site_title' ) )->value() == 'header_image' ) {
@@ -1271,6 +1287,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_sitewide_css_validate',
 			'type'				 => 'textarea',
 			'section'			 => 'raindrops_theme_settings_document',
+			'active_callback'    => 'raindrops_sitewide_css_migration_setting',
 		),
 		"raindrops_actions_hook_message"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_actions_hook_message','option_value' ),
@@ -2931,15 +2948,26 @@ li.customize-control .widget-inside .widget-content h4,
 	border:1px solid rgba(222,222,222,.2);
 }
 #customize-theme-controls #sub-accordion-section-custom_css #customize-control-custom_css{
-	width:calc(100% - 1em);
 	margin:auto;
 	padding:0;
+	width:100%;
+}
+#customize-theme-controls .customize-pane-child.accordion-section-content{
+	padding:6px;
+}
+#customize-theme-controls .customize-section-description a{
+	display:inline-block;
+	margin:.5em 0;
+	color:#369;
 }
 #customize-control-custom_css label{
 	display:block;
 	width:100%;
 }
 .wp-customizer .metabox-prefs label{
+	color:#333;
+}
+.customize-control-notifications-container{
 	color:#333;
 }
 CUSTOMIZER_CSS;
@@ -3013,6 +3041,7 @@ function raindrops_print_scripts() {
 		'color_type_minimal_confirm'		=> esc_html__('Color type minimal, it also includes a change in the theme of the layout. If it is good, Click OK, please press the Save button in the customizer.
 This change in layout, you can later freely change.','raindrops'),
 		'raindrops_data_stored'				=> sprintf( esc_html__('Data Stored : %1$s ','raindrops'), $raindrops_setting_type ),
+		'raindrops_core_version'			=> get_bloginfo('version'),
 	);
 
 	wp_localize_script(	'raindrops-customize', 'raindrops_customizer_script_vars',$setting_values );

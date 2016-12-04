@@ -1572,7 +1572,6 @@ if ( ! function_exists( 'raindrops_hex2rgb_array_clone' ) ) {
 
 				$custom_header_width	 = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
 				$custom_header_height	 = round( $custom_header_width * $raindrops_header_image_default_ratio );
-				
 				break;
 
 			case ( "doc4" ):

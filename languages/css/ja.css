@@ -229,3 +229,6 @@ body.ja,
 .ja .entry-content .sectioned li li li li:before{
     content:'';
 }
+.ja .rd-modal h3{
+    margin:0;
+}

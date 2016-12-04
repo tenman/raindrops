@@ -527,7 +527,8 @@
         text-overflow: ellipsis;
     }
     .raindrops-toc-front{
-        margin:1em 0;  
+        margin:1em auto;
+        width:90vw;
     }
     .raindrops-toc-front li{
         list-style:none;
@@ -892,6 +893,21 @@
         display:table-cell;
         vertical-align:bottom;
     }
+    .page-template-page-templatesfront-page-php .portfolio-nav{
+        height:auto;
+        overflow:visible;
+    }
+    .page-template-page-templatesfront-page-php .portfolio-nav > ul > li,
+    .page-template-page-templatesfront-page-php .portfolio-nav > ul{
+        display:block;
+        height:auto;
+        width:90vw;
+        margin:auto;
+    }
+    .page-template-page-templatesfront-page-php .portfolio-nav > ul > li{
+        border:1px solid rgba(127,127,127,.3);
+    }
+    
 }
 @media screen and (max-width : 480px){
     html .gecko{

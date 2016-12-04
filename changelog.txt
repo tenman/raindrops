@@ -1,4 +1,31 @@
 Changelog -----------------------------------
+version:1.445
+
+Overview of Changes
+    WordPress 4.7 compatibility update
+		Header Video Support.
+		PDF Image Support when using Imagick.
+
+Files Modified
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   page-templates/front-page.php
+	modified:   pdf.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.444&new_path=raindrops/1.445
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.444
 
 Overview of Changes

@@ -2768,9 +2768,14 @@ function raindrops_customizer_style() {
 		$admin_color_focus = sanitize_hex_color( $color_patturn_array['focus'] );
 		$admin_color_current = sanitize_hex_color( $color_patturn_array['current'] );
 		
-
-
-
+		if( 'coffee' == $current_admin_color || 'blue' == $current_admin_color || 'ectoplasm' == $current_admin_color || 'midnight' == $current_admin_color || 'ocean' == $current_admin_color || 'sunrise' == $current_admin_color) {
+			$toggle_color = "#fff";
+		} else {
+			$toggle_color = "#000";
+		}
+		if( 'light' == $current_admin_color ) {
+			$admin_color3 = '#04a4cc';
+		}
 
 		if( 'light' == $current_admin_color || 'fresh' == $current_admin_color ) {
 
@@ -2924,12 +2929,15 @@ li.customize-control .widget-inside .widget-content h4,
 }
 .customize-section-title h3,
 .customize-section-title,
-#customize-controls .customize-info .customize-help-toggle,
 #customize-controls .customize-info .accordion-section-title,
 .wp-core-ui #customize-theme-controls .control-section .accordion-section-title{
 	background:$admin_color1;
 	color:$admin_color_base;
 	border-bottom: 1px solid rgba(222,222,222,.2);	
+}
+#customize-controls .customize-info .customize-screen-options-toggle,
+#customize-controls .customize-info .customize-help-toggle{
+	color:$toggle_color;
 }
 #customize-controls .customize-info .customize-help-toggle{
 	border:none;
@@ -2971,6 +2979,8 @@ li.customize-control .widget-inside .widget-content h4,
 	color:#333;
 }
 CUSTOMIZER_CSS;
+	
+
 
 	wp_add_inline_style( 'customize-controls', $css );
 }

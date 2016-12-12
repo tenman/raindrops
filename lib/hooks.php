@@ -378,6 +378,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.442
 		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
+		
+		/**
+		 * @1.446
+		 */
+		add_filter( 'the_content', 'raindrops_link_pdf_filter' );
 	}
 
 }

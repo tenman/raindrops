@@ -16,7 +16,11 @@
          */
 
         jQuery('.rd-video-header #header-image .tagline').click(function() {
-            var position = jQuery('#yui-main').offset().top - 130;
+            var position = jQuery('#yui-main').offset().top - 98;
+            
+            if ( jQuery( 'body' ).hasClass('logged-in') ) {
+                position = jQuery('#yui-main').offset().top - 130;
+            }
             jQuery('body,html').animate({scrollTop:position}, 500 );
         });        
         
@@ -64,7 +68,7 @@
                         
                         jQuery( window ).scroll( function () {
 
-                            if ( jQuery( this ).scrollTop() > raindrops_video_height  ) {
+                            if ( jQuery( this ).scrollTop() > raindrops_video_height - 100 ) {
 
                                 jQuery(".rd-video-header .wp-custom-header .wp-custom-header-video-play").trigger("click");
                             }
@@ -80,8 +84,12 @@
                         jQuery( '#wp-custom-header' ).removeAttr( 'style' );
                         jQuery( '#wp-custom-header #wp-custom-header-video' ).removeAttr( 'style' ).css( {'height': '0'} ).hide();
                         jQuery( '.rd-video-header #header-image' ).removeAttr( 'style' ).css( {'background':'initial'} );//@todo android
+
                         jQuery( '.rd-video-header #top #header-image' ).css( {'background-image':'url('+ _wpCustomHeaderSettings.posterUrl+')','background-size':'cover'} );                                          
                     }
+                    
+                    /* for front-page.php */
+                    jQuery( '.rd-video-header .static-front-media #header-image' ).removeAttr( 'style' );
                 }
 
                     /* @1.352 */

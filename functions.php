@@ -119,8 +119,6 @@ if ( true == $raindrops_extend_customizer && isset( $wp_customize ) ) {
 		require_once ( $path );
 	}
 }
-
-
 /**
  * It has hooks.
  *
@@ -132,18 +130,6 @@ if ( false !== ( $path = raindrops_locate_url( 'lib/hooks.php', 'path' ) ) ) {
 
 	require_once ( $path );
 }
-/**
- * Select data stored table name theme_mod or option
- *
- * @1.430
- */
-/*	$raindrops_setting_type	= raindrops_warehouse_clone( 'raindrops_theme_data_store' );
-	$raindrops_setting_type	= apply_filters('raindrops_theme_data_store', $raindrops_setting_type );
-
-	if( empty( $raindrops_setting_type) ) {
-		$raindrops_setting_type = 'option';
-	}*/
-
 /**
  *
  *
@@ -493,7 +479,7 @@ if ( ! function_exists( 'raindrops_detect_display_none_condition' ) ) {
 
 		global $raindrops_where_display_none;
 
-		if ( !isset( $raindrops_where_display_none ) ) {
+		if ( !isset( $raindrops_where_display_none ) || empty( $raindrops_where_display_none ) ) {
 
 			$raindrops_display_none_pages = array();
 
@@ -525,7 +511,7 @@ if ( ! function_exists( 'raindrops_detect_display_none_condition' ) ) {
 				}
 			}
 		}
-		return false;
+		return  false;
 	}
 
 }
@@ -588,7 +574,6 @@ if ( ! function_exists( 'raindrops_detect_excerpt_condition' ) ) {
 
 				$raindrops_excerpt_pages[] = 'is_home';
 				
-				$raindrops_excerpt_pages[] = 'is_front_page';
 			}
 			if ( raindrops_warehouse_clone( 'raindrops_entry_content_is_category' ) == 'excerpt' ) {
 
@@ -623,7 +608,10 @@ if ( ! function_exists( 'raindrops_detect_excerpt_condition' ) ) {
 
 }
 
-
+/**
+ * remove at Next version 
+ * @1.446
+ *  
 if ( !defined( 'RAINDROPS_TABLE_TITLE' ) ) {
 
 	define( "RAINDROPS_TABLE_TITLE", 'options' );
@@ -633,6 +621,7 @@ if ( !defined( 'RAINDROPS_PLUGIN_TABLE' ) ) {
 
 	define( 'RAINDROPS_PLUGIN_TABLE', $wpdb->prefix . RAINDROPS_TABLE_TITLE );
 }
+*/
 
 if ( !isset( $raindrops_theme_settings ) ) {
 
@@ -2511,7 +2500,6 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
     #doc5 #container:not(.rd-expand-sidebar) .first+.yui-u,
     #doc3 #container:not(.rd-expand-sidebar) .first+.yui-u{
         display:none;
-        border:1px solid red;
     }
     #doc5 .button-wrapper,
     #doc3 .button-wrapper{
@@ -5319,6 +5307,34 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 						max-width:{$raindrops_full_width_max_width_keep_content_width}px;
 						margin:0 auto!important;
 					}
+					/* @since1.446 */
+					.page-template-front-page .topsidebar ul > li > .widgettitle ~ select[name=\"archive-dropdown\"],
+					.page-template-front-page .topsidebar ul > li > .widgettitle ~ .postform{
+					
+						margin-left: 30%;
+						margin-right:30%;
+						width: 40%;
+						
+					}
+					.page-template-front-page .topsidebar ul > li > .widgettitle + form .searchform,
+					.page-template-front-page .topsidebar ul > li > .widgettitle + table,
+					.page-template-front-page .topsidebar ul > li > .widgettitle + div,
+					.page-template-front-page .topsidebar ul > li > #calendar_wrap,
+					.page-template-front-page .topsidebar ul > li > .widgettitle + ul,
+					.page-template-front-page .topsidebar ul > li > .widgettitle,
+					.page-template-front-page #portfolio .portfolio-nav,
+					.page-template-front-page #portfolio .index,
+					.page-template-front-page .front-page-template-pages .rd-tpl-front-page,
+					.page-template-front-page .raindrops-toc-front,
+					.page-template-front-page > .line{
+						max-width:{$raindrops_full_width_max_width}px;
+						margin:0 auto!important;
+					}
+					.page-template-front-page #portfolio,
+					.page-template-front-page #bd{
+						max-width:{$raindrops_full_width_limit_window_width}px;
+						margin:0 auto!important;
+					}
 					" . '/* raindrops is fluid 1 column end  */';
 		}
 
@@ -5448,6 +5464,7 @@ if ( ! function_exists( 'raindrops_page_menu_args' ) ) {
 
 		global $raindrops_nav_menu_home_link;
 		$args[ 'show_home' ] = $raindrops_nav_menu_home_link;
+		
 		return $args;
 	}
 
@@ -6070,19 +6087,17 @@ if ( ! function_exists( 'raindrops_entry_content' ) ) {
 
 		global $post, $more_link_text;
 
+		if ( raindrops_detect_display_none_condition() && is_sticky() ) {
 
-
-		if ( raindrops_detect_display_none_condition() && !is_sticky() ) {
-
-			return;
+			//return;
 		}
 
-		$raindrops_excerpt_condition		 = raindrops_detect_excerpt_condition();
+		$raindrops_excerpt_condition		 = apply_filters('raindrops_excerpt_conditional', raindrops_detect_excerpt_condition() );
 		$raindrops_excerpt_enable			 = raindrops_warehouse_clone( 'raindrops_excerpt_enable' );
-		$raindrops_allow_oembed_excerpt_view = raindrops_warehouse_clone( 'raindrops_allow_oembed_excerpt_view' );
-
+		//$raindrops_allow_oembed_excerpt_view = raindrops_warehouse_clone( 'raindrops_allow_oembed_excerpt_view' );
+ 
 		if ( true == $raindrops_excerpt_condition && !is_sticky() && 'no' == $raindrops_excerpt_enable &&
-		!preg_match( '!\[raindrops skip-excerpt\]!', $post->post_content ) ) {
+		! preg_match( '!\[raindrops skip-excerpt\]!', $post->post_content ) ) {
 
 			/* remove shortcodes */
 			$excerpt = strip_shortcodes( get_the_excerpt() );
@@ -6091,6 +6106,7 @@ if ( ! function_exists( 'raindrops_entry_content' ) ) {
 			$excerpt = apply_filters( 'raindrops_the_excerpt', $excerpt, __FUNCTION__ );
 
 			echo apply_filters( 'raindrops_entry_content', $excerpt );
+
 		} else {
 
 			if ( empty( $more_link_text ) ) {
@@ -7603,6 +7619,7 @@ if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 			'walker'			 => '',
 			'wrap_element_id'	 => 'access',
 			'wrap_mobile_class'	 => 'raindrops-mobile-menu',
+			'item_spacing'       => 'discard', // default 'preserve
 		);
 
 		$args	 = wp_parse_args( $args, $defaults );
@@ -7951,7 +7968,12 @@ if ( ! function_exists( 'raindrops_remove_wbr' ) ) {
  * test filter.
  * @since 1.119
  */
-add_filter( 'the_content', 'raindrops_non_breaking_content', 11 );
+/**
+ * 
+ * add_filter( 'the_content', 'raindrops_non_breaking_content', 11 );
+ * Stop filter
+ * @1.446
+ */
 
 if ( ! function_exists( 'raindrops_non_breaking_content' ) ) {
 
@@ -8826,6 +8848,21 @@ if ( ! function_exists( 'raindrops_link_text_filter' ) ) {
 	}
 
 }
+if ( !function_exists( 'raindrops_link_pdf_filter' ) ) {
+	/**
+	 * 
+	 * @param type $content
+	 * @return type
+	 * @since 1.446
+	 */
+	function raindrops_link_pdf_filter( $content ) {
+
+		$content = preg_replace_callback( "|<a class=\"rd-pdf\" [^>]+>([^<]+)</a>|", "raindrops_link_url_text_decode", $content );
+
+		return $content;
+	}
+
+}
 if ( ! function_exists( 'raindrops_link_url_text_decode' ) ) {
 
 	/**
@@ -8836,8 +8873,8 @@ if ( ! function_exists( 'raindrops_link_url_text_decode' ) ) {
 	 */
 	function raindrops_link_url_text_decode( $matches ) {
 
-		if ( isset( $matches[ 1 ] ) && false !== strpos( $matches[ 1 ], '%' ) ) {
-
+		if ( isset( $matches[ 1 ] ) && preg_match('!%[0-9A-Z][0-9A-Z]+!', $matches[ 1 ] ) ) {
+			
 			$replace = urldecode( $matches[ 1 ] );
 			$replace = esc_html( $replace );
 
@@ -9047,9 +9084,20 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 				. '</p>';
 
 				foreach ( $images as $image ) {
-					$form .= sprintf(
-					$header_image_html, 'style="display:inline-block;"', 'style="position:relative;top:-1em;"', $image[ 'attachment_id' ], checked( $image[ 'attachment_id' ], $current_value_header, false ), $image[ 'url' ]
-					);
+					
+					$attached_file_type = wp_check_filetype( $image[ 'url' ] );
+					
+					if ($attached_file_type[ 'ext' ] == 'jpeg' || 
+						$attached_file_type[ 'ext' ] == 'jpg' || 
+						$attached_file_type[ 'ext' ] == 'png' || 
+						$attached_file_type[ 'ext' ] == 'gif' ) {
+						
+						$form .= sprintf(
+						$header_image_html, 'style="display:inline-block;"', 'style="position:relative;top:-1em;"', $image[ 'attachment_id' ], checked( $image[ 'attachment_id' ], $current_value_header, false ), $image[ 'url' ]
+						);
+					} else {
+						continue;
+					}
 				}
 				/**
 				 * Attchment image to header image
@@ -9059,7 +9107,8 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 							'post_parent' => $post->ID,
 							'post_type'   => 'attachment',
 							'numberposts' => -1,
-							'post_status' => 'any'
+							'post_status' => 'any',
+							'post_mime_type' => 'image',
 						);
 				$images = get_children( $attachment_args );
 

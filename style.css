@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.445
+Version: 1.446
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1177,6 +1177,9 @@ address {
 div.hentry {
     padding:0;
     margin:1em;
+}
+.search-results .pagetitle{
+    padding:1em 0;
 }
 .search-results,
 .search-results > li{
@@ -3662,6 +3665,9 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .page-template-front-page .line {
     width:100%;
 }
+.page-template-front-page .index article{
+    width:100%;
+}
 .front-page-template-pages li:target{
     /* target link position ajust */
     padding-top:60px;
@@ -3800,10 +3806,10 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     background-size:cover;
-    background-position:center!important;  
+    background-position:center!important;
 }
 #portfolio ul.index > li:hover{
-     border:0.07692307692em solid rgba( 104, 104, 104, 0.5 );
+     outline:1px solid rgba( 104, 104, 104, 0.5 );
 }
 
 #portfolio.column-4 ul.index > li{ /* 4columns */
@@ -3814,7 +3820,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 }
 #portfolio.column-2 ul.index > li{
     width:50%;
-   
+
 }
 #portfolio.column-2 ul.index > li .entry-content{
     margin-top:0;
@@ -3894,7 +3900,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .portfolio ul.index > .loop-item-show-allways article,
 .portfolio ul.index > li:hover article{
     visibility:visible;
-    
+
 }
 .portfolio ul.index > li{
     transition:all 0.5s;
@@ -5932,14 +5938,21 @@ x:-o-prefocus, .rd-modal > div {
     padding-bottom:1.5em;
 }
 /* 1 column entry background separater */
+.rd-pw-doc5 .page-template-front-page #portfolio,
 .rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even) .entry-meta{
     background:rgba(255,255,255,.4);
 }
+.rd-pw-doc5 .page-template-front-page .topsidebar > ul > li:nth-child(odd),
+.rd-pw-doc5 .page-template-front-page .front-page-template-pages > li:nth-child(odd),
 .rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even),
 .rd-pw-doc5.rd-col-1.rd-type-light .topsidebar > ul > li:nth-child(even){
     background:rgba(255,255,255,.4);
     padding-top:1em;
     padding-bottom:1em;
+}
+.rd-pw-doc5 .page-template-front-page .portfolio,
+.rd-pw-doc5 .page-template-front-page .raindrops-toc-front{
+    padding-top:1em;
 }
 .rd-pw-doc5.rd-col-1.rd-type-dark .index > li:nth-child(even) .entry-meta{
     background:rgba(0,0,0,.5);
@@ -6155,7 +6168,7 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     display:none;
 }
 #doc5 #front-page-top-container{
-    padding:1em 0 0 1em;  
+    padding:1em 0 0 1em;
     box-sizing:border-box;
 }
 #front-page-top-container .static-front-media #header-image{
@@ -6307,7 +6320,6 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 #bd .widget_nav_menu li.button-wrapper {
     display:none;
-    border:1px solid red;
 }
 /* @1.410 Responsive Sidebar End */
 
@@ -6829,7 +6841,7 @@ article [data-mod="postit"]:before{
     right: 100px;
     bottom: 10px;
     width: 45px;
-    font-weight:bold;						
+    font-weight:bold;
     transition: visibility 3s ease-out;
     cursor:pointer;
     z-index:999;
@@ -6850,4 +6862,8 @@ article [data-mod="postit"]:before{
 }
 .wp-video .mejs-overlay-button{
     visibility:hidden;
+}
+.tag.paged .rd-tag-description,
+.category.paged .rd-category-description{
+    display:none;
 }

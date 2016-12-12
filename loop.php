@@ -8,7 +8,6 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-
 /**
  * Display navigation to next/previous pages when applicable
  */

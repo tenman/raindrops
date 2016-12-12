@@ -158,6 +158,14 @@
     div#doc5 .posted-on{
         position:relative;
     }
+    .page-template-front-page #doc5 div[class^="entry-meta"],
+    .page-template-front-page #doc3 div[class^="entry-meta"]{
+        position:absolute;
+        text-align:center;
+    }
+    .portfolio ul.index > li article .entry-content{
+        top:40px;
+    }
     #doc5 .mejs-horizontal-volume-total,
     #doc3 .mejs-horizontal-volume-total{
         max-width:100%;
@@ -739,7 +747,6 @@
     
     article.rd-custom-post-type,/* @1.438 */
     .fail-search,/* @1.343 */
-    .index article,
     .page article,
     .single-post article{
         width:90%;

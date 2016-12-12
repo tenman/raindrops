@@ -2,10 +2,32 @@ Changelog -----------------------------------
 version:1.446
 
 Overview of Changes
-
+	Code Cleaning
+		Commentout RAINDROPS_TABLE_TITLE,RAINDROPS_PLUGIN_TABLE
+		Next version remove.
+	Modified Dinamic Style for front-page.php template.
+	Modified raindrops_link_url_text_decode()
+	Filter Add raindrops_excerpt_conditional
+	Filter Add raindrops_link_pdf_filter
+	Filter Commentout raindrops_non_breaking_content
+		Next version remove.
+	Modified Customize link
+		from customize.php?autofocus[panel]=raindrops_theme_settings_presentation_panel
+		to javascript:wp.customize.panel( \'raindrops_theme_settings_presentation_panel\' ).focus();
+	Modified Admin Color
+	Modified When Video header tagline linked to main contents link offset.
+	Modified Category ,Tag description only shows page top,(when paged hide).
+	Fixed bug when Static Front Page displayed excerpt.
 
 Files Modified
-
+	modified:   functions.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   loop.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.445&new_path=raindrops/1.446

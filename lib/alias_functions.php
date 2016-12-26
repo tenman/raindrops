@@ -64,7 +64,18 @@ if ( !function_exists( 'raindrops_warehouse_clone' ) ) {
 		}
 
 		if ( 'option_value' == $property ) {
+			
+			$raindrops_custom_values = apply_filters('raindrops_custom_option_vals', false );
+			
+			if( false !== $raindrops_custom_values && ! empty( $raindrops_custom_values ) ) {
+				
+					if( array_key_exists( $name, $raindrops_custom_values ) ) {
 
+						$validate_function_name = $name.'_validate';					
+						return $validate_function_name( $raindrops_custom_values[$name] );
+					}
+			}
+			
 			if ( is_child_theme() && isset( $raindrops_child_base_setting_args ) ) {
 
 				if ( isset( $raindrops_child_base_setting_args[ $name ][ 'option_value' ] ) ) {
@@ -1913,6 +1924,8 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 	function raindrops_filter_page_column_control() {
 
 		global $raindrops_current_column, $post, $template, $raindrops_keep_content_width;
+		
+		
 		/**
 		 * @1.401
 		 */
@@ -1923,7 +1936,7 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
 			return;						
 		}
-
+		
 
 		if ( is_tax( 'post_format', 'post-format-link' ) ) {
 			$raindrops_current_column = (int) raindrops_warehouse_clone( 'raindrops_sidebar_format_link_archive' );
@@ -2098,11 +2111,19 @@ if ( ! function_exists( 'raindrops_keep_content_width') ) {
 	
 	function raindrops_keep_content_width( $column ) {
 		global $raindrops_keep_content_width;
+		
+		$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );
+		
 
 		$page_width	= raindrops_warehouse_clone( 'raindrops_page_width' );
 		
 		if( 1 == (int) $column && 'doc5' == $page_width ) {
-			
+			/* @since 1.447 */
+			if( !empty( $raindrops_content_width_setting ) && 'keep' == $raindrops_content_width_setting ) {
+				return true;
+			}elseif( 'fit' == $raindrops_content_width_setting ) {
+				return false;
+			}
 			if( is_child_theme() ) {
 				/* todo @1.420 */
 				return apply_filters('raindrops_keep_content_width', true );
@@ -2110,6 +2131,14 @@ if ( ! function_exists( 'raindrops_keep_content_width') ) {
 
 			return apply_filters('raindrops_keep_content_width', false );
 		} else {
+			/* @since 1.447 */
+			if( !empty( $raindrops_content_width_setting ) && 'keep' == $raindrops_content_width_setting ) {
+				
+				return true;
+			}elseif( 'fit' == $raindrops_content_width_setting ) {
+				
+				return false;
+			}
 
 			if( isset( $raindrops_keep_content_width ) ) {
 

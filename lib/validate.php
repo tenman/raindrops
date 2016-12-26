@@ -1,4 +1,11 @@
 <?php
+function raindrops_content_width_setting_validate($input) {
+	if( $input == 'keep' || $input == 'fit'  ) {
+		return $input;
+	} else {
+		return 'keep';
+	}			
+}
 function raindrops_primary_menu_background_validate($input) {
 	$input = str_replace( "#", "", $input );
 
@@ -675,7 +682,7 @@ function raindrops_featured_image_recent_post_count_validate( $input ) {
 		
 		return absint( $input ) ;
 	}
-	return 3;
+	return $max_num_post;
 }
 function raindrops_featured_image_size_validate( $input ) {
 // todo get_intermadiate_image_sizes

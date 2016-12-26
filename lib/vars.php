@@ -250,7 +250,6 @@ if ( !isset( $raindrops_keep_content_width ) ) {
 
 	$raindrops_keep_content_width = apply_filters( 'raindrops_keep_content_width', true );
 }
-
 /**
  * Use transient or not
  * value true or false
@@ -560,7 +559,7 @@ if ( !isset( $raindrops_base_setting_args ) ) {
 	empty( $raindrops_current_style_type ) ) ) {
 		//@1.433 todo
 		$raindrops_current_style_type = 'dark';
-	}
+	} 
 
 	$raindrops_base_setting_args = array(
 		"raindrops_color_scheme"				 => array( 'option_id'		 => 1,
@@ -585,7 +584,7 @@ if ( !isset( $raindrops_base_setting_args ) ) {
 		"raindrops_style_type"					 => array( 'option_id'		 => 3,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_style_type",
-			'option_value'	 => "dark",
+			'option_value'	 => "minimal",
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Color Type', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -636,7 +635,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_page_width"					 => array( 'option_id'		 => 8,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_page_width",
-			'option_value'	 => "doc3",
+			'option_value'	 => "doc5",
 			'autoload'		 => 'yes',
 			'title'			 => __( 'Document Width', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -929,7 +928,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_featured_image_recent_post_count"		 => array( 'option_id'		 => 36,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_featured_image_recent_post_count",
-			'option_value'	 => 3,
+			'option_value'	 => 10,
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -939,7 +938,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_featured_image_singular"					 => array( 'option_id'		 => 37,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_featured_image_singular",
-			'option_value'	 => 'show',
+			'option_value'	 => 'hide',
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Singular ( post, page ) Show Featured Image', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -999,7 +998,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_place_of_site_title"						 => array( 'option_id'		 => 43,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_place_of_site_title",
-			'option_value'	 => 'above',
+			'option_value'	 => 'header_image',
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Place of Title', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -1757,6 +1756,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt2'		 => esc_html__( '', 'raindrops' ),
 			'validate'		 => 'raindrops_primary_menu_background_validate',
 			'list'			 => 113 ),
+		'raindrops_content_width_setting'					 => array( 'option_id'		 => 115,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_content_width_setting',
+			'option_value'	 => 'keep',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Content Width', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'keep: TinyMCE relate width, full: fit article width', 'raindrops' ),
+			'validate'		 => 'raindrops_content_width_setting_validate',
+			'list'			 => 114 ),
 	);
 }
 

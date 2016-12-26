@@ -5,7 +5,7 @@ if( is_paged() ) {
 if ( ( is_home() == true && is_front_page() == true ) || // default
 	 ( is_home() == false && is_front_page() == true )   // static front page
 ) {
-    if ( is_active_sidebar('sidebar-3') ) {
+if ( is_active_sidebar('sidebar-3') ) {
 ?>
 	<div class="topsidebar">
 		
@@ -19,6 +19,6 @@ if ( ( is_home() == true && is_front_page() == true ) || // default
     </div>
     <br class="clear" />
 <?php
-	}
+}
 } 
 ?>

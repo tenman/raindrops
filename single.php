@@ -118,13 +118,6 @@ raindrops_debug_navitation( __FILE__ );
             echo '<!-- #post-' . get_the_ID() . ' -->';
         }
 		?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
-		<?php
-		/**
-		 * @1.425 Next version will remove below
-		 */
-			//$short_link = wp_get_shortlink();
-			//$article_title = get_the_title().'%0a';
-		?>
 		</div>
 
 		<?php

@@ -5,6 +5,11 @@
  */
 (function() {
     jQuery(function() {
+        jQuery("body").removeClass('noscript');
+    });
+})(jQuery);
+(function() {
+    jQuery(function() {
         
          var entity_map = {
             "&": "&amp;",

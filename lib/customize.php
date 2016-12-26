@@ -651,6 +651,24 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_sidebar',
 			'priority'			=> 8,
 		),
+
+		"raindrops_content_width_setting"							 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_content_width_setting','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'label'				 => esc_html__( 'Content Width', 'raindrops' ),
+			'capability'		 => $raindrops_customize_cap,
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'keep: TinyMCE relate width, fit: fit article width', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_content_width_setting_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'keep'	 =>  esc_html__( 'Keep', 'raindrops' ),
+				'fit'	 =>  esc_html__( 'Fit', 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_sidebar',
+			'priority'			=> 8,
+		),		
 		"raindrops_col_setting_type"							 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_col_setting_type','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1759,7 +1777,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Input Possible values are 1 - ', 'raindrops' ) . $raindrops_featured_image_post_max . esc_html__( ' default value 3', 'raindrops' ),
+			'description'		 => esc_html__( 'Input Possible values are 1 - ', 'raindrops' ) . $raindrops_featured_image_post_max. sprintf( esc_html__( ' default value %1$d', 'raindrops' ), $raindrops_featured_image_post_max ),
 			'sanitize_callback'	 => 'raindrops_featured_image_recent_post_count_validate',
 			'type'				 => 'text',
 			'active_callback'	 => 'raindrops_use_featured_image_emphasis_callback',
@@ -2911,6 +2929,15 @@ li.customize-control .widget-inside .widget-content h4,
 	height:16em!important;
 
 }
+#rd-control-description-raindrops-col-setting-type.rd-custom-message{
+	display: list-item;
+	border-left:5px solid #e74c3c;
+	max-width:99%;	
+}
+#rd-control-description-raindrops-col-setting-type	.customize-control-title span{
+	color:#e74c3c;
+	font-weight:700;
+}
 #rd-control-description-raindrops-color-select.rd-custom-message{
 	display: list-item;
 	border-left:5px solid #ea6153;
@@ -3007,6 +3034,9 @@ function raindrops_print_scripts() {
 	}
 	
 	$raindrops_current_style_type = raindrops_warehouse_clone('raindrops_style_type');
+	
+	
+	
 
 	$setting_values = array(
 		'preview_label'						 => __( 'Preview Width', 'raindrops' ),
@@ -3096,6 +3126,39 @@ function raindrops_customize_control_message_raindrops_style_type(){
 	__('Navigation:(After save and publish)','raindrops'),// Title
 	admin_url( $customizer_url ), // link
 	__('Go to Custom Color Settings','raindrops')//link label
+	);
+}
+
+
+	
+if ( !is_active_sidebar( 1 ) || !is_active_sidebar( 2 ) ) {
+// for option
+	add_action( 'customize_render_control_raindrops_theme_settings[raindrops_col_setting_type]', 'raindrops_customize_control_message_raindrops_col_setting_type' );
+// for theme_mod
+	add_action( 'customize_render_control_raindrops_col_setting_type', 'raindrops_customize_control_message_raindrops_col_setting_type' );
+}
+
+function raindrops_customize_control_message_raindrops_col_setting_type(){
+	
+	$customizer_url = "javascript:wp.customize.panel( 'widgets' ).focus();";
+	$html = '<li id="rd-control-description-raindrops-col-setting-type" class="rd-custom-message customize-control customize-control-style-type" >
+	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
+	
+	if ( !is_active_sidebar( 1 ) && !is_active_sidebar( 2 ) ) {
+		
+		$message = __('Please set widget first. Default Sidebar Widget, Extra Sidebar Widget not set.','raindrops');
+	} elseif ( !is_active_sidebar( 1 ) ) {
+		
+		$message = __('Please set widget first. Required Default Sidebar Widget for 2 columns','raindrops');
+	} elseif ( !is_active_sidebar( 2 ) ) {
+		
+		$message = __('Please set widget first. Required Extra Sidebar Widget for 3 columns','raindrops');
+	}
+	
+	printf( $html,
+	sprintf( __('<span>Alert:</span> %1$s','raindrops'), $message ),// Title
+	$customizer_url, // link
+	__('Go to Widgetr Settings','raindrops')//link label
 	);
 }
 ?>

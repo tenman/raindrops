@@ -527,12 +527,13 @@
     #doc5 .raindrops-pinup-entries .entry-title,
     #doc3 .raindrops-pinup-entries .entry-title {
         position: absolute;
-        top: -10px;
+        top: 10px;
         white-space: nowrap;
         width: 90vw;
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
+        font-weight:700;
     }
     .raindrops-toc-front{
         margin:1em auto;
@@ -875,10 +876,9 @@
     .rd-cat-em .lsidebar .cat-item:before{
        vertical-align:middle;
     }
-    /* @1.416 */
+    /* @1.447 */
     .blog .sticky, .home .sticky {
         box-sizing:border-box;
-        width:90vw;
     }
     .grid-pinup-item{
         position:relative;

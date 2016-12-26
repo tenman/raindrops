@@ -2015,6 +2015,9 @@ function raindrops_indv_css_minimal() {
 	
     $font_color = raindrops_colors( 5, "color" );
 	$background_3 = raindrops_colors( -3, "background" );
+	$background3 = raindrops_colors( 3, "background" );
+	$background4 = raindrops_colors( 4, "background" );
+	$background5 = raindrops_colors( 5, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
     $style = <<<CSS
 	
@@ -2300,7 +2303,13 @@ hr{
 #raindrops.rd-type-minimal a{
 	
 }
-.entry-meta .edit-link,
+.entry-meta .edit-link{
+	margin: 2px .5em;
+    padding: 3px 4px;
+    display: inline-block;
+    line-height: 1.6;
+		 border:1px solid rgba(127,127,127,.3);
+}
 .entry-meta .post-format-text + a,
 .post-tag a span,
 .post-category a span{
@@ -2369,7 +2378,76 @@ address .entry-rss:after,
 	width:20%;
 }
 /* @1.403 end */
+/* @1.447 start */
+.nav-next a, .nav-previous a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+.rd-content-width-fit #doc5	.index > li:nth-child(even){
+	background:$background5;
+	 transition: all 1s ease-in-out;
+}
 
+.rd-content-width-fit #doc5	.index > li:hover{
+	box-shadow: 0px 0px 6px 3px $background3;
+    -moz-box-shadow: 0px 0px 6px 3px $background3;
+    -webkit-box-shadow: 0px 0px 6px 3px $background3;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: box-shadow 1s ease-in-out;
+	background:#fff;
+}
+.rd-content-width-fit #doc5	.index > li:hover + li{
+	background:$background5;
+	 transition: all 1s ease-in-out;
+}
+	
+	
+.rd-content-width-keep .index > li{
+	border-bottom:1px solid $background5;
+	padding:1em;
+	margin:2em 0;
+	transition: box-shadow 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+}
+.rd-content-width-fit #ft,
+.rd-content-width-keep #ft,
+.rd-content-width-fit .pagination,
+.rd-content-width-keep .pagination,
+.rd-content-width-keep .index > li{
+	background:#fff;
+}
+
+.rd-content-width-fit .pagination,
+.rd-content-width-keep .pagination{
+	padding-top:2.5em;
+	padding-bottom:.5em;
+	margin:auto;
+}
+.rd-content-width-fit .pagination + br,
+.rd-content-width-keep .pagination + br{
+	display:none;
+}
+.rd-content-width-keep .index > li:hover{
+	border:1px solid $background3;
+    box-shadow: 0px 0px 6px 3px $background4;
+    -moz-box-shadow: 0px 0px 6px 3px $background4;
+    -webkit-box-shadow: 0px 0px 6px 3px $background4;
+    transition: box-shadow 0.5s ease-in-out;
+    -webkit-transition: box-shadow 0.5s ease-in-out;
+}
+.rd-content-width-keep .index > .title-wrapper{
+	border-bottom:none;	
+}
+.rd-content-width-keep .index > li:first-child{
+	margin:0 0 2em;
+}
+
+.rd-content-width-keep .index > li:last-child{
+	margin:2em 0 0;
+}
+
+/* @1.447 end */
 .lsidebar .widgettitle,
 .rsidebar .widgettitle{
 	font-weight:700;

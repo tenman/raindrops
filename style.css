@@ -1617,6 +1617,9 @@ h2.footer-content,
     margin-right:.5em;
     opacity:1;
 }
+.rd-cat-em .topsidebar .cat-item:before{
+    vertical-align:bottom;
+}
 
 .rd-cat-em .footer-widget-wrapper .cat-item a,
 .rd-cat-em .topsidebar .cat-item a,
@@ -2682,6 +2685,7 @@ div.nest :after{
 /* nest*/
 br.clear{
     clear:both!important;
+
 }
 .clear-3,
 .clear-2,
@@ -5419,7 +5423,7 @@ article .post-password-form label{
     height:90vh;
     text-align:center;
 }
-
+.safari .pdf-preview,
 .ie8 .pdf-preview{
     height:600px;
 }
@@ -5939,13 +5943,13 @@ x:-o-prefocus, .rd-modal > div {
 }
 /* 1 column entry background separater */
 .rd-pw-doc5 .page-template-front-page #portfolio,
-.rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even) .entry-meta{
+.rd-content-width-fit.rd-type-light .index > li:nth-child(even) .entry-meta{
     background:rgba(255,255,255,.4);
 }
 .rd-pw-doc5 .page-template-front-page .topsidebar > ul > li:nth-child(odd),
 .rd-pw-doc5 .page-template-front-page .front-page-template-pages > li:nth-child(odd),
-.rd-pw-doc5.rd-col-1.rd-type-light .index > li:nth-child(even),
-.rd-pw-doc5.rd-col-1.rd-type-light .topsidebar > ul > li:nth-child(even){
+.rd-content-width-fit.rd-type-light .index > li:nth-child(even),
+.rd-content-width-fit.rd-type-light .topsidebar > ul > li:nth-child(even){
     background:rgba(255,255,255,.4);
     padding-top:1em;
     padding-bottom:1em;
@@ -6217,9 +6221,14 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 .topsidebar .grid-pinup-widgets .widgettitle{
     padding: 0;
+
 }
 .topsidebar .grid-pinup-widgets img.aligncenter{
     padding:0;
+}
+.topsidebar .grid-pinup-item{
+    overflow:hidden;
+    position:relative;
 }
 .rsidebar .grid-pinup-item,
 .lsidebar .grid-pinup-item{
@@ -6340,6 +6349,11 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .widget_recent_entries a{
     padding:.279em 0 .279em;
     display:block;
+}
+
+.rd-type-minimal .widget_recent_entries a{
+    padding:.279em .56em;
+    display:inline;
 }
 .widget_recent_entries a + .post-date{
     display:block;
@@ -6814,12 +6828,13 @@ article [data-mod="postit"]:before{
      * MUST NOT SHOWS HEADER IMAGE WHEN VIDEO HEADER ACTIVE
      */
     position:absolute;
-    background:transparent;
     z-index:5;
     height:0;
 
 }
-
+.rd-video-header:not(.noscript) #header-image{
+    background:transparent;
+}
 #wp-custom-header,
 .rd-video-header #header-image,
 .rd-video-header #header-image .tagline,
@@ -6866,4 +6881,8 @@ article [data-mod="postit"]:before{
 .tag.paged .rd-tag-description,
 .category.paged .rd-category-description{
     display:none;
+}
+#doc3 .raindrops-no-keep-content-width{
+    padding:1em;
+    box-sizing:border-box;
 }

@@ -829,6 +829,7 @@ h6,
 .mce-content-body .wp-video .mejs-overlay-button{
     visibility:hidden;
 }
+
 /* share link fallback style start */
 .mce-content-body .clip-link{ margin-bottom:1em;}
 .mce-content-body .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}

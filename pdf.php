@@ -142,7 +142,7 @@ raindrops_debug_navitation( __FILE__ );
 									}
 								} else {
 								?>
-								<object class="pdf-preview" data="<?php echo  $direct_link; ?>" type="application/pdf" width="100%" height="100%" typemustmatch="typemustmatch">
+								<object class="pdf-preview" data="<?php echo $direct_link; ?>" type="application/pdf" width="100%" height="100%" typemustmatch="typemustmatch">
 									<p><a href="<?php echo  $direct_link; ?>"><?php esc_html_e('Click here to the PDF file.', 'raindrops'); ?></a></p>
 								</object>
 								<?php 

@@ -172,7 +172,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 * @since 1.261
 		 */
-		add_filter( 'wp_headers', 'raindrops_wp_headers', 10, 2 );
+		add_filter( 'wp_headers', 'raindrops_wp_headers', 10 );
 		/**
 		 * @since 1.270
 		 */

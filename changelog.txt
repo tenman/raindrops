@@ -1,4 +1,38 @@
 Changelog -----------------------------------
+version:1.447
+
+Overview of Changes
+
+	When Fresh Install Theme
+		Remove sidebar example widget ( Showing 3col to 1col )
+		Change Default Color Type from dark to minimal.
+		Change Site Title Position from above header image to in header image
+
+	Add new body_class .noscript ( this class removed from jQuery )
+	Add new filter raindrops_custom_option_vals
+
+	Customizer Add settings raindrops_content_width_setting
+
+Files Modified
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   pdf.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
+	modified:   widget-sticky.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.446&new_path=raindrops/1.447
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.446
 
 Overview of Changes

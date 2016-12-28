@@ -584,7 +584,7 @@ if ( !isset( $raindrops_base_setting_args ) ) {
 		"raindrops_style_type"					 => array( 'option_id'		 => 3,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_style_type",
-			'option_value'	 => "minimal",
+			'option_value'	 => "dark",
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Color Type', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -635,7 +635,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_page_width"					 => array( 'option_id'		 => 8,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_page_width",
-			'option_value'	 => "doc5",
+			'option_value'	 => "doc3",
 			'autoload'		 => 'yes',
 			'title'			 => __( 'Document Width', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -928,7 +928,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_featured_image_recent_post_count"		 => array( 'option_id'		 => 36,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_featured_image_recent_post_count",
-			'option_value'	 => 10,
+			'option_value'	 => 3,
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -998,7 +998,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_place_of_site_title"						 => array( 'option_id'		 => 43,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_place_of_site_title",
-			'option_value'	 => 'header_image',
+			'option_value'	 => 'above',
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Place of Title', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -1768,8 +1768,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'list'			 => 114 ),
 	);
 }
-
-if ( !isset( $raindrops_base_setting ) ) {
+	
+if ( !isset( $raindrops_base_setting ) || empty( $raindrops_base_setting ) ) {
 
 	$raindrops_base_setting = apply_filters( 'raindrops_base_setting_args', $raindrops_base_setting_args );
 }

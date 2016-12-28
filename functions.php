@@ -11474,6 +11474,18 @@ if ( ! function_exists( 'raindrops_pdf_send_to_editor' ) ) {
 		$post = get_post( $attachment_id );
 
 		if ( substr( $post->post_mime_type, 0, 15 ) == 'application/pdf' ) {
+			
+			$check_encoded = get_url_in_content( $html );
+			
+			if( mb_strlen( $check_encoded ) !== strlen( $check_encoded ) && ! preg_match('!%[0-9A-Z][0-9A-Z]+!', $check_encoded ) ) {
+				
+				/**
+				 * Add PDF link Multibyte Languages URL Encode Check
+				 * @since 1.448
+				 */				
+				$encoded_url = esc_url( $check_encoded );				
+				$html = str_replace( $check_encoded, $encoded_url, $html );
+			}
 
 			return str_replace( '<a', '<a class="rd-pdf"', $html );
 		}

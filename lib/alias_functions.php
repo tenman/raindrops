@@ -1924,8 +1924,19 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 	function raindrops_filter_page_column_control() {
 
 		global $raindrops_current_column, $post, $template, $raindrops_keep_content_width;
-		
-		
+		/**
+		 * @since 1.448
+		 */
+		if ( ! is_active_sidebar( 1 ) && ! is_active_sidebar( 2 ) ) {
+			$raindrops_current_column = 1;
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			   return;				
+		   }
+		if ( is_active_sidebar( 1 ) && ! is_active_sidebar( 2 ) ) {
+			$raindrops_current_column = 2;
+			$raindrops_keep_content_width	 = raindrops_keep_content_width( $raindrops_current_column );
+			   return;				
+		 }
 		/**
 		 * @1.401
 		 */

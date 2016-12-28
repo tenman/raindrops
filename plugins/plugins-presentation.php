@@ -608,10 +608,11 @@ if ( !function_exists( 'raindrops_the_event_calendar_setup' ) ) {
 		add_action( 'wp_enqueue_scripts', 'raindrops_the_event_calendar_css' );
 	}
 }
-	add_action( 'tribe_get_venue_details' ,'raindrops_title_remove_tag' );
+//	add_action( 'tribe_get_venue_details' ,'raindrops_title_remove_tag' );
 	
 if ( !function_exists( 'raindrops_title_remove_tag' ) ) {
 	function raindrops_title_remove_tag( $content ) {
+		
 		$content["name"] = htmlspecialchars_decode( $content["name"] );
 		$content["name"] = wp_kses( $content["name"],array() );
 		/* hotfix for attribute title using wp_title() */

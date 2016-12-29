@@ -624,6 +624,7 @@ pre,
 .hentry embed,
 ul.archive,
 ul.index,
+.calendar_wrap,
 #calendar_wrap,
 .wp-caption,
 .format-status ul.categoryblog *,
@@ -1828,7 +1829,18 @@ ul.index li .edit {
     list-style-type:none;
     min-height:2em;
     margin:0 0 0 0;
-    padding:.5em 0 0 .5em;
+    padding:.5em 0 0 .4em;
+}
+.rd-type-minimal .widget_archive li,
+.rd-type-minimal .widget_archive li{
+    letter-spacing:-.03em;
+    
+}
+.rd-type-minimal li.widget_archive ul li a,
+.rd-type-minimal li.widget_archive ul li a{
+    margin-top:0;
+    padding-top:0;
+    padding-bottom:0;
 }
 .topsidebar ul li ul li{
     padding:0;
@@ -2103,18 +2115,21 @@ br.clearfix {
 .vevent {
     padding:1em;
 }
-
+.calendar_wrap,
 #calendar_wrap{
     text-align:center;
     margin-left:0.15384615384em;
 }
+.calendar_wrap table,
 #calendar_wrap table{
     margin:0 auto;
 }
+.calendar_wrap a,
 #calendar_wrap a{
     margin:0;
     padding:0;
 }
+
 #wp-calendar caption{
     margin:1em 0;
     text-align:center;
@@ -2124,12 +2139,15 @@ br.clearfix {
     text-decoration:underline;
     white-space:nowrap;
 }
+
 #wp-calendar tfoot td{
     border:none;
 }
+
 #wp-calendar tfoot #prev{
     text-align:left;
 }
+.calendar_wrap td,
 #calendar_wrap td{
     position:static;
     text-align:center;
@@ -2138,6 +2156,7 @@ br.clearfix {
     overflow-wrap: normal;
 
 }
+#ft .calendar_wrap td,
 #ft #calendar_wrap td{
     position:static;
     text-align:center;

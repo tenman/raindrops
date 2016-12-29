@@ -10,6 +10,26 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Raindrops base setttings for Fresh Install Users
+ * It applies when you have not created a post after installing the Raindrops theme, or when the $raindrops_year_2017_base_settings variable is true.
+ * @since 1.449
+ */
+
+if ( isset($raindrops_year_2017_base_settings) && true == $raindrops_year_2017_base_settings ) {
+	$raindrops_year_2017_base_settings = true;
+	set_theme_mod( 'raindrops_year_2017_base_settings', 'yes' );
+	set_theme_mod('raindrops_new_base_setting','yes');
+}
+if ( false == get_theme_mod( 'raindrops_blog_last_modified_date', false ) ) {
+	set_theme_mod( 'raindrops_year_2017_base_settings', 'yes' );
+	set_theme_mod('raindrops_new_base_setting','yes');
+}
+if ( isset($raindrops_year_2017_base_settings) && false == $raindrops_year_2017_base_settings  ) {
+	$raindrops_year_2017_base_settings = false;
+	remove_theme_mod( 'raindrops_year_2017_base_settings' );
+	remove_theme_mod('raindrops_new_base_setting');
+}
+/**
  * Pinup_entry_widget add custom post type
  * @since 1.441
  */
@@ -1768,7 +1788,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'list'			 => 114 ),
 	);
 }
-	
+
+if( 'yes' == get_theme_mod( 'raindrops_year_2017_base_settings' ) ) {
+
+	$raindrops_base_setting_args["raindrops_page_width"]['option_value'] = 'doc5';
+	$raindrops_base_setting_args["raindrops_featured_image_recent_post_count"]['option_value'] = 10;
+	$raindrops_base_setting_args["raindrops_place_of_site_title"]['option_value'] = 'header_image';	
+	$raindrops_base_setting_args["raindrops_style_type"]['option_value'] = 'minimal';	
+}
+
 if ( !isset( $raindrops_base_setting ) || empty( $raindrops_base_setting ) ) {
 
 	$raindrops_base_setting = apply_filters( 'raindrops_base_setting_args', $raindrops_base_setting_args );

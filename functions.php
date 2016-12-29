@@ -403,7 +403,6 @@ if ( ! function_exists( 'raindrops_reset_theme_options' ) ) {
 		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_reset_options' ) ) {
 			if ( 'option' == $raindrops_setting_type ) {
 				delete_option( 'raindrops_theme_settings' );
-
 				raindrops_update_theme_option( 'raindrops_reset_options', 'no' );
 
 			}
@@ -9313,7 +9312,9 @@ if ( ! function_exists( 'raindrops_blog_last_modified_date' ) ) {
 
 	function raindrops_blog_last_modified_date( $post_id, $post ) {
 
-		set_theme_mod( 'raindrops_blog_last_modified_date', gmdate( 'D, d M Y H:i:s \G\M\T', time() ) );
+		if( $post->post_type == 'post' || $post->post_type == 'page' ){
+			set_theme_mod( 'raindrops_blog_last_modified_date', gmdate( 'D, d M Y H:i:s \G\M\T', time() ) );
+		}
 	}
 
 }
@@ -9333,6 +9334,8 @@ if ( ! function_exists( 'raindrops_dinamic_css_header' ) ) {
 			$last_modified = get_theme_mod( 'raindrops_blog_last_modified_date' );
 			if ( !empty( $last_modified ) ) {
 				header( 'Last-Modified:' . $last_modified );
+			} else {
+				header( 'Last-Modified:' . gmdate( 'D, d M Y H:i:s \G\M\T', time() ) );
 			}
 		}
 	}

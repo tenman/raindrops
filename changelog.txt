@@ -1,4 +1,29 @@
 Changelog -----------------------------------
+version:1.449
+
+Overview of Changes
+
+	Fresh Install Default UI changed
+		When Fresh Install
+			"raindrops_page_width" to 'doc5',
+			"raindrops_featured_image_recent_post_count" to 10,
+			"raindrops_place_of_site_title" to "header_image"
+			"raindrops_style_type" to 'minimal'
+
+		How to display a new UI on a site that has already been installed and operated
+
+		function.php first add below variable
+
+			$raindrops_year_2017_base_settings = true;
+
+Files Modified
+	modified:   lib/vars.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.448&new_path=raindrops/1.449
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.448
 
 Overview of Changes

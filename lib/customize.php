@@ -2087,6 +2087,37 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'header_image',
 			'priority'			 => 9,
 		),
+				//@1.353
+		"raindrops_display_site_title"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_display_site_title','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Display Site Title Text', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'value show, hide. default show', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_display_site_title_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
+			),
+			'active_callback'	 => '',
+			'section'			 => 'title_tagline',
+			'priority' => 9,
+		),
+		"raindrops_site_title_css_class"		 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_css_class','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'CSS Class of Site Title', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'for example google-font-lobster default value none', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_site_title_css_class_validate',
+			'type'				 => 'text',
+			'section'			 => 'title_tagline',
+		),
 
 	);
 	/**
@@ -2430,25 +2461,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_place_of_site_title_callback_b',
 			'section'			 => 'title_tagline',
 		),
-		//@1.353
-		"raindrops_display_site_title"	 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_display_site_title','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'Display Site Title Text', 'raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'value show, hide. default show', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_display_site_title_validate',
-			'type'				 => 'radio',
-			'choices'			 => array(
-				'show'	 => esc_html__( 'Show', 'raindrops' ),
-				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
-			),
-			'active_callback'	 => '',
-			'section'			 => 'title_tagline',
-			'priority' => 9,
-		),
+
 		"raindrops_tagline_in_the_header_image"	 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_tagline_in_the_header_image','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -2467,18 +2480,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => '',
 			'section'			 => 'title_tagline',
 		),
-		"raindrops_site_title_css_class"		 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_site_title_css_class','option_value' ),
-			'data_type'			 => $raindrops_setting_type,
-			'autoload'			 => 'yes',
-			'capability'		 => $raindrops_customize_cap,
-			'label'				 => esc_html__( 'CSS Class of Site Title', 'raindrops' ),
-			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'for example google-font-lobster default value none', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_site_title_css_class_validate',
-			'type'				 => 'text',
-			'section'			 => 'title_tagline',
-		),
+
 		
 	);
 

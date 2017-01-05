@@ -42,16 +42,19 @@ raindrops_debug_navitation( __FILE__ );
 		);
 
 	raindrops_tile( $args );
-
-	$args						 = array(
+	
+	$exclude_page	= get_option( 'page_on_front' );	
+	$args			= array(
 		'meta_key'		 => '_add-to-front',
 		'meta_value'	 => 'add',
 		'meta_compare'	 => '=',
 		'post_type'		 => 'page',
 		'post_status'	 => 'public',
 		'orderby'		 => 'menu_order',
-		'nopaging'		 => true
+		'nopaging'		 => true,
+		'post__not_in'   => array( $exclude_page, ),
 	);
+	
 	$raindrops_add_front_pages	 = get_posts( $args );
 
 	if ( $raindrops_add_front_pages ) {

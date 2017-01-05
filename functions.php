@@ -760,6 +760,12 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 
 			$classes[] = 'enable-keyboard';
 		}
+		if( 'yes' == get_theme_mod( 'raindrops_year_2017_base_settings') ) {
+			/**
+			 * @since 1.457
+			 */
+			$classes[] = 'rd-2017-base-setting';
+		}
 		/**
 		 * @since 1.447
 		 * this class will removed jQuery removeClass
@@ -4472,7 +4478,7 @@ if ( ! function_exists( 'raindrops_header_image' ) ) {
 				$background_property = 'background-image:url( ' . esc_url( $img ) . ' );';
 			}
 
-			$css		 = '#%1$s{%2$s%8$s;height:%3$s;color:#%4$s;%5$s}' . "\n" . '#%1$s p {%6$s}';
+			$css		 = '#%1$s{%2$s%8$s;height:%3$s;color:#%4$s;%5$s}' . "\n" . '#%1$s p {color:#%4$s;}'. "\n" . '.site-title-link{color:#%4$s;}';
 			$text_attr	 = str_replace( array( 'style', '=', '"', "'" ), '', $text_attr );
 			
 			$css		 = sprintf( $css, 'header-image', apply_filters( 'raindrops_header_image_background_image', $background_property ), esc_html( $height ), esc_html( $color ), apply_filters( 'raindrops_header_image_background_style', esc_html( $style ) ), htmlspecialchars( $text_attr, ENT_NOQUOTES ), esc_html( $text ), $width );
@@ -5175,11 +5181,13 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 			.commentlist,
 			#nav-above-comments,
 			#nav-below-comments,
-			#doc5 #nav-below,
+			#nav-below,
 			.no-header-image #header-inner,
 			#access .menu-header,
 			#access > .menu,
 			#top ol.breadcrumbs,
+			.rd-tag-description,
+			.rd-category-description,
 			#bd,
 			#ft .widget-wrapper{
 				max-width:{$raindrops_full_width_max_width}px;
@@ -9039,7 +9047,9 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 			$current_value								 = get_post_meta( $post->ID, '_add-to-front', true );
 			$page_page_auto_include_template			 = apply_filters( 'raindrops_page_auto_include_template', 'front-page.php' );
 
-			if ( $raindrops_static_front_page_template_slug == $page_page_auto_include_template && $raindrops_current_screen->post_type == 'page' ) {
+			if ( $raindrops_static_front_page_template_slug == $page_page_auto_include_template && 
+					$raindrops_current_screen->post_type == 'page' &&
+					$raindrops_static_front_page_id !== $post->ID ) {
 
 				$form .= '<h4>' . esc_html__( 'Add Front Page', 'raindrops' ) . '</h4>';
 				$form .= '<p><input type="radio" name="add-to-front" id="add-to-front" value="add" ' . checked( 'add', $current_value, false ) . ' />' . __( 'Add Front Page This Content', 'raindrops' ) . '</p>';

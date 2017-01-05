@@ -2019,6 +2019,7 @@ function raindrops_indv_css_minimal() {
 	$background4 = raindrops_colors( 4, "background" );
 	$background5 = raindrops_colors( 5, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
+	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#c0392b!important;');
     $style = <<<CSS
 	
 .rd-cat-em .footer-widget-wrapper .cat-item:before,
@@ -2384,11 +2385,12 @@ address .entry-rss:after,
 	width:100%;
 	height:100%;
 }
+.rd-content-width-fit .topsidebar .sticky-widget:nth-child(even),
 .rd-content-width-fit #doc5	.index > li:nth-child(even){
 	background:$background5;
 	 transition: all 1s ease-in-out;
 }
-
+.rd-content-width-fit .topsidebar .widget:hover,
 .rd-content-width-fit #doc5	.index > li:hover{
 	box-shadow: 0px 0px 6px 3px $background3;
     -moz-box-shadow: 0px 0px 6px 3px $background3;
@@ -2397,6 +2399,7 @@ address .entry-rss:after,
     -webkit-transition: box-shadow 1s ease-in-out;
 	background:#fff;
 }
+.rd-content-width-fit .topsidebar .widget:hover + li,
 .rd-content-width-fit #doc5	.index > li:hover + li{
 	background:$background5;
 	 transition: all 1s ease-in-out;
@@ -2428,6 +2431,7 @@ address .entry-rss:after,
 .rd-content-width-keep .pagination + br{
 	display:none;
 }
+.rd-content-width-keep .topsidebar .widget:hover,
 .rd-content-width-keep .index > li:hover{
 	border:1px solid $background3;
     box-shadow: 0px 0px 6px 3px $background4;

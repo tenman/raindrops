@@ -84,7 +84,7 @@
         display:block!important;
         /* target link position ajust */
         padding-top:100px;
-        margin-top:-100px;
+        margin-top:-100px!important;
     }
     .ie6 #access:target{display:block!important;}
     .ie7 #access:target{display:block!important;}

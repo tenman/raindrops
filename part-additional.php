@@ -83,11 +83,10 @@ raindrops_entry_title();
 	raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
 	?>
 </div>
-<?php
-if ( is_singular() && !is_front_page() ) {
+<?php 
 
+if ( is_single() && false == is_front_page() ) {
 	raindrops_prev_next_post( 'nav-below' );
-
 	comments_template( '', true );
 }
 do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );

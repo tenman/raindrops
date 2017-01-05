@@ -1429,6 +1429,10 @@ footer a{
 #nav-below {
     margin:0;
 }
+.single #nav-below{
+    margin-top:2em;
+    margin-bottom:2em;
+}
 .rd-col-1 #nav-status-bar,
 .rd-col-1 #nav-above,
 .rd-col-1 #nav-below {
@@ -1582,6 +1586,7 @@ h2.footer-content,
 }
 .rd-tag-em .post-tag span[class^="tag-link-"],
 .category-archives .cat-item,
+.entry-meta > .post-format-text + a .post-format,
 .entry-meta > .post-category .cat-item,
 .posted-on + .this-posted-in + .post-category .cat-item,
 .entry-title + .this-posted-in + .post-category .cat-item{
@@ -1590,6 +1595,7 @@ h2.footer-content,
     display:inline-block;
     line-height:1.6;
 }
+
 .rd-tag-em .post-tag a{
     position:relative;
 }
@@ -1721,6 +1727,7 @@ div[class^="entry-meta"] .emoji-date,
     width:24px;
     display:inline-block;
 }
+
 .rd-featured-yes-front:not(.paged) .index > li .entry-title-text{
     display:inline-block;
     width:24px;
@@ -2176,6 +2183,9 @@ br.clearfix {
 .topsidebar .sticky-widget{
     margin-bottom:1em;
     padding:0 13px;
+}
+.rd-content-width-fit .topsidebar .sticky-widget{
+    margin-bottom:0;
 }
 .topsidebar .sticky-widget.widget_archive > ul,
 .topsidebar .sticky-widget.widget_categories > ul{
@@ -3685,6 +3695,9 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     margin-top:-80px;
     display:block;
 }
+.single div[id^="post-"]{
+    margin-top:1em;
+}
 .page-template-front-page .line {
     width:100%;
 }
@@ -4156,11 +4169,12 @@ ol.list-of-post-list .entry-title{
 }
 #raindrops_status_bar .raindrops-next-prev-links .nav-previous,
 #raindrops_status_bar .raindrops_prev_next_post .nav-previous{
-    text-align:left;
+    
 }
 #raindrops_status_bar .move-to-top{
     text-align:right;
-    margin-right:1em
+    margin-right:1em;
+    margin-bottom:0;
 }
 #raindrops_status_bar a{
     text-decoration:none;
@@ -5378,6 +5392,7 @@ article .post-password-form label{
 .paged .entry-title > a > span{
     display:table;
 }
+.rd-featured-yes-front:not(.paged)  .index > li .raindrops-sticky .entry-title .h2-thumb,
 .raindrops-sticky .h2-thumb,
 .search-results .h2-thumb,
 .tag .h2-thumb,
@@ -5391,6 +5406,7 @@ article .post-password-form label{
     vertical-align:bottom;
     min-width:48px;/* for non space long text */
 }
+.rd-featured-yes-front:not(.paged)  .index > li .raindrops-sticky .entry-title .h2-thumb + .entry-title-text,
 .raindrops-sticky .h2-thumb + .entry-title-text,
 .search-results .h2-thumb + .entry-title-text,
 .tag .h2-thumb + .entry-title-text,
@@ -5401,6 +5417,13 @@ article .post-password-form label{
 .paged .h2-thumb + .entry-title-text{
     display:table-cell;
     vertical-align:bottom;
+}
+.rd-featured-yes-front:not(.paged)  .index > li .raindrops-sticky .entry-title .h2-thumb + .entry-title-text{
+    padding:.5em;
+    line-height:1.231;
+}
+.index > li .raindrops-sticky .entry-title{
+    line-height:1.231;
 }
 .index .h2-thumb{
     background: repeating-linear-gradient(
@@ -6904,4 +6927,11 @@ article [data-mod="postit"]:before{
 #doc3 .raindrops-no-keep-content-width{
     padding:1em;
     box-sizing:border-box;
+}
+.rd-col-1.page-template-blank_front #container .first{
+    margin:auto;
+    float:none;
+}
+.rd-col-1.page-template-blank_front.page #yui-main article{
+    margin-left:135px!important;
 }

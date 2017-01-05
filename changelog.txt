@@ -1,4 +1,33 @@
 Changelog -----------------------------------
+version:1.450
+
+Overview of Changes
+	add body class rd-2017-base-setting
+
+	Fixed header text color
+		sometimes show wrong color
+	Fixed front page template
+		When set static front page
+			Content duplication display
+			Remove Add Front Page Radio button
+			Not work Custom CSS for This Entry
+	Modified Customizer
+		Always Shows Display Site Title Text,CSS Class of Site Title( Section:title_tagline )
+
+Files Modified
+	modified:   header-front.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   page-templates/front-page.php
+	modified:   part-additional.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.449&new_path=raindrops/1.450
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.449
 
 Overview of Changes

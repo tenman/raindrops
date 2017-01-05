@@ -43,7 +43,8 @@ raindrops_debug_navitation( __FILE__ );
 
 	raindrops_tile( $args );
 	
-	$exclude_page	= get_option( 'page_on_front' );	
+	$exclude_page	= get_option( 'page_on_front' );
+
 	$args			= array(
 		'meta_key'		 => '_add-to-front',
 		'meta_value'	 => 'add',
@@ -54,7 +55,7 @@ raindrops_debug_navitation( __FILE__ );
 		'nopaging'		 => true,
 		'post__not_in'   => array( $exclude_page, ),
 	);
-	
+		
 	$raindrops_add_front_pages	 = get_posts( $args );
 
 	if ( $raindrops_add_front_pages ) {
@@ -87,6 +88,7 @@ raindrops_debug_navitation( __FILE__ );
 		</ul>
 		<?php
 	}
+	
 	?>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

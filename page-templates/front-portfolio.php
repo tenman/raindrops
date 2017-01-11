@@ -79,7 +79,7 @@ wp_reset_postdata();
  *  portfolio block
  *
  */
-$raindrops_portfolio_page = get_query_var( 'page' );
+$raindrops_portfolio_page = absint( get_query_var( 'page' ) );
 $raindrops_posts_per_page = 9;
 $raindrops_offset         = 0;
 $args                     = array(

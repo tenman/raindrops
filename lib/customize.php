@@ -551,7 +551,7 @@ if ( ! isset( $wp_customize ) ) {
 			'capability'				 => $raindrops_customize_cap,
 			'label'						 => esc_html__( 'Primary Menu Link Color', 'raindrops' ),
 			'excerpt1'					 => '',
-			'description'				 => esc_html__( '', 'raindrops' ),
+			'description'				 => esc_html__( 'You can specify the color of the Primary Menu Link', 'raindrops' ),
 			'sanitize_callback'			 => 'raindrops_primary_menu_color_validate',
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
@@ -565,7 +565,7 @@ if ( ! isset( $wp_customize ) ) {
 			'capability'				 => $raindrops_customize_cap,
 			'label'						 => esc_html__( 'Primary Menu Background Color', 'raindrops' ),
 			'excerpt1'					 => '',
-			'description'				 => esc_html__( '', 'raindrops' ),
+			'description'				 => esc_html__( 'You can specify the color of the Primary Menu Background Color', 'raindrops' ),
 			'sanitize_callback'			 => 'raindrops_primary_menu_background_validate',
 			'extend_customize_control'	 => 'WP_Customize_Color_Control',
 			'extend_customize_setting'	 => '',
@@ -1777,7 +1777,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Input Possible values are 1 - ', 'raindrops' ) . $raindrops_featured_image_post_max. sprintf( esc_html__( ' default value %1$d', 'raindrops' ), $raindrops_featured_image_post_max ),
+			'description'		 => sprintf( esc_html__( 'Input Possible values are 1 - %1$d default value %1$d', 'raindrops' ) , $raindrops_featured_image_post_max ),
 			'sanitize_callback'	 => 'raindrops_featured_image_recent_post_count_validate',
 			'type'				 => 'text',
 			'active_callback'	 => 'raindrops_use_featured_image_emphasis_callback',
@@ -3107,9 +3107,10 @@ function raindrops_customize_control_message_raindrops_color_select(){
 	);
 	
 	if ( isset( $raindrops_setting_type ) && 'option' == $raindrops_setting_type ) {
-		
+	
 		printf( $html,
-		sprintf(__('<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">Color Scheme</a>', 'raindrops'),'customize.php?autofocus[panel]=raindrops_theme_settings_presentation_panel'),// Title
+		sprintf(__('<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">Color Scheme</a>', 'raindrops'),
+		'javascript:wp.customize.section( \'raindrops_theme_settings_presentation\' ).focus()'),// Title
 		__('First to display the Color Scheme First, please some preview the most preferred design. If it not from, color customization does not apply.','raindrops' )  //Message
 		);
 	}
@@ -3120,13 +3121,14 @@ add_action('customize_render_control_raindrops_theme_settings[raindrops_style_ty
 // for theme_mod
 add_action('customize_render_control_raindrops_style_type', 'raindrops_customize_control_message_raindrops_style_type' );
 function raindrops_customize_control_message_raindrops_style_type(){
-	$customizer_url = 'customize.php?autofocus[section]=colors';
+	//$customizer_url = 'customize.php?autofocus[section]=colors';
+	$customizer_url = 'javascript:wp.customize.section( \'colors\' ).focus()';	
 	$html = '<li id="rd-control-description-raindrops-style-type" class="rd-custom-message customize-control customize-control-style-type" >
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
 	
 	printf( $html,
 	__('Navigation:(After save and publish)','raindrops'),// Title
-	admin_url( $customizer_url ), // link
+	$customizer_url, // link
 	__('Go to Custom Color Settings','raindrops')//link label
 	);
 }

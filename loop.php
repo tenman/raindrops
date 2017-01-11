@@ -116,6 +116,10 @@ if ( have_posts() ) {
 									</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
 		</div>
 								</li>
+								<?php 
+								$action_key = absint( $raindrops_loop_number - 1 );
+								do_action('raindrops_in_the_loop_'.  $action_key,'', $action_key ); 
+								?>
         <?php
     } //end while
     ?>

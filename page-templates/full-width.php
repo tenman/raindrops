@@ -77,7 +77,7 @@ raindrops_debug_navitation( __FILE__ );
 			$args						 = array(
 				'meta_key'		 => '_add-to-front', 'meta_value'	 => 'add', 'meta_compare'	 => '='
 				, 'post_type'		 => 'page'
-				, 'post_status'	 => 'public'
+				, 'post_status'	 => 'publish'
 				, 'orderby'		 => 'menu_order'
 				, 'nopaging'		 => true
 			);

@@ -24,7 +24,7 @@ raindrops_debug_navitation( __FILE__ );
 	 *  portfolio block
 	 *
 	 */
-	$raindrops_portfolio_page	 = get_query_var( 'page' );
+	$raindrops_portfolio_page	 = absint( get_query_var( 'page' ) );
 	$raindrops_posts_per_page	 = 3;
 	$raindrops_offset			 = 0;
 	$args						 = array(
@@ -43,14 +43,14 @@ raindrops_debug_navitation( __FILE__ );
 
 	raindrops_tile( $args );
 	
-	$exclude_page	= get_option( 'page_on_front' );
+	$exclude_page	= absint( get_option( 'page_on_front' ) );
 
 	$args			= array(
 		'meta_key'		 => '_add-to-front',
 		'meta_value'	 => 'add',
 		'meta_compare'	 => '=',
 		'post_type'		 => 'page',
-		'post_status'	 => 'public',
+		'post_status'	 => 'publish',
 		'orderby'		 => 'menu_order',
 		'nopaging'		 => true,
 		'post__not_in'   => array( $exclude_page, ),

@@ -428,7 +428,11 @@ if ( !function_exists( 'raindrops_insert_metaslider' ) ) {
 
 			$html = '<div id="raindrops_metaslider" class="clearfix">%2$s%1$s</div>';
 			$raindrops_insert_metaslider = apply_filters( 'raindrops_insert_metaslider', '');
-			if ( is_home() || is_front_page() ) {
+			/**
+			 * @since 1.452
+			 * add ! is_paged()
+			 */
+			if ( ( is_home() || is_front_page() ) && ! is_paged() ) {
 
 				return sprintf( $html, do_shortcode( "[metaslider id=" . $raindrops_slider_action . "]" ), $raindrops_insert_metaslider );
 			}

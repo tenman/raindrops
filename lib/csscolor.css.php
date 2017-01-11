@@ -2222,7 +2222,6 @@ a.raindrops-comment-link:hover .point {
 
 kbd,
 input[type="email"],
-.raindrops-toc-front li,
 input[type="text"],
 textarea#comment{
     border:1px solid #ddd;
@@ -2232,6 +2231,11 @@ textarea#comment{
     -moz-border-radius: 3px;
     -khtml-border-radius: 3px;
     -webkit-border-radius: 3px;
+}
+.raindrops-toc-front li{
+	border:1px solid #ddd;
+    border-color:%rgba_border%;
+	border-radius:0;
 }
 #access .children,
 #access .children li{
@@ -2412,6 +2416,7 @@ address .entry-rss:after,
 	margin:2em 0;
 	transition: box-shadow 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
+	box-sizing:border-box;
 }
 .rd-content-width-fit #ft,
 .rd-content-width-keep #ft,
@@ -2480,6 +2485,13 @@ address .entry-rss:after,
 .rsidebar .eco-archive  h3 a,
 .lsidebar .eco-archive  h3 a{
     background: %rgba_border%;
+}
+.sticky-widget #wp-calendar tbody td[colspan]{
+	 background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
+}
+.sticky-widget #wp-calendar tbody #today a{
+	padding:.6em 1em;
+	
 }
 
 CSS;

@@ -31,7 +31,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 				?>               
 			</div>
 				<?php
-				if ( function_exists('has_header_video') && function_exists('the_custom_header_markup' ) &&	has_header_video() 
+				if ( function_exists('has_header_video') && function_exists('the_custom_header_markup' ) &&	has_header_video()
 						&& ( true == is_home() && true == is_front_page() || false == is_home() && true == is_front_page() ) ) {
 					raindrops_the_header_image();
 					the_custom_header_markup();

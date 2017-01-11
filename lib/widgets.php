@@ -487,7 +487,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 						$args		 = array(
 							'post_type'		 => 'attachment',
 							'numberposts'	 => -1,
-							'post_status'	 => 'public',
+							'post_status'	 => 'publish',
 							'post_parent'	 => $val,
 						);
 
@@ -676,7 +676,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$args		 = array(
 						'post_type'		 => 'attachment',
 						'numberposts'	 => -1,
-						'post_status'	 => 'public',
+						'post_status'	 => 'publish',
 						'post_parent'	 => $content_id
 					);
 					$attachments = get_posts( $args );
@@ -1081,7 +1081,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			$current_month_class = '';
 			if( is_month() ) {
 				$current_month_of_archive	 = (int) get_query_var( 'monthnum' );
-				$current_year_of_archive	 = get_query_var( 'year' );
+				$current_year_of_archive	 = (int) get_query_var( 'year' );
 			} else {
 				$current_month_of_archive	 = '';
 				$current_year_of_archive	 = '';

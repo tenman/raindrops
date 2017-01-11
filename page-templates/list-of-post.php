@@ -33,7 +33,7 @@ raindrops_debug_navitation( __FILE__ );
                 <div class="entry page list-of-post-entry">
                     <?php
 					raindrops_prepend_loop();
-                    $query = get_query_var( 'paged' );
+                    $query = absint( get_query_var( 'paged' ) );
 
                     if ( have_posts() && is_page() && empty( $query ) ) {
 

@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.451
+Version: 1.452
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -615,11 +615,7 @@ pre,
 .raindrops-image-page .image img,
 .search-results img,
 .textwidget img,
-#nav-above,
-#nav-below,
 .rd-col-1 #nav-status-bar,
-.rd-col-1 #nav-above,
-.rd-col-1 #nav-below,
 .hentry object,
 .hentry embed,
 ul.archive,
@@ -1434,8 +1430,7 @@ footer a{
     margin-bottom:2em;
 }
 .rd-col-1 #nav-status-bar,
-.rd-col-1 #nav-above,
-.rd-col-1 #nav-below {
+.rd-col-1 #nav-above{
     margin:0 0.76923076923em;
 }
 #nav-above{
@@ -1584,6 +1579,24 @@ h2.footer-content,
 .entry-title + .this-posted-in{
     display:inline-block;
 }
+#yui-main .entry-title + .tagged img.wp-smiley,
+#yui-main .entry-title + .tagged img.emoji,
+#yui-main .posted-on ~ .tagged img.wp-smiley,
+#yui-main .posted-on ~ .tagged img.emoji,
+#yui-main .entry-title + .this-posted-in img.wp-smiley,
+#yui-main .entry-title + .this-posted-in img.emoji,
+#yui-main .posted-on + .this-posted-in img.wp-smiley,
+#yui-main .posted-on + .this-posted-in img.emoji,
+#yui-main .entry-meta .tagged img.wp-smiley,
+#yui-main .entry-meta .tagged img.emoji,
+#yui-main .entry-meta .this-posted-in img.wp-smiley,
+#yui-main .entry-meta .this-posted-in img.emoji{
+    /* override core emoji style */
+    vertical-align:middle!important;
+}
+.safari .emoji{
+    width:2em!important;
+}
 .rd-tag-em .post-tag span[class^="tag-link-"],
 .category-archives .cat-item,
 .entry-meta > .post-format-text + a .post-format,
@@ -1674,6 +1687,7 @@ div[class^="entry-meta"] .author .nickname,
 .posted-on .author .nickname{
     overflow:hidden;
 }
+.posted-on .nickname .avatar,
 div[class^="entry-meta"] .author .avatar,
 .posted-on .author .avatar{
     width:24px;
@@ -3886,6 +3900,10 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     justify-content: center;
     flex-direction:column;
 }
+#portfolio:target{
+    margin-top:-120px;
+    padding-top:120px;
+}
 .portfolio .index .raindrops-sticky{
     display:block;
 }
@@ -5983,6 +6001,9 @@ x:-o-prefocus, .rd-modal > div {
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > li{
     padding-bottom:1.5em;
 }
+.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_search{
+    padding-top:1.5em;
+}
 /* 1 column entry background separater */
 .rd-pw-doc5 .page-template-front-page #portfolio,
 .rd-content-width-fit.rd-type-light .index > li:nth-child(even) .entry-meta{
@@ -6409,6 +6430,10 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     width:calc(100% - 5.4em);
     padding:.3em .5em;
     display:inline-block;
+}
+.safari .lsidebar .widget_archive a,
+.safari .rsidebar .widget_archive a{
+    width:85%;
 }
 .rd-type-dark .lsidebar .widget_archive a,
 .rd-type-dark .rsidebar .widget_archive a{

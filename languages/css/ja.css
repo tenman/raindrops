@@ -79,7 +79,11 @@ body.ja,
 }
 
 /* Raindrops new h1-h6 font size from ver 0.996 start */
-
+/**
+ * @since 1.452
+ * Next version remove
+ *
+*/
 .ja #site-title{
 	font-size:197%;
         margin:.5em 0;
@@ -89,21 +93,23 @@ body.ja,
 	font-size:153.9%;
         font-weight:bold;
 }
+
 .ja .lsidebar h2,
 .ja .rsidebar h2{
 	font-size:108%;
 }
+
 .mce-content-body .h1:not(h1),
 .mce-content-body h1,
 .ja .h1:not(h1),
 .ja h1{
-	font-size:161.6%;
+	font-size:197%;
 }
 .mce-content-body .h2:not(h2),
 .mce-content-body h2,
 .ja .h2:not(h2),
 .ja h2{
-	font-size:138.5%;
+	font-size:153.9%;
 }
 .mce-content-body .h3:not(h3),
 .mce-content-body h3,
@@ -129,6 +135,7 @@ body.ja,
 .ja h6{
 	font-size:xx-small;
 }
+
 /* Raindrops new h1-h6 font size from ver 0.996 end */ 
 .ja .footer-widget h2,
 .ja .rsidebar h2,
@@ -181,7 +188,6 @@ body.ja,
 .ja .rsidebar .eco-archive li,
 .ja .lsidebar .eco-archive li{
     display:inline-block;
-    min-width:13%;
     margin:1%;
     box-sizing:border-box;
     width:3em;

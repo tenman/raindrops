@@ -2,10 +2,35 @@ Changelog -----------------------------------
 version:1.452
 
 Overview of Changes
-
+	Fixed Schedule Posts works improperly.
+	Modified Style change posted in label when using emoji
+	Fixed Google font url double encoded
+	Modified customizer js( customize.js )
+    Fixed gettext empty translation text
+	Modified customizer link autofocus[section]=colors to javascript
+	Modified Translation ja.po
 
 Files Modified
-
+	modified:   changelog.txt
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   loop.php
+	modified:   page-templates/front-page.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   pdf.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+	modified:   widget-sticky.php
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.451&new_path=raindrops/1.452

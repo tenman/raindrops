@@ -1,4 +1,51 @@
 Changelog -----------------------------------
+version:1.453
+
+Overview of Changes
+	Modified Add new CSS classes
+		.equal-height
+		.uppercase
+		.lowercase
+		.capitalize
+			Customize 'Convert All Titles to Uppercase' relate changes.
+			You can control from Customize / Site Identity / CSS Class of Site Title
+								 Customize / Presentation / Post / Entry Title CSS Class
+								 Customize / Menus / Menu Name / CSS Classes
+		.ghost
+			Make the ghost button
+			example
+			<a class="ghost rd-alert-bg external" href="http://www.example.com">ghost</a>
+		.disable
+			a.disable or .disabe > a is ignore tags surrounded by anchor.
+
+	Modified Customizer Customize / Presentation / Fonts
+		Add New Section 'Vertical Rhythm for Entry Content' and 'Convert All Titles to Uppercase'
+
+	Fixed wrong filter name
+		Change from raindrops_amp_image_width to raindrops_amp_image_height
+
+Files Modified
+	modified:   author.php
+	modified:   comments.php
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   page-templates/page-featured.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.452&new_path=raindrops/1.453
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.452
 
 Overview of Changes

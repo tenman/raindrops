@@ -472,6 +472,7 @@ dt,
  * Font weight Class
  * @1.417
  */
+.thin,
 .b1{
     font-weight:100;
 }
@@ -490,6 +491,7 @@ dt,
 .b6{
     font-weight:600;
 }
+.bold,
 .b7{
     font-weight:700;
 }
@@ -500,6 +502,15 @@ dt,
     font-weight:800;
 }
 .small-caps{
-    font-variant: small-caps;
+    font-variant:small-caps;
     vertical-align:middle;
+}
+.uppercase{
+    text-transform:uppercase;
+}
+.lowercase{
+    text-transform:lowercase;   
+}
+.capitalize{
+    text-transform:capitalize;
 }

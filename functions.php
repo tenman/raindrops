@@ -2327,6 +2327,26 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		$css = apply_filters( 'raindrops_embed_css_pre', '' );
 
 		$css .= '/* raindrops_embed_css */';
+		
+		$raindrops_content_elements_margin = raindrops_warehouse_clone( 'raindrops_content_elements_margin' );
+		$raindrops_content_elements_margin = floatval( $raindrops_content_elements_margin );
+		
+		if( 1 < $raindrops_content_elements_margin ) {
+			$raindrops_content_elements_margin_x2 = $raindrops_content_elements_margin * 2;
+			/* Vertical Rhythm */
+			$css .= "\n.entry-content > p{margin-bottom:". $raindrops_content_elements_margin.'em;}';
+			$css .= "\n.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,.entry-content h5, .entry-content h6{margin-top:". $raindrops_content_elements_margin."em; margin-bottom:". $raindrops_content_elements_margin.'em;}';
+			$css .= "\n.entry-content > blockquote{margin-top:". $raindrops_content_elements_margin."em; margin-bottom:". $raindrops_content_elements_margin.'em;}';
+			$css .= "\n.entry-content > div{margin-bottom:". $raindrops_content_elements_margin_x2. 'em;}';
+			$css .= "\n.entry-content > ul,.entry-content > ol{margin-top:". $raindrops_content_elements_margin."em; margin-bottom:". $raindrops_content_elements_margin.'em;}';
+		}
+		$raindrops_text_transform_of_title = raindrops_warehouse_clone( 'raindrops_text_transform_of_title' );
+	
+		if ( 'yes' == $raindrops_text_transform_of_title ) {
+			$css .= "\n#site-title{text-transform: uppercase;}";
+			$css .= "\n.entry-title{text-transform: uppercase;}";
+			$css .= "\n.widgettitle,.archive .title-wrapper,.date .page-title{text-transform: uppercase;}";
+		}
 
 		//#header-image
 		$css .= "\n" . raindrops_header_image( 'css' ) . "\n";
@@ -5184,6 +5204,8 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 			'.raindrops-auto-fit-width, ' .
 			"\n#doc5 .static-front-content,
 			#doc5 .front-page-top-container,
+			.page-template-page-featured .poster .line,
+			.page-template-page-featured .page article,
 			#hd,
 			.social,
 			#portfolio,
@@ -5201,7 +5223,8 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 			#bd,
 			#ft .widget-wrapper{
 				max-width:{$raindrops_full_width_max_width}px;
-				margin:auto;
+				margin-left:auto;
+				margin-right:auto;
 			}
 			#ft address{
 				max-width:{$raindrops_full_width_max_width}px;
@@ -5282,7 +5305,8 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 					.rd-pw-doc5.rd-col-1 #ft .widget-wrapper,
 					.rd-pw-doc5.rd-col-1 #ft address{
 											max-width:{$raindrops_full_width_max_width}px;
-											margin:auto;
+											margin-left:auto;
+											margin-right:auto;
 					}
 					.rd-pw-doc5.rd-col-1 #ft address{
 						margin:1em auto;
@@ -8039,8 +8063,9 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 
 		$args_count	 = count( $args );
 		$html		 = '<a href="%1$s" title="link to %2$s" class="page-featured-template">%3$s</a>';
+		echo '<ul class="poster">';
 		for ( $i = 0; $i < $args_count; $i++ ) {
-			echo '<div class="line poster-row-' . ($i + 1) . '">';
+			echo '<li><div class="line poster-row-' . ($i + 1) . '">';
 
 			foreach ( $args[ $i ] as $key => $page_item ) {
 
@@ -8139,8 +8164,9 @@ if ( ! function_exists( 'raindrops_poster' ) ) {
 				do_action( 'raindrops_poster_after_' . ($i + 1) . '_' . ( $key + 1 ) );
 				echo '</div>';
 			}
-			echo '</div>';
+			echo '</div></li>';
 		}
+		echo '<ul>';
 	}
 
 }
@@ -11869,6 +11895,25 @@ if ( ! function_exists( 'raindrops_current_post_hilight' ) ) {
 			$inline_style	 = '.widget_archive a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
 			$inline_style .= '.raindrops-extend-archive li a[href="' . $current_url . '"]{background:rgba(127,127,127,.3);}';
 
+			wp_add_inline_style( 'style', $inline_style );
+		}
+		if ( is_date() && is_day() ) {
+			/* for calendar widget */
+			$month			 = absint( get_query_var( 'monthnum' ) );
+			$year			 = absint( get_query_var( 'year' ) );
+			$day			 = absint( get_query_var( 'day' ) );
+
+			/**
+			 * @1.442
+			 * url?m=201402 can not get monthnum
+			 */
+			if( empty( $month ) ) {
+				$date_info = get_query_var( 'm' );
+				list( $year, $month ) = sscanf($date_info, "%4d%d");
+			}
+
+			$current_url	 = get_day_link( $year, $month, $day );
+			$inline_style	 = '#wp-calendar a[href="' . $current_url . '"]{font-weight:700;text-decoration:none;}';
 			wp_add_inline_style( 'style', $inline_style );
 		}
 	}

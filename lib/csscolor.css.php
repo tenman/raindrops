@@ -1266,6 +1266,35 @@ a.raindrops-comment-link:hover .point {
 .lsidebar .widget  .post-group-by-category-title{
     list-style-type:none;
 }
+/* @1.453 */
+
+.ghost-s.rd-notice,
+.ghost-m.rd-notice,
+.ghost-l.rd-notice,
+.ghost.rd-notice,
+.ghost-s.rd-info,
+.ghost-m.rd-info,
+.ghost-l.rd-info,
+.ghost.rd-info,
+.ghost-s.rd-alert,
+.ghost-m.rd-alert,
+.ghost-l.rd-alert,
+.ghost.rd-alert,
+.ghost-s.rd-notice-bg,
+.ghost-m.rd-notice-bg,
+.ghost-l.rd-notice-bg,
+.ghost.rd-notice-bg,
+.ghost-s.rd-info-bg,
+.ghost-m.rd-info-bg,
+.ghost-l.rd-info-bg,
+.ghost.rd-info-bg,
+.ghost-s.rd-alert-bg,
+.ghost-m.rd-alert-bg,
+.ghost-l.rd-alert-bg,
+.ghost.rd-alert-bg{
+    background:transparent;
+	color:#333;
+}
 DOC;
 	
 	$page_for_posts	= get_option( 'page_for_posts', false );
@@ -1696,7 +1725,35 @@ cite.fn{
 .raindrops-tab-list li{
     border:1px solid %c_border%;
 }
+/* @1.453 */
 
+.ghost-s.rd-notice,
+.ghost-m.rd-notice,
+.ghost-l.rd-notice,
+.ghost.rd-notice,
+.ghost-s.rd-info,
+.ghost-m.rd-info,
+.ghost-l.rd-info,
+.ghost.rd-info,
+.ghost-s.rd-alert,
+.ghost-m.rd-alert,
+.ghost-l.rd-alert,
+.ghost.rd-alert,
+.ghost-s.rd-notice-bg,
+.ghost-m.rd-notice-bg,
+.ghost-l.rd-notice-bg,
+.ghost.rd-notice-bg,
+.ghost-s.rd-info-bg,
+.ghost-m.rd-info-bg,
+.ghost-l.rd-info-bg,
+.ghost.rd-info-bg,
+.ghost-s.rd-alert-bg,
+.ghost-m.rd-alert-bg,
+.ghost-l.rd-alert-bg,
+.ghost.rd-alert-bg{
+    background:transparent;
+	color:#333;
+}
 DOC;
 
 
@@ -2166,6 +2223,7 @@ body{
 }
 a{
     color:$font_color;
+
 }
 a:hover{
     color:#777;
@@ -2322,7 +2380,7 @@ hr{
 	padding:.2em .3em;
 	line-height:2.4;
 }
-#raindrops.rd-type-minimal a:hover{
+a:hover{
 	 color:rgba(41, 128, 185,1.0);
 }
 .rd-type-minimal #access .menu > li{
@@ -2389,11 +2447,13 @@ address .entry-rss:after,
 	width:100%;
 	height:100%;
 }
+.commentlist > li:nth-child(even),
 .rd-content-width-fit .topsidebar .sticky-widget:nth-child(even),
 .rd-content-width-fit #doc5	.index > li:nth-child(even){
 	background:$background5;
 	 transition: all 1s ease-in-out;
 }
+.commentlist > li:hover,
 .rd-content-width-fit .topsidebar .widget:hover,
 .rd-content-width-fit #doc5	.index > li:hover{
 	box-shadow: 0px 0px 6px 3px $background3;
@@ -2403,13 +2463,19 @@ address .entry-rss:after,
     -webkit-transition: box-shadow 1s ease-in-out;
 	background:#fff;
 }
+.commentlist:hover > li,
 .rd-content-width-fit .topsidebar .widget:hover + li,
 .rd-content-width-fit #doc5	.index > li:hover + li{
 	background:$background5;
 	 transition: all 1s ease-in-out;
 }
-	
-	
+.commentlist:hover > li:hover{
+	background:#fff;
+	transition: all 0.5s ease-in-out;
+}
+.commentlist >li{
+	margin-bottom:.3em;
+}
 .rd-content-width-keep .index > li{
 	border-bottom:1px solid $background5;
 	padding:1em;
@@ -2436,6 +2502,7 @@ address .entry-rss:after,
 .rd-content-width-keep .pagination + br{
 	display:none;
 }
+.rd-content-width-keep .commentlist > li:hover,
 .rd-content-width-keep .topsidebar .widget:hover,
 .rd-content-width-keep .index > li:hover{
 	border:1px solid $background3;
@@ -2457,6 +2524,9 @@ address .entry-rss:after,
 }
 
 /* @1.447 end */
+/* @1.453 start */
+
+/* @1.453 end */
 .lsidebar .widgettitle,
 .rsidebar .widgettitle{
 	font-weight:700;
@@ -2492,6 +2562,35 @@ address .entry-rss:after,
 .sticky-widget #wp-calendar tbody #today a{
 	padding:.6em 1em;
 	
+}
+/* @1.453 */
+
+.ghost-s.rd-notice,
+.ghost-m.rd-notice,
+.ghost-l.rd-notice,
+.ghost.rd-notice,
+.ghost-s.rd-info,
+.ghost-m.rd-info,
+.ghost-l.rd-info,
+.ghost.rd-info,
+.ghost-s.rd-alert,
+.ghost-m.rd-alert,
+.ghost-l.rd-alert,
+.ghost.rd-alert,
+.ghost-s.rd-notice-bg,
+.ghost-m.rd-notice-bg,
+.ghost-l.rd-notice-bg,
+.ghost.rd-notice-bg,
+.ghost-s.rd-info-bg,
+.ghost-m.rd-info-bg,
+.ghost-l.rd-info-bg,
+.ghost.rd-info-bg,
+.ghost-s.rd-alert-bg,
+.ghost-m.rd-alert-bg,
+.ghost-l.rd-alert-bg,
+.ghost.rd-alert-bg{
+    background:transparent;
+	color:#333;
 }
 
 CSS;

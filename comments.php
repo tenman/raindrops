@@ -39,12 +39,8 @@ global $raindrops_document_type;
     </h2>
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through??>
         <div id="nav-above-comments" class="clearfix">
-            <span class="nav-previous">
-        <?php previous_comments_link( '<span class="meta-nav">&#8592;</span>' . esc_html__( 'Older Comments', 'raindrops' ) ); ?>
-            </span>
-            <span class="nav-next">
-                <?php next_comments_link( esc_html__( 'Newer Comments', 'raindrops' ) . '<span class="meta-nav">&#8594;</span>' ); ?>
-            </span>
+            <span class="nav-previous"><?php previous_comments_link( '<span class="meta-nav">&#8592;</span>' . esc_html__( 'Older Comments', 'raindrops' ) ); ?></span>
+            <span class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'raindrops' ) . '<span class="meta-nav">&#8594;</span>' ); ?></span>
         </div>
             <?php } // check for comment navigation?>
     <ol <?php raindrops_comment_class(); ?>>
@@ -52,12 +48,8 @@ global $raindrops_document_type;
     </ol>
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through? ?>
         <div id="nav-below-comments" class="clearfix">
-            <span class="nav-previous">
-        <?php previous_comments_link( '<span class="meta-nav">&#8592;</span> ' . esc_html__( 'Older Comments', 'raindrops' ) ); ?>
-            </span>
-            <span class="nav-next">
-                <?php next_comments_link( esc_html__( 'Newer Comments ', 'raindrops' ) . '<span class="meta-nav">&#8594;</span>' ); ?>
-            </span>
+            <span class="nav-previous"><?php previous_comments_link( '<span class="meta-nav">&#8592;</span> ' . esc_html__( 'Older Comments', 'raindrops' ) ); ?></span>
+            <span class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments ', 'raindrops' ) . '<span class="meta-nav">&#8594;</span>' ); ?></span>
         </div>
             <?php } // check for comment navigation ?>
     <?php

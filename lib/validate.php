@@ -1,4 +1,18 @@
 <?php
+function raindrops_text_transform_of_title_validate($input) {
+	if( $input == 'yes' || $input == 'no'  ) {
+		return $input;
+	} else {
+		return 'no';
+	}		
+}
+function raindrops_content_elements_margin_validate($input) {
+	if( is_numeric( $input ) ) {
+		return floatval( $input );
+	} else {
+		return 1;
+	}			
+}
 function raindrops_content_width_setting_validate($input) {
 	if( $input == 'keep' || $input == 'fit'  ) {
 		return $input;

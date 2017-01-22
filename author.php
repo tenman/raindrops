@@ -45,9 +45,7 @@ raindrops_debug_navitation( __FILE__ );
             	
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" >
                 <<?php raindrops_doctype_elements( 'div', 'main' ); ?> <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>	
-                <h2 class="h2">
-<?php printf( esc_html__( 'Author Archives: %s', 'raindrops' ), esc_html( $curauth->nickname ) ); ?>
-                </h2>
+                <h2 class="h2"><?php printf( esc_html__( 'Author Archives: %s', 'raindrops' ), esc_html( $curauth->nickname ) ); ?></h2>
 
                 <table <?php raindrops_doctype_elements( 'summary="author infomation"', '' ); ?> class="author-meta left auto">
                     <tr>

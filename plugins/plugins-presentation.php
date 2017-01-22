@@ -942,11 +942,11 @@ if( function_exists( 'amp_init' ) ) {
 				if( ! empty( $post_image_url ) ) {
 					$image_uri		 = apply_filters( 'raindrops_amp_image_uri', esc_url( $post_image_url ), absint( $post->ID ) );
 					$image_width	 = apply_filters( 'raindrops_amp_image_width', absint( $post_image_width ), absint( $post->ID ) );
-					$image_height	 = apply_filters( 'raindrops_amp_image_width', absint( $post_image_height ), absint( $post->ID ) );
+					$image_height	 = apply_filters( 'raindrops_amp_image_height', absint( $post_image_height ), absint( $post->ID ) );
 				} else {
 					$image_uri		 = apply_filters( 'raindrops_amp_image_uri', '', absint( $post->ID ) );
 					$image_width	 = apply_filters( 'raindrops_amp_image_width', '', absint( $post->ID ) );
-					$image_height	 = apply_filters( 'raindrops_amp_image_width', '', absint( $post->ID ) );				
+					$image_height	 = apply_filters( 'raindrops_amp_image_height', '', absint( $post->ID ) );				
 				}
 				if( ! isset( $metadata['image'] ) ) {
 

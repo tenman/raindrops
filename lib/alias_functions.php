@@ -1271,6 +1271,7 @@ if ( ! function_exists( 'raindrops_color_base_clone' ) ) {
 	  color:#{$fg5};
 	}
 CSS;
+
 		return wp_strip_all_tags( $result );
 	}
 }

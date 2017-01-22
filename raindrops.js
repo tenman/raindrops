@@ -175,6 +175,16 @@
     });
 })(jQuery);
 
+(function() {
+    jQuery(function() {
+        /**
+         * @since 1.453
+         */
+        jQuery("a.disable, .disable > a").each(function (i) { 
+            jQuery(this).removeAttr("href");
+        });
+    });
+})(jQuery);
 /*!
  * Simple jQuery Equal Heights
  * 

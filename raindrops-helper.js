@@ -113,7 +113,7 @@
                       
                         jQuery( '.lsidebar, .rsidebar' ).removeAttr( 'style' );
                     } else {
-                        
+                   
                         if( true == raindrops_script_vars.raindrops_add_inline_style_for_sidebars ) {
                             
                             if( jQuery( 'body' ).hasClass( 'rd-css-equal-height' ) ) {
@@ -142,7 +142,21 @@
                         jQuery( 'body').addClass('content-lt-480');
                     } else {
                         jQuery( 'body').removeClass('content-lt-480');
+                    }        
+
+                    var raindrops_window_width = jQuery( window ).width();
+                    
+                    if ( 640 < raindrops_window_width ) {
+                        jQuery( '.equal-height' ).each( function () {
+                            var height = jQuery( this ).height();
+                            jQuery( this ).css( { 'height': height } );
+                        } );
+                    } else {
+                        jQuery( '.equal-height' ).each( function () {
+                            jQuery( this ).removeAttr( 'style' );
+                        } );
                     }
+
             }
 
             
@@ -351,10 +365,6 @@
 
             if ( raindrops_script_vars.browser_detection !== 1 ) {
 
-
-               // if ( raindrops_script_vars.is_single || raindrops_script_vars.is_page ) {
-
-
                     jQuery( 'body' ).addClass( raindrops_script_vars.color_type );
 
                     if ( raindrops_script_vars.current_template == 'list_of_post' ) {
@@ -441,7 +451,6 @@
 
                         jQuery( 'body' ).addClass( 'unknown' );
                     }
-               // }
             }
 
 
@@ -591,8 +600,10 @@ function raindrops_share_href() {
 
 jQuery( function ( $ ) {
     var raindrops_window_width = jQuery( window ).width();
+    var raindrops_window_height = jQuery( window ).height();
+    var raindrops_content_height = jQuery( "#bd" ).height();
     
-    if ( 'yes' == raindrops_script_vars.raindrops_raindrops_sticky_menu && raindrops_window_width > 640 ) {
+    if ( 'yes' == raindrops_script_vars.raindrops_raindrops_sticky_menu && raindrops_window_width > 640 && raindrops_content_height > raindrops_window_height ) {
 
         $( '#access .menu-header' ).after( '<a id="page-top"><span></span></a><a id="desmiss"><span></span></a>' );
         var topBtn = $( "#page-top" );

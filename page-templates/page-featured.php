@@ -85,37 +85,53 @@ if ( !isset( $page_lists ) ) {
 
 
 // Template
-
-get_header( $raindrops_document_type );
-do_action( 'raindrops_pre_' . basename( __FILE__ ) );
-
+do_action( 'raindrops_' . basename( __FILE__ ) );
 $raindrops_current_column = raindrops_column_controller();
 
 if ( $raindrops_current_column !== false ) {
     add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
 }
-
+get_header( $raindrops_document_type );
+do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>
-<?php get_template_part( 'widget', 'sticky' ); ?>
+
 <div id="yui-main">
     <div id="container">
+		<?php get_template_part( 'widget', 'sticky' ); ?>
 <?php
-
-
 if ( have_posts() ) {
 
+    while ( have_posts() ) {
 
+        the_post();
+		?>		
+				<div class="page-featured-post-image"><?php the_post_thumbnail('full'); ?></div>
+				<div class="entry page">
+					<div id="post-<?php the_ID(); ?>">		
+						<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>>
 
-//////////////////////////////////////////////////////////	
+							<div class="entry-content">
+                                <?php
+                                raindrops_prepend_entry_content();
 
-
-
-    raindrops_poster( $page_lists );
-
-
-
-/////////////////////////////////////////////////////////////
+                                raindrops_entry_content();
+                                ?>
+                                <br class="clear" />
+                                <?php
+                                raindrops_append_entry_content();
+                                ?>
+                            </div>
+						</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
+					</div>
+				</div				
+<?php
+	}
+}
+?>
+><?php
+/*
+if ( have_posts() ) {
 
     while ( have_posts() ) {
 
@@ -157,7 +173,17 @@ if ( have_posts() ) {
                         } //endwhile 			
                         raindrops_next_prev_links( "nav-below" );
                     } //end have post
-                    ?>
+*/
+//////////////////////////////////////////////////////////	
+
+
+
+    raindrops_poster( $page_lists );
+
+
+
+/////////////////////////////////////////////////////////////
+	?>
     </div>
 </div>
 <?php get_footer( $raindrops_document_type ); ?>

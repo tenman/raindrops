@@ -19,8 +19,8 @@
         display:table;
         min-width:12em;
     }
-    .entry-content .alignright.size-medium,
-    .entry-content .alignleft.size-medium{
+    .entry-content > a .alignright.size-medium,
+    .entry-content > a .alignleft.size-medium{
         max-width:60%;
     }
     .entry-content blockquote{
@@ -914,7 +914,9 @@
     .page-template-page-templatesfront-page-php .portfolio-nav > ul > li{
         border:1px solid rgba(127,127,127,.3);
     }
-    
+    .equal-height .unit{
+        height:auto;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

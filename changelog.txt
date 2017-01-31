@@ -1,4 +1,24 @@
 Changelog -----------------------------------
+version:1.454
+
+Overview of Changes
+	Modified Post Format Status, Post Format Chat
+
+Files Modified
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   part-blog.php
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.453&new_path=raindrops/1.454
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.453
 
 Overview of Changes

@@ -31,7 +31,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $template;
+global $template,$raindrops_tag_emoji, $raindrops_category_emoji,$post;
 
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 $raindrops_date_html_module ='<a href="%1$s"><%3$s class="entry-date updated" %4$s>%2$s</%3$s></a>';
@@ -42,6 +42,7 @@ $raindrops_archive_day      = get_the_time( 'd' );
 $raindrops_day_link         = esc_url( get_day_link( $raindrops_archive_year, $raindrops_archive_month, $raindrops_archive_day ) . '#post-' . $post->ID
 );
 $raindrops_display_article_publish_date = raindrops_warehouse_clone( 'raindrops_display_article_publish_date' );
+$raindrops_display_article_author = raindrops_warehouse_clone( 'raindrops_display_article_author' );
 
 $use_japanese_date = raindrops_warehouse('raindrops_japanese_date');
 
@@ -79,35 +80,54 @@ if ( is_single() ) {
 			?>
         </li>
 		<?php } ?>
+		<?php if( 'avatar' == $raindrops_display_article_author ) { ?>
         <li class="blog-avatar post-format-status-avatar">
-            <?php
-            echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 90 ), '', __( 'Author', 'raindrops' ) . ' ' . get_the_author_meta( 'display_name' )
-            );
-            ?>
+		<?php
+			$raindrops_avatar = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 64 ), '', get_the_author_meta( 'display_name' )
+    );
+		printf(
+            '<span class="author vcard"><a class="url" href="%1$s">%2$s<span class="fn n">%3$s</span></a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), $raindrops_avatar, get_the_author_meta( 'display_name' ) );
+		?>
         </li>
+		<?php } ?>
+		
         <li class="category">
-            <?php
-            esc_html_e( 'Category:&shy;', 'raindrops' );
-
-            the_category( ' ' )
-            ?>
+			<?php 
+			if ( 'emoji' == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
+				printf('<span class="category-label">%1$s</span>', $raindrops_category_emoji );
+			} elseif ( 'show' == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
+				printf('<span class="category-label">%1$s</span>',esc_html__( 'Category:&shy;', 'raindrops' ) );
+			}
+			the_category( ' ' );
+			?>
         </li>
         <li class="tag">
-            <?php
-            esc_html_e( 'Tags:&shy;', 'raindrops' );
-
-            the_tags( ' ', ' ' );
-            ?>
+			<?php
+			$tag_exists = get_the_tags( $post->ID );
+			if ( 'emoji' == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) && ! empty( $tag_exists ) ) {
+				printf('<span class="category-label">%1$s</span>', $raindrops_tag_emoji );
+			} elseif ( 'show' == raindrops_warehouse_clone( 'raindrops_posted_in_label' ) ) {
+				printf('<span class="tag-label">%1$s</span>', esc_html__( 'Tags:&shy;', 'raindrops' ) );
+			}
+			the_tags( ' ', ' ' ); 
+			?>
         </li>
+		<?php if( 'show' == $raindrops_display_article_author ) { ?>
         <li class="author">
-            <?php
-            esc_html_e( 'Author:', 'raindrops' );
-
-            printf(
-                    '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_html( get_the_author() )
-            );
-            ?>
+				<?php
+				printf(	'<span class="author-label">%1$s</span><span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span>',
+					esc_html__( 'Author:', 'raindrops' ), 
+					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+					esc_html( get_the_author()
+					) );
+				?>
         </li>
+		<?php } ?>
+		<?php if ( has_post_format( 'status' ) ) {
+			$format_link = get_post_format_link('status');
+		?>
+		<li class='format-status'><span class="post-format-text"><?php esc_html_e( 'Format','raindrops' ); ?></span><a href="<?php echo $format_link;?>"><?php esc_html_e( 'Status', 'raindrops' ); ?></a></li>
+		<?php } ?>
         <li class="comment">
             <?php
             if ( comments_open() ) {
@@ -121,6 +141,8 @@ if ( is_single() ) {
             ?>
         <li class="misc">
             <?php
+			echo raindrops_add_share_link();
+			
             edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>'
             );
 
@@ -174,6 +196,7 @@ if ( is_single() ) {
 			?>
 			</li>
 		<?php } ?>
+		<?php if( 'avatar' == $raindrops_display_article_author ) { ?>
             <li class="blog-avatar">
     <?php
     $raindrops_avatar = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'raindrops_author_bio_avatar_size', 48 ), '', get_the_author_meta( 'display_name' )
@@ -183,6 +206,18 @@ if ( is_single() ) {
     ?>
 
             </li>
+		<?php } ?>
+		<?php if( 'show' == $raindrops_display_article_author ) { ?>
+			<li class="author">
+				<?php
+				printf(	'<span class="author-label">%1$s</span><span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span>',
+					esc_html__( 'Author:', 'raindrops' ), 
+					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+					esc_html( get_the_author()
+					) );
+				?>
+			</li>
+		<?php } ?>
         </ul>
 
         <div class="blog-main right post-format-status-main">

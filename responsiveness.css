@@ -620,6 +620,11 @@
         padding:0;
         float:none;
         display:block;
+        padding-left:1em;
+    }
+    .entry-meta-list.left{
+        background: url(images/sticky.png);
+        border-bottom:3px solid rgba(127,127,127,.4);
     }
     .lsidebar > ul,
     .archives.front-page,

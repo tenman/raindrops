@@ -792,6 +792,22 @@ a.raindrops-comment-link {
 a.raindrops-comment-link:hover .point {
     border-left:1px solid %rgba_border%;
 }
+.raindrops-post-format-chat > dd{
+    border:1px solid %rgba_border%;
+    background-color:  %custom_dark_bg%;
+}
+.raindrops-post-format-chat > dd:after{
+    background-color:  %custom_dark_bg%;
+    border-left:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
+}
+.rsidebar .raindrops-post-format-chat > dd:after,
+.lsidebar .raindrops-post-format-chat > dd:after{
+    background-color:  %custom_dark_bg%;
+    border-left:1px solid  %rgba_border%;
+    border-top:1px solid  %rgba_border%;
+	border-bottom:none;
+}
 CSS3;
 	$page_for_posts	= get_option( 'page_for_posts', false );
 
@@ -1295,6 +1311,22 @@ a.raindrops-comment-link:hover .point {
     background:transparent;
 	color:#333;
 }
+.raindrops-post-format-chat > dd{
+    border:1px solid %rgba_border%;
+    background-color:  #fafafa;
+}
+.raindrops-post-format-chat > dd:after{
+    background-color: #fafafa;
+    border-left:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
+}
+.rsidebar .raindrops-post-format-chat > dd:after,
+.lsidebar .raindrops-post-format-chat > dd:after{
+    background-color: #fafafa;
+    border-left:1px solid  %rgba_border%;
+    border-top:1px solid  %rgba_border%;
+	border-bottom:none;
+}
 DOC;
 	
 	$page_for_posts	= get_option( 'page_for_posts', false );
@@ -1753,6 +1785,22 @@ cite.fn{
 .ghost.rd-alert-bg{
     background:transparent;
 	color:#333;
+}
+.raindrops-post-format-chat > dd{
+    border:1px solid %rgba_border%;
+    background-color:  #fafafa;
+}
+.raindrops-post-format-chat > dd:after{
+    background-color: #fafafa;
+    border-left:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
+}
+.rsidebar .raindrops-post-format-chat > dd:after,
+.lsidebar .raindrops-post-format-chat > dd:after{
+    background-color: #fafafa;
+    border-left:1px solid  %rgba_border%;
+    border-top:1px solid  %rgba_border%;
+	border-bottom:none;
 }
 DOC;
 
@@ -2348,10 +2396,10 @@ hr{
 .entry-content th,
 .entry-content td{
 	padding:.7em .5em;
-	 border-bottom:1px dashed %rgba_border%;
+	border-bottom:1px solid %rgba_border%;
 }
 .entry-content tfoot{
-	 border-top:1px dashed %rgba_border%;
+	border-top:1px solid %rgba_border%;
 	font-weight:bold;
 }
 .textwidget thead,
@@ -2592,7 +2640,22 @@ address .entry-rss:after,
     background:transparent;
 	color:#333;
 }
-
+.raindrops-post-format-chat > dd{
+    border:1px solid #aaa;
+    background-color: #F2F2F2;
+}
+.raindrops-post-format-chat > dd:after{
+    background-color: #F2F2F2;
+    border-left:1px solid #aaa;
+    border-bottom:1px solid #aaa;
+}
+.rsidebar .raindrops-post-format-chat > dd:after,
+.lsidebar .raindrops-post-format-chat > dd:after{
+    background-color: #F2F2F2;
+    border-left:1px solid #aaa;
+    border-top:1px solid #aaa;
+	border-bottom:none;
+}
 CSS;
 	
 	$page_for_posts	= get_option( 'page_for_posts', false );

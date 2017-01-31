@@ -242,7 +242,11 @@ h6 a,
     display:inline;
     background:none;
 }
-
+#site-title a{
+    display:inline-block;
+    vertical-align:middle;
+    padding:0 .2em;
+}
 div.error404{
     display:block;
     text-align:center;
@@ -335,6 +339,7 @@ p{
     line-height:1.65;
     margin-bottom:1em;
 }
+
 .textwidget p:empty,
 .entry-content p:empty{
     display:none;
@@ -838,6 +843,20 @@ img.aligncenter:before,
     padding:.2em;
     height:1.4em;
 }
+.color-5,
+.color-4,
+.color-3,
+.color-2,
+.color-1,
+.color1,
+.color2,
+.color3,
+.color4,
+.color5{
+    padding-left:.4em;
+    padding-right:.4em;
+}
+
 .textwidget .gradient-5,
 .textwidget .gradient-4,
 .textwidget .gradient-3,
@@ -880,6 +899,7 @@ img.aligncenter:before,
 .entry-content .color5{
     display:inline-block;
 }
+
 html body.ja .hentry .textwidget .block,
 html body.ja .hentry .textwidget .block,
 div .textwidget .block,
@@ -2502,7 +2522,6 @@ li.byuser,
 .format-status div.blog-main,
 .category-blog div.blog-main{
     overflow:hidden;
-    width:68%;
 }
 .format-status .entry-title,
 .category-blog .entry-title{
@@ -2517,6 +2536,11 @@ li.byuser,
     padding:0;
     text-indent:0;
 }
+body.single .format-status .entry-title,
+body.single .category-blog .entry-title{
+    margin-top:0;
+    padding-top:13px;
+}
 .format-status .entry-meta-list,
 .category-blog .entry-meta-list{
     list-style:none;
@@ -2524,8 +2548,9 @@ li.byuser,
     text-align:left;
     overflow:hidden;
     max-width:13.8461538462em;
-    margin:0 1% 0 0;
-    padding:0;
+    margin:0 1% 0 1em;
+    padding:6px 0 0 0;
+    box-sizing:border-box;
 }
 .format-status .vcard .url .fn,
 .category-blog .vcard .url .fn{
@@ -2576,6 +2601,9 @@ li.byuser,
     display:block;
     text-decoration:none;
 }
+.format-status .entry-meta-list .post-format-text{
+    margin:0;
+}
 .format-status .entry-meta-list .edit-link,
 .category-blog .entry-meta-list .edit-link{
     display:inline-block;
@@ -2590,13 +2618,7 @@ li.byuser,
     margin-bottom:0;
     vertical-align:middle;
 }
-.single .format-status{
-    font-size:116%;
-}
-.single .format-status p{
-    margin:1.7em 0;
-    line-height:1.7;
-}
+
 /* add*/
 .single-post-thumbnail,
 .raindrops-image-page .image{
@@ -2979,7 +3001,7 @@ li.comment {
     bottom: 0;
     display:block;
     height:2em; /* @1.420 for safari */
-    height:2vw;
+    height:3vw;
     margin: auto;
     width:80%;
 }
@@ -3145,6 +3167,7 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .chat .raindrops-chat{
     margin:0;
 }
+/*
 .chat .raindrops-chat:before{
     margin:0 0.76923076923em;
     content:" ";
@@ -3171,7 +3194,7 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 }
 .chat .raindrops-chat-author-5:before{
     background-image: url('images/raindrops-chat-author-5.png');
-}
+}*/
 .single .current_item .icon-link-no-title,
 .single article .icon-link-no-title,
 .single article .entry-title .icon-link-no-title,
@@ -4449,6 +4472,9 @@ ol.list-of-post-list .entry-title{
 .entry-content .crayon-table td{
     min-width:0;
 }
+.entry-content .crayon-main .rd-table-wrapper{
+    margin-bottom:0;
+}
 /* https://gist.github.com/ */
 .textwidget .gist,
 .entry-content .gist{
@@ -5157,13 +5183,36 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 .category-blog .entry-meta-list li.tag,
 .format-status .entry-meta-list li.category,
 .category-blog .entry-meta-list li.category{
-
     padding:1em;
 }
 .format-status .entry-meta-list.left li,
 .category-blog .entry-meta-list.left li{
     padding:.5em 0;
     line-height:2;
+}
+.format-status .entry-meta-list.left li.format-status a,
+.category-blog .entry-meta-list.left li.misc a,
+.category-blog .entry-meta-list.left li.category a,
+.category-blog .entry-meta-list.left li.tag a,
+.format-status .entry-meta-list.left li.misc a,
+.format-status .entry-meta-list.left li.category a,
+.format-status .entry-meta-list.left li.tag a{
+    display:inline-block;
+    border:1px solid rgba(127,127,127,.4);
+    line-height:1.65;
+    padding:0 .4em;
+}
+.archive .post-format-status-wrapper .label{
+    display:none;
+}
+.category-blog .entry-meta-list.left li.category a:hover,
+.category-blog .entry-meta-list.left li.tag a:hover,
+.format-status .entry-meta-list.left li.category a:hover,
+.format-status .entry-meta-list.left li.tag a:hover{
+    background:rgba(127,127,127,.4);
+}
+.format-status .entry-meta-list.left li.author .author{
+    display:block;
 }
 .index .format-status .entry-meta-list.left li,
 .index .category-blog .entry-meta-list.left li{
@@ -5192,6 +5241,7 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 /* share link fallback style start */
 .clip-link{ margin-bottom:1em;}
 .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}
+.clip-link .quote-raindrops .first:empty{display:none!important;}
 .clip-link .quote-raindrops{ position:static;min-width:0;}
 .clip-link .quote-raindrops{background:#fff;color:#333;padding:.3em!important;font-size:16px;border:1px solid #ccc;overflow:hidden;}
 .clip-link .quote-raindrops ul{overflow:hidden;}
@@ -5201,7 +5251,7 @@ body:not(.page-template-blank_front) .raindrops-recent-posts .entry-title{
 .clip-link .quote-raindrops img{width:65px;height:auto;}
 .clip-link .quote-raindrops .first{ width:65px;height:65px;float:left;list-style:none;margin:0;}
 .clip-link .quote-raindrops .second{ margin-left:80px!important;display:block;list-style:none;}
-.clip-link .quote-raindrops .first:empty + .second{margin-left:0;display:block;list-style:none;}
+.clip-link .quote-raindrops .first:empty + .second{margin-left:.5em!important;display:block;list-style:none;}
 .clip-link .link-info:empty{display:none;}
 .clip-link .link-excerpt{font-size:13px;}
 .clip-link .titles span {padding:.2em .5em!important;border-bottom:1px solid #ccc;margin:.25em!important;display:inline-block;}
@@ -5309,6 +5359,7 @@ blockquote .cite-url{
     background:#e14d43;
     color:#fff;
 }
+
 .ghost-s.rd-info-bg:hover,
 .ghost-m.rd-info-bg:hover,
 .ghost-l.rd-info-bg:hover,
@@ -5495,13 +5546,17 @@ blockquote .cite-url{
 #raindrops_share .share-links{
     background:url(images/share.png);
     color:transparent;
-    border:none;
     background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    font-size:1.1em;
+    padding:0.2em .5em;
+    box-sizing:border-box;
+    margin:0 .5em;
+    border:none;
 }
 #raindrops_share .share-links option{
     background:#444;
@@ -6706,28 +6761,29 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  */
 .entry-content div[data-mod="aside"]{
     padding:1em;
-    margin:2em auto;
+    margin:4em auto 2em;
     position:relative;
-    overflow:hidden;
     box-sizing:border-box;
 }
-
 .entry-content div[data-mod="aside"]:before{
     content: attr(data-title);
     display: block;
     position:absolute;
-    right:0;
-    top:0;
-    padding:.2em 1em;
+    left:0;
+    top:-1.99em;
+    padding:0 1em;
     font-weight:700;
+    line-height:2;
+    min-width:8em;
 }
-.entry-content div[data-skin] .h3:first-of-type{
+.entry-content div[data-skin] h3:first-of-type{
     margin-top:0;
+    display:block;
 }
-
-.entry-content div[data-skin] .h3{
-    margin:1.5em 0;
-    border-bottom:1px solid #aaa;
+.entry-content div[data-skin] h3{
+    margin:1.5em 0 .75em;
+    display:block;
+    font-weight:700;
 }
 .entry-content div[data-mod] p{
     margin-bottom:.4em;
@@ -6741,15 +6797,11 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .entry-content div[data-mod] dl{
     margin:0 0 1em 0;
 }
-/**
- * presentation of Anchor
- */
-.entry-content div[data-mod] a:after{
-    content: " \00a0 \1f517 \00a0";
-    display:inline-block;
-    color:#3498db;
-    font-size:1.2em;
-    transform: rotate(-45deg);
+.entry-content div[data-mod] .ghost-l,
+.entry-content div[data-mod] .ghost-m,
+.entry-content div[data-mod] .ghost-s,
+.entry-content div[data-mod] .ghost{
+    margin:1.5em 1em 1.5em 0;
 }
 /**
  * Skin
@@ -6757,13 +6809,12 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
  */
 article div[data-skin]{
     font-size:100%;
-    border:1px solid #aaa;
-    border:1px solid rgba(170,170,170,.5);
-    border-top: 3px solid #777;
+    border-bottom: 3px solid #555;
+    border-top: 3px solid #555;
 }
 article [data-mod="postit"][data-skin]:before,
 article div[data-skin]:before{
-    background:#777;
+    background:#555;
     color:#fff;
 }
 article [data-mod][data-skin="info"]:before,
@@ -6780,12 +6831,19 @@ article div[data-skin="notice"]:before{
 }
 article div[data-skin="info"]{
     border-top: 3px solid #56b274;
+    border-bottom: 3px solid #56b274;
 }
 article div[data-skin="alert"]{
     border-top: 3px solid #e14d43;
+    border-bottom: 3px solid #e14d43;
 }
 article div[data-skin="notice"]{
     border-top: 3px solid #a38c08;
+    border-bottom: 3px solid #a38c08;
+}
+article div[data-skin="cool"]{
+    border-top: 3px solid rgba(41, 128, 185,1.0);
+    border-bottom: 3px solid rgba(41, 128, 185,1.0);
 }
 /**
  * @1.423
@@ -6866,12 +6924,10 @@ article [data-mod="postit"]:before{
 .entry-content .intro{
     border-top:1px solid rgba(127,127,127,.3);
     border-bottom:1px solid rgba(127,127,127,.3);
-    padding:2em;
+    padding:2em 2em 1em;
     max-width:100%;
-    margin:auto;
 }
 .entry-content .intro h3{
-    font-family:sans-serif;
     font-weight:700;
     margin:0 0 1em;
 }
@@ -7138,3 +7194,89 @@ article [data-mod="postit"]:before{
 .page-featured-post-image:empty{
     display:none;
 }
+.widget .raindrops-post-format-chat form{
+    text-align:left;
+}
+.raindrops-post-format-chat > dt{
+    display:inline-block;
+    width:80px;
+    float:left;
+ 
+}
+.rsidebar .raindrops-post-format-chat > dt,
+.lsidebar .raindrops-post-format-chat > dt{
+    display:block;
+    width:100%;
+    float:none;
+}
+
+.raindrops-post-format-chat > .raindrops-chat-author-0{
+ 
+}
+.raindrops-post-format-chat > dd{
+    margin-left:100px;
+    margin-bottom:1em;
+    position:relative;     
+}
+.rsidebar .raindrops-post-format-chat > dd,
+.lsidebar .raindrops-post-format-chat > dd{
+    margin-left:auto;
+    margin-bottom:1em;
+    position:relative;     
+}
+
+.raindrops-post-format-chat > dd:after{
+    display:block;
+    clear:left;
+    content: "\00a0";
+    height: 10px;
+    left: -6px;
+    position: absolute;
+    top: 10px;
+    transform:             rotate( 45deg );
+        -moz-transform:    rotate( 45deg );
+        -ms-transform:     rotate( 45deg );
+        -o-transform:      rotate( 45deg );
+        -webkit-transform: rotate( 45deg );
+    width:  10px;
+}
+.rsidebar .raindrops-post-format-chat > dd:after,
+.lsidebar .raindrops-post-format-chat > dd:after{
+    display:block;
+    clear:left;
+    content: "\00a0";
+    height: 10px;
+    left: 10px;
+    position: absolute;
+    top: -6px;
+    transform:             rotate( 45deg );
+        -moz-transform:    rotate( 45deg );
+        -ms-transform:     rotate( 45deg );
+        -o-transform:      rotate( 45deg );
+        -webkit-transform: rotate( 45deg );
+    width:  10px;
+}
+.raindrops-post-format-chat > .additional-block{
+    background:transparent;
+    border:none;
+    overflow:hidden!important;
+}
+.raindrops-post-format-chat > .additional-block:after{
+    content:'';
+    display:none;
+
+}
+
+.raindrops-post-format-chat > dt.raindrops-chat-author-9:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-9:hover ~ .raindrops-chat-author-9,
+.raindrops-post-format-chat > dt.raindrops-chat-author-8:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-8:hover ~ .raindrops-chat-author-8,
+.raindrops-post-format-chat > dt.raindrops-chat-author-7:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-7:hover ~ .raindrops-chat-author-7,
+.raindrops-post-format-chat > dt.raindrops-chat-author-6:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-6:hover ~ .raindrops-chat-author-6,
+.raindrops-post-format-chat > dt.raindrops-chat-author-5:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-5:hover ~ .raindrops-chat-author-5,
+.raindrops-post-format-chat > dt.raindrops-chat-author-4:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-4:hover ~ .raindrops-chat-author-4,
+.raindrops-post-format-chat > dt.raindrops-chat-author-3:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-3:hover ~ .raindrops-chat-author-3,
+.raindrops-post-format-chat > dt.raindrops-chat-author-2:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-2:hover ~ .raindrops-chat-author-2,
+.raindrops-post-format-chat > dt.raindrops-chat-author-1:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-1:hover ~ .raindrops-chat-author-1,
+.raindrops-post-format-chat > dt.raindrops-chat-author-0:hover,.raindrops-post-format-chat > dt.raindrops-chat-author-0:hover ~ .raindrops-chat-author-0{
+    color:#16a185;
+}
+

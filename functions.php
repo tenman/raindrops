@@ -1059,7 +1059,7 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 		 * @return type
 		 * @since 1.315
 		 */
-		function raindrops_add_share_link( $posted_in ) {
+		function raindrops_add_share_link( $posted_in = '' ) {
 
 			global $raindrops_allow_share_link, $raindrops_share_link_image, $is_IE, $post;
 
@@ -3699,6 +3699,7 @@ if ( ! function_exists( "raindrops_loop_title" ) ) {
 			$category_id			 = get_cat_ID( $page_title_c );
 			$Raindrops_class_name	 = 'category-archives cat-item-' . $category_id;
 			$page_title				 = esc_html__( "Category Archives", 'raindrops' );
+
 		} elseif ( is_archive() ) {
 
 			$raindrops_date_format = get_option( 'date_format' );
@@ -3818,7 +3819,8 @@ if ( ! function_exists( "raindrops_loop_title" ) ) {
 			 * Custom Taxonomy Archives Title
 			 * @1.438
 			 */
-			if ( is_tax() ) {
+			
+			if ( is_tax() && ! isset( $page_title ) ) {
 
 				$obj					 = get_post_type_object( $post_type );
 				$taxes					 = get_object_taxonomies( $obj->name );
@@ -7804,7 +7806,7 @@ if ( ! function_exists( 'raindrops_post_class' ) ) {
  *
  * @since 1.111
  */
-if ( ! function_exists( 'raindrops_chat_filter' ) ) {
+if ( !function_exists( 'raindrops_chat_filter' ) ) {
 
 	function raindrops_chat_filter( $contents ) {
 
@@ -7816,6 +7818,7 @@ if ( ! function_exists( 'raindrops_chat_filter' ) ) {
 			/* chat notation use : remove protocol from url */
 			$contents = str_replace( array( 'http:', 'https:' ), '', $contents );
 		}
+
 		$new_contents = explode( '<p>', $contents );
 
 		if ( 2 == count( $new_contents ) ) {
@@ -7825,13 +7828,38 @@ if ( ! function_exists( 'raindrops_chat_filter' ) ) {
 		$result			 = '';
 		$prev_author_id	 = '';
 		$html			 = '<dt class="raindrops-chat raindrops-chat-author-%1$s">%2$s</dt><dd class="raindrops-chat-text raindrops-chat-author-text-%1$s">%3$s</dd>';
-
+		$before			 = '';
+		$after			 = '';
+		$flag			 = false;
+		$last			 = count( $new_contents ) - 1;
 		foreach ( $new_contents as $key => $new ) {
 
-			$new = str_replace( '</p>', '', $new );
+			if ( !preg_match( '|([^\:]+)(\:)(.+)|si', $new, $regs ) && $flag == false ) {
+				$before .= '<p>' . $new;
+				continue;
+			}
 
-			preg_match( '|([^\:]+)(\:)(.+)|si', $new, $regs );
+			if ( intval($key) == intval($last) ) {
 
+				if( false !==  $after_result = strstr( $new, '<' ) ) {
+					
+					$after .= $after_result;
+				}
+				if( false !==  $after_result = strstr( $new, "<", true ) ) {
+
+					$reg[3] = $after_result;
+				}
+				if( false !==  $after_result = strstr( $reg[3], ":" ) ) {
+					
+					$regs[3] = str_replace( ':', '', $after_result );
+				}
+			}
+			$flag	 = true;
+			$new	 = str_replace( '</p>', '', $new );
+			if ( isset( $regs[ 3 ] ) && !empty( $regs[ 3 ] ) ) {
+				
+				$regs[3] = str_replace( '</p>', '', $regs[3] );
+			}
 			if ( isset( $regs[ 1 ] ) && !empty( $regs[ 1 ] ) ) {
 
 				$regs[ 1 ] = strip_tags( $regs[ 1 ] );
@@ -7843,11 +7871,12 @@ if ( ! function_exists( 'raindrops_chat_filter' ) ) {
 			} else {
 
 				if ( !empty( $new ) ) {
-					$result .= '<dd>' . $new . '</dd>';
+					$result .= '<dd class="additional-block">' . $new . '</dd>';
 				}
 			}
+
 		}
-		return apply_filters( 'raindrops_chat_filter', sprintf( '<dl class="raindrops-post-format-chat">%1$s</dl>', $result ) );
+		return apply_filters( 'raindrops_chat_filter', sprintf( '%2$s<dl class="raindrops-post-format-chat">%1$s</dl>%3$s', $result, $before, $after ) );
 	}
 
 }
@@ -10860,7 +10889,8 @@ if ( ! function_exists( 'raindrops_customizer_hide_default_category' ) ) {
 
 		$css_rule_set = '.entry-meta a[href$="%1$s/"],.entry-meta a[href$="%1$s"]{display:none;}';
 		$css_rule_set .= '.author dd a[href$="%1$s/"],.author dd a[href$="%1$s"]{display:none;}';
-
+		$css_rule_set .= '.format-status .entry-meta-list .category a, .category-blog .entry-meta-list .category a[href$="%1$s"]{display:none;}';
+		
 		if ( !empty( $permalink_structure ) && 'show' !== $customizer_config ) {
 			$default_category_id	 = get_option( 'default_category' );
 			$default_category_info	 = get_category( $default_category_id );
@@ -11136,7 +11166,8 @@ if ( ! function_exists( 'raindrops_content_shareing' ) ) {
 					.clip-link .quote-raindrops img{width:auto;height:65px;}
 					.clip-link .quote-raindrops .first{ width:65px;height:65px;float:left;list-style:none;margin:0;}
 					.clip-link .quote-raindrops .second{ margin-left:80px!important;display:block;list-style:none;}
-					.clip-link .quote-raindrops .first:empty + .second{margin-left:0;display:block;list-style:none;}
+					.clip-link .quote-raindrops .first:empty + .second{margin-left:.5em!important;display:block;list-style:none;}
+					.clip-link .quote-raindrops .first:empty{display:none;}
 					.clip-link .link-info:empty{display:none;}
 					.clip-link .link-excerpt{font-size:1em;}
 					.clip-link .titles span {padding:.2em .5em!important;border-bottom:1px solid #ccc;margin:.25em!important;display:inline-block;}

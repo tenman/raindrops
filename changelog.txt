@@ -3,7 +3,23 @@ version:1.455
 
 Overview of Changes
 
+	Fixed Problems that the setting for the responsive page affects the style of the fixed page width
+		raindrops_customize_control_message_raindrops_primary_menu_responsive()
+		Class rd-primary-menu-responsive-active add to body when only doc3,doc4 page_width
+	Modyfied Customizer section customize_render_control_raindrops_theme_settings[raindrops_primary_menu_responsive]
+
+	Modyfied CSS for author.php
+	Modyfied Translation ja.po ja.mo
+
 Files Modified
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/customize.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.454&new_path=raindrops/1.455

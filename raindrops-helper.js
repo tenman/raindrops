@@ -93,7 +93,7 @@
                 }
 
                     /* @1.352 */
-                    if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive ) {
+                    if( 'yes' == raindrops_script_vars.raindrops_primary_menu_responsive && ( 'doc3' == raindrops_script_vars.page_width || 'doc5' == raindrops_script_vars.page_width ) ) {
                         
                         var raindrops_primary_menu_height = jQuery('#access ul.menu').height();
  

@@ -3041,9 +3041,11 @@ li.customize-control .widget-inside .widget-content h4,
 .customize-control-notifications-container{
 	color:#333;
 }
+#rd-control-description-raindrops-color-select + #customize-control-raindrops_theme_settings-raindrops_primary_menu_responsive{
+	color:gray;
+	opacity:.5;
+}
 CUSTOMIZER_CSS;
-	
-
 
 	wp_add_inline_style( 'customize-controls', $css );
 }
@@ -3150,6 +3152,35 @@ function raindrops_customize_control_message_raindrops_color_select(){
 	}
 
 }
+
+//for using option
+add_action('customize_render_control_raindrops_theme_settings[raindrops_primary_menu_responsive]', 'raindrops_customize_control_message_raindrops_primary_menu_responsive' );
+//for using theme_mod
+add_action('customize_render_control_raindrops_primary_menu_responsive', 'raindrops_customize_control_message_raindrops_primary_menu_responsive' );
+
+function raindrops_customize_control_message_raindrops_primary_menu_responsive(){
+	global $raindrops_setting_type;
+	
+	$page_width = raindrops_warehouse_clone( 'raindrops_page_width' );
+	
+	if( 'doc' == $page_width || 'doc2' == $page_width ||  'doc4' == $page_width ) {
+		
+		$conditional_message = sprintf( esc_html__('Currently static page %1$s width has been set.', 'raindrops' ), $page_width );
+
+	$html = '<li id="rd-control-description-raindrops-color-select" class="rd-custom-message customize-control customize-control-color" >
+	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content">%2$s<br />%3$s</div></label></li>';
+	
+	$link = '<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">%2$s</a>';
+	
+	printf( $html,
+	__('Important Note','raindrops'),// Title
+	sprintf( __('%1$s This case, Primary Menu Automatic Responsive does not work','raindrops'), $conditional_message ),//Message
+	sprintf($link, 'javascript:wp.customize.section( \'raindrops_theme_settings_sidebar\' ).focus()', esc_html__('Layout and Sidebars', 'raindrops' ) ) 
+	);	
+	
+	}
+}
+
 // for option
 add_action('customize_render_control_raindrops_theme_settings[raindrops_style_type]', 'raindrops_customize_control_message_raindrops_style_type' );
 // for theme_mod

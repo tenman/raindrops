@@ -431,6 +431,21 @@
     body:not(.date) #doc3 .entry-title{
         font-size:153.5%;
     }
+    body.author #doc5 .entry-title,
+    body.author #doc3 .entry-title{
+       font-size:123.1%;
+       display:table;
+       margin:.5em 0 0;
+    }
+    body.author #doc5 .entry-title .entry-title-text + span,
+    body.author #doc3 .entry-title .entry-title-text + span,
+    body.author #doc5 .entry-title .entry-title-text,
+    body.author #doc3 .entry-title .entry-title-text,
+    body.author #doc5 .entry-title  .h2-thumb,
+    body.author #doc3 .entry-title  .h2-thumb{
+        display:table-cell;
+    }
+   
     #doc5 #site-description,
     #doc3 #site-description{
         font-size:108%;
@@ -928,6 +943,16 @@
         max-width:98.4%;
         margin:0;
         padding:0;
+    }
+    .author .avatar-col{
+        width:10vw;
+    }
+    .author .avatar-col img{
+        width:10vw;
+        height:auto;
+    }
+    .author dl.author{
+        margin:0;
     }
 }
 @media screen and (max-width : 640px){

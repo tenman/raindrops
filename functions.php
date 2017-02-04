@@ -5000,7 +5000,6 @@ if ( ! function_exists( 'raindrops_load_small_device_helper' ) ) {
 			$raindrops_header_video_active = 'no';
 		}
 		$raindrops_doc_type				 = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
-		
 
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'										 => $is_IE,

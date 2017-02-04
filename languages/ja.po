@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops1.405\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 09:09+0900\n"
-"PO-Revision-Date: 2017-01-25 10:13+0900\n"
+"POT-Creation-Date: 2017-02-04 09:40+0900\n"
+"PO-Revision-Date: 2017-02-04 09:50+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops translate <a.tenman@gmail.com>\n"
 "Language: ja\n"
@@ -50,7 +50,7 @@ msgid "Profile"
 msgstr "プロフィール"
 
 # @ raindrops
-#: author.php:69 functions.php:2021 functions.php:5035
+#: author.php:69 functions.php:2021 functions.php:5036
 msgid "Website"
 msgstr "ウェブサイト"
 
@@ -84,17 +84,17 @@ msgid "No posts by this author."
 msgstr "この著者の投稿はありません"
 
 # @ raindrops
-#: bbpress.php:57 functions.php:1250 functions.php:8338 functions.php:8436
+#: bbpress.php:57 functions.php:1250 functions.php:8366 functions.php:8464
 #: image.php:125 page-templates/full-width.php:60 page-templates/test.php:74
-#: page.php:100 part-additional.php:81 part-blog.php:124 part-blog.php:227
+#: page.php:100 part-additional.php:81 part-blog.php:146 part-blog.php:262
 #: part-gallery.php:122 pdf.php:171
 msgid "Edit"
 msgstr "編集"
 
 # @ raindrops
-#: bbpress.php:59 functions.php:1252 functions.php:4804 functions.php:8336
+#: bbpress.php:59 functions.php:1252 functions.php:4806 functions.php:8364
 #: image.php:127 page-templates/full-width.php:62 page-templates/test.php:76
-#: page.php:102 part-additional.php:83 part-blog.php:127 part-blog.php:229
+#: page.php:102 part-additional.php:83 part-blog.php:149 part-blog.php:264
 #: part-gallery.php:124 pdf.php:173
 msgid "Trash"
 msgstr "ゴミ箱へ移動"
@@ -105,12 +105,12 @@ msgid "Recent Posts"
 msgstr "最近の投稿"
 
 # @ raindrops
-#: blank_front.php:111 functions.php:6653 sidebar.php:31
+#: blank_front.php:111 functions.php:6654 sidebar.php:31
 msgid "Categories"
 msgstr "カテゴリー"
 
 # @ raindrops
-#: blank_front.php:134 functions.php:6834
+#: blank_front.php:134 functions.php:6835
 msgid "Tags"
 msgstr "タグ"
 
@@ -257,7 +257,7 @@ msgid "If you need to set footer Special font color."
 msgstr "フッターの文字色を指定したい時に、"
 
 # @ raindrops
-#: childs/boots/inc.php:612 functions.php:640 functions.php:11654
+#: childs/boots/inc.php:612 functions.php:640 functions.php:11684
 #: lib/vars.php:698
 msgid "Extra Sidebar"
 msgstr "エキストラサイドバー"
@@ -1135,22 +1135,22 @@ msgid "Saturday"
 msgstr "土曜"
 
 # @ raindrops
-#: date.php:140 functions.php:3726
+#: date.php:140 functions.php:3727
 msgid "Yearly Archives"
 msgstr "年次アーカイブ"
 
 # @ raindrops
-#: date.php:147 functions.php:3714
+#: date.php:147 functions.php:3715
 msgid "Monthly Archives"
 msgstr "月次アーカイブ"
 
 # @ raindrops
-#: date.php:152 functions.php:3709
+#: date.php:152 functions.php:3710
 msgid "Daily Archives"
 msgstr "日次アーカイブ"
 
 # @ raindrops
-#: functions.php:152 functions.php:7696
+#: functions.php:152 functions.php:7697
 msgid "Primary Navigation"
 msgstr "プライマリーメニュー"
 
@@ -1216,7 +1216,7 @@ msgid "Pingback:"
 msgstr "ピンバック："
 
 # @ raindrops
-#: functions.php:1274 functions.php:8432
+#: functions.php:1274 functions.php:8460
 msgid "Comment"
 msgstr "コメント"
 
@@ -1225,8 +1225,8 @@ msgstr "コメント"
 msgid "Comment "
 msgstr "コメント"
 
-#: functions.php:1307 functions.php:3615 functions.php:6602 functions.php:6783
-#: functions.php:6967
+#: functions.php:1307 functions.php:3615 functions.php:6603 functions.php:6784
+#: functions.php:6968
 #, php-format
 msgid "View all posts by %s"
 msgstr " %sのすべての投稿"
@@ -1253,7 +1253,7 @@ msgid "Theme URI"
 msgstr "テーマ　URI"
 
 # @ raindrops
-#: functions.php:1565 part-blog.php:84
+#: functions.php:1565
 msgid "Author"
 msgstr "著者"
 
@@ -1487,116 +1487,117 @@ msgid "Category Archives"
 msgstr "カテゴリー別アーカイブ"
 
 # @ raindrops
-#: functions.php:3731
+#: functions.php:3732
 msgid "Author Archives"
 msgstr "作成者別アーカイブ: "
 
-#: functions.php:3742 functions.php:3748 functions.php:3754 functions.php:3760
-#: functions.php:3766 functions.php:3772 functions.php:3778 functions.php:3784
-#: functions.php:3790
+#: functions.php:3743 functions.php:3749 functions.php:3755 functions.php:3761
+#: functions.php:3767 functions.php:3773 functions.php:3779 functions.php:3785
+#: functions.php:3791
 msgid "Post Format"
 msgstr "投稿フォーマット"
 
 # @ raindrops
-#: functions.php:3795
+#: functions.php:3796
 msgid "Blog Archives"
 msgstr "ブログ　アーカイブ"
 
-#: functions.php:4142
+#: functions.php:4144
 msgid "Article"
 msgstr "記事"
 
-#: functions.php:4150
+#: functions.php:4152
 msgid " to entry"
 msgstr "投稿へ"
 
-#: functions.php:4157
+#: functions.php:4159
 msgid "Standard"
 msgstr "標準"
 
-#: functions.php:4158
+#: functions.php:4160
 msgid "Aside"
 msgstr "余談"
 
-#: functions.php:4159
+#: functions.php:4161
 msgid "Chat"
 msgstr "チャット"
 
-#: functions.php:4160 part-gallery.php:102
+#: functions.php:4162 part-gallery.php:102
 msgid "Gallery"
 msgstr "ギャラリー"
 
-#: functions.php:4161
+#: functions.php:4163
 msgid "Link"
 msgstr "リンク"
 
-#: functions.php:4162
+#: functions.php:4164
 msgid "Image"
 msgstr "画像"
 
-#: functions.php:4163
+#: functions.php:4165
 msgid "Quote"
 msgstr "引用"
 
-#: functions.php:4164 plugins/class-tgm-plugin-activation.php:2554
+#: functions.php:4166 part-blog.php:129
+#: plugins/class-tgm-plugin-activation.php:2554
 msgid "Status"
 msgstr "ステータス"
 
-#: functions.php:4165
+#: functions.php:4167
 msgid "Video"
 msgstr "ビデオ"
 
-#: functions.php:4166
+#: functions.php:4168
 msgid "Audio"
 msgstr "オーディオ"
 
-#: functions.php:4176
+#: functions.php:4178
 msgid "Post Format "
 msgstr "投稿フォーマット"
 
-#: functions.php:5026
+#: functions.php:5027
 msgid "cite:"
 msgstr "引用元："
 
-#: functions.php:5029
+#: functions.php:5030
 msgid "Message"
 msgstr "メッセージ"
 
-#: functions.php:5030
+#: functions.php:5031
 msgid "Required Your Message"
 msgstr "メッセージは必須項目です"
 
-#: functions.php:5031
+#: functions.php:5032
 msgid "Name"
 msgstr "お名前"
 
-#: functions.php:5032
+#: functions.php:5033
 msgid "Required Your Name"
 msgstr "お名前は必須項目です"
 
-#: functions.php:5033
+#: functions.php:5034
 msgid "Email Address"
 msgstr "メールアドレス"
 
-#: functions.php:5034
+#: functions.php:5035
 msgid "Required Your Email"
 msgstr "メールアドレスは必須項目です"
 
-#: functions.php:5043 functions.php:11653
+#: functions.php:5044 functions.php:11683
 msgid "Open"
 msgstr "開く"
 
-#: functions.php:5044
+#: functions.php:5045
 msgid "Close"
 msgstr "閉じる"
 
 # @ raindrops
-#: functions.php:5048
+#: functions.php:5049
 msgid "Link to Main Content"
 msgstr "メインコンテンツに移動"
 
 # @ default
-#: functions.php:5612
+#: functions.php:5613
 #, php-format
 msgid ""
 "add_action(  '%1$s', 'your_function'  ) or add template part file the name "
@@ -1605,123 +1606,123 @@ msgstr ""
 "アクションフック  add_action(  '%1$s', 'your_function'  )  あるいは　%2$s　テ"
 "ンプレートを追加していただく事で、この場所にコンテンツを追加できます。"
 
-#: functions.php:6148 functions.php:8533 functions.php:10310
+#: functions.php:6149 functions.php:8561 functions.php:10338
 #: part-additional.php:52
 msgid "Continue&nbsp;reading "
 msgstr "続きを読む"
 
-#: functions.php:6148 functions.php:8533 functions.php:10312
+#: functions.php:6149 functions.php:8561 functions.php:10340
 #: part-additional.php:52
 msgid "&nbsp;Post ID&nbsp;"
 msgstr "&nbsp;投稿 ID&nbsp;"
 
-#: functions.php:6194
+#: functions.php:6195
 msgid " Older posts"
 msgstr "過去の投稿"
 
 # @ raindrops
-#: functions.php:6194
+#: functions.php:6195
 msgid "Newer posts"
 msgstr "新しい投稿"
 
 # @ raindrops
-#: functions.php:6470
+#: functions.php:6471
 msgid "Recent Post"
 msgstr "最近の投稿"
 
-#: functions.php:7033
+#: functions.php:7034
 #, php-format
 msgid "&#171; %s "
 msgstr "&#171; %s "
 
-#: functions.php:7045
+#: functions.php:7046
 #, php-format
 msgid " %s &#187;"
 msgstr " %s &#187;"
 
 # @ raindrops
-#: functions.php:7468
+#: functions.php:7469
 msgid "Go to Attachment page"
 msgstr "添付ファイルへ"
 
 # @ raindrops
-#: functions.php:8300
+#: functions.php:8328
 msgid "Empty content"
 msgstr "空白コンテンツ"
 
-#: functions.php:8354
+#: functions.php:8382
 msgid "&#171; Older Entries"
 msgstr "&laquo; 古い投稿"
 
-#: functions.php:8359
+#: functions.php:8387
 msgid "Newer Entries &#187;"
 msgstr "新しい投稿 &raquo;"
 
 # @ raindrops
-#: functions.php:8452 functions.php:8456 functions.php:8462 functions.php:8488
+#: functions.php:8480 functions.php:8484 functions.php:8490 functions.php:8516
 #: lib/widgets.php:915
 msgid "Page"
 msgstr "ページ"
 
-#: functions.php:8481 functions.php:8500
+#: functions.php:8509 functions.php:8528
 msgid "Portfolio Home"
 msgstr "ポートフォリオ　ホーム"
 
-#: functions.php:8503
+#: functions.php:8531
 msgid "Home"
 msgstr "Home"
 
 # @ raindrops
-#: functions.php:8659
+#: functions.php:8687
 msgid "Child Page : "
 msgstr "子カテゴリー："
 
-#: functions.php:8980
+#: functions.php:9008
 msgid "Custom CSS For This Entry"
 msgstr "この投稿のカスタムCSS"
 
-#: functions.php:9093
+#: functions.php:9121
 msgid "Add Front Page"
 msgstr "固定フロントページに追加"
 
-#: functions.php:9094
+#: functions.php:9122
 msgid "Add Front Page This Content"
 msgstr "このコンテンツを固定フロントページに追加"
 
-#: functions.php:9095
+#: functions.php:9123
 msgid "No Need"
 msgstr "必要ありません"
 
-#: functions.php:9114
+#: functions.php:9142
 msgid "Custom Header Image For This Post"
 msgstr "この投稿のカスタムヘッダー画像"
 
 # @ raindrops
-#: functions.php:9118
+#: functions.php:9146
 msgid "Hide Header Image"
 msgstr "この投稿ではヘッダー画像を表示しない"
 
 # @ raindrops
-#: functions.php:9128 lib/customize.php:72 lib/widgets.php:324
+#: functions.php:9156 lib/customize.php:72 lib/widgets.php:324
 msgid "Featured Image"
 msgstr "アイキャッチ 画像"
 
 # @ raindrops
-#: functions.php:9132 functions.php:9136
+#: functions.php:9160 functions.php:9164
 msgid "Default Image"
 msgstr "既定のヘッダー画像を使う"
 
 # @ raindrops
-#: functions.php:9182
+#: functions.php:9210
 msgid "Add Custom Header"
 msgstr "カスタムヘッダーを追加"
 
 # @ raindrops
-#: functions.php:9186
+#: functions.php:9214
 msgid "Override header Image"
 msgstr "投稿のカスタムヘッダー画像"
 
-#: functions.php:9187
+#: functions.php:9215
 msgid ""
 "Now Selected Front Page template,You can use Featured Image for override "
 "header image"
@@ -1729,77 +1730,77 @@ msgstr ""
 "現在フロントページテンプレートが選択されています。アイキャッチ画像をセットす"
 "ると、ヘッダーイメージを上書きすることが出来ます。"
 
-#: functions.php:9190
+#: functions.php:9218
 msgid "The Custom CSS Field only for the current post"
 msgstr "カスタムCSSフィールドは、この投稿だけにしかスタイルが適用されません"
 
 # @ raindrops
-#: functions.php:9509 plugins/class-tgm-plugin-activation.php:1121
+#: functions.php:9537 plugins/class-tgm-plugin-activation.php:1121
 #: plugins/class-tgm-plugin-activation.php:2948
 msgid "and"
 msgstr "　"
 
-#: functions.php:9512
+#: functions.php:9540
 msgid "Entries RSS"
 msgstr "投稿フィード"
 
 # @ raindrops
-#: functions.php:9512
+#: functions.php:9540
 msgid "Comments RSS"
 msgstr "コメントフィード"
 
 # @ raindrops
-#: functions.php:9519 functions.php:9522
+#: functions.php:9547 functions.php:9550
 msgid "Raindrops Theme"
 msgstr "レインドロップス　テーマ"
 
 # @ raindrops
-#: functions.php:11241
+#: functions.php:11271
 msgid "Link to Year Archives "
 msgstr "年別アーカイブへのリンク"
 
-#: functions.php:11323
+#: functions.php:11353
 msgid "Password"
 msgstr "パスワード"
 
-#: functions.php:11323
+#: functions.php:11353
 msgid ""
 "This content is password protected. To view it please enter your password"
 msgstr ""
 "この記事はパスワードで保護されています。パスワードの入力をお願いします。"
 
-#: functions.php:11323
+#: functions.php:11353
 msgid "Submit"
 msgstr "送信"
 
 # @ raindrops
-#: functions.php:11432
+#: functions.php:11462
 msgid "Uncategorized"
 msgstr "未分類"
 
 # @ raindrops
-#: functions.php:11632
+#: functions.php:11662
 msgid "Theme Widget"
 msgstr "テーマのウィジェット"
 
 # @ raindrops
-#: functions.php:11632
+#: functions.php:11662
 msgid "Add On Widget"
 msgstr "アドオンのウィジェット"
 
 # @ raindrops
-#: functions.php:11655
+#: functions.php:11685
 msgid "Main Sidebar"
 msgstr "メインサイドバー"
 
 # @ raindrops
-#: functions.php:12300
+#: functions.php:12330
 #, php-format
 msgid "Recent %1$s"
 msgstr "最近の %1$s"
 
 # @ raindrops
-#: functions.php:12368 functions.php:12475
+#: functions.php:12398 functions.php:12505
 #, php-format
 msgid "%1$s %2$s %3$s"
 msgstr "%1$s %2$s %3$s "
@@ -1893,7 +1894,7 @@ msgid "Emphasis of new content using the Featured Image"
 msgstr "アイキャッチ画像を使った、新しい投稿の強調"
 
 # @ raindrops
-#: lib/customize.php:80
+#: lib/customize.php:80 lib/customize.php:3176
 msgid "Layout and Sidebars"
 msgstr "レイアウトとサイドバー"
 
@@ -2781,7 +2782,7 @@ msgstr ""
 msgid "Data Stored : %1$s "
 msgstr "設定の保存場所：%1$s"
 
-#: lib/customize.php:3139
+#: lib/customize.php:3139 lib/customize.php:3174
 msgid "Important Note"
 msgstr "重要"
 
@@ -2808,16 +2809,26 @@ msgid ""
 "preferred design. If it not from, color customization does not apply."
 msgstr "まず最初に配色の設定を行ってから、カスタムカラーの設定を行ってください"
 
-#: lib/customize.php:3164
+#: lib/customize.php:3166
+#, php-format
+msgid "Currently static page %1$s width has been set."
+msgstr "現在　固定ページ %1$s 幅がセットされています。"
+
+#: lib/customize.php:3175
+#, php-format
+msgid "%1$s This case, Primary Menu Automatic Responsive does not work"
+msgstr "%1$s この場合「自動レスポンシブ表示」は、動作しません。"
+
+#: lib/customize.php:3193
 msgid "Navigation:(After save and publish)"
 msgstr "ナビゲーション：（保存ボタンを押してから）"
 
 # @ raindrops
-#: lib/customize.php:3166
+#: lib/customize.php:3195
 msgid "Go to Custom Color Settings"
 msgstr "カスタムカラー設定に移動"
 
-#: lib/customize.php:3187
+#: lib/customize.php:3216
 msgid ""
 "Please set widget first. Default Sidebar Widget, Extra Sidebar Widget not "
 "set."
@@ -2825,25 +2836,25 @@ msgstr ""
 "デフォルトサイドバー、エキストラサイドバーのウィジェットが設定されていませ"
 "ん。最初にこの設定を行ってください"
 
-#: lib/customize.php:3190
+#: lib/customize.php:3219
 msgid "Please set widget first. Required Default Sidebar Widget for 2 columns"
 msgstr ""
 "2カラム表示を行う場合、最初にデフォルトサイドバーにウィジェットを設定してくだ"
 "さい"
 
-#: lib/customize.php:3193
+#: lib/customize.php:3222
 msgid "Please set widget first. Required Extra Sidebar Widget for 3 columns"
 msgstr ""
 "まずウィジェットの設定を行ってください。3カラムレイアウトでは、エクストラサイ"
 "ドバーの設定が必要です"
 
-#: lib/customize.php:3197
+#: lib/customize.php:3226
 #, php-format
 msgid "<span>Alert:</span> %1$s"
 msgstr "<span>注意:</span> %1$s"
 
 # @ raindrops
-#: lib/customize.php:3199
+#: lib/customize.php:3228
 msgid "Go to Widgetr Settings"
 msgstr "ウィジェット設定に移動"
 
@@ -3065,32 +3076,36 @@ msgid "Post Type %1$s Widget"
 msgstr "投稿タイプ %1$s ウィジェット"
 
 # @ raindrops
-#: part-blog.php:90
+#: part-blog.php:99
 msgid "Category:&shy;"
 msgstr "カテゴリー："
 
 # @ raindrops
-#: part-blog.php:97
+#: part-blog.php:110
 msgid "Tags:&shy;"
 msgstr "タグ："
 
 # @ raindrops
-#: part-blog.php:104
+#: part-blog.php:119 part-blog.php:214
 msgid "Author:"
 msgstr "作成者："
 
+#: part-blog.php:129
+msgid "Format"
+msgstr "フォーマット"
+
 # @ raindrops
-#: part-blog.php:114 part-gallery.php:118
+#: part-blog.php:134 part-gallery.php:118
 msgid "Leave a comment"
 msgstr "コメントをどうぞ"
 
 # @ raindrops
-#: part-blog.php:114 part-gallery.php:118
+#: part-blog.php:134 part-gallery.php:118
 msgid "1 Comment"
 msgstr "1 コメント"
 
 # @ raindrops
-#: part-blog.php:114 part-gallery.php:118
+#: part-blog.php:134 part-gallery.php:118
 msgid "% Comments"
 msgstr "% コメント"
 

@@ -535,8 +535,8 @@ body {
 .rd-col-1.single #doc article,
 .rd-col-1.single #doc2 article,
 .rd-col-1.single #doc4 article,
-.rd-col-1 #doc .index,
-.rd-col-1 #doc2 .index,
-.rd-col-1 #doc4 .index{
-    margin:1em;
+.rd-col-1 #doc .index article,
+.rd-col-1 #doc2 .index article,
+.rd-col-1 #doc4 .index article{
+   margin:1em;
 }

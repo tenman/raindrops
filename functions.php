@@ -2333,9 +2333,11 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		
 		if( 1 < $raindrops_content_elements_margin ) {
 			$raindrops_content_elements_margin_x2 = $raindrops_content_elements_margin * 2;
+			$raindrops_content_elements_top_margin = $raindrops_content_elements_margin;
+			$raindrops_content_elements_bottom_margin = $raindrops_content_elements_margin / 3;
 			/* Vertical Rhythm */
 			$css .= "\n.entry-content > p{margin-bottom:". $raindrops_content_elements_margin.'em;}';
-			$css .= "\n.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,.entry-content h5, .entry-content h6{margin-top:". $raindrops_content_elements_margin."em; margin-bottom:". $raindrops_content_elements_margin.'em;}';
+			$css .= "\n.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,.entry-content h5, .entry-content h6{margin-top:". $raindrops_content_elements_top_margin."em; margin-bottom:". $raindrops_content_elements_bottom_margin.'em;}';
 			$css .= "\n.entry-content > blockquote{margin-top:". $raindrops_content_elements_margin."em; margin-bottom:". $raindrops_content_elements_margin.'em;}';
 			$css .= "\n.entry-content > div{margin-bottom:". $raindrops_content_elements_margin_x2. 'em;}';
 			$css .= "\n.entry-content > ul,.entry-content > ol{margin-top:". $raindrops_content_elements_margin."em; margin-bottom:". $raindrops_content_elements_margin.'em;}';
@@ -3867,8 +3869,10 @@ if ( ! function_exists( "raindrops_loop_title" ) ) {
 			printf( '<li class="title-wrapper %3$s-wrapper"><strong id="archives-title"><span class="label">%1$s</span> <span class="title ">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
 
 			do_action( 'raindrops_loop_title_after' );
+			
+			$category_navigation_empty_check = strip_tags( raindrops_category_navigation() );
 
-			if ( is_category() ) {
+			if ( is_category() && ! empty( $category_navigation_empty_check ) ) {
 
 				printf( '<li class="list-category-navigation">%1$s</li>', raindrops_category_navigation() );
 			}
@@ -5266,11 +5270,12 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 				.rd-pw-doc5.rd-col-1 #bd{
 					max-width:none;
 				}
+				/* @1.456
 				.rd-pw-doc5.rd-col-1 .yui-t6 #container > .first,
 				.rd-pw-doc5.rd-col-1 .yui-t5 #container > .first,
 				.rd-pw-doc5.rd-col-1 .yui-t4 #container > .first {
 					margin:0;
-				}
+				}*/
 				.rd-pw-doc5.rd-col-1 .topsidebar .metaslider,
 				.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_calendar #calendar_wrap,
 				.rd-pw-doc5.rd-col-1 .topsidebar > ul > .raindrops-pinup-entries .page,
@@ -5330,15 +5335,20 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 					.rd-pw-doc5.rd-col-1.tag article,
 					.rd-pw-doc5.rd-col-1.page-template-date-php #doc3 .datetable,
 					.rd-pw-doc5.rd-col-1.single .raindrops-no-keep-content-width article,
-					.rd-pw-doc5.rd-col-1.page article,
-					.rd-pw-doc5.rd-col-1 .loop-item-show-allways article{
+					.rd-pw-doc5.rd-col-1.page-template .raindrops-no-keep-content-width article,
+					.rd-pw-doc5.rd-col-1.page .raindrops-no-keep-content-width article,
+					.rd-pw-doc5.rd-col-1.page > div > article,
+					.rd-pw-doc5.rd-col-1 .loop-item-show-allways > div > article{
 										  max-width:{$raindrops_full_width_max_width}px;
-										  margin:0 auto!important;
+											  /* @1.456 */
+										  margin-left:auto!important;
+										  margin-right:auto!important;
 					}
 					/* @since1.443 */
 					.rd-pw-doc5.rd-col-1.single .raindrops-keep-content-width article{
 						max-width:{$raindrops_full_width_max_width_keep_content_width}px;
-						margin:0 auto!important;
+						margin-left:auto!important;	
+						margin-right:auto!important;
 					}
 					/* @since1.446 */
 					.page-template-front-page .topsidebar ul > li > .widgettitle ~ select[name=\"archive-dropdown\"],
@@ -6532,6 +6542,9 @@ if ( ! function_exists( 'raindrops_get_recent_posts' ) ) {
 		foreach ( $results as $key => $val ) {
 
 			$classes = '';
+			$article_margin = '';
+			/**
+			 * @1.456
 
 			if ( empty( $raindrops_recent_post_thumbnail_default_uri ) && !has_post_thumbnail( $val[ "ID" ] ) ) {
 
@@ -6541,8 +6554,9 @@ if ( ! function_exists( 'raindrops_get_recent_posts' ) ) {
 				$article_margin = (int) $thumbnail_size[ 0 ] + 10;
 
 				$article_margin = 'margin-left:' . $article_margin . 'px';
+				
 			}
-
+			*/
 
 			if ( array_key_exists( 'raindrops_post_thumbnail', $args ) &&
 			true == $args[ "raindrops_post_thumbnail" ] && !post_password_required() ) {
@@ -6710,7 +6724,8 @@ if ( ! function_exists( 'raindrops_get_category_posts' ) ) {
 			foreach ( $posts as $post ) {
 				setup_postdata( $post );
 				$classes = '';
-
+				$article_margin = '';
+				/*
 				if ( empty( $raindrops_category_post_thumbnail_default_uri ) && !has_post_thumbnail( $post->ID ) ) {
 
 					$article_margin = '';
@@ -6719,7 +6734,7 @@ if ( ! function_exists( 'raindrops_get_category_posts' ) ) {
 					$article_margin = (int) $thumbnail_size[ 0 ] + 10;
 
 					$article_margin = 'margin-left:' . $article_margin . 'px';
-				}
+				}*/
 
 				if ( array_key_exists( 'raindrops_post_thumbnail', $settings ) &&
 				true == $settings[ "raindrops_post_thumbnail" ] &&
@@ -6887,8 +6902,8 @@ if ( ! function_exists( 'raindrops_get_tag_posts' ) ) {
 			foreach ( $posts as $post ) {
 				setup_postdata( $post );
 				$classes = '';
-
-
+				$article_margin = '';
+				/*
 				if ( empty( $raindrops_tag_post_thumbnail_default_uri ) && !has_post_thumbnail( $post->ID ) ) {
 
 					$article_margin = '';
@@ -6897,7 +6912,7 @@ if ( ! function_exists( 'raindrops_get_tag_posts' ) ) {
 					$article_margin = (int) $thumbnail_size[ 0 ] + 10;
 
 					$article_margin = 'margin-left:' . $article_margin . 'px';
-				}
+				}*/
 
 
 
@@ -7241,8 +7256,9 @@ if ( ! function_exists( 'raindrops_dinamic_class' ) ) {
 				$class = $id;
 			}
 		}
+
 		if ( 'yui-main' == $id ) {
-			
+		
 			$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );
 			
 			if( 1 == $raindrops_current_column && 'keep' == $raindrops_content_width_setting ) {
@@ -7544,7 +7560,7 @@ if ( ! function_exists( 'raindrops_loop_class' ) ) {
 			$raindrops_loop_five .= ' loop-item-show-allways';
 		} else {
 
-			$raindrops_background = 'style="background:rgba(127,127,127,.1) url(  ' . $raindrops_background . '  );background-size:contain;background-repeat:no-repeat"';
+			$raindrops_background = 'style="background:rgba(127,127,127,.2) url(  ' . $raindrops_background . '  );background-size:contain;    background-repeat:no-repeat;"';
 		}
 
 		return array( $raindrops_loop_number, $raindrops_loop_five, $raindrops_background );
@@ -7875,6 +7891,7 @@ if ( !function_exists( 'raindrops_chat_filter' ) ) {
 			}
 
 		}
+
 		return apply_filters( 'raindrops_chat_filter', sprintf( '%2$s<dl class="raindrops-post-format-chat">%1$s</dl>%3$s', $result, $before, $after ) );
 	}
 
@@ -10112,7 +10129,7 @@ if ( ! function_exists( 'raindrops_category_navigation' ) ) {
 
 		$tmp_parent = get_category_parents( $tmp_id, true, ' &#187; ' );
 
-		if ( strip_tags( $tmp_parent ) !== get_the_category_by_ID( $tmp_id ) . ' &#187; ' ) {
+		if ( ! is_object( $tmp_parent ) && strip_tags( $tmp_parent ) !== get_the_category_by_ID( $tmp_id ) . ' &#187; ' ) {
 
 			$tmp_parent	 = trim( $tmp_parent, ' &#187; ' );
 			$result		 = preg_replace( '!<a[^>]+>' . get_the_category_by_ID( $tmp_id ) . '</a>!', '', $tmp_parent );

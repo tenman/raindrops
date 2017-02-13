@@ -11,13 +11,21 @@
  * @uses dynamic_sidebar( 'sidebar-3' )	include template part file
  * @uses get_footer( $raindrops_document_type ) 
  */
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 do_action( 'raindrops_' . basename( __FILE__ ) );
+$raindrops_current_column = raindrops_column_controller();
+if ( $raindrops_current_column !== false ) {
+    add_filter( "raindrops_theme_settings__raindrops_indv_css", "raindrops_color_type_custom" );
+}
 get_header( 'front' );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
 ?>
-<?php get_template_part( 'widget', 'sticky' ); ?>
 <div id="yui-main">
+<?php get_template_part( 'widget', 'sticky' ); ?>
+
 	<?php
 	/* page_on_front */
 	/**

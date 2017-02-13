@@ -46,32 +46,12 @@ raindrops_debug_navitation( __FILE__ );
  * @package Raindrops
  * @since Raindrops 0.959
  */
-// Setting here start
-
-$raindrops_bf_show_sticky_post = '';
 
 
-
-
-// Setting end
 /**
- * When you display the Sticky post, $show_sticky_post set value true.
- *
- *
- *
+ * @1.456 removed display the Sticky post settings
  */
-if ( !isset( $raindrops_bf_show_sticky_post ) ) {
 
-    $raindrops_bf_show_sticky_post = 'y';
-}
-
-if ( !isset( $raindrops_bf_sticky_post_args ) ) {
-
-    $raindrops_bf_sticky_post_args = array( 'posts_per_page' => 3,
-        'post__in'       => get_option( 'sticky_posts' ),
-            //'ignore_sticky_posts' => 1
-    );
-}
 /**
  * When you display links list of the Recent Posts , please delete comment out of add_action( ).
  *
@@ -110,6 +90,7 @@ if ( !isset( $raindrops_bf_category_posts_setting ) ) {
     $raindrops_bf_category_posts_setting = array(
         'title'                                         => esc_html__( 'Categories', 'raindrops' ),
         'numberposts'                                   => 4, //show count
+		'raindrops_excerpt_length'                      => 50, // excerpt length
         'category'                                      => 0, //category id
         'orderby'                                       => 'post_date',
         'order'                                         => 'DESC',
@@ -133,6 +114,7 @@ if ( !isset( $raindrops_bf_tag_posts_setting ) ) {
     $raindrops_bf_tag_posts_setting = array(
         'title'                                         => esc_html__( 'Tags', 'raindrops' ),
         'numberposts'                                   => 4, //show count
+        'raindrops_excerpt_length'						=> 50, // excerpt length
         'raindrops_post_thumbnail'                      => true,
         'raindrops_category_post_thumbnail_default_uri' => get_template_directory_uri() . '/images/dummy.png',
         'tax_query'                                     => array(
@@ -145,50 +127,6 @@ if ( !isset( $raindrops_bf_tag_posts_setting ) ) {
             'relation' => 'AND'
         )
     );
-}
-if ( !isset( $raindrops_bf_display_title ) ) {
-
-    /**
-     * Display or not Site title
-     *
-     * value y then show other hide.
-     *
-     *
-     */
-    $raindrops_bf_display_title = 'y';
-}
-if ( !isset( $raindrops_bf_display_description ) ) {
-
-    /**
-     * Display or not Site description
-     *
-     * value y then show other hide.
-     *
-     *
-     */
-    $raindrops_bf_display_description = 'y';
-}
-if ( !isset( $raindrops_bf_display_header_image ) ) {
-
-    /**
-     * Display or not Site header image
-     *
-     * value y then show other hide.
-     *
-     *
-     */
-    $raindrops_bf_display_header_image = 'y';
-}
-if ( !isset( $raindrops_bf_display_nav_menus ) ) {
-
-    /**
-     * Display or not horizontal navigation
-     *
-     * value y then show other hide.
-     *
-     *
-     */
-    $raindrops_bf_display_nav_menus = 'y';
 }
 if ( !isset( $raindrops_bf_display_widget ) ) {
 
@@ -291,9 +229,7 @@ SUBSTITUTION_EXTRA_SIDEBAR;
  *
  *
  */
-if ( isset( $raindrops_bf_show_sticky_post ) && 'y' == $raindrops_bf_show_sticky_post ) {
-    $raindrops_bf_sticky_post_args = apply_filters( 'raindrops_bf_sticky_post_args', $raindrops_bf_sticky_post_args );
-}
+
 if ( isset( $raindrops_bf_recent_posts ) && 'y' == $raindrops_bf_recent_posts ) {
 
     add_action( 'raindrops_append_entry_content', 'raindrops_recent_posts' );
@@ -309,35 +245,6 @@ if ( isset( $raindrops_bf_tag_posts ) && 'y' == $raindrops_bf_tag_posts ) {
     add_action( 'raindrops_append_entry_content', 'raindrops_tag_posts' );
     $raindrops_bf_tag_posts_setting = apply_filters( 'raindrops_bf_tag_posts_setting', $raindrops_bf_tag_posts_setting );
 }
-
-if ( 'y' !== $raindrops_bf_display_title ) {
-
-    add_filter( 'raindrops_site_title', '__return_null' );
-}
-
-if ( 'y' !== $raindrops_bf_display_description ) {
-
-    add_filter( 'raindrops_site_description', '__return_null' );
-
-    add_filter( 'raindrops_header_image_elements', 'raindrops_remove_header_text' );
-}
-
-function raindrops_remove_header_text( $content ) {
-
-    return preg_replace( '!<p[^>]*>(.*)</p>!siu', '', $content );
-}
-
-if ( 'y' !== $raindrops_bf_display_header_image ) {
-
-    add_filter( 'raindrops_header_image_elements', '__return_null' );
-    add_filter( 'raindrops_header_image_home_url', '__return_null' );
-}
-
-if ( 'y' !== $raindrops_bf_display_nav_menus ) {
-
-    add_filter( 'raindrops_nav_menu_primary_html', '__return_null' );
-}
-
 if ( 'y' !== $raindrops_bf_display_page_content ) {
 
     add_filter( 'raindrops_entry_content', '__return_null' );
@@ -396,7 +303,7 @@ if ( 'y' !== $raindrops_bf_display_page_title ) {
     add_filter( 'raindrops_entry_title', '__return_null' );
 }
 
-if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom_text_default_sidebar ) {
+if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom_text_default_sidebar ) && 1 !== $raindrops_current_column ) {
 
     $raindrops_devide_column_class = 'yui-b';
 } else {
@@ -404,73 +311,43 @@ if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom
     $raindrops_devide_column_class = '';
 }
 
-if ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom_text_extra_sidebar ) {
+if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_custom_text_extra_sidebar )  && 1 !== $raindrops_current_column ) {
 
-    $raindrops_devide_column_extra_class = 'yui-u';
+		$raindrops_devide_column_extra_class = 'yui-u';
+
 } else {
 
     $raindrops_devide_column_extra_class = '';
 }
 ?>
 
-<div id="yui-main">
+<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
     <div class="<?php echo $raindrops_devide_column_class; ?>">
 
         <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
-            <div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php
+            <div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php /*
             raindrops_is_2col( 'style="width:99%;"' );
 
             if ( $raindrops_devide_column_extra_class !== 'yui-u' ) {
                 echo 'style="width:99%;"';
             }
-            ?>>
+            */?>>
 			<?php get_template_part( 'widget', 'sticky' ); ?>			
-                <?php if ( true == $raindrops_bf_show_sticky_post ) { ?>
-                    <div>
-                        <ul class="raindrops-sticky-posts">
-                            <?php
-                            /**
-                             *  Sticky post
-                             *
-                             */
-                            $the_query = new WP_Query( apply_filters( 'raindrops_bf_sticky_post_args', $raindrops_bf_sticky_post_args ) );
-
-
-                            while ( $the_query->have_posts() ) {
-                                $the_query->the_post();
-
-
-                                $html = '<div id="post-%1$s" class="%2$s">';
-                                printf( $html, get_the_ID(), join( ' ', get_post_class() )
-                                );
-
-                                raindrops_entry_title();
-
-                                $html = '<div class="%1$s">';
-                                printf( $html, 'entry-content clearfix' );
-
-                                raindrops_entry_content();
-                                print( '</div>' );
-                            } //end while
-                            wp_reset_postdata();
-                            ?>
-                        </ul>
-                    </div>
-                <?php } //endif( $show_sticky_post == true ) ?>
+ 
 
                 <?php get_template_part( 'loop', 'default' ); ?>
                 <br style="clear:both" />
             </div>
             <?php if ( $raindrops_devide_column_extra_class == 'yui-u' ) { ?>
-                <div class="yui-u">
-                    <?php raindrops_prepend_extra_sidebar(); ?>
-                    <?php
+                <?php 
                     if ( $rsidebar_show && $raindrops_bf_display_widget == 'y' ) {
+						?><div class="yui-u"><?php
+						raindrops_prepend_extra_sidebar();
                         get_sidebar( 'extra' );
+						raindrops_append_extra_sidebar();
+						?></div><?php
                     }
-                    ?>
-                    <?php raindrops_append_extra_sidebar(); ?>
-                </div>
+                ?>
             <?php }//if ( $raindrops_devide_column_class == 'yui-u' )  ?>
         </div>
     </div>

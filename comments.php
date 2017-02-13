@@ -60,14 +60,10 @@ global $raindrops_document_type;
      */
     if ( !comments_open() ) {
         ?>
-        <p class="nocomments">
-        <?php esc_html_e( 'Comments are closed.', 'raindrops' ); ?>
-        </p>
+        <p class="nocomments"><?php esc_html_e( 'Comments are closed.', 'raindrops' ); ?></p>
         <?php } // end ! comments_open( ) 
     }// end have_comments( )
     ?>
 <br class="clear" />
-<div class="social">
-    <?php comment_form(); ?>
-</div>
+<div class="social"><?php comment_form(); ?></div>
 </div>

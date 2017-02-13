@@ -102,9 +102,7 @@ raindrops_debug_navitation( __FILE__ );
                                 raindrops_delete_post_link( esc_html__( 'Trash', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>' );
                                 ?>
                             </div>
-                            <?php
-                            comments_template( '', true );
-                            ?>
+                            <?php  comments_template( '', true ); ?>
                             </<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
 							</div><?php raindrops_after_article(); ?>
                         </div>

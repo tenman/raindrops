@@ -1004,69 +1004,6 @@ if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
 	}
 }
 
-/*if ( ! function_exists( 'raindrops_default_color_clone' ) ) {
-	
-	function raindrops_default_color_clone( $option_name , $style_type = '') {
-
-	   if ( empty( $style_type ) ) {
-			$style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
-	   }
-
-		switch ( $style_type ) {
-
-			case ( "w3standard" ):
-				$custom_dark_bg  = raindrops_colors_clone( '3', 'background' );
-				$custom_light_bg = raindrops_colors_clone( '1', 'background' );
-				$custom_color    = raindrops_colors_clone( '3', 'color' );
-
-			break;
-			case ( "dark" ):
-				
-				$custom_dark_bg  = raindrops_colors_clone( '-1', 'background' );
-				$custom_light_bg = raindrops_colors_clone( '-4', 'background' );
-				$custom_color    = raindrops_colors_clone( '-3', 'color' );
-
-				break;
-			case ( "light" ):
-				
-				$custom_dark_bg  = raindrops_colors_clone( '5', 'background' );
-				$custom_light_bg = raindrops_colors_clone( '3', 'background' );
-				$custom_color    = raindrops_colors_clone( '3', 'color' );
-
-				break;
-			default:
-				$custom_dark_bg  = raindrops_colors_clone( '3', 'background' );
-				$custom_light_bg = raindrops_colors_clone( '1', 'background' );
-				$custom_color    = raindrops_colors_clone( '3', 'color' );
-
-
-				break;
-		}
-
-		if( 'raindrops_background_color' == $option_name ) {
-			return $custom_dark_bg;
-		}
-		if( 'header_textcolor' == $option_name ) {
-			return $custom_color;
-		}
-		if( 'raindrops_default_fonts_color' == $option_name ) {
-			return $custom_color;
-		}
-		if( 'raindrops_footer_color' == $option_name ) {
-			return $custom_color;
-		}
-		if( 'raindrops_footer_link_color' == $option_name ) {
-			return $custom_color;
-		}
-		if( 'raindrops_hyperlink_color' == $option_name ) {
-			return $custom_color;
-		}
-		if( 'raindrops_header_image_filter_color' == $option_name ) {
-			return $custom_light_bg;
-		}
-		return false;
-	}
-}*/
 /**
  * Base Color Class Create
  *
@@ -1369,23 +1306,6 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 		} else {
 			$display_property = 'display:inline-block;';
 		}
-
-		/*$raindrops_gallerys = ".gallery { margin: auto; width: 100%; }\n
-				.gallery .gallery-item { margin: 0px; }\n
-				.gallery .gallery-item {". $display_property. " margin-top: 10px; text-align: center; }\n
-				.gallery img { max-width:100%; }\n
-				.gallery .gallery-caption { margin-left: 0; }\n
-				.gallery br { clear: both }\n
-				.gallery-columns-1 .gallery-item{ width: 100% }\n
-				.gallery-columns-2 .gallery-item{ width: 50% }\n
-				.gallery-columns-3 .gallery-item{ width: 33.3% }\n
-				.gallery-columns-4 .gallery-item{ width: 25% }\n
-				.gallery-columns-5 .gallery-item{ width: 20% }\n
-				.gallery-columns-6 .gallery-item{ width: 16.6% }\n
-				.gallery-columns-7 .gallery-item{ width: 14.28% }\n
-				.gallery-columns-8 .gallery-item{ width: 12.5% }\n
-				.gallery-columns-9 .gallery-item{ width: 11.1% }\n
-				.gallery-columns-10 .gallery-item{ width: 9.9% }\n";*/
 	
 		$all_sizes = raindrops_get_image_sizes();
 		$raindrops_gallerys = '.entry-content .gallery{margin:1em auto;}';

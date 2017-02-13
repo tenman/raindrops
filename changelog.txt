@@ -1,4 +1,30 @@
 Changelog -----------------------------------
+version:1.456
+
+Overview of Changes
+	Modified Overhaul blank-front.php template
+	Modified Removed Uneeded line-break
+	Modified Customizer / Presentation / Fonts / Vertical Rhythm for Entry Content
+		Change h* headding margin
+	Fixed Page content width display improperly
+	Modified Overhaul front-portfolio.php Remove Sticky Post
+
+Files Modified
+	modified:   comments.php
+	modified:   functions.php
+	modified:   grids.css
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   page-templates/front-page.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page.php
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.455&new_path=raindrops/1.456
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.455
 
 Overview of Changes

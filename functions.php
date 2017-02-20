@@ -6003,8 +6003,10 @@ if ( ! function_exists( 'raindrops_html_excerpt_with_elements' ) ) {
 		}
 
 		if ( $allow_html ) {
+			
+			$raindrops_skip_excerpt = apply_filters('raindrops_skip_excerpt', false );
 
-			if ( preg_match( '!\[raindrops skip-excerpt\]!', $content ) ) {
+			if ( preg_match( '!\[raindrops skip-excerpt\]!', $content ) || true == $raindrops_skip_excerpt ) {
 				return $content;
 			}
 
@@ -6140,9 +6142,15 @@ if ( ! function_exists( 'raindrops_entry_content' ) ) {
 		$raindrops_excerpt_condition		 = apply_filters('raindrops_excerpt_conditional', raindrops_detect_excerpt_condition() );
 		$raindrops_excerpt_enable			 = raindrops_warehouse_clone( 'raindrops_excerpt_enable' );
 		//$raindrops_allow_oembed_excerpt_view = raindrops_warehouse_clone( 'raindrops_allow_oembed_excerpt_view' );
+		
+		if ( isset( $post ) ) {
+			$raindrops_skip_excerpt = apply_filters('raindrops_skip_excerpt', false, $post->ID );
+		} else {
+			$raindrops_skip_excerpt = false;
+		}
  
-		if ( true == $raindrops_excerpt_condition && !is_sticky() && 'no' == $raindrops_excerpt_enable &&
-		! preg_match( '!\[raindrops skip-excerpt\]!', $post->post_content ) ) {
+		if ( ( true == $raindrops_excerpt_condition && !is_sticky() && 'no' == $raindrops_excerpt_enable &&
+		! preg_match( '!\[raindrops skip-excerpt\]!', $post->post_content ) ) && false == $raindrops_skip_excerpt ) {
 
 			/* remove shortcodes */
 			$excerpt = strip_shortcodes( get_the_excerpt() );
@@ -6381,6 +6389,7 @@ if ( ! function_exists( 'raindrops_recent_posts' ) ) {
 	}
 
 }
+
 if ( ! function_exists( 'raindrops_category_posts' ) ) {
 
 	/**
@@ -7214,7 +7223,9 @@ if ( ! function_exists( 'raindrops_dinamic_class' ) ) {
 
 	function raindrops_dinamic_class( $id = 'yui-u first', $echo = false ) {
 
-		global $rsidebar_show, $raindrops_keep_content_width, $raindrops_current_column;
+		global $rsidebar_show, $raindrops_keep_content_width, $raindrops_current_column, $template;
+		
+		$template_name = basename($template,'.php');
 
 		$class = '';
 
@@ -7261,27 +7272,43 @@ if ( ! function_exists( 'raindrops_dinamic_class' ) ) {
 		
 			$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );
 			
-			if( 1 == $raindrops_current_column && 'keep' == $raindrops_content_width_setting ) {
+			if( 'full-width' == $template_name ) {
 				
-				$class = $id . " raindrops-keep-content-width";
-				
-			}elseif ( 1 == $raindrops_current_column && 'fit' == $raindrops_content_width_setting ) {
-
-				$class = $id . " raindrops-no-keep-content-width";	
-			} else {
-				
-				if ( 1 == $raindrops_current_column && isset( $raindrops_keep_content_width ) && true == $raindrops_keep_content_width ) {
+				if ( 'keep' == $raindrops_content_width_setting ) {
 
 					$class = $id . " raindrops-keep-content-width";
-				}elseif ( 1 == $raindrops_current_column && isset( $raindrops_keep_content_width ) && false == $raindrops_keep_content_width )  {
-					/**
-					 * @since1.442
-					 */
-					$class = $id . " raindrops-no-keep-content-width";
-				}else{
+
+				} elseif ( 'fit' == $raindrops_content_width_setting ) {
+
+					$class = $id . " raindrops-no-keep-content-width";	
+				} else {
 					$class = $id;
 				}
-			}	
+				
+			} else {
+				
+				if( 1 == $raindrops_current_column && 'keep' == $raindrops_content_width_setting ) {
+
+					$class = $id . " raindrops-keep-content-width";
+
+				}elseif ( 1 == $raindrops_current_column && 'fit' == $raindrops_content_width_setting ) {
+
+					$class = $id . " raindrops-no-keep-content-width";	
+				} else {
+
+					if ( 1 == $raindrops_current_column && true == $raindrops_keep_content_width  ) {
+
+						$class = $id . " raindrops-keep-content-width";
+					} elseif ( 1 == $raindrops_current_column && false == $raindrops_keep_content_width ) {
+						/**
+						 * @since1.442
+						 */
+						$class = $id . " raindrops-no-keep-content-width";
+					} else {
+						$class = $id;
+					}
+				}
+			}
 		}
 
 		if ( false !== $echo ) {
@@ -8281,10 +8308,12 @@ if ( ! function_exists( 'raindrops_list_of_posts' ) ) {
 		global $raindrops_list_of_posts_length;
 		global $raindrops_list_of_posts_more;
 		global $raindrops_list_of_posts_use_toggle;
+		global $raindrops_list_of_posts_type;
 
 		$query = get_query_var( 'paged' );
-
-
+		if ( !isset($raindrops_list_of_posts_type) ) {
+			$raindrops_list_of_posts_type = 'post';
+		}
 		if ( !isset( $raindrops_list_of_posts_per_page ) ) {
 
 			$raindrops_list_of_posts_per_page = get_option( 'posts_per_page' );
@@ -8320,6 +8349,7 @@ if ( ! function_exists( 'raindrops_list_of_posts' ) ) {
 		$raindrops_args					 = array( 'post_status'	 => 'publish',
 			'post_per_page'	 => $raindrops_list_of_posts_per_page,
 			'paged'			 => $query,
+			'post_type' => $raindrops_list_of_posts_type,
 		);
 		$raindrops_list_of_post_query	 = new WP_Query( $raindrops_args );
 

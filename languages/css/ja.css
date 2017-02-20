@@ -63,23 +63,10 @@ body.ja,
 .ja .h3{
 	font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
 }
-/**
- * @1.454
-.ja .entry-content h4,
-.ja .entry-content h5,
-.ja .entry-content h6,
-.ja .entry-content h1,
-.ja .entry-content h2,
-.ja .entry-content h3,
-.ja .entry-content .h4,
-.ja .entry-content .h5,
-.ja .entry-content .h6,
-.ja .entry-content .h1,
-.ja .entry-content .h2, 
-.ja .entry-content .h3{
-       margin:1.6em 0;   
+.rd-modal .header h3{
+    margin-top:0;
+    margin-bottom:0;
 }
-*/
 
 /* Raindrops new h1-h6 font size from ver 0.996 start */
 /**

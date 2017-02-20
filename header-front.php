@@ -104,7 +104,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 			if ( !empty( $raindrops_header_image ) || has_post_thumbnail() ) {
 				?>
 				<span id="container"></span>
-				<div class="line front-page-top-container" id="front-page-top-container">
+				<div class="line front-page-top-container equal-height" id="front-page-top-container">
 					<div class="unit size1of2" id="post-<?php the_ID(); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 						<div class="static-front-content yui-u first">
 							<?php

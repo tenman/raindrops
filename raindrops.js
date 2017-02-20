@@ -219,3 +219,27 @@
     });
 
 })(jQuery);
+jQuery( function ( $ ) {
+
+    $( '.trancate' ).each( function ( index ) {
+        var rows = $( this ).data( 'rows' );
+        if ( !rows ) {
+            rows = 3;
+        }
+
+        var line_height = parseInt( $( this ).css( 'line-height' ) );
+        var box_height = parseInt( Math.ceil( rows * line_height ) );
+        $( this ).wrapInner( "<span class='multiline-text-overflow'></span>" );
+        $( this ).height( box_height );
+
+       if( parseInt($( '.multiline-text-overflow', this ).height()) > box_height ){
+             $( this ).addClass('on-trancate');  
+             $( this ).removeClass('off-trancate');
+         }
+       if( parseInt($( '.multiline-text-overflow', this ).height()) < box_height ){
+            $( this ).addClass('off-trancate');
+            $( this ).removeClass('on-trancate');
+        }
+    });
+
+});

@@ -2538,6 +2538,7 @@ address .entry-rss:after,
 	background:$background5;
 	 transition: all 1s ease-in-out;
 }
+
 .commentlist > li:hover,
 .rd-content-width-fit .topsidebar .widget:hover,
 .rd-content-width-fit #doc5	.index > li:hover{
@@ -2548,6 +2549,7 @@ address .entry-rss:after,
     -webkit-transition: box-shadow 1s ease-in-out;
 	background:#fff;
 }
+
 .commentlist:hover > li,
 .rd-content-width-fit .topsidebar .widget:hover + li,
 .rd-content-width-fit #doc5	.index > li:hover + li{

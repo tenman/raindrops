@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.456
+Version: 1.457
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -5794,7 +5794,7 @@ article .post-password-form label{
     box-sizing:border-box;
 }
 /* @1.457
- 
+
 .rd-square > .oembed-container,
 .rd-squere > .oembed-container,
 .rd-round > .oembed-container{
@@ -5841,7 +5841,7 @@ article .post-password-form label{
      top:0;
      border:1px solid #ccc;
 }
-.topsidebar .textwidget .rd-round{ 
+.topsidebar .textwidget .rd-round{
     margin-top:0;
     margin-bottom:0;
 }
@@ -5858,7 +5858,7 @@ article .post-password-form label{
      height:0;
      width:100%;
  /*    height:100%;*/
-     
+
 }
 .rd-round > *,/* fallback for old style */
 .rd-square > *,/* fallback for old style */
@@ -5884,7 +5884,7 @@ article .post-password-form label{
 .rd-round > .content .oembed-container,
 .rd-square > .content .oembed-container{
      width:100%;
-     height:100%; 
+     height:100%;
 }
 
 

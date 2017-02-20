@@ -1,4 +1,37 @@
 Changelog -----------------------------------
+version:1.457
+
+Overview of Changes
+	Fixed Scope of too wide style
+		index article margin-bottom,
+		.postmetadata,.entry-meta margin,
+		ul.archive > li,ul.index li, margin,
+		ul.archive > li > div, -ul.index > li > div margin
+	Added New Class .trancate and data-rows attribute
+
+		<p class="trancate" data-rows="5">lorem....</p>
+
+		multiline clipping class
+		for like text-overflow , -webkit-line-clamp, -o-ellipsis-lastline presentation
+
+		@see example http://tenman.info/labo/css/?p=5574
+
+	Modified rd-square, rd-round, centered classes
+
+Files Modified
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.456&new_path=raindrops/1.457
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.456
 
 Overview of Changes

@@ -3,8 +3,22 @@ version:1.458
 
 Overview of Changes
 
-Files Modified
+	Changes to improve compatibility of CSS Class of Raindrops theme
 
+	@see http://tenman.info/labo/css/?p=5647
+
+	Sorry, only japanese document.
+
+Files Modified
+	modified:   css3.css
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   lib/csscolor.css.php
+	modified:   page-templates/front-portfolio.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.457&new_path=raindrops/1.458

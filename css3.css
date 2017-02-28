@@ -147,12 +147,13 @@ article .entry-meta a:hover,
 #access{
     -webkit-text-size-adjust: 120%;
 }
+/* @1.458
 #header-image p{
     position:relative;
     top:35%;
     text-align:center;
 
-}
+}*/
 
 .datetable td li:nth-last-child(1){
     border-bottom:none;

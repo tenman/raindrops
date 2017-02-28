@@ -101,7 +101,9 @@ $args                     = array(
     'post_type'      => 'post',
     'meta_key'       => '_thumbnail_id',
     'post_status'    => 'publish',
-    'post__not_in'   => get_option( 'sticky_posts' ) );
+    'post__not_in'   => get_option( 'sticky_posts' ),
+	'raindrops_tile_col' => 3,
+);
 
 raindrops_tile( $args );
                     raindrops_next_prev_links( "nav-below" );

@@ -2333,8 +2333,8 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		
 		if( 1 < $raindrops_content_elements_margin ) {
 			$raindrops_content_elements_margin_x2 = $raindrops_content_elements_margin * 2;
-			$raindrops_content_elements_top_margin = $raindrops_content_elements_margin;
-			$raindrops_content_elements_bottom_margin = $raindrops_content_elements_margin / 3;
+			$raindrops_content_elements_top_margin = $raindrops_content_elements_margin * 1.5;
+			$raindrops_content_elements_bottom_margin = $raindrops_content_elements_margin * 0.75;
 			/* Vertical Rhythm */
 			$css .= "\n.entry-content > p{margin-bottom:". $raindrops_content_elements_margin.'em;}';
 			$css .= "\n.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4,.entry-content h5, .entry-content h6{margin-top:". $raindrops_content_elements_top_margin."em; margin-bottom:". $raindrops_content_elements_bottom_margin.'em;}';
@@ -2349,7 +2349,13 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n.entry-title{text-transform: uppercase;}";
 			$css .= "\n.widgettitle,.archive .title-wrapper,.date .page-title{text-transform: uppercase;}";
 		}
-
+		/* @sice 1.458 fallback menu background color */
+		$raindrops_base_color		 = raindrops_warehouse_clone( 'raindrops_base_color' );
+		
+		if ( ! empty( $raindrops_base_color ) ) {
+			
+			$css .= "\n.raindrops-menu-fixed{    background:{$raindrops_base_color};}";
+		}
 		//#header-image
 		$css .= "\n" . raindrops_header_image( 'css' ) . "\n";
 
@@ -2498,7 +2504,9 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
     }
     #doc5 #container:not(.rd-expand-sidebar) > div.first,
     #doc3 #container:not(.rd-expand-sidebar) > div.first{
-        width:100%;
+       /* @1.458	   */
+	   width:100%;
+
         padding-right:1em;
         box-sizing:border-box;
     }
@@ -8444,8 +8452,8 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 
 	function raindrops_tile( $args = array() ) {
 
-		global $query_string;
-
+		global $query_string, $template;
+		$current_template = basename( $template,'.php');
 		$defaults		 = array(
 			'posts_per_page'	 => 3,
 			'numberposts'		 => -1,
@@ -8499,13 +8507,19 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 
 				echo raindrops_fallback_title( $title, $post->ID );
 				?></a></h2>
-										<div class="posted-on">
-				<?php raindrops_posted_on(); ?>
-										</div>
+										<div class="posted-on"><?php raindrops_posted_on(); ?></div>
 										<div class="entry-content clearfix">
-											
-<!--<a href="<?php echo get_comments_link( $post->ID ); ?>" class="raindrops-comment-link"><span class="raindrops-comment-string point"></span><em><?php esc_html_e( 'Comment', 'raindrops' ); ?></em></a>-->
-										<?php raindrops_entry_content();?>
+									
+		<?php 
+				if( 'front-page' == $current_template ) {
+					$data_rows = 5;
+					} else {
+						$data_rows = 3;
+					}
+				$data_rows = apply_filters('raindrops_tile_content_line_num', $data_rows );
+		?>
+											<p class="trancate" data-rows="<?php echo $data_rows;?>">
+												<?php echo strip_tags(get_the_excerpt($post->ID )) ?></p>
 										</div>
 										<div class="entry-meta">
 				<?php edit_post_link( esc_html__( 'Edit', 'raindrops' ) . raindrops_link_unique( 'Post', $post->ID ), '<span class="edit-link">', '</span>', $post->ID ); ?>
@@ -8513,7 +8527,8 @@ if ( ! function_exists( 'raindrops_tile' ) ) {
 										<br class="clear" />
 										</<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
 								</li>
-			<?php }//foreach( $raindrops_posts as $post )                                    ?>
+			<?php }//foreach( $raindrops_posts as $post )                                    
+			?>
 						</ul>
 						<br class="clear" />
 			<?php

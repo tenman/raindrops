@@ -115,6 +115,15 @@ h3,
 .h3{
     font-family:"Times New Roman", Times, serif;
 }
+div[class="entry-content"] > h6,
+div[class="entry-content"] > h5,
+div[class="entry-content"] > h4,
+div[class="entry-content"] > h3,
+div[class="entry-content"] > h2,
+div[class="entry-content"] > h1{
+    margin-top:1.5em;
+    margin-bottom:.75em;
+}
 .form-allowed-tags code,
 tt,code,kbd{
     font-family:"Courier New", Courier, monospace;
@@ -402,6 +411,14 @@ h3,
     /*font-weight:bold;
     raindrops 1.132 change font-weight*/
     font-weight:normal;
+}
+.front-page-top-container h1,
+.front-page-top-container h2,
+.front-page-top-container h3,
+.front-page-top-container .h1,
+.front-page-top-container .h2,
+.front-page-top-container .h3{
+    font-weight:700;
 }
 h4,
 h5,

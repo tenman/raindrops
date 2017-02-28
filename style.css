@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.457
+Version: 1.458
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -115,6 +115,10 @@ a.disable{
 .index article{
     margin-bottom:2em;
 }
+
+.rd-col-1 .front-page article,
+.rd-col-1 .front-page article,
+.rd-col-1 .search-results article,
 .rd-col-1 .index article{
     /* @1.457 */
     box-sizing:border-box;
@@ -133,20 +137,14 @@ a.disable{
     margin-top:1em;
     box-sizing:border-box;
 }
-.raindrops-no-keep-content-width div[id^="post-"]{
-    margin-top:0;
-}
-/* @1.456 */
-.single .single-post-thumbnail{
-    margin:-1em -1em 0;
-}
-.page  div[id^="post-"],
-.page article,
+
+
+/* need test @1.458 */
+/* revert @1.458 */
 .single article{
-    padding:1em;
+    margin-top:1em;
     box-sizing:border-box;
 }
-
 /* headding */
 .textwidget h1,
 .textwidget h2,
@@ -1593,12 +1591,21 @@ h2.footer-content,
     clear:both;
     text-align:center;
 }
-/* @1.457 */
+/* @1.458 */
+.single .raindrops-keep-content-width .single-post-thumbnail{
+  /*  margin:-1em -1em 0;*/
+}
+.page .raindrops-keep-content-width  div[id^="post-"],
+.page .raindrops-keep-content-width  article,
+.single .raindrops-keep-content-width article{
+   /* padding:1em;
+    box-sizing:border-box;*/
+}
 .rd-col-1 .postmetadata,
 .rd-col-1 .entry-meta{
     line-height:1.6;
     /*　@1.456 */
-    margin:1em -1em -1em;
+  /*  margin:1em -1em -1em;*/
     text-align:center;
 }
 .postmetadata,
@@ -1832,9 +1839,9 @@ div[class^="entry-meta"] .emoji-date,
 .rd-featured-yes-left .index .h2-thumb + .entry-title-text{
     padding:0;
 }
-
+/* @1.458
 .raindrops-no-keep-content-width ul.archive > li,
-.raindrops-no-keep-content-width ul.index > li,
+.raindrops-no-keep-content-width ul.index > li,*/
 ul.archive > li,
 ul.index > li {
     list-style:none;
@@ -1842,23 +1849,6 @@ ul.index > li {
     display:block;
     margin:0;
     padding:0;
-}
-/* @ 1.457 */
-.rd-col-1 ul.archive > li,
-.rd-col-1 ul.index > li {
-    margin:.5em 0;
-}
-.rd-col-1.rd-content-width-fit ul.archive > li,
-.rd-col-1.rd-content-width-fit ul.index > li {
-    margin:0;
-}
-.rd-col-1 ul.archive > li > div,
-.rd-col-1 ul.index > li > div{
-    /* @1.456 */
-    padding:1em;
-    box-sizing:border-box;
-    background-origin:border-box;
-    overflow:hidden;
 }
 
 
@@ -2567,8 +2557,9 @@ li.byuser,
     background-repeat:repeat-x;
 }
 .shadow{
+/*  @1.458
     margin:2em;
-    padding:1em;
+    padding:1em;*/
     border:0.07692307692em solid #ccc;
 }
 /**
@@ -3604,7 +3595,9 @@ sup {
 /**
  * @1.456 renew Style for blank-front template
  */
-
+.page-template-blank_front.rd-col-1 .raindrops-no-keep-content-width #container > .first{
+    width:100%;
+}
 .page-template-blank_front.rd-col-1 #container > .first{
     float:none;
     margin-left:auto;
@@ -3836,7 +3829,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     padding:1em;
 }
 .raindrops-toc-front{
-    margin:0 1em;
+    margin-bottom:1.53846153846em;
 }
 .raindrops-toc-front li{
     list-style:none;
@@ -3983,6 +3976,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .size4of5{
     width:80%;
 }
+.lastunit,
 .lastUnit {
     float:none;
     width:auto;
@@ -4006,6 +4000,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .equal-height .unit{
      height:100%;
 }
+
 .portfolio{
     margin-bottom:1.53846153846em;
 }
@@ -4027,6 +4022,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     */
     background-position:center!important;
 }
+
 #portfolio ul.index > li:hover{
      outline:1px solid rgba( 104, 104, 104, 0.5 );
 }
@@ -4049,7 +4045,9 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 #portfolio ul.index > li{
     width:31.3%;
     margin:1%;
+    outline:1px solid rgba(127,127,127,.4);
 }
+
 #portfolio.column-4 ul.index > li{ /* 4columns */
     width:23%;
     margin:1%;
@@ -4058,15 +4056,18 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 }
 #portfolio.column-2 ul.index > li{
     width:48%;
-    height:0;
-    padding-bottom:36%;
     margin:1%;
 }
+/* 1.458 changed #portfolio article */
 #portfolio article{
+    display: -webkit-flex;
     display:flex;
-    align-items: center;
+    -webkit-align-items: center;
+    align-items:stretch;
     justify-content: center;
     flex-direction:column;
+    vertical-align:middle;
+    padding-top:11.74%;
 }
 #portfolio:target{
     margin-top:-120px;
@@ -4078,46 +4079,40 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .portfolio ul.index > li article{
     visibility:hidden;
     position:relative;
-    /*height:180px;*/
-   /* @1.456
-   background-size:cover;
-   */
     text-align:center;
-    height:0;
-    padding-bottom:75%;
-
+    width:100%;
 }
 .portfolio ul.index > li article .entry-title{
-   position:absolute;
-   top:0;
-   display:block;
-   overflow:hidden;
+    flex:1;
+    width:100%;
+    align-self: flex-start;
+    margin:0 0 1em;
+    padding:0;
 }
 .portfolio ul.index > li article .entry-content{
-   position:absolute;
-   top:60px;
-   display:block;
-   width:calc(100% - 2em);
-   height:60%;
-   overflow:hidden;
-   padding:1em;
-   text-align:left;
-   border:1px solid rgba(127,127,127,.4);
-   box-sizing:border-box;
-   max-width:100%
-
+    flex:1;
+    overflow:hidden;
+    margin:0;
+    text-align:left;
+    box-sizing:border-box;
+    max-width:100%;
 }
-.portfolio.column-2 ul.index > li article{
-    height:0;
-    padding-bottom:75%;
-}
-.portfolio ul.index > li article .entry-meta{
+.ie10 .portfolio ul.index > li article .entry-content,
+.ie11 .portfolio ul.index > li article .entry-content{
     position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    width:100%;
-    margin:auto;
+    top:60px;
+    display:block;
+}
+.portfolio ul.index > li article .entry-content .trancate{
+    margin:0;
+}
+
+.portfolio ul.index > li article .entry-meta{
+    flex:1;
+    align-self: flex-end;
+}
+.portfolio ul.index > li article .entry-meta .edit-link{
+    margin:0 1em;
 }
 .portfolio .posted-on{
     display:none;
@@ -4126,17 +4121,14 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 .portfolio ul.index > .loop-item-show-allways article,
 .portfolio ul.index > li:hover article{
     visibility:visible;
-
 }
 #portfolio ul.index > li{
-
-
     transition: background-image .5s ease-in-out;
 }
 .portfolio ul.index > li:hover{
     background:none!important;
--webkit-transition: background-image 1s ease-in-out!important;
-transition: background-image 1s ease-in-out!important;
+    -webkit-transition: background-image 1s ease-in-out!important;
+    transition: background-image 1s ease-in-out!important;
 }
 .portfolio .index ul,
 .portfolio ul.index > li.loop-9:after,
@@ -4168,10 +4160,6 @@ transition: background-image 1s ease-in-out!important;
     padding:0.38461538461em 0.76923076923em;
 }
 
-.portfolio .index > li .entry-title a{
-    margin:.5em 0.76923076923em;
-}
-
 .portfolio .index > li .post .h2-thumb,
 .portfolio .index > li:not(.loop-item-show-allways) .post .entry-meta,
 .portfolio .index > li:not(.loop-item-show-allways) .post .raindrops-comment-link em,
@@ -4181,11 +4169,6 @@ transition: background-image 1s ease-in-out!important;
 .portfolio .index > li .raindrops-comment-link{
     margin:0 0 0 0;
 }
-/*
-.portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link em,
-.portfolio .index > li:not(.loop-item-show-allways) .post:hover .raindrops-comment-link{
-    display:inline;
-}*/
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .entry-meta,
 .portfolio .index > li:not(.loop-item-show-allways) .post:hover .entry-title a{
     display:block;
@@ -4213,9 +4196,9 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
 }
 /* portfolio template */
 .portfolio-nav{
-    margin:0.76923076923em;
+    margin-top:0.76923076923em;
+    margin-bottom:0.76923076923em;
     position:relative;
-  /*  overflow:hidden;*/
     height:50px;
 }
 .portfolio-nav > ul{
@@ -4740,10 +4723,21 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
 }
 @media screen and (max-width : 640px){
     #portfolio ul.index > li{
-        width:100%;
+        width:98%;
         height:0;
         padding-bottom:75%;
         margin-bottom:1em;
+        margin-left:1%;
+        margin-right:auto;
+    }
+    .page-template-front-portfolio #portfolio ul.index > li article{
+        padding-top:23.4%;
+    }
+}
+@media screen and (max-width : 992px) {
+    #doc5 .front-page-top-container .unit, #doc3 .front-page-top-container .unit{
+        float:none;
+        width:100%;
     }
 }
 /**
@@ -5840,15 +5834,18 @@ article .post-password-form label{
      position:relative;
      top:0;
      border:1px solid #ccc;
+     box-sizing:border-box;
 }
 .topsidebar .textwidget .rd-round{
     margin-top:0;
     margin-bottom:0;
 }
 .rd-round{
+    -webkit-border-radius: 50%;
     border-radius:50%;
     overflow:hidden;
 }
+
 .rd-round:before,
 .rd-square:before{
      content: '';
@@ -5868,8 +5865,9 @@ article .post-password-form label{
      width:100%;
      height:100%;
      top:0;
-
+     left:0;
      overflow:hidden;
+
 }
 .rd-round > .content img,
 .rd-square > .content img{
@@ -5881,13 +5879,12 @@ article .post-password-form label{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
 .rd-round > .content .oembed-container,
 .rd-square > .content .oembed-container{
      width:100%;
      height:100%;
 }
-
-
 
 .not-hover{
     /* stop hover presentation */
@@ -6446,11 +6443,8 @@ x:-o-prefocus, .rd-modal > div {
     border: 10px solid transparent;
     border-top: 10px solid #333;
 }
-/* @1.356 sticky menu start */
-.raindrops-menu-fixed{
-    /* fallback style */
-    background:#fff;
-}
+
+
 p.raindrops-mobile-menu,
 #access.raindrops-menu-fixed{
     position:fixed;
@@ -6572,13 +6566,18 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     display:none;
 }
 .centered{
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-box-sizing:border-box;
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction:column;
     height:100%;
+    box-sizing:border-box;
 }
-
 .hfeed .centered p{
     margin-bottom:0;
 }
@@ -7499,3 +7498,13 @@ article [data-mod="postit"]:before{
      display:block;
      position:relative;
 }
+/*
+ * @since 1.458
+ * Target Ajust
+ */
+.index > li >  div[id^="post-"]:target,
+#doc5 .raindrops-no-keep-content-width .index > li > div:target,
+div[id^="post-"]:target{
+    padding-top:5em;
+}
+

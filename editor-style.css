@@ -12,6 +12,7 @@ html .mce-content-body {
 
 a{
     text-decoration:none;
+    display:inline;
 }
 a:link {
 

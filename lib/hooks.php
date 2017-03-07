@@ -387,6 +387,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.452
 		 */
 		add_filter('posts_where', 'raindrops_exclude_html_attr_search' );
+		/**
+		 * @since 1.459
+		 */
+		add_action( 'raindrops_after_article', 'raindrops_post_relate_contents' );
 		
 
 	}

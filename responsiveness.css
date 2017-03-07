@@ -1161,6 +1161,7 @@
         font-size:100%;
         width:auto;
     }
+    /* @1.459
     #doc5 .raindrops-category-posts li,
     #doc5 .raindrops-tag-posts li,
     #doc5 .raindrops-recent-posts li,
@@ -1170,11 +1171,41 @@
         margin:1em 0;
         padding:0;
         width:99%;
+    }*/
+
+    .raindrops-category-posts li,
+    .raindrops-tag-posts li,
+    .raindrops-recent-posts li{
+        margin:auto auto 1em;
+        padding:0;
+        width:99%;
+        min-height:15.3846em;
+       
     }
-    .raindrops-category-posts ul > li .thumb img,
-    .raindrops-tag-posts ul > li .thumb img ,
-    #raindrops-recent-posts > ul > li .thumb img{
-        width:64px!important;
+ 
+ 
+ .raindrops-tag-posts .list,
+.raindrops-category-posts .list,
+.raindrops-recent-posts{
+         margin:auto;
+     max-width:29.2408em;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    .raindrops-category-posts ul > li article,
+    .raindrops-tag-posts ul > li article,
+    #raindrops-recent-posts > ul > li article{
+        margin:0;
     }
 }
 
@@ -1326,5 +1357,35 @@
     .rd-col-1.rd-content-width-fit .index article{
         padding:1em;
         box-sizing:border-box;
+    }
+}
+@media screen and (min-width : 68.6924em) and (max-width: 93.6924em){
+    .rd-col-1 .raindrops-tag-posts .list,
+    .rd-col-1 .raindrops-category-posts .list,
+    .rd-col-1 .raindrops-recent-posts{
+          margin:auto;
+          max-width:58.4816em;
+    }  
+}
+@media screen and (min-width : 29.2408em ) and (max-width: 68.6923em){
+    .rd-col-1 .raindrops-tag-posts .list,
+    .rd-col-1 .raindrops-category-posts .list,
+    .rd-col-1 .raindrops-recent-posts{
+          margin:auto;
+          max-width: 29.2408em;
+    }  
+}
+@media screen and (min-width : 641px) and (max-width: 1100px){
+  /*
+    .raindrops-tag-posts .list,
+    .raindrops-category-posts .list,
+    .raindrops-recent-posts{
+          margin:auto;
+          max-width:29.2408em;
+    }    */
+    .raindrops-tag-posts li,
+    .raindrops-category-posts li,
+    .raindrops-recent-posts li{
+        width:29em;
     }
 }

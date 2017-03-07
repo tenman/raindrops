@@ -63,9 +63,6 @@ if ( ! isset( $wp_customize ) ) {
  * Sections
  *
  */
-
-
-
 	if ( !isset( $raindrops_customize_args ) ) {
 		$raindrops_theme_customize_sections = array(
 		'raindrops_theme_settings'			 => array( 'title' => esc_html__( 'Color Scheme', 'raindrops' ), 'priority' => 26, ),
@@ -88,11 +85,6 @@ if ( ! isset( $wp_customize ) ) {
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'description'	 => __( 'change the base font, all the elements will be proportionally change', 'raindrops' ),
 			),
-		/*'raindrops_theme_page_width'	 => array(
-			'title' => esc_html__( 'Page Width', 'raindrops' ),
-			'priority' => 28,
-			'panel'			 => 'raindrops_theme_settings_presentation_panel',
-			),*/
 		'raindrops_theme_settings_document'	 => array( 'title' => esc_html__( 'Advanced', 'raindrops' ), 'priority' => 24, ),
 		'raindrops_theme_settings_content'	 => array( 
 			'title' => esc_html__( 'Excerpt', 'raindrops' ), 
@@ -140,18 +132,20 @@ if ( ! isset( $wp_customize ) ) {
 			'theme_supports' => '',
 			'description'	 => esc_html__( 'About Widget Presentation for Custom Post Type', 'raindrops' ),
 		),
+		'raindrops_theme_settings_relate_post' => array(
+			'title' => esc_html__( 'Relate Posts', 'raindrops' ),
+			'priority' => 110,
+			'panel'			 => 'raindrops_theme_settings_presentation_panel',
+			'theme_supports' => '',
+			'description'	 => esc_html__( 'Simple Relate Posts Settings', 'raindrops' ),
+		),
 	);
 /**
  * Panels
  *
  */
 	$raindrops_theme_customize_panels = array(
-	/*	'raindrops_theme_settings_featured_panel' => array( 'priority'		 => 40,
-			'capability'	 => $raindrops_customize_cap,
-			'theme_supports' => '',
-			'title'			 => __( 'Featured Image', 'raindrops' ),
-			'description'	 => __( 'Emphasis of new content using the Featured Image', 'raindrops' ),
-		),*/
+
 		'raindrops_theme_settings_presentation_panel' => array( 'priority'		 => 25,
 			'capability'	 => $raindrops_customize_cap,
 			'theme_supports' => '',
@@ -358,6 +352,14 @@ if ( ! isset( $wp_customize ) ) {
 			return false;
 		}
 	}
+	function raindrops_show_relate_post_callback( $control ) {
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_relate_posts' ) )->value() == 'yes' ) {
+			return true;
+		} else {
+			return false;
+		}		
+		
+	} 	
 	function raindrops_fallback_image_for_entry_content_is_show( $control ) {
 		global $raindrops_fallback_image_for_entry_content_enable;
 		
@@ -1721,7 +1723,160 @@ One is a method of up-loading the image from the below up-loading form. Another 
 				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
 				'no'	 => esc_html__( 'No', 'raindrops' ), ),
 			'section'			 => 'raindrops_theme_settings_widget',
+		),
+		/////////////////////////////////////////////////////////////////////////////////////////////
+
+"raindrops_show_relate_posts"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Show related posts on single post', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Display posts and related articles on single post default yes', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ), ),
+			'section'			 => 'raindrops_theme_settings_relate_post',
+
+		),
+"raindrops_show_relate_posts_title"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_title','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Title', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please input Title of Relate Posts', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_title_validate',
+			'type'				 => 'text',		
+			'section'			 => 'raindrops_theme_settings_relate_post',
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+		),
+"raindrops_show_relate_posts_type"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_type','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Relation with', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please select from categories, tags, or recent posts. default recent posts', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_type_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'automatic'		 => esc_html__( 'Automatic', 'raindrops' ),
+				'recent_posts'	 => esc_html__( 'Recent Posts', 'raindrops' ),
+				'category'		 => esc_html__( 'Category', 'raindrops' ),
+				'post_tag'			 => esc_html__( 'Tag', 'raindrops' ),),
+			'section'			 => 'raindrops_theme_settings_relate_post',
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+		),				
+"raindrops_show_relate_posts_orderby"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_orderby','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Oderby', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please select randum or new post. default post date', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_orderby_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'rand'	 => esc_html__( 'Randum', 'raindrops' ),
+				'post_date'			 => esc_html__( 'Post Date', 'raindrops' ),),
+			'section'			 => 'raindrops_theme_settings_relate_post',
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+		),
+"raindrops_show_relate_posts_count"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_count','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Counts of post', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => sprintf( esc_html__( 'Please specify the number of display. You can be set in the range 2 - %1$s', 'raindrops' ), $raindrops_featured_image_post_max ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_count_validate',
+			'type' => 'number',
+				'input_attrs' => array(
+					'min' => 2,
+					'max' => $raindrops_featured_image_post_max,
+					'step' => 1,
+			),
+			'section'			 => 'raindrops_theme_settings_relate_post',
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+		),
+"raindrops_show_relate_posts_line_clip"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_line_clip','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Maximum row number of title', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'When the number of lines is restricted, the full title can not be displayed. The full text is displayed on the tooltip.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_line_clip_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'no'	 => esc_html__( 'No', 'raindrops' ),
+				1		 => esc_html__( '1 line', 'raindrops' ),
+				2		 => esc_html__( '2 lines', 'raindrops' ),
+				3		 => esc_html__( '3 lines', 'raindrops' ),
+				4		 => esc_html__( '4 lines', 'raindrops' ),
+				5		 => esc_html__( '5 lines', 'raindrops' ),),
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+			'section'			 => 'raindrops_theme_settings_relate_post',
+		),
+
+"raindrops_show_relate_posts_excerpt_length"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_excerpt_length','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Excerpt length of Relate Posts', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please specify the number of excerpt length. use string length , not word count. default 100', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_excerpt_length_validate',
+			'type' => 'number',
+				'input_attrs' => array(
+					'min' => 40,
+					'max' => 600,
+					'step' => 1,
+			),
+			'section'			 => 'raindrops_theme_settings_relate_post',
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+		),
+		
+"raindrops_show_relate_posts_thumbnail"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Featured Image', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Display featured image or not', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_thumbnail_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'show'	 => esc_html__( 'Show', 'raindrops' ),
+				'hide'		 => esc_html__( 'Hide', 'raindrops' ),),
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+			'section'			 => 'raindrops_theme_settings_relate_post',
 		),		
+"raindrops_show_relate_posts_thumbnail_fallback"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail_fallback','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Fallback Featured Image', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Fallback Featured image URL if featured image is not set in the post, leave it blank if you do not need it', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_relate_posts_thumbnail_fallback_validate',
+			'type'				 => 'text',
+			'active_callback'	 => 'raindrops_show_relate_post_callback',
+			'section'			 => 'raindrops_theme_settings_relate_post',
+		),				
+		//////////////////////////////////////////////////////////////////////////////////////////////
 		"raindrops_use_featured_image_emphasis"			 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_use_featured_image_emphasis','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

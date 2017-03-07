@@ -2266,7 +2266,7 @@ function raindrops_indv_css_minimal() {
 #access .children li a{
     border:1px solid #696969;
 	border:1px solid rgba(105,105,105,.5);
-	border-top:none;
+	/* @1.459 border-top:none;*/
 }
 .enable-keyboard #access li:hover >ul,
 .raindrops-accessible-mode #access li:hover> ul,
@@ -2286,7 +2286,7 @@ function raindrops_indv_css_minimal() {
 }
  #access .menu li:first-child a,
  #access .menu li:last-child a{
-    border:none;
+    /* @1.459 border:none;*/
 }
 
 /* tinyMCE */

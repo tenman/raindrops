@@ -385,7 +385,8 @@ mark{
 }
 .format-status .format-status-not-single-post .postmetadata,
 .format-status .format-status-not-single-post .entry-meta{
-    margin:1.53846153846em -1em -3em;
+    /* @1.459
+    margin:1.53846153846em -1em -3em;*/
 
 }
 .format-standard .format-status-not-single-post .blog-avatar,
@@ -1192,11 +1193,11 @@ legend{
 
 }
 li {
-    margin-left:2em;
+    /* @1.459 margin-left:2em;*/
 }
 .raindrops-recent-posts li{
     /* for $raindrops_base_font_size bigger */
-    margin-left:26px;
+    /* @1.459  margin-left:26px; */
 }
 th {
     text-align:center;
@@ -2395,7 +2396,7 @@ br.clearfix {
     display:block;
 }
 .widget_recent-post-groupby-cat .xoxo ul li{
-    margin-bottom:.5em;
+   /* @1.459 margin-bottom:.5em; */
 }
 .post-group_by-category-title a span{
     display:block;
@@ -3606,40 +3607,133 @@ sup {
 .raindrops-tag-posts article,
 .raindrops-category-posts article,
 .raindrops-recent-posts article{
-    max-width:296px!important;
+    max-width:100%;
     overflow:hidden;
-
+    margin-left:auto;
+    margin-right:auto;
+    padding:1em;
+    margin-top:0;
+    position:relative;
 }
+.safari .raindrops-tag-posts article,
+.safari .raindrops-category-posts article,
+.safari .raindrops-recent-posts article{
+    margin-left:1em;
+    margin-right:1em;
+    width:260px;
+}
+.ie10 .raindrops-tag-posts article,
+.ie10 .raindrops-category-posts article,
+.ie10 .raindrops-recent-posts article{
+/*    max-width:100%;
+    overflow:hidden;*/
+    width:200px;
+    width: calc( 29em - 90px );
+/*    padding:1em;
+    margin-top:0;
+    position:relative;*/
+}
+/* @1.459
 .raindrops-recent-posts .thumb img,
 .raindrops-tag-posts .thumb img,
 .raindrops-category-posts .thumb img{
     width:125px;
-}
+}*/
 
-#doc5 .raindrops-tag-posts .list,
-#doc3 .raindrops-tag-posts .list,
-#doc5 .raindrops-category-posts .list,
-#doc3 .raindrops-category-posts .list,
-#raindrops-recent-posts .raindrops-recent-posts{
-    overflow:hidden;
-    max-width:100%;
+.raindrops-tag-posts .list,
+.raindrops-category-posts .list,
+.raindrops-recent-posts{
+         margin:auto;
+ /*      max-width:29.2408em;*/
 }
 .raindrops-tag-posts li,
 .raindrops-category-posts li,
 .raindrops-recent-posts li{
     list-style:none;
     border:1px solid rgba(127,127,127,.4);
-    min-height:125px;
+    min-height:236px;
     display:flex;
-    width:480px;
-    float:left;
+    max-width:29em;
+    width:47%;
+    min-width:296px;
     overflow:visible;
+    margin-bottom:1em;
+    margin-left:1em;
+    float:left;
+}
+.safari .raindrops-tag-posts li,
+.safari .raindrops-category-posts li,
+.safari .raindrops-recent-posts li{
+    display: -webkit-box;
+}
+.raindrops-tag-posts .thumb,
+.raindrops-category-posts .thumb,
+.raindrops-recent-posts .thumb{
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    min-width:90px;
+    width:90px;
+    max-width:90px;
+    background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
+}
 
+.ie10 .raindrops-tag-posts .thumb,
+.ie10 .raindrops-category-posts .thumb,
+.ie10 .raindrops-recent-posts .thumb,
+.safari .raindrops-tag-posts .thumb,
+.safari .raindrops-category-posts .thumb,
+.safari .raindrops-recent-posts .thumb{
+     min-height:236px;
+     display:block;
+     background:rgba(127,127,127,.3);
+}
+.ie9 .raindrops-tag-posts .thumb,
+.ie9 .raindrops-category-posts .thumb,
+.ie9 .raindrops-recent-posts .thumb{
+     min-height:236px;
+     display:block;
+     background:rgba(127,127,127,.3);
+     float:left;
+}
+.ie9 .raindrops-tag-posts article,
+.ie9 .raindrops-category-posts article,
+.ie9 .raindrops-recent-posts article{
+    margin-left:100px;
+}
+.ie11 .raindrops-tag-posts .thumb,
+.ie11 .raindrops-category-posts .thumb,
+.ie11 .raindrops-recent-posts .thumb{
+     min-height:236px;
+}
+.ie9 .raindrops-tag-posts .thumb img,
+.ie9 .raindrops-category-posts .thumb img,
+.ie9 .raindrops-recent-posts .thumb img,
+.safari .raindrops-tag-posts .thumb img,
+.safari .raindrops-category-posts .thumb img,
+.safari .raindrops-recent-posts .thumb img,
+.ie10 .raindrops-tag-posts .thumb img,
+.ie10 .raindrops-category-posts .thumb img,
+.ie10 .raindrops-recent-posts .thumb img{
+      width:90px;
+      height:auto;      
+}
+.raindrops-tag-posts .thumb img,
+.raindrops-category-posts .thumb img,
+.raindrops-recent-posts .thumb img{
+      max-width:100%;
+      height:auto;
+      width:100%;
+}
+.raindrops-tag-posts,
+.raindrops-category-posts,
+.raindrops-recent-posts{
+    left:0;
 }
 .raindrops-tag-posts ul.list,
 .raindrops-category-posts ul.list,
 #raindrops-recent-posts .raindrops-recent-posts{
-    left:0;
+    /* @ 1.459 left:0; */
+    margin:auto;
 }
 .raindrops-tag-posts .title,
 .raindrops-category-posts .title,
@@ -3662,6 +3756,14 @@ sup {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.raindrops-no-keep-content-width .relate-posts .raindrops-tag-posts .post h3.entry-title span,
+.raindrops-no-keep-content-width .relate-posts .raindrops-category-posts .post h3.entry-title span,
+.raindrops-no-keep-content-width .relate-posts .raindrops-recent-posts .post h3.entry-title span{
+    width:auto;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
 }
 .raindrops-tag-posts .post .entry-content,
 .raindrops-category-posts .post .entry-content,
@@ -4706,13 +4808,19 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
     width:100%;
 }
 .oembed-content-icon{
+  /*  @1.458 
     border-radius: 5px;
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border: 1px solid rgba(222,222,222,.7);
-    display:table-cell;
+    -webkit-border-radius: 5px;*/
+    border: 1px solid rgba(127,127,127,.4);
+   /* @1.459
+   display:table-cell;
+   */
     vertical-align:middle;
-    padding:3px;
+    padding:2px 4px;
+    position:absolute;
+    right:5px;
+    bottom:5px;
 }
 .wp-smiley{
     vertical-align:middle;
@@ -5252,7 +5360,13 @@ body:not(.page-template-blank_front) #raindrops-recent-posts .title{
     display:block;
     margin:2em;
     text-align:center;
-    font-size:230.7%;
+    /* @1.459 font-size:230.7%;*/
+    font-size:153.9%;
+}
+body:not(.page-template-blank_front) .relate-posts #raindrops-recent-posts .title,
+body:not(.page-template-blank_front) .relate-posts .title{
+    text-align:left;
+    margin-left:0;
 }
 body:not(.page-template-blank_front) .raindrops-tag-posts .entry-title,
 body:not(.page-template-blank_front) .raindrops-category-posts .entry-title,
@@ -7507,4 +7621,3 @@ article [data-mod="postit"]:before{
 div[id^="post-"]:target{
     padding-top:5em;
 }
-

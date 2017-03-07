@@ -230,8 +230,8 @@ jQuery( function ( $ ) {
         var line_height = parseInt( $( this ).css( 'line-height' ) );
         var box_height = parseInt( Math.ceil( rows * line_height ) );
         $( this ).wrapInner( "<span class='multiline-text-overflow'></span>" );
-        $( this ).height( box_height );
-
+       // $( this ).height( box_height );
+       $( this ).css({'max-height': box_height });
        if( parseInt($( '.multiline-text-overflow', this ).height()) > box_height ){
              $( this ).addClass('on-trancate');  
              $( this ).removeClass('off-trancate');
@@ -241,5 +241,10 @@ jQuery( function ( $ ) {
             $( this ).removeClass('on-trancate');
         }
     });
-
+    
+    $( '.relate-posts .on-trancate > span' ).each( function ( index ) {
+        var text = $( this ).text();
+        $( this ).attr('title', text);
+        
+    });
 });

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops1.405\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 09:40+0900\n"
-"PO-Revision-Date: 2017-02-04 09:50+0900\n"
+"POT-Creation-Date: 2017-03-06 17:22+0900\n"
+"PO-Revision-Date: 2017-03-06 17:23+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops translate <a.tenman@gmail.com>\n"
 "Language: ja\n"
@@ -50,7 +50,7 @@ msgid "Profile"
 msgstr "プロフィール"
 
 # @ raindrops
-#: author.php:69 functions.php:2021 functions.php:5036
+#: author.php:69 functions.php:2016 functions.php:5037
 msgid "Website"
 msgstr "ウェブサイト"
 
@@ -84,38 +84,39 @@ msgid "No posts by this author."
 msgstr "この著者の投稿はありません"
 
 # @ raindrops
-#: bbpress.php:57 functions.php:1250 functions.php:8366 functions.php:8464
-#: image.php:125 page-templates/full-width.php:60 page-templates/test.php:74
-#: page.php:100 part-additional.php:81 part-blog.php:146 part-blog.php:262
-#: part-gallery.php:122 pdf.php:171
+#: bbpress.php:57 functions.php:1248 functions.php:8428 functions.php:8532
+#: image.php:125 page-templates/front-portfolio.php:76
+#: page-templates/full-width.php:61 page.php:100 part-additional.php:81
+#: part-blog.php:146 part-blog.php:262 part-gallery.php:122 pdf.php:171
 msgid "Edit"
 msgstr "編集"
 
 # @ raindrops
-#: bbpress.php:59 functions.php:1252 functions.php:4806 functions.php:8364
-#: image.php:127 page-templates/full-width.php:62 page-templates/test.php:76
-#: page.php:102 part-additional.php:83 part-blog.php:149 part-blog.php:264
-#: part-gallery.php:124 pdf.php:173
+#: bbpress.php:59 functions.php:1250 functions.php:4808 functions.php:8426
+#: image.php:127 page-templates/front-portfolio.php:78
+#: page-templates/full-width.php:63 page.php:102 part-additional.php:83
+#: part-blog.php:149 part-blog.php:264 part-gallery.php:124 pdf.php:173
 msgid "Trash"
 msgstr "ゴミ箱へ移動"
 
 # @ raindrops
-#: blank_front.php:88
+#: blank_front.php:68 lib/customize.php:1770 page-templates/test.php:94
 msgid "Recent Posts"
 msgstr "最近の投稿"
 
 # @ raindrops
-#: blank_front.php:111 functions.php:6654 sidebar.php:31
+#: blank_front.php:91 functions.php:6685 page-templates/test.php:117
+#: sidebar.php:31
 msgid "Categories"
 msgstr "カテゴリー"
 
 # @ raindrops
-#: blank_front.php:134 functions.php:6835
+#: blank_front.php:115 functions.php:6872 page-templates/test.php:140
 msgid "Tags"
 msgstr "タグ"
 
 # @ raindrops
-#: childs/boots/inc.php:504 lib/customize.php:71 lib/customize.php:112
+#: childs/boots/inc.php:504 lib/customize.php:68 lib/customize.php:104
 #: lib/vars.php:590
 msgid "Color Scheme"
 msgstr "配色"
@@ -131,14 +132,14 @@ msgid "Base Color for Automatic Color Arrangement"
 msgstr "自動配色のための基本色設定"
 
 # @ raindrops
-#: childs/boots/inc.php:515 lib/customize.php:444 lib/vars.php:601
+#: childs/boots/inc.php:515 lib/customize.php:446 lib/vars.php:601
 msgid ""
 "Please specify your favorite color. and an automatic arrangement of color is "
 "designed."
 msgstr "好きな色をセットしていただければ、自動的に配色します"
 
 # @ raindrops
-#: childs/boots/inc.php:523 lib/customize.php:582 lib/vars.php:609
+#: childs/boots/inc.php:523 lib/customize.php:584 lib/vars.php:609
 msgid "Color Type"
 msgstr "配色タイプ"
 
@@ -152,12 +153,12 @@ msgstr ""
 "カスタマイズするためのエディタ画面が表示されます。"
 
 # @ raindrops
-#: childs/boots/inc.php:534 lib/customize.php:596 lib/vars.php:620
+#: childs/boots/inc.php:534 lib/customize.php:598 lib/vars.php:620
 msgid "Header background image"
 msgstr "ヘッダの背景画像"
 
 # @ raindrops
-#: childs/boots/inc.php:536 lib/customize.php:598 lib/vars.php:622
+#: childs/boots/inc.php:536 lib/customize.php:600 lib/vars.php:622
 msgid ""
 "The header image can be set by two methods.\n"
 "One is a method of up-loading the image from the below up-loading form. "
@@ -166,12 +167,12 @@ msgid ""
 msgstr "ヘッダー画像は2つの方法でセットできます"
 
 # @ raindrops
-#: childs/boots/inc.php:546 lib/customize.php:608 lib/vars.php:632
+#: childs/boots/inc.php:546 lib/customize.php:610 lib/vars.php:632
 msgid "Footer background image"
 msgstr "フッターの背景画像"
 
 # @ raindrops
-#: childs/boots/inc.php:548 lib/customize.php:610 lib/vars.php:634
+#: childs/boots/inc.php:548 lib/customize.php:612 lib/vars.php:634
 msgid ""
 "The footer image can be set by two methods.\n"
 "One is a method of up-loading the image from the below up-loading form. "
@@ -222,12 +223,12 @@ msgid "750px centerd 950px centerd fluid 974px."
 msgstr "750px　950px　974px　固定幅　及び、フルードレイアウト（レスポンシブ）"
 
 # @ raindrops
-#: childs/boots/inc.php:585 lib/customize.php:694 lib/vars.php:671
+#: childs/boots/inc.php:585 lib/customize.php:696 lib/vars.php:671
 msgid "Column Width and Position"
 msgstr "サイドバーの幅と位置"
 
 # @ raindrops
-#: childs/boots/inc.php:587 lib/customize.php:696 lib/vars.php:673
+#: childs/boots/inc.php:587 lib/customize.php:698 lib/vars.php:673
 msgid ""
 "Please specify the position and the width of Default Sidebar. Six kinds of "
 "sidebars of left 160px left 180px left 300px right 180px right 240px right "
@@ -242,7 +243,7 @@ msgid "Text color in content "
 msgstr "コンテンツの文字の色"
 
 # @ raindrops
-#: childs/boots/inc.php:596 lib/customize.php:476 lib/vars.php:682
+#: childs/boots/inc.php:596 lib/customize.php:478 lib/vars.php:682
 msgid "If you need to set contents Special font color."
 msgstr "コンテンツの文字色を指定したい時に"
 
@@ -252,41 +253,41 @@ msgid "Text color in footer "
 msgstr "フッターの文字色"
 
 # @ raindrops
-#: childs/boots/inc.php:605 lib/customize.php:508 lib/vars.php:691
+#: childs/boots/inc.php:605 lib/customize.php:510 lib/vars.php:691
 msgid "If you need to set footer Special font color."
 msgstr "フッターの文字色を指定したい時に、"
 
 # @ raindrops
-#: childs/boots/inc.php:612 functions.php:640 functions.php:11684
+#: childs/boots/inc.php:612 functions.php:640 functions.php:11756
 #: lib/vars.php:698
 msgid "Extra Sidebar"
 msgstr "エキストラサイドバー"
 
 # @ raindrops
-#: childs/boots/inc.php:614 lib/customize.php:753 lib/vars.php:700
+#: childs/boots/inc.php:614 lib/customize.php:755 lib/vars.php:700
 msgid ""
 "Please specify show when you want to use three row layout. Please set Ratio "
 "to text when extra sidebar is displayed when you specify show"
 msgstr "表示だと3列、非表示だと2列で表示します"
 
 # @ raindrops
-#: childs/boots/inc.php:621 lib/customize.php:770 lib/vars.php:707
+#: childs/boots/inc.php:621 lib/customize.php:772 lib/vars.php:707
 msgid "Extra Sidebar Width"
 msgstr "エキストラサイドバー　幅"
 
-#: childs/boots/inc.php:623 lib/customize.php:772 lib/vars.php:709
+#: childs/boots/inc.php:623 lib/customize.php:774 lib/vars.php:709
 msgid "When display extra sidebar is set to show"
 msgstr "エキストラサイドバーを表示する場合、"
 
-#: childs/boots/inc.php:624 lib/customize.php:773 lib/vars.php:710
+#: childs/boots/inc.php:624 lib/customize.php:775 lib/vars.php:710
 msgid "it is necessary to specify it."
 msgstr "設定してください。　"
 
-#: childs/boots/inc.php:625 lib/customize.php:774 lib/vars.php:711
+#: childs/boots/inc.php:625 lib/customize.php:776 lib/vars.php:711
 msgid "It can decide to divide the width of which place of extra sidebar"
 msgstr "エキストラサイドバーがコンテンツ幅に占める割合"
 
-#: childs/boots/inc.php:626 lib/customize.php:775 lib/vars.php:712
+#: childs/boots/inc.php:626 lib/customize.php:777 lib/vars.php:712
 msgid "and to give it. Please select it from among 25% 33% 50% 66% 75%. "
 msgstr "お好きな幅を選択してください。デフォルト値は25%です。"
 
@@ -296,7 +297,7 @@ msgid "Menu Primary"
 msgstr "メインメニュー"
 
 # @ raindrops
-#: childs/boots/inc.php:635 lib/customize.php:1256 lib/vars.php:721
+#: childs/boots/inc.php:635 lib/customize.php:1258 lib/vars.php:721
 msgid ""
 "Display or not Menu Primary. default value is show. set hide when not "
 "display menu primary"
@@ -308,7 +309,7 @@ msgid "Link color"
 msgstr "リンクの色"
 
 # @ raindrops
-#: childs/boots/inc.php:644 lib/customize.php:523 lib/vars.php:730
+#: childs/boots/inc.php:644 lib/customize.php:525 lib/vars.php:730
 msgid "Hyper link color"
 msgstr "リンクの色"
 
@@ -316,7 +317,7 @@ msgstr "リンクの色"
 msgid "Accessibility Settings"
 msgstr "アクセシビリティ設定"
 
-#: childs/boots/inc.php:653 lib/customize.php:1334 lib/vars.php:739
+#: childs/boots/inc.php:653 lib/customize.php:1336 lib/vars.php:739
 msgid "Accessibility Settings is create a unique link text. set to yes or no."
 msgstr ""
 "アクセシビリティセッティングはリンクテキストをユニークな値に変更しますか？"
@@ -326,7 +327,7 @@ msgstr ""
 msgid "Document Type Settings"
 msgstr "HTML 文書型設定"
 
-#: childs/boots/inc.php:664 lib/customize.php:1350 lib/vars.php:750
+#: childs/boots/inc.php:664 lib/customize.php:1352 lib/vars.php:750
 msgid "Default Document type html5. Set to xhtml or html5."
 msgstr ""
 "HTML文書型を選択できます。デフォルトは、html5ですが、xhtml1.0も選択できます。"
@@ -336,7 +337,7 @@ msgstr ""
 msgid "Base Font Size Setting"
 msgstr "ベースフォントサイズの設定"
 
-#: childs/boots/inc.php:675 lib/customize.php:1811 lib/vars.php:761
+#: childs/boots/inc.php:675 lib/customize.php:1966 lib/vars.php:761
 msgid "Base Font Size Value Recommend 13-20 (px size)"
 msgstr "ベースフォントサイズの推奨サイズは13-20ピクセルです"
 
@@ -344,7 +345,7 @@ msgstr "ベースフォントサイズの推奨サイズは13-20ピクセルで�
 msgid "Fluid ( Responsive ) Max Page Width"
 msgstr "フルード　レスポンシブレイアウトの最大幅"
 
-#: childs/boots/inc.php:686 lib/customize.php:1452 lib/customize.php:1467
+#: childs/boots/inc.php:686 lib/customize.php:1454 lib/customize.php:1469
 #: lib/vars.php:772
 msgid "Default 1280 (px size)"
 msgstr "初期値　1280（ピクセル）"
@@ -374,7 +375,7 @@ msgid "Link color in footer "
 msgstr "フッター内のリンク色"
 
 # @ raindrops
-#: childs/boots/inc.php:730 lib/customize.php:538
+#: childs/boots/inc.php:730 lib/customize.php:540
 msgid ""
 "If you need to set footer Special link color.hex color ex.#ff0000 or none"
 msgstr ""
@@ -426,7 +427,7 @@ msgstr "The Events Calendar イベントカレンダープラグイン　自動�
 msgid "Disable Keyboard Focus "
 msgstr "キーボードアクセシビリティの停止"
 
-#: childs/boots/inc.php:796 lib/customize.php:1496 lib/vars.php:882
+#: childs/boots/inc.php:796 lib/customize.php:1498 lib/vars.php:882
 msgid ""
 "Fallback Setting when Nav Menu displayed improperly, value set "
 "enable( defalt ) or disable"
@@ -434,17 +435,17 @@ msgstr ""
 "メインメニューの動作に異常がある場合の回避設定　値は enable( デフォルト ) ま"
 "たは disable　を設定してください。"
 
-#: childs/boots/inc.php:805 lib/customize.php:1510 lib/vars.php:891
+#: childs/boots/inc.php:805 lib/customize.php:1512 lib/vars.php:891
 msgid "Synchronize Style for Visual Editor"
 msgstr "ビジュアルエディタをテーマの設定に同期する"
 
-#: childs/boots/inc.php:807 lib/customize.php:1512 lib/vars.php:893
+#: childs/boots/inc.php:807 lib/customize.php:1514 lib/vars.php:893
 msgid ""
 "Reflect on Dynamically Editor Style Settings, value set yes ( default ) or "
 "none"
 msgstr "テーマの設定を、ビジュアルエディタに反映しますか？"
 
-#: childs/boots/inc.php:816 lib/customize.php:107 lib/vars.php:902
+#: childs/boots/inc.php:816 lib/customize.php:99 lib/vars.php:902
 msgid "Uninstall Option"
 msgstr "アンインストール設定"
 
@@ -455,11 +456,11 @@ msgstr ""
 "する場合は、delete )"
 
 # @ raindrops
-#: childs/boots/inc.php:827 lib/customize.php:1612 lib/vars.php:913
+#: childs/boots/inc.php:827 lib/customize.php:1614 lib/vars.php:913
 msgid "Menu Primary Font Size"
 msgstr "主ナビゲーションのフォントサイズ"
 
-#: childs/boots/inc.php:829 lib/customize.php:1614 lib/vars.php:915
+#: childs/boots/inc.php:829 lib/customize.php:1616 lib/vars.php:915
 msgid ""
 "Menu Primary Font Size. default value is 100( % ). set font size between 77 "
 "and 182"
@@ -480,7 +481,7 @@ msgstr ""
 "満までの範囲です。"
 
 # @ raindrops
-#: childs/boots/inc.php:847 lib/customize.php:1747 lib/vars.php:933
+#: childs/boots/inc.php:847 lib/customize.php:1902 lib/vars.php:933
 msgid "Featured Image Position"
 msgstr "アイキャッチ画像の位置"
 
@@ -493,15 +494,15 @@ msgstr ""
 "は、frontです。"
 
 # @ raindrops
-#: childs/boots/inc.php:857 lib/customize.php:1764 lib/vars.php:943
+#: childs/boots/inc.php:857 lib/customize.php:1919 lib/vars.php:943
 msgid "Featured Image Size"
 msgstr "アイキャッチ画像　サイズ"
 
-#: childs/boots/inc.php:859 lib/customize.php:1766 lib/vars.php:945
+#: childs/boots/inc.php:859 lib/customize.php:1921 lib/vars.php:945
 msgid "values thumbnail, medium, large, default"
 msgstr "設定可能な値は、thumbnail, medium, large, またはテーマの設定値です"
 
-#: childs/boots/inc.php:867 lib/customize.php:1778 lib/vars.php:953
+#: childs/boots/inc.php:867 lib/customize.php:1933 lib/vars.php:953
 msgid "Featured Image Special Layout Apply Post Count"
 msgstr "アイキャッチ画像の特別な表示を行う件数"
 
@@ -522,7 +523,7 @@ msgid ""
 "values show or hide or lightbox ( light box is crop height ,add lightbox )"
 msgstr "値は、表示,非表示　またはライトボックス（縦方向でクロップされます）"
 
-#: childs/boots/inc.php:887 lib/customize.php:1730 lib/vars.php:973
+#: childs/boots/inc.php:887 lib/customize.php:1885 lib/vars.php:973
 msgid "USE or Not Emphasis of new content using the Featured Image"
 msgstr "投稿のアイキャッチ画像の強調設定利用の可否"
 
@@ -531,7 +532,7 @@ msgstr "投稿のアイキャッチ画像の強調設定利用の可否"
 msgid "values yes or no default no"
 msgstr "設定可能な値は、yes または　no　です。規定値は no"
 
-#: childs/boots/inc.php:897 lib/customize.php:2388 lib/vars.php:983
+#: childs/boots/inc.php:897 lib/customize.php:2543 lib/vars.php:983
 msgid "USE or Not Japanese Date"
 msgstr "日付の和暦表示"
 
@@ -556,7 +557,7 @@ msgstr "設定可能な値は、yes または　noです。規定値は no"
 msgid "Allow Oembed Media at Raindrops Extend Excerpt"
 msgstr "レインドロップス概要表示でOEmbedメディアの表示"
 
-#: childs/boots/inc.php:929 lib/customize.php:2245 lib/vars.php:1015
+#: childs/boots/inc.php:929 lib/customize.php:2400 lib/vars.php:1015
 msgid ""
 "Overview display, if you set no, you can reduce the load time of the page. "
 "values yes or no default yes"
@@ -583,11 +584,11 @@ msgstr "サイトタイトルをヘッダー画像内に設定した場合のみ
 msgid "Top Margin of Site Title"
 msgstr "サイトタイトルの上部スペース"
 
-#: childs/boots/inc.php:967 lib/customize.php:2423 lib/vars.php:1053
+#: childs/boots/inc.php:967 lib/customize.php:2578 lib/vars.php:1053
 msgid "Font Size of Site Title"
 msgstr "サイトタイトルのフォントサイズ"
 
-#: childs/boots/inc.php:969 lib/customize.php:2425 lib/vars.php:1055
+#: childs/boots/inc.php:969 lib/customize.php:2580 lib/vars.php:1055
 msgid "default value none, or 1-10( percent of viewport width )"
 msgstr ""
 "初期設定ではnone,設定可能な値は1-10(ブラウザ幅に対するパーセントサイズ)"
@@ -596,7 +597,7 @@ msgstr ""
 msgid "Site Title CSS"
 msgstr "サイトタイトルのCSS"
 
-#: childs/boots/inc.php:979 lib/customize.php:2150 lib/vars.php:1065
+#: childs/boots/inc.php:979 lib/customize.php:2305 lib/vars.php:1065
 msgid "for example google-font-lobster default value none"
 msgstr "例えば、google-font-lobster 初期設定値は　none"
 
@@ -605,11 +606,11 @@ msgstr "例えば、google-font-lobster 初期設定値は　none"
 msgid "Tagline in the header image"
 msgstr "ヘッダー画像内のキャッチフレーズ"
 
-#: childs/boots/inc.php:989 lib/customize.php:2506 lib/vars.php:1075
+#: childs/boots/inc.php:989 lib/customize.php:2661 lib/vars.php:1075
 msgid "tagline show or hide"
 msgstr "キャッチフレーズの表示・非表示"
 
-#: childs/boots/inc.php:997 lib/customize.php:677 lib/vars.php:1083
+#: childs/boots/inc.php:997 lib/customize.php:679 lib/vars.php:1083
 msgid "Side bar setting method"
 msgstr "サイドバー設定の選択"
 
@@ -642,28 +643,28 @@ msgid "value 1-3. default 3"
 msgstr "値は、1-3の範囲　デフォルト3"
 
 # @ raindrops
-#: childs/boots/inc.php:1017 lib/customize.php:870 lib/vars.php:1103
+#: childs/boots/inc.php:1017 lib/customize.php:872 lib/vars.php:1103
 msgid "Date Archive columns"
 msgstr "月次アーカイブのカラム数"
 
-#: childs/boots/inc.php:1027 lib/customize.php:889 lib/vars.php:1113
+#: childs/boots/inc.php:1027 lib/customize.php:891 lib/vars.php:1113
 msgid "Static Page columns"
 msgstr "固定ページのカラム数"
 
-#: childs/boots/inc.php:1037 lib/customize.php:928 lib/vars.php:1123
+#: childs/boots/inc.php:1037 lib/customize.php:930 lib/vars.php:1123
 msgid "Single Post columns"
 msgstr "投稿のカラム数"
 
 # @ raindrops
-#: childs/boots/inc.php:1047 lib/customize.php:908 lib/vars.php:1133
+#: childs/boots/inc.php:1047 lib/customize.php:910 lib/vars.php:1133
 msgid "Search Result Page columns"
 msgstr "検索結果ページのカラム数"
 
-#: childs/boots/inc.php:1057 lib/customize.php:987 lib/vars.php:1143
+#: childs/boots/inc.php:1057 lib/customize.php:989 lib/vars.php:1143
 msgid "404 Page columns"
 msgstr "404ページのカラム数"
 
-#: childs/boots/inc.php:1067 lib/customize.php:1006 lib/vars.php:1153
+#: childs/boots/inc.php:1067 lib/customize.php:1008 lib/vars.php:1153
 msgid "List of Post Template columns"
 msgstr "List of Post テンプレートのカラム数"
 
@@ -675,7 +676,7 @@ msgstr "コンテンツコンテナの幅"
 msgid "px value, default 1280"
 msgstr "単位はpx,デフォルト値は1280です"
 
-#: childs/boots/inc.php:1087 lib/customize.php:1479 lib/vars.php:1173
+#: childs/boots/inc.php:1087 lib/customize.php:1481 lib/vars.php:1173
 msgid "Support limit Browser Width"
 msgstr "ブラウザ最大許容ウィンドウ幅"
 
@@ -689,7 +690,7 @@ msgstr ""
 "ト値は1920です"
 
 # @ raindrops
-#: childs/boots/inc.php:1097 childs/boots/inc.php:1107 lib/customize.php:1026
+#: childs/boots/inc.php:1097 childs/boots/inc.php:1107 lib/customize.php:1028
 #: lib/vars.php:1183 lib/vars.php:1193
 msgid "Category Archive columns"
 msgstr "カテゴリーアーカイブのカラム数"
@@ -698,7 +699,7 @@ msgstr "カテゴリーアーカイブのカラム数"
 msgid "xhtml media type"
 msgstr "XHTMLメディアタイプ"
 
-#: childs/boots/inc.php:1119 lib/customize.php:1399 lib/vars.php:1205
+#: childs/boots/inc.php:1119 lib/customize.php:1401 lib/vars.php:1205
 msgid "value text/html or application/xhtml+xml, default text/html"
 msgstr ""
 "値は、text/html または application/xhtml+xml　です。デフォルト値は　text/html"
@@ -721,11 +722,11 @@ msgstr "ページ下部のステータスバー"
 msgid "value show or hide, default show"
 msgstr "値は show または hide  デフォルトは show です"
 
-#: childs/boots/inc.php:1147 lib/customize.php:1856 lib/vars.php:1234
+#: childs/boots/inc.php:1147 lib/customize.php:2011 lib/vars.php:1234
 msgid "Entry Title CSS Class"
 msgstr "投稿タイトル　CSSクラス"
 
-#: childs/boots/inc.php:1149 lib/customize.php:1858 lib/vars.php:1236
+#: childs/boots/inc.php:1149 lib/customize.php:2013 lib/vars.php:1236
 msgid "default empty"
 msgstr "デフォルトは emptyです"
 
@@ -743,7 +744,7 @@ msgid "Display Post Author"
 msgstr "著者の表示"
 
 # @ raindrops
-#: childs/boots/inc.php:1177 lib/customize.php:1903 lib/vars.php:1264
+#: childs/boots/inc.php:1177 lib/customize.php:2058 lib/vars.php:1264
 msgid "Display Default Category"
 msgstr "デフォルトカテゴリの表示"
 
@@ -759,11 +760,11 @@ msgid ""
 msgstr "ヘッダー画像内にタイトルを表示した時だけ動作します"
 
 # @ raindrops
-#: childs/boots/inc.php:1207 lib/customize.php:1045 lib/vars.php:1294
+#: childs/boots/inc.php:1207 lib/customize.php:1047 lib/vars.php:1294
 msgid "Tag Archive columns"
 msgstr "タグアーカイブのカラム数"
 
-#: childs/boots/inc.php:1217 lib/customize.php:2294 lib/vars.php:1304
+#: childs/boots/inc.php:1217 lib/customize.php:2449 lib/vars.php:1304
 msgid "Excerpt Length"
 msgstr "概要の長さ"
 
@@ -771,11 +772,11 @@ msgstr "概要の長さ"
 msgid "20-400"
 msgstr "20-400"
 
-#: childs/boots/inc.php:1227 lib/customize.php:1364 lib/vars.php:1314
+#: childs/boots/inc.php:1227 lib/customize.php:1366 lib/vars.php:1314
 msgid "Location of the style sheet"
 msgstr "スタイルシートの読み込み設定"
 
-#: childs/boots/inc.php:1229 lib/customize.php:1366 lib/vars.php:1316
+#: childs/boots/inc.php:1229 lib/customize.php:1368 lib/vars.php:1316
 msgid ""
 "Select link stylesheet to their source HTML or document with the LINK element"
 msgstr ""
@@ -783,37 +784,37 @@ msgstr ""
 "します"
 
 # @ raindrops
-#: childs/boots/inc.php:1237 lib/customize.php:1380 lib/customize.php:1387
+#: childs/boots/inc.php:1237 lib/customize.php:1382 lib/customize.php:1389
 #: lib/vars.php:1324
 msgid "Import Raindrops Theme Current Settings"
 msgstr "親テーマRaindropsの現在の設定をインポート"
 
 # @ raindrops
-#: childs/boots/inc.php:1247 lib/customize.php:2076 lib/vars.php:1334
+#: childs/boots/inc.php:1247 lib/customize.php:2231 lib/vars.php:1334
 msgid "Header Image Filter Color"
 msgstr "ヘッダー画像と混色する色"
 
 # @ raindrops
-#: childs/boots/inc.php:1257 lib/customize.php:2091 lib/vars.php:1344
+#: childs/boots/inc.php:1257 lib/customize.php:2246 lib/vars.php:1344
 msgid "Filter Image Top"
 msgstr "画像上部への混色の強さ"
 
 # @ raindrops
-#: childs/boots/inc.php:1267 lib/customize.php:2110 lib/vars.php:1354
+#: childs/boots/inc.php:1267 lib/customize.php:2265 lib/vars.php:1354
 msgid "Filter Image Bottom"
 msgstr "画像下部への混色の強さ"
 
 # @ raindrops
-#: childs/boots/inc.php:1277 childs/boots/inc.php:1287 lib/customize.php:2058
+#: childs/boots/inc.php:1277 childs/boots/inc.php:1287 lib/customize.php:2213
 #: lib/vars.php:1364 lib/vars.php:1374
 msgid "Header Image Filter"
 msgstr "ヘッダー画像フィルター"
 
-#: childs/boots/inc.php:1297 lib/customize.php:1433 lib/vars.php:1384
+#: childs/boots/inc.php:1297 lib/customize.php:1435 lib/vars.php:1384
 msgid "Sticky Post Show Single Post"
 msgstr "スティキー投稿は、投稿でも表示する"
 
-#: childs/boots/inc.php:1299 lib/customize.php:1435 lib/vars.php:1386
+#: childs/boots/inc.php:1299 lib/customize.php:1437 lib/vars.php:1386
 msgid ""
 "Sticky Post Show only Home Page or Always it displayed ( default Always it "
 "displayed )"
@@ -821,35 +822,35 @@ msgstr ""
 "スティッキー投稿を、常に表示する　または、トップページだけで表示するかを選択"
 "します"
 
-#: childs/boots/inc.php:1307 lib/customize.php:1302 lib/vars.php:1394
+#: childs/boots/inc.php:1307 lib/customize.php:1304 lib/vars.php:1394
 msgid "Site-wide CSS"
 msgstr "サイト全体のCSS"
 
-#: childs/boots/inc.php:1309 lib/customize.php:1304 lib/vars.php:1396
+#: childs/boots/inc.php:1309 lib/customize.php:1306 lib/vars.php:1396
 msgid "Style  It will be retained even if the theme is updated"
 msgstr "このスタイルは、テーマがアップデートしても保持されます。"
 
-#: childs/boots/inc.php:1317 lib/customize.php:1926 lib/vars.php:1404
+#: childs/boots/inc.php:1317 lib/customize.php:2081 lib/vars.php:1404
 msgid "Posted in Labels"
 msgstr "投稿（カテゴリ、タグ）ラベルテキスト"
 
-#: childs/boots/inc.php:1319 lib/customize.php:1928 lib/vars.php:1406
+#: childs/boots/inc.php:1319 lib/customize.php:2083 lib/vars.php:1406
 msgid "Hide Posted in Labels "
 msgstr " posted in（カテゴリ、タグの表示ブロック）の非表示"
 
 # @ raindrops
-#: childs/boots/inc.php:1319 functions.php:1195 functions.php:1210
-#: lib/customize.php:1928 lib/vars.php:1406
+#: childs/boots/inc.php:1319 functions.php:1193 functions.php:1208
+#: lib/customize.php:2083 lib/vars.php:1406
 msgid "This entry was posted in"
 msgstr "投稿グループ"
 
-#: childs/boots/inc.php:1319 functions.php:1196 functions.php:1211
-#: lib/customize.php:1928 lib/vars.php:1406
+#: childs/boots/inc.php:1319 functions.php:1194 functions.php:1209
+#: lib/customize.php:2083 lib/vars.php:1406
 msgid "and tagged"
 msgstr "タグ"
 
 # @ raindrops
-#: childs/boots/inc.php:1327 lib/customize.php:1943 lib/vars.php:1414
+#: childs/boots/inc.php:1327 lib/customize.php:2098 lib/vars.php:1414
 msgid "Comments are closed Label"
 msgstr "「コメントは受け付けていません」 のラベルテキスト表示"
 
@@ -858,13 +859,13 @@ msgid "Hide "
 msgstr "非表示"
 
 # @ raindrops
-#: childs/boots/inc.php:1329 comments.php:64 lib/customize.php:1945
+#: childs/boots/inc.php:1329 comments.php:63 lib/customize.php:2100
 #: lib/vars.php:1416
 msgid "Comments are closed."
 msgstr "コメントは受け付けていません"
 
 # @ raindrops
-#: childs/boots/inc.php:1337 lib/customize.php:2024 lib/vars.php:1424
+#: childs/boots/inc.php:1337 lib/customize.php:2179 lib/vars.php:1424
 msgid "Archives label"
 msgstr "アーカイブ　ラベルテキスト"
 
@@ -875,33 +876,33 @@ msgstr ""
 "ルを表示するか、表示しない等を選択します。"
 
 # @ raindrops
-#: childs/boots/inc.php:1347 lib/customize.php:2041 lib/vars.php:1434
+#: childs/boots/inc.php:1347 lib/customize.php:2196 lib/vars.php:1434
 msgid "Archive Page Top Navigation"
 msgstr "アーカイブページの上部のページナビゲーション"
 
-#: childs/boots/inc.php:1349 lib/customize.php:2043 lib/vars.php:1436
+#: childs/boots/inc.php:1349 lib/customize.php:2198 lib/vars.php:1436
 msgid "Hide or Show Blog Archives page top navigation"
 msgstr ""
 "アーカイブページのタイトル上部に表示されるナビゲーションの表示、非表示を選択"
 "します"
 
-#: childs/boots/inc.php:1357 lib/customize.php:1959 lib/vars.php:1444
+#: childs/boots/inc.php:1357 lib/customize.php:2114 lib/vars.php:1444
 msgid "Position of Posted on"
 msgstr " タイトル下の、投稿者や日付のブロックの位置"
 
-#: childs/boots/inc.php:1359 lib/customize.php:1961 lib/vars.php:1446
+#: childs/boots/inc.php:1359 lib/customize.php:2116 lib/vars.php:1446
 msgid "default before contents"
 msgstr "デフォルト値 before contents"
 
-#: childs/boots/inc.php:1367 lib/customize.php:1975 lib/vars.php:1454
+#: childs/boots/inc.php:1367 lib/customize.php:2130 lib/vars.php:1454
 msgid "Position of Posted in"
 msgstr " 投稿の下部にある、カテゴリやタグを表示するブロックの位置"
 
-#: childs/boots/inc.php:1369 lib/customize.php:1977 lib/vars.php:1456
+#: childs/boots/inc.php:1369 lib/customize.php:2132 lib/vars.php:1456
 msgid "default after contents"
 msgstr "デフォルト値　after contents"
 
-#: childs/boots/inc.php:1377 lib/customize.php:1526 lib/vars.php:1464
+#: childs/boots/inc.php:1377 lib/customize.php:1528 lib/vars.php:1464
 msgid "Fallback Image for Entry Content"
 msgstr "投稿本文内代替画像"
 
@@ -909,11 +910,11 @@ msgstr "投稿本文内代替画像"
 msgid "Image, to display an alternative image if that can not be displayed"
 msgstr "代替画像の表示"
 
-#: childs/boots/inc.php:1387 lib/customize.php:1288 lib/vars.php:1474
+#: childs/boots/inc.php:1387 lib/customize.php:1290 lib/vars.php:1474
 msgid "Custom Footer Credit"
 msgstr "フッタークレジット"
 
-#: childs/boots/inc.php:1389 lib/customize.php:1290 lib/vars.php:1476
+#: childs/boots/inc.php:1389 lib/customize.php:1292 lib/vars.php:1476
 msgid ""
 "Show your custom footer credit when anything input. You can use element "
 "address, span, a, br,img, %current_year% (replase current year )"
@@ -922,33 +923,33 @@ msgstr ""
 "自身のものに書き換えることが出来ます。使用できるhtml要素はaddress, span, a, "
 "br,img, %current_year% (この記述は、現在の年西暦4桁に置換されます )"
 
-#: childs/boots/inc.php:1397 lib/customize.php:968 lib/vars.php:1484
+#: childs/boots/inc.php:1397 lib/customize.php:970 lib/vars.php:1484
 msgid "Attachment Page PDF Columns"
 msgstr "添付ファイルPDFのカラム数"
 
-#: childs/boots/inc.php:1407 lib/customize.php:1653 lib/vars.php:1494
+#: childs/boots/inc.php:1407 lib/customize.php:1655 lib/vars.php:1494
 msgid "Primary Menu Automatic Responsive"
 msgstr "自動レスポンシブ表示"
 
-#: childs/boots/inc.php:1409 childs/boots/inc.php:1539 lib/customize.php:1655
-#: lib/customize.php:1671 lib/vars.php:1496 lib/vars.php:1626
+#: childs/boots/inc.php:1409 childs/boots/inc.php:1539 lib/customize.php:1657
+#: lib/customize.php:1673 lib/vars.php:1496 lib/vars.php:1626
 msgid "value yes or no. default yes"
 msgstr "設定可能な値は、yes または　no　です。規定値は yes"
 
-#: childs/boots/inc.php:1417 lib/customize.php:1540 lib/vars.php:1504
+#: childs/boots/inc.php:1417 lib/customize.php:1542 lib/vars.php:1504
 msgid "Tooltip"
 msgstr "ツールチップ"
 
-#: childs/boots/inc.php:1419 lib/customize.php:1542 lib/vars.php:1506
+#: childs/boots/inc.php:1419 lib/customize.php:1544 lib/vars.php:1506
 msgid "Enable Tooltip. value yes or no. default yes"
 msgstr ""
 "ツールチップの有効化　設定可能な値は、yes または　no　です。規定値は yes"
 
-#: childs/boots/inc.php:1427 lib/customize.php:2130 lib/vars.php:1514
+#: childs/boots/inc.php:1427 lib/customize.php:2285 lib/vars.php:1514
 msgid "Display Site Title Text"
 msgstr "サイトタイトルの表示"
 
-#: childs/boots/inc.php:1429 lib/customize.php:2132 lib/vars.php:1516
+#: childs/boots/inc.php:1429 lib/customize.php:2287 lib/vars.php:1516
 msgid "value show, hide. default show"
 msgstr "値は show または hide  デフォルトは show です"
 
@@ -988,30 +989,30 @@ msgstr "投稿フォーマットアーカイブ「チャット」カラム数"
 msgid "Post Format Aside Columns"
 msgstr "投稿フォーマットアーカイブ「アサイド」カラム数"
 
-#: childs/boots/inc.php:1527 lib/customize.php:851 lib/vars.php:1614
+#: childs/boots/inc.php:1527 lib/customize.php:853 lib/vars.php:1614
 msgid "Static Front Page / Posts page "
 msgstr "固定フロントページ/投稿ページ"
 
 # @ raindrops
-#: childs/boots/inc.php:1537 lib/customize.php:1669 lib/vars.php:1624
+#: childs/boots/inc.php:1537 lib/customize.php:1671 lib/vars.php:1624
 msgid "Sticky Menu "
 msgstr "スティキーメニュー"
 
 # @ raindrops
-#: childs/boots/inc.php:1547 lib/customize.php:1271 lib/vars.php:1634
+#: childs/boots/inc.php:1547 lib/customize.php:1273 lib/vars.php:1634
 msgid "Reset Theme Settings"
 msgstr "テーマ設定のリセット"
 
-#: childs/boots/inc.php:1549 lib/customize.php:1273 lib/vars.php:1636
+#: childs/boots/inc.php:1549 lib/customize.php:1275 lib/vars.php:1636
 msgid "Carefully Use! Reset All Theme Settings"
 msgstr "注意！すべてのテーマ設定がリセットされます"
 
 # @ raindrops
-#: childs/boots/inc.php:1557 lib/customize.php:457 lib/vars.php:1644
+#: childs/boots/inc.php:1557 lib/customize.php:459 lib/vars.php:1644
 msgid "Color Setting"
 msgstr "カラー設定"
 
-#: childs/boots/inc.php:1559 lib/customize.php:459 lib/vars.php:1646
+#: childs/boots/inc.php:1559 lib/customize.php:461 lib/vars.php:1646
 msgid "Select Automatic Color or Custom Color"
 msgstr "自動カラー設定、カスタムカラー設定の選択"
 
@@ -1022,7 +1023,7 @@ msgstr "アタッチメントページで投稿日と著者を表示"
 
 # @ raindrops
 #: childs/boots/inc.php:1569 childs/boots/inc.php:1579
-#: childs/boots/inc.php:1589 lib/customize.php:1559 lib/customize.php:1576
+#: childs/boots/inc.php:1589 lib/customize.php:1561 lib/customize.php:1578
 #: lib/vars.php:1656 lib/vars.php:1666 lib/vars.php:1676
 msgid "Default no"
 msgstr "デフォルト no"
@@ -1037,34 +1038,34 @@ msgid "Default Sidebar Responsive"
 msgstr "デフォルトサイドバーのレスポンシブ設定"
 
 # @ raindrops
-#: childs/boots/inc.php:1599 lib/customize.php:717 lib/customize.php:797
+#: childs/boots/inc.php:1599 lib/customize.php:719 lib/customize.php:799
 #: lib/vars.php:1686
 msgid "Default yes"
 msgstr "デフォルト yes"
 
-#: childs/boots/inc.php:1607 lib/customize.php:732 lib/vars.php:1694
+#: childs/boots/inc.php:1607 lib/customize.php:734 lib/vars.php:1694
 msgid "Responsive Breakpoint for Default Sidebar"
 msgstr "デフォルトサイドバーのブレークポイント"
 
-#: childs/boots/inc.php:1609 childs/boots/inc.php:1619 lib/customize.php:734
-#: lib/customize.php:815 lib/vars.php:1696 lib/vars.php:1706
+#: childs/boots/inc.php:1609 childs/boots/inc.php:1619 lib/customize.php:736
+#: lib/customize.php:817 lib/vars.php:1696 lib/vars.php:1706
 msgid "Please Set Numeric Pixel Value"
 msgstr "ピクセル単位での数値を入力してください"
 
-#: childs/boots/inc.php:1617 lib/customize.php:813 lib/vars.php:1704
+#: childs/boots/inc.php:1617 lib/customize.php:815 lib/vars.php:1704
 msgid "Responsive Breakpoint for Extra Sidebar"
 msgstr "エキストラサイドバーのブレークポイント"
 
-#: childs/boots/inc.php:1627 lib/customize.php:1991 lib/vars.php:1714
+#: childs/boots/inc.php:1627 lib/customize.php:2146 lib/vars.php:1714
 msgid "Enable Color-coded category"
 msgstr "カテゴリーの色分け"
 
-#: childs/boots/inc.php:1629 childs/boots/inc.php:1639 lib/customize.php:1993
-#: lib/customize.php:2009 lib/vars.php:1716 lib/vars.php:1726
+#: childs/boots/inc.php:1629 childs/boots/inc.php:1639 lib/customize.php:2148
+#: lib/customize.php:2164 lib/vars.php:1716 lib/vars.php:1726
 msgid "Please Set yes or no. default yes"
 msgstr "設定可能な値は、yes または　no　です。規定値は yes"
 
-#: childs/boots/inc.php:1637 lib/customize.php:2007 lib/vars.php:1724
+#: childs/boots/inc.php:1637 lib/customize.php:2162 lib/vars.php:1724
 msgid "Enable Color-coded Post Tag"
 msgstr "投稿タグの色分け"
 
@@ -1135,22 +1136,22 @@ msgid "Saturday"
 msgstr "土曜"
 
 # @ raindrops
-#: date.php:140 functions.php:3727
+#: date.php:140 functions.php:3731
 msgid "Yearly Archives"
 msgstr "年次アーカイブ"
 
 # @ raindrops
-#: date.php:147 functions.php:3715
+#: date.php:147 functions.php:3719
 msgid "Monthly Archives"
 msgstr "月次アーカイブ"
 
 # @ raindrops
-#: date.php:152 functions.php:3710
+#: date.php:152 functions.php:3714
 msgid "Daily Archives"
 msgstr "日次アーカイブ"
 
 # @ raindrops
-#: functions.php:152 functions.php:7697
+#: functions.php:154 functions.php:7758
 msgid "Primary Navigation"
 msgstr "プライマリーメニュー"
 
@@ -1181,153 +1182,153 @@ msgstr ""
 "フォームに新しい項目(%s)を追加したら、その項目のバリデーション関数（%s）も書"
 "かなければなりませんよ"
 
-#: functions.php:994 lib/customize.php:1893
+#: functions.php:992 lib/customize.php:2048
 msgid "Avatar"
 msgstr "アバター"
 
 # @ raindrops
-#: functions.php:999
+#: functions.php:997
 msgid "says:"
 msgstr "コメント投稿者"
 
 # @ raindrops
-#: functions.php:1003
+#: functions.php:1001
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s: %2$s"
 
 # @ raindrops
-#: functions.php:1005 functions.php:1043
+#: functions.php:1003 functions.php:1041
 msgid " Edit "
 msgstr "編集"
 
 # @ raindrops
-#: functions.php:1013
+#: functions.php:1011
 msgid "Your comment is awaiting moderation."
 msgstr "コメントは管理者の承認待ちです。"
 
-#: functions.php:1027
+#: functions.php:1025
 msgid "Reply"
 msgstr "返信"
 
 # @ raindrops
-#: functions.php:1040
+#: functions.php:1038
 msgid "Pingback:"
 msgstr "ピンバック："
 
 # @ raindrops
-#: functions.php:1274 functions.php:8460
+#: functions.php:1272
 msgid "Comment"
 msgstr "コメント"
 
 # @ raindrops
-#: functions.php:1278
+#: functions.php:1276
 msgid "Comment "
 msgstr "コメント"
 
-#: functions.php:1307 functions.php:3615 functions.php:6603 functions.php:6784
-#: functions.php:6968
+#: functions.php:1305 functions.php:3620 functions.php:6633 functions.php:6821
+#: functions.php:7013
 #, php-format
 msgid "View all posts by %s"
 msgstr " %sのすべての投稿"
 
-#: functions.php:1411
+#: functions.php:1406
 msgid "Attached to Post on"
 msgstr "添付日"
 
-#: functions.php:1414
+#: functions.php:1409
 msgid "Created on"
 msgstr "作成日"
 
-#: functions.php:1417
+#: functions.php:1412
 msgid "Posted on"
 msgstr " 投稿日"
 
-#: functions.php:1423
+#: functions.php:1418
 msgid "by"
 msgstr "  "
 
 # @ raindrops
-#: functions.php:1563
+#: functions.php:1558
 msgid "Theme URI"
 msgstr "テーマ　URI"
 
 # @ raindrops
-#: functions.php:1565
+#: functions.php:1560
 msgid "Author"
 msgstr "著者"
 
-#: functions.php:1567 functions.php:1589
+#: functions.php:1562 functions.php:1584
 msgid "Support"
 msgstr "Support"
 
-#: functions.php:1567
+#: functions.php:1562
 msgid "http://wordpress.org/support/theme/raindrops"
 msgstr "http://wordpress.org/support/theme/raindrops"
 
-#: functions.php:1567
+#: functions.php:1562
 msgid "http://ja.forums.wordpress.org/ lang:Japanese"
 msgstr "http://ja.forums.wordpress.org/ lang:Japanese"
 
 # @ raindrops
-#: functions.php:1569 plugins/class-tgm-plugin-activation.php:2553
+#: functions.php:1564 plugins/class-tgm-plugin-activation.php:2553
 msgid "Version"
 msgstr "バージョン"
 
 # @ raindrops
-#: functions.php:1571
+#: functions.php:1566
 msgid "Change log text"
 msgstr "変更履歴"
 
 # @ raindrops
-#: functions.php:1571
+#: functions.php:1566
 msgid "Changelog , display new window"
 msgstr "変更履歴の表示（新しい画面）"
 
 # @ raindrops
-#: functions.php:1573
+#: functions.php:1568
 msgid "Readme text"
 msgstr "説明書き"
 
 # @ raindrops
-#: functions.php:1573
+#: functions.php:1568
 msgid "Readme , display new window"
 msgstr "説明の表示（新しい画面)"
 
-#: functions.php:1589
+#: functions.php:1584
 msgid "English"
 msgstr "英語"
 
-#: functions.php:1589
+#: functions.php:1584
 msgid "Japanese"
 msgstr "日本語"
 
-#: functions.php:1591
+#: functions.php:1586
 msgid "How to remove Site Title Block"
 msgstr "サイトタイトルのバナーブロックを非表示にする"
 
-#: functions.php:1592
+#: functions.php:1587
 msgid "How to remove Post Author Name"
 msgstr "投稿者名を非表示にする"
 
-#: functions.php:1593
+#: functions.php:1588
 msgid "How to remove Entry Date"
 msgstr "投稿の投稿日を非表示にする"
 
-#: functions.php:1594
+#: functions.php:1589
 msgid "How to remove Entry Meta"
 msgstr "投稿のカテゴリなどのメタフィールドを非表示にする"
 
-#: functions.php:1595
+#: functions.php:1590
 msgid "How to remove Archive Title Label[ like Category Archives ]"
 msgstr ""
 "アーカイブタイトルの　「カテゴリアーカイブ」のようなラベルを非表示にする"
 
-#: functions.php:1596
+#: functions.php:1591
 msgid "How to remove Home list above next prev navigation link"
 msgstr "トップページの、上部にある次のページへのリンクを非表示にする"
 
-#: functions.php:1597
+#: functions.php:1592
 msgid ""
 "above codes paste style.css last. If not change when  Version value change "
 "( line:9 )"
@@ -1337,12 +1338,12 @@ msgstr ""
 "みてください"
 
 # @ raindrops
-#: functions.php:1628
+#: functions.php:1623
 msgid "Tips"
 msgstr "Tips"
 
 # @ raindrops
-#: functions.php:1629
+#: functions.php:1624
 msgid ""
 "If Raindrops Options panel is opened, and the reference color is set, this "
 "arrangement of color is changed at once."
@@ -1351,28 +1352,28 @@ msgstr ""
 "自動生成します"
 
 # @ raindrops
-#: functions.php:1630
+#: functions.php:1625
 msgid "Dinamic Color Class"
 msgstr "動的な色クラス"
 
-#: functions.php:1643 functions.php:1662
+#: functions.php:1638 functions.php:1657
 msgid "code example:please HTML editor mode"
 msgstr "HTMLモードを使ってくださいね"
 
 # @ raindrops
-#: functions.php:1649
+#: functions.php:1644
 msgid "Dinamic Gradient Class"
 msgstr "動的なグラデーションクラス"
 
-#: functions.php:1665
+#: functions.php:1660
 msgid "Font Size CSS Class"
 msgstr "フォントサイズ　CSSクラス"
 
-#: functions.php:1666 functions.php:1670
+#: functions.php:1661 functions.php:1665
 msgid "Classes"
 msgstr "クラス"
 
-#: functions.php:1667
+#: functions.php:1662
 msgid ""
 "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , "
 "f22 , f23 , f24 , f25 , f26"
@@ -1380,81 +1381,81 @@ msgstr ""
 "f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , "
 "f22 , f23 , f24 , f25 , f26"
 
-#: functions.php:1669
+#: functions.php:1664
 msgid "Google Fonts Family CSS Class"
 msgstr "グーグルフォント　CSS　Class"
 
-#: functions.php:1671
+#: functions.php:1666
 msgid ""
 "Note, More than 90 percent of the Google font can be used, but there are "
 "some limitations."
 msgstr ""
 "備考　グーグルフォントの90%以上をカバーしますが、いくつかの制限があります。"
 
-#: functions.php:1672
+#: functions.php:1667
 msgid "Examples of the no corresponding font"
 msgstr "対応しないフォントの例"
 
-#: functions.php:1673
+#: functions.php:1668
 msgid "Examples of the corresponding font"
 msgstr "対応するフォントの例"
 
-#: functions.php:1674
+#: functions.php:1669
 msgid "How to specify the font"
 msgstr "フォントの指定方法"
 
-#: functions.php:1675
+#: functions.php:1670
 msgid "Add prefix google-font- + Font name lowercase and change to - the space"
 msgstr ""
 "プレフィックス　google-font- に続けて、フォント名を小文字に変更し、スペース"
 "を　-　に変更してください。"
 
-#: functions.php:1676
+#: functions.php:1671
 msgid "How to specify the font weight"
 msgstr "フォントウェイトの指定方法"
 
-#: functions.php:1677
+#: functions.php:1672
 msgid "How to specify the font style"
 msgstr "フォントスタイルの指定方法"
 
-#: functions.php:1680
+#: functions.php:1675
 msgid "Example of Custom CSS Meta Box Style Rules"
 msgstr "投稿のカスタムCSSメタボックスのスタイル指定例"
 
-#: functions.php:1681
+#: functions.php:1676
 msgid "Styling Entry Title"
 msgstr "投稿タイトルへのスタイル適用"
 
-#: functions.php:1682
+#: functions.php:1677
 msgid "Change entry title color"
 msgstr "投稿タイトルの色を変更"
 
-#: functions.php:1683
+#: functions.php:1678
 msgid "Styling Posted on"
 msgstr " タイトル下の、投稿者や日付のブロック"
 
-#: functions.php:1684
+#: functions.php:1679
 msgid "hide posted on from all post"
 msgstr "投稿から、投稿日　著者　ブロックを非表示にする"
 
-#: functions.php:1685
+#: functions.php:1680
 msgid "Styling Posted in"
 msgstr " 投稿の下部にある、カテゴリやタグを表示するブロック"
 
 # @ raindrops
-#: functions.php:1686
+#: functions.php:1681
 msgid "hide posted in"
 msgstr " posted in（カテゴリ、タグの表示ブロック）の非表示"
 
-#: functions.php:1687
+#: functions.php:1682
 msgid "Styling Article"
 msgstr "投稿全体へのスタイルの適用"
 
-#: functions.php:1688
+#: functions.php:1683
 msgid "add border and padding"
 msgstr "現在の投稿全体に、ボーダーやパディングを設定する"
 
-#: functions.php:1689
+#: functions.php:1684
 msgid ""
 "note:article elements and post_class () You can use all of the elements to "
 "be output."
@@ -1462,142 +1463,142 @@ msgstr ""
 "備考、スタイルは、artile要素　post_class()が出力するすべてのクラスを利用する"
 "ことが出来ます。"
 
-#: functions.php:2021
+#: functions.php:2016
 msgid "(&nbsp;optional&nbsp;)"
 msgstr "(&nbsp;任意&nbsp;)"
 
-#: functions.php:3439
+#: functions.php:3444
 #, php-format
 msgid "%s Articles archived"
 msgstr "%s 件のアーカイブがあります"
 
 # @ raindrops
-#: functions.php:3689
+#: functions.php:3694
 msgid "Search Results"
 msgstr "検索 結果"
 
 # @ raindrops
-#: functions.php:3695
+#: functions.php:3700
 msgid "Tag Archives"
 msgstr "タグ別アーカイブ: "
 
 # @ raindrops
-#: functions.php:3701
+#: functions.php:3706
 msgid "Category Archives"
 msgstr "カテゴリー別アーカイブ"
 
 # @ raindrops
-#: functions.php:3732
+#: functions.php:3736
 msgid "Author Archives"
 msgstr "作成者別アーカイブ: "
 
-#: functions.php:3743 functions.php:3749 functions.php:3755 functions.php:3761
-#: functions.php:3767 functions.php:3773 functions.php:3779 functions.php:3785
-#: functions.php:3791
+#: functions.php:3747 functions.php:3753 functions.php:3759 functions.php:3765
+#: functions.php:3771 functions.php:3777 functions.php:3783 functions.php:3789
+#: functions.php:3795
 msgid "Post Format"
 msgstr "投稿フォーマット"
 
 # @ raindrops
-#: functions.php:3796
+#: functions.php:3800
 msgid "Blog Archives"
 msgstr "ブログ　アーカイブ"
 
-#: functions.php:4144
+#: functions.php:4148
 msgid "Article"
 msgstr "記事"
 
-#: functions.php:4152
+#: functions.php:4156
 msgid " to entry"
 msgstr "投稿へ"
 
-#: functions.php:4159
+#: functions.php:4163
 msgid "Standard"
 msgstr "標準"
 
-#: functions.php:4160
+#: functions.php:4164
 msgid "Aside"
 msgstr "余談"
 
-#: functions.php:4161
+#: functions.php:4165
 msgid "Chat"
 msgstr "チャット"
 
-#: functions.php:4162 part-gallery.php:102
+#: functions.php:4166 part-gallery.php:102
 msgid "Gallery"
 msgstr "ギャラリー"
 
-#: functions.php:4163
+#: functions.php:4167
 msgid "Link"
 msgstr "リンク"
 
-#: functions.php:4164
+#: functions.php:4168
 msgid "Image"
 msgstr "画像"
 
-#: functions.php:4165
+#: functions.php:4169
 msgid "Quote"
 msgstr "引用"
 
-#: functions.php:4166 part-blog.php:129
+#: functions.php:4170 part-blog.php:129
 #: plugins/class-tgm-plugin-activation.php:2554
 msgid "Status"
 msgstr "ステータス"
 
-#: functions.php:4167
+#: functions.php:4171
 msgid "Video"
 msgstr "ビデオ"
 
-#: functions.php:4168
+#: functions.php:4172
 msgid "Audio"
 msgstr "オーディオ"
 
-#: functions.php:4178
+#: functions.php:4182
 msgid "Post Format "
 msgstr "投稿フォーマット"
 
-#: functions.php:5027
+#: functions.php:5028
 msgid "cite:"
 msgstr "引用元："
 
-#: functions.php:5030
+#: functions.php:5031
 msgid "Message"
 msgstr "メッセージ"
 
-#: functions.php:5031
+#: functions.php:5032
 msgid "Required Your Message"
 msgstr "メッセージは必須項目です"
 
-#: functions.php:5032
+#: functions.php:5033
 msgid "Name"
 msgstr "お名前"
 
-#: functions.php:5033
+#: functions.php:5034
 msgid "Required Your Name"
 msgstr "お名前は必須項目です"
 
-#: functions.php:5034
+#: functions.php:5035
 msgid "Email Address"
 msgstr "メールアドレス"
 
-#: functions.php:5035
+#: functions.php:5036
 msgid "Required Your Email"
 msgstr "メールアドレスは必須項目です"
 
-#: functions.php:5044 functions.php:11683
+#: functions.php:5045 functions.php:11755
 msgid "Open"
 msgstr "開く"
 
-#: functions.php:5045
+#: functions.php:5046
 msgid "Close"
 msgstr "閉じる"
 
 # @ raindrops
-#: functions.php:5049
+#: functions.php:5050
 msgid "Link to Main Content"
 msgstr "メインコンテンツに移動"
 
 # @ default
-#: functions.php:5613
+#: functions.php:5621
 #, php-format
 msgid ""
 "add_action(  '%1$s', 'your_function'  ) or add template part file the name "
@@ -1606,123 +1607,124 @@ msgstr ""
 "アクションフック  add_action(  '%1$s', 'your_function'  )  あるいは　%2$s　テ"
 "ンプレートを追加していただく事で、この場所にコンテンツを追加できます。"
 
-#: functions.php:6149 functions.php:8561 functions.php:10338
+#: functions.php:6164 functions.php:8630 functions.php:10410
 #: part-additional.php:52
 msgid "Continue&nbsp;reading "
 msgstr "続きを読む"
 
-#: functions.php:6149 functions.php:8561 functions.php:10340
+#: functions.php:6164 functions.php:8630 functions.php:10412
 #: part-additional.php:52
 msgid "&nbsp;Post ID&nbsp;"
 msgstr "&nbsp;投稿 ID&nbsp;"
 
-#: functions.php:6195
+#: functions.php:6210
 msgid " Older posts"
 msgstr "過去の投稿"
 
 # @ raindrops
-#: functions.php:6195
+#: functions.php:6210
 msgid "Newer posts"
 msgstr "新しい投稿"
 
 # @ raindrops
-#: functions.php:6471
+#: functions.php:6487
 msgid "Recent Post"
 msgstr "最近の投稿"
 
-#: functions.php:7034
+#: functions.php:7079
 #, php-format
 msgid "&#171; %s "
 msgstr "&#171; %s "
 
-#: functions.php:7046
+#: functions.php:7091
 #, php-format
 msgid " %s &#187;"
 msgstr " %s &#187;"
 
 # @ raindrops
-#: functions.php:7469
+#: functions.php:7530
 msgid "Go to Attachment page"
 msgstr "添付ファイルへ"
 
 # @ raindrops
-#: functions.php:8328
+#: functions.php:8390
 msgid "Empty content"
 msgstr "空白コンテンツ"
 
-#: functions.php:8382
+#: functions.php:8444
 msgid "&#171; Older Entries"
 msgstr "&laquo; 古い投稿"
 
-#: functions.php:8387
+#: functions.php:8449
 msgid "Newer Entries &#187;"
 msgstr "新しい投稿 &raquo;"
 
 # @ raindrops
-#: functions.php:8480 functions.php:8484 functions.php:8490 functions.php:8516
+#: functions.php:8549 functions.php:8553 functions.php:8559 functions.php:8585
 #: lib/widgets.php:915
 msgid "Page"
 msgstr "ページ"
 
-#: functions.php:8509 functions.php:8528
+#: functions.php:8578 functions.php:8597
 msgid "Portfolio Home"
 msgstr "ポートフォリオ　ホーム"
 
-#: functions.php:8531
+#: functions.php:8600
 msgid "Home"
 msgstr "Home"
 
 # @ raindrops
-#: functions.php:8687
+#: functions.php:8756
 msgid "Child Page : "
 msgstr "子カテゴリー："
 
-#: functions.php:9008
+#: functions.php:9078
 msgid "Custom CSS For This Entry"
 msgstr "この投稿のカスタムCSS"
 
-#: functions.php:9121
+#: functions.php:9191
 msgid "Add Front Page"
 msgstr "固定フロントページに追加"
 
-#: functions.php:9122
+#: functions.php:9192
 msgid "Add Front Page This Content"
 msgstr "このコンテンツを固定フロントページに追加"
 
-#: functions.php:9123
+#: functions.php:9193
 msgid "No Need"
 msgstr "必要ありません"
 
-#: functions.php:9142
+#: functions.php:9212
 msgid "Custom Header Image For This Post"
 msgstr "この投稿のカスタムヘッダー画像"
 
 # @ raindrops
-#: functions.php:9146
+#: functions.php:9216
 msgid "Hide Header Image"
 msgstr "この投稿ではヘッダー画像を表示しない"
 
 # @ raindrops
-#: functions.php:9156 lib/customize.php:72 lib/widgets.php:324
+#: functions.php:9226 lib/customize.php:69 lib/customize.php:1855
+#: lib/vars.php:1884 lib/widgets.php:324
 msgid "Featured Image"
 msgstr "アイキャッチ 画像"
 
 # @ raindrops
-#: functions.php:9160 functions.php:9164
+#: functions.php:9230 functions.php:9234
 msgid "Default Image"
 msgstr "既定のヘッダー画像を使う"
 
 # @ raindrops
-#: functions.php:9210
+#: functions.php:9280
 msgid "Add Custom Header"
 msgstr "カスタムヘッダーを追加"
 
 # @ raindrops
-#: functions.php:9214
+#: functions.php:9284
 msgid "Override header Image"
 msgstr "投稿のカスタムヘッダー画像"
 
-#: functions.php:9215
+#: functions.php:9285
 msgid ""
 "Now Selected Front Page template,You can use Featured Image for override "
 "header image"
@@ -1730,77 +1732,77 @@ msgstr ""
 "現在フロントページテンプレートが選択されています。アイキャッチ画像をセットす"
 "ると、ヘッダーイメージを上書きすることが出来ます。"
 
-#: functions.php:9218
+#: functions.php:9288
 msgid "The Custom CSS Field only for the current post"
 msgstr "カスタムCSSフィールドは、この投稿だけにしかスタイルが適用されません"
 
 # @ raindrops
-#: functions.php:9537 plugins/class-tgm-plugin-activation.php:1121
+#: functions.php:9607 plugins/class-tgm-plugin-activation.php:1121
 #: plugins/class-tgm-plugin-activation.php:2948
 msgid "and"
 msgstr "　"
 
-#: functions.php:9540
+#: functions.php:9610
 msgid "Entries RSS"
 msgstr "投稿フィード"
 
 # @ raindrops
-#: functions.php:9540
+#: functions.php:9610
 msgid "Comments RSS"
 msgstr "コメントフィード"
 
 # @ raindrops
-#: functions.php:9547 functions.php:9550
+#: functions.php:9617 functions.php:9620
 msgid "Raindrops Theme"
 msgstr "レインドロップス　テーマ"
 
 # @ raindrops
-#: functions.php:11271
+#: functions.php:11343
 msgid "Link to Year Archives "
 msgstr "年別アーカイブへのリンク"
 
-#: functions.php:11353
+#: functions.php:11425
 msgid "Password"
 msgstr "パスワード"
 
-#: functions.php:11353
+#: functions.php:11425
 msgid ""
 "This content is password protected. To view it please enter your password"
 msgstr ""
 "この記事はパスワードで保護されています。パスワードの入力をお願いします。"
 
-#: functions.php:11353
+#: functions.php:11425
 msgid "Submit"
 msgstr "送信"
 
 # @ raindrops
-#: functions.php:11462
+#: functions.php:11534
 msgid "Uncategorized"
 msgstr "未分類"
 
 # @ raindrops
-#: functions.php:11662
+#: functions.php:11734
 msgid "Theme Widget"
 msgstr "テーマのウィジェット"
 
 # @ raindrops
-#: functions.php:11662
+#: functions.php:11734
 msgid "Add On Widget"
 msgstr "アドオンのウィジェット"
 
 # @ raindrops
-#: functions.php:11685
+#: functions.php:11757
 msgid "Main Sidebar"
 msgstr "メインサイドバー"
 
 # @ raindrops
-#: functions.php:12330
+#: functions.php:12408
 #, php-format
 msgid "Recent %1$s"
 msgstr "最近の %1$s"
 
 # @ raindrops
-#: functions.php:12398 functions.php:12505
+#: functions.php:12477 functions.php:12583
 #, php-format
 msgid "%1$s %2$s %3$s"
 msgstr "%1$s %2$s %3$s "
@@ -1825,180 +1827,189 @@ msgid "Sorry, no attachments matched your criteria."
 msgstr "条件に合う添付ファイルはありませんでした。"
 
 # @ raindrops
-#: lib/alias_functions.php:1799
+#: lib/alias_functions.php:1719
 msgid "Raindrops Help"
 msgstr "Raindrops ヘルプ"
 
-#: lib/alias_functions.php:1800
+#: lib/alias_functions.php:1720
 msgid "About Base Color related Class"
 msgstr "ベースカラー連携クラスについて"
 
 # @ raindrops
-#: lib/alias_functions.php:1812 lib/alias_functions.php:1825
+#: lib/alias_functions.php:1732 lib/alias_functions.php:1745
 msgid "Raindrops Theme Help"
 msgstr "Raindrops テーマヘルプ"
 
 # @ raindrops
-#: lib/alias_functions.php:1813 lib/alias_functions.php:1826
+#: lib/alias_functions.php:1733 lib/alias_functions.php:1746
 msgid "About Raindrops Theme"
 msgstr "Raindropsテーマについて"
 
 # @ default
-#: lib/alias_functions.php:1839
+#: lib/alias_functions.php:1759
 msgid "Now RAINDROPS_USE_AUTO_COLOR value false and Cannot show this help"
 msgstr "定数TMN_USE_AUTO_COLORがfalseに設定されています"
 
-#: lib/alias_functions.php:2318
+#: lib/alias_functions.php:2238
 msgid "Light"
 msgstr "ライト"
 
-#: lib/alias_functions.php:2323
+#: lib/alias_functions.php:2243
 msgid "Blue"
 msgstr "Blue"
 
-#: lib/alias_functions.php:2327
+#: lib/alias_functions.php:2247
 msgid "Midnight"
 msgstr "Midnight"
 
-#: lib/alias_functions.php:2331
+#: lib/alias_functions.php:2251
 msgid "Sunrise"
 msgstr "Sunrise"
 
-#: lib/alias_functions.php:2335
+#: lib/alias_functions.php:2255
 msgid "Ectoplasm"
 msgstr "Ectoplasm"
 
-#: lib/alias_functions.php:2339
+#: lib/alias_functions.php:2259
 msgid "Ocean"
 msgstr "Ocean"
 
-#: lib/alias_functions.php:2343
+#: lib/alias_functions.php:2263
 msgid "Coffee"
 msgstr "Coffee"
 
-#: lib/alias_functions.php:2347
+#: lib/alias_functions.php:2267
 msgid "Evergreen"
 msgstr "エバーグリーン"
 
-#: lib/alias_functions.php:2351
+#: lib/alias_functions.php:2271
 msgid "Mint"
 msgstr "ミント"
 
 # @ raindrops
-#: lib/customize.php:76
+#: lib/customize.php:73
 msgid "Featured Image Settings"
 msgstr "アイキャッチ画像"
 
-#: lib/customize.php:77
+#: lib/customize.php:74
 msgid "Emphasis of new content using the Featured Image"
 msgstr "アイキャッチ画像を使った、新しい投稿の強調"
 
 # @ raindrops
-#: lib/customize.php:80 lib/customize.php:3176
+#: lib/customize.php:77 lib/customize.php:3333
 msgid "Layout and Sidebars"
 msgstr "レイアウトとサイドバー"
 
-#: lib/customize.php:83
+#: lib/customize.php:80
 msgid ""
 "1-3 the different layout of the column, can be created in all of the "
 "archives,post and page"
 msgstr "アーカイブや投稿ページそれぞれのレイアウトを変更する事が出来ます。"
 
-#: lib/customize.php:86
+#: lib/customize.php:83
 msgid "Fonts"
 msgstr "フォント"
 
-#: lib/customize.php:89
+#: lib/customize.php:86
 msgid "change the base font, all the elements will be proportionally change"
 msgstr ""
 "ベースフォントを変更するとすべての要素のフォントサイズが連動して変更されま"
 "す。"
 
-#: lib/customize.php:96
+#: lib/customize.php:88
 msgid "Advanced"
 msgstr "高度な設定"
 
-#: lib/customize.php:98
+#: lib/customize.php:90
 msgid "Excerpt"
 msgstr "概要表示"
 
-#: lib/customize.php:100
+#: lib/customize.php:92
 msgid ""
 "When you select the Show Excerpt, sub-menu appears and you can fine setting."
 msgstr ""
 "概要文を表示を選択すると、概要の表示方法の詳細設定メニューが表示されます。"
 
-#: lib/customize.php:103
+#: lib/customize.php:95
 msgid "Add-ons"
 msgstr "アドオン"
 
-#: lib/customize.php:105
+#: lib/customize.php:97
 msgid "Add-on, it is adjusted plug-ins to fit the theme."
 msgstr "アドオンは、テーマにフィットするように調整されています。"
 
-#: lib/customize.php:113
+#: lib/customize.php:105
 msgid ""
 "Change the Base color, you can create an infinite number of color scheme."
 msgstr "ベースカラーを変更する事で、無数の配色を作ることが出来ます。"
 
-#: lib/customize.php:116
+#: lib/customize.php:108
 msgid "Post"
 msgstr "投稿"
 
-#: lib/customize.php:120 lib/customize.php:127
+#: lib/customize.php:112 lib/customize.php:119
 msgid "The following changes are made using the CSS"
 msgstr "この変更は、CSSで行われます"
 
 # @ raindrops
-#: lib/customize.php:123
+#: lib/customize.php:115
 msgid "Archive"
 msgstr "アーカイブ"
 
 # @ raindrops
-#: lib/customize.php:130
+#: lib/customize.php:122
 msgid "Menu"
 msgstr "メニュー"
 
-#: lib/customize.php:134
+#: lib/customize.php:126
 msgid "You can fine-tune the size and how to display the menu"
 msgstr "メニューの表示方法を詳細に設定できます"
 
 # @ raindrops
-#: lib/customize.php:137
+#: lib/customize.php:129
 msgid "Widget"
 msgstr "ウィジェット"
 
-#: lib/customize.php:141
+#: lib/customize.php:133
 msgid "About Widget Presentation for Custom Post Type"
 msgstr "カスタム投稿タイプに連携したウィジェット表示"
 
-#: lib/customize.php:158
+# @ raindrops
+#: lib/customize.php:136 lib/vars.php:1862
+msgid "Relate Posts"
+msgstr "関連投稿"
+
+#: lib/customize.php:140
+msgid "Simple Relate Posts Settings"
+msgstr "シンプルな関連投稿の設定"
+
+#: lib/customize.php:152
 msgid "Presentation"
 msgstr "外観"
 
 # @ raindrops
-#: lib/customize.php:442
+#: lib/customize.php:444
 msgid "Base color"
 msgstr "ベースカラー"
 
-#: lib/customize.php:463
+#: lib/customize.php:465
 msgid "Automatic Color Setting"
 msgstr "自動カラー設定"
 
-#: lib/customize.php:464
+#: lib/customize.php:466
 msgid "Custom Color Setting"
 msgstr "カスタムカラー設定"
 
 # @ raindrops
-#: lib/customize.php:474
+#: lib/customize.php:476
 msgid "Font Color"
 msgstr "フォントカラー"
 
-#: lib/customize.php:488 lib/vars.php:825
+#: lib/customize.php:490 lib/vars.php:825
 msgid "Complementary Link Color For Entry Title"
 msgstr "リンク色の補色を投稿タイトルに適用"
 
-#: lib/customize.php:490
+#: lib/customize.php:492
 msgid ""
 "If you need to set complementary color for entry title.(There is a need to "
 "link color is set to chromatic) "
@@ -2006,105 +2017,105 @@ msgstr ""
 "投稿タイトルの色にリンク色の補色を使う（リンク色が有彩色に設定されている必要"
 "があります）値は、yesまたはnoneをセットします"
 
-#: lib/customize.php:494 lib/customize.php:721 lib/customize.php:800
-#: lib/customize.php:1277 lib/customize.php:1338 lib/customize.php:1516
-#: lib/customize.php:1546 lib/customize.php:1563 lib/customize.php:1580
-#: lib/customize.php:1659 lib/customize.php:1675 lib/customize.php:1691
-#: lib/customize.php:1706 lib/customize.php:1721 lib/customize.php:1736
-#: lib/customize.php:1846 lib/customize.php:1997 lib/customize.php:2013
-#: lib/customize.php:2250 lib/customize.php:2283 lib/customize.php:2323
-#: lib/customize.php:2342 lib/customize.php:2376 lib/customize.php:2394
-#: lib/widgets.php:1236
+#: lib/customize.php:496 lib/customize.php:723 lib/customize.php:802
+#: lib/customize.php:1279 lib/customize.php:1340 lib/customize.php:1518
+#: lib/customize.php:1548 lib/customize.php:1565 lib/customize.php:1582
+#: lib/customize.php:1661 lib/customize.php:1677 lib/customize.php:1693
+#: lib/customize.php:1708 lib/customize.php:1723 lib/customize.php:1740
+#: lib/customize.php:1891 lib/customize.php:2001 lib/customize.php:2152
+#: lib/customize.php:2168 lib/customize.php:2405 lib/customize.php:2438
+#: lib/customize.php:2478 lib/customize.php:2497 lib/customize.php:2531
+#: lib/customize.php:2549 lib/widgets.php:1236
 msgid "Yes"
 msgstr "はい"
 
-#: lib/customize.php:495 lib/customize.php:722 lib/customize.php:801
-#: lib/customize.php:1278 lib/customize.php:1339 lib/customize.php:1517
-#: lib/customize.php:1547 lib/customize.php:1564 lib/customize.php:1581
-#: lib/customize.php:1660 lib/customize.php:1676 lib/customize.php:1692
-#: lib/customize.php:1707 lib/customize.php:1722 lib/customize.php:1737
-#: lib/customize.php:1847 lib/customize.php:1998 lib/customize.php:2014
-#: lib/customize.php:2249 lib/customize.php:2284 lib/customize.php:2324
-#: lib/customize.php:2343 lib/customize.php:2377 lib/customize.php:2395
-#: lib/widgets.php:1232
+#: lib/customize.php:497 lib/customize.php:724 lib/customize.php:803
+#: lib/customize.php:1280 lib/customize.php:1341 lib/customize.php:1519
+#: lib/customize.php:1549 lib/customize.php:1566 lib/customize.php:1583
+#: lib/customize.php:1662 lib/customize.php:1678 lib/customize.php:1694
+#: lib/customize.php:1709 lib/customize.php:1724 lib/customize.php:1741
+#: lib/customize.php:1821 lib/customize.php:1892 lib/customize.php:2002
+#: lib/customize.php:2153 lib/customize.php:2169 lib/customize.php:2404
+#: lib/customize.php:2439 lib/customize.php:2479 lib/customize.php:2498
+#: lib/customize.php:2532 lib/customize.php:2550 lib/widgets.php:1232
 msgid "No"
 msgstr "いいえ"
 
 # @ raindrops
-#: lib/customize.php:506
+#: lib/customize.php:508
 msgid "Footer Font Color"
 msgstr "フッターテキスト色"
 
 # @ raindrops
-#: lib/customize.php:521
+#: lib/customize.php:523
 msgid "Link Color"
 msgstr "リンクカラー"
 
 # @ raindrops
-#: lib/customize.php:536
+#: lib/customize.php:538
 msgid "Footer Link Color"
 msgstr "フッターリンク色"
 
 # @ raindrops
-#: lib/customize.php:552 lib/vars.php:1764
+#: lib/customize.php:554 lib/vars.php:1764
 msgid "Primary Menu Link Color"
 msgstr "プライマリーメニューのリンク色"
 
-#: lib/customize.php:554 lib/vars.php:1766
+#: lib/customize.php:556 lib/vars.php:1766
 msgid "You can specify the color of the Primary Menu Link"
 msgstr "プライマリーメニューのリンク色を変更できます"
 
-#: lib/customize.php:566 lib/vars.php:1774
+#: lib/customize.php:568 lib/vars.php:1774
 msgid "Primary Menu Background Color"
 msgstr "プライマリーメニューの背景色"
 
-#: lib/customize.php:568 lib/vars.php:1776
+#: lib/customize.php:570 lib/vars.php:1776
 msgid "You can specify the color of the Primary Menu Background Color"
 msgstr "プライマリーメニューの背景色を設定することが出来ます"
 
-#: lib/customize.php:638 lib/vars.php:660
+#: lib/customize.php:640 lib/vars.php:660
 msgid "Document Width"
 msgstr "ページ幅"
 
-#: lib/customize.php:645 lib/validate.php:1119
+#: lib/customize.php:647 lib/validate.php:1186
 msgid "750px centered"
 msgstr "750px 中央揃え"
 
-#: lib/customize.php:646 lib/validate.php:1120
+#: lib/customize.php:648 lib/validate.php:1187
 msgid "950px centered"
 msgstr "950px 中央揃え"
 
-#: lib/customize.php:647 lib/validate.php:1121
+#: lib/customize.php:649 lib/validate.php:1188
 msgid "974px"
 msgstr "974px 中央揃え"
 
-#: lib/customize.php:648 lib/validate.php:1122
+#: lib/customize.php:650 lib/validate.php:1189
 msgid "Box Layout Responsive"
 msgstr "レスポンシブ　ボックス"
 
-#: lib/customize.php:649
+#: lib/customize.php:651
 msgid "Full Width Responsive"
 msgstr "フルサイズレスポンシブ"
 
-#: lib/customize.php:659 lib/vars.php:1784
+#: lib/customize.php:661 lib/vars.php:1784
 msgid "Content Width"
 msgstr "コンテンツ幅"
 
-#: lib/customize.php:662
+#: lib/customize.php:664
 msgid "keep: TinyMCE relate width, fit: fit article width"
 msgstr ""
 "キープ:エディタ表示に連動したコンテンツ幅　フィット:ページ幅に連動したコンテ"
 "ンツ幅"
 
-#: lib/customize.php:666
+#: lib/customize.php:668
 msgid "Keep"
 msgstr "キープ"
 
-#: lib/customize.php:667
+#: lib/customize.php:669
 msgid "Fit"
 msgstr "フィット"
 
-#: lib/customize.php:679
+#: lib/customize.php:681
 msgid ""
 "Please select Simple( All list pages same column ) or details ( It sets the "
 "column of the list page, such as archive and index individually )"
@@ -2112,115 +2123,94 @@ msgstr ""
 "テンプレート毎にカラムを変更する設定を行う場合は「詳細」を、すべてのページで"
 "同じカラム設定を行う場合は「シンプル」を選択してください"
 
-#: lib/customize.php:683
+#: lib/customize.php:685
 msgid "Simple"
 msgstr "シンプル"
 
-#: lib/customize.php:684
+#: lib/customize.php:686
 msgid "Details"
 msgstr "詳細"
 
-#: lib/customize.php:700 lib/validate.php:1092
+#: lib/customize.php:702 lib/validate.php:1159
 msgid "left 160px"
 msgstr "左側 160 ピクセル"
 
-#: lib/customize.php:701 lib/validate.php:1093
+#: lib/customize.php:703 lib/validate.php:1160
 msgid "left 180px"
 msgstr "左側 180 ピクセル"
 
-#: lib/customize.php:702 lib/validate.php:1094
+#: lib/customize.php:704 lib/validate.php:1161
 msgid "left 300px"
 msgstr "左側 300 ピクセル"
 
-#: lib/customize.php:703 lib/validate.php:1095
+#: lib/customize.php:705 lib/validate.php:1162
 msgid "right 180px"
 msgstr "右側 180 ピクセル"
 
-#: lib/customize.php:704 lib/validate.php:1096
+#: lib/customize.php:706 lib/validate.php:1163
 msgid "right 240px"
 msgstr "右側 240 ピクセル"
 
-#: lib/customize.php:705 lib/validate.php:1097
+#: lib/customize.php:707 lib/validate.php:1164
 msgid "right 300px"
 msgstr "右側 300 ピクセル"
 
 # @ raindrops
-#: lib/customize.php:715 lib/vars.php:1674
+#: lib/customize.php:717 lib/vars.php:1674
 msgid "Responsive Default Sidebar"
 msgstr "デフォルトサイドバーのレスポンシブ設定"
 
 # @ raindrops
-#: lib/customize.php:751
+#: lib/customize.php:753
 msgid "Display Extra Sidebar"
 msgstr "エキストラサイドバー表示設定"
 
-#: lib/customize.php:757 lib/customize.php:1260 lib/customize.php:1321
-#: lib/customize.php:1422 lib/customize.php:1797 lib/customize.php:1874
-#: lib/customize.php:1891 lib/customize.php:1915 lib/customize.php:1932
-#: lib/customize.php:1949 lib/customize.php:2030 lib/customize.php:2047
-#: lib/customize.php:2136 lib/validate.php:1027
+#: lib/customize.php:759 lib/customize.php:1262 lib/customize.php:1323
+#: lib/customize.php:1424 lib/customize.php:1861 lib/customize.php:1952
+#: lib/customize.php:2029 lib/customize.php:2046 lib/customize.php:2070
+#: lib/customize.php:2087 lib/customize.php:2104 lib/customize.php:2185
+#: lib/customize.php:2202 lib/customize.php:2291 lib/validate.php:1094
 msgid "Show"
 msgstr "表示"
 
-#: lib/customize.php:758 lib/customize.php:1261 lib/customize.php:1322
-#: lib/customize.php:1423 lib/customize.php:1798 lib/customize.php:1875
-#: lib/customize.php:1892 lib/customize.php:1916 lib/customize.php:1933
-#: lib/customize.php:1950 lib/customize.php:2031 lib/customize.php:2048
-#: lib/customize.php:2137 lib/customize.php:2200 lib/customize.php:2217
-#: lib/customize.php:2234 lib/customize.php:2512 lib/validate.php:1028
+#: lib/customize.php:760 lib/customize.php:1263 lib/customize.php:1324
+#: lib/customize.php:1425 lib/customize.php:1862 lib/customize.php:1953
+#: lib/customize.php:2030 lib/customize.php:2047 lib/customize.php:2071
+#: lib/customize.php:2088 lib/customize.php:2105 lib/customize.php:2186
+#: lib/customize.php:2203 lib/customize.php:2292 lib/customize.php:2355
+#: lib/customize.php:2372 lib/customize.php:2389 lib/customize.php:2667
+#: lib/validate.php:1095
 msgid "Hide"
 msgstr "隠す"
 
-#: lib/customize.php:779 lib/validate.php:1003
+#: lib/customize.php:781 lib/validate.php:1070
 msgid "25%"
 msgstr "25パーセント"
 
-#: lib/customize.php:780 lib/validate.php:1004
+#: lib/customize.php:782 lib/validate.php:1071
 msgid "33%"
 msgstr "33パーセント"
 
-#: lib/customize.php:781 lib/validate.php:1005
+#: lib/customize.php:783 lib/validate.php:1072
 msgid "50%"
 msgstr "50パーセント"
 
-#: lib/customize.php:782 lib/validate.php:1006
+#: lib/customize.php:784 lib/validate.php:1073
 msgid "66%"
 msgstr "66パーセント"
 
-#: lib/customize.php:783 lib/validate.php:1007
+#: lib/customize.php:785 lib/validate.php:1074
 msgid "75%"
 msgstr "75パーセント"
 
 # @ raindrops
-#: lib/customize.php:795 lib/vars.php:1684
+#: lib/customize.php:797 lib/vars.php:1684
 msgid "Responsive Extra Sidebar"
 msgstr "エキストラサイドバーのレスポンシブ設定"
 
-#: lib/customize.php:832 lib/vars.php:1093
+#: lib/customize.php:834 lib/vars.php:1093
 msgid "Index Page, Static Front Page columns"
 msgstr "トップページ、固定ページのカラム"
-
-#: lib/customize.php:837 lib/customize.php:856 lib/customize.php:875
-#: lib/customize.php:894 lib/customize.php:913 lib/customize.php:933
-#: lib/customize.php:953 lib/customize.php:973 lib/customize.php:992
-#: lib/customize.php:1011 lib/customize.php:1031 lib/customize.php:1050
-#: lib/customize.php:1069 lib/customize.php:1088 lib/customize.php:1107
-#: lib/customize.php:1126 lib/customize.php:1145 lib/customize.php:1164
-#: lib/customize.php:1183 lib/customize.php:1202 lib/customize.php:1221
-#: lib/customize.php:1240
-msgid "1 column"
-msgstr "1カラム"
-
-#: lib/customize.php:838 lib/customize.php:857 lib/customize.php:876
-#: lib/customize.php:895 lib/customize.php:914 lib/customize.php:934
-#: lib/customize.php:954 lib/customize.php:974 lib/customize.php:993
-#: lib/customize.php:1012 lib/customize.php:1032 lib/customize.php:1051
-#: lib/customize.php:1070 lib/customize.php:1089 lib/customize.php:1108
-#: lib/customize.php:1127 lib/customize.php:1146 lib/customize.php:1165
-#: lib/customize.php:1184 lib/customize.php:1203 lib/customize.php:1222
-#: lib/customize.php:1241
-msgid "2 columns"
-msgstr "2カラム"
 
 #: lib/customize.php:839 lib/customize.php:858 lib/customize.php:877
 #: lib/customize.php:896 lib/customize.php:915 lib/customize.php:935
@@ -2230,65 +2220,87 @@ msgstr "2カラム"
 #: lib/customize.php:1128 lib/customize.php:1147 lib/customize.php:1166
 #: lib/customize.php:1185 lib/customize.php:1204 lib/customize.php:1223
 #: lib/customize.php:1242
+msgid "1 column"
+msgstr "1カラム"
+
+#: lib/customize.php:840 lib/customize.php:859 lib/customize.php:878
+#: lib/customize.php:897 lib/customize.php:916 lib/customize.php:936
+#: lib/customize.php:956 lib/customize.php:976 lib/customize.php:995
+#: lib/customize.php:1014 lib/customize.php:1034 lib/customize.php:1053
+#: lib/customize.php:1072 lib/customize.php:1091 lib/customize.php:1110
+#: lib/customize.php:1129 lib/customize.php:1148 lib/customize.php:1167
+#: lib/customize.php:1186 lib/customize.php:1205 lib/customize.php:1224
+#: lib/customize.php:1243
+msgid "2 columns"
+msgstr "2カラム"
+
+#: lib/customize.php:841 lib/customize.php:860 lib/customize.php:879
+#: lib/customize.php:898 lib/customize.php:917 lib/customize.php:937
+#: lib/customize.php:957 lib/customize.php:977 lib/customize.php:996
+#: lib/customize.php:1015 lib/customize.php:1035 lib/customize.php:1054
+#: lib/customize.php:1073 lib/customize.php:1092 lib/customize.php:1111
+#: lib/customize.php:1130 lib/customize.php:1149 lib/customize.php:1168
+#: lib/customize.php:1187 lib/customize.php:1206 lib/customize.php:1225
+#: lib/customize.php:1244
 msgid "3 columns"
 msgstr "3カラム"
 
-#: lib/customize.php:948 lib/vars.php:1274
+#: lib/customize.php:950 lib/vars.php:1274
 msgid "Attachment Page Image Columns"
 msgstr "添付ファイル画像のカラム数"
 
 # @ raindrops
-#: lib/customize.php:1064
+#: lib/customize.php:1066
 msgid "Author Archives columns"
 msgstr "著者アーカイブのカラム数"
 
-#: lib/customize.php:1083 lib/vars.php:1524
+#: lib/customize.php:1085 lib/vars.php:1524
 msgid "Archives Post Format link Columns"
 msgstr "投稿フォーマットアーカイブ「リンク」のカラム数"
 
-#: lib/customize.php:1102 lib/vars.php:1534
+#: lib/customize.php:1104 lib/vars.php:1534
 msgid "Archives Post Format Image Columns"
 msgstr "投稿フォーマットアーカイブ「画像」のカラム数"
 
-#: lib/customize.php:1121 lib/vars.php:1544
+#: lib/customize.php:1123 lib/vars.php:1544
 msgid "Archives Post Format Quote Columns"
 msgstr "投稿フォーマットアーカイブ「引用」カラム数"
 
-#: lib/customize.php:1140 lib/vars.php:1554
+#: lib/customize.php:1142 lib/vars.php:1554
 msgid "Archives Post Format Status Columns"
 msgstr "投稿フォーマットアーカイブ「ステータス」カラム数"
 
-#: lib/customize.php:1159 lib/vars.php:1564
+#: lib/customize.php:1161 lib/vars.php:1564
 msgid "Archives Post Format Video Columns"
 msgstr "投稿フォーマットアーカイブ「動画」カラム数"
 
-#: lib/customize.php:1178 lib/vars.php:1574
+#: lib/customize.php:1180 lib/vars.php:1574
 msgid "Archives Post Format Audio Columns"
 msgstr "投稿フォーマットアーカイブ「オーディオ」カラム数"
 
-#: lib/customize.php:1197
+#: lib/customize.php:1199
 msgid "Archives Post Format Gallery Columns"
 msgstr "投稿フォーマットアーカイブ「ギャラリー」カラム数"
 
-#: lib/customize.php:1216 lib/vars.php:1594
+#: lib/customize.php:1218 lib/vars.php:1594
 msgid "Archives Post Format Chat Columns"
 msgstr "投稿フォーマットアーカイブ「チャット」カラム数"
 
-#: lib/customize.php:1235 lib/vars.php:1604
+#: lib/customize.php:1237 lib/vars.php:1604
 msgid "Archives Post Format Aside Columns"
 msgstr "投稿フォーマットアーカイブ「アサイド」カラム数"
 
 # @ raindrops
-#: lib/customize.php:1254 lib/vars.php:719
+#: lib/customize.php:1256 lib/vars.php:719
 msgid "Enable Menu Primary"
 msgstr "メインメニュー有効化"
 
 # @ raindrops
-#: lib/customize.php:1315 lib/vars.php:1213
+#: lib/customize.php:1317 lib/vars.php:1213
 msgid "Developer Settings"
 msgstr "開発者用設定"
 
-#: lib/customize.php:1317
+#: lib/customize.php:1319
 msgid ""
 "Show Insert Point hooks and auto load template name for Developer, default "
 "hide"
@@ -2296,78 +2308,78 @@ msgstr ""
 "ページへ、コンテンツなどを追加するためのフック名、自動インクルート機能付きの"
 "テンプレート名を表示します"
 
-#: lib/customize.php:1332 lib/vars.php:737
+#: lib/customize.php:1334 lib/vars.php:737
 msgid "Force Unique Link Text"
 msgstr "リンクテキストのユニーク化"
 
-#: lib/customize.php:1348 lib/vars.php:748
+#: lib/customize.php:1350 lib/vars.php:748
 msgid "Document Type Definition"
 msgstr "HTML 文書型"
 
-#: lib/customize.php:1354
+#: lib/customize.php:1356
 msgid "HTML5"
 msgstr "HTML5"
 
-#: lib/customize.php:1355
+#: lib/customize.php:1357
 msgid "XHTML1.0"
 msgstr "XHTML1.0"
 
-#: lib/customize.php:1370
+#: lib/customize.php:1372
 msgid "Stylesheet to their source HTML"
 msgstr "スタイルをhtmlに埋め込み"
 
-#: lib/customize.php:1371
+#: lib/customize.php:1373
 msgid "Stylesheet with the LINK element"
 msgstr "link要素で外部ファイルとして読み込み"
 
-#: lib/customize.php:1382
+#: lib/customize.php:1384
 msgid "In order to reflect the results, please reload the browser to save once"
 msgstr ""
 "この項目の結果を反映させるためには、保存後　ブラウザをリロードしてください"
 
-#: lib/customize.php:1388
+#: lib/customize.php:1390
 msgid "Do not import"
 msgstr "インポートしない"
 
-#: lib/customize.php:1397
+#: lib/customize.php:1399
 msgid "XHTML Media Type"
 msgstr "XHTMLメディアタイプ"
 
-#: lib/customize.php:1404
+#: lib/customize.php:1406
 msgid "text/html"
 msgstr "text/html"
 
-#: lib/customize.php:1405
+#: lib/customize.php:1407
 msgid "application/xhtml+xml"
 msgstr "application/xhtml+xml"
 
-#: lib/customize.php:1416 lib/vars.php:1223
+#: lib/customize.php:1418 lib/vars.php:1223
 msgid "Status Bar"
 msgstr "ステータスバー"
 
-#: lib/customize.php:1418
+#: lib/customize.php:1420
 msgid "Show or Hide, Raindrops Status Bar at Page bottom, default show"
 msgstr ""
 "ページの一番下にマウスを置いた時に表示されるステータスバーを表示または非表示"
 "とします。"
 
-#: lib/customize.php:1439
+#: lib/customize.php:1441
 msgid "Always it displayed"
 msgstr "常に表示"
 
-#: lib/customize.php:1440
+#: lib/customize.php:1442
 msgid "Show only Home Page"
 msgstr "トップページだけで表示"
 
-#: lib/customize.php:1450
+#: lib/customize.php:1452
 msgid "Fluid  Max Width (px)"
 msgstr "レイアウトの最大幅(レスポンシブ ボックス）"
 
-#: lib/customize.php:1465
+#: lib/customize.php:1467
 msgid "Content Container Width (px)"
 msgstr "コンテンツコンテナの幅"
 
-#: lib/customize.php:1481
+#: lib/customize.php:1483
 msgid ""
 "In the case of specified size abnormalities of the browser window size, it "
 "will show in the box layout. set px value, Default 1920 (px size)"
@@ -2376,19 +2388,19 @@ msgstr ""
 "ウィンドウ幅の場合は、ボックスレイアウトに切り替わります。単位はpx、デフォル"
 "ト値は1920です"
 
-#: lib/customize.php:1494
+#: lib/customize.php:1496
 msgid "Disable Keyboard Focus"
 msgstr "キーボードアクセシビリティの停止"
 
-#: lib/customize.php:1500 lib/customize.php:2066
+#: lib/customize.php:1502 lib/customize.php:2221
 msgid "Disable"
 msgstr "無効"
 
-#: lib/customize.php:1501 lib/customize.php:2065
+#: lib/customize.php:1503 lib/customize.php:2220
 msgid "Enable"
 msgstr "有効"
 
-#: lib/customize.php:1528
+#: lib/customize.php:1530
 msgid ""
 "Image, to display an alternative image if that can not be displayed. Please "
 "input Image URI. When you return to the change after the default image, "
@@ -2398,30 +2410,30 @@ msgstr ""
 "ジナルの代替画像を表示することが出来ます。デフォルト設定に戻す場合は、フィー"
 "ルドに default と入力してください"
 
-#: lib/customize.php:1557 lib/vars.php:1654
+#: lib/customize.php:1559 lib/vars.php:1654
 msgid "Show Attach to Post Date and Author in Attachment"
 msgstr "画像添付日付と著者の表示"
 
-#: lib/customize.php:1574 lib/vars.php:1664
+#: lib/customize.php:1576 lib/vars.php:1664
 msgid "Show Publish Date and Author in Page"
 msgstr "固定ページに投稿日と著者を表示する"
 
 # @ raindrops
-#: lib/customize.php:1632 lib/vars.php:923
+#: lib/customize.php:1634 lib/vars.php:923
 msgid "Menu Primary Min Width"
 msgstr "主ナビゲーションの最小幅"
 
-#: lib/customize.php:1634
+#: lib/customize.php:1636
 msgid "Menu Primary Width. default value is 10 ( em ). set 1 between 95.999"
 msgstr ""
 "プライマリメニューの幅設定　規定値　10( em ) 設定可能な値は、1　から　96　未"
 "満までの範囲です。"
 
-#: lib/customize.php:1685
+#: lib/customize.php:1687
 msgid "Widget Recent Post relate Custom Post Type"
 msgstr "最近の投稿ウィジェットのカスタム投稿タイプ連携"
 
-#: lib/customize.php:1687 lib/vars.php:1736
+#: lib/customize.php:1689 lib/vars.php:1736
 msgid ""
 "Recent Post Widget shows Post Type Recent Post on Custom Post Type Single "
 "Post"
@@ -2429,79 +2441,204 @@ msgstr ""
 "カスタム投稿の個別投稿表示の時「最近の投稿ウィジェット」は、その投稿タイプの"
 "最近の投稿を表示します。"
 
-#: lib/customize.php:1700 lib/vars.php:1744
+#: lib/customize.php:1702 lib/vars.php:1744
 msgid "Relate Custom Post Type and Categories Widget"
 msgstr "カスタム投稿タイプとカテゴリーウィジェットの連携"
 
-#: lib/customize.php:1702 lib/vars.php:1746
+#: lib/customize.php:1704 lib/vars.php:1746
 msgid ""
 "Categories Widget shows Post Type relate Taxonomy on Custom Post Type Pages"
 msgstr ""
 "カスタム投稿の個別投稿、カスタム投稿アーカイブの時「カテゴリーウィジェット」"
 "は、その投稿タイプのタクソノミを表示します。"
 
-#: lib/customize.php:1715 lib/vars.php:1754
+#: lib/customize.php:1717 lib/vars.php:1754
 msgid "Relate Custom Post Type and Archives Widget"
 msgstr "カスタム投稿タイプとアーカイブウィジェットの連携"
 
-#: lib/customize.php:1717 lib/vars.php:1756
+#: lib/customize.php:1719 lib/vars.php:1756
 msgid ""
 "Archives Widget shows Post Type relate Archives on Custom Post Type Pages"
 msgstr ""
 "カスタム投稿の個別投稿、カスタム投稿アーカイブ表示の時「アーカイブウィジェッ"
 "ト」は、その投稿タイプの月次アーカイブを表示します。"
 
-#: lib/customize.php:1732
+#: lib/customize.php:1734 lib/vars.php:1814
+msgid "Show related posts on single post"
+msgstr "個別投稿ページに、関連投稿を表示する"
+
+#: lib/customize.php:1736 lib/vars.php:1816
+msgid "Display posts and related articles on single post default yes"
+msgstr "個別投稿に、関連する投稿を表示します。デフォルト値はい"
+
+#: lib/customize.php:1750 lib/widgets.php:876
+msgid "Title"
+msgstr "タイトル"
+
+#: lib/customize.php:1752
+msgid "Please input Title of Relate Posts"
+msgstr "関連投稿のタイトル"
+
+#: lib/customize.php:1763
+msgid "Relation with"
+msgstr "関連性のキー"
+
+#: lib/customize.php:1765
+msgid ""
+"Please select from categories, tags, or recent posts. default recent posts"
+msgstr "カテゴリー　タグ　最近の投稿を選択できます"
+
+#: lib/customize.php:1769
+msgid "Automatic"
+msgstr "自動"
+
+# @ raindrops
+#: lib/customize.php:1771
+msgid "Category"
+msgstr "カテゴリー"
+
+# @ raindrops
+#: lib/customize.php:1772
+msgid "Tag"
+msgstr "タグ"
+
+#: lib/customize.php:1781 lib/vars.php:1834
+msgid "Oderby"
+msgstr "表示順"
+
+#: lib/customize.php:1783 lib/vars.php:1836
+msgid "Please select randum or new post. default post date"
+msgstr "投稿日または、ランダムを選択してください。"
+
+#: lib/customize.php:1787
+msgid "Randum"
+msgstr "ランダム"
+
+#: lib/customize.php:1788
+msgid "Post Date"
+msgstr "投稿日"
+
+#: lib/customize.php:1797 lib/vars.php:1844 lib/vars.php:1864
+msgid "Counts of post"
+msgstr "投稿件数"
+
+#: lib/customize.php:1799
+#, php-format
+msgid ""
+"Please specify the number of display. You can be set in the range 2 - %1$s"
+msgstr " 2 - %1$sの範囲で表示件数を指定できます。"
+
+#: lib/customize.php:1815
+msgid "Maximum row number of title"
+msgstr "タイトルの最大行数を指定できます。"
+
+#: lib/customize.php:1817
+msgid ""
+"When the number of lines is restricted, the full title can not be displayed. "
+"The full text is displayed on the tooltip."
+msgstr ""
+"行数を制限した場合、タイトル全文が表示できなくなることがありますが、その場合"
+"はツールチップで表示されます。"
+
+#: lib/customize.php:1822
+msgid "1 line"
+msgstr "１行"
+
+#: lib/customize.php:1823
+msgid "2 lines"
+msgstr "２行"
+
+#: lib/customize.php:1824
+msgid "3 lines"
+msgstr "３行"
+
+#: lib/customize.php:1825
+msgid "4 lines"
+msgstr "４行"
+
+#: lib/customize.php:1826
+msgid "5 lines"
+msgstr "５行"
+
+#: lib/customize.php:1836 lib/vars.php:1874
+msgid "Excerpt length of Relate Posts"
+msgstr "関連投稿の要約文の長さ"
+
+#: lib/customize.php:1838 lib/vars.php:1876 lib/vars.php:1886
+msgid ""
+"Please specify the number of excerpt length. use string length , not word "
+"count. default 100"
+msgstr "要約文の長さを指定してください。デフォルト値100"
+
+# @ raindrops
+#: lib/customize.php:1857
+msgid "Display featured image or not"
+msgstr "アイキャッチ表示設定"
+
+# @ raindrops
+#: lib/customize.php:1871 lib/vars.php:1894
+msgid "Fallback Featured Image"
+msgstr "アイキャッチの代替画像"
+
+#: lib/customize.php:1873 lib/vars.php:1896
+msgid ""
+"Fallback Featured image URL if featured image is not set in the post, leave "
+"it blank if you do not need it"
+msgstr ""
+"アイキャッチ画像がない記事の代替画像を指定できます。もし、必要なければ空白に"
+"してください"
+
+#: lib/customize.php:1887
 msgid "values yes or no default No"
 msgstr "値は　yes または no　です。　デフォルト設定はnoです"
 
-#: lib/customize.php:1749
+#: lib/customize.php:1904
 msgid "Loop Pages Layout of Featured Image"
 msgstr "一覧ページでのアイキャッチ画像のレイアウト"
 
-#: lib/customize.php:1753
+#: lib/customize.php:1908
 msgid "In front of Title"
 msgstr "投稿タイトルの上部"
 
-#: lib/customize.php:1754
+#: lib/customize.php:1909
 msgid "Left of Article"
 msgstr "投稿の左側"
 
-#: lib/customize.php:1780
+#: lib/customize.php:1935
 #, php-format
 msgid "Input Possible values are 1 - %1$d default value %1$d"
 msgstr "入力可能な値　1 - %1$d 既定値 %1$d"
 
-#: lib/customize.php:1791
+#: lib/customize.php:1946
 msgid "Singular ( post, page )"
 msgstr "シングル（投稿、ページ）"
 
-#: lib/customize.php:1793
+#: lib/customize.php:1948
 msgid ""
 "Featured Image Show, Hide or Lightbox on Singular Post,Page. default Show"
 msgstr "アイキャッチ画像のシングルページ、シングル投稿での表示設定"
 
-#: lib/customize.php:1799
+#: lib/customize.php:1954
 msgid "Light Box"
 msgstr "ライトボックス"
 
-#: lib/customize.php:1809 lib/vars.php:759
+#: lib/customize.php:1964 lib/vars.php:759
 msgid "Base Font Size"
 msgstr "ベースフォントサイズ"
 
-#: lib/customize.php:1822 lib/vars.php:1794
+#: lib/customize.php:1977 lib/vars.php:1794
 msgid "Vertical Rhythm for Entry Content"
 msgstr "投稿本文のバーチカルリズム"
 
-#: lib/customize.php:1824 lib/vars.php:1796
+#: lib/customize.php:1979 lib/vars.php:1796
 msgid "Line spacing adjustment. paragraf and headdings"
 msgstr "段落、見出しの行間の調整"
 
-#: lib/customize.php:1840 lib/vars.php:1804
+#: lib/customize.php:1995 lib/vars.php:1804
 msgid "Convert All Titles to Uppercase"
 msgstr "タイトル（英文字）の大文字化"
 
-#: lib/customize.php:1842 lib/vars.php:1806
+#: lib/customize.php:1997 lib/vars.php:1806
 msgid ""
 "Convert All Titles to Uppercase by CSS (Site Title,Entry Title,Widget Title "
 "and Archive Title)"
@@ -2509,29 +2646,29 @@ msgstr ""
 "サイトタイトル、投稿タイトル、ウィジェットタイトル、アーカイブタイトルの英文"
 "字を大文字に変換"
 
-#: lib/customize.php:1868 lib/vars.php:1244
+#: lib/customize.php:2023 lib/vars.php:1244
 msgid "Display Publish Date"
 msgstr "投稿日の表示"
 
-#: lib/customize.php:1870
+#: lib/customize.php:2025
 msgid "default Show"
 msgstr "デフォルト 表示"
 
-#: lib/customize.php:1876
+#: lib/customize.php:2031
 msgid "Emoji"
 msgstr "絵文字"
 
 # @ raindrops
-#: lib/customize.php:1885 lib/vars.php:1254
+#: lib/customize.php:2040 lib/vars.php:1254
 msgid "Display Author"
 msgstr "著者の表示"
 
 # @ raindrops
-#: lib/customize.php:1887
+#: lib/customize.php:2042
 msgid "default Avatar"
 msgstr "既定のアバター画像"
 
-#: lib/customize.php:1906
+#: lib/customize.php:2061
 msgid ""
 "Current permalink setting is the default. If permalink is the default, this "
 "feature does not work correctly."
@@ -2539,226 +2676,226 @@ msgstr ""
 "現在のパーマリンクの設定はデフォルトです。パーマリンクが既定の場合は、この機"
 "能は正しく動作しません"
 
-#: lib/customize.php:1934 lib/customize.php:2032
+#: lib/customize.php:2089 lib/customize.php:2187
 msgid "emoji"
 msgstr "絵文字"
 
-#: lib/customize.php:1945
+#: lib/customize.php:2100
 msgid "Hide label "
 msgstr "ラベルを非表示"
 
 # @ raindrops
-#: lib/customize.php:1965 lib/customize.php:1981
+#: lib/customize.php:2120 lib/customize.php:2136
 msgid "Before Contents"
 msgstr "本文の手前"
 
 # @ raindrops
-#: lib/customize.php:1966 lib/customize.php:1982
+#: lib/customize.php:2121 lib/customize.php:2137
 msgid "After Contents"
 msgstr "本文の後"
 
-#: lib/customize.php:2026
+#: lib/customize.php:2181
 msgid "Hide or Show label like Category Archives, Tag Archives"
 msgstr "アーカイブタイトルの「カテゴリアーカイブ」のようなラベルを非表示にする"
 
-#: lib/customize.php:2078
+#: lib/customize.php:2233
 msgid "Set Header Image Filter Color"
 msgstr "この投稿ではヘッダー画像を表示しない"
 
-#: lib/customize.php:2148 lib/vars.php:1063
+#: lib/customize.php:2303 lib/vars.php:1063
 msgid "CSS Class of Site Title"
 msgstr "サイトタイトルのCSS クラス"
 
-#: lib/customize.php:2192 lib/vars.php:781
+#: lib/customize.php:2347 lib/vars.php:781
 msgid "Home Listed Entry Contents"
 msgstr "トップページの投稿本文"
 
 # @ raindrops
-#: lib/customize.php:2198 lib/customize.php:2215 lib/customize.php:2232
+#: lib/customize.php:2353 lib/customize.php:2370 lib/customize.php:2387
 msgid "Show Content"
 msgstr "本文を表示"
 
-#: lib/customize.php:2199 lib/customize.php:2216 lib/customize.php:2233
+#: lib/customize.php:2354 lib/customize.php:2371 lib/customize.php:2388
 msgid "Show Excerpt"
 msgstr "概要文を表示"
 
 # @ raindrops
-#: lib/customize.php:2209 lib/vars.php:792
+#: lib/customize.php:2364 lib/vars.php:792
 msgid "Category Archives Entry Contents"
 msgstr "カテゴリー別アーカイブの投稿本文"
 
 # @ raindrops
-#: lib/customize.php:2226 lib/vars.php:803
+#: lib/customize.php:2381 lib/vars.php:803
 msgid "Search Result Entry Contents"
 msgstr "検索結果ページの投稿本文"
 
-#: lib/customize.php:2243 lib/vars.php:1013
+#: lib/customize.php:2398 lib/vars.php:1013
 msgid "Allow Oembed in HTML Excerpt"
 msgstr "概要表示で、Oembedメディアを表示する"
 
-#: lib/customize.php:2260 lib/vars.php:1003
+#: lib/customize.php:2415 lib/vars.php:1003
 msgid "Excerpt Type"
 msgstr "概要タイプの選択"
 
-#: lib/customize.php:2262
+#: lib/customize.php:2417
 msgid ""
 "Default WordPress Excerpt, HTML in Excerpt is Raindrops original excerpt"
 msgstr ""
 "デフォルトは　WordPressの概要表示、HTML in Excerptはレインドロップスの独自概"
 "要表示です。"
 
-#: lib/customize.php:2266
+#: lib/customize.php:2421
 msgid "WordPress Excerpt"
 msgstr "ワードプレスの概要"
 
-#: lib/customize.php:2267
+#: lib/customize.php:2422
 msgid "HTML in Excerpt"
 msgstr "HTMLを含んだ概要"
 
-#: lib/customize.php:2277 lib/vars.php:993
+#: lib/customize.php:2432 lib/vars.php:993
 msgid "Add More Link After Excerpt"
 msgstr "概要表示の後に「続きを読む」リンクを追加"
 
-#: lib/customize.php:2296
+#: lib/customize.php:2451
 msgid "Value 20-400"
 msgstr "値 20-400"
 
-#: lib/customize.php:2317
+#: lib/customize.php:2472
 msgid "Breadcrumbs"
 msgstr "パンくずリスト"
 
-#: lib/customize.php:2319
+#: lib/customize.php:2474
 msgid ""
 "Theme, will make a presentation of applying the plugin automatically, value "
 "set yes or none. using Breadcrumb NavXT"
 msgstr "Breadcrumb NavXTパンくずリストプラグインを自動的に設定しますか？"
 
 # @ raindrops
-#: lib/customize.php:2336
+#: lib/customize.php:2491
 msgid "Custom Page Navigation"
 msgstr "カスタムページナビゲーション"
 
-#: lib/customize.php:2338
+#: lib/customize.php:2493
 msgid ""
 "Theme, will make a presentation of applying the plugin automatically, value "
 "set yes or none. using WP PageNavi"
 msgstr "WP PageNaviページネーションプラグインを自動的に設定しますか？"
 
-#: lib/customize.php:2355
+#: lib/customize.php:2510
 msgid "Slider for HomePage"
 msgstr "トップページにスライダーを表示"
 
-#: lib/customize.php:2357
+#: lib/customize.php:2512
 msgid "Please Set Meta Slider ID or none. using Meta Slider"
 msgstr "Meta Slider　スライダープラグインをトップページに自動設定しますか？"
 
-#: lib/customize.php:2370
+#: lib/customize.php:2525
 msgid "The Events Calendar Automatic Presentation"
 msgstr "イベント管理"
 
-#: lib/customize.php:2372
+#: lib/customize.php:2527
 msgid ""
 "Theme, will make a presentation of applying the plugin automatically. using "
 "The Events Calendar Plugin"
 msgstr "The Events Calendar Plugin　イベント管理プラグインを自動設定しますか？"
 
-#: lib/customize.php:2407
+#: lib/customize.php:2562
 msgid "Place of the Title"
 msgstr "サイトタイトルの表示位置"
 
 # @ raindrops
-#: lib/customize.php:2413
+#: lib/customize.php:2568
 msgid "Above the header image"
 msgstr "ヘッダー画像の上に表示"
 
 # @ raindrops
-#: lib/customize.php:2414
+#: lib/customize.php:2569
 msgid "In the header image"
 msgstr "ヘッダー画像の中に表示"
 
 # @ raindrops
-#: lib/customize.php:2443 lib/vars.php:1043
+#: lib/customize.php:2598 lib/vars.php:1043
 msgid "Top Margin in the header image"
 msgstr "サイトタイトルの上部マージン"
 
-#: lib/customize.php:2445
+#: lib/customize.php:2600
 msgid " default value is 1 . set 0 between 100 ( percent )"
 msgstr "初期設定では　1、設定可能な値は1-100（パーセント)"
 
-#: lib/customize.php:2464 lib/vars.php:1284
+#: lib/customize.php:2619 lib/vars.php:1284
 msgid "The choice of left margin how to set"
 msgstr "左マージンの設定の選択"
 
 # @ raindrops
-#: lib/customize.php:2470
+#: lib/customize.php:2625
 msgid "Default"
 msgstr "デフォルト"
 
 # @ raindrops
-#: lib/customize.php:2471
+#: lib/customize.php:2626
 msgid "Centered"
 msgstr "中央"
 
 # @ raindrops
-#: lib/customize.php:2472
+#: lib/customize.php:2627
 msgid "Manual Settings"
 msgstr "手動設定"
 
 # @ raindrops
-#: lib/customize.php:2483
+#: lib/customize.php:2638
 msgid "Left Margin in the header image"
 msgstr "サイトタイトルの左マージン"
 
-#: lib/customize.php:2485
+#: lib/customize.php:2640
 msgid " default value is 1. set 0 between 100 ( percent )"
 msgstr "初期設定では　1、設定可能な値は1-100（パーセント)"
 
-#: lib/customize.php:2504 lib/vars.php:1073
+#: lib/customize.php:2659 lib/vars.php:1073
 msgid "Place of the Tagline"
 msgstr "キャッチフレーズの表示場所"
 
 # @ raindrops
-#: lib/customize.php:2510
+#: lib/customize.php:2665
 msgid "Show in the header image"
 msgstr "ヘッダー画像の中に表示"
 
 # @ raindrops
-#: lib/customize.php:2511
+#: lib/customize.php:2666
 msgid "Show above the header image"
 msgstr "ヘッダー画像の上に表示"
 
 # @ raindrops
-#: lib/customize.php:2713
+#: lib/customize.php:2868
 msgid "Change Log"
 msgstr "変更履歴"
 
-#: lib/customize.php:2714
+#: lib/customize.php:2869
 msgid "Most Recent Changes"
 msgstr "最も新しい変更点"
 
 # @ raindrops
-#: lib/customize.php:2720
+#: lib/customize.php:2875
 msgid "Header Text Color"
 msgstr "ヘッダーフォントカラー"
 
-#: lib/customize.php:2787
+#: lib/customize.php:2942
 msgid "Failed to read the changelog"
 msgstr "変更履歴の読み込みに失敗しました"
 
 # @ raindrops
-#: lib/customize.php:3078
+#: lib/customize.php:3235
 msgid "Preview Width"
 msgstr "プリビュー幅"
 
-#: lib/customize.php:3079
+#: lib/customize.php:3236
 msgid "<span>Basic Config</span>"
 msgstr "<span>基本設定</span>"
 
-#: lib/customize.php:3109
+#: lib/customize.php:3266
 msgid "Reset"
 msgstr "リセット"
 
-#: lib/customize.php:3110
+#: lib/customize.php:3267
 msgid ""
 "Attention!This action is irreversible. When click Save & Publish button, It "
 "will remove all customizations ever made via customizer to this theme!\n"
@@ -2767,7 +2904,7 @@ msgstr ""
 "注意!　この変更は元に戻りません。OKボタンを押して、さらにカスタマイザーの「保"
 "存して公開」を押すとテーマの設定は、リセットされます。\n"
 
-#: lib/customize.php:3117
+#: lib/customize.php:3274
 msgid ""
 "Color type minimal, it also includes a change in the theme of the layout. If "
 "it is good, Click OK, please press the Save button in the customizer.\n"
@@ -2777,16 +2914,16 @@ msgstr ""
 "る場合は　OKを押してから、カスタマイザーの保存ボタンを押してください\n"
 "この変更は、後で自由に再変更が可能です。"
 
-#: lib/customize.php:3119
+#: lib/customize.php:3276
 #, php-format
 msgid "Data Stored : %1$s "
 msgstr "設定の保存場所：%1$s"
 
-#: lib/customize.php:3139 lib/customize.php:3174
+#: lib/customize.php:3296 lib/customize.php:3331
 msgid "Important Note"
 msgstr "重要"
 
-#: lib/customize.php:3140
+#: lib/customize.php:3297
 msgid ""
 "If you change the color settings, please press the always Save &amp; Publish "
 "button."
@@ -2794,7 +2931,7 @@ msgstr ""
 "カラー設定を変更した場合は、必ず「保存して公開」ボタンで変更を保存してくださ"
 "い。"
 
-#: lib/customize.php:3146
+#: lib/customize.php:3303
 #, php-format
 msgid ""
 "<a href=\"%1$s\" style=\"color:yellow;font-weight:bold;margin:0 .5em;"
@@ -2803,32 +2940,32 @@ msgstr ""
 "<a href=\"%1$s\" style=\"color:yellow;font-weight:bold;margin:0 .5em;\">配色"
 "</a>"
 
-#: lib/customize.php:3148
+#: lib/customize.php:3305
 msgid ""
 "First to display the Color Scheme First, please some preview the most "
 "preferred design. If it not from, color customization does not apply."
 msgstr "まず最初に配色の設定を行ってから、カスタムカラーの設定を行ってください"
 
-#: lib/customize.php:3166
+#: lib/customize.php:3323
 #, php-format
 msgid "Currently static page %1$s width has been set."
 msgstr "現在　固定ページ %1$s 幅がセットされています。"
 
-#: lib/customize.php:3175
+#: lib/customize.php:3332
 #, php-format
 msgid "%1$s This case, Primary Menu Automatic Responsive does not work"
 msgstr "%1$s この場合「自動レスポンシブ表示」は、動作しません。"
 
-#: lib/customize.php:3193
+#: lib/customize.php:3350
 msgid "Navigation:(After save and publish)"
 msgstr "ナビゲーション：（保存ボタンを押してから）"
 
 # @ raindrops
-#: lib/customize.php:3195
+#: lib/customize.php:3352
 msgid "Go to Custom Color Settings"
 msgstr "カスタムカラー設定に移動"
 
-#: lib/customize.php:3216
+#: lib/customize.php:3373
 msgid ""
 "Please set widget first. Default Sidebar Widget, Extra Sidebar Widget not "
 "set."
@@ -2836,29 +2973,29 @@ msgstr ""
 "デフォルトサイドバー、エキストラサイドバーのウィジェットが設定されていませ"
 "ん。最初にこの設定を行ってください"
 
-#: lib/customize.php:3219
+#: lib/customize.php:3376
 msgid "Please set widget first. Required Default Sidebar Widget for 2 columns"
 msgstr ""
 "2カラム表示を行う場合、最初にデフォルトサイドバーにウィジェットを設定してくだ"
 "さい"
 
-#: lib/customize.php:3222
+#: lib/customize.php:3379
 msgid "Please set widget first. Required Extra Sidebar Widget for 3 columns"
 msgstr ""
 "まずウィジェットの設定を行ってください。3カラムレイアウトでは、エクストラサイ"
 "ドバーの設定が必要です"
 
-#: lib/customize.php:3226
+#: lib/customize.php:3383
 #, php-format
 msgid "<span>Alert:</span> %1$s"
 msgstr "<span>注意:</span> %1$s"
 
 # @ raindrops
-#: lib/customize.php:3228
+#: lib/customize.php:3385
 msgid "Go to Widgetr Settings"
 msgstr "ウィジェット設定に移動"
 
-#: lib/validate.php:1123
+#: lib/validate.php:1190
 msgid "Full Width Resuponsive"
 msgstr "レスポンシブ　フルサイズ"
 
@@ -2931,6 +3068,31 @@ msgstr ""
 "キープ:エディタ表示に連動したコンテンツ幅　フル:ページ幅に連動したコンテンツ"
 "幅"
 
+#: lib/vars.php:1824
+msgid "What is it associated with ?"
+msgstr "何と関連付けますか？"
+
+#: lib/vars.php:1826
+msgid "Please select from categories, tags, or recent posts. default Automatic"
+msgstr "カテゴリー　タグ　最近の投稿を選択できます　デフォルト値 自動"
+
+#: lib/vars.php:1846
+msgid "Please specify the number of display. default 4"
+msgstr "表示件数を指定してください　デフォルト値４"
+
+#: lib/vars.php:1854
+msgid "Maximum row number of title,if you need"
+msgstr "必要であれば、タイトルの最大行数を指定してください"
+
+# @ raindrops
+#: lib/vars.php:1856
+msgid "default no"
+msgstr "デフォルト値 no"
+
+#: lib/vars.php:1866
+msgid "Please specify the number of display"
+msgstr "表示件数を指定してください"
+
 #: lib/widgets.php:14
 msgid "2.Category New Post [Raindrops]"
 msgstr "カテゴリ毎の最近の投稿 [Raindrops]"
@@ -2979,10 +3141,6 @@ msgstr ""
 #: lib/widgets.php:872
 msgid "Posted title that has been set"
 msgstr "設定されている　投稿タイトル"
-
-#: lib/widgets.php:876
-msgid "Title"
-msgstr "タイトル"
 
 #: lib/widgets.php:876
 msgid "Show only Display Type: Grid"

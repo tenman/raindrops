@@ -1,4 +1,22 @@
 Changelog -----------------------------------
+version:1.461
+
+Overview of Changes
+
+	Fixed issue where publish date in relate posts is not displayed correctly
+
+Files Modified
+
+	modified: 	fonts.css
+	modified:   functions.php
+	modified:   responsiveness.css
+	modified:   style.css
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.460&new_path=raindrops/1.461
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.460
 
 Overview of Changes

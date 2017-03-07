@@ -6532,23 +6532,16 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 
 					$raindrops_recent_post_thumbnail_default_uri = '';
 				}
-
-
-				$archive_year	 = get_the_time( 'Y' );
-				$archive_month	 = get_the_time( 'm' );
-				$archive_day	 = get_the_time( 'd' );
-
-				$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
-				$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
+		
 
 				if( is_numeric( $args['raindrops_show_relate_posts_line_clip'] ) ) {
 					
 					$html	 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-recentpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="h4 entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $args['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $args['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 				} else {
 					
 					$html	 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-recentpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="h4 entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';					
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';					
 				}
 				$html	 = apply_filters( 'raindrops_recent_posts_li', $html );
 				$results = wp_get_recent_posts( $args );
@@ -6563,20 +6556,14 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 
 					$classes		 = '';
 					$article_margin	 = '';
-					/**
-					 * @1.456
+					
+					$archive_year	 = get_the_time( 'Y' );
+					$archive_month	 = get_the_time( 'm' );
+					$archive_day	 = get_the_time( 'd' );
 
-					  if ( empty( $raindrops_recent_post_thumbnail_default_uri ) && !has_post_thumbnail( $val[ "ID" ] ) ) {
-
-					  $article_margin = '';
-					  } elseif ( true == $args[ "raindrops_post_thumbnail" ] ) {
-
-					  $article_margin = (int) $thumbnail_size[ 0 ] + 10;
-
-					  $article_margin = 'margin-left:' . $article_margin . 'px';
-
-					  }
-					 */
+					$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+					$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
+					
 					if ( array_key_exists( 'raindrops_post_thumbnail', $args ) &&
 					true == $args[ "raindrops_post_thumbnail" ] && !post_password_required() ) {
 
@@ -6634,14 +6621,28 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					
 					if ( function_exists('raindrops_japan_date') ) {
 						
-						$date_strings = esc_html( raindrops_japan_date( mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ) );
+						$date_strings = esc_html( raindrops_japan_date( get_the_date() ) );
 					} else {
 						
-						$date_strings = esc_html(  mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ) ;
+						$date_strings = esc_html( get_the_date() ) ;
 					}
 
-					$result .= sprintf( $html, esc_url( get_permalink( $val[ 'ID' ] ) ), $val[ 'post_title' ], $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $val[ 'ID' ], $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], $raindrops_date_format ) ), $date_strings, raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-					), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $author ), $author
+					$result .= sprintf( $html, 
+					esc_url( get_permalink( $val[ 'ID' ] ) ), 
+					$val[ 'post_title' ], 
+					$list_num_class, 
+					raindrops_doctype_elements( 'div', 'article', false ), 
+					$val[ 'ID' ], 
+					$classes, 
+					sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;', 
+						$day_link, 
+						esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], 	$raindrops_date_format ) ), 
+						$date_strings, 
+						raindrops_doctype_elements( 'span', 'time', false ), 
+						raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
+					), 
+					sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', 
+					get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $author ), $author
 					), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 					);
 				}
@@ -6686,13 +6687,8 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 				$thumbnail_height	 = (int) $thumbnail_size[ 0 ];
 
 				$html			 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-catpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="h4 entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
-				$archive_year	 = get_the_time( 'Y' );
-				$archive_month	 = get_the_time( 'm' );
-				$archive_day	 = get_the_time( 'd' );
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 
-				$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
-				$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
 				$settings				 = array( 'title'											 => esc_html__( 'Categories', 'raindrops' ),
 					'numberposts'									 => 0,
 					'offset'										 => 0,
@@ -6717,7 +6713,7 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 				
 				if ( is_numeric( $settings['raindrops_show_relate_posts_line_clip'] ) ) {
 					$html			 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-catpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="h4 entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $settings['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $settings['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 				}
 
 				$title = $settings[ 'title' ];
@@ -6758,22 +6754,19 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 						setup_postdata( $post );
 						$classes		 = '';
 						$article_margin	 = '';
-						/*
-						  if ( empty( $raindrops_category_post_thumbnail_default_uri ) && !has_post_thumbnail( $post->ID ) ) {
+						
+						$archive_year	 = get_the_time( 'Y' );
+						$archive_month	 = get_the_time( 'm' );
+						$archive_day	 = get_the_time( 'd' );
 
-						  $article_margin = '';
-						  } elseif ( true == $settings[ "raindrops_post_thumbnail" ] ) {
-
-						  $article_margin = (int) $thumbnail_size[ 0 ] + 10;
-
-						  $article_margin = 'margin-left:' . $article_margin . 'px';
-						  } */
+						$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+						$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
 
 						if ( array_key_exists( 'raindrops_post_thumbnail', $settings ) &&
 						true == $settings[ "raindrops_post_thumbnail" ] &&
 						!post_password_required() ) {
 
-							$thumbnail = '<span class="raindrops_recent_posts thumb">';
+							$thumbnail = '<span class="raindrops_category_posts thumb">';
 
 							if ( has_post_thumbnail( $post->ID ) ) {
 
@@ -6812,7 +6805,7 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 						$oembed_flag			 = $oembed_replace_array[ 'icon_html' ];
 						$post_content			 = $oembed_replace_array[ 'link_removed_content' ];
 						$author					 = get_the_author_meta( 'display_name', get_the_author() );
-						$list_num_class			 = 'recent-' . $post->ID;
+						$list_num_class			 = 'cat-' . $post->ID;
 						$raindrops_now			 = (int) current_time( 'timestamp' );
 						$raindrops_publish_time	 = (int) strtotime( get_the_date() );
 						$raindrops_period		 = apply_filters( 'raindrops_new_period', 3 );
@@ -6826,9 +6819,28 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 
 							$classes = get_post_class( '', $post->ID );
 						}
-
+												
+						if ( function_exists('raindrops_japan_date') ) {
+						
+							$date_strings = esc_html( raindrops_japan_date( get_the_date() ) );
+						} else {
+						
+							$date_strings = esc_html( get_the_date() ) ;
+						}
 						$classes = 'class="' . join( ' ', $classes ) . '"';
-						$result .= sprintf( $html, esc_url( get_permalink( $post->ID ) ), get_the_title(), $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $post->ID, $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, get_the_date() ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
+						$result .= sprintf( $html, 
+							esc_url( get_permalink( $post->ID ) ), 
+							get_the_title(), 
+							$list_num_class, 
+							raindrops_doctype_elements( 'div', 'article', false ), 
+							$post->ID, 
+							$classes, 
+							sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;', 
+								$day_link, 
+								esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), 
+								esc_html( $date_strings ), 
+								raindrops_doctype_elements( 'span', 'time', false ), 
+								raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 						), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 						), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 						);
@@ -6873,12 +6885,8 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 				$thumbnail_width		 = (int) $thumbnail_size[ 0 ];
 				$thumbnail_height		 = (int) $thumbnail_size[ 0 ];
 				$html					 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-tagpost" %6$s style="%11$s"><div class="posted-on">
-	%7$s%8$s</div><h3 class="h4 entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
-				$archive_year			 = get_the_time( 'Y' );
-				$archive_month			 = get_the_time( 'm' );
-				$archive_day			 = get_the_time( 'd' );
-				$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
-				$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
+	%7$s%8$s</div><h3 class="entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
+				
 				$settings				 = array(
 					'title'										 => esc_html__( 'Tags', 'raindrops' ),
 					'numberposts'								 => 0,
@@ -6944,24 +6952,19 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 						setup_postdata( $post );
 						$classes		 = '';
 						$article_margin	 = '';
-						/*
-						  if ( empty( $raindrops_tag_post_thumbnail_default_uri ) && !has_post_thumbnail( $post->ID ) ) {
 
-						  $article_margin = '';
-						  } elseif ( true == $settings[ "raindrops_post_thumbnail" ] ) {
-
-						  $article_margin = (int) $thumbnail_size[ 0 ] + 10;
-
-						  $article_margin = 'margin-left:' . $article_margin . 'px';
-						  } */
-
+						$archive_year			 = get_the_time( 'Y' );
+						$archive_month			 = get_the_time( 'm' );
+						$archive_day			 = get_the_time( 'd' );
+						$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
+						$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
 
 
 						if ( array_key_exists( 'raindrops_post_thumbnail', $settings ) &&
 						true == $settings[ "raindrops_post_thumbnail" ] &&
 						!post_password_required() ) {
 
-							$thumbnail = '<span class="raindrops_recent_posts thumb">';
+							$thumbnail = '<span class="raindrops_tag_posts thumb">';
 
 							if ( has_post_thumbnail( $post->ID ) ) {
 
@@ -7004,7 +7007,7 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 						$oembed_flag			 = $oembed_replace_array[ 'icon_html' ];
 						$post_content			 = $oembed_replace_array[ 'link_removed_content' ];
 						$author					 = get_the_author_meta( 'display_name', get_the_author() );
-						$list_num_class			 = 'recent-' . $post->ID;
+						$list_num_class			 = 'tag-' . $post->ID;
 						$raindrops_now			 = (int) current_time( 'timestamp' );
 						$raindrops_publish_time	 = (int) strtotime( get_the_date() );
 						$raindrops_period		 = apply_filters( 'raindrops_new_period', 3 );
@@ -7020,7 +7023,27 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 						}
 
 						$classes = 'class="' . join( ' ', $classes ) . '"';
-						$result .= sprintf( $html, esc_url( get_permalink( $post->ID ) ), get_the_title(), $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $post->ID, $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), esc_html( mysql2date( $raindrops_date_format, get_the_date() ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
+						
+						if ( function_exists('raindrops_japan_date') ) {
+						
+							$date_strings = esc_html( raindrops_japan_date( get_the_date() ) );
+						} else {
+						
+							$date_strings = esc_html( get_the_date() ) ;
+						}
+						
+						$result .= sprintf( $html, 
+						esc_url( get_permalink( $post->ID ) ), 
+						get_the_title(),
+						$list_num_class, 
+						raindrops_doctype_elements( 'div', 'article', false ), 
+						$post->ID, $classes, 
+						sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;', 
+							$day_link, 
+							esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), 
+							esc_html( $date_strings ), 
+							raindrops_doctype_elements( 'span', 'time', false ), 
+							raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 						), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 						), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 						);

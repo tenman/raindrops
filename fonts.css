@@ -357,7 +357,17 @@ div[role="banner"] #site-title{
 .entry-title{
     font-size:230.7%;
 }
-
+#raindrops-recent-posts .title,
+.raindrops-tag-posts .title,
+.raindrops-category-posts .title,
+.raindrops-tag-posts .entry-title,
+.raindrops-category-posts .entry-title,
+.raindrops-recent-posts .entry-title,
+.relate-posts .title,
+.relate-posts .entry-title{
+    font-size:182%;
+    font-weight:700;
+}
 .yui-t1 #wp-calendar caption,
 .yui-t1 #wp-calendar td{
     font-size:0.61538461538em;

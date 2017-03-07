@@ -158,15 +158,6 @@
     div#doc5 .posted-on{
         position:relative;
     }
-    /* @1.458
-    .page-template-front-page #doc5 div[class^="entry-meta"],
-    .page-template-front-page #doc3 div[class^="entry-meta"]{
-        position:absolute;
-        text-align:center;
-    }
-    .portfolio ul.index > li article .entry-content{
-        top:40px;
-    }*/
     #doc5 .mejs-horizontal-volume-total,
     #doc3 .mejs-horizontal-volume-total{
         max-width:100%;
@@ -285,10 +276,6 @@
 
     #doc5 .datetable,
     #doc3 .datetable{
-       /**
-        * @1.407
-        * margin:0 5px 10px 0!important;
-        */
         box-sizing: border-box;
         width:90vw;
         margin:auto;
@@ -612,11 +599,6 @@
         font-weight:bold;
         font-size:123.6%;
     }
- /* @1.456
- .format-status-not-single-post{
-        padding:1em;
-        box-sizing:border-box;
-    },*/
     #yui-main .format-status .blog-main,
     #yui-main .category-blog .blog-main{
         border-bottom: 3px solid rgba(127,127,127,.4)
@@ -1376,13 +1358,6 @@
     }  
 }
 @media screen and (min-width : 641px) and (max-width: 1100px){
-  /*
-    .raindrops-tag-posts .list,
-    .raindrops-category-posts .list,
-    .raindrops-recent-posts{
-          margin:auto;
-          max-width:29.2408em;
-    }    */
     .raindrops-tag-posts li,
     .raindrops-category-posts li,
     .raindrops-recent-posts li{

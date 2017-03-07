@@ -1,4 +1,31 @@
 Changelog -----------------------------------
+version:1.459
+
+Overview of Changes
+
+	Added relate posts block in single post.
+			Add Customizer Section
+				Cusotomize / Presentation / Relate Posts
+			Note:Related posts are displayed by default. If it is not necessary, it can be hidden by the customizer.
+	Fixed Safari browser, Header image can not be displayed depending on settings
+
+Files Modified
+
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.458&new_path=raindrops/1.459
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.458
 
 Overview of Changes

@@ -6631,8 +6631,16 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					}
 
 					$classes = 'class="' . join( ' ', $classes ) . '"';
+					
+					if ( function_exists('raindrops_japan_date') ) {
+						
+						$date_strings = esc_html( raindrops_japan_date( mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ) );
+					} else {
+						
+						$date_strings = esc_html(  mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ) ;
+					}
 
-					$result .= sprintf( $html, esc_url( get_permalink( $val[ 'ID' ] ) ), $val[ 'post_title' ], $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $val[ 'ID' ], $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], $raindrops_date_format ) ), esc_html( raindrops_japan_date( mysql2date( $raindrops_date_format, $val[ "post_date" ] ) ) ), raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
+					$result .= sprintf( $html, esc_url( get_permalink( $val[ 'ID' ] ) ), $val[ 'post_title' ], $list_num_class, raindrops_doctype_elements( 'div', 'article', false ), $val[ 'ID' ], $classes, sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date updated" %5$s>%3$s</%4$s></a>&nbsp;', $day_link, esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], $raindrops_date_format ) ), $date_strings, raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 					), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $author ), $author
 					), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 					);

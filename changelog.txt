@@ -1,4 +1,19 @@
 Changelog -----------------------------------
+version:1.460
+
+Overview of Changes
+
+	Fixed fatal error raindrops_japan_date() not exists
+
+Files Modified
+
+	modified:   functions.php
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.459&new_path=raindrops/1.460
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.459
 
 Overview of Changes

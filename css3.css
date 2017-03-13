@@ -211,6 +211,7 @@ article .entry-meta a:hover,
     -moz-border-radius: 1.92307692308em;
     border-radius: 1.92307692308em;
     padding-top:1em;
+    margin-top:35px;
 }
 .raindrops-lightbox-overlay img{
     /*For Opera*/

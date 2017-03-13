@@ -206,15 +206,15 @@ html .mce-content-body .block{
     display:block;
 }
 html .mce-content-body .pad-s{
-    margin:14px;
+
     padding:7px;
 }
 html .mce-content-body .pad-m{
-    margin:14px;
+
     padding:14px;
 }
 html .mce-content-body .pad-l{
-    margin:14px;
+
     padding:21px;
 }
 html .mce-content-body .corner{
@@ -882,7 +882,86 @@ h6,
 .mce-content-body div[data-mod] .ghost{
     margin:1.5em 1em 1.5em 0;
 }
+.mce-content-body .oembed-container{
+    margin:0;
+}
+.mce-content-body .rd-round,
+.mce-content-body .rd-square{
+     display:inline-block;
+     position:relative;
+     top:0;
+     box-sizing:border-box;
+}
 
+.mce-content-body .topsidebar .textwidget .rd-round{
+    margin-top:0;
+    margin-bottom:0;
+}
+.mce-content-body .rd-round{
+    -webkit-border-radius: 50%;
+    border-radius:50%;
+    overflow:hidden;
+}
+
+.mce-content-body .rd-round:before,
+.mce-content-body .rd-square:before{
+     content: '';
+     display: block;
+     padding-top: 50%;
+     padding-bottom:50%;
+     height:0;
+     width:100%;
+ /*    height:100%;*/
+
+}
+.mce-content-body .rd-round > *,/* fallback for old style */
+.mce-content-body .rd-square > *,/* fallback for old style */
+.mce-content-body .rd-round > .content,
+.mce-content-body .rd-square > .content{
+     position:absolute;
+     width:100%;
+     height:100%;
+     top:0;
+     left:0;
+     overflow:hidden;
+
+}
+.mce-content-body .rd-round > .content img,
+.mce-content-body .rd-square > .content img{
+    max-width:none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.mce-content-body .rd-round > .content .oembed-container,
+.mce-content-body .rd-square > .content .oembed-container{
+     width:100%;
+     height:100%;
+}
+ html .mce-content-body .rd-round > .content .oembed-container iframe,
+ html .mce-content-body .rd-square > .content .oembed-container iframe{
+    object-fit:contain;
+}
+.centered{
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-box-sizing:border-box;
+    -webkit-box-orient: vertical;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    height:100%;
+    box-sizing:border-box;
+}
+.hfeed .centered p{
+    margin-bottom:0;
+}
 /* share link fallback style start */
 .mce-content-body .clip-link{ margin-bottom:1em;}
 .mce-content-body .clip-link *{margin:0!important;padding:0!important;box-sizing:border-box;}

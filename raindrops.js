@@ -242,7 +242,7 @@ jQuery( function ( $ ) {
         }
     });
     
-    $( '.relate-posts .on-trancate > span' ).each( function ( index ) {
+    $( '.related-posts .on-trancate > span' ).each( function ( index ) {
         var text = $( this ).text();
         $( this ).attr('title', text);
         

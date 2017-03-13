@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.461
+Version: 1.462
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -191,9 +191,10 @@ h6.row{
 .safari .entry-content h2{
     display:block;
 }
+/* @1.462
 .safari .entry-content table{
     table-layout:auto;
-}
+}*/
 .textwidget .clear,
 .entry-content .clear{
     /* @1.346 */
@@ -772,6 +773,7 @@ abbr{
 .entry-content  figure img{
     margin:auto;
     width:auto;
+    max-width:96%;
     max-width:calc(100% - .5em) ;
 }
 /* Compatibility html4 caption */
@@ -1004,6 +1006,7 @@ body .raindrops-category-posts .title.h2,
     clear:none;
     display:table;
     display:flex;
+    display:-webkit-box;
     width:auto;
     max-width:100%;
     margin-bottom:2em;
@@ -1615,17 +1618,6 @@ h2.footer-content,
     margin:1em 0 0;
     text-align:center;
 }
-
-/*
-.raindrops-keep-content-width .postmetadata,
-.raindrops-keep-content-width .entry-meta{
-      margin:1em -1em -1em;
-}
-.raindrops-no-keep-content-width .postmetadata,
-.raindrops-no-keep-content-width .entry-meta{
-    margin:1em -1em -1em;
-}
-*/
 .fail-search,
 #not-found {
     padding:2em;
@@ -2163,6 +2155,9 @@ iframe{
     max-height:100%;
     display:block;
     margin:auto;
+}
+.safari iframe{
+    max-height:none;
 }
 #yui-main .twitter-tweet-rendered{
     max-width:100%;
@@ -3603,6 +3598,7 @@ sup {
     float:none;
     margin-left:auto;
     margin-right:auto;
+    width:100%;
 }
 .raindrops-tag-posts article,
 .raindrops-category-posts article,
@@ -3757,16 +3753,25 @@ sup {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.raindrops-no-keep-content-width .relate-posts .raindrops-tag-posts .post h3.entry-title span,
-.raindrops-no-keep-content-width .relate-posts .raindrops-category-posts .post h3.entry-title span,
-.raindrops-no-keep-content-width .relate-posts .raindrops-recent-posts .post h3.entry-title span{
+.raindrops-no-keep-content-width .related-posts .raindrops-tag-posts .post h3.entry-title span,
+.raindrops-no-keep-content-width .related-posts .raindrops-category-posts .post h3.entry-title span,
+.raindrops-no-keep-content-width .related-posts .raindrops-recent-posts .post h3.entry-title span{
     width:auto;
     white-space: normal;
     overflow: visible;
     text-overflow: clip;
 }
-.relate-posts{
-    display:table;
+.related-posts{
+    text-align:center;
+}
+.related-posts article{
+    text-align:left;
+}
+.safari #yui-main .related-posts article{
+    width:auto;
+    max-width:70%;
+    margin-left:0!important;
+    margin-right:0!important;
 }
 .raindrops-tag-posts .post .entry-content,
 .raindrops-category-posts .post .entry-content,
@@ -4169,6 +4174,9 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     flex-direction:column;
     vertical-align:middle;
     padding-top:11.74%;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
 }
 #portfolio:target{
     margin-top:-120px;
@@ -5106,14 +5114,14 @@ video{
 #doc3 #access,
 #doc5 #access {
     width:100%;
-    width:calc(100% - 6px);
     margin:0 auto 0;
     text-align:center;
 }
+/* @1.462
 #doc3 #access.raindrops-menu-fixed,
 #doc5 #access.raindrops-menu-fixed{
     margin:0 3px 0;
-}
+}*/
 .rd-type-minimal #access{
     width:100%;
     /* @1.456
@@ -5361,12 +5369,12 @@ body:not(.page-template-blank_front) #raindrops-recent-posts .title{
     text-align:center;
 }
 
-body:not(.page-template-blank_front) .relate-posts #raindrops-recent-posts .title,
-body:not(.page-template-blank_front) .relate-posts .title{
+body:not(.page-template-blank_front) .related-posts #raindrops-recent-posts .title,
+body:not(.page-template-blank_front) .related-posts .title{
     text-align:left;
     margin-left:0;
 }
-.single .relate-posts .format-status .entry-title{
+.single .related-posts .format-status .entry-title{
     padding-top:0;
     padding-bottom:0;
 }
@@ -5904,9 +5912,10 @@ article .post-password-form label{
      display:inline-block;
      position:relative;
      top:0;
-     border:1px solid #ccc;
+     border:1px solid rgba(127,127,127,.4);
      box-sizing:border-box;
 }
+
 .topsidebar .textwidget .rd-round{
     margin-top:0;
     margin-bottom:0;
@@ -5955,8 +5964,17 @@ article .post-password-form label{
 .rd-square > .content .oembed-container{
      width:100%;
      height:100%;
-}
 
+}
+.rd-round > .content .oembed-container iframe, 
+.rd-round > .content .oembed-container object, 
+.rd-round > .content .oembed-container embed,
+.rd-square > .content .oembed-container iframe, 
+.rd-square > .content .oembed-container object, 
+.rd-square > .content .oembed-container embed{
+     position:static;
+     object-fit:cover;
+}
 .not-hover{
     /* stop hover presentation */
 }
@@ -6627,7 +6645,7 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
     -webkit-box-pack: center;
     -webkit-box-align: center;
     -webkit-box-sizing:border-box;
-
+    -webkit-box-orient: vertical;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7431,7 +7449,7 @@ article [data-mod="postit"]:before{
 }
 .raindrops-post-format-chat > dt{
     display:inline-block;
-    width:80px;
+    /* @1.462 width:80px; */
     float:left;
 
 }
@@ -7540,4 +7558,59 @@ article [data-mod="postit"]:before{
 #doc5 .raindrops-no-keep-content-width .index > li > div:target,
 div[id^="post-"]:target{
     padding-top:5em;
+}
+.page,
+.single{
+     counter-reset: section;
+}
+.page .entry-content .section-counter,
+.single .entry-content .section-counter{
+     width:100%;
+     /* for safari */ }
+.page .entry-content .section-counter:before,
+.single .entry-content .section-counter:before {
+     counter-increment: section;
+     content: counter(section) ;
+     display:block;
+     margin:auto auto 1em;
+     text-align:center;
+     line-height:2em;
+     background:rgba(22, 160, 133,1.0);
+     color:#fff;
+     font-weight:bold;
+     width:2em;
+     border-radius: 50%;
+}
+mark.blue, mark.yellow, mark.green, mark.red,
+.mark-blue, .mark-yellow,.mark-green,.mark-red{
+    -webkit-box-decoration-break: clone;
+    -o-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-left:.5em;
+    padding-right:.5em;
+    margin-left:1px;
+    margin-right:1px;
+    line-height:1.65;
+    box-sizing:border-box;
+    display:inline-block;
+
+}
+mark.blue,
+.mark-blue{
+     background:rgba(52, 152, 219,.2);
+}
+mark.notice,
+mark.yellow,
+.mark-yellow{
+     background:rgba(163, 140, 8,.2);
+}
+mark.alert,
+mark.red,
+.mark-red{
+     background:rgba(231, 76, 60,.2);
+}
+mark.info,
+mark.green,
+.mark-green{
+    background:rgba(22, 160, 133,.2);
 }

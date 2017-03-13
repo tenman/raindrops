@@ -133,11 +133,11 @@ if ( ! isset( $wp_customize ) ) {
 			'description'	 => esc_html__( 'About Widget Presentation for Custom Post Type', 'raindrops' ),
 		),
 		'raindrops_theme_settings_relate_post' => array(
-			'title' => esc_html__( 'Relate Posts', 'raindrops' ),
+			'title' => esc_html__( 'Related Posts', 'raindrops' ),
 			'priority' => 110,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',
-			'description'	 => esc_html__( 'Simple Relate Posts Settings', 'raindrops' ),
+			'description'	 => esc_html__( 'Simple Related Posts Settings', 'raindrops' ),
 		),
 	);
 /**
@@ -151,7 +151,8 @@ if ( ! isset( $wp_customize ) ) {
 			'theme_supports' => '',
 			'title'			 => __( 'Presentation', 'raindrops' ),
 			'description'	 => '',
-		)
+		),
+
 	);
 	/**
 	 * raindrops_featured_image_size
@@ -353,7 +354,7 @@ if ( ! isset( $wp_customize ) ) {
 		}
 	}
 	function raindrops_show_relate_post_callback( $control ) {
-		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_relate_posts' ) )->value() == 'yes' ) {
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_show_related_posts' ) )->value() == 'yes' ) {
 			return true;
 		} else {
 			return false;
@@ -1726,15 +1727,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		),
 		/////////////////////////////////////////////////////////////////////////////////////////////
 
-"raindrops_show_relate_posts"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts','option_value' ),
+"raindrops_show_related_posts"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Show related posts on single post', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Display posts and related articles on single post default yes', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
@@ -1742,28 +1743,28 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_relate_post',
 
 		),
-"raindrops_show_relate_posts_title"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_title','option_value' ),
+"raindrops_show_related_posts_title"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_title','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Title', 'raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => esc_html__( 'Please input Title of Relate Posts', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_title_validate',
+			'description'		 => esc_html__( 'Please input Title of Related Posts', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_show_related_posts_title_validate',
 			'type'				 => 'text',		
 			'section'			 => 'raindrops_theme_settings_relate_post',
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 		),
-"raindrops_show_relate_posts_type"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_type','option_value' ),
+"raindrops_show_related_posts_type"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_type','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Relation with', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Please select from categories, tags, or recent posts. default recent posts', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_type_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_type_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'automatic'		 => esc_html__( 'Automatic', 'raindrops' ),
@@ -1773,15 +1774,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_relate_post',
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 		),				
-"raindrops_show_relate_posts_orderby"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_orderby','option_value' ),
+"raindrops_show_related_posts_orderby"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_orderby','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Oderby', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Please select randum or new post. default post date', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_orderby_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_orderby_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'rand'	 => esc_html__( 'Randum', 'raindrops' ),
@@ -1789,15 +1790,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_relate_post',
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 		),
-"raindrops_show_relate_posts_count"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_count','option_value' ),
+"raindrops_show_related_posts_count"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_count','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Counts of post', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => sprintf( esc_html__( 'Please specify the number of display. You can be set in the range 2 - %1$s', 'raindrops' ), $raindrops_featured_image_post_max ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_count_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_count_validate',
 			'type' => 'number',
 				'input_attrs' => array(
 					'min' => 2,
@@ -1807,15 +1808,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_relate_post',
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 		),
-"raindrops_show_relate_posts_line_clip"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_line_clip','option_value' ),
+"raindrops_show_related_posts_line_clip"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_line_clip','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Maximum row number of title', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'When the number of lines is restricted, the full title can not be displayed. The full text is displayed on the tooltip.', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_line_clip_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_line_clip_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'no'	 => esc_html__( 'No', 'raindrops' ),
@@ -1828,15 +1829,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_relate_post',
 		),
 
-"raindrops_show_relate_posts_excerpt_length"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_excerpt_length','option_value' ),
+"raindrops_show_related_posts_excerpt_length"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_excerpt_length','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Excerpt length of Relate Posts', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Please specify the number of excerpt length. use string length , not word count. default 100', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_excerpt_length_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_excerpt_length_validate',
 			'type' => 'number',
 				'input_attrs' => array(
 					'min' => 40,
@@ -1847,15 +1848,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 		),
 		
-"raindrops_show_relate_posts_thumbnail"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail','option_value' ),
+"raindrops_show_related_posts_thumbnail"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Featured Image', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Display featured image or not', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_thumbnail_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_thumbnail_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'show'	 => esc_html__( 'Show', 'raindrops' ),
@@ -1863,15 +1864,15 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 			'section'			 => 'raindrops_theme_settings_relate_post',
 		),		
-"raindrops_show_relate_posts_thumbnail_fallback"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail_fallback','option_value' ),
+"raindrops_show_related_posts_thumbnail_fallback"				 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail_fallback','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Fallback Featured Image', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => esc_html__( 'Fallback Featured image URL if featured image is not set in the post, leave it blank if you do not need it', 'raindrops' ),
-			'sanitize_callback'	 => 'raindrops_show_relate_posts_thumbnail_fallback_validate',
+			'sanitize_callback'	 => 'raindrops_show_related_posts_thumbnail_fallback_validate',
 			'type'				 => 'text',
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 			'section'			 => 'raindrops_theme_settings_relate_post',
@@ -2899,6 +2900,17 @@ if ( !function_exists( 'raindrops_extend_customize_register' ) ) {
 		function raindrops_customize_partial_blogdescription() {
 			bloginfo( 'description' );
 		}
+		
+		$wp_customize->get_setting( raindrops_data_store_relate_id( 'raindrops_show_related_posts' ) )->transport          = 'postMessage';
+		$wp_customize->selective_refresh->add_partial( raindrops_data_store_relate_id( 'raindrops_show_related_posts' ), array(
+		'selector' => '.related-posts',
+		'render_callback' => 'raindrops_customize_partial_relate_posts',
+		) );
+		
+		function raindrops_customize_partial_relate_posts() {
+			raindrops_post_relate_contents();
+		}
+
 		///////////////////////////////////////////////////////////////////////		
 	}
 

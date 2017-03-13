@@ -363,8 +363,8 @@ div[role="banner"] #site-title{
 .raindrops-tag-posts .entry-title,
 .raindrops-category-posts .entry-title,
 .raindrops-recent-posts .entry-title,
-.relate-posts .title,
-.relate-posts .entry-title{
+.related-posts .title,
+.related-posts .entry-title{
     font-size:182%;
     font-weight:700;
 }

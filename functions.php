@@ -5226,7 +5226,7 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 			.rd-tag-description,
 			.rd-category-description,
 			#bd,
-			.relate-posts,
+			.related-posts,
 			#ft .widget-wrapper{
 				max-width:{$raindrops_full_width_max_width}px;
 				margin-left:auto;
@@ -6504,7 +6504,7 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					'raindrops_excerpt_more'						 => '...',
 					'raindrops_post_thumbnail'						 => true,
 					'raindrops_recent_post_thumbnail_default_uri'	 => '',
-					'raindrops_show_relate_posts_line_clip'          => 'no',
+					'raindrops_show_related_posts_line_clip'          => 'no',
 				);
 				$args	 = wp_parse_args( $raindrops_bf_recent_posts_setting, $default );
 				$title	 = $args[ 'title' ];
@@ -6534,10 +6534,10 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 				}
 		
 
-				if( is_numeric( $args['raindrops_show_relate_posts_line_clip'] ) ) {
+				if( is_numeric( $args['raindrops_show_related_posts_line_clip'] ) ) {
 					
 					$html	 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-recentpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $args['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $args['raindrops_show_related_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 				} else {
 					
 					$html	 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-recentpost" %6$s style="%11$s"><div class="posted-on">
@@ -6557,12 +6557,12 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					$classes		 = '';
 					$article_margin	 = '';
 					
-					$archive_year	 = get_the_time( 'Y' );
-					$archive_month	 = get_the_time( 'm' );
-					$archive_day	 = get_the_time( 'd' );
+					$archive_year	 = get_the_time( 'Y' , $val['ID'] );
+					$archive_month	 = get_the_time( 'm' , $val['ID'] );
+					$archive_day	 = get_the_time( 'd' , $val['ID'] );
 
 					$raindrops_date_format	 = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
-					$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $post->ID );
+					$day_link				 = esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) . '#post-' . $val['ID'] );
 					
 					if ( array_key_exists( 'raindrops_post_thumbnail', $args ) &&
 					true == $args[ "raindrops_post_thumbnail" ] && !post_password_required() ) {
@@ -6621,10 +6621,10 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					
 					if ( function_exists('raindrops_japan_date') ) {
 						
-						$date_strings = esc_html( raindrops_japan_date( get_the_date() ) );
+						$date_strings = esc_html( raindrops_japan_date( get_the_date($raindrops_date_format, $val['ID']) ) );
 					} else {
 						
-						$date_strings = esc_html( get_the_date() ) ;
+						$date_strings = esc_html( get_the_date(), $val['ID'] ) ;
 					}
 
 					$result .= sprintf( $html, 
@@ -6707,13 +6707,13 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					'raindrops_excerpt_more'						 => '...',
 					'raindrops_post_thumbnail'						 => true,
 					'raindrops_category_post_thumbnail_default_uri'	 => '',
-					'raindrops_show_relate_posts_line_clip'          => 'no',
+					'raindrops_show_related_posts_line_clip'          => 'no',
 					);
 				$settings				 = wp_parse_args( $raindrops_bf_category_posts_setting, $settings );
 				
-				if ( is_numeric( $settings['raindrops_show_relate_posts_line_clip'] ) ) {
+				if ( is_numeric( $settings['raindrops_show_related_posts_line_clip'] ) ) {
 					$html			 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-catpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $settings['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint( $settings['raindrops_show_related_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 				}
 
 				$title = $settings[ 'title' ];
@@ -6906,15 +6906,15 @@ id=\"post-" . absint( $mytime->ID ) . "\"><span>" . strip_tags( $mytime->post_ti
 					'raindrops_excerpt_more'					 => '...',
 					'raindrops_post_thumbnail'					 => true,
 					'raindrops_tag_post_thumbnail_default_uri'	 => '',
-					'raindrops_show_relate_posts_line_clip'          => 'no',
+					'raindrops_show_related_posts_line_clip'          => 'no',
 				);
 				$settings				 = wp_parse_args( $raindrops_bf_tag_posts_setting, $settings );
 				$title					 = $settings[ 'title' ];
 				unset( $settings[ 'title' ] );
 				
-				if ( is_numeric( $settings['raindrops_show_relate_posts_line_clip'] ) ) {	
+				if ( is_numeric( $settings['raindrops_show_related_posts_line_clip'] ) ) {	
 					$html					 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-tagpost" %6$s style="%11$s"><div class="posted-on">
-		%7$s%8$s</div><h3 class="h4 entry-title"><a href="%1$s" class="trancate" data-rows="'.absint($settings['raindrops_show_relate_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
+		%7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint($settings['raindrops_show_related_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 				}
 				
 				
@@ -9964,7 +9964,27 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
 				$font_size						 = raindrops_warehouse_clone( 'raindrops_basefont_settings' );
 				$font_color						 = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 				$link_color						 = raindrops_warehouse_clone( 'raindrops_hyperlink_color' );
-				$raindrops_editor_styles_width	 = apply_filters( 'raindrops_editor_styles_width', $content_width, $post_id );
+				$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );
+				$raindrops_page_width			 = raindrops_warehouse_clone( 'raindrops_page_width' );
+				
+				if ( 'keep' !== $raindrops_content_width_setting ) {
+					/* @since 1.462 */
+					if( 'doc3' == $raindrops_page_width ) {
+
+						$raindrops_editor_styles_width = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
+					} elseif( 'doc5' == $raindrops_page_width ) {
+					
+						$raindrops_editor_styles_width = raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
+					} else {
+						
+						$raindrops_editor_styles_width = $content_width;
+					}
+				} else {
+					
+					$raindrops_editor_styles_width = $content_width;
+				}
+				
+				$raindrops_editor_styles_width	 = apply_filters( 'raindrops_editor_styles_width', $raindrops_editor_styles_width, $post_id );
 				$editor_custom_styles			 = 'html .mceContentBody{max-width:' . $raindrops_editor_styles_width . 'px;}' . "\n";
 				$editor_custom_styles .= 'html .mceContentBody{font-size:' . $font_size . 'px;}' . "\n";
 				if ( isset( $font_color ) && !empty( $font_color ) ) {
@@ -9973,6 +9993,7 @@ if ( !function_exists( 'raindrops_status_bar' ) ) {
 				if ( isset( $link_color ) && !empty( $link_color ) ) {
 					$editor_custom_styles .= 'html .mceContentBody a{color:' . $link_color . ';}' . "\n";
 				}
+				/* @1.462 Add */
 
 				header( 'Content-type: text/css' );
 				echo $editor_custom_styles;
@@ -11512,6 +11533,7 @@ POST_FORM;
 
 				if ( 'no' == raindrops_warehouse_clone( 'raindrops_color_coded_post_tag' ) ) {
 					$flag = false;
+					return $css;
 				} else {
 					$flag = true;
 				}
@@ -12691,37 +12713,37 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 
 		global $post;
 
-		$enable_relate_post						 = raindrops_warehouse_clone( 'raindrops_show_relate_posts' );
+		$enable_relate_post						 = raindrops_warehouse_clone( 'raindrops_show_related_posts' );
 
 		if ( 'yes' == $enable_relate_post ) {
 
-			$raindrops_show_relate_posts_thumbnail	 = raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail' );
-			$raindrops_show_relate_posts_type		 = raindrops_warehouse_clone( 'raindrops_show_relate_posts_type' );
+			$raindrops_show_related_posts_thumbnail	 = raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail' );
+			$raindrops_show_related_posts_type		 = raindrops_warehouse_clone( 'raindrops_show_related_posts_type' );
 
-			if ( "show" == $raindrops_show_relate_posts_thumbnail ) {
+			if ( "show" == $raindrops_show_related_posts_thumbnail ) {
 
-				$raindrops_show_relate_posts_thumbnail = true;
+				$raindrops_show_related_posts_thumbnail = true;
 			} else {
 
-				$raindrops_show_relate_posts_thumbnail = false;
+				$raindrops_show_related_posts_thumbnail = false;
 			}
 
-			$algo	 = raindrops_relate_posts_algo( $raindrops_show_relate_posts_type );
+			$algo	 = raindrops_relate_posts_algo( $raindrops_show_related_posts_type );
 
 			$type	 = key( $algo );
 			$id		 = $algo[ $type ];
 
-
 			$args = array(
-				'title'											 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_title' ),
-				'numberposts'									 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_count' ),
-				'raindrops_excerpt_length'						 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_excerpt_length' ),
+				'title'											 => raindrops_warehouse_clone( 'raindrops_show_related_posts_title' ),
+				'numberposts'									 => raindrops_warehouse_clone( 'raindrops_show_related_posts_count' ),
+				'raindrops_excerpt_length'						 => raindrops_warehouse_clone( 'raindrops_show_related_posts_excerpt_length' ),
 				'raindrops_excerpt_more'						 => '...', 
-				'raindrops_post_thumbnail'						 => $raindrops_show_relate_posts_thumbnail,
-				'raindrops_recent_post_thumbnail_default_uri'	 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail_fallback' ),
-				'raindrops_show_relate_posts_line_clip'			 => raindrops_warehouse_clone( 'raindrops_show_relate_posts_line_clip' ),
+				'raindrops_post_thumbnail'						 => $raindrops_show_related_posts_thumbnail,
+				'raindrops_recent_post_thumbnail_default_uri'	 => raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail_fallback' ),
+				'raindrops_show_related_posts_line_clip'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_line_clip' ),
 				'post__not_in'									 => array( $post->ID ),
-				'orderby'                                        => raindrops_warehouse_clone( 'raindrops_show_relate_posts_orderby' ),
+				'orderby'                                        => raindrops_warehouse_clone( 'raindrops_show_related_posts_orderby' ),
+				
 			);
 			if ( 'recent_post' == $type ) {
 				//$args['orderby'] = 'post_date';
@@ -12729,10 +12751,10 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 			if ( 'category' == $type ) {
 				$args[ 'category' ]	 = $id;
 				$args[ 'orderby' ]	 = 'rand';
-				$args['raindrops_category_post_thumbnail_default_uri'] =  raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail_fallback' );
+				$args['raindrops_category_post_thumbnail_default_uri'] =  raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail_fallback' );
 			}
 			if ( 'post_tag' == $type ) {
-				$args['raindrops_tag_post_thumbnail_default_uri'] =  raindrops_warehouse_clone( 'raindrops_show_relate_posts_thumbnail_fallback' );
+				$args['raindrops_tag_post_thumbnail_default_uri'] =  raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail_fallback' );
 				$args[ 'orderby' ]	 = 'rand';
 				$args[ 'tax_query' ] = array(
 					array(
@@ -12746,18 +12768,18 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 			}
 
 			if ( 'recent_post' == $type ) {
-				echo '<div class="relate-posts recent-posts">';
+				echo '<div class="related-posts recent-posts">';
 				raindrops_recent_posts( $args );
 				
 				echo '</div>';
 			}
 			if ( 'category' == $type ) {
-				echo '<div class="relate-posts category-posts">';
+				echo '<div class="related-posts category-posts">';
 				raindrops_category_posts( $args );
 				echo '</div>';
 			}
 			if ( 'post_tag' == $type ) {
-				echo '<div class="relate-posts tag-posts">';
+				echo '<div class="related-posts tag-posts">';
 				raindrops_tag_posts( $args );
 				
 				echo '</div>';

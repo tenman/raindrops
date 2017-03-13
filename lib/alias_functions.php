@@ -1402,6 +1402,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				margin:4px;
 
 			}";
+		
 		return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
 	}
 }

@@ -1,4 +1,52 @@
 Changelog -----------------------------------
+version:1.462
+
+Overview of Changes
+	Added Style for TinyMCE
+		for .rd-square, rd-round, centered classes
+	Modified css, customizer arg name, function names, langages
+		relate posts to related posts
+	Fixed Related Posts, day archive link linked wrong.
+
+	Modified TinyMCE editor content width
+		Customize / Presentation / Layout and Sidebars
+
+		When the value of Content Width is set to keep or fit, the width of the TinyMCE editor will also be changed accordingly.
+
+	Fixed a problem that the color scheme is not applied when the tag cloud widget is set in the footer widget area
+
+	Modified In the customizer preview, add an edit link to Related Post
+
+	Removed CSS box shadow ( full width responsive + content width:fit )
+
+	Add CSS Class for mark elements
+		for example
+		<mark class="notice">...</mark>
+		<mark class="alert">...</mark>
+		<mark class="info">...</mark>
+		<mark class="blue">...</mark>
+
+Files Modified
+	modified: css3.css
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops.js
+	modified:   style.css
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.461&new_path=raindrops/1.462
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.461
 
 Overview of Changes

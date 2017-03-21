@@ -1,4 +1,26 @@
 Changelog -----------------------------------
+version:1.463
+
+Overview of Changes
+	Fixed CSS Class for Mark Element.(padding,margin and Specified class does not reflect correctly )
+	Modified CSS Class corner,corner-s,corner-m,corner-l,pad-s,pad-m,pad-l
+	Modified editor-style.css
+	Modified TinyMCE editor content width( related Customize / Presentation / Layout and Sidebar / Content Width: value fit )
+
+Files Modified
+	modified: css3.css
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.462&new_path=raindrops/1.463
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.462
 
 Overview of Changes

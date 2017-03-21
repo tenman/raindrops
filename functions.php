@@ -715,7 +715,6 @@ if ( !isset( $content_width ) || empty( $content_width ) ) {
 
 	$content_width = apply_filters( 'raindrops_content_width', raindrops_content_width_clone() );
 }
-
 add_action( 'widgets_init', 'raindrops_widgets_init' );
 /**
  * Add option helper
@@ -12901,4 +12900,3 @@ if( ! function_exists('raindrops_relate_posts_algo') ) {
  * @since 1.138
  */
 do_action( 'raindrops_last' );
-	

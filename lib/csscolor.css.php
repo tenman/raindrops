@@ -41,6 +41,11 @@ function raindrops_indv_css_dark() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 	
     $style = <<<DOC
+.mark-alert,.mark-notice,.mark-info,.mark-blue,
+.mark-blue, .mark-yellow,.mark-green,.mark-red,
+mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
+	color: $font_color_5;
+}
 .rd-ripple:after {
     background: $background4;
 }

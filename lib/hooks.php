@@ -391,9 +391,6 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.459
 		 */
 		add_action( 'raindrops_after_article', 'raindrops_post_relate_contents' );
-		
-
 	}
-
 }
 ?>

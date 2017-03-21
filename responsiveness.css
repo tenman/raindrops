@@ -1143,47 +1143,20 @@
         font-size:100%;
         width:auto;
     }
-    /* @1.459
-    #doc5 .raindrops-category-posts li,
-    #doc5 .raindrops-tag-posts li,
-    #doc5 .raindrops-recent-posts li,
-    #doc3 .raindrops-category-posts li,
-    #doc3 .raindrops-tag-posts li,
-    #doc3 .raindrops-recent-posts li{
-        margin:1em 0;
-        padding:0;
-        width:99%;
-    }*/
-
     .raindrops-category-posts li,
     .raindrops-tag-posts li,
     .raindrops-recent-posts li{
         margin:auto auto 1em;
         padding:0;
         width:99%;
-        min-height:15.3846em;
-       
+        min-height:15.3846em;     
     }
- 
- 
- .raindrops-tag-posts .list,
-.raindrops-category-posts .list,
-.raindrops-recent-posts{
-         margin:auto;
-     max-width:29.2408em;
-}
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+    .raindrops-tag-posts .list,
+    .raindrops-category-posts .list,
+    .raindrops-recent-posts{
+             margin:auto;
+         max-width:29.2408em;
+    }
     .raindrops-category-posts ul > li article,
     .raindrops-tag-posts ul > li article,
     #raindrops-recent-posts > ul > li article{
@@ -1270,17 +1243,17 @@
  } 
 .rd-primary-menu-responsive-active #doc5 #access a,
 .rd-primary-menu-responsive-active #doc5 #access ul ul,
- .rd-primary-menu-responsive-active #doc5 #access ul,
- .rd-primary-menu-responsive-active #doc5 #access ul li,
+.rd-primary-menu-responsive-active #doc5 #access ul,
+.rd-primary-menu-responsive-active #doc5 #access ul li,
 .rd-primary-menu-responsive-active  #doc3 #access a,
 .rd-primary-menu-responsive-active  #doc3 #access ul ul,
 .rd-primary-menu-responsive-active  #doc3 #access ul,
 .rd-primary-menu-responsive-active  #doc3 #access ul li{
      border:none;
  }
- .rd-primary-menu-responsive-active #access > div.menu > ul > li > a, 
- .rd-primary-menu-responsive-active #access .menu > li > a,
- .rd-primary-menu-responsive-active #access .menu-header,
+.rd-primary-menu-responsive-active #access > div.menu > ul > li > a, 
+.rd-primary-menu-responsive-active #access .menu > li > a,
+.rd-primary-menu-responsive-active #access .menu-header,
 .rd-primary-menu-responsive-active  #access ul,
 .rd-primary-menu-responsive-active  #access a + ul,
 .rd-primary-menu-responsive-active  #access .children a,
@@ -1295,38 +1268,34 @@
          text-align:left;
          background-image:none!important;
          max-width:100%;
-
  }
- .rd-primary-menu-responsive-active #access{
+.rd-primary-menu-responsive-active #access{
      max-height:50vh;
-     overflow-y:scroll;
-     
+     overflow-y:scroll;    
  }
- .rd-primary-menu-responsive-active #access:target{
+.rd-primary-menu-responsive-active #access:target{
      padding-top:0;
      margin-top:2em;
  }
-
- .rd-primary-menu-responsive-active #top #access .menu{
+.rd-primary-menu-responsive-active #top #access .menu{
       overflow:hidden;
  }
- .rd-primary-menu-responsive-active #top #access .children,
- .rd-primary-menu-responsive-active #top #access .sub-menu{
+.rd-primary-menu-responsive-active #top #access .children,
+.rd-primary-menu-responsive-active #top #access .sub-menu{
      margin-left:5vw;
      width:90vw;
      color:#fff;
 
  }
- .rd-primary-menu-responsive-active .raindrops-mobile-menu .menu-text{
+.rd-primary-menu-responsive-active .raindrops-mobile-menu .menu-text{
      position:absolute;top:3px;left:44%;
  }
-
- .rd-primary-menu-responsive-active #access .page_item_has_children > a:after,
- .rd-primary-menu-responsive-active #access .menu-item-has-children > a:after,
- .rd-primary-menu-responsive-active #access .children .page_item_has_children > a:after,
- .rd-primary-menu-responsive-active #access .sub-menu .page_item_has_children > a:after,
- .rd-primary-menu-responsive-active #access .children .menu-item-has-children > a:after,
- .rd-primary-menu-responsive-active #access .sub-menu .menu-item-has-children > a:after{
+.rd-primary-menu-responsive-active #access .page_item_has_children > a:after,
+.rd-primary-menu-responsive-active #access .menu-item-has-children > a:after,
+.rd-primary-menu-responsive-active #access .children .page_item_has_children > a:after,
+.rd-primary-menu-responsive-active #access .sub-menu .page_item_has_children > a:after,
+.rd-primary-menu-responsive-active #access .children .menu-item-has-children > a:after,
+.rd-primary-menu-responsive-active #access .sub-menu .menu-item-has-children > a:after{
     content:'';
     transform: none;
 }

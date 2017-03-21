@@ -6,55 +6,27 @@
  * @package Raindrops
  * @since Raindrops 0.320
  */
-
+span[class|="corner"]{
+     padding:0.38461538461em;
+}
 .corner{
     border-radius:0.38461538461em;
     -moz-border-radius:0.38461538461em;
     padding:0.38461538461em;
 }
 .corner-s{
-    border-radius:0.38461538461em;
-    -moz-border-radius:0.38461538461em;
-    padding:0.38461538461em;
+    border-radius:0.23076923076em;
+    -moz-border-radius:0.23076923076em;
 }
 .corner-m{
-    border-radius:0.76923076923em;
-    -moz-border-radius:0.76923076923em;
-    padding:0.38461538461em;
+    border-radius:0.5em;
+    -moz-border-radius:0.5em;
 }
 .corner-l{
-    border-radius:1.5em;
-    -moz-border-radius:1.5em;
-    padding:0.38461538461em;
+    border-radius:.8em;
+    -moz-border-radius:.8em;
 }
-.pad-s.corner-l{
-    border-radius:1.5em;
-    -moz-border-radius:1.5em;
 
-}
-.pad-m.corner-l{
-    border-radius:2em;
-    -moz-border-radius:2em;
-
-}
-.pad-s.corner-s{
-    border-radius:0.38461538461em;
-    -moz-border-radius:0.38461538461em;
-
-}
-.pad-s.corner-m{
-    border-radius:0.76923076923em;
-    -moz-border-radius:0.76923076923em;
-}
-.pad-m.corner-s{
-    border-radius:0.38461538461em;
-    -moz-border-radius:0.38461538461em;
-
-}
-.pad-m.corner-m{
-    border-radius:0.76923076923em;
-    -moz-border-radius:0.76923076923em;
-}
 .hentry table.opacity tr:nth-child(odd){
     opacity: 0.7;
     -moz-opacity: 0.7; /* Firefox */
@@ -143,24 +115,12 @@ article .entry-meta a:hover,
     -webkit-box-shadow:0 4px 4px -1px #888;
     border-top:1px solid rgba(136,136,136,.4);
 }
-
 #access{
     -webkit-text-size-adjust: 120%;
 }
-/* @1.458
-#header-image p{
-    position:relative;
-    top:35%;
-    text-align:center;
-
-}*/
-
 .datetable td li:nth-last-child(1){
     border-bottom:none;
 }
-
-
-
 #doc5 .entry-content .columns,
 #doc .entry-content .columns,
 #doc2 .entry-content .columns,
@@ -175,7 +135,6 @@ article .entry-meta a:hover,
     word-break:normal;
     word-wrap:normal;/* Internet Explorer */
 }
-
 .raindrops-light-box{
     position: relative;
     background: #f1d2c2;
@@ -251,5 +210,5 @@ x:-o-prefocus, .raindrops-lightbox-overlay img {
 }
 [hidden],
 template {
-  display: none;
+    display: none;
 }

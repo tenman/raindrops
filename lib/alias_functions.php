@@ -334,18 +334,21 @@ if ( !function_exists( 'raindrops_content_width_clone' ) ) {
 		$document_width		 = raindrops_warehouse_clone( 'raindrops_page_width' );
 		$sidebar_width		 = 'yui-' . raindrops_warehouse_clone( 'raindrops_col_width' );
 		$extra_sidebar_width = raindrops_warehouse_clone( 'raindrops_right_sidebar_width_percent' );
-
-		if( isset( $raindrops_keep_content_width ) && false == $raindrops_keep_content_width && ( 'doc3' == $document_width || 'doc5' == $document_width ) ) {
+		$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );
+		
+		if( ( isset( $raindrops_keep_content_width ) && false == $raindrops_keep_content_width || 
+			'fit' == $raindrops_content_width_setting && ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-2' ) ) 
+			&& ( 'doc3' == $document_width || 'doc5' == $document_width ) ) {
 			/**
 			 * @since 1.442
 			 */
 			if ( 'doc3' == $document_width ) {
-				$w = raindrops_warehouse_clone( 'raindrops_fluid_max_width' ) - ( $adjust * 2 );
+				$w = raindrops_warehouse_clone( 'raindrops_fluid_max_width' );
 			}
 			if ( 'doc5' == $document_width ) {
-				$w = raindrops_warehouse_clone( 'raindrops_full_width_max_width' ) - ( $adjust * 2 );
+				$w = raindrops_warehouse_clone( 'raindrops_full_width_max_width' );
 			}
-			
+
 			return $w;
 		}
 		

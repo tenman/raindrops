@@ -1,4 +1,105 @@
 Changelog -----------------------------------
+version:1.464
+
+Overview of Changes
+	Added New Presentation Grid Layout for Archives, Posts Archive
+		Setting
+			Dashboard / Appearance / Customize / Excerpt
+			Home Listed Entry Contents, Category Archives Entry Contents, Search Result Entry Contents
+			Show Excerpt with Grid Layout
+
+		Relate Settings width filter.
+
+			Apply Grid Layout another archives. ex: tag archive, post format, custom post type
+
+			functions.php
+
+				$raindrops_where_excerpts = array( 'is_tag','is_tax','is_post_type_archive' );
+				$raindrops_change_all_excerpt_archives_to_grid_layout = true;
+
+				is_tag for tag archive
+				is_tax for post format archive
+				is_post_type_archive for custom post type
+
+		Change Page width conditional.
+
+				//fullsize responsive
+				add_filter('raindrops_theme_settings_raindrops_full_width_max_width','custom_page_width_control');
+				//box responsibe
+				add_filter('raindrops_theme_settings_raindrops_fluid_max_width','custom_page_width_control');
+
+				function custom_page_width_control($page_width){
+
+					if( is_singular() ) {
+						return 1000;
+					}
+					return $page_width;
+				}
+
+		Insert Special Content in the loop
+
+				add_action( 'raindrops_in_the_loop_1','my_test',10,2);
+
+				function my_test($content,$num) {
+
+					if( is_archive() ) {
+						echo "<li style=\"flex-basis:100%;background:rgba(241, 196, 15,.3);\">
+								<div><article><h1 style=\"text-align:center\" class=\"f40 b7\">$num</h1></article></div>
+							</li>";
+					}
+				}
+
+		Custom Responsive Break Point
+
+				add_filter( 'raindrops_grid_break_point_small', 'custom_raindrops_grid_break_point_small' );
+				add_filter( 'raindrops_grid_break_point_mobile', 'custom_raindrops_grid_break_point_mobile' );
+				add_filter( 'raindrops_grid_break_point_desctop', 'custom_raindrops_grid_break_point_desctop' );
+
+				function custom_raindrops_grid_break_point_small($break_point){
+					return 640;
+				}
+				function custom_raindrops_grid_break_point_mobile($break_point){
+					return 1280;
+				}
+				function custom_raindrops_grid_break_point_desctop($break_point){
+					return 1400;
+				}
+
+		Filter CSS for Grid
+
+				raindrops_style_archive_grid
+
+		Known Issues
+
+				Safari:	Browser Can not support Grid,Show list view,
+				ie11:	The height of the post title is limited to 300px.
+				ie9:	Browser Can not support Grid,Show list view,
+				ie8:	Use Raindrops fallback view. Only readability
+
+Files Modified
+	modified: css3.css
+	modified:   date.php
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   part-gallery.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   single.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.463&new_path=raindrops/1.464
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.463
 
 Overview of Changes

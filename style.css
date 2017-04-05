@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.463
+Version: 1.464
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1704,7 +1704,7 @@ div[class^="entry-meta"] .emoji-date,
 .rd-featured-yes-front:not(.paged) .index > li{
     word-wrap:normal;
     overflow-wrap:normal;
-    /* @1.464 
+    /* @1.464
     width:100%;*/
     display:block;
 }
@@ -5657,7 +5657,7 @@ body:not(.rd-featured-yes-left) .h2-thumb{
     min-width:48px;
 }
 .rd-featured-yes-left .entry-title > a > span{
-    
+
 }
 /* @1.464
 .rd-featured-yes-front:not(.paged)  .index > li .raindrops-sticky .entry-title .h2-thumb + .entry-title-text,
@@ -7500,7 +7500,7 @@ mark.green,
 .rd-featured-no-left.rd-grid ul.search-results .entry-title-text,
 .rd-featured-no-left.rd-grid ul.archives .entry-title-text{
 /**
- * word-break is not good for english users, but display:table overflow parent box 
+ * word-break is not good for english users, but display:table overflow parent box
  */
      word-break: break-all;
 }

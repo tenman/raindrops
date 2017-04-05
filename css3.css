@@ -72,7 +72,7 @@ article .entry-meta a:hover,
 #access a:hover,
 .lsidebar .widget .tagcloud a:hover,
 .rsidebar .widget .tagcloud a:hover,
-.entry-title a:hover span,
+/* @1.464 .entry-title a:hover span, */
 .rsidebar li.page_item a:hover,
 .rsidebar .widget ul li a:hover,
 .lsidebar li.page_item a:hover,
@@ -80,6 +80,12 @@ article .entry-meta a:hover,
     -moz-opacity:0.75;
     filter:alpha(opacity=75);
     opacity:0.75;
+}
+/* @1.464 */
+.entry-title a:hover span img{
+    -moz-opacity:1;
+    filter:alpha(opacity=100);
+    opacity:1;
 }
 #raindrops.rd-type-minimal a:hover{
      -moz-opacity:1;

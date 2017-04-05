@@ -46,6 +46,7 @@ raindrops_entry_title();
                 $total_images = count( $raindrops_images );
 
                 $raindrops_image_result = array_shift( $raindrops_images );
+
             } else {
 
                 $raindrops_format = false;
@@ -76,7 +77,7 @@ raindrops_entry_title();
             <?php
             if ( true == $raindrops_format ) {
                 ?>
-                <p style="margin:1em;"><em class="gallery-infomation">
+                <p><em class="gallery-infomation">
                         <?php
                         echo sprintf( esc_html__( 'This gallery contains %1$s photographs in all as ', 'raindrops' ), $total_images ) . '&nbsp;' . esc_url( wp_get_attachment_link( $raindrops_image_result->ID, false, true ) ) . '&nbsp;' . __( 'photograph etc.', 'raindrops' );
                         ?>
@@ -99,7 +100,7 @@ raindrops_entry_title();
             $category_link = get_category_link( $category_id );
 
             printf(
-                    '%4$s<a href="%1$s" title="%2$s">%3$s</a> | ', esc_url( $category_link ), esc_attr__( 'View posts in the Gallery category', 'raindrops' ), ' ' . esc_html__( 'Gallery', 'raindrops' ), esc_html__( 'Link to Category', 'raindrops' )
+                    '%4$s<a href="%1$s" title="%2$s">%3$s</a> ', esc_url( $category_link ), esc_attr__( 'View posts in the Gallery category', 'raindrops' ), ' ' . esc_html__( 'Gallery', 'raindrops' ), esc_html__( 'Link to Category', 'raindrops' )
             );
             ?>
             <span class="comments-link">

@@ -147,12 +147,12 @@
                     var raindrops_window_width = jQuery( window ).width();
                     
                     if ( 640 < raindrops_window_width ) {
-                        jQuery( '.equal-height' ).each( function () {
+                        jQuery( '.equal-height,.rd-grid ul.archives > li' ).each( function () {
                             var height = jQuery( this ).height();
                             jQuery( this ).css( { 'height': height } );
                         } );
                     } else {
-                        jQuery( '.equal-height' ).each( function () {
+                        jQuery( '.equal-height,.rd-grid ul.archives > li' ).each( function () {
                             jQuery( this ).removeAttr( 'style' );
                         } );
                     }

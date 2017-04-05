@@ -10,6 +10,20 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * @since 1.464
+ */
+if( ! isset( $raindrops_change_all_excerpt_archives_to_grid_layout ) ) {
+	$raindrops_change_all_excerpt_archives_to_grid_layout = false;
+}
+/**
+ * custom format needs style 
+ * The excerpt display of WordPress removes all html, but the custom format has no meaning unless it has html
+ * @since 1.464
+ */
+if( ! isset( $raindrops_change_html_excerpt_when_post_formats ) ) {
+	$raindrops_change_html_excerpt_when_post_formats = true;
+}
+/**
  * Raindrops base setttings for Fresh Install Users
  * It applies when you have not created a post after installing the Raindrops theme, or when the $raindrops_year_2017_base_settings variable is true.
  * @since 1.449
@@ -502,6 +516,7 @@ if ( !defined( 'RAINDROPS_USE_LIST_EXCERPT' ) ) {
 
 	define( "RAINDROPS_USE_LIST_EXCERPT", true );
 }
+
 // values 'is_search', 'is_archive', 'is_category' ,'is_tax', 'is_tag' any conditional function name
 /**
  * Auto Color On or Off
@@ -780,7 +795,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( "Home Listed Entry Contents", 'raindrops' ),
 			'excerpt1'		 => '',
-			'excerpt2'		 => esc_html__( "value content, excerpt, none", 'raindrops' ),
+			'excerpt2'		 => esc_html__( "value content, excerpt, excerpt_grid, none", 'raindrops' ),
 			'validate'		 => 'raindrops_entry_content_is_home_validate',
 			'list'			 => 19
 		),
@@ -791,7 +806,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( "Category Archives Entry Contents", 'raindrops' ),
 			'excerpt1'		 => '',
-			'excerpt2'		 => esc_html__( "value content, excerpt, none", 'raindrops' ),
+			'excerpt2'		 => esc_html__( "value content, excerpt, excerpt_grid, none", 'raindrops' ),
 			'validate'		 => 'raindrops_entry_content_is_category_validate',
 			'list'			 => 20
 		),
@@ -802,7 +817,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( "Search Result Entry Contents", 'raindrops' ),
 			'excerpt1'		 => '',
-			'excerpt2'		 => esc_html__( "value content, excerpt, none", 'raindrops' ),
+			'excerpt2'		 => esc_html__( "value content, excerpt, excerpt_grid, none", 'raindrops' ),
 			'validate'		 => 'raindrops_entry_content_is_tag_validate',
 			'list'			 => 21
 		),

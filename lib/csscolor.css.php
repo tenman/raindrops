@@ -41,6 +41,12 @@ function raindrops_indv_css_dark() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 	
     $style = <<<DOC
+.post-format-wrap{
+	    border:solid 1px %c_border%;
+}
+.post-format-text{
+    %c_3%;
+}
 .mark-alert,.mark-notice,.mark-info,.mark-blue,
 .mark-blue, .mark-yellow,.mark-green,.mark-red,
 mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
@@ -856,7 +862,12 @@ function raindrops_indv_css_w3standard() {
 	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
     $style = <<<DOC
-
+.post-format-wrap{
+	border:1px solid %rgba_border%;
+}
+.post-format-text{
+    %c1%;
+}
 .rd-cat-em .footer-widget-wrapper .cat-item:before,
 .rd-cat-em .topsidebar .cat-item:before,
 .rd-cat-em .rsidebar .cat-item:before,
@@ -1388,12 +1399,21 @@ DOC;
 raindrops_register_styles( "light" );
 
 function raindrops_indv_css_light() {
-	$background5 = raindrops_colors( 5, "background" );
-	$background4 = raindrops_colors( 4, "background" );	
-    $font_color5 = raindrops_colors( 5, "color" );
-	$background_3 = raindrops_colors( -3, "background" );
-	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:red!important;');
-    $style = <<<DOC
+	
+	$background5			 = raindrops_colors( 5, "background" );
+	$background4			 = raindrops_colors( 4, "background" );
+	$font_color5			 = raindrops_colors( 5, "color" );
+	$background_3			 = raindrops_colors( -3, "background" );
+	$background3			 = raindrops_colors( 3, "background" );
+	$raindrops_focus_style	 = apply_filters( 'raindrops_forcus_style', 'color:red!important;' );
+
+	$style = <<<DOC
+.post-format-wrap{
+	border:1px solid %rgba_border%;
+}
+.post-format-text{
+    %c1%;
+}
 .topsidebar .widget_tag_cloud .tagcloud a{
 	background:$background5;
 }
@@ -2144,6 +2164,23 @@ a.raindrops-comment-link:hover .point {
 .front-page-template-pages > li:nth-child(odd) {
 	%c4%;
 }
+.rd-grid .archives > li > div{
+    background:#fff;
+}
+.rd-grid .archives > li:hover,
+.rd-grid .search-results > li:hover,
+.rd-grid .topsidebar .widget:hover,
+.rd-content-width-keep .search-results > li:hover,
+.rd-content-width-keep .commentlist > li:hover,
+.rd-content-width-keep .topsidebar .widget:hover,
+.rd-content-width-keep .index:not(.front-portfolio) > li:hover{
+	outline:1px solid $background3;
+    box-shadow: 0px 0px 6px 3px $background4;
+    -moz-box-shadow: 0px 0px 6px 3px $background4;
+    -webkit-box-shadow: 0px 0px 6px 3px $background4;
+    transition: box-shadow 0.5s ease-in-out;
+    -webkit-transition: box-shadow 0.5s ease-in-out;
+}
 CSS3;
 	
 	$page_for_posts	= get_option( 'page_for_posts', false );
@@ -2176,7 +2213,12 @@ function raindrops_indv_css_minimal() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#c0392b!important;');
     $style = <<<CSS
-	
+.post-format-wrap{
+	border:1px solid %rgba_border%;
+}
+.post-format-text{
+    %c1%;
+}	
 .rd-cat-em .footer-widget-wrapper .cat-item:before,
 .rd-cat-em .topsidebar .cat-item:before,
 .rd-cat-em .rsidebar .cat-item:before,
@@ -2473,12 +2515,16 @@ hr{
     line-height: 1.6;
 		 border:1px solid rgba(127,127,127,.3);
 }
-.entry-meta .post-format-text + a,
+
 .post-tag a span,
 .post-category a span{
 	 border:1px solid rgba(127,127,127,.3);
 	padding:.2em .3em;
-	line-height:2.4;
+	line-height:1.6;
+	display:inline-block;
+}
+.entry-meta .post-format-text + a{
+	line-height:1.0;
 }
 a:hover{
 	 color:rgba(41, 128, 185,1.0);
@@ -2606,6 +2652,9 @@ address .entry-rss:after,
 .rd-content-width-keep .pagination + br{
 	display:none;
 }
+.rd-grid .archives > li:hover,
+.rd-grid .search-results > li:hover,
+.rd-grid .topsidebar .widget:hover,
 .rd-content-width-keep .search-results > li:hover,
 .rd-content-width-keep .commentlist > li:hover,
 .rd-content-width-keep .topsidebar .widget:hover,

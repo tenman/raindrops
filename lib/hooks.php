@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Filter and actions for Raindrops theme
  *
@@ -391,6 +390,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.459
 		 */
 		add_action( 'raindrops_after_article', 'raindrops_post_relate_contents' );
+		/**
+		 * @since 1.464
+		 */
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_filter_archive_grid' );
 	}
 }
 ?>

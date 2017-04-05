@@ -918,7 +918,7 @@ function raindrops_entry_content_is_search_validate( $input ) {
  */
 function raindrops_entry_content_is_tag_validate( $input ) {
 
-	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none' || $input == 'excerpt_grid' ) {
 
 		return $input;
 	}
@@ -934,7 +934,7 @@ function raindrops_entry_content_is_tag_validate( $input ) {
  */
 function raindrops_entry_content_is_category_validate( $input ) {
 
-	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none' || $input == 'excerpt_grid' ) {
 
 		return $input;
 	}
@@ -950,7 +950,7 @@ function raindrops_entry_content_is_category_validate( $input ) {
  */
 function raindrops_entry_content_is_home_validate( $input ) {
 
-	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none' || $input == 'excerpt_grid' ) {
 
 		return $input;
 	}

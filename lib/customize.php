@@ -274,7 +274,10 @@ if ( ! isset( $wp_customize ) ) {
 
 		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_home' ) )->value() == 'excerpt' ||
 		$control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_category' ) )->value() == 'excerpt' ||
-		$control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_search' ) )->value() == 'excerpt' ) {
+		$control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_search' ) )->value() == 'excerpt' ||
+		$control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_home' ) )->value() == 'excerpt_glid' ||
+		$control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_category' ) )->value() == 'excerpt_grid' ||
+		$control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_entry_content_is_search' ) )->value() == 'excerpt_grid') {
 			return true;
 		} else {
 			return false;
@@ -2353,6 +2356,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'choices'			 => array(
 				'content'	 => esc_html__( 'Show Content', 'raindrops' ),
 				'excerpt'	 => esc_html__( 'Show Excerpt', 'raindrops' ),
+				'excerpt_grid'	 => esc_html__( 'Show Excerpt with Grid Layout', 'raindrops' ),
 				'none'		 => esc_html__( 'Hide', 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_content',
@@ -2370,6 +2374,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'choices'			 => array(
 				'content'	 => esc_html__( 'Show Content', 'raindrops' ),
 				'excerpt'	 => esc_html__( 'Show Excerpt', 'raindrops' ),
+				'excerpt_grid'	 => esc_html__( 'Show Excerpt with Grid Layout', 'raindrops' ),
 				'none'		 => esc_html__( 'Hide', 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_content',
@@ -2387,6 +2392,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'choices'			 => array(
 				'content'	 => esc_html__( 'Show Content', 'raindrops' ),
 				'excerpt'	 => esc_html__( 'Show Excerpt', 'raindrops' ),
+				'excerpt_grid'	 => esc_html__( 'Show Excerpt with Grid Layout', 'raindrops' ),
 				'none'		 => esc_html__( 'Hide', 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_content',
@@ -3137,8 +3143,25 @@ li.customize-control .widget-inside .widget-content h4,
 	border-left:5px solid #e74c3c;
 	max-width:99%;	
 }
+#rd-control-description-raindrops-col-setting-type.info{
+	display: list-item;
+	border-left:5px solid rgba(46, 204, 113,1.0);
+	max-width:99%;	
+}
 #rd-control-description-raindrops-col-setting-type	.customize-control-title span{
 	color:#e74c3c;
+	font-weight:700;
+}
+#rd-control-description-raindrops-col-setting-type{
+	background:#fff;
+	color:#333;
+}
+#rd-control-description-raindrops-col-setting-type .customize-control-title{
+	background:#fff;
+	color:#333;	
+}
+#rd-control-description-raindrops-col-setting-type.info	.customize-control-title span{
+	color:rgba(46, 204, 113,1.0);
 	font-weight:700;
 }
 #rd-control-description-raindrops-color-select.rd-custom-message{
@@ -3369,9 +3392,9 @@ function raindrops_customize_control_message_raindrops_style_type(){
 	
 if ( !is_active_sidebar( 1 ) || !is_active_sidebar( 2 ) ) {
 // for option
-	add_action( 'customize_render_control_raindrops_theme_settings[raindrops_col_setting_type]', 'raindrops_customize_control_message_raindrops_col_setting_type' );
+	add_action( 'customize_render_control_raindrops_theme_settings[raindrops_col_setting_type]', 'raindrops_customize_control_message_raindrops_col_setting_type', 11 );
 // for theme_mod
-	add_action( 'customize_render_control_raindrops_col_setting_type', 'raindrops_customize_control_message_raindrops_col_setting_type' );
+	add_action( 'customize_render_control_raindrops_col_setting_type', 'raindrops_customize_control_message_raindrops_col_setting_type', 11 );
 }
 
 function raindrops_customize_control_message_raindrops_col_setting_type(){
@@ -3395,6 +3418,26 @@ function raindrops_customize_control_message_raindrops_col_setting_type(){
 	sprintf( __('<span>Alert:</span> %1$s','raindrops'), $message ),// Title
 	$customizer_url, // link
 	__('Go to Widgetr Settings','raindrops')//link label
+	);
+}
+
+// for option
+	add_action( 'customize_render_control_raindrops_theme_settings[raindrops_col_setting_type]', 'raindrops_customize_control_message_link_to_grid_layout' );
+// for theme_mod
+	add_action( 'customize_render_control_raindrops_col_setting_type', 'raindrops_customize_control_message_link_to_grid_layout' );
+
+function raindrops_customize_control_message_link_to_grid_layout(){
+	
+	$customizer_url = "javascript:wp.customize.section( 'raindrops_theme_settings_content' ).focus();";
+	$html = '<li id="rd-control-description-raindrops-col-setting-type" class="rd-custom-message info customize-control customize-control-style-type" >
+	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
+
+	$message = __('Grid Layout for Archives','raindrops');
+	
+	printf( $html,
+	sprintf( __('<span>Info:</span> %1$s','raindrops'), $message ),// Title
+	$customizer_url, // link
+	__('Link to Grid Layout Settings','raindrops')//link label
 	);
 }
 ?>

@@ -151,6 +151,9 @@ raindrops_debug_navitation( __FILE__ );
                         wp_reset_query();
                         esc_html_e( 'Daily Archives', 'raindrops' );
                     }
+					if( empty( $output ) ) {
+						$output =' ...';
+					}
 					
                     ?>
                 </h2>

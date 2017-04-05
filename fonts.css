@@ -541,3 +541,9 @@ dt,
 .capitalize{
     text-transform:capitalize;
 }
+.rd-grid .search-results .entry-title,
+.rd-grid .archives .entry-title {
+    font-size:138.5%;
+    font-weight:bold;
+    font-family:Geneva, Arial, Helvetica, sans-serif;
+}

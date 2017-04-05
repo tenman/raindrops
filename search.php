@@ -12,6 +12,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
+global $raindrops_skip_excerpt, $raindrops_excerpt_condition;
 do_action( 'raindrops_' . basename( __FILE__ ) );
 $raindrops_current_column = raindrops_column_controller();
 
@@ -29,7 +30,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
             raindrops_next_prev_links(); ?>	
                     <h1 class="pagetitle h1">Search Results : <?php the_search_query(); ?></h1>
 				
-                    <ul class="search-results">
+                    <ul class="index search-results">
                         <?php
 						    $raindrops_loop_number = 1;
                         while ( have_posts() ) {

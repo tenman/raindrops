@@ -3235,6 +3235,9 @@ li.customize-control .widget-inside .widget-content h4,
 	color:gray;
 	opacity:.5;
 }
+.wp-customizer input[type="radio"]:default {
+     background-color: rgba(52, 152, 219,.2);
+}
 CUSTOMIZER_CSS;
 
 	wp_add_inline_style( 'customize-controls', $css );

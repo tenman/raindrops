@@ -2169,7 +2169,7 @@ a.raindrops-comment-link:hover .point {
 }
 .rd-grid .archives > li:hover,
 .rd-grid .search-results > li:hover,
-.rd-grid .topsidebar .widget:hover,
+.rd-grid .topsidebar .widget:not(.raindrops-pinup-entries):hover,
 .rd-content-width-keep .search-results > li:hover,
 .rd-content-width-keep .commentlist > li:hover,
 .rd-content-width-keep .topsidebar .widget:hover,
@@ -2180,6 +2180,15 @@ a.raindrops-comment-link:hover .point {
     -webkit-box-shadow: 0px 0px 6px 3px $background4;
     transition: box-shadow 0.5s ease-in-out;
     -webkit-transition: box-shadow 0.5s ease-in-out;
+}
+.rd-content-width-keep .topsidebar .widget.raindrops-pinup-entries:hover,
+.rd-grid .topsidebar .widget.raindrops-pinup-entries:hover{
+	outline:none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    transition: none;
+    -webkit-transition:none;	
 }
 CSS3;
 	
@@ -2611,6 +2620,7 @@ address .entry-rss:after,
 	background:#fff;
 }
 
+
 .commentlist:hover > li,
 .rd-content-width-fit .topsidebar .widget:hover + li,
 .rd-content-width-fit #doc5	.index > li:hover + li{
@@ -2666,7 +2676,10 @@ address .entry-rss:after,
     transition: box-shadow 0.5s ease-in-out;
     -webkit-transition: box-shadow 0.5s ease-in-out;
 }
+.rd-content-width-keep .topsidebar .widget.raindrops-pinup-entries:hover,
+.rd-grid .topsidebar .widget.raindrops-pinup-entries:hover,
 .rd-content-width-keep ul.index > .title-wrapper:hover{
+	outline:none;
 	border:none;
     box-shadow:none;
     -moz-box-shadow:none;

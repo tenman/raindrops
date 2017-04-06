@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.464
+version:1.465
 
 Overview of Changes
 	Added New Presentation Grid Layout for Archives, Posts Archive
@@ -75,6 +75,8 @@ Overview of Changes
 				ie11:	The height of the post title is limited to 300px.
 				ie9:	Browser Can not support Grid,Show list view,
 				ie8:	Use Raindrops fallback view. Only readability
+	Add New Style
+		Customizer Settings default value Highlight.( not support IE )
 
 Files Modified
 	modified: css3.css
@@ -97,7 +99,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.463&new_path=raindrops/1.464
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.464&new_path=raindrops/1.465
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.463

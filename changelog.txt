@@ -7,6 +7,7 @@ Overview of Changes
 Files Modified
 	functions.php
 	responsiveness.css
+	style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.466&new_path=raindrops/1.467

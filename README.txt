@@ -15,6 +15,10 @@ images/go-top.png, images/desmiss.png
 ver 1.410 add image
 images/open.png, images/close.png
 Above images License
+ver 1.466 add image
+images/list-white.gif, images/list-black.gif
+images/grid-white.gif, images/grid-black.gif
+Above images License
 
 copyright   Copyright (c) 2010-2012, Tenman
 License: GNU General Public License v2.0

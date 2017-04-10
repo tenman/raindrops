@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.465
+Version: 1.466
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1591,7 +1591,7 @@ h2.footer-content,
     overflow:hidden;
 }
 .post-format-wrap{
-    display:inline-block;  
+    display:inline-block;
     line-height:1.6;
     max-width:13em;
 }
@@ -3092,7 +3092,7 @@ address .entry-rss:after{
 }
 .rd-grid .format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type,
 .rd-grid .format-link .entry-content p:first-of-type a{
-    font-size:108%;  
+    font-size:108%;
 }
 /* WordPress4.0 Press this link not wrapped p*/
 .format-link .entry-content  a:first-of-type:before,
@@ -6301,7 +6301,7 @@ x:-o-prefocus, .rd-modal > div {
 }
 .rd-grid.rd-content-width-fit.rd-type-light .index > li{
     padding-top:0;
-    padding-bottom:0;  
+    padding-bottom:0;
 }
 .rd-pw-doc5 .page-template-front-page .portfolio,
 .rd-pw-doc5 .page-template-front-page .raindrops-toc-front{
@@ -7427,7 +7427,7 @@ div[id^="post-"]:target{
 }
 .section-counter:before{
      background:rgba(22, 160, 133,1.0);
-     color:#fff;   
+     color:#fff;
 }
 .section-counter,
 .page .entry-content .section-counter,
@@ -7566,7 +7566,7 @@ body.rd-content-width-fit #doc5 .index li.rd-term-description{
     }
     .layout-switch-button{
         outline:none;
-        width:45px; 
+        width:45px;
         padding: 2px 4px;
         box-sizing:border-box;
         display: inline-block;
@@ -7584,7 +7584,7 @@ body.rd-content-width-fit #doc5 .index li.rd-term-description{
     button[class="layout-switch-button"],
     .rd-switch-to-list-layout,
     .rd-switch-to-grid-layout{
-        background-size:contain; 
+        background-size:contain;
         background-repeat:no-repeat;
         background-position:center;
     }

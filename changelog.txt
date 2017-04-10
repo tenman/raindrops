@@ -1,4 +1,34 @@
 Changelog -----------------------------------
+version:1.466
+
+Overview of Changes
+
+	Fixed handwritten post excerpt can not display in archives.
+
+		In the archive page, when handwritten excerpt exists, it will be preferentially displayed.
+
+	Fixed figure element wrapped p element
+
+	Added Layout Swith Button for Grid layout archives
+
+Files Modified
+
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   loop.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.465&new_path=raindrops/1.466
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.465
 
 Overview of Changes

@@ -806,3 +806,6 @@ nav#access:before{
 .index.front-page li{
     list-style:none;
 }
+.loop-before-toolbar{
+        display:none;
+}

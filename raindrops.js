@@ -248,3 +248,52 @@ jQuery( function ( $ ) {
         
     });
 });
+/** 
+ * .rd-layout-switch
+ * @param {type} $
+ * @returns {undefined}
+ * @1.466
+ */
+jQuery( function ( $ ) {
+    
+    var title_text_to_grid =  raindrops_script_vars.raindrops_layout_change_label_to_list;
+    var title_text_to_list =  raindrops_script_vars.raindrops_layout_change_label_to_grid;
+    
+    function setCookie( key, value ) {
+        var expires = new Date();
+        expires.setTime( expires.getTime() + ( 1 * 24 * 60 * 60 ) );
+        document.cookie = key + '=' + value + ';path=/' + ';expires=' + expires.toUTCString();
+    }
+
+    function getCookie( key ) {
+        var keyValue = document.cookie.match( '(^|;) ?' + key + '=([^;]*)(;|$)' );
+        return keyValue ? keyValue[2] : null;
+    }
+
+    if ( 'list' == getCookie( 'rd_swich_layout' ) ) {
+
+        $( '#rd-swich-layout' ).addClass( 'rd-switch-to-grid-layout' ).removeClass( 'rd-switch-to-list-layout' ).attr("title", title_text_to_list ); //.html('grid');
+        $( 'body' ).removeClass( "rd-grid" );
+
+    } else if ( 'grid' == getCookie( 'rd_swich_layout' ) ) {
+        
+        $( '#rd-swich-layout' ).addClass( 'rd-switch-to-list-layout' ).removeClass( 'rd-switch-to-grid-layout' ).attr("title", title_text_to_grid );//.html('list');           
+        $( 'body' ).addClass( "rd-grid" );
+    }
+
+    $( "#rd-swich-layout" ).on( 'click', function () {
+
+        if ( $( 'body' ).hasClass( 'rd-grid' ) ) {
+
+            setCookie( 'rd_swich_layout', 'list' );
+
+            $( this ).addClass( 'rd-switch-to-grid-layout' ).removeClass( 'rd-switch-to-list-layout' ).attr("title", title_text_to_list ); //.html('grid');
+            $( 'body' ).removeClass( "rd-grid" );
+        } else {
+            setCookie( 'rd_swich_layout', 'grid' );
+
+            $( this ).addClass( 'rd-switch-to-list-layout' ).removeClass( 'rd-switch-to-grid-layout' ).attr("title", title_text_to_grid );//.html('list');
+            $( 'body' ).addClass( "rd-grid" );
+        }
+    } );
+} );

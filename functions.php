@@ -5057,13 +5057,13 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'raindrops_header_video_active'				 => $raindrops_header_video_active,
 			'raindrops_video_header_tagline_title_attr'	 => esc_html__( 'Link to Main Content', 'raindrops' ),
 			'doc_type'									 => $raindrops_doc_type,
+			'raindrops_layout_change_label_to_list'		 => esc_html__( 'Change to list layout', 'raindrops' ),
+			'raindrops_layout_change_label_to_grid'		 => esc_html__( 'Change to grid layout', 'raindrops' ),
 		) );
 
 		wp_reset_postdata();
 	}
-
 }
-
 /**
  *
  *
@@ -6172,57 +6172,64 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 		$raindrops_excerpt_length = raindrops_warehouse_clone( 'raindrops_excerpt_length' );
 
 		if ( isset( $post ) ) {
-			
+
 			$raindrops_skip_excerpt = apply_filters( 'raindrops_skip_excerpt', false, $post->ID );
 		} else {
-			
+
 			$raindrops_skip_excerpt = false;
 		}
 
-		if ( ( true == $raindrops_excerpt_condition && !is_sticky() && 'no' == $raindrops_excerpt_enable && 
-		! preg_match( '!\[raindrops skip-excerpt\]!', $post->post_content ) ) && false == $raindrops_skip_excerpt ) {
-
-			if ( ! has_post_format() || 'no' == $raindrops_allow_oembed_excerpt_view && has_post_format( 'video' ) || false == $raindrops_change_html_excerpt_when_post_formats  ) {
-
-				$excerpt = get_the_excerpt( );
-				$excerpt = strip_shortcodes( $excerpt );
-				$excerpt = wp_html_excerpt( $excerpt, $raindrops_excerpt_length, '...' );
-				$excerpt = preg_replace( '!\[raindrops[^\]]+\]!', '', $excerpt );
-				$excerpt = apply_filters( 'the_excerpt', $excerpt );
-				$excerpt = apply_filters( 'raindrops_the_excerpt', $excerpt, __FUNCTION__ );
-
-				echo apply_filters( 'raindrops_entry_content', $excerpt );
-			} elseif ( isset( $post ) && true == $raindrops_change_html_excerpt_when_post_formats && true == $raindrops_excerpt_condition && has_post_format() ) {
-
-				$content = get_the_content( $more_link_text, $stripteaser );
-				$content = apply_filters( 'the_content', $content );
-				$content = apply_filters( 'raindrops_the_excerpt', $content, __FUNCTION__ );
-				echo raindrops_html_excerpt_with_elements( $content, $raindrops_excerpt_length, ' ...', true, true );
-			}
-
+		if ( has_excerpt() && ! is_singular() && ! is_search() ) {
+			/* @1.466 */
+			the_excerpt();
+			
 		} else {
 
-			$content = ''; // wp-includes/post-template.php:265 - Trying to get property of non-object
+			if ( ( true == $raindrops_excerpt_condition && !is_sticky() && 'no' == $raindrops_excerpt_enable &&
+			!preg_match( '!\[raindrops skip-excerpt\]!', $post->post_content ) ) && false == $raindrops_skip_excerpt ) {
 
-			if ( isset( $post ) ) {
-				
-				$content .= get_the_content( $more_link_text, $stripteaser );
+				if ( !has_post_format() || 'no' == $raindrops_allow_oembed_excerpt_view && has_post_format( 'video' ) || false == $raindrops_change_html_excerpt_when_post_formats ) {
+
+					$excerpt = get_the_excerpt();
+					$excerpt = strip_shortcodes( $excerpt );
+					$excerpt = wp_html_excerpt( $excerpt, $raindrops_excerpt_length, '...' );
+					$excerpt = preg_replace( '!\[raindrops[^\]]+\]!', '', $excerpt );
+					$excerpt = apply_filters( 'the_excerpt', $excerpt );
+					$excerpt = apply_filters( 'raindrops_the_excerpt', $excerpt, __FUNCTION__ );
+
+					echo apply_filters( 'raindrops_entry_content', $excerpt );
+				} elseif ( isset( $post ) && true == $raindrops_change_html_excerpt_when_post_formats && true == $raindrops_excerpt_condition && has_post_format() ) {
+
+					$content = get_the_content( $more_link_text, $stripteaser );
+					$content = apply_filters( 'the_content', $content );
+					$content = apply_filters( 'raindrops_the_excerpt', $content, __FUNCTION__ );
+					echo raindrops_html_excerpt_with_elements( $content, $raindrops_excerpt_length, ' ...', true, true );
+				}
+			} else {
+
+				$content = ''; // wp-includes/post-template.php:265 - Trying to get property of non-object
+
+				if ( isset( $post ) ) {
+
+					$content .= get_the_content( $more_link_text, $stripteaser );
+				}
+
+				$content = apply_filters( 'the_content', $content );
+				$content = apply_filters( 'raindrops_entry_content', $content );
+				$content = str_replace( ']]>', ']]&gt;', $content );
+				/**
+				 * @1.325
+				 */
+				if ( has_excerpt() && empty( $content ) && !wp_attachment_is_image( $post->ID ) ) {
+
+					$content .= sprintf( '<div class="entry-content-fallback">%1$s</div>', get_the_excerpt() );
+				}
+
+				echo $content;
 			}
-
-			$content = apply_filters( 'the_content', $content );
-			$content = apply_filters( 'raindrops_entry_content', $content );
-			$content = str_replace( ']]>', ']]&gt;', $content );
-			/**
-			 * @1.325
-			 */
-			if ( has_excerpt() && empty( $content ) && !wp_attachment_is_image( $post->ID ) ) {
-
-				$content .= sprintf( '<div class="entry-content-fallback">%1$s</div>', get_the_excerpt() );
-			}
-
-			echo $content;
 		}
 	}
+
 }
 /**
  *
@@ -9042,7 +9049,7 @@ if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
 		$content	 = preg_replace( '!(<' . $allblocks . '[^>]*>[^<]*)</p>!', "$1", $content );
 		$content	 = preg_replace( '!(<' . $allblocks . '[^>]*>)([^(<|\s)]+)<p>!', "$1<p>$2</p>", $content );
 		$content	 = str_replace( 'class="wp-caption-text"></p>', 'class="wp-caption-text">', $content );
-
+		$content	 = preg_replace( '!<p>(<figure[^>]*>(.*)?</figure>)</p>!', "$1", $content );//@1.466 test figure has child element
 
 		return $content;
 	}
@@ -13061,6 +13068,7 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 	-webkit-box-orient:vertical;
 	margin-top:1em;
 	justify-content: center;
+	margin-bottom:1em;
 }
 .safari.rd-grid .index.{$archive_type}{
 	display:block;
@@ -13168,6 +13176,7 @@ box-sizing:border-box;
 	flex-basis:90vw;
 	margin:5px;
 }
+
 @media screen and (max-width : {$break_point_small_max}px){
 
 	.rd-grid ul.{$archive_type} .title-wrapper,
@@ -13289,7 +13298,20 @@ if ( !function_exists( 'raindrops_is_grid_archives' ) ) {
 		}
 		return false;
 	}
+}
 
+if ( ! function_exists( 'raindrops_add_switch_layout_button' ) ) {
+	/**
+	 * @1.466
+	 */
+	function raindrops_add_switch_layout_button () {
+
+		if( true == raindrops_is_grid_archives() ) {
+
+			$html = '<button type="button" id="rd-swich-layout" class="layout-switch-button" title="'. esc_attr__( 'Change to list layout', 'raindrops' ). '"><span class="button-text">'. esc_html__( 'Change to list layout', 'raindrops' ) .'</span></button>';		
+			echo apply_filters( 'raindrops_add_switch_layout_button', $html );
+		}
+	}
 }
 /**
  *

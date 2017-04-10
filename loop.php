@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template for display loops.
  *
@@ -14,12 +15,16 @@ if ( !defined( 'ABSPATH' ) ) {
 raindrops_prepend_loop();
 
 raindrops_next_prev_links();
-
+?>
+<div class="loop-before-toolbar" ><?php do_action('raindrops_loop_before_toolbar','');?></div>
+<?php
 if ( have_posts() ) {
 
     raindrops_loop_title();
 
     $raindrops_loop_number = 1;
+
+	do_action( 'raindrops_in_the_loop', '', 0 ); 
 
     while ( have_posts() ) {
 

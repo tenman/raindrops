@@ -998,6 +998,9 @@
     .format-link .entry-content p:first-of-type a{
         font-size:1em;
     }
+    .loop-before-toolbar .layout-switch-button{
+        display:none;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{

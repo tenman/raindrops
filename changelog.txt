@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.467
+
+Overview of Changes
+
+	Fixed Layout Swith Button display improperly.
+Files Modified
+	functions.php
+	responsiveness.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.466&new_path=raindrops/1.467
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.466
 
 Overview of Changes

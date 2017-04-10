@@ -5284,6 +5284,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 		.rd-pw-doc5.rd-col-1 .yui-t4 #container > .first {
 			margin:0;
 		}*/
+		.loop-before-toolbar,
 		.rd-pw-doc5.rd-col-1 .topsidebar .metaslider,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_calendar #calendar_wrap,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .raindrops-pinup-entries .page,

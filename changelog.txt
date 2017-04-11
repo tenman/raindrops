@@ -1,4 +1,19 @@
 Changelog -----------------------------------
+version:1.468
+
+Overview of Changes
+
+	Fixed Correct the problem that grid layout style affects irrelevant pages
+	Fixed a problem that footer link does not swim in manual color setting
+Files Modified
+	functions.php
+	raindrops.js
+	csscolor.css.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.467&new_path=raindrops/1.468
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.467
 
 Overview of Changes

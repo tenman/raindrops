@@ -325,6 +325,7 @@ ol.tblist li{
     color:%raindrops_footer_color%;
 }
 /* @since 1.462 from #ft a */
+.footer a,
 body:not(.rd-tag-em) #ft a,
 #ft li:not(.widget_tag_cloud) a{
      color:%raindrops_footer_link_color%; 
@@ -1059,6 +1060,7 @@ html .mceContentBody,
     color:%raindrops_footer_color%;*/
 }
 /* @since 1.462 from #ft a */
+.footer a,
 body:not(.rd-tag-em) #ft a,
 #ft li:not(.widget_tag_cloud) a{
      color:%raindrops_footer_link_color%;           
@@ -1623,6 +1625,7 @@ ol.tblist li{
     color:%raindrops_footer_color%;
 }
 /* @since 1.462 from #ft a */
+.footer a,
 body:not(.rd-tag-em) #ft a,
 #ft li:not(.widget_tag_cloud) a{
      color:%raindrops_footer_link_color%;           
@@ -2386,6 +2389,7 @@ a:hover{
 	/* %c5% */
 	}
 /* @since 1.462 from #ft a */
+.footer a,
 body:not(.rd-tag-em) #ft a,
 #ft li:not(.widget_tag_cloud) a{
      color:%raindrops_footer_link_color%;           
@@ -2888,7 +2892,7 @@ $raindrops_header_image = raindrops_warehouse_clone( 'raindrops_header_image' );
 $raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
 $raindrops_footer_image = raindrops_warehouse_clone( 'raindrops_footer_image' );
 $raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_color' );
-$raindrops_footer_color = raindrops_warehouse_clone( 'raindrops_footer_link_color' );
+$raindrops_footer_link_color = raindrops_warehouse_clone( 'raindrops_footer_link_color' );
 
 //define("BASE_COLOR1",$raindrops_base_color);
 /**

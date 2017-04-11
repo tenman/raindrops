@@ -2408,11 +2408,13 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n#ft{" . raindrops_upload_image_parser( $footer_image_uri, 'inline', '#ft' ) . '}';
 		}
 
+		
 		/* 1.306 add conditional */
 		if ( false == raindrops_has_indivisual_notation() ) {
 			if ( false == $raindrops_automatic_color ) {
 
-				$css .= "\n#ft{color:" . raindrops_warehouse( 'raindrops_footer_color' ) . ';}';
+				$css .= "\n#ft{color:" . raindrops_warehouse_clone( 'raindrops_footer_color' ) . ';}';
+				
 			}
 		}
 		// 2col 3col change style helper
@@ -5009,7 +5011,13 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			$raindrops_header_video_active = 'no';
 		}
 		$raindrops_doc_type = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
-
+		
+		if( true === raindrops_is_grid_archives() ) {
+			$raindrops_is_grid_archives = 'yes';
+		} else {
+			$raindrops_is_grid_archives = 'no';
+		}
+		
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'										 => $is_IE,
 			'fluid_maximum_width'						 => $raindrops_fluid_maximum_width,
@@ -5059,6 +5067,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'doc_type'									 => $raindrops_doc_type,
 			'raindrops_layout_change_label_to_list'		 => esc_html__( 'Change to list layout', 'raindrops' ),
 			'raindrops_layout_change_label_to_grid'		 => esc_html__( 'Change to grid layout', 'raindrops' ),
+			'raindrops_is_grid_archives'				 => $raindrops_is_grid_archives,
 		) );
 
 		wp_reset_postdata();
@@ -13259,9 +13268,17 @@ if ( !function_exists( 'raindrops_is_grid_archives' ) ) {
 	 * @return boolean
 	 * @since 1.464
 	 */
+
 	function raindrops_is_grid_archives() {
 
 		global $raindrops_where_excerpts, $raindrops_change_all_excerpt_archives_to_grid_layout;
+		
+		$filtered = apply_filters( 'raindrops_is_grid_archives', '' );
+		
+		if( true === is_bool( $filtered ) ) {
+			
+			return $filtered;
+		}
 
 		if ( is_home() && 'excerpt_grid' == raindrops_warehouse_clone( 'raindrops_entry_content_is_home' ) ) {
 			return true;

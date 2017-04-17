@@ -264,27 +264,27 @@ jQuery( function ( $ ) {
          $( 'body' ).removeClass( "rd-grid" );
     }
     
-    function setCookie( key, value ) {
+    function raindrops_set_cookie( key, value ) {
         var expires = new Date();
         expires.setTime( expires.getTime() + ( 1 * 24 * 60 * 60 ) );
         document.cookie = key + '=' + value + ';path=/' + ';expires=' + expires.toUTCString();
     }
 
-    function getCookie( key ) {
+    function raindrops_get_cookie( key ) {
         var keyValue = document.cookie.match( '(^|;) ?' + key + '=([^;]*)(;|$)' );
         return keyValue ? keyValue[2] : null;
     }
     if ( 'yes' == is_grid_archives ) {
         
-        if ( 'list' == getCookie( 'rd_swich_layout' ) ) {
+        if ( 'list' == raindrops_get_cookie( 'rd_swich_layout' ) ) {
 
             $( '#rd-swich-layout' ).addClass( 'rd-switch-to-grid-layout' ).removeClass( 'rd-switch-to-list-layout' ).attr("title", title_text_to_list ); //.html('grid');
-            $( 'body' ).removeClass( "rd-grid" );
+            $( 'body' ).removeClass( "rd-grid" ).addClass('rd-list');
 
-        } else if ( 'grid' == getCookie( 'rd_swich_layout' ) ) {
+        } else if ( 'grid' == raindrops_get_cookie( 'rd_swich_layout' ) ) {
 
             $( '#rd-swich-layout' ).addClass( 'rd-switch-to-list-layout' ).removeClass( 'rd-switch-to-grid-layout' ).attr("title", title_text_to_grid );//.html('list');           
-            $( 'body' ).addClass( "rd-grid" );
+            $( 'body' ).addClass( "rd-grid" ).removeClass('rd-list');
         }
 
     } else {
@@ -295,15 +295,15 @@ jQuery( function ( $ ) {
 
         if ( $( 'body' ).hasClass( 'rd-grid' ) ) {
 
-            setCookie( 'rd_swich_layout', 'list' );
+            raindrops_set_cookie( 'rd_swich_layout', 'list' );
 
             $( this ).addClass( 'rd-switch-to-grid-layout' ).removeClass( 'rd-switch-to-list-layout' ).attr("title", title_text_to_list ); //.html('grid');
-            $( 'body' ).removeClass( "rd-grid" );
+            $( 'body' ).removeClass( "rd-grid" ).addClass('rd-list');
         } else {
-            setCookie( 'rd_swich_layout', 'grid' );
+            raindrops_set_cookie( 'rd_swich_layout', 'grid' );
 
             $( this ).addClass( 'rd-switch-to-list-layout' ).removeClass( 'rd-switch-to-grid-layout' ).attr("title", title_text_to_grid );//.html('list');
-            $( 'body' ).addClass( "rd-grid" );
+            $( 'body' ).addClass( "rd-grid" ).removeClass('rd-list');;
         }
     } );
 } );

@@ -3443,4 +3443,24 @@ function raindrops_customize_control_message_link_to_grid_layout(){
 	__('Link to Grid Layout Settings','raindrops')//link label
 	);
 }
+// for option
+add_action( 'customize_render_control_raindrops_theme_settings[raindrops_entry_content_is_home]', 'raindrops_customize_control_message_raindrops_entry_content_is_home' );
+// for theme_mod
+add_action( 'customize_render_control_raindrops_entry_content_is_home', 'raindrops_customize_control_message_raindrops_entry_content_is_home' );
+
+function raindrops_customize_control_message_raindrops_entry_content_is_home() {
+
+	$html = '<li id="rd-control-description-raindrops-col-setting-type" class="rd-custom-message info customize-control customize-control-style-type" >
+	<label><span class="customize-control-title">%1$s</span><span class="customize-control-description">%4$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
+
+	$customizer_url	 = "javascript:wp.customize.section( 'raindrops_theme_settings_featured' ).focus();";
+	$message		 = __( "If you select 'Show Excerpt with Grid Layout' in the 'Home Listed Entry Contents setting', there are recommended related settings.", 'raindrops' );
+	$description	 = __( 'On the link below, go to Featured Image Settings,If you select yes, the configuration section is displayed. Featured Image Position as In front of Title In addition, please set Featured Image Size to Medium_large', 'raindrops' );
+
+	printf( $html, sprintf( __( '<span>Info:</span> %1$s', 'raindrops' ), $message ), // Title
+							$customizer_url, // link
+							__( 'Link to Featured Image Settings', 'raindrops' ), //link label
+							$description // description
+	);
+}
 ?>

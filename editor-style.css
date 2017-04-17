@@ -42,18 +42,18 @@ img.alignleft,
 .alignleft {
     clear:left;
     float: left;
-    padding:0.38461538461em 0.76923076923em 0.15384615384em 0;
+    /* @1.469 padding:0.38461538461em 0.76923076923em 0.15384615384em 0;*/
 }
 div.alignright,
 img.alignright,
 .alignright {
     clear:right;
     float: right;
-    padding:0.38461538461em 0 0.38461538461em 0.76923076923em;
+    /* @1.469 padding:0.38461538461em 0 0.38461538461em 0.76923076923em;*/
 }
 .alignnone{
     display:inline;
-    padding:0.38461538461em 0.76923076923em 0.76923076923em 0;
+    /* @1.469 padding:0.38461538461em 0.76923076923em 0.76923076923em 0;*/
 }
 .size-thumbnail{
     padding:.5em;

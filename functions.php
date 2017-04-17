@@ -1625,7 +1625,8 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 
 			$result = "<h2 class=\"h2\">" . esc_html__( 'Tips', 'raindrops' ) . '</h2>';
 			$result .= '<p>' . esc_html__( 'If Raindrops Options panel is opened, and the reference color is set, this arrangement of color is changed at once.', 'raindrops' ) . "</p>";
-			$result .= "<dl><dt><h3>" . esc_html__( 'Dinamic Color Class', 'raindrops' ) . '</strong></h3>';
+			$result .= "<dl><dt><h3 class=\"dm-color\">" . esc_html__( 'Dinamic Color Class', 'raindrops' ) . '</strong></h3>';
+			$result .= "<dd><a href=\"customize.php?autofocus[section]=raindrops_theme_settings_presentation\">" . esc_html__( 'Link to Customize Base Color Settings', 'raindrops' ) . '</a></dd>';
 			$result .= '<dd><table><tr>
 					<td style="' . raindrops_colors_clone( 5, 'set' ) . ';padding:0.5em;">class color5</td>
 					<td style="' . raindrops_colors_clone( 4, 'set' ) . ';padding:0.5em;">class color4</td>
@@ -1644,6 +1645,11 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 					</div></td>
 					</tr></table>
 					</dd>';
+
+			$style_type = raindrops_warehouse_clone( 'raindrops_style_type' );
+
+			if( 'dark' == $style_type || 'light' == $style_type ) {
+
 			$result .= "<dt><h3>" . esc_html__( 'Dinamic Gradient Class', 'raindrops' ) . '</h3></dt>';
 			$result .= '<dd><table><tr>
 				<td style="' . raindrops_gradient_single( 1, "asc" ) . 'padding:0.5em;">class gradient1</td>
@@ -1660,9 +1666,11 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 				' . esc_html__( 'code example:please HTML editor mode', 'raindrops' ) . '
 				<div  style="' . raindrops_gradient_single( -1, "asc" ) . 'padding:1em;">&lt;div class="gradient-1"&gt;<p>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>&lt;/div&gt;</div></td></tr></table></dd>';
+			}
+
 			$result .= "<dl><dt><h3>" . esc_html__( 'Font Size CSS Class', 'raindrops' ) . '</strong></h3>';
 			$result .= "<dt><p>" . esc_html__( 'Classes', 'raindrops' ) . '</p></dt>';
-			$result .= "<dd><p>" . esc_html__( 'f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26', 'raindrops' ) . "</p><pre><code>&lt;p class=\"f16\"&gt;Font Size 16px&lt;/p&gt;</code></pre>";
+			$result .= "<dd><p>" . esc_html__( 'f10 , f11 , f12 , f13 , f14 , f15 , f16 , f17 , f18 , f19 , f20 , f21 , f22 , f23 , f24 , f25 , f26...f40', 'raindrops' ) . "</p><pre><code>&lt;p class=\"f16\"&gt;Font Size 16px&lt;/p&gt;</code></pre>";
 			$result .= "</dl>";
 			$result .= "<dl><dt><h3>" . esc_html__( 'Google Fonts Family CSS Class', 'raindrops' ) . '</strong></h3>';
 			$result .= "<dt><p>" . esc_html__( 'Classes', 'raindrops' ) . '</p></dt>';
@@ -1685,6 +1693,14 @@ if ( !function_exists( 'raindrops_edit_help' ) ) {
 			$result .= "<dt><p>" . esc_html__( 'Styling Article', 'raindrops' ) . '</p></dt>';
 			$result .= "<dd><p>" . esc_html__( 'add border and padding', 'raindrops' ) . "</p><pre><code>article {border:1px solid red;padding:1em;}</code></pre>"
 			. "<p>" . esc_html__( 'note:article elements and post_class () You can use all of the elements to be output.', 'raindrops' ) . "</p></dd>";
+			$result .= "</dl>";
+
+			$result .= "<dl><dt><h3>" . esc_html__( 'Example of Raindrops Notation Tags', 'raindrops' ) . '</strong></h3>';
+			$result .= '<dt><p>&lt;!--[raindrops color_type="dark" col="1"]--&gt;</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'When pasting this tag in the entry content, it displays in color type dark 1 column layout', 'raindrops' ) ."</p></dd>";
+			$result .= "<dd><p>" . esc_html__( 'color_type values [dark|light|w3standard|minimal] col values [1|2|3]', 'raindrops' ) ."</p></dd>";
+			$result .= '<dt><p>&lt;!--[raindrops skip-excerpt]--&gt;</p></dt>';
+			$result .= "<dd><p>" . esc_html__( 'Even if it is set to display excerpt sentences in the archive, this post will be displayed in full text.', 'raindrops' ) ."</p></dd>";
 			$result .= "</dl>";
 
 			$result .= $text;
@@ -2408,13 +2424,13 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n#ft{" . raindrops_upload_image_parser( $footer_image_uri, 'inline', '#ft' ) . '}';
 		}
 
-		
+
 		/* 1.306 add conditional */
 		if ( false == raindrops_has_indivisual_notation() ) {
 			if ( false == $raindrops_automatic_color ) {
 
 				$css .= "\n#ft{color:" . raindrops_warehouse_clone( 'raindrops_footer_color' ) . ';}';
-				
+
 			}
 		}
 		// 2col 3col change style helper
@@ -2432,7 +2448,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 		if ( "hide" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
 			$css .= ' .posted-by-string{display:none;} .raindrops-comment-link{margin:0;} ';
-			$css .= ' .posted-on-after .author{display:none;}, ';
+			$css .= ' .posted-on-after .author{display:none;} ';
 		}
 
 		if ( "avatar" == raindrops_warehouse_clone( 'raindrops_display_article_author' ) ) {
@@ -5011,13 +5027,13 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			$raindrops_header_video_active = 'no';
 		}
 		$raindrops_doc_type = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
-		
+
 		if( true === raindrops_is_grid_archives() ) {
 			$raindrops_is_grid_archives = 'yes';
 		} else {
 			$raindrops_is_grid_archives = 'no';
 		}
-		
+
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'										 => $is_IE,
 			'fluid_maximum_width'						 => $raindrops_fluid_maximum_width,
@@ -5365,7 +5381,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			/* @since1.443 */
 			.rd-pw-doc5.rd-col-1.single .raindrops-keep-content-width article{
 				max-width:{$raindrops_full_width_max_width_keep_content_width}px;
-				margin-left:auto!important;	
+				margin-left:auto!important;
 				margin-right:auto!important;
 			}
 			/* @since1.446 */
@@ -5398,8 +5414,18 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 				margin-left:auto!important;
 				margin-right:auto!important;
 			}
-			" . '/* raindrops is fluid 1 column end  */';
+			@media screen and (max-width : {$raindrops_full_width_max_width}px){
+				/* @1.469 */
+				.rd-col-1 .raindrops-no-keep-content-width .topsidebar .widget,
+				.rd-col-1.single .first div[id^=\"post-\"],
+				.rd-col-1.page .first div[id^=\"post-\"]{
+					padding-left:1em;
+					padding-right:1em;
+					box-sizing:border-box;
+				}
+			}" . '/* raindrops is fluid 1 column end  */';
 		}
+
 
 		$fluid_width = raindrops_remove_spaces_from_css( $fluid_width );
 
@@ -5906,31 +5932,31 @@ if ( !function_exists( 'raindrops_entry_title' ) ) {
 		$thumbnail				 = '';
 		$raindrops_unique_label	 = '';
 		extract( $args, EXTR_SKIP );
-		
+
 		$raindrops_entry_title_text_class_start = '';
 		$raindrops_entry_title_text_class_end = '';
-		
+
 		$raindrops_entry_title_text_class = apply_filters( 'raindrops_entry_title_text_class', '' );
-		
+
 		if( ! empty( $raindrops_entry_title_text_class ) ) {
-			
+
 			$raindrops_entry_title_text_class_start = '<span class="'.esc_attr( $raindrops_entry_title_text_class ).'">';
 			$raindrops_entry_title_text_class_end = '</span>';
 		}
-		
+
 		if ( !is_singular() || is_page_template( 'page-templates/list-of-post.php' ) || ( is_page_template( 'page-templates/full-width.php' ) && is_front_page() ) || ( is_page_template( 'page-templates/front-page.php' ) && is_front_page() ) ) {
-			
+
 			$html = '<' . $raindrops_title_element . ' class="%1$s">%2$s' .
 			"\n" . str_repeat( "\t", 11 ) . '<a href="%3$s" rel="bookmark" title="%4$s"><span>%5$s %6$s</span></a>' .
 			"\n" . str_repeat( "\t", 10 ) . '</' . $raindrops_title_element . '>';
 
-			$html = sprintf( $html, 
-				apply_filters( 'raindrops_entry_title_class', 'h2 entry-title' ), 
-				$thumbnail, get_permalink(), 
-				the_title_attribute( array( 'before' => '', 'after' => '', 'echo' => false ) ), 
-				the_title( $raindrops_entry_title_text_class_start, $raindrops_entry_title_text_class_end, false ), 
+			$html = sprintf( $html,
+				apply_filters( 'raindrops_entry_title_class', 'h2 entry-title' ),
+				$thumbnail, get_permalink(),
+				the_title_attribute( array( 'before' => '', 'after' => '', 'echo' => false ) ),
+				the_title( $raindrops_entry_title_text_class_start, $raindrops_entry_title_text_class_end, false ),
 				$raindrops_unique_label );
-			
+
 			if ( true == $echo ) {
 				echo apply_filters( 'raindrops_entry_title', $html );
 			} else {
@@ -6192,7 +6218,7 @@ if ( !function_exists( 'raindrops_entry_content' ) ) {
 		if ( has_excerpt() && ! is_singular() && ! is_search() ) {
 			/* @1.466 */
 			the_excerpt();
-			
+
 		} else {
 
 			if ( ( true == $raindrops_excerpt_condition && !is_sticky() && 'no' == $raindrops_excerpt_enable &&
@@ -6303,7 +6329,7 @@ if ( !function_exists( 'raindrops_sidebar_menus' ) ) {
 		/**
 		 * @1.447 comment out
 		 * Next version remobe this
-		 * 
+		 *
 		  if ( 'default' == $position ) {
 		  echo '<li>';
 		  the_widget( 'WP_Widget_Categories' );
@@ -6593,7 +6619,7 @@ if ( !function_exists( 'raindrops_get_recent_posts' ) ) {
 		} else {
 
 			$html	 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-recentpost" %6$s style="%11$s"><div class="posted-on">
-%7$s%8$s</div><h3 class="entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';					
+%7$s%8$s</div><h3 class="entry-title"><a href="%1$s"><span>%2$s</span></a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 		}
 		$html	 = apply_filters( 'raindrops_recent_posts_li', $html );
 		$results = wp_get_recent_posts( $args );
@@ -6679,21 +6705,21 @@ if ( !function_exists( 'raindrops_get_recent_posts' ) ) {
 				$date_strings = esc_html( get_the_date(), $val['ID'] ) ;
 			}
 
-			$result .= sprintf( $html, 
-			esc_url( get_permalink( $val[ 'ID' ] ) ), 
-			$val[ 'post_title' ], 
-			$list_num_class, 
-			raindrops_doctype_elements( 'div', 'article', false ), 
-			$val[ 'ID' ], 
-			$classes, 
-			sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;', 
-				$day_link, 
-				esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], 	$raindrops_date_format ) ), 
-				$date_strings, 
-				raindrops_doctype_elements( 'span', 'time', false ), 
+			$result .= sprintf( $html,
+			esc_url( get_permalink( $val[ 'ID' ] ) ),
+			$val[ 'post_title' ],
+			$list_num_class,
+			raindrops_doctype_elements( 'div', 'article', false ),
+			$val[ 'ID' ],
+			$classes,
+			sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;',
+				$day_link,
+				esc_attr( 'archives daily ' . mysql2date( $val[ "post_date" ], 	$raindrops_date_format ) ),
+				$date_strings,
+				raindrops_doctype_elements( 'span', 'time', false ),
 				raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-			), 
-			sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', 
+			),
+			sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ',
 			get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $author ), $author
 			), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 			);
@@ -6880,18 +6906,18 @@ if ( !function_exists( 'raindrops_get_category_posts' ) ) {
 					$date_strings = esc_html( get_the_date() ) ;
 				}
 				$classes = 'class="' . join( ' ', $classes ) . '"';
-				$result .= sprintf( $html, 
-					esc_url( get_permalink( $post->ID ) ), 
-					get_the_title(), 
-					$list_num_class, 
-					raindrops_doctype_elements( 'div', 'article', false ), 
-					$post->ID, 
-					$classes, 
-					sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;', 
-						$day_link, 
-						esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), 
-						esc_html( $date_strings ), 
-						raindrops_doctype_elements( 'span', 'time', false ), 
+				$result .= sprintf( $html,
+					esc_url( get_permalink( $post->ID ) ),
+					get_the_title(),
+					$list_num_class,
+					raindrops_doctype_elements( 'div', 'article', false ),
+					$post->ID,
+					$classes,
+					sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;',
+						$day_link,
+						esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ),
+						esc_html( $date_strings ),
+						raindrops_doctype_elements( 'span', 'time', false ),
 						raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
@@ -6964,7 +6990,7 @@ if ( !function_exists( 'raindrops_get_tag_posts' ) ) {
 		$title					 = $settings[ 'title' ];
 		unset( $settings[ 'title' ] );
 
-		if ( is_numeric( $settings['raindrops_show_related_posts_line_clip'] ) ) {	
+		if ( is_numeric( $settings['raindrops_show_related_posts_line_clip'] ) ) {
 			$html					 = '<li class="%3$s">%10$s<%4$s id="post-%5$s-tagpost" %6$s style="%11$s"><div class="posted-on">
 %7$s%8$s</div><h3 class="entry-title"><a href="%1$s" class="trancate" data-rows="'.absint($settings['raindrops_show_related_posts_line_clip'] ).'">%2$s</a></h3><div class="entry-content clearfix">%9$s</div></%4$s></li>';
 		}
@@ -7084,17 +7110,17 @@ if ( !function_exists( 'raindrops_get_tag_posts' ) ) {
 					$date_strings = esc_html( get_the_date() ) ;
 				}
 
-				$result .= sprintf( $html, 
-				esc_url( get_permalink( $post->ID ) ), 
+				$result .= sprintf( $html,
+				esc_url( get_permalink( $post->ID ) ),
 				get_the_title(),
-				$list_num_class, 
-				raindrops_doctype_elements( 'div', 'article', false ), 
-				$post->ID, $classes, 
-				sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;', 
-					$day_link, 
-					esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ), 
-					esc_html( $date_strings ), 
-					raindrops_doctype_elements( 'span', 'time', false ), 
+				$list_num_class,
+				raindrops_doctype_elements( 'div', 'article', false ),
+				$post->ID, $classes,
+				sprintf( '<a href="%1$s" title="%2$s"><%4$s class="entry-date" %5$s>%3$s</%4$s></a>&nbsp;',
+					$day_link,
+					esc_attr( 'archives daily ' . mysql2date( get_the_date(), $raindrops_date_format ) ),
+					esc_html( $date_strings ),
+					raindrops_doctype_elements( 'span', 'time', false ),
 					raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
@@ -8192,7 +8218,7 @@ function raindrops_remove_wbr( $content ) {
 * @since 1.119
 */
 /**
-* 
+*
 * add_filter( 'the_content', 'raindrops_non_breaking_content', 11 );
 * Stop filter
 * @1.446
@@ -8620,7 +8646,7 @@ if ( !function_exists( 'raindrops_tile' ) ) {
 				<br class="clear" />
 				</<?php raindrops_doctype_elements( 'div', 'article' ); ?>></div>
 		</li>
-					<?php }//foreach( $raindrops_posts as $post )                                    
+					<?php }//foreach( $raindrops_posts as $post )
 					?>
 	</ul>
 	<br class="clear" />
@@ -9085,7 +9111,7 @@ if ( !function_exists( 'raindrops_link_text_filter' ) ) {
 if ( !function_exists( 'raindrops_link_pdf_filter' ) ) {
 
 	/**
-	 * 
+	 *
 	 * @param type $content
 	 * @return type
 	 * @since 1.446
@@ -9255,12 +9281,6 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 
 			$form .= '<label for="%1$s">%2$s</label>'
 			. '<textarea id="%1$s" name="%1$s" %4$s>%3$s</textarea>';
-
-			/*
-			 * 1.295 commentout Unnatural behavior
-			 * 		$form .= '<div id="contextual-help-link-wrap-2" class="hide-if-no-js screen-meta-toggle button button-large">
-			  <a href="#contextual-help-wrap" id="contextual-help-link-2" class="show-settings" aria-controls="contextual-help-wrap" aria-expanded="false" style="text-decoration:none;">Help</a>
-			  </div>'; */
 
 
 			$raindrops_show_on_front					 = get_option( 'show_on_front' ); // val posts or page
@@ -12137,7 +12157,9 @@ if ( !function_exists( 'raindrops_archive_has_count' ) ) {
 	 * @since 1.415
 	 */
 	function raindrops_archive_has_count() {
-
+		/**
+		 * need remove inactive widget
+		 */
 		$archive_widget	 = new WP_Widget_Archives();
 		$settings		 = $archive_widget->get_settings();
 		$settings		 = reset( $settings );
@@ -12733,7 +12755,7 @@ if ( !function_exists( 'raindrops_header_video_settings' ) ) {
 if ( !function_exists( 'raindrops_exclude_html_attr_search' ) ) {
 
 	/**
-	 * 
+	 *
 	 * @global type $wpdb
 	 * @param type $where
 	 * @return type
@@ -12755,7 +12777,7 @@ $raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content
 if ( 'fit' == $raindrops_content_width_setting ) {
 	add_filter( 'raindrops_keep_content_width', '__return_false' );
 }
-		
+
 
 if( ! function_exists('raindrops_post_relate_contents') ) {
 	function raindrops_post_relate_contents() {
@@ -12789,13 +12811,13 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 				'title'											 => raindrops_warehouse_clone( 'raindrops_show_related_posts_title' ),
 				'numberposts'									 => raindrops_warehouse_clone( 'raindrops_show_related_posts_count' ),
 				'raindrops_excerpt_length'						 => raindrops_warehouse_clone( 'raindrops_show_related_posts_excerpt_length' ),
-				'raindrops_excerpt_more'						 => '...', 
+				'raindrops_excerpt_more'						 => '...',
 				'raindrops_post_thumbnail'						 => $raindrops_show_related_posts_thumbnail,
 				'raindrops_recent_post_thumbnail_default_uri'	 => raindrops_warehouse_clone( 'raindrops_show_related_posts_thumbnail_fallback' ),
 				'raindrops_show_related_posts_line_clip'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_line_clip' ),
 				'post__not_in'									 => array( $post->ID ),
 				'orderby'                                        => raindrops_warehouse_clone( 'raindrops_show_related_posts_orderby' ),
-				
+
 			);
 			if ( 'recent_post' == $type ) {
 				//$args['orderby'] = 'post_date';
@@ -12822,7 +12844,7 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 			if ( 'recent_post' == $type ) {
 				echo '<div class="related-posts recent-posts">';
 				raindrops_recent_posts( $args );
-				
+
 				echo '</div>';
 			}
 			if ( 'category' == $type ) {
@@ -12833,7 +12855,7 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 			if ( 'post_tag' == $type ) {
 				echo '<div class="related-posts tag-posts">';
 				raindrops_tag_posts( $args );
-				
+
 				echo '</div>';
 			}
 		}
@@ -12955,14 +12977,14 @@ if ( ! function_exists( 'raindrops_filter_archive_grid' ) ) {
 
 if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 	/**
-	 * 
+	 *
 	 * @return type
 	 * @since 1.464
 	 */
 	function raindrops_style_archive_grid() {
-		
+
 		global $raindrops_change_all_excerpt_archives_to_grid_layout, $raindrops_where_excerpts;
-		
+
 		$home_excerpt			 = raindrops_warehouse_clone( 'raindrops_entry_content_is_home' );
 		$cat_excerpt			 = raindrops_warehouse_clone( 'raindrops_entry_content_is_category' );
 		$search_excerpt			 = raindrops_warehouse_clone( 'raindrops_entry_content_is_search' );
@@ -12970,9 +12992,13 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 		$break_point_small_max	 = apply_filters( 'raindrops_grid_break_point_small', 640 );
 		$break_point_mobile_min	 = intval( $break_point_small_max ) + 1;
 		$break_point_mobile_max	 = apply_filters( 'raindrops_grid_break_point_mobile', 960 );
-		$break_point_desctop_min = intval( $break_point_mobile_max ) + 1;
-		$break_point_desctop_max = apply_filters( 'raindrops_grid_break_point_desctop', 1280 );
-		$break_point_large_min	 = intval( $break_point_desctop_max ) + 1;
+		$break_point_desktop_min = intval( $break_point_mobile_max ) + 1;
+		$break_point_desktop_max = apply_filters( 'raindrops_grid_break_point_desktop', 1280 );
+		$break_point_large_min	 = intval( $break_point_desktop_max ) + 1;
+
+		if( false === raindrops_is_grid_archives() ) {
+			return;
+		}
 
 		if ( is_home() && 'excerpt_grid' == $home_excerpt ) {
 
@@ -12999,18 +13025,18 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 						} elseif ( $excerpt() && 'is_tax' == $excerpt ) {
 
 							$archive_type = 'archives';
-							break;					
+							break;
 						} elseif ( $excerpt() && 'is_post_type_archive' == $excerpt ) {
 
 							$archive_type = 'custom-post-archives';
-							break;					
+							break;
 						} else {
 
 							continue;
-						}			
+						}
 
 					}
-				}			
+				}
 			} else {
 
 				return;
@@ -13058,7 +13084,7 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 .rd-grid .format-link .entry-content{
 	display:block;
 }
-.rd-grid .format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type, 
+.rd-grid .format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type,
 .rd-grid .format-link .entry-content p:first-of-type a{
 	padding:1em;
 	box-sizing:border-box;
@@ -13069,7 +13095,7 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 	box-sizing:border-box;
 }
 .rd-grid .index.{$archive_type}{
-	display:-webkit-box;	
+	display:-webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -13088,7 +13114,7 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 .rd-grid ul.{$archive_type} > li, ul.{$archive_type} > li{
     position:relative;
 	flex-basis:31.6%;
-    clear:none;    
+    clear:none;
     margin:5px;
 	overflow:hidden;
     flex-grow: 1;
@@ -13107,7 +13133,7 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 	box-sizing:border-box;
 	width:100%;
     height:100%;
-	display:-webkit-box;	
+	display:-webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -13193,7 +13219,7 @@ box-sizing:border-box;
 	.rd-grid ul.{$archive_type} > li{
 		clear:none;
 		margin:auto;
-	} 
+	}
 	.rd-col-1.rd-grid.rd-content-width-fit ul.archives > li,
 	.rd-grid.rd-content-width-fit ul.{$archive_type} > li,
 	.rd-grid ul.{$archive_type} .title-wrapper,
@@ -13226,7 +13252,7 @@ box-sizing:border-box;
 		margin:5px;
 	}
 }
-@media screen and (max-width : {$break_point_desctop_max}px) and (min-width:{$break_point_desctop_min}px){
+@media screen and (max-width : {$break_point_desktop_max}px) and (min-width:{$break_point_desktop_min}px){
 	.rd-col-1.rd-grid.rd-content-width-fit ul.{$archive_type} > li,
 	.rd-col-1.rd-grid ul.{$archive_type} .title-wrapper,
 	.rd-col-1.rd-grid ul.{$archive_type} > li{
@@ -13239,7 +13265,7 @@ box-sizing:border-box;
 	.rd-col-3.rd-grid ul.{$archive_type} > li{
 		flex-basis:47%;
 		margin:5px;
-	}	
+	}
 }
 @media screen  and (min-width:{$break_point_large_min}px){
 	.rd-col-1.rd-grid.rd-content-width-fit ul.{$archive_type} > li,
@@ -13262,7 +13288,7 @@ GRID_CSS;
 }
 if ( !function_exists( 'raindrops_is_grid_archives' ) ) {
 	/**
-	 * 
+	 *
 	 * @global type $raindrops_where_excerpts
 	 * @global type $raindrops_change_all_excerpt_archives_to_grid_layout
 	 * @return boolean
@@ -13272,11 +13298,11 @@ if ( !function_exists( 'raindrops_is_grid_archives' ) ) {
 	function raindrops_is_grid_archives() {
 
 		global $raindrops_where_excerpts, $raindrops_change_all_excerpt_archives_to_grid_layout;
-		
+
 		$filtered = apply_filters( 'raindrops_is_grid_archives', '' );
-		
+
 		if( true === is_bool( $filtered ) ) {
-			
+
 			return $filtered;
 		}
 
@@ -13326,7 +13352,7 @@ if ( ! function_exists( 'raindrops_add_switch_layout_button' ) ) {
 
 		if( true == raindrops_is_grid_archives() ) {
 
-			$html = '<button type="button" id="rd-swich-layout" class="layout-switch-button" title="'. esc_attr__( 'Change to list layout', 'raindrops' ). '"><span class="button-text">'. esc_html__( 'Change to list layout', 'raindrops' ) .'</span></button>';		
+			$html = '<button type="button" id="rd-swich-layout" class="layout-switch-button" title="'. esc_attr__( 'Change to list layout', 'raindrops' ). '"><span class="button-text">'. esc_html__( 'Change to list layout', 'raindrops' ) .'</span></button>';
 			echo apply_filters( 'raindrops_add_switch_layout_button', $html );
 		}
 	}

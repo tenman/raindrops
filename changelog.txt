@@ -1,4 +1,36 @@
 Changelog -----------------------------------
+version:1.469
+
+Overview of Changes
+	Modified post new,post edit help
+		Add customizer link and etc.
+	Fixed Customize / Presentation / Post / 'Posted in Labels' hide is not work
+
+	Fixed Responsive view 640px - Page width setting width
+		Correct the problem that the left and right margins become 0 in the above section
+	Modified
+		Move color style minimal style from style.css to dedicated area
+	Modified
+		Add navigation message Customize / Excerpt area.
+	Fixed
+		Fixed an issue that extra margins occurred when changing from grid layout to list layout on archive page
+	Modified
+		Fixed an issue where the full text is displayed when using multibyte character string in the RSS feed widget.
+
+Files Modified
+	modified: 	editor-style.css
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.468&new_path=raindrops/1.469
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.468
 
 Overview of Changes

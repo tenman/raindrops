@@ -10,6 +10,20 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * @since 1.470
+ * target='_blank' link add rel="noopener noreferrer" for security reason
+ */
+if( ! isset( $raindrops_allow_safe_link_target ) ) {
+	$raindrops_allow_safe_link_target = true;
+}
+/**
+ * @since 1.470
+ * Grid layout posted in style
+ */
+if( ! isset($raindrops_grid_posted_in ) ) {
+	$raindrops_grid_posted_in = true;
+}
+/**
  * @since 1.464
  */
 if( ! isset( $raindrops_change_all_excerpt_archives_to_grid_layout ) ) {

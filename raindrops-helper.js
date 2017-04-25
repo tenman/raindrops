@@ -577,7 +577,16 @@
          */
 
          jQuery('a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').addClass('external');
-
+         
+         /**
+          * @since1.470
+          * for Tabnabbing
+          */
+        if( true == raindrops_script_vars.raindrops_allow_safe_link_target ) {
+            
+            jQuery('a[target^="_blank"]').not('[href^="' + raindrops_script_vars.home_url + '"]').attr('rel','noopener noreferrer');
+            jQuery('a[target^="_brank"]').not('[href^="' + raindrops_script_vars.home_url + '"]').attr('rel','noopener noreferrer');
+        }
         /**
          * add rel="nofollow" for External links that have been described in the comment text
          */

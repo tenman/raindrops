@@ -31,7 +31,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $template,$raindrops_tag_emoji, $raindrops_category_emoji,$post;
+global $template,$raindrops_tag_emoji, $raindrops_category_emoji,$post,$raindrops_grid_posted_in;
 
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 $raindrops_date_html_module ='<a href="%1$s"><%3$s class="entry-date updated" %4$s>%2$s</%3$s></a>';
@@ -248,8 +248,17 @@ if ( is_single() ) {
 				if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
 					raindrops_posted_on(); 
 				}
-				if( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
-					raindrops_posted_in(); 
+				if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+					
+					if( true == $raindrops_grid_posted_in ) {
+					?><div class="click-drawing-container" tabindex="0"><div class="entry-meta drawing-content"><?php
+						raindrops_posted_in();
+						?></div></div><?php
+					} else {
+						?><div class="entry-meta"><?php
+						raindrops_posted_in();
+						?></div><?php
+					}		
 				}
 				?></div>
                     <?php

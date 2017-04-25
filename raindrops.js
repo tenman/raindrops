@@ -307,3 +307,22 @@ jQuery( function ( $ ) {
         }
     } );
 } );
+/**
+ * category first page NOT featured Image display property change from block to table-cell
+ * @param {type} $
+ * @returns {undefined}
+ * @since 1.470
+ */
+jQuery( function ( $ ) {
+    $( '.entry-title' ).each( function ( index ) {
+    
+        var width = $( this ).find( 'img' ).width();
+        
+        if( 48 == parseInt( width ) ) {
+
+             $( this ).find('span').css({'display':'table'});
+             $( this ).find('.h2-thumb').css({'display':'table-cell','width':'48px'});
+             $( this ).find('.entry-title-text').css({'display':'table-cell'});
+        }       
+    });
+} );

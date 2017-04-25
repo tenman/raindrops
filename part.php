@@ -8,7 +8,7 @@
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
-global $template;
+global $template, $raindrops_grid_posted_in;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 $format = get_post_format();
 
@@ -57,9 +57,15 @@ if ( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
 }
 
 if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
-	?><div class="entry-meta"><?php
+	if( true == $raindrops_grid_posted_in ) {
+	?><div class="click-drawing-container" tabindex="0"><div class="entry-meta drawing-content"><?php
+		raindrops_posted_in();
+		?></div></div><?php
+	} else {
+		?><div class="entry-meta"><?php
 		raindrops_posted_in();
 		?></div><?php
+	}		
 }
 ?>
 <?php

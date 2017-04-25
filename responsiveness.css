@@ -620,10 +620,10 @@
         padding-right:0;
     }
     #yui-main .index > li > div{
-        width:90vw;
+    /* @1.470    width:90vw; */
         margin-left:auto;
         margin-right:auto;
-    }
+    }    
     .index .rd-tag-description{
         margin:auto;
         width:90vw;   
@@ -681,7 +681,7 @@
     .lsidebar > ul,
     .archives.front-page,
     .topsidebar > ul{
-        width:90vw;
+     width:90vw;
         margin:auto;
         box-sizing:border-box;
     }
@@ -806,8 +806,8 @@
     article.rd-custom-post-type,/* @1.438 */
     .fail-search,/* @1.343 */
     .single-post article{
-        /* @1.464 width:90%;*/
-        margin:auto auto 1em;
+        /* @1.464 width:90%; + @1.470 */
+        margin:auto 1em 1em;
     }
     article.format-link,
     .entry-content .rd-table-wrapper{

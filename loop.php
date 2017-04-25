@@ -9,6 +9,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
+global $raindrops_grid_posted_in;
 /**
  * Display navigation to next/previous pages when applicable
  */
@@ -108,10 +109,16 @@ if ( have_posts() ) {
 											?></div><?php
 										}
 										
-										if( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
-											?><div class="entry-meta"><?php
-											raindrops_posted_in();
-											?></div><?php
+										if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+											if( true == $raindrops_grid_posted_in ) {
+											?><div class="click-drawing-container" tabindex="0"><div class="entry-meta drawing-content"><?php
+												raindrops_posted_in();
+												?></div></div><?php
+											} else {
+												?><div class="entry-meta"><?php
+												raindrops_posted_in();
+												?></div><?php
+											}		
 										}
 										?>
 		<?php

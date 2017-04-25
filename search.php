@@ -12,7 +12,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $raindrops_skip_excerpt, $raindrops_excerpt_condition;
+global $raindrops_skip_excerpt, $raindrops_excerpt_condition, $raindrops_grid_posted_in;
 do_action( 'raindrops_' . basename( __FILE__ ) );
 $raindrops_current_column = raindrops_column_controller();
 
@@ -82,11 +82,18 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
 											raindrops_posted_on(); 
 										}
-										if( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
-											raindrops_posted_in(); 
+										if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
+											if( true == $raindrops_grid_posted_in ) {
+											?><div class="click-drawing-container" tabindex="0"><div class="entry-meta drawing-content"><?php
+												raindrops_posted_in();
+												?></div></div><?php
+											} else {
+												?><div class="entry-meta"><?php
+												raindrops_posted_in();
+												?></div><?php
+											}		
 										}
 										?></div>
-                                    <br class="clear" />
 								</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
                                 </div>
                             </li>

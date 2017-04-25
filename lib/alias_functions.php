@@ -1863,6 +1863,35 @@ if ( ! function_exists( 'raindrops_filter_page_column_control') ) {
 			   return;				
 		 }
 		/**
+		 * @since 1.470
+		 * 
+		 */
+		 $filter_controls = apply_filters( 'raindrops_filter_page_column_control', array() );
+
+		 if ( !empty( $filter_controls ) ) {
+			 
+			foreach( $filter_controls as $key => $filter_control ) { 
+
+				$type				 = esc_html( $filter_control['type'] );
+				$column				 = absint( $filter_control[ 'columns' ] );
+
+				if( ! empty ( $column ) && $column < 4 ) {
+
+					if ( function_exists( $key ) && !empty( $type ) && $key( $type ) ) {
+						
+						$raindrops_current_column = $column;						
+						return;
+					}
+					if ( function_exists( $key ) && empty( $type ) && $key() ) {
+						
+						$raindrops_current_column = $column;
+						return;
+					}
+				}
+			}
+		}
+
+		/**
 		 * @1.401
 		 */
 		if ( is_child_theme() &&

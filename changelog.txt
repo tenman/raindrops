@@ -2,10 +2,34 @@ Changelog -----------------------------------
 version:1.471
 
 Overview of Changes
+	Modified Style of Grid excerpt for Document width  750px centered,   950px centered,  974px
+	Modified Style of Grid excerpt for sticky post
+	Changed Customize section label text from Customize / Presentation / Widget to from Customize / Presentation / Custom Post Type Helper
+	Modified Header Image when Customize / Presentation / Layout and Sidebar value ' Full Width Responsive' ( default )
+		We set an upper limit so that the header image fits in the browser window size
+			For example, when a portrait image is set as a header image
 
+		Custom header-image height
+		Add functions.php first
+		add_filter('raindrops_header_image_ratio','custom_raindrops_header_image_ratio');
+
+		function custom_raindrops_header_image_ratio($ratio){
+			$ratio = 0.3 // Ratio calculation is based on image height / image width
+
+			return $ratio;
+		}
+	Modified style.css
+		bender prefix cleaning
 
 Files Modified
-
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/csscolor/csscolor.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   raindrops-helper.js
+	modified:   search.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.470&new_path=raindrops/1.471

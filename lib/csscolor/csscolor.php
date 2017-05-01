@@ -1105,8 +1105,8 @@ class raindrops_CSS_Color extends raindrops_PEAR{
   //==CONSTRUCTOR=====================================
   //==================================================
 
- // function raindrops_CSS_Color($bgHex, $fgHex='') {
-	function __construct($bgHex, $fgHex='') {
+ 
+function __construct($bgHex, $fgHex='') {
     // This is the constructor method for the class,
     // which is called when a new object is created.
 
@@ -1116,7 +1116,7 @@ class raindrops_CSS_Color extends raindrops_PEAR{
     // Initialize the palette
     $this->raindrops_setPalette($bgHex, $fgHex);
 
-  }
+ }
 
   //==================================================
   //==METHODS=========================================

@@ -78,7 +78,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
                                         raindrops_append_entry_content();
                                         ?>
                                     </div>
-                                    <div class="entry-meta"><?php 
+                                    <?php 
 										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
 											raindrops_posted_on(); 
 										}
@@ -93,7 +93,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 												?></div><?php
 											}		
 										}
-										?></div>
+										?>
 								</<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
                                 </div>
                             </li>

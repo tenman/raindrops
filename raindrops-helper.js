@@ -37,12 +37,23 @@
 
                     var image_exists = raindrops_script_vars.header_image_uri;
                     var raindrops_width = jQuery( 'div#header-image' ).width();
+                    var raindrops_height = jQuery( 'div#header-image' ).css( 'padding-bottom' );
+                    var raindrops_height_val = parseInt( raindrops_height );
                     var raindrops_window_width = jQuery( window ).width();
+                    var raindrops_window_height = parseInt( jQuery( window ).height() );
+
+                    if ( false == raindrops_script_vars.has_ratio_filter  && 'doc5' == raindrops_script_vars.page_width && raindrops_height_val > raindrops_window_height ) {
+                        
+                        var raindrops_header_image_padding = raindrops_window_height / raindrops_width * 100;
+                        
+                        jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'padding-bottom': raindrops_header_image_padding +'%','display':'block','background-size':'cover','background-position':'center center' } );
+                    }                    
+                    
                     var raindrops_ratio = raindrops_script_vars.ratio;
                     var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
 
                     if ( raindrops_script_vars.has_ratio_filter ) {
-                       jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover' } );
+                       jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover','background-position':'center center' } );
                     }
                 }
                 
@@ -145,14 +156,15 @@
                     }        
 
                     var raindrops_window_width = jQuery( window ).width();
-                    
+                    //.rd-grid ul.archives > li
                     if ( 640 < raindrops_window_width ) {
-                        jQuery( '.equal-height,.rd-grid ul.archives > li' ).each( function () {
+                        jQuery( '.equal-height' ).each( function () {
                             var height = jQuery( this ).height();
                             jQuery( this ).css( { 'height': height } );
                         } );
                     } else {
-                        jQuery( '.equal-height,.rd-grid ul.archives > li' ).each( function () {
+                        //,.rd-grid ul.archives > li
+                        jQuery( '.equal-height' ).each( function () {
                             jQuery( this ).removeAttr( 'style' );
                         } );
                     }

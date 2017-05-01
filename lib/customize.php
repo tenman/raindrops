@@ -126,7 +126,7 @@ if ( ! isset( $wp_customize ) ) {
 			'description'	 => esc_html__( 'You can fine-tune the size and how to display the menu', 'raindrops' ),
 			),
 		'raindrops_theme_settings_widget' => array(
-			'title' => esc_html__( 'Widget', 'raindrops' ),
+			'title' => esc_html__( 'Custom Post Type Helper', 'raindrops' ),
 			'priority' => 110,
 			'panel'			 => 'raindrops_theme_settings_presentation_panel',
 			'theme_supports' => '',

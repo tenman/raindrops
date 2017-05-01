@@ -310,6 +310,10 @@ input[type="submit"]{
 .home .sticky{
     border-top:solid 6px %c_border%;
 }
+.blog.rd-grid .sticky,
+.home.rd-grid .sticky{
+    border-top:none;
+}
 
 #yui-main{
     /*1.303
@@ -576,6 +580,10 @@ hr{
 .blog .sticky,
 .home .sticky{
     border-top:solid 6px %rgba_border%;
+}
+.blog.rd-grid .sticky,
+.home.rd-grid .sticky{
+    border-top:none;
 }
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
@@ -1098,6 +1106,10 @@ body:not(.rd-tag-em) #ft a,
 
     border-top:solid 6px %c_border%;
     border-bottom:solid 2px %c_border%;
+}
+.blog.rd-grid .sticky,
+.home.rd-grid .sticky{
+    border-top:none;
 }
 .entry-meta{
     %c5%
@@ -1917,6 +1929,10 @@ kbd,
 .home .sticky {
     border-top:solid 6px %rgba_border%;
     border-bottom:solid 2px %rgba_border%;
+}
+.blog.rd-grid .sticky,
+.home.rd-grid .sticky{
+    border-top:none;
 }
 .entry-meta{
     border-top:solid 1px %rgba_border%;
@@ -2977,6 +2993,9 @@ $style .=<<<STRUCTURE_STYLE
 }
 .rd-type-minimal .sticky .entry-title{
     padding-top:.3em;
+}
+.rd-grid .sticky .entry-title{
+    padding-top:0;
 }
 .rd-type-minimal .recentcomments,
 .rd-type-minimal .widget_recent_comments .recentcomments,

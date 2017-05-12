@@ -1,32 +1,4 @@
 <?php
-$raindrops_where_excerpts = array( 'is_tag','is_tax','is_post_type_archive' );
-$raindrops_change_all_excerpt_archives_to_grid_layout = true;
-add_filter( 'raindrops_grid_break_point_small', 'custom_raindrops_grid_break_point_small' );
-add_filter( 'raindrops_grid_break_point_mobile', 'custom_raindrops_grid_break_point_mobile' );
-add_filter( 'raindrops_grid_break_point_desktop', 'custom_raindrops_grid_break_point_desktop' );
-
-function custom_raindrops_grid_break_point_small($break_point){
-	return $break_point;
-}
-function custom_raindrops_grid_break_point_mobile($break_point){
-	return $break_point;
-}
-function custom_raindrops_grid_break_point_desktop($break_point){
-
-	return $break_point;
-}
-//add_action( 'raindrops_in_the_loop_1','my_test',10,2);
-
-function my_test($content,$num) {
-	if( ! is_paged() && is_home()) {
-//flex-basis:31.6%;
-		echo "<li style=\"background:transparent\"><div><article  ><div class=\"centered\" style=\"height:100vh;background:url(http://www.tenman.info/wp-37/wp-content/uploads/snow.jpg);background-size:cover;background-attachment: fixed;margin:auto -50%;\">
-			<h1 style=\"color:#fff;\" class=\"f40 b7\">Easy Controll 1$num</h1></div></article></div></li>";
-	//	echo "<li style=\"background:rgba(241, 196, 15,.3);\"><div><article><h1 style=\"text-align:center\" class=\"f40 b7\">2$num</h1></article></div></li>";
-	//	echo "<li style=\"background:rgba(241, 196, 15,.3);\"><div><article><h1 style=\"text-align:center\" class=\"f40 b7\">3$num</h1></article></div></li>";
-
-	}
-}
 /**
  *
  *
@@ -2392,13 +2364,13 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n.widgettitle,.archive .title-wrapper,.date .page-title{text-transform: uppercase;}";
 		}
 		/* @sice 1.458 fallback menu background color */
-		
+
 		$raindrops_base_color = raindrops_warehouse_clone( 'raindrops_base_color' );
 
 		if ( !empty( $raindrops_base_color ) ) {
 /* @1.470
 			$css .= "\n.rd-type-dark .raindrops-menu-fixed{    background:{$raindrops_base_color};}";
- * 
+ *
  */
 		}
 		//#header-image
@@ -2472,7 +2444,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 			$css .= ' .rsidebar{display:block;} ';
 		} else {
-			
+
 			if( 3 !== ( int ) $raindrops_current_column ){
 				/**
 				 * @since 1.471
@@ -3974,7 +3946,7 @@ if ( !function_exists( "raindrops_yui_class_modify" ) ) {
 		}
 
 		$yui_inner_layout = apply_filters( 'raindrops_yui_class_modify', $yui_inner_layout );
-		
+
 		return sanitize_html_class( $yui_inner_layout );
 	}
 
@@ -10575,7 +10547,7 @@ if ( !function_exists( 'raindrops_excerpt_after_link' ) ) {
 	function raindrops_excerpt_after_link( $content, $function ) {
 		global $post;
 		$raindrops_excerpt_more = raindrops_warehouse_clone( 'raindrops_read_more_after_excerpt' );
-		
+
 		if( strpos( get_the_content(), 'more-link' ) !== false ) {
 			/**
 			 * @since 1.470
@@ -13272,7 +13244,7 @@ box-sizing:border-box;
 }
 .rd-col-1.rd-grid #doc4 ul.{$archive_type} > li,
 .rd-col-1.rd-grid #doc2 ul.{$archive_type} > li{
-	flex-basis:31.6%;	
+	flex-basis:31.6%;
 	margin:5px;
 }
 .rd-col-3.rd-grid #doc4 ul.{$archive_type} > li,
@@ -13359,9 +13331,9 @@ box-sizing:border-box;
 	}
 }
 GRID_CSS;
-	
-if ( true ==  $raindrops_grid_posted_in ) {	
-	
+
+if ( true ==  $raindrops_grid_posted_in ) {
+
 $result .=<<<GRID_POSTED_IN
 .rd-grid .posted-on-after{
     margin-right:72px;
@@ -13391,9 +13363,9 @@ $result .=<<<GRID_POSTED_IN
 .rd-grid ul.archives .click-drawing-container .drawing-content:empty{
 	display:none;
 }
-.rd-grid ul.search-results .click-drawing-container:active .drawing-content, 
+.rd-grid ul.search-results .click-drawing-container:active .drawing-content,
 .rd-grid ul.search-results .click-drawing-container:focus .drawing-content,
-.rd-grid ul.archives .click-drawing-container:active .drawing-content, 
+.rd-grid ul.archives .click-drawing-container:active .drawing-content,
 .rd-grid ul.archives .click-drawing-container:focus .drawing-content {
     visibility:visible;
     outline:none;
@@ -13412,9 +13384,9 @@ $result .=<<<GRID_POSTED_IN
     border-top:1px solid rgba(127,127,127,.3);
     max-width:none;
     width:100%;
-    height:200px;	
+    height:200px;
     transition:visibility 1s;
-    overflow:hidden;  
+    overflow:hidden;
 }
 @media screen and (max-width : {$break_point_small_max}px){
 	.rd-grid ul.search-results .click-drawing-container,
@@ -13428,9 +13400,9 @@ $result .=<<<GRID_POSTED_IN
 		text-align:center;
 		border:none;
 	}
-	.rd-grid ul.search-results .click-drawing-container:active .drawing-content, 
+	.rd-grid ul.search-results .click-drawing-container:active .drawing-content,
 	.rd-grid ul.search-results .click-drawing-container:focus .drawing-content,
-	.rd-grid ul.archives .click-drawing-container:active .drawing-content, 
+	.rd-grid ul.archives .click-drawing-container:active .drawing-content,
 	.rd-grid ul.archives .click-drawing-container:focus .drawing-content {
 		height:200px;
 		top:1em;

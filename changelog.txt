@@ -2,8 +2,35 @@ Changelog -----------------------------------
 version:1.472
 
 Overview of Changes
+	Modified Compress the image
+		images/desmiss.png , images/open.png , images/rss.png
+	Modified lib/customize.php
+		Translate function change from __() to esc_html__()
+	Modified Section Featured Image Special Layout Apply Post Count
+		max value change from post_per_page to Any integer value
+	Modified When Customize / Presentation / Featured Image Settings (yes) and Featured Image Position (left of article)
+		Solved the problem that the portrait image can not be displayed entirely
 
 Files Modified
+	modified:   bbpress.php
+	modified:   comments.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   images/desmiss.png
+	modified:   images/open.png
+	modified:   images/rss.png
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/csscolor/csscolor.php
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.471&new_path=raindrops/1.472

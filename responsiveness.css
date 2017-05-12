@@ -329,6 +329,10 @@
         padding:0;
         
     }
+    .home.rd-featured-yes-left .sticky .more-link{
+        width:auto;
+        padding:7px;
+    }
     .entry-meta{
         text-align:left;
     }
@@ -1002,56 +1006,58 @@
         display:none;
     }
     
-.rd-type-minimal .widget_meta > ul,
-.rd-type-minimal .widget_pages > ul,
-.rd-type-minimal .widget_nav_menu > div > ul,
-.rd-type-minimal .widget_archive > ul{
-    margin-left:0;
-}
-.rd-type-minimal .widget_recent_entries > ul{
-    margin-left:0;
-}
-.rd-type-minimal .widget_meta > ul > li,
-.rd-type-minimal .widget_pages > ul > li,
-.rd-type-minimal .widget_nav_menu > ul > li,
-.rd-type-minimal .widget_archive > li,
-.rd-type-minimal .widget_recent_entries li{
-    border-bottom:1px solid #ccc;
-    padding:0;
-    line-height:2;
-}
-.rd-type-minimal .widget_meta > li,
-.rd-type-minimal .widget_pages > li,
-.rd-type-minimal .widget_nav_menu li,
-.rd-type-minimal .widget_archive li,
-.rd-type-minimal .widget_recent_entries li:first-child{
-    border-top:1px solid #ccc;
-}
-.rd-type-minimal .widget_meta li:before,
-.rd-type-minimal .widget_pages li:before,
-.rd-type-minimal .widget_nav_menu li:before,
-.rd-type-minimal .widget_archive li:before {
-    color: rgba(41, 128, 185,1.0);
-    content: '';
-    display: none;
-}
+    .rd-type-minimal .widget_meta > ul,
+    .rd-type-minimal .widget_pages > ul,
+    .rd-type-minimal .widget_nav_menu > div > ul,
+    .rd-type-minimal .widget_archive > ul{
+        margin-left:0;
+    }
+    .rd-type-minimal .widget_recent_entries > ul{
+        margin-left:0;
+    }
+    .rd-type-minimal .widget_meta > ul > li,
+    .rd-type-minimal .widget_pages > ul > li,
+    .rd-type-minimal .widget_nav_menu > ul > li,
+    .rd-type-minimal .widget_archive > li,
+    .rd-type-minimal .widget_recent_entries li{
+        border-bottom:1px solid #ccc;
+        padding:0;
+        line-height:2;
+    }
+    .rd-type-minimal .widget_meta > li,
+    .rd-type-minimal .widget_pages > li,
+    .rd-type-minimal .widget_nav_menu li,
+    .rd-type-minimal .widget_archive li,
+    .rd-type-minimal .widget_recent_entries li:first-child{
+        border-top:1px solid #ccc;
+    }
+    .rd-type-minimal .widget_meta li:before,
+    .rd-type-minimal .widget_pages li:before,
+    .rd-type-minimal .widget_nav_menu li:before,
+    .rd-type-minimal .widget_archive li:before {
+        color: rgba(41, 128, 185,1.0);
+        content: '';
+        display: none;
+    }
 
-.rd-type-minimal .widget_recent_entries li:before{
-    /* @1.469 */
-    position: absolute;
-    top:.15em;
-    left:-.2em;   
-}
-.rd-type-minimal .topsidebar li:before{
-    content:'';
-    display:none;
-}
-.rd-type-minimal li.widget_archive ul li a{
-    margin-top:0;
-    padding-top:0;
-    padding-bottom:0;
-}
-
+    .rd-type-minimal .widget_recent_entries li:before{
+        /* @1.469 */
+        position: absolute;
+        top:.15em;
+        left:-.2em;   
+    }
+    .rd-type-minimal .topsidebar li:before{
+        content:'';
+        display:none;
+    }
+    .rd-type-minimal li.widget_archive ul li a{
+        margin-top:0;
+        padding-top:0;
+        padding-bottom:0;
+    }
+    .rd-featured-yes-left .raindrops-sticky .h2-thumb{
+        width:48px;
+    }
 }
 @media screen and (max-width : 480px){
     html .gecko{
@@ -1418,22 +1424,22 @@
     .rd-col-1 .raindrops-tag-posts .list,
     .rd-col-1 .raindrops-category-posts .list,
     .rd-col-1 .raindrops-recent-posts{
-          margin:auto;
-          max-width:58.4816em;
+   /*  @1.472     margin:auto;
+          max-width:58.4816em;*/
     }  
 }
 @media screen and (min-width : 29.2408em ) and (max-width: 68.6923em){
     .rd-col-1 .raindrops-tag-posts .list,
     .rd-col-1 .raindrops-category-posts .list,
     .rd-col-1 .raindrops-recent-posts{
-          margin:auto;
-          max-width: 29.2408em;
+/*  @1.472         margin:auto;
+         max-width: 29.2408em;*/
     }  
 }
 @media screen and (min-width : 641px) and (max-width: 1100px){
     .raindrops-tag-posts li,
     .raindrops-category-posts li,
     .raindrops-recent-posts li{
-        width:29em;
+        width:47%;
     }
 }

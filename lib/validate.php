@@ -757,13 +757,18 @@ function raindrops_featured_image_singular_validate( $input ) {
 }
 function raindrops_featured_image_recent_post_count_validate( $input ) {
 // todo post per page
+	global $raindrops_featured_image_recent_post_count_limit;
+	
 	$max_num_post = get_option('posts_per_page');
-
+	
+	if( 'none' == $raindrops_featured_image_recent_post_count_limit ) {
+		return absint( $input ) ;
+	}
 	if( is_numeric( $input ) && $input < $max_num_post + 1 ) {
 		
 		return absint( $input ) ;
 	}
-	return $max_num_post;
+	return absint( $max_num_post );
 }
 function raindrops_featured_image_size_validate( $input ) {
 // todo get_intermadiate_image_sizes

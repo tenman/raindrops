@@ -684,7 +684,8 @@ class raindrops_PEAR
             } else {
                 $suffix = '.so';
             }
-            return @dl('php_'.$ext.$suffix) || @dl($ext.$suffix);
+          // @1.472 return @dl('php_'.$ext.$suffix) || @dl($ext.$suffix);
+			return dl('php_'.$ext.$suffix) || dl($ext.$suffix);
         }
         return true;
     }

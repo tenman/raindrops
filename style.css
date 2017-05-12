@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.471
+Version: 1.472
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1671,11 +1671,6 @@ div[class^="entry-meta"] .emoji-date,
     overflow-wrap:normal;
     display:block;
 }
-.rd-featured-yes-front:not(.paged) .index > li .entry-title a .icon-post-format-notitle,
-.rd-featured-yes-front:not(.paged) .index > li .entry-title a .icon-link-no-title{
-    width:24px;
-    display:inline-block;
-}
 
 .rd-featured-yes-front:not(.paged) .index > li .entry-title-text{
     display:inline-block;
@@ -1686,8 +1681,9 @@ div[class^="entry-meta"] .emoji-date,
 }
 
 .search .index > li .h2-thumb{
-    /* not support featured image */
-    max-width:48px;
+    /* @1.472
+    not support featured image
+    max-width:48px;*/
 }
 .rd-list:not(.paged) .index > li .h2-thumb,
 .rd-featured-yes-front:not(.paged) .index > li .h2-thumb{
@@ -1709,6 +1705,14 @@ ul.index > li {
     clear:both;
     display:block;
     margin:0;
+    padding:0;
+}
+.rd-type-minimal .archive > li,
+.rd-type-minimal .index > li{
+    padding:0;/* @1.472 1em 0; to 0;*/
+    box-sizing:border-box;
+}
+.rd-grid.rd-type-minimal .index > li{
     padding:0;
 }
 ul.archive li .date,
@@ -3482,12 +3486,17 @@ sup {
     display:-ms-flexbox;/* @1.471 added */
     display:flex;
     max-width:29em;
-    width:47%;
+    width:30%;/* @1.472 47 to 30 */
     min-width:296px;
     overflow:visible;
     margin-bottom:1em;
     margin-left:1em;
     float:left;
+}
+.rd-col-3 .raindrops-tag-posts li,
+.rd-col-3 .raindrops-category-posts li,
+.rd-col-3 .raindrops-recent-posts li{
+    width:47%;
 }
 
 .safari .raindrops-tag-posts li,
@@ -5605,9 +5614,6 @@ body:not(.rd-featured-yes-left) .h2-thumb{
     vertical-align:bottom;
     min-width:48px;
 }
-.rd-featured-yes-left .entry-title > a > span{
-
-}
 .h2-thumb + .entry-title-text{
     display:table-cell;
     vertical-align:bottom;
@@ -6664,7 +6670,10 @@ ul.archives .rd-tag-description{
     padding:1em;
     box-sizing:border-box;
 }
-
+.rd-grid ul.archives .rd-tag-description{
+    border:none;
+    margin-bottom:0;
+}
 .fail-search,
 .home .index{
     margin-top:.75em;
@@ -7474,6 +7483,7 @@ mark.green,
 .rd-grid ul.archives > li{
     min-height:230px;
 }
+.rd-col-1.rd-type-minimal ul.archives > li,
 .rd-col-1.rd-grid ul.archives > li,
 .rd-grid ul.archives .title-wrapper,
 .rd-grid ul.search-results > li,
@@ -7619,8 +7629,9 @@ button[class="layout-switch-button"],
 .rd-grid ul.archives .click-drawing-container:before {
     background:rgba(41, 128, 185,1.0);
     color:#fff;
-    border:1px solid;
+    border:thin solid;
 }
+
 .rd-grid ul.search-results .click-drawing-container:focus:before,
 .rd-grid ul.archives .click-drawing-container:focus:before {
     background:gray;
@@ -7631,4 +7642,13 @@ button[class="layout-switch-button"],
     display:none;
     background:none;
     border:none;
+}
+/**
+ * for MarketPress plugin
+ * https://wordpress.org/plugins/wordpress-ecommerce/
+ * @1.472
+ */
+#mp-product-gallery{
+    max-width:none;
+    position:static;
 }

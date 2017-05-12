@@ -41,6 +41,13 @@
                     var raindrops_height_val = parseInt( raindrops_height );
                     var raindrops_window_width = jQuery( window ).width();
                     var raindrops_window_height = parseInt( jQuery( window ).height() );
+              
+                    if( jQuery( "body.home,body.blog" ).hasClass( "rd-featured-yes-left" ) ) {
+                       jQuery( ".h2-thumb > img" ).each(function (i) { 
+                           var height = jQuery(this).height() + 13;
+                            jQuery( this ).parents('article').css( { 'min-height': height +'px'});
+                       });
+                    }
 
                     if ( false == raindrops_script_vars.has_ratio_filter  && 'doc5' == raindrops_script_vars.page_width && raindrops_height_val > raindrops_window_height ) {
                         

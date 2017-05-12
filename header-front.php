@@ -49,7 +49,6 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 		<meta http-equiv="content-type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 		<meta http-equiv="content-script-type" content="text/javascript" />
 		<meta http-equiv="content-style-type" content="text/css" />
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<?php wp_head(); ?>
 	</head>

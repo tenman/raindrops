@@ -691,6 +691,9 @@ kbd,
 .entry-content textarea{
     background: %rgba_border%
 }
+.raindrops-excerpt-more{
+	 border:1px solid rgba(62,6d2,62, 0.4);
+}
 
 kbd,
 .entry-content .more-link,
@@ -2665,7 +2668,7 @@ address .entry-rss:after,
 }
 .commentlist > li:nth-child(even),
 .rd-content-width-fit .topsidebar .sticky-widget:nth-child(even),
-.rd-content-width-fit #doc5	.index > li:nth-child(even){
+.rd-content-width-fit #doc5 .index > li:nth-child(even){
 	background:$background5;
 	 transition: all 1s ease-in-out;
 }

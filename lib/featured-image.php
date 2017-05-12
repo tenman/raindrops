@@ -271,6 +271,14 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 							 {$post_id} .entry-meta, {$post_id} .entry-title, {$post_id} .posted-on, {$post_id} .entry-meta-aside,
 							 {$post_id} .hentry .entry-content, {$post_id} .posted-in{
 								margin-left:{$article_column_width}; }";
+					/* @since 1.472 */
+					$custom_css .= "{$post_id} .raindrops-sticky .h2-thumb + .entry-title-text,
+							{$post_id} .h2-thumb + .entry-title-text{
+								padding-left:0;
+							}
+							{$post_id} article:not(.raindrops-sticky) .wp-post-image{
+								top:0;
+							}";
 				}
 				if( true == raindrops_is_grid_archives() ) {
 					$custom_css .= '@media screen and (max-width : 640px){';

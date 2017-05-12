@@ -314,7 +314,7 @@ jQuery( function ( $ ) {
  * @since 1.470
  */
 jQuery( function ( $ ) {
-    $( '.entry-title' ).each( function ( index ) {
+    $( '.archive .entry-title' ).each( function ( index ) {
     
         var width = $( this ).find( 'img' ).width();
         

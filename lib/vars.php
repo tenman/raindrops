@@ -10,6 +10,16 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Customize / Featured Image Settings  Featured Image Special Layout Apply Post Count limit
+ * @since 1.472
+ * value 'posts_per_page' or 'none'
+ * ver1.472 default none. Experimental implementation
+ */
+if( ! isset( $raindrops_allow_safe_link_target ) ) {
+	
+	$raindrops_featured_image_recent_post_count_limit = 'none';
+}
+/**
  * @since 1.470
  * target='_blank' link add rel="noopener noreferrer" for security reason
  */
@@ -977,7 +987,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_featured_image_recent_post_count"		 => array( 'option_id'		 => 36,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_featured_image_recent_post_count",
-			'option_value'	 => 3,
+			'option_value'	 => get_option( 'posts_per_page' ),
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'		 => '',

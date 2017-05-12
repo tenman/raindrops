@@ -1,5 +1,32 @@
 <?php
+$raindrops_where_excerpts = array( 'is_tag','is_tax','is_post_type_archive' );
+$raindrops_change_all_excerpt_archives_to_grid_layout = true;
+add_filter( 'raindrops_grid_break_point_small', 'custom_raindrops_grid_break_point_small' );
+add_filter( 'raindrops_grid_break_point_mobile', 'custom_raindrops_grid_break_point_mobile' );
+add_filter( 'raindrops_grid_break_point_desktop', 'custom_raindrops_grid_break_point_desktop' );
 
+function custom_raindrops_grid_break_point_small($break_point){
+	return $break_point;
+}
+function custom_raindrops_grid_break_point_mobile($break_point){
+	return $break_point;
+}
+function custom_raindrops_grid_break_point_desktop($break_point){
+
+	return $break_point;
+}
+//add_action( 'raindrops_in_the_loop_1','my_test',10,2);
+
+function my_test($content,$num) {
+	if( ! is_paged() && is_home()) {
+//flex-basis:31.6%;
+		echo "<li style=\"background:transparent\"><div><article  ><div class=\"centered\" style=\"height:100vh;background:url(http://www.tenman.info/wp-37/wp-content/uploads/snow.jpg);background-size:cover;background-attachment: fixed;margin:auto -50%;\">
+			<h1 style=\"color:#fff;\" class=\"f40 b7\">Easy Controll 1$num</h1></div></article></div></li>";
+	//	echo "<li style=\"background:rgba(241, 196, 15,.3);\"><div><article><h1 style=\"text-align:center\" class=\"f40 b7\">2$num</h1></article></div></li>";
+	//	echo "<li style=\"background:rgba(241, 196, 15,.3);\"><div><article><h1 style=\"text-align:center\" class=\"f40 b7\">3$num</h1></article></div></li>";
+
+	}
+}
 /**
  *
  *
@@ -732,7 +759,7 @@ foreach ( $raindrops_base_setting as $setting ) {
 
 	if ( !function_exists( $function_name ) ) {
 
-		$message = sprintf( esc_html__( 'If you add  %s when you must create function %s for data validation', 'raindrops' ), $setting[ 'option_name' ], $function_name );
+		$message = sprintf( esc_html__( 'If you add  %1$s when you must create function %2$s for data validation', 'raindrops' ), $setting[ 'option_name' ], $function_name );
 		printf( '<script type="text/javascript">alert( \'%s\' );</script>', $message );
 		return;
 	}
@@ -985,7 +1012,7 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 
 	function raindrops_comment( $comment, $args, $depth ) {
 
-		$GLOBALS[ 'comment' ] = $comment;
+		//@1.472 $GLOBALS[ 'comment' ] = $comment;
 
 		if ( '' == $comment->comment_type ) {
 			?>
@@ -3946,7 +3973,9 @@ if ( !function_exists( "raindrops_yui_class_modify" ) ) {
 			$yui_inner_layout = 'yui-ge';
 		}
 
-		return apply_filters( 'raindrops_yui_class_modify', $yui_inner_layout );
+		$yui_inner_layout = apply_filters( 'raindrops_yui_class_modify', $yui_inner_layout );
+		
+		return sanitize_html_class( $yui_inner_layout );
 	}
 
 }
@@ -13306,6 +13335,7 @@ box-sizing:border-box;
 		flex-basis:31.6%;
 		margin:5px;
 	}
+
 	.rd-col-1.rd-grid.rd-content-width-keep ul.{$archive_type} > li,
 	.rd-col-3.rd-grid.rd-content-width-fit ul.{$archive_type} > li,
 	.rd-col-3.rd-grid ul.{$archive_type} .title-wrapper,
@@ -13315,12 +13345,14 @@ box-sizing:border-box;
 	}
 }
 @media screen  and (min-width:{$break_point_large_min}px){
+
 	.rd-col-1.rd-grid.rd-content-width-fit ul.{$archive_type} > li,
 	.rd-col-1.rd-grid ul.{$archive_type} .title-wrapper,
 	.rd-col-1.rd-grid ul.{$archive_type} > li{
 			flex-basis:23%;
 			margin:5px;
 	}
+
 	.rd-col-1.rd-grid.rd-content-width-keep ul.{$archive_type} > li{
 			flex-basis:31.6%;
 		    margin:5px;

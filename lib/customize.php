@@ -1794,7 +1794,8 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'active_callback'	 => 'raindrops_show_relate_post_callback',
 		),
 "raindrops_show_related_posts_count"				 => array(
-			'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_count','option_value' ),
+			// @1.472 'default'			 => raindrops_warehouse_clone( 'raindrops_show_related_posts_count','option_value' ),
+			'default'			=> $raindrops_featured_image_post_max,
 			'data_type'			 => $raindrops_setting_type,
 			'autoload'			 => 'yes',
 			'capability'		 => $raindrops_customize_cap,
@@ -1936,9 +1937,14 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => sprintf( esc_html__( 'Input Possible values are 1 - %1$d default value %1$d', 'raindrops' ) , $raindrops_featured_image_post_max ),
+			'description'		 => sprintf( esc_html__( 'Input recommend values are %1$d - %2$d default value %1$d', 'raindrops' ) , $raindrops_featured_image_post_max, $raindrops_featured_image_post_max * 10 ),
 			'sanitize_callback'	 => 'raindrops_featured_image_recent_post_count_validate',
-			'type'				 => 'text',
+			'type' => 'number',
+				'input_attrs' => array(
+					'min' => $raindrops_featured_image_post_max,
+					'max' => $raindrops_featured_image_post_max * 10,
+					'step' => 1,
+			),
 			'active_callback'	 => 'raindrops_use_featured_image_emphasis_callback',
 			'section'			 => 'raindrops_theme_settings_featured',
 		),
@@ -3331,16 +3337,16 @@ function raindrops_customize_control_message_raindrops_color_select(){
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content">%2$s</div></label></li>';
 	
 	printf( $html,
-	__('Important Note','raindrops'),// Title
-	__('If you change the color settings, please press the always Save &amp; Publish button.','raindrops') //Message
+	esc_html__( 'Important Note', 'raindrops' ),// Title
+	esc_html__( 'If you change the color settings, please press the always Save &amp; Publish button.', 'raindrops' ) //Message
 	);
 	
 	if ( isset( $raindrops_setting_type ) && 'option' == $raindrops_setting_type ) {
 	
 		printf( $html,
-		sprintf(__('<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">Color Scheme</a>', 'raindrops'),
+		sprintf( '<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">'. esc_html__( 'Color Scheme', 'raindrops' ).'</a>',
 		'javascript:wp.customize.section( \'raindrops_theme_settings_presentation\' ).focus()'),// Title
-		__('First to display the Color Scheme First, please some preview the most preferred design. If it not from, color customization does not apply.','raindrops' )  //Message
+		esc_html__('First to display the Color Scheme First, please some preview the most preferred design. If it not from, color customization does not apply.','raindrops' )  //Message
 		);
 	}
 
@@ -3366,8 +3372,8 @@ function raindrops_customize_control_message_raindrops_primary_menu_responsive()
 	$link = '<a href="%1$s" style="color:yellow;font-weight:bold;margin:0 .5em;">%2$s</a>';
 	
 	printf( $html,
-	__('Important Note','raindrops'),// Title
-	sprintf( __('%1$s This case, Primary Menu Automatic Responsive does not work','raindrops'), $conditional_message ),//Message
+	esc_html__('Important Note','raindrops'),// Title
+	sprintf( esc_html__('%1$s This case, Primary Menu Automatic Responsive does not work','raindrops'), $conditional_message ),//Message
 	sprintf($link, 'javascript:wp.customize.section( \'raindrops_theme_settings_sidebar\' ).focus()', esc_html__('Layout and Sidebars', 'raindrops' ) ) 
 	);	
 	
@@ -3385,9 +3391,9 @@ function raindrops_customize_control_message_raindrops_style_type(){
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
 	
 	printf( $html,
-	__('Navigation:(After save and publish)','raindrops'),// Title
+	esc_html__('Navigation:(After save and publish)','raindrops'),// Title
 	$customizer_url, // link
-	__('Go to Custom Color Settings','raindrops')//link label
+	esc_html__('Go to Custom Color Settings','raindrops')//link label
 	);
 }
 
@@ -3408,13 +3414,13 @@ function raindrops_customize_control_message_raindrops_col_setting_type(){
 	
 	if ( !is_active_sidebar( 1 ) && !is_active_sidebar( 2 ) ) {
 		
-		$message = __('Please set widget first. Default Sidebar Widget, Extra Sidebar Widget not set.','raindrops');
+		$message = esc_html__('Please set widget first. Default Sidebar Widget, Extra Sidebar Widget not set.','raindrops');
 	} elseif ( !is_active_sidebar( 1 ) ) {
 		
-		$message = __('Please set widget first. Required Default Sidebar Widget for 2 columns','raindrops');
+		$message = esc_html__('Please set widget first. Required Default Sidebar Widget for 2 columns','raindrops');
 	} elseif ( !is_active_sidebar( 2 ) ) {
 		
-		$message = __('Please set widget first. Required Extra Sidebar Widget for 3 columns','raindrops');
+		$message = esc_html__('Please set widget first. Required Extra Sidebar Widget for 3 columns','raindrops');
 	}
 	
 	printf( $html,
@@ -3435,12 +3441,12 @@ function raindrops_customize_control_message_link_to_grid_layout(){
 	$html = '<li id="rd-control-description-raindrops-col-setting-type" class="rd-custom-message info customize-control customize-control-style-type" >
 	<label><span class="customize-control-title">%1$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
 
-	$message = __('Grid Layout for Archives','raindrops');
+	$message = esc_html__('Grid Layout for Archives','raindrops');
 	
 	printf( $html,
 	sprintf( __('<span>Info:</span> %1$s','raindrops'), $message ),// Title
 	$customizer_url, // link
-	__('Link to Grid Layout Settings','raindrops')//link label
+	esc_html__('Link to Grid Layout Settings','raindrops')//link label
 	);
 }
 // for option
@@ -3454,12 +3460,12 @@ function raindrops_customize_control_message_raindrops_entry_content_is_home() {
 	<label><span class="customize-control-title">%1$s</span><span class="customize-control-description">%4$s</span><div class="customize-control-content"><a href="%2$s" class="tooltip">%3$s</a></div></label></li>';
 
 	$customizer_url	 = "javascript:wp.customize.section( 'raindrops_theme_settings_featured' ).focus();";
-	$message		 = __( "If you select 'Show Excerpt with Grid Layout' in the 'Home Listed Entry Contents setting', there are recommended related settings.", 'raindrops' );
-	$description	 = __( 'On the link below, go to Featured Image Settings,If you select yes, the configuration section is displayed. Featured Image Position as In front of Title In addition, please set Featured Image Size to Medium_large', 'raindrops' );
+	$message		 = esc_html__( "If you select 'Show Excerpt with Grid Layout' in the 'Home Listed Entry Contents setting', there are recommended related settings.", 'raindrops' );
+	$description	 = esc_html__( 'On the link below, go to Featured Image Settings,If you select yes, the configuration section is displayed. Featured Image Position as In front of Title In addition, please set Featured Image Size to Medium_large', 'raindrops' );
 
 	printf( $html, sprintf( __( '<span>Info:</span> %1$s', 'raindrops' ), $message ), // Title
 							$customizer_url, // link
-							__( 'Link to Featured Image Settings', 'raindrops' ), //link label
+							esc_html__( 'Link to Featured Image Settings', 'raindrops' ), //link label
 							$description // description
 	);
 }

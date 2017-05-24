@@ -1,4 +1,34 @@
 Changelog -----------------------------------
+version:1.473
+
+Overview of Changes
+	Fixed raindrops_img_caption_shortcode_filter() in functions.php
+			Class attribute can not apply in shortcode.
+	Fixed font YuGothic display improperly ( only lang ja )
+	Modified gallery style in lib/alias_functions.php
+	Modified wp-caption style ( only color type minimal )
+	Modified featured image style ( window size < 640px )
+	Modified featured image style ( only featured image left )
+	Modified date archive style in responsiveness.css
+	Modified caption shortcode style ( only color type minimal )
+
+Files Modified
+	modified: fonts.css
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/featured-image.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.472&new_path=raindrops/1.473
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.472
 
 Overview of Changes

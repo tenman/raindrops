@@ -7521,28 +7521,53 @@ function raindrops_doctype_elements( $xhtml, $html5, $echo = true ) {
 */
 if ( !function_exists( 'raindrops_img_caption_shortcode_filter' ) ) {
 
-function raindrops_img_caption_shortcode_filter( $val, $attr, $content = null ) {
+	function raindrops_img_caption_shortcode_filter( $val, $attr, $content = null ) {
 
-	global $raindrops_document_type;
-	extract( shortcode_atts( array( 'id' => '', 'align' => '', 'width' => '', 'caption' => '' ), $attr ) );
+		global $raindrops_document_type;
 
-	if ( 'html5' == $raindrops_document_type ) {
+		extract( shortcode_atts( array( 'id' => '', 'align' => '', 'width' => '', 'caption' => '', 'class' => '' ), $attr ) );
 
-		if ( 1 > (int) $width && empty( $caption ) )
-			return $val;
-		$capid = '';
+		if ( 'html5' == $raindrops_document_type ) {
 
-		if ( $id ) {
+			if ( 1 > (int) $width && empty( $caption ) ) {
+				return $val;
+			}
 
-			$id		 = esc_attr( $id );
-			$capid	 = 'id="figcaption_' . $id . '" ';
-			$id		 = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+			$capid = '';
+
+			if ( !empty( $id ) ) {
+
+				$id		 = absint( $id );
+				$capid	 = 'id="figcaption_' . $id . '" ';
+				$id		 = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+			}
+
+			if ( !empty( $class ) ) {
+
+				if ( preg_match( "!\s!", $class ) ) {
+
+					$classes		 = explode( ' ', $class );
+					$sanitized_class = '';
+
+					foreach ( $classes as $v ) {
+
+						$sanitized_class .= ' ' . sanitize_html_class( $v );
+					}
+
+					$class = ' ' . $sanitized_class;
+				} else {
+
+					$class = ' ' . sanitize_html_class( $class );
+				}
+			} else {
+
+				$class = "";
+			}
+			$html = '<figure %1$s class="wp-caption %2$s" style="width:%3$spx">%4$s<figcaption %5$s class="wp-caption-text">%6$s</figcaption></figure>';
+			return sprintf( $html, $id, esc_attr( $align ) . $class, ( 10 + (int) $width ), do_shortcode( $content ), $capid, $caption );
 		}
-		$html = '<figure %1$s class="wp-caption %2$s" style="width:%3$spx">%4$s<figcaption %5$s class="wp-caption-text">%6$s</figcaption></figure>';
-		return sprintf( $html, $id, esc_attr( $align ), ( 10 + (int) $width ), do_shortcode( $content ), $capid, $caption );
+		return $val;
 	}
-	return $val;
-}
 
 }
 /**

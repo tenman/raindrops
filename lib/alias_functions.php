@@ -1340,7 +1340,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 		
 		$raindrops_gallerys .= "
 				.gallery .gallery-item { margin: 0px; }
-				.gallery .gallery-item {". $display_property. " margin-top: .5em; text-align: center; }
+				.gallery .gallery-item {". $display_property. " margin-top: 3px; text-align: center; }
 				.gallery img { max-width:100%; }
 				.gallery .gallery-caption { margin-left: 0; }
 				.gallery br { clear: both }

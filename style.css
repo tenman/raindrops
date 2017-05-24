@@ -2265,6 +2265,10 @@ br.clearfix {
     padding-bottom:0.38461538461em;
     position:relative;
 }
+.admin-bar #top:target{
+    margin-top:-32px;
+    padding-top:32px;
+}
 .rd-col-1 #top{
     padding-bottom:0;
 }
@@ -2399,7 +2403,7 @@ figure .size-thumbnail{
 }
 .wp-caption p.wp-caption-text {
     line-height: 1.5;
-    padding: 0 0.30769230769px 0.38461538461em;
+    padding: 0 0.30769230769em 0.38461538461em;
     margin: 0;
 }
 li.byuser,
@@ -6664,12 +6668,13 @@ ul.archives .rd-category-description,
 ul.archives .rd-tag-description{
 
     min-height:3em;
-    border:1px solid rgba(127,127,127,.3);
+    /* @1.473 border:1px solid rgba(127,127,127,.3); */
     margin-bottom:2em;/* @1.464 remove only grid */
     /* @1.464 */
     padding:1em;
     box-sizing:border-box;
 }
+
 .rd-grid ul.archives .rd-tag-description{
     border:none;
     margin-bottom:0;
@@ -7018,7 +7023,10 @@ article [data-mod="postit"]:before{
     border:1px solid #aaa;
     border:1px solid rgba(170,170,170,.5);
 }
-
+article [data-mod="postit"]:after{
+    content:'';
+    display:table;
+}
 
 /* end postit */
 /**
@@ -7485,11 +7493,16 @@ mark.green,
 }
 .rd-col-1.rd-type-minimal ul.archives > li,
 .rd-col-1.rd-grid ul.archives > li,
-.rd-grid ul.archives .title-wrapper,
+.rd-col-1.rd-grid ul.archives > .title-wrapper,
 .rd-grid ul.search-results > li,
 .rd-grid ul.archives > li{
     border:1px solid rgba(222,222,222,1);
 }
+.rd-col-1.rd-type-minimal ul.archives > .title-wrapper,
+.rd-grid ul.archives .title-wrapper{
+    border:none;
+}
+
 .safari.rd-grid ul.archives .title-wrapper,
 .safari.rd-grid ul.archives > li{
     border:1px solid rgba(222,222,222,1);
@@ -7499,6 +7512,7 @@ mark.green,
 .rd-grid.rd-type-dark ul.archives > li{
     border:1px solid rgba(222,222,222,.2);
 }
+
 .rd-grid .archives .title-wrapper{
     background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
 }
@@ -7651,4 +7665,11 @@ button[class="layout-switch-button"],
 #mp-product-gallery{
     max-width:none;
     position:static;
+}
+/**
+ * @1.473
+ */
+.rd-type-minimal .wp-caption {
+     border-bottom: 4px solid #1baae1;
+     box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 1px 5px 0 rgba(0,0,0,.1);
 }

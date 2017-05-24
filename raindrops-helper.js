@@ -44,7 +44,7 @@
               
                     if( jQuery( "body.home,body.blog" ).hasClass( "rd-featured-yes-left" ) ) {
                        jQuery( ".h2-thumb > img" ).each(function (i) { 
-                           var height = jQuery(this).height() + 13;
+                           var height = jQuery(this).height() + 20;
                             jQuery( this ).parents('article').css( { 'min-height': height +'px'});
                        });
                     }

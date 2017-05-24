@@ -42,11 +42,15 @@
 body {
     font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
 }
-/* IE10以上 */ 
+/* "Yu Gothic" chrome issue */
+body.chrome.rd-type-minimal{
+    font-weight:500;
+}
+/* IE10+ */ 
 @media all and (-ms-high-contrast: none) {
     body {
-    font-family: Verdana, Meiryo, sans-serif;
-}
+        font-family: Verdana, Meiryo, sans-serif;
+    }
 }
 .mce-content-body,
 body.ja,

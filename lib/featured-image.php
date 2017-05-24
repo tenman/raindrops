@@ -276,8 +276,16 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_lefty_style' ) ) {
 							{$post_id} .h2-thumb + .entry-title-text{
 								padding-left:0;
 							}
+							@media screen and (max-width : 640px){
+								.rd-featured-yes-left.rd-content-width-fit {$post_id} .h2-thumb + .entry-title-text{
+									padding-left:13px;
+								}
+							}
 							{$post_id} article:not(.raindrops-sticky) .wp-post-image{
 								top:0;
+							}
+							.rd-featured-yes-left.rd-content-width-keep {$post_id} article:not(.raindrops-sticky) .wp-post-image{
+								top:10px;
 							}";
 				}
 				if( true == raindrops_is_grid_archives() ) {

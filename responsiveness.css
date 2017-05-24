@@ -888,6 +888,12 @@
     #doc5.yui-t4 #container > .first > div{
        margin-right:0;
     }
+    /* @1.473 */
+    #doc5.yui-t6 #container > .first > .datetable,
+    #doc5.yui-t5 #container > .first > .datetable,
+    #doc5.yui-t4 #container > .first > .datetable{
+       margin-right:auto; 
+    }
     /*
      * @1.404
      * for grid pinup widget
@@ -1057,6 +1063,20 @@
     }
     .rd-featured-yes-left .raindrops-sticky .h2-thumb{
         width:48px;
+    }
+    .rd-list .archives > li{
+        padding-top:1em;
+        padding-bottom:1em;
+    }
+    .rd-featured-yes-left #doc5 .raindrops-no-keep-content-width .index > li > div{
+        padding:1em;
+        background-origin:border-box;
+    }
+    .wp-caption.alignnone,
+    .wp-caption.alignleft,
+    .wp-caption.alignright,
+    .wp-caption.aligncenter{
+        margin-bottom: 0.76923076923em;
     }
 }
 @media screen and (max-width : 480px){

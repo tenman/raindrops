@@ -2704,6 +2704,7 @@ address .entry-rss:after,
 .rd-content-width-keep .pagination + br{
 	display:none;
 }
+.wp-caption:hover,
 .raindrops-tag-posts li:hover,
 .raindrops-category-posts li:hover,
 .raindrops-recent-posts li:hover,
@@ -2881,6 +2882,8 @@ fieldset{
 .rd-grid ul.archives .entry-meta{
     background:rgba(255,255,255,.8);
 }
+
+
 CSS;
 	if( 'yes' == raindrops_warehouse_clone( 'raindrops_text_transform_of_title' ) ){
 		$transform = 'text-transform: uppercase;';

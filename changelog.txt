@@ -9,6 +9,9 @@ Overview of Changes
 		Since it turned out that countermeasure (1.473) of the faint character problem has a side effect,
 		I decided to lower the priority of YuGothic font.
 		priority of font Meiryo (only lang ja and color type minimal)
+	Fixed
+		meta slider plugin in post content
+			display improperly ( position )
 	Removed
 		add_action( 'load-themes.php', 'raindrops_install_navigation' );
 		add_action( 'admin_init', 'raindrops_options_init' );
@@ -20,7 +23,7 @@ Files Modified
 	modified:   rtl.css
 	modified:   style.css
 	modified:   raindrops.js
-
+	modified:   plugins/plugins-presentation.php
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.473&new_path=raindrops/1.475
 -----------------------------------------------Changelog -----------------------------------

@@ -331,7 +331,7 @@ if ( !isset( $raindrops_custom_background_args ) ) {
  *
  *
  *
- * 
+ *
  *
  */
 add_theme_support( 'post-thumbnails' );
@@ -1737,7 +1737,7 @@ if ( !function_exists( 'raindrops_options_init' ) ) {
 	}
 
 }
- * 
+ *
  */
 /**
  * internal function File upload
@@ -2114,7 +2114,7 @@ if ( !function_exists( "setup_raindrops" ) ) {
 	}
 
 }
- * 
+ *
  */
 /**
  * image element has attribute 'width','height' and image size > column width
@@ -2158,7 +2158,7 @@ if ( !function_exists( "raindrops_ie_height_expand_issue" ) ) {
  */
 /**
  * @1.474
- * 
+ *
 
 if ( !function_exists( "raindrops_install_navigation" ) ) {
 
@@ -7543,9 +7543,8 @@ if ( !function_exists( 'raindrops_img_caption_shortcode_filter' ) ) {
 
 			if ( !empty( $id ) ) {
 
-				$id		 = absint( $id );
-				$capid	 = 'id="figcaption_' . $id . '" ';
-				$id		 = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+				$capid	 = 'id="' . esc_attr( 'figcaption_'. $id ) . '" ';
+				$id		 = 'id="' . esc_attr( $id ). '" aria-labelledby="' . esc_attr( 'figcaption_'. $id ). '" ';
 			}
 
 			if ( !empty( $class ) ) {

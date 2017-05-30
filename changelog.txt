@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.475
+version:1.476
 
 Overview of Changes
 
@@ -12,6 +12,9 @@ Overview of Changes
 	Fixed
 		meta slider plugin in post content
 			display improperly ( position )
+	Fixed
+		raindrops_img_caption_shortcode_filter()
+			wrong id and  aria-labelledby attribute
 	Removed
 		add_action( 'load-themes.php', 'raindrops_install_navigation' );
 		add_action( 'admin_init', 'raindrops_options_init' );
@@ -25,7 +28,7 @@ Files Modified
 	modified:   raindrops.js
 	modified:   plugins/plugins-presentation.php
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.473&new_path=raindrops/1.475
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.473&new_path=raindrops/1.476
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.473

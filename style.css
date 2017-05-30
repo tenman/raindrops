@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.473
+Version: 1.474
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -7502,7 +7502,47 @@ mark.green,
 .rd-grid ul.archives .title-wrapper{
     border:none;
 }
-
+.rd-grid ul.search-results > li .alignright.wp-caption,
+.rd-grid ul.archives > li .alignright.wp-caption,
+.rd-grid ul.search-results > li .alignleft.wp-caption,
+.rd-grid ul.archives > li .alignleft.wp-caption,
+.rd-grid ul.search-results > li .alignright.size-medium,
+.rd-grid ul.archives > li .alignright.size-medium,
+.rd-grid ul.search-results > li .alignleft.size-medium,
+.rd-grid ul.archives > li .alignleft.size-medium{
+    /**
+     * when using html excerpt
+     * @1.474
+     */
+    float:none;
+    padding-left:0;
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+}
+.rd-grid ul.search-results > li .alignright.size-large,
+.rd-grid ul.archives > li .alignright.size-large,
+.rd-grid ul.search-results > li .alignleft.size-large,
+.rd-grid ul.archives > li .alignleft.size-large{
+    /**
+     * when using html excerpt
+     * @1.474
+     */
+    padding-left:0;
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+}
+.rd-grid ul.search-results > li .entry-content .unit,
+.rd-grid ul.archives > li .entry-content .unit{
+    /**
+     * when using html excerpt
+     * @1.474
+     */
+    float:none;
+    width:100%;
+    height:auto;
+}
 .safari.rd-grid ul.archives .title-wrapper,
 .safari.rd-grid ul.archives > li{
     border:1px solid rgba(222,222,222,1);
@@ -7672,4 +7712,111 @@ button[class="layout-switch-button"],
 .rd-type-minimal .wp-caption {
      border-bottom: 4px solid #1baae1;
      box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 1px 5px 0 rgba(0,0,0,.1);
+}
+#bd .reset-inherit h1,
+#bd .reset-inherit h2,
+#bd .reset-inherit h3,
+#bd .reset-inherit h4,
+#bd .reset-inherit h5,
+#bd .reset-inherit h6,
+#bd .reset-inherit div{
+    display:block;
+}
+#bd .reset-inherit *,
+#bd .reset-inherit{
+    /* inherit property */
+	cursor:auto;
+	caret-color:auto;
+	font:see individual properties;
+	-webkit-font-feature-settings:normal;
+	        font-feature-settings:normal;
+	-webkit-font-kerning:auto;
+	        font-kerning:auto;
+	-webkit-font-language-override:normal;
+	        font-language-override:normal;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-variant-alternates:normal;
+	font-variant-caps:normal;
+	font-variant-east-asian:normal;
+	-webkit-font-variant-ligatures:normal;
+	        font-variant-ligatures:normal;
+	font-variant-numeric:normal;
+	font-variant-position:normal;
+	font-weight:normal;
+	hanging-punctuation:none;
+	-webkit-hyphens:manual;
+	    -ms-hyphens:manual;
+	        hyphens:manual;
+	letter-spacing:normal;
+	line-break:auto;
+	overflow-wrap:normal;
+	-moz-tab-size:8;
+	  -o-tab-size:8;
+	     tab-size:8;
+	text-align:start;
+	text-align-last:auto;
+	text-indent:0;
+	text-justify:auto;
+	text-transform:none;
+	white-space:normal;
+	word-break:normal;
+	word-spacing:normal;
+	word-wrap:normal;
+	azimuth:center;
+	border-collapse:separate;
+	border-spacing:0;
+	caption-side:top;
+	cursor:auto;
+	direction:ltr;
+	elevation:level;
+	empty-cells:show;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	font-weight:normal;
+	letter-spacing:normal;
+	line-height:normal;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:disc;
+	list-style:disc;
+	orphans:2;
+	pitch-range:50;
+	pitch:medium;
+	richness:50;
+	speak-header:once;
+	speak-numeral:continuous;
+	speak-punctuation:none;
+	speak:normal;
+	speak:normal;
+	speech-rate:medium;
+	stress:50;
+	text-align:left;
+	text-indent:0;
+	text-transform:none;
+	visibility:visible;
+	volume:medium;
+	white-space:normal;
+	widows:2;
+    /* not inherit property */
+	word-spacing:normal;
+	margin:auto;
+	padding:auto;
+        width:auto;
+        max-height:none;
+        max-width:none;
+        min-height:0;
+        min-width:0;
+        vertical-align : baseline;
+        opacity:1;
+        table-layout:auto;
+        z-index:auto;
+        /* It is not used for compatibility with the theme all: initial; */
+}
+.rtl #bd .reset-inherit *,
+.rtl #bd .reset-inherit{
+    	text-align:right;
 }

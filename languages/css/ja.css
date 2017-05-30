@@ -44,7 +44,7 @@ body {
 }
 /* "Yu Gothic" chrome issue */
 body.chrome.rd-type-minimal{
-    font-weight:500;
+    font-family:   "-apple-system", "Helvetica Neue", Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
 }
 /* IE10+ */ 
 @media all and (-ms-high-contrast: none) {
@@ -65,7 +65,7 @@ body.ja,
 .ja .h2,
 .mce-content-body .h3,
 .ja .h3{
-	font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
+	font-family: "-apple-system", "Helvetica Neue", Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
 }
 .rd-modal .header h3{
     margin-top:0;

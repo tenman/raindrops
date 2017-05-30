@@ -23,7 +23,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 *
 		 */
-		add_action( 'load-themes.php', 'raindrops_install_navigation' );
+		/**
+		 * @1.474
+		 * add_action( 'load-themes.php', 'raindrops_install_navigation' );
+		 */
 		/**
 		 *
 		 */
@@ -72,7 +75,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 *
 		 */
-		add_action( 'admin_init', 'raindrops_options_init' );
+		//add_action( 'admin_init', 'raindrops_options_init' );
 		/**
 		 *
 		 */

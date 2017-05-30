@@ -2,10 +2,20 @@ Changelog -----------------------------------
 version:1.474
 
 Overview of Changes
-
+	Fixed
+		Since it turned out that countermeasure (1.473) of the faint character problem has a side effect,
+		I decided to lower the priority of YuGothic font.
+		priority of font Meiryo (only lang ja and color type minimal)
+	Removed
+		add_action( 'load-themes.php', 'raindrops_install_navigation' );
+		add_action( 'admin_init', 'raindrops_options_init' );
 
 Files Modified
-
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/hooks.php
+	modified:   rtl.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.473&new_path=raindrops/1.474

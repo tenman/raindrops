@@ -544,7 +544,8 @@ if ( !function_exists( 'raindrops_metaslider_css' ) ) {
 				.rslides_tabs{overflow:hidden;' . $raindrops_gradient_border . '}
 				.rslides_tabs li a{' . $raindrops_gradient . '}/*r slider*/
 				.rslides_tabs li.rslides_here a{ color:green;}/*r slider*//*nivo ok*/
-				.metaslider-coin{margin:auto;}';
+				.metaslider-coin{margin:auto;}
+				.entry-content .metaslider .slides{left:0;}';
 			$setting_value = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
 
 			If( $setting_value == 'header_image' && is_front_page() ) {

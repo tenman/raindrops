@@ -1,7 +1,10 @@
 Changelog -----------------------------------
-version:1.474
+version:1.475
 
 Overview of Changes
+
+	Added
+		Style added WordPress4.8 widget_media_image, widget_media_video, new text widget
 	Fixed
 		Since it turned out that countermeasure (1.473) of the faint character problem has a side effect,
 		I decided to lower the priority of YuGothic font.
@@ -16,9 +19,10 @@ Files Modified
 	modified:   lib/hooks.php
 	modified:   rtl.css
 	modified:   style.css
+	modified:   raindrops.js
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.473&new_path=raindrops/1.474
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.473&new_path=raindrops/1.475
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.473

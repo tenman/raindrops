@@ -326,3 +326,11 @@ jQuery( function ( $ ) {
         }       
     });
 } );
+jQuery( function ( $ ) {
+    /* @1.475 */
+    $( '.widget.widget_media_image > figure' ).each( function ( index ) {
+    
+       $( this ).parent().css({'padding-bottom':'1.5em'});
+       $( this ).prev().css({'margin-bottom':'1em'});
+    });
+} );

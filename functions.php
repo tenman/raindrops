@@ -5324,12 +5324,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 		.rd-pw-doc5.rd-col-1 #bd{
 			max-width:none;
 		}
-		/* @1.456
-		.rd-pw-doc5.rd-col-1 .yui-t6 #container > .first,
-		.rd-pw-doc5.rd-col-1 .yui-t5 #container > .first,
-		.rd-pw-doc5.rd-col-1 .yui-t4 #container > .first {
-			margin:0;
-		}*/
+
 		.loop-before-toolbar,
 		.rd-pw-doc5.rd-col-1 .topsidebar .metaslider,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_calendar #calendar_wrap,
@@ -5340,6 +5335,9 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_nav_menu > div,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_tag_cloud .tagcloud,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_text .textwidget,
+		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_media_image img,
+		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_media_image figure,
+		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_media_video .wp-video,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_search #searchform,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > li > .widgettitle,
 		.rd-pw-doc5.rd-col-1 .topsidebar > ul > li > ul,

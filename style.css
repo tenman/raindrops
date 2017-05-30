@@ -7713,3 +7713,52 @@ button[class="layout-switch-button"],
      border-bottom: 4px solid #1baae1;
      box-shadow: 0 1px 1px 0 rgba(0,0,0,.1), 0 1px 5px 0 rgba(0,0,0,.1);
 }
+/**
+ * WordPress4.8 core widget
+ * @since 1.475
+ */
+.widget_media_image > img{
+    display:block;
+    margin:5px auto;
+}
+.widget_media_image figure{
+    margin:13px;
+    max-width:calc( 100% - 2em );    
+}
+.topsidebar .widget_media_image > figure{
+    margin:0 auto;
+    max-width:calc(100% - 3em);    
+}
+.widget_media_image figure img{
+    object-fit:contain;
+}
+.widget_media_image figure,
+.widget_media_image img{
+    text-align:center;
+    margin:auto;
+}
+.topsidebar .widget_text .textwidget ol li,
+.topsidebar .widget_text .textwidget ul li{
+    list-style: unset;
+}
+.rd-pw-doc5.rd-col-1.rd-type-light.rd-content-width-keep .topsidebar .widgettitle span,
+.rd-pw-doc5.rd-col-1.rd-type-light.rd-content-width-keep .topsidebar .widgettitle span,
+.rd-pw-doc5.rd-col-1.rd-type-lignt.rd-content-width-keep .topsidebar .widgettitle span,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar .widgettitle span,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar .widgettitle span,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar .widgettitle span{
+    padding-left:13px;
+}
+.rd-pw-doc5.rd-col-1.rd-type-light.rd-content-width-keep .topsidebar > ul > .widget_media_audio,
+.rd-pw-doc5.rd-col-1.rd-type-light.rd-content-width-keep .topsidebar > ul > .widget_media_video,
+.rd-pw-doc5.rd-col-1.rd-type-light.rd-content-width-keep .topsidebar > ul > .widget_media_image,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar > ul > .widget_media_audio,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar > ul > .widget_media_video,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar > ul > .widget_media_image{
+    padding-bottom:0;
+}
+.rd-pw-doc5.rd-col-1.rd-type-light.rd-content-width-keep .topsidebar > ul > .widget_text .textwidget,
+.rd-pw-doc5.rd-col-1.rd-type-minimal.rd-content-width-keep .topsidebar > ul > .widget_text .textwidget{
+    padding:13px;
+}
+/* WordPress4.8 core widget end */

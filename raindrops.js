@@ -281,10 +281,12 @@ jQuery( function ( $ ) {
             $( '#rd-swich-layout' ).addClass( 'rd-switch-to-grid-layout' ).removeClass( 'rd-switch-to-list-layout' ).attr("title", title_text_to_list ); //.html('grid');
             $( 'body' ).removeClass( "rd-grid" ).addClass('rd-list');
 
+
         } else if ( 'grid' == raindrops_get_cookie( 'rd_swich_layout' ) ) {
 
             $( '#rd-swich-layout' ).addClass( 'rd-switch-to-list-layout' ).removeClass( 'rd-switch-to-grid-layout' ).attr("title", title_text_to_grid );//.html('list');           
             $( 'body' ).addClass( "rd-grid" ).removeClass('rd-list');
+
         }
 
     } else {
@@ -299,13 +301,16 @@ jQuery( function ( $ ) {
 
             $( this ).addClass( 'rd-switch-to-grid-layout' ).removeClass( 'rd-switch-to-list-layout' ).attr("title", title_text_to_list ); //.html('grid');
             $( 'body' ).removeClass( "rd-grid" ).addClass('rd-list');
+
         } else {
             raindrops_set_cookie( 'rd_swich_layout', 'grid' );
 
             $( this ).addClass( 'rd-switch-to-list-layout' ).removeClass( 'rd-switch-to-grid-layout' ).attr("title", title_text_to_grid );//.html('list');
-            $( 'body' ).addClass( "rd-grid" ).removeClass('rd-list');;
+            $( 'body' ).addClass( "rd-grid" ).removeClass('rd-list');
+
         }
     } );
+    
 } );
 /**
  * category first page NOT featured Image display property change from block to table-cell
@@ -332,5 +337,12 @@ jQuery( function ( $ ) {
     
        $( this ).parent().css({'padding-bottom':'1.5em'});
        $( this ).prev().css({'margin-bottom':'1em'});
+    });
+    /* @1.477 */
+    $( '.js-figure-fit' ).each( function ( index ) {
+       var figure_width = $( this ).find('img').width() + 10;
+       if( parseInt( figure_width ) > 10 ) {
+            $( this ).css({'width':figure_width + 'px'});
+        } 
     });
 } );

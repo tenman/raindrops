@@ -3905,7 +3905,7 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 
 			do_action( 'raindrops_loop_title_before' );
 
-			printf( '<li class="title-wrapper %3$s-wrapper"><strong id="archives-title"><span class="label">%1$s</span> <span class="title ">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
+			printf( '<li class="title-wrapper %3$s-wrapper"><strong id="archives-title" class="page-title"><span class="label">%1$s</span> <span class="title ">%2$s</span></strong></li>', apply_filters( 'raindrops_archive_name', $page_title ), apply_filters( 'raindrops_archive_value', $page_title_c ), $Raindrops_class_name );
 
 			do_action( 'raindrops_loop_title_after' );
 
@@ -5969,13 +5969,14 @@ if ( !function_exists( 'raindrops_entry_title' ) ) {
 			$html = '<' . $raindrops_title_element . ' class="%1$s">%2$s' .
 			"\n" . str_repeat( "\t", 11 ) . '<a href="%3$s" rel="bookmark" title="%4$s"><span>%5$s %6$s</span></a>' .
 			"\n" . str_repeat( "\t", 10 ) . '</' . $raindrops_title_element . '>';
-
+/* @1.477 */
 			$html = sprintf( $html,
 				apply_filters( 'raindrops_entry_title_class', 'h2 entry-title' ),
 				$thumbnail, get_permalink(),
 				the_title_attribute( array( 'before' => '', 'after' => '', 'echo' => false ) ),
 				the_title( $raindrops_entry_title_text_class_start, $raindrops_entry_title_text_class_end, false ),
-				$raindrops_unique_label );
+				$raindrops_unique_label
+			);
 
 			if ( true == $echo ) {
 				echo apply_filters( 'raindrops_entry_title', $html );
@@ -5996,6 +5997,7 @@ if ( !function_exists( 'raindrops_entry_title' ) ) {
 	}
 
 }
+
 
 if ( !function_exists( 'raindrops_excerpt_with_html' ) ) {
 
@@ -7532,48 +7534,59 @@ if ( !function_exists( 'raindrops_img_caption_shortcode_filter' ) ) {
 		global $raindrops_document_type;
 
 		extract( shortcode_atts( array( 'id' => '', 'align' => '', 'width' => '', 'caption' => '', 'class' => '' ), $attr ) );
+		
+		if ( empty( $caption ) ) {
+				
+				return $val;
+		}
 
 		if ( 'html5' == $raindrops_document_type ) {
 
-			if ( 1 > (int) $width && empty( $caption ) ) {
-				return $val;
-			}
+			$id				 = esc_attr( $id );
+			$align			 = esc_attr( $align );
+			$width			 = apply_filters( 'img_caption_shortcode_width', $width, $attr, $content );
+			$width			 = absint( $width );
+			$sanitized_class = '';
+			$capid			 = '';
+			
+			if ( ! empty( $class ) ) {
+				
+				$pos			 = strpos( $class, ' ' );
 
-			$capid = '';
+				if ( false === $pos ) {
 
-			if ( !empty( $id ) ) {
-
-				$capid	 = 'id="' . esc_attr( 'figcaption_'. $id ) . '" ';
-				$id		 = 'id="' . esc_attr( $id ). '" aria-labelledby="' . esc_attr( 'figcaption_'. $id ). '" ';
-			}
-
-			if ( !empty( $class ) ) {
-
-				if ( preg_match( "!\s!", $class ) ) {
-
-					$classes		 = explode( ' ', $class );
-					$sanitized_class = '';
-
-					foreach ( $classes as $v ) {
-
-						$sanitized_class .= ' ' . sanitize_html_class( $v );
-					}
-
-					$class = ' ' . $sanitized_class;
+					$class = sanitize_html_class( $class );
 				} else {
 
-					$class = ' ' . sanitize_html_class( $class );
-				}
-			} else {
+					$classes = explode( ' ', $class );
 
-				$class = "";
+					foreach ( $classes as $cls ) {
+
+						$sanitized_class .= ' ' . sanitize_html_class( $cls );
+					}
+				}
+				$class = trim( $sanitized_class );
 			}
+
+			if ( ! empty( $id ) ) {
+
+				$capid	 = 'id="' . esc_attr( 'figcaption_' . $id ) . '" ';
+				$id		 = 'id="' . esc_attr( $id ) . '" aria-labelledby="' . esc_attr( 'figcaption_' . $id ) . '" ';
+			}
+
+			if ( empty( $width ) ) {
+
+				$class .= ' ' . 'js-figure-fit';
+
+				$html = '<figure %1$s class="wp-caption %2$s">%3$s<figcaption %4$s class="wp-caption-text" style="flex:0 1 auto">%5$s</figcaption></figure>';
+				return sprintf( $html, $id, esc_attr( $align ) . $class, do_shortcode( $content ), $capid, $caption );
+			}
+
 			$html = '<figure %1$s class="wp-caption %2$s" style="width:%3$spx">%4$s<figcaption %5$s class="wp-caption-text">%6$s</figcaption></figure>';
 			return sprintf( $html, $id, esc_attr( $align ) . $class, ( 10 + (int) $width ), do_shortcode( $content ), $capid, $caption );
 		}
 		return $val;
 	}
-
 }
 /**
 *

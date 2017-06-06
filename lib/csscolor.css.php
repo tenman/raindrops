@@ -352,8 +352,8 @@ body:not(.rd-tag-em) #ft a,
 .blog .entry-utility li,
 dl.author dd,
 dl.author dt,
-dl.my_tags dd,
-dl.my_tags dt,
+/* @1.477 dl.my_tags dd,
+dl.my_tags dt,*/
 ul.category li,
 ul.sitemap ul li,
 ul.archive ul li,
@@ -610,8 +610,8 @@ hr{
 .blog .entry-utility li,
 dl.author dd,
 dl.author dt,
-dl.my_tags dd,
-dl.my_tags dt,
+/* @1.477 dl.my_tags dd,
+dl.my_tags dt,*/
 ul.category li,
 ul.sitemap ul li,
 ul.archive ul li,
@@ -1680,9 +1680,9 @@ body:not(.rd-tag-em) #ft a,
     text-indent:0;
 }
 dl.author dd,
-dl.author dt,
+dl.author dt/* @1.477,
 dl.my_tags dd,
-dl.my_tags dt{
+dl.my_tags dt*/{
     border-bottom:1px solid %c_border%;
 }
 ul.archive,
@@ -1969,9 +1969,9 @@ kbd,
 }
 .sticky-widget.widget_recent-post-groupby-cat .xoxo > li > ul >li,
 dl.author dd,
-dl.author dt,
+dl.author dt/* @1.477,
 dl.my_tags dd,
-dl.my_tags dt{
+dl.my_tags dt*/{
     border-bottom:1px solid %rgba_border%;
 
 }

@@ -52,7 +52,7 @@ button {
  */
 table {
     font-size:inherit;
-    font:100% sans-serif;
+    font-family:sans-serif;
 }
 /**
  * Bump up IE to get to 13px equivalent for these fixed-width elements
@@ -72,9 +72,6 @@ tt {
 .ie7 tt {
     font-size:108%;
 }
-
-/*			Raindrops Fonts settings
-                        @see style.css Responsive fonts settings	*/
 /**
  * Font family
  */
@@ -163,9 +160,7 @@ div[role="banner"] #site-title.f12,
 .post .entry-title.f13,
 div[role="banner"] #site-title.f13,
 .wp-caption p.wp-caption-text,
-/*#access .menu-header,*/
 div.menu,
-/* @1.347 p. */
 .h4:not(h4),
 h4,
 .f13 {
@@ -476,7 +471,6 @@ dt,
 .image-caption .section-title{
     font-size:138.5%;
 }
-/* @1.348 Add font size Class */
 .f27{
     font-size:207.6%;
 }
@@ -497,7 +491,6 @@ dt,
 }
 /**
  * Font weight Class
- * @1.417
  */
 .thin,
 .b1{

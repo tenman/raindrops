@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.477
+version:1.478
 
 Overview of Changes
 	Fixed When using Featured Image Position  (In front of Title) of Customizer Featured Image Settings
@@ -19,7 +19,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.476&new_path=raindrops/1.477
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.476&new_path=raindrops/1.478
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.476

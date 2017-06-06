@@ -162,8 +162,10 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_block_style' ) ) {
 					
 				} else {
 					$post_id = '#post-' . $id;
-					
+					$custom_css .= $post_id . " .entry-title > a > span{display:block;}";
+					$custom_css .= $post_id . " .entry-title > a > span > .h2-thumb{display:block;}";					
 					$custom_css .= $post_id . " .wp-post-image{margin-bottom:1em;display:block;width:100%;" . $padding;
+					$custom_css .= $post_id . " .h2-thumb + .entry-title-text{padding:0 1em 0 .4em;box-sizing: border-box;}";
 				}
 				$custom_css .= ' background:' . $post_image_background;
 				$custom_css .= "}";

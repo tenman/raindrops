@@ -157,15 +157,16 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_block_style' ) ) {
 					$post_id = '#post-' . $id;
 					$custom_css .= $post_id . " .entry-title > a > span{display:block;}";
 					$custom_css .= $post_id . " .entry-title > a > span > .h2-thumb{display:block;}";
+					$custom_css .= $post_id . " .h2-thumb + .entry-title-text{padding:0 1em 0 13px;box-sizing: border-box;}";					
 					$custom_css .= $post_id . " .wp-post-image{margin-bottom:1em;display:block;max-width:100%;width:".intval( $thumb_image_size[ 'width' ] ). 'px;height:auto;margin-left:auto;margin-right:auto;';
-					$custom_css .= $post_id . " .h2-thumb + .entry-title-text{padding:0 1em 0 .4em;box-sizing: border-box;}";
-					
+				
 				} else {
 					$post_id = '#post-' . $id;
 					$custom_css .= $post_id . " .entry-title > a > span{display:block;}";
-					$custom_css .= $post_id . " .entry-title > a > span > .h2-thumb{display:block;}";					
+					$custom_css .= $post_id . " .entry-title > a > span > .h2-thumb{display:block;}";
+					$custom_css .= $post_id . " .h2-thumb + .entry-title-text{padding:0 1em 0 0;box-sizing: border-box;}";					
 					$custom_css .= $post_id . " .wp-post-image{margin-bottom:1em;display:block;width:100%;" . $padding;
-					$custom_css .= $post_id . " .h2-thumb + .entry-title-text{padding:0 1em 0 .4em;box-sizing: border-box;}";
+
 				}
 				$custom_css .= ' background:' . $post_image_background;
 				$custom_css .= "}";

@@ -2704,6 +2704,9 @@ address .entry-rss:after,
 .rd-content-width-keep .pagination + br{
 	display:none;
 }
+.wp-caption{
+	background:#fff;
+}
 .wp-caption:hover,
 .raindrops-tag-posts li:hover,
 .raindrops-category-posts li:hover,
@@ -2805,7 +2808,7 @@ address .entry-rss:after,
 	 background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
 }
 .sticky-widget #wp-calendar tbody #today a{
-	padding:.6em 1em;
+	padding:.6em;
 	
 }
 /* @1.453 */

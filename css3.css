@@ -143,7 +143,7 @@ article .entry-meta a:hover,
 }
 .raindrops-light-box{
     position: relative;
-    background: #f1d2c2;
+    /* @1.480 background: #f1d2c2;*/
     cursor:pointer;
 }
 .raindrops-lightbox-overlay{

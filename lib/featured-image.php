@@ -148,7 +148,6 @@ if ( ! function_exists( 'raindrops_post_thumbnail_size_block_style' ) ) {
 				$padding = round( ( $padding / $content_width ) * 100 );
 				$padding = 'padding:0 ' . $padding . '%;';
 			}
-
 			
 			if ( has_post_thumbnail( $id ) ) {
 				$post_id = '#post-' . $id;

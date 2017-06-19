@@ -262,6 +262,11 @@ $raindrops_current_data					 = wp_get_theme();
 $raindrops_current_data_theme_uri		 = apply_filters( 'raindrops_theme_url', $raindrops_current_data->get( 'ThemeURI' ) );
 $raindrops_current_data_author_uri		 = apply_filters( 'raindrops_author_url', $raindrops_current_data->get( 'AuthorURI' ) );
 $raindrops_current_data_version			 = $raindrops_current_data->get( 'Version' );
+if ( is_child_theme() ) {
+	/* for cache remove correctly */
+	$raindrops_this_parent_theme = wp_get_theme( get_template() );
+	$raindrops_current_data_version		 = $raindrops_this_parent_theme->get( 'Version' ). '-'. $raindrops_current_data_version;
+}
 $raindrops_current_theme_name			 = $raindrops_current_data->get( 'Name' );
 $raindrops_current_theme_slug			 = str_replace( ' ', '-', $raindrops_current_theme_name );
 $raindrops_current_theme_slug			 = sanitize_html_class( $raindrops_current_theme_slug );

@@ -214,12 +214,19 @@ div[role="banner"] #site-title.f19,
 .f19 {
     font-size:146.5%;
 }
+.rd-list .topsidebar .widgettitle, /* 1.480 */
+.rd-grid .topsidebar .widgettitle, /* 1.480 */
 .post .entry-title.f20,
 div[role="banner"] #site-title.f20,
 .h2:not(h2),
 h2,
 .f20 {
     font-size:153.9%;
+}
+.rd-list .topsidebar .widgettitle, /* 1.480 */
+.rd-grid .topsidebar .widgettitle{
+    font-weight:700;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
 }
 #ft .widgettitle{
     font-size:20px;/* if( $raindrops_base_font_size customized ) { overflow list area }*/
@@ -345,7 +352,7 @@ div[role="banner"] #site-title{
 .ie8 #site-title{
     font-size:236.8%;
 }
-
+.topsidebar .widgettitle,/* @1.480 */
 #archives-title,
 .archive .page-title,
 .pagetitle,

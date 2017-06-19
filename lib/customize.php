@@ -3253,7 +3253,7 @@ add_action( 'customize_controls_print_scripts', 'raindrops_print_scripts' );
 
 function raindrops_print_scripts() {
 	global $raindrops_current_data_version, $raindrops_customizer_admin_color, $raindrops_setting_type, $raindrops_customize_args, $raindrops_setting_type;
-
+	
 	if ( file_exists( get_stylesheet_directory() . '/lib/customize.js' ) ) {
 		
 		wp_enqueue_script( 'raindrops-customize', get_stylesheet_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );

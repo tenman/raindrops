@@ -61,6 +61,7 @@ Text Domain: raindrops
  * Headding
  * Header
  * Header Image
+ * HTML Code Widget
  * Image Archive Navigation
  * Image Archives
  * Language Style
@@ -169,7 +170,7 @@ body.rd-col-1 .raindrops-expand-width{
 .disable > a,
 a.disable{
     /**
-     * ie9 , ie10, Opera Mini not support
+     * With this class, javascript removes the href attribute.
      */
     pointer-events: none;
     cursor: default;
@@ -439,6 +440,13 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .rd-reverbnation > div > iframe{
     min-height:484px;
 }
+.rd-screencast{
+    text-align:center;
+}
+.rd-screencast > div{
+    display:inline-block;
+    text-align:left;
+}
 .textwidget  .rd-speakerdeck,
 .entry-content .rd-speakerdeck{
     max-width:652px;
@@ -620,8 +628,6 @@ pre,
 .hentry embed,
 ul.archive,
 ul.index,
-.calendar_wrap,
-#calendar_wrap,
 .wp-caption,
 .format-status ul.categoryblog *,
 .category-blog ul.categoryblog *,
@@ -1427,12 +1433,15 @@ footer a{
     position:relative;
     box-sizing:border-box;
 }
+/**
+ * @1.478
 #hideAll {
     background-position:-0.38461538461em -125px;
     background-repeat:no-repeat;
     height:1.84615384615em;
     width:15.3846153846em;
 }
+ */
 /**
  * Pagination
    ========================================================================== */
@@ -1515,7 +1524,8 @@ footer a{
 .pagination .nav-links .dots{
     border:none;
 }
-
+/**
+ * @1.478
 .answer {
     background:url(./images/icon.png);
     background-position:-0.38461538461em -155px;
@@ -1524,6 +1534,7 @@ footer a{
     margin:0.15384615384em;
     padding:0.38461538461em 0.38461538461em 0.38461538461em 2.30769230769em;
 }
+ */
 /**
  * Image Archives
    ========================================================================== */
@@ -1611,7 +1622,6 @@ footer a{
 .safari .emoji{
     width:2em!important;
 }
-
 .rd-tag-em .post-tag span[class^="tag-link-"],
 .category-archives .cat-item,
 .entry-meta > .post-format-text + a .post-format,
@@ -1788,6 +1798,9 @@ div[class^="entry-meta"] .emoji-date,
     /* @1.477 */
     padding-left:0;
 }
+.rd-list #bd .index .h2-thumb + .small-thumb-siblings{
+    padding-left:.4em;
+}
 
 /**
  * Archives
@@ -1800,10 +1813,23 @@ ul.index > li {
     margin:0;
     padding:0;
 }
+.rd-type-minimal.rd-col-3 .index .rd-term-description + li,
+.rd-type-minimal.rd-col-2 .index .rd-term-description + li,
+.rd-type-minimal.rd-col-3 .archive > li:first-child,
+.rd-type-minimal.rd-col-3 .index > li:first-child,
+.rd-type-minimal.rd-col-2 .archive > li:first-child,
+.rd-type-minimal.rd-col-2 .index > li:first-child,
 .rd-type-minimal .archive > li,
 .rd-type-minimal .index > li{
     padding:0;
     box-sizing:border-box;
+}
+.rd-type-minimal.rd-col-3 .archive > li,
+.rd-type-minimal.rd-col-3 .index > li,
+.rd-type-minimal.rd-col-2 .archive > li,
+.rd-type-minimal.rd-col-2 .index > li{
+    /* @1.478 */
+    padding:2em 0;
 }
 .rd-grid.rd-type-minimal .index > li{
     padding:0;
@@ -2162,6 +2188,7 @@ br.clearfix {
 .calendar_wrap table,
 #calendar_wrap table{
     margin:0 auto;
+    max-width:400px;/* @1.480 */
 }
 .calendar_wrap a,
 #calendar_wrap a{
@@ -7660,6 +7687,10 @@ article [data-mod="postit"]:after{
 .page-featured-post-image:empty{
     display:none;
 }
+
+/**
+ * Post Format Chat
+   ========================================================================== */
 .widget .raindrops-post-format-chat form{
     text-align:left;
 }
@@ -7674,9 +7705,6 @@ article [data-mod="postit"]:after{
     width:100%;
     float:none;
 }
-/**
- * Post Format Chat
-   ========================================================================== */
 .raindrops-post-format-chat > .raindrops-chat-author-0{
 
 }
@@ -8173,4 +8201,62 @@ button[class="layout-switch-button"],
     overflow:hidden;
     height:100%;
 }
+html[xmlns="http://www.w3.org/1999/xhtml"] .lsidebar .widget_media_image .alignnone,
+html[xmlns="http://www.w3.org/1999/xhtml"] .rsidebar .widget_media_image .alignnone{
+    display:inline-block;
+    padding-left:5px;
+    padding-right:5px;
+}
+.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_media_video,
+.rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_media_image{
+    padding-top:1.5em;
+}
+.topsidebar .widget_text{
+    padding:1em;
+    box-sizing:border-box;
+}
+/**
+ * HTML Code Widget
+   ========================================================================== */
+/* WordPress4.8.1 core widget HTML Code start */
+.topsidebar .widget_html_code ol, 
+.topsidebar .widget_html_code ul { 
+    padding-left: 40px;
+}
+.rsidebar .widget_html_code dl{
+    margin-left:0;
+}
+#ft .footer-widget-wrapper li.widget_html_code ul{
+    padding-left:5%;
+}
+.widget_html_code ol{
+    padding-left:10%;
+}
+.lsidebar .widget_html_code ol li,
+.widget_html_code ol li{ 
+    list-style-type: decimal; 
+}
+#ft .footer-widget-wrapper li.widget_html_code ul li,
+.rsidebar .widget_html_code dd,
+.rsidebar .widget_html_code ul li,
+.lsidebar .widget_html_code ul li,
+.topsidebar .widget_html_code ul li,
+.widget_html_code ul li{
+    display:list-item;
+    list-style-type: disc;
+    min-height:0;
+    line-height:normal;
+    padding:0;
+}
+.widget_html_code ol ul li,
+.widget_html_code ul ul li{
+    list-style-type: circle;
+}
+.widget_html_code ol ol ul li,
+.widget_html_code ol ul ul li,
+.widget_html_code ul ol ul li,
+.widget_html_code ul ul ul li{
+    list-style-type: square;
+}
+/* WordPress4.8.1 core widget end */
 /* WordPress4.8 core widget end */

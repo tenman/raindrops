@@ -16,7 +16,7 @@
     }
    .entry-content figure.alignright + p,
     .entry-content figure.alignleft + p{
-        display:table;
+        /* @1.480 display:table;*/
         min-width:12em;
     }
     .entry-content > a .alignright.size-medium,

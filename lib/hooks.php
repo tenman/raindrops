@@ -311,7 +311,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 * @since 1.411
 		 */
-		add_filter( 'language_attributes', 'raindrops_xhtml_language_attributes', 10, 2 );
+		/**
+		 * @1.480 removed
+		 * add_filter( 'language_attributes', 'raindrops_xhtml_language_attributes', 10, 2 );
+		 */
 		/**
 		 * html5 can not use role attribute for indivisual values
 		 * @since 1.411

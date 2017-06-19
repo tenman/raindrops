@@ -1,4 +1,50 @@
 Changelog -----------------------------------
+version:1.480
+
+Overview of Changes
+
+	Modified CSS Change widgettitle font size in topsidebar
+	Modified CSS add wp-caption background for color type 'minimal'
+	Modified CSS Featured Image margin padding ajust from js.
+	Modified CSS floating image after p remove display:table
+	Added CSS for 4.8.1  HTML Code Widget
+
+	Modified microformats Distinction between updated class and published class
+	Added sidebar aria-label for html5
+
+	Added filter raindrops_caption_shortcode_attribute
+
+	Added Class rd-screencast for Oembed screencast.com
+		Screencast.com supports other file formats such as images as well as videos. Please set your own style according to each usage situation.
+
+	Fixed Editor Style low contrast.
+
+	Fixed xhtml language attribute issue raindrops_xhtml_language_attributes() removed and filter
+
+	Added function raindrops_is_current_post()
+
+	Modified Child Theme version query string
+		from style.css?ver=1.480(parent theme version)
+		to style.css?ver=1.480-0.1( parent theme version + child theme version )
+		Changed so that the child theme can surely remove the cache when updating.
+
+Files Modified
+	modified:	css3.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.479&new_path=raindrops/1.480
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.479
 
 Overview of Changes

@@ -3,9 +3,23 @@ version:1.481
 
 Overview of Changes
 
+	Fixed ja.mo ja.po Wrong Translation msgid "Begin installing plugin"
+	Fixed When Show Excerpt with Grid Layout posted in popup link works improperly. browser widght 320px-640px.
+	Fixed hamburger button shows sidebar menu widget.( only Responsive Default Sidebar, Responsive Extra Sidebar set yes )
+		Change hamburger button show only primary menu.
+	Fixed Archive Widget Show post counts display improperly. Problems displayed on two lines
+		If shows two lines, Please try Remove Inactive Widget.
 
 Files Modified
-
+	modified:   css3.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.480&new_path=raindrops/1.481

@@ -274,7 +274,9 @@ jQuery( function ( $ ) {
         var keyValue = document.cookie.match( '(^|;) ?' + key + '=([^;]*)(;|$)' );
         return keyValue ? keyValue[2] : null;
     }
-    if ( 'yes' == is_grid_archives ) {
+    var raindrops_window_width = jQuery( window ).width();
+    
+    if ( 'yes' == is_grid_archives && raindrops_script_vars.raindrops_grid_layout_break_point_small_max < raindrops_window_width ) {
         
         if ( 'list' == raindrops_get_cookie( 'rd_swich_layout' ) ) {
 
@@ -356,6 +358,13 @@ jQuery( function ( $ ) {
             $( this ).css({'width':figure_width + 'px'});
         } 
     });
+} );
+jQuery( function ( $ ) {
+    $( '.rd-featured-yes-front.rd-list #bd .index .h2-thumb' ).each( function ( index ) {
+        if( 48 == parseInt( $(this).width() ) ) {
+            $(this).siblings( ".entry-title-text" ).css({'padding-left': '0.4em'});
+        }
+    });   
 } );
 jQuery( function ( $ ) {
     $( '.rd-featured-yes-front.rd-list #bd .index .h2-thumb' ).each( function ( index ) {

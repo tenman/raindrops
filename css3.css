@@ -127,6 +127,7 @@ article .entry-meta a:hover,
 .datetable td li:nth-last-child(1){
     border-bottom:none;
 }
+.sticky-widget .textwidget .columns,
 #doc5 .entry-content .columns,
 #doc .entry-content .columns,
 #doc2 .entry-content .columns,

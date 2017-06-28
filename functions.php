@@ -5112,6 +5112,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'raindrops_layout_change_label_to_grid'		 => esc_html__( 'Change to grid layout', 'raindrops' ),
 			'raindrops_is_grid_archives'				 => $raindrops_is_grid_archives,
 			'raindrops_allow_safe_link_target'			=> $raindrops_allow_safe_link_target,
+			'raindrops_grid_layout_break_point_small_max'	 => apply_filters( 'raindrops_grid_break_point_small', 640 ),
 		) );
 
 		wp_reset_postdata();
@@ -11983,34 +11984,39 @@ if ( !function_exists( 'raindrops_responsive_sidebar_switch' ) ) {
 	 * @return wp_nav_menu_items
 	 * @1.410
 	 */
-	function raindrops_responsive_sidebar_switch( $items ) {
+	function raindrops_responsive_sidebar_switch( $items, $args ) {
 
-		global $raindrops_current_column;
-		$after					 = '';
-		$before					 = '';
-		$sidebar_position		 = raindrops_warehouse_clone( 'raindrops_col_width' );
-		$menu_text				 = esc_html__( 'Open', 'raindrops' );
-		$extra_sidebar_title	 = esc_attr__( 'Extra Sidebar', 'raindrops' );
-		$default_sidebar_title	 = esc_attr__( 'Main Sidebar', 'raindrops' );
-		$extra_sidebar_html		 = '<li class="rsidebar-shrink button-wrapper"><button %1$s><span class="button-text">%2$s</span></button></li>';
-		$default_sidebar_html	 = '<li class="lsidebar-shrink button-wrapper"><button %1$s><span class="button-text">%2$s</span></button></li>';
+		if ( 'primary' == $args->theme_location ) {
 
-		if ( 2 < raindrops_get_column_count() ) {
+			global $raindrops_current_column;
 
-			$after .= sprintf( $extra_sidebar_html, raindrops_doctype_elements('', 'aria-label="'. $extra_sidebar_title.'"', false ), $menu_text );
+			$after					 = '';
+			$before					 = '';
+			$sidebar_position		 = raindrops_warehouse_clone( 'raindrops_col_width' );
+			$menu_text				 = esc_html__( 'Open', 'raindrops' );
+			$extra_sidebar_title	 = esc_attr__( 'Extra Sidebar', 'raindrops' );
+			$default_sidebar_title	 = esc_attr__( 'Main Sidebar', 'raindrops' );
+			$extra_sidebar_html		 = '<li class="rsidebar-shrink button-wrapper"><button %1$s><span class="button-text">%2$s</span></button></li>';
+			$default_sidebar_html	 = '<li class="lsidebar-shrink button-wrapper"><button %1$s><span class="button-text">%2$s</span></button></li>';
+
+			if ( 2 < raindrops_get_column_count() ) {
+
+				$after .= sprintf( $extra_sidebar_html, raindrops_doctype_elements( '', 'aria-label="' . $extra_sidebar_title . '"', false ), $menu_text );
+			}
+
+			if ( 't1' == $sidebar_position || 't2' == $sidebar_position || 't3' == $sidebar_position ) {
+
+				$before .= sprintf( $default_sidebar_html, raindrops_doctype_elements( '', 'aria-label="' . $default_sidebar_title . '"', false ), $menu_text );
+			} else {
+
+				$after .= sprintf( $default_sidebar_html, raindrops_doctype_elements( '', 'aria-label="' . $default_sidebar_title . '"', false ), $menu_text );
+			}
+
+			return $before . $items . $after;
 		}
 
-		if ( 't1' == $sidebar_position || 't2' == $sidebar_position || 't3' == $sidebar_position ) {
-
-			$before .= sprintf( $default_sidebar_html, raindrops_doctype_elements('', 'aria-label="'. $default_sidebar_title.'"', false ), $menu_text );
-		} else {
-
-			$after .= sprintf( $default_sidebar_html, raindrops_doctype_elements('', 'aria-label="'. $default_sidebar_title.'"', false ), $menu_text );
-		}
-
-		return $before . $items . $after;
+		return $items;
 	}
-
 }
 if ( !function_exists( 'raindrops_get_column_count' ) ) {
 
@@ -12264,11 +12270,10 @@ if ( !function_exists( 'raindrops_archive_has_count' ) ) {
 	 * @since 1.415
 	 */
 	function raindrops_archive_has_count() {
-		/**
-		 * need remove inactive widget
-		 */
+
 		$archive_widget	 = new WP_Widget_Archives();
-		$settings		 = $archive_widget->get_settings();
+		$settings		 = $archive_widget->get_settings();	
+		$settings		 = array_filter($settings); /* @1.481 */
 		$settings		 = reset( $settings );
 
 		if ( isset( $settings[ 'count' ] ) ) {

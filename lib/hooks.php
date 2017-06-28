@@ -306,7 +306,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 * @since 1.410
 		 */
-		add_filter( 'wp_nav_menu_items', 'raindrops_responsive_sidebar_switch' );
+		add_filter( 'wp_nav_menu_items', 'raindrops_responsive_sidebar_switch', 10, 2 );
 		add_action( 'raindrops_loop_title_after', 'raindrops_term_description' );
 		/**
 		 * @since 1.411

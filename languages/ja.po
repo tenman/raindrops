@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: raindrops1.405\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-15 13:01+0900\n"
-"PO-Revision-Date: 2017-05-15 13:08+0900\n"
+"PO-Revision-Date: 2017-06-23 07:37+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops translate <a.tenman@gmail.com>\n"
 "Language: ja\n"
@@ -3433,7 +3433,7 @@ msgstr "推奨プラグイン：%1$s は現在アクティベートされてい�
 
 #: plugins/class-tgm-plugin-activation.php:371
 msgid "Begin installing plugin"
-msgstr " %s　プラグインをインストール中"
+msgstr "プラグインのインストールを開始"
 
 #: plugins/class-tgm-plugin-activation.php:376
 msgid "Begin updating plugin"
@@ -3457,7 +3457,7 @@ msgstr "管理パネルへ移動"
 #: plugins/class-tgm-plugin-activation.php:387
 #: plugins/class-tgm-plugin-activation.php:3159
 msgid "Plugin activated successfully."
-msgstr "%1$s の更新に成功しました。"
+msgstr "%1$s の更新に成功しました"
 
 #: plugins/class-tgm-plugin-activation.php:388
 #: plugins/class-tgm-plugin-activation.php:2952

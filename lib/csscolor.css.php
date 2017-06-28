@@ -2662,13 +2662,13 @@ address .entry-rss:after,
 }
 .commentlist > li:nth-child(odd),
 .rd-content-width-fit .topsidebar .sticky-widget:nth-child(odd),
-.rd-content-width-fit #doc5	.index > li:nth-child(odd){
+.rd-content-width-fit.rd-pw-doc5 .index > li:nth-child(odd){
 	background:#fff;
 	 transition: all 1s ease-in-out;
 }
 .commentlist > li:nth-child(even),
 .rd-content-width-fit .topsidebar .sticky-widget:nth-child(even),
-.rd-content-width-fit #doc5 .index > li:nth-child(even){
+.rd-content-width-fit.rd-pw-doc5 .index > li:nth-child(even){
 	background:$background5;
 	 transition: all 1s ease-in-out;
 }

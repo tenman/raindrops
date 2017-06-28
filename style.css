@@ -7914,7 +7914,7 @@ mark.green,
 .rd-grid ul.archives > li{
     min-height:230px;
 }
-.rd-col-1.rd-type-minimal ul.archives > li,
+.rd-col-1.rd-type-minimal #doc5 ul.archives > li,
 .rd-col-1.rd-grid ul.archives > li,
 .rd-col-1.rd-grid ul.archives > .title-wrapper,
 .rd-grid ul.search-results > li,

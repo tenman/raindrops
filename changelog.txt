@@ -2,10 +2,27 @@ Changelog -----------------------------------
 version:1.482
 
 Overview of Changes
+	Add Writing Mode vertical-rl for Japanese language.
 
+	Modified Customize / Advanced / Synchronize Style for Visual Editor value No
+		editor style not loading anything without editor-style.css
+	Chaged README.txt format from text to Markdown
 
 Files Modified
-
+	modified: README.txt
+	modified:   changelog.txt
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/scripts/ja.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   page-templates/front-page.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.481&new_path=raindrops/1.482

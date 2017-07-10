@@ -1,4 +1,36 @@
 <?php
+function raindrops_enable_writing_mode_mix_auto_add_class_validate($input){
+	if( 'no' == $input || 'p' == $input || 'p+h'  == $input || 'p+h+li' == $input || 'p+h+li+dl' ) {
+		
+		return $input;
+	}
+	return 'no';
+}
+function raindrops_enable_writing_mode_mix_scope_validate($input){
+	
+	if('.entry-content' == $input || 'article' == $input){
+		return $input;
+	} else {
+		return '.entry-content';
+	}		
+}
+function raindrops_enable_writing_mode_mix_line_size_validate($input){
+	
+	if( is_numeric( $input ) ) {
+
+		return intval( $input );
+	}
+	return 400;
+	
+}
+function raindrops_enable_writing_mode_mix_validate($input){
+	
+	if('yes' == $input || 'no' == $input){
+		return $input;
+	} else {
+		return 'no';
+	}	
+}
 function raindrops_show_related_posts_thumbnail_fallback_validate($input){
 	return esc_url_raw( $input );
 }

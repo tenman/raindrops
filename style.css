@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.481
+Version: 1.4821
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -661,6 +661,10 @@ ul.index,
 .oembed-container:empty:after{
     max-width:100%;
 }
+.hentry img{
+    /* @1.482 */
+    height:auto;
+}
 /**
  * Elements
    ========================================================================== */
@@ -956,7 +960,7 @@ article .entry-content .block{
 }
 .widgettext img,
 .entry-content img,.hentry img{
-    height:auto;
+ /*   height:auto;*/
     box-sizing: border-box;
 }
 .textwidget ol,
@@ -1490,6 +1494,7 @@ footer a{
     text-decoration:none;
     width:1.15384615385em;
     margin:0;
+    vertical-align:middle;
 }
 .pagenate a:hover {
     height:100%;
@@ -8007,9 +8012,10 @@ body.rd-content-width-fit #doc5 .index li.rd-term-description{
     padding:1em;
     box-sizing:border-box;
 }
+/* @1.482
 .entry-content em{
     color:#333;
-}
+}*/
 /**
  * grid list layout switcher
    ========================================================================== */

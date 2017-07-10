@@ -185,40 +185,7 @@
         });
     });
 })(jQuery);
-/*!
- * Simple jQuery Equal Heights
- * 
- * https://github.com/mattbanks/jQuery.equalHeights
- * Copyright (c) 2013 Matt Banks
- * Dual licensed under the MIT and GPL licenses.
- * Uses the same license as jQuery, see:
- * http://docs.jquery.com/License
- *
- * @version 1.5.1
- */
-(function($) {
 
-    $.fn.equalHeights = function() {
-        var maxHeight = 0,
-            $this = $(this);
-
-        $this.each( function() {
-            var height = $(this).innerHeight();
-
-            if ( height > maxHeight ) { maxHeight = height; }
-        });
-
-        return $this.css('height', maxHeight);
-    };
-
-    // auto-initialize plugin
-    $('[data-equal]').each(function(){
-        var $this = $(this),
-            target = $this.data('equal');
-        $this.find(target).equalHeights();
-    });
-
-})(jQuery);
 jQuery( function ( $ ) {
 
     $( '.trancate' ).each( function ( index ) {
@@ -324,6 +291,41 @@ jQuery( function ( $ ) {
         }
     } );
     
+    var raindrops_window_width = $( window ).width();
+    var vertical_label = raindrops_script_vars.writing_mode_vertical_label;
+    var horizontal_label = raindrops_script_vars.writing_mode_horizontal_label;
+    
+    if( raindrops_window_width > 640 && 'yes' == raindrops_script_vars.enable_writing_mode_mix && 'ja' == raindrops_script_vars.locale ) {
+       
+        if ( 'standard' == raindrops_get_cookie( 'rd_writing_mode' ) ) {
+             
+            $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button"  style="display:none;">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button">&#10624;</span>');
+            $( '.writing-mode-mix').removeClass('writing-mode-mix' ).addClass('writing-mode-standard');
+            $( '.writing-mode-mix .entry-title').removeClass('d-tate');
+            
+        } else if ( 'mix' == raindrops_get_cookie( 'rd_writing_mode' ) ) {
+            $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button" style="display:none;">&#10624;</span>');
+            $( '.writing-mode-standard').removeClass('writing-mode-standard' ).addClass('writing-mode-mix');   
+        } else {
+            $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button" style="display:none;">&#10624;</span>');          
+        }
+        
+        $( ".direction-button" ).click(function() {
+             $( ".direction-button" ).toggle();
+        });
+ 
+        $("#rd-vertical-rl").on( 'click', function () {
+            raindrops_set_cookie( 'rd_writing_mode', 'standard' );
+
+            $( '.writing-mode-mix').removeClass('writing-mode-mix' ).addClass('writing-mode-standard');
+            $( '.writing-mode-mix .entry-title').removeClass('d-tate');
+        });
+        $("#rd-horizontal-tb").on( 'click', function () {
+            raindrops_set_cookie( 'rd_writing_mode', 'mix' );
+
+            $( '.writing-mode-standard').removeClass('writing-mode-standard' ).addClass('writing-mode-mix');           
+        });
+    }   
 } );
 /**
  * category first page NOT featured Image display property change from block to table-cell
@@ -372,4 +374,8 @@ jQuery( function ( $ ) {
             $(this).siblings( ".entry-title-text" ).css({'padding-left': '0.4em'});
         }
     });   
+} );
+jQuery( function ( $ ) {
+    
+    
 } );

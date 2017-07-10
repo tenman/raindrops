@@ -5113,6 +5113,10 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'raindrops_is_grid_archives'				 => $raindrops_is_grid_archives,
 			'raindrops_allow_safe_link_target'			=> $raindrops_allow_safe_link_target,
 			'raindrops_grid_layout_break_point_small_max'	 => apply_filters( 'raindrops_grid_break_point_small', 640 ),
+			'enable_writing_mode_mix'					=> raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' ),
+			'writing_mode_vertical_label'				=> esc_html__('Change to writing mode vertical', 'raindrops' ),
+			'writing_mode_horizontal_label'				=> esc_html__('change to writing mode horizontal', 'raindrops' ),
+			'locale'									=> get_locale(),
 		) );
 
 		wp_reset_postdata();
@@ -9173,7 +9177,7 @@ if ( !function_exists( 'raindrops_remove_wrong_p' ) ) {
 		$content	 = preg_replace( '!(<' . $allblocks . '[^>]*>)([^(<|\s)]+)<p>!', "$1<p>$2</p>", $content );
 		$content	 = str_replace( 'class="wp-caption-text"></p>', 'class="wp-caption-text">', $content );
 		$content	 = preg_replace( '!<p>(<figure[^>]*>(.*)?</figure>)</p>!', "$1", $content );//@1.466 test figure has child element
-
+		$content	 = preg_replace( '!<p>(<ruby[^>]*>(.*)?</ruby>)</p>!', "$1", $content );//@1.482 test figure has child element
 		return $content;
 	}
 
@@ -10060,6 +10064,13 @@ if ( !function_exists( 'raindrops_tiny_mce_before_init' ) ) {
 	 * @since 1.264
 	 */
 	function raindrops_tiny_mce_before_init( $init_array ) {
+		
+		$load_editor_css_setting = raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' );
+		
+		if( 'yes' !== $load_editor_css_setting ) {
+			
+			return $init_array;
+		}
 
 		$separator = '';
 		if ( !empty( $init_array ) ) {
@@ -11529,9 +11540,15 @@ if ( !function_exists( 'raindrops_localize_style_add' ) ) {
 	 * @1.330
 	 */
 	function raindrops_localize_style_add( $style ) {
+		
+		$load_editor_css_setting = raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' );
+		
+		if( 'yes' !== $load_editor_css_setting ) {
+			/* @1.482 */
+			return $style;
+		}
 
 		$locale = get_locale();
-
 
 		if ( false !== ( $url = raindrops_locate_url( 'fonts.css' ) ) ) {
 			$style[] = $url;

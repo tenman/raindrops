@@ -283,6 +283,14 @@ if ( ! isset( $wp_customize ) ) {
 			return false;
 		}
 	}
+	function raindrops_enable_writing_mode_mix_callback( $control ) {
+		
+		if ( $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_enable_writing_mode_mix' ) )->value() == 'yes' ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	function raindrops_use_featured_image_emphasis_callback( $control ) {
 
@@ -2565,6 +2573,81 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'section'			 => 'raindrops_theme_settings_plugins',
 		),
 	);
+	
+	$raindrops_customize_args_conditional_8	 = array(
+		"raindrops_enable_writing_mode_mix" => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Support Vertical Writing Mode', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'If you use the theme in the Japanese environment, you will be able to write vertically if you enable it.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_enable_writing_mode_mix_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_plugins',
+		),
+		"raindrops_enable_writing_mode_mix_line_size" => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_line_size','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'The length of one line', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'You can specify the length of one line in pixels', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_enable_writing_mode_mix_line_size_validate',
+			'type' => 'number',
+				'input_attrs' => array(
+					'min' => 200,
+					'max' => 800,
+					'step' => 1,
+			),
+			'section'			 => 'raindrops_theme_settings_plugins',
+			'active_callback'	 => 'raindrops_enable_writing_mode_mix_callback',
+		),
+		"raindrops_enable_writing_mode_mix_scope" => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Range for vertical writing', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'You can specify whether to vertically write the title and entry content or only the entry content.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_enable_writing_mode_mix_scope_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'.entry-content'	 => esc_html__( 'Entry Content', 'raindrops' ),
+				'article'	 => esc_html__( 'Entry Title + Entry Content', 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_plugins',
+			'active_callback'	 => 'raindrops_enable_writing_mode_mix_callback',
+		),
+		"raindrops_enable_writing_mode_mix_auto_add_class" => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_auto_add_class','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Automatically vertically write the specified element', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Vertical writing class (.d-tate) is added automatically when you specify the element to be vertically written.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_enable_writing_mode_mix_auto_add_class_validate',
+			'type'				 => 'select',
+				'choices' => array(
+					'no' => esc_html__( 'I will add CSS class myself', 'raindrops' ),
+					'p' => esc_html__( 'p element',  'raindrops' ),
+					'p+h' =>  esc_html__( 'p and h1-h6 elements',  'raindrops' ),
+					'p+h+li' =>  esc_html__( 'p , h1-h6 , ol and ul elements',  'raindrops' ),
+					'p+h+li+dl' =>  esc_html__( 'p , h1-h6 , ol , ul and dl elements',  'raindrops' ),
+				),
+			'section'			 => 'raindrops_theme_settings_plugins',
+			'active_callback'	 => 'raindrops_enable_writing_mode_mix_callback',
+		),
+		
+	);
 
 	$raindrops_customize_args_conditional_7 = array(
 		"raindrops_place_of_site_title"		 => array(
@@ -2718,6 +2801,10 @@ One is a method of up-loading the image from the below up-loading form. Another 
 	if ( get_header_image() !== false || $place_of_site_title_setting == 'header_image' ) {
 
 		$raindrops_customize_args = array_merge( $raindrops_customize_args, $raindrops_customize_args_conditional_7 );
+	}
+	if ( get_locale() == 'ja' ) {
+
+		$raindrops_customize_args = array_merge( $raindrops_customize_args, $raindrops_customize_args_conditional_8 );
 	}
 }
 

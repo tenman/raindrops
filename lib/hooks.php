@@ -30,11 +30,16 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 *
 		 */
-		if ( is_admin() && isset( $_GET[ 'post' ] ) && !empty( $_GET[ 'post' ] ) ) {
-			$raindrops_post_id = absint( $_GET[ 'post' ] );
-			add_editor_style( array( 'editor-style.css', esc_url( add_query_arg( array( 'action' => 'raindrops_editor_styles', 'id' => $raindrops_post_id ), admin_url( 'admin-ajax.php' ) ) ) ) );
-		} else {
-			add_editor_style( array( 'editor-style.css', esc_url( add_query_arg( 'action', 'raindrops_editor_styles', admin_url( 'admin-ajax.php' ) ) ) ) );
+		$load_editor_css_setting = raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' );
+		
+		if( 'yes' == $load_editor_css_setting ) {
+			
+			if ( is_admin() && isset( $_GET[ 'post' ] ) && !empty( $_GET[ 'post' ] ) ) {
+				$raindrops_post_id = absint( $_GET[ 'post' ] );
+				add_editor_style( array( 'editor-style.css', esc_url( add_query_arg( array( 'action' => 'raindrops_editor_styles', 'id' => $raindrops_post_id ), admin_url( 'admin-ajax.php' ) ) ) ) );
+			} else {
+				add_editor_style( array( 'editor-style.css', esc_url( add_query_arg( 'action', 'raindrops_editor_styles', admin_url( 'admin-ajax.php' ) ) ) ) );
+			}
 		}
 		/**
 		 * thanks ison

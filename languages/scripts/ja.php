@@ -246,3 +246,550 @@ if ( ! function_exists( 'raindrops_bcn_template_tags_filter' ) && class_exists( 
 		return $replacements;
 	}
 }
+
+
+$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
+
+if ( 'yes' == $raindrops_enable_writing_mode_mix ) {
+	add_filter( 'the_content', 'raindrops_writing_mode_mix_add_attribute', 11 );
+	add_action( 'wp_enqueue_scripts', 'raindrops_writing_mode_mix_add_font' );
+	add_filter( 'raindrops_entry_title_class', 'raindrops_style_writing_mode_mix_add_title_class' );
+	add_filter( 'raindrops_embed_meta_css', 'raindrops_filter_writing_mode_mix' );
+}
+
+function raindrops_writing_mode_mix_add_attribute( $content ) {
+	
+	$change_elements					= array();
+	$class_array						= raindrops_article_wrapper_class();
+	$force_remove						= apply_filters( 'raindrops_delete_writing-mode-mix', false );
+	$raindrops_enable_writing_mode_mix	= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
+	$automatic_add_class				= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_auto_add_class' );	
+
+	if ( true == $force_remove || 'yes' !== $raindrops_enable_writing_mode_mix ) {
+		return str_replace( 'writing-mode-mix', '', $content );
+	}
+	if( 'no' == $automatic_add_class ) {
+		return $content;
+	}
+	if( 'p' == $automatic_add_class ) {
+		$change_elements['<p>']		= '<p class="d-tate">';
+	}
+	if( 'p+h' == $automatic_add_class ) {
+		$change_elements['<p>']		= '<p class="d-tate">';
+		$change_elements['<h1>']	= '<h1  class="d-tate">';
+		$change_elements['<h2>']	= '<h2  class="d-tate">';
+		$change_elements['<h3>']	= '<h3  class="d-tate">';
+		$change_elements['<h4>']	= '<h4  class="d-tate">';
+		$change_elements['<h5>']	= '<h5  class="d-tate">';
+		$change_elements['<h6>']	= '<h6  class="d-tate">';
+	}
+	if( 'p+h+li' == $automatic_add_class ) {
+		$change_elements['<p>']		= '<p class="d-tate">';
+		$change_elements['<h1>']	= '<h1  class="d-tate">';
+		$change_elements['<h2>']	= '<h2  class="d-tate">';
+		$change_elements['<h3>']	= '<h3  class="d-tate">';
+		$change_elements['<h4>']	= '<h4  class="d-tate">';
+		$change_elements['<h5>']	= '<h5  class="d-tate">';
+		$change_elements['<h6>']	= '<h6  class="d-tate">';
+		$change_elements['<ul>']	= '<ul  class="d-tate">';
+		$change_elements['<ol>']	= '<ol  class="d-tate">';
+	}
+	if( 'p+h+li+dl' == $automatic_add_class ) {
+		$change_elements['<p>']		= '<p class="d-tate">';
+		$change_elements['<h1>']	= '<h1  class="d-tate">';
+		$change_elements['<h2>']	= '<h2  class="d-tate">';
+		$change_elements['<h3>']	= '<h3  class="d-tate">';
+		$change_elements['<h4>']	= '<h4  class="d-tate">';
+		$change_elements['<h5>']	= '<h5  class="d-tate">';
+		$change_elements['<h6>']	= '<h6  class="d-tate">';
+		$change_elements['<ul>']	= '<ul  class="d-tate">';
+		$change_elements['<ol>']	= '<ol  class="d-tate">';
+		$change_elements['<dl>']	= '<dl  class="d-tate">';
+	}
+
+	if ( in_array( "writing-mode-mix", $class_array ) ) {
+
+		$content = str_replace( array_keys( $change_elements ), array_values( $change_elements ), $content );
+	}
+	return $content;
+}
+
+function raindrops_writing_mode_mix_add_font() {
+
+
+	$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
+	
+	if ( get_locale() == 'ja' && 'yes' == $raindrops_enable_writing_mode_mix ) {
+
+		$stylesheet_url = '//fonts.googleapis.com/earlyaccess/notosansjapanese.css';
+		wp_register_style( 'noto-sans-ja-site', $stylesheet_url, array(), '2015-1-21' );
+		wp_enqueue_style( 'noto-sans-ja-site' );
+	}
+}
+
+
+
+if ( !function_exists( 'raindrops_filter_writing_mode_mix' ) ) {
+
+	function raindrops_filter_writing_mode_mix( $css ) {
+		
+		$force_remove = apply_filters( 'raindrops_delete_writing-mode-mix', false );
+		
+		$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
+
+		if ( true == $force_remove || false == $raindrops_enable_writing_mode_mix ) {
+
+			return $css;
+		}
+		
+
+		return $css . raindrops_style_writing_mode_mix();
+	}
+
+}
+
+
+if ( !function_exists( 'raindrops_style_writing_mode_mix_add_title_class' ) ) {
+
+	function raindrops_style_writing_mode_mix_add_title_class( $class ) {
+
+		$force_remove = apply_filters( 'raindrops_delete_writing-mode-mix', false );
+
+		if ( true == $force_remove ) {
+			return $class;
+		}
+		$scope		= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
+		
+		if ( is_singular() && 'article' == $scope ) {
+			return $class . ' d-tate';
+		}
+		return $class;
+	}
+
+}
+if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
+
+	function raindrops_style_writing_mode_mix() {
+
+		$line_size	= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_line_size');
+		$line_size  = $line_size . 'px';
+		$scope		= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
+
+		$css = <<< CSS
+@media screen and (min-width : 641px) {
+	/**
+	 * Pending CSS variables Crash Edge Browser
+	 */
+/**
+ * Vertical writing Start
+   ========================================================================== */
+    .writing-mode-mix $scope *[class|="d-tate"]{
+        direction:rtl;
+        font-family:'Noto Sans Japanese','Meiryo',Arial,sans-serif;
+        font-weight:300;
+    }
+    .writing-mode-mix $scope .d-tate .upright{
+		/* Not support Edge */
+        font-weight:500;
+        padding:0;       
+        text-orientation: upright;
+        text-indent:0;
+    }
+    .writing-mode-mix $scope .indent{
+        text-indent: 1em;
+    }
+	.writing-mode-mix $scope .indent-2{
+        text-indent: 2em;
+    }
+	.writing-mode-mix $scope :not(.d-tate-wrap).right,
+	.writing-mode-mix $scope :not(.d-tate-wrap).bottom{
+		text-align-last:right!important;	
+	}
+	.writing-mode-standard $scope :not(.d-tate-wrap).right,
+	.writing-mode-standard $scope :not(.d-tate-wrap).bottom{
+		text-align:right!important;	
+	}
+	.writing-mode-standard $scope .centered .d-tate.right,
+	.writing-mode-mix $scope .centered .d-tate.bottom{
+		/* edge */
+		text-align:right;
+   }
+	.writing-mode-mix $scope .centered .d-tate.center{
+		/* edge */
+		text-align:center;
+   }		
+	.writing-mode-mix $scope :not(.d-tate-wrap).center{
+		text-align: center;
+		text-align-last:center!important;	
+	}
+	.writing-mode-standard $scope :not(.d-tate-wrap).center{
+		text-align:center!important;	
+	}
+
+	div.writing-mode-mix $scope .centered{
+		display:block;
+		text-align:center;
+		direction: rtl;
+   }
+	.writing-mode-mix $scope .centered .d-tate{
+		float:none;
+		text-align:left;
+   }
+	.writing-mode-standard $scope .centered .d-tate{
+		margin-bottom:1em;
+		display:block;
+		width:100%;
+   }
+
+ /**
+  * Inline Elements
+   ========================================================================== */   
+    .writing-mode-mix $scope .d-tate em {
+        -webkit-text-emphasis-style:circle filled;
+        -webkit-text-emphasis-position:over right;
+        text-emphasis-style:circle filled;
+        -webkit-text-emphasis-position:over;
+                text-emphasis-position:over right;   
+        font-weight:normal;
+    }
+    .writing-mode-mix $scope .d-tate:not(.entry-title) a{
+                text-decoration:underline;
+        -webkit-text-decoration-line:underline;
+                text-decoration-line:underline;
+        -webkit-text-decoration-style:dotted;
+                text-decoration-style:dotted;
+    }
+    .writing-mode-mix $scope .d-yoko a{
+                text-decoration:underline;
+        -webkit-text-decoration-line:underline;
+                text-decoration-line:underline;
+        -webkit-text-decoration-style:solid;
+                text-decoration-style:solid;
+    }
+    .writing-mode-mix $scope em rt {
+        display: none; /* Hide ruby inside <em> elements */
+    }
+    .writing-mode-mix $scope .d-tate .d-tate,
+    .writing-mode-mix $scope .d-tate insert,
+    .writing-mode-mix $scope .d-tate delete,
+    .writing-mode-mix $scope .d-tate mark,
+    .writing-mode-mix $scope .d-tate a,
+    .writing-mode-mix $scope .d-tate ruby,
+    .writing-mode-mix $scope .d-tate rt,
+    .writing-mode-mix $scope .d-tate rp,
+    .writing-mode-mix $scope .d-tate mark,
+    .writing-mode-mix $scope .d-tate strong,
+    .writing-mode-mix $scope .d-tate em,
+    .writing-mode-mix $scope .d-tate span{
+        text-justify:inter-ideograph;
+        direction:ltr;
+        -webkit-box-sizing:border-box;
+                box-sizing:border-box;
+    }
+/**
+ * Ruby child 
+   ========================================================================== */
+    .writing-mode-mix $scope .d-tate rt,
+    .writing-mode-mix $scope .d-tate rp{
+
+    }
+/**
+ * Block Elements
+   ========================================================================== */
+   .writing-mode-mix $scope .d-tate-wrap,   
+   .writing-mode-mix $scope div.d-tate-wrap{
+       -webkit-box-sizing:border-box;
+               box-sizing:border-box;
+       float:right;
+       height:360px;      
+       margin:0 24px 1em;
+       max-height:360px;
+       padding:16px 8px;
+	   position:relative;
+	   width:296px;
+	   max-width:100%;
+       max-height:$line_size;
+       height:$line_size;
+    }
+	.writing-mode-mix $scope .d-tate-wrap *,
+    .writing-mode-mix $scope div.d-tate-wrap * {
+        max-height:360px;
+        max-height:$line_size;
+    }
+	.writing-mode-mix $scope .d-tate-wrap .oembed-container,
+    .writing-mode-mix $scope div.d-tate-wrap .oembed-container{
+        width:100%;
+    }
+
+    .writing-mode-mix $scope dl.d-tate,
+    .writing-mode-mix $scope ol.d-tate,
+    .writing-mode-mix $scope ul.d-tate,
+    .writing-mode-mix $scope hr.d-tate,
+    .writing-mode-mix $scope h6.d-tate,
+    .writing-mode-mix $scope h5.d-tate,
+    .writing-mode-mix $scope h4.d-tate,
+    .writing-mode-mix $scope h3.d-tate,
+    .writing-mode-mix $scope h2.d-tate,
+    .writing-mode-mix $scope h1.d-tate,
+    .writing-mode-mix $scope p[class|="d"]{
+        height:360px;
+        inline-size:360px;
+        padding:16px 8px;
+        display:inline-block;
+        vertical-align:middle;    
+    /*    text-align:justify;*/
+        text-justify:inter-ideograph;
+        text-align-last:left;
+        direction:ltr;
+        float:right;
+        letter-spacing:.15em;
+        line-height:1.8;
+        -webkit-box-sizing:border-box;
+                box-sizing:border-box;
+		
+        height:$line_size;
+    }
+
+	.rd-grid .writing-mode-mix $scope .entry-title{
+		 padding:0;
+	}
+    .writing-mode-mix $scope hr.d-tate{
+        -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+                writing-mode: vertical-rl;       
+        padding:16px 8px;
+        margin:0 24px 1em;
+        height:360px;
+		height:$line_size;
+    }
+    .writing-mode-mix $scope h6.d-tate,
+    .writing-mode-mix $scope h5.d-tate,
+    .writing-mode-mix $scope h4.d-tate,
+    .writing-mode-mix $scope h3.d-tate,
+    .writing-mode-mix $scope h2.d-tate,
+    .writing-mode-mix $scope h1.d-tate{
+        margin:0;
+        padding:.84em 1.26em;
+        font-family:'Noto Sans Japanese','Meiryo',Arial,sans-serif;
+        font-weight:700;  
+    }
+
+    .writing-mode-mix  $scope figure.alignright + p, 
+    .writing-mode-mix  $scope figure.alignleft + p{
+        min-width:0;
+    }
+    .writing-mode-mix $scope h6.d-tate,
+    .writing-mode-mix $scope h5.d-tate,
+    .writing-mode-mix $scope h4.d-tate,
+    .writing-mode-mix $scope h3.d-tate,
+    .writing-mode-mix $scope h2.d-tate,
+    .writing-mode-mix $scope h1.d-tate,
+    .writing-mode-mix $scope img:not(.wp-post-image),
+    .writing-mode-mix $scope .d-tate {
+        -webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+                writing-mode: vertical-rl;
+    }
+    .writing-mode-mix $scope table:before,
+    .writing-mode-mix $scope p.d-yoko:before{
+        content:'';
+        display:table;
+        clear:both;
+    }
+	.writing-mode-mix $scope .wp-caption img,
+	.rd-grid .writing-mode-mix $scope .entry-title,
+    .writing-mode-mix $scope .d-yoko,
+    .writing-mode-mix $scope table,
+    .writing-mode-mix $scope p.d-yoko{
+        clear:both;
+        direction:ltr;
+        text-indent:0;
+        height:auto;
+        width:auto;
+        block-size:auto;
+        inline-size:auto;   
+        -webkit-writing-mode:horizontal-tb;   
+            -ms-writing-mode:lr-tb;   
+                writing-mode:horizontal-tb;
+        max-width:100%;
+        float:none;
+    }
+	.writing-mode-mix $scope table{
+		width:100%;
+		border-collapse: separate;
+	}
+	.writing-mode-mix $scope p.d-yoko{
+		padding:0;
+	}
+	.writing-mode-mix $scope .d-yoko.full-width{
+        clear:both;
+        direction:ltr;
+		display:block;
+        text-indent:0;
+        height:auto;  
+        -webkit-writing-mode:horizontal-tb;   
+            -ms-writing-mode:lr-tb;   
+                writing-mode:horizontal-tb;
+        width:100%;
+        float:none;
+	}
+	.writing-mode-mix $scope .full-width .d-yoko{
+		display:block;
+	}
+	.writing-mode-mix $scope .full-wide:before,
+	.writing-mode-mix $scope .full-wide:after{
+		content:'';
+		display:table;
+	}
+    .writing-mode-mix $scope .rd-table-wrapper{
+        direction:ltr;
+        -webkit-writing-mode: horizontal-tb;
+            -ms-writing-mode: lr-tb;
+                writing-mode: horizontal-tb;
+        clear:both;
+    }
+    .writing-mode-mix $scope p:empty{
+        display:none!important;
+    }
+    .writing-mode-mix $scope ol.d-tate{
+        direction:ltr;
+        float:right; 
+        height:320px; 
+        margin:40px 1em 1em;
+
+        height:calc( $line_size - 40px );
+    }
+
+	.edge .writing-mode-mix $scope ol.d-tate li,
+	.edge .writing-mode-mix $scope ol.d-tate{
+		margin:auto;
+		list-style-position: inside;
+		 height:$line_size;
+	}
+    .writing-mode-mix $scope ol.d-tate li{
+        direction:ltr; 
+        height:280px;
+        max-height:100%;
+        
+        height:calc( $line_size - 80px );
+    }
+    .writing-mode-mix $scope ul.d-tate{
+        direction:ltr;
+        float:right; 
+        text-orientation: mixed;  
+        height:360px; 
+        margin:0 2em 1em;
+        
+        height:$line_size;
+    }
+    .writing-mode-mix $scope ul.d-tate li{
+        direction:ltr; 
+        height:300px;
+        padding:0 8px;
+        
+        height:calc( $line_size - 60px );
+    }
+	.edge .writing-mode-mix $scope ul.d-tate{
+        margin:auto;
+        height: $line_size;
+    }
+	.edge .writing-mode-mix $scope ul.d-tate li{
+        direction:ltr; 
+        height:300px;
+        padding:0 8px;
+        margin:auto;
+        height:$line_size;
+    }
+    .writing-mode-mix $scope dl.d-tate{
+        direction:ltr;
+        float:right;
+        height:360px;
+        padding:16px 8px;
+        margin:0 1em 1em;
+        
+       height:$line_size;
+    }
+    .writing-mode-mix $scope .d-tate dd,
+    .writing-mode-mix $scope .d-tate dt{
+        direction:ltr; 
+        height:320px;
+        
+         height:calc( $line_size -40px );
+    }
+    .writing-mode-mix $scope .d-tate dd{
+        margin:auto auto 0 auto;
+        padding-top:32px;
+        padding-bottom:0;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+    }
+    .writing-mode-mix $scope .alignnone,
+    .writing-mode-mix $scope .alignleft{
+        clear:none;
+        float:right;
+    }
+/**
+ * Color and Border
+   ========================================================================== */
+    .writing-mode-mix .d-tate li,
+    .writing-mode-mix .d-tate-wrap,
+    .writing-mode-mix .d-tate {
+      /*  background-color: rgba(236, 240, 241,1);*/
+    }
+    .writing-mode-mix .d-tate a,
+    .writing-mode-mix .d-yoko a{
+        -webkit-text-decoration-color: rgba(41, 128, 185,.5);
+                text-decoration-color: rgba(41, 128, 185,.5);
+    }
+    .writing-mode-mix hr.d-tate{
+        border:none;
+        border-left:3px dotted rgba(182,182,182,.5); 
+    }
+    .writing-mode-mix .d-tate em {
+        -webkit-text-emphasis-color: rgba(41, 128, 185,.5);   
+                text-emphasis-color: rgba(41, 128, 185,.5);  
+    }
+	.writing-mode-mix .d-tate em {
+        -webkit-text-emphasis-color: rgba(41, 128, 185,1);   
+                text-emphasis-color: rgba(41, 128, 185,1);  
+    }
+/**
+ * Misc for writing mode switch 
+   ========================================================================== */
+	.writing-mode-mix .entry-title .direction-button{
+		display:inline-block;
+		font-family:sans-serif;
+		text-align-last:center;
+		font-weight:bold;
+
+	}
+	.writing-mode-standard .entry-title .direction-button:hover,
+	.writing-mode-mix .entry-title .direction-button:hover{
+		cursor:pointer;
+		display:inline-block;
+	}
+	.writing-mode-standard .d-tate #rd-horizontal-tb{
+		text-align:center;
+		margin-left:1em;
+		
+	}
+	.writing-mode-mix .d-tate #rd-vertical-rl{
+		text-align:center;
+		margin-top:1em;
+		transform: rotate( 90deg );
+		
+	}
+	.writing-mode-mix .entry-title #rd-vertical-rl,
+	.writing-mode-standard .entry-title #rd-horizontal-tb{
+		text-align:center;
+		margin-left:1em;		
+	}
+/**
+ * Vertical writing End
+   ========================================================================== */
+}
+CSS;
+		return raindrops_remove_spaces_from_css( $css );
+	}
+
+}

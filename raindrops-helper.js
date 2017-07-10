@@ -41,7 +41,8 @@
                     var raindrops_height_val = parseInt( raindrops_height );
                     var raindrops_window_width = jQuery( window ).width();
                     var raindrops_window_height = parseInt( jQuery( window ).height() );
-              
+                    var raindrops_header_image_padding = raindrops_window_height / raindrops_width * 100;
+                    
                     if( jQuery( "body.home,body.blog" ).hasClass( "rd-featured-yes-left" ) ) {
                        jQuery( ".h2-thumb > img" ).each(function (i) { 
                            var height = jQuery(this).height() + 20;
@@ -50,17 +51,15 @@
                     }
 
                     if ( false == raindrops_script_vars.has_ratio_filter  && 'doc5' == raindrops_script_vars.page_width && raindrops_height_val > raindrops_window_height ) {
-                        
-                        var raindrops_header_image_padding = raindrops_window_height / raindrops_width * 100;
-                        
+  
                         jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'padding-bottom': raindrops_header_image_padding +'%','display':'block','background-size':'cover','background-position':'center center' } );
-                    }                    
-                    
+                    }
+
                     var raindrops_ratio = raindrops_script_vars.ratio;
-                    var raindrops_height = Math.round( raindrops_width * raindrops_ratio );
+                    var raindrops_height = raindrops_script_vars.ratio * 100;
 
                     if ( raindrops_script_vars.has_ratio_filter ) {
-                       jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'height': raindrops_height,'display':'block','background-size':'cover','background-position':'center center' } );
+                       jQuery( '#top #header-image' ).removeAttr( 'style' ).css( { 'padding-bottom': raindrops_height + '%','display':'block','background-size':'cover','background-position':'center center' } );
                     }
                 }
                 

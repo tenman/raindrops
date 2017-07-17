@@ -5117,6 +5117,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'writing_mode_vertical_label'				=> esc_html__('Change to writing mode vertical', 'raindrops' ),
 			'writing_mode_horizontal_label'				=> esc_html__('change to writing mode horizontal', 'raindrops' ),
 			'locale'									=> get_locale(),
+			'delete_writing_mode_mix'					=> apply_filters( 'raindrops_delete_writing-mode-mix', false ),
 		) );
 
 		wp_reset_postdata();
@@ -7704,10 +7705,9 @@ function raindrops_featured_image() {
 			}
 			echo $thumb;
 
-			if ( $flag ) {
-
-				echo '</a>';
-			}
+		/* @1.483	if ( $flag ) { */
+			echo '</a>';
+		/* @1.483	} */
 			echo '</div>';
 			/* for light box */
 			if ( $flag ) {
@@ -13444,7 +13444,7 @@ if ( true ==  $raindrops_grid_posted_in ) {
 
 $result .=<<<GRID_POSTED_IN
 .rd-grid .posted-on-after{
-    margin-right:72px;
+    /* @1.483 margin-right:72px;*/
 }
 .rd-grid ul.search-results .click-drawing-container,
 .rd-grid ul.archives .click-drawing-container {

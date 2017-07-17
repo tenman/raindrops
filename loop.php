@@ -103,7 +103,7 @@ if ( have_posts() ) {
 											</div>
 										<?php 
 										
-										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+										if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) && true !== $raindrops_grid_posted_in ) {
 											?><div class="posted-on-after"><?php
 											raindrops_posted_on();
 											?></div><?php
@@ -112,6 +112,13 @@ if ( have_posts() ) {
 										if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
 											if( true == $raindrops_grid_posted_in ) {
 											?><div class="click-drawing-container" tabindex="0"><div class="entry-meta drawing-content"><?php
+											
+												if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) && true == $raindrops_grid_posted_in ) {
+												?><div class="posted-on-after"><?php
+												raindrops_posted_on();
+												?></div><?php
+											}
+											
 												raindrops_posted_in();
 												?></div></div><?php
 											} else {

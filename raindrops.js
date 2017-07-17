@@ -295,19 +295,26 @@ jQuery( function ( $ ) {
     var vertical_label = raindrops_script_vars.writing_mode_vertical_label;
     var horizontal_label = raindrops_script_vars.writing_mode_horizontal_label;
     
-    if( raindrops_window_width > 640 && 'yes' == raindrops_script_vars.enable_writing_mode_mix && 'ja' == raindrops_script_vars.locale ) {
+    if( raindrops_window_width > 640 && 'yes' == raindrops_script_vars.enable_writing_mode_mix && 'ja' == raindrops_script_vars.locale && false == raindrops_script_vars.delete_writing_mode_mix ) {
        
+        
         if ( 'standard' == raindrops_get_cookie( 'rd_writing_mode' ) ) {
              
             $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button"  style="display:none;">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button">&#10624;</span>');
             $( '.writing-mode-mix').removeClass('writing-mode-mix' ).addClass('writing-mode-standard');
+            $( '.writing-mode-mix article,.writing-mode-standard article').removeClass('writing-mode-mix-article' ).addClass('writing-mode-standard-article');
             $( '.writing-mode-mix .entry-title').removeClass('d-tate');
             
         } else if ( 'mix' == raindrops_get_cookie( 'rd_writing_mode' ) ) {
             $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button" style="display:none;">&#10624;</span>');
-            $( '.writing-mode-standard').removeClass('writing-mode-standard' ).addClass('writing-mode-mix');   
+            $( '.writing-mode-standard').removeClass('writing-mode-standard' ).addClass('writing-mode-mix');
+            $( '.writing-mode-standard article, .writing-mode-mix article').removeClass('writing-mode-standard-article' ).addClass('writing-mode-mix-article');
+            
         } else {
-            $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button" style="display:none;">&#10624;</span>');          
+            
+            $( '.single .writing-mode-mix .entry-title, .page .writing-mode-mix .entry-title' ).append('<span title="' + horizontal_label + '" id="rd-vertical-rl" class="direction-button">&equiv;</span><span title="' + vertical_label + '" id="rd-horizontal-tb" class="direction-button" style="display:none;">&#10624;</span>');           
+            $( '.writing-mode-standard').removeClass('writing-mode-standard' ).addClass('writing-mode-mix');
+            $( '.writing-mode-standard article,.writing-mode-mix article').removeClass('writing-mode-standard-article' ).addClass('writing-mode-mix-article');
         }
         
         $( ".direction-button" ).click(function() {
@@ -316,15 +323,21 @@ jQuery( function ( $ ) {
  
         $("#rd-vertical-rl").on( 'click', function () {
             raindrops_set_cookie( 'rd_writing_mode', 'standard' );
-
+            
+            $( '.writing-mode-mix article').removeClass('writing-mode-mix-article' ).addClass('writing-mode-standard-article');
             $( '.writing-mode-mix').removeClass('writing-mode-mix' ).addClass('writing-mode-standard');
             $( '.writing-mode-mix .entry-title').removeClass('d-tate');
         });
         $("#rd-horizontal-tb").on( 'click', function () {
             raindrops_set_cookie( 'rd_writing_mode', 'mix' );
-
+            $( '.writing-mode-standard article').removeClass('writing-mode-standard-article' ).addClass('writing-mode-mix-article');
             $( '.writing-mode-standard').removeClass('writing-mode-standard' ).addClass('writing-mode-mix');           
         });
+   } else if( $( 'article' ).hasClass('writing-mode-mix-article') ||  $( 'article' ).hasClass('writing-mode-standard-article') ) {
+        
+        $( '.writing-mode-mix').removeClass('writing-mode-mix' ).addClass('writing-mode-standard');
+        $( '.writing-mode-mix article,.writing-mode-standard article').removeClass('writing-mode-mix-article' ).addClass('writing-mode-standard-article');
+        $( '.writing-mode-mix .entry-title').removeClass('d-tate');
     }   
 } );
 /**

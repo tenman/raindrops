@@ -21,6 +21,7 @@ if ( false === $format ) {
 }
 
 	raindrops_entry_title();
+
 ?>
 <div class="posted-on <?php echo $raindrops_entry_meta_class; ?>">
 	<?php
@@ -39,6 +40,7 @@ if ( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
 	<?php
 	raindrops_prepend_entry_content();
 
+
 	raindrops_entry_content();
 
 	wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
@@ -50,7 +52,7 @@ if ( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
 </div>
 
 <?php
-if ( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
+if ( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) && true !== $raindrops_grid_posted_in ) {
 	?><div class="posted-on-after"><?php
 	raindrops_posted_on();
 	?></div><?php
@@ -59,6 +61,13 @@ if ( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) ) {
 if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
 	if( true == $raindrops_grid_posted_in ) {
 	?><div class="click-drawing-container" tabindex="0"><div class="entry-meta drawing-content"><?php
+
+		if ( 'after' == raindrops_warehouse( 'raindrops_posted_on_position') && true == $raindrops_grid_posted_in ) {
+			?><div class="posted-on-after"><?php
+			raindrops_posted_on();
+			?></div><?php
+		}
+		
 		raindrops_posted_in();
 		?></div></div><?php
 	} else {
@@ -68,6 +77,11 @@ if ( 'after' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
 	}		
 }
 ?>
+
+
+
+
+
 <?php
 do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?>

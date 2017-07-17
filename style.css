@@ -1579,6 +1579,7 @@ footer a{
 }
 .postmetadata,
 .entry-meta{
+    clear:both;
     line-height:1.6;
     margin:1em 0 0;
     text-align:center;

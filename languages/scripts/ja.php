@@ -246,134 +246,188 @@ if ( ! function_exists( 'raindrops_bcn_template_tags_filter' ) && class_exists( 
 		return $replacements;
 	}
 }
+/**
+ * Writing Mode Mix
+ */
+if ( ! function_exists( 'raindrops_writing_mode_disable' ) ) {
+	
+	function raindrops_writing_mode_disable() {
 
+		$format = get_post_format();
+
+		if( 'chat' == $format || 'link' == $format ) {
+
+			return true;
+		}
+
+		return false;
+	}
+}
+if ( ! function_exists( 'raindrops_writing_mode_preparation_check' ) ) {
+	
+	function raindrops_writing_mode_preparation_check(){
+
+		$force_remove						 = apply_filters( 'raindrops_delete_writing-mode-mix', false );
+		$raindrops_enable_writing_mode_mix	 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
+
+		if ( false == $force_remove && 'yes' == $raindrops_enable_writing_mode_mix ) {
+
+			return true;
+		}
+		return false;
+	}
+}
 
 $raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
 
 if ( 'yes' == $raindrops_enable_writing_mode_mix ) {
+	
+	add_filter( 'post_class', 'raindrops_style_writing_mode_mix_add_post_class' );
 	add_filter( 'the_content', 'raindrops_writing_mode_mix_add_attribute', 11 );
 	add_action( 'wp_enqueue_scripts', 'raindrops_writing_mode_mix_add_font' );
 	add_filter( 'raindrops_entry_title_class', 'raindrops_style_writing_mode_mix_add_title_class' );
 	add_filter( 'raindrops_embed_meta_css', 'raindrops_filter_writing_mode_mix' );
+	add_filter( 'raindrops_delete_writing-mode-mix', 'raindrops_writing_mode_disable' );
 }
 
-function raindrops_writing_mode_mix_add_attribute( $content ) {
-	
-	$change_elements					= array();
-	$class_array						= raindrops_article_wrapper_class();
-	$force_remove						= apply_filters( 'raindrops_delete_writing-mode-mix', false );
-	$raindrops_enable_writing_mode_mix	= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
-	$automatic_add_class				= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_auto_add_class' );	
+if ( !function_exists( 'raindrops_writing_mode_mix_add_attribute' ) ) {
 
-	if ( true == $force_remove || 'yes' !== $raindrops_enable_writing_mode_mix ) {
-		return str_replace( 'writing-mode-mix', '', $content );
-	}
-	if( 'no' == $automatic_add_class ) {
+	function raindrops_writing_mode_mix_add_attribute( $content ) {
+
+		$change_elements					 = array();
+		$class_array						 = raindrops_article_wrapper_class();
+		$force_remove						 = apply_filters( 'raindrops_delete_writing-mode-mix', false );
+		$raindrops_enable_writing_mode_mix	 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
+		$automatic_add_class				 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_auto_add_class' );
+		
+		if ( false == raindrops_writing_mode_preparation_check() ) {
+			return $content;
+		}
+		if ( 'no' == $automatic_add_class ) {
+			return $content;
+		}
+		if ( 'p' == $automatic_add_class ) {
+			$change_elements[ '<p>' ] = '<p class="d-tate">';
+		}
+		if ( 'p+h' == $automatic_add_class ) {
+			$change_elements[ '<p>' ]	 = '<p class="d-tate">';
+			$change_elements[ '<h1>' ] = '<h1  class="d-tate">';
+			$change_elements[ '<h2>' ] = '<h2  class="d-tate">';
+			$change_elements[ '<h3>' ] = '<h3  class="d-tate">';
+			$change_elements[ '<h4>' ] = '<h4  class="d-tate">';
+			$change_elements[ '<h5>' ] = '<h5  class="d-tate">';
+			$change_elements[ '<h6>' ] = '<h6  class="d-tate">';
+		}
+		if ( 'p+h+li' == $automatic_add_class ) {
+			$change_elements[ '<p>' ]	 = '<p class="d-tate">';
+			$change_elements[ '<h1>' ] = '<h1  class="d-tate">';
+			$change_elements[ '<h2>' ] = '<h2  class="d-tate">';
+			$change_elements[ '<h3>' ] = '<h3  class="d-tate">';
+			$change_elements[ '<h4>' ] = '<h4  class="d-tate">';
+			$change_elements[ '<h5>' ] = '<h5  class="d-tate">';
+			$change_elements[ '<h6>' ] = '<h6  class="d-tate">';
+			$change_elements[ '<ul>' ] = '<ul  class="d-tate">';
+			$change_elements[ '<ol>' ] = '<ol  class="d-tate">';
+		}
+		if ( 'p+h+li+dl' == $automatic_add_class ) {
+			$change_elements[ '<p>' ]	 = '<p class="d-tate">';
+			$change_elements[ '<h1>' ] = '<h1  class="d-tate">';
+			$change_elements[ '<h2>' ] = '<h2  class="d-tate">';
+			$change_elements[ '<h3>' ] = '<h3  class="d-tate">';
+			$change_elements[ '<h4>' ] = '<h4  class="d-tate">';
+			$change_elements[ '<h5>' ] = '<h5  class="d-tate">';
+			$change_elements[ '<h6>' ] = '<h6  class="d-tate">';
+			$change_elements[ '<ul>' ] = '<ul  class="d-tate">';
+			$change_elements[ '<ol>' ] = '<ol  class="d-tate">';
+			$change_elements[ '<dl>' ] = '<dl  class="d-tate">';
+		}
+
+		if ( in_array( "writing-mode-mix", $class_array ) ) {
+
+			$content = str_replace( array_keys( $change_elements ), array_values( $change_elements ), $content );
+			
+			/* Tiny MCE style */
+			$tiny_mce = array( '<p style="text-align: right;">' => '<p class="d-tate bottom" style="text-align: right">', 
+							'<p style="text-align: center;">' => '<p class="d-tate center" style="text-align: center">',);
+			
+			$tiny_mce = apply_filters( 'raindrops_writing_mode_mix_mce_attribute_change', $tiny_mce );
+			
+			$content = str_replace( array_keys( $tiny_mce ), array_values( $tiny_mce ), $content );
+		}
 		return $content;
 	}
-	if( 'p' == $automatic_add_class ) {
-		$change_elements['<p>']		= '<p class="d-tate">';
-	}
-	if( 'p+h' == $automatic_add_class ) {
-		$change_elements['<p>']		= '<p class="d-tate">';
-		$change_elements['<h1>']	= '<h1  class="d-tate">';
-		$change_elements['<h2>']	= '<h2  class="d-tate">';
-		$change_elements['<h3>']	= '<h3  class="d-tate">';
-		$change_elements['<h4>']	= '<h4  class="d-tate">';
-		$change_elements['<h5>']	= '<h5  class="d-tate">';
-		$change_elements['<h6>']	= '<h6  class="d-tate">';
-	}
-	if( 'p+h+li' == $automatic_add_class ) {
-		$change_elements['<p>']		= '<p class="d-tate">';
-		$change_elements['<h1>']	= '<h1  class="d-tate">';
-		$change_elements['<h2>']	= '<h2  class="d-tate">';
-		$change_elements['<h3>']	= '<h3  class="d-tate">';
-		$change_elements['<h4>']	= '<h4  class="d-tate">';
-		$change_elements['<h5>']	= '<h5  class="d-tate">';
-		$change_elements['<h6>']	= '<h6  class="d-tate">';
-		$change_elements['<ul>']	= '<ul  class="d-tate">';
-		$change_elements['<ol>']	= '<ol  class="d-tate">';
-	}
-	if( 'p+h+li+dl' == $automatic_add_class ) {
-		$change_elements['<p>']		= '<p class="d-tate">';
-		$change_elements['<h1>']	= '<h1  class="d-tate">';
-		$change_elements['<h2>']	= '<h2  class="d-tate">';
-		$change_elements['<h3>']	= '<h3  class="d-tate">';
-		$change_elements['<h4>']	= '<h4  class="d-tate">';
-		$change_elements['<h5>']	= '<h5  class="d-tate">';
-		$change_elements['<h6>']	= '<h6  class="d-tate">';
-		$change_elements['<ul>']	= '<ul  class="d-tate">';
-		$change_elements['<ol>']	= '<ol  class="d-tate">';
-		$change_elements['<dl>']	= '<dl  class="d-tate">';
-	}
-
-	if ( in_array( "writing-mode-mix", $class_array ) ) {
-
-		$content = str_replace( array_keys( $change_elements ), array_values( $change_elements ), $content );
-	}
-	return $content;
 }
+if ( !function_exists( 'raindrops_writing_mode_mix_add_font' ) ) {
 
-function raindrops_writing_mode_mix_add_font() {
+	function raindrops_writing_mode_mix_add_font() {
 
+		$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
 
-	$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
-	
-	if ( get_locale() == 'ja' && 'yes' == $raindrops_enable_writing_mode_mix ) {
+		if ( false == raindrops_writing_mode_preparation_check() ) {
+			
+			return;
+		}
 
-		$stylesheet_url = '//fonts.googleapis.com/earlyaccess/notosansjapanese.css';
-		wp_register_style( 'noto-sans-ja-site', $stylesheet_url, array(), '2015-1-21' );
-		wp_enqueue_style( 'noto-sans-ja-site' );
+		if ( get_locale() == 'ja' && 'yes' == $raindrops_enable_writing_mode_mix ) {
+
+			$stylesheet_url = '//fonts.googleapis.com/earlyaccess/notosansjapanese.css';
+			wp_register_style( 'noto-sans-ja-site', $stylesheet_url, array(), '2015-1-21' );
+			wp_enqueue_style( 'noto-sans-ja-site' );
+		}
 	}
 }
-
-
 
 if ( !function_exists( 'raindrops_filter_writing_mode_mix' ) ) {
 
 	function raindrops_filter_writing_mode_mix( $css ) {
-		
-		$force_remove = apply_filters( 'raindrops_delete_writing-mode-mix', false );
-		
-		$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
 
-		if ( true == $force_remove || false == $raindrops_enable_writing_mode_mix ) {
-
+		if ( false == raindrops_writing_mode_preparation_check() ) {
+			
 			return $css;
 		}
-		
 
 		return $css . raindrops_style_writing_mode_mix();
 	}
 
 }
+if ( !function_exists( 'raindrops_style_writing_mode_mix_add_title_class' ) ) {
 
+	function raindrops_style_writing_mode_mix_add_post_class( $classes ) {
+		
+		if ( false == raindrops_writing_mode_preparation_check() ) {
+			return $classes;
+		}
+		if ( is_singular() ) {
+			$classes[] = 'writing-mode-mix-article';
+		}
+		return $classes;
+	}
+
+}
 
 if ( !function_exists( 'raindrops_style_writing_mode_mix_add_title_class' ) ) {
 
 	function raindrops_style_writing_mode_mix_add_title_class( $class ) {
 
-		$force_remove = apply_filters( 'raindrops_delete_writing-mode-mix', false );
-
-		if ( true == $force_remove ) {
+		if ( false == raindrops_writing_mode_preparation_check() ) {
 			return $class;
 		}
-		$scope		= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
 		
+		$scope = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
+
 		if ( is_singular() && 'article' == $scope ) {
 			return $class . ' d-tate';
 		}
 		return $class;
 	}
-
 }
 if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 
 	function raindrops_style_writing_mode_mix() {
 
-		$line_size	= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_line_size');
-		$line_size  = $line_size . 'px';
-		$scope		= raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
+		$line_size	 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_line_size' );
+		$line_size	 = $line_size . 'px';
+		$scope		 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
 
 		$css = <<< CSS
 @media screen and (min-width : 641px) {
@@ -391,7 +445,8 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
     .writing-mode-mix $scope .d-tate .upright{
 		/* Not support Edge */
         font-weight:500;
-        padding:0;       
+        padding:0;
+		-ms-text-orientation: upright;
         text-orientation: upright;
         text-indent:0;
     }
@@ -401,12 +456,13 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 	.writing-mode-mix $scope .indent-2{
         text-indent: 2em;
     }
-	.writing-mode-mix $scope :not(.d-tate-wrap).right,
-	.writing-mode-mix $scope :not(.d-tate-wrap).bottom{
+	.writing-mode-mix $scope [style="text-align: right"],/* TinyMCE ensuring compatibility */
+	.writing-mode-mix $scope .entry-content :not(.d-tate-wrap).right,
+	.writing-mode-mix $scope .entry-content :not(.d-tate-wrap).bottom{
 		text-align-last:right!important;	
 	}
-	.writing-mode-standard $scope :not(.d-tate-wrap).right,
-	.writing-mode-standard $scope :not(.d-tate-wrap).bottom{
+	.writing-mode-standard $scope .entry-content :not(.d-tate-wrap).right,
+	.writing-mode-standard $scope .entry-content :not(.d-tate-wrap).bottom{
 		text-align:right!important;	
 	}
 	.writing-mode-standard $scope .centered .d-tate.right,
@@ -496,6 +552,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 /**
  * Block Elements
    ========================================================================== */
+	.writing-mode-mix $scope blockquote, 
    .writing-mode-mix $scope .d-tate-wrap,   
    .writing-mode-mix $scope div.d-tate-wrap{
        -webkit-box-sizing:border-box;
@@ -511,10 +568,15 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
        max-height:$line_size;
        height:$line_size;
     }
+	.writing-mode-mix $scope blockquote{
+		width:auto;
+	}
+	.writing-mode-mix $scope blockquote *,
 	.writing-mode-mix $scope .d-tate-wrap *,
     .writing-mode-mix $scope div.d-tate-wrap * {
         max-height:360px;
-        max-height:$line_size;
+       /* @1.483 max-height:$line_size; */
+		max-height:100%;
     }
 	.writing-mode-mix $scope .d-tate-wrap .oembed-container,
     .writing-mode-mix $scope div.d-tate-wrap .oembed-container{
@@ -552,6 +614,9 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 
 	.rd-grid .writing-mode-mix $scope .entry-title{
 		 padding:0;
+	}
+	.single .writing-mode-mix $scope .entry-title{
+		margin:0;
 	}
     .writing-mode-mix $scope hr.d-tate{
         -webkit-writing-mode: vertical-rl;
@@ -728,6 +793,15 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         clear:none;
         float:right;
     }
+
+	.writing-mode-mix $scope .columns{
+		/* MUST NOT */
+        -moz-columns: initial!important;
+		-webkit-columns:initial!important;
+		-o-columns:initial!important;
+		-ms-columns: initial!important;
+		columns: initial!important;
+    }
 /**
  * Color and Border
    ========================================================================== */
@@ -753,6 +827,12 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         -webkit-text-emphasis-color: rgba(41, 128, 185,1);   
                 text-emphasis-color: rgba(41, 128, 185,1);  
     }
+	.writing-mode-mix .entry-content blockquote{
+		border:1px solid #ccc;
+	}
+	.rd-type-dark .writing-mode-mix .entry-content blockquote{
+		border:1px solid rgba(222,222,222,.4);
+	}
 /**
  * Misc for writing mode switch 
    ========================================================================== */
@@ -784,6 +864,21 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 		text-align:center;
 		margin-left:1em;		
 	}
+	.writing-mode-mix .format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type, 
+	.writing-mode-mix .format-link .entry-content p:first-of-type a{
+		display:inline;
+		vertical-align:baseline;
+		font-size:1em;
+		background:none;
+	}
+
+	.writing-mode-mix .cite-url{
+		margin-top:1em;
+		float:right;
+		-webkit-writing-mode: vertical-rl;
+            -ms-writing-mode: tb-rl;
+                writing-mode: vertical-rl;
+	}
 /**
  * Vertical writing End
    ========================================================================== */
@@ -791,5 +886,4 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 CSS;
 		return raindrops_remove_spaces_from_css( $css );
 	}
-
 }

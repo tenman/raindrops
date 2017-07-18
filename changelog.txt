@@ -1,4 +1,32 @@
 Changelog -----------------------------------
+version:1.483
+
+Overview of Changes
+	Fixed featured image link display improperly in singlar pages
+	Modified Japanese writing mode tategaki.
+		Post Format chat, Post Format link
+			Auto Stop Japanese writing mode
+	Added	Conditional CSS Class
+		writing-mode-mix-article for tategaki style.
+		writing-mode-standard-article for direction ltr
+	Fixed conflict style writing-mode-mix and columns class.
+	Fixed Correct the position of posted on block when using grid layout
+
+Files Modified
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/scripts/ja.php
+	modified:   loop.php
+	modified:   part-blog.php
+	modified:   part.php
+	modified:   raindrops.js
+	modified:   search.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.482&new_path=raindrops/1.483
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.482
 
 Overview of Changes

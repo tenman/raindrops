@@ -4,25 +4,25 @@ Contributors: nobita
 Requires at least: WordPress 4.5
 Tested up to: WordPress 4.8
 Stable tag: 1.481
-Version: 1.482
+Version: 1.483
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 
 ## Description
 
-This theme can change freely fonts,layout,color scheme and header image for each post,page. 
-The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, 
+This theme can change freely fonts,layout,color scheme and header image for each post,page.
+The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout,
 you can freely change from theme customizer.For more updates,
 please make sure to open the link of the changelog from the help tab of this theme page.
-Add new post, so also to help tab of edit post page has been described how to use tips, 
-please visit. 
+Add new post, so also to help tab of edit post page has been described how to use tips,
+please visit.
 
 Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 
 * Special Thanks for Contribution
 	* Luigi Rosa  Optimising Images
-	
+
 * Special Thanks for Translation files provided
 	* oppofansfr http://fr.ofans.eu/ fr_FR.po fr_FR.mo
 	* kml1960 pl_PL.po pl_PL.mo

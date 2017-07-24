@@ -1,4 +1,36 @@
 Changelog -----------------------------------
+version:1.484
+
+Overview of Changes
+	Removed raindrops_options_init(),setup_raindrops(),raindrops_install_navigation()
+	Fixed front-page.php template post pagination works improperly.
+	Added raindrops_add_front_page_template_css()
+		If front-page.php is used as the template for the page on the front page,
+		when you create the page, the Add Front Page item will be displayed.
+
+		If you select Add Front Page This Content, you can automatically display it on the top page.
+
+		The raindrops_add_front_page_template_css function, when displayed on the top page,
+		Adjust to reflect the style specified in Custom CSS for this entry
+	Removed in image.php, Remove image
+		The image title was deleted from the value of the alt attribute of the image.
+		The alt attribute must be described exactly as the alt attribute.
+	Fixed Writing Mode vertical-rl for Japanese language and Page Template
+		full-width.php page template support tategaki(vertical writing mode)
+		front-page.php inserting page support tategaki(vertical writing mode)
+			(Posts using the front-page.php template do not support vertical writing.)
+
+Files Modified
+	modified:   functions.php
+	modified:   image.php
+	modified:   languages/scripts/ja.php
+	modified:   lib/alias_functions.php
+	modified:   page-templates/full-width.php
+	modified:   style.css
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.483&new_path=raindrops/1.484
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.483
 
 Overview of Changes

@@ -15,34 +15,34 @@ if ( class_exists( 'breadcrumb_navxt') ) {
 
 if ( ! function_exists( 'raindrops_year_name_filter' ) ) {
 /**
- * 
+ *
  * @param type $year
  * @return type $string
  * @since 1.277
  */
 	function raindrops_year_name_filter( $year ) {
-		
+
 		$year_name = "&#24180;";
-		
+
 		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
-			
+
 			return $year;
 		}
-		
 
-		return raindrops_year_to_gengou( $year ). $year_name; 
+
+		return raindrops_year_to_gengou( $year ). $year_name;
 	}
 }
 if ( ! function_exists( 'raindrops_archive_day_filter_month' ) ) {
 /**
- * 
+ *
  * @param type $month
  * @return type $string
  * @since 1.277
  */
 	function raindrops_archive_day_filter_month( $month ) {
 		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
-			
+
 			return $month;
 		}
 
@@ -51,14 +51,14 @@ if ( ! function_exists( 'raindrops_archive_day_filter_month' ) ) {
 }
 if ( ! function_exists( 'raindrops_archive_day_filter_day' ) ) {
 /**
- * 
+ *
  * @param type $day
  * @return type $string
  * @since 1.277
  */
 	function raindrops_archive_day_filter_day( $day ) {
 		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
-			
+
 			return $day;
 		}
 		return $day . '&#26085;';
@@ -67,7 +67,7 @@ if ( ! function_exists( 'raindrops_archive_day_filter_day' ) ) {
 
 if ( ! function_exists( 'raindrops_japan_date' ) ) {
 /**
- * 
+ *
  * @global type $post
  * @param type $date
  * @return type $string
@@ -76,7 +76,7 @@ if ( ! function_exists( 'raindrops_japan_date' ) ) {
 	function raindrops_japan_date( $date ) {
 		global $post;
 		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
-			
+
 			return $date;
 		}
 
@@ -159,20 +159,20 @@ if ( ! function_exists( 'raindrops_japan_date' ) ) {
 }
 if ( ! function_exists( 'raindrops_category_widget_wareki' ) ) {
 /**
- * 
+ *
  * @param type $html
  * @return type $string
  * @since 1.277
  */
 	function raindrops_category_widget_wareki( $html ) {
-		
+
 		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
-			
+
 			return $html;
 		}
 		// archives dropdown has space
 		$html = str_replace( '> ','>', $html);
-		
+
 		if ( preg_match( '!>([0-9]{4})!', $html, $regs ) && isset( $regs[ 1 ] ) && 2002 < $regs[ 1 ] ) {
 
 			$before	 = $regs[ 1 ];
@@ -191,7 +191,7 @@ if ( class_exists( 'breadcrumb_navxt') ) {
 
 	function raindrops_bcn_breadcrumb_title( $title ,$type,$id) {
 		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
-			
+
 			return $title;
 		}
 
@@ -205,7 +205,7 @@ if ( class_exists( 'breadcrumb_navxt') ) {
 }
 if ( ! function_exists( 'raindrops_year_to_gengou' ) ) {
 /**
- * 
+ *
  * @param type $year
  * @return type $string
  * @since 1.277
@@ -222,11 +222,11 @@ if ( ! function_exists( 'raindrops_year_to_gengou' ) ) {
 
 
 if ( ! function_exists( 'raindrops_bcn_template_tags_filter' ) && class_exists( 'breadcrumb_navxt') ) {
-	
 
-	
+
+
 	function raindrops_bcn_template_tags_filter( $replacements, $type, $id ) {
-		
+
 		if ( 'ja' == get_locale() ) {
 
 			$this_type = implode( ',', $type );
@@ -250,7 +250,7 @@ if ( ! function_exists( 'raindrops_bcn_template_tags_filter' ) && class_exists( 
  * Writing Mode Mix
  */
 if ( ! function_exists( 'raindrops_writing_mode_disable' ) ) {
-	
+
 	function raindrops_writing_mode_disable() {
 
 		$format = get_post_format();
@@ -264,7 +264,7 @@ if ( ! function_exists( 'raindrops_writing_mode_disable' ) ) {
 	}
 }
 if ( ! function_exists( 'raindrops_writing_mode_preparation_check' ) ) {
-	
+
 	function raindrops_writing_mode_preparation_check(){
 
 		$force_remove						 = apply_filters( 'raindrops_delete_writing-mode-mix', false );
@@ -281,7 +281,7 @@ if ( ! function_exists( 'raindrops_writing_mode_preparation_check' ) ) {
 $raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
 
 if ( 'yes' == $raindrops_enable_writing_mode_mix ) {
-	
+
 	add_filter( 'post_class', 'raindrops_style_writing_mode_mix_add_post_class' );
 	add_filter( 'the_content', 'raindrops_writing_mode_mix_add_attribute', 11 );
 	add_action( 'wp_enqueue_scripts', 'raindrops_writing_mode_mix_add_font' );
@@ -299,7 +299,7 @@ if ( !function_exists( 'raindrops_writing_mode_mix_add_attribute' ) ) {
 		$force_remove						 = apply_filters( 'raindrops_delete_writing-mode-mix', false );
 		$raindrops_enable_writing_mode_mix	 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
 		$automatic_add_class				 = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_auto_add_class' );
-		
+
 		if ( false == raindrops_writing_mode_preparation_check() ) {
 			return $content;
 		}
@@ -345,13 +345,13 @@ if ( !function_exists( 'raindrops_writing_mode_mix_add_attribute' ) ) {
 		if ( in_array( "writing-mode-mix", $class_array ) ) {
 
 			$content = str_replace( array_keys( $change_elements ), array_values( $change_elements ), $content );
-			
+
 			/* Tiny MCE style */
-			$tiny_mce = array( '<p style="text-align: right;">' => '<p class="d-tate bottom" style="text-align: right">', 
+			$tiny_mce = array( '<p style="text-align: right;">' => '<p class="d-tate bottom" style="text-align: right">',
 							'<p style="text-align: center;">' => '<p class="d-tate center" style="text-align: center">',);
-			
+
 			$tiny_mce = apply_filters( 'raindrops_writing_mode_mix_mce_attribute_change', $tiny_mce );
-			
+
 			$content = str_replace( array_keys( $tiny_mce ), array_values( $tiny_mce ), $content );
 		}
 		return $content;
@@ -364,7 +364,7 @@ if ( !function_exists( 'raindrops_writing_mode_mix_add_font' ) ) {
 		$raindrops_enable_writing_mode_mix = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' );
 
 		if ( false == raindrops_writing_mode_preparation_check() ) {
-			
+
 			return;
 		}
 
@@ -382,7 +382,7 @@ if ( !function_exists( 'raindrops_filter_writing_mode_mix' ) ) {
 	function raindrops_filter_writing_mode_mix( $css ) {
 
 		if ( false == raindrops_writing_mode_preparation_check() ) {
-			
+
 			return $css;
 		}
 
@@ -393,7 +393,7 @@ if ( !function_exists( 'raindrops_filter_writing_mode_mix' ) ) {
 if ( !function_exists( 'raindrops_style_writing_mode_mix_add_title_class' ) ) {
 
 	function raindrops_style_writing_mode_mix_add_post_class( $classes ) {
-		
+
 		if ( false == raindrops_writing_mode_preparation_check() ) {
 			return $classes;
 		}
@@ -412,7 +412,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix_add_title_class' ) ) {
 		if ( false == raindrops_writing_mode_preparation_check() ) {
 			return $class;
 		}
-		
+
 		$scope = raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix_scope' );
 
 		if ( is_singular() && 'article' == $scope ) {
@@ -459,11 +459,11 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 	.writing-mode-mix $scope [style="text-align: right"],/* TinyMCE ensuring compatibility */
 	.writing-mode-mix $scope .entry-content :not(.d-tate-wrap).right,
 	.writing-mode-mix $scope .entry-content :not(.d-tate-wrap).bottom{
-		text-align-last:right!important;	
+		text-align-last:right!important;
 	}
 	.writing-mode-standard $scope .entry-content :not(.d-tate-wrap).right,
 	.writing-mode-standard $scope .entry-content :not(.d-tate-wrap).bottom{
-		cite
+		text-align:right!important;
 	}
 	.writing-mode-standard $scope .centered .d-tate.right,
 	.writing-mode-mix $scope .centered .d-tate.bottom{
@@ -473,13 +473,13 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 	.writing-mode-mix $scope .centered .d-tate.center{
 		/* edge */
 		text-align:center;
-   }		
+   }
 	.writing-mode-mix $scope :not(.d-tate-wrap).center{
 		text-align: center;
-		text-align-last:center!important;	
+		text-align-last:center!important;
 	}
 	.writing-mode-standard $scope :not(.d-tate-wrap).center{
-		text-align:center!important;	
+		text-align:center!important;
 	}
 
 	div.writing-mode-mix $scope .centered{
@@ -499,13 +499,13 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 
  /**
   * Inline Elements
-   ========================================================================== */   
+   ========================================================================== */
     .writing-mode-mix $scope .d-tate em {
         -webkit-text-emphasis-style:circle filled;
         -webkit-text-emphasis-position:over right;
         text-emphasis-style:circle filled;
         -webkit-text-emphasis-position:over;
-                text-emphasis-position:over right;   
+                text-emphasis-position:over right;
         font-weight:normal;
     }
     .writing-mode-mix $scope .d-tate:not(.entry-title) a{
@@ -543,7 +543,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
                 box-sizing:border-box;
     }
 /**
- * Ruby child 
+ * Ruby child
    ========================================================================== */
     .writing-mode-mix $scope .d-tate rt,
     .writing-mode-mix $scope .d-tate rp{
@@ -552,13 +552,13 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 /**
  * Block Elements
    ========================================================================== */
-	.writing-mode-mix $scope blockquote, 
-   .writing-mode-mix $scope .d-tate-wrap,   
+	.writing-mode-mix $scope blockquote,
+   .writing-mode-mix $scope .d-tate-wrap,
    .writing-mode-mix $scope div.d-tate-wrap{
        -webkit-box-sizing:border-box;
                box-sizing:border-box;
        float:right;
-       height:360px;      
+       height:360px;
        margin:0 24px 1em;
        max-height:360px;
        padding:16px 8px;
@@ -570,7 +570,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
     }
 	.writing-mode-mix $scope blockquote{
 		width:auto;
-		
+
 	}
 	.writing-mode-mix $scope blockquote p:first-child{
 		margin-top:0;
@@ -602,7 +602,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         inline-size:360px;
         padding:16px 8px;
         display:inline-block;
-        vertical-align:middle;    
+        vertical-align:middle;
     /*    text-align:justify;*/
         text-justify:inter-ideograph;
         text-align-last:left;
@@ -612,7 +612,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         line-height:1.8;
         -webkit-box-sizing:border-box;
                 box-sizing:border-box;
-		
+
         height:$line_size;
     }
 	/* @1.484 */
@@ -629,7 +629,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
     .writing-mode-mix $scope hr.d-tate{
         -webkit-writing-mode: vertical-rl;
             -ms-writing-mode: tb-rl;
-                writing-mode: vertical-rl;       
+                writing-mode: vertical-rl;
         padding:16px 8px;
         margin:0 24px 1em;
         height:360px;
@@ -644,10 +644,10 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         margin:0;
         padding:.84em 1.26em;
         font-family:'Noto Sans Japanese','Meiryo',Arial,sans-serif;
-        font-weight:700;  
+        font-weight:700;
     }
 
-    .writing-mode-mix  $scope figure.alignright + p, 
+    .writing-mode-mix  $scope figure.alignright + p,
     .writing-mode-mix  $scope figure.alignleft + p{
         min-width:0;
     }
@@ -680,9 +680,9 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         height:auto;
         width:auto;
         block-size:auto;
-        inline-size:auto;   
-        -webkit-writing-mode:horizontal-tb;   
-            -ms-writing-mode:lr-tb;   
+        inline-size:auto;
+        -webkit-writing-mode:horizontal-tb;
+            -ms-writing-mode:lr-tb;
                 writing-mode:horizontal-tb;
         max-width:100%;
         float:none;
@@ -699,9 +699,9 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         direction:ltr;
 		display:block;
         text-indent:0;
-        height:auto;  
-        -webkit-writing-mode:horizontal-tb;   
-            -ms-writing-mode:lr-tb;   
+        height:auto;
+        -webkit-writing-mode:horizontal-tb;
+            -ms-writing-mode:lr-tb;
                 writing-mode:horizontal-tb;
         width:100%;
         float:none;
@@ -726,8 +726,8 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
     }
     .writing-mode-mix $scope ol.d-tate{
         direction:ltr;
-        float:right; 
-        height:320px; 
+        float:right;
+        height:320px;
         margin:40px 1em 1em;
 
         height:calc( $line_size - 40px );
@@ -740,26 +740,26 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 		 height:$line_size;
 	}
     .writing-mode-mix $scope ol.d-tate li{
-        direction:ltr; 
+        direction:ltr;
         height:280px;
         max-height:100%;
-        
+
         height:calc( $line_size - 80px );
     }
     .writing-mode-mix $scope ul.d-tate{
         direction:ltr;
-        float:right; 
-        text-orientation: mixed;  
-        height:360px; 
+        float:right;
+        text-orientation: mixed;
+        height:360px;
         margin:0 2em 1em;
-        
+
         height:$line_size;
     }
     .writing-mode-mix $scope ul.d-tate li{
-        direction:ltr; 
+        direction:ltr;
         height:300px;
         padding:0 8px;
-        
+
         height:calc( $line_size - 60px );
     }
 	.edge .writing-mode-mix $scope ul.d-tate{
@@ -767,7 +767,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         height: $line_size;
     }
 	.edge .writing-mode-mix $scope ul.d-tate li{
-        direction:ltr; 
+        direction:ltr;
         height:300px;
         padding:0 8px;
         margin:auto;
@@ -779,14 +779,14 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         height:360px;
         padding:16px 8px;
         margin:0 1em 1em;
-        
+
        height:$line_size;
     }
     .writing-mode-mix $scope .d-tate dd,
     .writing-mode-mix $scope .d-tate dt{
-        direction:ltr; 
+        direction:ltr;
         height:320px;
-        
+
          height:calc( $line_size -40px );
     }
     .writing-mode-mix $scope .d-tate dd{
@@ -825,15 +825,15 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
     }
     .writing-mode-mix hr.d-tate{
         border:none;
-        border-left:3px dotted rgba(182,182,182,.5); 
+        border-left:3px dotted rgba(182,182,182,.5);
     }
     .writing-mode-mix .d-tate em {
-        -webkit-text-emphasis-color: rgba(41, 128, 185,.5);   
-                text-emphasis-color: rgba(41, 128, 185,.5);  
+        -webkit-text-emphasis-color: rgba(41, 128, 185,.5);
+                text-emphasis-color: rgba(41, 128, 185,.5);
     }
 	.writing-mode-mix .d-tate em {
-        -webkit-text-emphasis-color: rgba(41, 128, 185,1);   
-                text-emphasis-color: rgba(41, 128, 185,1);  
+        -webkit-text-emphasis-color: rgba(41, 128, 185,1);
+                text-emphasis-color: rgba(41, 128, 185,1);
     }
 	.writing-mode-mix .entry-content blockquote{
 		border:1px solid #ccc;
@@ -842,7 +842,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 		border:1px solid rgba(222,222,222,.4);
 	}
 /**
- * Misc for writing mode switch 
+ * Misc for writing mode switch
    ========================================================================== */
 	.writing-mode-mix .entry-title .direction-button{
 		display:inline-block;
@@ -859,20 +859,20 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 	.writing-mode-standard .d-tate #rd-horizontal-tb{
 		text-align:center;
 		margin-left:1em;
-		
+
 	}
 	.writing-mode-mix .d-tate #rd-vertical-rl{
 		text-align:center;
 		margin-top:1em;
 		transform: rotate( 90deg );
-		
+
 	}
 	.writing-mode-mix .entry-title #rd-vertical-rl,
 	.writing-mode-standard .entry-title #rd-horizontal-tb{
 		text-align:center;
-		margin-left:1em;		
+		margin-left:1em;
 	}
-	.writing-mode-mix .format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type, 
+	.writing-mode-mix .format-link .entry-content :not(.raindrops-excerpt-more) a:first-of-type,
 	.writing-mode-mix .format-link .entry-content p:first-of-type a{
 		display:inline;
 		vertical-align:baseline;
@@ -909,7 +909,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 		text-align-last:center;
 	}
 	body:not(.rd-type-minimal) .writing-mode-mix $scope .d-tate .more-link{
-		text-decoration:none;		
+		text-decoration:none;
 	}
 /**
  * Vertical writing End

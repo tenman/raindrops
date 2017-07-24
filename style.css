@@ -4,7 +4,7 @@ Theme URI: http://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: http://www.tenman.info/wp3/
-Version: 1.483
+Version: 1.484
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -861,6 +861,7 @@ blockquote p:first-child{
 .entry-content  figure img{
     margin:auto;
     width:auto;
+    height:auto;
     max-width:96%;
     max-width:calc(100% - .5em) ;
 }
@@ -1837,6 +1838,10 @@ ul.index > li {
     /* @1.478 */
     padding:2em 0;
 }
+.page-template-front-page.rd-type-minimal .portfolio > ul > li,
+.page-template-front-page.rd-type-minimal .portfolio > ul > li{
+    padding:0;
+}
 .rd-grid.rd-type-minimal .index > li{
     padding:0;
 }
@@ -2601,6 +2606,10 @@ body.single .category-blog .entry-title{
     margin:0 1% 0 1em;
     padding:6px 0 0 0;
     box-sizing:border-box;
+}
+.format-status .entry-meta-list .post-format-text,
+.category-blog .entry-meta-list .post-format-text{
+    display:inline;
 }
 .format-status .vcard .url .fn,
 .category-blog .vcard .url .fn{
@@ -3704,6 +3713,7 @@ span.pad-s,span.pad-m,span.pad-l{
     border:1px solid rgba(127,127,127,.4);
     display:inline-block;
     padding:.4em 2em;
+    box-sizing:border-box;/* @1.484 */
 }
 .ghost-s{
     font-size:100%;
@@ -3899,7 +3909,9 @@ sup {
 .raindrops-recent-posts .thumb img{
     max-width:100%;
     height:auto;
-    width:100%;
+    /* @1.484
+    width:100%;*/
+    width:90px;
 }
 .raindrops-tag-posts,
 .raindrops-category-posts,
@@ -4489,7 +4501,7 @@ body:not(.logged-in) .portfolio .index > li article .entry-meta{
     margin:0 -2px;
     padding:18px 0;
     display:inline-block;
-    width:50%;
+    width:33%;
     height:50px;
     text-align:center;
     box-sizing:border-box;

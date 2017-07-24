@@ -37,13 +37,21 @@ raindrops_debug_navitation( __FILE__ );
 							<div class="entry attachment raindrops-image-page">
 
 								<?php
-								$image = get_post_meta( $post->ID, 'image', true );
-
-								$image = wp_get_attachment_image_src( $image, 'full' );
+								$image	= get_post_meta( $post->ID, 'image', true );
+								$image	= wp_get_attachment_image_src( $image, 'full' );							
+								$alt	= get_post_meta( $post->ID, '_wp_attachment_image_alt', true );
+								
+								if( ! empty( $alt ) ) {
+									
+									$alt_text = esc_attr( $alt );
+								} else {
+									
+									$alt_text = apply_filters( 'raindrops_image_template_alt_text', '',  $post->ID );
+								}
 								?>
 								<p class="image">
-									<a href="<?php echo $image[ 0 ]; ?>" >
-										<img src="<?php echo $image[ 0 ]; ?>" width="<?php echo $image[ 1 ]; ?>" height="<?php echo $image[ 2 ]; ?>" alt="<?php the_title_attribute(); ?>" class="aligncenter" />
+									<a href="<?php echo esc_url( $image[ 0 ] ); ?>">
+										<img src="<?php echo $image[ 0 ]; ?>" width="<?php echo $image[ 1 ]; ?>" height="<?php echo $image[ 2 ]; ?>" alt="<?php echo $alt_text ?>" class="aligncenter" />
 									</a>
 								</p>
 

@@ -463,7 +463,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 	}
 	.writing-mode-standard $scope .entry-content :not(.d-tate-wrap).right,
 	.writing-mode-standard $scope .entry-content :not(.d-tate-wrap).bottom{
-		text-align:right!important;	
+		cite
 	}
 	.writing-mode-standard $scope .centered .d-tate.right,
 	.writing-mode-mix $scope .centered .d-tate.bottom{
@@ -570,6 +570,10 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
     }
 	.writing-mode-mix $scope blockquote{
 		width:auto;
+		
+	}
+	.writing-mode-mix $scope blockquote p:first-child{
+		margin-top:0;
 	}
 	.writing-mode-mix $scope blockquote *,
 	.writing-mode-mix $scope .d-tate-wrap *,
@@ -611,7 +615,11 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 		
         height:$line_size;
     }
-
+	/* @1.484 */
+	.writing-mode-mix $scope p.d-yoko,
+    .writing-mode-standard $scope p.d-yoko{
+		 letter-spacing:normal;
+	}
 	.rd-grid .writing-mode-mix $scope .entry-title{
 		 padding:0;
 	}
@@ -878,6 +886,30 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
 		-webkit-writing-mode: vertical-rl;
             -ms-writing-mode: tb-rl;
                 writing-mode: vertical-rl;
+	}
+	.writing-mode-mix legend{
+		direction:ltr;
+	}
+	.raindrops-tag-posts  #rd-vertical-rl,
+	.raindrops-tag-posts  #rd-horizontal-tb,
+	.raindrops-category-posts  #rd-vertical-rl,
+	.raindrops-category-posts  #rd-horizontal-tb,
+	.raindrops-recent-posts #rd-horizontal-tb,
+	.raindrops-recent-posts #rd-vertical-rl,
+	.page-template-front-page article.writing-mode-mix-article #rd-vertical-rl,
+	.page-template-front-page article.writing-mode-mix-article #rd-horizontal-tb{
+		/* MUST NOT SHOW! Do not display multiple switching buttons in front-page.php template */
+		display:none!important;
+	}
+
+	.writing-mode-mix $scope .d-tate a.ghost{
+		height:100%;
+		text-decoration:none;
+		text-align:center;
+		text-align-last:center;
+	}
+	body:not(.rd-type-minimal) .writing-mode-mix $scope .d-tate .more-link{
+		text-decoration:none;		
 	}
 /**
  * Vertical writing End

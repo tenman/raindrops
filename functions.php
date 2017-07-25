@@ -10465,7 +10465,7 @@ if ( !function_exists( 'raindrops_excerpt_id' ) ) {
 	 * @since 1.278
 	 */
 	function raindrops_excerpt_id() {
-		if ( is_singular() ) {
+		if ( is_singular() && true !== is_home() && true !== is_front_page() ) {
 			echo '<span id="read"></span>';
 		}
 	}

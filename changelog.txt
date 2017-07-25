@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.484
+version:1.485
 
 Overview of Changes
 	Removed raindrops_options_init(),setup_raindrops(),raindrops_install_navigation()
@@ -28,7 +28,7 @@ Files Modified
 	modified:   page-templates/full-width.php
 	modified:   style.css
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.483&new_path=raindrops/1.484
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.483&new_path=raindrops/1.485
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.483

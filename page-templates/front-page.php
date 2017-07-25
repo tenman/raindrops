@@ -86,7 +86,7 @@ raindrops_debug_navitation( __FILE__ );
 			<?php	raindrops_prepend_loop();?>
 			<?php
 			foreach ( $raindrops_add_front_pages as $post ) {
-				?><li id="post-<?php the_ID(); ?>">
+				?><li>
 					<div id="post-<?php the_ID(); ?>"<?php raindrops_the_article_wrapper_class(); ?>>
 					<<?php raindrops_doctype_elements( 'div', 'article' ); ?>  <?php raindrops_post_class(); ?>><?php
 				setup_postdata( $post );

@@ -4,7 +4,7 @@ Contributors: nobita
 Requires at least: WordPress 4.5
 Tested up to: WordPress 4.8
 Stable tag: 1.481
-Version: 1.486
+Version: 1.487
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets

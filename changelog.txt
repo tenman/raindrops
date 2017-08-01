@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.487
+
+Overview of Changes
+	Fixed Failed to load content css: http://example.com/wp-admin/ in post.php
+
+Files Modified
+	modified: functions.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.486&new_path=raindrops/1.487
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.486
 
 Overview of Changes

@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  *
@@ -9744,7 +9745,7 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 			return false;
 		}
 
-		$early_access			 = array( 'alefhebrew', 'amiri', 'dhurjati', 'dhyana', 'droidarabickufi', 'droidarabicnaskh', 'droidsansethiopic', 'droidsanstamil', 'droidsansthai', 'droidserifthai', 'gidugu', 'gurajada', 'hanna', 'jejugothic', 'jejuhallasan', 'jejumyeongjo', 'karlatamilinclined', 'karlatamilupright', 'kopubbatang', 'lakkireddy', 'laomuangdon', 'laomuangkhong', 'laosanspro', 'lateef', 'lohitbengali', 'lohitdevanagari', 'lohittamil', 'mallanna', 'mandali', 'myanmarsanspro', 'nats', 'ntr', 'nanumbrushscript', 'nanumgothic', 'nanumgothiccoding', 'nanummyeongjo', 'nanumpenscript', 'notokufiarabic', 'notonaskharabic', 'notonastaliqurdudraft', 'notosansarmenian', 'notosansbengali', 'notosanscherokee', 'notosansdevanagari', 'notosansdevanagariui', 'notosansethiopic', 'notosansgeorgian', 'notosansgujarati', 'notosansgurmukhi', 'notosanshebrew', 'notosansjapanese', 'notosanskannada', 'notosanskhmer', 'notosanskufiarabic', 'notosanslao', 'notosanslaoui', 'notosansmalayalam', 'notosansmyanmar', 'notosansosmanya', 'notosanssinhala', 'notosanstamil', 'notosanstamilui', 'notosanstelugu', 'notosansthai', 'notosansthaiui', 'notoserifarmenian', 'notoserifgeorgian', 'notoserifkhmer', 'notoseriflao', 'notoserifthai', 'opensanshebrew', 'opensanshebrewcondensed', 'padauk', 'peddana', 'phetsarath', 'ponnala', 'ramabhadra', 'raviprakash', 'scheherazade', 'souliyo', 'sreekrushnadevaraya', 'suranna', 'suravaram', 'tenaliramakrishna', 'thabit', 'tharlon', 'cwtexfangsong', 'cwtexhei', 'cwtexkai', 'cwtexming' );
+		$early_access			 = array( 'notosansjp', 'sawarabimincho', 'kokoro', 'sawarabigothic', 'nikukyu', 'roundedmplus1c', 'hannari', 'mplus1p', 'nicomoji', 'alefhebrew', 'amiri', 'dhurjati', 'dhyana', 'droidarabickufi', 'droidarabicnaskh', 'droidsansethiopic', 'droidsanstamil', 'droidsansthai', 'droidserifthai', 'gidugu', 'gurajada', 'hanna', 'jejugothic', 'jejuhallasan', 'jejumyeongjo', 'karlatamilinclined', 'karlatamilupright', 'kopubbatang', 'lakkireddy', 'laomuangdon', 'laomuangkhong', 'laosanspro', 'lateef', 'lohitbengali', 'lohitdevanagari', 'lohittamil', 'mallanna', 'mandali', 'myanmarsanspro', 'nats', 'ntr', 'nanumbrushscript', 'nanumgothic', 'nanumgothiccoding', 'nanummyeongjo', 'nanumpenscript', 'notokufiarabic', 'notonaskharabic', 'notonastaliqurdudraft', 'notosansarmenian', 'notosansbengali', 'notosanscherokee', 'notosansdevanagari', 'notosansdevanagariui', 'notosansethiopic', 'notosansgeorgian', 'notosansgujarati', 'notosansgurmukhi', 'notosanshebrew', 'notosansjapanese', 'notosanskannada', 'notosanskhmer', 'notosanskufiarabic', 'notosanslao', 'notosanslaoui', 'notosansmalayalam', 'notosansmyanmar', 'notosansosmanya', 'notosanssinhala', 'notosanstamil', 'notosanstamilui', 'notosanstelugu', 'notosansthai', 'notosansthaiui', 'notoserifarmenian', 'notoserifgeorgian', 'notoserifkhmer', 'notoseriflao', 'notoserifthai', 'opensanshebrew', 'opensanshebrewcondensed', 'padauk', 'peddana', 'phetsarath', 'ponnala', 'ramabhadra', 'raviprakash', 'scheherazade', 'souliyo', 'sreekrushnadevaraya', 'suranna', 'suravaram', 'tenaliramakrishna', 'thabit', 'tharlon', 'cwtexfangsong', 'cwtexhei', 'cwtexkai', 'cwtexming' );
 		$flag_early_access		 = false;
 		$include_fonts			 = '';
 		$link_html				 = '<link rel="stylesheet" id="%2$s" href="%1$s" type="text/css" media="all" />' . "\n";
@@ -9819,11 +9820,15 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 								}
 							}
 						}
-						$web_font_styles = str_replace( '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;' .
+						/* @since 1.486 */
+						$fallback_font = apply_filters('raindrops_fallback_google_font', 'sans-serif', $font_for_style );
+						
+						$web_font_styles = str_replace( 'html .mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", '. $fallback_font. ';' .
 						$font_for_style_italic .
 						$font_for_style_weight .
 						'}' . "\n", '', $web_font_styles );
-						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", sans-serif;' .
+						
+						$web_font_styles .= 'html .mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . '{ font-family:"' . $font_for_style . '", '. $fallback_font. ';' .
 						$font_for_style_italic .
 						$font_for_style_weight .
 						'}' . "\n";
@@ -9839,7 +9844,7 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 						$font_url = add_query_arg( 'family', $query_val, $url );
 					}
 					$font_url = str_replace( '&', '&amp;', $font_url );
-
+					
 					$id = $reg[ 3 ];
 
 
@@ -9848,10 +9853,11 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 					}
 					if ( true == $flag_early_access ) {
 
-						$font_url = 'http://fonts.googleapis.com/earlyaccess/';
+						$font_url = '//fonts.googleapis.com/earlyaccess/';
 						$font_url .= str_replace( ' ', '', strtolower( $font_name . '.css' ) );
 
 						$font_url	 = str_replace( $separator . $weight_and_italic_values, '', $font_url );
+						
 						$id			 = str_replace( $weight_and_italic_values, '', $id );
 
 						$include_fonts = str_replace( sprintf( $link_html, $font_url, 'google-font-early-' . sanitize_html_class( $id ) . '-css' ), '', $include_fonts );
@@ -9877,17 +9883,16 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 
 				/* patch 1.272 */
 				$include_fonts = str_replace( '++', '+', $include_fonts );
-
-				update_post_meta( $post_ID, '_web_fonts_link_element', $include_fonts );
-				update_post_meta( $post_ID, '_web_fonts_styles', $web_font_styles );
-
-				$already_included = get_post_meta( $post_ID );
-
-				if ( empty( $already_included ) ) {
-					delete_post_meta( $post_ID, '_web_fonts_link_element' );
-				}
+				
+					update_post_meta( $post_ID, '_web_fonts_link_element', $include_fonts );
+					update_post_meta( $post_ID, '_web_fonts_styles', $web_font_styles );
+				
 			}
+		} else {
+				delete_post_meta( $post_ID, '_web_fonts_link_element' );
+				delete_post_meta( $post_ID, '_web_fonts_styles' );				
 		}
+		
 	}
 
 }
@@ -9938,8 +9943,11 @@ if ( !function_exists( 'raindrops_google_fonts_for_tinymce' ) ) {
 		$comma_separated_urls		 = '';
 		if ( preg_match_all( '!href="([^"]+)"!', $google_font_link_elements, $regs, PREG_SET_ORDER ) ) {
 			foreach ( $regs as $reg ) {
-
-				$comma_separated_urls .= ', ' . $reg[ 1 ];
+				$request_fonts  = apply_filters('raindrops_google_fonts_for_tinymce', $reg[1] );
+				if( ! empty( $request_fonts ) ) {
+					
+					$comma_separated_urls .= ', ' . $request_fonts;
+				}
 			}
 		}
 		return trim( $comma_separated_urls, ',' );
@@ -9955,6 +9963,7 @@ if ( !function_exists( 'raindrops_editor_styles_callback' ) ) {
 	 * @return type
 	 * @since 1.264
 	 */
+
 	function raindrops_editor_styles_callback() {
 		global $content_width;
 		if ( raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' ) !== 'yes' ) {
@@ -9964,15 +9973,17 @@ if ( !function_exists( 'raindrops_editor_styles_callback' ) ) {
 		$metabox_style	 = '';
 		$result			 = '';
 		$post_id		 = 0;
+		
+		
 		if ( isset( $_REQUEST[ 'id' ] ) && !empty( $_REQUEST[ 'id' ] ) ) {
 			$post_id = absint( $_REQUEST[ 'id' ] );
 
 			$metabox_style	 = get_post_meta( $post_id, '_css', true );
+			$metabox_style	 = str_replace( array( 'body', '.entry-content','article' ), array( 'no-body', 'html .mceContentBody', 'html .mceContentBody' ), $metabox_style );		
 			$style			 = get_post_meta( $post_id, '_web_fonts_styles', true );
-			$result			 = str_replace( $style, '', $result );
-			$result .= $result . $style;
-		}
 
+			$result .= $style . $metabox_style;
+		}
 
 		$defined_colors					 = raindrops_embed_css();
 		$defined_colors					 = str_replace( array( 'body', '.entry-content' ), array( 'no-body', 'html .mceContentBody' ), $defined_colors );
@@ -10630,11 +10641,14 @@ if ( !function_exists( 'raindrops_parse_webfonts' ) ) {
 								}
 							}
 						}
-						$web_font_styles = str_replace( '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', h1.google-font-' . sanitize_html_class( $reg[ 3 ] ) . ' span{ font-family:"' . $font_for_style . '", sans-serif;' .
+						$fallback_font = apply_filters('raindrops_fallback_google_font', 'sans-serif', $font_for_style );
+
+						
+						$web_font_styles = str_replace( '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', h1.google-font-' . sanitize_html_class( $reg[ 3 ] ) . ' span{ font-family:"' . $font_for_style . '", '. $fallback_font. ';' .
 						$font_for_style_italic .
 						$font_for_style_weight .
 						'}' . "\n", '', $web_font_styles );
-						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ' span{ font-family:"' . $font_for_style . '", sans-serif;' .
+						$web_font_styles .= '.mce-content-body .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .hfeed .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ', .google-font-' . sanitize_html_class( $reg[ 3 ] ) . ' span{ font-family:"' . $font_for_style . '", '. $fallback_font. ';' .
 						$font_for_style_italic .
 						$font_for_style_weight .
 						'}' . "\n";
@@ -13498,6 +13512,22 @@ if ( ! function_exists( 'raindrops_add_front_page_template_css' ) ) {
 	}
 }
 
+if ( ! function_exists( 'raindrops_google_font_helper_for_japanese' ) ) {
+	/**
+	 * google font early access for japanese helper filter
+	 * @param type $font_style
+	 * @param type $font_name
+	 * @return string
+	 */
+	function raindrops_google_font_helper_for_japanese( $font_style , $font_name ) {
+
+		if( 'Kokoro' == $font_name || 'Hannari' == $font_name ) {
+
+			return '”Times New Roman”, serif';
+		}
+		return $font_style;
+	}
+}
 /**
  *
  *

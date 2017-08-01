@@ -4121,11 +4121,13 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 #front-page-template-pages  .page{
     margin:auto;
     padding:1em;
+    box-sizing:border-box;
 }
 .page-template-full-width .raindrops-toc-front,
 .page-template-full-width .entry.page{
     margin:auto;
     padding:1em;
+    box-sizing:border-box;
 }
 .raindrops-toc-front{
     margin-bottom:1.53846153846em;

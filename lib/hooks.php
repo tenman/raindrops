@@ -23,24 +23,29 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 *
 		 */
-		/**
-		 * @1.474
-		 * add_action( 'load-themes.php', 'raindrops_install_navigation' );
-		 */
-		/**
-		 *
-		 */
+		
 		$load_editor_css_setting = raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' );
 		
 		if( 'yes' == $load_editor_css_setting ) {
 			
 			if ( is_admin() && isset( $_GET[ 'post' ] ) && !empty( $_GET[ 'post' ] ) ) {
 				$raindrops_post_id = absint( $_GET[ 'post' ] );
-				add_editor_style( array( 'editor-style.css', esc_url( add_query_arg( array( 'action' => 'raindrops_editor_styles', 'id' => $raindrops_post_id ), admin_url( 'admin-ajax.php' ) ) ) ) );
+				add_editor_style( 
+					array( 'editor-style.css', 
+						add_query_arg( 
+							array( 'action' => 'raindrops_editor_styles', 'id' => $raindrops_post_id ), admin_url( 'admin-ajax.php' ) 
+							) 					
+					) 
+				);
+
 			} else {
-				add_editor_style( array( 'editor-style.css', esc_url( add_query_arg( 'action', 'raindrops_editor_styles', admin_url( 'admin-ajax.php' ) ) ) ) );
+				add_editor_style( array( 'editor-style.css', add_query_arg( 'action', 'raindrops_editor_styles', admin_url( 'admin-ajax.php' ) ) ) );
 			}
+		} else {
+			
+			add_editor_style( array( 'editor-style.css') );
 		}
+
 		/**
 		 * thanks ison
 		 */
@@ -313,13 +318,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_filter( 'wp_nav_menu_items', 'raindrops_responsive_sidebar_switch', 10, 2 );
 		add_action( 'raindrops_loop_title_after', 'raindrops_term_description' );
-		/**
-		 * @since 1.411
-		 */
-		/**
-		 * @1.480 removed
-		 * add_filter( 'language_attributes', 'raindrops_xhtml_language_attributes', 10, 2 );
-		 */
+
 		/**
 		 * html5 can not use role attribute for indivisual values
 		 * @since 1.411
@@ -409,6 +408,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.466
 		 */
 		add_action( 'raindrops_loop_before_toolbar', 'raindrops_add_switch_layout_button' );
+		/**
+		 * @since 1.486
+		 */
+		add_filter( 'raindrops_fallback_google_font', 'raindrops_google_font_helper_for_japanese', 10, 2 );
 
 	}
 }

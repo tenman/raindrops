@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  *
@@ -4083,8 +4082,9 @@ if ( !function_exists( 'raindrops_fallback_title' ) ) {
 				$thumbnail .= get_the_post_thumbnail( $post->ID, $raindrops_post_thumbnail_size, array( "style" => "vertical-align:middle;", "alt" => null ) );
 				$thumbnail .= '</span>';
 			}
+			// @1.487 remove && !has_post_thumbnail( $id )
 			//@ 1.317	if (isset( $post->ID ) && ! is_404() && !has_post_thumbnail( $post->ID ) && !is_singular() && !post_password_required() ) {
-			if ( isset( $id ) && !is_404() && !has_post_thumbnail( $id ) && !is_singular() && !post_password_required() ) {
+			if ( isset( $id ) && !is_404()  && !is_singular() && !post_password_required() ) {
 
 				$thumbnail = apply_filters( 'raindrops_title_thumbnail', $thumbnail, '<span class="h2-thumb">', '</span>' );
 			}
@@ -9897,8 +9897,8 @@ if ( !function_exists( 'raindrops_register_webfonts' ) ) {
 
 }
 
-if ( !function_exists( 'raindrops_tiny_mce_before_init' ) ) {
 
+if ( !function_exists( 'raindrops_tiny_mce_before_init' ) ) {
 	/**
 	 *
 	 * @param array $init_array
@@ -9915,10 +9915,10 @@ if ( !function_exists( 'raindrops_tiny_mce_before_init' ) ) {
 		}
 
 		$separator = '';
-		if ( !empty( $init_array ) ) {
+		if ( ! empty( $init_array['content_css'] ) ) {
 			$separator = ',';
 		}
-		$init_array[ 'content_css' ] = trim( $init_array[ 'content_css' ], ',' ) . $separator . raindrops_google_fonts_for_tinymce();
+		$init_array['content_css'] = trim( $init_array['content_css'], ',' ) . $separator . raindrops_google_fonts_for_tinymce();
 
 		return $init_array;
 	}

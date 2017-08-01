@@ -1,4 +1,34 @@
 Changelog -----------------------------------
+version:1.486
+
+Overview of Changes
+
+	Modified Support Google Fonts Early Access CSS Class for Japanese
+		Nico Moji , 	Class Name : google-font-nico-moji
+		Hannari , 		Class Name : google-font-hannari
+		Mplus 1p , 		Class Name : google-font-rounded-mplus-1c
+		Nikukyu , 		Class Name : google-font-nikukyu
+		Kokoro , 		Class Name : google-font-kokoro
+
+			@see https://fonts.google.com/earlyaccess
+		new filter raindrops_fallback_google_font
+
+	Fixed esc_url() remove from editor_style()
+		Dinamic editor style link broken.
+
+Files Modified
+	modified:   css3.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/hooks.php
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.485&new_path=raindrops/1.486
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.485
 
 Overview of Changes

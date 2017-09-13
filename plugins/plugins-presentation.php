@@ -1034,4 +1034,3 @@ if( function_exists( 'amp_init' ) ) {
 
 	}
 }
-?>

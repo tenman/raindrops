@@ -2920,8 +2920,6 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			$css_single .= get_post_meta( $post->ID, '_css', true );
 			
-			
-
 
 			if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
@@ -3051,9 +3049,9 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 			$result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= $css;
 			$result .= "/*start custom fields style for loop pages*/\n";
-
+			
 			$result_indv = raindrops_remove_spaces_from_css( $result_indv );
-
+			
 			$result .= $result_indv;
 			$result .= "\n/*end custom fields style for loop pages*/";
 			$result .= "\n/*]]>*/-->\n";
@@ -4779,8 +4777,15 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 				}
 			}
 		}
+		/* @since 1.488 */
+		$raindrops_header_image_uri	= raindrops_ssl_link_helper( $raindrops_header_image_uri );
+		
 		$raindrops_restore_check = get_theme_mod( 'header_image', get_theme_support( 'custom-header', 'default-image' ) );
+		/* @since 1.488 */
+		$raindrops_restore_check = raindrops_ssl_link_helper( $raindrops_restore_check );
+		
 		if ( $raindrops_restore_check !== 'remove-header' ) {
+			
 
 			if ( $raindrops_header_image_width > 0 && $raindrops_header_image_height > 0 ) {
 
@@ -9915,8 +9920,13 @@ if ( !function_exists( 'raindrops_tiny_mce_before_init' ) ) {
 		}
 
 		$separator = '';
+		
 		if ( ! empty( $init_array['content_css'] ) ) {
+			
 			$separator = ',';
+		} else {
+			
+			$init_array['content_css'] = '';
 		}
 		$init_array['content_css'] = trim( $init_array['content_css'], ',' ) . $separator . raindrops_google_fonts_for_tinymce();
 
@@ -9934,11 +9944,11 @@ if ( !function_exists( 'raindrops_google_fonts_for_tinymce' ) ) {
 	 * @since 1.264
 	 */
 	function raindrops_google_fonts_for_tinymce() {
-
+		global $post;
 		if ( raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' ) !== 'yes' ) {
 			return;
 		}
-		global $post;
+
 		$google_font_link_elements	 = get_post_meta( $post->ID, '_web_fonts_link_element', true );
 		$comma_separated_urls		 = '';
 		if ( preg_match_all( '!href="([^"]+)"!', $google_font_link_elements, $regs, PREG_SET_ORDER ) ) {
@@ -10075,7 +10085,6 @@ if ( !function_exists( 'raindrops_get_pinup_widget_ids' ) ) {
 
 
 if ( !function_exists( 'raindrops_apply_pinup_styles' ) ) {
-
 	/**
 	 *
 	 * @return type string styles
@@ -13526,6 +13535,26 @@ if ( ! function_exists( 'raindrops_google_font_helper_for_japanese' ) ) {
 			return '”Times New Roman”, serif';
 		}
 		return $font_style;
+	}
+}
+if( ! function_exists( 'raindrops_ssl_link_helper' ) ) {
+	/**
+	 * @since 1.488
+	 */
+	function raindrops_ssl_link_helper( $content ) {
+
+		global $raindrops_ssl_link_helper;
+
+		if( is_ssl( ) && true == $raindrops_ssl_link_helper ) {
+
+			$parsed_url = parse_url (  home_url() );
+			$host = $parsed_url['host'];
+
+			$replace_pairs = apply_filters( 'raindrops_ssl_link_helper_hosts', array( 'http://'.$host =>'https://'.$host ) );
+
+			return strtr( $content, $replace_pairs );
+		}
+		return $content;
 	}
 }
 /**

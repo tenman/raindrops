@@ -10,13 +10,21 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * When WEBSITE Change from http: to https
+ * Old post content filtered to https://your domain/...
+ */
+if( ! isset( $raindrops_ssl_link_helper ) ) {
+
+	$raindrops_ssl_link_helper = true;
+}
+/**
  * Customize / Featured Image Settings  Featured Image Special Layout Apply Post Count limit
  * @since 1.472
  * value 'posts_per_page' or 'none'
  * ver1.472 default none. Experimental implementation
  */
-if( ! isset( $raindrops_allow_safe_link_target ) ) {
-	
+if( ! isset( $raindrops_featured_image_recent_post_count_limit ) ) {
+
 	$raindrops_featured_image_recent_post_count_limit = 'none';
 }
 /**
@@ -40,7 +48,7 @@ if( ! isset( $raindrops_change_all_excerpt_archives_to_grid_layout ) ) {
 	$raindrops_change_all_excerpt_archives_to_grid_layout = false;
 }
 /**
- * custom format needs style 
+ * custom format needs style
  * The excerpt display of WordPress removes all html, but the custom format has no meaning unless it has html
  * @since 1.464
  */
@@ -623,7 +631,7 @@ if ( !isset( $raindrops_base_setting_args ) ) {
 	empty( $raindrops_current_style_type ) ) ) {
 		//@1.433 todo
 		$raindrops_current_style_type = 'dark';
-	} 
+	}
 
 	$raindrops_base_setting_args = array(
 		"raindrops_color_scheme"				 => array( 'option_id'		 => 1,
@@ -1987,8 +1995,8 @@ if( 'yes' == get_theme_mod( 'raindrops_year_2017_base_settings' ) ) {
 
 	$raindrops_base_setting_args["raindrops_page_width"]['option_value'] = 'doc5';
 	$raindrops_base_setting_args["raindrops_featured_image_recent_post_count"]['option_value'] = 10;
-	$raindrops_base_setting_args["raindrops_place_of_site_title"]['option_value'] = 'header_image';	
-	$raindrops_base_setting_args["raindrops_style_type"]['option_value'] = 'minimal';	
+	$raindrops_base_setting_args["raindrops_place_of_site_title"]['option_value'] = 'header_image';
+	$raindrops_base_setting_args["raindrops_style_type"]['option_value'] = 'minimal';
 }
 
 if ( !isset( $raindrops_base_setting ) || empty( $raindrops_base_setting ) ) {

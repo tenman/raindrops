@@ -25,8 +25,8 @@ $raindrops_current_column = raindrops_column_controller();
 get_header( $raindrops_document_type );
 do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 raindrops_debug_navitation( __FILE__ );
-?>
 
+?> 
 			<div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
 				<div class="<?php raindrops_dinamic_class( 'yui-b',true ); ?>">
 					<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
@@ -81,4 +81,5 @@ raindrops_debug_navitation( __FILE__ );
 		<?php
 	}
 	?>
+
 <?php get_footer( $raindrops_document_type ); ?>

@@ -128,7 +128,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 							<?php
 							
 							if ( has_post_thumbnail() ) {
-								the_post_thumbnail( 'large', 'style=max-width:100%;width:100%;height:auto;' );
+								the_post_thumbnail( 'large' );
 							} else {
 								echo $raindrops_header_image;
 								

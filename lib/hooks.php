@@ -412,6 +412,24 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.486
 		 */
 		add_filter( 'raindrops_fallback_google_font', 'raindrops_google_font_helper_for_japanese', 10, 2 );
+		
+		/**
+		* @somce 1.488
+		*/
+		add_filter( 'raindrops_embed_meta_echo', 'raindrops_ssl_link_helper' );
+		add_filter( 'raindrops_custom_fields_style_for_loop', 'raindrops_ssl_link_helper',99 );//not work
+		add_filter( 'raindrops_embed_meta_css', 'raindrops_ssl_link_helper' );
+		add_filter( 'raindrops_footer_text', 'raindrops_ssl_link_helper' );
+		add_filter( 'post_link', 'raindrops_ssl_link_helper' );
+		add_filter( 'wp_nav_menu', 'raindrops_ssl_link_helper' );
+		add_filter( 'wp_get_custom_css', 'raindrops_ssl_link_helper' );
+		add_filter('widget_text_content', 'raindrops_ssl_link_helper' );
+		add_filter( 'widget_custom_html_content','raindrops_ssl_link_helper' );
+		add_filter( 'post_type_archive_link','raindrops_ssl_link_helper' );
+		add_filter( 'tag_link','raindrops_ssl_link_helper' );
+		add_filter( 'category_link','raindrops_ssl_link_helper' );
+		add_filter( 'the_content','raindrops_ssl_link_helper' );
+		add_filter('the_content_rss','raindrops_ssl_link_helper' );
 
 	}
 }

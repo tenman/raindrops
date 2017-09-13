@@ -1039,7 +1039,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 			$result				 = array();
 			$groups				 = $group_year_month;
 			$display_start_year	 = $archives_start_year;
-			$display_end_year	 = apply_filters( 'raindrops_extend_archive_widget_end_year', date( 'Y' ) );
+			$display_end_year	 = apply_filters( 'raindrops_extend_archive_widget_end_year', date( 'Y' ), $title );
 			if ( $groups == 'year' ) {
 				for ( $i = $display_start_year; $i < $display_end_year + 1; $i++ ) {
 

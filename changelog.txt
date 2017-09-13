@@ -1,4 +1,27 @@
 Changelog -----------------------------------
+version:1.488
+
+Overview of Changes
+	Add SSL support changes
+		If you change the web site under operation from http to https,
+		http link and so on remain in the post body, custom menu,
+		Custom CSS for This Entry, Additional CSS,
+		and the ability to rewrite these http links to https Added.
+
+		This function rewrites only the internal link. It will not change external links
+
+		If you not need this functionality.
+		Please add the following variables to the first line of functions.php.
+
+		$raindrops_ssl_link_helper = true;
+
+Files Modified
+	modified: functions.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.487&new_path=raindrops/1.488
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.487
 
 Overview of Changes

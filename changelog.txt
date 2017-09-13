@@ -16,7 +16,16 @@ Overview of Changes
 		$raindrops_ssl_link_helper = true;
 
 Files Modified
-	modified: functions.php
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header.php
+	modified:   index.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.487&new_path=raindrops/1.488

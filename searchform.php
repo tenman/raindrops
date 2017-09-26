@@ -17,7 +17,7 @@ if ( 'html5' == $raindrops_document_type ) {
     <form method="get" name="searchform" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
         <div class="searchform">
             <label class="screen-reader-text" for="s"><?php esc_attr_e('Search for:', 'raindrops');?></label>
-            <input type="text" value="<?php the_search_query(); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags', 'raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'raindrops' ); ?>" name="s" id="s"  />
+            <input type="search" value="<?php the_search_query(); ?>" pattern="^[^(<|>)]+$" title="<?php esc_attr_e( 'must not contain html tags', 'raindrops' ); ?>" placeholder="<?php esc_attr_e( 'Search', 'raindrops' ); ?>" name="s" id="s"  />
             <input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'raindrops' ); ?>" />
         </div>
     </form>

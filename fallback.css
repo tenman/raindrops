@@ -527,7 +527,9 @@ aside > ul,
     /* 
      * oembed
      * -----------------------------*/
+    embed[src^="https://www.youtube.com/"],
     embed[src^="http://www.youtube.com/"],
+    embed[src^="https://videopress.com/"],   
     embed[src^="http://v.wordpress.com/"],
     embed[src^="//v.wordpress.com/"],
     a[href^="https://www.flickr.com/"] img,

@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.488
+Version: 1.489
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1063,13 +1063,14 @@ select,
 .entry-content label{
     margin:0 0.23076923076em;
 }
-
+input[type="search"],
 input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
     border:0.07692307692em solid;
 }
+#searchform input[type="search"],
 #searchform input[type="text"] {
     width:59%;
     display:inline-block;
@@ -1961,6 +1962,7 @@ ul.index li .edit {
 .topsidebar .widget_search > form{
     text-align:right;
 }
+.topsidebar .widget_search > #searchform input[type="search"],
 .topsidebar .widget_search > #searchform input[type="text"]{
     max-width:200px;
 }
@@ -6107,6 +6109,7 @@ x:-o-prefocus, .rd-modal > div {
  * jQuery Tooltip
    ========================================================================== */
 /* Tooltip style */
+
 .ui-tooltip {
     opacity: 1;
     padding: 8px;
@@ -6122,12 +6125,41 @@ x:-o-prefocus, .rd-modal > div {
 .ui-tooltip-content:before{
     content: "";
     position: absolute;
-    bottom:-28px;
+    bottom:-24px;
     left:0;
     right:0;
     margin-left:auto;
     margin-right:auto;
     width:2px;
+}
+.bottom-tooltip .ui-tooltip-content:before{
+    content: "";
+    position: abosolute;
+    top:auto;
+    left:0;
+    right:0;
+    bottom:18px;
+    margin-left:auto;
+    margin-right:auto;
+    width:2px;
+}
+/**
+ * Tooltip
+   ========================================================================== */
+/* tooltip fallback style */
+
+.ui-tooltip {
+    background: #333;
+    color: #ccc;
+    border: none;
+}
+.ui-tooltip-content:before{
+    border: 10px solid transparent;
+    border-top: 10px solid #333;
+}
+.bottom-tooltip .ui-tooltip-content:before{
+   border: 10px solid transparent;
+   border-bottom: 10px solid #333;
 }
 /**
  * Custom Logo
@@ -6484,19 +6516,7 @@ x:-o-prefocus, .rd-modal > div {
     list-style-type:decimal;
     min-height:2em;
 }
-/**
- * Tooltip
-   ========================================================================== */
-/* tooltip fallback style */
-.ui-tooltip {
-    background: #333;
-    color: #ccc;
-    border: none;
-}
-.ui-tooltip-content:before{
-    border: 10px solid transparent;
-    border-top: 10px solid #333;
-}
+
 /**
  * Primary Menu
    ========================================================================== */

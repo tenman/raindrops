@@ -39,6 +39,8 @@
        jQuery('a').not( "#flags, .flag, .tooltip" ).removeAttr("title");
        jQuery( ".no-tooltip" ).removeAttr("title");
        
+
+       
         // #flags is google translate plugin
         // @1.403 add class .flag for Google Language Translator plugin version 5.0.06
         

@@ -1568,7 +1568,7 @@ if ( !function_exists( 'raindrops_settings_page_contextual_help' ) ) {
 		/* AuthorURI */
 		$content .= sprintf( $html, esc_html__( 'Author', 'raindrops' ), sprintf( $link, $raindrops_current_data->get( 'AuthorURI' ), $raindrops_current_data->get( 'Author' ), 'target="_self"' ) );
 		/* Support */
-		$content .= sprintf( $html, esc_html__( 'Support', 'raindrops' ), sprintf( $link, 'http://wordpress.org/support/theme/raindrops', esc_html__( 'http://wordpress.org/support/theme/raindrops', 'raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'http://ja.forums.wordpress.org/', esc_html__( 'http://ja.forums.wordpress.org/ lang:Japanese', 'raindrops' ), 'target="_blank"' ) );
+		$content .= sprintf( $html, esc_html__( 'Support', 'raindrops' ), sprintf( $link, 'https://wordpress.org/support/theme/raindrops', esc_html__( 'https://wordpress.org/support/theme/raindrops', 'raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'https://ja.wordpress.org/', esc_html__( 'https://ja.wordpress.org/ lang:Japanese', 'raindrops' ), 'target="_blank"' ) );
 		/* Version */
 		$content .= sprintf( $html, esc_html__( 'Version', 'raindrops' ), $raindrops_current_data->get( 'Version' ) );
 		/* Changelog.txt */
@@ -1590,7 +1590,7 @@ if ( !function_exists( 'raindrops_editor_page_contextual_help' ) ) {
 		$html	 = '<dt>%1$s</dt><dd>%2$s</dd>';
 		$link	 = '<a href="%1$s" %3$s>%2$s</a>';
 		$content = '';
-		$content .= sprintf( $html, esc_html__( 'Support', 'raindrops' ), sprintf( $link, 'http://wordpress.org/support/theme/raindrops', esc_html__( 'English', 'raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'http://ja.forums.wordpress.org/', esc_html__( 'Japanese', 'raindrops' ), 'target="_blank"' ) );
+		$content .= sprintf( $html, esc_html__( 'Support', 'raindrops' ), sprintf( $link, 'https://wordpress.org/support/theme/raindrops', esc_html__( 'English', 'raindrops' ), 'target="_blank"' ) . '<br />' . sprintf( $link, 'https://ja.forums.wordpress.org/', esc_html__( 'Japanese', 'raindrops' ), 'target="_blank"' ) );
 
 		$help = '<h2>' . esc_html__( 'How to remove Site Title Block', 'raindrops' ) . '</h2><pre><code>#hd{display:none;}</code></pre>';
 		$help .= '<h2>' . esc_html__( 'How to remove Post Author Name', 'raindrops' ) . '</h2><pre><code>.posted-by-string,.author{display:none;}</code></pre>';
@@ -1999,6 +1999,10 @@ if ( !function_exists( "raindrops_add_tooltip_script" ) ) {
 						jQuery( document ).tooltip({position: {
 							my: 'center', at: 'top-30', collision: 'none'
 						}});
+						jQuery('.widget_media_video, .wp-video').tooltip({position:{
+							my: 'center', at: 'bottom+30', collision: 'none'
+						}});
+						jQuery('.widget_media_video, .wp-video').tooltip('option', 'tooltipClass','bottom-tooltip' );
 					});";
 			$wp_scripts->add_data( 'jquery-ui-tooltip', 'data', $js );
 		}
@@ -6051,6 +6055,7 @@ if ( !function_exists( 'raindrops_html_excerpt_with_elements' ) ) {
 				$truncate .= '</' . $tag . '>';
 			}
 		}
+		
 		return apply_filters( 'raindrops_html_excerpt_with_elements', $truncate, __FUNCTION__ );
 	}
 
@@ -10682,7 +10687,8 @@ if ( !function_exists( 'raindrops_parse_webfonts' ) ) {
 					}
 					if ( true == $flag_early_access ) {
 
-						$font_url = 'http://fonts.googleapis.com/earlyaccess/';
+						//$font_url = 'http://fonts.googleapis.com/earlyaccess/';
+						$font_url = 'https://fonts.google.com/earlyaccess';
 						$font_url .= str_replace( ' ', '', strtolower( $font_name . '.css' ) );
 
 						$font_url	 = str_replace( $separator . $weight_and_italic_values, '', $font_url );

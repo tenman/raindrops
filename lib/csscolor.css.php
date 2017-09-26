@@ -137,15 +137,6 @@ mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
 .topsidebar .widget_recent-post-groupby-cat .xoxo > .post-group-by-category-title h3 span{
 	background:transparent;
 }
-.ui-tooltip {
-    background: #333;
-    color: #ccc;
-    border: none;
-}
-.ui-tooltip-content:before{
-    border: 10px solid transparent;
-    border-top: 10px solid #333;
-}
 
 .focus .icon-post-format-notitle,
 .icon-post-format-notitle:focus,
@@ -266,6 +257,7 @@ input[type="submit"],
 #access .current-menu-ancestor,
 #access .current-menu-item,
 #access .current-menu-parent,
+.searchform input[type="search"],
 .searchform input[type="text"],
 .social textarea#comment,
 .social input[type="text"],
@@ -394,6 +386,7 @@ fieldset,
 #month_list td,
 #raindrops_year_list td,
 #date_list td,
+.searchform input[type="search"],
 .searchform input[type="text"],
 .searchform input[type="submit"],
 .hentry input[type="password"],
@@ -403,6 +396,7 @@ fieldset,
 .social input[type="text"],
 .social input[type="submit"],
 .entry-content input[type="email"],
+.entry-content input[type="search"],	
 .entry-content input[type="text"],
 .entry-content input[type=url],
 .entry-content input[type=tel],
@@ -443,6 +437,7 @@ li.byuser span.says{
 .searchform input[type="submit"],
 .entry-content textarea,
 .entry-content input[type="password"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type="submit"],
 .entry-content input[type="reset"],
@@ -642,6 +637,7 @@ fieldset,
 #raindrops_year_list td,
 #calendar_wrap td,
 #date_list td,
+.searchform input[type="search"],
 .searchform input[type="text"],
 .searchform input[type="submit"],
 .hentry input[type="password"],
@@ -651,6 +647,7 @@ fieldset,
 .social input[type="text"],
 .social input[type="submit"],
 .entry-content input[type="email"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
 .entry-content input[type=tel],
@@ -673,6 +670,7 @@ td.month-date,td.month-name,td.time{
     -moz-box-shadow: 0 0 5px %rgba_border%;
 }
 kbd,
+.searchform input[type="search"],
 .searchform input[type="text"],
 #respond input[type="text"],
 #respond textarea#comment,
@@ -987,15 +985,7 @@ function raindrops_indv_css_w3standard() {
 	background:transparent;
 }
 /*-----------------------------------------------------------*/
-.ui-tooltip {
-    background: #333;
-    color: #ccc;
-    border: none;
-}
-.ui-tooltip-content:before{
-    border: 10px solid transparent;
-    border-top: 10px solid #333;
-}
+
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
 .ie11.enable-keyboard #access .sub-menu a:focus,
@@ -1121,6 +1111,7 @@ body:not(.rd-tag-em) #ft a,
 }
 textarea,
 input[type="password"],
+input[type="search"],
 input[type="text"],
 input[type="submit"],
 input[type="reset"],
@@ -1155,6 +1146,7 @@ kbd,
 .sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
 .entry-content input[type=tel],
@@ -1177,6 +1169,7 @@ kbd,
 .sticky-widget #wp-calendar #prev,
 .sticky-widget #wp-calendar tbody td:hover,
 .entry-content input[type="email"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type="url"],
 .entry-content input[type="tel"],
@@ -1512,15 +1505,6 @@ function raindrops_indv_css_light() {
 	background:transparent;
 }
 /*-----------------------------------------------------------*/
-.ui-tooltip {
-    background: #333;
-    color: #ccc;
-    border: none;
-}
-.ui-tooltip-content:before{
-    border: 10px solid transparent;
-    border-top: 10px solid #333;
-}
 	
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -1741,6 +1725,7 @@ hr{
 }
 textarea,
 input[type="password"],
+input[type="search"],	
 input[type="text"],
 input[type="submit"],
 input[type="reset"],
@@ -1761,6 +1746,7 @@ select{
 }
 
 .entry-content input[type="email"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
 .entry-content input[type=tel],
@@ -1788,6 +1774,7 @@ select{
     border:double 3px %c_border%;
 }
 .entry-content input[type="email"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type="url"],
 .entry-content input[type="tel"],
@@ -2024,6 +2011,7 @@ hr{
 .sticky-widget #wp-calendar tbody td:hover,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
+.entry-content input[type="search"],
 .entry-content input[type="text"],
 .entry-content input[type=url],
 .entry-content input[type=tel],
@@ -2319,15 +2307,6 @@ function raindrops_indv_css_minimal() {
 .topsidebar .widget a.post-group_by-category-entry-title.no-thumb{
 	 border-left:48px solid #bdc3c7;
 }
-.ui-tooltip {
-    background: #333;
-    color: #ccc;
-    border: none;
-}
-.ui-tooltip-content:before{
-    border: 10px solid transparent;
-    border-top: 10px solid #333;
-}
 
 .sticky-widget #wp-calendar tbody #today,
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
@@ -2489,6 +2468,7 @@ a.raindrops-comment-link:hover .point {
 
 kbd,
 input[type="email"],
+input[type="search"],
 input[type="text"],
 textarea#comment{
     border:1px solid #ddd;

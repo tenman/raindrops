@@ -5,9 +5,16 @@ Overview of Changes
 
 	Modified Change input type attribute from text to search for search form.
 	Fixed wp_video tooltip change position. show title bottom.
+	Modified urls( http > https ) in css files , help tab content in functions.php
 
 Files Modified
-
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/csscolor.css.php
+	modified:   searchform.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.488&new_path=raindrops/1.489

@@ -3,9 +3,25 @@ version:1.490
 
 Overview of Changes
 
+	Fixed editor-style wrong comments
+	Fixed Elements Have Discernable Names
+			primary menu when mobile. .open, .close link
+	Modified Add aria-label Share Links Menu in .entry-meta #raindrops_share select elements
+	Modified when NOT is_user_logged_in, Removed version query string from theme stylesheets and js files
+	Modified Size selectbox Insert Media/Attachment display settings
+		Change from all image sizes to selectable
+	Modified Add Customizer style for WordPress 4.9 sidebar outer content
 
 Files Modified
-
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   responsiveness.css
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.489&new_path=raindrops/1.490

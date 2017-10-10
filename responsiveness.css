@@ -1,5 +1,7 @@
-/* optional responsive grid */
-
+/**
+ * Responsive Styles for Raindrops Theme.
+ * main break point 640px
+   ========================================================================== */
 @media screen and (min-width : 641px){
     #doc5 .nav-menu-toggle,
     #doc3 .nav-menu-toggle{
@@ -16,7 +18,7 @@
     }
    .entry-content figure.alignright + p,
     .entry-content figure.alignleft + p{
-        /* @1.480 display:table;*/
+
         min-width:12em;
     }
     .entry-content > a .alignright.size-medium,
@@ -32,10 +34,14 @@
     }
     .raindrops-mobile-menu .raindrops-nav-menu-expand,
     .raindrops-mobile-menu .raindrops-nav-menu-shrunk{
-        visibility:hidden;
+       /* @1.490 visibility:hidden;*/
     }
 }
 @media screen and (max-width : 640px){
+
+/**
+ * Raindrops Mobile Menu 
+   ========================================================================== */
     #access .menu{
         overflow:hidden!important;
     }
@@ -43,6 +49,143 @@
         float:none;
         width:100%;
     }
+    #access ul li > ul {
+        display:block!important;
+    }   
+
+    #access{display:none!important;}
+    #access:target{
+        display:block!important;
+        padding-top:100px;
+        margin-top:-100px!important;
+    }
+    .rd-col-1 #access:target{
+        margin-top: 0!important;
+    }
+    .ie6 #access:target{display:block!important;}
+    .ie7 #access:target{display:block!important;}
+    .ie8 #access:target{display:block!important;}
+    .raindrops-mobile-menu{
+        display:block!important;
+    }
+    .raindrops-mobile-menu{
+        position:relative;
+        margin:0;
+    }
+    .raindrops-mobile-menu .open{
+        position:absolute;
+        top:4px;
+        left:0;
+        font-size:100%;
+        width:10%;
+        background-repeat:no-repeat;
+        background-position:center;
+        max-height:100%;
+    }
+    .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
+      /* @1.490  visibility:hidden;*/
+        width:20px;
+        height:20px;
+        display:inline-block;
+        text-indent:-100px;
+    }
+    .raindrops-mobile-menu .close{
+        position:absolute;
+        top:2px;
+        right:5%;
+        font-size:100%;
+        width:10%;
+        background-repeat:no-repeat;
+        background-position:center;
+        max-height:100%;
+    }
+    .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
+      /* @1.490  visibility:hidden;*/
+        width:20px;
+        height:20px;
+        display:inline-block;
+    }
+    .raindrops-mobile-menu .menu-text{
+        position:absolute;top:10px;left:44%;
+    }
+    .raindrops-mobile-menu{
+        display:inline-block;
+        height:1em;
+        text-align:right;
+        padding:1em;
+        font-size:138.5%;
+    }
+    #doc5 #access ul ul,
+    #doc5 #access ul,
+    #doc5 #access ul li{
+        float:none;
+        margin:0;
+        margin-left:0;
+        margin-right:0;
+        display:block;
+        max-width:100%;
+        width:100%;
+        box-sizing: border-box;
+        clear:both;
+        background-repeat:no-repeat;
+        position:static;       
+    }  
+    #doc3 #access ul ul,
+    #doc3 #access ul,
+    #doc3 #access ul li{
+        float:none;
+        margin:0;
+        margin-left:0;
+        margin-right:0;
+        display:block;
+        max-width:100%;
+        width:100%;
+        box-sizing: border-box;
+        clear:both;
+        background-repeat:no-repeat;
+        position:static;
+    }
+    #doc5 #access a,
+    #doc5 #access ul ul,
+    #doc5 #access ul,
+    #doc5 #access ul li,
+    #doc3 #access a,
+    #doc3 #access ul ul,
+    #doc3 #access ul,
+    #doc3 #access ul li{
+        border:none;
+    }
+    #access > div.menu > ul > li > a, 
+    #access .menu > li > a,
+    #access .menu-header,
+    #access ul,
+    #access a + ul,
+    #access .children a,
+    #access .sub-menu a{
+            position:static;
+            display:block;
+            visibility:visible;
+            float:none;
+            overflow:visible;
+            z-index:999!important;
+            height:auto;
+            text-align:left;
+            background-image:none!important;
+    }
+    #top #access .menu{
+         overflow:hidden;
+    }
+    #top #access .children,
+    #top #access .sub-menu{
+        margin-left:5vw;
+        width:90vw;
+        color:#fff;
+    }
+    .admin-bar p.raindrops-menu-fixed,
+    .admin-bar #access.raindrops-menu-fixed{
+        top:0;
+    }
+/* Raindrops Mobile Menu END */
     .rsidebar{
         box-sizing:border-box;
     }
@@ -72,73 +215,7 @@
     #hd {
         min-height:3em;
     }
-    #access ul li > ul {
-        display:block!important;
-    }   
 
-    #access{display:none!important;}
-    #access:target{
-        display:block!important;
-        padding-top:100px;
-        margin-top:-100px!important;
-    }
-    .rd-col-1 #access:target{
-        margin-top: 0!important;
-    }
-    .ie6 #access:target{display:block!important;}
-    .ie7 #access:target{display:block!important;}
-    .ie8 #access:target{display:block!important;}
-    .raindrops-mobile-menu{
-        display:block!important;
-    }
-    .raindrops-mobile-menu{
-        position:relative;
-        margin:0;
-
-    }
-    .raindrops-mobile-menu .open{
-        position:absolute;
-        top:4px;
-        left:0;
-        font-size:100%;
-        width:10%;
-        background-repeat:no-repeat;
-        background-position:center;
-        max-height:100%;
-    }
-    .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
-        visibility:hidden;
-        width:20px;
-        height:20px;
-        display:inline-block;
-        text-indent:-100px;
-    }
-    .raindrops-mobile-menu .close{
-        position:absolute;
-        top:2px;
-        right:5%;
-        font-size:100%;
-        width:10%;
-        background-repeat:no-repeat;
-        background-position:center;
-        max-height:100%;
-    }
-    .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk{
-        visibility:hidden;
-        width:20px;
-        height:20px;
-        display:inline-block;
-    }
-    .raindrops-mobile-menu .menu-text{
-        position:absolute;top:10px;left:44%;
-    }
-    .raindrops-mobile-menu{
-        display:inline-block;
-        height:1em;
-        text-align:right;
-        padding:1em;
-        font-size:138.5%;
-    }
     .page-title,
     #archives-title{
         display:block;
@@ -186,9 +263,6 @@
     #doc5 .size2of5,
     #doc5 .size3of5,
     #doc5 .size4of5,
-    #doc5 #access ul ul,
-    #doc5 #access ul,
-    #doc5 #access ul li,
     #doc5.yui-t6 #container > div.first,
     #doc5.yui-t5 #container > div.first,
     #doc5.yui-t4 #container > div.first,
@@ -227,9 +301,6 @@
     #doc3 .size2of5,
     #doc3 .size3of5,
     #doc3 .size4of5,
-    #doc3 #access ul ul,
-    #doc3 #access ul,
-    #doc3 #access ul li,
     #doc3.yui-t6 #container > div.first,
     #doc3.yui-t5 #container > div.first,
     #doc3.yui-t4 #container > div.first,
@@ -262,16 +333,6 @@
     .index.custom-post-archives .custom-post-archives-wrapper{
         padding-top:2em;
     }
-    #doc5 #access a,
-    #doc5 #access ul ul,
-    #doc5 #access ul,
-    #doc5 #access ul li,
-    #doc3 #access a,
-    #doc3 #access ul ul,
-    #doc3 #access ul,
-    #doc3 #access ul li{
-        border:none;
-    }
 
     #doc5 .datetable,
     #doc3 .datetable{
@@ -293,8 +354,7 @@
         box-sizing: border-box;
         width:90vw;
         margin:2em auto;
-    }
-    
+    }    
     address span,
     .reply, #ft a,
     .page .hentry .entry-title a,
@@ -347,7 +407,6 @@
         font-size:123%; 
     }
     .post-format-wrap{
-
         display:inline-block
     }
     .post-format-text{
@@ -383,39 +442,7 @@
         width:23%;
         padding:.5em 0;
         text-align:center;
-
     }
-
-
-    #access > div.menu > ul > li > a, 
-    #access .menu > li > a,
-    #access .menu-header,
-    #access ul,
-    #access a + ul,
-    #access .children a,
-    #access .sub-menu a{
-            position:static;
-            display:block;
-            visibility:visible;
-            float:none;
-            overflow:visible;
-            z-index:999!important;
-            height:auto;
-            text-align:left;
-            background-image:none!important;
-    }
-
-    #top #access .menu{
-         overflow:hidden;
-    }
-
-    #top #access .children,
-    #top #access .sub-menu{
-        margin-left:5vw;
-        width:90vw;
-        color:#fff;
-    }
- 
     #hd #site-title{
         font-size:167%;
     }
@@ -436,8 +463,7 @@
     body.author #doc5 .entry-title  .h2-thumb,
     body.author #doc3 .entry-title  .h2-thumb{
         display:table-cell;
-    }
-   
+    }   
     #doc5 #site-description,
     #doc3 #site-description{
         font-size:108%;
@@ -476,7 +502,10 @@
     img.aligncenter, .aligncenter, div.aligncenter{
         box-sizing:border-box;
     }
-    /* front-page.php */
+
+/**
+ * front-page.php 
+   ========================================================================== */
     #doc5 .front-page-top-container,
     #doc3 .front-page-top-container{
         position:relative;
@@ -505,8 +534,9 @@
     #front-page-template-pages .entry-title{
         text-align:center;
     }
-    /* front-page.php end */
-    /* remove equal height inline style  */
+/* front-page.php end */
+
+/* remove equal height inline style  */
     #yui-main .yui-u .rsidebar,
     #yui-main .yui-u .lsidebar{
         min-height:0!important;
@@ -653,7 +683,6 @@
         background: url(images/sticky.png);
         border-bottom:3px solid rgba(127,127,127,.4);
     }
-     
     .rd-grid #yui-main .format-status .entry-meta-list.left,
     .rd-grid #yui-main .category-blog .entry-meta-list.left{
         background: none;
@@ -739,7 +768,6 @@
        float:none;
        height:auto;       
     }
-
     .topsidebar .sticky-widget.widget_pages .sub-menu li,
     .topsidebar .sticky-widget.widget_pages .children li,
     .topsidebar .sticky-widget.widget_nav_menu .sub-menu li,
@@ -752,7 +780,6 @@
     .topsidebar .sticky-widget.widget_nav_menu .children{
         background:transparent!important;       
     }
-
    .topsidebar .sticky-widget.widget_pages li,
     .topsidebar .sticky-widget.widget_pages  .menu,
     .topsidebar .sticky-widget.widget_nav_menu li,
@@ -825,7 +852,6 @@
     .lsidebar .eco-archive li{
         min-width:29%;
     }
-
     .topsidebar .widget_nav_menu .menu-item-has-children,
     .topsidebar .widget_nav_menu .menu li{
         text-align:left;
@@ -864,10 +890,6 @@
         position:relative;
         max-width:100%;
         box-sizing:border-box;
-    }
-    .admin-bar p.raindrops-menu-fixed,
-    .admin-bar #access.raindrops-menu-fixed{
-        top:0;
     }
     #doc5.yui-t6 #container > .first > div,
     #doc5.yui-t5 #container > .first > div,
@@ -982,8 +1004,7 @@
     }
     .loop-before-toolbar .layout-switch-button{
         display:none;
-    }
-    
+    } 
     .rd-type-minimal .widget_meta > ul,
     .rd-type-minimal .widget_pages > ul,
     .rd-type-minimal .widget_nav_menu > div > ul,
@@ -1017,7 +1038,6 @@
         content: '';
         display: none;
     }
-
     .rd-type-minimal .widget_recent_entries li:before{
         position: absolute;
         top:.15em;
@@ -1049,7 +1069,6 @@
     .wp-caption.aligncenter{
         margin-bottom: 0.76923076923em;
     }
-
 }
 @media screen and (max-width : 480px){
     html .gecko{
@@ -1261,8 +1280,9 @@
     }
 }
 
-/* javascript relative responsive style */
-
+/**
+ * javascript relate responsive style 
+   ========================================================================== */
 .rd-primary-menu-responsive-active #access .menu-item{
      float:none;
      width:100%;

@@ -114,7 +114,7 @@ raindrops_debug_navitation( __FILE__ );
             echo '<!-- #post-' . get_the_ID() . ' -->';
         }
 		?></<?php raindrops_doctype_elements( 'div', 'article' ); ?>>
-		</div>
+	</div>
 
 		<?php
 		raindrops_after_article();

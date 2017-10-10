@@ -3331,6 +3331,19 @@ li.customize-control .widget-inside .widget-content h4,
 .wp-customizer input[type="radio"]:default {
      background-color: rgba(46, 204, 113,1);
 }
+/* ver4.9 sidebar outer content */	
+#customize-sidebar-outer-content{}
+#customize-sidebar-outer-content li.customize-control .customize-control-title{
+	color:$toggle_color;
+}
+#sub-accordion-section-raindrops_theme_settings_content .customize-control-description,
+#customize-control-changeset_status .customize-inside-control-row label{
+	color:#000;
+}
+#customize-control-changeset_preview_link,
+#customize-control-trash_changeset{
+	background:#fff;
+}
 CUSTOMIZER_CSS;
 
 	wp_add_inline_style( 'customize-controls', $css );

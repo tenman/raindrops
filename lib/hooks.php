@@ -430,7 +430,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'category_link','raindrops_ssl_link_helper' );
 		add_filter( 'the_content','raindrops_ssl_link_helper' );
 		add_filter('the_content_rss','raindrops_ssl_link_helper' );
-
+		/**
+		 * @since 1.450
+		 */
+		add_filter('image_size_names_choose', 'raindrops_media_insert_all_sizes');
 	}
 }
 ?>

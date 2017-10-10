@@ -1093,7 +1093,7 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 			$array_options	 = apply_filters( 'raindrops_add_share_link_args', $array_options );
 
 			$select	 = '<form name="raindrops_share" id="raindrops_share">
-					<select name="share_links" onchange="raindrops_share_href()" id="share_links" class="share-links">
+					<select name="share_links" onchange="raindrops_share_href()" id="share_links" class="share-links" aria-label="%2$s">
 					%1$s</select>
 				</form>';
 			$option	 = '<option value="%1$s" class="%3$s" data-icon="%4$s">%2$s</option>' . "\n";
@@ -1122,7 +1122,7 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 
 				$i++;
 			}
-			$result = sprintf( $select, $options );
+			$result = sprintf( $select, $options, esc_html__( 'Share Links Menu', 'raindrops' ) );
 
 			return $posted_in . apply_filters( 'raindrops_add_share_link', $result );
 		}
@@ -1861,8 +1861,12 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 	function raindrops_add_stylesheet() {
 
 		global $raindrops_current_theme_name, $raindrops_current_data_version, $raindrops_css_auto_include, $raindrops_fallback_human_interface_show, $raindrops_tooltip, $wp_scripts, $raindrops_minified_suffix, $raindrops_load_minified_css_js;
+		
+		if( ! is_user_logged_in() ) {
+			/* @since 1.490 */
+			$raindrops_current_data_version = null;
+		}
 		/* @1.333 */
-
 		if ( true == $raindrops_fallback_human_interface_show ) {
 
 			$fallback_style = get_template_directory_uri() . '/fallback.css';
@@ -7797,8 +7801,8 @@ function raindrops_nav_menu_primary( $args = array() ) {
 		}
 
 		$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args[ 'wrap_mobile_class' ] . '">
-			<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
-			<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
+			<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a><span class="menu-text">menu</span>
+			<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk"><span class="screen-reader-text">Shrunk</span></span></a>
 			 </p>
 			<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '" class="clearfix" %4$s>
 				<h2 class="screen-reader-text">%5$s</h2>
@@ -13563,6 +13567,27 @@ if( ! function_exists( 'raindrops_ssl_link_helper' ) ) {
 		return $content;
 	}
 }
+
+
+
+if( ! function_exists( 'raindrops_media_insert_all_sizes' ) ) {
+	
+	function raindrops_media_insert_all_sizes( $default_sizes ) {
+
+		$sizes = get_intermediate_image_sizes();
+			
+		foreach( $sizes as $size ) {
+
+			if( ! array_key_exists( $size, $default_sizes ) ) {
+
+				$default_sizes[ $size ] = esc_attr( ucfirst( $size ) );
+			}
+
+		}
+		return $default_sizes;
+	}
+}
+
 /**
  *
  *

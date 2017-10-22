@@ -229,7 +229,7 @@ if ( !function_exists( 'raindrops_bcn_nav_menu' ) ) {
 
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
-
+			
 			$html		 = '<ol class="breadcrumbs" itemprop="breadcrumbs">%1$s</ol>';
 
 			if ( 'bbpress' !== $template_name && !is_home() && !is_front_page() && ( isset( $post ) && 0 !== $post->ID ) ) { // $post->ID for check the events calendar

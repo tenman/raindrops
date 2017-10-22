@@ -1368,7 +1368,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				min-height:66%;
 				left:3px;
 				width:100%;
-				min-width:199px;
+				/*min-width:199px; @1.491*/
 				height:auto;
 				bottom:30%;
 				padding:1em;
@@ -1393,7 +1393,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				transition:visibility 1s, opacity 1s;
 				-webkit-transition:visibility .7s,opacity .7s;
 				overflow:hidden;
-				margin:4px;
+				margin:3px;
 				outline:0;
 			}
 			.gallery .gallery-item:hover figcaption{
@@ -1402,7 +1402,7 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				transition:visibility 1s, opacity 1s;
 				-webkit-transition:visibility .7s,opacity .7s;
 				overflow:hidden;
-				margin:4px;
+				margin:3px;
 
 			}";
 		

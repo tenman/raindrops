@@ -32,7 +32,7 @@ function raindrops_enable_writing_mode_mix_validate($input){
 	}	
 }
 function raindrops_show_related_posts_thumbnail_fallback_validate($input){
-	return esc_url_raw( $input );
+		return esc_url_raw( $input );
 }
 function raindrops_show_related_posts_thumbnail_validate($input){
 	if( 'show' == $input || 'hide' == $input ) {

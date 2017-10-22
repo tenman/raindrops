@@ -629,7 +629,7 @@ aside > ul,
         transition:visibility 1s, opacity 1s;
         -webkit-transition:visibility .7s,opacity .7s;
         overflow:hidden;
-        margin:4px;
+        margin:3px;
         outline:0;
     }
     .gallery .gallery-item:hover figcaption{
@@ -638,7 +638,7 @@ aside > ul,
         transition:visibility 1s, opacity 1s;
         -webkit-transition:visibility .7s,opacity .7s;
         overflow:hidden;
-        margin:4px;
+        margin:3px;
     }
     .entry-content > div{
         margin:1em 0;

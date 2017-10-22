@@ -3331,8 +3331,21 @@ li.customize-control .widget-inside .widget-content h4,
 .wp-customizer input[type="radio"]:default {
      background-color: rgba(46, 204, 113,1);
 }
-/* ver4.9 sidebar outer content */	
-#customize-sidebar-outer-content{}
+/* ver4.9 sidebar outer content */
+#sub-accordion-panel-nav_menus .customize-control-description,
+#sub-accordion-panel-nav_menus .customize-control-title,
+#menu-to-edit .menu-delete-item .button-link-delete,
+#menu-to-edit .menu-location-settings .theme-location-set,
+#menu-to-edit .menu-location-settings,
+#menu-to-edit .new-menu-item-invitation,
+#sub-accordion-section-add_menu #customize-control-add_menu-submit a,
+#sub-accordion-section-add_menu #customize-control-add_menu-locations a,
+#sub-accordion-section-add_menu #customize-control-add_menu-locations .theme-location-set,
+#sub-accordion-section-add_menu #customize-control-add_menu-submit,
+#sub-accordion-section-add_menu #customize-control-add_menu-locations,
+#sub-accordion-section-add_menu #add_menu-description,
+.customize-control .attachment-media-view .placeholder, 
+.customize-control-header .placeholder,	
 #customize-sidebar-outer-content li.customize-control .customize-control-title{
 	color:$toggle_color;
 }

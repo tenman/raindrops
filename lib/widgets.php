@@ -1092,7 +1092,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				foreach ( $result as $key => $val ) {
 
 					$year_link	 = get_year_link( absint( $key ) );
-					$year_label	 = apply_filters( 'raindrops_archive_year_label', esc_html( $key ) );
+					$year_label	 = apply_filters( 'raindrops_archive_year_label', esc_html( $key ), mktime( 0, 0, 0, is_month() ? $current_month_of_archive: 1, 1, intval( $key ) ) );
 					$result_html .= sprintf( '<h3 class="year year-%2$s"><a href="%1$s">%3$s</a></h3><ul class="item year-%2$s">', $year_link, absint( $key ), $year_label );
 
 					$month_name_before	 = array( 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' );

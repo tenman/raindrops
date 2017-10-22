@@ -858,6 +858,9 @@ blockquote p:first-child{
 .entry-content  figure.aligncenter img{
     margin:.5em auto;
 }
+.rsidebar figure img,
+.lsidebar figure img,
+.topsidebar figure img,
 .textwidget  figure img,
 .entry-content  figure img{
     margin:auto;
@@ -1137,9 +1140,22 @@ legend{
     border:1px solid #000;
     box-shadow:rgba(0, 0, 0, 0.4) 0px 0px 6px 3px;
 }
+.rd-type-dark .rsidebar .gallery img,
+.rd-type-dark .lsidebar .gallery img{
+    /* @1.491 */
+    border:1px solid #000;
+    box-shadow:none;
+}
+
 .rd-type-light .gallery img{
     border:1px solid #555;
     box-shadow:rgba(113, 135, 164, 0.5) 0px 0px 6px 3px;
+}
+.rd-type-light .rsidebar .gallery img,
+.rd-type-light .lsidebar .gallery img{
+    /* @1.491 */
+    border:1px solid #000;
+    box-shadow:none;
 }
 .gallery-columns-1 .gallery-item .gallery-icon,
 .gallery-columns-1 .gallery-item .gallery-icon,
@@ -2491,6 +2507,9 @@ img.alignright,
     padding:0.38461538461em 0.76923076923em 0.76923076923em 0;
     box-sizing:border-box;
 }
+.wp-block-gallery.alignnone{
+    display:flex;
+}
 .size-thumbnail{
     padding:.5em;
 }
@@ -3470,7 +3489,9 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
     background: url("images/link.png");
     background-size:24px 24px;
     background-repeat:no-repeat;
-    width:24px;
+    text-indent:2em;
+    vertical-align:baseline;
+    min-width:24px;
     height:24px;
 }
 
@@ -5075,6 +5096,8 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
     margin:1.5%;
     box-sizing:border-box;
 }
+.rsidebar .eco-archive.by-month li,
+.lsidebar .eco-archive.by-month li,
 .rsidebar .eco-archive .month,
 .lsidebar .eco-archive .month,
 .rsidebar .eco-archive .year,
@@ -5244,7 +5267,9 @@ div.raindrops-excerpt-more{
    ========================================================================== */
 .lsidebar,
 .rsidebar {
+    /* @1.491
     overflow:hidden;
+    */
 }
 .rsidebar{
     margin-right:0.38461538461em;
@@ -8326,3 +8351,44 @@ html[xmlns="http://www.w3.org/1999/xhtml"] .rsidebar .widget_media_image .alignn
     padding-left:0;
     padding-right:0;
 }
+/**
+ * WordPress 4.9
+ * gallery widget
+ */
+.widget_media_gallery{
+   /* border:1px solid red;*/
+    padding:1em 0;
+
+}
+.widget_media_gallery .gallery{
+    margin-left:auto;
+    margin-right:auto;    
+}
+.widget_media_gallery .gallery .gallery-item{
+    margin-top:-7px;
+}
+.widget_media_gallery .gallery-icon img{
+    height:auto;
+}
+/*
+.widget_media_gallery .gallery figcaption {
+    box-sizing: border-box;
+    position: absolute;
+    min-height: 0;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    bottom: 30%;
+    padding: 1em;
+    text-align: left;
+    margin: auto;
+    background: #fff;
+    color: #000;
+    opacity: 1;
+    transition: none;
+    border: 1px solid rgba(222,222,222,.5);
+    display:block;
+    -webkit-transition: none;
+    z-index: 99999;
+}
+*/

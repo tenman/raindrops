@@ -1,12 +1,12 @@
 <?php
-add_filter( 'raindrops_month_list_year_name', 'raindrops_year_name_filter' );
-add_filter( 'raindrops_archive_year_label', 'raindrops_year_name_filter' );
+add_filter( 'raindrops_month_list_year_name', 'raindrops_year_name_filter',11, 2 );
+add_filter( 'raindrops_archive_year_label', 'raindrops_year_name_filter',11, 2 );
 add_filter( 'raindrops_archive_month_label', 'raindrops_archive_day_filter_month' );
 add_filter( 'raindrops_archive_day_label', 'raindrops_archive_day_filter_day' );
 add_filter( 'get_the_date', 'raindrops_japan_date', 11 );
 add_filter( 'get_comment_date','raindrops_japan_date', 11 );
-add_filter( 'get_archives_link', 'raindrops_category_widget_wareki' );
-add_filter( 'get_calendar','raindrops_category_widget_wareki' );
+add_filter( 'get_archives_link', 'raindrops_archive_month_widget_wareki',10, 2 );
+add_filter( 'get_calendar','raindrops_calender_widget_wareki',10 );
 
 if ( class_exists( 'breadcrumb_navxt') ) {
 	add_filter( 'bcn_template_tags', 'raindrops_bcn_template_tags_filter', 11, 3 );
@@ -20,7 +20,7 @@ if ( ! function_exists( 'raindrops_year_name_filter' ) ) {
  * @return type $string
  * @since 1.277
  */
-	function raindrops_year_name_filter( $year ) {
+	function raindrops_year_name_filter( $year,$date ) {
 
 		$year_name = "&#24180;";
 
@@ -29,8 +29,7 @@ if ( ! function_exists( 'raindrops_year_name_filter' ) ) {
 			return $year;
 		}
 
-
-		return raindrops_year_to_gengou( $year ). $year_name;
+		return raindrops_year_to_gengou( $year,$date ). $year_name;
 	}
 }
 if ( ! function_exists( 'raindrops_archive_day_filter_month' ) ) {
@@ -64,7 +63,19 @@ if ( ! function_exists( 'raindrops_archive_day_filter_day' ) ) {
 		return $day . '&#26085;';
 	}
 }
+if ( ! function_exists( 'raindrops_gengou_names' ) ) {
+	
+	function raindrops_gengou_names(){
 
+		$names = apply_filters('raindrops_gengou_names', array( 
+				'&#24179;&#25104;' => mktime( 0, 0, 0, 1, 8, 1989 ),
+				'&#26157;&#21644;' => mktime( 0, 0, 0, 12, 25, 1926 ),
+				'&#22823;&#27491;' => mktime( 0, 0, 0, 7, 30, 1912 ),
+				) );
+		arsort( $names );
+		return $names;
+	}
+}
 if ( ! function_exists( 'raindrops_japan_date' ) ) {
 /**
  *
@@ -89,11 +100,8 @@ if ( ! function_exists( 'raindrops_japan_date' ) ) {
 		$day_name		 = '&#26085;';
 		$error			 = $date;
 
-		$gengou = array( '&#24179;&#25104;' => mktime( 0, 0, 0, 1, 8, 1989 ),
-			'&#26157;&#21644;' => mktime( 0, 0, 0, 12, 25, 1926 ),
-			'&#22823;&#27491;' => mktime( 0, 0, 0, 7, 30, 1912 )
-		);
-
+		$gengou = raindrops_gengou_names();
+		
 		$date	 = preg_replace( '|[^0-9A-z]+|', '-', $date );
 		$date	 = str_replace( array( 'am', 'pm', 'AM', 'PM' ), '', $date );
 		$date	 = apply_filters( 'japan_date_input', $date );
@@ -173,13 +181,67 @@ if ( ! function_exists( 'raindrops_category_widget_wareki' ) ) {
 		// archives dropdown has space
 		$html = str_replace( '> ','>', $html);
 
-		if ( preg_match( '!>([0-9]{4})!', $html, $regs ) && isset( $regs[ 1 ] ) && 2002 < $regs[ 1 ] ) {
+		if ( preg_match( '!>([0-9]{4})([^0-9]*)([0-9]{1,2})!', $html, $regs ) && isset( $regs[ 1 ] ) && 2002 < $regs[ 1 ] ) {
 
-			$before	 = $regs[ 1 ];
-			$nen	 = $regs[ 1 ] - 1988;
-			$gengou	 = raindrops_year_to_gengou( $regs[ 1 ] );
+			$year	 = intval($regs[ 1 ]);
+			//$month	 = intval($regs[3]);
+			//$date = mktime( 0, 0, 0, $month, 1, $year);
+			$gengou	 = raindrops_year_to_gengou( $year );
+			//Do not consider the month
+			return str_replace( array( '>'. $year,), array( '>'. $gengou,), $html );
+		}
 
-			return str_replace( array( '>'. $before,), array( '>'. $gengou,), $html );
+		return $html;
+	}
+}
+if ( ! function_exists( 'raindrops_calender_widget_wareki' ) ) {
+
+	function raindrops_calender_widget_wareki( $html ) {
+
+		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
+
+			return $html;
+		}
+		// archives dropdown has space
+		$html = str_replace( '> ','>', $html);
+
+		if ( preg_match( '!>([0-9]{4})([^0-9]*)([0-9]{1,2})!', $html, $regs ) && isset( $regs[ 1 ] ) && 2002 < $regs[ 1 ] ) {
+
+			$year	 = intval($regs[ 1 ]);
+			$month	 = intval($regs[3]);
+			$date = mktime( 0, 0, 0, $month, 1, $year);
+			$gengou	 = raindrops_year_to_gengou( $year,$date );
+			return str_replace( array( '>'. $year,), array( '>'. $gengou,), $html );
+		}
+
+		return $html;
+	}
+}
+if ( ! function_exists( 'raindrops_archive_month_widget_wareki' ) ) {
+/**
+ *
+ * @param type $html
+ * @return type $string
+ * @since 1.277
+ */
+	function raindrops_archive_month_widget_wareki( $html,$month ) {
+
+		if( raindrops_warehouse_clone( 'raindrops_japanese_date' ) !== 'yes' ) {
+
+			return $html;
+		}
+		// archives dropdown has space
+		$html = str_replace( '> ','>', $html);
+
+		if ( preg_match( '!>([0-9]{4})([^0-9]*)([0-9]{1,2})!', $html, $regs ) && isset( $regs[ 1 ] ) && 2002 < $regs[ 1 ] ) {
+
+			$year	 = intval($regs[ 1 ]);
+			$month	 = intval($regs[3]);
+
+			$date = mktime( 0, 0, 0, $month, 1, $year);
+			$gengou	 = raindrops_year_to_gengou( $year,$date );
+			//Do not consider the month
+			return str_replace( array( '>'. $year,), array( '>'. $gengou,), $html );
 		}
 
 		return $html;
@@ -210,10 +272,83 @@ if ( ! function_exists( 'raindrops_year_to_gengou' ) ) {
  * @return type $string
  * @since 1.277
  */
-	function raindrops_year_to_gengou( $year ) {
+	function raindrops_year_to_gengou( $year , $date = '' ) {
 
 		$nen	 = $year - 1988;
-		$gengou	 = apply_filters( 'raindrops_wareki_gengou', "&#24179;&#25104;" . $nen, "&#24179;&#25104;", $year - 1988, $year );
+		
+		if( ! empty( $date ) ) {
+			
+			$nen = $year - (int) date( 'Y', $date );
+
+
+			$gengou = raindrops_gengou_names();
+
+			foreach( $gengou as $key => $val ) {
+
+				$current_diff = intval($date) - intval($val);
+				$nen = (int) $year - (int) date('Y',$val) + 1;
+				
+				if( ! empty( $date ) && ! isset( $prev_diff )  ) {
+					
+					if( $val > $date ) {
+						continue;
+					}
+
+					$result = $key . $nen;
+					$geugou = $key;
+					
+				}
+
+				if( ! empty( $date ) && 0 < $current_diff && isset( $prev_diff ) &&  $current_diff < $prev_diff &&  $val < $date ) {
+
+					$result = $key . $nen;
+					$gengou = $key;
+				}
+
+				$prev_diff = intval($date) - intval($val);
+			}
+		
+		return apply_filters( 'raindrops_wareki_gengou', $result, $geugou, $nen, $year,$date );
+		}
+		
+		
+	if( empty( $date ) ) {
+		
+			$gengou = raindrops_gengou_names();
+
+			foreach( $gengou as $key => $val ) {
+
+				$current_diff = intval($year) - intval($val);
+
+				if( ! isset( $prev_diff )  ) {
+					$nen = (int) $year - (int) date('Y',$val) + 1;
+					if( $nen <= 0 ) {
+						continue;
+					}
+					$result = $key . $nen;
+					$geugou = $key;
+					
+				}
+
+				if(  0 < $current_diff && isset( $prev_diff ) && 0 < $prev_diff &&  $current_diff < $prev_diff ) {
+					
+					$nen = (int) $year - (int) date('Y',$val) + 1;
+					if( $nen <= 0 ) {
+						continue;
+					}
+					$result = $key . $nen;
+					$gengou = $key;
+				}
+
+				$prev_diff = intval($year) - intval($val);
+			}
+		
+		return apply_filters( 'raindrops_wareki_gengou', $result, $geugou, $nen, $year );
+		}
+		
+		
+		//$gengou	 = apply_filters( 'raindrops_wareki_gengou', "&#24179;&#25104;" . $nen, "&#24179;&#25104;", $year - 1988, $year );
+
 
 		return $gengou;
 	}

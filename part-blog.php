@@ -243,8 +243,7 @@ if ( is_single() ) {
         </div>
             <?php
             if ( !is_tax() ) {
-                ?>
-            <div class="entry-utility entry-meta clear"><?php 
+                
 				if( 'after' == raindrops_warehouse( 'raindrops_posted_on_position' ) && true !== $raindrops_grid_posted_in ) {
 					raindrops_posted_on(); 
 				}
@@ -265,9 +264,8 @@ if ( is_single() ) {
 						?></div><?php
 					}		
 				}
-				?></div>
-                    <?php
-                }
+				
+            }
 
                 if ( is_user_logged_in() && is_tax() ) {
                     ?>

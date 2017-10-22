@@ -1,4 +1,45 @@
 Changelog -----------------------------------
+version:1.491
+
+Overview of Changes
+
+	Modified Add CSS styles WordPress 4.9 Gallery Widget
+	Modified Add CSS styles WordPress 4.9 customizer
+
+	Modified Japanese era name Amendments will be made  in 2019
+			 made changes to support this feature
+
+			You can test below filter
+
+			needs language setting 'japanese',
+			and カスタマイズ(Customize) / アドオン(Add-ons) 日付の和暦表示 set はい
+
+			add_filter('raindrops_gengou_names', 'extend_raindrops_gengou_names');
+
+			function extend_raindrops_gengou_names( $names ){
+
+						$names['NewEraName'] = mktime( 0, 0, 0, 8, 1, 2017 );
+
+						return $names;
+			}
+
+Files Modified
+	modified: blank_front.php
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   languages/scripts/ja.php
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.php
+	modified:   lib/validate.php
+	modified:   lib/widgets.php
+	modified:   part-blog.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.490&new_path=raindrops/1.491
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.490
 
 Overview of Changes

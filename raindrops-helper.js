@@ -191,6 +191,14 @@
  * detect lang  add ver 1.120
  */
             if ( raindrops_script_vars.browser_detection !== 1 ) {
+                
+                if( raindrops_script_vars.column_type !== '' ) {
+                    /* @since 1.492 */
+                    
+                    jQuery( 'body').removeClass( 'rd-col-1 rd-col-2 rd-col-3' );
+                    jQuery( 'body').addClass( raindrops_script_vars.column_type );
+                }
+
 
                 jQuery( 'body' ).addClass( raindrops_script_vars.color_type );
                 jQuery( 'body' ).addClass( raindrops_script_vars.kind_of_browser );

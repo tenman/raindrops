@@ -170,21 +170,17 @@ raindrops_debug_navitation( __FILE__ );
         </div>
     </div>
 </div>
-            <?php
-            /**
-             * Show main column lsidebar start
-             */
-            if ( 1 !== $raindrops_current_column || false == $raindrops_current_column ) {
-                ?>
-<div class="yui-b">
-    <?php
-    raindrops_prepend_default_sidebar();
+<?php
+/**
+ * Show main column lsidebar start
+ */
+if ( 1 !== $raindrops_current_column || false == $raindrops_current_column ) {
+
+	raindrops_prepend_default_sidebar();
 
     get_sidebar( 'default' );
 
     raindrops_append_default_sidebar();
-    ?>
-</div>
-        <?php
-    }
-get_footer( $raindrops_document_type ); ?>
+}
+get_footer( $raindrops_document_type ); 
+?>

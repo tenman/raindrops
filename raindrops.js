@@ -391,6 +391,14 @@ jQuery( function ( $ ) {
     });   
 } );
 jQuery( function ( $ ) {
+    /**
+     * @since 1.492
+     */
+    $('.wp-block-categories .children').parent().addClass('has-children');
+    $('#doc5 .raindrops-no-keep-content-width .index > li .raindrops-sticky').parent().addClass('no-padding');
+    
+} );
+jQuery( function ( $ ) {
     
     
 } );

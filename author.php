@@ -180,17 +180,12 @@ if ( have_posts() ) {
 </div>
 <?php
 if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
-    ?>
-    <div class="yui-b">
-        <?php
-        //lsidebar start 
-        raindrops_prepend_default_sidebar();
+	//lsidebar start 
+	raindrops_prepend_default_sidebar();
 
-        get_sidebar( 'default' );
+	get_sidebar( 'default' );
 
-        raindrops_append_default_sidebar();
-        ?>
-    </div>
-    <?php
+	raindrops_append_default_sidebar();
 }
-get_footer( $raindrops_document_type ); ?>
+get_footer( $raindrops_document_type ); 
+?>

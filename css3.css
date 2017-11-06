@@ -48,10 +48,10 @@ submit{
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     padding:.2em .6em;
-    /*font-size:86%;*/
-    font-size:11px;
 }
-
+input[type="submit"]{
+    padding:0 1em;    
+}
 .lsidebar .children li:nth-last-child(1),
 .rsidebar .children li:nth-last-child(1){
     border:none;

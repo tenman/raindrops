@@ -75,6 +75,23 @@ if ( isset($raindrops_year_2017_base_settings) && false == $raindrops_year_2017_
 	remove_theme_mod( 'raindrops_year_2017_base_settings' );
 	remove_theme_mod('raindrops_new_base_setting');
 }
+// year 2018 settings
+
+if ( isset($raindrops_year_2018_base_settings) && true == $raindrops_year_2018_base_settings ) {
+	$raindrops_year_2018_base_settings = true;
+	$raindrops_year_2017_base_settings = false;
+	set_theme_mod( 'raindrops_year_2018_base_settings', 'yes' );
+	set_theme_mod('raindrops_new_base_setting','yes');
+}
+if ( false == get_theme_mod( 'raindrops_blog_last_modified_date', false ) ) {
+	set_theme_mod( 'raindrops_year_2018_base_settings', 'yes' );
+	set_theme_mod('raindrops_new_base_setting','yes');
+}
+if ( isset($raindrops_year_2018_base_settings) && false == $raindrops_year_2018_base_settings  ) {
+	$raindrops_year_2018_base_settings = false;
+	remove_theme_mod( 'raindrops_year_2018_base_settings' );
+	remove_theme_mod('raindrops_new_base_setting');
+}
 /**
  * Pinup_entry_widget add custom post type
  * @since 1.441
@@ -1831,7 +1848,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		'raindrops_content_width_setting'					 => array( 'option_id'		 => 115,
 			'blog_id'		 => 0,
 			'option_name'	 => 'raindrops_content_width_setting',
-			'option_value'	 => 'keep',
+			'option_value'	 => 'fit',
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Content Width', 'raindrops' ),
 			'excerpt1'		 => '',
@@ -1997,6 +2014,19 @@ if( 'yes' == get_theme_mod( 'raindrops_year_2017_base_settings' ) ) {
 	$raindrops_base_setting_args["raindrops_featured_image_recent_post_count"]['option_value'] = 10;
 	$raindrops_base_setting_args["raindrops_place_of_site_title"]['option_value'] = 'header_image';
 	$raindrops_base_setting_args["raindrops_style_type"]['option_value'] = 'minimal';
+}
+if( 'yes' == get_theme_mod( 'raindrops_year_2018_base_settings' ) ) {
+
+	$raindrops_base_setting_args["raindrops_page_width"]['option_value'] = 'doc5';
+	$raindrops_base_setting_args["raindrops_featured_image_recent_post_count"]['option_value'] = 100;
+	$raindrops_base_setting_args["raindrops_place_of_site_title"]['option_value'] = 'header_image';
+	$raindrops_base_setting_args["raindrops_style_type"]['option_value'] = 'minimal';
+	$raindrops_base_setting_args["raindrops_col_width"]['option_value'] = 't3';
+	$raindrops_base_setting_args["raindrops_right_sidebar_width_percent"]['option_value'] = '33';
+	$raindrops_base_setting_args["raindrops_default_sidebar_responsive"]['option_value'] = 'yes';
+	$raindrops_base_setting_args["raindrops_default_sidebar_responsive_breakpoint"]['option_value'] = 980;
+	$raindrops_base_setting_args["raindrops_extra_sidebar_responsive_breakpoint"]['option_value'] = 980;
+	$raindrops_base_setting_args["raindrops_content_width_setting"]['option_value'] = 'fit';
 }
 
 if ( !isset( $raindrops_base_setting ) || empty( $raindrops_base_setting ) ) {

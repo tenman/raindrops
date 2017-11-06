@@ -806,6 +806,7 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				$raindrops_content_checked	 = "checked='checked'";
 				$puddele_excerpt_checked	 = "";
 			}
+
 			if ( isset( $instance[ 'type' ] ) ) {
 
 				$type = esc_attr( $instance[ 'type' ] );
@@ -970,7 +971,9 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 		public function widget( $args, $instance ) {
 
 			global $wp_locale;
-
+			/* @1.492 Change archive count style */
+			$changes = array('(' => '<span class="rd-archive-count">',')' => '</span>','&nbsp;'=> '');
+			
 			extract( $args );
 			echo $before_widget;
 
@@ -1128,8 +1131,8 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 				}
 
 				$result_html .= '</div>';
-
-				echo $result_html;
+				$result_html = strtr($result_html, $changes );				
+				echo apply_filters( 'raindrops_extend_archive_widget', $result_html );
 			}
 
 			if ( $groups == 'month' ) {
@@ -1155,7 +1158,8 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 					$result_html .= '</ul>';
 				}
 
-				echo $result_html;
+				$result_html = strtr($result_html, $changes );
+				echo apply_filters( 'raindrops_extend_archive_widget', $result_html );
 			}
 
 			echo $after_widget;

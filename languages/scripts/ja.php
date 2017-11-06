@@ -20,7 +20,7 @@ if ( ! function_exists( 'raindrops_year_name_filter' ) ) {
  * @return type $string
  * @since 1.277
  */
-	function raindrops_year_name_filter( $year,$date ) {
+	function raindrops_year_name_filter( $year, $date = '' ) {
 
 		$year_name = "&#24180;";
 

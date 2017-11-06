@@ -1945,7 +1945,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'			 => '',
-			'description'		 => sprintf( esc_html__( 'Input recommend values are %1$d - %2$d default value %1$d', 'raindrops' ) , $raindrops_featured_image_post_max, $raindrops_featured_image_post_max * 10 ),
+			'description'		 => sprintf( esc_html__( 'Input recommend values are %1$d - %2$d', 'raindrops' ) , $raindrops_featured_image_post_max, $raindrops_featured_image_post_max * 10 ),
 			'sanitize_callback'	 => 'raindrops_featured_image_recent_post_count_validate',
 			'type' => 'number',
 				'input_attrs' => array(
@@ -3349,6 +3349,9 @@ li.customize-control .widget-inside .widget-content h4,
 #customize-sidebar-outer-content li.customize-control .customize-control-title{
 	color:$toggle_color;
 }
+.customize-control .attachment-media-view .placeholder,
+.wp-core-ui .wp-ui-primary .notice-alt,
+.filter-drawer,
 #sub-accordion-section-raindrops_theme_settings_content .customize-control-description,
 #customize-control-changeset_status .customize-inside-control-row label{
 	color:#000;
@@ -3511,7 +3514,7 @@ function raindrops_customize_control_message_raindrops_style_type(){
 }
 
 
-	
+
 if ( !is_active_sidebar( 1 ) || !is_active_sidebar( 2 ) ) {
 // for option
 	add_action( 'customize_render_control_raindrops_theme_settings[raindrops_col_setting_type]', 'raindrops_customize_control_message_raindrops_col_setting_type', 11 );

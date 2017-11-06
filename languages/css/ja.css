@@ -52,6 +52,7 @@ body.chrome.rd-type-minimal{
         font-family: Verdana, Meiryo, sans-serif;
     }
 }
+#archives-title,
 .mce-content-body,
 body.ja,
 .ja h1,
@@ -65,7 +66,7 @@ body.ja,
 .ja .h2,
 .mce-content-body .h3,
 .ja .h3{
-	font-family: "-apple-system", "Helvetica Neue", Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
+    font-family: "-apple-system", "Helvetica Neue", Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
 }
 .rd-modal .header h3{
     margin-top:0;
@@ -73,102 +74,88 @@ body.ja,
 }
 
 /* Raindrops new h1-h6 font size from ver 0.996 start */
-/**
- * @since 1.452
- * Next version remove
- *
-*/
+
 .ja #site-title{
-	font-size:197%;
-        margin:.5em 0;
-        letter-spacing: -.04em;
+    margin:.5em 0;
+    letter-spacing: -.04em;
 }
 .ja .entry-title{
-	font-size:153.9%;
-        font-weight:bold;
+    font-weight:bold;
 }
 
 .ja .lsidebar h2,
 .ja .rsidebar h2{
-	font-size:108%;
+    font-size:108%;
 }
 
 .mce-content-body .h1:not(h1),
 .mce-content-body h1,
-.ja .h1:not(h1),
-.ja h1{
-	font-size:197%;
+.ja .h1:not(h1){
+    font-size:197%;
 }
 .mce-content-body .h2:not(h2),
 .mce-content-body h2,
 .ja .h2:not(h2),
 .ja h2{
-	font-size:153.9%;
+    font-size:153.9%;
 }
 .mce-content-body .h3:not(h3),
 .mce-content-body h3,
 .ja .h3:not(h3),
 .ja h3{
-	font-size:116%;
+    font-size:116%;
 }
+.ja.date .entry-title,
 .mce-content-body .h4:not(h3),
 .mce-content-body h4,
 .ja .h4:not(h4),
 .ja h4{
-	font-size:100%;
+    font-size:100%;
 }
 .mce-content-body .h5:not(h3),
 .mce-content-body h5,
 .ja .h5:not(h5),
 .ja h5{
-	font-size:85%;
+    font-size:85%;
 }
 .mce-content-body .h6:not(h3),
 .mce-content-body h6,
 .ja .h6:not(h6),
 .ja h6{
-	font-size:xx-small;
+    font-size:xx-small;
 }
-
 /* Raindrops new h1-h6 font size from ver 0.996 end */ 
 .ja .footer-widget h2,
 .ja .rsidebar h2,
 .ja .lsidebar h2,
 .ja .widgettitle h2,
 .ja h2.footer-content {
-	/*height:17px;
-	text-indent:.5em;*/
-	font-size:108%;
-	padding:5px 0;
+    font-size:108%;
+    padding:5px 0;
 }
 .ja .author .entry-title{
-	display:inline-block;
-	font-size:123.1%;
-	margin-left:.6em;
+    display:inline-block;
+    margin-left:.6em;
 }
 .ja main .author .h2-thumb img{
-	width:24px;
-	height:24px;
+    width:24px;
+    height:24px;
 }
 .ja.date table .entry-title{
-	font-size:108%;
-	font-weight:normal;
+    font-weight:normal;
 }
 .ja.date .entry-title{
-	font-weight:normal;
+    font-weight:normal;
 }
 .ja #list-of-post ol .entry-title{
-	font-weight:normal!important;
-	font-size:197%;
+    font-weight:normal!important;
 }
-
 .ja em{
-        font-weight:bold;
+    font-weight:bold;
 }
 .ja i{
-        font-style: italic;
+    font-style: italic;
 }
-
 .mce-content-body p,
 .ja p{
     line-height:1.6;
@@ -187,13 +174,13 @@ body.ja,
     width:3em;
 }
 .ja .widget_recent_comments .recentcomments{
-   visibility:hidden;
-   margin-bottom:-1.65em;
+    visibility:hidden;
+    margin-bottom:-1.65em;
 }
 .ja .widget_recent_comments .recentcomments a,
 .ja .widget_recent_comments .recentcomments span,
 .ja .widget_recent_comments .recentcomments img{
-     visibility:visible;
+    visibility:visible;
 }
 .ja .widget_recent_comments .comment-author-link{
     border-bottom:1px dotted rgba(122,122,122,.5);

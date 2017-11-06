@@ -352,15 +352,13 @@ if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_cust
         </div>
     </div>
 </div>
-<?php if ( 'yui-b' == $raindrops_devide_column_class ) { ?>
-    <div class="yui-b">
-        <?php raindrops_prepend_default_sidebar(); ?>
-        <?php
-        if ( $raindrops_bf_display_widget == 'y' ) {
-            get_sidebar( 'default' );
-        }
-        ?>
-        <?php raindrops_append_default_sidebar(); ?>
-    </div>
-<?php }//if ( $raindrops_devide_column_class == 'yui-b' )   
-get_footer( $raindrops_document_type ); ?>
+<?php  
+if ( 'yui-b' == $raindrops_devide_column_class ) { 
+	raindrops_prepend_default_sidebar();
+	if ( $raindrops_bf_display_widget == 'y' ) {
+		get_sidebar( 'default' );
+	}
+	raindrops_append_default_sidebar(); 
+}//if ( $raindrops_devide_column_class == 'yui-b' )   
+get_footer( $raindrops_document_type ); 
+?>

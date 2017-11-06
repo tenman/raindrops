@@ -356,20 +356,20 @@
         margin:2em auto;
     }    
     address span,
-    .reply, #ft a,
+    .reply, /*#ft a,*/
     .page .hentry .entry-title a,
-    #site-description,
+    #site-description/* @1.492,
     .topsidebar ul li ul li a,
     .lsidebar ul li ul li a,
     .rsidebar ul li ul li a,
     .lsidebar li.page_item a,
-    .lsidebar .widget ul li a{
+    .lsidebar .widget ul li a*/{
         display:inline-block;
         background-repeat:no-repeat;
         width:85%;
         height:100%;
         margin:0;
-        padding:0.5em;
+        padding:0;
         box-sizing: border-box;
         font-size:123%;
     }
@@ -416,7 +416,10 @@
         font-size:123%;
         text-align:center;
     }
-
+    .rsidebar .widget_archive .rd-archive-count,
+    .rsidebar .widget_archive .rd-archive-date,
+    .lsidebar .widget_archive .rd-archive-count, 
+    .lsidebar .widget_archive .rd-archive-date,
     #ft .widget_categories ul li a,
     #ft .widget_categories ul li a,
     .rsidebar .widget_categories ul li a,
@@ -429,8 +432,9 @@
     #ft .categories ul li a,
     .rsidebar .categories ul li a,
     .lsidebar .categories ul li a{
-        display:inline-block;
-        width:85%;
+     /* @1.492 */
+     /*display:inline-block;*/
+       /* width:85%;*/
         padding:.5em;
     }
 
@@ -443,6 +447,7 @@
         padding:.5em 0;
         text-align:center;
     }
+    
     #hd #site-title{
         font-size:167%;
     }
@@ -472,6 +477,10 @@
     #nav-above,
     #nav-below{
         margin:0 10px;
+    }
+    #doc5 #header-image,
+    #doc3 #header-image{
+        min-height:20vh;
     }
     #doc5 #header-image p,
     #doc3 #header-image p{
@@ -1005,10 +1014,10 @@
     .loop-before-toolbar .layout-switch-button{
         display:none;
     } 
-    .rd-type-minimal .widget_meta > ul,
-    .rd-type-minimal .widget_pages > ul,
-    .rd-type-minimal .widget_nav_menu > div > ul,
-    .rd-type-minimal .widget_archive > ul{
+    body.rd-type-minimal .widget_meta > ul,
+    body.rd-type-minimal .widget_pages > ul,
+    body.rd-type-minimal .widget_nav_menu > div > ul,
+    body.rd-type-minimal .widget_archive > ul{
         margin-left:0;
     }
     .rd-type-minimal .widget_recent_entries > ul{

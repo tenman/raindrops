@@ -1,84 +1,55 @@
 /**
  * Raindrops Fonts Style Rules
  * 
- * YUI Fonts
- *
- * Percents could work for IE, but for backCompat purposes, we are using keywords.
- * x-small is for IE6/7 quirks mode.
- *
  * Filetype: CSS
  * @package Raindrops
  */
-/*
-Copyright (c) 2010, Yahoo! Inc. All rights reserved.
-Code licensed under the BSD License:
-http://developer.yahoo.com/yui/license.html
-version: 2.8.1
-*/
-/**
- * The example of use Google WEB Fonts
- 
-        @import url(//fonts.googleapis.com/css?family=Parisienne);
-
-        #site-title span{
-                font-family: 'Parisienne', cursive;
-        }
-*/
-
-body{
-    font:13px arial,helvetica,clean,sans-serif;
-    line-height:1.231;
-}
-body.ie7{
-    /* for IE6/7 */ 
-    font-size:small; 
-    /* for IE Quirks Mode */
-    font:x-small sans-serif; 
-}
-
-/**
- * Nudge down to get to 13px equivalent for these form elements
- */ 
-select,
-input,
-button,
-textarea,
-button {
-    font:99% arial,helvetica,clean,sans-serif;
-}
-
-/**
- * To help tables remember to inherit
+/** 
+ * INDEX
+ *
+ * Example
+     * The example of use Google WEB Fonts
+ * Font family
+ * Title
+     * All titles
+ * Font Size
+     * About Base Font Size
+ * Font weight
+ * Font Classes
+ * Misc
  */
-table {
-    font-size:inherit;
-    font-family:sans-serif;
-}
 /**
- * Bump up IE to get to 13px equivalent for these fixed-width elements
- */
-pre,
-code,
-kbd,
-samp,
-tt {
-    font-family:monospace;
-    line-height:100%;
-}
-.ie7 pre,
-.ie7 code,
-.ie7 kbd,
-.ie7 samp,
-.ie7 tt {
-    font-size:108%;
-}
+ * Exampla
+   ========================================================================== */
+    /**
+     * The example of use Google WEB Fonts
+
+            @import url(//fonts.googleapis.com/css?family=Parisienne);
+
+            #site-title span{
+                    font-family: 'Parisienne', cursive;
+            }
+    */
 /**
  * Font family
- */
+   ========================================================================== */
+body{
+    font:arial,helvetica,clean,sans-serif;
+    line-height:1.231;
+}
 #access .menu,
 #access div.menu ul{
     font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
+
+.parent-entry .parent-entry-title,
+.rd-grid .entry-title,
+.eco-archive h3,
+.raindrops-pinup-entries h2,
+.datetable .h2,
+.topsidebar .widgettitle,
+.related-posts .entry-title,
+.related-posts .title.h3,
 .commentlist .pingback p,
 .commentlist .comment-body,
 .commentlist .reply,
@@ -94,271 +65,122 @@ tt {
 .lsidebar h2,
 .widgettitle h2,
 h2.footer-content,
-h4,
-h5,
-h6,
-.h4,
-.h5,
-.h6{
+h4, h5, h6, .h4, .h5, .h6{
     font-family:Geneva, Arial, Helvetica, sans-serif;
 }
 #archives-title,
-var,
-h1,
-h2,
-h3,
-.h1,
-.h2,
-.h3{
+var, h1, h2, h3, .h1, .h2, .h3{
     font-family:"Times New Roman", Times, serif;
 }
-div[class="entry-content"] > h6,
-div[class="entry-content"] > h5,
-div[class="entry-content"] > h4,
-div[class="entry-content"] > h3,
-div[class="entry-content"] > h2,
-div[class="entry-content"] > h1{
-    margin-top:1.5em;
-    margin-bottom:.75em;
-}
 .form-allowed-tags code,
-tt,code,kbd{
+pre, code, kbd, samp,
+tt {
     font-family:"Courier New", Courier, monospace;
-}
-
-/**
- * Font Size
- *
- *
- *
- */
-.post .entry-title.f10,
-div[role="banner"] #site-title.f10,
-h2 a.rsswidget,
-.h6:not(h6),
-h6,
-.f10{
-    font-size:77%;
-}
-.post .entry-title.f11,
-div[role="banner"] #site-title.f11,
-.portfolio .index > li .entry-title a,
-sub, sup,
-.px11,
-small,
-.h5:not(h5),
-h5,
-.f11 {
-    font-size:85%;
-}
-.post .entry-title.f12,
-div[role="banner"] #site-title.f12,
-.gallery .gallery-caption,
-.f12 {
-    font-size:93%;
-}
-.post .entry-title.f13,
-div[role="banner"] #site-title.f13,
-.wp-caption p.wp-caption-text,
-div.menu,
-.h4:not(h4),
-h4,
-.f13 {
-    font-size:100%;
-}
-.post .entry-title.f14,
-div[role="banner"] #site-title.f14,
-.px14,
-big,
-.f14 {
-    font-size:108%;
-}
-.post .entry-title.f15,
-div[role="banner"] #site-title.f15,
-.px15,
-.f15 {
-    font-size:116%;
-}
-.post .entry-title.f16,
-div[role="banner"] #site-title.f16,
-.date table .entry-title,
-.px16,
-.h3:not(h3),
-h3,
-.lsidebar h2,
-.rsidebar h2,
-.f16 {
-    font-size:123.1%;
-}
-
-.lsidebar h2,
-.rsidebar h2{
-    font-size:16px;/* if( $raindrops_base_font_size customized ) { over flow list area }*/
-}
-.post .entry-title.f17,
-div[role="banner"] #site-title.f17,
-.px17,
-.f17 {
-    font-size:131%;
-}
-.post .entry-title.f18,
-div[role="banner"] #site-title.f18,
-.author .entry-title,
-.px18,
-.f18 {
-    font-size:138.5%;
-}
-.post .entry-title.f19,
-div[role="banner"] #site-title.f19,
-.px19,
-.f19 {
-    font-size:146.5%;
-}
-.rd-list .topsidebar .widgettitle, /* 1.480 */
-.rd-grid .topsidebar .widgettitle, /* 1.480 */
-.post .entry-title.f20,
-div[role="banner"] #site-title.f20,
-.h2:not(h2),
-h2,
-.f20 {
-    font-size:153.9%;
+    line-height:100%;
 }
 .rd-list .topsidebar .widgettitle, /* 1.480 */
 .rd-grid .topsidebar .widgettitle{
-    font-weight:700;
     font-family: Geneva, Arial, Helvetica, sans-serif;
 }
-#ft .widgettitle{
-    font-size:20px;/* if( $raindrops_base_font_size customized ) { overflow list area }*/
-}
-.post .entry-title.f21,
-div[role="banner"] #site-title.f21,
-h2.year-month-date .day-name,
-.year .year-name,
-h2.year-month .month-name,
-.f21 {
-    font-size:161.6%;
-}
-.post .entry-title.f22,
-div[role="banner"] #site-title.f22,
-.f22 {
-    font-size:167%;
-}
-.post .entry-title.f23,
-div[role="banner"] #site-title.f23,
-.f23 {
-    font-size:174%;
-}
-.post .entry-title.f24,
-div[role="banner"] #site-title.f24,
-.f24 {
-    font-size:182%;
-}
-.post .entry-title.f25,
-div[role="banner"] #site-title.f25,
-.f25 {
-    font-size:189%;
-}
-.post .entry-title.f26,
-div[role="banner"] #site-title.f26,
-.h1:not(h1),
-h1,
-.f26 {
+/**
+ * Title
+   ========================================================================== */
+    /*
+     * All titles
+     *
+        .error404 .entry-title,
+        .paged .list-of-post-entry .entry-title,
+        .page.list-of-post-entry article .entry-title,
+        .search-results .pagetitle,
+        #comments-title,
+        .single .entry-title,
+        .page .entry-title,
+        .footer-widget .widgettitle,
+        .topsidebar .widgettitle,
+        .archive .archives .entry-title-text,
+        .archive .archives .title,
+        .author main > h2,
+        .attachment .section-title,
+        .attachment .parent-entry-title,
+        .attachment .image-title,
+        .related-posts .entry-title{}
+    */
+
+
+
+/**
+ * Font Size
+   ========================================================================== */
+    /**
+     * About Base Font Size
+     * base font size is set dinamicaly
+     * @see functions.php raindrops_font_size_class()
+     */
+    
+    /**
+     * .h*:not(h1) is Avoid em size issue 
+     */
+
+
+.archive .archives .title-wrapper .label,
+.archive .archives .title-wrapper .title,
+.h1:not(h1), h1 {
     font-size:197%;
 }
-
-.post .entry-title.f27,
-div[role="banner"] #site-title.f27,
-.f27{
-    font-size:207.6%;
+.h2:not(h2), h2 {
+    font-size:153.9%;
 }
-.post .entry-title.f28,
-div[role="banner"] #site-title.f28,
-.f28{
-    font-size:215.3%;
+.rd-grid .search-results .entry-title,
+.rd-grid .archives .entry-title,
+.parent-entry-title,
+.image-caption .section-title{
+    font-size:138.5%;
 }
-.post .entry-title.f29,
-div[role="banner"] #site-title.f29,
-.f29{
-    font-size:223%;
+.page .raindrops-tag-posts .enty-title,
+.page .raindrops-category-posts .entry-title,
+.page .raindrops-recent-posts .entry-title,
+.sticky-widget #wp-calendar caption,
+.sticky-widget #wp-calendar tbody td,
+.rsidebar .widgettitle,
+.lsidebar .widgettitle,
+.h3:not(h3), h3 {
+   font-size:123.1%;
 }
-.post .entry-title.f30,
-div[role="banner"] #site-title.f30,
-.f30{
-    font-size:230%;
+div[role="banner"] #site-title.f14,
+big {
+    font-size:108%;
 }
-.post .entry-title.f31,
-div[role="banner"] #site-title.f31,
-.f31{
-    font-size:238.4%;
+.wp-caption p.wp-caption-text,
+div.menu,
+.date .entry-title,
+.h4:not(h4), h4{
+    font-size:100%;
 }
-.post .entry-title.f32,
-div[role="banner"] #site-title.f32,
-.f32{
-    font-size:246.1%;
+.gallery .gallery-caption{
+    font-size:93%;
 }
-.post .entry-title.f33,
-div[role="banner"] #site-title.f33,
-.f33{
-    font-size:253.8%;
+sub, sup, small,
+.h5:not(h5), h5 {
+    font-size:85%;
 }
-.post .entry-title.f34,
-div[role="banner"] #site-title.f34,
-.f34{
-    font-size:261.5%;
+h2 a.rsswidget,
+.h6:not(h6), h6{
+    font-size:77%;
 }
-.post .entry-title.f35,
-div[role="banner"] #site-title.f35,
-.f35{
-    font-size:269.2%;
+/**
+ * Font weight
+   ========================================================================== */
+h1,h2,h3,h4,h5,h6,
+.h1.h2,h3,.h4,h5,h6{
+    font-weight:700;
 }
-.post .entry-title.f36,
-div[role="banner"] #site-title.f36,
-.f36{
-    font-size:276.9%;
+.site-title-link{
+    font-weight:normal;
 }
-.post .entry-title.f37,
-div[role="banner"] #site-title.f37,
-.f37{
-    font-size:284.6%;
-}
-.post .entry-title.f38,
-div[role="banner"] #site-title.f38,
-.f38{
-    font-size:292.3%;
-}
-.post .entry-title.f39,
-div[role="banner"] #site-title.f39,
-.f39{
-    font-size:300%;
-}
-.post .entry-title.f40,
-div[role="banner"] #site-title.f40,
-.f40{
-    font-size:307.6%;
-}
-
-#header-image p{
-    font-size:200%;
-}
-.sticky-single-follow-text{
-    font-size:230.7%;
-}
-
-div[role="banner"] #site-title{
-    font-size:296%;
-	
-}
-.ie8 #site-title{
-    font-size:236.8%;
-}
-.topsidebar .widgettitle,/* @1.480 */
-#archives-title,
-.archive .page-title,
-.pagetitle,
-.entry-title{
-    font-size:230.7%;
-}
+.rd-grid .search-results .entry-title,
+.rd-grid .archives .entry-title,
+.rd-list .topsidebar .widgettitle,
+.rd-grid .topsidebar .widgettitle,
 #raindrops-recent-posts .title,
 .raindrops-tag-posts .title,
 .raindrops-category-posts .title,
@@ -367,7 +189,6 @@ div[role="banner"] #site-title{
 .raindrops-recent-posts .entry-title,
 .related-posts .title,
 .related-posts .entry-title{
-    font-size:182%;
     font-weight:700;
 }
 .yui-t1 #wp-calendar caption,
@@ -383,63 +204,12 @@ div[role="banner"] #site-title{
 .yui-t5 #wp-calendar td{
     font-size:1.07692307692em;
 }
-.yui-t3 #wp-calendar caption,
-.yui-t6 #wp-calendar caption,
-.yui-t3 #wp-calendar td,
-.yui-t6 #wp-calendar td{
-}
-#month_list td.month-date,
-.datetable .time,
-.datetable .month-name,
-.datetable .year-name,
-.datetable #month_list .day-name{
-    font-size:1.23076923077em;
-}
-.datetable .time,
-.datetable .month-name,
-.datetable .year-name,
-.datetable .day-name,
-.entry-content cite,
-var,
-em,
-.entry-content cite {
-    font-style:italic;
-}
-.ja em{
-    font-style:normal;
-}
-/**
- * Font Weight
- *
- *
- *
- */
-h1,
-h2,
-h3,
-.h1,
-.h2,
-.h3{
-    /*font-weight:bold;
-    raindrops 1.132 change font-weight*/
-    font-weight:normal;
-}
 .front-page-top-container h1,
 .front-page-top-container h2,
 .front-page-top-container h3,
 .front-page-top-container .h1,
 .front-page-top-container .h2,
-.front-page-top-container .h3{
-    font-weight:700;
-}
-h4,
-h5,
-h6,
-.h4,
-.h5,
-.h6{
-    font-weight:400;
-}
+.front-page-top-container .h3,
 .attachment .title,
 strong,
 th,
@@ -453,52 +223,19 @@ dt,
 .post-format-text,
 .current-post > a,
 .current_page_item > a,
-.current-menu-item > a{
-    font-weight:bold;
+.current-menu-item > a,
+.sticky-widget #wp-calendar caption{
+    font-weight:700;
 }
-#archives-title{
-    font-weight:normal;
+h4, h5, h6, .h4, .h5, .h6{
+    font-weight:400;
 }
 .raindrops-comment-link em {
     font-style: normal;
 }
-.portfolio ul.index > li article .entry-title,
-.portfolio ul.index > .loop-item-show-allways article .entry-title{
-    font-size:153.9%;
-}
-
-.sticky-widget #wp-calendar caption{
-    font-size:123.6%;
-    font-weight:bold;
-}
-.sticky-widget #wp-calendar tbody td{
-    font-size:123.6%;
-}
-.parent-entry-title,
-.image-caption .section-title{
-    font-size:138.5%;
-}
-.f27{
-    font-size:207.6%;
-}
-.f28{
-    font-size:215.3%;
-}
-.f29{
-    font-size:223%;
-}
-.f30{
-    font-size:230%;
-}
-.f31{
-    font-size:238.4%;
-}
-.f32{
-    font-size:246.1%;
-}
 /**
- * Font weight Class
- */
+ * Font Classes
+   ========================================================================== */
 .thin,
 .b1{
     font-weight:100;
@@ -541,9 +278,46 @@ dt,
 .capitalize{
     text-transform:capitalize;
 }
-.rd-grid .search-results .entry-title,
-.rd-grid .archives .entry-title {
-    font-size:138.5%;
-    font-weight:bold;
-    font-family:Geneva, Arial, Helvetica, sans-serif;
+/**
+ * Misc
+   ========================================================================== */
+h2.year-month-date .day-name,
+.year .year-name,
+h2.year-month .month-name {
+   /* @1.492 font-size:161.6%; */
+   /* TODO */
 }
+#month_list td.month-date,
+.datetable .time,
+.datetable .month-name,
+.datetable .year-name,
+.datetable #month_list .day-name{
+   /* @1.492 font-size:1.23076923077em; */
+   /* TODO */
+}
+.datetable .time,
+.datetable .month-name,
+.datetable .year-name,
+.datetable .day-name,
+.entry-content cite,
+var,
+em,
+.entry-content cite {
+    font-style:italic;
+}
+.ja em{
+    font-style:normal;
+}
+
+/** remove distorted exaggeration style used until 1.421
+
+    .sticky-single-follow-text,
+    .topsidebar .widgettitle,
+    #archives-title,
+    .archive .page-title,
+    .pagetitle,
+    article .entry-title{
+        font-size:230.7%;
+    }
+
+*/

@@ -3,9 +3,66 @@ version:1.492
 
 Overview of Changes
 
+	Modified Focus Customize / Presentation / Fonts / Base Fonts Size
+
+		The Raindrops theme had a ability to change the base font size,
+		but due to the limitation of the page width, it was a clunky one
+
+		I applied a new idea to solve this problem
+		With this change most styles of heading elements have been rewritten.
+
+		Newly, for those who installed the Raindrops theme,
+		I decided to apply the style for 2018. The existing user's settings will not be changed
+
+		To use the new default settings in your theme, set the following PHP variable in the first line of functions.php
+
+		$raindrops_year_2018_base_settings = true;
+
+	Added plugin frontend style for gutenberg plugin (Please keep it for development use only)
+
+		In the future, the gutenberg plug-in planned to be implemented in the core
+
+		It is not easy to respond to future new editors while maintaining posts created with conventional editors.
+
+		When using the Gutenberg plugin, add a style for Raindrops.
+
+	Modified  Widget counter style for Categories widget, Archives widget , Tag widget
 
 Files Modified
-
+	modified:   author.php
+	modified:   blank_front.php
+	modified:   category.php
+	modified:   changelog.txt
+	modified:   css3.css
+	modified:   date.php
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   image.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/scripts/ja.php
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/featured-image.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/list-of-post.php
+	modified:   page.php
+	modified:   pdf.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   sidebar-default.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.491&new_path=raindrops/1.492

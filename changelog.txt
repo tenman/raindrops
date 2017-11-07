@@ -6,7 +6,11 @@ Overview of Changes
 	Fixed mobile view ( less than 640px ) fonts bigger ( em style issue )
 
 Files Modified
-
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.492&new_path=raindrops/1.493

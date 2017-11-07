@@ -364,7 +364,7 @@ hr{
     border:none;
     border-top:1px solid %c_border%;
 }
-
+dl > div,
 #month_list,
 #month_list td,
 #raindrops_year_list td,
@@ -605,7 +605,7 @@ ul.archive,ul.index,
 .sitemap.new li{
     border-bottom:1px solid %rgba_border%;
 }
-
+dl > div,
 .sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .widget select,
@@ -858,10 +858,10 @@ a.raindrops-comment-link:hover .point {
 .footer .tag-cloud-link{
 	%c_2%
 }
-a.tag-cloud-link{
+.widget_tag_cloud a.tag-cloud-link{
 	%c_3%
 }
-a.tag-cloud-link:hover{
+.widget_tag_cloud a.tag-cloud-link:hover{
 	%c_5%
 }
 CSS3;
@@ -1202,6 +1202,7 @@ cite a:visited,
 cite a:hover{
     %c4%
 }
+dl > div,
 .entry-content fieldset {
     border:solid 1px %c_border%;
 }
@@ -1409,10 +1410,10 @@ a.raindrops-comment-link:hover .point {
 .rd-archive-count{
     %c5% 
 }
-a.tag-cloud-link{
+.widget_tag_cloud a.tag-cloud-link{
 	border:1px solid  #ccc;
 }
-a.tag-cloud-link:hover{
+.widget_tag_cloud a.tag-cloud-link:hover{
 	%c_3%
 }
 DOC;
@@ -1961,6 +1962,7 @@ ul.category li{
     border-bottom:1px solid %rgba_border%;
 
 }
+dl > div,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
 .topsidebar .sticky-widget.widget_archive li,
@@ -2230,10 +2232,10 @@ a.raindrops-comment-link:hover .point {
 .footer .rd-archive-count{
     %c_2% 
 }
-a.tag-cloud-link{
+.widget_tag_cloud a.tag-cloud-link{
 	border:1px solid  #bbb;
 }
-a.tag-cloud-link:hover{
+.widget_tag_cloud a.tag-cloud-link:hover{
 	%c_4%
 }
 CSS3;
@@ -2827,6 +2829,7 @@ dl.author{
 .front-page-template-pages > li:nth-child(even) {
 	%c5%;
 }
+dl > div,
 fieldset{
 	border:1px solid #aaa;
 }
@@ -2849,10 +2852,10 @@ fieldset{
 .rd-archive-count{
     %c5% 
 }
-a.tag-cloud-link{
+.widget_tag_cloud a.tag-cloud-link{
 	border:1px solid  #bbb;
 }
-a.tag-cloud-link:hover{
+.widget_tag_cloud a.tag-cloud-link:hover{
 	%c5%
 }
 CSS;

@@ -2247,11 +2247,12 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n".'#yui-main .rsidebar,#bd .lsidebar{min-height:0!important; }';
 		}
 		/**
-		 * if featured image in singular and show then add padding
+		 * if featured image in singular and show then add margin
 		 * 
 		 * @1.492
 		 */
-		$is_featured_image_singlar_hide = raindrops_warehouse_clone( 'raindrops_featured_image_singular','option_value' );
+		$is_featured_image_singlar_hide = raindrops_warehouse_clone( 'raindrops_featured_image_singular' );
+		
 		if( 'hide' !== $is_featured_image_singlar_hide ) {
 			$css .= "\n". '.page .has-post-thumbnail .entry-title,.single .has-post-thumbnail .entry-title{ margin-top:.75em;}';
 		}
@@ -2271,7 +2272,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		display_header_text() == true &&
 		false == raindrops_has_indivisual_notation() ) {
 
-			$css .= "\n#site-title a{color:#" . $raindrops_text_color . ';}';
+			$css .= "\n.site-title-link{color:#" . $raindrops_text_color . ';}';
 		}
 		// @1.353
 		if ( 'hide' == raindrops_warehouse_clone( "raindrops_display_site_title" ) ) {
@@ -13789,12 +13790,20 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 		$compatibility = apply_filters('raindrops_font_size_class_backword_compatibility', true );
 		
 		if( $default_basefont_val == $raindrops_basefont_current_val && true == $compatibility ) {
-			
+			$font_size = floor( $default_basefont_val * 1.539 );
 			$font_class .= 'body:not(.ja) .search .pagetitle,
 							body:not(.ja) .date .page-title,
 							body:not(.ja) .archive .archives .title-wrapper .title, 
 							body:not(.ja) article .entry-title{
 								font-size:230.7%;
+							}';
+			$font_class .= '@media screen and (max-width : 640px){
+								body:not(.ja) .search .pagetitle,
+								body:not(.ja) .date .page-title,
+								body:not(.ja) .archive .archives .title-wrapper .title, 
+								body:not(.ja) article .entry-title{
+									font-size:'.$font_size.'px;
+								}
 							}';
 		}
 		

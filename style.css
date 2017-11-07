@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.492
+Version: 1.493
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -165,9 +165,6 @@ body.rd-col-1 .raindrops-expand-width{
 .hfeed a{
     text-decoration:none;
 }
-#bd a:hover{
-
-}
 .disable > a,
 a.disable{
     /**
@@ -176,15 +173,6 @@ a.disable{
     pointer-events: none;
     cursor: default;
     text-decoration:none;
-}
-
-.gecko #bd h2 a:hover{
-    text-decoration:none;
-    border-bottom:solid 0.07692307692em;
-}
-
-.page-template-page-templatespage-featured-php #container{
-    width:100%;
 }
 /**
  * Article
@@ -203,7 +191,6 @@ a.disable{
 .rd-col-1 .index article{
     overflow:hidden;
 }
-
 .blog .sticky,
 .home .sticky{
     margin-bottom:1em;
@@ -247,7 +234,7 @@ footer .eco-archive > .month,
 .page.list-of-post-entry article .entry-title:first-of-type,
 .search-results .pagetitle:first-of-type,
 .error404 .entry-title:first-of-type,
-.topsidebar >ul >li:first-of-type .widgettitle{
+.topsidebar > ul > li:first-child .widgettitle{
     margin-top:0;
 }
 .rd-col-1 .topsidebar h2:first-of-type,
@@ -273,7 +260,7 @@ body:not(.rd-col-3).error404 .entry-title,
     text-align:left;
 }
 .rd-col-1.single article .entry-title{
-    margin-top:1.5em;   
+    margin-top:1.5em;
 }
 .page article .entry-title{
     margin-top:0;
@@ -287,7 +274,7 @@ body:not(.rd-col-3).error404 .entry-title,
 }
 
 .rd-col-1.single article .entry-title{
-    margin-top:1.5em;   
+    margin-top:1.5em;
 }
 .paged #list-of-post .entry-title > a > span{
     display:inline;
@@ -553,17 +540,35 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 /**
  * Data list
    ========================================================================== */
+/**
+ *
+ * @1.493 change dl style
+ * replace margin to padding for easy responsive
+ * usefull class
+ * dl.rd-float, dl.rd-nowrap
+ */
+dl, dt, dd, dl > div{
+    max-width:100%;
+    display:block;
+    box-sizing:border-box;
+}
 dl {
-    margin:0 0 1em 1.5em;
     clear:none;
     overflow:visible;
 }
 dt {
-    padding:.5em;
+    margin-top:1.5em;
+    margin-bottom:.75em;
+    padding-left:20px;
+    padding-right:20px;
 }
 dd {
-    margin:0 .5em 0 3em;
-    padding:.5em;
+    padding:0 40px;
+    margin-bottom:1em;
+}
+dl > div {
+    margin-top:.5em;
+    margin-bottom:.5em;
 }
 /**
  * Table
@@ -777,7 +782,6 @@ kbd{
     margin:0 .1em;
     padding:.1em .6em;
 }
-dd,
 p{
     line-height:1.65;
     margin-bottom:1em;
@@ -1266,7 +1270,7 @@ div.hentry {
     list-style:none;
 }
 #searchform{
-    /* can not control this property only fallback style 
+    /* can not control this property only fallback style
        if need style, consider specificity  */
     margin:1em 0 1em 0.38461538461em;
 }
@@ -1520,8 +1524,8 @@ footer a{
     margin-bottom:0;
 }
 .single #nav-below{
-    margin-top:2em;
-    margin-bottom:2em;
+    margin-top:1.5em;
+    margin-bottom:.75em;
 }
 .rd-col-1 #nav-status-bar,
 .rd-col-1 #nav-above{
@@ -1766,6 +1770,13 @@ div[class^="entry-meta"] .emoji-date,
 .h2-thumb + .entry-title-text{
     padding:0 13px 0;
 }
+.author.archive .h2-thumb{
+    min-width:24px;
+}
+td > .author p,
+td > .author {
+    line-height:1.6;
+}
 /**
  * Title style of has featured image
  */
@@ -1884,7 +1895,7 @@ ul.index li .edit {
     padding-top:0;
     padding-bottom:0;
 }
-.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item, 
+.topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month{
     padding:0;
 }
@@ -2553,7 +2564,7 @@ li.byuser,
     border:none;
     margin-top:0;
     margin-bottom:.75em;
-    box-sizing:border-box;    
+    box-sizing:border-box;
 }
 .format-status .entry-title,
 .category-blog .entry-title{
@@ -2583,7 +2594,7 @@ body:not(.ja) .category-blog-publish-date a{
 }
 body.single .post-format-status-publish-date a,
 body.single .category-blog-publish-date a{
-    margin-top:0;   
+    margin-top:0;
 }
 .blog-avatar a,
 .post-format-status-avatar a{
@@ -3546,7 +3557,7 @@ div[class^="horizon"]{
     text-align:center;
 }
 /**
- * Tag Cloud  
+ * Tag Cloud
  * @since 1.492
    ========================================================================== */
 .tagcloud{
@@ -4393,7 +4404,7 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     width:100%;
     -ms-flex-item-align: start;
     align-self: flex-start;
-    /* @1.492 padding:.5em; 
+    /* @1.492 padding:.5em;
     box-sizing: border-box;*/
 }
 .portfolio ul.index > li article .entry-content{
@@ -4566,6 +4577,9 @@ main .author .h2-thumb img{
  * Page Featured Template
    ========================================================================== */
 /* page-featured.php Template Name: Page Featured */
+.page-template-page-templatespage-featured-php #container{
+    width:100%;
+}
 h2.page-featured-template{
     margin:36px 0;
 }
@@ -4845,11 +4859,11 @@ ol.list-of-post-list .entry-title{
 .lsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
 .rsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
     text-align:center;
-    top:16px;    
+    top:16px;
 }
 .single .lsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
 .single .rsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
-    top:0;   
+    top:0;
 }
 .lsidebar .raindrops-pinup-entries > div,
 .rsidebar .raindrops-pinup-entries > div{
@@ -4901,7 +4915,7 @@ ol.list-of-post-list .entry-title{
 .single .footer .raindrops-pinup-entries > div img,
 .single .rsidebar .raindrops-pinup-entries > div img,
 .single .lsidebar .raindrops-pinup-entries > div img{
-    margin-top:52px;  
+    margin-top:52px;
 }
 
 .topsidebar .raindrops-pinup-entries > div{
@@ -5873,13 +5887,13 @@ body:not(.rd-featured-yes-left) .h2-thumb{
 .single.attachment .attachment-info .entry-title{
     margin-top:0;
     margin-bottom:.75em;
-  
+
 }
 .single.attachment .attachment-info .entry-content{
 
 }
 .single.attachment .attachment-info .image-caption{
-    
+
 }
 .single.attachment .attachment-info .image-caption .section-title{
     text-align:left;
@@ -8438,14 +8452,14 @@ html[xmlns="http://www.w3.org/1999/xhtml"] .rsidebar .widget_media_image .alignn
     padding-top:0;
 }
 /**
- * @1.492 New count presentation for Archive widget, Category widget 
+ * @1.492 New count presentation for Archive widget, Category widget
  */
 #ft .widget_categories ul:not(.children) .cat-item,
 .widget_categories ul:not(.children) .cat-item{
     display:list-item;
 }
 #ft .widget_categories ul:not(.children) .cat-item{
-    overflow:hidden;    
+    overflow:hidden;
 }
 .topsidebar .sticky-widget.widget_categories .cat-item{
    white-space:normal;
@@ -8496,7 +8510,7 @@ body:not(.hierarchical-cat) .rsidebar .widget_categories .cat-item a,
 .lsidebar .widget_archive .rd-archive-count,
 .lsidebar .widget_archive .rd-archive-date{
     padding:0 .4em;
-    box-sizing:border-box;   
+    box-sizing:border-box;
 }
 .rd-archive-link{
      display:flex;
@@ -8541,7 +8555,7 @@ body:not(.hierarchical-cat) .lsidebar .rd-cat-count,
 }
 .rd-type-minimal .rd-archive-date{
     margin-left:.5em;
-}   
+}
 .rd-archive-count{
     flex:0 0 auto;
 }

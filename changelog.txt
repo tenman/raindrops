@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.493
+
+Overview of Changes
+
+	Fixed mobile view ( less than 640px ) fonts bigger ( em style issue )
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.492&new_path=raindrops/1.493
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.492
 
 Overview of Changes

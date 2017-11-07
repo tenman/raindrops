@@ -68,7 +68,7 @@ h2.footer-content,
 h4, h5, h6, .h4, .h5, .h6{
     font-family:Geneva, Arial, Helvetica, sans-serif;
 }
-#archives-title,
+.page-title,
 var, h1, h2, h3, .h1, .h2, .h3{
     font-family:"Times New Roman", Times, serif;
 }
@@ -122,11 +122,12 @@ tt {
      */
 
 
-.archive .archives .title-wrapper .label,
-.archive .archives .title-wrapper .title,
+
 .h1:not(h1), h1 {
     font-size:197%;
 }
+.archive .archives .title-wrapper .label,
+.archive .archives .title-wrapper .title,
 .h2:not(h2), h2 {
     font-size:153.9%;
 }

@@ -707,6 +707,7 @@ if ( !function_exists( 'raindrops_the_event_calendar_css' ) ) {
 			$raindrops_event_calendar_css = '@media screen and (max-width : 920px){
 					div#tribe-bar-collapse-toggle{color:' . $custom_color . '; background:' . $custom_background . '}
 				}
+			.tribe-events-event-meta dt{padding:0;}
 			.entry-content .tribe-events-schedule h2{display:block;}
 			.tribe-events-loop .tribe-events-list .tribe-events-event-cost span{ color:red;}
 			.datepicker{ width:280px;max-width:100%;}
@@ -1268,14 +1269,34 @@ figure[class|="wp-block-embed"]{
 /**
  * Block Class alignleft, alignright
  */
-.wp-block-latest-posts.alignleft,
-.wp-block-latest-posts.alignright,
+/*
 .wp-block-video.alignleft,
 .wp-block-video.alignright,
 .wp-block-gallery.alignleft,
 .wp-block-gallery.alignright{
     width:50%;
+}*/
+
+p.alignleft{
+	/* @1.494 */
+	display:inline-block;
+	margin-right:1em;
+	padding:1em;
+	margin-top:.5em;
+	border:1px solid #ccc;
+	max-width:calc( 50% - 2em );
 }
+
+p.alignright{
+	/* @1.494 */
+	display:inline-block;
+	margin-left:1em;
+	padding:1em;
+	margin-top:.5em;
+	border:1px solid #ccc;
+	max-width:calc( 50% - 2em );	
+}
+
 /**
  * Block Table
  */
@@ -1426,17 +1447,25 @@ div.wp-block-button.aligncenter,
 
 figure[class|="wp-block"].alignleft{
 	clear:left;
-	margin:0 1em 1em 0;
-	max-width:100%;
+	/*margin:0 1em 1em 0;
+	max-width:100%;*/
+	margin-right:1em;
+	padding:1em;
+	margin-top:.5em;
+	border:1px solid #ccc;
+	max-width:calc( 50% - 2em );
+	min-width:290px;
 }
 figure[class|="wp-block"].alignright{
 	clear:right;
-    margin:0 0 1em 1em;
-    /*min-width:290px;*//* need fallback. youtube + align class display improperly */
-
-	max-width:100%;
+  /*  margin:0 0 1em 1em;*/
+    min-width:290px;
+	margin-left:1em;
+	padding:1em;
+	margin-top:.5em;
+	border:1px solid #ccc;
+	max-width:calc( 50% - 2em );	
 }
-
 .entry-content .wp-block-separator{
     border:none;
     clear:both;
@@ -1502,6 +1531,11 @@ section.wp-block-cover-image{
 }
 .ja .wp-block-quote.blocks-quote-style-2 p{
     font-style:normal;
+}
+.wp-block-quote.blocks-quote-style-2{
+	border-left:none;
+	margin:1em 0;
+	padding:1em 40px;
 }
 /**
  * Block Column
@@ -1630,6 +1664,16 @@ section.wp-block-cover-image{
        margin-right:0;
        margin-left:0;
     }
+	.entry-content p.alignleft,
+	.entry-content p.alignright{
+		/* @1.494 */
+		float:none;
+		display:block;
+		margin:1em;
+		padding:1em;
+		border:1px solid #ccc;
+		max-width:none;	
+	}
 
 }
 	

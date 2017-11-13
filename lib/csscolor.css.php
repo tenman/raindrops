@@ -42,6 +42,9 @@ function raindrops_indv_css_dark() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
 
     $style = <<<DOC
+pre[class]{
+	 %c_4%;
+}
 .raindrops-menu-fixed{ background:$background_3;}
 .post-format-wrap{
 	    border:solid 1px %c_border%;
@@ -166,11 +169,13 @@ mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
 .topsidebar .widget_nav_menu.sticky-widget .sub-menu:last-child{
 	border-bottom:none;
 }
+
 #access .sub-menu,
 #access .children{
 	border:1px solid #ccc;
 	border:1px solid rgba(222,222,222,.5);
 }
+
 #access .sub-menu li a,
 #access .children li a{
 	border-bottom:1px solid #ccc;
@@ -178,6 +183,7 @@ mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
 	border-bottom:1px solid rgba(222,222,222,.5);
 	border-left:1px solid rgba(222,222,222,.5);
 }
+
 #access .sub-menu li:last-child > a,
 #access .children li:last-child > a{
 	border-bottom:none;
@@ -239,13 +245,6 @@ ul.nav li a:hover,ul.nav li a:active,
 input[type="file"],
 input[type="reset"],
 input[type="submit"],
-/* @1.492 .fail-search,
-.error404,*/
-/*
-#access ul li.current_page_item,
-#access ul li.current-menu-ancestor > a,
-#access ul li.current-menu-item > a,
-#access ul li.current-menu-parent > a,*/
 #access .current_page_item,
 #access .current-menu-ancestor,
 #access .current-menu-item,
@@ -682,6 +681,7 @@ kbd,
 .raindrops-excerpt-more{
 	 border:1px solid rgba(62,6d2,62, 0.4);
 }
+.raindrops-mobile-menu,
 kbd,
 .entry-content .more-link,
 .sticky-widget #wp-calendar th,
@@ -895,6 +895,9 @@ nav,
 aside{
     background:#fff;
 	color:#333;
+}
+pre[class]{
+	%c5%;
 }
 .post-format-wrap{
 	border:1px solid %rgba_border%;
@@ -1224,6 +1227,7 @@ dl > div,
 hr{
     border-top:1px dashed %c_border%;
 }
+.raindrops-mobile-menu,
 #access{
     %c5%
 }
@@ -1453,6 +1457,9 @@ nav,
 aside{
    %c5%;
 }
+pre[class]{
+	background:#fff;
+}
 .raindrops-menu-fixed{ background:%custom_dark_bg%;}
 .post-format-wrap{
 	border:1px solid %rgba_border%;
@@ -1650,7 +1657,7 @@ body:not(.rd-tag-em) #ft a,
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
     border-bottom:1px solid %c_border%;
-
+	
 }
 .rsidebar ul li ul li:last-child,
 .lsidebar ul li ul li:last-child{
@@ -2037,7 +2044,7 @@ hr{
     background: %rgba_border%;
     border:solid 1px %rgba_border%;
 }
-
+.raindrops-mobile-menu,
 .topsidebar .widget_meta ul > li,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
@@ -2480,6 +2487,10 @@ textarea#comment{
 #access .children li:nth-child(1){
 	border-top:1px solid #ccc;
 }
+.raindrops-mobile-menu{
+    background:#fff;
+	border-bottom:1px solid %rgba_border%;
+}
 #access .sub-menu a,
 #access .children a,
 #access .children .current_page_item a{
@@ -2585,6 +2596,9 @@ address .entry-rss:after,
 	text-align:center;
 	padding:1em;
 	box-sizing:border-box;
+}
+#nav-status-bar .nav-next:hover a, #nav-status-bar .nav-previous:hover a{
+	color:#333;
 }
 .nav-next:hover, .nav-previous:hover{
 	color:%c5%;
@@ -2858,6 +2872,9 @@ fieldset{
 .widget_tag_cloud a.tag-cloud-link:hover{
 	%c5%
 }
+pre[class]{
+	%c5%;
+}
 CSS;
 	if( 'yes' == raindrops_warehouse_clone( 'raindrops_text_transform_of_title' ) ){
 		$transform = 'text-transform: uppercase;';
@@ -2899,6 +2916,7 @@ $style .=<<<STRUCTURE_STYLE
 .rd-type-minimal .widget_recent_entries > ul{
     margin-left:.8em;
 }
+.rd-type-minimal .widget_nav_menu .menu-item,
 .rd-type-minimal .widget_rss li,
 .rd-type-minimal .widget_meta li,
 .rd-type-minimal .widget_pages li,
@@ -2911,6 +2929,7 @@ $style .=<<<STRUCTURE_STYLE
 }
 .rd-type-minimal .widget_rss li{
 	border-bottom:1px dotted #aaa;
+	margin-bottom:1.5em;
 }
 .rd-type-minimal .widget_rss li .rssSummary{
      display: block;
@@ -2941,13 +2960,25 @@ $style .=<<<STRUCTURE_STYLE
     width:6px;
     height:6px;
     position: absolute;
-    top:-.4em;
+    top:-.16em;
     left:-.2em;
 }
-.footer .widget_meta li:before,
-.footer .widget_pages li:before,
-.footer .widget_nav_menu li:before,
-.footer .widget_archive li:before {
+.rd-type-minimal .widget_archive li:before {
+	top:0;
+}
+.rd-type-minimal .widget_meta li:first-child:before,
+.rd-type-minimal .widget_pages li:first-child:before,
+.rd-type-minimal .widget_nav_menu li:first-child:before,
+.rd-type-minimal .widget_archive li:first-child:before {
+    top:-.25em;	
+	
+}
+	
+	
+.rd-type-minimal .footer .widget_meta li:before,
+.rd-type-minimal .footer .widget_pages li:before,
+.rd-type-minimal .footer .widget_nav_menu li:before,
+.rd-type-minimal .footer .widget_archive li:before {
     top:-.5em;
     left:-.5em;
 }
@@ -2996,7 +3027,7 @@ $style .=<<<STRUCTURE_STYLE
 .rd-type-minimal .widget_pages a,
 .rd-type-minimal .widget_nav_menu a,
 .rd-type-minimal .widget_recent_entries a{
-    padding:.279em .56em;
+    padding:.279em 1em;
 	box-sizing:border-box;
 }
 .rd-type-minimal .widget_meta a,

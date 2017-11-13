@@ -1852,7 +1852,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_show_related_posts_excerpt_length_validate',
 			'type' => 'number',
 				'input_attrs' => array(
-					'min' => 40,
+					'min' => 10,
 					'max' => 600,
 					'step' => 1,
 			),

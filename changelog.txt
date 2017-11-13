@@ -2,10 +2,47 @@ Changelog -----------------------------------
 version:1.494
 
 Overview of Changes
+	Modify general style for WordPress 4.9
 
+	Added CSS Class child-left-side for primary menu.
+
+		If there is a menu with a deep hierarchy at the left end of the menu, the menu may not be displayed.
+		Added child-left-side in the parent class of the primary menu, the sub menu is displayed on the left side.
+
+	Removed header image min-height less than 640px;
+		The users wanted a correctly scaled header image
+
+	Added filter raindrops_font_size_class_base_font_size
+
+		Customize / Presentation / Fonts
+
+			If you change the Base Font Size, the font size of the widget will remain at the default font size.
+			It is a filter when it is necessary to modify the font size of widgets etc.
+
+		Example
+
+		add_filter('raindrops_font_size_class_base_font_size','custom_raindrops_font_size_class_base_font_size', 10, 2 );
+
+		function custom_raindrops_font_size_class_base_font_size( $size, $template ) {
+
+			if( 'category' == $template ) {
+				return 16;
+			}
+			return $size;
+		}
+
+	Modified Sticky Menu works on Mobile browser( less than 640px )
 
 Files Modified
-
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   part-blog.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.493&new_path=raindrops/1.494

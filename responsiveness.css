@@ -53,8 +53,8 @@
     #access{display:none!important;}
     #access:target{
         display:block!important;
-        padding-top:100px;
-        margin-top:-100px!important;
+       /* @1.494 padding-top:100px;
+        margin-top:-100px!important;*/
     }
     .rd-col-1 #access:target{
         margin-top: 0!important;

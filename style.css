@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.494
+Version: 1.495
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -206,6 +206,8 @@ a.disable{
 /**
  * Headding
    ========================================================================== */
+.rsidebar .grid-pinup-item .raindrops-entrywidget-attachment-title,
+.lsidebar .grid-pinup-item .raindrops-entrywidget-attachment-title,
 .portfolio ul.index > li article .entry-title,
 footer .eco-archive > .year,
 footer .eco-archive > .month,
@@ -265,6 +267,8 @@ body:not(.rd-col-3).error404 .entry-title,
 .rd-col-1.single article .entry-title{
     margin-top:1.5em;
 }
+.rsidebar .grid-pinup-widgets li:first-child .entry-title,
+.lsidebar .grid-pinup-widgets li:first-child .entry-title,
 .page article .entry-title{
     margin-top:0;
    /* @1.494 text-align:left; */
@@ -871,7 +875,6 @@ blockquote p:first-child{
     margin:1em 0;
     display:inline-block;
 }
-.textwidget > div,
 .entry-content > div{
     margin:1em 0;
 }
@@ -1014,7 +1017,6 @@ img.aligncenter:before,
     display:inline-block;
     margin:.5em 0;
 }
-
 .rd-modal > div[class^="color"]{
     padding-left:0;
     padding-right:0;
@@ -3217,7 +3219,6 @@ ol.commentlist >li{
 .widget_recent_comments .comment-author-link .avatar{
     float:left;
     margin-right:10px;
-    vartical-align:top;
 }
 .widget_recent_comments .recentcomments,
 .rsidebar .widget_recent_comments .recentcomments,
@@ -4211,10 +4212,14 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
 /* post format */
 .mejs-audio{
     margin:48px auto;
-    width:320px!important;
+    width:296px!important;
 
 }
-
+.rsidebar .mejs-audio,
+.lsidebar .mejs-audio{
+    margin:0 auto;
+    max-width:100%;
+}
 /**
  * Responsive Grid
    ========================================================================== */
@@ -4833,8 +4838,8 @@ ol.list-of-post-list .entry-title{
 }
 .lsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
 .rsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
-    text-align:center;
-    top:16px;
+   /* @1.494 text-align:center;
+    top:16px;*/
 }
 .single .lsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
 .single .rsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
@@ -4902,6 +4907,9 @@ ol.list-of-post-list .entry-title{
 }
 .topsidebar .raindrops-pinup-entries p img{
     margin-top:0;
+}
+.topsidebar .raindrops-pinup-entries .grid-pinup-widgets{
+    margin-top:calc(1em * 1.539 * 1.5);
 }
 .topsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
     text-align:center;
@@ -6182,7 +6190,7 @@ x:-o-prefocus, .rd-modal > div {
 }
 .bottom-tooltip .ui-tooltip-content:before{
     content: "";
-    position: abosolute;
+    position: absolute;
     top:auto;
     left:0;
     right:0;
@@ -6469,8 +6477,8 @@ x:-o-prefocus, .rd-modal > div {
     box-sizing:border-box;
 }
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > li{
-    padding-bottom:3em;
-    padding-top:1.5em;
+  /*  @1.494 padding-bottom:3em;
+    padding-top:1.5em;*/
 }
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_search{
     padding-top:1.5em;
@@ -7047,7 +7055,10 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 .rd-col-1 .topsidebar .grid-pinup-widgets .page,
 .rd-col-1 .topsidebar .grid-pinup-widgets .post{
-    padding:1em;
+    /* 1.494 */
+    padding:0 1em 1em;
+    margin-top:0;
+    margin-bottom:0;
 }
 .topsidebar .grid-pinup-widgets > li:hover{
     border:1px solid rgba(122,122,122,.3);
@@ -7056,7 +7067,7 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 }
 .topsidebar .grid-pinup-widgets .pinup-entry-title{
     margin:0;
-    padding:.5em .1em;
+    /* padding:.5em .1em;*/
     box-sizing:border-box;
 }
 .topsidebar .grid-pinup-widgets .widgettitle{
@@ -8507,6 +8518,7 @@ body:not(.hierarchical-cat) .rsidebar .widget_categories .cat-item a,
     padding:.2em .4em;
     box-sizing:border-box;
 }
+
 .rd-archive-link{
      display:flex;
 }
@@ -8521,6 +8533,7 @@ body:not(.hierarchical-cat) .rsidebar .widget_categories .cat-item a,
 .widget_categories .children{
     padding-left:10px;
     box-sizing:border-box;
+    margin-top:.5em;
 }
 .footer .eco-archive .item li{
     border:1px solid rgba(127,127,127,.3);

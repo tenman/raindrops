@@ -2220,7 +2220,8 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		$default_basefont_val	= (int) raindrops_warehouse_clone( 'raindrops_basefont_settings', 'option_value' );
 		$sidebar_h2_margin		= ceil( $default_basefont_val * 1.539 );
 
-		$css .= '.lsidebar, div[role="main"]{ margin-top:'. $sidebar_h2_margin. 'px;}';
+		$css .= '.lsidebar, div[role="main"]{ padding-top:'. $sidebar_h2_margin. 'px;}';
+		$css .= '.rsidebar{ padding-bottom:'. $sidebar_h2_margin. 'px;}';
 		$css .= '#doc5 .raindrops-no-keep-content-width .raindrops-expand-width{margin-top:0}';
 		$css .= '#doc3 .raindrops-no-keep-content-width .raindrops-expand-width{margin-top:0}';
 		$css .= '#searchform{margin: '. $sidebar_h2_margin. 'px 0 1em 0.38461538461em;}';

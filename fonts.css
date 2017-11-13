@@ -41,6 +41,10 @@ body{
 #access div.menu ul{
     font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
+.sans-serif,
+.entry-title.sans-serif,
+.rd-list .topsidebar .widgettitle, /* 1.480 */
+.rd-grid .topsidebar .widgettitle,
 .parent-entry .parent-entry-title,
 .rd-grid .entry-title,
 .eco-archive h3,
@@ -67,6 +71,8 @@ h2.footer-content,
 h4, h5, h6, .h4, .h5, .h6{
     font-family:Geneva, Arial, Helvetica, sans-serif;
 }
+.serif,
+.serif .entry-title-text,
 .page-title,
 var, h1, h2, h3, .h1, .h2, .h3{
     font-family:"Times New Roman", Times, serif;
@@ -77,10 +83,7 @@ tt {
     font-family:"Courier New", Courier, monospace;
     line-height:100%;
 }
-.rd-list .topsidebar .widgettitle, /* 1.480 */
-.rd-grid .topsidebar .widgettitle{
-    font-family: Geneva, Arial, Helvetica, sans-serif;
-}
+
 /**
  * Title
    ========================================================================== */
@@ -116,20 +119,25 @@ tt {
     /**
      * .h*:not(h1) is Avoid em size issue 
      */
+
 .h1:not(h1), h1 {
     font-size:197%;
 }
+.sans-serif,
+.entry-content h2.sans-serif,
 .archive .archives .title-wrapper .label,
 .archive .archives .title-wrapper .title,
 .h2:not(h2), h2 {
     font-size:153.9%;
 }
+
 .rd-grid .search-results .entry-title,
 .rd-grid .archives .entry-title,
 .parent-entry-title,
 .image-caption .section-title{
     font-size:138.5%;
 }
+.entry-content h3.sans-serif,
 .page .raindrops-tag-posts .enty-title,
 .page .raindrops-category-posts .entry-title,
 .page .raindrops-recent-posts .entry-title,

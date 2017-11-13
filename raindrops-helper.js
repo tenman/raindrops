@@ -706,6 +706,11 @@ jQuery( function ( $ ) {
                 $( 'nav' ).not('.lsidebar').removeAttr( 'style' );
                 $( 'nav .menu > li > a' ).removeAttr( 'style' );
             }
+            
+            if( raindrops_window_width < 641 ) {
+                /* @1.494 */
+                $( 'nav#access' ).removeClass( 'raindrops-menu-fixed' );
+            }
         } );
     }
     

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.494
+version:1.495
 
 Overview of Changes
 	Modify general style for WordPress 4.9
@@ -45,7 +45,7 @@ Files Modified
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.493&new_path=raindrops/1.494
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.493&new_path=raindrops/1.495
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.493

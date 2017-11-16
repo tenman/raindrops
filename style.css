@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.495
+Version: 1.496
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -231,6 +231,7 @@ footer .eco-archive > .month,
     margin-top:1.5em;
     margin-bottom:.75em;
 }
+.rd-modal .header h3,
 .lsidebar > ul > li:first-child .widgettitle,
 body.single article.format-status .entry-title,
 body.single article.category-blog .entry-title,
@@ -1046,6 +1047,7 @@ article .entry-content .block{
  /*   height:auto;*/
     box-sizing: border-box;
 }
+
 .textwidget ol,
 .textwidget ul,
 .entry-content ol,
@@ -1057,8 +1059,28 @@ article .entry-content .block{
     box-sizing:border-box;
     width:auto;
     margin-top:1em;
+    /* @1.496 padding-top:1em; */
 }
-
+/**
+ * @1.496
+ * TODO vanished list number on edge browser
+ *
+article ol,
+article ul{
+    z-index:-1;
+    overflow:hidden;
+    padding:0 1em 0 2em;
+    box-sizing:border-box;
+    margin-top:1em;
+}
+.wraparound{
+    overflow:visible;
+    position:relative;
+    left:1em;
+    padding-top:1em;
+    box-sizing:border-box;
+    max-width:calc(100% - 1em);
+}*/
 .rd-float-wrapper > ol,
 .rd-float-wrapper > ul{
     margin-top:0;
@@ -1238,10 +1260,11 @@ legend{
     clear:none;
     margin:0;
 }
+/* @1.495 l
 .gallery .gallery-caption {
     line-height:1.7;
     text-align:left;
-}
+}*/
 .gallery .gallery-caption ul{
     position:static;
     min-width:0;
@@ -3856,8 +3879,8 @@ sup {
     width:30%;
     min-width:296px;
     overflow:visible;
-    margin-bottom:1em;
-    margin-left:1em;
+    margin-bottom:13px;
+    margin-left:13px;
     float:left;
 }
 .rd-col-3 .raindrops-tag-posts li,

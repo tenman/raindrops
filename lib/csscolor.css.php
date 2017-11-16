@@ -361,7 +361,7 @@ ul.archive,ul.index,
 
 hr{
     border:none;
-    border-top:1px solid %c_border%;
+    border-bottom:1px solid %c_border%;
 }
 dl > div,
 #month_list,
@@ -550,7 +550,7 @@ body{
 }
 hr{
     border:none;
-    border-top:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 }
 
 .blog .sticky,
@@ -1225,7 +1225,7 @@ dl > div,
     border:solid 1px %c_border%;
 }
 hr{
-    border-top:1px dashed %c_border%;
+    border-bottom:1px dashed %c_border%;
 }
 .raindrops-mobile-menu,
 #access{
@@ -1722,7 +1722,7 @@ legend{
     %c5%
 }
 hr{
-    border-top:1px dashed %c_border%;
+    border-bottom:1px dashed %c_border%;
 }
 textarea,
 input[type="password"],
@@ -1981,7 +1981,7 @@ fieldset {
     border:1px solid %rgba_border%;
 }
 hr{
-    border-top:1px dashed %rgba_border%;
+    border-bottom:1px dashed %rgba_border%;
 }
 #respond input[type="text"],
 #respond textarea#comment,
@@ -2518,7 +2518,7 @@ kbd,
 	 %c5%
 }
 hr{
-    border-top:1px solid %rgba_border%;
+    border-bottom:1px solid %rgba_border%;
 }
 /* @1.345 start */
 .rsidebar ul li ul li,
@@ -3006,11 +3006,12 @@ $style .=<<<STRUCTURE_STYLE
 .rd-grid .sticky .entry-title{
     padding-top:0;
 }
+/* @1.495
 .rd-type-minimal .recentcomments,
 .rd-type-minimal .widget_recent_comments .recentcomments,
 .rd-type-minimal .widget_recent_comments .recentcomments{
      margin:5px 5px 5px .8em;
-}
+}*/
 .rd-type-minimal #access{
     width:100%;
     margin-left:0;

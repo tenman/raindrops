@@ -13724,6 +13724,25 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 			}
 		}
 		/**
+		 * basefont size relate line-height for paragraf 
+		 * 
+		 * @1.496
+		 */
+		$raindrops_basefont_val = raindrops_warehouse_clone( 'raindrops_basefont_settings' );
+		$line_height_values		= array('13' => 1.65, '14' => 1.6, '15' => 1.55, '16' => 1.5, '17' => 1.45, '18' => 1.4, '19' => 1.4, '20' => 1.4 );
+		$line_height_values		= apply_filters('raindrops_font_size_class_line_height', $line_height_values, $template_name );
+		
+		if( array_key_exists( $raindrops_basefont_val,  $line_height_values ) ) {
+			
+			$font_class .= "\n". '.rd-category-description p ,.entry-content p{ line-height:'.floatval( $line_height_values[ $raindrops_basefont_val ] ).';}';
+			
+		}
+		foreach( $line_height_values as $key=>$val ) {
+			
+			$font_class .= "\n". '.entry-content .f'. intval( $key ). '{ line-height:'.floatval( $val ).';}';
+		}
+
+		/**
 		 * Always keep base font size
 		 */
 		$rule_set					= '%1$s{font-size: %2$s;}';
@@ -13744,6 +13763,13 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 										'#nav-below, #nav-above, #nav-above-comments, #nav-below-comments' => array( $default_basefont_val,'px'),
 										'.raindrops-pinup-entries .entry-title' => array( $default_basefont_val * 1.231,'px'),
 										'.raindrops-post-format-chat dt' => array( $default_basefont_val * 1.231,'px'),
+										'.page .edit-link' =>  array( $default_basefont_val,'px'),
+										'#raindrops-recent-posts .title,.raindrops-category-posts .title,.raindrops-tag-posts .title' => array( $default_basefont_val * 2,'px'),
+										'.portfolio .entry-title' => array( $default_basefont_val * 1.231,'px'),
+										'.raindrops-monthly-archive-prev-next-avigation, .pagination, .page-template-page-featured .widget' =>  array( $default_basefont_val,'px'),
+										'.archive-year-links .current-year,.datetable > h2' => array( $default_basefont_val * 1.539,'px'),
+										'.author .entry-title-text' => array( $default_basefont_val,'px'),
+										
 									);
 		$keep_base_size_proparties	= apply_filters('raindrops_keep_base_size_proparties', $keep_base_size_proparties );
 		$keep_base_size				= apply_filters('raindrops_keep_base_font_size', true );

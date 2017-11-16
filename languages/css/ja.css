@@ -156,10 +156,11 @@ body.ja,
 .ja i{
     font-style: italic;
 }
+/* @1.496
 .mce-content-body p,
 .ja p{
     line-height:1.6;
-}
+}*/
 .ja .datetable .time,
 .ja .datetable .month-name, 
 .ja .datetable .year-name, 
@@ -173,9 +174,9 @@ body.ja,
     box-sizing:border-box;
     width:3em;
 }
+
 .ja .widget_recent_comments .recentcomments{
     visibility:hidden;
-    margin-bottom:-1.65em;
 }
 .ja .widget_recent_comments .recentcomments a,
 .ja .widget_recent_comments .recentcomments span,
@@ -184,6 +185,8 @@ body.ja,
 }
 .ja .widget_recent_comments .comment-author-link{
     border-bottom:1px dotted rgba(122,122,122,.5);
+    display:block;
+    margin-bottom:-1.5em;
 }
 
 .ja .raindrops-excerpt-more{

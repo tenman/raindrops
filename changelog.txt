@@ -3,9 +3,17 @@ version:1.496
 
 Overview of Changes
 
+	Added when besefont change relate line-height helper
+	Fixed not prefixed function raindrops_gutenberg_enqueue_common_assets()
+	Modified Correcting CSS when base font size is changed
 
 Files Modified
-
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   plugins/plugins-presentation.php
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.495&new_path=raindrops/1.496

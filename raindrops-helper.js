@@ -236,12 +236,13 @@
                 } else if ( userAgent.match( /Edge/i ) ) {
 
                     //jQuery( 'body' ).addClass( 'Edge' );
-                } else if ( userAgent.indexOf( 'opera' ) != -1 ) {
-
-                    jQuery( 'body' ).addClass( 'opera' );
-                } else if ( userAgent.indexOf( 'chrome' ) != -1 ) {
+                
+                } else if (  userAgent.indexOf('chrome') > -1 && userAgent.indexOf('opr/') == -1 ) {
 
                     jQuery( 'body' ).addClass( 'chrome' );
+                } else if ( userAgent.indexOf( 'opr/' ) != -1 ) {
+                   
+                    jQuery( 'body' ).addClass( 'opera' );               
                 } else if ( userAgent.indexOf( 'safari' ) != -1 ) {
 
                     jQuery( 'body' ).addClass( 'safari' );
@@ -441,29 +442,45 @@
                     jQuery( 'body' ).addClass( 'accept-lang-' + baseLang );
 
 
-                    var userAgent = window.navigator.userAgent.toLowerCase();
+                    var userAgent = window.navigator.userAgent.toLowerCase( );
 
                     if ( userAgent.match( /msie/i ) ) {
 
                         var ie_num = userAgent.match( /MSIE (\d+\.\d+);/i );
                         var ieversion = parseInt( ie_num[1], 10 );
                         jQuery( 'body' ).addClass( 'ie' + ieversion );
-                    } else if ( userAgent.indexOf( 'opera' ) != -1 ) {
 
-                        jQuery( 'body' ).addClass( 'opera' );
-                    } else if ( userAgent.indexOf( 'chrome' ) != -1 ) {
+                    } else if ( userAgent.match( /Edge\/\d+/i ) ) {
+
+                        jQuery( 'body' ).addClass( 'edge' );
+
+                    } else if ( userAgent.match( /Trident/i ) && userAgent.match( /rv:11/i )) {
+
+                        jQuery( 'body' ).addClass( 'ie11' );
+
+                    } else if ( userAgent.match( /Edge/i ) ) {
+
+                        //jQuery( 'body' ).addClass( 'Edge' );
+
+                    } else if (  userAgent.indexOf('chrome') > -1 && userAgent.indexOf('opr/') == -1 ) {
 
                         jQuery( 'body' ).addClass( 'chrome' );
+                    } else if ( userAgent.indexOf( 'opr/' ) != -1 ) {
+
+                        jQuery( 'body' ).addClass( 'opera' );               
                     } else if ( userAgent.indexOf( 'safari' ) != -1 ) {
 
                         jQuery( 'body' ).addClass( 'safari' );
+                    } else if ( userAgent.indexOf( 'firefox' ) != -1 ) {
+
+                        jQuery( 'body' ).addClass( 'firefox' );
                     } else if ( userAgent.indexOf( 'gecko' ) != -1 ) {
 
                         var match = userAgent.match( /(trident)(?:.*rv:([\w.]+))?/ );
                         try{
                             var version = parseInt( match[2], 10 );
                         }catch(error){
-                            var version = -1;
+                            var version = -1; //match == null for no match
                         }
 
                         if ( version == 11 ) {
@@ -471,6 +488,7 @@
                         } else {
                             jQuery( 'body' ).addClass( 'gecko' );
                         }
+
                     } else if ( userAgent.indexOf( 'iphone' ) != -1 ) {
 
                         jQuery( 'body' ).addClass( 'iphone' );
@@ -481,9 +499,8 @@
 
                         jQuery( 'body' ).addClass( 'unknown' );
                     }
-            }
 
-
+                }
         }
         
         if( true == raindrops_script_vars.raindrops_archive_has_count ) {

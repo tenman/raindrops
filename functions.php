@@ -800,6 +800,10 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 			$classes[]								 = 'rd-featured-' . $raindrops_use_featured_image_emphasis . '-' . $raindrops_featured_image_position;
 		}
 		/**
+		 * @since 1.497
+		 */
+		$classes[] = sanitize_html_class( "rd-basefont-" . raindrops_warehouse_clone( 'raindrops_basefont_settings' ) );
+		/**
 		 * @since 1.289
 		 */
 		$classes[] = sanitize_html_class( "rd-pw-" . raindrops_warehouse( 'raindrops_page_width' ) );
@@ -2224,7 +2228,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		$css .= '.rsidebar{ padding-bottom:'. $sidebar_h2_margin. 'px;}';
 		$css .= '#doc5 .raindrops-no-keep-content-width .raindrops-expand-width{margin-top:0}';
 		$css .= '#doc3 .raindrops-no-keep-content-width .raindrops-expand-width{margin-top:0}';
-		$css .= '#searchform{margin: '. $sidebar_h2_margin. 'px 0 1em 0.38461538461em;}';
+		// @1.497 $css .= '#searchform{margin: '. $sidebar_h2_margin. 'px 0 1em 0.38461538461em;}';
 		$css .= '.rd-col-1 .loop-before-toolbar{ margin-top:'. $sidebar_h2_margin. 'px;}';
 		$css .= '.rd-col-1 .single-post-thumbnail{ margin-top:'. $sidebar_h2_margin. 'px;}';
 		$css .= '.page ul.blank-front{ margin-top:'. $sidebar_h2_margin. 'px;}';
@@ -13857,6 +13861,29 @@ if ( !function_exists( 'raindrops_archive_link_format' ) ) {
 		}
 
 		return $link_html;
+	}
+}
+if( ! function_exists( 'raindrops_add_codemirror_for_raindrops_custom_css_field' ) ) {
+	
+	function raindrops_add_codemirror_for_raindrops_custom_css_field(){
+
+		if ( 'page' !== get_current_screen()->id && 'post' !== get_current_screen()->id ) {
+			return;
+		}
+
+		$settings = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
+
+		if ( false === $settings ) {
+			return;
+		}
+
+		wp_add_inline_script(
+			'code-editor',
+			sprintf(
+				'jQuery( function() { wp.codeEditor.initialize( "raindrops_custom_css_field", %s ); } );',
+				wp_json_encode( $settings )
+			)
+		);	
 	}
 }
 /**

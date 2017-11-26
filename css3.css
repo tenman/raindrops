@@ -40,18 +40,7 @@ span[class|="corner"]{
     -ms-filter: "alpha(opacity=0.9)"; /* IE8 */
 }
 
-input[type="file"],
-input[type="reset"],
-input[type="submit"],
-submit{
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    padding:.2em .6em;
-}
-input[type="submit"]{
-    padding:0 1em;    
-}
+
 .lsidebar .children li:nth-last-child(1),
 .rsidebar .children li:nth-last-child(1){
     border:none;

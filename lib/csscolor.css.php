@@ -214,6 +214,7 @@ a:hover{
 h2 a{
     background:inherit;
 }
+.yui-main .yui-u:nth-child(2),
 nav,
 aside{
     %c_4%
@@ -2431,9 +2432,14 @@ body:not(.rd-tag-em) #ft a,
 h2.footer-content {
     text-indent:0;
 }
+input[type="button"],
+input[type="file"],
+input[type="reset"],
+input[type="submit"],
 input[type="submit"],
 .social input[type="submit"]{
     border:1px solid rgba(105,105,105,.7);
+	%c5%;
 }
 /*comment bubble*/
 
@@ -2474,6 +2480,7 @@ textarea#comment{
     -moz-border-radius: 3px;
     -khtml-border-radius: 3px;
     -webkit-border-radius: 3px;
+
 }
 .raindrops-toc-front li{
 	border:1px solid #ddd;
@@ -2524,7 +2531,7 @@ hr{
 .rsidebar ul li ul li,
 .lsidebar ul li ul li{
     list-style-type:square;
-    list-style-position:inside;
+    /* @1.497 list-style-position:inside;*/
 	/* @1.492 line-height:2;*/
 }
 .entry-content table{
@@ -2913,9 +2920,10 @@ $style .=<<<STRUCTURE_STYLE
     margin-left:auto;
     margin-right:auto;
 }
+/** @1.497
 .rd-type-minimal .widget_recent_entries > ul{
     margin-left:.8em;
-}
+}*/
 .rd-type-minimal .widget_nav_menu .menu-item,
 .rd-type-minimal .widget_rss li,
 .rd-type-minimal .widget_meta li,
@@ -2997,7 +3005,7 @@ $style .=<<<STRUCTURE_STYLE
     padding-top:0;
     padding-bottom:0;
 }
-.rd-type-minimal hr{
+.rd-type-minimal article hr{
     margin:3em auto 3em;
 }
 .rd-type-minimal .sticky .entry-title{

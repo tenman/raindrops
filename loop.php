@@ -9,7 +9,7 @@
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-global $raindrops_grid_posted_in;
+global $raindrops_grid_posted_in, $raindrops_use_part_gallery_template, $raindrops_use_part_blog_template;
 /**
  * Display navigation to next/previous pages when applicable
  */
@@ -50,7 +50,8 @@ if ( have_posts() ) {
          *
          *
          */
-        if ( in_category( "gallery" ) || has_post_format( "gallery" ) ) {
+	//	var_dump( $raindrops_use_part_gallery_template);
+        if ( in_category( "gallery" ) || has_post_format( "gallery" ) && true == $raindrops_use_part_gallery_template ) {
 
             get_template_part( 'part', 'gallery' );
             /**
@@ -60,7 +61,7 @@ if ( have_posts() ) {
              *
              *
              */
-        } elseif ( in_category( "blog" ) || has_post_format( "status" ) ) {
+        } elseif ( ( in_category( "blog" ) || has_post_format( "status" ) ) && true == $raindrops_use_part_blog_template ) {
 
             get_template_part( 'part', 'blog' );
         } elseif ( $format !== false ) {

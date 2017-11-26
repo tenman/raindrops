@@ -146,6 +146,9 @@ Text Domain: raindrops
 22px = 167%    23px = 174%    24px = 182%    25px = 189%
 26px = 197%
 ------------------------------------------------------*/
+body{
+    font-kerning:auto;
+}
 body.rd-pw-doc5,
 body.rd-pw-doc3{
     max-width:100%;
@@ -174,6 +177,17 @@ a.disable{
     cursor: default;
     text-decoration:none;
 }
+html .gradient-5 a, 
+    html .gradient-4 a, html .gradient-3 a, html .gradient-2 a,
+    html .gradient-1 a, html .gradient1 a, html .gradient2 a, html .gradient3 a,
+    html .gradient4 a, 
+html .gradient5 a, 
+html .color-5 a,
+    html .color-4 a, html .color-3 a, html .color-2 a, html .color-1 a,
+    html .color1 a, html .color2 a, html .color3 a, html .color4 a,
+html .color5 a{
+    background:transparent;
+}
 /**
  * Article
    ========================================================================== */
@@ -194,7 +208,6 @@ a.disable{
 .blog .sticky,
 .home .sticky{
     margin-bottom:1em;
-    line-height:1.5;
 }
 .page  div[id^="post-"],
 .single div[id^="post-"]{
@@ -227,7 +240,6 @@ footer .eco-archive > .month,
 .page-title{
     text-align:center;
     display:block;
-    /* @1.472 */
     margin-top:1.5em;
     margin-bottom:.75em;
 }
@@ -263,7 +275,6 @@ body:not(.rd-col-3).error404 .entry-title,
 }
 .single article .entry-title{
     margin-bottom:3px;
-   /* @1.494 text-align:left; */
 }
 .rd-col-1.single article .entry-title{
     margin-top:1.5em;
@@ -272,12 +283,10 @@ body:not(.rd-col-3).error404 .entry-title,
 .lsidebar .grid-pinup-widgets li:first-child .entry-title,
 .page article .entry-title{
     margin-top:0;
-   /* @1.494 text-align:left; */
     margin-bottom:.75em;
 }
 .rd-col-1.page article .entry-title{
     margin-top:1.5em;
-   /* @1.494 text-align:left;*/
     margin-bottom:.75em;
 }
 
@@ -384,6 +393,9 @@ h6 a,
     display:inline-block;
     vertical-align:middle;
     padding:0 .2em;
+}
+.h1, .h2, .h3, .h4, .h5, .h6{
+    font-weight:700;
 }
 /**
  * 404
@@ -786,10 +798,21 @@ i.material-icons{
     font-size:138.5%;
     font-style: normal;
 }
+/* @1.497 removed
 u{
     text-decoration:none;
     border-color:#888;
     border-bottom:3px double rgba(127,127,127,.5);
+}
+*/
+u{
+   /* @1.497 changed */
+    text-decoration: underline;
+    text-decoration-style: double;
+    -webkit-text-decoration: underline;
+    -webkit-text-decoration-style: double;
+    -webkit-text-decoration-color: #888;   
+    text-decoration-color: #888;
 }
 details summary{
     margin-bottom:1em;
@@ -855,10 +878,13 @@ blockquote .cite-url{
     word-break: break-all;
     margin-bottom:0;
 }
+/** @1.497 removed
 blockquote p:first-child{
     margin-top:1em;
+}*/
+blockquote p:last-child{
+    margin-bottom:0;
 }
-
 .textwidget p:empty,
 .entry-content p:empty{
     display:none;
@@ -885,8 +911,8 @@ blockquote p:first-child{
 }
 .textwidget > dl,
 .textwidget > table,
-.textwidget > ul,
-.textwidget > ol,
+/* @1.497.textwidget > ul,
+.textwidget > ol, */
 .entry-content > dl,
 .entry-content > table,
 .entry-content > ul,
@@ -928,7 +954,10 @@ blockquote p:first-child{
 }
 .textwidget  figure.alignnone,
 .entry-content  figure.alignnone{
-    display:inline-block;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+
 }
 .textwidget  figure.alignnone img,
 .entry-content  figure.alignnone img{
@@ -976,7 +1005,6 @@ img.aligncenter:before,
 .entry-content del{
     position:relative;
     display:inline-block;
-
 }
 .textwidget del[datetime]:hover::after,
 .textwidget ins[datetime]:hover::after,
@@ -990,6 +1018,7 @@ img.aligncenter:before,
     padding:.2em .5em .2em 5em;
     background:#000;
     color:#fff;
+    width:200px;
 }
 .textwidget ins:hover::before,
 .entry-content ins:hover::before{
@@ -1013,11 +1042,12 @@ img.aligncenter:before,
     color:#fff;
     z-index:2;
 }
+/* @1.497
 .textwidget input,
 .entry-content input{
     display:inline-block;
     margin:.5em 0;
-}
+}*/
 .rd-modal > div[class^="color"]{
     padding-left:0;
     padding-right:0;
@@ -1044,7 +1074,6 @@ article .entry-content .block{
 }
 .widgettext img,
 .entry-content img,.hentry img{
- /*   height:auto;*/
     box-sizing: border-box;
 }
 
@@ -1059,7 +1088,6 @@ article .entry-content .block{
     box-sizing:border-box;
     width:auto;
     margin-top:1em;
-    /* @1.496 padding-top:1em; */
 }
 /**
  * @1.496
@@ -1143,12 +1171,44 @@ article ul{
 /**
  * Forms
    ========================================================================== */
+.lsidebar > ul > li:first-child input,
+.lsidebar > ul > li:first-child #searchform{
+    margin-top:0;
+}
+form{
+    clear:both;
+}
+form:before,
+form:after{
+    content: " ";
+    display:table;
+    clear:both;
+}
 .ie7 label,
 .ie7 radio{
     float:left;
 }
+form p.alignright,
+form .alignright{
+    border:none;
+}
+label{
+    cursor:pointer;
+}
+label,
+input{
+    display:inline-block;
+    font-size:1em;
+    margin:1em .5em 1em 0;
+    line-height:1.5;
+}
 input[type="button"],
+input[type="file"],
+input[type="reset"],
 input[type="submit"]{
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
     cursor:pointer;
     display:inline-block;
     -moz-user-select: none;
@@ -1156,26 +1216,54 @@ input[type="submit"]{
     -ms-user-select: none;
     user-select: none;
 }
-input[type="checkbox"],
-input[type="radio"],
-select,
-.widgettext label,
-.entry-content label{
-    margin:0 0.23076923076em;
+
+.topsidebar #searchform input[type="submit"],
+.social input[type="submit"],
+article input[type="button"],
+article input[type="file"],
+article input[type="reset"],
+article input[type="submit"]{
+    padding:.3em 1em;    
 }
+textarea,
+input[type="password"],
+input[type="url"],
+input[type="tell"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="time"],
+input[type="week"],
+input[type="month"],
+input[type="color"],
+input[type="date"],
+input[type="number"],
+input[type="button"],
 input[type="search"],
 input[type="text"],
 input[type="submit"],
 input[type="reset"],
 input[type="file"]{
-    border:0.07692307692em solid;
+    border:1px solid rgba(127,127,127,.5);
+    padding:3px;
+}
+select{
+    min-width:10em;
+}
+option{
+    padding:3px;
+    border-bottom:1px solid rgba(127,127,127,.5);
 }
 #searchform input[type="search"],
 #searchform input[type="text"] {
-    width:59%;
+    width:58%;
     display:inline-block;
-    padding:3px;
     box-sizing:border-box;
+    margin-right:0;
+    border-bottom:1px solid rgba(127,127,127,.5);
+}
+#searchform input[type="submit"]{
+    margin-left:0;
+    padding:3px 3px;
 }
 .comment-form-comment textarea,
 .comment-form-url input,
@@ -1184,9 +1272,6 @@ input[type="file"]{
     display:block;
     padding:0.38461538461em;
     box-sizing:border-box;
-}
-.social input[type="submit"]{
-    padding:.3em .6em;
 }
 .post-password-required input[type="submit"]{
     margin:0.38461538461em 0;
@@ -1204,6 +1289,197 @@ legend{
     padding:0.53846153846em 0.76923076923em;
     max-width:50%;
 }
+/**
+ * field conditional Style start
+ */
+    /**
+     * Known Issue
+     * Must Needs Structure
+     * <input type="text" placeholder="hello world" id="xxx" val=""><label for="xxx">hello world</label>
+     * Not Work Structure
+     * <label><input type="text" placeholder="hello world" id="xxx" val="">hello world</label>
+     * IE, Edge not support
+     */
+textarea[aria-required="true"],
+input:not([type])[aria-required="true"],
+input[type="color" i][aria-required="true"],
+input[type="date" i][aria-required="true"],
+input[type="datetime" i][aria-required="true"],
+input[type="datetime-local" i][aria-required="true"],
+input[type="email" i][aria-required="true"],
+input[type="month" i][aria-required="true"],
+input[type="password" i][aria-required="true"],
+input[type="number" i][aria-required="true"],
+input[type="search" i][aria-required="true"],
+input[type="tel" i][aria-required="true"],
+input[type="text" i][aria-required="true"],
+input[type="time" i][aria-required="true"],
+input[type="url" i][aria-required="true"],
+input[type="week" i][aria-required="true"],
+textarea:required,
+input:not([type]):required,
+input[type="color" i]:required,
+input[type="date" i]:required,
+input[type="datetime" i]:required,
+input[type="datetime-local" i]:required,
+input[type="email" i]:required,
+input[type="month" i]:required,
+input[type="password" i]:required,
+input[type="number" i]:required,
+input[type="search" i]:required,
+input[type="tel" i]:required,
+input[type="text" i]:required,
+input[type="time" i]:required,
+input[type="url" i]:required,
+input[type="week" i]:required{
+    border-bottom: 2px solid rgb(225, 77, 67);
+}
+
+textarea:optional,
+input:not([type]):optional,
+input[type="color" i]:optional,
+input[type="date" i]:optional,
+input[type="datetime" i]:optional,
+input[type="datetime-local" i]:optional,
+input[type="email" i]:optional,
+input[type="month" i]:optional,
+input[type="number" i]:optional,
+input[type="tel" i]:optional,
+input[type="text" i]:optional,
+input[type="time" i]:optional,
+input[type="url" i]:optional,
+input[type="week" i]:optional{
+    /* todo */
+}
+    /**
+     * Known Issue
+     * :valid works even if nothing is entered in the field
+     * added :not(:placeholder-shown)
+     */
+textarea:valid:not(:placeholder-shown),
+input:not([type]):valid:not(:placeholder-shown),
+input[type="color" i]:valid:not(:placeholder-shown),
+input[type="date" i]:valid:not(:placeholder-shown),
+input[type="datetime" i]:valid:not(:placeholder-shown),
+input[type="datetime-local" i]:valid:not(:placeholder-shown),
+input[type="email" i]:valid:not(:placeholder-shown),
+input[type="month" i]:valid:not(:placeholder-shown),
+input[type="number" i]:valid:not(:placeholder-shown),
+input[type="tel" i]:valid:not(:placeholder-shown),
+input[type="text" i]:valid:not(:placeholder-shown),
+input[type="time" i]:valid:not(:placeholder-shown),
+input[type="url" i]:valid:not(:placeholder-shown),
+input[type="week" i]:valid:not(:placeholder-shown){
+    border-bottom: 2px solid rgb(86, 178, 116);  
+}
+/* when not exists placeholder attribute */
+textarea:not([placeholder]):valid,
+input:not([type]):valid:not([placeholder]):valid,
+input[type="color" i]:not([placeholder]):valid,
+input[type="date" i]:not([placeholder]):valid,
+input[type="datetime" i]:not([placeholder]):valid,
+input[type="datetime-local" i]:not([placeholder]):valid,
+input[type="email" i]:not([placeholder]):valid,
+input[type="month" i]:not([placeholder]):valid,
+input[type="number" i]:not([placeholder]):valid,
+input[type="tel" i]:not([placeholder]):valid,
+input[type="text" i]:not([placeholder]):valid,
+input[type="time" i]:not([placeholder]):valid,
+input[type="url" i]:not([placeholder]):valid,
+input[type="week" i]:not([placeholder]):valid{
+    border-bottom:1px solid rgba(127,127,127,.5);
+}
+textarea:invalid,
+input:not([type]):invalid,
+input[type="color" i]:invalid,
+input[type="date" i]:invalid,
+input[type="datetime" i]:invalid,
+input[type="datetime-local" i]:invalid,
+input[type="email" i]:invalid,
+input[type="month" i]:invalid,
+input[type="password" i]:invalid,
+input[type="number" i]:invalid,
+input[type="search" i]:invalid,
+input[type="tel" i]:invalid,
+input[type="text" i]:invalid,
+input[type="time" i]:invalid,
+input[type="url" i]:invalid,
+input[type="week" i]:invalid{
+    border-bottom: 2px solid rgb(225, 77, 67);   
+}
+textarea:disabled,
+input:not([type]):disabled,
+input[type="color" i]:disabled,
+input[type="date" i]:disabled,
+input[type="datetime" i]:disabled,
+input[type="datetime-local" i]:disabled,
+input[type="email" i]:disabled,
+input[type="month" i]:disabled,
+input[type="password" i]:disabled,
+input[type="number" i]:disabled,
+input[type="search" i]:disabled,
+input[type="tel" i]:disabled,
+input[type="text" i]:disabled,
+input[type="time" i]:disabled,
+input[type="url" i]:disabled,
+input[type="week" i]:disabled{
+    opacity:.7;
+    background-color: rgb(235, 235, 228);
+    cursor: not-allowed;
+    border-bottom:1px solid rgba(127,127,127,.5);
+}
+    /**
+     * Known Issue
+     * textarea is focused
+     */
+textarea:read-only,
+input:not([type]):read-only,
+input[type="color" i]:read-only,
+input[type="date" i]:read-only,
+input[type="datetime" i]:read-only,
+input[type="datetime-local" i]:read-only,
+input[type="email" i]:read-only,
+input[type="month" i]:read-only,
+input[type="password" i]:read-only,
+input[type="number" i]:read-only,
+input[type="search" i]:read-only,
+input[type="tel" i]:read-only,
+input[type="text" i]:read-only,
+input[type="time" i]:read-only,
+input[type="url" i]:read-only,
+input[type="week" i]:read-only{
+    border:none;
+    background:transparent;
+    cursor: not-allowed;
+}
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label {
+     font-weight: bold;
+     text-decoration:underline;
+}
+input[type="radio"]:indeterminate + label:before {
+    content:'?';
+    margin-right:.3em;
+    color:rgba(225, 77, 67, 1);  
+}
+    /* disable presentation start */
+    .rd-form-style-disabled input[type="radio"]:indeterminate + label:before {
+        content:'';
+        margin-right:0;
+    }
+    .rd-form-style-disabled input[type],
+    .rd-form-style-disabled input[type] + label{
+        font-weight:normal;
+        text-decoration:none;
+        background:transparent;
+
+    }
+    .rd-form-style-disabled input[type]{
+        border-bottom:1px solid rgba(127,127,127,.5);
+    }
+    /* disable presentation end */
+    
+/* field conditional Stye end */
 /**
  * Gradient Classes
    ========================================================================== */
@@ -1260,11 +1536,6 @@ legend{
     clear:none;
     margin:0;
 }
-/* @1.495 l
-.gallery .gallery-caption {
-    line-height:1.7;
-    text-align:left;
-}*/
 .gallery .gallery-caption ul{
     position:static;
     min-width:0;
@@ -1384,10 +1655,6 @@ td.month-date{
     background:none;
     display:block;
 }
-/* @1.494
-#doc3{
-    margin:0 2%;
-}*/
 #categorywidget-4 {
     margin-left:0.38461538461em;
 }
@@ -1800,7 +2067,6 @@ td > .author {
 .rd-list #bd .index .h2-thumb + .small-thumb-siblings{
     padding-left:.4em;
 }
-
 /**
  * Archives
    ========================================================================== */
@@ -2102,7 +2368,6 @@ br.clear{
 /* @1.494 dl a,*/
 .category a,
 #top a,
-/* @1.494 table#month-list a,*/
 div.entry h2 a,
 table#month-list a {
     text-decoration:none;
@@ -2142,7 +2407,6 @@ p + hr{
     margin-left:0;
 }
 .footer a,
-/* @1.494.category32, */
 .archive li a,
 .page .hentry .entry-title a,
 .archive.category h2 a {
@@ -2668,12 +2932,8 @@ body.single .category-blog-publish-date a{
 .format-status .entry-meta-list  a,
 .category-blog .entry-meta-list span,
 .category-blog .entry-meta-list  a{
-    display:block;
+   flex:1 1 auto;
     text-decoration:none;
-}
-.format-status .entry-meta-list .blog-entry-meta{
-  /*  display:flex;
-    flex-wrap:wrap;*/
 }
 .format-status .entry-meta-list .tagged,
 .format-status .entry-meta-list .this-posted-in{
@@ -3556,12 +3816,6 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
     padding-right:1.53846153846em;
     background-size:16px 16px;
 }
-/* @1.494
-td[class^="horizon"],
-div[class^="horizon"]{
-    text-align:left;
-    border:none;
-}*/
 .ie6 .gallery-size-thumbnail .gallery-icon img,
 .ie7 .gallery-size-thumbnail .gallery-icon img,
 .ie8 .gallery-size-thumbnail .gallery-icon img{
@@ -3813,6 +4067,7 @@ sup {
 .textwidget img{
     height:auto;
 }
+
 .widget_text .yui-gb div.yui-u{
     width:31%;
 }
@@ -4859,11 +5114,6 @@ ol.list-of-post-list .entry-title{
 .rsidebar .raindrops-pinup-entries > .grid-pinup-widgets >li > div > a > img{
     margin-top:36px;
 }
-.lsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
-.rsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
-   /* @1.494 text-align:center;
-    top:16px;*/
-}
 .single .lsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
 .single .rsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
     top:0;
@@ -5380,12 +5630,6 @@ div.raindrops-excerpt-more{
 .lsidebar ul li,
 .rsidebar ul li{
     list-style-type:none;
- /* @1.494 line-height:1.5;*/
-}
-
-.lsidebar li.page_item a,
-.lsidebar .widget ul li a {
-   /* @1.494 margin-top:0.3em;*/
 }
 /* ie8 list child display:block; list-marker break issue */
 .ie8 .lsidebar li.page_item a,
@@ -5985,6 +6229,7 @@ body:not(.rd-featured-yes-left) .h2-thumb{
 .not-hover{
     /* stop hover presentation */
 }
+/** @1.497
 .post-format-status-main .entry-title:before{
     content:"\00a0 \00a0";
     float:left;
@@ -5992,7 +6237,7 @@ body:not(.rd-featured-yes-left) .h2-thumb{
 }
 .post-format-status-main .entry-content{
     margin:1em;
-}
+}*/
 /**
  * Float Wrapper
    ========================================================================== */
@@ -6499,10 +6744,6 @@ x:-o-prefocus, .rd-modal > div {
 .topsidebar .widget_nav_menu > div[class$='container'] ul{
     box-sizing:border-box;
 }
-.rd-pw-doc5.rd-col-1 .topsidebar > ul > li{
-  /*  @1.494 padding-bottom:3em;
-    padding-top:1.5em;*/
-}
 .rd-pw-doc5.rd-col-1 .topsidebar > ul > .widget_search{
     padding-top:1.5em;
 }
@@ -6895,7 +7136,6 @@ p.raindrops-mobile-menu,
 }
 .rd-primary-menu-responsive-active .raindrops-mobile-menu.raindrops-menu-fixed{
     position:fixed;
-    /* @1.4994 background:#000; */
 }
 body:not(.rd-primary-menu-responsive-active) .raindrops-mobile-menu{
     display:none;
@@ -7317,7 +7557,7 @@ ul.archives .rd-tag-description{
     width:600px;
     max-width:100%!important;
     border:1px solid rgba(127,127,127,.4);
-    margin:2em auto;
+    margin:0 auto 2em;
 }
 .rd-grid .rd-card article{
     margin:0 auto;

@@ -10,6 +10,20 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Use Raindrops gallery template
+ * when category gallery, post format gallery
+ */
+if( ! isset( $raindrops_use_part_gallery_template ) ) {
+	$raindrops_use_part_gallery_template = true;
+}
+/**
+ * Use Raindrops blog template
+ * when category blog, post format blog
+ */
+if( ! isset( $raindrops_use_part_blog_template ) ) {
+	$raindrops_use_part_blog_template = true;
+}
+/**
  * When WEBSITE Change from http: to https
  * Old post content filtered to https://your domain/...
  */

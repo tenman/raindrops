@@ -39,134 +39,149 @@
     src: local("Helvetica Neue Regular");
     font-weight: 200;
 }
+/*
+* Noto Sans JP (japanese) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+   font-family:'Noto Sans JP';
+   src:local("Noto Sans CJK JP"),
+       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.otf) format('opentype');
+}
 body {
     font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
+    font-feature-settings: "palt";
 }
-/* "Yu Gothic" chrome issue */
-body.chrome.rd-type-minimal{
-    font-family:   "-apple-system", "Helvetica Neue", Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
+/* "Yu Gothic" chrome issue 
+ * 1.497 add Open Type font, Kerning with font-feature-settings
+ */
+body.opera:not(.rd-type-dark),
+body.chrome:not(.rd-type-dark){
+    font-family:   "-apple-system", "Helvetica Neue", 'Noto Sans JP', Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
 }
 /* IE10+ */ 
 @media all and (-ms-high-contrast: none) {
     body {
-        font-family: Verdana, Meiryo, sans-serif;
+        font-family: Verdana, 'Noto Sans JP', Meiryo, sans-serif;
     }
 }
 #archives-title,
 .mce-content-body,
-body.ja,
-.ja h1,
+h1,
 .mce-content-body h2,
-.ja h2,
+h2,
 .mce-content-body h3,
-.ja h3,
+h3,
 .mce-content-body .h1,
-.ja .h1,
+.h1,
 .mce-content-body .h2,
-.ja .h2,
+.h2,
 .mce-content-body .h3,
-.ja .h3{
+.h3{
     font-family: "-apple-system", "Helvetica Neue", Meiryo, "Yu Gothic", YuGothic, Verdana, sans-serif;
 }
 .rd-modal .header h3{
     margin-top:0;
     margin-bottom:0;
 }
-
 /* Raindrops new h1-h6 font size from ver 0.996 start */
-
-.ja #site-title{
+body.rd-basefont-13{
+    font-size:13px;
+}
+#site-title{
     margin:.5em 0;
     letter-spacing: -.04em;
 }
-.ja .entry-title{
-    font-weight:bold;
+.entry-title{
+    font-weight:700;
 }
-
 .ja .lsidebar h2,
 .ja .rsidebar h2{
-    font-size:108%;
+   /* @1.497 font-size:108%;*/
 }
-
 .mce-content-body .h1:not(h1),
 .mce-content-body h1,
-.ja .h1:not(h1){
+.h1:not(h1){
     font-size:197%;
 }
+
 .mce-content-body .h2:not(h2),
 .mce-content-body h2,
-.ja .h2:not(h2),
-.ja h2{
+.h2:not(h2),
+h2{
     font-size:153.9%;
 }
 .mce-content-body .h3:not(h3),
 .mce-content-body h3,
-.ja .h3:not(h3),
-.ja h3{
+.h3:not(h3),
+h3{
     font-size:116%;
 }
 .ja.date .entry-title,
 .mce-content-body .h4:not(h3),
 .mce-content-body h4,
-.ja .h4:not(h4),
-.ja h4{
+.h4:not(h4),
+h4{
     font-size:100%;
 }
 .mce-content-body .h5:not(h3),
 .mce-content-body h5,
-.ja .h5:not(h5),
-.ja h5{
+.h5:not(h5),
+h5{
     font-size:85%;
 }
 .mce-content-body .h6:not(h3),
 .mce-content-body h6,
-.ja .h6:not(h6),
-.ja h6{
+.h6:not(h6),
+h6{
     font-size:xx-small;
 }
 /* Raindrops new h1-h6 font size from ver 0.996 end */ 
-.ja .footer-widget h2,
-.ja .rsidebar h2,
-.ja .lsidebar h2,
-.ja .widgettitle h2,
-.ja h2.footer-content {
-    font-size:108%;
-    padding:5px 0;
+.footer-widget h2,
+.rsidebar h2,
+.lsidebar h2,
+.widgettitle h2,
+h2.footer-content {
+   /* @1.497 font-size:108%;*/
+    padding:5px 0;                          
 }
-.ja .author .entry-title{
+.author .entry-title{
     display:inline-block;
     margin-left:.6em;
 }
+/* @1.497
 .ja main .author .h2-thumb img{
     width:24px;
     height:24px;
-}
+}*/
+/* @1.497
 .ja.date table .entry-title{
     font-weight:normal;
 }
+/* @1.497
 .ja.date .entry-title{
     font-weight:normal;
-}
-.ja #list-of-post ol .entry-title{
+}*/
+#list-of-post ol .entry-title{
     font-weight:normal!important;
 }
-.ja em{
+em{
     font-weight:bold;
 }
-.ja i{
+i{
     font-style: italic;
 }
 /* @1.496
 .mce-content-body p,
 .ja p{
     line-height:1.6;
-}*/
+}
 .ja .datetable .time,
 .ja .datetable .month-name, 
 .ja .datetable .year-name, 
 .ja .datetable .day-name{
     font-style:normal;
-}
+}*/
+/* @1.497
 .ja .rsidebar .eco-archive li,
 .ja .lsidebar .eco-archive li{
     display:inline-block;
@@ -174,28 +189,28 @@ body.ja,
     box-sizing:border-box;
     width:3em;
 }
-
-.ja .widget_recent_comments .recentcomments{
+*/
+.widget_recent_comments .recentcomments{
     visibility:hidden;
 }
-.ja .widget_recent_comments .recentcomments a,
-.ja .widget_recent_comments .recentcomments span,
-.ja .widget_recent_comments .recentcomments img{
+.widget_recent_comments .recentcomments a,
+.widget_recent_comments .recentcomments span,
+.widget_recent_comments .recentcomments img{
     visibility:visible;
 }
-.ja .widget_recent_comments .comment-author-link{
+.widget_recent_comments .comment-author-link{
     border-bottom:1px dotted rgba(122,122,122,.5);
     display:block;
     margin-bottom:-1.5em;
 }
 
-.ja .raindrops-excerpt-more{
+.raindrops-excerpt-more{
     width:8em;
 }
-.ja .entry-content ins:hover::before{
+.entry-content ins:hover::before{
     content:'\633f \5165 ';
 }
-.ja .entry-content del:hover::before{
+.entry-content del:hover::before{
     content:'\524a \9664 ';
 }
 
@@ -221,4 +236,39 @@ body.ja,
 }
 .ja .rd-modal h3{
     margin:0;
+}
+/**
+ * font weight
+ */
+.thin,
+.b1{
+    font-weight:100;
+}
+.b2{
+    font-weight:200;
+}
+.b3{
+    font-weight:300;
+}
+.b4{
+    font-weight:400;
+}
+.b5{
+    font-weight:500;
+}
+.b6{
+    font-weight:600;
+}
+.bold,
+.b7{
+    font-weight:700;
+}
+.b8{
+    font-weight:800;
+}
+.b9{
+    font-weight:900;
+}
+.noto-sans-jp{
+    font-family: 'Noto Sans JP', sans-serif;
 }

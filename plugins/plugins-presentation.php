@@ -250,8 +250,15 @@ if ( !function_exists( 'raindrops_bcn_css' ) ) {
 		if ( 'yes' == get_theme_mod( 'raindrops_breadcrumb_navxt_status' ) &&
 		'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_bcn_nav_menu' ) ) {
 
-			$raindrops_bcn_css = 'ol.breadcrumbs{
-	margin:0 0 1em;
+			$raindrops_bcn_css = '.rd-col-1 .breadcrumbs{
+	margin-top:1.5em;
+	margin-bottom:.75em;
+}
+.front-page-template-pages .breadcrumbs{
+	display:none;
+}
+.breadcrumbs{
+	margin-bottom:1em;
 }
 .breadcrumbs li{
 list-style:none;
@@ -285,10 +292,11 @@ list-style:none;
 }
 
 @media screen and (max-width : 640px){
-	   ol.breadcrumbs{
+	   .breadcrumbs{
         display:block;
         width:90%;
-        margin:0 5%;
+        margin-left:5%;
+		margin-right:5%;
 		box-sizing:border-box;
     }
     .yui-main .breadcrumbs li{
@@ -1468,6 +1476,10 @@ figure[class|="wp-block"].alignright{
 	margin-top:.5em;
 	max-width:calc( 50% - 1em );
 	outline:1px solid #ccc;
+}
+div.wp-block-gallery.alignleft,
+div.wp-block-gallery.alignright{
+	padding-bottom:0;
 }
 .entry-content .wp-block-separator{
     border:none;

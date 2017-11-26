@@ -399,6 +399,5 @@ jQuery( function ( $ ) {
     
 } );
 jQuery( function ( $ ) {
-    
-    
+   
 } );

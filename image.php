@@ -65,7 +65,7 @@ raindrops_debug_navitation( __FILE__ );
 									}								
 									?>
 									
-									<div class="serif entry-content">
+									<div class="entry-content">
 										<?php
 										raindrops_prepend_entry_content();
 										

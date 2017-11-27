@@ -1,4 +1,77 @@
 Changelog -----------------------------------
+version:1.497
+
+Overview of Changes
+	Added body CSS Class rd-basefont-[13-20]
+		This Classes relate Base Font Size in Customize / Presentation / Fonts
+	Added Added Codemirror editor to Custom CSS For This Entry in post edit window
+
+	Modified visual settings
+
+		Kerning enabled all languages
+
+		for Japanese environment
+			Kerning enabled with font-feature-settings: "palt";
+
+		Changed Default fonts.
+			When using theme default font, YuGothic, Chrome Browser and Opera Browser are displayed as faint letters in Japanese.
+			Change Noto Sans JP (japanese) http://www.google.com/fonts/earlyaccess
+			Other browsers use YuGothic as the default font.
+			With this change kerning for Japanese has become effective with major browsers including IE 10 or more and edge browser
+
+			Basic Form validation styles added
+
+			type:[color , date , datetime , datetime-local , email , month , password , number , search , tel , text , time , url , week]
+
+			example selectors
+				:required,
+				input[type="email" i]:valid:not(:placeholder-shown),
+				input[type="email" i]:not([placeholder]):valid,
+				input[type="email" i]:invalid,
+				input[type="email" i]:disabled,
+				input[type="email" i]:read-only,
+				input[type="radio"]:indeterminate + label:before { content:'?';...}
+
+				Note:
+				Even if: valid is blank, since it evaluates to true,
+				I made a setting to support depending on whether or not a placeholder is displayed.
+
+			Known Issue
+
+				Must Needs Form Structure
+
+					<input type="text" placeholder="hello world" id="xxx" val=""><label for="xxx">hello world</label>
+
+				Not Work Structure
+					<label><input type="text" placeholder="hello world" id="xxx" val="">hello world</label>
+
+				IE, Edge not support
+	Added global vars
+
+		Variables to limit the behavior of very old template part files, part-gallery.php, part-blog.php
+		$raindrops_use_part_gallery_template, $raindrops_use_part_blog_template
+
+Files Modified
+	modified: css3.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   languages/css/ja.css
+	modified:   languages/scripts/ja.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   loop.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.496&new_path=raindrops/1.497
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.496
 
 Overview of Changes

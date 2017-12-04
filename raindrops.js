@@ -412,15 +412,21 @@ jQuery( function ( $ ) {
     /* load iframe only modal link clicked */
     $('.rd-modal iframe').each( function ( index ) { 
         var renamed_src = $(this).attr('src');
-        $( this).attr('data-rd-src', renamed_src ).attr('src', 'about:blank');
+        
+        if (typeof renamed_src !== typeof undefined && renamed_src !== false) {
+            $( this).attr('data-rd-src', renamed_src ).attr('src', 'about:blank');
+        }
     });
     
     $('.modal-link').click(function(){
-        $( modal_box_id ).find('iframe').hide();
-        var modal_box_id = $(this).attr('href');
-        modal_box_id = modal_box_id.replace(/^[^#]*/,"");
-        var iframe_src = $( modal_box_id ).find('iframe').attr('data-rd-src');
-        $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src').show();
+            
+        var modal_box_id    = $(this).attr('href');
+        modal_box_id        = modal_box_id.replace(/^[^#]*/,"");
+        var iframe_src      = $( modal_box_id ).find('iframe').attr('data-rd-src');
+            
+        if (typeof iframe_src !== typeof undefined && iframe_src !== false) {        
+            $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src');
+        }
     });
     
 } );

@@ -12541,13 +12541,20 @@ if ( !function_exists( 'raindrops_is_custom_post_type' ) ) {
 		}
 
 		$custom_types		 = array_keys( $all_custom_post_types );
-		$current_post_type	 = $post->post_type;
+		
+		if( ! empty( $post ) ) {
+			
+			$current_post_type	 = $post->post_type;
 
-		if ( in_array( $current_post_type, $custom_types ) ) {
+			if ( in_array( $current_post_type, $custom_types ) ) {
 
-			return true;
+				return true;
+			} else {
+
+				return false;
+			}
 		} else {
-
+			
 			return false;
 		}
 	}

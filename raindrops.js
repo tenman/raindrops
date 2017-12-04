@@ -409,4 +409,18 @@ jQuery( function ( $ ) {
         $(this).parents('.rd-modal').find('iframe').attr('src', iframe_src);
     });
     
+    /* load iframe only modal link clicked */
+    $('.rd-modal iframe').each( function ( index ) { 
+        var renamed_src = $(this).attr('src');
+        $( this).attr('data-rd-src', renamed_src ).attr('src', 'about:blank');
+    });
+    
+    $('.modal-link').click(function(){
+        $( modal_box_id ).find('iframe').hide();
+        var modal_box_id = $(this).attr('href');
+        modal_box_id = modal_box_id.replace(/^[^#]*/,"");
+        var iframe_src = $( modal_box_id ).find('iframe').attr('data-rd-src');
+        $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src').show();
+    });
+    
 } );

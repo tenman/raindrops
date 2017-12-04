@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.498
+version:1.499
 
 Overview of Changes
 
@@ -59,6 +59,8 @@ Overview of Changes
         youtube.com, reverbnation.com, cloudup.com, videopress.com, www.mixcloud.com, ted.com, soundcloud.com, wordpress.tv
 
         Not yet, audio shortcode
+
+        Note:Avoid placing large amounts of video in modal boxes. Iframes are loaded lazily, but the associated scripts are loaded and affect performance.
 
     Modified Raindrops Tab Box
 

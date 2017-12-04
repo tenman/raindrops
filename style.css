@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.498
+Version: 1.499
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -2712,6 +2712,7 @@ br.clearfix {
     padding-bottom:5%;
     height:0;
 }
+
 .yui-b > .yui-gf #wp-calendar #prev,
 .yui-b > .yui-gd #wp-calendar #prev,
 .yui-b > .yui-g #wp-calendar #prev,
@@ -6519,12 +6520,15 @@ ul.rd-nowrap{
     position: fixed;
     overflow: hidden;
     left: 0px;
-    top: 0px;
+    top: 1em;
     padding: 0px;
-    z-index: 99;
+    z-index: 199999;
     text-align: center;
     background:rgba(0,0,0,.6);
     color:#333;
+}
+.entry-content .rd-modal{
+    margin: 0;
 }
 .rd-modal .body{
     background:#fff;

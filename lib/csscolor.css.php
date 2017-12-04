@@ -2596,7 +2596,7 @@ body{
 .nav-links .page-numbers:hover{
 	%c4%;
 }
-.widget_calendar #today a,
+
 .widget_calendar #today,
 .nav-links .current{
     %c_2%;
@@ -3148,6 +3148,14 @@ $style .=<<<STRUCTURE_STYLE
     letter-spacing:-.03em;
     list-style-type:none;
     position:relative;
+}
+.yui-b > .yui-gf .widget_nav_menu .children,
+.yui-b > .yui-gd .widget_nav_menu .children,
+.yui-b > .yui-g .widget_nav_menu .children,
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu{
+	border:1px solid %rgba_border%;
 }
 .rd-type-minimal .widget_rss li{
 	border-bottom:1px dotted #aaa;

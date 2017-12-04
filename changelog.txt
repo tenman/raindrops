@@ -6,7 +6,7 @@ Overview of Changes
     Focus Wide Sidebar Design.
 
         WordPress 4.9 has greatly advanced the extension of non-post content such as sidebar.
-        Custom html widgets allow you to place content freely in the sidebar and galleries can now be displayed in the sidebar. 
+        Custom html widgets allow you to place content freely in the sidebar and galleries can now be displayed in the sidebar.
         Schedule function was also added.
 
         Until now, the sidebar was just the place to place the link, but you may be able to use it more effectively with your idea
@@ -22,9 +22,9 @@ Overview of Changes
 
     Modified Gallery widget in Sidebar( default sidebar, extra sidebar )
 
-        Raindrops Default sidebar can be set in the range of minimum 160px width up to 300px width. 
+        Raindrops Default sidebar can be set in the range of minimum 160px width up to 300px width.
         The Extra Sidebar can be set in the relative range of 25% to 75% in proportion to posting.
-        Since the width used relatively often is about 300px, 
+        Since the width used relatively often is about 300px,
         when added the gallery, the image is displayed very small. If the link is not used, it is very hard to see
 
         When linkless gallery is set, added a function to pop up when clicking images
@@ -39,7 +39,7 @@ Overview of Changes
 
         <div class="rd-modal" data-modal-id="raindrops_modal_fragment_id_automatic">
                 <div>
-                        <div class="body">		
+                        <div class="body">
                             https://youtu.be/dFf4AgBNR1E
                         </div>
                         <div class="footer">
@@ -50,13 +50,13 @@ Overview of Changes
 
         I added the function so that this function works not only in the entry content but also in the sidebar( with Custom HTML Widget ).
 
-        This modal box has some drawbacks to date. That is, if youtube video is placed in a modal box, 
+        This modal box has some drawbacks to date. That is, if youtube video is placed in a modal box,
         youtube video continues to play even if you press the close button during playback.
 
         Improved to stop video when pushing the Close button.
 
         tested with
-        youtube.com, reverbnation.com, cloudup.com, videopress.com, www.mixcloud.com, ted.com, soundcloud.com, wordpress.tv 
+        youtube.com, reverbnation.com, cloudup.com, videopress.com, www.mixcloud.com, ted.com, soundcloud.com, wordpress.tv
 
         Not yet, audio shortcode
 
@@ -75,7 +75,7 @@ Overview of Changes
                 </div>
                 <div class="raindrops-tab-page">
                         <h3>Tab2</h3>
-                        
+
                         <p>Lorem ipsum dolor sit amet, ...	</p>
                 </div>
                 <div class="raindrops-tab-page">
@@ -86,9 +86,23 @@ Overview of Changes
 
         Added current Tab CSS and General adjustment of display
 
+	Modified Customize / Presentation / Convert All Titles to Uppercase
+		Change scope
+	Modified language Japanese
+		Fonts Changes NotoSansJP-Regular.otf to NotoSansJP-Light.otf
 
 Files Modified
-
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   images/dummy.png
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.497&new_path=raindrops/1.498

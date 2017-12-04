@@ -1205,6 +1205,7 @@ ul.wp-block-latest-posts.is-grid li{
 	margin-left:auto;
 	margin-right:auto;
 }
+/* @see flex-expand class
 .wp-block-gallery.columns-6 .blocks-gallery-image:nth-last-of-type(1),
 .wp-block-gallery.columns-6 .blocks-gallery-image:nth-of-type(6n),
 .wp-block-gallery.columns-5 .blocks-gallery-image:nth-last-of-type(1),
@@ -1217,6 +1218,9 @@ ul.wp-block-latest-posts.is-grid li{
 .wp-block-gallery.columns-2 .blocks-gallery-image:nth-of-type(2n),
 .wp-block-gallery.columns-1 .blocks-gallery-image{
     margin-right:0;
+}*/
+.wp-block-gallery.columns-3 .blocks-gallery-image:nth-of-type(3n){
+	border:1px solid red;
 }
 .wp-block-gallery.alignwide{
     width:100%;
@@ -1269,15 +1273,39 @@ figure[class|="wp-block-embed"]{
     overflow:hidden;
 	max-width:100%;
 }
+.wp-block-image.alignleft{
+	margin-left:0;
+}
 .wp-block-image.alignright{
     text-align:right;
     padding:0;
     min-width:0;
+	margin-right:0;
 }
 .wp-block-image.alignleft > img,
 .wp-block-image.alignright > img{
     text-align:center;
     margin:.25em;
+}
+.rsidebar .gallery .gallery-item:focus,/* for without linking image */
+.lsidebar .gallery .gallery-item:focus,/* for without linking image */
+.flex-expand.flex-expand > .blocks-gallery-image:focus{
+    height:auto;
+	width:100%;	
+    flex-basis:100%;
+    transition: width 1s ease-in-out;
+    outline:none;
+	background:rgba(222,222,222,.3);
+	order:-1;
+	margin:0 0 16px;
+}
+.flex-expand.flex-expand > .blocks-gallery-image:focus ~ figure{
+	margin-right:16px;
+}
+.rsidebar .gallery .gallery-item:focus figcaption,
+.lsidebar .gallery .gallery-item:focus figcaption{
+	display:none;
+	
 }
 /**
  * Block Class alignleft, alignright
@@ -1352,6 +1380,8 @@ p.alignright{
     border-left:none;
     margin-left:0;
     margin-right:0;
+	padding-top:calc( 2em * 1.5 );
+	padding-bottom:calc( 2em * .75 );
 }
 .wp-block-pullquote.alignleft{
     margin-right:1em;
@@ -1480,14 +1510,15 @@ figure[class|="wp-block"].alignright{
 div.wp-block-gallery.alignleft,
 div.wp-block-gallery.alignright{
 	padding-bottom:0;
+	padding-right:0;/* relate flex-expand class */
 }
 .entry-content .wp-block-separator{
     border:none;
     clear:both;
     float:none;
     height:2em;
-    margin-top:1em;
-    margin-bottom:.5em;
+    margin-top:1.5em;
+    margin-bottom:.75em;
     position:relative;
     font-size:2em;
 }
@@ -1679,6 +1710,12 @@ section.wp-block-cover-image{
        margin-right:0;
        margin-left:0;
     }
+	div.wp-block-gallery.alignright, 
+	div.wp-block-gallery.alignleft{
+		width:100%;
+		max-width:100%;
+		margin:0;
+	}	
 	.entry-content p.alignleft,
 	.entry-content p.alignright{
 		/* @1.494 */

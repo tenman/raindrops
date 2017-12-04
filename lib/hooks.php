@@ -300,6 +300,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.348
 		 */
 		add_filter( 'the_content', 'raindrops_automatic_modal_rel_rev' );
+
 		/*
 		 * @since 1.353
 		 */
@@ -445,6 +446,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.497
 		 */
 		add_action( 'admin_enqueue_scripts', 'raindrops_add_codemirror_for_raindrops_custom_css_field' );
+		/**
+		 * @since 1.498
+		 */
+		add_filter( 'widget_custom_html_content', 'raindrops_automatic_modal_rel_rev_sidebar', 11, 3 );
 	}
 }
 ?>

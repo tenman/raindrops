@@ -399,5 +399,14 @@ jQuery( function ( $ ) {
     
 } );
 jQuery( function ( $ ) {
-   
+    /**
+     * Raindrops Modalbox
+     * Video Stoped when Click Close Button
+     * @1.498
+     */
+    $('.lb-close').click(function(){
+        var iframe_src = $(this).parents('.rd-modal').find('iframe').attr('src');
+        $(this).parents('.rd-modal').find('iframe').attr('src', iframe_src);
+    });
+    
 } );

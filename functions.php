@@ -1090,7 +1090,10 @@ if ( !function_exists( 'raindrops_add_share_link' ) ) {
 			$array_options	 = array(
 				' - - - '	 => array( 'type' => '', 'url' => '', 'icon' => '' ),
 				'tweet'		 => array( 'type' => 'link', 'url' => 'https://twitter.com/intent/tweet?text=%title%&amp;url=%url%', 'icon' => '' ),
-				'html'		 => array( 'type' => 'data', 'url' => 'data:text', 'icon' => '' )
+				/* @1.498 
+				 * Browser Stop Support
+				 * 'html'		 => array( 'type' => 'data', 'url' => 'data:text', 'icon' => '' )
+				 */
 			);
 			$array_options	 = apply_filters( 'raindrops_add_share_link_args', $array_options );
 
@@ -1863,7 +1866,11 @@ if ( !function_exists( "raindrops_add_stylesheet" ) ) {
 	function raindrops_add_stylesheet() {
 
 		global $raindrops_current_theme_name, $raindrops_current_data_version, $raindrops_css_auto_include, $raindrops_fallback_human_interface_show, $raindrops_tooltip, $wp_scripts, $raindrops_minified_suffix, $raindrops_load_minified_css_js;
-
+		/* 1.498 jquery in footer */
+		wp_scripts()->add_data( 'jquery', 'group', 1 );
+		wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+		wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+	
 		if( ! is_user_logged_in() ) {
 			/* @since 1.490 */
 			$raindrops_current_data_version = null;
@@ -2433,6 +2440,11 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 #doc5 #container:not(.rd-expand-sidebar) .first+.yui-u,
 #doc3 #container:not(.rd-expand-sidebar) .first+.yui-u{
 	display:none;
+}
+/* @1.498 */
+#doc5 #container:not(.rd-expand-sidebar) .entry-content .first+.yui-u,
+#doc3 #container:not(.rd-expand-sidebar) .entry-content .first+.yui-u{
+	display:block;
 }
 #doc5 .button-wrapper,
 #doc3 .button-wrapper{
@@ -5047,6 +5059,7 @@ if ( !function_exists( 'raindrops_is_fluid' ) ) {
 			"\n#access{min-width:" . $raindrops_fluid_minimum_width . 'px;}' .
 			'.raindrops-auto-fit-width, ' .
 			"\n#doc5 .static-front-content,
+	.page-template-front-page #doc5 .topsidebar,
 	#doc5 .front-page-top-container,
 	.page-template-page-featured .poster .line,
 	.page-template-page-featured .page article,
@@ -11899,6 +11912,8 @@ if ( !function_exists( 'raindrops_automatic_modal_rel_rev' ) ) {
 				$flagment_link	 = esc_url( get_permalink( $post->ID ) . '#' . $unique_id );
 				$result .= str_replace( array( 'raindrops_modal_fragment_id_automatic', '_fragment_id_automatic', ), array( $unique_id, $flagment_link ), $modal );
 			}
+			
+			$result = str_replace( 'data-modal-id=', 'id=', $result );
 			return $result;
 		}
 		return $content;
@@ -13768,7 +13783,7 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 										'.raindrops-pinup-entries .entry-title' => array( $default_basefont_val * 1.231,'px'),
 										'.raindrops-post-format-chat dt' => array( $default_basefont_val * 1.231,'px'),
 										'.page .edit-link' =>  array( $default_basefont_val,'px'),
-										'#raindrops-recent-posts .title,.raindrops-category-posts .title,.raindrops-tag-posts .title' => array( $default_basefont_val * 2,'px'),
+										'#raindrops-recent-posts .title,.raindrops-category-posts .title,.raindrops-tag-posts .title' => array( $default_basefont_val * 1.539,'px'),
 										'.portfolio .entry-title' => array( $default_basefont_val * 1.231,'px'),
 										'.raindrops-monthly-archive-prev-next-avigation, .pagination, .page-template-page-featured .widget' =>  array( $default_basefont_val,'px'),
 										'.archive-year-links .current-year,.datetable > h2' => array( $default_basefont_val * 1.539,'px'),
@@ -13884,6 +13899,35 @@ if( ! function_exists( 'raindrops_add_codemirror_for_raindrops_custom_css_field'
 				wp_json_encode( $settings )
 			)
 		);	
+	}
+}
+if ( ! function_exists( 'raindrops_automatic_modal_rel_rev_sidebar' ) ) {
+	/**
+	 * 
+	 * @param type $content
+	 * @param type $instance
+	 * @param type $this
+	 * @return type
+	 * @since 1.498
+	 */
+	function raindrops_automatic_modal_rel_rev_sidebar( $content, $instance, $this ) {
+
+			if ( false !== strpos( $content, 'raindrops_modal_fragment_id_automatic' ) ) {
+				$id = md5($instance["content"]);
+				$modals	 = explode( '#raindrops_modal', $content );
+				$result	 = '';
+				foreach ( $modals as $key => $modal ) {
+
+					$unique_id		 = 'modal_box_' . esc_attr($id) . '_' . absint( $key );
+					$flagment_link	 = '#' . $unique_id;
+					$result .= str_replace( array( 'raindrops_modal_fragment_id_automatic', '_fragment_id_automatic', ), array( $unique_id, $flagment_link ), $modal );
+				}
+
+				$result = str_replace( 'data-modal-id=', 'id=', $result );
+
+				return $result;
+			}
+			return $content;
 	}
 }
 /**

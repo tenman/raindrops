@@ -33,10 +33,12 @@
 /**
  * Font family
    ========================================================================== */
+
 body{
     font:arial,helvetica,clean,sans-serif;
     line-height:1.231;
 }
+
 #access .menu,
 #access div.menu ul{
     font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
@@ -137,10 +139,17 @@ tt {
 .image-caption .section-title{
     font-size:138.5%;
 }
+.topsidebar .widgettitle,
 .entry-content h3.sans-serif,
 .page .raindrops-tag-posts .enty-title,
 .page .raindrops-category-posts .entry-title,
 .page .raindrops-recent-posts .entry-title,
+.yui-b > .yui-gf #wp-calendar caption,
+.yui-b > .yui-gd #wp-calendar caption,
+.yui-b > .yui-g #wp-calendar caption,
+.yui-b > .yui-gf #wp-calendar tbody td,
+.yui-b > .yui-gd #wp-calendar tbody td,
+.yui-b > .yui-g #wp-calendar tbody td,
 .sticky-widget #wp-calendar caption,
 .sticky-widget #wp-calendar tbody td,
 .rsidebar .widgettitle,
@@ -215,34 +224,55 @@ h1,h2,h3,h4,h5,h6,
 /**
  * Font Classes
    ========================================================================== */
+/**
+ * font weight
+ */
+.b1 .site-title-link,
+.entry-title.b1,
 .thin,
 .b1{
     font-weight:100;
 }
+.b2 .site-title-link,
+.entry-title.b2,
 .b2{
     font-weight:200;
 }
+.b3 .site-title-link,
+.entry-title.b3,
 .b3{
     font-weight:300;
 }
+.b4 .site-title-link,
+.entry-title.b4,
 .b4{
     font-weight:400;
 }
+.b5 .site-title-link,
+.entry-title.b5,
 .b5{
     font-weight:500;
 }
+.b6 .site-title-link,
+.entry-title.b6,
 .b6{
     font-weight:600;
 }
+.b7 .site-title-link,
+.entry-title.b7,
 .bold,
 .b7{
     font-weight:700;
 }
+.b8 .site-title-link,
+.entry-title.b8,
 .b8{
     font-weight:800;
 }
+.b9 .site-title-link,
+.entry-title.b9,
 .b9{
-    font-weight:800;
+    font-weight:900;
 }
 .small-caps{
     font-variant:small-caps;

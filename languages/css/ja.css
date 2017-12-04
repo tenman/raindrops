@@ -45,8 +45,11 @@
 @font-face {
    font-family:'Noto Sans JP';
    src:local("Noto Sans CJK JP"),
-       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.otf) format('opentype');
+       url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.otf) format('opentype');
+   font-weight: 300;
+   font-style:normal;
 }
+table,
 body {
     font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
     font-feature-settings: "palt";
@@ -84,9 +87,7 @@ h3,
     margin-bottom:0;
 }
 /* Raindrops new h1-h6 font size from ver 0.996 start */
-body.rd-basefont-13{
-    font-size:13px;
-}
+
 #site-title{
     margin:.5em 0;
     letter-spacing: -.04em;
@@ -240,32 +241,50 @@ i{
 /**
  * font weight
  */
+.b1 .site-title-link,
+.entry-title.b1,
 .thin,
 .b1{
     font-weight:100;
 }
+.b2 .site-title-link,
+.entry-title.b2,
 .b2{
     font-weight:200;
 }
+.b3 .site-title-link,
+.entry-title.b3,
 .b3{
     font-weight:300;
 }
+.b4 .site-title-link,
+.entry-title.b4,
 .b4{
     font-weight:400;
 }
+.b5 .site-title-link,
+.entry-title.b5,
 .b5{
     font-weight:500;
 }
+.b6 .site-title-link,
+.entry-title.b6,
 .b6{
     font-weight:600;
 }
+.b7 .site-title-link,
+.entry-title.b7,
 .bold,
 .b7{
     font-weight:700;
 }
+.b8 .site-title-link,
+.entry-title.b8,
 .b8{
     font-weight:800;
 }
+.b9 .site-title-link,
+.entry-title.b9,
 .b9{
     font-weight:900;
 }

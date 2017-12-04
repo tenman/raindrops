@@ -40,8 +40,20 @@ function raindrops_indv_css_dark() {
 	$background_3 = raindrops_colors( -3, "background" );
 	$background4 = raindrops_colors( 4, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'color:orange!important;');
-
+	
+	if( 'yes' == raindrops_warehouse_clone( 'raindrops_text_transform_of_title' ) ){
+		$transform = 'text-transform: uppercase;';
+	} else {
+		$transform = '';
+	}
     $style = <<<DOC
+.year-month, year-month-date,
+.widget a,
+.widget.widget_recent_entries li a,
+.post-group_by-category-entry-title,
+.post-group_by-category-title{
+	{$transform}
+}	
 pre[class]{
 	 %c_4%;
 }
@@ -63,6 +75,12 @@ mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
 .topsidebar .widget_tag_cloud .tagcloud a{
 	background:$background_4;
 }
+.yui-b > .yui-gf .widget_archive li a,
+.yui-b > .yui-gd .widget_archive li a,
+.yui-b > .yui-g .widget_archive  li a,
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
 .topsidebar .widget_meta ul > li a,
 .topsidebar .widget_meta ul > li,
 .topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item a,
@@ -151,12 +169,24 @@ mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
 .ie11.raindrops-accessible-mode.rd-type-dark #access .children a:focus{
 	$raindrops_focus_style
 }
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu .sub-menu,
+.yui-b > .yui-gf .widget_nav_menu .sub-menu a,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu a,
+.yui-b > .yui-g .widget_nav_menu .sub-menu a,
 .widget_nav_menu.sticky-widget .sub-menu,
 .widget_pages.sticky-widget .children,
 .widget_nav_menu.sticky-widget .sub-menu a,
 .widget_pages.sticky-widget .children a{
     width:12em; 
 }
+.yui-b > .yui-gf .widget_nav_menu .children,
+.yui-b > .yui-gd .widget_nav_menu .children,
+.yui-b > .yui-g .widget_nav_menu .children,
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu .sub-menu,
 .topsidebar .widget_nav_menu.sticky-widget .children,
 .topsidebar .widget_nav_menu.sticky-widget .sub-menu{
 	border-bottom:1px solid rgba(122,122,122,.5);
@@ -166,6 +196,9 @@ mark.alert,mark.info,mark.notice,mark.red,mark.yellow,mark.blue,mark.green{
 	border-top:1px solid rgba(68,68,68,.5);
 	%c_4%;
 }
+.yui-b > .yui-gf .widget_nav_menu .sub-menu:last-child,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu:last-child,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu:last-child,
 .topsidebar .widget_nav_menu.sticky-widget .sub-menu:last-child{
 	border-bottom:none;
 }
@@ -242,6 +275,7 @@ ul.nav li a:hover,ul.nav li a:active,
 .lsidebar option.level-2{
     %c_2%
 }
+
 .widget select,
 input[type="file"],
 input[type="reset"],
@@ -459,6 +493,7 @@ li.byuser span.says{
     background:%custom_light_bg%;
     color:%custom_color%;
 }
+
 .reply,
 .page .entry-title a,
 cite.fn,
@@ -569,7 +604,9 @@ hr{
 .home.rd-grid .sticky{
     border-top:none;
 }
-
+.yui-b > .yui-gf .widget_categories .cat-item,
+.yui-b > .yui-gd .widget_categories .cat-item,	
+.yui-b > .yui-g .widget_categories .cat-item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
 .topsidebar .sticky-widget.widget_archive li,
@@ -605,6 +642,9 @@ ul.archive,ul.index,
 .sitemap.new li{
     border-bottom:1px solid %rgba_border%;
 }
+.yui-b > .yui-gf #wp-calendar tbody td,
+.yui-b > .yui-gd #wp-calendar tbody td,
+.yui-b > .yui-g #wp-calendar tbody td,
 dl > div,
 .sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
@@ -685,6 +725,18 @@ kbd,
 .raindrops-mobile-menu,
 kbd,
 .entry-content .more-link,
+.yui-b > .yui-gf #wp-calendar th,
+.yui-b > .yui-gd #wp-calendar th,
+.yui-b > .yui-g #wp-calendar  th,
+.yui-b > .yui-gf #wp-calendar tbody #today,
+.yui-b > .yui-gd #wp-calendar tbody #today,
+.yui-b > .yui-g #wp-calendar  tbody #today,
+.yui-b > .yui-gf #wp-calendar  #prev a,
+.yui-b > .yui-gd #wp-calendar  #prev a,
+.yui-b > .yui-g #wp-calendar  #prev a,
+.yui-b > .yui-gf #wp-calendar tbody td:hover,
+.yui-b > .yui-gd #wp-calendar tbody td:hover,
+.yui-b > .yui-g #wp-calendar tbody td:hover,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev a,
@@ -723,6 +775,7 @@ a.raindrops-comment-link em,
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='%custom_dark_bg%', endColorstr='%custom_light_bg%');
     color:%custom_color%;
 }
+
 #access li:hover > ul > ul{
     background:none;
 	border:none;
@@ -891,7 +944,22 @@ function raindrops_indv_css_w3standard() {
 	$background3 = raindrops_colors( 4, "background" );	
 	$background_3 = raindrops_colors( -3, "background" );
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:orange!important;');
+	
+	if( 'yes' == raindrops_warehouse_clone( 'raindrops_text_transform_of_title' ) ){
+		$transform = 'text-transform: uppercase;';
+	} else {
+		$transform = '';
+	}
+	
     $style = <<<DOC
+.year-month, year-month-date,
+.widget a,
+.widget.widget_recent_entries li a,
+.post-group_by-category-entry-title,
+.post-group_by-category-title{
+	{$transform}
+}
+.yui-main .yui-u:nth-child(2),
 nav,
 aside{
     background:#fff;
@@ -922,6 +990,12 @@ pre[class]{
 	%c4%;
 	background:transparent;
 }
+.yui-b > .yui-gf .widget_archive li a,
+.yui-b > .yui-gd .widget_archive li a,
+.yui-b > .yui-g .widget_archive  li a,
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
 .topsidebar .widget_meta ul > li a,
 .topsidebar .widget_meta ul > li,
 .topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item a,
@@ -941,6 +1015,12 @@ pre[class]{
 .topsidebar .widget_tag_cloud .tagcloud a:hover{
 	background:#fff;
 }
+.yui-b > .yui-gf .widget_archive li:hover a,
+.yui-b > .yui-gd .widget_archive li:hover a,
+.yui-b > .yui-g .widget_archive  li:hover a,
+.yui-b > .yui-gf .widget_archive li:hover,
+.yui-b > .yui-gd .widget_archive li:hover,
+.yui-b > .yui-g .widget_archive  li:hover,
 .topsidebar .widget_meta ul > li:hover a,
 .topsidebar .widget_meta ul > li:hover,
 .topsidebar .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item:hover a,
@@ -1030,7 +1110,12 @@ pre[class]{
     %h2_w3standard_background%
     %h_position_rsidebar_h2%
 }
-	
+.yui-b > .yui-gf .widget_nav_menu .children,
+.yui-b > .yui-gd .widget_nav_menu .children,
+.yui-b > .yui-g .widget_nav_menu  .children,
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu,
 .topsidebar .widget_pages.sticky-widget .children,
 .topsidebar .widget_nav_menu.sticky-widget .children,
 .topsidebar .widget_nav_menu.sticky-widget .sub-menu{
@@ -1040,6 +1125,9 @@ pre[class]{
 .topsidebar .widget_pages.sticky-widget .children{
      border-top:1px dotted rgba(122,122,122,.5);
 }
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu,
 .widget_nav_menu.sticky-widget .sub-menu{
     border-bottom:1px solid rgba(122,122,122,.5);
 }
@@ -1049,6 +1137,12 @@ body {
     margin:0!important;padding:0;
     background-repeat:repeat-x;
 }
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
+.yui-b > .yui-gf .widget_categories .cat-item,
+.yui-b > .yui-gd .widget_categories .cat-item,	
+.yui-b > .yui-g .widget_categories .cat-item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
 .topsidebar .sticky-widget.widget_archive li,
@@ -1157,6 +1251,9 @@ select{
 .page .rd-border,
 .post .rd-border,
 kbd,
+.yui-b > .yui-gf #wp-calendar tbody td,
+.yui-b > .yui-gd #wp-calendar tbody td,
+.yui-b > .yui-g #wp-calendar tbody td,
 .sticky-widget #wp-calendar tbody td,
 .raindrops-toc-front li,
 .entry-content input[type="email"],
@@ -1178,6 +1275,18 @@ kbd,
 .entry-content input[type="radio"]{
     %c3%
 }
+.yui-b > .yui-gf #wp-calendar th,
+.yui-b > .yui-gd #wp-calendar th,
+.yui-b > .yui-g #wp-calendar  th,
+.yui-b > .yui-gf #wp-calendar tbody #today,
+.yui-b > .yui-gd #wp-calendar tbody #today,
+.yui-b > .yui-g #wp-calendar  tbody #today,
+.yui-b > .yui-gf #wp-calendar  #prev ,
+.yui-b > .yui-gd #wp-calendar  #prev ,
+.yui-b > .yui-g #wp-calendar  #prev ,
+.yui-b > .yui-gf #wp-calendar tbody td:hover,
+.yui-b > .yui-gd #wp-calendar tbody td:hover,
+.yui-b > .yui-g #wp-calendar tbody td:hover,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -1453,7 +1562,20 @@ function raindrops_indv_css_light() {
 	$background3			 = raindrops_colors( 3, "background" );
 	$raindrops_focus_style	 = apply_filters( 'raindrops_forcus_style', 'color:red!important;' );
 
+	if( 'yes' == raindrops_warehouse_clone( 'raindrops_text_transform_of_title' ) ){
+		$transform = 'text-transform: uppercase;';
+	} else {
+		$transform = '';
+	}
 	$style = <<<DOC
+.year-month, year-month-date,
+.widget a,
+.widget.widget_recent_entries li a,
+.post-group_by-category-entry-title,
+.post-group_by-category-title{
+	{$transform}
+}	
+.yui-main .yui-u:nth-child(2),
 nav,
 aside{
    %c5%;
@@ -1538,7 +1660,9 @@ pre[class]{
 .raindrops-accessible-mode .hfeed a:focus{
 	$raindrops_focus_style
 }
-	
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu,	
 .widget_nav_menu.sticky-widget .sub-menu,
 .widget_pages.sticky-widget .children{
     %c4%
@@ -1970,6 +2094,12 @@ ul.category li{
     border-bottom:1px solid %rgba_border%;
 
 }
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
+.yui-b > .yui-gf .widget_categories .cat-item,
+.yui-b > .yui-gd .widget_categories .cat-item,	
+.yui-b > .yui-g .widget_categories .cat-item,
 dl > div,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
@@ -2005,7 +2135,18 @@ hr{
     border:1px solid %rgba_border%;
 	%c5%
 }
-
+.yui-b > .yui-gf #wp-calendar th,
+.yui-b > .yui-gd #wp-calendar th,
+.yui-b > .yui-g #wp-calendar  th,
+.yui-b > .yui-gf #wp-calendar tbody #today,
+.yui-b > .yui-gd #wp-calendar tbody #today,
+.yui-b > .yui-g #wp-calendar  tbody #today,
+.yui-b > .yui-gf #wp-calendar  #prev ,
+.yui-b > .yui-gd #wp-calendar  #prev ,
+.yui-b > .yui-g #wp-calendar  #prev ,
+.yui-b > .yui-gf #wp-calendar tbody td:hover,
+.yui-b > .yui-gd #wp-calendar tbody td:hover,
+.yui-b > .yui-g #wp-calendar tbody td:hover,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -2045,6 +2186,12 @@ hr{
     background: %rgba_border%;
     border:solid 1px %rgba_border%;
 }
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
+.yui-b > .yui-gf .widget_categories .cat-item,
+.yui-b > .yui-gd .widget_categories .cat-item,	
+.yui-b > .yui-g .widget_categories .cat-item,
 .raindrops-mobile-menu,
 .topsidebar .widget_meta ul > li,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
@@ -2052,6 +2199,18 @@ hr{
 .topsidebar .sticky-widget.widget_archive li,
 .topsidebar .sticky-widget.widget_categories .cat-item,
 kbd,
+.yui-b > .yui-gf #wp-calendar th,
+.yui-b > .yui-gd #wp-calendar th,
+.yui-b > .yui-g #wp-calendar  th,
+.yui-b > .yui-gf #wp-calendar tbody #today,
+.yui-b > .yui-gd #wp-calendar tbody #today,
+.yui-b > .yui-g #wp-calendar  tbody #today,
+.yui-b > .yui-gf #wp-calendar  #prev ,
+.yui-b > .yui-gd #wp-calendar  #prev ,
+.yui-b > .yui-g #wp-calendar  #prev ,
+.yui-b > .yui-gf #wp-calendar tbody td:hover,
+.yui-b > .yui-gd #wp-calendar tbody td:hover,
+.yui-b > .yui-g #wp-calendar tbody td:hover,
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -2278,6 +2437,7 @@ function raindrops_indv_css_minimal() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#c0392b!important;');
     $style = <<<CSS
+.yui-main .yui-u:nth-child(2),
 nav,
 aside{
    background:#fff;
@@ -2323,7 +2483,9 @@ aside{
 .topsidebar .widget a.post-group_by-category-entry-title.no-thumb{
 	 border-left:48px solid #bdc3c7;
 }
-
+.yui-b > .yui-gf #wp-calendar tbody #today,
+.yui-b > .yui-gd #wp-calendar tbody #today,
+.yui-b > .yui-g #wp-calendar tbody #today,
 .sticky-widget #wp-calendar tbody #today,
 .raindrops-accessible-mode .raindrops-comment-link:focus em,
 .enable-keyboard .raindrops-comment-link:focus em,
@@ -2346,10 +2508,28 @@ aside{
 .lsidebar .eco-archive li:hover{
 	%c5%;
 }
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
+.yui-b > .yui-gf .widget_categories .cat-item,
+.yui-b > .yui-gd .widget_categories .cat-item,	
+.yui-b > .yui-g .widget_categories .cat-item,	
 .raindrops-extend-archive.sticky-widget .eco-archive.by-month .item,
 .raindrops-extend-archive.sticky-widget .eco-archive.by-year .month,
 .topsidebar .sticky-widget.widget_archive li,
 .topsidebar .sticky-widget.widget_categories .cat-item,
+.yui-b > .yui-gf #wp-calendar th,
+.yui-b > .yui-gd #wp-calendar th,
+.yui-b > .yui-g #wp-calendar  th,
+.yui-b > .yui-gf #wp-calendar tbody #today,
+.yui-b > .yui-gd #wp-calendar tbody #today,
+.yui-b > .yui-g #wp-calendar  tbody #today,
+.yui-b > .yui-gf #wp-calendar  #prev ,
+.yui-b > .yui-gd #wp-calendar  #prev ,
+.yui-b > .yui-g #wp-calendar  #prev ,
+.yui-b > .yui-gf #wp-calendar tbody td,
+.yui-b > .yui-gd #wp-calendar tbody td,
+.yui-b > .yui-g #wp-calendar tbody td,	
 .sticky-widget #wp-calendar th,
 .sticky-widget #wp-calendar tbody #today,
 .sticky-widget #wp-calendar #prev,
@@ -2357,7 +2537,12 @@ aside{
    border:1px solid #696969;
 	border:1px solid rgba(105,105,105,.5);	
 }
-	
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu,
+.yui-b > .yui-gf .widget_nav_menu .sub-menu a,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu a,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu a,	
 .widget_nav_menu.sticky-widget .sub-menu,
 .widget_pages.sticky-widget .children,
 .widget_nav_menu.sticky-widget .sub-menu a,
@@ -2365,6 +2550,12 @@ aside{
     color:#000;
 	background:#fff;
 }
+/* .yui-b > .yui-gf .widget_nav_menu .children,
+.yui-b > .yui-gd .widget_nav_menu .children,
+.yui-b > .yui-g .widget_nav_menu  .children,
+.yui-b > .yui-gf .widget_nav_menu .sub-menu,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu,*/
 .topsidebar .widget_nav_menu.sticky-widget .children,
 .topsidebar .widget_nav_menu.sticky-widget .sub-menu,
 .topsidebar .widget_pages.sticky-widget .children{
@@ -2542,7 +2733,6 @@ hr{
 .textwidget td,
 .entry-content th,
 .entry-content td{
-	padding:.7em .5em;
 	border-bottom:1px solid %rgba_border%;
 }
 
@@ -2586,6 +2776,11 @@ a:hover{
 .rd-type-minimal #access .menu > li{
 	border:none;
 }
+
+.yui-b > .yui-gf .widget_nav_menu .sub-menu a:hover,
+.yui-b > .yui-gd .widget_nav_menu .sub-menu a:hover,
+.yui-b > .yui-g .widget_nav_menu  .sub-menu a:hover,
+.widget_nav_menu.sticky-widget > ul > li > a:hover,
 .rd-type-minimal #access a:hover{
 	color:rgba(255, 255, 255,1.0);
 	background:#000;
@@ -2761,6 +2956,7 @@ address .entry-rss:after,
 .lsidebar .widget  .post-group-by-category-title{
     list-style-type:none;
 }
+.rd-type-minimal .widget_recent_entries li,
 .footer .widget  .post-group-by-category-title li,
 .rsidebar .widget  .post-group-by-category-title li,
 .lsidebar .widget  .post-group-by-category-title li{
@@ -2780,9 +2976,15 @@ address .entry-rss:after,
 	background:$background_3;
 	color:#fff;
 }
+.yui-b > .yui-gf #wp-calendar tbody td[colspan],
+.yui-b > .yui-gd #wp-calendar tbody td[colspan],	
+.yui-b > .yui-g #wp-calendar tbody td[colspan],	
 .sticky-widget #wp-calendar tbody td[colspan]{
 	 background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
 }
+.yui-b > .yui-gf #wp-calendar tbody #today a,
+.yui-b > .yui-gd #wp-calendar tbody #today a,
+.yui-b > .yui-g #wp-calendar tbody #today a,
 .sticky-widget #wp-calendar tbody #today a{
 	padding:.6em;
 	
@@ -2906,12 +3108,18 @@ $style .=<<<STRUCTURE_STYLE
     -webkit-box-shadow:none;
     -moz-box-shadow:none;
 }
+.yui-b > .yui-gf .widget_nav_menu > div > ul,
+.yui-b > .yui-gd .widget_nav_menu > div > ul,
+.yui-b > .yui-g .widget_nav_menu  > div > ul,
 .rd-type-minimal .widget_meta > ul,
 .rd-type-minimal .widget_pages > ul,
 .rd-type-minimal .widget_nav_menu > div > ul,
 .rd-type-minimal .widget_archive > ul{
     margin-left:1em;
 }
+.yui-b > .yui-gf .widget_nav_menu > div > ul,
+.yui-b > .yui-gd .widget_nav_menu > div > ul,
+.yui-b > .yui-g .widget_nav_menu  > div > ul,
 .rd-type-minimal .topsidebar .widget_meta > ul,
 .rd-type-minimal .topsidebar .widget_pages > ul,
 .rd-type-minimal .topsidebar .widget_nav_menu > div > ul,
@@ -2924,6 +3132,12 @@ $style .=<<<STRUCTURE_STYLE
 .rd-type-minimal .widget_recent_entries > ul{
     margin-left:.8em;
 }*/
+.yui-b > .yui-gf .widget_nav_menu .menu-item,
+.yui-b > .yui-gd .widget_nav_menu .menu-item,
+.yui-b > .yui-g .widget_nav_menu .menu-item,
+.yui-b > .yui-gf .widget_nav_menu li,
+.yui-b > .yui-gd .widget_nav_menu li,
+.yui-b > .yui-g .widget_nav_menu  li,
 .rd-type-minimal .widget_nav_menu .menu-item,
 .rd-type-minimal .widget_rss li,
 .rd-type-minimal .widget_meta li,
@@ -2950,15 +3164,23 @@ $style .=<<<STRUCTURE_STYLE
      border-left-color:%rgba_border%;
      padding-left:1em;
 }
+.year-month, year-month-date,
+.widget a,
+.post-group_by-category-entry-title,
+.post-group_by-category-title{
+	{$transform}
+}
 .rd-type-minimal .widget.widget_recent_entries li a{
-	font-weight:700;
-	line-height:1.6;
 	margin-top:0;
 	{$transform}
 }
+/* @1.498
 .rd-type-minimal .widget_recent_entries li:last-child{
     border-bottom: 1px dotted rgba(122,122,122,.5);
-}
+}*/
+.yui-b > .yui-gf .widget_nav_menu li:before,
+.yui-b > .yui-gd .widget_nav_menu li:before,
+.yui-b > .yui-g .widget_nav_menu li:before,
 .rd-type-minimal .widget_meta li:before,
 .rd-type-minimal .widget_pages li:before,
 .rd-type-minimal .widget_nav_menu li:before,
@@ -2974,6 +3196,9 @@ $style .=<<<STRUCTURE_STYLE
 .rd-type-minimal .widget_archive li:before {
 	top:0;
 }
+.yui-b > .yui-gf .widget_nav_menu li:first-child:before,
+.yui-b > .yui-gd .widget_nav_menu li:first-child:before,
+.yui-b > .yui-g .widget_nav_menu li:first-child:before,
 .rd-type-minimal .widget_meta li:first-child:before,
 .rd-type-minimal .widget_pages li:first-child:before,
 .rd-type-minimal .widget_nav_menu li:first-child:before,
@@ -2982,7 +3207,9 @@ $style .=<<<STRUCTURE_STYLE
 	
 }
 	
-	
+.yui-b > .yui-gf .widget_nav_menu li:before,
+.yui-b > .yui-gd .widget_nav_menu li:before,
+.yui-b > .yui-g .widget_nav_menu li:before,
 .rd-type-minimal .footer .widget_meta li:before,
 .rd-type-minimal .footer .widget_pages li:before,
 .rd-type-minimal .footer .widget_nav_menu li:before,
@@ -3034,8 +3261,8 @@ $style .=<<<STRUCTURE_STYLE
 }
 .rd-type-minimal .widget_meta a,
 .rd-type-minimal .widget_pages a,
-.rd-type-minimal .widget_nav_menu a,
-.rd-type-minimal .widget_recent_entries a{
+.rd-type-minimal .widget_nav_menu a/* @1.498,
+.rd-type-minimal .widget_recent_entries a*/{
     padding:.279em 1em;
 	box-sizing:border-box;
 }

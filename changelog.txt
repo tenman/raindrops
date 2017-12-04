@@ -1,4 +1,99 @@
 Changelog -----------------------------------
+version:1.498
+
+Overview of Changes
+
+    Focus Wide Sidebar Design.
+
+        WordPress 4.9 has greatly advanced the extension of non-post content such as sidebar.
+        Custom html widgets allow you to place content freely in the sidebar and galleries can now be displayed in the sidebar. 
+        Schedule function was also added.
+
+        Until now, the sidebar was just the place to place the link, but you may be able to use it more effectively with your idea
+
+        In order to help your idea, I reconsidered the design of the wide sidebar of Raindrops
+
+        wider sidebar is ( Customize / Presentation / Layout and Sidebars ) Extra Sidebar Width 50%, 66%, 75%
+
+        Many widget displays have been refreshed for these sidebar settings
+
+        Please preview with the customizer and check how it looks. Also, please give me your feedback.
+        In addition, I have devised modal boxes and tab display further to make use of wide sidebar conveniently.
+
+    Modified Gallery widget in Sidebar( default sidebar, extra sidebar )
+
+        Raindrops Default sidebar can be set in the range of minimum 160px width up to 300px width. 
+        The Extra Sidebar can be set in the relative range of 25% to 75% in proportion to posting.
+        Since the width used relatively often is about 300px, 
+        when added the gallery, the image is displayed very small. If the link is not used, it is very hard to see
+
+        When linkless gallery is set, added a function to pop up when clicking images
+        Image size of linkless gallery, midium or more is recommended
+
+    Modified Raindrops Modal Box
+        A modal box is a mechanism to create a modal box easily from ancient times.
+        You can easily create a modal box simply by pasting the following source in the entry content.
+        Since the href attribute and data-modal-id are automatically converted, you can create as many modal boxes as you paste.
+
+        <a href="#raindrops_modal_fragment_id_automatic" class="modal-link">Link displaying modal box</a>
+
+        <div class="rd-modal" data-modal-id="raindrops_modal_fragment_id_automatic">
+                <div>
+                        <div class="body">		
+                            https://youtu.be/dFf4AgBNR1E
+                        </div>
+                        <div class="footer">
+                                <a href="#page" ><span class="lb-close color5 pad-s corner">Close</span></a>
+                        </div>
+                </div>
+        </div>
+
+        I added the function so that this function works not only in the entry content but also in the sidebar( with Custom HTML Widget ).
+
+        This modal box has some drawbacks to date. That is, if youtube video is placed in a modal box, 
+        youtube video continues to play even if you press the close button during playback.
+
+        Improved to stop video when pushing the Close button.
+
+        tested with
+        youtube.com, reverbnation.com, cloudup.com, videopress.com, www.mixcloud.com, ted.com, soundcloud.com, wordpress.tv 
+
+        Not yet, audio shortcode
+
+    Modified Raindrops Tab Box
+
+        A layout that saves space on the WEB page is easily realized.
+        You can easily create a Tab Box simply by pasting the following source in the entry content and Custom HTML Widget.
+
+        <ul class="raindrops-tab-list clearfix" role="tablist">
+                <li class="dummy">Tab Area</li>
+        </ul>
+        <div class="raindrops-tab-content clearfix">
+                <div class="raindrops-tab-page">
+                        <h3>Tab1</h3>
+                        <p>Lorem ipsum dolor sit amet...</p>
+                </div>
+                <div class="raindrops-tab-page">
+                        <h3>Tab2</h3>
+                        
+                        <p>Lorem ipsum dolor sit amet, ...	</p>
+                </div>
+                <div class="raindrops-tab-page">
+                        <h3>Tab3</h3>
+                        <p>Lorem ipsum dolor sit amet...</p>
+                </div>
+        </div>
+
+        Added current Tab CSS and General adjustment of display
+
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.497&new_path=raindrops/1.498
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.497
 
 Overview of Changes

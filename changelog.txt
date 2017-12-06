@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.501
+
+Overview of Changes
+	Fixed PHP Fatal error:  Cannot use $this as parameter
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.500&new_path=raindrops/1.501
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.500
 
 Overview of Changes

@@ -13913,11 +13913,10 @@ if ( ! function_exists( 'raindrops_automatic_modal_rel_rev_sidebar' ) ) {
 	 * 
 	 * @param type $content
 	 * @param type $instance
-	 * @param type $this
 	 * @return type
 	 * @since 1.498
 	 */
-	function raindrops_automatic_modal_rel_rev_sidebar( $content, $instance, $this ) {
+	function raindrops_automatic_modal_rel_rev_sidebar( $content, $instance ) {
 
 			if ( false !== strpos( $content, 'raindrops_modal_fragment_id_automatic' ) ) {
 				$id = md5($instance["content"]);

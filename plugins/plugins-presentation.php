@@ -1219,9 +1219,7 @@ ul.wp-block-latest-posts.is-grid li{
 .wp-block-gallery.columns-1 .blocks-gallery-image{
     margin-right:0;
 }*/
-.wp-block-gallery.columns-3 .blocks-gallery-image:nth-of-type(3n){
-	border:1px solid red;
-}
+
 .wp-block-gallery.alignwide{
     width:100%;
 }
@@ -1254,8 +1252,8 @@ ul.wp-block-latest-posts.is-grid li{
     outline:none;
 }
 figure[class|="wp-block-embed"]{
-    margin:1em 0;
-    max-width:100%;
+/*    margin:1em 0;
+    max-width:100%;*/
 }
 .wp-block-image figcaption:focus,
 .blocks-gallery-image:focus,
@@ -1325,7 +1323,8 @@ p.alignleft{
 	padding:1em;
 	margin-top:.5em;
 	border:1px solid #ccc;
-	max-width:calc( 50% - 2em );
+	max-width:calc( 50% - 1em );
+	box-sizing:border-box;
 }
 
 p.alignright{
@@ -1335,7 +1334,8 @@ p.alignright{
 	padding:1em;
 	margin-top:.5em;
 	border:1px solid #ccc;
-	max-width:calc( 50% - 2em );	
+	max-width:calc( 50% - 1em );
+	box-sizing:border-box;
 }
 
 /**
@@ -1385,9 +1385,12 @@ p.alignright{
 }
 .wp-block-pullquote.alignleft{
     margin-right:1em;
+	max-width:calc( 50% - 1em );
+	
 }
 .wp-block-pullquote.alignright{
     margin-left:1em;
+	max-width:calc( 50% - 1em );
 }
 .wp-block-pullquote footer{
     margin-bottom:1em;
@@ -1406,7 +1409,7 @@ p.alignright{
 /**
  * Block Button
  */
-div.wp-block-button.alignright,
+body div.wp-block-button.alignright,
 div.wp-block-button.aligncenter,
 .wp-block-button.alignnone{
     display:inline-block;
@@ -1456,7 +1459,9 @@ div.wp-block-button.aligncenter,
 .entry-content .wp-block-categories.alignleft{
     width:296px;   
 }
-.wp-block-categories > ul > li{
+
+
+.wp-block-categories > ul .cat-item{
     padding:.5em;
     list-style:none;
     display:inline-block;
@@ -1471,10 +1476,18 @@ div.wp-block-button.aligncenter,
 }
 .wp-block-categories .has-children{
     text-align:left;
+	font-weight:700;
 }
 .wp-block-categories .children{
-    position:static;
-    padding-left:1em;
+	display:flex;
+	flex-wrap:wrap;
+	padding-left:0;
+	position:static;
+	font-weight:normal;
+}
+
+.wp-block-categories .children .cat-item{
+	border:1px solid;
 }
 .entry-content .wp-block-categories .children li{
     list-style:none;
@@ -1487,6 +1500,7 @@ div.wp-block-button.aligncenter,
     width:296px;
     height:32px;
 }
+
 div[class|="wp-block"].alignleft,
 figure[class|="wp-block"].alignleft{
 	clear:left;
@@ -1506,6 +1520,10 @@ figure[class|="wp-block"].alignright{
 	margin-top:.5em;
 	max-width:calc( 50% - 1em );
 	outline:1px solid #ccc;
+}
+figure.wp-block-audio.alignright,
+figure.wp-block-audio.alignleft{
+	padding:0;
 }
 div.wp-block-gallery.alignleft,
 div.wp-block-gallery.alignright{
@@ -1725,6 +1743,12 @@ section.wp-block-cover-image{
 		padding:1em;
 		border:1px solid #ccc;
 		max-width:none;	
+	}
+	figure.wp-block-audio,
+	figure.wp-block-audio.alignright,
+	figure.wp-block-audio.alignleft{
+		margin-left:auto;
+		margin-right:auto;
 	}
 
 }

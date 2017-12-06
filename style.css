@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.500
+Version: 1.501
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -5260,7 +5260,7 @@ ol.list-of-post-list .entry-title{
     position:absolute;
     top:0;
     white-space: nowrap;
-    width: 100%;
+   /* @1.501 width: 100%;*/
     overflow: hidden;
     text-overflow: ellipsis;
     padding:.3em;
@@ -5338,9 +5338,11 @@ ol.list-of-post-list .entry-title{
 .topsidebar .raindrops-pinup-entries .grid-pinup-widgets{
     margin-top:calc(1em * 1.539 * 1.5);
 }
-/*.yui-b > .yui-gf .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
-.yui-b > .yui-gd .raindrops-pinup-entries .grid-pinup-widgets .entry-title,
-.yui-b > .yui-g .raindrops-pinup-entries .grid-pinup-widgets .entry-title,*/
+.yui-b > .yui-gf .raindrops-pinup-entries h2 + .grid-pinup-widgets,
+.yui-b > .yui-gd .raindrops-pinup-entries h2 + .grid-pinup-widgets,
+.yui-b > .yui-g  .raindrops-pinup-entries h2 + .grid-pinup-widgets{
+    margin-top:0;
+}
 .topsidebar .raindrops-pinup-entries .grid-pinup-widgets .entry-title{
     text-align:center;
     top:-16px;
@@ -5870,6 +5872,9 @@ body:not(.page-template-blank_front) #raindrops-recent-posts .title{
     display:block;
     margin:1.5em auto .75em;
     text-align:center;
+    flex:1;
+    width:100%;
+    flex-basis:100%;
 }
 body:not(.page-template-blank_front) .related-posts #raindrops-recent-posts .title,
 body:not(.page-template-blank_front) .related-posts .title{
@@ -9277,4 +9282,11 @@ body:not(.hierarchical-cat) .rsidebar .widget_categories .cat-item a,
 }
 .no-padding{
     padding:0!important;
+}
+.rd-cat-em .yui-b .cat-item a:before{
+    /*
+     * fallback Enable Color-coded category + category widget Show hierarchy
+     * Icon color when category is set and it is not used in post
+     */
+    background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
 }

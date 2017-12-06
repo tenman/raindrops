@@ -423,10 +423,9 @@ jQuery( function ( $ ) {
         var modal_box_id    = $(this).attr('href');
         modal_box_id        = modal_box_id.replace(/^[^#]*/,"");
         var iframe_src      = $( modal_box_id ).find('iframe').attr('data-rd-src');
-            
-        if (typeof iframe_src !== typeof undefined && iframe_src !== false) {        
-            $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src');
-        }
+       
+        $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src');
+
     });
     
 } );

@@ -1068,7 +1068,7 @@ if ( !function_exists( 'raindrops_gutenberg_enqueue_common_assets' ) ) {
 add_action( 'enqueue_block_assets', 'raindrops_gutenberg_enqueue_common_assets' );
 
 function raindrops_gutenberg_front_end_style(){
-	
+	$theme_url = get_stylesheet_directory_uri();
 	$style =<<<GUTENBERG
 
 /**
@@ -1118,6 +1118,9 @@ function raindrops_gutenberg_front_end_style(){
 /**
  * Block Latest Posts
  */
+ul.wp-block-latest-posts li a{
+    font-size:108%;
+}
 .wp-block-latest-posts .h2-thumb:empty{
     display:none;
 }
@@ -1161,6 +1164,7 @@ ul.wp-block-latest-posts.is-grid{
 ul.wp-block-latest-posts.is-grid li{
     flex:1 1 auto;
 	margin: 0 .5em .5em 0;
+	background:url($theme_url/images/sticky.png);
 }
 .wp-block-latest-posts__post-date{
     display:block;
@@ -1193,6 +1197,61 @@ ul.wp-block-latest-posts.is-grid li{
 .wp-block-latest-posts.is-grid.columns-2 li:nth-last-of-type(1),
 .wp-block-latest-posts.is-grid.columns-2 li:nth-of-type(2n){
     margin-right:0;
+}
+/**
+ * Block wp-block-embed-youtube
+ */
+.wp-block-embed-wordpress-tv.alignleft,
+.wp-block-embed-reddit.alignleft,
+.wp-block-embed-flickr.alignleft,
+.wp-block-embed-kickstarter.alignleft,
+.wp-block-embed-wordpress.alignleft,
+.wp-block-embed-soundcloud.alignleft,
+.wp-block-embed-slideshare.alignleft,
+.wp-block-embed-ted.alignleft,
+.wp-block-embed-issuu.alignleft,
+.wp-block-embed-cloudup.alignleft,
+.wp-block-embed-reverbnation.alignleft, 
+.wp-block-embed-youtube.alignleft{
+	clear:left;
+	margin-right:1em;
+	width:calc(50% - 1em - 40px);
+}
+
+	.wp-block-embed-flickr > .oembed-container{
+		padding:0;
+		position:relative;
+		height:auto;
+
+	}
+	.wp-block-embed-flickr a{
+		display:block;
+		width:100%;
+		height:auto;
+	}
+	.wp-block-embed-flickr .oembed-container{
+		padding-top:0;
+	}
+	.wp-block-embed-flickr figcaption{
+		clear:both;
+		margin-top:4em;
+		display:block;
+	}
+.wp-block-embed-wordpress-tv.alignright,
+.wp-block-embed-reddit.alignright,
+.wp-block-embed-flickr.alignright, 
+.wp-block-embed-kickstarter.alignright,
+.wp-block-embed-wordpress.alignright,
+.wp-block-embed-soundcloud.alignright,
+.wp-block-embed-slideshare.alignright,
+.wp-block-embed-ted.alignright,
+.wp-block-embed-issuu.alignright,
+.wp-block-embed-cloudup.alignright,
+.wp-block-embed-reverbnation.alignright,
+.wp-block-embed-youtube.alignright{
+	clear:right;
+	margin-left:1em;
+	width:calc(50% - 1em - 40px);
 }
 /**
  * Block Gallery
@@ -1351,6 +1410,10 @@ p.alignright{
 .wp-block-table.alignright{
     /* todo rd-table-wrapper */
 }
+.wp-block-table td{
+	padding-top:1.125em;
+	padding-bottom:1.125em;
+}
 /**
  * Block Preformatted, Code
  */
@@ -1499,6 +1562,8 @@ div.wp-block-button.aligncenter,
     max-width:100%;
     width:296px;
     height:32px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 div[class|="wp-block"].alignleft,
@@ -1749,6 +1814,39 @@ section.wp-block-cover-image{
 	figure.wp-block-audio.alignleft{
 		margin-left:auto;
 		margin-right:auto;
+	}
+/**
+ * Block wp-block-embed-youtube
+ */
+	.wp-block-embed-wordpress-tv.alignleft,
+	.wp-block-embed-wordpress-tv.alignright,
+	.wp-block-embed-reddit.alignright,
+	.wp-block-embed-flickr.alignright,	
+	.wp-block-embed-reddit.alignleft,
+	.wp-block-embed-flickr.alignleft,		
+	figure.wp-block-embed-kickstarter.alignright,
+	figure.wp-block-embed-kickstarter.alignleft,
+	figure.wp-block-embed-wordpress.alignright,
+	figure.wp-block-embed-wordpress.alignleft,
+	figure.wp-block-embed-soundcloud.alignright,
+	figure.wp-block-embed-soundcloud.alignleft,
+	figure.wp-block-embed-slideshare.alignleft,
+	figure.wp-block-embed-slideshare.alignright,
+	figure.wp-block-embed-ted.alignright,
+	figure.wp-block-embed-ted.alignleft,
+    figure.wp-block-embed-issuu.alignleft,	
+    figure.wp-block-embed-issuu.alignright,
+	figure.wp-block-embed-cloudup.alignright,
+	figure.wp-block-embed-cloudup.alignleft,
+	figure.wp-block-embed-reverbnation.alignright, 
+	figure.wp-block-embed-reverbnation.alignleft, 
+	figure.wp-block-embed-youtube.alignleft,
+	figure.wp-block-embed-youtube.alignright{
+		float:none;
+		clear:both;
+		margin-left:0;
+		width:100%;
+		max-width:none;
 	}
 
 }

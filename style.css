@@ -794,6 +794,9 @@ b{
     border-bottom:none;
     text-decoration:none;
 }
+strong strong{
+    text-decoration:underline;
+}
 em,
 i{
     font-style: italic;
@@ -933,11 +936,12 @@ blockquote p:last-child{
     padding:.5em;
     overflow:auto;
 }
+/* @1.501
 .textwidget cite,
 .entry-content cite {
     margin:.2em .5em;
     padding:0 1em;
-}
+}*/
 .textwidget blockquote cite,
 .entry-content blockquote cite {
     display:inline-block;
@@ -6524,9 +6528,9 @@ ul.rd-nowrap{
     height: 0px;
     position: fixed;
     overflow: hidden;
-    left: 0px;
-    top: 1em;
-    padding: 0px;
+    left: 0;
+    top: 0;
+    padding: 0;
     z-index: 199999;
     text-align: center;
     background:rgba(0,0,0,.6);
@@ -9289,4 +9293,12 @@ body:not(.hierarchical-cat) .rsidebar .widget_categories .cat-item a,
      * Icon color when category is set and it is not used in post
      */
     background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
+}
+/**
+ * Audio element
+   ========================================================================== */
+audio{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }

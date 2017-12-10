@@ -3798,7 +3798,7 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 
 		if ( !empty( $Raindrops_class_name ) ) {
 
-			echo "\n" . str_repeat( "\t", 7 ) . '<ul class="index archives ' . esc_attr( $Raindrops_class_name ) . '">';
+			echo "\n" . str_repeat( "\t", 7 ) . '<ul class="index archives list-' . esc_attr( $Raindrops_class_name ) . '">';
 		} else {
 
 			echo "\n" . str_repeat( "\t", 7 ) . '<ul class="index archives">';
@@ -13819,15 +13819,15 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 
 			$font_class .= '/* raindrops_font_size_class */';
 
-			$font_class .= '.search .pagetitle,	.date .page-title,.archive .archives .title-wrapper .title,	.entry-content h2, article .entry-title{
+			$font_class .= '.search .pagetitle,	.date .page-title,.archive .archives .title-wrapper .title,	.entry-content h2, article div .h2, article .entry-title{
 	font-size:230.7%;
 }';
-			$font_class .= '.entry-content h3{
+			$font_class .= '.entry-content h3, article div .h3{
 	font-size:153.9%;
 }';
 
 			$font_class .= '@media screen and (max-width : 640px){
-	.search .pagetitle,	.date .page-title,.archive .archives .title-wrapper .title, .entry-content h2, article .entry-title{
+	.search .pagetitle,	.date .page-title,.archive .archives .title-wrapper .title, .entry-content h2, article div .h2, article .entry-title{
 		font-size:'.$font_size.'px;
 	}
 	.entry-content h3{
@@ -13891,8 +13891,10 @@ if( ! function_exists( 'raindrops_add_codemirror_for_raindrops_custom_css_field'
 
 		if ( 'page' !== get_current_screen()->id && 'post' !== get_current_screen()->id ) {
 			return;
+		}		
+		if( ! function_exists( 'wp_enqueue_code_editor' ) ) {
+			return;
 		}
-
 		$settings = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
 
 		if ( false === $settings ) {

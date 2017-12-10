@@ -3204,17 +3204,17 @@ $style .=<<<STRUCTURE_STYLE
 .rd-type-minimal .widget_archive li:before {
 	top:0;
 }
+/* @1.502
 .yui-b > .yui-gf .widget_nav_menu li:first-child:before,
 .yui-b > .yui-gd .widget_nav_menu li:first-child:before,
 .yui-b > .yui-g .widget_nav_menu li:first-child:before,
 .rd-type-minimal .widget_meta li:first-child:before,
-.rd-type-minimal .widget_pages li:first-child:before,
+,.rd-type-minimal .widget_pages li:first-child:before
 .rd-type-minimal .widget_nav_menu li:first-child:before,
 .rd-type-minimal .widget_archive li:first-child:before {
     top:-.25em;	
-	
 }
-	
+*/	
 .yui-b > .yui-gf .widget_nav_menu li:before,
 .yui-b > .yui-gd .widget_nav_menu li:before,
 .yui-b > .yui-g .widget_nav_menu li:before,

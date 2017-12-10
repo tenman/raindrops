@@ -409,12 +409,12 @@ jQuery( function ( $ ) {
         $(this).parents('.rd-modal').find('iframe').attr('src', iframe_src);
     });
     
-    /* load iframe only modal link clicked */
+
     $('.rd-modal iframe').each( function ( index ) { 
         var renamed_src = $(this).attr('src');
         
         if (typeof renamed_src !== typeof undefined && renamed_src !== false) {
-            $( this).attr('data-rd-src', renamed_src ).attr('src', 'about:blank');
+            $( this).attr('data-rd-src', renamed_src );
         }
     });
     
@@ -423,9 +423,11 @@ jQuery( function ( $ ) {
         var modal_box_id    = $(this).attr('href');
         modal_box_id        = modal_box_id.replace(/^[^#]*/,"");
         var iframe_src      = $( modal_box_id ).find('iframe').attr('data-rd-src');
-       
-        $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src');
+       if (typeof iframe_src !== typeof undefined && iframe_src !== false) {
+            $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src');
+       }
 
     });
+   
     
 } );

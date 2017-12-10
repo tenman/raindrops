@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:1.502
+
+Overview of Changes
+	Fixed PHP Fatal error:   with version older than WordPress 4.9
+	Modified Gutenberg Plugin CSS
+
+Files Modified
+	modified:   functions.php
+	modified:   lib/hooks.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.501&new_path=raindrops/1.502
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.501
 
 Overview of Changes

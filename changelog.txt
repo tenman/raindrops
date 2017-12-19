@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.503
+version:1.504
 
 Overview of Changes
 	Fixed wrong CSS Class name list-category-archives,list-tag-archives

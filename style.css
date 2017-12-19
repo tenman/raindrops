@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.502
+Version: 1.503
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -285,9 +285,6 @@ body:not(.rd-col-3).error404 .entry-title,
 .rd-col-1.single article .entry-title{
     margin-top:1.5em;
 }
-/* @1.498
-.rsidebar .grid-pinup-widgets li:first-child .entry-title,
-.lsidebar .grid-pinup-widgets li:first-child .entry-title,*/
 .page article .entry-title{
     margin-top:0;
     margin-bottom:.75em;
@@ -478,9 +475,10 @@ iframe[src^="https://embed-ssl.ted.com/"]{
 .wp-embedded-content,
 .oembed-container iframe {
     border:none;
+    overflow:hidden;
 }
 .oembed-container{
-    margin:0;
+   /* @1.503 margin:0; */
     word-wrap:normal;
     overflow-wrap:normal;
 }
@@ -603,7 +601,6 @@ dl > div {
  * Table
    ========================================================================== */
 table {
-    /* @1.498 line-height:1.35;*/
     display:table;
     box-sizing:border-box;
     table-layout:fixed;
@@ -711,6 +708,15 @@ p{
 /**
  * Max Width
    ========================================================================== */
+form,
+aside,
+canvas,
+footer,
+header,
+main,
+nav,
+section,
+div,
 #doc4 #header-image,
 #doc2 #header-image,
 #doc #header-image,
@@ -771,6 +777,12 @@ ul.index,
 /**
  * Elements
    ========================================================================== */
+/* exception */
+.ab-sub-wrapper,
+#wpadminbar li{
+    max-width:none;
+}
+
 body{
     color:#333;
     background:#fff;
@@ -794,6 +806,24 @@ b{
     border-bottom:none;
     text-decoration:none;
 }
+figure{
+    max-width:calc( 100% - 80px );
+}
+.gallery figure{
+    max-width:none;
+}
+.rsidebar blockquote,
+.lsidebar blockquote,
+.rsidebar blockquote,
+.lsidebar blockquote,
+.rsidebar figure,
+.lsidebar figure{
+    max-width:100%;
+    margin:0;
+}
+blockquote{
+    max-width:calc( 100% - 96px );
+}
 strong strong{
     text-decoration:underline;
 }
@@ -808,15 +838,8 @@ i.material-icons{
     font-size:138.5%;
     font-style: normal;
 }
-/* @1.497 removed
+
 u{
-    text-decoration:none;
-    border-color:#888;
-    border-bottom:3px double rgba(127,127,127,.5);
-}
-*/
-u{
-   /* @1.497 changed */
     text-decoration: underline;
     text-decoration-style: double;
     -webkit-text-decoration: underline;
@@ -888,10 +911,6 @@ blockquote .cite-url{
     word-break: break-all;
     margin-bottom:0;
 }
-/** @1.497 removed
-blockquote p:first-child{
-    margin-top:1em;
-}*/
 blockquote p:last-child{
     margin-bottom:0;
 }
@@ -906,6 +925,9 @@ blockquote p:last-child{
     overflow:hidden;
     display:block;
     padding:0 1em;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1em;
 }
 .more-link{
     padding:7px;
@@ -921,8 +943,6 @@ blockquote p:last-child{
 }
 .textwidget > dl,
 .textwidget > table,
-/* @1.497.textwidget > ul,
-.textwidget > ol, */
 .entry-content > dl,
 .entry-content > table,
 .entry-content > ul,
@@ -936,12 +956,6 @@ blockquote p:last-child{
     padding:.5em;
     overflow:auto;
 }
-/* @1.501
-.textwidget cite,
-.entry-content cite {
-    margin:.2em .5em;
-    padding:0 1em;
-}*/
 .textwidget blockquote cite,
 .entry-content blockquote cite {
     display:inline-block;
@@ -950,7 +964,7 @@ blockquote p:last-child{
 }
 .textwidget table,
 .entry-content table {
-    width:100%;
+   /*  @1.503 width:100%; */
     border-spacing:0;
 }
 .textwidget table caption,
@@ -1053,12 +1067,6 @@ img.aligncenter:before,
     color:#fff;
     z-index:2;
 }
-/* @1.497
-.textwidget input,
-.entry-content input{
-    display:inline-block;
-    margin:.5em 0;
-}*/
 .rd-modal > div[class^="color"]{
     padding-left:0;
     padding-right:0;
@@ -1099,6 +1107,7 @@ article .entry-content .block{
     box-sizing:border-box;
     width:auto;
     margin-top:1em;
+    margin-bottom:1em;
 }
 /**
  * @1.496
@@ -1134,7 +1143,7 @@ article ul{
 .entry-content textarea{
     width:100%;
     margin:0 auto;
-    max-width:100%;
+    box-sizing:border-box;
 }
 .widgettext > img,
 .entry-content > img{
@@ -1162,23 +1171,42 @@ article ul{
     margin-bottom:2em;
     padding-bottom:1px;
 }
+.widgettext .rd-table-wrapper.alignleft,
+.entry-content .rd-table-wrapper.alignleft,
+.widgettext .rd-table-wrapper.alignright,
+.entry-content .rd-table-wrapper.alignright{
+    display:table;
+    max-width:50%;
+}
+.widgettext .rd-table-wrapper.alignleft,
+.entry-content .rd-table-wrapper.alignleft{
+    clear:left;
+}
+.widgettext .rd-table-wrapper.alignright,
+.entry-content .rd-table-wrapper.alignright{
+    clear:right;
+}
 .safari .widgettext .rd-table-wrapper,
 .safari .entry-content .rd-table-wrapper{
     display:block;
 }
 .entry-content .rd-table-wrapper table{
     margin-bottom:0;
+    margin:0;
+    padding:0;
 }
+
 .widgettext .rd-table-wrapper::-webkit-scrollbar,
 .entry-content .rd-table-wrapper::-webkit-scrollbar {
-    width: 1em;
+    width: 0;
     height:.5em;
 }
 .widgettext .rd-table-wrapper::-webkit-scrollbar-thumb,
-.entry-content .rd-table-wrapper::-webkit-scrollbar-thumb {
+.entry-content .rd-table-wrapper::-webkit-scrollbar-thumb{
     background-color: darkgrey;
     outline: 1px solid grey;
 }
+
 /**
  * Forms
    ========================================================================== */
@@ -1234,7 +1262,7 @@ article input[type="button"],
 article input[type="file"],
 article input[type="reset"],
 article input[type="submit"]{
-    padding:.3em 1em;
+    padding:3px 1em;
 }
 textarea,
 input[type="password"],
@@ -1294,6 +1322,7 @@ fieldset {
     margin:1em;
     padding:1em;
     max-width:100%;
+    max-width:calc( 100% - 2em );
     box-sizing:border-box;
 }
 legend{
@@ -1572,6 +1601,12 @@ div.hentry {
     padding:0;
     margin:1em;
 }
+.gallery:not(.gallery-size-thumbnail) > figure{
+    flex:1 1 auto;
+}
+.gallery figure{
+    max-width:none;
+}
 /* @1.498 No linked gallery Popup */
 .rsidebar .gallery .gallery-item:focus,/* for without linking image */
 .lsidebar .gallery .gallery-item:focus{
@@ -1589,6 +1624,7 @@ div.hentry {
 .lsidebar .gallery .gallery-item:focus figcaption{
     display:none;
 }
+
 /**
  * Search Result
    ========================================================================== */
@@ -2072,10 +2108,21 @@ div[class^="entry-meta"] .emoji-date,
 .format-status .posted-on .avatar{
     display:none;
 }
+.entry-title .entry-title-text{
+   /* @1.503 */
+   word-break:break-word;
+    overflow-wrap:break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
 .entry-title span{
     max-width:100%;
     word-wrap:break-word;
     overflow-wrap:break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 .home .index .raindrops-sticky .h2-thumb + .entry-title-text,
 .h2-thumb + .entry-title-text{
@@ -2198,12 +2245,6 @@ ul.index li .edit {
     /* @1.494 */
     padding-top:.5em;
 }
-/* @1.498
-.rsidebar ul li ul li:first-child,
-.lsidebar ul li ul li:first-child{*/
-    /* @1.494 */
-/*    padding-top:0;
-}*/
 .lsidebar ul li ul li a,
 .rsidebar ul li ul li a {
     height:100%;
@@ -2424,7 +2465,6 @@ br.clear{
 .wireframe .hentry {
     border:0.07692307692em solid #ccc;
 }
-/* @1.494 dl a,*/
 .category a,
 #top a,
 div.entry h2 a,
@@ -2889,28 +2929,25 @@ figure .size-thumbnail{
     padding:0;
 }
 .wp-caption {
-    border: 0.07692307692em solid #ddd;
+    border: 1px solid #ddd;
     text-align: center;
-    padding:0.38461538461em 0.15384615384em 0 0.15384615384em;
+    padding:5px 0.15384615384em 0 2px;
     height:auto;
 }
 .wp-caption.alignnone{
     float: none;
-    margin: 0.38461538461em 0.76923076923em 0.38461538461em 0;
-    /** @1.498
-    padding: 0.38461538461em 0 0 0;
-    */
+    margin: 5px 10px 5px 0;
     padding: 0;
 }
 .wp-caption.alignleft{
     float: left;
-    margin: 0.38461538461em 0.76923076923em 0.38461538461em 0;
-    padding: 0.38461538461em 0 0 0;
+    margin: 5px 10px 5px 0;
+    padding: 5px 0 0 0;
 }
 .wp-caption.alignright{
     float:right;
-    margin: 0.38461538461em 0 0.38461538461em 0.76923076923em;
-    padding: 0.38461538461em 0 0 0;
+    margin: 5px 0 5px 10px;
+    padding: 5px 0 0 0;
 }
 .wp-caption.aligncenter{
     margin: 0.38461538461em auto;
@@ -2918,10 +2955,10 @@ figure .size-thumbnail{
     padding:0;
 }
 .wp-caption.aligncenter a img{
-    margin:0.38461538461em 0.38461538461em 0.38461538461em 0.38461538461em;
+    margin:5px;
 }
 .wp-caption.aligncenter a[rel~="attachment"] img{
-    margin:0.38461538461em 0 0 0;
+    margin:5px 0 0 0;
 }
 .wp-caption-text{
     max-width: calc(100% - 1em);
@@ -4302,9 +4339,6 @@ sup {
     display:block;/* old ie */
     display:-ms-flexbox;
     display:flex;
-   /* @1.498 max-width:29em; */
-    /* @1.498 width:30%; */
-     /* @1.498 min-width:296px;*/
     overflow:visible;
     margin-bottom:13px;
     margin-right:13px;
@@ -4355,9 +4389,9 @@ sup {
 .raindrops-recent-posts .thumb{
     -ms-flex-positive: 1;
     flex-grow: 1;
-    min-width:90px;
-    width:90px;
-    max-width:90px;
+    min-width:100px;
+    width:100px;
+    max-width:100px;
     background: repeating-linear-gradient( 135deg, transparent, rgba(127,127,127,.3) 2px, rgba(127,127,127,.1) 3px, rgba(127,127,127,.1) 5px );
 }
 .ie10 .raindrops-tag-posts .thumb,
@@ -4366,14 +4400,12 @@ sup {
 .safari .raindrops-tag-posts .thumb,
 .safari .raindrops-category-posts .thumb,
 .safari .raindrops-recent-posts .thumb{
-  /* @1.498  min-height:236px; */
     display:block;
     background:rgba(127,127,127,.3);
 }
 .ie9 .raindrops-tag-posts .thumb,
 .ie9 .raindrops-category-posts .thumb,
 .ie9 .raindrops-recent-posts .thumb{
-   /* @1.498 min-height:236px;*/
     display:block;
     background:rgba(127,127,127,.3);
     float:left;
@@ -4382,13 +4414,9 @@ sup {
 .ie9 .raindrops-tag-posts article,
 .ie9 .raindrops-category-posts article,
 .ie9 .raindrops-recent-posts article{
-    margin-left:100px;
+    margin-left:110px;
 }
-.ie11 .raindrops-tag-posts .thumb,
-.ie11 .raindrops-category-posts .thumb,
-.ie11 .raindrops-recent-posts .thumb{
-    /* @1.498 min-height:236px;*/
-}
+
 .ie9 .raindrops-tag-posts .thumb img,
 .ie9 .raindrops-category-posts .thumb img,
 .ie9 .raindrops-recent-posts .thumb img,
@@ -4398,7 +4426,7 @@ sup {
 .ie10 .raindrops-tag-posts .thumb img,
 .ie10 .raindrops-category-posts .thumb img,
 .ie10 .raindrops-recent-posts .thumb img{
-    width:90px;
+    width:100px;
     height:auto;
 }
 .raindrops-tag-posts .thumb img,
@@ -4406,7 +4434,7 @@ sup {
 .raindrops-recent-posts .thumb img{
     max-width:100%;
     height:auto;
-    width:90px;
+    width:100px;
 }
 .raindrops-tag-posts,
 .raindrops-category-posts,
@@ -5264,7 +5292,6 @@ ol.list-of-post-list .entry-title{
     position:absolute;
     top:0;
     white-space: nowrap;
-   /* @1.501 width: 100%;*/
     overflow: hidden;
     text-overflow: ellipsis;
     padding:.3em;
@@ -6410,15 +6437,7 @@ body:not(.rd-featured-yes-left) .h2-thumb{
 .not-hover{
     /* stop hover presentation */
 }
-/** @1.497
-.post-format-status-main .entry-title:before{
-    content:"\00a0 \00a0";
-    float:left;
-    font-size:100%;
-}
-.post-format-status-main .entry-content{
-    margin:1em;
-}*/
+
 /**
  * Float Wrapper
    ========================================================================== */
@@ -7346,8 +7365,6 @@ x:-o-prefocus, .rd-modal > div {
 .widget_nav_menu.sticky-widget ul > .menu-item-has-children,
 .widget_pages.sticky-widget ul > .menu-item-has-children,
 #access .menu > .menu-item-has-children{
-  /*  @1.498 padding-right:2em;
-    box-sizing: border-box;*/
   padding:0;
 }
 .yui-b > .yui-gf .widget_nav_menu ul > .page_item_has_children,
@@ -8666,6 +8683,7 @@ article [data-mod="postit"]:after{
 div[id^="post-"]:target{
     padding-top:5em;
 }
+.post,
 .page,
 .single{
     counter-reset: section;

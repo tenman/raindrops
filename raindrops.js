@@ -172,7 +172,15 @@
 (function() {
     jQuery(function() {
         jQuery("table").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
-            jQuery(this).wrap('<div class="rd-table-wrapper"></div>') 
+            jQuery(this).wrap('<div class="rd-table-wrapper"></div>');
+        });
+        /* @1.503 */
+        jQuery(".wp-block-table.alignleft").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+            jQuery(this).parent().addClass('alignleft');
+        });
+        /* @1.503 */
+        jQuery(".wp-block-table.alignright").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+            jQuery(this).parent().addClass('alignright');
         });
     });
 })(jQuery);
@@ -427,7 +435,17 @@ jQuery( function ( $ ) {
             $( modal_box_id ).find('iframe').attr('src', iframe_src).removeAttr('data-rd-src');
        }
 
-    });
-   
-    
+    });    
+} );
+jQuery( function ( $ ) {
+
+    $( '.wp-block-embed-instagram.alignleft,.wp-block-embed-instagram.alignright' ).each( function ( ) {
+        var width = $( this ).width();
+        var height = $( this ).height();
+        var ratio = Math.ceil( ( height / width ) * 140 );
+        
+        $( this ).children( '.oembed-container' ).css( { 'padding-bottom': ratio + '%' } );
+
+    } );
+
 } );

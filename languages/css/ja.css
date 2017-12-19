@@ -48,6 +48,7 @@
        url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.otf) format('opentype');
    font-weight: 300;
    font-style:normal;
+   font-display: fallback;/* @1.503 */
 }
 table,
 body {
@@ -95,10 +96,6 @@ h3,
 .entry-title{
     font-weight:700;
 }
-.ja .lsidebar h2,
-.ja .rsidebar h2{
-   /* @1.497 font-size:108%;*/
-}
 .mce-content-body .h1:not(h1),
 .mce-content-body h1,
 .h1:not(h1){
@@ -142,26 +139,13 @@ h6{
 .lsidebar h2,
 .widgettitle h2,
 h2.footer-content {
-   /* @1.497 font-size:108%;*/
     padding:5px 0;                          
 }
 .author .entry-title{
     display:inline-block;
     margin-left:.6em;
 }
-/* @1.497
-.ja main .author .h2-thumb img{
-    width:24px;
-    height:24px;
-}*/
-/* @1.497
-.ja.date table .entry-title{
-    font-weight:normal;
-}
-/* @1.497
-.ja.date .entry-title{
-    font-weight:normal;
-}*/
+
 #list-of-post ol .entry-title{
     font-weight:normal!important;
 }
@@ -171,26 +155,6 @@ em{
 i{
     font-style: italic;
 }
-/* @1.496
-.mce-content-body p,
-.ja p{
-    line-height:1.6;
-}
-.ja .datetable .time,
-.ja .datetable .month-name, 
-.ja .datetable .year-name, 
-.ja .datetable .day-name{
-    font-style:normal;
-}*/
-/* @1.497
-.ja .rsidebar .eco-archive li,
-.ja .lsidebar .eco-archive li{
-    display:inline-block;
-    margin:1%;
-    box-sizing:border-box;
-    width:3em;
-}
-*/
 .widget_recent_comments .recentcomments{
     visibility:hidden;
 }

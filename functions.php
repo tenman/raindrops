@@ -3638,13 +3638,13 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 		} elseif ( is_tag() ) {
 
 			$tag_id					 = absint( get_queried_object_id() );
-			$Raindrops_class_name	 = 'tag-archives tag-' . $tag_id;
+			$Raindrops_class_name	 = 'tag-archives list-tag-' . $tag_id;
 			$page_title				 = esc_html__( "Tag Archives", 'raindrops' );
 			$page_title_c			 = single_term_title( "", false );
 		} elseif ( is_category() ) {
 			$page_title_c			 = single_cat_title( '', false );
 			$category_id			 = get_cat_ID( $page_title_c );
-			$Raindrops_class_name	 = 'category-archives cat-item-' . $category_id;
+			$Raindrops_class_name	 = 'category-archives list-cat-item-' . $category_id;
 			$page_title				 = esc_html__( "Category Archives", 'raindrops' );
 		} elseif ( is_archive() ) {
 
@@ -3798,7 +3798,7 @@ if ( !function_exists( "raindrops_loop_title" ) ) {
 
 		if ( !empty( $Raindrops_class_name ) ) {
 
-			echo "\n" . str_repeat( "\t", 7 ) . '<ul class="index archives list-' . esc_attr( $Raindrops_class_name ) . '">';
+			echo "\n" . str_repeat( "\t", 7 ) . '<ul class="index archives ' . esc_attr( $Raindrops_class_name ) . '">';
 		} else {
 
 			echo "\n" . str_repeat( "\t", 7 ) . '<ul class="index archives">';
@@ -12477,7 +12477,7 @@ if ( !function_exists( 'raindrops_admin_post_stylesheet' ) ) {
 	 */
 	function raindrops_admin_post_stylesheet() {
 
-		wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/admin-options.css' );
+		wp_enqueue_style( 'admin_options', get_template_directory_uri() . '/admin-options.css' );
 	}
 
 }

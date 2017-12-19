@@ -52,3 +52,11 @@
     height:20em;
     font-size:1.3em;
 }
+/**
+ * for gutenberg 
+ */
+.gutenberg-editor-page .wp-block-separator{
+    clear:both;
+    float:none;
+    position:relative;
+}

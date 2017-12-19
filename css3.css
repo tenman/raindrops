@@ -116,22 +116,53 @@ article .entry-meta a:hover,
 .datetable td li:nth-last-child(1){
     border-bottom:none;
 }
+/* 1.503
 .sticky-widget .columns,
 .sticky-widget .textwidget .columns,
 #doc5 .entry-content .columns,
 #doc .entry-content .columns,
 #doc2 .entry-content .columns,
 #doc4 .entry-content .columns,
-#doc3 .entry-content .columns{
+#doc3 .entry-content .columns*/
+#bd .columns{
     -moz-columns: 20em auto;
     -webkit-columns:20em auto;
     -o-columns: 20em auto;
     -ms-columns: 20em auto;
 }
+.entry-content .columns h1,
+.entry-content .columns h2,
+.entry-content .columns h3,
+.entry-content .columns h4,
+.entry-content .columns h5,
+.entry-content .columns h6{
+    display:block;
+}
+/**
+ * Not recommend
+ * Properties such as column-span, break - * of child the columns class are poor browser compatibility
+ * @1.503
+ */
+.columns > .break-before{
+ 
+     break-before: column;
+}
+.columns > .full{
+
+     column-span: all;
+     border-bottom:1px solid;
+}
+.columns > avoid{
+
+    break-before: avoid-column;
+}
+
+
 .entry-title a{
     word-break:normal;
     word-wrap:normal;/* Internet Explorer */
 }
+
 .raindrops-light-box{
     position: relative;
     /* @1.480 background: #f1d2c2;*/

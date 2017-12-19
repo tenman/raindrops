@@ -845,15 +845,21 @@
     article.format-link,
     .entry-content .rd-table-wrapper{
         width:90vw;
-        margin:auto;
+       /* @1.503 margin:auto;*/
     }
 
     .entry-content .alignleft,
     .entry-content .alignright,
     .entry-content .aligncenter{
         float:none;
-        display:block;
-        margin:auto;
+       display:block;
+        /* @1.503 margin:auto;*/
+    }
+    .entry-content table.alignleft,
+    .entry-content table.alignright,
+    .entry-content table.aligncenter{
+        display:table;
+        max-width:100%;
     }
     .entry-content .float{
         min-width:296px;
@@ -1029,6 +1035,10 @@
         display: block;
         float: none;
         margin:1em 0 1em 1em;
+    }
+    .raindrops-post-format-chat > dd{
+        margin-left:auto;
+        margin-right:auto;
     }
     .raindrops-post-format-chat > dd:after{
         display: block;

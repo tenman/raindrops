@@ -1,4 +1,36 @@
 Changelog -----------------------------------
+version:1.505
+
+Overview of Changes
+
+	Almost relate CSS
+		Main changes Gutenberg front and editor style.
+
+	Modified Add style for Gutenberg Plugin
+	Modified Add Oembed instagram wrapper div.rd-instagram
+	Added function raindrops_width_class_and_relate_settings()
+	Fixed function raindrops_gallerys_clone funny code
+	Fixed wrong styles in lib/csscolor.css.php
+	Removed oembed instagram script in raindrops.js
+	Removed br.clear element and added clearfix in block
+
+Files Modified
+	modified: admin-options.css
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
+	modified:   widget-sticky.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.504&new_path=raindrops/1.505
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.504
 
 Overview of Changes

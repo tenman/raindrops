@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.504
+Version: 1.505
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -329,7 +329,7 @@ body:not(.rd-col-3).error404 .entry-title,
     margin-bottom:.75em;
     clear:none;
     display:table;
-    /* @1.505 
+    /* @1.505
     display:-ms-flexbox;
     display:flex;
     -ms-flex-direction:column;
@@ -952,9 +952,9 @@ blockquote p:last-child{
 }
 .entry-content > div{
     margin:1em 0;
-    float:none;    
+    float:none;
 }
-.entry-content > div:before, 
+.entry-content > div:before,
 .entry-content > div:after{
     content: " ";
     display: table;
@@ -1220,7 +1220,7 @@ article ul{
 }
 .widgettext .rd-table-wrapper.alignright > .alignright,
 .entry-content .rd-table-wrapper.alignright > .alignright{
-  /* @see raindrops_width_class_and_relate_settings() */  
+  /* @see raindrops_width_class_and_relate_settings() */
    position:relative;
    float:none;
    left:calc(-50% - 1.5em );
@@ -2963,7 +2963,7 @@ img.alignleft,
     clear:left;
     float: left;
     padding:0 10px 5px 0;
-    box-sizing:border-box;    
+    box-sizing:border-box;
 }
 div.alignright,
 img.alignright,
@@ -2983,7 +2983,7 @@ div.alignleft{
 .rd-grid.alignright,
 .rd-grid.alignleft{
     padding:0;
-} 
+}
 div.alignleft{
     margin-right:1em;
 }
@@ -9295,7 +9295,7 @@ html[xmlns="http://www.w3.org/1999/xhtml"] .rsidebar .widget_media_image .alignn
 #ft .widget_categories ul:not(.children) .cat-item,
 .widget_categories ul:not(.children) .cat-item{
     display:list-item;
-    overflow:hidden;   
+    overflow:hidden;
 }
 
 .topsidebar .sticky-widget.widget_categories .cat-item{

@@ -17,7 +17,6 @@ if ( ( is_home() == true && is_front_page() == true ) || // default
 				?>
 			</ul>
 		</div>
-		<br class="clear" />
 		<?php
 	}
 }

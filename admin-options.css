@@ -55,8 +55,219 @@
 /**
  * for gutenberg 
  */
+.gutenberg__editor img {
+    max-width: 100%;
+    height: auto;
+}
+.editor-visual-editor a.attachment{
+    max-width:100%;
+    width:auto;
+}
+p.wp-block-paragraph.aligncenter{
+    	display:table;
+	margin-left:auto;
+	margin-right:auto;
+}
+p.wp-block-paragraph{
+    padding:.75em 1em;
+}
+div.editor-block-list__block[data-type="core/verse"],
+div.editor-block-list__block[data-type="core/preformatted"],
+div.editor-block-list__block[data-type="core/code"],
+div.editor-block-list__block[data-type="core/text-columns"],
+.gutenberg-editor-page .wp-block-text-columns,
 .gutenberg-editor-page .wp-block-separator{
     clear:both;
     float:none;
     position:relative;
+}
+div.editor-block-list__block[data-type="core/verse"],
+div.editor-block-list__block[data-type="core/preformatted"],
+div.editor-block-list__block[data-type="core/text-columns"]{
+    padding:24px 46px;
+}
+div.editor-visual-editor .editor-block-list__block{
+    max-width:760px;
+}
+div.editor-visual-editor [data-type="core/cover-image"]{
+    max-width:100%;
+}
+div.editor-block-list__block[data-align="left"]{
+	clear:left;
+	box-sizing:border-box;
+	width:347px;
+        min-width:0!important;
+}
+div.editor-block-list__block[data-align="right"]{
+	clear:right;
+	box-sizing:border-box;
+        width:346px;
+        min-width:0!important;
+}
+.editor-visual-editor [data-type="core/paragraph"] .alignright,
+.editor-visual-editor [data-type="core/paragraph"] .alignleft,
+/*.editor-visual-editor div[class|="wp-block"].alignright,
+.editor-visual-editor div[class|="wp-block"].alignleft,*/
+.editor-visual-editor div.wp-block-gallery.alignright,
+.editor-visual-editor div.wp-block-gallery.alignleft{
+	max-width:100%;
+        margin:auto;
+}
+.editor-visual-editor [data-type="core/freeform"]{
+    /* Overflow encoded URL */
+     word-break: break-word;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;   
+}
+
+.editor-visual-editor .attachment{
+   /* classic editor shift + alt + m image display improperly */
+    max-width:calc(50% - 1em);
+    height:auto;
+}
+.editor-visual-editor .attachment > img.alignright,
+.editor-visual-editor .attachment > img.alignleft{
+    max-width:100%;
+    height:auto;
+}
+.editor-visual-editor .attachment > img.alignright{
+    margin-left:1em;
+}
+.editor-visual-editor .attachment > img.alignleft{
+   margin-right:1em;
+}
+.editor-visual-editor .wp-block-video{
+    margin:auto;
+}
+.editor-visual-editor  section.wp-block-cover-image{
+    margin:0;
+    padding:0;
+    background-size:cover;
+}
+.editor-visual-editor  [data-align="full"] figure{
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+}
+
+#editor .editor-visual-editor [data-type="core/image"][data-align="right"] figure,
+#editor .editor-visual-editor [data-type="core/image"][data-align="left"] figure{
+    /* override inline style for overflow float image */
+    width:100%!important;
+}
+/**
+ * Caption Shortcode
+ */
+.editor-visual-editor .mceTemp{
+    max-width:100%;
+}
+.editor-visual-editor .wp-caption{
+    max-width:100%;
+    display:block;
+    margin-top:0;
+}
+.editor-visual-editor img.alignleft,
+.editor-visual-editor .wp-caption.alignright,
+.editor-visual-editor .wp-caption.alignleft{
+    overflow:hidden;
+}
+.editor-visual-editor img.alignright,
+.editor-visual-editor .wp-caption.alignright{
+    margin-left:1em;
+}
+.editor-visual-editor img.alignleft,
+.editor-visual-editor .wp-caption.alignleft{
+    margin-right:1em;
+}
+.editor-visual-editor .wp-caption.aligncenter{
+    display:table;
+    margin-left:auto;
+    margin-right:auto;
+}
+.editor-visual-editor div[data-align="left"] + div[class="editor-block-list__sibling-inserter"] + div[data-type="core/paragraph"] p.aligncenter, 
+.editor-visual-editor div[data-align="right"] + div[class="editor-block-list__sibling-inserter"] + div[data-type="core/paragraph"] p.aligncenter{
+        min-width:50%;
+}
+.editor-visual-editor p.aligncenter.has-drop-cap{
+	display:block;
+}
+/**
+ * Shortcode Gallery
+ * why html4 
+ */ 
+.gallery{
+    display:table;
+    margin-left:auto;
+    margin-right:auto;
+}
+.gallery:after,
+.gallery:before{
+    content:' ';
+    display:table;
+    clear:both;
+
+}
+.gallery-item img{
+    height:auto;
+}
+.gallery-item{
+    float:left;
+    margin:1px 3px;
+    text-align:center;
+
+    background:rgba(222,222,222,.3);
+}
+.gallery-columns-1 .gallery-item{
+    width:99%;   
+}
+.gallery-columns-2 .gallery-item{
+    width:49%;
+    width:calc( 49% - 6px );
+}
+.gallery-columns-3 .gallery-item{
+    width:33%; 
+    width:calc( 33% - 6px );
+}
+.gallery-columns-4 .gallery-item{
+    width:24%;
+    width:calc( 24% - 6px );
+}
+.gallery-columns-5 .gallery-item{
+    width:19%;
+    width:calc( 19% - 6px );
+}
+.gallery-columns-6 .gallery-item{
+   width:15%;
+    width:calc( 16.6% - 6px );
+}
+.gallery-columns-7 .gallery-item{
+    width:12%;
+    width:calc( 14.2% - 6px );
+}
+.gallery-columns-8 .gallery-item{
+   width:10.5%;
+   width:calc( 12.5% - 6px );
+}
+.gallery-columns-9 .gallery-item{
+    width:9%;
+    width:calc( 11.1% - 6px );
+}
+.wp-caption-text{
+    margin-left:0;
+    max-width:100%;
+    margin:0 3px;
+}
+.gallery,
+.gallery-columns-1 .gallery-item:nth-child(2),
+.gallery-columns-2 .gallery-item:nth-child(3),
+.gallery-columns-3 .gallery-item:nth-child(4),
+.gallery-columns-4 .gallery-item:nth-child(5),
+.gallery-columns-5 .gallery-item:nth-child(6),
+.gallery-columns-6 .gallery-item:nth-child(7),
+.gallery-columns-7 .gallery-item:nth-child(8),
+.gallery-columns-8 .gallery-item:nth-child(9),
+.gallery-columns-9 .gallery-item:nth-child(10),
+.gallery-columns-10 .gallery-item:nth-child(11){
+    clear:both;
 }

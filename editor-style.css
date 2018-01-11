@@ -376,7 +376,7 @@ cite {
 html .mce-content-body pre{
     color:#333;
     white-space: pre-wrap; /*css3*/
-    white-space: moz-pre-wrap; /*firefox*/
+    white-space: -moz-pre-wrap; /*firefox*/
     white-space: -pre-wrap; /*opera 4-6*/
     white-space: -o-pre-wrap; /*opera 7*/
     word-wrap: break-word; /*internet explorer*/
@@ -1153,3 +1153,4 @@ html .mce-content-body div[data-mod="aside"]:before{
 .mce-content-body .clip-link .link-info:empty{display:none;}
 .mce-content-body .clip-link .link-excerpt{font-size:13px;}
 /* share link fallback style end */
+

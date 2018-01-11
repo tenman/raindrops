@@ -438,7 +438,7 @@ jQuery( function ( $ ) {
     });    
 } );
 jQuery( function ( $ ) {
-
+/*
     $( '.wp-block-embed-instagram.alignleft,.wp-block-embed-instagram.alignright' ).each( function ( ) {
         var width = $( this ).width();
         var height = $( this ).height();
@@ -446,6 +446,6 @@ jQuery( function ( $ ) {
         
         $( this ).children( '.oembed-container' ).css( { 'padding-bottom': ratio + '%' } );
 
-    } );
+    } );*/
 
 } );

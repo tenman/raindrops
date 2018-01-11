@@ -2437,6 +2437,14 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 	padding-right:1em;
 	box-sizing:border-box;
 }
+.rd-col-3 #doc5 #container:not(.rd-expand-sidebar) > div.first,
+.rd-col-3 #doc3 #container:not(.rd-expand-sidebar) > div.first,
+.rd-col-2 #doc5 #container:not(.rd-expand-sidebar) > div.first,
+.rd-col-2 #doc3 #container:not(.rd-expand-sidebar) > div.first{
+	/* @1.505 */
+	padding-left:1em;
+	box-sizing:border-box;
+}
 #doc5 #container:not(.rd-expand-sidebar) .first+.yui-u,
 #doc3 #container:not(.rd-expand-sidebar) .first+.yui-u{
 	display:none;
@@ -2514,7 +2522,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 .archive #doc5 #bd:not(.rd-expand-sidebar-default) > .yui-main > .yui-b,
 .archive #doc3 #bd:not(.rd-expand-sidebar-default) > .yui-main > .yui-b{
-	margin-left:1em;
+	/* @1.505 margin-left:1em;*/
 
 }
 .single #doc5 #bd:not(.rd-expand-sidebar-default) > .yui-main > .yui-b,
@@ -2698,31 +2706,10 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 
 			$css .= sprintf( $adding_style, $primary_menu_min_width, $child_width );
 		}
-
-		/* @1.346  image width class */
-		$thumbnail_size_w = get_option( 'thumbnail_size_w' );
-		if ( !empty( $thumbnail_size_w ) ) {
-			if ( $thumbnail_size_w < 160 ) {
-				$thumbnail_size_w = 160;
-			}
-			$css .= ' .rd-thumbnail{width:' . absint( $thumbnail_size_w ) . 'px; max-width:100%;}';
-		}
-
-		$medium_size_w = get_option( 'medium_size_w' );
-		if ( !empty( $medium_size_w ) ) {
-
-			$css .= ' .rd-medium{width:' . absint( $medium_size_w ) . 'px; max-width:100%;}';
-		}
-		$large_size_w = get_option( 'large_size_w' );
-		if ( !empty( $large_size_w ) ) {
-
-			$css .= ' .rd-large{width:' . absint( $large_size_w ) . 'px; max-width:100%;}';
-		}
-
-		$css .= ' .rd-w320{width:320px; max-width:100%;}';
-		$css .= ' .rd-w480{width:480px; max-width:100%;}';
-		$css .= ' .rd-w640{width:640px; max-width:100%;}';
-
+		/**
+		 * @since 1.505
+		 */
+			$css .= raindrops_width_class_and_relate_settings();
 		/**
 		 * @since 1.443
 		 */
@@ -2822,18 +2809,6 @@ color:{$color};
 .lsidebar a:hover{
 color:{$color};
 }
-
-/* @1.492 #wp-calendar{
-color:{$color};
-}*/
-.raindrops-comment-link em,
-.raindrops-comment-link a:link em,
-.raindrops-comment-link a:active em,
-.raindrops-comment-link a:visited em,
-.raindrops-comment-link a:hover em{
-/* @1.329 color:{$color}! important;*/
-}
-
 .nav-previous a,
 .nav-next a,
 .nav-previous a,
@@ -9530,6 +9505,13 @@ if ( !function_exists( 'raindrops_oembed_filter' ) ) {
 
 		$element = raindrops_doctype_elements( 'div', 'figure', false );
 		/**
+		 * https://www.instagram.com/
+		 * @since 1.504
+		 */
+		if ( preg_match( '!(instagram.com)!', $url ) ) {
+			return sprintf( '<div class="rd-instagram clearfix">%1$s</div>', $html );
+		}
+		/**
 		 * https://www.reverbnation.com/
 		 */
 		if ( preg_match( '!(reverbnation.com)!', $url ) ) {
@@ -13229,9 +13211,9 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 	display: flex;
     flex-wrap:wrap;
 	-webkit-box-orient:vertical;
-	margin-top:1em;
+	/* @1.505margin-top:1em;*/
 	justify-content: center;
-	margin-bottom:1em;
+	 margin-bottom:1em;
 }
 .safari.rd-grid .index.{$archive_type}{
 	display:block;
@@ -13776,14 +13758,14 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 		$keep_base_size_proparties	= array(
 										'.ui-tooltip-content' => array( $default_basefont_val,'px'),
 										'.topsidebar ul li' => array( $default_basefont_val,'px'),
-										'body','.menu-header' =>  array( $default_basefont_val,'px'),
+										'body, .menu-header' =>  array( $default_basefont_val,'px'),
 										'.entry-meta-list, .comment-meta a, .entry-meta' =>  array( $default_basefont_val,'px'),
 										'.posted-on' =>  array( $default_basefont_val,'px'),
 										'.footer-widget-wrapper ul li' =>  array( $default_basefont_val,'px'),
 										'.lsidebar ul li' =>  array( $default_basefont_val,'px'),
 										'.rsidebar ul li' =>  array( $default_basefont_val,'px'),
 										'.tagline' =>  array( $default_basefont_val * 2,'px'),
-										'[role="banner"] h1,' => array( $default_basefont_val * 2,'px'),
+										'[role="banner"] h1' => array( $default_basefont_val * 2,'px'),
 										'.single .related-posts .entry-title' => array( $default_basefont_val * 1.231,'px'),
 										'.related-posts .entry-content' => array( $default_basefont_val,'px'),
 										'#nav-below, #nav-above, #nav-above-comments, #nav-below-comments' => array( $default_basefont_val,'px'),
@@ -13936,6 +13918,83 @@ if ( ! function_exists( 'raindrops_automatic_modal_rel_rev_sidebar' ) ) {
 				return $result;
 			}
 			return $content;
+	}
+}
+if( ! function_exists( 'raindrops_width_class_and_relate_settings' ) ) {
+	/**
+	 * 
+	 * @return type
+	 * @since 1.505
+	 */
+	function raindrops_width_class_and_relate_settings(){
+
+			/* @1.346  image width class */
+			$thumbnail_size_w = get_option( 'thumbnail_size_w' );
+			if ( !empty( $thumbnail_size_w ) ) {
+				if ( $thumbnail_size_w < 160 ) {
+					$thumbnail_size_w = 160;
+				}
+				$css = ' .rd-thumbnail{width:' . absint( $thumbnail_size_w ) . 'px; max-width:100%;}';
+			}
+
+			$medium_size_w = get_option( 'medium_size_w' );
+			if ( !empty( $medium_size_w ) ) {
+
+				$css .= ' .rd-medium{width:' . absint( $medium_size_w ) . 'px; max-width:100%;}';
+			}
+			$large_size_w = get_option( 'large_size_w' );
+			if ( !empty( $large_size_w ) ) {
+
+				$css .= ' .rd-large{width:' . absint( $large_size_w ) . 'px; max-width:100%;}';
+			}
+
+			$css .= ' .rd-w320{width:320px; max-width:100%;}';
+			$css .= ' .rd-w480{width:480px; max-width:100%;}';
+			$css .= ' .rd-w640{width:640px; max-width:100%;}';
+
+			/**
+			 * 
+			 * This style for Gutenberg functionality.
+			 * @since 1.505
+			 * ToDo if gutenberg core, marge above code.
+			 */
+
+			$style_rule = '.widgettext .rd-table-wrapper.alignright > .alignright.%2$s,
+							.entry-content .rd-table-wrapper.alignright > .alignright.%2$s{
+								position:relative;
+								float:none;
+								left:calc( -%1$dpx - 1.5em );
+								   -webkit-transform: translate(calc( %1$dpx + 1.5em ), 0 );
+									-ms-transform: translate(calc( %1$dpx + 1.5em ), 0 );
+								transform: translate(calc( %1$dpx + 1.5em ), 0 );
+							}';
+
+			$thumbnail_size_w = get_option( 'thumbnail_size_w' );
+
+			if ( !empty( $thumbnail_size_w ) ) {
+				if ( $thumbnail_size_w < 160 ) {
+					$thumbnail_size_w = 160;
+				}
+				$css .= sprintf( $style_rule, absint( $thumbnail_size_w / 2 ), 'rd-thumbnail' );
+			}
+
+			$medium_size_w = get_option( 'medium_size_w' );
+
+			if ( !empty( $medium_size_w ) ) {
+
+				$css .= sprintf( $style_rule, absint( $medium_size_w / 2 ), 'rd-medium' );
+			}
+			$large_size_w = get_option( 'large_size_w' );
+			if ( !empty( $large_size_w ) ) {
+
+				$css .= sprintf( $style_rule, absint( $large_size_w / 2 ), 'rd-large' );
+			}
+
+			$css .= sprintf( $style_rule, 160, 'rd-w320' );
+			$css .= sprintf( $style_rule, 240, 'rd-w480' );
+			$css .= sprintf( $style_rule, 320, 'rd-w640' );
+
+			return $css;
 	}
 }
 /**

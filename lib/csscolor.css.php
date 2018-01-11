@@ -450,12 +450,12 @@ li.bypostauthor,
 .social input:focus,
 .textwidget th,
 .entry-content th{
-    %c_3%
+    %c_3%;
 }
 .raindrops-comment-author-meta cite.fn,
 li.byuser div.comment-body *,
 li.byuser span.says{
-    %c_3%
+    %c_3%;
     background:none;
 }
 
@@ -603,6 +603,9 @@ hr{
 .home.rd-grid .sticky{
     border-top:none;
 }
+.yui-b > .yui-gf .widget_archive li,
+.yui-b > .yui-gd .widget_archive li,
+.yui-b > .yui-g .widget_archive  li,
 .yui-b > .yui-gf .widget_categories .cat-item,
 .yui-b > .yui-gd .widget_categories .cat-item,	
 .yui-b > .yui-g .widget_categories .cat-item,
@@ -717,7 +720,7 @@ kbd,
     background: %rgba_border%
 }
 .raindrops-excerpt-more{
-	 border:1px solid rgba(62,6d2,62, 0.4);
+	 border:1px solid rgba(62,62,62, 0.4);
 }
 .raindrops-mobile-menu,
 kbd,
@@ -842,7 +845,7 @@ a.raindrops-comment-link {
 }
 
 .raindrops-comment-link em {
-    %c_3%
+    %c_3%;
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
     border-radius: 0.25em;
@@ -1101,7 +1104,7 @@ aside{
 }
 
 .footer-widget h2 span,.rsidebar h2 span,.lsidebar h2 span {
-    %c5%
+    %c5%;
     %h2_w3standard_background%
     %h_position_rsidebar_h2%
 }
@@ -1128,7 +1131,7 @@ aside{
 }
 
 body {
-%c4%
+%c4%;
     margin:0!important;padding:0;
     background-repeat:repeat-x;
 }
@@ -1208,7 +1211,7 @@ body:not(.rd-tag-em) #ft a,
     border-top:none;
 }
 .entry-meta{
-    %c5%
+    %c5%;
     border-top:dashed 1px %c_border%;
     border-bottom:dashed 1px %c_border%;
 }
@@ -1321,12 +1324,12 @@ dl > div,
 .textwidget td,
 .comment-body td,
 .entry-content td{
-    %c4%
+    %c4%;
     border:solid 1px %c_border%;
 }
 .textwidget th,
 .entry-content th{
-    %c3%
+    %c3%;
     border:solid 1px %c_border%;
 }
 hr{
@@ -1342,7 +1345,7 @@ hr{
 #access li:active > a,
 #access ul ul :active > a {
     top:0;
-    %c4%
+    %c4%;
     color:%custom_color%
 }
 
@@ -1397,7 +1400,7 @@ cite.fn{
 
 
 .error404 {
-    %c3%
+    %c3%;
     border:3px double;
 }
 .rd-page-navigation li{
@@ -1415,7 +1418,7 @@ cite.fn{
     border:1px solid %c_border%;
 }
 .raindrops-comment-link em {
-    %c4%
+    %c4%;
     position: relative;
 }
 	
@@ -1523,7 +1526,7 @@ a.raindrops-comment-link:hover .point {
 	border:1px solid  #ccc;
 }
 .widget_tag_cloud a.tag-cloud-link:hover{
-	%c_3%
+
 }
 DOC;
 	
@@ -1708,14 +1711,14 @@ body{
 }
 .blog .sticky,
 .home .sticky a{
-    background-color: none;
+    background: none;
 
 }
 .entry ol ol ,.entry ul {
     %c5%
 }
 #hd{
-    %c5%
+    %c5%;
     border-top: 6px solid %c_border%;
 /*    background-image:url(%raindrops_hd_images_path%%raindrops_header_image%);
     background-position:0 -5px;*/
@@ -1723,7 +1726,7 @@ body{
 }
 
 #site-description{
-    %c4%
+    %c4%;
     background:none;
 }
 .yui-main .rd-list-type-tree li:before{
@@ -1820,7 +1823,7 @@ table td{
 }
 
 td.month-date,td.month-name,td.time{
-    %c4%
+    %c4%;
     border-bottom:1px solid %c_border%;
 }
 .textwidget blockquote,
@@ -1832,7 +1835,7 @@ cite{
     background:#fefefe;
 }
 cite a:link,cite a:active,cite a:visited,cite a:hover{
-    %c4%
+    %c4%;
     background:none!important;
 }
 legend{
@@ -1876,7 +1879,7 @@ select{
 }
 .textwidget th,
 .entry-content th{
-    %c3%
+    %c3%;
     border:solid 1px %c_border%;
 }
 
@@ -1888,7 +1891,7 @@ select{
 }
 .entry-content input[type="checkbox"],
 .entry-content input[type="radio"]{
-    %c4%
+    %c4%;
     border:double 3px %c_border%;
 }
 .entry-content input[type="email"],
@@ -1899,7 +1902,7 @@ select{
 .entry-content input[type="number"],
 .entry-content input[type="color"],
 .entry-content select{
-    %c4%
+    %c4%;
     border:solid 1px %c_border%;
 }
 
@@ -1938,7 +1941,7 @@ cite.fn{
 }
 
 .error404 {
-    %c4%
+    %c4%;
     border:3px double %c_border%;
 }
 .rd-page-navigation li{
@@ -2303,7 +2306,7 @@ border:1px solid %c_border%;
 }
 
 .raindrops-comment-link em {
-    %c4%
+    %c4%;
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
     border-radius: 0.25em;
@@ -2395,7 +2398,7 @@ a.raindrops-comment-link:hover .point {
 	border:1px solid  #bbb;
 }
 .widget_tag_cloud a.tag-cloud-link:hover{
-	%c_4%
+
 }
 CSS3;
 	
@@ -2626,7 +2629,7 @@ input[type="submit"],
 /*comment bubble*/
 
 .raindrops-comment-link em {
-    %c4%
+    %c4%;
     -moz-border-radius: 0.25em;
     -webkit-border-radius: 0.25em;
     border-radius: 0.25em;
@@ -2792,7 +2795,7 @@ address .entry-rss:after,
 	color:#333;
 }
 .nav-next:hover, .nav-previous:hover{
-	color:%c5%;
+	%c5%;
 	-webkit-transition: width 2s; /* Safari */
     -webkit-transition-timing-function: linear; /* Safari */
     transition: background 1.2s;

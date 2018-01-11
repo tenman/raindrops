@@ -1324,9 +1324,9 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 												-webkit-box-align: stretch;
 													-ms-flex-align: stretch;
 														align-items: stretch;											
-												-webkit-box-pack: center;
+												/* @1.505 -webkit-box-pack: center;
 													-ms-flex-pack: center;
-														justify-content: center;											
+														justify-content: center;*/											
 										}';
 		$raindrops_gallerys .= '
 		.gallery .gallery-icon{
@@ -1362,16 +1362,11 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery-columns-10.gallery-size-'. $name. ' { width: '. $width10. 'px ; max-width:100%; }';
 				
 				/* gutenberg gallery */
-				
-
-				
-				
-				
 		}		
 		
 		$raindrops_gallerys .= '
 				.gallery .gallery-item { margin:'.$gap_figure.'px; }
-				.gallery .gallery-item {". $display_property. " margin-top: '.$gap_figure.'px; text-align: center; }
+				.gallery .gallery-item {'. $display_property. ' margin-top: '.$gap_figure.'px; text-align: center; }
 				.gallery img { max-width:100%; }
 				.gallery .gallery-caption { margin-left: 0; }
 				.gallery br { clear: both }
@@ -1385,9 +1380,6 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery-columns-8 .gallery-item{ width: calc(12.5% - '. $gap_figure * 7 .'px)}
 				.gallery-columns-9 .gallery-item{ width: calc(11.1% - '. $gap_figure * 8 .'px)}
 				.gallery-columns-10 .gallery-item{ width: calc(9.9% - '. $gap_figure * 9 .'px)}';
-		
-		
-		
 		
 		$raindrops_gallerys .= $clear_float;
 
@@ -1438,147 +1430,6 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 	}
 }
 
-if ( ! function_exists( 'raindrops_gallerys_clone' ) && 1 == 2 ) {
-	/** No get issue, 1.493 will be removed
-	 * Old GALLERY
-	 * @global type $raindrops_extend_galleries
-	 * @global type $post
-	 * @return type
-	 */
-	function raindrops_gallerys_clone() {
-
-		global $raindrops_extend_galleries, $post;
-
-			$clear_float = ".gallery,
-				.gallery-columns-1 .gallery-item:nth-child(2),
-				.gallery-columns-2 .gallery-item:nth-child(3),
-				.gallery-columns-3 .gallery-item:nth-child(4),
-				.gallery-columns-4 .gallery-item:nth-child(5),
-				.gallery-columns-5 .gallery-item:nth-child(6),
-				.gallery-columns-6 .gallery-item:nth-child(7),
-				.gallery-columns-7 .gallery-item:nth-child(8),
-				.gallery-columns-8 .gallery-item:nth-child(9),
-				.gallery-columns-9 .gallery-item:nth-child(10),
-				.gallery-columns-10 .gallery-item:nth-child(11){clear:both;}";
-
-			if ( $raindrops_extend_galleries !== true ){
-
-				return apply_filters( "raindrops_gallerys_css", $clear_float, $raindrops_extend_galleries );
-			}
-
-		$doc_type = 'html5';	
-
-		$doc_type = raindrops_warehouse_clone( 'raindrops_doc_type_settings' );
-
-		if( $doc_type == 'xhtml' ){
-			$display_property = 'float:left;';
-		} else {
-			$display_property = 'display:inline-block;';
-		}
-	
-		$all_sizes = raindrops_get_image_sizes();
-		$raindrops_gallerys = '.entry-content .gallery{margin:1em auto;}';
-		foreach( $all_sizes as $name => $value ) {
-				$width = absint( $value['width'] );
-				
-					$width2	 = round( $width * 2 );
-					$width3	 = round( $width * 3 );
-					$width4	 = round( $width * 4 );
-					$width5	 = round( $width * 5 );
-					$width6	 = round( $width * 6 );
-					$width7	 = round( $width * 7 );
-					$width8	 = round( $width * 8 );
-					$width9	 = round( $width * 9 );
-					$width10 = round( $width * 10 );
-			
-				
-				$raindrops_gallerys .= '.gallery-columns-1.gallery-size-'. $name. '{ width: '. $width. 'px ; max-width:100%; }
-				.gallery-columns-2.gallery-size-'. $name. ' { width:'. $width2. 'px ; max-width:100%; }
-				.gallery-columns-3.gallery-size-'. $name. ' { width: '. $width3. 'px ; max-width:100%; }
-				.gallery-columns-4.gallery-size-'. $name. ' { width: '. $width4. 'px ; max-width:100%; }
-				.gallery-columns-5.gallery-size-'. $name. ' { width: '. $width5. 'px ; max-width:100%; }
-				.gallery-columns-6.gallery-size-'. $name. ' { width: '. $width6. 'px ; max-width:100%; }
-				.gallery-columns-7.gallery-size-'. $name. ' { width: '. $width7. 'px ; max-width:100%; }
-				.gallery-columns-8.gallery-size-'. $name. ' { width: '. $width8. 'px ; max-width:100%; }
-				.gallery-columns-9.gallery-size-'. $name. ' { width: '. $width9. 'px ; max-width:100%; }
-				.gallery-columns-10.gallery-size-'. $name. ' { width: '. $width10. 'px ; max-width:100%; }';
-				
-				/* gutenberg gallery */
-				
-
-				
-				
-				
-		}		
-		
-		$raindrops_gallerys .= "
-				.gallery .gallery-item { margin: 0px; }
-				.gallery .gallery-item {". $display_property. " margin-top: 3px; text-align: center; }
-				.gallery img { max-width:100%; }
-				.gallery .gallery-caption { margin-left: 0; }
-				.gallery br { clear: both }
-				.gallery-columns-1 .gallery-item{ width: 100% }
-				.gallery-columns-2 .gallery-item{ width: 50% }
-				.gallery-columns-3 .gallery-item{ width: 33.3% }
-				.gallery-columns-4 .gallery-item{ width: 25% }
-				.gallery-columns-5 .gallery-item{ width: 20% }
-				.gallery-columns-6 .gallery-item{ width: 16.6% }
-				.gallery-columns-7 .gallery-item{ width: 14.28% }
-				.gallery-columns-8 .gallery-item{ width: 12.5% }
-				.gallery-columns-9 .gallery-item{ width: 11.1% }
-				.gallery-columns-10 .gallery-item{ width: 9.9% }";
-		
-		
-		
-		
-		$raindrops_gallerys .= $clear_float;
-
-		/* caption text presentation */
-		$raindrops_gallerys .= ".gallery:after{content:'';clear:both;display:block;}.gallery-item{position:relative;}
-				.gallery figcaption{
-				box-sizing:border-box;
-				position:absolute;
-				min-height:66%;
-				left:3px;
-				width:100%;
-				min-width:199px;
-				height:auto;
-				bottom:30%;
-				padding:1em;
-				text-align:left;
-				margin:auto;
-				background:#000;
-				color:#fff;
-				opacity:0;
-				transition:opacity .7s;
-				border: 1px solid rgba(222,222,222,.5);
-				visibility:hidden;
-				transition:visibility .7s, opacity .7s;
-				-webkit-transition:visibility .7s,opacity .7s;
-				z-index:99999;
-			}
-			.gallery figure:focus figcaption{
-				visibility:visible;
-				opacity:.7;
-				transition:visibility 1s, opacity 1s;
-				-webkit-transition:visibility .7s,opacity .7s;
-				overflow:hidden;
-				margin:4px;
-				outline:0;
-			}
-			.gallery .gallery-item:hover figcaption{
-				visibility:visible;
-				opacity:.7;
-				transition:visibility 1s, opacity 1s;
-				-webkit-transition:visibility .7s,opacity .7s;
-				overflow:hidden;
-				margin:4px;
-
-			}";
-		
-		return apply_filters( "raindrops_gallerys_css", $raindrops_gallerys );
-	}
-}
 /**
  * 
  * @since 1.243

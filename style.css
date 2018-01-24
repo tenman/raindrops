@@ -3009,6 +3009,7 @@ img.alignleft,
     float: left;
    /* @1.506 padding:0 10px 5px 0;*/
     box-sizing:border-box;
+    margin-right:1em;
 }
 div.alignright,
 img.alignright,
@@ -3017,6 +3018,7 @@ img.alignright,
     float: right;
    /* @1.506 padding:0 0 5px 10px; */
     box-sizing:border-box;
+    margin-left:1em;
 }
 div.alignright,
 div.alignleft{

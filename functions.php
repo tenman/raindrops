@@ -731,7 +731,7 @@ foreach ( $raindrops_base_setting as $setting ) {
 	if ( !function_exists( $function_name ) ) {
 
 		$message = sprintf( esc_html__( 'If you add  %1$s when you must create function %2$s for data validation', 'raindrops' ), $setting[ 'option_name' ], $function_name );
-		printf( '<script type="text/javascript">alert( \'%s\' );</script>', $message );
+		printf( '<script type="text/javascript">alert( \'%1$s\' );</script>', $message );
 		return;
 	}
 }
@@ -2954,7 +2954,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( ( isset( $web_fonts_styles ) && !empty( $web_fonts_styles ) ) || !empty( $pinup_style ) ) {
 
-				$web_fonts_styles_wrapper = "<style type=\"text/css\" media=\"screen\">\n" . '%1$s</style>' . "\n";
+				$web_fonts_styles_wrapper = "<style". raindrops_doctype_elements( 'type="text/css"', ' ', false ). "media=\"screen\" id=\"raindrops-web-font-style\">\n" . '%1$s</style>' . "\n";
 
 				$result .= sprintf( $web_fonts_styles_wrapper, $web_fonts_styles . $pinup_style );
 			}
@@ -2980,7 +2980,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( !empty( $css ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
 
-				$result .= '<style type="text/css" id="raindrops-embed-css">';
+				$result .= '<style'. raindrops_doctype_elements( 'type="text/css"', ' ', false ).'id="raindrops-embed-css">';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
 				$result .= strip_tags( $css );
 				$result .= "\n/*]]>*/-->\n";
@@ -2998,7 +2998,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( !empty( $javascript ) && RAINDROPS_CUSTOM_FIELD_SCRIPT == true ) {
 
-				$result .= '<script type="text/javascript">';
+				$result .= '<script'. raindrops_doctype_elements( 'type="text/javascript"', '', false ).'>';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
 				$result .= raindrops_esc_custom_field_javascript( $javascript );
 				$result .= "\n/*]]>*/-->\n";
@@ -3089,7 +3089,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			}
 
-			$result .= '<style type="text/css">';
+			$result .= '<style'. raindrops_doctype_elements( 'type="text/css"', ' ', false ).'id="raindrops-loop-style">';
 			$result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= $css;
 			$result .= "/*start custom fields style for loop pages*/\n";
@@ -7183,7 +7183,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 
 		global $raindrops_current_data_version;
 		?>
-	<style type="text/css">
+	<style <?php raindrops_doctype_elements( 'type="text/css"', '');?> id="raindrops-customizer-1">
 		.accordion-section label{
 			display:inline-block!important;
 			margin-right:1em;
@@ -13958,7 +13958,44 @@ if( ! function_exists( 'raindrops_width_class_and_relate_settings' ) ) {
 			 * @since 1.505
 			 * ToDo if gutenberg core, marge above code.
 			 */
+			$thumbnail_size_w = get_option( 'thumbnail_size_w' );
+			if ( !empty( $thumbnail_size_w ) ) {
+				
+				if ( $thumbnail_size_w < 160 ) {
+					
+					$thumbnail_size_w = 160;
+				}
+				$css .= ' figure[class|="wp-block"].rd-thumbnail{width:' . absint( $thumbnail_size_w ) . 'px; max-width:100%;}';
+			}
 
+			$medium_size_w = get_option( 'medium_size_w' );
+			if ( !empty( $medium_size_w ) ) {
+
+				$css .= ' figure[class|="wp-block"].rd-medium{width:' . absint( $medium_size_w ) . 'px; max-width:100%;}';
+			}
+			$large_size_w = get_option( 'large_size_w' );
+			if ( !empty( $large_size_w ) ) {
+
+				$css .= ' figure[class|="wp-block"].rd-large{width:' . absint( $large_size_w ) . 'px; max-width:100%;}';
+			}
+			$css .= ' figure[class|="wp-block"].rd-w320{width:320px; max-width:100%;}';
+			$css .= ' figure[class|="wp-block"].rd-w480{width:480px; max-width:100%;}';					
+			$css .= ' figure[class|="wp-block"].rd-w640{width:640px; max-width:100%;}';
+			
+			/* responsive percent width class */
+			$css .= ' figure[class|="wp-block"].size1of2{ width:calc( 50% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of3{ width:calc( 33.33333% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size2of3{ width:calc( 66.66666% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of4{ width:calc( 24.99% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size3of4{ width:calc( 75% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of5{ width:calc( 19.99% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size2of5{ width:calc( 40% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size3of5{ width:calc( 60% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size4of5{ width:calc( 80% - 1em ); }';
+			
+			$css .= '.rd-w640,.rd-w480,.rd-w320,.rd-large,.rd-medium,.rd-thumbnail{margin-left:0;margin-right:0;}';
+			$css .= '.size1of2,.size1of3,.size2of3,.size1of4,.size3of4,.size1of5,.size2of5,.size3of5,.size4of5{margin-left:0;margin-right:0;padding:0;}';
+			
 			$style_rule = '.widgettext .rd-table-wrapper.alignright > .alignright.%2$s,
 							.entry-content .rd-table-wrapper.alignright > .alignright.%2$s{
 								position:relative;

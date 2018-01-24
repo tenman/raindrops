@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.505
+Version: 1.506
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -792,6 +792,9 @@ a:focus {
     border:none;
     outline:none;
 }
+p > a{
+    text-decoration:underline;
+}
 abbr{
     cursor:help;
     text-decoration:underline;
@@ -806,7 +809,9 @@ b{
     border-bottom:none;
     text-decoration:none;
 }
-
+#bd figure{
+	text-align:center;
+}
 figure{
     max-width:calc( 100% - 80px );
 }
@@ -815,6 +820,10 @@ figure figure{
     margin-left:0;
     margin-right:0;
     max-width:100%;
+}
+figcaption{
+    margin-top:1em;
+    margin-bottom:.5em;
 }
 .rd-grid figure{
     max-width:100%;
@@ -836,8 +845,22 @@ figure figure{
 blockquote{
     max-width:calc( 100% - 96px );
 }
+
 .rd-grid blockquote{
     max-width:100%;
+}
+.textwidget blockquote,
+.entry-content blockquote {
+   /* @1.506 overflow:hidden;*/
+    display:block;
+    padding:0 1em;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1em;
+}
+.writing-mode-mix .entry-content blockquote{
+    overflow-y:hidden;
+    width:auto;
 }
 strong strong{
     text-decoration:underline;
@@ -909,7 +932,13 @@ option,
 select{
     margin:auto;
 }
-
+.entry-content > ul,
+.entry-content :not(ul) ul{
+    list-style-type:disc;
+}
+.entry-content > ul ul{
+    list-style-type:circle;
+}
 video{
     z-index:1!important;
     /* for forcing  behind sub-menu */
@@ -936,15 +965,7 @@ blockquote p:last-child{
     margin-bottom:0;
 }
 
-.textwidget blockquote,
-.entry-content blockquote {
-    overflow:hidden;
-    display:block;
-    padding:0 1em;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom:1em;
-}
+
 .more-link{
     padding:7px;
     margin:1em 0;
@@ -983,7 +1004,7 @@ blockquote p:last-child{
 }
 .textwidget blockquote cite,
 .entry-content blockquote cite {
-    display:inline-block;
+    display:block;
     margin:1em 0 .5em;
     padding:.3em .6em;
 }
@@ -1004,18 +1025,20 @@ blockquote p:last-child{
 }
 .textwidget  figure.alignnone,
 .entry-content  figure.alignnone{
-    display:block;
-    margin-left:auto;
+    display:inline-block;
+/* @1.506
+margin-left:auto;
     margin-right:auto;
+*/
     clear:both;
 }
 .textwidget  figure.alignnone img,
 .entry-content  figure.alignnone img{
-    margin:.2em auto;
+    margin:5px auto;
 }
 .textwidget  figure.aligncenter img,
 .entry-content  figure.aligncenter img{
-    margin:.5em auto;
+    margin:5px auto;
 }
 .rsidebar figure img,
 .lsidebar figure img,
@@ -1026,7 +1049,14 @@ blockquote p:last-child{
     width:auto;
     height:auto;
     max-width:96%;
-    max-width:calc(100% - .5em) ;
+    max-width:calc(100% - 10px) ;
+    margin-top:6px;
+}
+.rsidebar figure img,
+.lsidebar figure img,
+.topsidebar figure img,
+.textwidget  figure img{
+    margin-bottom:6px;
 }
 /* Compatibility html4 caption */
 .textwidget  figure.wp-caption,
@@ -1129,8 +1159,9 @@ article .entry-content .block{
     left:1.5em;
     max-width:96%;
     max-width: calc(100% - 3em);
+   /* max-width: calc(100% - .5em);   @1.506*/
     box-sizing:border-box;
-    width:auto;
+   /* @1.506 width:auto; */
     margin-top:1em;
     margin-bottom:1em;
 }
@@ -1191,10 +1222,11 @@ article ul{
     display:table;
     display:-ms-flexbox;
     display:flex;
-    width:auto;
+    /* width:auto; */
     max-width:100%;
     margin-bottom:2em;
     padding-bottom:1px;
+    width:100%;/* @1.506 検証が必要 */
 }
 .widgettext .rd-table-wrapper.alignleft,
 .entry-content .rd-table-wrapper.alignleft,
@@ -1901,6 +1933,7 @@ footer a{
     background-size:cover;
     vertical-align:middle;
     background: url("images/previous.png");
+
 }
 .nav-next a:after{
     content:" ";
@@ -1910,6 +1943,12 @@ footer a{
     background-size:cover;
     vertical-align:middle;
     background: url("images/next.png");
+}
+#nav-above .nav-previous a:before{
+   margin-right:1em;
+}
+#nav-above .nav-next a:after{
+   margin-left:1em;
 }
 .pagenate a {
     overflow:hidden;
@@ -2559,6 +2598,10 @@ hr{
     border:none;
     margin:1em auto 1em;
 }
+.wp-block-separator{
+    clear:both;
+    float:none;
+}
 
 p + hr{
     margin:0 auto 1em;
@@ -2952,6 +2995,8 @@ div.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.page-featured-image{
     padding:0.76923076923em;
 }
 .page-featured-image{
@@ -2962,7 +3007,7 @@ img.alignleft,
 .alignleft {
     clear:left;
     float: left;
-    padding:0 10px 5px 0;
+   /* @1.506 padding:0 10px 5px 0;*/
     box-sizing:border-box;
 }
 div.alignright,
@@ -2970,7 +3015,7 @@ img.alignright,
 .alignright {
     clear:right;
     float: right;
-    padding:0 0 5px 10px;
+   /* @1.506 padding:0 0 5px 10px; */
     box-sizing:border-box;
 }
 div.alignright,
@@ -2979,6 +3024,77 @@ div.alignleft{
     padding:.75em 1em;
     max-width:calc( 50% - 1em );
     margin-bottom:2em;
+}
+ol.alignright,
+ul.alignright,
+ol.alignleft,
+ul.alignleft{
+    /* @1.506 */
+    width:calc( 50% - 3em );
+    width:calc( 50% - 1em );/* @1.506*/
+    list-style-position: inside;
+    left:0;
+    padding:.75em 1.5em;
+    box-sizing:border-box;
+    line-height:1.231;
+}
+
+/* Correcting line markers on multiple lines */
+ol.alignright li > p,
+ul.alignright li > p,
+ol.alignleft li > p,
+ul.alignleft li > p{
+    position:relative;
+     top:-1.231em;
+     text-indent:1.5em;
+     line-height:1.231;
+     margin-bottom:0;
+}
+.firefox ol.alignright li > p,
+.firefox ul.alignright li > p,
+.firefox ol.alignleft li > p,
+.firefox ul.alignleft li > p{
+      text-indent:1em;
+}
+ol.alignright li > blockquote,
+ul.alignright li > blockquote,
+ol.alignleft li > blockquote,
+ul.alignleft li > blockquote{
+     position:relative;
+     top:-1.231em;
+     line-height:1.231;
+     margin-bottom:0;
+     margin-top:0;
+}
+.entry-content li > blockquote{
+ /* bullet vertical centering to do
+     display:inline-block;
+     vertical-align:middle;*/
+}
+.entry-content ul.alignright .rd-table-wrapper,
+.entry-content ul.alignleft .rd-table-wrapper{
+    max-width: calc(100% - 3em );
+}
+.entry-content li > div,
+.entry-content li > .rd-table-wrapper{
+     vertical-align:text-top;
+     display:inline-block;
+}
+ol.alignright li:last-child,
+ul.alignright li:last-child,
+ol.alignleft li:last-child,
+ul.alignleft li:last-child{
+    margin-bottom:0;
+}
+ol.alignleft,
+ul.alignleft{
+    margin-right:3em;
+    margin-right:1em;/* @1.506*/
+}
+ol.alignright,
+ul.alignright{
+    margin-left:3em;
+    margin-left:1em;  /*@1.506 */
 }
 .rd-grid.alignright,
 .rd-grid.alignleft{
@@ -2996,6 +3112,25 @@ div.alignleft p:last-child,
 div.alignleft div:last-child{
     margin-bottom:0;
 }
+figure.alignright,
+figure.alignleft{
+    padding:0;
+    width: calc( 50% - 1em );
+
+}
+figure.alignright:not(.rd-fixed-width):focus,
+figure.alignleft:not(.rd-fixed-width):focus{
+    width:auto;
+
+}
+figure.alignleft{
+    margin-right:1em;
+    margin-left:0;
+}
+figure.alignright{
+    margin-left:1em;
+    margin-right:0;
+}
  /**
   * rd-block-noclear class
   * @1.505
@@ -3004,16 +3139,19 @@ div.alignleft div:last-child{
      clear:none;
 }
 .alignnone{
-    display:inline;
+     display:inline-block;
+   /* @1.506
     padding:0.38461538461em 0.76923076923em 0.76923076923em 0;
     box-sizing:border-box;
+   */
 }
+
 /* @1.505
 .wp-block-gallery.alignnone{
     display:flex;
 }*/
 .size-thumbnail{
-    padding:.5em;
+    /* @1.506 padding:.5em;*/
 }
 /**
  * figure
@@ -3029,18 +3167,18 @@ figure .size-thumbnail{
 }
 .wp-caption.alignnone{
     float: none;
-    margin: 5px 10px 5px 0;
+    margin: 5px 5px 5px 0;
     padding: 0;
 }
 .wp-caption.alignleft{
     float: left;
-    margin: 5px 10px 5px 0;
-    padding: 5px 0 0 0;
+    margin: 5px 1em 5px 0;
+    padding: 0 0 0 0;
 }
-.wp-caption.alignright{
+figure.wp-caption.alignright{
     float:right;
-    margin: 5px 0 5px 10px;
-    padding: 5px 0 0 0;
+    margin: 5px 0 5px 1em;
+    padding: 0 0 0 0;
 }
 .wp-caption.aligncenter{
     margin: 0.38461538461em auto;
@@ -3316,7 +3454,7 @@ body.single .category-blog-publish-date a{
 
 .format-status .entry-meta-list.left .blog-avatar,
 .category-blog .entry-meta-list.left .blog-avatar{
-    margin-left:1em;
+    text-align:center;
 }
 
 .format-status .entry-meta-list li.misc,
@@ -3324,8 +3462,7 @@ body.single .category-blog-publish-date a{
     text-align:center;
     margin:1em 0;
 }
-.format-status .entry-meta-list li.post-format-status-publish-date,
-.format-status .entry-meta-list li.post-format-status-avatar{
+.format-status .entry-meta-list li.post-format-status-publish-date{
     text-align:left;
 }
 /**
@@ -6597,6 +6734,7 @@ ul.rd-nowrap{
 .entry-content dl.gallery-item{
     min-width:0;
 }
+
 /**
  * Raindrops Archive Widget
    ========================================================================== */
@@ -9232,6 +9370,7 @@ html[xmlns="http://www.w3.org/1999/xhtml"] .rsidebar .widget_media_image .alignn
 .entry-content .gallery{
     display:inline-block;
 }
+
 .static-front-media img{
     max-width:100%;
     width:100%;
@@ -9258,9 +9397,6 @@ html[xmlns="http://www.w3.org/1999/xhtml"] .rsidebar .widget_media_image .alignn
 }
 .widget_media_gallery .gallery-icon img{
     height:auto;
-}
-.entry-content .wp-block-pullquote{
-    border-left:none;
 }
 .ie11 .gallery .gallery-icon,
 .ie11 .gallery .gallery-item{
@@ -9352,6 +9488,9 @@ body:not(.hierarchical-cat) .rsidebar .widget_categories .cat-item a,
 
 .rd-archive-link{
      display:flex;
+}
+html[xmlns="http://www.w3.org/1999/xhtml"] .rd-archive-link{
+    display:inline;
 }
 .rd-type-w3standard .rd-archive-link{
      display:inline-block;

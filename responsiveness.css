@@ -264,8 +264,6 @@
     #doc5 #yui-main{
         float:none;
         margin:0;
-        margin-left:0;
-        margin-right:0;
         display:block;
         max-width:100%;
         width:100%;
@@ -853,6 +851,7 @@
     .entry-content .aligncenter{
         float:none;
        display:block;
+       width:100%;/* @1.506 */
         /* @1.503 margin:auto;*/
     }
     .entry-content table.alignleft,
@@ -1204,6 +1203,19 @@
         padding-right:1em;
         box-sizing:border-box;
     }
+
+    .entry-content ol.alignright,
+    .entry-content ol.alignleft,
+    .entry-content ul.alignleft,
+    .entry-content ul.alignright{
+        clear:both;
+        float:none;
+        width:100%;
+        max-width:100%;
+        margin-right:0;
+        margin-left:0;
+    }
+    
 }
 @media screen and (max-width : 480px){
     html .gecko{

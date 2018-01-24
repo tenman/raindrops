@@ -2699,8 +2699,9 @@ textarea#comment{
 }
 
 blockquote{
-    border-left:6px solid;
+    border-left:8px solid;
     border-left-color:%rgba_border%;
+	border-left-color:rgba(68,68,68,1);
     padding:10px;    
 }
 .rd-current-month-archive,

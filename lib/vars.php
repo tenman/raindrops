@@ -369,9 +369,14 @@ if ( !isset( $raindrops_use_transient ) ) {
  * value false shows WordPress Standard Gallery Style.
  * @since 1.269
  */
+
 if ( !isset( $raindrops_extend_galleries ) ) {
 
 	$raindrops_extend_galleries = true;
+}
+if( 'xhtml' == raindrops_warehouse_clone('raindrops_doc_type_settings')){
+	/* @1.506 */
+	$raindrops_extend_galleries = false;	
 }
 
 if ( !defined( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
@@ -402,6 +407,7 @@ if ( !defined( 'RAINDROPS_CUSTOM_FIELD_META' ) ) {
 
 	define( 'RAINDROPS_CUSTOM_FIELD_META', true );
 }
+
 if ( !defined( 'RAINDROPS_CUSTOM_FIELD_SCRIPT' ) ) {
 
 	define( 'RAINDROPS_CUSTOM_FIELD_SCRIPT', false );

@@ -302,7 +302,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
 					if ( ( isset( $web_fonts_styles ) && !empty( $web_fonts_styles ) ) || !empty( $pinup_style )) {
 
-						$web_fonts_styles_wrapper = "<style type=\"text/css\" media=\"screen\">\n". '%1$s</style>'. "\n";
+						$web_fonts_styles_wrapper = "<style". raindrops_doctype_elements( 'type="text/css"', ' ', false )."media=\"screen\">\n". '%1$s</style>'. "\n";
 
 						$result .= sprintf( $web_fonts_styles_wrapper,  $web_fonts_styles. $pinup_style );
 
@@ -322,7 +322,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
             if ( !empty( $css ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
 
-                $result .= '<style type="text/css" id="raindrops-embed-css">';
+                $result .= '<style'. raindrops_doctype_elements( 'type="text/css"', ' ', false ).'id="raindrops-embed-css">';
                 $result .= "\n<!--/*<! [CDATA[*/\n";
                 $result .= strip_tags( $css );
                 $result .= "\n/*]]>*/-->\n";
@@ -340,7 +340,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
             if ( !empty( $javascript ) && RAINDROPS_CUSTOM_FIELD_SCRIPT == true ) {
 
-                $result .= '<script type="text/javascript">';
+                $result .= '<script'. raindrops_doctype_elements( 'type="text/javascript"', '', false ).'>';
                 $result .= "\n<!--/*<! [CDATA[*/\n";
                 $result .= raindrops_esc_custom_field_javascript( $javascript );
                 $result .= "\n/*]]>*/-->\n";
@@ -426,7 +426,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
 			$result_indv = raindrops_remove_spaces_from_css( $result_indv );
 			
-			$result .= '<style type="text/css">';
+			$result .= '<style'. raindrops_doctype_elements( 'type="text/css"', ' ', false ).'>';
             $result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= "\n/*start custom fields style for loop pages*/\n";
             $result .= $result_indv;
@@ -438,7 +438,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 		$must_first_css	= apply_filters( 'raindrops_embed_meta_pre','');
 
 		$css = apply_filters( 'raindrops_embed_meta_css', $css  );
-       return  '<style type="text/css"> ' . $must_first_css. $css . '</style>' . $result;
+       return  '<style'. raindrops_doctype_elements( 'type="text/css"', '', false ).'> ' . $must_first_css. $css . '</style>' . $result;
 
     }
 }

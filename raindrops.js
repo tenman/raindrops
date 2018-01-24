@@ -182,6 +182,10 @@
         jQuery(".wp-block-table.alignright").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).parent().addClass('alignright');
         });
+        /* @1.506 */
+        jQuery(".wp-block-table.aligncenter").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+            jQuery(this).parent().addClass('aligncenter');
+        });
     });
 })(jQuery);
 
@@ -438,14 +442,16 @@ jQuery( function ( $ ) {
     });    
 } );
 jQuery( function ( $ ) {
-/*
-    $( '.wp-block-embed-instagram.alignleft,.wp-block-embed-instagram.alignright' ).each( function ( ) {
-        var width = $( this ).width();
-        var height = $( this ).height();
-        var ratio = Math.ceil( ( height / width ) * 140 );
+    /* for gutenberg */
+    $('.wp-block-image.alignleft,.wp-block-image.alignright,.wp-block-image.aligncenter').each( function ( index ) { 
         
-        $( this ).children( '.oembed-container' ).css( { 'padding-bottom': ratio + '%' } );
-
-    } );*/
-
+            $( this).css("max-width", "none");
+            
+            var current_width = $( this ).width();
+            var window_width = $(window).innerWidth();
+            
+            if( parseInt( current_width )  <  parseInt( current_width ) ){
+                // todo
+            }
+    });
 } );

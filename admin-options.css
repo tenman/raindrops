@@ -55,6 +55,9 @@
 /**
  * for gutenberg 
  */
+div.editor-visual-editor .editor-post-title{
+    max-width:760px;
+}
 .gutenberg__editor img {
     max-width: 100%;
     height: auto;
@@ -269,5 +272,8 @@ div.editor-block-list__block[data-align="right"]{
 .gallery-columns-8 .gallery-item:nth-child(9),
 .gallery-columns-9 .gallery-item:nth-child(10),
 .gallery-columns-10 .gallery-item:nth-child(11){
+    clear:both;
+}
+[data-type="core/pullquote"]:not([data-align]){
     clear:both;
 }

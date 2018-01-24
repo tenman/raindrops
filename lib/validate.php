@@ -1,4 +1,5 @@
 <?php
+
 function raindrops_enable_writing_mode_mix_auto_add_class_validate($input){
 	if( 'no' == $input || 'p' == $input || 'p+h'  == $input || 'p+h+li' == $input || 'p+h+li+dl' ) {
 		

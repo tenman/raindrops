@@ -3,7 +3,24 @@ version:1.506
 
 Overview of Changes
 
+	Modified remove type attribute from html5 style and script elements in theme.
+	Modified Gutenberg plugin Styles
+	Modified When using Doctype HTML4, Gallery Shortcode using dl,dt,dd old style.
+	Added CSS Classes ol.alignleft,ol.alignright, ul.alignleft, ul.alignright
+
 Files Modified
+
+	modified:   admin-options.css
+	modified:   childs/boots/inc.php
+	modified:   childs/inc.php
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.505&new_path=raindrops/1.506

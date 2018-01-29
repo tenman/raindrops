@@ -443,9 +443,9 @@ jQuery( function ( $ ) {
 } );
 jQuery( function ( $ ) {
     /* for gutenberg */
-    $('.wp-block-image.alignleft,.wp-block-image.alignright,.wp-block-image.aligncenter').each( function ( index ) { 
+    $('.wp-block-image.alignleft,.wp-block-image.alignright').each( function ( index ) { 
         
-            $( this).css("max-width", "none");
+            $( this).css("max-width", "calc( 50% - 1em )");
             
             var current_width = $( this ).width();
             var window_width = $(window).innerWidth();
@@ -453,5 +453,15 @@ jQuery( function ( $ ) {
             if( parseInt( current_width )  <  parseInt( current_width ) ){
                 // todo
             }
+    });
+    $('.wp-block-image.aligncenter').each( function ( index ) {
+        
+        var window_width = $(window).innerWidth();
+        
+        if( 640 < parseInt ( window_width ) ) {
+            $( this).css("max-width", "66.666%");
+        }else{
+            $( this).css("max-width", "none"); 
+        }
     });
 } );

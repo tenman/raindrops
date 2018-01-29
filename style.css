@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.507
+Version: 1.508
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -783,7 +783,7 @@ ul.index,
 .logged-in .menupop.hover{
     max-width:none!important;
 }
-body{
+body{r
     color:#333;
     background:#fff;
 }
@@ -792,7 +792,8 @@ a:focus {
     border:none;
     outline:none;
 }
-p > a{
+.textwidget p > a,
+.entry-content p > a{
     text-decoration:underline;
 }
 abbr{
@@ -968,11 +969,13 @@ blockquote p:last-child{
 
 .more-link{
     padding:7px;
-    margin:1em 0;
+    /* @1.508 margin:1em 0;*/
+    margin:1.5em 0 .75em;
     display:inline-block;
 }
 .entry-content > div{
-    margin:1em 0;
+   /* @1.508 margin:1em 0;*/
+    margin:1.5em 0 .75em;
     float:none;
 }
 .entry-content > div:before,
@@ -1144,13 +1147,13 @@ article .entry-content .block{
     box-sizing:border-box;
 }
 .entry-content{
-    margin:1.6em 0 0 0;
+   /* @1.508 margin:1.6em 0 0 0; */
+   margin:1.5em 0 0;
 }
 .widgettext img,
 .entry-content img,.hentry img{
     box-sizing: border-box;
 }
-
 .textwidget ol,
 .textwidget ul,
 .entry-content ol,
@@ -2500,6 +2503,7 @@ br.clear{
 .clear-2:before{
     height:2em;
 }
+/* @1.508
 .clearfix:after {
     content:".";
     display:block;
@@ -2513,7 +2517,17 @@ br.clear{
 }
 .ie6 .clearfix {
     height:1%;
+}*/
+.clearfix:before,
+.clearfix:after {
+    /* @1.508 */
+     content: " ";
+     display: table;
 }
+.clearfix:after {
+     clear: both;
+}
+
 /**
  * Wireframe Class
    ========================================================================== */
@@ -3020,6 +3034,19 @@ img.alignright,
     box-sizing:border-box;
     margin-left:1em;
 }
+.entry-content :not([class|="wp-block"]) a > img.alignleft,
+.entry-content :not(.wp-caption) a > img.alignleft,
+.entry-content :not(.wp-caption) a > img.alignleft,
+.entry-content > p > a > img.alignleft{
+    /* TinyMCE attachment image not caption shortcode */
+    padding:1.5em 0 .75em 0;
+}
+.entry-content :not([class|="wp-block"]) a > img.alignright,
+.entry-content :not(.wp-caption) a > img.alignright,
+.entry-content > p > a > img.alignright{
+    /* TinyMCE attachment image not caption shortcode */
+    padding:1.5em 0 .75em 0;
+}
 div.alignright,
 div.alignleft{
     margin-top:0;
@@ -3117,7 +3144,7 @@ div.alignleft div:last-child{
 figure.alignright,
 figure.alignleft{
     padding:0;
-    width: calc( 50% - 1em );
+    max-width: calc( 50% - 1em );/* needs to shrinkfit for smaller than harf size image */
 
 }
 figure.alignright:not(.rd-fixed-width):focus,
@@ -4203,6 +4230,7 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .breadcrumbs .icon-post-format-image{
     vertical-align:middle;
 }
+
 .nav-previous .meta-nav,
 .nav-next .meta-nav{
     display:none;
@@ -5966,7 +5994,8 @@ html body.accept-lang-ja .rsidebar .lang-ja{
     visibility:visible;
 }
 div.raindrops-excerpt-more{
-    margin:3em 0 1em;
+    /* @1.508 margin:3em 0 1em; */
+    margin:0 0 .75em;
     display:block;
     width:10em;
     clear:both;

@@ -13285,7 +13285,7 @@ if ( ! function_exists( 'raindrops_style_archive_grid' ) ) {
 .rd-grid ul.{$archive_type} article .entry-content{
 	flex-grow: 1;
 	max-width:100%;
-	padding:1em;
+	padding:0 1em 1em;
     box-sizing:border-box;
 }
 .rd-grid #doc3 ul.{$archive_type} > li > div,

@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.508
+
+Overview of Changes
+	Modified CSS for Gutenberg 2.1.0
+
+Files Modified
+	modified:   plugins/plugins-presentation.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.507&new_path=raindrops/1.508
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.507
 
 Overview of Changes

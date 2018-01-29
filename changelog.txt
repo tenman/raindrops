@@ -6,7 +6,6 @@ Overview of Changes
 
 Files Modified
 	modified:   plugins/plugins-presentation.php
-	modified:   plugins/plugins-presentation.php
 	modified:   raindrops.js
 	modified:   style.css
 Description of Code Changes

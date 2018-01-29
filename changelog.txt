@@ -6,7 +6,9 @@ Overview of Changes
 
 Files Modified
 	modified:   plugins/plugins-presentation.php
-
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   style.css
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.507&new_path=raindrops/1.508
 -----------------------------------------------Changelog -----------------------------------

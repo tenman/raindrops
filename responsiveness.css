@@ -31,6 +31,14 @@
         box-sizing:border-box;
         margin:0!important;
     }
+    #header-image.on-scroll{
+    /** @1.509 */
+    -moz-box-shadow: inset 0 -10px 10px -10px #000000;
+       -webkit-box-shadow: inset 0 -10px 10px -10px #000000;
+               box-shadow: inset 0 -10px 10px -10px #000000;
+         background-attachment:fixed;
+         background-size:100%;
+    }
 }
 @media screen and (max-width : 640px){
 

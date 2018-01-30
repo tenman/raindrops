@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.509
+
+Overview of Changes
+	Fixed a bug that the site could not be displayed properly in xhtml environment
+
+	Added Header Image parallax
+		Customize / Header Media / Parallax Header Image
+		Please select disable to return to the conventional display
+Files Modified
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.508&new_path=raindrops/1.509
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.508
 
 Overview of Changes

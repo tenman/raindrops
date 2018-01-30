@@ -2954,7 +2954,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( ( isset( $web_fonts_styles ) && !empty( $web_fonts_styles ) ) || !empty( $pinup_style ) ) {
 
-				$web_fonts_styles_wrapper = "<style". raindrops_doctype_elements( 'type="text/css"', ' ', false ). "media=\"screen\" id=\"raindrops-web-font-style\">\n" . '%1$s</style>' . "\n";
+				$web_fonts_styles_wrapper = "<style". raindrops_doctype_elements( ' type="text/css" ', ' ', false ). "media=\"screen\" id=\"raindrops-web-font-style\">\n" . '%1$s</style>' . "\n";
 
 				$result .= sprintf( $web_fonts_styles_wrapper, $web_fonts_styles . $pinup_style );
 			}
@@ -2980,7 +2980,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( !empty( $css ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
 
-				$result .= '<style'. raindrops_doctype_elements( 'type="text/css"', ' ', false ).'id="raindrops-embed-css">';
+				$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ).'id="raindrops-embed-css">';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
 				$result .= strip_tags( $css );
 				$result .= "\n/*]]>*/-->\n";
@@ -2998,7 +2998,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( !empty( $javascript ) && RAINDROPS_CUSTOM_FIELD_SCRIPT == true ) {
 
-				$result .= '<script'. raindrops_doctype_elements( 'type="text/javascript"', '', false ).'>';
+				$result .= '<script'. raindrops_doctype_elements( ' type="text/javascript"', '', false ).'>';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
 				$result .= raindrops_esc_custom_field_javascript( $javascript );
 				$result .= "\n/*]]>*/-->\n";
@@ -3089,7 +3089,7 @@ if ( !function_exists( "raindrops_embed_meta" ) ) {
 
 			}
 
-			$result .= '<style'. raindrops_doctype_elements( 'type="text/css"', ' ', false ).'id="raindrops-loop-style">';
+			$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ). 'id="raindrops-loop-style">';
 			$result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= $css;
 			$result .= "/*start custom fields style for loop pages*/\n";
@@ -4875,6 +4875,7 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'writing_mode_horizontal_label'				=> esc_html__('change to writing mode horizontal', 'raindrops' ),
 			'locale'									=> get_locale(),
 			'delete_writing_mode_mix'					=> apply_filters( 'raindrops_delete_writing-mode-mix', false ),
+			'parallax_header_image'						=> raindrops_warehouse_clone( 'raindrops_parallax_header_image' ),
 		) );
 
 		wp_reset_postdata();
@@ -7183,7 +7184,7 @@ if ( !function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 
 		global $raindrops_current_data_version;
 		?>
-	<style <?php raindrops_doctype_elements( 'type="text/css"', '');?> id="raindrops-customizer-1">
+	<style <?php raindrops_doctype_elements( ' type="text/css" ', '');?> id="raindrops-customizer-1">
 		.accordion-section label{
 			display:inline-block!important;
 			margin-right:1em;
@@ -7550,9 +7551,17 @@ if ( !function_exists( 'raindrops_img_caption_shortcode_filter' ) ) {
 				return sprintf( $html, $id, trim($class), do_shortcode( $content ), $capid, $caption, $attribute );
 			}
 
-			$html = '<figure %1$s class="wp-caption %2$s" %7$s style="width:%3$spx">%4$s<figcaption %5$s class="wp-caption-text">%6$s</figcaption></figure>';
-			return sprintf( $html, $id, trim($class), ( 10 + (int) $width ), do_shortcode( $content ), $capid, $caption, $attribute );
+			// @1.509 remove inline style
+			//$html = '<figure %1$s class="wp-caption %2$s" %7$s style="width:%3$spx">%4$s<figcaption %5$s class="wp-caption-text">%6$s</figcaption></figure>';
+			//return sprintf( $html, $id, trim($class), ( 10 + (int) $width ), do_shortcode( $content ), $capid, $caption, $attribute );
+			
+			//$html = '<figure %1$s class="wp-caption %2$s" %6$s >%3$s<figcaption %4$s class="wp-caption-text">%5$s</figcaption></figure>';
+			//return sprintf( $html, $id, trim($class), do_shortcode( $content ), $capid, $caption, $attribute );
+			
+			$html = '<figure %1$s class="wp-caption %2$s" %7$s>%4$s<figcaption %5$s class="wp-caption-text rd-w%3$s">%6$s</figcaption></figure>';
+			return sprintf( $html, $id, trim($class), $width , do_shortcode( $content ), $capid, $caption, $attribute );
 		}
+		
 		return $val;
 	}
 }

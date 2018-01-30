@@ -2025,6 +2025,16 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt2'		 => esc_html__( 'Vertical writing class (.d-tate) is added automatically when you specify the element to be vertically written.', 'raindrops' ),
 			'validate'		 => 'raindrops_enable_writing_mode_mix_auto_add_class_validate',
 			'list'			 => 126 ),
+		'raindrops_parallax_header_image'					 => array( 'option_id'		 =>128,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_parallax_header_image',
+			'option_value'	 => 'enable',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Parallax Header Image', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'Make the header image parallax', 'raindrops' ),
+			'validate'		 => 'raindrops_parallax_header_image_validate',
+			'list'			 => 127 ),
 	);
 }
 

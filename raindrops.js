@@ -465,3 +465,22 @@ jQuery( function ( $ ) {
         }
     });
 } );
+jQuery( function ( $ ) {
+
+    $(window).scroll(function() {
+            /**
+             * Header Image paralax
+             * @type type
+             */
+            if( 'enable' == raindrops_script_vars.parallax_header_image ) {
+                var scrolle_y = $(window).scrollTop();
+
+                if( parseInt(scrolle_y) < 10){
+                   $('#doc3 #header-image, #doc5 #header-image').removeClass('on-scroll');
+                } else {
+                   $('#doc3 #header-image, #doc5 #header-image').addClass('on-scroll');
+                }
+            }
+
+    });
+} );

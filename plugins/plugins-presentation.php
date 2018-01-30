@@ -598,7 +598,7 @@ if ( !function_exists( 'raindrops_metaslider_shortcode_custom' ) ) {
 		if ( ( is_home() || is_front_page() ) && is_int( $raindrops_slider_action ) && !empty( $raindrops_slider_action ) ) {
 
 			?>
-<script <?php raindrops_doctype_elements( 'type="text/javascript"', '' );?> id="raindrops-meta-slider"> jQuery( function ( $ ) { $( '#raindrops_metaslider' ).show(); } );</script>
+<script <?php raindrops_doctype_elements( ' type="text/javascript" ', '' );?> id="raindrops-meta-slider"> jQuery( function ( $ ) { $( '#raindrops_metaslider' ).show(); } );</script>
 <?php
 
 		}
@@ -1677,6 +1677,7 @@ figure[class|="wp-block-embed"]:not(.alignleft){
 ul.wp-block-gallery{
 	left:0;/* gutenberg 2.1.0 list */
 }
+
 .wp-block-gallery figure{
     overflow:hidden;
 	max-width:100%;/* gutenberg 2.1.0 list */

@@ -1,5 +1,11 @@
 <?php
-
+function raindrops_parallax_header_image_validate($input){
+	if( 'enable' == $input || 'disable' == $input ) {
+		
+		return $input;
+	}
+	return 'enable';
+}
 function raindrops_enable_writing_mode_mix_auto_add_class_validate($input){
 	if( 'no' == $input || 'p' == $input || 'p+h'  == $input || 'p+h+li' == $input || 'p+h+li+dl' ) {
 		

@@ -16,16 +16,23 @@
         width:33%;
         margin:0;
     }
+    /* @1.510
     .entry-content figure.alignright + p,
     .entry-content figure.alignleft + p{
-        min-width:12em;
+        min-width:296px;        
     }
     .entry-content > a .alignright.size-medium,
     .entry-content > a .alignleft.size-medium{
         max-width:60%;
-    }
+    }*/
     .entry-content blockquote{
         margin:1em 40px;
+    }
+    blockquote.alignleft{
+        margin:1em 1em 2em 0;
+    }
+    blockquote.alignright{
+        margin:1em 0 2em 1em;
     }
     .rd-primary-menu-responsive-active .raindrops-mobile-menu{
         box-sizing:border-box;
@@ -271,7 +278,9 @@
     #doc5 #bd .yui-b,
     #doc5 #yui-main{
         float:none;
-        margin:0;
+        /* @1.510 margin:0 to margin-left:0 margin-right:0 */
+        margin-left:0;
+        margin-right:0;
         display:block;
         max-width:100%;
         width:100%;
@@ -280,6 +289,7 @@
         background-repeat:no-repeat;
         position:static;
     }
+    
     #doc3 .size1of1,
     #doc3 .size1of2,
     #doc3 .size1of3,
@@ -851,16 +861,26 @@
     article.format-link,
     .entry-content .rd-table-wrapper{
         width:90vw;
-       /* @1.503 margin:auto;*/
     }
 
     .entry-content .alignleft,
     .entry-content .alignright,
     .entry-content .aligncenter{
         float:none;
-       display:block;
-       width:100%;/* @1.506 */
-        /* @1.503 margin:auto;*/
+       display:inline-block;/* @1.510 block to inline-block */
+      /* @1.510 width:100%; */
+       max-width:100%;
+       margin-left:auto;
+       margin-right:auto;
+    }
+    figure.wp-caption.alignleft,
+    figure.wp-caption.alignright{
+        display:table;
+        width:auto;
+    }
+    .wp-caption.aligncenter{
+        display:table;
+        width:auto;
     }
     .entry-content table.alignleft,
     .entry-content table.alignright,
@@ -1604,4 +1624,58 @@
     .raindrops-recent-posts li{
         width:47%;
     }
+}
+/**
+ * Sidebar Toggle relate Style
+ */
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size1of1,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size1of2,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size1of3,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size2of3,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size1of4,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size3of4,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size1of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size2of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size3of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar .size4of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size1of1,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size1of2,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size1of3,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size2of3,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size1of4,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size3of4,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size1of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size2of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size3of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar .size4of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size1of1,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size1of2,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size1of3,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size2of3,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size1of4,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size3of4,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size1of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size2of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size3of5,
+:not(.rd-col-1) #doc3 .rd-expand-sidebar-default .size4of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size1of1,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size1of2,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size1of3,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size2of3,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size1of4,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size3of4,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size1of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size2of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size3of5,
+:not(.rd-col-1) #doc5 .rd-expand-sidebar-default .size4of5{
+    float:none;
+    margin-left:0;
+    margin-right:0;
+    display:block;
+    max-width:100%;
+    width:100%;
+    box-sizing: border-box;
+    clear:both;
+    background-repeat:no-repeat;
+    position:static;
 }

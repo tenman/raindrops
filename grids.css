@@ -379,6 +379,7 @@
 }
 .size1of4{
     width:24.99%;
+
 }
 .size3of4{
     width:75%;
@@ -395,6 +396,59 @@
 .size4of5{
     width:80%;
 }
+.entry-content > .size1of3{
+    width:calc( 33.33% - .4em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+.entry-content > p.size1of3{
+       width:calc( 33.33% - 1em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+.entry-content > .size1of4{
+    width:24.65%;   
+}
+.entry-content > .alignnone.size1of4{
+    width:calc( 24.99% - 1.15em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+.entry-content > .alignnone.size1of2{
+    width:calc( 50% - 1.15em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+.entry-content > .size1of5{
+    width:19.5%;   
+}
+.entry-content > .alignnone.size1of5{
+    width:calc( 19.9% - 1.16em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+
+.entry-content > .alignnone.size2of5{
+    width:calc( 40% - 1.16em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+.entry-content > .alignnone.size3of5{
+    width:calc( 60% - 1.16em );
+    margin-left:.5em;
+    margin-right:.5em;
+}
+.ie9 .entry-content > .alignnone.size1of4,
+.ie10 .entry-content > .alignnone.size1of4,
+.ie11 .entry-content > .alignnone.size1of4{
+    width:calc( 24.9% - 1.15em );
+}
+.ie9 .entry-content > .alignnone.size1of5,
+.ie10 .entry-content > .alignnone.size1of5,
+.ie11 .entry-content > .alignnone.size1of5{
+    width:calc( 19.9% - 1.2em );
+}
+
 .lastunit,
 .lastUnit {
     float:none;
@@ -410,7 +464,7 @@
 .size2of5,
 .size3of5,
 .size4of5{
-    padding:0.76923076923em;
+   /* @1.510 padding:0.76923076923em; */
     box-sizing:border-box;
 }
 .equal-height .unit{

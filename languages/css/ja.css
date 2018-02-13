@@ -256,3 +256,6 @@ i{
 .noto-sans-jp{
     font-family: 'Noto Sans JP', sans-serif;
 }
+.ja figcaption{
+    font-style:normal;
+}

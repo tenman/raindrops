@@ -70,6 +70,10 @@ article .entry-meta a:hover,
     filter:alpha(opacity=75);
     opacity:0.75;
 }
+.post .entry-content a.attachment:hover{
+    opacity:1;
+    
+}
 /* @1.464 */
 .entry-title a:hover span img{
     -moz-opacity:1;

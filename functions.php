@@ -7555,11 +7555,11 @@ if ( !function_exists( 'raindrops_img_caption_shortcode_filter' ) ) {
 			//$html = '<figure %1$s class="wp-caption %2$s" %7$s style="width:%3$spx">%4$s<figcaption %5$s class="wp-caption-text">%6$s</figcaption></figure>';
 			//return sprintf( $html, $id, trim($class), ( 10 + (int) $width ), do_shortcode( $content ), $capid, $caption, $attribute );
 			
-			//$html = '<figure %1$s class="wp-caption %2$s" %6$s >%3$s<figcaption %4$s class="wp-caption-text">%5$s</figcaption></figure>';
-			//return sprintf( $html, $id, trim($class), do_shortcode( $content ), $capid, $caption, $attribute );
+			$html = '<figure %1$s class="wp-caption %2$s" %6$s >%3$s<figcaption %4$s class="wp-caption-text">%5$s</figcaption></figure>';
+			return sprintf( $html, $id, trim($class), do_shortcode( $content ), $capid, $caption, $attribute );
 			
-			$html = '<figure %1$s class="wp-caption %2$s" %7$s>%4$s<figcaption %5$s class="wp-caption-text rd-w%3$s">%6$s</figcaption></figure>';
-			return sprintf( $html, $id, trim($class), $width , do_shortcode( $content ), $capid, $caption, $attribute );
+			//$html = '<figure %1$s class="wp-caption %2$s" %7$s>%4$s<figcaption %5$s class="wp-caption-text" style="width:%3$spx;max-width:100%;">%6$s</figcaption></figure>';
+			//return sprintf( $html, $id, trim($class), $width , do_shortcode( $content ), $capid, $caption, $attribute );
 		}
 		
 		return $val;
@@ -7920,6 +7920,7 @@ function raindrops_nav_menu_primary( $args = array() ) {
 }
 
 }
+
 
 /**
 *
@@ -9247,12 +9248,14 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 			}
 			if ( 'page' == $_POST[ 'post_type' ] ) {
 
-				if ( !current_user_can( 'edit_page', $post_id ) )
+				if ( !current_user_can( 'edit_page', $post_id ) ) {
 					return $post_id;
+				}
 			} else {
 
-				if ( !current_user_can( 'edit_post', $post_id ) )
+				if ( !current_user_can( 'edit_post', $post_id ) ) {
 					return $post_id;
+				}
 			}
 			/**
 			 * Change sanitize_text_field to wp_strip_all_tags
@@ -13960,7 +13963,25 @@ if( ! function_exists( 'raindrops_width_class_and_relate_settings' ) ) {
 			$css .= ' .rd-w320{width:320px; max-width:100%;}';
 			$css .= ' .rd-w480{width:480px; max-width:100%;}';
 			$css .= ' .rd-w640{width:640px; max-width:100%;}';
-
+			$css .= ' .alignleft.size1of2{ max-width:calc( 50% - 1em ); }';
+			$css .= ' .alignleft.size1of3{ max-width:calc( 33.33333% - 1em ); }';
+			$css .= ' .alignleft.size2of3{ max-width:calc( 66.66666% - 1em ); }';
+			$css .= ' .alignleft.size1of4{ max-width:calc( 24.99% - 1em ); }';
+			$css .= ' .alignleft.size3of4{ max-width:calc( 75% - 1em ); }';
+			$css .= ' .alignleft.size1of5{ max-width:calc( 19.99% - 1em ); }';
+			$css .= ' .alignleft.size2of5{ max-width:calc( 40% - 1em ); }';
+			$css .= ' .alignleft.size3of5{ max-width:calc( 60% - 1em ); }';
+			$css .= ' .alignleft.size4of5{ max-width:calc( 80% - 1em ); }';
+			$css .= ' .alignright.size1of2{ max-width:calc( 50% - 1em ); }';
+			$css .= ' .alignright.size1of3{ max-width:calc( 33.33333% - 1em ); }';
+			$css .= ' .alignright.size2of3{ max-width:calc( 66.66666% - 1em ); }';
+			$css .= ' .alignright.size1of4{ max-width:calc( 24.99% - 1em ); }';
+			$css .= ' .alignright.size3of4{ max-width:calc( 75% - 1em ); }';
+			$css .= ' .alignright.size1of5{ max-width:calc( 19.99% - 1em ); }';
+			$css .= ' .alignright.size2of5{ max-width:calc( 40% - 1em ); }';
+			$css .= ' .alignright.size3of5{ max-width:calc( 60% - 1em ); }';
+			$css .= ' .alignright.size4of5{ max-width:calc( 80% - 1em ); }';			
+			
 			/**
 			 * 
 			 * This style for Gutenberg functionality.
@@ -13992,18 +14013,42 @@ if( ! function_exists( 'raindrops_width_class_and_relate_settings' ) ) {
 			$css .= ' figure[class|="wp-block"].rd-w640{width:640px; max-width:100%;}';
 			
 			/* responsive percent width class */
-			$css .= ' figure[class|="wp-block"].size1of2{ width:calc( 50% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size1of3{ width:calc( 33.33333% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size2of3{ width:calc( 66.66666% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size1of4{ width:calc( 24.99% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size3of4{ width:calc( 75% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size1of5{ width:calc( 19.99% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size2of5{ width:calc( 40% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size3of5{ width:calc( 60% - 1em ); }';
-			$css .= ' figure[class|="wp-block"].size4of5{ width:calc( 80% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of2{ max-width:calc( 50% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of3{ max-width:calc( 33.33333% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size2of3{ max-width:calc( 66.66666% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of4{ max-width:calc( 24.99% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size3of4{ max-width:calc( 75% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size1of5{ max-width:calc( 19.99% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size2of5{ max-width:calc( 40% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size3of5{ max-width:calc( 60% - 1em ); }';
+			$css .= ' figure[class|="wp-block"].size4of5{ max-width:calc( 80% - 1em ); }';
 			
 			$css .= '.rd-w640,.rd-w480,.rd-w320,.rd-large,.rd-medium,.rd-thumbnail{margin-left:0;margin-right:0;}';
-			$css .= '.size1of2,.size1of3,.size2of3,.size1of4,.size3of4,.size1of5,.size2of5,.size3of5,.size4of5{margin-left:0;margin-right:0;padding:0;}';
+			//$css .= '.size1of2,.size1of3,.size2of3,.size1of4,.size3of4,.size1of5,.size2of5,.size3of5,.size4of5{margin-left:0;margin-right:0;}';
+$css .= '.alignleft.size1of2,.alignleft.size1of3,
+	.alignleft.size2of3,
+	.alignleft.size1of4,
+	.alignleft.size3of4,
+	.alignleft.size1of5,
+	.alignleft.size2of5,
+	.alignleft.size3of5,
+	.alignleft.size4of5{margin-top:.5em;margin-bottom:1em;margin-left:0;}';
+$css .= '.alignright.size1of2,.alignright.size1of3,
+	.alignright.size2of3,
+	.alignright.size1of4,
+	.alignright.size3of4,
+	.alignright.size1of5,
+	.alignright.size2of5,
+	.alignright.size3of5,
+	.alignright.size4of5{margin-top:.5em;margin-bottom:1em;margin-right:0;}';
+$css .= '.alignnone.size1of2,.alignnone.size1of3,
+	.alignnone.size2of3,
+	.alignnone.size1of4,
+	.alignnone.size3of4,
+	.alignnone.size1of5,
+	.alignnone.size2of5,
+	.alignnone.size3of5,
+	.alignnone.size4of5{margin-top:.5em;margin-bottom:1em;}';
 			
 			$style_rule = '.widgettext .rd-table-wrapper.alignright > .alignright.%2$s,
 							.entry-content .rd-table-wrapper.alignright > .alignright.%2$s{

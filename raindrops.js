@@ -186,6 +186,7 @@
         jQuery(".wp-block-table.aligncenter").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).parent().addClass('aligncenter');
         });
+
     });
 })(jQuery);
 
@@ -442,29 +443,36 @@ jQuery( function ( $ ) {
     });    
 } );
 jQuery( function ( $ ) {
-    /* for gutenberg */
-    $('.wp-block-image.alignleft,.wp-block-image.alignright').each( function ( index ) { 
+    /* for gutenberg */ 
+    /**
+     * @since 1.510
+     */
+        $('.wp-block-image').attr('style', function(i, style){
+            return style && style.replace(/max-width[^;]+;?/g, '');
+        });
         
-            $( this).css("max-width", "calc( 50% - 1em )");
+        $('.entry-content > figure').each( function ( index ) {
             
-            var current_width = $( this ).width();
-            var window_width = $(window).innerWidth();
-            
-            if( parseInt( current_width )  <  parseInt( current_width ) ){
-                // todo
+            if( $( this ).find('img') ){
+                
+                var image_width = $( this ).find( 'img' ).width();
+
+                if( $( this ).children('figcaption').length > 0 && image_width ){
+                
+                    $( this ).addClass('rd-has-caption-image');
+                    
+                    var figcaption_width = $( this ).find( 'figcaption' ).width();
+                    
+                    if( parseInt( figcaption_width ) > parseInt( image_width ) ) {
+                        
+                        /* For multi-line captions */
+                        
+                        $( this ).children('figcaption').css({'width': image_width +'px', 'max-width':"100%"});
+                    }
+                } 
             }
-    });
-    $('.wp-block-image.aligncenter').each( function ( index ) {
-        
-        var window_width = $(window).innerWidth();
-        
-        if( 640 < parseInt ( window_width ) ) {
-            $( this).css("max-width", "66.666%");
-        }else{
-            $( this).css("max-width", "none"); 
-        }
-    });
-} );
+        });
+});
 jQuery( function ( $ ) {
 
     $(window).scroll(function() {

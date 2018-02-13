@@ -2,10 +2,44 @@ Changelog -----------------------------------
 version:1.510
 
 Overview of Changes
+	Modified	wp-caption short code remove inline style.
+	Added
+				CSS percent width classes
 
+					You can make grid layout in post content.
+
+					size1of2, size1of3, size2of3, size1of4, size3of4,size1of5, size2of5, size3of5, size4of5, solid-border
+					means size1of2 is 50% width of entry content
+					Supports gutenberg plugin block class, text html.
+					work width div, figure, ul, ol, p, (table is not support)
+
+					Example
+					<p class="alignleft size2of5  solid-border">hello world</p>
+					<p class="alignright size1of5 solid-border">hello world</p>
+					<p class="alignnone size1of5  solid-border">hello world</p>
+					<p class="alignnone size1of5  solid-border">hello world</p>
+					@see https://tenman.info/labo/css/?p=8704
+
+					Traditional Raindrops grid classes can also be used.
+
+					<div class="line">
+						<div class="unit size1of2 gradient3">1/2</div>
+						<div class="unit size1of2 gradient2">1/2</div>
+					</div>
+
+	Modified gutenberg plugin front end style
+				removed gutenberg figure(imge) inline style.
 
 Files Modified
-
+	modified:   css3.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.509&new_path=raindrops/1.510

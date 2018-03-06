@@ -3,9 +3,89 @@ version:1.511
 
 Overview of Changes
 
+		Fix The position of the hook was not in the correct position
+			raindrops_prepend_default_sidebar(),
+			raindrops_append_default_sidebar()
+			404.php, author.php,blank-front.php,category.php,date.php,image.php,index.php,page-templates/front-portfolio.php,
+			page-templates/list-of-post.php,page.php,pdf.php,single.php
+
+		Modified for Gutenberg
+			Class name changed from .editor-visual-editor to .edit-post-visual-editor
+			etc...
+			for Gutenberg 2.3.0
+
+		Modified Changed TinyMCE inline style to data attribute
+			Inline styles added by TinyMCE and Gutenberg Plugin may cause fatal damage if you change the color scheme of the theme.
+			Also, in order to change the inline style, you need to use ! Important in the external style,
+			you can not change the flexible style.
+
+			This change makes it easy to change styles from Post CSS editor and CUSTOM CSS of customizer.
+
+			example
+				In color type dark, make the background color transparent
+
+			.rd-type-dark .entry-content .has-background{
+    			background:transparent;
+				color:currentcolor;
+			}
+
+			if you no needs,
+
+			Customize / Advanced / Replace style attributes with data attributes
+
+				set disable.
+
+		Added Paragraph wrap ( Customize / Presentation / Fonts. Paragraph line wrapping )
+			It is now possible to adjust when the width of one line is too wide.
+				default false
+		Modified Vertical Rhythm for Entry Content ( Customize / Presentation / Fonts. Vertical Rhythm for Entry Content )
+			add paragraph line-height
+
+		Modified for japanese
+			In the Japanese environment TinyMCE itaric button, Display Emphasis marks
+
+		New CSS class rd-justify
+			For languages that do not delimit characters such as Japanese with spaces, equal spacing is occasionally used.
+			This class is available in all languages.
+
+			example
+
+				<p class="rd-justify f32 solid-border" style="width: 14em;">hello world</p>
 
 Files Modified
-
+	modified: 404.php
+	modified:   admin-options.css
+	modified:   author.php
+	modified:   blank_front.php
+	modified:   category.php
+	modified:   date.php
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   index.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/scripts/ja.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/list-of-post.php
+	modified:   page.php
+	modified:   pdf.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   sidebar-default.php
+	modified:   sidebar-extra.php
+	modified:   sidebar.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.510&new_path=raindrops/1.511

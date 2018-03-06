@@ -418,7 +418,15 @@ if ( ! isset( $wp_customize ) ) {
 		return false;
 
 	}
+	function raindrops_paragraph_line_wrapping_enable( $control ) {
+		
+		if (   $control->manager->get_setting( raindrops_data_store_relate_id( 'raindrops_paragraph_line_wrapping' ) )->value() == 'enable' ) {
 
+			return true;
+		}
+		return false;		
+		
+	}
 	function raindrops_permalink_is_default( $control ) {
 
 		$permalink_structure = get_option( 'permalink_structure' );
@@ -1337,7 +1345,22 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			),
 			'section'			 => 'raindrops_theme_settings_document',
 		),
-
+"raindrops_replace_style_sttr_width_data_attr"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_replace_style_sttr_width_data_attr','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Replace style attributes with data attributes', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'The corresponding CSS is created automatically.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_replace_style_sttr_width_data_attr_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'enable'	 => esc_html__( 'Enable', 'raindrops' ),
+				'disable'	 => esc_html__( 'Disable', 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_document',
+		),
 		"raindrops_accessibility_settings"				 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_accessibility_settings','option_value' ),
 			'data_type'			 => $raindrops_setting_type,
@@ -1987,6 +2010,43 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'choices'			 => array_flip( $raindrops_basefont_size ),
 			'section'			 => 'raindrops_theme_settings_fonts',
 		),
+		////////////////////////////////1
+		"raindrops_paragraph_line_wrapping"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_paragraph_line_wrapping','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Paragraph line wrapping', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Adjust the paragraph width becomes large and difficult to read', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_paragraph_line_wrapping_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				"enable"	 => esc_html__( "Enable", 'raindrops' ),
+				"disable"	 => esc_html__( "Disable", 'raindrops' ),
+			),
+			'section'			 => 'raindrops_theme_settings_fonts',
+		),
+		"raindrops_paragraph_line_wrapping_value"					 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_paragraph_line_wrapping_value','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 => esc_html__( 'Specify the number of characters to display on one line.', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Please set it while checking the number of characters in customizer', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_paragraph_line_wrapping_value_validate',
+			'active_callback'	 => 'raindrops_paragraph_line_wrapping_enable',
+			'type'				 => 'number',
+			'input_attrs'		 => array(
+				'min'	 => 25,
+				'max'	 => 100,
+				'step'	 => 1,
+			),
+			'choices'			 => array_flip( $raindrops_basefont_size ),
+			'section'			 => 'raindrops_theme_settings_fonts',
+		),
+		////////////////////////////////////////////
 		"raindrops_content_elements_margin"					 => array(
 			'default'			 => raindrops_warehouse_clone( 'raindrops_content_elements_margin','option_value' ),
 			'data_type'			 => $raindrops_setting_type,

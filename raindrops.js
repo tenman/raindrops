@@ -174,19 +174,21 @@
         jQuery("table").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).wrap('<div class="rd-table-wrapper"></div>');
         });
-        /* @1.503 */
-        jQuery(".wp-block-table.alignleft").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+        /* @1.511 */
+        jQuery("table.alignleft").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).parent().addClass('alignleft');
+            jQuery(this).removeClass('alignleft');
         });
-        /* @1.503 */
-        jQuery(".wp-block-table.alignright").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+        /* @1.511 */
+        jQuery("table.alignright").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).parent().addClass('alignright');
+            jQuery(this).removeClass('alignright');
         });
-        /* @1.506 */
-        jQuery(".wp-block-table.aligncenter").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+        /* @1.511 */
+        jQuery("table.aligncenter").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
             jQuery(this).parent().addClass('aligncenter');
+            jQuery(this).removeClass('aligncenter');
         });
-
     });
 })(jQuery);
 
@@ -491,4 +493,39 @@ jQuery( function ( $ ) {
             }
 
     });
+} );
+
+jQuery( function ( $ ) {
+        
+    $( '.rd-justify' ).not('td,th').text( function ( i ) {
+        if( true == raindrops_script_vars.class_rd_justify_enable ) {
+           /**
+            * make equal spacing each string
+            * like text-align: justify; 
+            * @since 1.511
+            */
+           var text = $( this ).text();
+               text = text.replace(/\r?\n/g,"");
+           var text_count = text.length;
+           var classes = $(this).attr( 'class' );
+           var styles = $(this).attr( 'data-rd-style' );
+               /**
+                * @see raindrops_convert_inline_style_to_css() in functions.php
+                */
+           if( undefined == styles ) {
+               styles = $(this).attr( 'style' );
+               if( undefined == styles ) {
+                   styles = '';
+               } else {
+                   styles = 'style="'+ styles + '"';
+               }
+           } else {         
+               styles = 'data-rd-style="' + styles + '"';
+           }
+           classes = classes.replace("rd-justify", "");
+
+           $( this ).replaceWith( text.replace( /(\S)/g, '<span class="one-peace" data-group="' + i + '" aria-hidden="true" data-value="$1">$1</span>') );
+           $( '[data-group="' + i + '"]' ).wrapAll( '<div class="is-rd-justified ' + classes + ' group-'+i+'" '+ styles +' aria-label="'+ text +'"></div>' ); 
+       }
+    } );
 } );

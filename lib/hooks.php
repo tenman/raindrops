@@ -450,6 +450,13 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.498
 		 */
 		add_filter( 'widget_custom_html_content', 'raindrops_automatic_modal_rel_rev_sidebar', 11, 2 );
+		/**
+		 * @since 1.511
+		 */
+		add_filter( 'the_content', 'raindrops_convert_inline_style_to_data_attr' );
+		add_filter( 'style_loader_tag', 'raindrops_convert_inline_style_to_attribute_style', 10, 3 );
+		
+		add_filter( 'tiny_mce_before_init', 'raindrops_tinymce_body_classes');
 	}
 }
 ?>

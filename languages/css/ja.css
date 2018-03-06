@@ -50,6 +50,7 @@
    font-style:normal;
    font-display: fallback;/* @1.503 */
 }
+.wp-block-verse,
 table,
 body {
     font-family: "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
@@ -150,11 +151,21 @@ h2.footer-content {
 #list-of-post ol .entry-title{
     font-weight:normal!important;
 }
-em{
-    font-weight:bold;
-}
+.entry-content .itaric,
 i{
     font-style: italic;
+}
+.entry-content em{ /* @1.511 */
+    -webkit-text-emphasis-style: filled circle;
+    text-emphasis-style: filled circle;
+    font-style:normal;
+    font-weight:normal;
+    -webkit-text-emphasis-color:#888;
+    text-emphasis-color:#888;
+}
+.entry-content .gallery-infomation{
+    -webkit-text-emphasis-style: none;
+    text-emphasis-style: none;    
 }
 .widget_recent_comments .recentcomments{
     visibility:hidden;
@@ -258,4 +269,13 @@ i{
 }
 .ja figcaption{
     font-style:normal;
+}
+.ja .textwidget p > a:not(.attachment),
+.ja .entry-content p > a:not(.attachment){
+    margin-left:.5em;
+    margin-right:.5em;
+}
+
+.rd-pw-doc5.rd-col-1.single .writing-mode-mix{
+    margin-top:1.5em;
 }

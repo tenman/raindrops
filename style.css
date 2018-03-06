@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.510
+Version: 1.511
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,7 @@ Text Domain: raindrops
  * Round Square Class
  * Screen Reader
  * Search Result
+ * section
  * Section Counter Class
  * Share Links
  * Share link
@@ -190,6 +191,9 @@ html .color-5 a,
     html .color1 a, html .color2 a, html .color3 a, html .color4 a,
 html .color5 a{
     background:transparent;
+}
+body {
+    scroll-behavior: smooth;
 }
 /**
  * Article
@@ -329,11 +333,14 @@ body:not(.rd-col-3).error404 .entry-title,
     margin-bottom:.75em;
     clear:none;
     display:table;
-    /* @1.505
-    display:-ms-flexbox;
-    display:flex;
-    -ms-flex-direction:column;
-    flex-direction:column;*/
+}
+.paragraph_wrap_enable .h1,
+.paragraph_wrap_enable .h2,
+.paragraph_wrap_enable .h3,
+.paragraph_wrap_enable .h4,
+.paragraph_wrap_enable .h5,
+.paragraph_wrap_enable .h6{
+    margin-left:0;
 }
 .textwidget .row,
 .entry-content .row,
@@ -720,6 +727,7 @@ p{
 /**
  * Max Width
    ========================================================================== */
+picture,
 form,
 aside,
 canvas,
@@ -806,6 +814,9 @@ a:focus {
 .entry-content p > a{
     text-decoration:underline;
 }
+.format-link .entry-content p:first-of-type a{
+    text-decoration:none;
+}
 abbr{
     cursor:help;
     text-decoration:underline;
@@ -813,6 +824,9 @@ abbr{
 address {
     text-align:center;
     margin:0.76923076923em auto;
+}
+aside{
+    margin:1.5em auto .75em;
 }
 strong,
 b{
@@ -825,7 +839,10 @@ b{
 }
 figure{
     max-width:calc( 100% - 80px );
+    margin-top:1.5em;
+    margin-bottom:.75em;
 }
+
 .rd-has-caption-image{
     display:inline-block;
 }
@@ -866,6 +883,7 @@ figcaption{
 }
 blockquote{
     max-width:calc( 100% - 96px );
+    box-sizing:border-box;
 }
 
 .rd-grid blockquote{
@@ -905,7 +923,9 @@ i.material-icons{
     font-size:138.5%;
     font-style: normal;
 }
-
+section{
+    margin:1.5em auto .75em;
+}
 u{
     text-decoration: underline;
     text-decoration-style: solid;
@@ -933,6 +953,18 @@ p{
     margin-bottom:1em;
 }
 
+.paragraph_wrap_enable .gallery,
+.paragraph_wrap_enable .fit-p,
+.paragraph_wrap_enable p{
+    /* @1.511 */
+    margin-left:auto;
+    margin-right:auto;
+}
+picture{
+    padding:0;
+    margin-top:1.5em;
+    margin-bottom:.75em;
+}
 pre{
     overflow:auto;
 }
@@ -1076,7 +1108,7 @@ blockquote p:last-child{
 }
 .textwidget  figure.aligncenter img,
 .entry-content  figure.aligncenter img{
-    margin:5px auto;
+    margin:5px auto 2px;
 }
 .rsidebar figure img,
 .lsidebar figure img,
@@ -1265,6 +1297,7 @@ article ul{
     padding-bottom:1px;
     width:100%;
 }
+
 .widgettext .rd-table-wrapper.alignleft,
 .entry-content .rd-table-wrapper.alignleft,
 .widgettext .rd-table-wrapper.alignright,
@@ -1305,7 +1338,7 @@ article ul{
 }
 .entry-content .rd-table-wrapper table{
     margin-bottom:0;
-    margin:0;
+   /* @1.511 margin:0;*/
     padding:0;
 }
 
@@ -2032,6 +2065,11 @@ footer a{
    ========================================================================== */
 .raindrops-image-page .image img{
     height:auto;
+
+}
+.rd-col-1 .raindrops-image-page .image img{
+    margin-top:1.5em;
+    margin-bottom:.75em;
 }
 .raindrops-image-page .caption dl{
     margin:0;
@@ -2908,7 +2946,6 @@ br.clearfix {
 .yui-b > .yui-gd #wp-calendar #prev,
 .yui-b > .yui-g #wp-calendar #prev,
 .sticky-widget #wp-calendar #prev{
-
     text-align:center;
     padding-top:3%;
     padding-bottom:3%;
@@ -3044,10 +3081,8 @@ p.alignleft{
 	display:inline-block;
 	margin-right:13px;
 	padding:7px 13px;
-	/* @1.510 margin-top:3px; */
 	margin-bottom:.6em;
-	/*border:1px solid #ccc;*/
-	max-width:calc( 50% - 13px );
+	max-width:calc( 50% - 1em );
 	-webkit-box-sizing:border-box;
 	        box-sizing:border-box;
 }
@@ -3056,7 +3091,7 @@ p.alignright{
 	margin-left:13px;
 	padding:7px 13px;
 	margin-top:3px;
-	max-width:calc( 50% - 13px );
+	max-width:calc( 50% - 1em );
 	-webkit-box-sizing:border-box;
 	        box-sizing:border-box;
 }
@@ -3078,6 +3113,7 @@ p.alignnone{
     float: none;
     max-width: 66.666%;
 }
+blockquote.aligncenter,
 a.aligncenter,
 .page-featured-image,
 img.aligncenter,
@@ -3087,7 +3123,10 @@ div.aligncenter {
     margin-left: auto;
     margin-right: auto;
 }
+ol.aligncenter,
+ul.aligncenter{
 
+}
 .page-featured-image{
     padding:0.76923076923em;
 }
@@ -3125,6 +3164,12 @@ img.alignright,
     /* TinyMCE attachment image not caption shortcode */
     padding:1.5em 0 .75em 0;
 }
+picture.alignright,
+picture.alignleft,
+section.alignright,
+section.alignleft,
+aside.alignright,
+aside.alignleft,
 div.alignright,
 div.alignleft{
     margin-top:0;
@@ -3143,7 +3188,6 @@ ul.alignleft{
     box-sizing:border-box;
     line-height:1.231;
 }
-
 /* Correcting line markers on multiple lines */
 ol.alignright li > p,
 ul.alignright li > p,
@@ -3228,7 +3272,19 @@ div.alignleft div:last-child{
 .alignnone{
      display:inline-block;
 }
-
+/**
+ * section
+   ========================================================================== */
+section h4:first-of-type,
+section h3:first-of-type,
+section h2:first-of-type,
+section h1:first-of-type{
+    display:block;
+    margin-top:.5em;
+}
+section.alignnone{
+    margin-top:.75em;
+}
 /**
  * figure
    ========================================================================== */
@@ -3244,22 +3300,20 @@ figure > ol + figcaption,
 figure > ul + figcaption{
     margin-right:0;
 }
+pre.alignright,
+pre.alignleft,
 figure.alignright,
 figure.alignleft{
-   /* @1.510 padding:0;*/
     max-width: calc( 50% - 1em );/* needs to shrinkfit for smaller than harf size image */
-
+    margin-top:0;
 }
-/* @1.510
-figure.alignright:not(.rd-fixed-width):focus,
-figure.alignleft:not(.rd-fixed-width):focus{
-    width:auto;
-}*/
-figure.alignleft{
+.entry-content .alignleft,
+.entry-content figure.alignleft{
     margin-right:1em;
     margin-left:0;
 }
-figure.alignright{
+.entry-content .alignright,
+.entry-content figure.alignright{
     margin-left:1em;
     margin-right:0;
 }
@@ -3326,6 +3380,9 @@ li.byuser,
 }
 .format-status .post-format-status-main{
     margin:0 0 2em;
+}
+.single.rd-col-1 .format-status .post-format-status-main{
+    margin:1.5em 0 2em;
 }
 .format-standard .format-status-not-single-post .blog-avatar,
 .format-status .format-status-not-single-post .blog-avatar{
@@ -3520,6 +3577,10 @@ body.single .category-blog-publish-date a{
 .format-status .entry-meta-list li.category,
 .category-blog .entry-meta-list li.category{
     padding:1em;
+}
+.single.rd-col-1 .format-status .entry-meta-list.left,
+.single.rd-col-1 .category-blog .entry-meta-list.left{
+    margin-top:1.5em;
 }
 .format-status .entry-meta-list.left li,
 .category-blog .entry-meta-list.left li{
@@ -6818,8 +6879,6 @@ dl.rd-nowrap{
     max-width:100%;
 }
 .rd-nowrap > dt{
-    /* for dl */
-   /* @1.510 display:table;*/
    width:fit-content;
     min-width:10em;
 }
@@ -6827,27 +6886,6 @@ ol.rd-nowrap,
 ul.rd-nowrap{
     display:inline-block;
 }
-/* @1.510
-#doc3 .textwidget .rd-float-wrapper,
-#doc3 .textwidget ol,
-#doc3 .textwidget ul,
-#doc3 .textwidget dl:not(.rd-float),
-#doc3 .entry-content .rd-float-wrapper,
-#doc3 .entry-content ol,
-#doc3 .entry-content ul,
-#doc3 .entry-content dl:not(.rd-float),
-#doc5 .textwidget .rd-float-wrapper,
-#doc5 .textwidget ol,
-#doc5 .textwidget ul,
-#doc5 .textwidget dl:not(.rd-float),
-#doc5 .entry-content .rd-float-wrapper,
-#doc5 .entry-content ol,
-#doc5 .entry-content ul,
-#doc5 .entry-content dl:not(.rd-float){
-    min-width:148px;
-    box-sizing:border-box;
-}*/
-
 .entry-content dl.gallery-item{
     min-width:0;
 }
@@ -8364,7 +8402,6 @@ ul.archives .rd-tag-description{
 .rd-card article{
     width:600px;
     max-width:100%!important;
-    border:1px solid rgba(127,127,127,.4);
     margin:0 auto 2em;
 }
 .rd-grid .rd-card article{
@@ -8372,6 +8409,11 @@ ul.archives .rd-tag-description{
 }
 .rd-card .entry-title{
     padding:.6em;
+}
+.rd-col-1.single article .entry-title{
+    /* @1.511 margin-top:0;*/
+    margin-bottom:3px;
+    padding-bottom:0;
 }
 .rd-card .posted-on{
     margin:1em;
@@ -9723,9 +9765,53 @@ ul.size1of4 li:last-child,ul.size3of4 li:last-child,ul.size1of5 li:last-child,
 ul.size2of5 li:last-child,ul.size3of5 li:last-child,ul.size4of5 li:last-child{
     margin-bottom:0;
 }
+.entry-content li > .rd-justify,
+table th.rd-justify,
+table td.rd-justify{
+     padding:0;
+     -moz-text-align-last: justify;
+     text-align-last: justify;
+     text-justify:auto;
+}
+.ja .entry-content li > .rd-justify,
+.ja table th.rd-justify,
+.ja table td.rd-justify{
+     text-justify:inter-ideograph;
+}
+.ja.edge .rd-justify{
+    text-justify:distribute-all-lines;
+    text-align:justify;
+}
+
+.entry-content li > .is-rd-justified,
+.is-rd-justified{
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+     -webkit-box-pack: justify;
+     -ms-flex-pack: justify;
+     justify-content: space-between;
+     width:100%;
+     flex-wrap:wrap;
+
+     vertical-align:baseline;
+}
+
+span[data-rd-style*="width"] {
+    display:inline-block;
+}
 /**
  * Gutenberg
  */
 .blocks-gallery-item{
     list-style-type:none;
 }
+.entry-content [data-rd-style="text-align:center"],
+.entry-content [style="text-align:center"],
+.entry-content [data-rd-style="text-align:right"],
+.entry-content [style="text-align:right"],
+.entry-content [data-rd-style="text-align:left"],
+.entry-content [style="text-align:left"]{
+	display:block;
+}
+

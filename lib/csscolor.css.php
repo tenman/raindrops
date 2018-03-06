@@ -39,6 +39,12 @@ function raindrops_indv_css_dark() {
 		$transform = '';
 	}
     $style = <<<DOC
+strong{
+	color:#fff;
+}
+.entry-content p a{
+	text-decoration-color: rgba(222,222,222,.4);
+}
 pre{
     %c_3%;
     outline:1px solid %rgba_border%;
@@ -265,8 +271,9 @@ aside{
 .lsidebar option.level-0,
 .commentlist .pingback,
 div[id^="comment-"],
-.textwidget td,
-.entry-content td,
+/*.textwidget td,
+.entry-content td,*/
+td,
 cite a:link,cite a:active,cite a:visited,cite a:hover,
 cite,
 ul.nav li a,ul.nav li a:link,ul.nav li a:visited,
@@ -284,7 +291,6 @@ ul.nav li a:hover,ul.nav li a:active,
 .lsidebar option.level-2{
     %c_2%
 }
-
 .widget select,
 input[type="file"],
 input[type="reset"],
@@ -298,8 +304,8 @@ input[type="submit"],
 .social textarea#comment,
 .social input[type="text"],
 .hentry input[type="password"],
-.textwidget blockquote,
-.entry-content blockquote,
+blockquote,
+blockquote,
 td.month-date,td.month-name,td.time,
 .footer-widget h2,.rsidebar h2,.lsidebar h2,
 #ft #wp-calendar,
@@ -626,10 +632,8 @@ hr{
 .comment-body th,
 .comment-body td,
 .wp-caption,
-.textwidget td,
-.textwidget th,
-.entry-content td,
-.entry-content th{
+td,/* @1.511 remove class */
+th{
     border:solid 1px %rgba_border%;
 }
 .lsidebar > ul > li:last-child,	
@@ -961,6 +965,12 @@ function raindrops_indv_css_w3standard() {
 	}
 	
     $style = <<<DOC
+.entry-content p a{
+	text-decoration-color: rgb(85,85,85);
+}
+strong{
+	color:#000;
+}
 pre{
     %c5%;
 	outline:1px solid %rgba_border%;
@@ -1333,10 +1343,12 @@ dl > div,
 .entry-content legend{
     %c5%
 }
+/*
 .textwidget td,
 .textwidget td,
 .comment-body td,
-.entry-content td{
+.entry-content td*/
+	td{
     %c4%;
     border:solid 1px %c_border%;
 }
@@ -1582,6 +1594,12 @@ function raindrops_indv_css_light() {
 		$transform = '';
 	}
 	$style = <<<DOC
+.entry-content p a{
+	text-decoration-color: rgba(85,85,85,.8);
+}
+strong{
+	color:#000;
+}
 pre{
 	background:#fff;
     outline:1px solid %rgba_border%;
@@ -2459,6 +2477,12 @@ function raindrops_indv_css_minimal() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#c0392b!important;');
     $style = <<<CSS
+.entry-content p a{
+	text-decoration-color: rgba(85,85,85,.8);
+}
+strong{
+	color:#000;
+}
 pre{
 	color:#555;
 	background:#f8f8ff;
@@ -2757,10 +2781,11 @@ hr{
 	 border-top:1px solid %rgba_border%;
 	 border-bottom:1px solid %rgba_border%;
 }
-.textwidget th,
+/*@1.511 .textwidget th,
 .textwidget td,
 .entry-content th,
-.entry-content td{
+.entry-content td*/
+	td,th{
 	border-bottom:1px solid %rgba_border%;
 }
 

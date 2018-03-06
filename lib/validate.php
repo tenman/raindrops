@@ -1,4 +1,25 @@
 <?php
+function raindrops_paragraph_line_wrapping_validate($input){
+	if( 'enable' == $input || 'disable' == $input ) {
+		
+		return $input;
+	}
+	return 'disable';	
+}
+function raindrops_paragraph_line_wrapping_value_validate($input){
+	if( is_numeric( $input ) ) {
+
+		return intval( $input );
+	}
+	return 72;
+}
+function raindrops_replace_style_sttr_width_data_attr_validate($input){
+	if( 'enable' == $input || 'disable' == $input ) {
+		
+		return $input;
+	}
+	return 'enable';	
+}
 function raindrops_parallax_header_image_validate($input){
 	if( 'enable' == $input || 'disable' == $input ) {
 		

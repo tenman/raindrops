@@ -354,11 +354,9 @@ if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_cust
 </div>
 <?php  
 if ( 'yui-b' == $raindrops_devide_column_class ) { 
-	raindrops_prepend_default_sidebar();
 	if ( $raindrops_bf_display_widget == 'y' ) {
 		get_sidebar( 'default' );
 	}
-	raindrops_append_default_sidebar(); 
 }//if ( $raindrops_devide_column_class == 'yui-b' )   
 get_footer( $raindrops_document_type ); 
 ?>

@@ -16,15 +16,6 @@
         width:33%;
         margin:0;
     }
-    /* @1.510
-    .entry-content figure.alignright + p,
-    .entry-content figure.alignleft + p{
-        min-width:296px;        
-    }
-    .entry-content > a .alignright.size-medium,
-    .entry-content > a .alignleft.size-medium{
-        max-width:60%;
-    }*/
     .entry-content blockquote{
         margin:1em 40px;
     }
@@ -33,6 +24,9 @@
     }
     blockquote.alignright{
         margin:1em 0 2em 1em;
+    }
+    blockquote.aligncenter{
+        margin:1em auto 1em;
     }
     .rd-primary-menu-responsive-active .raindrops-mobile-menu{
         box-sizing:border-box;
@@ -251,7 +245,21 @@
         margin:1em 0;
         max-width:100%;
     }
-    #doc5 .size1of1,
+.hentry .entry-content .size1of1,
+.hentry .entry-content .size1of2,
+.hentry .entry-content .size1of3,
+.hentry .entry-content .size2of3,
+.hentry .entry-content .size1of4,
+.hentry .entry-content .size3of4,
+.hentry .entry-content .size1of5,
+.hentry .entry-content .size2of5,
+.hentry .entry-content .size3of5,
+.hentry .entry-content .size4of5{
+    /* @1.511 */
+    width:auto;
+    max-width:100%;
+}
+  /*  #doc5 .size1of1,
     #doc5 .size1of2,
     #doc5 .size1of3,
     #doc5 .size2of3,
@@ -260,7 +268,7 @@
     #doc5 .size1of5,
     #doc5 .size2of5,
     #doc5 .size3of5,
-    #doc5 .size4of5,
+    #doc5 .size4of5,*/
     #doc5.yui-t6 #container > div.first,
     #doc5.yui-t5 #container > div.first,
     #doc5.yui-t4 #container > div.first,
@@ -278,7 +286,6 @@
     #doc5 #bd .yui-b,
     #doc5 #yui-main{
         float:none;
-        /* @1.510 margin:0 to margin-left:0 margin-right:0 */
         margin-left:0;
         margin-right:0;
         display:block;
@@ -526,7 +533,6 @@
 
     #ft .raindrops-pinup-entries .approach-image,
     .raindrops-pinup-entries.widget .approach-image{
-      /* @1.498  width:90vw;*/
         margin:auto;
         display:block;
         text-align:center;
@@ -552,7 +558,6 @@
         overflow: hidden;
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
-       /* @1.498 font-weight:700;*/
     }
     .raindrops-toc-front{
         margin:1em auto;
@@ -868,7 +873,6 @@
     .entry-content .aligncenter{
         float:none;
        display:inline-block;/* @1.510 block to inline-block */
-      /* @1.510 width:100%; */
        max-width:100%;
        margin-left:auto;
        margin-right:auto;
@@ -1440,13 +1444,11 @@
         margin:auto 1em 1em;
         padding:0;
         width:100%;
-       /* @1.498 min-height:15.3846em;*/
     }
     .raindrops-tag-posts .list,
     .raindrops-category-posts .list,
     .raindrops-recent-posts{
              margin:auto;
-        /* @1.498 max-width:29.2408em;*/
     }
     .raindrops-category-posts ul > li article,
     .raindrops-tag-posts ul > li article,

@@ -25,8 +25,6 @@
  * @uses get_sidebar( 'extra' )
  * @uses get_sidebar( 'default' )
  * @uses get_footer( $raindrops_document_type )
- * @uses raindrops_prepend_default_sidebar( )
- * @uses raindrops_append_default_sidebar( )
  */
 /*
   date.php - calendar based archive navigation
@@ -207,11 +205,7 @@ raindrops_debug_navitation( __FILE__ );
 <?php
 if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
 	//lsidebar start 
-	raindrops_prepend_default_sidebar();
-
 	get_sidebar( 'default' );
-
-	raindrops_append_default_sidebar();
 }
 get_footer( $raindrops_document_type ); 
 ?>

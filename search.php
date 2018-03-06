@@ -6,8 +6,6 @@
  * @package Raindrops
  * @since Raindrops 0.1
  *
- * @uses raindrops_prepend_default_sidebar( )
- * @uses raindrops_append_default_sidebar( )
  */
 if ( !defined( 'ABSPATH' ) ) {
     exit;
@@ -158,11 +156,7 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 <?php
 if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
 	//lsidebar start 
-	raindrops_prepend_default_sidebar();
-
 	get_sidebar( 'default' );
-
-	raindrops_append_default_sidebar();
 }
 get_footer( $raindrops_document_type ); 
 ?>

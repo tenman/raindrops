@@ -483,8 +483,12 @@ if ( !function_exists( 'raindrops_writing_mode_mix_add_attribute' ) ) {
 
 			/* Tiny MCE style */
 			$tiny_mce = array( '<p style="text-align: right;">' => '<p class="d-tate bottom" style="text-align: right">',
-							'<p style="text-align: center;">' => '<p class="d-tate center" style="text-align: center">',);
-
+							'<p style="text-align: center;">' => '<p class="d-tate center" style="text-align: center">',
+							'<p data-rd-style="text-align: right;">' => '<p class="d-tate bottom" style="text-align: right">',
+							'<p data-rd-style="text-align: center;">' => '<p class="d-tate center" style="text-align: center">',
+				
+			);
+			// @1.511 data-rd-style value is remove whitespaces
 			$tiny_mce = apply_filters( 'raindrops_writing_mode_mix_mce_attribute_change', $tiny_mce );
 
 			$content = str_replace( array_keys( $tiny_mce ), array_values( $tiny_mce ), $content );
@@ -769,6 +773,7 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
         margin:0 24px 1em;
         height:360px;
 		height:$line_size;
+		clear:none;
     }
     .writing-mode-mix $scope h6.d-tate,
     .writing-mode-mix $scope h5.d-tate,

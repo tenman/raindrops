@@ -26,7 +26,6 @@
  * @uses get_sidebar( )
  * @uses get_footer( $raindrops_document_type )
  * @uses get_post_thumbnail_id( )
- * @uses raindrops_prepend_default_sidebar( )
  * @uses raindrops_append_default_sidebar( )
  *
  */
@@ -175,12 +174,7 @@ raindrops_debug_navitation( __FILE__ );
  * Show main column lsidebar start
  */
 if ( 1 !== $raindrops_current_column || false == $raindrops_current_column ) {
-
-	raindrops_prepend_default_sidebar();
-
     get_sidebar( 'default' );
-
-    raindrops_append_default_sidebar();
 }
 get_footer( $raindrops_document_type ); 
 ?>

@@ -143,11 +143,7 @@ raindrops_tile( $args );
 <?php
 if ( $raindrops_current_column !== 1 || false == $raindrops_current_column ) {
 	//lsidebar start
-	raindrops_prepend_default_sidebar();
-
 	get_sidebar( 'default' );
-
-	raindrops_append_default_sidebar();
 }
 get_footer( $raindrops_document_type ); 
 ?>

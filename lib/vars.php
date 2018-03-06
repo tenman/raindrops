@@ -10,6 +10,15 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Use Raindrops Class rd-justify with javascript
+ * purpose: Solve the river of white problem with short strings.
+ * class rd-justify make equal spacing each string with javascript
+ * when false Not using javascript. use only CSS .rd-justify{text-align: justify;} .
+ */
+if( ! isset( $raindrops_class_rd_justify_enable ) ) {
+	$raindrops_class_rd_justify_enable = true;
+}
+/**
  * Use Raindrops gallery template
  * when category gallery, post format gallery
  */
@@ -2035,6 +2044,36 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt2'		 => esc_html__( 'Make the header image parallax', 'raindrops' ),
 			'validate'		 => 'raindrops_parallax_header_image_validate',
 			'list'			 => 127 ),
+		'raindrops_replace_style_sttr_width_data_attr'					 => array( 'option_id'		 =>129,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_replace_style_sttr_width_data_attr',
+			'option_value'	 => 'enable',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Replace style attributes with data attributes', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'The corresponding CSS is created automatically.', 'raindrops' ),
+			'validate'		 => 'raindrops_replace_style_sttr_width_data_attr_validate',
+			'list'			 => 128 ),
+		'raindrops_paragraph_line_wrapping'					 => array( 'option_id'		 =>130,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_paragraph_line_wrapping',
+			'option_value'	 => 'disable',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Paragraph line wrapping', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'Adjust the paragraph width becomes large and difficult to read', 'raindrops' ),
+			'validate'		 => 'raindrops_paragraph_line_wrapping_validate',
+			'list'			 => 129 ),
+		'raindrops_paragraph_line_wrapping_value'					 => array( 'option_id'		 =>131,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_paragraph_line_wrapping_value',
+			'option_value'	 => 50,
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Specify the number of characters to display on one line.', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'Please set it while checking the number of characters in customizer', 'raindrops' ),
+			'validate'		 => 'raindrops_paragraph_line_wrapping_value_validate',
+			'list'			 => 130 ),
 	);
 }
 

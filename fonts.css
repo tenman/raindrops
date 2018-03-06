@@ -80,9 +80,9 @@ var, h1, h2, h3, .h1, .h2, .h3{
     font-family:"Times New Roman", Times, serif;
 }
 .form-allowed-tags code,
-pre, code, kbd, samp,
+code, kbd, samp,
 tt {
-    font-family:"Courier New", Courier, monospace;
+    font-family:"Osaka", "Consolas", "Courier New", "Courier", "MS Gothic", monospace;
     line-height:100%;
 }
 

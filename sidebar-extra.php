@@ -13,6 +13,7 @@ global $template;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?>
 <<?php raindrops_doctype_elements( 'div', 'aside' ); ?> class="rsidebar">
+<?php raindrops_prepend_default_sidebar();?>
 <ul>
     <?php
     if ( !dynamic_sidebar( 'sidebar-2' ) ) {
@@ -21,5 +22,6 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
     }
     ?>
 </ul>
+<?php raindrops_append_default_sidebar();?>
 </<?php raindrops_doctype_elements( 'div', 'aside' ); ?>>
 <?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

@@ -13,6 +13,7 @@ global $template;
 do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) );
 ?>
 <div class="sidebar" <?php raindrops_doctype_elements( '', 'role="complementary"' ); ?>>
+	<?php raindrops_prepend_default_sidebar();?>
     <ul>
         <?php
         if ( !dynamic_sidebar( 'sidebar-1' ) ) {
@@ -54,5 +55,6 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
     <?php } //if ( is_front_page( ) || is_page( ) )  ?>
 <?php } //if ( ! dynamic_sidebar('sidebar-1' ) )  ?>
     </ul>
+<?php raindrops_append_default_sidebar();?>	
 </div>
-<?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>
+<?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>	

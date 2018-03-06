@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  *
@@ -2292,6 +2291,9 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 				$css .= '.entry-content > p:not([class]){ max-width:'. $paragraph_wrap_width. 'em;}';
 				$css .= '.entry-content .aligncenter{ max-width:'. $paragraph_wrap_width. 'em;}';
 				$css .= '.entry-content .fit-p{ max-width:'. $paragraph_wrap_width. 'em;}';
+				$css .= '.rd-grid .entry-content > p:not([class]){ max-width:100%;}';
+				$css .= '.rd-grid .entry-content .aligncenter{ max-width:100%;}';
+				$css .= '.rd-grid .entry-content .fit-p{ max-width:100%;}';
 				$css .= '@media screen and (max-width : '. $paragraph_wrap_width.'em){';
 					$css .= '.entry-content > p:not([class]){ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
@@ -2301,6 +2303,9 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 				$css .= '.entry-content > p:not([class]){ max-width:'. $paragraph_wrap_width_en. 'em;}';
 				$css .= '.entry-content .aligncenter{ max-width:'. $paragraph_wrap_width_en. 'em;}';
 				$css .= '.entry-content .fit-p{ max-width:'. $paragraph_wrap_width_en. 'em;}';
+				$css .= '.rd-grid .entry-content > p:not([class]){ max-width:100%;}';
+				$css .= '.rd-grid .entry-content .aligncenter{ max-width:100%;}';
+				$css .= '.rd-grid .entry-content .fit-p{ max-width:100%;}';
 				$css .= '@media screen and (max-width : '. $paragraph_wrap_width_en.'em){';
 					$css .= '.entry-content > p:not([class]){ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
@@ -13927,6 +13932,7 @@ if( ! function_exists( 'raindrops_add_codemirror_for_raindrops_custom_css_field'
 		if( ! function_exists( 'wp_enqueue_code_editor' ) ) {
 			return;
 		}
+
 		$settings = wp_enqueue_code_editor( array( 'type' => 'text/css' ) );
 
 		if ( false === $settings ) {
@@ -14207,7 +14213,7 @@ if ( ! function_exists( 'raindrops_convert_inline_style_to_css' ) ) {
 
 			$result		 = '';
 			$attribute	 = array();
-			$css		 = '.page .entry-content,.post .entry-content [data-rd-%1$s]{ %2$s }';
+			$css		 = '.page .entry-content [data-rd-%1$s],.post .entry-content [data-rd-%1$s]{ %2$s }';
 
 			if ( have_posts() ) {
 
@@ -14268,6 +14274,7 @@ if ( !function_exists( 'raindrops_tinymce_body_classes' ) ) {
 	}
  
 }
+
 /**
  *
  *

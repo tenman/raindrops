@@ -527,5 +527,6 @@ jQuery( function ( $ ) {
            $( this ).replaceWith( text.replace( /(\S)/g, '<span class="one-peace" data-group="' + i + '" aria-hidden="true" data-value="$1">$1</span>') );
            $( '[data-group="' + i + '"]' ).wrapAll( '<div class="is-rd-justified ' + classes + ' group-'+i+'" '+ styles +' aria-label="'+ text +'"></div>' ); 
        }
+       
     } );
 } );

@@ -9796,7 +9796,16 @@ table td.rd-justify{
 
      vertical-align:baseline;
 }
-
+.is-rd-justified,
+.entry-content li > .is-rd-justified span,
+.is-rd-justified span{
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none; 
+}
 span[data-rd-style*="width"] {
     display:inline-block;
 }

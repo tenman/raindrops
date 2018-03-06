@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.512
+
+Overview of Changes
+		Fixed Grid Layout CSS issue.
+		Fixed Page CSS issue.
+		Modified .is-rd-justified user selection none
+Files Modified
+	modified: functions.php
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.511&new_path=raindrops/1.512
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.511
 
 Overview of Changes

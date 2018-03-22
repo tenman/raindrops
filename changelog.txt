@@ -2,10 +2,27 @@ Changelog -----------------------------------
 version:1.513
 
 Overview of Changes
-
+	Modified added Raindrops base font CSS classes .rd-basefont-13,.rd-basefont-14,... .rd-basefont-20
+	Modified Customize / Presentation / Fonts. Vertical Rhythm for Entry Content
+				Changed paragraph line height value
+	Modified Customize / Presentation / Fonts. Paragraph line wrapping CSS
+	Modified function raindrops_gallerys_clone() css values
+	Modified Gutenberg add_theme_support( 'align-wide' )
+	Modified Gutenberg CSS
+	Fixed header image pallalax issue
+		When using box layout responsive, scroll then image wider.
 
 Files Modified
-
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   lib/alias_functions.php
+	modified:   lib/customize.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.512&new_path=raindrops/1.513

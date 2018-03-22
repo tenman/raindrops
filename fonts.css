@@ -288,6 +288,33 @@ h1,h2,h3,h4,h5,h6,
     text-transform:capitalize;
 }
 /**
+ * body basefont sizes
+   ========================================================================== */
+.rd-basefont-13{
+    font-size:13px;
+}
+.rd-basefont-14{
+    font-size:14px;
+}
+.rd-basefont-15{
+    font-size:15px;
+}
+.rd-basefont-16{
+    font-size:16px;
+}
+.rd-basefont-17{
+    font-size:17px;
+}
+.rd-basefont-18{
+    font-size:18px;
+}
+.rd-basefont-19{
+    font-size:19px;
+}
+.rd-basefont-20{
+    font-size:20px;
+}
+/**
  * Misc
    ========================================================================== */
 var, em, .entry-content cite {
@@ -295,4 +322,7 @@ var, em, .entry-content cite {
 }
 .ja em{
     font-style:normal;
+}
+figcaption{
+    font-size:0.8125rem;
 }

@@ -178,6 +178,12 @@
                             jQuery( this ).removeAttr( 'style' );
                         } );
                     }
+                    /* gutenberg */
+                    /*
+                    jQuery( '.wp-block-gallery.is-cropped' ).each( function () {
+                        var child_height = jQuery( this ).children('li:first-child').width();
+                        jQuery( this ).find('li').css( { 'height': child_height,'visibility':'visible' } );
+                    } );*/
 
             }
 
@@ -728,6 +734,7 @@ jQuery( function ( $ ) {
                 /* @1.494 */
                 $( 'nav#access' ).removeClass( 'raindrops-menu-fixed' );
             }
+            
         } );
     }
     

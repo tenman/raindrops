@@ -1309,46 +1309,43 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 		} else {
 			$display_property = 'display:inline-block;';
 		}
-		//px gap size gap is near $gap_figure.value * 2 px
-		$gap_figure = apply_filters( 'raindrops_gap_gallery_item', 6 );
-		$gap_figure = intval( $gap_figure ) / 2;
+
+		$gap = apply_filters( 'raindrops_gap_gallery_item', 6 );
+		$gap_figure = intval( $gap ) / 2;
 		
 		$all_sizes = raindrops_get_image_sizes();
 		
-		$raindrops_gallerys = '.gallery, .entry-content .gallery{
-												display: -webkit-box;
-												display: -ms-flexbox;
-												display: flex;
-												-ms-flex-wrap: wrap;
-													flex-wrap: wrap;
-												-webkit-box-align: stretch;
-													-ms-flex-align: stretch;
-														align-items: stretch;											
-												/* @1.505 -webkit-box-pack: center;
-													-ms-flex-pack: center;
-														justify-content: center;*/											
-										}';
-		$raindrops_gallerys .= '
-		.gallery .gallery-icon{
-	display:flex;
-	height:100%;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-}';
+		$raindrops_gallerys = '
+			.gallery, .entry-content .gallery{
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-ms-flex-wrap: wrap;
+					flex-wrap: wrap;
+				-webkit-box-align: stretch;
+					-ms-flex-align: stretch;
+						align-items: stretch;										
+			}
+			.gallery .gallery-icon{
+				display:flex;
+				height:100%;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+			}';
+
 		foreach( $all_sizes as $name => $value ) {
 				$width = absint( $value['width'] );
 				
-					$width2	 = round( $width * 2 );
-					$width3	 = round( $width * 3 );
-					$width4	 = round( $width * 4 );
-					$width5	 = round( $width * 5 );
-					$width6	 = round( $width * 6 );
-					$width7	 = round( $width * 7 );
-					$width8	 = round( $width * 8 );
-					$width9	 = round( $width * 9 );
-					$width10 = round( $width * 10 );
-			
+					$width2	 = round( ( $width + $gap ) * 2 );
+					$width3	 = round( ( $width + $gap ) * 3 );
+					$width4	 = round( ( $width + $gap ) * 4 );
+					$width5	 = round( ( $width + $gap ) * 5 );
+					$width6	 = round( ( $width + $gap ) * 6 );
+					$width7	 = round( ( $width + $gap ) * 7 );
+					$width8	 = round( ( $width + $gap ) * 8 );
+					$width9	 = round( ( $width + $gap ) * 9 );
+					$width10 = round( ( $width + $gap ) * 10 );
 				
 				$raindrops_gallerys .= '.gallery-columns-1.gallery-size-'. $name. '{ width: '. $width. 'px ; max-width:100%; }
 				.gallery-columns-2.gallery-size-'. $name. ' { width:'. $width2. 'px ; max-width:100%; }
@@ -1360,36 +1357,126 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery-columns-8.gallery-size-'. $name. ' { width: '. $width8. 'px ; max-width:100%; }
 				.gallery-columns-9.gallery-size-'. $name. ' { width: '. $width9. 'px ; max-width:100%; }
 				.gallery-columns-10.gallery-size-'. $name. ' { width: '. $width10. 'px ; max-width:100%; }';
-				
-				/* gutenberg gallery */
 		}		
 		
 		$raindrops_gallerys .= '
-				.gallery .gallery-item { margin:'.$gap_figure.'px; }
+				div.gallery{ margin-left:auto;margin-right:auto;}
+				.gallery .gallery-item {  margin:'.$gap_figure.'px; }
 				.gallery .gallery-item {'. $display_property. ' margin-top: '.$gap_figure.'px; text-align: center; }
-				.gallery img { max-width:100%; }
+				.entry-content .gallery img { max-width:100%; }
 				.gallery .gallery-caption { margin-left: 0; }
 				.gallery br { clear: both }
-				.gallery-columns-1 .gallery-item{ width: 100% }
-				.gallery-columns-2 .gallery-item{ width: calc(48% - '. $gap_figure * 1 .'px)}
-				.gallery-columns-3 .gallery-item{ width: calc(33.3% - '. $gap_figure * 2 .'px)}
-				.gallery-columns-4 .gallery-item{ width: calc(25% - '. $gap_figure * 3 .'px)}
-				.gallery-columns-5 .gallery-item{ width: calc(20% - '. $gap_figure * 4 .'px)}
-				.gallery-columns-6 .gallery-item{ width: calc(16.6% - '. $gap_figure * 5 .'px)}
-				.gallery-columns-7 .gallery-item{ width: calc(14.28% - '. $gap_figure * 6 .'px)}
-				.gallery-columns-8 .gallery-item{ width: calc(12.5% - '. $gap_figure * 7 .'px)}
-				.gallery-columns-9 .gallery-item{ width: calc(11.1% - '. $gap_figure * 8 .'px)}
-				.gallery-columns-10 .gallery-item{ width: calc(9.9% - '. $gap_figure * 9 .'px)}';
+				
+				.gallery-columns-1 .gallery-item, .columns-1 .blocks-gallery-item{ width: 100% }
+				.gallery-columns-2 .gallery-item, .columns-2 .blocks-gallery-item{ width: calc(50% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-3 .gallery-item, .columns-3 .blocks-gallery-item{ width: calc(33.3% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-4 .gallery-item, .columns-4 .blocks-gallery-item{ width: calc(25% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-5 .gallery-item, .columns-5 .blocks-gallery-item{ width: calc(20% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-6 .gallery-item, .columns-6 .blocks-gallery-item{ width: calc(16.6% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-7 .gallery-item, .columns-7 .blocks-gallery-item{ width: calc(14.28% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-8 .gallery-item, .columns-8 .blocks-gallery-item{ width: calc(12.5% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-9 .gallery-item, .columns-9 .blocks-gallery-item{ width: calc(11.1% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-10 .gallery-item, .columns-10 .blocks-gallery-item{ width: calc(9.9% - '. $gap .'px); margin:'. $gap_figure.'px; }';
+		
+		/* gutenberg gallery */
+		
+		$raindrops_gallerys .= '
+				ul.wp-block-gallery{
+					left:0;	
+				}
+				
+				.wp-block-gallery,
+					.wp-block-gallery.aligncenter,
+					.wp-block-gallery.alignleft,
+					.wp-block-gallery.alignright {
+						display: -ms-flexbox;
+						display: flex;
+						-ms-flex-wrap: wrap;
+						flex-wrap: wrap;
+						list-style-type: none;
+				}
+				.wp-block-gallery li.blocks-gallery-item{
+					margin:'. $gap_figure.'px;
+					-ms-flex-positive: 0;
+					flex-grow:0;
+					
+				}
+				.wp-block-gallery.aligncenter{
+					width:66.66%;
+				}
+				.wp-block-gallery.aligncenter .blocks-gallery-item,
+				.wp-block-gallery.alignleft .blocks-gallery-item,
+				.wp-block-gallery.alignright .blocks-gallery-item,
+				.wp-block-gallery .blocks-gallery-item {
+					margin:'. $gap_figure.'px;
+					-ms-flex-positive: 0;
+					flex-grow:0;
+				}
+			    .wp-block-gallery.aligncenter .blocks-gallery-item figure,
+				.wp-block-gallery.alignleft .blocks-gallery-item figure,
+				.wp-block-gallery.alignright .blocks-gallery-item figure,
+				.wp-block-gallery .blocks-gallery-item figure{
+					flex-direction:row;
+					overflow:hidden;
+					max-width:100%;
+					align-items: center;
+					justify-content: center;
+					margin:0;
+				}
+				.wp-block-gallery.is-cropped figure{
+					height:100%;
+				}
+				.wp-block-gallery.aligncenter.is-cropped .blocks-gallery-image a,
+				.wp-block-gallery.aligncenter.is-cropped .blocks-gallery-image img,
+				.wp-block-gallery.aligncenter.is-cropped .blocks-gallery-item a,
+				.wp-block-gallery.aligncenter.is-cropped .blocks-gallery-item img,
+				.wp-block-gallery.alignleft.is-cropped .blocks-gallery-image a,
+				.wp-block-gallery.alignleft.is-cropped .blocks-gallery-image img,
+				.wp-block-gallery.alignleft.is-cropped .blocks-gallery-item a,
+				.wp-block-gallery.alignleft.is-cropped .blocks-gallery-item img,
+				.wp-block-gallery.alignright.is-cropped .blocks-gallery-image a,
+				.wp-block-gallery.alignright.is-cropped .blocks-gallery-image img,
+				.wp-block-gallery.alignright.is-cropped .blocks-gallery-item a,
+				.wp-block-gallery.alignright.is-cropped .blocks-gallery-item img,
+				.wp-block-gallery.is-cropped .blocks-gallery-image a,
+				.wp-block-gallery.is-cropped .blocks-gallery-image img,
+				.wp-block-gallery.is-cropped .blocks-gallery-item a,
+				.wp-block-gallery.is-cropped .blocks-gallery-item img {
+				   -ms-flex: 1;
+				   flex: 1;
+				   width: 100%;
+				   height: 100%;
+				   -o-object-fit: cover;
+				   object-fit: cover;
+			   }
+				.wp-block-gallery.aligncenter .blocks-gallery-image img,
+				.wp-block-gallery.aligncenter .blocks-gallery-item img,
+				.wp-block-gallery.alignleft .blocks-gallery-image img,
+				.wp-block-gallery.alignleft .blocks-gallery-item img,
+				.wp-block-gallery.alignright .blocks-gallery-image img,
+				.wp-block-gallery.alignright .blocks-gallery-item img,
+				.wp-block-gallery .blocks-gallery-image img,
+				.wp-block-gallery .blocks-gallery-item img{
+					margin:0;
+					display:block;
+					max-width:100%;
+					height:auto;
+				}';
 		
 		$raindrops_gallerys .= $clear_float;
 
 		/* caption text presentation */
 		$raindrops_gallerys .= ".gallery:after{content:'';clear:both;display:block;}.gallery-item{position:relative;}
+				.wp-block-gallery.aligncenter .blocks-gallery-item figcaption,
+				.wp-block-gallery.alignleft .blocks-gallery-item figcaption,
+				.wp-block-gallery.alignright .blocks-gallery-item figcaption,
+				.wp-block-gallery .blocks-gallery-item figcaption,
 				.gallery figcaption{
 				box-sizing:border-box;
 				position:absolute;
 				min-height:66%;
-				left:3px;
+				left:-3px;
+				top:-3px;
 				width:100%;
 				min-width:130px;
 				height:auto;
@@ -1407,6 +1494,10 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				-webkit-transition:visibility .7s,opacity .7s;
 				z-index:99999;
 			}
+			.wp-block-gallery.aligncenter .blocks-gallery-item figure:focus figcaption,
+			.wp-block-gallery.alignleft .blocks-gallery-item figure:focus figcaption,
+			.wp-block-gallery.alignright .blocks-gallery-item figure:focus figcaption,
+			.wp-block-gallery .blocks-gallery-item figure:focus figcaption,
 			.gallery figure:focus figcaption{
 				visibility:visible;
 				opacity:.7;
@@ -1416,6 +1507,11 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				margin:4px;
 				outline:0;
 			}
+			.wp-block-gallery.aligncenter .blocks-gallery-item figure:hover figcaption,
+			.wp-block-gallery.alignleft .blocks-gallery-item figure:hover figcaption,
+			.wp-block-gallery.alignright .blocks-gallery-item figure:hover figcaption,
+			.wp-block-gallery .blocks-gallery-item figure:hover figcaption,
+			.wp-block-gallery figure:hover figcaption,
 			.gallery .gallery-item:hover figcaption{
 				visibility:visible;
 				opacity:.7;

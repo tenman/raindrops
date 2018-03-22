@@ -2040,7 +2040,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'number',
 			'input_attrs'		 => array(
 				'min'	 => 25,
-				'max'	 => 100,
+				'max'	 => 160,
 				'step'	 => 1,
 			),
 			'choices'			 => array_flip( $raindrops_basefont_size ),

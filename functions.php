@@ -2220,10 +2220,10 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$raindrops_content_elements_top_margin		 = $raindrops_content_elements_margin * 1.5;
 			$raindrops_content_elements_bottom_margin	 = $raindrops_content_elements_margin * 0.75;
 			/* @since 1.511 */
-			if( 1.65 > $raindrops_content_elements_margin  ) {
+			if( 1.65 > $raindrops_content_elements_bottom_margin  ) {
 				$raindrops_content_elements_line_height = 1.65;
 			} else {
-				$raindrops_content_elements_line_height = $raindrops_content_elements_margin;
+				$raindrops_content_elements_line_height = $raindrops_content_elements_bottom_margin;
 			}
 			/* Vertical Rhythm */
 			$css .= "\n article .entry-content > p{margin-bottom:" . $raindrops_content_elements_margin . 'em;line-height:'.$raindrops_content_elements_line_height.';}';
@@ -2238,6 +2238,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n#site-title{text-transform: uppercase;}";
 			$css .= "\n.entry-title{text-transform: uppercase;}";
 			$css .= "\n.widgettitle,.archive .title-wrapper,.date .page-title{text-transform: uppercase;}";
+			$css .= "\n h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{text-transform: uppercase;}";
 		}
 		/* @sice 1.458 fallback menu background color */
 		$raindrops_base_color = raindrops_warehouse_clone( 'raindrops_base_color' );
@@ -2280,36 +2281,40 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 		 */
 		$paragraph_wrap_enable = raindrops_warehouse_clone( 'raindrops_paragraph_line_wrapping' );
 		
-		if( 'enable' == $paragraph_wrap_enable ) {
+		if ( 'enable' == $paragraph_wrap_enable ) {
 			
-			$paragraph_wrap_width = raindrops_warehouse_clone( 'raindrops_paragraph_line_wrapping_value' );
-			
+			$basefont_size			 = raindrops_warehouse_clone( 'raindrops_basefont_settings' );
+			$paragraph_wrap_width	 = raindrops_warehouse_clone( 'raindrops_paragraph_line_wrapping_value' );
+			$max_width_px			 = $basefont_size * $paragraph_wrap_width;
 			$paragraph_wrap_width_en = round( $paragraph_wrap_width / 2 );
-			
+			$max_width_en_px		 = round( ( $basefont_size * $paragraph_wrap_width ) / 2 );
+
 			if ( 'ja' == get_locale() ) {
 
-				$css .= '.entry-content > p:not([class]){ max-width:'. $paragraph_wrap_width. 'em;}';
-				$css .= '.entry-content .aligncenter{ max-width:'. $paragraph_wrap_width. 'em;}';
-				$css .= '.entry-content .fit-p{ max-width:'. $paragraph_wrap_width. 'em;}';
+				$css .= '.entry-content > p:not([class]){ max-width:' . $paragraph_wrap_width . 'em;}';
+				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_px . 'px;}';
+				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_px . 'px;}';
+				$css .= '.entry-content .fit-p{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.rd-grid .entry-content > p:not([class]){ max-width:100%;}';
 				$css .= '.rd-grid .entry-content .aligncenter{ max-width:100%;}';
 				$css .= '.rd-grid .entry-content .fit-p{ max-width:100%;}';
-				$css .= '@media screen and (max-width : '. $paragraph_wrap_width.'em){';
+				$css .= '@media screen and (max-width : ' . $paragraph_wrap_width . 'em){';
 					$css .= '.entry-content > p:not([class]){ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
-					$css .= '.entry-content .fit-p{ max-width:100%;}';						
+					$css .= '.entry-content .fit-p{ max-width:100%;}';
 				$css .= '}';
 			} else {
-				$css .= '.entry-content > p:not([class]){ max-width:'. $paragraph_wrap_width_en. 'em;}';
-				$css .= '.entry-content .aligncenter{ max-width:'. $paragraph_wrap_width_en. 'em;}';
-				$css .= '.entry-content .fit-p{ max-width:'. $paragraph_wrap_width_en. 'em;}';
+				$css .= '.entry-content > p:not([class]){ max-width:' . $paragraph_wrap_width_en . 'em;}';
+				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_en_px . 'px;}';
+				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_en_px . 'px;}';
+				$css .= '.entry-content .fit-p{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.rd-grid .entry-content > p:not([class]){ max-width:100%;}';
 				$css .= '.rd-grid .entry-content .aligncenter{ max-width:100%;}';
 				$css .= '.rd-grid .entry-content .fit-p{ max-width:100%;}';
-				$css .= '@media screen and (max-width : '. $paragraph_wrap_width_en.'em){';
+				$css .= '@media screen and (max-width : ' . $paragraph_wrap_width_en . 'em){';
 					$css .= '.entry-content > p:not([class]){ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
-					$css .= '.entry-content .fit-p{ max-width:100%;}';						
+					$css .= '.entry-content .fit-p{ max-width:100%;}';
 				$css .= '}';
 			}
 		}
@@ -4461,7 +4466,7 @@ if ( !function_exists( 'raindrops_site_title' ) ) {
 
 			$heading_elememt = 'h1';
 		}
-		$header_text_color = get_theme_mod( 'header_textcolor' );
+/*		$header_text_color = get_theme_mod( 'header_textcolor' );
 
 
 		// check hex value if ( 'blank' == $header_text_color || '' == $header_text_color )
@@ -4472,7 +4477,7 @@ if ( !function_exists( 'raindrops_site_title' ) ) {
 		} else {
 
 			$hd_style = '';
-		}
+		}*/
 
 		if ( function_exists( 'the_custom_logo' ) ) {
 
@@ -4487,7 +4492,7 @@ if ( !function_exists( 'raindrops_site_title' ) ) {
 			$logo = '';
 		}
 		$title_format	 = '<%1$s class="%6$s" id="site-title">%7$s<a href="%2$s" title="%3$s" rel="%4$s" class="site-title-link"><span>%5$s</span></a></%1$s>';
-		$html			 = sprintf( $title_format, $heading_elememt, esc_url( home_url() ), esc_attr( 'site title ' . get_bloginfo( 'name', 'display' ) ), "home", get_bloginfo( 'name', 'display' ) . esc_html( $text ), apply_filters( 'raindrops_site_title_class', 'h1' ), $logo
+		$html			 = sprintf( $title_format, $heading_elememt, esc_url( home_url('/') ), esc_attr( 'site title ' . get_bloginfo( 'name', 'display' ) ), "home", get_bloginfo( 'name', 'display' ) . esc_html( $text ), apply_filters( 'raindrops_site_title_class', 'h1' ), $logo
 		);
 		return apply_filters( "raindrops_site_title", $html );
 	}
@@ -9290,6 +9295,7 @@ if ( !class_exists( 'raindrops_custom_css' ) ) {
 
 				return $post_id;
 			}
+			
 			if ( 'page' == $_POST[ 'post_type' ] ) {
 
 				if ( !current_user_can( 'edit_page', $post_id ) ) {
@@ -14102,7 +14108,15 @@ $css .= '.alignnone.size1of2,.alignnone.size1of3,
 	.alignnone.size2of5,
 	.alignnone.size3of5,
 	.alignnone.size4of5{margin-top:.5em;margin-bottom:1em;}';
-			
+$css .= '.paragraph_wrap_enable .size1of2,.paragraph_wrap_enable .size1of3,
+	.paragraph_wrap_enable .size2of3,
+	.paragraph_wrap_enable .size1of4,
+	.paragraph_wrap_enable .size3of4,
+	.paragraph_wrap_enable .size1of5,
+	.paragraph_wrap_enable .size2of5,
+	.paragraph_wrap_enable .size3of5,
+	.paragraph_wrap_enable .size4of5{margin-left:auto;margin-right:auto;}';
+
 			$style_rule = '.widgettext .rd-table-wrapper.alignright > .alignright.%2$s,
 							.entry-content .rd-table-wrapper.alignright > .alignright.%2$s{
 								position:relative;
@@ -14226,11 +14240,11 @@ if ( ! function_exists( 'raindrops_convert_inline_style_to_css' ) ) {
 
 					foreach ( $matches as $inline_style ) {
 						
-						if( function_exists('gutenberg_init') ) {
-							$inline_style[1] = preg_replace('$max-width:\s*50%$','', $inline_style[1] );
-						}
+						
+						$inline_style[1] = preg_replace('$max-width:\s*50%$','', $inline_style[1] );
 
 						$key = preg_replace( '!\s*!m','', wp_strip_all_tags( $inline_style[0] ) );
+						$key = rtrim($key, ";");
 						$val = preg_replace( '!\s*!m','', wp_strip_all_tags( $inline_style[1] ) );
 
 						$attribute[ $key ] = $val;

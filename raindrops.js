@@ -489,6 +489,14 @@ jQuery( function ( $ ) {
                    $('#doc3 #header-image, #doc5 #header-image').removeClass('on-scroll');
                 } else {
                    $('#doc3 #header-image, #doc5 #header-image').addClass('on-scroll');
+                                     
+                   /**
+                    * for header image parallax
+                    * background position fixed + background size when scroll The background image is calculated based on the view port size 
+                    * @1.513
+                    */
+                    var box_header_width = jQuery('#doc3 #header-image').width();
+                    jQuery('#doc3 .on-scroll').css({'background-size': box_header_width +'px' });
                 }
             }
 

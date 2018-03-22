@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.512
+Version: 1.513
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -801,7 +801,7 @@ ul.index,
 .logged-in .menupop.hover{
     max-width:none!important;
 }
-body{r
+body{
     color:#333;
     background:#fff;
 }
@@ -898,6 +898,11 @@ blockquote{
     margin-left:auto;
     margin-right:auto;
     margin-bottom:1em;
+}
+blockquote > p {
+    width:fit-content;
+    margin-left:auto;
+    margin-right:auto;
 }
 blockquote p:first-child{
     margin-top:.5em;
@@ -1077,9 +1082,20 @@ blockquote p:last-child{
 }
 .textwidget blockquote cite,
 .entry-content blockquote cite {
-    display:block;
+    display:inline-block;
     margin:1em 0 .5em;
     padding:.3em .6em;
+}
+.textwidget blockquote cite:before,
+.textwidget blockquote cite:after,
+.entry-content blockquote cite:before,
+.entry-content blockquote cite:after {
+     content: " ";
+     display: table;
+}
+.entry-content blockquote cite:after,
+.textwidget blockquote cite:after {
+     clear: both;
 }
 .textwidget table,
 .entry-content table {
@@ -1100,7 +1116,7 @@ blockquote p:last-child{
 .textwidget  figure.alignnone,
 .entry-content  figure.alignnone{
     display:inline-block;
-    clear:both;
+   /* @1.513 clear:both;*/
 }
 .textwidget  figure.alignnone img,
 .entry-content  figure.alignnone img{
@@ -1314,6 +1330,12 @@ article ul{
     clear:left;
     margin:0 1.5em .75em 0;
 
+}
+.rd-table-wrapper.aligncenter{
+    clear:both;
+    width:66.6%;
+    padding-top:1.5em;
+    padding-bottom:.75em;
 }
 .widgettext .rd-table-wrapper.alignright,
 .entry-content .rd-table-wrapper.alignright{
@@ -3069,6 +3091,40 @@ table#wp-caledar td a{
 /**
  * Paragraph
  */
+.alignfull,
+.alignwide{
+    /* gutenberg */
+    clear:both;
+}
+#bd figure.wp-block-image.alignwide{
+    margin-left:0;
+    margin-right:0;
+    width:100%;
+    max-width:none;
+    display:block;
+    border:none;
+    padding-bottom:0;
+    max-width:none;
+}
+#bd figure.wp-block-image.alignfull{
+    /* gutenberg */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display:table;
+    max-width:none;
+}
+#bd figure.wp-block-image.alignwide img,
+#bd figure.wp-block-image.alignfull img{
+    /* gutenberg */
+    max-width:100%;
+    object-fit:cover;
+    margin-top:0;
+    margin-bottom:-4px;
+}
 p.aligncenter.has-drop-cap{
 	display:block;
 }
@@ -3108,6 +3164,7 @@ p.alignnone{
 	box-sizing:border-box;
 }
 /*---*/
+
 .aligncenter{ /* @1.510 */
     clear: both;
     float: none;
@@ -3306,6 +3363,10 @@ figure.alignright,
 figure.alignleft{
     max-width: calc( 50% - 1em );/* needs to shrinkfit for smaller than harf size image */
     margin-top:0;
+}
+[class|="wp-block"].alignright,
+[class|="wp-block"].alignleft{
+    width:calc( 50% - 1em );
 }
 .entry-content .alignleft,
 .entry-content figure.alignleft{
@@ -4873,6 +4934,11 @@ sup {
 }
 .related-posts{
     text-align:center;
+}
+[xmlns="http://www.w3.org/1999/xhtml"] .related-posts .hentry{
+    text-align:left;
+    padding-left:1em;
+    padding-right:1em;
 }
 .related-posts article{
     text-align:left;
@@ -7641,6 +7707,8 @@ x:-o-prefocus, .rd-modal > div {
 .widget_pages.sticky-widget .child-left-side .sub-menu .page_item_has_children > a:before,
 .widget_pages.sticky-widget .child-left-side .children .menu-item-has-children > a:before,
 .widget_pages.sticky-widget .child-left-side .sub-menu .menu-item-has-children > a:before,
+#access .child-left-side.menu-item-has-children > a:before,
+#access .child-left-side.page_item_has_children > a:before,
 #access .child-left-side .children .page_item_has_children > a:before,
 #access .child-left-side .sub-menu .page_item_has_children > a:before,
 #access .child-left-side .children .menu-item-has-children > a:before,
@@ -9815,12 +9883,14 @@ span[data-rd-style*="width"] {
 .blocks-gallery-item{
     list-style-type:none;
 }
-.entry-content [data-rd-style="text-align:center"],
-.entry-content [style="text-align:center"],
-.entry-content [data-rd-style="text-align:right"],
-.entry-content [style="text-align:right"],
-.entry-content [data-rd-style="text-align:left"],
-.entry-content [style="text-align:left"]{
-	display:block;
+ .entry-content p.aligncenter[data-rd-style="text-align:center"],
+ .entry-content p.aligncenter[data-rd-style="text-align:right"],
+  .entry-content [data-rd-style="text-align:center"],
+ .entry-content [style="text-align:center"],
+ .entry-content [data-rd-style="text-align:right"],
+ .entry-content [style="text-align:right"]
+ .entry-content [data-rd-style="text-align:center"]{
+    display:block;
+    margin-left:5px;
+    margin-right:5px;
 }
-

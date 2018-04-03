@@ -761,4 +761,18 @@ jQuery( function ( $ ) {
             $( ".lsidebar-shrink button.rd-expand-sidebar-default span" ).text( raindrops_script_vars.raindrops_sidebar_responsive_text_cl );
         } );
     }
+    
+    var raindrops_window_width = jQuery( window ).width();
+    
+    if ( raindrops_window_width < raindrops_script_vars.default_sidebar_breakpoint ) {
+        $('body').addClass('is-default-sidebar-shrink');
+    } else {
+        $('body').removeClass('is-default-sidebar-shrink');
+    }
+    if ( raindrops_window_width < raindrops_script_vars.extra_sidebar_breakpoint ) {
+       $('body').addClass('is-extra-sidebar-shrink');
+    } else {
+       $('body').removeClass('is-extra-sidebar-shrink');
+    }
+    
 } );

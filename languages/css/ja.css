@@ -49,7 +49,10 @@
    font-weight: 300;
    font-style:normal;
    font-display: fallback;/* @1.503 */
+   unicode-range: U+300C,U+300D,U+300E,U+300F,U+3010,U+3011,U+3008,U+3009,U+300A,U+300B,U+3013,U+3014,U+3015,U+3016,U+3017, U+3000,U+3001,U+3002;
+   
 }
+
 .wp-block-verse,
 table,
 body {

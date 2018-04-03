@@ -2275,6 +2275,22 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$css .= "\n".'#yui-main .rsidebar,#bd .lsidebar{min-height:0!important; }';
 		}
 		
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			/**
+			 * @since 1.514
+			 */
+			$thread_comments_depth = absint( get_option( 'thread_comments_depth' ) );
+			
+			if ( isset( $thread_comments_depth ) && !empty( $thread_comments_depth ) ) {
+				
+				for ($i = 2; $i <= $thread_comments_depth; $i++) {
+					
+					$padding_count = ( $i - 1 ) * 13;
+					$css .= '.commentlist .depth-'. $i. '{ padding-left:2.4em; }';
+				}
+			}
+		
+		}
 		/**
 		 * Paragraph line wrapping
 		 * @since 1.511
@@ -2288,9 +2304,9 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 			$max_width_px			 = $basefont_size * $paragraph_wrap_width;
 			$paragraph_wrap_width_en = round( $paragraph_wrap_width / 2 );
 			$max_width_en_px		 = round( ( $basefont_size * $paragraph_wrap_width ) / 2 );
-
+			
 			if ( 'ja' == get_locale() ) {
-
+				
 				$css .= '.entry-content > p:not([class]){ max-width:' . $paragraph_wrap_width . 'em;}';
 				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_px . 'px;}';
@@ -2304,6 +2320,7 @@ if ( !function_exists( "raindrops_embed_css" ) ) {
 					$css .= '.entry-content .fit-p{ max-width:100%;}';
 				$css .= '}';
 			} else {
+				
 				$css .= '.entry-content > p:not([class]){ max-width:' . $paragraph_wrap_width_en . 'em;}';
 				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_en_px . 'px;}';
@@ -4872,6 +4889,24 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			$raindrops_is_grid_archives = 'no';
 		}
 
+		$use_settings = raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive' );
+
+		if ( 1 < raindrops_get_column_count() && 'yes' == $use_settings ) {
+
+			$default_sidebar_breakpoint = absint( raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive_breakpoint' ) );			 
+		} else {
+			$default_sidebar_breakpoint = 0;
+		}
+
+		$use_settings = raindrops_warehouse_clone( 'raindrops_extra_sidebar_responsive' );
+
+		if ( 1 < raindrops_get_column_count() && 'yes' == $use_settings ) {
+
+			$extra_sidebar_breakpoint = absint( raindrops_warehouse_clone( 'raindrops_extra_sidebar_responsive_breakpoint' ) );
+				
+		} else {
+			$extra_sidebar_breakpoint = 0;
+		}
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'										 => $is_IE,
 			'fluid_maximum_width'						 => $raindrops_fluid_maximum_width,
@@ -4912,7 +4947,9 @@ if ( !function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'raindrops_primary_menu_responsive_height'	 => $raindrops_menu_height_check_value,
 			'raindrops_raindrops_sticky_menu'			 => raindrops_warehouse_clone( 'raindrops_sticky_menu' ),
 			'raindrops_default_sidebar_responsive'		 => raindrops_warehouse_clone( 'raindrops_default_sidebar_responsive' ),
+			'default_sidebar_breakpoint'				 => $default_sidebar_breakpoint,
 			'raindrops_extra_sidebar_responsive'		 => raindrops_warehouse_clone( 'raindrops_extra_sidebar_responsive' ),
+			'extra_sidebar_breakpoint'                   => $extra_sidebar_breakpoint,
 			'raindrops_sidebar_responsive_text_op'		 => esc_html__( 'Open', 'raindrops' ),
 			'raindrops_sidebar_responsive_text_cl'		 => esc_html__( 'Close', 'raindrops' ),
 			'raindrops_archive_has_count'				 => raindrops_archive_has_count(),
@@ -12307,7 +12344,7 @@ if ( !function_exists( 'raindrops_archive_has_count' ) ) {
 	 * @since 1.415
 	 */
 	function raindrops_archive_has_count() {
-
+		return false;
 		$archive_widget	 = new WP_Widget_Archives();
 		$settings		 = $archive_widget->get_settings();
 		$settings		 = array_filter($settings); /* @1.481 */
@@ -12316,7 +12353,7 @@ if ( !function_exists( 'raindrops_archive_has_count' ) ) {
 		if ( isset( $settings[ 'count' ] ) ) {
 			return (bool) $settings[ 'count' ];
 		}
-		return false;
+
 	}
 
 }
@@ -13711,7 +13748,7 @@ if ( ! function_exists( 'raindrops_google_font_helper_for_japanese' ) ) {
 
 		if( 'Kokoro' == $font_name || 'Hannari' == $font_name ) {
 
-			return '”Times New Roman”, serif';
+			return '"Times New Roman", serif';
 		}
 		return $font_style;
 	}

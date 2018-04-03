@@ -397,70 +397,70 @@
     width:80%;
 }
 article .entry-content > .size1of3{
-    width:calc( 33.33% - .4em );
+ /*   width:calc( 33.33% - .4em );
     margin-left:.5em;
-    margin-right:.5em;
+    margin-right:.5em;*/
 }
 .entry-content > p.size1of3{
     width:calc( 33.33% - 1em );
-    margin-left:.5em;
-    margin-right:.5em;
+ /*   margin-left:.5em;
+    margin-right:.5em;*/
 }
 article .entry-content .alignnone.size1of3{
     width:calc( 32.9% - 1em );
-    margin-left:.5em;
-    margin-right:.5em;
+    margin-left:6px;
+    margin-right:6px;
 }
 article .entry-content > .size1of4{
     width:24.65%;   
 }
 article .entry-content > .alignnone.size1of4{
-    width:calc( 24.99% - 1.15em );
-    margin-left:1em
+    width:calc( 24.5% - 1.15em );
+    margin-left:13px
 }
 article .entry-content > figure.alignnone.size1of4{
-    width:calc( 24.55% - 1em );
-    margin-right:.5em;
-    margin-left:.5em;
+    width:calc( 24.5% - 1em );
+    margin-right:6px;
+    margin-left:6px;
 }
 article .entry-content > .alignnone.size1of2{
     width:calc( 50% - 1.15em );
-    margin-left:1em
+    margin-left:13px
 }
 article .entry-content > figure.alignnone.size1of2{
     width:calc( 50% - 1.15em );
     margin-left:0;
-    margin-right:1em;
+    margin-right:13px;
 }
 article .entry-content > .size1of5{
     width:19.5%;
 
 }
 .entry-content > .alignnone.size1of5{
-    width:calc( 19.48% - 1em );
-    margin-left:1em
+    width:calc( 19.43% - 1em );
+    margin-left:13px
 }
 .entry-content > figure.alignnone.size1of5{
     width:calc( 19.48% - 1em );
-    margin-right:.5em;
-    margin-left:.5em;
+    margin-right:6px;
+    margin-left:6px;
 }
 .entry-content > .alignnone.size2of5{
     width:calc( 40% - 1em );
-    margin-left:1em;
+    margin-left:13px;
 }
 .entry-content > figure.alignnone.size2of5{
     width:calc( 40% - 1em );
-    margin-right:1em;
+    margin-right:13px;
     margin-left:0;
 }
 .entry-content > .alignnone.size3of5{
     width:calc( 60% - 1em );
-    margin-left:1em
+    margin-left:13px
 }
 .entry-content > figure.alignnone.size3of5{
     width:calc( 60% - 1em );
-    margin-right:1em;
+    margin-right:13px;
     margin-left:0;
 }
 .ie9 .entry-content > .alignnone.size1of4,
@@ -491,6 +491,9 @@ article .entry-content > .size1of5{
 .size4of5{
    /* @1.510 padding:0.76923076923em; */
     box-sizing:border-box;
+    margin-left:0;
+    margin-right:0;
+    display:inline-block;
 }
 .equal-height .unit{
     height:100%;

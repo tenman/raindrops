@@ -189,6 +189,14 @@
             jQuery(this).parent().addClass('aligncenter');
             jQuery(this).removeClass('aligncenter');
         });
+        jQuery("table.alignfull").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+            jQuery(this).parent().addClass('alignfull');
+            jQuery(this).removeClass('alignfull');
+        });
+        jQuery("table.alignwide").not('.rd-no-scroll,.tribe-events-calendar').each(function (i) { 
+            jQuery(this).parent().addClass('alignwide');
+            jQuery(this).removeClass('alignwide');
+        });
     });
 })(jQuery);
 

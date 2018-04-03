@@ -39,6 +39,7 @@ function raindrops_indv_css_dark() {
 		$transform = '';
 	}
     $style = <<<DOC
+
 strong{
 	color:#fff;
 }
@@ -456,7 +457,6 @@ td.time{
 }
 
 li.byuser,
-li.bypostauthor,
 #respond input[type="text"]:focus,
 #respond textarea#comment:focus,
 .social textarea#comment:focus,
@@ -464,6 +464,14 @@ li.bypostauthor,
 .textwidget th,
 .entry-content th{
     %c_3%;
+}
+li.bypostauthor{
+	%c_5%;	
+}
+.commentlist li.pingback,
+.commentlist li > div{
+	margin-top:1em;
+	margin-bottom:.75em;
 }
 .raindrops-comment-author-meta cite.fn,
 li.byuser div.comment-body *,
@@ -1414,9 +1422,16 @@ td.month-date,td.month-name,td.time{
 address{
     margin:10px auto;
 }
-li.byuser,
-li.bypostauthor {
-    %c5%
+	
+.commentlist li.pingback,
+.commentlist li > div{
+	border:1px solid #ccc;
+	margin-top:1em;
+	margin-bottom:.75em;
+}
+li.bypostauthor,
+.comment .comment-author{
+	background:#fff;
 }
 .comment-meta a,
 cite.fn{
@@ -1594,6 +1609,18 @@ function raindrops_indv_css_light() {
 		$transform = '';
 	}
 	$style = <<<DOC
+li.byuser,
+li.bypostauthor {
+    %c5%
+}
+.commentlist li.pingback,
+.commentlist li > div{
+	border:1px solid #ccc;
+	margin-top:1em;
+	margin-bottom:.75em;
+	background:#fff;
+}
+	
 .entry-content p a{
 	text-decoration-color: rgba(85,85,85,.8);
 }
@@ -2477,6 +2504,17 @@ function raindrops_indv_css_minimal() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#c0392b!important;');
     $style = <<<CSS
+li.byuser,
+li.bypostauthor {
+	background:#fff;
+}
+.commentlist li.pingback,
+.commentlist li > div{
+	border:1px solid #ccc;
+	margin-top:1em;
+	margin-bottom:.75em;
+	background:#fff;
+}
 .entry-content p a{
 	text-decoration-color: rgba(85,85,85,.8);
 }
@@ -2490,10 +2528,19 @@ pre{
 pre{
 	outline:1px solid rgba(222,222,222,1);
 }
-.yui-main .yui-u:nth-child(2),
+.yui-main .yui-u:nth-child(2){
+  /* background:#fff;
+   color:#333;*/
+}
 nav,
 aside{
-   background:#fff;
+   background:rgba(255,255,255,.8);
+   color:#333;
+	transition: background .5s ease;
+}
+nav:hover,
+aside:hover{
+   background:rgba(255,255,255,1);
    color:#333;
 }
 .solid-border,
@@ -2898,13 +2945,13 @@ address .entry-rss:after,
 	width:100%;
 	height:100%;
 }
-.commentlist > li:nth-child(odd),
+
 .rd-content-width-fit .topsidebar .sticky-widget:nth-child(odd),
 .rd-content-width-fit.rd-pw-doc5 .index > li:nth-child(odd){
 	background:#fff;
 	 transition: all 1s ease-in-out;
 }
-.commentlist > li:nth-child(even),
+
 .rd-content-width-fit .topsidebar .sticky-widget:nth-child(even),
 .rd-content-width-fit.rd-pw-doc5 .index > li:nth-child(even){
 	background:$background5;

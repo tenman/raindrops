@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.513
+Version: 1.514
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -816,7 +816,7 @@ a:focus {
 }
 .textwidget a[class|="ghost"],
 .entry-content a[class|="ghost"]{
-    text-decoration:none;   
+    text-decoration:none;
 }
 .format-link .entry-content p:first-of-type a{
     text-decoration:none;
@@ -3138,7 +3138,7 @@ table#wp-caledar td a{
 
 .rd-col-1 .rd-table-wrapper.alignfull{
     /* like padding */
-    width:calc( 100vw - 48px); 
+    width:calc( 100vw - 48px);
     margin-left: calc( -50vw + 24px );
 }
 #bd .wp-block-gallery.alignfull{
@@ -3176,39 +3176,39 @@ table#wp-caledar td a{
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd figure.wp-block-image.alignfull{
     /* 90px = sidebar width / 2 */
     margin-left: calc(-50vw - 80px);
-    margin-right: calc(-50vw + 80px);   
+    margin-right: calc(-50vw + 80px);
 }
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd figure.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .wp-block-gallery.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd figure.wp-block-image.alignfull{
 
     margin-left: calc(-50vw - 90px);
-    margin-right: calc(-50vw + 90px);   
+    margin-right: calc(-50vw + 90px);
 }
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd figure.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .wp-block-gallery.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd figure.wp-block-image.alignfull{
     margin-left: calc(-50vw - 150px);
     margin-right: calc(-50vw + 150px);
-    
+
 }
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd figure.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .wp-block-gallery.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 90px);
-    margin-right: calc(-50vw - 90px);   
+    margin-right: calc(-50vw - 90px);
 }
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd figure.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .wp-block-gallery.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 120px);
-    margin-right: calc(-50vw - 120px);   
+    margin-right: calc(-50vw - 120px);
 }
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd figure.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .wp-block-gallery.alignfull,
 .rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd figure.wp-block-image.alignfull{
      margin-left: calc(-50vw + 150px);
-    margin-right: calc(-50vw - 150px);   
+    margin-right: calc(-50vw - 150px);
 }
 
 .rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc figure.alignfull,

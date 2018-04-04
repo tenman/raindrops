@@ -1,4 +1,31 @@
 Changelog -----------------------------------
+version:1.514
+
+Overview of Changes
+	Fixed thread comments CSS
+
+	Modified Google WEB fonts Setting for Lang ja
+		add unicode-range: U+300C,U+300D,U+300E,U+300F,U+3010,U+3011,U+3008,U+3009,U+300A,U+300B,U+3013,U+3014,U+3015,U+3016,U+3017, U+3000,U+3001,U+3002;
+
+	Added Dinamic body class
+		is-default-sidebar-shrink, is-extra-sidebar-shrink
+
+	Modified Gutenberg Plugin CSS
+
+Files Modified
+	modified:   grids.css
+	modified:   languages/css/ja.css
+	modified:   lib/csscolor.css.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.513&new_path=raindrops/1.514
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.513
 
 Overview of Changes

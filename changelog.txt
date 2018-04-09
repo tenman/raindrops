@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.514
+version:1.515
 
 Overview of Changes
 	Fixed thread comments CSS
@@ -10,20 +10,64 @@ Overview of Changes
 	Added Dinamic body class
 		is-default-sidebar-shrink, is-extra-sidebar-shrink
 
+	Added Dinamic body class
+		when current_theme_supports( 'align-wide' )
+		body add class enable-align-wide. for gutenberg
+
 	Modified Gutenberg Plugin CSS
+
+	Fixed raindrops_prepend_extra_sidebar(),raindrops_append_extra_sidebar()
+		Wrong hook position corrected
+
+	Added Translators comments
+
+	Fixed comment title for translatable.
 
 Files Modified
 	modified:   grids.css
 	modified:   languages/css/ja.css
-	modified:   lib/csscolor.css.php
-	modified:   lib/vars.php
-	modified:   plugins/plugins-presentation.php
 	modified:   raindrops-helper.js
 	modified:   raindrops.js
+	modified: 	404.php
+	modified:   author.php
+	modified:   blank_front.php
+	modified:   category.php
+	modified:   childs/boots/inc.php
+	modified:   comments.php
+	modified:   date.php
+	modified:   footer.php
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   image.php
+	modified:   index.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/customize.php
+	modified:   lib/vars.php
+	modified:   lib/widgets.php
+	modified:   loop.php
+	modified:   page-templates/front-page.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/list-of-post.php
+	modified:   page.php
+	modified:   part-additional.php
+	modified:   part-blog.php
+	modified:   part-gallery.php
+	modified:   part.php
+	modified:   pdf.php
+	modified:   plugins/class-tgm-plugin-activation.php
+	modified:   plugins/plugins-presentation.php
+	modified:   search.php
+	modified:   searchform.php
+	modified:   sidebar-default.php
+	modified:   sidebar-extra.php
+	modified:   sidebar.php
+	modified:   single.php
 	modified:   style.css
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.513&new_path=raindrops/1.514
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.513&new_path=raindrops/1.515
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.513

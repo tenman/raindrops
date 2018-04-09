@@ -8,7 +8,7 @@
  * @since Raindrops 0.997
  *
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 global $template, $raindrops_document_type;

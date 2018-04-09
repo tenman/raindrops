@@ -11,7 +11,7 @@
  * @uses dynamic_sidebar( 'sidebar-3' )	include template part file
  * @uses get_footer( $raindrops_document_type ) 
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_' . basename( __FILE__ ) );

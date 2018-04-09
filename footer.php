@@ -17,7 +17,7 @@
  * @uses raindrops_append_footer( )
  * @uses raindrops_append_doc( )
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $raindrops_current_theme_name, $raindrops_current_data_theme_uri, $template, $raindrops_accessibility_link;

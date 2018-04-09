@@ -1169,9 +1169,9 @@ THEME_CSS;
  */
 function raindrops_setup_theme_supported_features() {
 	
-	if( ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-2' ) ) {
+	//if( ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-2' ) ) {
 			add_theme_support( 'align-wide' );
-	}
+	//}
 
 }
 add_action( 'after_setup_theme', 'raindrops_setup_theme_supported_features' );
@@ -1817,7 +1817,7 @@ figure.wp-block-embed-instagram{
 	text-align:center;
 }
 .wp-block-image.alignfull img{
-	margin:5px auto 5px;
+	/* margin:5px auto 5px;*/
 	width:100%;
 	height:auto;
 	-o-object-fit:fill;
@@ -2177,7 +2177,7 @@ div.wp-block-button.aligncenter,
 	font-weight:normal;
 }
 .wp-block-categories .children .cat-item{
-	border:1px solid;
+	border:1px solid #fff;
 }
 .entry-content .wp-block-categories .children li{
     list-style:none;
@@ -2282,8 +2282,8 @@ ul.wp-block-gallery.alignright{
 #doc5 .wp-block-cover-image.alignwide{
 	
 }
-.wp-block-cover-image .wp-block-cover-image-text,
-.entry-content .wp-block-cover-image{
+/*.wp-block-cover-image .wp-block-cover-image-text,*/
+.enable-align-wide .wp-block-cover-image{
     height:30vw;
     background-size:cover;
     background-position:center center;
@@ -2297,15 +2297,15 @@ ul.wp-block-gallery.alignright{
     align-items: center;
     justify-content: center;
 }
-	.entry-content .wp-block-cover-image:after{
+	.enable-align-wide .wp-block-cover-image:after{
 		content:none;
 		display:none;
 	}
-	.wp-block-cover-image .wp-block-cover-image-text{
+/*	.wp-block-cover-image .wp-block-cover-image-text{
 		height:auto;
-	}
+	}*/
 
-article .wp-block-cover-image.alignleft{
+.enable-align-wide .wp-block-cover-image.alignleft{
     height:30vw;
     background-size:cover;
     background-position:center center;
@@ -2316,7 +2316,7 @@ article .wp-block-cover-image.alignleft{
     padding-right:calc( 50% - 1em );
     background-attachment:fixed;
 }
-article .wp-block-cover-image.alignright{
+.enable-align-wide .wp-block-cover-image.alignright{
     height:30vw;
     background-size:cover;
     background-position:center center;
@@ -2327,12 +2327,12 @@ article .wp-block-cover-image.alignright{
     padding-right:100%;
     background-attachment:fixed;
 }
-#doc5 .wp-block-cover-image.has-parallax.alignfull {
+.enable-align-wide #doc5 .wp-block-cover-image.has-parallax.alignfull {
     background-attachment: fixed;
 	background-size:100%;
 }
 
-article .wp-block-cover-image.aligncenter{
+.enable-align-wide .wp-block-cover-image.aligncenter{
     height:30vw;
 	margin-left:auto;
 	margin-right:auto;
@@ -2349,7 +2349,7 @@ article .wp-block-cover-image.aligncenter{
     justify-content: center;
 }
 	
-.wp-block-cover-image.alignnone{
+.enable-align-wide .wp-block-cover-image.alignnone{
 	clear:none;
 	float:left;
 	margin-left:.5em;
@@ -2361,8 +2361,8 @@ article .wp-block-cover-image.aligncenter{
 }
 @media screen and (max-width : 640px){
 	
-	.wp-block-cover-image.alignleft,
-	.wp-block-cover-image.alignright{
+	.enable-align-wide .wp-block-cover-image.alignleft,
+	.enable-align-wide .wp-block-cover-image.alignright{
 		float:none;
 		max-width:100%;
 	width:100%;
@@ -2372,9 +2372,14 @@ article .wp-block-cover-image.aligncenter{
 		clear:both;
 		background-size:100vw;
 		background-attachment:initial;
-	}	
+	}
+	body.enable-align-wide  .wp-block-cover-image .wp-block-cover-image-text{
+		position:absolute;
+		transform: none;
+		width:100%;
+	}
 }
-.wp-block-cover-image.has-background-dim:before{
+.enable-align-wide .wp-block-cover-image.has-background-dim:before{
 	display:block;
 	content: "";
     position: absolute;
@@ -2384,10 +2389,10 @@ article .wp-block-cover-image.aligncenter{
     right: 0;
     background-color: rgba(0,0,0,.5);
 }
-.wp-block-cover-image.aligncenter{
+.enable-align-wide .wp-block-cover-image.aligncenter{
 	display:flex;
 }
-.wp-block-cover-image .wp-block-cover-image-text{
+.enable-align-wide .wp-block-cover-image .wp-block-cover-image-text{
 	flex:1 1 auto;
     color: #fff;
     font-size: 2em;
@@ -2396,28 +2401,47 @@ article .wp-block-cover-image.aligncenter{
 	transform: translate(0,-1em);
     text-align: center;
 }
-.rd-col-1 .wp-block-cover-image .wp-block-cover-image-text{
+.rd-col-1.enable-align-wide  .wp-block-cover-image .wp-block-cover-image-text{
 	transform: translate(0,-1em);
 }
-.wp-block-cover-image.alignwide .wp-block-cover-image-text{
+.enable-align-wide .wp-block-cover-image.alignwide .wp-block-cover-image-text{
 	transform:none;
 	transform: translate(0,0);
 }
-.wp-block-cover-image.alignfull .wp-block-cover-image-text{
+.enable-align-wide .wp-block-cover-image.alignfull .wp-block-cover-image-text{
 	transform: none;
 }
-.wp-block-cover-image.alignleft .wp-block-cover-image-text{
+.enable-align-wide .wp-block-cover-image.alignleft .wp-block-cover-image-text{
 	position:absolute;
-	transform: translate(14vw,-1em);
-	width:30vw;
+	width:calc( 50vw - 24px );
+        margin-top:0;
+    left:calc( 100vw - 48px );
 }
-.wp-block-cover-image.alignright .wp-block-cover-image-text{
+
+.enable-align-wide .wp-block-cover-image.alignright .wp-block-cover-image-text{
 	position:absolute;
-	transform: translate(-12vw,-1em);
 	margin:auto;
-	width:30vw;
+	width:calc( 50vw - 24px );
+        margin-top:0;
+        right:calc( 100vw - 48px );
 }
-.wp-block-cover-image:not(.has-background-dim):before{
+@media screen and (min-width : 1280px){
+	
+	.enable-align-wide .wp-block-cover-image.alignleft .wp-block-cover-image-text{
+		position:absolute;
+		width:calc( 45vw );
+			margin-top:0;
+		left:calc( 100% - 48vw );
+	}
+	.enable-align-wide .wp-block-cover-image.alignright .wp-block-cover-image-text{
+		position:absolute;
+		margin:auto;
+		width:calc( 45vw );
+			margin-top:0;
+			right:calc( 100% - 48vw );
+	}		
+}
+.enable-align-wide .wp-block-cover-image:not(.has-background-dim):before{
 	content: '';
     position: absolute;
     top: 0;
@@ -2427,10 +2451,10 @@ article .wp-block-cover-image.aligncenter{
 	background:#000;
 	z-index:-1;
 }
-#container .alignfull:hover,
-#container .wp-block-gallery:hover,
-#container .wp-block-image:hover,
-#container .wp-block-cover-image:hover{
+.enable-align-wide #container .alignfull:hover,
+.enable-align-wide #container .wp-block-gallery:hover,
+.enable-align-wide #container .wp-block-image:hover,
+.enable-align-wide #container .wp-block-cover-image:hover{
     /* gutenberg */
     z-index:100;
 }
@@ -2452,7 +2476,7 @@ figure.alignfull{
 }
 figure.alignfull img {
     /* gutenberg */
-    margin: 5px auto 5px;
+ /*   margin: 5px auto 5px;*/
     width: 100%;
     height: auto;
     -o-object-fit: fill;

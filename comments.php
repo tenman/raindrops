@@ -16,7 +16,7 @@
  * @uses comments_open( )
  * @uses comment_form( )
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $raindrops_document_type;
@@ -31,8 +31,20 @@ global $raindrops_document_type;
     <?php return; ?>
 <?php } //end if ( post_password_required( ) )?>
     <?php if ( have_comments() ) { ?>
-    <h2 id="comments-title" class="h2"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'raindrops' ), number_format_i18n( get_comments_number() ), '<strong>' . get_the_title() . '</strong>', number_format_i18n( get_comments_number() ) );
-        ?></h2>
+
+		<h2 id="comments-title" class="h2"><?php
+				 $comments_number = intval( get_comments_number() );
+				 if ( 1 === $comments_number ) { 
+					 /* translators: 1: comments title */
+					  printf( _x( 'One Response to %1$s', 'comments title', 'raindrops' ),
+					  '<strong>' . get_the_title() . '</strong>' );
+				 } else {
+					 /* translators: 1: comments count 2: comments title */
+					 printf( _nx( '%1$s Response to %2$s', '%1$s Responses to %2$s', $comments_number, 'comments title', 'raindrops' ), 
+					 number_format_i18n( $comments_number ), 
+					'<strong>' . get_the_title() . '</strong>' );
+				 }
+	 ?></h2>
         <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { // Are there comments to navigate through? ?>
         <div id="nav-above-comments" class="clearfix">
             <span class="nav-previous"><?php previous_comments_link( '<span class="meta-nav">&#8592;</span>' . esc_html__( 'Older Comments', 'raindrops' ) ); ?></span>

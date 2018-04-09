@@ -1311,6 +1311,7 @@ if ( !function_exists( 'raindrops_post_type_single_widget_area_register' ) ) {
 				$post_type = esc_attr( $post_type );
 
 				register_sidebar( array(
+					/* translators: 1: post type */
 					'name'			 => sprintf( esc_html__('Post Type %1$s Widget', 'raindrops' ), $post_type ),
 					'id'			 => $post_type,
 					'before_widget'	 => '<li id="%1$s" class="%2$s widget post-type-widget post-type-' . $post_type . '" ' . raindrops_doctype_elements( '', 'tabindex="-1"', false ) . '>',

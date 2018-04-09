@@ -6,7 +6,7 @@
  * @since Raindrops 1.247
  *
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 global $template;

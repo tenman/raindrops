@@ -6,7 +6,7 @@
  * @since Raindrops 0.940
  *
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $template;
@@ -79,6 +79,7 @@ raindrops_entry_title();
                 ?>
                 <p><em class="gallery-infomation">
                         <?php
+						/* translators: 1: total image count */
                         echo sprintf( esc_html__( 'This gallery contains %1$s photographs in all as ', 'raindrops' ), $total_images ) . '&nbsp;' . esc_url( wp_get_attachment_link( $raindrops_image_result->ID, false, true ) ) . '&nbsp;' . __( 'photograph etc.', 'raindrops' );
                         ?>
                     </em></p>

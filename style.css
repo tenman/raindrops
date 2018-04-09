@@ -3121,10 +3121,10 @@ table#wp-caledar td a{
     max-width:none;
 }
 
-.rd-col-1 .rd-table-wrapper.alignfull,
-#bd .wp-block-gallery.alignfull,
-#bd figure.alignfull,
-#bd figure.wp-block-image.alignfull{
+.rd-col-1.enable-align-wide .rd-table-wrapper.alignfull,
+.enable-align-wide #bd .wp-block-gallery.alignfull,
+.enable-align-wide #bd figure.alignfull,
+.enable-align-wide #bd figure.wp-block-image.alignfull{
     /* gutenberg */
     width: 100vw;
     position: relative;
@@ -3136,23 +3136,23 @@ table#wp-caledar td a{
     max-width:none;
 }
 
-.rd-col-1 .rd-table-wrapper.alignfull{
+.rd-col-1.enable-align-wide .rd-table-wrapper.alignfull{
     /* like padding */
     width:calc( 100vw - 48px);
     margin-left: calc( -50vw + 24px );
 }
-#bd .wp-block-gallery.alignfull{
+.enable-align-wide #bd .wp-block-gallery.alignfull{
     display:flex;
 }
 
-.rd-col-2 .alignfull,
-.rd-col-3 .alignfull{
+.enable-align-wide .rd-col-2 .alignfull,
+.enable-align-wide .rd-col-3 .alignfull{
    /* z-index:-1;*/
 }
-#bd figure.alignwide img,
-#bd figure.alignfull img
-#bd figure.wp-block-image.alignwide img,
-#bd figure.wp-block-image.alignfull img{
+.enable-align-wide #bd figure.alignwide img,
+.enable-align-wide #bd figure.alignfull img
+.enable-align-wide #bd figure.wp-block-image.alignwide img,
+.enable-align-wide #bd figure.wp-block-image.alignfull img{
     /* gutenberg */
      max-width:100%;
      -o-object-fit:cover;
@@ -3171,122 +3171,122 @@ table#wp-caledar td a{
  yui-g,yui-ga,yui-gb,yui-gc,yui-gd,yui-ge,yui-gf
 */
 
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd figure.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .wp-block-gallery.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd figure.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd figure.wp-block-image.alignfull{
     /* 90px = sidebar width / 2 */
     margin-left: calc(-50vw - 80px);
     margin-right: calc(-50vw + 80px);
 }
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd figure.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .wp-block-gallery.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd figure.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd figure.wp-block-image.alignfull{
 
     margin-left: calc(-50vw - 90px);
     margin-right: calc(-50vw + 90px);
 }
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd figure.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .wp-block-gallery.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd figure.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd figure.wp-block-image.alignfull{
     margin-left: calc(-50vw - 150px);
     margin-right: calc(-50vw + 150px);
 
 }
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd figure.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .wp-block-gallery.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd figure.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 90px);
     margin-right: calc(-50vw - 90px);
 }
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd figure.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .wp-block-gallery.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd figure.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 120px);
     margin-right: calc(-50vw - 120px);
 }
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd figure.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .wp-block-gallery.alignfull,
-.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd figure.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-2:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd figure.wp-block-image.alignfull{
      margin-left: calc(-50vw + 150px);
     margin-right: calc(-50vw - 150px);
 }
 
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t1 #bd .yui-gc figure.wp-block-image.alignfull{
     margin-left: calc(-50vw - 20px + 16.5% );
     margin-right: calc(-50vw + 20px - 16.5%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-ge figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-ge .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-ge figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-ge figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-ge .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-ge figure.wp-block-image.alignfull{
     /* 150px = sidebar width / 2 - 30px  12.5% = exstra sidebar width / 2 */
     margin-left: calc(-50vw - 120px + 12.5% );
     margin-right: calc(-50vw + 120px - 12.5%);
 
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge figure.wp-block-image.alignfull{
     margin-left: calc(-50vw - 60px + 12.5% );
     margin-right: calc(-50vw + 60px - 12.5%);
 
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc figure.wp-block-image.alignfull{
     margin-left: calc(-50vw - 30px + 16.5% );
     margin-right: calc(-50vw + 30px - 16.5%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .yui-gc figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .yui-gc .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .yui-gc figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .yui-gc figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .yui-gc .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t4 #bd .yui-gc figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 150px + 16.5% );
     margin-right: calc(-50vw - 150px - 16.5%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-ge figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-ge .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-ge figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-ge figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-ge .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-ge figure.wp-block-image.alignfull{
     /* 150px = sidebar width / 2 + 30px  12.5% = exstra sidebar width / 2 */
     margin-left: calc(-50vw + 150px + 12.5% );
     margin-right: calc(-50vw - 150px - 12.5%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-gc figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-gc .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-gc figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-gc figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-gc .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t5 #bd .yui-gc figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 180px + 16.5% );
     margin-right: calc(-50vw - 180px - 16.5%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-ge figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-ge .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-ge figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-ge figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-ge .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-ge figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 180px + 12.5% );
     margin-right: calc(-50vw - 180px - 12.5%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-gc figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-gc .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-gc figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-gc figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-gc .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-gc figure.wp-block-image.alignfull{
     /* 210px = sidebar width / 2 + 30px + 30px 12.5% = exstra sidebar width / 2 */
     margin-left: calc(-50vw + 210px + 16.5% );
     margin-right: calc(-50vw - 210px - 16.5% );
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-g figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-g .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-g figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-g figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-g .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t6 #bd .yui-g figure.wp-block-image.alignfull{
     /* 270px = sidebar width / 2 + 30px + 30px + 30px 12.5% = exstra sidebar width / 2 */
     margin-left: calc(-50vw + 270px + 25% );
     margin-right: calc(-50vw - 270px - 25% );
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-g figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-g .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-g figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-g figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-g .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t3 #bd .yui-g figure.wp-block-image.alignfull{
     /* 30px = sidebar width / 2 - (30px * 4)  12.5% = exstra sidebar width / 2 */
     margin-left: calc(-50vw - 30px + 25% );
     margin-right: calc(-50vw + 30px - 25%);
 }
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-g figure.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-g .wp-block-gallery.alignfull,
-.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-g figure.wp-block-image.alignfull{
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-g figure.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-g .wp-block-gallery.alignfull,
+.enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-g figure.wp-block-image.alignfull{
     margin-left: calc(-50vw + 40px + 25% );
     margin-right: calc(-50vw - 40px - 25%);
 }
@@ -4377,9 +4377,16 @@ body main h2{
 .author-meta .avatar-col{
     width:60px;
     vertical-align:top;
+    padding-top:1.5em;
 }
+
 .author-meta dl.author{
     margin:0;padding:0;
+}
+dl.author dt{
+    padding-top:1.5em;
+    padding-bottom:.75em;
+
 }
 dl.author dt > a{
     position:relative;
@@ -6934,7 +6941,7 @@ body:not(.rd-featured-yes-left) .h2-thumb{
 .icon-link-no-title.entry-title-text,
 .h2-thumb + .entry-title-text{
     display:table-cell;
-    vertical-align:bottom;
+    vertical-align:middle;
 }
 .rd-featured-yes-front:not(.paged)  .index > li .raindrops-sticky .entry-title .h2-thumb + .entry-title-text{
     padding:.5em;
@@ -10066,4 +10073,3 @@ span[data-rd-style*="width"] {
  /*   margin-left:5px;
     margin-right:5px;*/
 }
-

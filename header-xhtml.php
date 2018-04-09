@@ -34,7 +34,7 @@
  *
  *
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $template,  $raindrops_xhtml_media_type;

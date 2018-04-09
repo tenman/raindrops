@@ -1386,6 +1386,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'autoload'		 => 'show',
 			'title'			 => esc_html__( 'Custom Footer Credit', 'raindrops' ),
 			'excerpt1'		 => '',
+			/* translators: %current_year%: Please Not Translate */
 			'excerpt2'		 => esc_html__( 'Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )', 'raindrops' ),
 			'validate'		 => 'raindrops_custom_footer_credit_validate',
 			'list'			 => 86 ),

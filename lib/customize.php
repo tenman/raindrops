@@ -1,5 +1,5 @@
 <?php
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 if ( ! isset( $wp_customize ) ) {
@@ -1309,6 +1309,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Custom Footer Credit', 'raindrops' ),
 			'excerpt1'			 => '',
+			/* translators: %current_year%: Please not translate */
 			'description'		 => esc_html__( 'Show your custom footer credit when anything input. You can use element address, span, a, br,img, %current_year% (replase current year )', 'raindrops' ),
 			'sanitize_callback'	 => 'raindrops_custom_footer_credit_validate',
 			'type'				 => 'textarea',
@@ -1832,6 +1833,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Counts of post', 'raindrops' ),
 			'excerpt1'			 => '',
+			/* translators: 1: post count */
 			'description'		 => sprintf( esc_html__( 'Please specify the number of display. You can be set in the range 2 - %1$s', 'raindrops' ), $raindrops_featured_image_post_max ),
 			'sanitize_callback'	 => 'raindrops_show_related_posts_count_validate',
 			'type' => 'number',
@@ -1968,6 +1970,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'capability'		 => $raindrops_customize_cap,
 			'label'				 => esc_html__( 'Featured Image Special Layout Apply Post Count', 'raindrops' ),
 			'excerpt1'			 => '',
+			/* translators: 1: min post count 2: max post count */
 			'description'		 => sprintf( esc_html__( 'Input recommend values are %1$d - %2$d', 'raindrops' ) , $raindrops_featured_image_post_max, $raindrops_featured_image_post_max * 10 ),
 			'sanitize_callback'	 => 'raindrops_featured_image_recent_post_count_validate',
 			'type' => 'number',
@@ -3124,6 +3127,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					
 					if( ! empty( $part_data ) ) {
 						$part_data = wpautop( $part_data );
+						/* translators: 1: Changelog title 2: changelog 3: change log url */
 						printf( $html, esc_html( $this->label ), $part_data, esc_url( $changelog_url ),esc_html( $this->description ) );
 					}
 				} else {
@@ -3511,6 +3515,7 @@ function raindrops_print_scripts() {
 		'raindrops_show_right_sidebar_default'		 => raindrops_warehouse_clone( 'raindrops_show_right_sidebar','option_value' ),
 		'color_type_minimal_confirm'		=> esc_html__('Color type minimal, it also includes a change in the theme of the layout. If it is good, Click OK, please press the Save button in the customizer.
 This change in layout, you can later freely change.','raindrops'),
+		/* translators: 1: setting type. */
 		'raindrops_data_stored'				=> sprintf( esc_html__('Data Stored : %1$s ','raindrops'), $raindrops_setting_type ),
 		'raindrops_core_version'			=> get_bloginfo('version'),
 	);
@@ -3557,7 +3562,7 @@ function raindrops_customize_control_message_raindrops_primary_menu_responsive()
 	$page_width = raindrops_warehouse_clone( 'raindrops_page_width' );
 	
 	if( 'doc' == $page_width || 'doc2' == $page_width ||  'doc4' == $page_width ) {
-		
+		/* translators: 1: page width */
 		$conditional_message = sprintf( esc_html__('Currently static page %1$s width has been set.', 'raindrops' ), $page_width );
 
 	$html = '<li id="rd-control-description-raindrops-color-select" class="rd-custom-message customize-control customize-control-color" >
@@ -3567,6 +3572,7 @@ function raindrops_customize_control_message_raindrops_primary_menu_responsive()
 	
 	printf( $html,
 	esc_html__('Important Note','raindrops'),// Title
+	/* translators: 1: conditional message */
 	sprintf( esc_html__('%1$s This case, Primary Menu Automatic Responsive does not work','raindrops'), $conditional_message ),//Message
 	sprintf($link, 'javascript:wp.customize.section( \'raindrops_theme_settings_sidebar\' ).focus()', esc_html__('Layout and Sidebars', 'raindrops' ) ) 
 	);	
@@ -3618,6 +3624,7 @@ function raindrops_customize_control_message_raindrops_col_setting_type(){
 	}
 	
 	printf( $html,
+	/* translators: 1: conditional message */
 	sprintf( __('<span>Alert:</span> %1$s','raindrops'), $message ),// Title
 	$customizer_url, // link
 	__('Go to Widgetr Settings','raindrops')//link label
@@ -3638,6 +3645,7 @@ function raindrops_customize_control_message_link_to_grid_layout(){
 	$message = esc_html__('Grid Layout for Archives','raindrops');
 	
 	printf( $html,
+	/* translators: 1: link to customize url */
 	sprintf( __('<span>Info:</span> %1$s','raindrops'), $message ),// Title
 	$customizer_url, // link
 	esc_html__('Link to Grid Layout Settings','raindrops')//link label
@@ -3656,7 +3664,7 @@ function raindrops_customize_control_message_raindrops_entry_content_is_home() {
 	$customizer_url	 = "javascript:wp.customize.section( 'raindrops_theme_settings_featured' ).focus();";
 	$message		 = esc_html__( "If you select 'Show Excerpt with Grid Layout' in the 'Home Listed Entry Contents setting', there are recommended related settings.", 'raindrops' );
 	$description	 = esc_html__( 'On the link below, go to Featured Image Settings,If you select yes, the configuration section is displayed. Featured Image Position as In front of Title In addition, please set Featured Image Size to Medium_large', 'raindrops' );
-
+	/* translators: 1: message */
 	printf( $html, sprintf( __( '<span>Info:</span> %1$s', 'raindrops' ), $message ), // Title
 							$customizer_url, // link
 							esc_html__( 'Link to Featured Image Settings', 'raindrops' ), //link label

@@ -6,7 +6,7 @@
  * @package Raindrops
  * @since Raindrops 0.1
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $raindrops_grid_posted_in, $raindrops_use_part_gallery_template, $raindrops_use_part_blog_template;

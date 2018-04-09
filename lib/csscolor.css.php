@@ -3043,8 +3043,9 @@ address .entry-rss:after,
 .raindrops-keep-content-width ul.index > li > div{
     box-sizing:border-box;
     background-origin:border-box;
-    overflow:hidden;
+	overflow:hidden;
 }
+
 /* @1.448 */
 /* @1.453 start */
 
@@ -3147,9 +3148,7 @@ address .entry-rss:after,
 dl.author dt{
 	border-top:1px solid #aaa;
 }
-dl.author{
-	border-bottom:1px solid #aaa;
-}
+
 .front-page-template-pages > li:nth-child(even) {
 	%c5%;
 }
@@ -3393,7 +3392,7 @@ STRUCTURE_STYLE;
  *
  *
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_extend_style_type' );

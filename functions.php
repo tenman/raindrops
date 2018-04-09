@@ -5,7 +5,7 @@
  * @package Raindrops
  * @since Raindrops 0.1
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 do_action( 'raindrops_before' );
@@ -729,7 +729,7 @@ foreach ( $raindrops_base_setting as $setting ) {
 	$function_name = $setting[ 'option_name' ] . '_validate';
 
 	if ( !function_exists( $function_name ) ) {
-
+		/* translators: 1: theme option name 2: theme validate function name */
 		$message = sprintf( esc_html__( 'If you add  %1$s when you must create function %2$s for data validation', 'raindrops' ), $setting[ 'option_name' ], $function_name );
 		printf( '<script type="text/javascript">alert( \'%1$s\' );</script>', $message );
 		return;
@@ -752,6 +752,8 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		$raindrops_link_unique_text	 = raindrops_link_unique_text();
 		$classes[]					 = get_locale();
 		$keyboard_support			 = raindrops_enable_keyboard();
+		
+
 
 		if ( 'enable' == $keyboard_support && true !== $raindrops_link_unique_text ) {
 
@@ -818,10 +820,18 @@ if ( !function_exists( 'raindrops_add_body_class' ) ) {
 		/**
 		 * @since 1.447
 		 */
+		$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );	
+		
 		if ( isset( $raindrops_current_column ) && 1 == $raindrops_current_column ) {
 
-			$raindrops_content_width_setting = raindrops_warehouse_clone( 'raindrops_content_width_setting' );
 			$classes[]						 = sanitize_html_class( 'rd-content-width-' . $raindrops_content_width_setting );
+		}
+
+		if ( current_theme_supports( 'align-wide' ) && 'keep' !== $raindrops_content_width_setting ) {
+			/**
+			 * @1.515
+			 */				
+			$classes[] = 'enable-align-wide';
 		}
 		/**
 		 * 
@@ -1012,7 +1022,9 @@ if ( !function_exists( 'raindrops_comment' ) ) {
 						?>
 						</div>
 						<div class="comment-meta commentmetadata clearfix">
-							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( esc_html__( '%1$s at %2$s', 'raindrops' ), get_comment_date(), get_comment_time() ); ?></a>
+							<a href="<?php 
+							/* translators: 1: comment date 2: comment time */
+							echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( esc_html__( '%1$s at %2$s', 'raindrops' ), get_comment_date(), get_comment_time() ); ?></a>
 						<?php
 						edit_comment_link( esc_html__( ' Edit ', 'raindrops' ) . raindrops_link_unique( 'Comment', $comment->comment_ID ), ' ' );
 						?>
@@ -1317,6 +1329,7 @@ if ( !function_exists( 'raindrops_post_author' ) ) {
 		global $post;
 
 		$author						 = raindrops_blank_fallback( get_the_author(), 'Somebody' );
+		/* translators: 1: post author */
 		$author_attr_title_string	 = sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), wp_kses( $author, array() ) );
 		$author_html				 = '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ';
 
@@ -3438,6 +3451,7 @@ if ( !function_exists( "raindrops_get_year" ) ) {
 		foreach ( $months as $num => $val ) {
 
 			$num				 = (int) $num;
+			/* translators: 1: post count */
 			$table_year[ $num ]	 = '<tr><td class="month-name"><a href="' . get_month_link( $year, $num ) . "\" title=\"" . esc_attr( $year . '/' . $num ) . "\">" . $num . '</a></td><td class="month-excerpt"><a href="' . get_month_link( $year, $num ) . "\" title=\"$year/$num\">" . sprintf( esc_html__( "%s Articles archived", 'raindrops' ), count( $val ) ) . '</a></td></tr>';
 		}
 		return $output . implode( "\n", $table_year );
@@ -3603,6 +3617,7 @@ if ( !function_exists( "raindrops_month_list" ) ) {
 									raindrops_doctype_elements( 'span', 'time', false ),
 									raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false ),
 									$month->post_date, get_author_posts_url( get_the_author_meta( 'ID' ) ),
+									/* translators: 1: post author display name */
 									sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $display_name ),
 									$display_name
 						);
@@ -5561,7 +5576,7 @@ if ( !function_exists( 'raindrops_action_hook_messages' ) ) {
 		if ( true == $raindrops_actions_hook_message ) {
 
 			if ( isset( $args ) && array_key_exists( 'hook_name', $args ) && array_key_exists( 'template_part_name', $args ) ) {
-
+				/* translators: 1: hook name. please not translate 2: template name. please not translate */
 				$message = esc_html__( 'add_action(  \'%1$s\', \'your_function\'  ) or add template part file the name \'%2$s\'.', 'raindrops' );
 				$message = sprintf( $message, $args[ 'hook_name' ], $args[ 'template_part_name' ] );
 				printf( '<div style="%2$s" class="color4 pad-m corner solid-border">%1$s</div>', $message, 'word-break:break-all;word-wrap:break-word;' );
@@ -6768,6 +6783,7 @@ if ( !function_exists( 'raindrops_get_recent_posts' ) ) {
 				raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 			),
 			sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ',
+			/* translators: 1: author name. ( display name ) */
 			get_author_posts_url( $val[ "post_author" ] ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), $author ), $author
 			), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 			);
@@ -6967,7 +6983,9 @@ if ( !function_exists( 'raindrops_get_category_posts' ) ) {
 						esc_html( $date_strings ),
 						raindrops_doctype_elements( 'span', 'time', false ),
 						raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
+				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), 
+					/* translators: 1: author name */
+					sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 				);
 			}
@@ -7170,7 +7188,10 @@ if ( !function_exists( 'raindrops_get_tag_posts' ) ) {
 					esc_html( $date_strings ),
 					raindrops_doctype_elements( 'span', 'time', false ),
 					raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
-				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', get_author_posts_url( get_the_author() ), sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
+				), sprintf( '<span class="author vcard"><a class="url fn nickname" href="%1$s" title="%2$s">%3$s</a></span> ', 
+				get_author_posts_url( get_the_author() ), 
+				/* translators: 1: author name */				
+				sprintf( esc_attr__( 'View all posts by %s', 'raindrops' ), get_the_author() ), get_the_author()
 				), wp_html_excerpt( $post_content, $raindrops_excerpt_length, $raindrops_excerpt_more ) . $oembed_flag, $thumbnail, $article_margin
 				);
 			}
@@ -7236,7 +7257,9 @@ LIMIT 1" );
 
 				$previous_label = $wp_locale->get_month( $previous->month );
 
-				$calendar_output = sprintf( $html, get_month_link( $previous->year, $previous->month ), sprintf( esc_html__( '&#171; %s ', 'raindrops' ), $previous_label ), 'alignleft' );
+				$calendar_output = sprintf( $html, get_month_link( $previous->year, $previous->month ), 
+				/* translators: 1: previous month name */				
+				sprintf( esc_html__( '&#171; %s ', 'raindrops' ), $previous_label ), 'alignleft' );
 			}
 			$calendar_output .= "\t";
 
@@ -7249,7 +7272,9 @@ LIMIT 1" );
 			if ( $next ) {
 				$next_label = $wp_locale->get_month( $next->month );
 
-				$calendar_output .= sprintf( $html, get_month_link( $next->year, $next->month ), sprintf( esc_html__( ' %s &#187;', 'raindrops' ), $next_label ), 'alignright' );
+				$calendar_output .= sprintf( $html, get_month_link( $next->year, $next->month ), 
+				/* translators: 1: next month name */
+				sprintf( esc_html__( ' %s &#187;', 'raindrops' ), $next_label ), 'alignright' );
 			}
 			$html			 = '<div class="%1$s">%2$s<br class="clear" /></div>';
 			$calendar_output = sprintf( $html, 'raindrops-monthly-archive-prev-next-avigation', $calendar_output );
@@ -12727,7 +12752,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_title' ) ) {
 				}
 				$obj = get_post_type_object( $post_type );
 				if ( !empty( $obj ) && true == $obj->has_archive ) {
-
+					/* translators: 1: post type */
 					return sprintf( __( 'Recent %1$s', 'raindrops' ), $obj->label );
 				}
 			}
@@ -12796,7 +12821,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_archive_widget_title' ) ) {
 					$post_type_label = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', $obj->label, $obj, $id_base );
 					$separator		 = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', ' : ', $obj, $id_base );
 					$post_type_title = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', $title, $obj, $id_base );
-
+					/* translators: 1: post type 2: separator 3: post type title */
 					return sprintf( __( '%1$s %2$s %3$s', 'raindrops' ), $post_type_label, $separator, $post_type_title );
 				}
 			}
@@ -12902,7 +12927,7 @@ if ( !function_exists( 'raindrops_filter_custom_post_category_widget_title' ) ) 
 					$post_type_label = apply_filters( 'raindrops_filter_custom_post_archive_widget_label', $obj->label, $obj, $id_base );
 					$separator		 = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', ' : ', $obj, $id_base );
 					$post_type_title = apply_filters( 'raindrops_filter_custom_post_archive_widget_title', $title, $obj, $id_base );
-
+					/* translators: 1: post type label 2:separator 3: post type title */
 					return sprintf( __( '%1$s %2$s %3$s', 'raindrops' ), $post_type_label, $separator, $post_type_title );
 				}
 			}
@@ -13874,7 +13899,7 @@ if( ! function_exists( 'raindrops_font_size_class' ) ) {
 										'.portfolio .entry-title' => array( $default_basefont_val * 1.231,'px'),
 										'.raindrops-monthly-archive-prev-next-avigation, .pagination, .page-template-page-featured .widget' =>  array( $default_basefont_val,'px'),
 										'.archive-year-links .current-year,.datetable > h2' => array( $default_basefont_val * 1.539,'px'),
-										'.author .entry-title-text' => array( $default_basefont_val,'px'),
+										/* @1.515 '.author .entry-title-text' => array( $default_basefont_val,'px'),*/
 										
 									);
 		$keep_base_size_proparties	= apply_filters('raindrops_keep_base_size_proparties', $keep_base_size_proparties );

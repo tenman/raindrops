@@ -1,5 +1,5 @@
 <?php
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $template, $raindrops_current_theme_slug;

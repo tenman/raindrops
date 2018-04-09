@@ -16,7 +16,7 @@
  * @uses get_sidebar( 'default' )	include template part file
  * @uses get_footer( $raindrops_document_type ) 
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
@@ -41,27 +41,11 @@ raindrops_debug_navitation( __FILE__ );
 					<?php
 					if ( 3 == $raindrops_current_column ) {
 						?>
-						<div class="yui-u">
-							<?php
-							raindrops_prepend_extra_sidebar();
-
-							get_sidebar( 'extra' );
-
-							raindrops_append_extra_sidebar();
-							?>
-						</div>
+						<div class="yui-u"><?php get_sidebar( 'extra' ); ?></div>
 						<?php
 					} elseif ( $rsidebar_show && false == $raindrops_current_column ) {
 						?>
-						<div class="yui-u">
-							<?php
-							raindrops_prepend_extra_sidebar();
-
-							get_sidebar( 'extra' );
-
-							raindrops_append_extra_sidebar();
-							?>
-						</div>
+						<div class="yui-u"><?php get_sidebar( 'extra' ); ?>	</div>
 						<?php
 					}
 					?>

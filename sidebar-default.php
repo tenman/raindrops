@@ -6,7 +6,7 @@
  * @package Raindrops
  * @since Raindrops 0.1
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $template;

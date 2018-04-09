@@ -28,7 +28,7 @@
  * @uses comment_template( )
  * @uses get_day_link( )
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 global $template,$raindrops_tag_emoji, $raindrops_category_emoji,$post,$raindrops_grid_posted_in;

@@ -5,7 +5,7 @@
  * @package Raindrops
  * @since Raindrops 0.940
  */
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 global $template, $raindrops_grid_posted_in;

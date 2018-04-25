@@ -2,6 +2,18 @@ Changelog -----------------------------------
 version:1.515
 
 Overview of Changes
+
+
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.515&new_path=raindrops/1.516
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
+version:1.515
+
+Overview of Changes
 	Fixed thread comments CSS
 
 	Modified Google WEB fonts Setting for Lang ja

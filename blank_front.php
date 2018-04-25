@@ -324,7 +324,7 @@ if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_cust
 <div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
     <div class="<?php echo $raindrops_devide_column_class; ?>">
 
-        <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
+        <div class="<?php raindrops_extra_sidebar_classes(); ?>" id="container">
             <div class="<?php echo $raindrops_devide_column_extra_class; ?> first" <?php /*
             raindrops_is_2col( 'style="width:99%;"' );
 

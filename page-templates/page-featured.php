@@ -155,7 +155,7 @@ if ( have_posts() ) {
                         </div>
                         <div class="linkpage clearfix">
                         <?php
-                       wp_link_pages( 'before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+                       wp_link_pages( 'before=<p class="paginate">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
                         ?>
                         </div>
                         <br class="clear" />

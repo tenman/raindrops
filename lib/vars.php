@@ -10,6 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * 
+ */
+if( false == get_theme_mod( 'header_textcolor') ) {
+
+	$header_textcolor = raindrops_default_color_clone( 'header_textcolor', 'fallback' );
+	$header_textcolor = str_replace('#', '', $header_textcolor);
+	set_theme_mod( 'header_textcolor', $header_textcolor );
+}
+/**
  * Use Raindrops Class rd-justify with javascript
  * purpose: Solve the river of white problem with short strings.
  * class rd-justify make equal spacing each string with javascript

@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.515
+Version: 1.516
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -606,8 +606,8 @@ dd {
 }
 dl:not(.alignright) > dd:last-child,
 dl:not(.alignleft)  > dd:last-child{
-    /* @1.510 */
-    padding:0 40px .75em;
+    /* @1.516 */
+    padding:1em 40px .75em;
 }
 dl > div {
     margin-top:.5em;
@@ -615,7 +615,11 @@ dl > div {
 }
 .raindrops-post-format-chat dd{
     padding:1em;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 }
+
 /**
  * Table
    ========================================================================== */
@@ -904,7 +908,9 @@ blockquote{
     margin-bottom:1em;
 }
 blockquote > p {
-    width:fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     margin-left:auto;
     margin-right:auto;
 }
@@ -2046,17 +2052,36 @@ footer a{
 #nav-above .nav-next a:after{
    margin-left:1em;
 }
-.pagenate a {
+.paginate > a {
     overflow:hidden;
     text-decoration:none;
     width:1.15384615385em;
     margin:0;
     vertical-align:middle;
 }
-.pagenate a:hover {
+.paginate > a:hover {
     height:100%;
     text-decoration:none;
     width:100%;
+}
+.paginate:before{
+    content:'.';
+    display:block;
+    clear:both;
+    visibility:hidden;
+}
+.paginate > a > span {
+    background:none;
+    border:0.07692307692em solid #999;
+    overflow:hidden;
+    padding:0 15px;
+}
+.paginate > span {
+    background:#fff;
+    border:0.23076923076em solid #555;
+    color:#555;
+    overflow:hidden;
+    padding:0 1.15384615385em;
 }
 /* Pagination Archives */
 #nav-above{
@@ -2369,30 +2394,12 @@ ul.index li .edit {
     float:right;
     margin:0 2em;
 }
-.pagenate {
+.paginate {
     clear:both;
     text-align:center;
     margin:0 auto;
 }
-.pagenate:before{
-    content:'.';
-    display:block;
-    clear:both;
-    visibility:hidden;
-}
-.pagenate a span {
-    background:none;
-    border:0.07692307692em solid #999;
-    overflow:hidden;
-    padding:0 15px;
-}
-.pagenate span {
-    background:#fff;
-    border:0.23076923076em solid #555;
-    color:#555;
-    overflow:hidden;
-    padding:0 1.15384615385em;
-}
+
 .sitemap {
     min-height:100px;
     margin:.5em;
@@ -3164,6 +3171,20 @@ table#wp-caledar td a{
      width:100%;
      height:100%;
 }
+.enable-align-wide.rd-grid #bd figure.alignfull{
+    margin-left:0;
+    margin-right:0;
+    max-height:240px;
+    left:0;
+    right:0;
+    max-width:100%;
+    width:auto;
+}
+.enable-align-wide.rd-grid #bd figure.wp-block-image.alignfull img,
+.enable-align-wide.rd-grid #bd figure.alignfull img{
+    object-fit:contain;
+    height:240px;
+}
 /*
  specifying the style. Only the main combination,
 
@@ -3319,10 +3340,14 @@ p.alignright{
 p.aligncenter{
 	margin: 1.5em auto .75em;
 	display:table;
-	padding:7px 13px;
+	/* @1.516 padding:7px 13px; */
 	max-width:66.666%;
 	-webkit-box-sizing:border-box;
 	        box-sizing:border-box;
+}
+p.aligncenter.has-background{
+    /* @1.516 */
+    padding:7px 13px;
 }
 p.alignnone{
 	padding:7px 13px;
@@ -4640,7 +4665,7 @@ div:not(.raindrops-empty-content) .entry-meta-default .raindrops-comment-link{
 .no-archive{
     display:none;
 }
-.monthly-archives-pagenate{
+.monthly-archives-paginate{
     text-align:center;
 }
 /**
@@ -7121,7 +7146,9 @@ dl.rd-nowrap{
     max-width:100%;
 }
 .rd-nowrap > dt{
-   width:fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     min-width:10em;
 }
 ol.rd-nowrap,
@@ -10070,6 +10097,15 @@ span[data-rd-style*="width"] {
  .entry-content [style="text-align:right"]
  .entry-content [data-rd-style="text-align:center"]{
     display:block;
- /*   margin-left:5px;
-    margin-right:5px;*/
+
+}
+/* test */
+.raindrops-tag-posts .thumb img,
+.raindrops-category-posts .thumb img,
+.raindrops-recent-posts .thumb img{
+    -o-object-fit:cover;
+       object-fit:cover;
+    width:100%;
+    height:100%;
+    max-height:100%;
 }

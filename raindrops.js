@@ -505,6 +505,12 @@ jQuery( function ( $ ) {
                     */
                     var box_header_width = jQuery('#doc3 #header-image').width();
                     jQuery('#doc3 .on-scroll').css({'background-size': box_header_width +'px' });
+                                        
+                    /**
+                     * remove parallax front-page template
+                     * @1.516
+                     */
+                    $('.front-page-top-container #header-image').removeClass( 'on-scroll' );
                 }
             }
 

@@ -5,7 +5,9 @@
  * Filetype: CSS
  * @package Raindrops
  */
-
+body#tinymce.wp-editor{
+     font-family:'Meiryo',Arial,sans-serif!important;
+}
 html .mce-content-body {
     padding:10px;
 }
@@ -32,6 +34,7 @@ a:hover {
 /* wordPress native */
 .gallery, html .mceContentBody .gallery{
     width:fit-content;
+    width:-moz-fit-content;
 }
 img.aligncenter,
 .aligncenter,

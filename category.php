@@ -32,7 +32,7 @@ raindrops_debug_navitation( __FILE__ );
 				
 				<div class="<?php raindrops_dinamic_class( 'yui-b',true ); ?>">
 
-					<div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
+					<div class="<?php raindrops_extra_sidebar_classes(); ?>" id="container">
 						<div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 						<?php get_template_part( 'widget', 'sticky' ); ?>
 							<?php get_template_part( 'loop', $raindrops_document_type ); ?>

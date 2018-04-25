@@ -105,7 +105,7 @@ raindrops_debug_navitation( __FILE__ );
 ?>
 <div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
     <div class="<?php raindrops_dinamic_class( 'yui-b', true ); ?>">
-        <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
+        <div class="<?php raindrops_extra_sidebar_classes(); ?>" id="container">
             <!-- content -->
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 <?php raindrops_prepend_loop(); ?>
@@ -165,7 +165,7 @@ raindrops_debug_navitation( __FILE__ );
                     <?php echo $output; ?>
                 </div>
                 <?php if ( is_month() ) { ?>
-                    <div class="monthly-archives-pagenate">
+                    <div class="monthly-archives-paginate">
                         <?php echo paginate_links( $pagination ) . ''; ?>
                     </div>
                 <?php }// end if ( is_month( ) )?>

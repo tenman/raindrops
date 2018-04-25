@@ -43,7 +43,7 @@ if ( 'before' == raindrops_warehouse( 'raindrops_posted_in_position' ) ) {
 
 	raindrops_entry_content();
 
-	wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+	wp_link_pages( 'before=<p class="paginate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
 	?>
 	<br class="clear" />
 	<?php

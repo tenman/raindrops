@@ -647,6 +647,7 @@
     } );
 } )( jQuery );
 
+/* @1.516
 function raindrops_share_href() {
 
     var browser = document.raindrops_share.share_links.value;
@@ -656,7 +657,7 @@ function raindrops_share_href() {
     } else {
         location.href = browser;
     }
-}
+}*/
 
 /* Sticky Menu */
 

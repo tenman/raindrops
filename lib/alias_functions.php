@@ -824,7 +824,16 @@ if ( ! function_exists( 'raindrops_default_colors_clone' ) ) {
 			if ( 'raindrops_footer_link_color' == $option_name ) {
 				return $custom_footer_link_color;
 			}
+			if ( 'header_textcolor' == $option_name ) {
 
+				$raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );
+				
+				if ( false == $default && isset( $raindrops_header_color ) && !empty( $raindrops_header_color ) ) {
+					return $raindrops_header_color;
+				} else {
+					return $raindrops_header_color_default;
+				}
+			}
 			if ( 'raindrops_header_color' == $option_name ) {
 
 				$raindrops_header_color = raindrops_warehouse_clone( 'raindrops_default_fonts_color' );

@@ -692,6 +692,7 @@
         padding:0;
         max-width:calc(90vw - 2em);
     }
+
     .rd-grid #yui-main .format-status .entry-meta-list.left > li,
     .rd-grid #yui-main .category-blog .entry-meta-list.left > li{
         text-align:center;

@@ -145,6 +145,7 @@ if ( have_posts() ) {
     ?>
 						</ul>
 							<?php raindrops_next_prev_links( "nav-below" );
+							
 }//if have_posts
 raindrops_append_loop();
 ?>

@@ -1030,7 +1030,7 @@ function raindrops_entry_content_is_home_validate( $input ) {
  * @param type $output
  * @return int
  */
-if ( !function_exists( 'raindrops_basefont_settings_validate' ) ) {
+if ( ! function_exists( 'raindrops_basefont_settings_validate' ) ) {
 
 	function raindrops_basefont_settings_validate( $output ) {
 
@@ -1048,7 +1048,7 @@ if ( !function_exists( 'raindrops_basefont_settings_validate' ) ) {
  * @param type $output
  * @return int
  */
-if ( !function_exists( 'raindrops_fluid_max_width_validate' ) ) {
+if ( ! function_exists( 'raindrops_fluid_max_width_validate' ) ) {
 
 	function raindrops_fluid_max_width_validate( $output ) {
 
@@ -1065,7 +1065,7 @@ if ( !function_exists( 'raindrops_fluid_max_width_validate' ) ) {
  * @param type $output
  * @return string
  */
-if ( !function_exists( 'raindrops_doc_type_settings_validate' ) ) {
+if ( ! function_exists( 'raindrops_doc_type_settings_validate' ) ) {
 
 	function raindrops_doc_type_settings_validate( $output ) {
 
@@ -1085,7 +1085,7 @@ if ( !function_exists( 'raindrops_doc_type_settings_validate' ) ) {
  * @param type $output
  * @return string
  */
-if ( !function_exists( 'raindrops_accessibility_settings_validate' ) ) {
+if ( ! function_exists( 'raindrops_accessibility_settings_validate' ) ) {
 
 
 	function raindrops_accessibility_settings_validate( $output ) {
@@ -1105,7 +1105,7 @@ if ( !function_exists( 'raindrops_accessibility_settings_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_use_automatic_color_validate' ) ) {
+if ( ! function_exists( 'raindrops_use_automatic_color_validate' ) ) {
 
 	function raindrops_use_automatic_color_validate( $input ) {
 
@@ -1127,7 +1127,7 @@ if ( !function_exists( 'raindrops_use_automatic_color_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_right_sidebar_width_percent_validate' ) ) {
+if ( ! function_exists( 'raindrops_right_sidebar_width_percent_validate' ) ) {
 
 	function raindrops_right_sidebar_width_percent_validate( $input ) {
 
@@ -1151,7 +1151,7 @@ if ( !function_exists( 'raindrops_right_sidebar_width_percent_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_show_right_sidebar_validate' ) ) {
+if ( ! function_exists( 'raindrops_show_right_sidebar_validate' ) ) {
 
 	function raindrops_show_right_sidebar_validate( $input ) {
 
@@ -1172,7 +1172,7 @@ if ( !function_exists( 'raindrops_show_right_sidebar_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_footer_color_validate' ) ) {
+if ( ! function_exists( 'raindrops_footer_color_validate' ) ) {
 
 	function raindrops_footer_color_validate( $input ) {
 
@@ -1193,7 +1193,7 @@ if ( !function_exists( 'raindrops_footer_color_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_default_fonts_color_validate' ) ) {
+if ( ! function_exists( 'raindrops_default_fonts_color_validate' ) ) {
 
 	function raindrops_default_fonts_color_validate( $input ) {
 
@@ -1216,7 +1216,7 @@ if ( !function_exists( 'raindrops_default_fonts_color_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_col_width_validate' ) ) {
+if ( ! function_exists( 'raindrops_col_width_validate' ) ) {
 
 	function raindrops_col_width_validate( $input ) {
 
@@ -1243,7 +1243,7 @@ if ( !function_exists( 'raindrops_col_width_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_page_width_validate' ) ) {
+if ( ! function_exists( 'raindrops_page_width_validate' ) ) {
 
 	function raindrops_page_width_validate( $input ) {
 
@@ -1268,7 +1268,7 @@ if ( !function_exists( 'raindrops_page_width_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_heading_image_validate' ) ) {
+if ( ! function_exists( 'raindrops_heading_image_validate' ) ) {
 
 	function raindrops_heading_image_validate( $input ) {
 
@@ -1285,7 +1285,7 @@ if ( !function_exists( 'raindrops_heading_image_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_heading_image_position_validate' ) ) {
+if ( ! function_exists( 'raindrops_heading_image_position_validate' ) ) {
 
 	function raindrops_heading_image_position_validate( $input ) {
 
@@ -1305,7 +1305,7 @@ if ( !function_exists( 'raindrops_heading_image_position_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_footer_image_validate' ) ) {
+if ( ! function_exists( 'raindrops_footer_image_validate' ) ) {
 
 	function raindrops_footer_image_validate( $input ) {
 
@@ -1324,7 +1324,7 @@ if ( !function_exists( 'raindrops_footer_image_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_header_image_validate' ) ) {
+if ( ! function_exists( 'raindrops_header_image_validate' ) ) {
 
 	function raindrops_header_image_validate( $input ) {
 
@@ -1342,7 +1342,7 @@ if ( !function_exists( 'raindrops_header_image_validate' ) ) {
  * @return string
  */
 
-if ( !function_exists( 'raindrops_style_type_validate' ) ) {
+if ( ! function_exists( 'raindrops_style_type_validate' ) ) {
 
 	function raindrops_style_type_validate( $input ) {
 		
@@ -1361,7 +1361,7 @@ if ( !function_exists( 'raindrops_style_type_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_base_color_validate' ) ) {
+if ( ! function_exists( 'raindrops_base_color_validate' ) ) {
 
 	function raindrops_base_color_validate( $input ) {
 
@@ -1382,7 +1382,7 @@ if ( !function_exists( 'raindrops_base_color_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( 'raindrops_color_scheme_validate' ) ) {
+if ( ! function_exists( 'raindrops_color_scheme_validate' ) ) {
 
 	function raindrops_color_scheme_validate( $input ) {
 
@@ -1398,7 +1398,7 @@ if ( !function_exists( 'raindrops_color_scheme_validate' ) ) {
  * @param type $input
  * @return type
  */
-if ( !function_exists( '_raindrops_indv_css_validate' ) ) {
+if ( ! function_exists( '_raindrops_indv_css_validate' ) ) {
 
 	function _raindrops_indv_css_validate( $input ) {
 
@@ -1412,7 +1412,7 @@ if ( !function_exists( '_raindrops_indv_css_validate' ) ) {
  * @param type $input
  * @return string
  */
-if ( !function_exists( 'raindrops_show_menu_primary_validate' ) ) {
+if ( ! function_exists( 'raindrops_show_menu_primary_validate' ) ) {
 
 	function raindrops_show_menu_primary_validate( $input ) {
 
@@ -1430,7 +1430,7 @@ if ( !function_exists( 'raindrops_show_menu_primary_validate' ) ) {
  * @param type $input
  * @return string
  */
-if ( !function_exists( 'raindrops_hyperlink_color_validate' ) ) {
+if ( ! function_exists( 'raindrops_hyperlink_color_validate' ) ) {
 
 	function raindrops_hyperlink_color_validate( $input ) {
 
@@ -1452,7 +1452,7 @@ if ( !function_exists( 'raindrops_hyperlink_color_validate' ) ) {
  * @param type $new_value
  * @return type
  */
-if ( !function_exists( 'raindrops_update_theme_option' ) ) {
+if ( ! function_exists( 'raindrops_update_theme_option' ) ) {
 
 	function raindrops_update_theme_option( $option, $new_value ) {
 

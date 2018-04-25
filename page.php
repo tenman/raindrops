@@ -46,7 +46,7 @@ raindrops_debug_navitation( __FILE__ );
 <div id="yui-main" class="<?php raindrops_dinamic_class( 'yui-main',true ); ?>">
     <div class="<?php raindrops_dinamic_class( 'yui-b', true ); ?>">
 
-        <div class="<?php echo raindrops_yui_class_modify(); ?>" id="container">
+        <div class="<?php raindrops_extra_sidebar_classes(); ?>" id="container">
             <div class="<?php raindrops_dinamic_class( 'yui-u first', true ); ?>" <?php raindrops_doctype_elements( '', 'role="main"' ); ?>>
 				<?php get_template_part( 'widget', 'sticky' ); ?>
                 <?php
@@ -85,7 +85,7 @@ raindrops_debug_navitation( __FILE__ );
                             </div>
                             <div class="linkpage clearfix">
                                 <?php
-                                wp_link_pages( 'before=<p class="pagenate">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+                                wp_link_pages( 'before=<p class="paginate">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
                                 ?>
                             </div>
                             <br class="clear" />

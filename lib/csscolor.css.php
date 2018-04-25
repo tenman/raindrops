@@ -3414,6 +3414,7 @@ if ( isset( $raindrops_current_theme_name ) ) {
 	$raindrops_embed_common_style = $boots_current_theme_data->get( 'Name' );
 }
 /* 1.303 */
+
 if( function_exists( 'raindrops_indv_css_'.$raindrops_embed_common_style) ) {
 	
 	raindrops_register_styles( $raindrops_embed_common_style );
@@ -3470,7 +3471,7 @@ if( 'theme_mod' == $raindrops_setting_type ) {
 }
 
 if ( $raindrops_theme_mod_options == true && 'theme_mod' == $raindrops_setting_type ) {
-		
+	
 	if ( is_admin() || $wp_customize ) {
 	
 			$raindrops_indv_css = raindrops_design_output($raindrops_style_type) . raindrops_color_base();
@@ -3478,6 +3479,7 @@ if ( $raindrops_theme_mod_options == true && 'theme_mod' == $raindrops_setting_t
 
 	}
 }
+
 /**
  * Create CSS Color Declaration
  *

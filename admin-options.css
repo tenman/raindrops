@@ -56,9 +56,9 @@
 /**
  * for gutenberg 
  */
-
 .edit-post-visual-editor .editor-post-title{
     max-width:760px;
+    padding:0;
 }
 .gutenberg__editor img {
     max-width: 100%;
@@ -74,7 +74,7 @@ p.wp-block-paragraph.aligncenter{
 	margin-right:auto;
 }
 p.wp-block-paragraph{
-    padding:.75em 1em;
+   /* padding:.75em 1em;*/
 }
 div.editor-block-list__block[data-type="core/verse"],
 div.editor-block-list__block[data-type="core/preformatted"],

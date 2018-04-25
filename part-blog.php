@@ -131,7 +131,7 @@ if ( is_single() ) {
         ?>
             </div>
             <?php
-            wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+            wp_link_pages( 'before=<p class="paginate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
             ?>
         </div>
 
@@ -209,7 +209,7 @@ if ( is_single() ) {
                 ?>
                 </div>
     <?php
-    wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+    wp_link_pages( 'before=<p class="paginate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
     ?>
             </div>
         </div>

@@ -265,7 +265,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 * @since 1.307
 		 */
-		add_filter( 'press_this_suggested_html', 'raindrops_press_this_add_class' );
+		/* @1.516 add_filter( 'press_this_suggested_html', 'raindrops_press_this_add_class' ); */
 		add_filter( 'get_comment_author_link', 'raindrops_recent_comments_avatar', 10, 3 );
 		/**
 		 * @since 1.308

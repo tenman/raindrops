@@ -68,7 +68,7 @@ raindrops_entry_title();
 		echo $text_array[ 'main' ];
 	}
 
-	wp_link_pages( 'before=<p class="pagenate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
+	wp_link_pages( 'before=<p class="paginate clearfix">&after=</p>&next_or_number=number&pagelink=<span>%</span>' );
 	?>
 	<br class="clear" />
 	<?php

@@ -2,10 +2,51 @@ Changelog -----------------------------------
 version:1.515
 
 Overview of Changes
-
+	Modified function name change raindrops_yui_class_modify() to raindrops_extra_sidebar_classes()
+	Modified Misspelled CSS Class pagenate to paginate
+	Removed Raindrops share link
+	Modified child theme relate setting
+	Modified gutenberg plugin style
 
 Files Modified
-
+	modified: 404.php
+	modified:   admin-options.css
+	modified:   author.php
+	modified:   bbpress.php
+	modified:   blank_front.php
+	modified:   category.php
+	modified:   changelog.txt
+	modified:   date.php
+	modified:   editor-style.css
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   index.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   loop.php
+	modified:   page-templates/front-portfolio.php
+	modified:   page-templates/full-width.php
+	modified:   page-templates/list-of-post.php
+	modified:   page-templates/page-featured.php
+	modified:   page.php
+	modified:   part-additional.php
+	modified:   part-blog.php
+	modified:   part-gallery.php
+	modified:   part.php
+	modified:   pdf.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   search.php
+	modified:   single.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.515&new_path=raindrops/1.516

@@ -2681,8 +2681,8 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		if ( raindrops_warehouse_clone( "raindrops_style_type" ) == $raindrops_current_theme_name ) {
 			
 			if( 'theme_mod' == $raindrops_setting_type ){
-				/* @1.516 */
-				return $css  . get_theme_mod( '_raindrops_indv_css' );
+				/* @1.517 */
+				//return $css  . get_theme_mod( '_raindrops_indv_css' );
 			}
 
 			return $css . raindrops_warehouse_clone( '_raindrops_indv_css' );

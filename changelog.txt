@@ -1,5 +1,17 @@
 Changelog -----------------------------------
-version:1.515
+version:1.517
+
+Overview of Changes
+	Trying front end display improparly
+
+Files Modified
+	functions.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.516&new_path=raindrops/1.517
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
+version:1.516
 
 Overview of Changes
 	Modified function name change raindrops_yui_class_modify() to raindrops_extra_sidebar_classes()

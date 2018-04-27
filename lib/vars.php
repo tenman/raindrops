@@ -377,7 +377,9 @@ if ( !isset( $raindrops_keep_content_width ) ) {
  */
 if ( !isset( $raindrops_use_transient ) ) {
 
-	$raindrops_use_transient = true;
+
+	/* change value to false @1.518 front end style issue */
+	$raindrops_use_transient = false;
 
 	if ( WP_DEBUG == true ) {
 		$raindrops_use_transient = false;

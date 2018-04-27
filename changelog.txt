@@ -1,4 +1,18 @@
 Changelog -----------------------------------
+version:1.518
+
+Overview of Changes
+	Trying front end display improparly
+		Remove Transient settings
+		Remove line 2687 functions.php
+Files Modified
+	functions.php
+	lib/vars.php
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.517&new_path=raindrops/1.518
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.517
 
 Overview of Changes

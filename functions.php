@@ -2209,7 +2209,6 @@ if ( ! function_exists( "raindrops_emoji_collection" ) ) {
 }
 
 
-
 if ( ! function_exists( "raindrops_embed_css" ) ) {
 
 	function raindrops_embed_css() {
@@ -2685,7 +2684,8 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				//return $css  . get_theme_mod( '_raindrops_indv_css' );
 			}
 
-			return $css . raindrops_warehouse_clone( '_raindrops_indv_css' );
+			//return $css . raindrops_warehouse_clone( '_raindrops_indv_css' );
+			
 		}
 		/* 0611 1.301
 		 * $raindrops_options			 = get_option( 'raindrops_theme_settings' );

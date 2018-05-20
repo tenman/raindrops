@@ -1,4 +1,31 @@
 Changelog -----------------------------------
+version:1.519
+
+Overview of Changes
+	Modified Gutenberg plugin CSS
+	Removed raindrops_add_share_link();
+	Fixed p.alignleft p.alignright p.aligncenter Style when using grid layout
+	Modified header text color CSS
+		add raindrops_fallback_header_text_color()
+	Added Support Privacy Policy link ( WordPress 4.9.6 )
+	Modified comments form for privacy policy.
+
+Files Modified
+	modified:	admin-options.css
+	modified:   css3.css
+	modified:   functions.php
+	modified:   grids.css
+	modified:   lib/alias_functions.php
+	modified:   lib/csscolor.css.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.518&new_path=raindrops/1.519
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.518
 
 Overview of Changes

@@ -907,7 +907,13 @@ blockquote{
     margin-right:auto;
     margin-bottom:1em;
 }
-blockquote > p {
+/* .wp-block-quote > p, pending now */
+.wp-block-pullquote > p{
+    /**
+     * gutenberg
+     * simple blockquotes do not apply styles
+     *@1.519 
+     */
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -1110,6 +1116,11 @@ blockquote p:last-child{
 .textwidget table,
 .entry-content table {
     border-spacing:0;
+}
+.textwidget table tbody,
+.entry-content table tbody{
+    /* @1.519 gutenberg incorrect value */
+    display:table-row-group;
 }
 .textwidget table caption,
 .entry-content table caption{
@@ -1466,10 +1477,12 @@ input[type="file"]{
 }
 select{
     min-width:10em;
+    padding:3px;
 }
 option{
     padding:3px;
     border-bottom:1px solid rgba(127,127,127,.5);
+    min-height:calc( 1.2em + 1em );
 }
 #searchform input[type="search"],
 #searchform input[type="text"] {
@@ -1553,7 +1566,7 @@ input[type="url" i]:required,
 input[type="week" i]:required{
     border-bottom: 2px solid rgb(225, 77, 67);
 }
-
+/* todo 
 textarea:optional,
 input:not([type]):optional,
 input[type="color" i]:optional,
@@ -1567,9 +1580,8 @@ input[type="tel" i]:optional,
 input[type="text" i]:optional,
 input[type="time" i]:optional,
 input[type="url" i]:optional,
-input[type="week" i]:optional{
-    /* todo */
-}
+input[type="week" i]:optional{  
+}*/
     /**
      * Known Issue
      * :valid works even if nothing is entered in the field
@@ -3106,6 +3118,7 @@ table#wp-caledar td a{
 /**
  * Paragraph
  */
+.linefull,
 .alignfull,
 .alignwide{
     /* gutenberg */
@@ -3127,7 +3140,7 @@ table#wp-caledar td a{
     padding-bottom:0;
     max-width:none;
 }
-
+.rd-col-1.enable-align-wide .linefull,
 .rd-col-1.enable-align-wide .rd-table-wrapper.alignfull,
 .enable-align-wide #bd .wp-block-gallery.alignfull,
 .enable-align-wide #bd figure.alignfull,
@@ -3185,6 +3198,7 @@ table#wp-caledar td a{
     object-fit:contain;
     height:240px;
 }
+
 /*
  specifying the style. Only the main combination,
 
@@ -4905,7 +4919,7 @@ a.raindrops-comment-link:hover em {
 .widget_archive select{
     margin:0.38461538461em auto;
     width:100%;
-    height:2em;
+    /* @1.519 height:2em;*/
 }
 .widget_archive{
     text-align:center;
@@ -5092,9 +5106,21 @@ sup {
 .raindrops-tag-posts .thumb img,
 .raindrops-category-posts .thumb img,
 .raindrops-recent-posts .thumb img{
-    max-width:100%;
+ /*   @1.519 max-width:100%;
     height:auto;
     width:100px;
+    vertical-align:text-bottom;
+    float:left;*/
+}
+/* add relate posts thumbnail  */
+.raindrops-tag-posts .thumb img,
+.raindrops-category-posts .thumb img,
+.raindrops-recent-posts .thumb img{
+    -o-object-fit:cover;
+       object-fit:cover;
+    width:100%;
+    height:100%;
+    max-height:100%;
 }
 .raindrops-tag-posts,
 .raindrops-category-posts,
@@ -5757,7 +5783,6 @@ ol.list-of-post-list .entry-title{
 #raindrops_status_bar{
     background:rgba(0,0,0,1);
     color:#fff;
-    max-height:80px;
     position:fixed;
     bottom:0;
     width:100%;
@@ -5765,6 +5790,14 @@ ol.list-of-post-list .entry-title{
     padding:.2em 0;
     z-index:9999;
 }
+.status-bar-child{
+    max-width:90%;
+    width:640px;
+    display:inline-block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 #raindrops_status_bar .move-to-top{
     text-align:right;
     margin-right:1em;
@@ -6315,6 +6348,9 @@ body:not(.no-apply-bbpress-css) #bbpress-forums a{
 /**
  * Featured Image
    ========================================================================== */
+.raindrops-use-featured-image-light-box{
+    text-align:center;
+}
 .entry-title a .wp-post-image{
     transition: all 0.5s ease;
     -webkit-filter: brightness(100%);
@@ -8678,6 +8714,7 @@ ul.archives .rd-tag-description{
 .rd-grid .rd-card article{
     margin:0 auto;
 }
+
 .rd-card .entry-title{
     padding:.6em;
 }
@@ -10089,6 +10126,7 @@ span[data-rd-style*="width"] {
 .blocks-gallery-item{
     list-style-type:none;
 }
+
  .entry-content p.aligncenter[data-rd-style="text-align:center"],
  .entry-content p.aligncenter[data-rd-style="text-align:right"],
   .entry-content [data-rd-style="text-align:center"],
@@ -10099,13 +10137,7 @@ span[data-rd-style*="width"] {
     display:block;
 
 }
-/* test */
-.raindrops-tag-posts .thumb img,
-.raindrops-category-posts .thumb img,
-.raindrops-recent-posts .thumb img{
-    -o-object-fit:cover;
-       object-fit:cover;
-    width:100%;
-    height:100%;
-    max-height:100%;
+
+#commentform .comment-form-cookies-consent label[for="wp-comment-cookies-consent"]{
+    display:inline;
 }

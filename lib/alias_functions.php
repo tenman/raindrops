@@ -1376,16 +1376,16 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				.gallery .gallery-caption { margin-left: 0; }
 				.gallery br { clear: both }
 				
-				.gallery-columns-1 .gallery-item, .columns-1 .blocks-gallery-item{ width: 100% }
-				.gallery-columns-2 .gallery-item, .columns-2 .blocks-gallery-item{ width: calc(50% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-3 .gallery-item, .columns-3 .blocks-gallery-item{ width: calc(33.3% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-4 .gallery-item, .columns-4 .blocks-gallery-item{ width: calc(25% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-5 .gallery-item, .columns-5 .blocks-gallery-item{ width: calc(20% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-6 .gallery-item, .columns-6 .blocks-gallery-item{ width: calc(16.6% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-7 .gallery-item, .columns-7 .blocks-gallery-item{ width: calc(14.28% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-8 .gallery-item, .columns-8 .blocks-gallery-item{ width: calc(12.5% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-9 .gallery-item, .columns-9 .blocks-gallery-item{ width: calc(11.1% - '. $gap .'px); margin:'. $gap_figure.'px; }
-				.gallery-columns-10 .gallery-item, .columns-10 .blocks-gallery-item{ width: calc(9.9% - '. $gap .'px); margin:'. $gap_figure.'px; }';
+				.gallery-columns-1 .gallery-item, ul.wp-block-gallery.columns-1 .blocks-gallery-item{ width: 100% }
+				.gallery-columns-2 .gallery-item, ul.wp-block-gallery.columns-2 .blocks-gallery-item{ width: calc(50% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-3 .gallery-item, ul.wp-block-gallery.columns-3 .blocks-gallery-item{ width: calc(33.3% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-4 .gallery-item, ul.wp-block-gallery.columns-4 .blocks-gallery-item{ width: calc(25% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-5 .gallery-item, ul.wp-block-gallery.columns-5 .blocks-gallery-item{ width: calc(20% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-6 .gallery-item, ul.wp-block-gallery.columns-6 .blocks-gallery-item{ width: calc(16.6% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-7 .gallery-item, ul.wp-block-gallery.columns-7 .blocks-gallery-item{ width: calc(14.28% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-8 .gallery-item, ul.wp-block-gallery.columns-8 .blocks-gallery-item{ width: calc(12.5% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-9 .gallery-item, ul.wp-block-gallery.columns-9 .blocks-gallery-item{ width: calc(11.1% - '. $gap .'px); margin:'. $gap_figure.'px; }
+				.gallery-columns-10 .gallery-item, ul.wp-block-gallery.columns-10 .blocks-gallery-item{ width: calc(9.9% - '. $gap .'px); margin:'. $gap_figure.'px; }';
 		
 		/* gutenberg gallery */
 		

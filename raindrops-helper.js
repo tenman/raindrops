@@ -530,6 +530,8 @@
 
        if( 9 <  parseInt( ieversion ) || !ieversion ) {
             jQuery( '#comments .social label, #comments .social label + .option, #comments .social .comment-notes' ).css('display','none');
+            /* @1.519 for GDPR */
+            jQuery( '#comments .social .comment-form-cookies-consent label' ).css('display','');
             jQuery( "#respond textarea#comment, .social textarea#comment").css({'border-bottom':'2px solid #e14d43'}).attr("placeholder", raindrops_script_vars.placeholder_text_message );
             jQuery( "#respond textarea#comment, .social textarea#comment").attr("title", raindrops_script_vars.placeholder_text_required_message );
             jQuery( '#comments .social #author' ).attr("placeholder", raindrops_script_vars.placeholder_text_comment_name );

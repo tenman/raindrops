@@ -13,8 +13,6 @@
     box-sizing:border-box;
     margin-right:1em;
     background:#fff;
-
-    
 }
 .header-image-wrapper p label img{
     margin-bottom:-4px;
@@ -278,4 +276,16 @@ div.editor-block-list__block[data-align="right"]{
 }
 [data-type="core/pullquote"]:not([data-align]){
     clear:both;
+}
+.editor-block-list__layout .editor-block-list__block[data-type="core/paragraph"][data-align="right"]{
+    width:calc( 50% - 1em );
+    clear:right;
+    float:right;
+    padding-left:0;
+}
+.editor-block-list__layout .editor-block-list__block[data-type="core/paragraph"][data-align="left"]{
+    width:calc( 50% - 1em );
+    clear:left;
+    float:left;
+    padding-right:0;
 }

@@ -87,9 +87,9 @@
         jQuery('#raindrops_status_bar').hide();
 
          jQuery(window).mousemove(function(e){
-
+                var status_bar_block_height =  jQuery('#raindrops_status_bar').innerHeight();
                 var status_bar_window_height =  jQuery(window).innerHeight();
-                if ( status_bar_window_height - 100 < e.pageY - jQuery(this).scrollTop() ) {
+                if ( status_bar_window_height - status_bar_block_height < e.pageY - jQuery(this).scrollTop() ) {
 
                     jQuery('#raindrops_status_bar').show();
                 } else {

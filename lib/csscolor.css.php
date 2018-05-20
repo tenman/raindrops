@@ -2697,7 +2697,7 @@ body{
 .nav-links .page-numbers:hover{
 	%c4%;
 }
-
+.widget_calendar #today a,
 .widget_calendar #today,
 .nav-links .current{
     %c_2%;
@@ -2846,7 +2846,7 @@ hr{
 .entry-content tfoot{
 	%c5%;
 }
-.entry-content tr:last-child td{
+table:not(.wp-block-table) tr:last-child td{
 	border:none;
 }
 #raindrops.rd-type-minimal a{

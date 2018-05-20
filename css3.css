@@ -180,7 +180,7 @@ article .entry-meta a:hover,
     left: 0px;
     top: 0px;
     padding: 0px;
-    z-index: 99;
+    z-index: 100000;
     text-align: center;
 }
 .raindrops-lightbox-overlay a.lb-close{

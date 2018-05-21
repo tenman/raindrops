@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.520
+
+Overview of Changes
+	Fixed Compatibility issues with versions less than PHP 5.5
+		Fatal error: Can’t use function return value in write context
+Files Modified
+	modified:   functions.php
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.518&new_path=raindrops/1.519
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.519
 
 Overview of Changes

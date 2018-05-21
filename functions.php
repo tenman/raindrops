@@ -9842,7 +9842,9 @@ if ( ! function_exists( 'raindrops_footer_text' ) ) {
 		$raindrops_address_html .= sprintf( "\n" . str_repeat( "\t", 2 ) . '<small><a href="%s">%s</a></small> ', $raindrops_current_data_theme_uri, $raindrops_theme_name
 		);
 		/* @1.519 Privacy Policy */
-		if ( ! empty( get_option( 'wp_page_for_privacy_policy' ) ) && function_exists( 'get_the_privacy_policy_link' ) ) {
+		$raindrops_wp_page_for_privacy_policy = get_option( 'wp_page_for_privacy_policy' );
+		
+		if ( ! empty( $raindrops_wp_page_for_privacy_policy ) && function_exists( 'get_the_privacy_policy_link' ) ) {
 			
 			$raindrops_address_html .= get_the_privacy_policy_link('&nbsp;<small>','</small>');
 		}

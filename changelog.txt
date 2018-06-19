@@ -3,7 +3,33 @@ version:1.521
 
 Overview of Changes
 
+	Added filter raindrops_inline_style
+	Fixed raindrops_embed_css() error when $post in not set
+
+	Modified Search result page
+
+		add keyword heighlight presentation.
+
+			Extract the part containing the search keyword and highlight it.
+
+			If a category name and tag name contain keywords, category link and tag link are displayed
+
+			Added 	raindrops_search_from_terms()
+					raindrops_keyword_with_mark_elements()
+					raindrops_keyword_with_mark_elements_title()
+
+	Modified Gutenberg plugin CSS
+
 Files Modified
+	modified:   admin-options.css
+	modified:   changelog.txt
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/hooks.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   search.php
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.520&new_path=raindrops/1.521

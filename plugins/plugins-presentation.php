@@ -1310,7 +1310,7 @@ if( ! function_exists( 'raindrops_editor_styles_gutenberg' ) ) {
 		$raindrops_editor_styles_width	 = apply_filters( 'raindrops_editor_styles_width', $raindrops_editor_styles_width, $post_id );
 		$editor_custom_styles			 = 'div.edit-post-visual-editor div.editor-post-title, div.edit-post-visual-editor div.editor-block-list__block{max-width:' . $raindrops_editor_styles_width . 'px;}' . "\n";
 		$editor_custom_styles			.= '.gutenberg-editor-page .editor-visual-editor, .gutenberg-editor-page .editor-visual-editor p{font-size:' . $font_size . 'px;}' . "\n";
-
+		$editor_custom_styles = '';// Now Stop Page width setting @1.521
 		if( 'custom' == raindrops_warehouse_clone( 'raindrops_color_select' ) ) {
 			/* @since 1.480 */
 			$flag = true;
@@ -1326,7 +1326,8 @@ if( ! function_exists( 'raindrops_editor_styles_gutenberg' ) ) {
 		}
 	echo $link_elements;
 	echo '<style class="test">';
-		echo $editor_custom_styles;
+
+	    echo $editor_custom_styles;
 		echo $result ;
 	echo '</style>';
 	}
@@ -1849,6 +1850,10 @@ figure.wp-block-embed-instagram{
 /**
  * Block Video, Block Image
  */
+.wp-block-video{
+	margin-left:auto;
+	margin-right:auto;
+}
 .wp-block-video video{
     max-width:100%;
     outline:none;
@@ -2240,7 +2245,7 @@ div.wp-block-button.aligncenter,
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:2em;
-	border:1px solid #ccc;
+/* @1.521	border:1px solid #ccc;*/
 }
 .wp-block-audio audio{
 	width:100%;
@@ -2336,7 +2341,7 @@ ul.wp-block-gallery.alignright{
 	text-align:right;	
 }
 /*.wp-block-cover-image .wp-block-cover-image-text,*/
-.enable-align-wide .wp-block-cover-image{
+.enable-align-wide .wp-block-cover-image.alignfull{
     height:30vw;
     background-size:cover;
     background-position:center center;
@@ -2360,21 +2365,22 @@ ul.wp-block-gallery.alignright{
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
-    margin-left:-100%;
+/*    margin-left:-100%;
     margin-right:calc( -50% - 1em );
     padding-left:100%;
-    padding-right:calc( 50% - 1em );
+    padding-right:calc( 50% - 1em );*/
     background-attachment:fixed;
 }
 .enable-align-wide .wp-block-cover-image.alignright{
     height:30vw;
+	max-width:calc( 50% - 1em );
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
-    margin-left:calc( -50% - 1em );
+/*    margin-left:calc( -50% - 1em );
     margin-right:-100%;
     padding-left:calc( 50% - 1em );
-    padding-right:100%;
+    padding-right:100%;*/
     background-attachment:fixed;
 }
 .enable-align-wide #doc5 .wp-block-cover-image.has-parallax.alignfull {
@@ -2472,7 +2478,7 @@ ul.wp-block-gallery.alignright{
 	position:absolute;
 	width:calc( 50vw - 24px );
         margin-top:0;
-    left:calc( 100vw - 48px );
+  /*  left:calc( 100vw - 48px );*/
 }
 
 .enable-align-wide .wp-block-cover-image.alignright .wp-block-cover-image-text{
@@ -2480,7 +2486,7 @@ ul.wp-block-gallery.alignright{
 	margin:auto;
 	width:calc( 50vw - 24px );
         margin-top:0;
-        right:calc( 100vw - 48px );
+     /*   right:calc( 100vw - 48px );*/
 }
 @media screen and (min-width : 1280px){
 	
@@ -2488,14 +2494,14 @@ ul.wp-block-gallery.alignright{
 		position:absolute;
 		width:calc( 45vw );
 			margin-top:0;
-		left:calc( 100% - 48vw );
+		/*left:calc( 100% - 48vw );*/
 	}
 	.enable-align-wide .wp-block-cover-image.alignright .wp-block-cover-image-text{
 		position:absolute;
 		margin:auto;
 		width:calc( 45vw );
 			margin-top:0;
-			right:calc( 100% - 48vw );
+		/*	right:calc( 100% - 48vw );*/
 	}		
 }
 .enable-align-wide .wp-block-cover-image:not(.has-background-dim):before{

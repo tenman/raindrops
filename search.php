@@ -27,7 +27,8 @@ do_action( 'raindrops_pre_' . basename( __FILE__ ) );
 <?php if ( have_posts() ) { 
             raindrops_next_prev_links(); ?>	
                     <h1 class="pagetitle h1">Search Results : <?php the_search_query(); ?></h1>
-
+					
+					<?php raindrops_search_from_terms(); ?>
 					<div class="loop-before-toolbar" ><?php do_action('raindrops_loop_before_toolbar','');?></div>
 			
                     <ul class="index search-results">

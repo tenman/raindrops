@@ -1458,6 +1458,13 @@ if ( ! function_exists( 'raindrops_gallerys_clone' ) ) {
 				   -o-object-fit: cover;
 				   object-fit: cover;
 			   }
+			   
+			    .wp-block-gallery.is-cropped .blocks-gallery-image _:-ms-lang(x), 
+				.wp-block-gallery.is-cropped .blocks-gallery-image figure, 
+				.wp-block-gallery.is-cropped .blocks-gallery-item _:-ms-lang(x), 
+				.wp-block-gallery.is-cropped .blocks-gallery-item figure{
+					height:100%;
+				}
 				.wp-block-gallery.aligncenter .blocks-gallery-image img,
 				.wp-block-gallery.aligncenter .blocks-gallery-item img,
 				.wp-block-gallery.alignleft .blocks-gallery-image img,

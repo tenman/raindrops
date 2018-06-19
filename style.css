@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.520
+Version: 1.521
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -10140,4 +10140,21 @@ span[data-rd-style*="width"] {
 
 #commentform .comment-form-cookies-consent label[for="wp-comment-cookies-consent"]{
     display:inline;
+}
+.horizontal-list-group{
+    margin:1.5em auto .75em;
+    display:flex;
+    flex-wrap:wrap;
+}
+.horizontal-list-group li{
+    flex:0 1 auto;
+    display:inline-block;
+    list-style:none;
+}
+.horizontal-list-group li a{
+    margin:.5em;
+
+}
+.horizontal-list-group li mark{
+    border:1px solid rgba(127,127,127,.4);
 }

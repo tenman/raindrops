@@ -457,6 +457,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'style_loader_tag', 'raindrops_convert_inline_style_to_attribute_style', 10, 3 );
 		
 		add_filter( 'tiny_mce_before_init', 'raindrops_tinymce_body_classes');
+		/**
+		 * @since 1.521
+		 */
+		add_filter( 'the_title', 'raindrops_keyword_with_mark_elements_title', 99999 );
+		add_filter( 'the_content', 'raindrops_keyword_with_mark_elements', 99999 );
 
 	}
 }

@@ -10,6 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 /**
+ * Keyword highlight for Search results 
+ * @since 1.521
+ */
+if( ! isset( $raindrops_search_keyword_highlight ) ) {
+	$raindrops_search_keyword_highlight = true;
+}
+/**
  * 
  */
 if( false == get_theme_mod( 'header_textcolor') ) {

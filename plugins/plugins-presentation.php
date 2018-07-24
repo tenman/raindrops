@@ -1404,6 +1404,7 @@ function raindrops_gutenberg_front_end_style(){
  * Block Button
  * Block Categories
  * Block Cover Image
+ * Block file
  * Block Blockquote
  * Block Columns
  * Block Spacer
@@ -2034,6 +2035,111 @@ figure.wp-block-image.alignright{
 }
 .wp-block-preformatted{
 	
+}
+/**
+ * Block file
+ */
+.entry-content .wp-block-file{
+	overflow:visible;
+	margin-top:1.5em;
+    margin-bottom:1.5em;
+	padding-left:1em;
+	padding-right:1em;
+}
+.wp-block-file a{
+	display:inline-block;
+	margin-top:1.5em;
+	margin-bottom:.75em;
+}
+.entry-content .wp-block-file a.wp-block-file__button{
+
+}
+a.wp-block-file__button[href$=".jpg"]:after{
+	content:'  ( jpg )';
+}
+a.wp-block-file__button[href$=".jpeg"]:after{
+	content:'  ( jpeg )';
+}
+a.wp-block-file__button[href$=".png"]:after{
+	content:'  ( png )';
+}
+a.wp-block-file__button[href$=".gif"]:after{
+	content:'  (  gif  )';
+}
+a.wp-block-file__button[href$=".ico"]:after{
+	content:'  (  ico  )';
+}
+a.wp-block-file__button[href$=".pdf"]:after{
+	content:'  (  pdf  )';
+}
+a.wp-block-file__button[href$=".doc"]:after{
+	content:'  (  doc  )';
+}
+a.wp-block-file__button[href$=".docx "]:after{
+	content:'  (  docx  )';
+}
+a.wp-block-file__button[href$=".ppt"]:after{
+	content:'  (  ppt  )';
+}
+a.wp-block-file__button[href$=" .pptx"]:after{
+	content:'  (  pptx  )';
+}
+a.wp-block-file__button[href$=" .pps"]:after{
+	content:'  (  pps  )';
+}
+a.wp-block-file__button[href$=" .ppsx"]:after{
+	content:'  (  ppsx  )';
+}
+a.wp-block-file__button[href$=".odt"]:after{
+	content:'  (  odt  )';
+}
+a.wp-block-file__button[href$=".xls"]:after{
+	content:'  (  xls  )';
+}
+a.wp-block-file__button[href$=".xlsx"]:after{
+	content:'  (  xlsx  )';
+}
+a.wp-block-file__button[href$=".psd"]:after{
+	content:'  (  psd  )';
+}
+a.wp-block-file__button[href$=".mp3"]:after{
+	content:'  (  mp3  )';
+}
+a.wp-block-file__button[href$=".m4a"]:after{
+	content:'  (  mp4a  )';
+}
+a.wp-block-file__button[href$=".ogg"]:after{
+	content:'  (  ogg  )';
+}
+a.wp-block-file__button[href$=".wav"]:after{
+	content:'  (  wav  )';
+}
+a.wp-block-file__button[href$=".mp4"]:after{
+	content:'  (  mp4  )';
+}
+a.wp-block-file__button[href$=".m4v "]:after{
+	content:'  (  m4v  )';
+}
+a.wp-block-file__button[href$=".mov"]:after{
+	content:'  (  mov  )';
+}
+a.wp-block-file__button[href$=".wmv"]:after{
+	content:'  (  wmv  )';
+}
+a.wp-block-file__button[href$=".avi"]:after{
+	content:'  (  avi  )';
+}
+a.wp-block-file__button[href$=".mpg"]:after{
+	content:'  (  mpg  )';
+}
+a.wp-block-file__button[href$=".ogv"]:after{
+	content:'  (  ogv  )';
+}
+a.wp-block-file__button[href$=".3gp"]:after{
+	content:'  (  3gp  )';
+}
+a.wp-block-file__button[href$=".3g2"]:after{
+	content:'  (  3g2  )';
 }
 /**
  * Block Button

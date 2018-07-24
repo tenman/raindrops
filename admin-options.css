@@ -94,7 +94,7 @@ div.editor-block-list__block[data-type="core/text-columns"]{
 }
 
 div.edit-post-visual-editor .editor-block-list__block.is-hovered > .editor-block-list__block-edit .editor-rich-text{
-    overflow:hidden;
+   /* overflow:hidden;*/
 }
 div.edit-post-visual-editor [data-type="core/cover-image"][data-align="left"],
 div.edit-post-visual-editor [data-type="core/cover-image"][data-align="right"]{
@@ -124,7 +124,6 @@ div.editor-block-list__block[data-align="right"]{
 .edit-post-visual-editor [data-type="core/paragraph"],
 .edit-post-visual-editor [data-type="core/paragraph"] [aria-label="Block: Paragraph"]{
     float:none;
-    overflow:hidden;
 }
 .edit-post-visual-editor div.wp-block-gallery.alignright,
 .edit-post-visual-editor div.wp-block-gallery.alignleft{

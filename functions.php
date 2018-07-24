@@ -6,7 +6,7 @@
  * @since Raindrops 0.1
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 do_action( 'raindrops_before' );
 /**
@@ -17,7 +17,7 @@ do_action( 'raindrops_before' );
  * @since 0.988
  *
  * You can override parent themes language file from child theme.
- */
+ */ 
 load_theme_textdomain( 'raindrops', apply_filters( 'raindrops_load_text_domain', get_template_directory() . '/languages' ) );
 /**
  * include raindrops custom settings
@@ -89,7 +89,6 @@ if ( false !== ( $path = raindrops_locate_url( 'lib/featured-image.php', 'path' 
 
 	require_once ( $path );
 }
-
 
 if ( is_admin() && $raindrops_recommend_plugins !== false ) {
 

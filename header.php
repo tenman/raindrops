@@ -39,7 +39,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 				} else {
 					raindrops_the_header_image();
 				}
-                
+
                 raindrops_nav_menu_primary( );
 				
 				raindrops_after_nav_menu();

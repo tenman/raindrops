@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.522
+version:1.523
 
 Overview of Changes
 
@@ -13,7 +13,7 @@ Files Modified
 	modified:   plugins/plugins-presentation.php
 
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.521&new_path=raindrops/1.522
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.521&new_path=raindrops/1.523
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.521

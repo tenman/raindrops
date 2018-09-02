@@ -4,7 +4,7 @@ Contributors: nobita
 Requires at least: WordPress 4.6
 Tested up to: WordPress 4.9.6
 Stable tag: 1.520
-Version: 1.523
+Version: 1.524
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
@@ -35,7 +35,7 @@ Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAN
 wp3.jpg wp3-thumbnail.jpg,arrows-vs.png, icons32-vs.png,bg.png,c.gif,footer.png,footer.png,footerbck.gif,footerbck.png,h2.gif,h2,png,h2b.png,h2c.png,header.png,info.png,ja-em.png,link.png,next.png,number.png,previus.png,requre.png,rss.png,sidebar.png,sticky.png,stop.png,topbck.png,y.gif,
 images/please_upload.png , images/post-format-aside.png , images/post-format-audio.png , images/post-format-chat.png , images/post-format-gallery.png , images/post-format-image.png , images/post-format-link.png , images/post-format-quote.png , images/post-format-status.png , images/post-format-video.png , images/raindrops-chat-author-0.png , images/raindrops-chat-author-1.png , images/raindrops-chat-author-2.png , images/raindrops-chat-author-3.png , images/raindrops-chat-author-4.png , images/raindrops-chat-author-5.png , images/retina/info.png , images/retina/link.png , images/retina/next.png , images/retina/post-format-aside.png , images/retina/post-format-audio.png , images/retina/post-format-chat.png , images/retina/post-format-gallery.png , images/retina/post-format-image.png , images/retina/post-format-link.png , images/retina/post-format-quote.png , images/retina/post-format-status.png , images/retina/post-format-video.png , images/retina/previous.png , images/retina/raindrops-chat-author-0.png , images/retina/raindrops-chat-author-1.png , images/retina/raindrops-chat-author-2.png , images/retina/raindrops-chat-author-3.png , images/retina/raindrops-chat-author-4.png , images/retina/raindrops-chat-author-5.png , images/retina/require.png , images/retina/rss.png , images/retina/stop.png , images/wp3.jpg , images/raindrops-nav-menu-expand.png , images/raindrops-nav-menu-shrunk.png, images/dummy.png
 , images/screenshot-image1.png , images/screenshot-image2.png , images/dummy.jpg , images/screenshot-example-header.jpg , images/share.png , images/go-top.png, images/desmiss.png
-, images/open.png, images/close.png , images/list-white.gif, images/list-black.gif , images/grid-white.gif, images/grid-black.gif
+, images/open.png, images/close.png , images/list-white.gif, images/list-black.gif , images/grid-white.gif, images/grid-black.gif, images/loader.svg
 
 * Above images License
 	* Copyright: Copyright (c) 2010-2017, Tenman
@@ -71,7 +71,15 @@ images/please_upload.png , images/post-format-aside.png , images/post-format-aud
 * bbPress
 	* Contributors: Matt Mullenweg , John James Jacoby , Jennifer M. Dodd , Stephen Edgar
 	* License: GPLv2 or later
+	
+### js
 
+* InstantClick 3.1.0 | (C) 2014 Alexandre Dieulot | http://instantclick.io/license
+	* License: MIT
+* Lazy Load - JavaScript plugin for lazy loading images
+	* https://appelsiini.net/projects/lazyload
+	* License: MIT
+	
 ### CSS
 
 * normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal

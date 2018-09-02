@@ -1,4 +1,54 @@
 Changelog -----------------------------------
+version:1.524
+
+Overview of Changes
+	Added
+		The following files have been added to improve performance.
+		new file:   images/loader.svg
+		new file:   instantclick.js
+		new file:   instantclick.min.js
+		new file:   lazyload.js
+		new file:   lazyload.min.js
+		
+		In order to control these functions, we added two items to Customizer / Add-ons.
+			1. Improve the response of the website
+				default: disable
+				
+				Depending on the plug-in you are using, problems may appear on the display. 
+				If you change to enable, please make sure there are no problems.
+				
+				more info @see https://www.tenman.info/wp3/raindrops/2018/08/29/raindrops-1-524-about-improve-the-response-of-the-website-%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E3%83%AC%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B9%E3%82%92%E6%94%B9%E5%96%84/
+
+			2. Lazy load image
+				default: enable
+			
+			These two items will only work with logged out status
+			License @see README
+			
+	Modified Gutenberg plugin CSS		
+
+Files Modified
+modified: functions.php
+
+	new file:   images/loader.svg
+	new file:   instantclick.js
+	new file:   instantclick.min.js
+	new file:   lazyload.js
+	new file:   lazyload.min.js
+	modified:   lib/customize.js
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.523&new_path=raindrops/1.524
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.523
 
 Overview of Changes

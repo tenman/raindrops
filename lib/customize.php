@@ -2406,6 +2406,42 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'type'				 => 'text',
 			'section'			 => 'title_tagline',
 		),
+		"raindrops_performance_helper"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_performance_helper','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 =>  esc_html__( 'Improve the response of the website', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'When using plug-in etc., operation may be hindered. This function works only in the logout status.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_performance_helper_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'enable'	 => esc_html__( 'Enable', 'raindrops' ),
+				'disable'	 => esc_html__( 'Disable', 'raindrops' ),
+			),
+			'active_callback'	 => '',
+			'section'			 => 'raindrops_theme_settings_plugins',
+			'priority' => 10,
+		),
+		"raindrops_lazyload_image"	 => array(
+			'default'			 => raindrops_warehouse_clone( 'raindrops_lazyload_image','option_value' ),
+			'data_type'			 => $raindrops_setting_type,
+			'autoload'			 => 'yes',
+			'capability'		 => $raindrops_customize_cap,
+			'label'				 =>  esc_html__( 'Lazy load image', 'raindrops' ),
+			'excerpt1'			 => '',
+			'description'		 => esc_html__( 'Improving the display of the web site by delay loading the image. This function works only in the logout status.', 'raindrops' ),
+			'sanitize_callback'	 => 'raindrops_lazyload_image_validate',
+			'type'				 => 'radio',
+			'choices'			 => array(
+				'enable'	 => esc_html__( 'Enable', 'raindrops' ),
+				'disable'	 => esc_html__( 'Disable', 'raindrops' ),
+			),
+			'active_callback'	 => '',
+			'section'			 => 'raindrops_theme_settings_plugins',
+			'priority' => 10,
+		),
 
 	);
 	/**
@@ -3518,6 +3554,8 @@ This change in layout, you can later freely change.','raindrops'),
 		/* translators: 1: setting type. */
 		'raindrops_data_stored'				=> sprintf( esc_html__('Data Stored : %1$s ','raindrops'), $raindrops_setting_type ),
 		'raindrops_core_version'			=> get_bloginfo('version'),
+		'editor_url' => admin_url( 'post.php?action=edit' ),
+		
 	);
 
 	wp_localize_script(	'raindrops-customize', 'raindrops_customizer_script_vars',$setting_values );

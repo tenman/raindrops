@@ -9,6 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 /**
  * Keyword highlight for Search results 
  * @since 1.521
@@ -2094,6 +2095,26 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'excerpt2'		 => esc_html__( 'Please set it while checking the number of characters in customizer', 'raindrops' ),
 			'validate'		 => 'raindrops_paragraph_line_wrapping_value_validate',
 			'list'			 => 130 ),
+		'raindrops_performance_helper'					 => array( 'option_id'		 =>132,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_performance_helper',
+			'option_value'	 => 'disable',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Improve the response of the website', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'When using plug-in etc., operation may be hindered. This function works only in the logout status.', 'raindrops' ),
+			'validate'		 => 'raindrops_performance_helper_validate',
+			'list'			 => 131 ),
+		'raindrops_lazyload_image'					 => array( 'option_id'		 =>133,
+			'blog_id'		 => 0,
+			'option_name'	 => 'raindrops_lazyload_image',
+			'option_value'	 => 'enable',
+			'autoload'		 => 'yes',
+			'title'			 => esc_html__( 'Lazy load image', 'raindrops' ),
+			'excerpt1'		 => '',
+			'excerpt2'		 => esc_html__( 'Improving the display of the web site by delay loading the image loading.', 'raindrops' ),
+			'validate'		 => 'raindrops_lazyload_image_validate',
+			'list'			 => 132 ),
 	);
 }
 

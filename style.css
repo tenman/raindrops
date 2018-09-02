@@ -273,6 +273,11 @@ body:not(.rd-col-3).error404 .entry-title,
     margin-bottom:.75em;
     display:block;
 }
+.rd-grid .title-wrapper .title{
+    margin-top:0;
+    margin-bottom:0;
+    display:block;
+}
 .paged #list-of-post .entry-title:first-of-type,
 .page.list-of-post-entry article .entry-title:first-of-type{
     text-align:left;
@@ -973,6 +978,9 @@ p{
     line-height:1.65;
     margin-bottom:1em;
 }
+li img{
+    vertical-align:middle;
+}
 
 .paragraph_wrap_enable .gallery,
 .paragraph_wrap_enable .fit-p,
@@ -980,6 +988,12 @@ p{
     /* @1.511 */
     margin-left:auto;
     margin-right:auto;
+}
+.search-relate-terms{
+    margin-left:auto;
+    margin-right:auto;
+    width:640px;
+    max-width:100%;
 }
 picture{
     padding:0;
@@ -1307,11 +1321,17 @@ article ul{
     margin:0 auto;
     box-sizing:border-box;
 }
-.widgettext > p > img,
-.entry-content > p > img,
+
 .widgettext > img,
 .entry-content > img{
    padding:1.5em 0 .75em 0;
+}
+.widgettext  p > img,
+.entry-content  p > img{
+    /* @1.524 */
+    margin-left:.5em;
+    margin-right:.5em;
+    vertical-align:middle;
 }
 .ie8 .widgettext img,
 .ie8 .entry-content img {
@@ -8617,6 +8637,7 @@ ul.archives .rd-tag-description{
 .widget_recent_entries a{
     padding:1em .5em .5em;
     display:block;
+    box-sizing:border-box;
 }
 .rd-type-w3standard .widget_recent_entries a{
     display:inline;
@@ -10157,4 +10178,9 @@ span[data-rd-style*="width"] {
 }
 .horizontal-list-group li mark{
     border:1px solid rgba(127,127,127,.4);
+}
+/* for child theme issue todo raindrops_column_controller() works improperly on gutenberg */
+.rd-col-1 .lsidebar,
+.rd-col-1 .rsidebar{
+    display:none!important;
 }

@@ -1,4 +1,18 @@
 <?php
+function raindrops_performance_helper_validate($input){
+	if( 'enable' == $input || 'disable' == $input ) {
+		
+		return $input;
+	}
+	return 'disable';	
+}
+function raindrops_lazyload_image_validate($input){
+	if( 'enable' == $input || 'disable' == $input ) {
+		
+		return $input;
+	}
+	return 'disable';	
+}
 function raindrops_paragraph_line_wrapping_validate($input){
 	if( 'enable' == $input || 'disable' == $input ) {
 		

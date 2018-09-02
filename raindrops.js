@@ -115,7 +115,9 @@
 
         var element = ".raindrops-tab-content h3";
         var prefix = "raindrops-tab-page-";
-
+        
+        jQuery(".raindrops-tab-list li").remove();
+        
         jQuery(element).each(function(i) {
             var fragment = prefix + i;
 
@@ -477,7 +479,7 @@ jQuery( function ( $ ) {
                         
                         /* For multi-line captions */
                         
-                        $( this ).children('figcaption').css({'width': image_width +'px', 'max-width':"100%"});
+                       // $( this ).children('figcaption').css({'width': image_width +'px', 'max-width':"100%"});
                     }
                 } 
             }

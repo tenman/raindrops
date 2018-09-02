@@ -558,7 +558,7 @@
                 }
         }
 
-        jQuery("#respond textarea#comment, .social textarea#comment").live('change', function() {
+        jQuery("#respond textarea#comment, .social textarea#comment").on('change', function() {
 
                var inputvalue = jQuery("#respond textarea#comment, .social textarea#comment").attr("value");
 
@@ -572,7 +572,7 @@
 
        });
 
-        jQuery('#comments .social #author[required="required"]').live('change', function() {
+        jQuery('#comments .social #author[required="required"]').on('change', function() {
 
                 var inputvalue = jQuery( this ).attr("value");
 
@@ -586,7 +586,7 @@
 
        });
 
-        jQuery('#comments .social #email[required="required"]').live('change', function() {
+        jQuery('#comments .social #email[required="required"]').on('change', function() {
 
                 var inputvalue = jQuery( this ).attr("value");
 
@@ -598,7 +598,7 @@
 
         });
 
-        jQuery('#comments .social #url').live('change', function() {
+        jQuery('#comments .social #url').on('change', function() {
 
                  var inputvalue = jQuery( this ).attr("value");
 
@@ -631,8 +631,20 @@
          * add external class for external links
          */
 
-         jQuery('a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').addClass('external');
-         
+         jQuery('a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').addClass('external').attr('data-no-instant', 'data-no-instant');
+         jQuery('#wpadminbar a,.editor a, .post-edit-link,.edit-link a,.widget_meta a,.bbp_widget_login a, a[href*="wp-admin"], a[href$="/amp"]').attr('data-no-instant', 'data-no-instant');
+         // grid layout relate settins
+         console.log( raindrops_script_vars.data_no_instant_link );
+       //  jQuery( raindrops_script_vars.data_no_instant_link ).attr('data-no-instant', 'data-no-instant');
+
+
+    
+    /**
+     * add required attribute on search form
+     * Searching is a load-intensive process. If you do not enter it in the text field, no processing will be done
+     */
+    jQuery('.search-form [type="search"]').attr('required', 'required');
+        
          /**
           * @since1.470
           * for Tabnabbing

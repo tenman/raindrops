@@ -1936,11 +1936,60 @@ if ( ! function_exists( "raindrops_add_stylesheet" ) ) {
 			wp_register_script( 'raindrops', $url, array( 'jquery', 'jquery-migrate', 'raindrops_helper_script' ), $raindrops_current_data_version, true );
 			wp_enqueue_script( 'raindrops' );
 		}
+		$raindrops_lazyload_image_enable		= raindrops_warehouse_clone( 'raindrops_lazyload_image' );
+		$raindrops_performance_helper_enable	= raindrops_warehouse_clone( 'raindrops_performance_helper' );
+		$only_front_end							= raindrops_scripts_operate_only_front_end();
+		if( true == WP_DEBUG ) {
+			if('enable' == $raindrops_performance_helper_enable && $only_front_end ) {
 
-		raindrops_add_tooltip_script();
+				if ( false !== ( $url = raindrops_locate_url( 'lazyload.js' ) )  ) {
+					wp_register_script( 'raindrops-lazyload', $url, array( 'raindrops' ), $raindrops_current_data_version, true );
+
+				}
+			}
+
+			if( 'enable' == $raindrops_lazyload_image_enable && $only_front_end ){
+
+				if ( false !== ( $url = raindrops_locate_url( 'instantclick.js' ) ) ) {
+					wp_register_script( 'raindrops-instantclick', $url, array( 'raindrops-lazyload' ), $raindrops_current_data_version, true );
+
+				}
+			}
+		} else {
+			
+			if('enable' == $raindrops_performance_helper_enable && $only_front_end ) {
+
+				if ( false !== ( $url = raindrops_locate_url( 'lazyload.min.js' ) )  ) {
+					wp_register_script( 'raindrops-lazyload', $url, array( 'raindrops' ), $raindrops_current_data_version, true );
+
+				}
+			}
+
+			if( 'enable' == $raindrops_lazyload_image_enable && $only_front_end ){
+
+				if ( false !== ( $url = raindrops_locate_url( 'instantclick.min.js' ) ) ) {
+					wp_register_script( 'raindrops-instantclick', $url, array( 'raindrops-lazyload' ), $raindrops_current_data_version, true );
+
+				}
+			}
+			
+			
+		}
+
+
+		
+		
+		//raindrops_add_tooltip_script();
+		
+		//	raindrops_add_lazyload_script();
+		//	raindrops_add_instantclick_script();
+
+
 	}
 
 }
+add_action( 'wp_enqueue_scripts', 'raindrops_add_tooltip_script' );
+
 if ( ! function_exists( "raindrops_add_tooltip_script" ) ) {
 
 	/**
@@ -1966,7 +2015,8 @@ if ( ! function_exists( "raindrops_add_tooltip_script" ) ) {
 						jQuery('.widget_media_video, .wp-video').tooltip('option', 'tooltipClass','bottom-tooltip' );
 
 					});";
-			$wp_scripts->add_data( 'jquery-ui-tooltip', 'data', $js );
+
+			wp_add_inline_script( 'jquery-ui-tooltip', $js );
 		}
 	}
 
@@ -3016,7 +3066,7 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 
 			if ( !empty( $css ) && RAINDROPS_CUSTOM_FIELD_CSS == true ) {
 
-				$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ).'id="raindrops-embed-css">';
+				$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ).'id="raindrops-embed-css" data-instant-track>';
 				$result .= "\n<!--/*<! [CDATA[*/\n";
 				$result .= strip_tags( $css );
 				$result .= "\n/*]]>*/-->\n";
@@ -3125,7 +3175,7 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 
 			}
 
-			$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ). 'id="raindrops-loop-style">';
+			$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ). 'id="raindrops-loop-style" data-instant-track>';
 			$result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= $css;
 			$result .= "/*start custom fields style for loop pages*/\n";
@@ -4865,6 +4915,34 @@ if ( ! function_exists( 'raindrops_load_small_device_helper' ) ) {
 		} else {
 			$extra_sidebar_breakpoint = 0;
 		}
+		// @since 1.524 grid layout page link add data-no-instant attribute
+		$data_no_instant_link = '';
+		if ( 'excerpt_grid' == raindrops_warehouse_clone( 'raindrops_entry_content_is_home' ) ) {
+
+			if ( is_multisite() ) {
+				
+				$data_no_instant_link .= 'a[href="'. esc_url( get_site_url() ).'/"]';
+				
+			} else{
+
+				$data_no_instant_link .= 'a[href="'. esc_url( home_url() ).'/"]';
+			}
+			$flag = true;
+		}
+		if ( 'excerpt_grid' == raindrops_warehouse_clone( 'raindrops_entry_content_is_category' ) && ! is_multisite() ) {
+			$comma = $flag ? ',':'';
+			
+			$data_no_instant_link .= $comma.' a[href^="'. esc_url( dirname(get_category_link( 1 )) ).'"]';
+			$flag = true;
+		}
+		if ( 'excerpt_grid' == raindrops_warehouse_clone( 'raindrops_entry_content_is_search' ) ) {
+			$comma = $flag ? ',':'';
+			$data_no_instant_link .= $comma.' a[href^="'. esc_url( get_search_link( ) ). '"]';
+		}
+		
+		
+		
+		
 		wp_localize_script( 'raindrops_helper_script', 'raindrops_script_vars', array(
 			'is_ie'										 => $is_IE,
 			'fluid_maximum_width'						 => $raindrops_fluid_maximum_width,
@@ -4927,6 +5005,7 @@ if ( ! function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'delete_writing_mode_mix'					=> apply_filters( 'raindrops_delete_writing-mode-mix', false ),
 			'parallax_header_image'						=> raindrops_warehouse_clone( 'raindrops_parallax_header_image' ),
 			'class_rd_justify_enable'                   => $raindrops_class_rd_justify_enable,
+			'data_no_instant_link'						=> $data_no_instant_link,
 		) );
 
 		wp_reset_postdata();
@@ -14231,10 +14310,15 @@ if ( ! function_exists( 'raindrops_tinymce_body_classes' ) ) {
 	}
 
 }
+if ( ! function_exists( 'raindrops_fallback_header_text_color' ) ) {
+	/**
+	 * 
+	 * @global type $post
+	 * @return type
+	 */
+	function raindrops_fallback_header_text_color(){
 
-function raindrops_fallback_header_text_color(){
-
-	global $post;
+		global $post;
 
 		if ( is_singular() ) {
 
@@ -14259,158 +14343,273 @@ function raindrops_fallback_header_text_color(){
 
 			return $raindrops_text_color;
 		}
-}
-
-
-
-
-function raindrops_search_from_terms( $target_terms = array( 'category', 'post_tag' ), $echo = true ) {
-	global $raindrops_search_keyword_highlight;
-
-	if( true !== $raindrops_search_keyword_highlight ) {
-		return;
-	}
-
-	$search_query = mb_strtolower( get_search_query() );
-	$results = '';
-
-	foreach ( $target_terms as $target_term ) {
-
-		$result = '';
-		$args	 = apply_filters( 'function search_from_terms_args', array(), $target_term );
-		$terms	 = get_terms( $target_term, $args );
-
-		foreach ( $terms as $term ) {
-
-
-			$id			 = $term->term_id;
-			$term_link	 = get_category_link( $id );
-			$term_name	 = mb_strtolower( $term->name );
-
-			if ( preg_match( '!' . $search_query . '!', $term_name ) ) {
-
-				$result .= sprintf( '<li><a href="%2$s" class="%3$s"><mark>%1$s</mark></a></li>', esc_html( $term->name ), esc_url( $term_link ),$target_term );
-			}
-			if ( preg_match( '!' . $term_name . '!', $search_query ) ) {
-
-				$result .= sprintf( '<li><a href="%2$s" class="%3$s"><mark>%1$s</mark></a></li>', esc_html( $term->name ), esc_url( $term_link ),$target_term );
-			}
-
-		}
-
-		$results .= $result;
-
-	}
-
-	if ( true == $echo && !empty($results)) {
-				printf('<ul class="search-relate-terms horizontal-list-group">%1$s</ul>',$results );
-	}
-	if ( false == $echo && !empty($results)) {
-				return sprintf('<ul class="search-relate-terms horizontal-list-group">%1$s</ul>',$results );
 	}
 }
 
-function raindrops_keyword_with_mark_elements( $text ) {
+if ( ! function_exists( 'raindrops_search_from_terms' ) ) {
+
+	function raindrops_search_from_terms( $target_terms = array( 'category', 'post_tag' ), $echo = true ) {
 		global $raindrops_search_keyword_highlight;
 
-	if( true !== $raindrops_search_keyword_highlight ) {
-		return $text;
+		if( true !== $raindrops_search_keyword_highlight ) {
+			return;
+		}
+
+		$search_query = mb_strtolower( get_search_query() );
+		$results = '';
+
+		foreach ( $target_terms as $target_term ) {
+
+			$result = '';
+			$args	 = apply_filters( 'function search_from_terms_args', array(), $target_term );
+			$terms	 = get_terms( $target_term, $args );
+
+			foreach ( $terms as $term ) {
+
+
+				$id			 = $term->term_id;
+				$term_link	 = get_category_link( $id );
+				$term_name	 = mb_strtolower( $term->name );
+
+				if ( preg_match( '!' . $search_query . '!', $term_name ) ) {
+
+					$result .= sprintf( '<li><a href="%2$s" class="%3$s"><mark>%1$s</mark></a></li>', esc_html( $term->name ), esc_url( $term_link ),$target_term );
+				}
+				if ( preg_match( '!' . $term_name . '!', $search_query ) ) {
+
+					$result .= sprintf( '<li><a href="%2$s" class="%3$s"><mark>%1$s</mark></a></li>', esc_html( $term->name ), esc_url( $term_link ),$target_term );
+				}
+
+			}
+
+			$results .= $result;
+
+		}
+
+		if ( true == $echo && !empty($results)) {
+					printf('<ul class="search-relate-terms horizontal-list-group">%1$s</ul>',$results );
+		}
+		if ( false == $echo && !empty($results)) {
+					return sprintf('<ul class="search-relate-terms horizontal-list-group">%1$s</ul>',$results );
+		}
 	}
+}
+if ( ! function_exists( 'raindrops_keyword_with_mark_elements' ) ) {
 	/**
-	 * The word search core search function will hit even if html class name,
-	 * part of short code name etc. are searched in the contribution body.
-	 * In such a case, they will not be highlighted with the mark element.
+	 * 
+	 * @global type $raindrops_search_keyword_highlight
+	 * @param type $text
+	 * @return type
 	 */
+	function raindrops_keyword_with_mark_elements( $text ) {
+			global $raindrops_search_keyword_highlight;
 
-	if ( ! is_search() || ! is_main_query() ) {
-		return $text;
-	}
-
-	$search_query					 = get_search_query();
-	$text							 = strip_tags( $text );
-	$style_rules_for_searched_text	 = 'color:#000;padding:0;';
-
-	$hilight_rules = array(
-		array( mb_strtolower( $search_query ) => $style_rules_for_searched_text ),
-		array( mb_strtoupper( $search_query ) => $style_rules_for_searched_text ),
-		array( mb_convert_case( $search_query, MB_CASE_TITLE, "UTF-8" ) => $style_rules_for_searched_text ),
-		array( ucfirst( $search_query ) => $style_rules_for_searched_text ),
-		array( ucwords( $search_query ) => $style_rules_for_searched_text ),
-		array( $search_query => $style_rules_for_searched_text ),
-	);
-
-	$checksum		 = crc32( $text );
-	$class_name		 = trim( sprintf( "search-result-%u\n", $checksum ) );
-	$wrapper		 = '<mark style="%1$s">%2$s</mark>';
-	$block_wrapper	 = '<span class="%1$s">%2$s</span>';
-
-	foreach ( $hilight_rules as $value ) {
-
-		$name			 = key( $value );
-		$replace_value	 = sprintf( $wrapper, esc_attr( $value[ $name ] ), $name );
-		$text			 = str_replace( $name, $replace_value, $text, $count );
-
-		if ( $count > 0 ) {
-			break;
+		if( true !== $raindrops_search_keyword_highlight ) {
+			return $text;
 		}
-	}
-	$result = '';
-	preg_match_all('!(.*)(<[^>]+>[^<]*</mark>)(.*)!',$text,$matches,PREG_SET_ORDER);
+		/**
+		 * The word search core search function will hit even if html class name,
+		 * part of short code name etc. are searched in the contribution body.
+		 * In such a case, they will not be highlighted with the mark element.
+		 */
 
-	if( isset($matches) && !empty($matches)){
-		foreach( $matches as $m ){
-	$result .= sprintf( $block_wrapper, $class_name,'<p>...'.$m[0].'...</p>' );
+		if ( ! is_search() || ! is_main_query() ) {
+			return $text;
 		}
-		$text = $result;
-	}else{
-		$text = '';
+
+		$search_query					 = get_search_query();
+		$text							 = strip_tags( $text );
+		$style_rules_for_searched_text	 = 'color:#000;padding:0;';
+
+		$hilight_rules = array(
+			array( mb_strtolower( $search_query ) => $style_rules_for_searched_text ),
+			array( mb_strtoupper( $search_query ) => $style_rules_for_searched_text ),
+			array( mb_convert_case( $search_query, MB_CASE_TITLE, "UTF-8" ) => $style_rules_for_searched_text ),
+			array( ucfirst( $search_query ) => $style_rules_for_searched_text ),
+			array( ucwords( $search_query ) => $style_rules_for_searched_text ),
+			array( $search_query => $style_rules_for_searched_text ),
+		);
+
+		$checksum		 = crc32( $text );
+		$class_name		 = trim( sprintf( "search-result-%u\n", $checksum ) );
+		$wrapper		 = '<mark style="%1$s">%2$s</mark>';
+		$block_wrapper	 = '<span class="%1$s">%2$s</span>';
+
+		foreach ( $hilight_rules as $value ) {
+
+			$name			 = key( $value );
+			$replace_value	 = sprintf( $wrapper, esc_attr( $value[ $name ] ), $name );
+			$text			 = str_replace( $name, $replace_value, $text, $count );
+
+			if ( $count > 0 ) {
+				break;
+			}
+		}
+		$result = '';
+		preg_match_all('!(.*)(<[^>]+>[^<]*</mark>)(.*)!',$text,$matches,PREG_SET_ORDER);
+
+		if( isset($matches) && !empty($matches)){
+			foreach( $matches as $m ){
+		$result .= sprintf( $block_wrapper, $class_name,'<p>...'.$m[0].'...</p>' );
+			}
+			$text = $result;
+		}else{
+			$text = '';
+		}
+
+
+
+		return apply_filters( 'raindrops_keyword_with_mark_elements_title', $text);
 	}
-
-
-
-	return apply_filters( 'raindrops_keyword_with_mark_elements_title', $text);
 }
-function raindrops_keyword_with_mark_elements_title( $text ) {
-	global $raindrops_search_keyword_highlight;
+if ( ! function_exists( 'raindrops_keyword_with_mark_elements_title' ) ) {
+	/**
+	 * 
+	 * @global type $raindrops_search_keyword_highlight
+	 * @param type $text
+	 * @return type
+	 */
+	function raindrops_keyword_with_mark_elements_title( $text ) {
+		global $raindrops_search_keyword_highlight;
 
-	if( true !== $raindrops_search_keyword_highlight ) {
-		return $text;
-	}
-
-	if ( ! is_search() || ! is_main_query() ) {
-		return $text;
-	}
-
-	$search_query					 = get_search_query();
-	$text							 = strip_tags( $text );
-	$style_rules_for_searched_text	 = 'color:#000;padding:0;';
-
-	$hilight_rules = array(
-		array( mb_strtolower( $search_query ) => $style_rules_for_searched_text ),
-		array( mb_strtoupper( $search_query ) => $style_rules_for_searched_text ),
-		array( mb_convert_case( $search_query, MB_CASE_TITLE, "UTF-8" ) => $style_rules_for_searched_text ),
-		array( ucfirst( $search_query ) => $style_rules_for_searched_text ),
-		array( ucwords( $search_query ) => $style_rules_for_searched_text ),
-		array( $search_query => $style_rules_for_searched_text ),
-	);
-
-	$checksum		 = crc32( $text );
-	$class_name		 = trim( sprintf( "search-result-%u\n", $checksum ) );
-	$wrapper		 = '<mark style="%1$s">%2$s</mark>';
-
-	foreach ( $hilight_rules as $value ) {
-
-		$name			 = key( $value );
-		$replace_value	 = sprintf( $wrapper, esc_attr( $value[ $name ] ), $name );
-		$text			 = str_replace( $name, $replace_value, $text, $count );
-
-		if ( $count > 0 ) {
-			break;
+		if( true !== $raindrops_search_keyword_highlight ) {
+			return $text;
 		}
+
+		if ( ! is_search() || ! is_main_query() ) {
+			return $text;
+		}
+
+		$search_query					 = get_search_query();
+		$text							 = strip_tags( $text );
+		$style_rules_for_searched_text	 = 'color:#000;padding:0;';
+
+		$hilight_rules = array(
+			array( mb_strtolower( $search_query ) => $style_rules_for_searched_text ),
+			array( mb_strtoupper( $search_query ) => $style_rules_for_searched_text ),
+			array( mb_convert_case( $search_query, MB_CASE_TITLE, "UTF-8" ) => $style_rules_for_searched_text ),
+			array( ucfirst( $search_query ) => $style_rules_for_searched_text ),
+			array( ucwords( $search_query ) => $style_rules_for_searched_text ),
+			array( $search_query => $style_rules_for_searched_text ),
+		);
+
+		$checksum		 = crc32( $text );
+		$class_name		 = trim( sprintf( "search-result-%u\n", $checksum ) );
+		$wrapper		 = '<mark style="%1$s">%2$s</mark>';
+
+		foreach ( $hilight_rules as $value ) {
+
+			$name			 = key( $value );
+			$replace_value	 = sprintf( $wrapper, esc_attr( $value[ $name ] ), $name );
+			$text			 = str_replace( $name, $replace_value, $text, $count );
+
+			if ( $count > 0 ) {
+				break;
+			}
+		}
+		return apply_filters( 'raindrops_keyword_with_mark_elements_title', $text);
 	}
-	return apply_filters( 'raindrops_keyword_with_mark_elements_title', $text);
 }
 
+
+
+if ( ! function_exists( 'raindrops_add_lazyload_script' ) ) {
+	/**
+	 * 
+	 */
+	function raindrops_add_lazyload_script() {
+
+		$raindrops_lazyload_image_enable		= raindrops_warehouse_clone( 'raindrops_lazyload_image' );
+		$only_front_end							= raindrops_scripts_operate_only_front_end();
+		$handle									= 'raindrops-lazyload';
+		$list									= 'registered';
+		
+		if ( wp_script_is( $handle, $list ) ) {
+			
+			if('enable' == $raindrops_lazyload_image_enable && $only_front_end ) {
+
+				wp_enqueue_script( 'raindrops-lazyload' );
+
+			   $script = "jQuery('img:not(.avator)').each(function (index) {
+			   var text = jQuery(this).attr('src');
+			   jQuery(this).attr('data-src', text);
+			   jQuery(this).attr('src', '" . get_template_directory_uri() . "/images/loader.svg');
+			   jQuery(this).addClass('lazyload');
+			   });";
+
+			   $script .= ' jQuery("img.lazyload").lazyload();';
+			   
+				wp_add_inline_script( 'raindrops-lazyload', $script );
+			}
+		}
+	}
+}
+
+if ( ! function_exists( 'raindrops_add_instantclick_script' ) ) {
+	/**
+	 * 
+	 */
+	function raindrops_add_instantclick_script() {
+	
+		$raindrops_performance_helper_enable	= raindrops_warehouse_clone( 'raindrops_performance_helper' );
+		$only_front_end							= raindrops_scripts_operate_only_front_end();
+
+		$handle = 'raindrops-instantclick';
+		$list = 'registered';
+		
+		if (wp_script_is( $handle, $list )) {
+
+			if('enable' == $raindrops_performance_helper_enable && $only_front_end ) {
+				wp_enqueue_script( 'raindrops-instantclick' );
+
+				   $script = "InstantClick.init();";
+
+				  wp_add_inline_script( 'raindrops-instantclick', $script );
+			}
+		}
+	}
+}
+
+if ( ! function_exists( 'disable_instantclick' ) ) {
+	/**
+	 * 
+	 * @param type $tag
+	 * @param type $handle
+	 * @param type $src
+	 * @return type
+	 */
+	function disable_instantclick( $tag, $handle, $src ) {
+		//$support = petrusschoeffer_get_supports( 'instantclick' );
+		if ( 'raindrops-instantclick' === $handle  ) {
+			$tag = str_replace( 'src=', 'data-no-instant src=', $tag );
+		}
+		return $tag;
+	}
+	
+}
+
+if ( ! function_exists( 'raindrops_scripts_operate_only_front_end' ) ) {
+	/**
+	 * 
+	 * @return boolean
+	 */
+	function raindrops_scripts_operate_only_front_end() {
+		
+		$raindrops_scripts_operate_only_front_end = apply_filters('raindrops_scripts_operate_only_front_end', 'none' );
+		
+		if( 'none' !== $raindrops_scripts_operate_only_front_end ) {
+			
+			return $raindrops_scripts_operate_only_front_end;
+		}
+		
+		if( ! is_admin() && ! is_customize_preview() && ! is_user_logged_in() && empty( $_GET ) ) {
+			
+			return true;
+		}
+		return false;
+		
+	}
+}
 /**
  *
  *

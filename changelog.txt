@@ -25,7 +25,9 @@ Overview of Changes
 			These two items will only work with logged out status
 			License @see README
 			
-	Modified Gutenberg plugin CSS		
+	Modified Gutenberg plugin CSS
+
+	Removed filter raindrops_convert_inline_style_to_data_attr
 
 Files Modified
 modified: functions.php

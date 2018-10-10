@@ -721,8 +721,8 @@ if ( !function_exists( 'raindrops_style_writing_mode_mix' ) ) {
        /* @1.483 max-height:$line_size; */
 		max-height:100%;
     }
-	.writing-mode-mix $scope .d-tate-wrap .oembed-container,
-    .writing-mode-mix $scope div.d-tate-wrap .oembed-container{
+	.writing-mode-mix $scope .d-tate-wrap .wp-block-embed__wrapper,
+    .writing-mode-mix $scope div.d-tate-wrap .wp-block-embed__wrapper{
         width:100%;
     }
 

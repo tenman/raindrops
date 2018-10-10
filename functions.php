@@ -174,7 +174,11 @@ if ( 'yes' == raindrops_warehouse_clone( 'raindrops_accessibility_settings' ) ) 
 }
 
 if ( ! function_exists( 'raindrops_current_url' ) ) {
-
+	/**
+	 * old function
+	 * new raindrops_request_url()
+	 * @return type
+	 */
 	function raindrops_current_url() {
 
 		$url = 'http';
@@ -202,6 +206,17 @@ if ( ! function_exists( 'raindrops_current_url' ) ) {
 		return apply_filters( 'raindrops_current_url', $url );
 	}
 
+}
+if ( ! function_exists( 'raindrops_request_url' ) ) {
+	/**
+	 * @since 1.525
+	 * @global type $wp
+	 * @return type
+	 */
+	function raindrops_request_url() {
+		global $wp;
+		return home_url( $wp->request );
+	}
 }
 /**
  * home link
@@ -9643,6 +9658,18 @@ if ( ! function_exists( 'raindrops_oembed_filter' ) ) {
 		}
 
 		$element = raindrops_doctype_elements( 'div', 'figure', false );
+		
+		// When gutenberg not exists need class
+		
+		$not_exists_gutenberg_class = 'wp-block-embed__wrapper';
+		$repair_style = '';
+		if(function_exists( 'has_blocks' ) &&  has_blocks( $post_ID )) {
+			
+			$not_exists_gutenberg_class = '';
+		//	$repair_style = 'style="position:static;';
+		}
+		
+		
 		/**
 		 * https://www.instagram.com/
 		 * @since 1.504
@@ -9666,13 +9693,16 @@ if ( ! function_exists( 'raindrops_oembed_filter' ) ) {
 		 * https://www.slideshare.net/slideshow/embed_code/7306301
 		 */
 		if ( preg_match( '!(slideshare.net)!', $url ) ) {
-			return sprintf( '<%2$s class="oembed-container rd-slideshare clearfix"><div>%1$s</div></%2$s>', $html, $element );
+			return sprintf( '<%2$s class="rd-slideshare clearfix %3$s" %4$s><div>%1$s</div></%2$s>', $html, $element, $not_exists_gutenberg_class,$repair_style );
+			//wp-block-embed__wrapper 
 		}
+
 		/*
 		 * https://www.mixcloud.com/
 		 */
 		if ( preg_match( '!(mixcloud.com)!', $url ) ) {
-			return sprintf( '<%2$s class="oembed-container rd-mixcloud clearfix"><div>%1$s</div></%2$s>', $html, $element );
+			return sprintf( '<%2$s class=" rd-mixcloud clearfix %3$s" %4$s><div>%1$s</div></%2$s>', $html, $element, $not_exists_gutenberg_class,$repair_style );
+			//wp-block-embed__wrapper
 		}
 		/**
 		 * https://www.reddit.com/
@@ -9691,7 +9721,8 @@ if ( ! function_exists( 'raindrops_oembed_filter' ) ) {
 		 * note: 4:3 ratio can use .rd-ratio-075
 		 */
 		if ( !preg_match( '!(twitter.com|tumblr.com|speakerdeck)!', $url ) && !preg_match( '!(wp-embedded-content)!', $html ) ) {
-			return sprintf( '<%2$s class="oembed-container clearfix">%1$s</%2$s>', $html, $element );
+			return sprintf( '<%2$s class="clearfix %3$s" %4$s>%1$s</%2$s>', $html, $element, $not_exists_gutenberg_class, $repair_style );
+			//wp-block-embed__wrapper 
 		}
 		return $html;
 	}
@@ -12364,8 +12395,8 @@ if ( ! function_exists( 'raindrops_color_pallet_category' ) ) {
 				//for archive title before icon
 				$result .= '.rd-cat-em .category-archives .cat-item-' . $term->term_id . '-wrapper .title:before{color:hsla(' . $hue . ',' . $saturation . ',' . $lightness . ',' . $alpha_b . ');} ';
 			} else {
-				$result .= 'rd-cat-em .cat-item.cat-item-' . $term->term_id . ' {display:none;} ';
-				$result .= 'rd-cat-em .category-archives .cat-item.cat-item-' . $term->term_id . ' {display:none;} ';
+				$result .= '.rd-cat-em .cat-item.cat-item-' . $term->term_id . ' {display:none;} ';
+				$result .= '.rd-cat-em .category-archives .cat-item.cat-item-' . $term->term_id . ' {display:none;} ';
 			}
 		}
 
@@ -14610,6 +14641,24 @@ if ( ! function_exists( 'raindrops_scripts_operate_only_front_end' ) ) {
 		
 	}
 }
+if ( ! function_exists( 'raindrops_custom_gutenberg_edit_link' ) ) {
+
+	function raindrops_custom_gutenberg_edit_link( $link, $post_id, $text ) {
+
+		if ( ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) && function_exists( 'has_blocks' ) && ! has_blocks( $post_id ) ) {
+
+			$gutenberg_action = sprintf(
+					'<a href="%1$s" class="skin-button">%2$s</a>', esc_url( add_query_arg(
+									array( 'post' => $post_id, 'action' => 'edit', 'classic-editor' => '' ), admin_url( 'post.php' )
+					) ), esc_html__( 'Classic Editor', 'raindrops' ) );
+
+			return $gutenberg_action;
+		}
+		return $link;
+	}
+
+}
+
 /**
  *
  *

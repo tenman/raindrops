@@ -461,7 +461,7 @@ jQuery( function ( $ ) {
      */
         $('.wp-block-image').attr('style', function(i, style){
             return style && style.replace(/max-width[^;]+;?/g, '');
-        });
+        });   
         
         $('.entry-content > figure').each( function ( index ) {
             
@@ -473,13 +473,17 @@ jQuery( function ( $ ) {
                 
                     $( this ).addClass('rd-has-caption-image');
                     
+                    var figure_width = parseInt( image_width ) + 10;
+                    
+                    $(this).css({width: figure_width });
+                    
                     var figcaption_width = $( this ).find( 'figcaption' ).width();
                     
                     if( parseInt( figcaption_width ) > parseInt( image_width ) ) {
                         
                         /* For multi-line captions */
                         
-                       // $( this ).children('figcaption').css({'width': image_width +'px', 'max-width':"100%"});
+                     //   $( this ).children('figcaption').css({'width': image_width +'px', 'max-width':"100%"});
                     }
                 } 
             }
@@ -554,3 +558,8 @@ jQuery( function ( $ ) {
        
     } );
 } );
+
+
+jQuery(function ($) {
+    $('.wp-block-embed__wrapper').children('.wp-block-embed__wrapper').removeClass('wp-block-embed__wrapper');
+});

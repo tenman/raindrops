@@ -273,11 +273,12 @@ i{
 .ja figcaption{
     font-style:normal;
 }
+/*
 .ja .textwidget p > a:not(.attachment),
 .ja .entry-content p > a:not(.attachment){
     margin-left:.5em;
     margin-right:.5em;
-}
+}*/
 
 .rd-pw-doc5.rd-col-1.single .writing-mode-mix{
     margin-top:1.5em;

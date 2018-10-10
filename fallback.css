@@ -540,18 +540,18 @@ aside > ul,
         max-height:100%;
         min-width:160px;
     }
-    .oembed-container {
+    .wp-block-embed__wrapper {
         position: relative;
         padding-bottom: 56.25%;
         padding-top: 30px;
         height: 0;
     }
-    .oembed-container{
+    .wp-block-embed__wrapper{
         margin:0;
     }
-    .oembed-container iframe,
-    .oembed-container object,
-    .oembed-container embed {
+    .wp-block-embed__wrapper iframe,
+    .wp-block-embed__wrapper object,
+    .wp-block-embed__wrapper embed {
         position: absolute;
         top: 0;
         left: 0;

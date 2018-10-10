@@ -472,32 +472,33 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     max-height:100%;
     min-width:160px;
 }
-.oembed-container {
+.wp-block-embed__wrapper {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
 }
-.oembed-container.rd-mixcloud{
+
+.wp-block-embed__wrapper.rd-mixcloud{
     padding-bottom: 36.25%;
 }
-.oembed-container .issuuembed{
+.wp-block-embed__wrapper .issuuembed{
     clear:both;
     max-height:100%;
 }
 .wp-embedded-content,
-.oembed-container iframe {
+.wp-block-embed__wrapper iframe {
     border:none;
     overflow:hidden;
 }
-.oembed-container{
+.wp-block-embed__wrapper{
    /* @1.503 margin:0; */
     word-wrap:normal;
     overflow-wrap:normal;
 }
-.oembed-container iframe,
-.oembed-container object,
-.oembed-container embed {
+.wp-block-embed__wrapper iframe,
+.wp-block-embed__wrapper object,
+.wp-block-embed__wrapper embed {
     position: absolute;
     top: 0;
     left: 0;
@@ -505,7 +506,7 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     width: calc(100% - 2px);
     height: 100%;
 }
-.oembed-container + *{
+.wp-block-embed__wrapper + *{
     margin-top:1em;
 }
 .rd-reverbnation{
@@ -563,11 +564,11 @@ iframe[src^="https://embed-ssl.ted.com/"]{
     width: calc(100% - 2px);
     border:none!important;
 }
-.oembed-container.rd-slideshare {
+.wp-block-embed__wrapper.rd-slideshare {
     padding-bottom: 78%;
 }
 
-.alignleft.rd-thumbnail > .oembed-container{
+.alignleft.rd-thumbnail > .wp-block-embed__wrapper{
     margin-right:1em;
 }
 .rd-reddit iframe{
@@ -796,7 +797,7 @@ ul.index,
 .entry-content .gist .line-data,
 .lang-not-ja,
 .lang-ja,
-.oembed-container:empty:after{
+.wp-block-embed__wrapper:empty:after{
     max-width:100%;
 }
 .hentry img{
@@ -1166,19 +1167,14 @@ blockquote p:last-child{
 .topsidebar figure img,
 .textwidget  figure img,
 .entry-content  figure img{
-    margin:auto;
+
    /* @1.510 width:auto; firefox issue */
     height:auto;
     max-width:96%;
     max-width:calc(100% - 10px) ;
-    margin-top:6px;
+    margin:6px auto 6px;
 }
-.rsidebar figure img,
-.lsidebar figure img,
-.topsidebar figure img,
-.textwidget  figure img{
-    margin-bottom:6px;
-}
+
 /* Compatibility html4 caption */
 /*.textwidget  figure.wp-caption,*/
 .textwidget  div.wp-caption,
@@ -5346,8 +5342,8 @@ body#front-page-template-pages:not(.logged-in) .entry-meta{
     padding-right:1em;
     box-sizing:border-box;
 }
-.page-template-page-templatesfull-width-php .oembed-container,
-.page-template-page-templatesfront-page-php .oembed-container{
+.page-template-page-templatesfull-width-php .wp-block-embed__wrapper,
+.page-template-page-templatesfront-page-php .wp-block-embed__wrapper{
     margin-bottom:2em;
 }
 .page-template-page-templatesfull-width-php  .size1of4 img,
@@ -6435,17 +6431,17 @@ html body.accept-lang-ja .rsidebar .lang-ja{
 /**
  * Oembed Wrapping container
    ========================================================================== */
-.oembed-container:empty{
+.wp-block-embed__wrapper:empty{
     padding-bottom:8%;
     margin-bottom:6em;
 }
-.rd-grid .oembed-container:empty{
+.rd-grid .wp-block-embed__wrapper:empty{
     margin-bottom:10em;
 }
-.rd-list .oembed-container:empty{
+.rd-list .wp-block-embed__wrapper:empty{
     margin-bottom:6em;
 }
-.oembed-container:empty:after{
+.wp-block-embed__wrapper:empty:after{
     content:'MEDIA';
     display:table-cell;
     text-align:center;
@@ -7147,15 +7143,15 @@ body:not(.rd-featured-yes-left) .h2-thumb{
     transform: translate(-50%, -50%);
 }
 
-.rd-round > .content .oembed-container,
-.rd-square > .content .oembed-container{
+.rd-round > .content .wp-block-embed__wrapper,
+.rd-square > .content .wp-block-embed__wrapper{
     width:100%;
     height:100%;
 }
 
-.rd-square .oembed-container iframe,
-.rd-square .oembed-container object,
-.rd-square .oembed-container embed{
+.rd-square .wp-block-embed__wrapper iframe,
+.rd-square .wp-block-embed__wrapper object,
+.rd-square .wp-block-embed__wrapper embed{
     position:static;
     object-fit:cover;
 }
@@ -7331,7 +7327,7 @@ ul.rd-nowrap{
 .rd-modal .body{
     margin:1em;
 }
-.rd-modal .oembed-container{
+.rd-modal .wp-block-embed__wrapper{
     margin-bottom:1em;
 }
 .rd-modal:target .header{

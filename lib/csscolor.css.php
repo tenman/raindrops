@@ -3291,7 +3291,7 @@ $style .=<<<STRUCTURE_STYLE
     width:6px;
     height:6px;
     position: absolute;
-    top:-.16em;
+    top:-.04em;/* top:-.16em; to -.04em @1.525 */
     left:-.2em;
 }
 .rd-type-minimal .widget_archive li:before {

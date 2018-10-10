@@ -1503,7 +1503,7 @@ p[class|="mark"]{
 }
 figure[class|="wp-block"] .rd-reverbnation,
 figure[class|="wp-block"] .rd-reddit,
-figure[class|="wp-block"] .oembed-container{
+figure[class|="wp-block"] .wp-block-embed__wrapper{
 	max-width:none;
 	margin:0;
 }
@@ -1704,9 +1704,9 @@ figure[class|="wp-block-embed"]{
 	padding:0;
 	/* display:inline-block; gutenberg 2.3 */
 }
-figure[class|="wp-block-embed"] .oembed-container iframe, 
-figure[class|="wp-block-embed"] .oembed-container object, 
-figure[class|="wp-block-embed"] .oembed-container embed {
+figure[class|="wp-block-embed"] .wp-block-embed__wrapper iframe, 
+figure[class|="wp-block-embed"] .wp-block-embed__wrapper object, 
+figure[class|="wp-block-embed"] .wp-block-embed__wrapper embed {
 	display:block;
 	position: absolute;
 	top: 0;
@@ -1773,10 +1773,10 @@ figure[class|="wp-block-embed"] .oembed-container embed {
 	max-width:100%;
 	padding:0;
 }
-.wp-block-embed-instagram > .oembed-container{
+.wp-block-embed-instagram > .wp-block-embed__wrapper{
 	padding-bottom:120%;
 }
-.wp-block-embed-flickr > .oembed-container{
+.wp-block-embed-flickr > .wp-block-embed__wrapper{
 	padding:0;
 	position:relative;
 	height:auto;
@@ -1787,7 +1787,7 @@ figure[class|="wp-block-embed"] .oembed-container embed {
 	width:100%;
 	height:auto;
 }
-.wp-block-embed-flickr .oembed-container{
+.wp-block-embed-flickr .wp-block-embed__wrapper{
 	padding-top:0;
 }
 .wp-block-embed-flickr figcaption{
@@ -1893,6 +1893,42 @@ figure.wp-block-embed-instagram{
 	margin-left:auto;
 	margin-right:auto;
 }
+			
+			
+			
+			
+			
+figure.wp-block-embed-wordpress{
+	width:calc(50% - 1rem);
+	margin-right:auto;
+	margin-left:auto;
+}
+figure.wp-block-embed-wordpress .wp-block-embed__wrapper{
+			border:1px solid rgba(188,188,188,.3);
+	position:static;
+	overflow:hidden;
+	padding-bottom:44%;		
+}
+figure.wp-block-embed-wordpress .wp-block-embed__wrapper:before{
+	content:none;
+}
+figure.wp-block-embed-wordpress.is-type-wp-embed .wp-block-embed__wrapper iframe{
+	display:block;
+}
+.enable-align-wide #bd figure.wp-block-embed-wordpress.alignwide{
+	/* Todo No apply alignfull */
+	width:calc(50% - 1rem);
+	margin-right:auto !important;
+	margin-left:auto !important;
+}
+body.enable-align-wide #bd figure.wp-block-embed-wordpress.alignfull{
+	/* Todo No apply alignfull */
+	width:calc(50% - 1rem);
+	margin-right:auto ! important;
+	margin-left:auto !important;
+			position:static;
+}
+
 /**
  * Block Spacer
  */
@@ -1956,6 +1992,9 @@ p.alignright.shadow,
 .wp-block-image{
 	/* for ie11 */
 	display:inline-block;/* @1.505 */
+}
+div.wp-block-image{
+	display:inline;
 }
 .wp-block-image figcaption{
 	text-align:left;
@@ -2357,6 +2396,29 @@ div.wp-block-button.aligncenter,
     -ms-flex-wrap:wrap;
         flex-wrap:wrap;
     max-width:none; 
+}
+.wp-block-categories.wp-block-categories-list{
+			/* @1.525 */
+	margin-top:0;
+	left:0;
+   display:block;
+}
+.wp-block-categories.wp-block-categories-list li{
+				/* @1.525 */
+	list-style:none;
+	padding:1em;
+
+}
+.wp-block-categories.wp-block-categories-list li .rd-cat-count{
+				/* @1.525 */
+	width:3em;
+	padding-top:0;
+	padding-bottom:0;
+	text-align:right;
+}
+.wp-block-categories.wp-block-categories-list li .children{
+				/* @1.525 */
+	display:block;
 }
 .entry-content .wp-block-categories.aligncenter{
 	clear:both;
@@ -2772,7 +2834,8 @@ figure.alignfull img {
  * Block Pullquote
  */
 .wp-block-pullquote{
-	
+	border-top: 4px solid rgba(188, 188, 188,.3);
+	border-bottom: 4px solid rgba(188, 188, 188,.3);
 }
 	.wp-block-pullquote p:only-child {
 		margin-bottom:1.5em;
@@ -2793,6 +2856,13 @@ figure.alignfull img {
 	min-width:calc(100% - 96px);
 	
 }
+.wp-block-pullquote > blockquote,
+.textwidget .wp-block-pullquote > blockquote, 
+.entry-content .wp-block-pullquote > blockquote{
+	border:none;
+	background:transparent;
+			
+}
 .wp-block-pullquote cite,
 .textwidget .wp-block-pullquote cite, 
 .entry-content .wp-block-pullquote cite{
@@ -2802,6 +2872,7 @@ figure.alignfull img {
     width: fit-content;
 	margin-left:auto;
 	margin-right:auto;
+	font-size:1rem;/* @1.525 */
 }
 .ja .wp-block-pullquote cite{
 	font-style:normal;
@@ -3286,7 +3357,7 @@ section.wp-block-text-columns .wp-block-column{
 	}
 	.index :not( figure ) > img.alignright, 
 	.index :not( figure ) > img.alignleft,
-	.index .oembed-container,
+	.index .wp-block-embed__wrapper,
 	.entry-content .wp-caption.aligncenter,	
 	.entry-content .wp-caption.alignnone,	
 	.entry-content .wp-caption.alignleft,

@@ -178,7 +178,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 * @since 1.246
 		 */
+
 		add_filter( 'embed_oembed_html', 'raindrops_oembed_filter', 99, 4 );
+
+
 		add_action( 'save_post', 'raindrops_transient_update' );
 		add_action( 'edit_term', 'raindrops_transient_update' );
 		add_action( 'wp_enqueue_scripts', 'raindrops_load_small_device_helper' );
@@ -468,7 +471,9 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_action( 'wp_enqueue_scripts', 'raindrops_add_lazyload_script' );
 		add_action( 'wp_enqueue_scripts', 'raindrops_add_instantclick_script' );
-		add_filter( 'script_loader_tag', 'disable_instantclick', 10, 3 );		
+		add_filter( 'script_loader_tag', 'disable_instantclick', 10, 3 );
+		
+		add_action( 'edit_post_link', 'raindrops_custom_gutenberg_edit_link', 10 , 3 );
 
 	}
 }

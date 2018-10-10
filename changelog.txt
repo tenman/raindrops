@@ -2,6 +2,39 @@ Changelog -----------------------------------
 version:1.524
 
 Overview of Changes
+
+	Modified CSS for Gutenberg Plugin
+		Class name changed. Raindrops .oembed-container class to wp-block-embed_wrapper.
+		This change was made to reduce the conflict between CSS of the Gutenberg plugin and CSS of the theme
+		
+	Added function raindrops_request_url()
+	
+	Modified function raindrops_custom_gutenberg_edit_link()
+		For posts created with the Gutenberg plugin, we display Gutenberg's edit link, 
+		and for posts created with the old TinyMCE we have changed to display a link to the classic editor.
+	
+	
+Files Modified
+	modified:   editor-style.css
+	modified:   fallback.css
+	modified:   functions.php
+	modified:   languages/css/ja.css
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   languages/scripts/ja.php
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops.js
+	modified:   style.css
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.524&new_path=raindrops/1.525
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
+version:1.524
+
+Overview of Changes
 	Added
 		The following files have been added to improve performance.
 		new file:   images/loader.svg

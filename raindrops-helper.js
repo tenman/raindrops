@@ -816,27 +816,4 @@ jQuery(function ($) {
                
                 window.location.reload( false );
             } );
-
-    
-    $(".raindrops-mobile-menu .open").on('click', function () {
-
-
-    /*    $(this).removeClass('open').addClass('close');
-        $(this).find('.screen-reader-text').text('shrunk');
-        $(this).children().removeClass('raindrops-nav-menu-expand').addClass('raindrops-nav-menu-shrunk');
-        $(this).children().attr('title','nav menu shrunk');*/
-    });
-    
-    
-    $(".raindrops-mobile-menu .close").on('click', function () {
-         //var hash = location.hash;
-                //console.log(hash);
-      /*  $(this).removeClass('close').addClass('open');
-        //$(this).attr('href', '#access' );
-        $(this).find('.screen-reader-text').text('Expand');
-        $(this).children().removeClass('raindrops-nav-menu-shrunk').addClass('raindrops-nav-menu-expand');
-        $(this).children().attr('title','nav menu expand');*/
-       // window.history.back();
-       
-    });
 });

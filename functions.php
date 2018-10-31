@@ -10,86 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 do_action( 'raindrops_before' );
 
-	function raindrops_nav_menu_primary( $args = array() ) {
-	global $raindrops_link_unique_text, $post;
 
-	$raindrops_link_unique_text = raindrops_link_unique_text();
-
-	$defaults = array(
-		'theme_location'	 => 'primary',
-		'menu'				 => '',
-		'container'			 => 'div',
-		'container_class'	 => 'menu-header',
-		'container_id'		 => '',
-		'menu_class'		 => 'menu',
-		'menu_id'			 => '',
-		'echo'				 => false,
-		'fallback_cb'		 => 'wp_page_menu',
-		'before'			 => '',
-		'after'				 => '',
-		'link_before'		 => '',
-		'link_after'		 => '',
-		'items_wrap'		 => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-		'depth'				 => 0,
-		'walker'			 => '',
-		'wrap_element_id'	 => 'access',
-		'wrap_mobile_class'	 => 'raindrops-mobile-menu',
-		'item_spacing'		 => 'discard', // default 'preserve
-	);
-
-	$args	 = wp_parse_args( $args, $defaults );
-	$args	 = apply_filters( 'wp_nav_menu_args', $args );
-
-	if ( "show" == raindrops_warehouse( 'raindrops_show_menu_primary' ) ) {
-
-		if ( $raindrops_link_unique_text == true ) {
-
-			$args['walker']			 = new raindrops_unique_identifier_walker_nav_menu();
-			$raindrops_nav_menu_primary	 = wp_nav_menu( $args );
-		} else {
-
-			$raindrops_nav_menu_primary = wp_nav_menu( $args );
-		}
-
-		$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
-				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a><span class="menu-text">menu</span>
-				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk"><span class="screen-reader-text">Shrunk</span></span></a>
-				 </p>
-				<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix" %4$s>
-					<h2 class="screen-reader-text">%5$s</h2>
-				%2$s
-				</%3$s>';
-		
-		$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
-				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk" ><span class="screen-reader-text">Shrunk</span></span></a>
-				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a>
-				</p>
-				<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix" %4$s>
-					<h2 class="screen-reader-text">%5$s</h2>
-				%2$s
-				</%3$s>';
-				
-		do_action( 'raindrops_nav_menu_primary' );
-		$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ),
-				raindrops_doctype_elements( '', 'aria-label="' . esc_attr__( 'Primary Navigation', 'raindrops' ) . '"', false ), esc_attr__( 'Primary Navigation', 'raindrops' ) );
-
-		if ( 'html5' !== raindrops_warehouse_clone( 'raindrops_doc_type_settings' ) ) {
-			/**
-			 * @since 1.411
-			 */
-			$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
-				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
-				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
-				 </p>
-				<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix">
-				%2$s
-				</%3$s>';
-			$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ) );
-		}
-
-		echo apply_filters( 'raindrops_nav_menu_primary_html', $html );
-	} //raindrops_warehouse(  'raindrops_show_menu_primary'  )
-}
 
 /**
  * move from hooks.php
@@ -8083,36 +8004,37 @@ if ( ! function_exists( 'raindrops_nav_menu_primary' ) ) {
 
 			if ( $raindrops_link_unique_text == true ) {
 
-				$args[ 'walker' ]			 = new raindrops_unique_identifier_walker_nav_menu();
+				$args['walker']			 = new raindrops_unique_identifier_walker_nav_menu();
 				$raindrops_nav_menu_primary	 = wp_nav_menu( $args );
 			} else {
 
 				$raindrops_nav_menu_primary = wp_nav_menu( $args );
 			}
-
-			$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args[ 'wrap_mobile_class' ] . '">
-				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a><span class="menu-text">menu</span>
-				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk"><span class="screen-reader-text">Shrunk</span></span></a>
-				 </p>
-				<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '" class="clearfix" %4$s>
-					<h2 class="screen-reader-text">%5$s</h2>
-				%2$s
-				</%3$s>';
+			
+			$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
+					<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk" ><span class="screen-reader-text">Shrunk</span></span></a>
+					<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a>
+					</p>
+					<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix" %4$s>
+						<h2 class="screen-reader-text">%5$s</h2>
+					%2$s
+					</%3$s>';
+					
 			do_action( 'raindrops_nav_menu_primary' );
-			$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ),
-			$raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ), raindrops_doctype_elements('','aria-label="'. esc_attr__( 'Primary Navigation', 'raindrops' ).'"', false ), esc_attr__( 'Primary Navigation', 'raindrops' ) );
+			$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ),
+					raindrops_doctype_elements( '', 'aria-label="' . esc_attr__( 'Primary Navigation', 'raindrops' ) . '"', false ), esc_attr__( 'Primary Navigation', 'raindrops' ) );
 
 			if ( 'html5' !== raindrops_warehouse_clone( 'raindrops_doc_type_settings' ) ) {
 				/**
 				 * @since 1.411
 				 */
-				$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args[ 'wrap_mobile_class' ] . '">
-				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
-				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
-				 </p>
-				<%3$s id="' . esc_attr( $args[ 'wrap_element_id' ] ) . '" class="clearfix">
-				%2$s
-				</%3$s>';
+				$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
+					<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
+					<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
+					 </p>
+					<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix">
+					%2$s
+					</%3$s>';
 				$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ) );
 			}
 

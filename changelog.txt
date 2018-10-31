@@ -4,12 +4,22 @@ version:1.526
 Overview of Changes
 
 	Modified CSS for Gutenberg Plugin
-		
-		
-		
+			class name change .wp-block-cover-image to .wp-block-cover
+			other CSS styled.
+	Modified Mobile Primary Menu change from + menu	- to hamberger button	
 	
 Files Modified
-
+	modified:   admin-options.css
+	modified:   functions.php
+	modified:   image.php
+	modified:   languages/ja.mo
+	modified:   languages/ja.po
+	modified:   loop.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   raindrops.js
+	modified:   responsiveness.css
+	modified:   style.css
 
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.525&new_path=raindrops/1.526

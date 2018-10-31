@@ -468,7 +468,12 @@ jQuery( function ( $ ) {
             if( $( this ).find('img') ){
                 
                 var image_width = $( this ).find( 'img' ).width();
-
+                
+                if( image_width = $( this ).find( 'img' ).hasClass('lazyload') ) {
+                    
+                   var image_width = $( this ).find( 'img' ).attr('data-src').width(); 
+                }
+                
                 if( $( this ).children('figcaption').length > 0 && image_width ){
                 
                     $( this ).addClass('rd-has-caption-image');
@@ -562,4 +567,21 @@ jQuery( function ( $ ) {
 
 jQuery(function ($) {
     $('.wp-block-embed__wrapper').children('.wp-block-embed__wrapper').removeClass('wp-block-embed__wrapper');
+
+    /**
+     * Oembed
+     */
+   $(".wp-block-embed-wordpress iframe").load(function (i) {
+       
+       var height = $(this).attr('height');
+       $(this).parents('.wp-block-embed__wrapper').css({'height': height });
+
+    });
 });
+jQuery( function ( $ ) {
+    /* classic editor insert iframe object */
+    $( 'iframe' ).each( function ( index ) {
+    
+       $( this ).parent('p').addClass('has-iframe')
+    });
+} );

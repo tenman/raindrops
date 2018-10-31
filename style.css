@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.525
+Version: 1.526
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -1029,6 +1029,11 @@ select{
     margin:auto;
 }
 .entry-content > ul,
+.entry-content > ol{
+    margin-left:auto;
+    margin-right:auto;
+}
+.entry-content > ul,
 .entry-content :not(ul) ul{
     list-style-type:disc;
 }
@@ -1051,6 +1056,7 @@ video{
     z-index:1!important;
     /* for forcing  behind sub-menu */
     max-width:100%;
+    object-fit: cover;
 }
 /**
  * User Content
@@ -1084,12 +1090,14 @@ blockquote p:last-child{
    /* @1.510 float:none; */
 }
 
-.entry-content > div:before,
-.entry-content > div:after{
+.entry-content > div:not(.wp-block-image):before,
+.entry-content > div:not(.wp-block-image):after{
+    /* @1.526 */
     content: " ";
     display: table;
 }
-.entry-content > div:after{
+.entry-content > div:not(.wp-block-image):after{
+    /* @1.526 */
     clear: both;
 }
 .textwidget .raindrops-tab-content,
@@ -1173,6 +1181,15 @@ blockquote p:last-child{
     max-width:96%;
     max-width:calc(100% - 10px) ;
     margin:6px auto 6px;
+}
+.rsidebar figure figcaption img,
+.lsidebar figure figcaption img,
+.topsidebar figure figcaption img,
+.textwidget  figure figcaption img,
+.entry-content  figure figcaption img{
+   /* @1.526 */
+   display:inline;
+   vertical-align:middle;
 }
 
 /* Compatibility html4 caption */
@@ -1322,8 +1339,7 @@ article ul{
 .entry-content > img{
    padding:1.5em 0 .75em 0;
 }
-.widgettext  p > img,
-.entry-content  p > img{
+p > img{
     /* @1.524 */
     margin-left:.5em;
     margin-right:.5em;
@@ -3140,7 +3156,7 @@ table#wp-caledar td a{
     /* gutenberg */
     clear:both;
 }
-.wp-block-cover-image{
+.wp-block-cover{
     height:430px;
     background-size:cover;
     background-position:center center;
@@ -3279,9 +3295,9 @@ table#wp-caledar td a{
 .enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge figure.alignfull,
 .enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge .wp-block-gallery.alignfull,
 .enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-ge figure.wp-block-image.alignfull{
+    
     margin-left: calc(-50vw - 60px + 12.5% );
     margin-right: calc(-50vw + 60px - 12.5%);
-
 }
 .enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc figure.alignfull,
 .enable-align-wide.rd-col-3:not(.is-default-sidebar-shrink):not(.is-extra-sidebar-shrink) .yui-t2 #bd .yui-gc .wp-block-gallery.alignfull,
@@ -7780,6 +7796,8 @@ x:-o-prefocus, .rd-modal > div {
     width:100%;
     margin:0 auto 0;
     text-align:center;
+    overflow-y:auto;
+    max-height:100vh;
 }
 .rd-type-w3standard #access{
     width:100%;
@@ -8290,7 +8308,11 @@ body:not(.rd-primary-menu-responsive-active) .raindrops-mobile-menu{
 }
 body.rd-primary-menu-responsive-active .raindrops-mobile-menu .close,
 .raindrops-mobile-menu .close{
-    background-image: url(../raindrops/images/raindrops-nav-menu-shrunk.png);
+   /* @1.526 */ 
+   /* background-image: url(../raindrops/images/raindrops-nav-menu-shrunk.png);*/
+   background-image:url(../raindrops/images/close.png);
+    background-size:contain;
+    background-repeat:no-repeat;  
 }
 #page-top span{
     background-image:url( images/go-top.png );
@@ -8300,7 +8322,11 @@ body.rd-primary-menu-responsive-active .raindrops-mobile-menu .close,
 }
 body.rd-primary-menu-responsive-active .raindrops-mobile-menu .open,
 .raindrops-mobile-menu .open{
-    background-image: url(../raindrops/images/raindrops-nav-menu-expand.png);
+    /* @1.526 */
+    /*background-image: url(../raindrops/images/raindrops-nav-menu-expand.png);*/
+    background-image:url(../raindrops/images/open.png);
+    background-size:contain;
+    background-repeat:no-repeat;
 }
 .raindrops-menu-fixed > div:before{
     /** Sticky Menu place holder for site-icon custom-logo

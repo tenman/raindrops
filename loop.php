@@ -95,7 +95,6 @@ if ( have_posts() ) {
 										?>
 
 											<div class="entry-content clearfix">
-											
 										<?php raindrops_prepend_entry_content();?>
 											<?php raindrops_entry_content(); ?>
 												<br class="clear" />

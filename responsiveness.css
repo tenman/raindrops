@@ -56,6 +56,10 @@
     #access ul li > ul {
         display:block!important;
     }
+    #access{
+        display:none;
+    }
+    
     #access{display:none!important;}
     #access:target{
         display:block!important;
@@ -73,6 +77,7 @@
         position:relative;
         margin:0;
     }
+     .raindrops-mobile-menu .close,/* @1.526 */
     .raindrops-mobile-menu .open{
         position:absolute;
         top:4px;
@@ -83,13 +88,14 @@
         background-position:center;
         max-height:100%;
     }
+    .raindrops-mobile-menu .close .raindrops-nav-menu-shrunk,/* @1.526 */
     .raindrops-mobile-menu .open .raindrops-nav-menu-expand{
         width:20px;
         height:20px;
         display:inline-block;
         text-indent:-100px;
     }
-    .raindrops-mobile-menu .close{
+  /*  .raindrops-mobile-menu .close{
         position:absolute;
         top:2px;
         right:5%;
@@ -103,9 +109,10 @@
         width:20px;
         height:20px;
         display:inline-block;
-    }
+    }*/
     .raindrops-mobile-menu .menu-text{
-        position:absolute;top:10px;left:44%;
+        /* @1.526 */
+        /* position:absolute;top:10px;left:44%; */
     }
     .raindrops-mobile-menu{
         display:inline-block;
@@ -962,7 +969,7 @@
         max-width:100%;
         box-sizing:border-box;
         height:3em;
-        margin-bottom:calc(1em * 1.539 * 1.5);/* substitute headding margin */
+      /* @1.526 margin-bottom:calc(1em * 1.539 * 1.5); substitute headding margin */
     }
     p.raindrops-mobile-menu.raindrops-menu-fixed{
         /* @1.494 */

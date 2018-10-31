@@ -9,6 +9,88 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_before' );
+
+	function raindrops_nav_menu_primary( $args = array() ) {
+	global $raindrops_link_unique_text, $post;
+
+	$raindrops_link_unique_text = raindrops_link_unique_text();
+
+	$defaults = array(
+		'theme_location'	 => 'primary',
+		'menu'				 => '',
+		'container'			 => 'div',
+		'container_class'	 => 'menu-header',
+		'container_id'		 => '',
+		'menu_class'		 => 'menu',
+		'menu_id'			 => '',
+		'echo'				 => false,
+		'fallback_cb'		 => 'wp_page_menu',
+		'before'			 => '',
+		'after'				 => '',
+		'link_before'		 => '',
+		'link_after'		 => '',
+		'items_wrap'		 => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		'depth'				 => 0,
+		'walker'			 => '',
+		'wrap_element_id'	 => 'access',
+		'wrap_mobile_class'	 => 'raindrops-mobile-menu',
+		'item_spacing'		 => 'discard', // default 'preserve
+	);
+
+	$args	 = wp_parse_args( $args, $defaults );
+	$args	 = apply_filters( 'wp_nav_menu_args', $args );
+
+	if ( "show" == raindrops_warehouse( 'raindrops_show_menu_primary' ) ) {
+
+		if ( $raindrops_link_unique_text == true ) {
+
+			$args['walker']			 = new raindrops_unique_identifier_walker_nav_menu();
+			$raindrops_nav_menu_primary	 = wp_nav_menu( $args );
+		} else {
+
+			$raindrops_nav_menu_primary = wp_nav_menu( $args );
+		}
+
+		$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
+				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a><span class="menu-text">menu</span>
+				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk"><span class="screen-reader-text">Shrunk</span></span></a>
+				 </p>
+				<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix" %4$s>
+					<h2 class="screen-reader-text">%5$s</h2>
+				%2$s
+				</%3$s>';
+		
+		$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
+				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk" ><span class="screen-reader-text">Shrunk</span></span></a>
+				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand"><span class="screen-reader-text">Expand</span></span></a>
+				</p>
+				<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix" %4$s>
+					<h2 class="screen-reader-text">%5$s</h2>
+				%2$s
+				</%3$s>';
+				
+		do_action( 'raindrops_nav_menu_primary' );
+		$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ),
+				raindrops_doctype_elements( '', 'aria-label="' . esc_attr__( 'Primary Navigation', 'raindrops' ) . '"', false ), esc_attr__( 'Primary Navigation', 'raindrops' ) );
+
+		if ( 'html5' !== raindrops_warehouse_clone( 'raindrops_doc_type_settings' ) ) {
+			/**
+			 * @since 1.411
+			 */
+			$template	 = "\n" . str_repeat( "\t", 4 ) . '<p class="' . $args['wrap_mobile_class'] . '">
+				<a href="#access" class="open"><span class="raindrops-nav-menu-expand" title="nav menu expand">Expand</span></a><span class="menu-text">menu</span>
+				<a href="#%1$s" class="close"><span class="raindrops-nav-menu-shrunk" title="nav menu shrunk">Shrunk</span></a>
+				 </p>
+				<%3$s id="' . esc_attr( $args['wrap_element_id'] ) . '" class="clearfix">
+				%2$s
+				</%3$s>';
+			$html		 = sprintf( $template, esc_attr( raindrops_warehouse( 'raindrops_page_width' ) ), $raindrops_nav_menu_primary, raindrops_doctype_elements( 'div', 'nav', false ) );
+		}
+
+		echo apply_filters( 'raindrops_nav_menu_primary_html', $html );
+	} //raindrops_warehouse(  'raindrops_show_menu_primary'  )
+}
+
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -2276,6 +2358,21 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 		if( ! $is_active_sidebar_1 && 'yes' == $is_responsive_seting ) {
 
 			$css .= "\n".'@media screen and (min-width : '. $min_break_point.'px){ div[role="main"]{padding-left:1em;box-sizing:border-box;} }';
+			
+			//@1.526
+			
+			$css .= "\n".'@media screen and (max-width : '. $min_break_point.'px){ '
+					. '.enable-align-wide #bd figure.alignfull{
+							margin-left: -2em;
+							margin-right: 0;
+							position: static;
+							display: block;
+							float: none;
+							clear: both;
+						}'
+					. ' }';
+			
+			
 			$css .= "\n".'#yui-main .rsidebar,#bd .lsidebar{min-height:0!important; }';
 		}
 
@@ -2314,9 +2411,10 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				$css .= '.entry-content > .is-regular-text{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content > p:not([class]){ width:' . $paragraph_wrap_width . 'em;}';
 				$css .= '.entry-content > p.aligncenter{ width:' . $paragraph_wrap_width . 'em;}';
-				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_px . 'px;}';
+				$css .= '.entry-content .aligncenter:not(.wp-block-cover){ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content .fit-p{ max-width:' . $max_width_px . 'px;}';
+				$css .= '.entry-content ul,ol{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.rd-grid .entry-content > p:not([class]){ max-width:100%;}';
 				$css .= '.rd-grid .entry-content .aligncenter{ max-width:100%;}';
 				$css .= '.rd-grid .entry-content > p.aligncenter{ width:100%;}';
@@ -2330,6 +2428,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 					$css .= '.entry-content > p.aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .fit-p{ max-width:100%;}';
+					$css .= '.entry-content ul,ol{ max-width:100%;}';
 				$css .= '}';
 			} else {
 				$css .= '.entry-content > .is-small-text{ max-width:' . $max_width_en_px . 'px;}';
@@ -2339,6 +2438,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content .fit-p{ max-width:' . $max_width_en_px . 'px;}';
+				$css .= '.entry-content ul,ol{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.rd-grid .entry-content > p:not([class]){ max-width:100%;}';
 				$css .= '.rd-grid .entry-content .aligncenter{ max-width:100%;}';
 				$css .= '.rd-grid .entry-content > p.aligncenter{ width:100%;}';
@@ -2352,6 +2452,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 					$css .= '.entry-content > p.aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .fit-p{ max-width:100%;}';
+					$css .= '.entry-content ul,ol{ max-width:100%;}';
 				$css .= '}';
 			}
 		}
@@ -9651,24 +9752,26 @@ if ( ! function_exists( 'raindrops_oembed_filter' ) ) {
 	 * @since 1.246
 	 */
 	function raindrops_oembed_filter( $html, $url, $attr, $post_ID ) {
-		global $is_IE;
+		global $is_IE, $post;
 		if ( !$is_IE ) {
 
 			$html = str_replace( 'frameborder="0"', '', $html );
 		}
-
-		$element = raindrops_doctype_elements( 'div', 'figure', false );
-		
-		// When gutenberg not exists need class
 		
 		$not_exists_gutenberg_class = 'wp-block-embed__wrapper';
-		$repair_style = '';
-		if(function_exists( 'has_blocks' ) &&  has_blocks( $post_ID )) {
-			
-			$not_exists_gutenberg_class = '';
-		//	$repair_style = 'style="position:static;';
-		}
+		$repair_style				= '';
 		
+		if(function_exists( 'has_blocks' ) &&  has_blocks( $post_ID ) || isset( $post ) && preg_match( '$wp-block-embed__wrapper$', $post->post_content ) ) {
+			
+			//Since gutenberg encloses oembed with figure elements, do not use figure elements in themes
+			$element = 'div';
+			$not_exists_gutenberg_class = '';
+			
+			return $html;
+		} else {
+			// html5 - figure , xhtml - div 
+			$element = raindrops_doctype_elements( 'div', 'figure', false );			
+		}
 		
 		/**
 		 * https://www.instagram.com/

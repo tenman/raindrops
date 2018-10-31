@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: raindrops1.405\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 08:47+0900\n"
-"PO-Revision-Date: 2018-10-10 08:58+0900\n"
+"POT-Creation-Date: 2018-10-10 14:19+0900\n"
+"PO-Revision-Date: 2018-10-10 14:19+0900\n"
 "Last-Translator: Akio Tenman <a.tenman@gmail.com>\n"
 "Language-Team: raindrops translate <a.tenman@gmail.com>\n"
 "Language: ja\n"
@@ -1864,7 +1864,7 @@ msgstr "%1$s %2$s %3$s "
 
 #: functions.php:14653
 msgid "Classic Editor"
-msgstr ""
+msgstr "クラッシックエディタ"
 
 # @ raindrops
 #: header-front.php:62 header-xhtml.php:61 header.php:19

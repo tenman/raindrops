@@ -1,5 +1,21 @@
 Changelog -----------------------------------
-version:1.524
+version:1.526
+
+Overview of Changes
+
+	Modified CSS for Gutenberg Plugin
+		
+		
+		
+	
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.525&new_path=raindrops/1.526
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
+version:1.525
 
 Overview of Changes
 

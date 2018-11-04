@@ -11,7 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'raindrops_before' );
 
 
-
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )

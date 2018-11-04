@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.527
+
+Overview of Changes
+
+	Fixed Primary Menu submenu can not open.
+	
+Files Modified
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.526&new_path=raindrops/1.527
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.526
 
 Overview of Changes

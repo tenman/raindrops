@@ -3,8 +3,19 @@ version:1.528
 
 Overview of Changes
 
+	Modified post edit link
 	
+	Modified block editor CSS
+		.wp-block-button
+		.wp-block-separator
+		.wp-block-media-text
+		.wp-block-columns
+		
 Files Modified
+
+	modified:   functions.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 
 
 Description of Code Changes

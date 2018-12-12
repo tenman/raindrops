@@ -9,8 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_before' );
-
-
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -14665,22 +14663,47 @@ if ( ! function_exists( 'raindrops_scripts_operate_only_front_end' ) ) {
 		
 	}
 }
+
 if ( ! function_exists( 'raindrops_custom_gutenberg_edit_link' ) ) {
 
+	/**
+	 *
+	 * @param type $link
+	 * @param type $post_id
+	 * @param type $text
+	 * @return type
+	 */
 	function raindrops_custom_gutenberg_edit_link( $link, $post_id, $text ) {
 
-		if ( ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) && function_exists( 'has_blocks' ) && ! has_blocks( $post_id ) ) {
+		$which				 = get_post_meta( $post_id, 'classic-editor-remember', true );
+		$allow_users_option	 = get_option( 'classic-editor-allow-users' );
+
+		$disallow_old_post_open_classic_editor = apply_filters( 'disallow_old_post_open_classic_editor', false );
+
+		if ( 'allow' == $allow_users_option ) {
+
+			if ( ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) && 'classic-editor' == $which ) {
+
+				$gutenberg_action = sprintf(
+						'<a href="%1$s" class="skin-button">%2$s</a>', esc_url( add_query_arg(
+										array( 'post' => $post_id, 'action' => 'edit', 'classic-editor' => '', 'classic-editor__forget' => '' ), admin_url( 'post.php' )
+						) ), esc_html__( 'Classic Editor', 'raindrops' ) );
+
+				return $gutenberg_action;
+			}
+		}
+		if ( ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) && ! metadata_exists( 'post', $post_id, 'classic-editor-remember' ) && ! $disallow_old_post_open_classic_editor ) {
 
 			$gutenberg_action = sprintf(
 					'<a href="%1$s" class="skin-button">%2$s</a>', esc_url( add_query_arg(
-									array( 'post' => $post_id, 'action' => 'edit', 'classic-editor' => '' ), admin_url( 'post.php' )
+									array( 'post' => $post_id, 'action' => 'edit', 'classic-editor' => '', 'classic-editor__forget' => '' ), admin_url( 'post.php' )
 					) ), esc_html__( 'Classic Editor', 'raindrops' ) );
 
 			return $gutenberg_action;
 		}
+
 		return $link;
 	}
-
 }
 
 /**

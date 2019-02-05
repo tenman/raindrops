@@ -1,4 +1,25 @@
 Changelog -----------------------------------
+version:1.529
+
+Overview of Changes
+	Modified change customizer 'Specify the number of characters to display on one line'
+			Changed to work with all paragraphs
+	Modified hr element style.
+	Modified removed codemirror filter
+	Modified core/paragraph style
+	Modified blockeditor button style
+		
+Files Modified
+
+	modified:   lib/csscolor.css.php
+	modified:   lib/hooks.php
+	modified:   plugins/plugins-presentation.php
+
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.528&new_path=raindrops/1.529
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.528
 
 Overview of Changes

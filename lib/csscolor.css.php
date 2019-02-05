@@ -3334,9 +3334,7 @@ $style .=<<<STRUCTURE_STYLE
     padding-top:0;
     padding-bottom:0;
 }
-.rd-type-minimal article hr{
-    margin:3em auto 3em;
-}
+
 .rd-type-minimal .sticky .entry-title{
     padding-top:.3em;
 }

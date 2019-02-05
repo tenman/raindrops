@@ -1337,11 +1337,8 @@ if ( ! function_exists( 'raindrops_editor_styles_gutenberg' ) ) {
 		}
 
 		$raindrops_editor_styles_width	 = apply_filters( 'raindrops_editor_styles_width', $raindrops_editor_styles_width, $post_id );
-		$editor_custom_styles			 = 'div.edit-post-visual-editor div.editor-post-title, div.edit-post-visual-editor div.editor-block-list__block{max-width:' . $raindrops_editor_styles_width . 'px;}' . "\n";
-		$editor_custom_styles			 .= '.gutenberg-editor-page .editor-visual-editor, .gutenberg-editor-page .editor-visual-editor p{font-size:' . $font_size . 'px;}' . "\n";
+		$editor_custom_styles = '[data-type="core/paragraph"] .editor-block-list__block-edit .editor-rich-text{overflow:hidden;}';
 
-
-		$editor_custom_styles = ''; // Now Stop Page width setting @1.521
 		if ( 'custom' == raindrops_warehouse_clone( 'raindrops_color_select' ) ) {
 			/* @since 1.480 */
 			$flag = true;
@@ -2461,7 +2458,12 @@ div.wp-block-button.aligncenter,
 .wp-block-button .wp-block-button__link.has-background {
   position: relative;
 }
-
+.wp-block-button__link{
+	padding:0 12px;
+	font-size:1em;
+	border-radius:calc(1em * 2.25 / 2);
+	
+}
 /**
  * Ghost Button Class
    ========================================================================== */
@@ -2756,8 +2758,8 @@ ul.wp-block-gallery.alignright{
 hr.wp-block-separator.is-style-default{
     clear:both;
     float:none;
-    height:2em;
-    margin:1.5em auto .75em;
+    height:3px;
+    margin:1.5em auto 1.5em;
     position:relative;
     font-size:2em;
 	width:100px;
@@ -3160,6 +3162,7 @@ figure.alignfull img {
 	max-width: none;
 	position: relative;
 	height: 100%;
+	min-height:320px;
 }
 .entry-content .wp-block-media-text .wp-block-media-text__media img {
 	position: absolute;

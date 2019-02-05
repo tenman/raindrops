@@ -2327,7 +2327,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 			if ( 'ja' == get_locale() ) {
 				$css .= '.entry-content > .is-small-text{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content > .is-regular-text{ max-width:' . $max_width_px . 'px;}';
-				$css .= '.entry-content > p:not([class]){ width:' . $paragraph_wrap_width . 'em;}';
+				$css .= '.post .entry-content > p{ width:' . $paragraph_wrap_width . 'em;}';
 				$css .= '.entry-content > p.aligncenter{ width:' . $paragraph_wrap_width . 'em;}';
 				$css .= '.entry-content .aligncenter:not(.wp-block-cover){ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_px . 'px;}';
@@ -2342,7 +2342,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				$css .= '@media screen and (max-width : ' . $paragraph_wrap_width . 'em){';
 					$css .= '.entry-content > .is-small-text{ max-width:100%;}';
 					$css .= '.entry-content > .is-regular-text{ max-width:100%;}';
-					$css .= '.entry-content > p:not([class]){ max-width:100%;}';
+					$css .= '.entry-content > p{ max-width:100%;}';
 					$css .= '.entry-content > p.aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .fit-p{ max-width:100%;}';
@@ -2351,7 +2351,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 			} else {
 				$css .= '.entry-content > .is-small-text{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content > .is-regular-text{ max-width:' . $max_width_en_px . 'px;}';
-				$css .= '.entry-content > p:not([class]){ width:' . $paragraph_wrap_width_en . 'em;}';
+				$css .= '.entry-content > p{ width:' . $paragraph_wrap_width_en . 'em;}';
 				$css .= '.entry-content > p.aligncenter{ width:' . $paragraph_wrap_width_en . 'em;}';
 				$css .= '.entry-content .aligncenter{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content figure.aligncenter{ max-width:' . $max_width_en_px . 'px;}';
@@ -2366,7 +2366,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				$css .= '@media screen and (max-width : ' . $paragraph_wrap_width_en . 'em){';
 					$css .= '.entry-content > .is-small-text{ max-width:100%;}';
 					$css .= '.entry-content > .is-regular-text{ max-width:100%;}';
-					$css .= '.entry-content > p:not([class]){ max-width:100%;}';
+					$css .= '.entry-content > p{ max-width:100%;}';
 					$css .= '.entry-content > p.aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .aligncenter{ max-width:100%;}';
 					$css .= '.entry-content .fit-p{ max-width:100%;}';

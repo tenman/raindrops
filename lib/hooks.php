@@ -448,7 +448,8 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 * @since 1.497
 		 */
-		add_action( 'admin_enqueue_scripts', 'raindrops_add_codemirror_for_raindrops_custom_css_field' );
+		//add_action( 'admin_enqueue_scripts', 'raindrops_add_codemirror_for_raindrops_custom_css_field' );
+		// @1.529 works improperly. stop filter
 		/**
 		 * @since 1.498
 		 */

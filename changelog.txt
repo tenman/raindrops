@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.530
+
+Overview of Changes
+	Fixed language ja tategaki mode. paragraph width issue
+		
+Files Modified
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.529&new_path=raindrops/1.530
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.529
 
 Overview of Changes

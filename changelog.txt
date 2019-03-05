@@ -1,4 +1,15 @@
 Changelog -----------------------------------
+version:1.531
+
+Overview of Changes
+	Fixed Search result excerpt issue
+		
+Files Modified
+
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.530&new_path=raindrops/1.531
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.530
 
 Overview of Changes

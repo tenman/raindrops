@@ -2229,6 +2229,7 @@ figure.wp-block-image.alignright{
  */
 .wp-block-table{
     display:table;
+	border-bottom:rgba(222,222,222,.3);
 }
 .wp-block-table.alignleft{
 	margin-right:1em;
@@ -2236,6 +2237,26 @@ figure.wp-block-image.alignright{
 .wp-block-table.alignright{
 	margin-left:1em;
 }
+/*
+.wp-block-table.has-subtle-pale-pink-background-color,
+.wp-block-table.has-subtle-pale-blue-background-color,
+.wp-block-table.has-subtle-light-gray-background-color,
+.wp-block-table.has-subtle-pale-green-background-color,*/
+
+.wp-block-table.is-style-stripes{
+	border-bottom:rgba(188,188,188,.5);
+	background:#fff;
+	color:#333;
+}
+.wp-block-table.has-background.is-style-regular{
+	border-bottom:rgba(188,188,188,.5);
+	color:#333;			
+}
+.wp-block-table.has-background td,
+.wp-block-table.is-style-stripes td{
+	background:transparent;
+	color:#333;
+}		
 
 /**
  * Block Preformatted, Code
@@ -2273,7 +2294,19 @@ figure.wp-block-image.alignright{
     background-color: darkgrey;
     outline: 1px solid grey;
 }
-
+/**
+ * Block-search
+ */
+.wp-block-search{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+.wp-block-search .wp-block-search__button{
+	margin-left:0;
+	padding-left:.5em;
+	padding-right:.5em;
+}
 /**
  * Block Verse
  */
@@ -2722,8 +2755,10 @@ figure.wp-block-image.alignright.is-resized{
 figure[class|="wp-block"].is-resized,
 figure[class|="wp-block"].is-resized{
 	width:auto;
-	width:available;
-    width:fit-content;
+	/* width:available; */
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
 	max-width:fit-content;
 }
 
@@ -3132,7 +3167,11 @@ figure.alignfull img {
 .wp-block-quote[data-rd-style="text-align:right"] p{
 	margin-right:0;
 }
-
+.wp-block-pullquote.is-style-solid-color blockquote p{
+	    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;		
+}
 /**
  * Block Media Text
  */

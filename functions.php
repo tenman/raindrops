@@ -2325,6 +2325,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 			$max_width_en_px		 = round( ( $basefont_size * $paragraph_wrap_width ) / 2 );
 
 			if ( 'ja' == get_locale() ) {
+				$css .= '.entry-content > .wp-block-search{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content > .is-small-text{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.entry-content > .is-regular-text{ max-width:' . $max_width_px . 'px;}';
 				$css .= '.post .entry-content > p:not(.d-tate):not(.trancate){ width:' . $paragraph_wrap_width . 'em;}';
@@ -2340,6 +2341,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				$css .= '.rd-grid .entry-content > p.alignright{ max-width:100%;margin-left:0;}';
 				$css .= '.rd-grid .entry-content .fit-p{ max-width:100%;}';
 				$css .= '@media screen and (max-width : ' . $paragraph_wrap_width . 'em){';
+				$css .= '.entry-content > .wp-block-search{ max-width:100%;}';
 					$css .= '.entry-content > .is-small-text{ max-width:100%;}';
 					$css .= '.entry-content > .is-regular-text{ max-width:100%;}';
 					$css .= '.entry-content >  p:not(.d-tate):not(.trancate){ max-width:100%;}';
@@ -2349,6 +2351,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 					$css .= '.entry-content ul,ol{ max-width:100%;}';
 				$css .= '}';
 			} else {
+				$css .= '.entry-content > .wp-block-search{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content > .is-small-text{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content > .is-regular-text{ max-width:' . $max_width_en_px . 'px;}';
 				$css .= '.entry-content > p:not(.d-tate):not(.trancate){ width:' . $paragraph_wrap_width_en . 'em;}';
@@ -2364,6 +2367,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 				$css .= '.rd-grid .entry-content > p.alignright{ max-width:100%;margin-left:0;}';
 				$css .= '.rd-grid .entry-content .fit-p{ max-width:100%;}';
 				$css .= '@media screen and (max-width : ' . $paragraph_wrap_width_en . 'em){';
+				$css .= '.entry-content > .wp-block-search{ max-width:100%;}';
 					$css .= '.entry-content > .is-small-text{ max-width:100%;}';
 					$css .= '.entry-content > .is-regular-text{ max-width:100%;}';
 					$css .= '.entry-content >  p:not(.d-tate):not(.trancate){ max-width:100%;}';
@@ -4951,6 +4955,7 @@ if ( ! function_exists( 'raindrops_load_small_device_helper' ) ) {
 		}
 		// @since 1.524 grid layout page link add data-no-instant attribute
 		$data_no_instant_link = '';
+		$flag = false;
 		if ( 'excerpt_grid' == raindrops_warehouse_clone( 'raindrops_entry_content_is_home' ) ) {
 
 			if ( is_multisite() ) {
@@ -14398,7 +14403,21 @@ if ( ! function_exists( 'raindrops_fallback_header_text_color' ) ) {
 		}
 	}
 }
+$search_condition = raindrops_warehouse_clone( 'raindrops_entry_content_is_search' );
 
+if( 'keyword' == $search_condition ) {
+	$raindrops_search_keyword_highlight = true;
+	add_filter( 'the_title', 'raindrops_keyword_with_mark_elements_title', 99999 );
+	add_filter( 'the_content', 'raindrops_keyword_with_mark_elements', 99999 );	
+} else {
+	$raindrops_search_keyword_highlight = false;
+	if( has_filter( 'the_title', 'raindrops_keyword_with_mark_elements_title' ) ) {
+		remove_filter( 'the_title', 'raindrops_keyword_with_mark_elements_title', 99999 );
+	}
+	if( has_filter( 'the_content', 'raindrops_keyword_with_mark_elements', 99999 ) ) {
+		remove_filter( 'the_content', 'raindrops_keyword_with_mark_elements', 99999 );
+	}
+}
 if ( ! function_exists( 'raindrops_search_from_terms' ) ) {
 
 	function raindrops_search_from_terms( $target_terms = array( 'category', 'post_tag' ), $echo = true ) {

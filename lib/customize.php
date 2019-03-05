@@ -2518,11 +2518,12 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'label'				 => esc_html__( 'Search Result Entry Contents', 'raindrops' ),
 			'excerpt1'			 => '',
 			'description'		 => '',
-			'sanitize_callback'	 => 'raindrops_entry_content_is_tag_validate',
+			'sanitize_callback'	 => 'raindrops_entry_content_is_search_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
 				'content'	 => esc_html__( 'Show Content', 'raindrops' ),
 				'excerpt'	 => esc_html__( 'Show Excerpt', 'raindrops' ),
+				'keyword'    => esc_html__( 'Keyword Highlight', 'raindrops'),
 				'excerpt_grid'	 => esc_html__( 'Show Excerpt with Grid Layout', 'raindrops' ),
 				'none'		 => esc_html__( 'Hide', 'raindrops' ),
 			),

@@ -981,7 +981,7 @@ function raindrops_footer_link_color_validate( $input ) {
  */
 function raindrops_entry_content_is_search_validate( $input ) {
 
-	if ( $input == 'content' || $input == 'excerpt' || $input == 'none') {
+	if ( $input == 'content' || $input == 'excerpt' || $input == 'none' || $input == 'keyword' || $input == 'excerpt_grid' ) {
 
 		return $input;
 	}

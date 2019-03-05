@@ -15,8 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.521
  */
 if( ! isset( $raindrops_search_keyword_highlight ) ) {
-	$raindrops_search_keyword_highlight = true;
+	$raindrops_search_keyword_highlight = false;
 }
+
 /**
  * 
  */

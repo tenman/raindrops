@@ -3,9 +3,19 @@ version:1.531
 
 Overview of Changes
 	Fixed Search result excerpt issue
+	Modified block editor CSS
+		wp-block-table wp-block-search wp-block-pullquote
 		
 Files Modified
 
+	modified:   functions.php
+	modified:   lib/customize.php
+	modified:   lib/hooks.php
+	modified:   lib/validate.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
+	
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.530&new_path=raindrops/1.531
 -----------------------------------------------Changelog -----------------------------------

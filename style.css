@@ -192,7 +192,7 @@ html .color1 a, html .color2 a, html .color3 a, html .color4 a,
 html .color5 a{
     background:transparent;
 }
-body {
+html{
     scroll-behavior: smooth;
 }
 /**

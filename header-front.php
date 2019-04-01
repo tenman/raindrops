@@ -56,7 +56,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 	break;
 		} //end switch( $raindrops_document_type )
 	?>
-	<body <?php body_class( ); ?>>
+	<body <?php body_class( ); ?>><?php has_action( 'wp_body_open' ) ? do_action('wp_body_open') : ''; ?>
 		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
 		<div class="skip-link">
 			<a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a>

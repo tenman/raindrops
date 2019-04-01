@@ -470,6 +470,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'script_loader_tag', 'disable_instantclick', 10, 3 );
 		
 		add_action( 'edit_post_link', 'raindrops_custom_gutenberg_edit_link', 10 , 3 );
+		/**
+		 * @since 1.532
+		 */
+		add_filter( 'tiny_mce_before_init', 'raindrops_remove_verify_html', 10, 2 );
 
 	}
 }

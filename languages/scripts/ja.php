@@ -67,7 +67,8 @@ if ( ! function_exists( 'raindrops_gengou_names' ) ) {
 	
 	function raindrops_gengou_names(){
 
-		$names = apply_filters('raindrops_gengou_names', array( 
+		$names = apply_filters('raindrops_gengou_names', array(
+			    '&#20196;&#21644;' => mktime( 0, 0, 0, 5, 1, 2019 ), 
 				'&#24179;&#25104;' => mktime( 0, 0, 0, 1, 8, 1989 ),
 				'&#26157;&#21644;' => mktime( 0, 0, 0, 12, 25, 1926 ),
 				'&#22823;&#27491;' => mktime( 0, 0, 0, 7, 30, 1912 ),
@@ -275,6 +276,7 @@ if ( ! function_exists( 'raindrops_year_to_gengou' ) ) {
 	function raindrops_year_to_gengou( $year , $date = '' ) {
 
 		$nen	 = $year - 1988;
+
 		
 		if( ! empty( $date ) ) {
 			

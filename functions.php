@@ -3363,6 +3363,17 @@ if ( ! function_exists( "raindrops_css_add_id" ) ) {
 				$match	 = $match_1 . '{' . $regs[ 2 ];
 
 				$result .= '#post-' . $post->ID . ' ' . trim( $match ) . "\n";
+				
+				/**
+				 * Improve page and post so that style can be specified for entire page
+				 * @since 1.532
+				 */
+ 
+				if( is_page()){
+					$result .= 'body.page-id-' . $post->ID . ' ' . trim( $match ) . "\n";
+				} else {
+					$result .= 'body.postid-' . $post->ID . ' ' . trim( $match ) . "\n";
+				}
 			} else {
 
 				$result .= ' ' . trim( $match ) . "\n";
@@ -14725,6 +14736,23 @@ if ( ! function_exists( 'raindrops_custom_gutenberg_edit_link' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'raindrops_remove_verify_html' ) ) {
+	/**
+	 * 
+	 * @param boolean $init
+	 * @param type $block
+	 * @return boolean
+	 * @since 1.532
+	 */
+	function raindrops_remove_verify_html( $init , $block ) {
+
+		if( 'classic-block' == $block ) {
+			$init['verify_html'] = false;
+		}
+		return $init;
+	}
+}
 /**
  *
  *

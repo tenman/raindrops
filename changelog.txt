@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.532
+
+Overview of Changes
+
+	Japan’s next era as the Reiwa era
+	Raindrops supports era name
+		
+Files Modified
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.531&new_path=raindrops/1.532
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.531
 
 Overview of Changes

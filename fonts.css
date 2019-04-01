@@ -170,6 +170,7 @@ div.menu,
 .gallery .gallery-caption{
     font-size:93%;
 }
+cite,
 sub, sup, small,
 .h5:not(h5), h5 {
     font-size:85%;
@@ -208,6 +209,7 @@ h1,h2,h3,h4,h5,h6,
 /**
  * Calendar
    ========================================================================== */
+
 .yui-t1 #wp-calendar caption,
 .yui-t1 #wp-calendar td{
     font-size:0.61538461538em;
@@ -220,6 +222,10 @@ h1,h2,h3,h4,h5,h6,
 .yui-t5 #wp-calendar caption,
 .yui-t5 #wp-calendar td{
     font-size:1.07692307692em;
+}
+.entry-content .wp-block-calendar th,
+.entry-content .wp-block-calendar td{
+    font-size:0.84615384615em;   
 }
 /**
  * Font Classes

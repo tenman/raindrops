@@ -15,7 +15,7 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
 		
 <?php wp_head(); ?>
     </head>
-    <body id="<?php echo $raindrops_current_theme_slug; ?>" <?php body_class();?>>
+    <body id="<?php echo $raindrops_current_theme_slug; ?>" <?php body_class();?>><?php has_action( 'wp_body_open' ) ? do_action('wp_body_open') : ''; ?>
 		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
         <div class="skip-link"><a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a></div><?php echo raindrops_skip_links(); ?>
 		<?php } // raindrops_disable_keyboard_focus ?>

@@ -1,5 +1,5 @@
 Changelog -----------------------------------
-version:1.532
+version:1.533
 
 Overview of Changes
 
@@ -27,7 +27,7 @@ Files Modified
 	modified:   style.css
 	
 Description of Code Changes
-	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.531&new_path=raindrops/1.532
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.531&new_path=raindrops/1.533
 -----------------------------------------------Changelog -----------------------------------
 Changelog -----------------------------------
 version:1.531

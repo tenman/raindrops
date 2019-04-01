@@ -5,8 +5,26 @@ Overview of Changes
 
 	Japan’s next era as the Reiwa era
 	Raindrops supports era name
+	
+	add filter function raindrops_remove_verify_html()
+	
+	When converted to a block editor, posts created in the text editor are replaced with the classic editor.
+	The source is cleaned up and the post is not destroyed. Stop the cleanup function.
+	
+	add action has_action( 'wp_body_open' ) ? do_action('wp_body_open') : ''; for WordPress 5.2
+	
+	post css editor body postid-* page-id-* supports
 		
 Files Modified
+	modified:   fonts.css
+	modified:   functions.php
+	modified:   header-front.php
+	modified:   header-xhtml.php
+	modified:   header.php
+	modified:   languages/scripts/ja.php
+	modified:   lib/hooks.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 	
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.531&new_path=raindrops/1.532

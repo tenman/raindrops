@@ -3,10 +3,18 @@ version:1.534
 
 Overview of Changes
 
-
+	Removed raindrops_allow_safe_link_target ( add link rel attribute add noopener noreferrer )
+		reason: WordPress 5.2.1 core support
+	
+	Added block-editor.css
 		
 Files Modified
-
+	new file:   block-editor.css
+	modified:   functions.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   style.css
 	
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.533&new_path=raindrops/1.534

@@ -4788,7 +4788,7 @@ if ( ! function_exists( 'raindrops_load_small_device_helper' ) ) {
 	 */
 	function raindrops_load_small_device_helper() {
 
-		global $raindrops_current_data_version, $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text, $raindrops_fallback_image_for_entry_content_enable, $raindrops_fallback_human_interface_show, $raindrops_add_inline_style_for_sidebars, $raindrops_allow_safe_link_target, $raindrops_class_rd_justify_enable;
+		global $raindrops_current_data_version, $is_IE, $raindrops_fluid_maximum_width, $raindrops_browser_detection, $post, $template, $raindrops_link_unique_text, $raindrops_fallback_image_for_entry_content_enable, $raindrops_fallback_human_interface_show, $raindrops_add_inline_style_for_sidebars, $raindrops_class_rd_justify_enable;
 
 		if ( true == $raindrops_fallback_human_interface_show ) {
 			return;
@@ -5046,7 +5046,7 @@ if ( ! function_exists( 'raindrops_load_small_device_helper' ) ) {
 			'raindrops_layout_change_label_to_list'		 => esc_html__( 'Change to list layout', 'raindrops' ),
 			'raindrops_layout_change_label_to_grid'		 => esc_html__( 'Change to grid layout', 'raindrops' ),
 			'raindrops_is_grid_archives'				 => $raindrops_is_grid_archives,
-			'raindrops_allow_safe_link_target'			=> $raindrops_allow_safe_link_target,
+		//	'raindrops_allow_safe_link_target'			=> $raindrops_allow_safe_link_target, removed @1.533 
 			'raindrops_grid_layout_break_point_small_max'	 => apply_filters( 'raindrops_grid_break_point_small', 640 ),
 			'enable_writing_mode_mix'					=> raindrops_warehouse_clone( 'raindrops_enable_writing_mode_mix' ),
 			'writing_mode_vertical_label'				=> esc_html__('Change to writing mode vertical', 'raindrops' ),
@@ -9280,8 +9280,8 @@ if ( ! function_exists( 'raindrops_remove_wrong_p' ) ) {
 	 * @return type
 	 */
 	function raindrops_remove_wrong_p( $content ) {
-
-		$allblocks	 = '(?:table|thead|tfoot|caption|col|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|form|map|area|blockquote|address|math|style|h[1-6]|hr|fieldset|noscript|legend|section|article|aside|hgroup|header|footer|nav|figure|details|menu|summary)';
+		
+		$allblocks	 = '(?:table|thead|tfoot|caption|col|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|form|map|area|blockquote|address|math|style|h[1-6]|hr|fieldset|noscript|legend|section|article|aside|hgroup|header|footer|nav|figure|details|menu|summary|style)';
 		/* 1.261 remove p at allblocks */
 		$content	 = preg_replace( '!([^(<p>)]*)</p>(</' . $allblocks . '>)!', "$1$2", $content );
 		$content	 = preg_replace( '!(<(select|del|option|canvas|mrow|svg|rect|optgroup) [^>]*>)(<br />|</p>)!', "$1", $content );

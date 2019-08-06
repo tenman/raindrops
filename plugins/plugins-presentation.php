@@ -2500,9 +2500,7 @@ div.wp-block-button.aligncenter,
 }
 .wp-block-button.aligncenter{
     position: relative;
-    left: 50%;
-    -webkit-transform:translateX( -50% );
-            transform:translateX( -50% );
+
 }
 .wp-block-button > p{
     margin-bottom:0;

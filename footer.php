@@ -42,5 +42,6 @@ do_action( 'raindrops_pre_part_' . basename( __FILE__, '.php' ) . '_' . basename
     <?php raindrops_append_doc(); ?>
 </div>
     <?php wp_footer(); ?>
+
 </body>
 </html><?php do_action( 'raindrops_after_part_' . basename( __FILE__, '.php' ) . '_' . basename( $template ) ); ?>

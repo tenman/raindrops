@@ -4,7 +4,7 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.534
+Version: 1.535
 Tags: one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -338,6 +338,69 @@ body:not(.rd-col-3).error404 .entry-title,
     margin-bottom:.75em;
     clear:none;
     display:table;
+}
+.textwidget h1[style], 
+.textwidget h2[style], 
+.textwidget h3[style], 
+.textwidget .h1[style], 
+.textwidget .h2[style], 
+.textwidget .h3[style], 
+.textwidget h4[style], 
+.textwidget h5[style], 
+.textwidget h6[style], 
+.textwidget .h4[style], 
+.textwidget .h5[style], 
+.textwidget .h6[style], 
+.entry-content h1[style], 
+.entry-content h2[style], 
+.entry-content h3[style], 
+.entry-content .h1[style], 
+.entry-content .h2[style], 
+.entry-content .h3[style], 
+.entry-content h4[style], 
+.entry-content h5[style], 
+.entry-content h6[style], 
+.entry-content .h4[style], 
+.entry-content .h5[style], 
+.entry-content .h6[style],
+ h1.has-text-align-center, 
+ h2.has-text-align-center, 
+ h3.has-text-align-center, 
+ .h1.has-text-align-center, 
+ .h2.has-text-align-center, 
+ .h3.has-text-align-center, 
+ h4.has-text-align-center, 
+ h5.has-text-align-center, 
+ h6.has-text-align-center, 
+ .h4.has-text-align-center, 
+ .h5.has-text-align-center, 
+ .h6.has-text-align-center,
+ h1.has-text-align-right, 
+ h2.has-text-align-right, 
+ h3.has-text-align-right, 
+ .h1.has-text-align-right, 
+ .h2.has-text-align-right, 
+ .h3.has-text-align-right, 
+ h4.has-text-align-right, 
+ h5.has-text-align-right, 
+ h6.has-text-align-right, 
+ .h4.has-text-align-right, 
+ .h5.has-text-align-right, 
+ .h6.has-text-align-right,
+ h1.has-text-align-left, 
+ h2.has-text-align-left, 
+ h3.has-text-align-left, 
+ .h1.has-text-align-left, 
+ .h2.has-text-align-left, 
+ .h3.has-text-align-left, 
+ h4.has-text-align-left, 
+ h5.has-text-align-left, 
+ h6.has-text-align-left, 
+ .h4.has-text-align-left, 
+ .h5.has-text-align-left, 
+ .h6.has-text-align-left{
+    clear:both;
+    display:block;
 }
 .paragraph_wrap_enable .h1,
 .paragraph_wrap_enable .h2,
@@ -7793,6 +7856,7 @@ x:-o-prefocus, .rd-modal > div {
 #doc .button-wrapper{
     display:none;
 }
+#doc2 #access,
 #doc3 #access,
 #doc5 #access {
     width:100%;

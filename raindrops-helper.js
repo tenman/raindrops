@@ -641,36 +641,13 @@
          */
         jQuery('.search-form [type="search"]').attr('required', 'required');
 
-        /**
-         * @since1.470
-         * for Tabnabbing
-         * 
-         * removed @1.533 
-         */
-        /*
-        if (true == raindrops_script_vars.raindrops_allow_safe_link_target) {
-
-            jQuery('a[target^="_blank"]').not('[href^="' + raindrops_script_vars.home_url + '"]').attr('rel', 'noopener noreferrer');
-            jQuery('a[target^="_brank"]').not('[href^="' + raindrops_script_vars.home_url + '"]').attr('rel', 'noopener noreferrer');
-        }*/
+       
         /**
          * add rel="nofollow" for External links that have been described in the comment text
          */
         jQuery('.comment-body a[href^=http]').not('[href^="' + raindrops_script_vars.home_url + '"]').attr('rel', 'nofollow');
     });
 })(jQuery);
-
-/* @1.516
- function raindrops_share_href() {
- 
- var browser = document.raindrops_share.share_links.value;
- 
- if ( browser == 'data:text' ) {
- location.href = raindrops_script_vars.content_shareing;
- } else {
- location.href = browser;
- }
- }*/
 
 /* Sticky Menu */
 
@@ -699,8 +676,7 @@ jQuery(function ($) {
 
                 topBtn.fadeIn();
                 $('#desmiss').fadeIn();
-                //  $( 'nav#access, p.raindrops-mobile-menu' ).addClass( 'raindrops-menu-fixed' ); //.css( { 'min-height': '3.2em' } );
-
+                
                 if (raindrops_window_width < 641) {
                     $('nav .menu > li > a').removeAttr('style');
                 }
@@ -709,7 +685,6 @@ jQuery(function ($) {
 
                 $('#desmiss').fadeOut('fast');
                 topBtn.fadeOut('fast');
-                //  $( 'nav#access, p.raindrops-mobile-menu' ).removeClass( 'raindrops-menu-fixed' );
                 $('nav').not('.lsidebar').removeAttr('style');
                 $('nav .menu > li > a').removeAttr('style');
             }

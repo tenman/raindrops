@@ -68,15 +68,7 @@ if( ! isset( $raindrops_featured_image_recent_post_count_limit ) ) {
 
 	$raindrops_featured_image_recent_post_count_limit = 'none';
 }
-/**
- * @since 1.470
- * target='_blank' link add rel="noopener noreferrer" for security reason
- * removed @1.533 
- */
-/*
-if( ! isset( $raindrops_allow_safe_link_target ) ) {
-	$raindrops_allow_safe_link_target = true;
-}*/
+
 /**
  * @since 1.470
  * Grid layout posted in style

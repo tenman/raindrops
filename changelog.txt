@@ -1,4 +1,21 @@
 Changelog -----------------------------------
+version:1.535
+
+Overview of Changes
+	Fixed: heading h1-16 text-align issue. 
+	Fixed: When page width 950px primary menu link position. change from　left to center
+Files Modified
+	modified:   footer.php
+	modified:   functions.php
+	modified:   lib/vars.php
+	modified:   plugins/plugins-presentation.php
+	modified:   raindrops-helper.js
+	modified:   style.css
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.534&new_path=raindrops/1.535
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.534
 
 Overview of Changes

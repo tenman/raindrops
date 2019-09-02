@@ -2230,8 +2230,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_color_coded_category_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				"yes"	 => esc_html__( "Yes", 'raindrops' ),
-				"no"	 => esc_html__( "No", 'raindrops' ),
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_post',
 		),
@@ -2246,8 +2247,9 @@ One is a method of up-loading the image from the below up-loading form. Another 
 			'sanitize_callback'	 => 'raindrops_color_coded_post_tag_validate',
 			'type'				 => 'radio',
 			'choices'			 => array(
-				"yes"	 => esc_html__( "Yes", 'raindrops' ),
-				"no"	 => esc_html__( "No", 'raindrops' ),
+				'yes'	 => esc_html__( 'Yes', 'raindrops' ),
+				'no'	 => esc_html__( 'No', 'raindrops' ),
+				'hide'	 => esc_html__( 'Hide', 'raindrops' ),
 			),
 			'section'			 => 'raindrops_theme_settings_post',
 		),

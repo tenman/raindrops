@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.536
+
+Overview of Changes
+	Added: Customizer Show Hide control. Category list and Post tag list in posted in area
+Files Modified
+	modified:   lib/customize.php
+	modified:   functions.php
+
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.535&new_path=raindrops/1.536
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.535
 
 Overview of Changes

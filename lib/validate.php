@@ -205,14 +205,14 @@ function raindrops_widget_recent_posts_validate($input) {
 	}			
 }
 function raindrops_color_coded_post_tag_validate($input) {
-	if( $input == 'yes' || $input == 'no'  ) {
+	if( $input == 'yes' || $input == 'no' || $input == 'hide' ) {
 		return $input;
 	} else {
 		return 'yes';
 	}			
 }
 function raindrops_color_coded_category_validate($input) {
-	if( $input == 'yes' || $input == 'no'  ) {
+	if( $input == 'yes' || $input == 'no' || $input == 'hide' ) {
 		return $input;
 	} else {
 		return 'yes';

@@ -1111,7 +1111,8 @@ if ( ! function_exists( 'raindrops_posted_in' ) ) {
 		$format			 = get_post_format( $post->ID );
 		$tag_list		 = raindrops_get_the_posted_in_tag( '', ' ' );
 		$categories_list = raindrops_get_the_posted_in_category( ' ' );
-
+		$post_category_hide_check = raindrops_warehouse_clone( 'raindrops_color_coded_category' );
+		$post_tag_hide_check = raindrops_warehouse_clone( 'raindrops_color_coded_post_tag' );
 
 		if ( !empty( $exclude_category_conditionals ) && is_array( $exclude_category_conditionals ) ) {
 
@@ -1167,7 +1168,19 @@ if ( ! function_exists( 'raindrops_posted_in' ) ) {
 			$category_label	 = esc_html__( 'This entry was posted in', 'raindrops' );
 			$tag_label		 = esc_html__( 'and tagged', 'raindrops' );
 		}
+		
+
+		
+
 		if ( false === $format ) {
+			
+			if ( 'hide' == $post_category_hide_check ) {
+				$category_label = '';
+			}
+
+			if ( ! isset( $post ) || 'hide' == $post_tag_hide_check ) {
+				$tag_label = '';
+			}
 
 			if ( $tag_list ) {
 
@@ -1183,6 +1196,15 @@ if ( ! function_exists( 'raindrops_posted_in' ) ) {
 
 				$posted_in = '';
 			}
+			
+			if ( 'hide' == $post_category_hide_check ) {
+				
+				$categories_list = '';
+			}
+			if ( ! isset( $post ) || 'hide' == $post_tag_hide_check ) {
+				
+				$tag_list = '';
+			}
 
 			$result = $format . sprintf( $posted_in, $categories_list, $tag_list );
 			$result = apply_filters( "raindrops_posted_in", $result );
@@ -1192,8 +1214,20 @@ if ( ! function_exists( 'raindrops_posted_in' ) ) {
 		} else {
 
 			if ( $tag_list ) {
+					
+				if ( 'hide' == $post_category_hide_check ) {
+
+					$category_label = '';
+				}
+				if ( ! isset( $post ) || 'hide' == $post_tag_hide_check ) {
+
+					$tag_label = '';
+				}
+
 
 				$posted_in = '<span class="this-posted-in">' . $category_label . '</span><span class="post-category"> %1$s </span><span class="tagged">' . $tag_label . '</span> <span class="post-tag"> %2$s </span>' . '  <span class="post-format-wrap"><span class="post-format-text">%4$s</span> <a href="%3$s"> <span class="post-format">%5$s</span></a></span>';
+				
+				
 			} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
 
 				$posted_in = '<span class="this-posted-in">' . $category_label . '</span> <span class="post-category">%1$s %2$s</span>' . '  <span class="post-format-wrap"><span class="post-format-text">%4$s</span><a href="%3$s"> <span class="post-format">%5$s</span></a></span>';
@@ -1201,6 +1235,19 @@ if ( ! function_exists( 'raindrops_posted_in' ) ) {
 
 				$posted_in = '<a href="%3$s">   <span class="post-format-wrap"><span class="post-format-text">%4$s</span> <span class="post-format">%5$s</span></span></a>';
 			}
+			
+			if ( ! is_object_in_taxonomy( get_post_type(), 'category' ) ) {
+			
+				if ( 'hide' == $post_category_hide_check ) {
+					
+					$categories_list = '';
+				}
+				if ( ! isset( $post ) || 'hide' == $post_tag_hide_check ) {
+					
+					$tag_list = '';
+				}
+			}
+			
 			$result = sprintf( $posted_in, $categories_list, $tag_list, esc_url( get_post_format_link( $format ) ), esc_html( 'Format', 'raindrops' ), get_post_format_string( $format ) );
 			$result = apply_filters( "raindrops_posted_in", $result );
 
@@ -11888,6 +11935,8 @@ if ( ! function_exists( 'raindrops_get_the_posted_in_tag' ) ) {
 	function raindrops_get_the_posted_in_tag( $before = '', $sep = '', $after = '' ) {
 
 		global $post;
+		
+		
 
 		if ( !isset( $post ) ) {
 			return;

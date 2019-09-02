@@ -6,6 +6,7 @@ Overview of Changes
 Files Modified
 	modified:   lib/customize.php
 	modified:   functions.php
+	modified:	lib/validate.php
 
 	
 Description of Code Changes

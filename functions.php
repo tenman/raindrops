@@ -9504,7 +9504,7 @@ if ( ! class_exists( 'raindrops_custom_css' ) ) {
 
 		public function render_meta_box_content( $post ) {
 
-			do_action( ' raindrops_custom_css_pre' );
+			do_action( 'raindrops_custom_css_pre' );
 			$form					 = '';
 			wp_nonce_field( 'raindrops_inner_custom_box', 'raindrops_inner_custom_box_nonce' );
 			$value					 = get_post_meta( $post->ID, '_css', true );
@@ -14791,6 +14791,7 @@ if ( ! function_exists( 'raindrops_remove_verify_html' ) ) {
 		return $init;
 	}
 }
+			
 /**
  *
  *

@@ -1,4 +1,16 @@
 Changelog -----------------------------------
+version:1.537
+
+Overview of Changes
+	CSS modified
+Files Modified
+	modified:  plugins/plugin-activation.php
+	modified:	lib/validate.php
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.536&new_path=raindrops/1.537
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.536
 
 Overview of Changes

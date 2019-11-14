@@ -42,7 +42,7 @@ raindrops_debug_navitation( __FILE__ );
 								$args = array( 'post_mime_type' => 'application/pdf', 
 												'post_type' => 'attachment', 
 												'numberposts' => 1, 
-												'post_status' => 'publish',
+												'post_status' => 'inherit',
 												'post_parent' => $parent_id );
 								$direct_link = esc_url( wp_get_attachment_url( $post->ID ) );
 								

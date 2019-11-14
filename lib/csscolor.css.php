@@ -399,7 +399,9 @@ ul.archive,ul.index,
 .lsidebar ul li ul li:last-child{
 	border:none;
 }
-
+.rd-table-wrapper{
+	background:$background_4;
+}
 .ie6 .datetable td li,
 .ie7 .datetable td li,
 .ie8 .datetable td li{
@@ -973,6 +975,9 @@ function raindrops_indv_css_w3standard() {
 	}
 	
     $style = <<<DOC
+.rd-table-wrapper{
+	background:#fff;
+}
 .entry-content p a{
 	text-decoration-color: rgb(85,85,85);
 }
@@ -1609,6 +1614,9 @@ function raindrops_indv_css_light() {
 		$transform = '';
 	}
 	$style = <<<DOC
+.rd-table-wrapper{
+	background:#fff;
+}
 li.byuser,
 li.bypostauthor {
     %c5%
@@ -2504,6 +2512,9 @@ function raindrops_indv_css_minimal() {
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#000!important;');
 	$raindrops_focus_style = apply_filters( 'raindrops_forcus_style',  'background:#efefef!important;color:#c0392b!important;');
     $style = <<<CSS
+.rd-table-wrapper{
+	background:#fff;
+}
 li.byuser,
 li.bypostauthor {
 	background:#fff;

@@ -2,10 +2,13 @@ Changelog -----------------------------------
 version:1.537
 
 Overview of Changes
-	CSS modified
+	CSS modified for WordPress 5.3
 Files Modified
-	modified:  plugins/plugin-activation.php
-	modified:	lib/validate.php
+	modified:   functions.php
+	modified:   lib/csscolor.css.php
+	modified:   pdf.php
+	modified:   plugins/plugins-presentation.php
+	modified:   style.css
 	
 Description of Code Changes
 	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.536&new_path=raindrops/1.537

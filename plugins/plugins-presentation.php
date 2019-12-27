@@ -660,10 +660,11 @@ if ( ! function_exists( 'raindrops_tribe_events_event_classes' ) ) {
 	 * @return type
 	 */
 	function raindrops_tribe_events_event_classes( $return_value ) {
-		if ( 'yes' == get_theme_mod( 'raindrops_the_events_calendar_status' ) &&
+		/**
+		 * if ( 'yes' == get_theme_mod( 'raindrops_the_events_calendar_status' ) &&
 				'yes' == raindrops_warehouse_clone( 'raindrops_plugin_presentation_the_events_calendar' ) ) {
 
-		}
+		}*/
 		return $return_value;
 	}
 
@@ -813,12 +814,13 @@ if ( function_exists( 'amp_init' ) ) {
 		 * @since 1.415
 		 */
 		function raindrops_amp_filter( $content ) {
-			if ( is_amp_endpoint() ) {
-				/**
-				 * commentout @since 1.422 relate AMP 0.3.3
-				 */
-				//	$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
-			}
+			/**
+			 * commentout @since 1.422 relate AMP 0.3.3
+			 */
+			/*if ( is_amp_endpoint() ) {
+
+					$content = preg_replace('!<(/)?div[^>]*>!','<hr />', $content );
+			}*/
 			return $content;
 		}
 
@@ -2159,10 +2161,13 @@ figure.wp-block-embed-wordpress.alignwide {
 }
 
 .wp-block-gallery{
-
+	margin-left:auto;
+	margin-right:auto;
 }
 .wp-block-gallery ul.blocks-gallery-grid{
-
+	margin: 0 auto;
+	left:0;
+	
 }
 .wp-block-gallery ul.blocks-gallery-grid .blocks-gallery-item{
 	margin-right:3px;

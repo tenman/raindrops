@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 do_action( 'raindrops_before' );
+
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -253,7 +254,7 @@ if ( !isset( $raindrops_document_type ) ) {
 
 		$raindrops_document_type = 'html5';
 
-		add_theme_support( 'html5', array( 'gallery', 'caption' ) );
+		add_theme_support( 'html5', array( 'gallery', 'caption', 'style', 'script' ) );
 	}
 }
 if ( ! function_exists( 'raindrops_gallery_atts' ) ) {
@@ -757,6 +758,7 @@ foreach ( $raindrops_base_setting as $setting ) {
  *
  *
  */
+
 if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 
 	function raindrops_add_body_class( $classes ) {
@@ -801,8 +803,12 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 		}
 		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_category' ) && true == $builtin_type ) {
 			$classes[] = 'rd-cat-em';
+		} elseif ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_category' ) && is_404() ) {
+			$classes[] = 'rd-cat-em';
 		}
 		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_post_tag' ) && true == $builtin_type ) {
+			$classes[] = 'rd-tag-em';
+		} elseif ( 'yes' == raindrops_warehouse_clone( 'raindrops_color_coded_post_tag' ) && is_404() ) {
 			$classes[] = 'rd-tag-em';
 		}
 		/**
@@ -1002,6 +1008,8 @@ if ( ! function_exists( 'raindrops_add_body_class' ) ) {
 
 			$classes[] = 'raindrops-status-bar-active';
 		}
+		
+		
 		return apply_filters( "raindrops_add_body_class", $classes );
 	}
 
@@ -3067,10 +3075,6 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 
 		$result_indv = '';
 		$pinup_style = '';
-		if ( RAINDROPS_USE_AUTO_COLOR !== true ) {
-
-			//  $css = '';
-		}
 
 		if ( is_single() || is_page() ) {
 
@@ -3202,10 +3206,6 @@ if ( ! function_exists( "raindrops_embed_meta" ) ) {
 			if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
 				if ( have_posts() && !is_date() ) {
-
-					if ( false == RAINDROPS_USE_AUTO_COLOR ) {
-
-					}
 
 					while ( have_posts() ) {
 						the_post();
@@ -5378,7 +5378,7 @@ if ( ! function_exists( 'raindrops_is_fluid' ) ) {
 			.rd-pw-doc5.rd-col-1 #list-of-post,
 			.rd-pw-doc5.rd-col-1 .raindrops-tile-wrapper .portfolio,
 			.rd-pw-doc5.rd-col-1.search .pagetitle,
-			.rd-pw-doc5.rd-col-1.search .search-results article,
+			/*.rd-pw-doc5.rd-col-1.search .search-results article,*/
 			.rd-pw-doc5.rd-col-1 .fail-search,
 			.rd-pw-doc5.rd-col-1.tag article,
 			.rd-pw-doc5.rd-col-1.page-template-date-php #doc3 .datetable,
@@ -7377,7 +7377,7 @@ if ( ! function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 		?>
 	<style <?php raindrops_doctype_elements( ' type="text/css" ', '');?> id="raindrops-customizer-1">
 		.accordion-section label{
-			display:inline-block!important;
+			
 			margin-right:1em;
 		}
 		#customize-control-raindrops_theme_settings-raindrops_style_type label,/* new */
@@ -7395,14 +7395,14 @@ if ( ! function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 			border:1px solid #eee;
 		}
 		.customize-control .customize-inside-control-row{
-			/* Wordpress 4.9 */
+			/* WordPress 4.9 */
 			display:inline-block;
 		}
 		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="dark"],
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="dark"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label ,/* Wordpress 4.6 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="dark"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label ,/* WordPress 4.6 */
 		#customize-control-raindrops_style_type .customize-control-notifications-container + label,
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label ,/* Wordpress 4.5 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label ,/* WordPress 4.5 */
 		#customize-control-raindrops_style_type .customize-control-title + label{
 
 			background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-dark.png'; ?> );
@@ -7412,11 +7412,11 @@ if ( ! function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 			background-repeat:no-repeat;
 			background-size:contain;
 		}
-		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="w3standard"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="w3standard"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label,/* Wordpress 4.6 */
+		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="w3standard"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="w3standard"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label,/* WordPress 4.6 */
 		#customize-control-raindrops_style_type .customize-control-notifications-container  + label + label,
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label,/* Wordpress 4.5 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label,/* WordPress 4.5 */
 		#customize-control-raindrops_style_type .customize-control-title  + label + label{
 
 			background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-w3standard.png'; ?> );
@@ -7426,11 +7426,11 @@ if ( ! function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 			background-repeat:no-repeat;
 			background-size:contain;
 		}
-		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="light"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="light"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label,/* Wordpress 4.6 */
+		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="light"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="light"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label,/* WordPress 4.6 */
 		#customize-control-raindrops_style_type .customize-control-notifications-container  + label +label + label,
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label,/* Wordpress 4.5 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label,/* WordPress 4.5 */
 		#customize-control-raindrops_style_type .customize-control-title  + label +label + label{
 
 			background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-light.png'; ?> );
@@ -7440,11 +7440,11 @@ if ( ! function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 			background-repeat:no-repeat;
 			background-size:contain;
 		}
-		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="minimal"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="minimal"] ,/* Wordpress 4.9 */
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label + label,/* Wordpress 4.6 */
+		#customize-control-raindrops_style_type .customize-inside-control-row label[for$="minimal"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-inside-control-row label[for$="minimal"] ,/* WordPress 4.9 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label + label,/* WordPress 4.6 */
 		#customize-control-raindrops_style_type .customize-control-notifications-container  + label +label + label + label,
-		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label,/* Wordpress 4.5 */
+		#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label,/* WordPress 4.5 */
 		#customize-control-raindrops_style_type .customize-control-title  + label +label + label + label{
 
 			background:url( <?php echo get_template_directory_uri() . '/images/screen-shot-minimal.png'; ?> );
@@ -7457,11 +7457,11 @@ if ( ! function_exists( 'raindrops_customize_controls_print_styles' ) ) {
 <?php
 if ( is_child_theme() ) {
 	?>
-			#customize-control-raindrops_style_type span.customize-inside-control-row:nth-of-type(6) label ,/* Wordpress 4.9 */
-			#customize-control-raindrops_theme_settings-raindrops_style_type span.customize-inside-control-row:nth-of-type(6) label ,/* Wordpress 4.9 */
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label + label + label,/* Wordpress 4.6 */
+			#customize-control-raindrops_style_type span.customize-inside-control-row:nth-of-type(6) label ,/* WordPress 4.9 */
+			#customize-control-raindrops_theme_settings-raindrops_style_type span.customize-inside-control-row:nth-of-type(6) label ,/* WordPress 4.9 */
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-notifications-container +label + label + label + label + label,/* WordPress 4.6 */
 			#customize-control-raindrops_style_type .customize-control-notifications-container  + label +label + label + label + label,
-			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label + label,/* Wordpress 4.5 */
+			#customize-control-raindrops_theme_settings-raindrops_style_type .customize-control-title +label + label + label + label + label,/* WordPress 4.5 */
 			#customize-control-raindrops_style_type .customize-control-title  + label +label + label + label + label{
 				/**
 				* Conditional fallback screenshot using multiple background
@@ -7476,7 +7476,7 @@ if ( is_child_theme() ) {
 				background-size:contain;
 			}
 
-		<?php } ?>
+<?php } ?>
 		#customize-control-raindrops_theme_settings-raindrops_use_featured_image_emphasis,
 		#customize-control-raindrops_use_featured_image_emphasis{
 			background:rgba(0,128,128,.3);
@@ -9929,10 +9929,6 @@ if ( ! function_exists( 'raindrops_color_type_style_buffer' ) ) {
 				/* 1.304 todo structure change for external css */
 			}
 
-			if ( !defined( 'WP_DEBUG' ) || WP_DEBUG == false ) {
-
-				//$style = preg_replace('!('. wp_spaces_regexp() .'){2,}!', ' ', $style );
-			}
 			ob_start();
 			$css = $style;
 			$css = wp_kses( $css, array() );
@@ -10752,10 +10748,6 @@ if ( ! function_exists( 'raindrops_post_category_relation' ) ) {
 			$parents_item = str_replace( '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . $category->name . "</a>&#187;", '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '"><span class="cat-item cat-item-' . absint( $category->term_id ) . '">' . $category->name . "</a>&#187;", $parents );
 
 			$parents = explode( '&#187;', $parents_item );
-
-			if ( !empty( $parents_item ) ) {
-				//$result[] = '<span class="label title parent">'.esc_html__('Parent Category:','raindrops' ).'</span>';
-			}
 
 			foreach ( $parents as $links ) {
 
@@ -13064,9 +13056,6 @@ if( ! function_exists('raindrops_post_relate_contents') ) {
 
 			);
 
-			if ( 'recent_post' == $type ) {
-				//$args['orderby'] = 'post_date';
-			}
 			if ( 'category' == $type ) {
 				$args[ 'category' ]	 = $id;
 				$args[ 'orderby' ]	 = 'rand';

@@ -721,15 +721,13 @@ if ( ! function_exists( 'raindrops_switch_default_by_color_type_clone' ) ) {
 		switch ( $name ) {
 
 			case ( "minimal" ):
-				if( !empty( $option_name )  && 'bad' !== raindrops_warehouse_clone( $option_name ) ) {
+				/**
+				 * Pending @1.430
+				 * if( !empty( $option_name )  && 'bad' !== raindrops_warehouse_clone( $option_name ) ) {
+				
+					 return $conditional_val;
 
-					/**
-					 * Pending @1.430
-					 * return $conditional_val;
-					 */
-				}
-
-
+				}*/
 			break;
 		}	
 		return $default_val;

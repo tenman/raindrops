@@ -320,10 +320,6 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 
 			$css .= raindrops_gradient_clone( '.rd-type-boots #yui-main .entry-content .gradient' );
 		}
-		if ( function_exists( 'raindrops_color_base_clone' ) ) {
-
-			// $css .= raindrops_color_base_clone( $raindrops_base_color );
-		}
 
 		$raindrops_sticky_conditional = raindrops_warehouse_clone( 'raindrops_display_sticky_post' );
 
@@ -455,10 +451,6 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
 			if ( true == RAINDROPS_OVERRIDE_POST_STYLE_ALL_CONTENTS ) {
 
 				if ( have_posts() ) {
-
-					if ( false == RAINDROPS_USE_AUTO_COLOR ) {
-						
-					}
 
 					while ( have_posts() ) {
 						the_post();

@@ -31,7 +31,7 @@ a:hover {
     margin-left:auto;
     margin-right:auto;
 }
-/* wordPress native */
+/* WordPress native */
 .gallery, html .mceContentBody .gallery{
     width:fit-content;
     width:-moz-fit-content;

@@ -127,13 +127,8 @@ raindrops_debug_navitation( __FILE__ );
      */
     raindrops_next_prev_links( "nav-below" );
 	
-} else {
-    
-}           // if ( have_posts( ) )
+}    // if ( have_posts( ) )
 ?>
-
-						
-					
             </div>
                 <?php
                 /**

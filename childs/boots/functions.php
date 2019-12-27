@@ -14,9 +14,7 @@ if ( !isset( $boots_custom_header_args ) ) {
         , 'flex-height'            => true
         , 'header-text'            => true
         , 'default-image'          => get_stylesheet_directory_uri() . '/images/headers/wp3.jpg'
-       // , 'wp-head-callback'       => apply_filters( 'raindrops_wp-head-callback', 'raindrops_child_embed_css' )
-        //, 'admin-preview-callback' => 'raindrops_admin_header_image'
-        //, 'admin-head-callback'    => 'raindrops_admin_header_style'
+
     );
 
     add_theme_support( 'custom-header', $boots_custom_header_args );
@@ -31,10 +29,7 @@ if ( !function_exists( 'raindrops_child_init' ) ) {
     add_action( 'after_setup_theme', 'raindrops_child_init' );
 
     function raindrops_child_init() {
-        /* Insert Site Title and Description to Header Image */
-		if ( file_exists( get_stylesheet_directory().'/header.php' ) ) {
 
-		}
         /* broad color type setting */
         add_action( 'raindrops_include_after', 'boots_extend_styles' );
 

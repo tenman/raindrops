@@ -502,8 +502,6 @@ if ( !class_exists( 'raindrops_recent_post_group_by_category_widget' ) ) {
 							$post = $attachments[ $attachment_key ];
 						} elseif ( $attachments_num == 1 ) {
 							$post = $attachments[ 0 ];
-						} else {
-
 						}
 
 						if ( isset( $attachments ) && $attachments_num > 0 ) {

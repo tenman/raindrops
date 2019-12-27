@@ -3235,6 +3235,11 @@ table#wp-caledar td a{
     padding-bottom:0;
     max-width:none;
 }
+article .wp-block-image{
+    border: none;
+    background: transparent;
+}
+
 .rd-col-1.enable-align-wide .linefull,
 .rd-col-1.enable-align-wide .rd-table-wrapper.alignfull,
 .enable-align-wide #bd .wp-block-gallery.alignfull,
@@ -3275,9 +3280,12 @@ table#wp-caledar td a{
     margin-top:0;
     display:block;
     position:relative;
-    left:-5px;
+   /* left:-5px;*/
     width:100%;
     height:100%;
+}
+.enable-align-wide #bd figure.wp-block-image.aligncenter img{
+    margin:0;  
 }
 .enable-align-wide.rd-grid #bd figure.alignfull{
     margin-left:0;

@@ -1,4 +1,29 @@
 Changelog -----------------------------------
+version:1.538
+
+Overview of Changes
+	Modified when html5, removed style attribute type="text/css", script attribute type="text/script"
+	Removed CSS when search results 1col fullwidth, remove max-width property.
+    Modified when is_404(), category color enable.
+	Modified div.wp-block-image, removed improperly border.
+	Modified Code cleaning. empty if, error of capital_P_dangit()
+	
+Files Modified
+	modified:	childs/boots/functions.php
+	modified:   childs/boots/inc.php
+	modified:   childs/inc.php
+	modified:   editor-style.css
+	modified:   functions.php
+	modified:   lib/alias_functions.php
+	modified:   lib/widgets.php
+	modified:   plugins/plugins-presentation.php
+	modified:   single.php
+	modified:   style.css
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.537&new_path=raindrops/1.538
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.537
 
 Overview of Changes

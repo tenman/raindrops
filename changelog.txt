@@ -1,4 +1,22 @@
 Changelog -----------------------------------
+version:1.539
+
+Overview of Changes
+	WordPress 5.5 relate changes
+		Fixed $comment->comment_type return empty to 'comment'
+	
+	Modified
+		Themes Team new required.	
+		get_template_directory_uri() must be escaped when output as part of a link or image source. Use esc_url() for link attributes. A manual review is needed.
+		
+		add_filter( 'template_directory_uri', 'esc_url', 11 );
+	
+Files Modified
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.538&new_path=raindrops/1.539
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.538
 
 Overview of Changes

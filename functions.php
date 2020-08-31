@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 do_action( 'raindrops_before' );
 
+
 /**
  * move from hooks.php
  * and change from load_textdomain(   ) to load_theme_text_domain(   )
@@ -1027,7 +1028,7 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 
 	function raindrops_comment( $comment, $args, $depth ) {
 
-		if ( '' == $comment->comment_type ) {
+		if ( 'comment' == $comment->comment_type ) {
 			?>
 			<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 				<div id="comment-<?php comment_ID(); ?>">
@@ -1066,6 +1067,7 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 					<div class="comment-body">
 			<?php
 			comment_text();
+			
 			?>
 					</div>
 					<div class="reply">
@@ -2391,7 +2393,7 @@ if ( ! function_exists( "raindrops_embed_css" ) ) {
 					$css .= '.entry-content > .is-regular-text{ max-width:100%;}';
 					$css .= '.entry-content >  p:not(.d-tate):not(.trancate){ max-width:100%;}';
 					$css .= '.entry-content > p.aligncenter{ max-width:100%;}';
-					$css .= '.entry-content .aligncenter{ max-width:100%;}';
+					$css .= '.entry-content .aligncenter:not(.wp-block-cover){ max-width:100%;}';
 					$css .= '.entry-content .fit-p{ max-width:100%;}';
 					$css .= '.entry-content ul,ol{ max-width:100%;}';
 				$css .= '}';

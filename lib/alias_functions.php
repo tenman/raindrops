@@ -743,7 +743,7 @@ if ( ! function_exists( 'raindrops_switch_default_by_color_type_clone' ) ) {
 if ( ! function_exists( 'raindrops_default_colors_clone' ) ) {
 	function raindrops_default_colors_clone( $name = 'dark', $option_name = false, $default = false ) {
 
-		$raindrops_images_path		 = get_stylesheet_directory_uri() . '/images/';
+		$raindrops_images_path		 = esc_url( get_stylesheet_directory_uri() . '/images/' );
 		// Sidebar Image
 		$navigation_title_img		 = raindrops_warehouse_clone( 'raindrops_heading_image' );
 		$navigation_title_img_uri	 = esc_url( $raindrops_images_path . $navigation_title_img );
@@ -1725,7 +1725,7 @@ if ( !function_exists( 'raindrops_locate_url' ) ) {
 		}
 		
 		$filetype		 = wp_check_filetype( $filename );
-		$template_uri	 = trailingslashit( get_template_directory_uri() );
+		$template_uri	 = trailingslashit( esc_url( get_template_directory_uri() ) );
 		$template_path	 = trailingslashit( get_template_directory() );
 
 		if ( !empty( $raindrops_minified_files_js_dir ) && 'js' == $filetype[ 'ext' ] ) {
@@ -1742,7 +1742,7 @@ if ( !function_exists( 'raindrops_locate_url' ) ) {
 
 		if ( is_child_theme() ) {
 
-			$stylesheet_uri	 = trailingslashit( get_stylesheet_directory_uri() );
+			$stylesheet_uri	 = trailingslashit( esc_url( get_stylesheet_directory_uri() ) );
 			$stylesheet_path = trailingslashit( get_stylesheet_directory() );
 
 			if ( true == $minified_flag && isset( $filetype[ 'ext' ] ) && ('css' == $filetype[ 'ext' ] || 'js' == $filetype[ 'ext' ] ) ) {

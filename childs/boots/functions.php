@@ -13,7 +13,7 @@ if ( !isset( $boots_custom_header_args ) ) {
         , 'height'                 => apply_filters( 'raindrops_header_image_height', 310 )
         , 'flex-height'            => true
         , 'header-text'            => true
-        , 'default-image'          => get_stylesheet_directory_uri() . '/images/headers/wp3.jpg'
+        , 'default-image'          => esc_url( get_stylesheet_directory_uri() . '/images/headers/wp3.jpg' )
 
     );
 

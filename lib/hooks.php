@@ -474,11 +474,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.532
 		 */
 		add_filter( 'tiny_mce_before_init', 'raindrops_remove_verify_html', 10, 2 );
-		/**
-		 * @since 1.539
-		 */
-		add_filter( 'template_directory_uri', 'esc_url', 11 );
-		add_filter( 'stylesheet_directory_uri', 'esc_url', 11 );
+		
 
 	}
 }

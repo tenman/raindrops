@@ -3429,7 +3429,7 @@ if( function_exists( 'raindrops_indv_css_'.$raindrops_embed_common_style) ) {
 	raindrops_register_styles( $raindrops_embed_common_style );
 }
 
-$raindrops_images_path = get_stylesheet_directory_uri() . '/images/';
+$raindrops_images_path = esc_url( get_stylesheet_directory_uri() . '/images/' );
 
 if ( !file_exists( $raindrops_images_path ) ) {
 
@@ -3630,20 +3630,20 @@ function raindrops_design_output( $name = 'dark' ) {
         $raindrops_hd_images_path = $uploads['url'] . '/';
     } else {
 
-        $raindrops_hd_images_path = get_stylesheet_directory_uri() . '/images/';
+        $raindrops_hd_images_path = esc_url( get_stylesheet_directory_uri() . '/images/' );
     }
 
     if ( !file_exists( get_stylesheet_directory() . '/images/' ) ) {
 
-        $raindrops_hd_images_path = get_template_directory_uri() . '/images/';
+        $raindrops_hd_images_path = esc_url( get_template_directory_uri() . '/images/' );
     }
 
     $raindrops_hd_image_path = apply_filters( 'raindrops_hd_image_path', $raindrops_hd_images_path );
-    $raindrops_images_path   = get_stylesheet_directory_uri() . '/images/';
+    $raindrops_images_path   = esc_url( get_stylesheet_directory_uri() . '/images/' );
 
     if ( !file_exists( get_stylesheet_directory() . '/images/' ) ) {
 
-        $raindrops_images_path = get_template_directory_uri() . '/images/';
+        $raindrops_images_path = esc_url( get_template_directory_uri() . '/images/' );
     }
     $raindrops_images_path       = apply_filters( 'raindrops_images_path', $raindrops_images_path );
     $navigation_title_img        = raindrops_warehouse_clone( 'raindrops_heading_image' );

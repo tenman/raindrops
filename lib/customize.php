@@ -3493,10 +3493,10 @@ function raindrops_print_scripts() {
 	
 	if ( file_exists( get_stylesheet_directory() . '/lib/customize.js' ) ) {
 		
-		wp_enqueue_script( 'raindrops-customize', get_stylesheet_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
+		wp_enqueue_script( 'raindrops-customize', esc_url( get_stylesheet_directory_uri() ) . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
 	} else {
 		
-		wp_enqueue_script( 'raindrops-customize', get_template_directory_uri() . '/lib/customize.js', array( 'jquery' ), $raindrops_current_data_version, true );
+		wp_enqueue_script( 'raindrops-customize', esc_url( get_template_directory_uri() . '/lib/customize.js' ), array( 'jquery' ), $raindrops_current_data_version, true );
 	}
 	
 	$customized = get_option('raindrops_theme_settings');

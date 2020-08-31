@@ -1425,7 +1425,7 @@ if ( ! function_exists( 'raindrops_css_gutenberg_specificity' ) ) {
 }
 
 function raindrops_gutenberg_front_end_style() {
-	$theme_url	 = get_stylesheet_directory_uri();
+	$theme_url	 = esc_url( get_stylesheet_directory_uri() );
 	$style		 = <<<GUTENBERG
 
 /**

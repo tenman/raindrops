@@ -1365,7 +1365,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		array( 'option_id'		 => 86,
 			'blog_id'		 => 0,
 			'option_name'	 => 'raindrops_fallback_image_for_entry_content',
-			'option_value'	 => get_template_directory_uri() . '/images/image-not-found.png',
+			'option_value'	 => esc_url( get_template_directory_uri() . '/images/image-not-found.png' ),
 			'autoload'		 => 'show',
 			'title'			 => esc_html__( 'Fallback Image for Entry Content', 'raindrops' ),
 			'excerpt1'		 => '',

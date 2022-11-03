@@ -23,7 +23,7 @@ raindrops_debug_navitation( __FILE__ );
  * $raindrops_bf_recent_posts_setting	//wp_get_recent_posts
  * $raindrops_bf_category_posts_setting  //get_posts
  * $raindrops_bf_tag_posts_setting	//get_posts
- * 
+ *
  * $raindrops_bf_display_title // Site Title
  * $raindrops_bf_display_description // Site description + Need customizer site title and tagline display header text checkbox off
  * $raindrops_bf_display_header_image // header image
@@ -66,7 +66,7 @@ if ( !isset( $raindrops_bf_recent_posts_setting ) ) {
 
     $raindrops_bf_recent_posts_setting = array(
         'title'                                       => esc_html__( 'Recent Posts', 'raindrops' ),
-        'numberposts'                                 => 4, //show count
+        'numberposts'                                 => 0, //show count
         'raindrops_excerpt_length'                    => 50, // excerpt length
         'raindrops_excerpt_more'                      => '...', // excerpt more marker
         'raindrops_post_thumbnail'                    => true,
@@ -332,14 +332,14 @@ if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_cust
                 echo 'style="width:99%;"';
             }
             */?>>
-			<?php get_template_part( 'widget', 'sticky' ); ?>			
- 
+			<?php get_template_part( 'widget', 'sticky' ); ?>
+
 
                 <?php get_template_part( 'loop', 'default' ); ?>
                 <br style="clear:both" />
             </div>
             <?php if ( $raindrops_devide_column_extra_class == 'yui-u' ) { ?>
-                <?php 
+                <?php
                     if ( $rsidebar_show && $raindrops_bf_display_widget == 'y' ) {
 						?><div class="yui-u"><?php
 						raindrops_prepend_extra_sidebar();
@@ -352,11 +352,11 @@ if ( ( 'y' !== $raindrops_bf_remove_left_margin || 'y' == $raindrops_bf_add_cust
         </div>
     </div>
 </div>
-<?php  
-if ( 'yui-b' == $raindrops_devide_column_class ) { 
+<?php
+if ( 'yui-b' == $raindrops_devide_column_class ) {
 	if ( $raindrops_bf_display_widget == 'y' ) {
 		get_sidebar( 'default' );
 	}
-}//if ( $raindrops_devide_column_class == 'yui-b' )   
-get_footer( $raindrops_document_type ); 
+}//if ( $raindrops_devide_column_class == 'yui-b' )
+get_footer( $raindrops_document_type );
 ?>

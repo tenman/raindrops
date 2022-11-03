@@ -57,7 +57,7 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 		} //end switch( $raindrops_document_type )
 	?>
 	<body <?php body_class( ); ?>><?php has_action( 'wp_body_open' ) ? do_action('wp_body_open') : ''; ?>
-		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>	
+		<?php if ( raindrops_warehouse( 'raindrops_disable_keyboard_focus' ) == 'enable' ) { ?>
 		<div class="skip-link">
 			<a href="#container" class="screen-reader-text" title="<?php esc_attr_e( 'Skip to content', 'raindrops' ); ?>"><?php esc_html_e( 'Skip to content', 'raindrops' ); ?></a>
 		</div>
@@ -66,35 +66,35 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 			<?php raindrops_prepend_doc(); ?>
 			<<?php raindrops_doctype_elements( 'div', 'header' ); ?> id="top">
 			<div id="hd" <?php raindrops_doctype_elements( '', 'role="banner"' ); ?>>
-				<?php	
+				<?php
 				if( raindrops_is_place_of_site_title() == true ) {
-					
+
 					echo raindrops_site_title();
 				}
-				 echo raindrops_site_description(); 
-				?>               
+				 echo raindrops_site_description();
+				?>
 			</div>
 			<?php
-				if ( function_exists('has_header_video') && function_exists('the_custom_header_markup' ) &&	has_header_video() 
+				if ( function_exists('has_header_video') && function_exists('the_custom_header_markup' ) &&	has_header_video()
 						&& ( true == is_home() && true == is_front_page() || false == is_home() && true == is_front_page() ) ) {
 					raindrops_the_header_image();
 					the_custom_header_markup();
-					
-				} 
-                
+
+				}
+
                 raindrops_nav_menu_primary();
-				
+
 				raindrops_after_nav_menu();
-				?>			
+				?>
 
 			</<?php raindrops_doctype_elements( 'div', 'header' ); ?>>
 			<?php
 			$raindrops_title_in_the_header_check = raindrops_warehouse_clone( 'raindrops_place_of_site_title' );
-				 
+
 			if ( true == $raindrops_link_unique_text || $raindrops_title_in_the_header_check == 'header_image' ) {
-			
+
 				$raindrops_header_image = raindrops_header_image( 'elements' );
-				
+
 			} else {
 
 				$raindrops_header_image = raindrops_header_image( 'home_url' );
@@ -123,15 +123,15 @@ echo '<' . '?' . 'xml version="1.0" encoding="' . get_bloginfo( 'charset' ) . '"
 						</div>
 					</div>
 					<div class="unit size1of2">
-						
+
 						<div class="static-front-media">
 							<?php
-							
+
 							if ( has_post_thumbnail() ) {
 								the_post_thumbnail( 'large' );
 							} else {
 								echo $raindrops_header_image;
-								
+
 							}
 						?></div>
 					</div>

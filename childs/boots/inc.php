@@ -418,7 +418,7 @@ if ( !function_exists( 'raindrops_child_embed_css' ) ) {
             }
 
 			$result_indv = raindrops_remove_spaces_from_css( $result_indv );
-			
+
 			$result .= '<style'. raindrops_doctype_elements( ' type="text/css" ', ' ', false ).'>';
             $result .= "\n<!--/*<! [CDATA[*/\n";
 			$result .= "\n/*start custom fields style for loop pages*/\n";
@@ -462,7 +462,7 @@ if ( !function_exists( 'raindrops_sidebar_catetory_validate' ) ) {
 
 if ( !function_exists( 'raindrops_remove_spaces_from_css' ) ) {
 	/**
-	 * 
+	 *
 	 * @param type $css
 	 * @return type
 	 * @since 1.416
@@ -487,7 +487,7 @@ if ( !function_exists( 'raindrops_remove_spaces_from_css' ) ) {
  * Overwrite Parent Theme Settings
  */
 if ( !isset( $raindrops_child_base_setting_args ) ) {
-	
+
 	$raindrops_child_base_setting_args = array(
 		array( 'option_id'		 => 1,
 			'blog_id'		 => 0,
@@ -1135,7 +1135,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		array( 'option_id'		 => 64,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_article_title_css_class",
-			'option_value'	 => ' ',
+			'option_value'	 => '',
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Entry Title CSS Class', 'raindrops' ),
 			'excerpt1'		 => '',

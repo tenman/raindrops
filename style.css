@@ -4,12 +4,12 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.540
+Version: 1.600
 Tags: block-styles, wide-blocks, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: raindrops
-Tested up to: 5.5
+Tested up to: 6.1
 Requires PHP: 5.6
 */
 /**
@@ -341,66 +341,66 @@ body:not(.rd-col-3).error404 .entry-title,
     clear:none;
     display:table;
 }
-.textwidget h1[style], 
-.textwidget h2[style], 
-.textwidget h3[style], 
-.textwidget .h1[style], 
-.textwidget .h2[style], 
-.textwidget .h3[style], 
-.textwidget h4[style], 
-.textwidget h5[style], 
-.textwidget h6[style], 
-.textwidget .h4[style], 
-.textwidget .h5[style], 
-.textwidget .h6[style], 
-.entry-content h1[style], 
-.entry-content h2[style], 
-.entry-content h3[style], 
-.entry-content .h1[style], 
-.entry-content .h2[style], 
-.entry-content .h3[style], 
-.entry-content h4[style], 
-.entry-content h5[style], 
-.entry-content h6[style], 
-.entry-content .h4[style], 
-.entry-content .h5[style], 
+.textwidget h1[style],
+.textwidget h2[style],
+.textwidget h3[style],
+.textwidget .h1[style],
+.textwidget .h2[style],
+.textwidget .h3[style],
+.textwidget h4[style],
+.textwidget h5[style],
+.textwidget h6[style],
+.textwidget .h4[style],
+.textwidget .h5[style],
+.textwidget .h6[style],
+.entry-content h1[style],
+.entry-content h2[style],
+.entry-content h3[style],
+.entry-content .h1[style],
+.entry-content .h2[style],
+.entry-content .h3[style],
+.entry-content h4[style],
+.entry-content h5[style],
+.entry-content h6[style],
+.entry-content .h4[style],
+.entry-content .h5[style],
 .entry-content .h6[style],
- h1.has-text-align-center, 
- h2.has-text-align-center, 
- h3.has-text-align-center, 
- .h1.has-text-align-center, 
- .h2.has-text-align-center, 
- .h3.has-text-align-center, 
- h4.has-text-align-center, 
- h5.has-text-align-center, 
- h6.has-text-align-center, 
- .h4.has-text-align-center, 
- .h5.has-text-align-center, 
- .h6.has-text-align-center,
- h1.has-text-align-right, 
- h2.has-text-align-right, 
- h3.has-text-align-right, 
- .h1.has-text-align-right, 
- .h2.has-text-align-right, 
- .h3.has-text-align-right, 
- h4.has-text-align-right, 
- h5.has-text-align-right, 
- h6.has-text-align-right, 
- .h4.has-text-align-right, 
- .h5.has-text-align-right, 
- .h6.has-text-align-right,
- h1.has-text-align-left, 
- h2.has-text-align-left, 
- h3.has-text-align-left, 
- .h1.has-text-align-left, 
- .h2.has-text-align-left, 
- .h3.has-text-align-left, 
- h4.has-text-align-left, 
- h5.has-text-align-left, 
- h6.has-text-align-left, 
- .h4.has-text-align-left, 
- .h5.has-text-align-left, 
- .h6.has-text-align-left{
+h1.has-text-align-center,
+h2.has-text-align-center,
+h3.has-text-align-center,
+.h1.has-text-align-center,
+.h2.has-text-align-center,
+.h3.has-text-align-center,
+h4.has-text-align-center,
+h5.has-text-align-center,
+h6.has-text-align-center,
+.h4.has-text-align-center,
+.h5.has-text-align-center,
+.h6.has-text-align-center,
+h1.has-text-align-right,
+h2.has-text-align-right,
+h3.has-text-align-right,
+.h1.has-text-align-right,
+.h2.has-text-align-right,
+.h3.has-text-align-right,
+h4.has-text-align-right,
+h5.has-text-align-right,
+h6.has-text-align-right,
+.h4.has-text-align-right,
+.h5.has-text-align-right,
+.h6.has-text-align-right,
+h1.has-text-align-left,
+h2.has-text-align-left,
+h3.has-text-align-left,
+.h1.has-text-align-left,
+.h2.has-text-align-left,
+.h3.has-text-align-left,
+h4.has-text-align-left,
+h5.has-text-align-left,
+h6.has-text-align-left,
+.h4.has-text-align-left,
+.h5.has-text-align-left,
+.h6.has-text-align-left{
     clear:both;
     display:block;
 }
@@ -1359,28 +1359,8 @@ article .entry-content .block{
     box-sizing:border-box;
     margin-top:1em;
     margin-bottom:1em;
-    padding-top:.5em;/* float after bullet position config */
 }
-/**
- * @1.496
- * TODO vanished list number on edge browser
- *
-article ol,
-article ul{
-    z-index:-1;
-    overflow:hidden;
-    padding:0 1em 0 2em;
-    box-sizing:border-box;
-    margin-top:1em;
-}
-.wraparound{
-    overflow:visible;
-    position:relative;
-    left:1em;
-    padding-top:1em;
-    box-sizing:border-box;
-    max-width:calc(100% - 1em);
-}*/
+
 .rd-float-wrapper > ol,
 .rd-float-wrapper > ul{
     margin-top:0;
@@ -1661,22 +1641,7 @@ input[type="url" i]:required,
 input[type="week" i]:required{
     border-bottom: 2px solid rgb(225, 77, 67);
 }
-/* todo
-textarea:optional,
-input:not([type]):optional,
-input[type="color" i]:optional,
-input[type="date" i]:optional,
-input[type="datetime" i]:optional,
-input[type="datetime-local" i]:optional,
-input[type="email" i]:optional,
-input[type="month" i]:optional,
-input[type="number" i]:optional,
-input[type="tel" i]:optional,
-input[type="text" i]:optional,
-input[type="time" i]:optional,
-input[type="url" i]:optional,
-input[type="week" i]:optional{
-}*/
+
 /**
  * Known Issue
  * :valid works even if nothing is entered in the field
@@ -1915,6 +1880,9 @@ div.hentry {
 /**
  * Search Result
    ========================================================================== */
+.wp-block-search__button{
+    margin: 1em .5em 1em 0;
+}
 .search-results,
 .search-results > li{
     margin:0;
@@ -2417,7 +2385,7 @@ div[class^="entry-meta"] .author .avatar,
 .posted-on .author .avatar{
     width:24px;
     height:24px;
-    position:static;
+    position:relative;
     vertical-align:middle;
 }
 div[class^="entry-meta"] .emoji-date,
@@ -3243,6 +3211,8 @@ article .wp-block-image{
     background: transparent;
 }
 
+
+
 .rd-col-1.enable-align-wide .linefull,
 .rd-col-1.enable-align-wide .rd-table-wrapper.alignfull,
 .enable-align-wide #bd .wp-block-gallery.alignfull,
@@ -3257,8 +3227,14 @@ article .wp-block-image{
     margin-right: -50vw;
     display:table;
     max-width:none;
+ /*   position:static ! important;
+    width:100%;
+    max-widht:100%;
+    margin-left:auto ! important;
+    margin-right:auto ! important;
+    border:1px solid red ! important;*/
 }
-
+/*
 .rd-col-1.enable-align-wide .rd-table-wrapper.alignfull{
     /* like padding */
     width:calc( 100vw - 48px);
@@ -3267,7 +3243,7 @@ article .wp-block-image{
 .enable-align-wide #bd .wp-block-gallery.alignfull{
     display:flex;
 }
-
+*/
 .enable-align-wide .rd-col-2 .alignfull,
 .enable-align-wide .rd-col-3 .alignfull{
     /* z-index:-1;*/
@@ -3283,13 +3259,14 @@ article .wp-block-image{
     margin-top:0;
     display:block;
     position:relative;
-   /* left:-5px;*/
+    /* left:-5px;*/
     width:100%;
     height:100%;
 }
 .enable-align-wide #bd figure.wp-block-image.aligncenter img{
-    margin:0;  
+    margin:0;
 }
+/*
 .enable-align-wide.rd-grid #bd figure.alignfull{
     margin-left:0;
     margin-right:0;
@@ -3298,7 +3275,7 @@ article .wp-block-image{
     right:0;
     max-width:100%;
     width:auto;
-}
+}*/
 .enable-align-wide.rd-grid #bd figure.wp-block-image.alignfull img,
 .enable-align-wide.rd-grid #bd figure.alignfull img{
     object-fit:contain;
@@ -3438,33 +3415,36 @@ article .wp-block-image{
     margin-left: calc(-50vw + 40px + 25% );
     margin-right: calc(-50vw - 40px - 25%);
 }
+
 p.aligncenter.has-drop-cap{
     display:block;
 }
-p.has-background{
+.has-background{
     padding:.75em 1em;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
 }
-p.alignleft{
+.alignleft{
     display:inline-block;
     margin-right:13px;
     padding:7px 13px;
     margin-bottom:.6em;
-    max-width:calc( 50% - 1em );
+    width:calc( 50% - 1em );
+    max-width:100%;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
 }
-p.alignright{
+.alignright{
     display:inline-block;
     margin-left:13px;
     padding:7px 13px;
     margin-top:3px;
-    max-width:calc( 50% - 1em );
+    width:calc( 50% - 1em );
+    max-width:100%;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
 }
-p.aligncenter{
+.aligncenter{
     margin: 1.5em auto .75em;
     display:table;
     /* @1.516 padding:7px 13px; */
@@ -3472,11 +3452,11 @@ p.aligncenter{
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
 }
-p.aligncenter.has-background{
+.aligncenter.has-background{
     /* @1.516 */
     padding:7px 13px;
 }
-p.alignnone{
+.alignnone{
     padding:7px 13px;
     box-sizing:border-box;
 }
@@ -3507,6 +3487,16 @@ ul.aligncenter{
 .page-featured-image{
     padding:0;
 }
+h1.alignleft,
+h2.alignleft,
+h3.alignleft,
+h4.alignleft,
+h5.alignleft,
+h6.alignleft,
+h1.alignleft,
+ol.alignleft,
+ul.alignleft,
+figure.alignleft,
 div.alignleft,
 img.alignleft,
 .alignleft {
@@ -3516,6 +3506,15 @@ img.alignleft,
     margin-right:1em;
     margin-left:0;
 }
+h1.alignright,
+h2.alignright,
+h3.alignright,
+h4.alignright,
+h5.alignright,
+h6.alignright,
+ol.alignright,
+ul.alignright,
+figure.alignright,
 div.alignright,
 img.alignright,
 .alignright {
@@ -8391,11 +8390,11 @@ body:not(.rd-primary-menu-responsive-active) .raindrops-mobile-menu{
 }
 body.rd-primary-menu-responsive-active .raindrops-mobile-menu .close,
 .raindrops-mobile-menu .close{
-    /* @1.526 */ 
+    /* @1.526 */
     /* background-image: url(../raindrops/images/raindrops-nav-menu-shrunk.png);*/
     background-image:url(../raindrops/images/close.png);
     background-size:contain;
-    background-repeat:no-repeat;  
+    background-repeat:no-repeat;
 }
 #page-top span{
     background-image:url( images/go-top.png );
@@ -10297,7 +10296,7 @@ span[data-rd-style*="width"] {
 .wc-block-featured-product,
 .wc-block-featured-category{
     display:flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -10311,4 +10310,34 @@ article .entry-content .wc-block-featured-category:before{
 }
 .wp-block-button.wc-block-grid__product-add-to-cart{
     display:block;
+}
+.raindrops-amp-standard #hd,
+.raindrops-amp-transitional #hd{
+    display:block;
+}
+.raindrops-amp-standard #hd .site-title-link,
+.raindrops-amp-transitional #hd .site-title-link{
+    color:rgb(188,188,188);
+}
+
+.wp-block-navigation .wp-block-navigation__submenu-container{
+   margin-top:0;
+   margin-bottom:0;
+}
+.wp-block-navigation .wp-block-navigation__submenu-container li{
+    margin-bottom:1px;
+}
+pre.wp-block-code.has-background code{
+    background:transparent;
+}
+pre.wp-block-code.has-text-color code{
+    color:revert;
+}
+#raindrops .is-flex-container > li{
+    padding:0;
+    list-style-type:none;
+}
+.wp-block-site-logo.is-default-size img{
+    width:auto;
+    height:auto;
 }

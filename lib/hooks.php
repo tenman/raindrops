@@ -23,26 +23,26 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		/**
 		 *
 		 */
-		
+
 		$load_editor_css_setting = raindrops_warehouse_clone( 'raindrops_sync_style_for_tinymce' );
-		
+
 		if( 'yes' == $load_editor_css_setting ) {
-			
+
 			if ( is_admin() && isset( $_GET[ 'post' ] ) && !empty( $_GET[ 'post' ] ) ) {
 				$raindrops_post_id = absint( $_GET[ 'post' ] );
-				add_editor_style( 
-					array( 'editor-style.css', 
-						add_query_arg( 
-							array( 'action' => 'raindrops_editor_styles', 'id' => $raindrops_post_id ), admin_url( 'admin-ajax.php' ) 
-							) 					
-					) 
+				add_editor_style(
+					array( 'editor-style.css',
+						add_query_arg(
+							array( 'action' => 'raindrops_editor_styles', 'id' => $raindrops_post_id ), admin_url( 'admin-ajax.php' )
+							)
+					)
 				);
 
 			} else {
 				add_editor_style( array( 'editor-style.css', add_query_arg( 'action', 'raindrops_editor_styles', admin_url( 'admin-ajax.php' ) ) ) );
 			}
 		} else {
-			
+
 			add_editor_style( array( 'editor-style.css') );
 		}
 
@@ -207,7 +207,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_action( 'wp_head', 'raindrops_add_header_archive_description' );
 		/**
 		 * @since 1.276
-		 * remove 1.423 
+		 * remove 1.423
 		 */
 		/*add_filter( 'raindrops_fallback_title', 'raindrops_strip_escaped_title', 99 );*/
 		/**
@@ -318,7 +318,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.405
 		 */
 		add_action( 'admin_enqueue_scripts', 'raindrops_widget_page_style' );
-		add_action( 'sidebar_admin_page', 'raindrops_widget_style_description' );
+		
 		/**
 		 * @since 1.410
 		 */
@@ -335,7 +335,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'site_icon_meta_tags', 'raindrops_remove_sizes_attribute' );
 		add_filter( 'gettext_with_context', 'raindrops_gettext_with_context', 10, 4 );
 		/**
-		 * 
+		 *
 		 * @since 1.413
 		 */
 		add_action( 'wp_print_styles', 'raindrops_current_post_hilight' );
@@ -373,27 +373,27 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 			add_filter( 'widget_title', 'raindrops_filter_custom_post_title', 10, 3 );
 		}
 		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_widget_archives') ) {
-			
+
 			add_filter('widget_archives_args', 'raindrops_filter_custom_post_archive_widget' );
-			add_filter('widget_archives_dropdown_args', 'raindrops_filter_custom_post_archive_widget' );		
+			add_filter('widget_archives_dropdown_args', 'raindrops_filter_custom_post_archive_widget' );
 			add_filter('widget_title', 'raindrops_filter_custom_post_archive_widget_title',10, 3 );
 		}
 		if ( 'yes' == raindrops_warehouse_clone( 'raindrops_widget_categories') ) {
-			
+
 			add_filter('widget_categories_args', 'raindrops_filter_custom_post_category_widget' );
-			add_filter('widget_categories_dropdown_args', 'raindrops_filter_custom_post_category_widget' );		
+			add_filter('widget_categories_dropdown_args', 'raindrops_filter_custom_post_category_widget' );
 			add_filter('widget_title', 'raindrops_filter_custom_post_category_widget_title',10,3);
 		}
-		
+
 		add_filter('template_include','raindrops_post_type_exclude_template');
-		
+
 		/**
 		 * WordPress4.7 work properly but WordPress4.6.1 Not Work
 		 * This setting for for 4.7
 		 * @since 1.442
 		 */
 		add_theme_support( 'customize-selective-refresh-widgets' );
-		
+
 		/**
 		 * @since 1.446
 		 */
@@ -418,7 +418,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.486
 		 */
 		add_filter( 'raindrops_fallback_google_font', 'raindrops_google_font_helper_for_japanese', 10, 2 );
-		
+
 		/**
 		* @somce 1.488
 		*/
@@ -456,11 +456,11 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_filter( 'widget_custom_html_content', 'raindrops_automatic_modal_rel_rev_sidebar', 11, 2 );
 		/**
 		 * @since 1.511
-		 * chaged 1.524 
+		 * chaged 1.524
 		 */
 		//add_filter( 'the_content', 'raindrops_convert_inline_style_to_data_attr' );
 		add_filter( 'style_loader_tag', 'raindrops_convert_inline_style_to_attribute_style', 10, 3 );
-		
+
 		add_filter( 'tiny_mce_before_init', 'raindrops_tinymce_body_classes');
 		/**
 		 * @since 1.524
@@ -468,13 +468,13 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		add_action( 'wp_enqueue_scripts', 'raindrops_add_lazyload_script' );
 		add_action( 'wp_enqueue_scripts', 'raindrops_add_instantclick_script' );
 		add_filter( 'script_loader_tag', 'disable_instantclick', 10, 3 );
-		
+
 		add_action( 'edit_post_link', 'raindrops_custom_gutenberg_edit_link', 10 , 3 );
 		/**
 		 * @since 1.532
 		 */
 		add_filter( 'tiny_mce_before_init', 'raindrops_remove_verify_html', 10, 2 );
-		
+
 
 	}
 }

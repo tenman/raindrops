@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Keyword highlight for Search results 
+ * Keyword highlight for Search results
  * @since 1.521
  */
 if( ! isset( $raindrops_search_keyword_highlight ) ) {
@@ -19,7 +19,7 @@ if( ! isset( $raindrops_search_keyword_highlight ) ) {
 }
 
 /**
- * 
+ *
  */
 if( false == get_theme_mod( 'header_textcolor') ) {
 
@@ -400,7 +400,7 @@ if ( !isset( $raindrops_extend_galleries ) ) {
 }
 if( 'xhtml' == raindrops_warehouse_clone('raindrops_doc_type_settings')){
 	/* @1.506 */
-	$raindrops_extend_galleries = false;	
+	$raindrops_extend_galleries = false;
 }
 
 if ( !defined( 'RAINDROPS_USE_AUTO_COLOR' ) ) {
@@ -1342,7 +1342,7 @@ One is a method of up-loading the image from the below up-loading form. Another 
 		"raindrops_article_title_css_class"					 => array( 'option_id'		 => 64,
 			'blog_id'		 => 0,
 			'option_name'	 => "raindrops_article_title_css_class",
-			'option_value'	 => ' ',
+			'option_value'	 => '',
 			'autoload'		 => 'yes',
 			'title'			 => esc_html__( 'Entry Title CSS Class', 'raindrops' ),
 			'excerpt1'		 => '',

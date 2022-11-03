@@ -31,12 +31,7 @@ function raindrops_theme_register_required_plugins() {
             'slug'               => 'wp-pagenavi',
             'required'           => false,
         ),
-		 array(
-            'name'               => 'Comet Cache',
-            'slug'               => 'comet-cache',
-            'required'           => false,
-        ),
-		 array(
+		array(
             'name'               => 'Meta Slider',
             'slug'               => 'ml-slider',
             'required'           => false,
@@ -60,7 +55,7 @@ function raindrops_theme_register_required_plugins() {
 	$message_strings .= '<p>'. esc_html__( "Prior to install the theme, if you have to activate these plug-ins, it does not do anything. If you use the function of customized plug-in theme, Once you have the plug-in de-activate, add this page or, in the plug-in list, and you'll re-activated, the item of the customizer add-on It will be.", 'raindrops' ). '</p>';
 	$message_strings .= '<p>'. esc_html__('Of course, even if you do not use these plugins, it will work without the function of the Raindrops is lost, please decide freely whether or not to use or use in your favorite','raindrops').'</p></div>';
 	$message_strings .= '<p><a href="'. esc_url( admin_url('customize.php' ) ).'">'.esc_html__('Link to Customizer', 'raindrops' ).'</a></p>';
-	
+
     $config = array(
         'default_path' => '',                      // Default absolute path to pre-packaged plugins.
         'menu'         => 'tgmpa-install-plugins', // Menu slug.

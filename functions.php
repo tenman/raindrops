@@ -2082,13 +2082,16 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 			 * @global type $commenter
 			 * @param array $form
 			 * @return type
+			 * @since 1.600 removed
+			 *
 			 */
+			/*
 			function raindrops_comment_form( $form ) {
-
+var_dump( $form );
 				global $commenter;
 				$form['url'] = '<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'raindrops' ) . '</label><span class="option">' . esc_html__( '(&nbsp;optional&nbsp;)', 'raindrops' ) . '</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
 				return apply_filters( "raindrops_comment_form", $form );
-			}
+			}*/
 
 		}
 		/**

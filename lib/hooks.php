@@ -51,9 +51,10 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 */
 		add_filter( 'wp_page_menu_args', 'raindrops_page_menu_args' );
 		/**
-		 *
+		 * @since 1.600 removed
+		 * Because the argument becomes null and an error occurs
 		 */
-		add_filter( 'comment_form_default_fields', 'raindrops_comment_form' );
+		//add_filter( 'comment_form_default_fields', 'raindrops_comment_form' );
 		/**
 		 *
 		 */
@@ -318,7 +319,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * @since 1.405
 		 */
 		add_action( 'admin_enqueue_scripts', 'raindrops_widget_page_style' );
-		
+
 		/**
 		 * @since 1.410
 		 */

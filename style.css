@@ -2795,6 +2795,8 @@ hr:after {
 .wp-block-separator{
     clear:both;
     float:none;
+    /* OW */
+    border-top:none;
 }
 
 p + hr{

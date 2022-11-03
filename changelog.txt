@@ -1,4 +1,17 @@
 Changelog -----------------------------------
+version:1.600
+
+Overview of Changes
+	WordPress 6.1 relate changes
+		Inactive plugin removed from recommended plugins. Comet Cache
+		removed add_filter( ‘comment_form_default_fields’, ‘raindrops_comment_form’ );
+			the argument becomes null and an error occurs
+	
+	
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.540&new_path=raindrops/1.600
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.540
 
 Overview of Changes

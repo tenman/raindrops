@@ -1150,7 +1150,7 @@ html body.gutenberg-editor-page .has-stripe-background-color {
  * Color
  */
 
-//test
+
 @charset "UTF-8";
 .toolbar-button-with-text:before {
     display: block;
@@ -3163,16 +3163,16 @@ html body.gutenberg-editor-page .has-stripe-background-color {
     color: #fff;
 }
 /* add */
-div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/table"][data-align=full] .block-editor-block-mover, 
-div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/table"][data-align=wide] .block-editor-block-mover{ 
+div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/table"][data-align=full] .block-editor-block-mover,
+div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/table"][data-align=wide] .block-editor-block-mover{
     top:-36px;
 }
-div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/image"][data-align=full] .block-editor-block-mover, 
-div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/image"][data-align=wide] .block-editor-block-mover{ 
+div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/image"][data-align=full] .block-editor-block-mover,
+div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/image"][data-align=wide] .block-editor-block-mover{
     top:-36px;
 }
-div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/media-text"][data-align=full] .block-editor-block-mover, 
-div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/media-text"][data-align=wide] .block-editor-block-mover{ 
+div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/media-text"][data-align=full] .block-editor-block-mover,
+div.block-editor-block-list__layout .block-editor-block-list__block[data-type="core/media-text"][data-align=wide] .block-editor-block-mover{
     top:-36px;
 }
 div.block-editor-block-list__layout .block-editor-block-list__block [data-block]{

@@ -50,11 +50,7 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 		 * thanks ison
 		 */
 		add_filter( 'wp_page_menu_args', 'raindrops_page_menu_args' );
-		/**
-		 * @since 1.600 removed
-		 * Because the argument becomes null and an error occurs
-		 */
-		//add_filter( 'comment_form_default_fields', 'raindrops_comment_form' );
+
 		/**
 		 *
 		 */
@@ -479,4 +475,52 @@ if ( !function_exists( 'raindrops_theme_setup' ) ) {
 
 	}
 }
+
+add_filter( "wp_kses_allowed_html", function ( $allowedposttags, $context ) {
+
+	if ( $context == "post" ) {
+
+		$emulsion_allowed_tag	 = array(
+			'a'		 => array(
+				'href'				 => true,
+				'rel'				 => true,
+				'rev'				 => true,
+				'name'				 => true,
+				'target'			 => true,
+				'download'			 => array(
+					'valueless' => 'y',
+				),
+				'aria-current'		 => true,
+				'data-no-instant'	 => true,
+			),
+			'time'	 => array(
+				'class'		 => true,
+				'datetime'	 => true,
+			),
+			'td' => array(
+				'style'		=> true
+			),
+			'img'	 => array(
+				'aria-hidden'	 => true,
+				'alt'			 => true,
+				'align'			 => true,
+				'border'		 => true,
+				'decoding'		 => true,
+				'height'		 => true,
+				'hspace'		 => true,
+				'loading'		 => true,
+				'longdesc'		 => true,
+				'vspace'		 => true,
+				'src'			 => true,
+				'usemap'		 => true,
+				'width'			 => true,
+			),
+		);
+		$emulsion_allowed_tag	 = array_map( '_wp_add_global_attributes', $emulsion_allowed_tag );
+
+		return array_merge( $allowedposttags, $emulsion_allowed_tag );
+	}
+
+	return $allowedposttags;
+}, 99, 2 );
 ?>

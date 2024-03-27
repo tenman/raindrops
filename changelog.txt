@@ -1,4 +1,13 @@
 Changelog -----------------------------------
+version:1.700
+
+Overview of Changes
+	Security Fix and WordPress 6.5 relate changes
+	Tested widh PHP8.0
+Description of Code Changes
+	please see https://themes.trac.wordpress.org/changeset?old_path=raindrops/1.600&new_path=raindrops/1.700
+-----------------------------------------------Changelog -----------------------------------
+Changelog -----------------------------------
 version:1.600
 
 Overview of Changes

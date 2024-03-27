@@ -219,10 +219,12 @@ if ( ! function_exists( 'raindrops_request_url' ) ) {
 	 */
 	function raindrops_request_url() {
 		global $wp;
-		return home_url( $wp->request );
+		// @since 1.700 add esc_url()
+		return esc_url( home_url( $wp->request ) );
 	}
 
 }
+
 /**
  * home link
  *
@@ -1300,10 +1302,10 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 					$raindrops_comment_string	 = '';
 					$raindrops_comment_number	 = '';
 				}
+				// @since 1.700 add esc_url()
+				$result = sprintf( $raindrops_comment_html, esc_url( get_comments_link() ), $raindrops_comment_number, $raindrops_comment_string );
 
-				$result = sprintf( $raindrops_comment_html, get_comments_link(), $raindrops_comment_number, $raindrops_comment_string );
-
-				return apply_filters( 'raindrops_comments_link', $result, get_comments_link(), $raindrops_comment_number, $raindrops_comment_string );
+				return apply_filters( 'raindrops_comments_link', $result,  esc_url( get_comments_link() ), $raindrops_comment_number, $raindrops_comment_string );
 			}
 
 		}
@@ -1330,6 +1332,9 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 				}
 
 				$author_html = sprintf( $author_html, get_author_posts_url( get_the_author_meta( 'ID' ) ), $author_attr_title_string, $author );
+				// @since 1.700
+				$author_html = wp_kses_post( $author_html );
+
 				$author_html = apply_filters( 'raindrops_post_author', $author_html );
 
 				return $author_html;
@@ -1382,6 +1387,8 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 					$entry_date_html = sprintf( $entry_date_html, $date_text, raindrops_doctype_elements( 'span', 'time', false ), raindrops_doctype_elements( '', 'datetime="' . esc_attr( get_the_date( 'c' ) ) . '"', false )
 							, $published_class );
 				}
+				// @since 1.700 add wp_kses_post()
+				$entry_date_html = wp_kses_post( $entry_date_html );
 
 				$entry_date_html = apply_filters( 'raindrops_post_date', $entry_date_html, $date_text, absint( $post->ID ) );
 
@@ -1515,6 +1522,7 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 		 *
 		 *
 		 */
+
 		if ( ! function_exists( 'raindrops_admin_meta' ) ) {
 
 			function raindrops_admin_meta( $name, $meta_name ) {
@@ -1522,8 +1530,11 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 				global $raindrops_base_setting, $raindrops_page_width;
 
 				$raindrops_current_data			 = wp_get_theme();
-				$raindrops_current_data_version	 = $raindrops_current_data->get( 'Version' );
-				$raindrops_current_theme_name	 = $raindrops_current_data->get( 'Name' );
+
+				// @since 1.700 add sanitize_text_field()
+				$raindrops_current_data_version	 = sanitize_text_field( $raindrops_current_data->get( 'Version' ) );
+				$raindrops_current_theme_name	 = sanitize_text_field( $raindrops_current_data->get( 'Name' ) );
+
 				/**
 				 * Theme version trainsitional setting
 				 * Note: Maybe remove new version live
@@ -1619,8 +1630,9 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 				$help	 .= '<p>' . esc_html__( 'above codes paste style.css last. If not change when  Version value change ( line:9 )', 'raindrops' ) . '</p>';
 
 				$help = wpautop( $help );
+				// @since 1.700 add wp_kses_post()
+				$content = wp_kses_post( '<dl id="raindrops-help">' . $content . $help . '</dl>' );
 
-				$content = '<dl id="raindrops-help">' . $content . $help . '</dl>';
 				return $content;
 			}
 
@@ -1728,6 +1740,7 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 					$result	 .= "</dl>";
 
 					$result .= $text;
+
 					return $result;
 				} else {
 
@@ -2075,25 +2088,6 @@ if ( ! function_exists( 'raindrops_comment' ) ) {
 
 		}
 
-		if ( ! function_exists( "raindrops_comment_form" ) ) {
-
-			/**
-			 * filter function comment form
-			 * @global type $commenter
-			 * @param array $form
-			 * @return type
-			 * @since 1.600 removed
-			 *
-			 */
-			/*
-			function raindrops_comment_form( $form ) {
-var_dump( $form );
-				global $commenter;
-				$form['url'] = '<p class="comment-form-url"><label for="url">' . esc_html__( 'Website', 'raindrops' ) . '</label><span class="option">' . esc_html__( '(&nbsp;optional&nbsp;)', 'raindrops' ) . '</span><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>';
-				return apply_filters( "raindrops_comment_form", $form );
-			}*/
-
-		}
 		/**
 		 * filter function remove area required
 		 *
@@ -4865,9 +4859,7 @@ LINK_COLOR_CSS;
 						$color_type .= sanitize_html_class( "rd-type-" . $type['color_type'] );
 					}
 					if ( isset( $type['col'] ) ) {
-						/** @1.482
-						  $color_type .= ' ';
-						  $color_type .= sanitize_html_class( "rd-col-" . $type[ 'col' ] ); */
+
 						$column_type = sanitize_html_class( "rd-col-" . $type['col'] );
 					}
 				} else {

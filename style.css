@@ -4,12 +4,12 @@ Theme URI: https://www.tenman.info/wp3/raindrops/
 Description: This theme can change freely fonts,layout,color scheme and header image for each post,page. The google fonts, you can use freely in the post more than 90percent of the fonts.Color scheme and layout, you can freely change from theme customizer.For more updates, please make sure to open the link of the changelog from the help tab of this theme page.Add new post, so also to help tab of edit post page has been described how to use tips, please visit. Supported languages Japanese - JAPAN (ja) French - FRANCE (fr_FR) Polish - POLAND (PL) (pl_PL) Portuguese - BRAZIL (pt_BR)
 Author: Tenman
 Author URI: https://www.tenman.info/wp3/
-Version: 1.600
+Version: 1.700
 Tags: block-styles, wide-blocks, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-colors, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, post-formats, featured-images, full-width-template, rtl-language-support, microformats, grid-layout, flexible-header, custom-logo, featured-image-header, footer-widgets
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: raindrops
-Tested up to: 6.1
+Tested up to: 6.5
 Requires PHP: 5.6
 */
 /**
@@ -10342,4 +10342,18 @@ pre.wp-block-code.has-text-color code{
 .wp-block-site-logo.is-default-size img{
     width:auto;
     height:auto;
+}
+.wp-block-query > .wp-block-post-template,
+.wp-block-query .is-layout-grid{
+    padding:0;
+    list-style:none;
+}
+.entry-content:not(.specificity) > [style="writing-mode:vertical-rl"]{
+    margin-block-start:auto;
+    margin-block-end:auto;
+    border:1px solid red;
+}
+.wp-block-pullquote{
+    border-left:none!important;
+    border-right:none!important;
 }
